@@ -10,17 +10,17 @@ public class au {
         private static final au a = new au();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f133a;
+        public int f134a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f134a;
+        public Object f135a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f135a;
+        public String f136a;
 
         a(int i, Object obj) {
-            this.f133a = i;
-            this.f134a = obj;
+            this.f134a = i;
+            this.f135a = obj;
         }
     }
 

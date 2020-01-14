@@ -81,9 +81,9 @@ public class p {
         Cif cif = new Cif();
         cif.b(d.m80a(context).m81a());
         cif.d(context.getPackageName());
-        cif.c(hq.AwakeAppResponse.f492a);
+        cif.c(hq.AwakeAppResponse.f493a);
         cif.a(com.xiaomi.push.service.aj.a());
-        cif.f632a = hashMap;
+        cif.f633a = hashMap;
         a(context, cif);
     }
 

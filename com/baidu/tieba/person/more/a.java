@@ -10,17 +10,17 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
     private BdTypeListView efW;
-    private com.baidu.tieba.personCenter.a.c jfD;
+    private com.baidu.tieba.personCenter.a.c jfI;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, z<g> zVar) {
         this.efW = bdTypeListView;
-        this.jfD = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jgF);
-        this.jfD.c(zVar);
-        this.apl.add(this.jfD);
+        this.jfI = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jgK);
+        this.jfI.c(zVar);
+        this.apl.add(this.jfI);
         this.efW.addAdapters(this.apl);
     }
 
     public void notifyDataSetChanged() {
-        this.jfD.notifyDataSetChanged();
+        this.jfI.notifyDataSetChanged();
     }
 }

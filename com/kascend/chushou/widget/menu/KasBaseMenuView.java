@@ -15,7 +15,7 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     protected View g;
     protected boolean h;
     protected boolean i;
-    private a njq;
+    private a njv;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -50,8 +50,8 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
         this.f.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.menu.KasBaseMenuView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!KasBaseMenuView.this.h && KasBaseMenuView.this.njq != null) {
-                    KasBaseMenuView.this.njq.a();
+                if (!KasBaseMenuView.this.h && KasBaseMenuView.this.njv != null) {
+                    KasBaseMenuView.this.njv.a();
                 }
             }
         }, 200L);
@@ -64,8 +64,8 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
         setVisibility(0);
         this.h = true;
         this.f.startAnimation(AnimationUtils.loadAnimation(getContext(), a.C0682a.slide_in_bottom_anim));
-        if (this.njq != null) {
-            this.njq.b();
+        if (this.njv != null) {
+            this.njv.b();
         }
         this.f.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.menu.KasBaseMenuView.2
             @Override // java.lang.Runnable
@@ -102,7 +102,7 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     }
 
     public void setVisibilityListener(a aVar) {
-        this.njq = aVar;
+        this.njv = aVar;
     }
 
     @Override // android.view.View
@@ -114,7 +114,7 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.njq = null;
+        this.njv = null;
         this.e = null;
         this.f = null;
         this.g = null;

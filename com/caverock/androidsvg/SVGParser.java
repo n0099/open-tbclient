@@ -36,16 +36,16 @@ import org.xml.sax.ext.DefaultHandler2;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes10.dex */
 public class SVGParser extends DefaultHandler2 {
-    private int lFp;
-    private SVG lFm = null;
-    private SVG.ag lFn = null;
-    private boolean lFo = false;
-    private boolean lFq = false;
-    private SVGElem lFr = null;
-    private StringBuilder lFs = null;
+    private int lFu;
+    private SVG lFr = null;
+    private SVG.ag lFs = null;
     private boolean lFt = false;
-    private StringBuilder lFu = null;
-    private Set<String> lFv = null;
+    private boolean lFv = false;
+    private SVGElem lFw = null;
+    private StringBuilder lFx = null;
+    private boolean lFy = false;
+    private StringBuilder lFz = null;
+    private Set<String> lFA = null;
 
     /* loaded from: classes10.dex */
     private enum SVGElem {
@@ -233,231 +233,231 @@ public class SVGParser extends DefaultHandler2 {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class b {
-        private static final Map<String, Integer> lFz = new HashMap(47);
+        private static final Map<String, Integer> lFE = new HashMap(47);
 
         static {
-            lFz.put("aliceblue", 15792383);
-            lFz.put("antiquewhite", 16444375);
-            lFz.put("aqua", 65535);
-            lFz.put("aquamarine", 8388564);
-            lFz.put("azure", 15794175);
-            lFz.put("beige", 16119260);
-            lFz.put("bisque", 16770244);
-            lFz.put("black", 0);
-            lFz.put("blanchedalmond", 16772045);
-            lFz.put("blue", 255);
-            lFz.put("blueviolet", 9055202);
-            lFz.put("brown", 10824234);
-            lFz.put("burlywood", 14596231);
-            lFz.put("cadetblue", 6266528);
-            lFz.put("chartreuse", 8388352);
-            lFz.put("chocolate", 13789470);
-            lFz.put("coral", 16744272);
-            lFz.put("cornflowerblue", 6591981);
-            lFz.put("cornsilk", 16775388);
-            lFz.put("crimson", 14423100);
-            lFz.put("cyan", 65535);
-            lFz.put("darkblue", 139);
-            lFz.put("darkcyan", 35723);
-            lFz.put("darkgoldenrod", 12092939);
-            lFz.put("darkgray", 11119017);
-            lFz.put("darkgreen", 25600);
-            lFz.put("darkgrey", 11119017);
-            lFz.put("darkkhaki", 12433259);
-            lFz.put("darkmagenta", 9109643);
-            lFz.put("darkolivegreen", 5597999);
-            lFz.put("darkorange", 16747520);
-            lFz.put("darkorchid", 10040012);
-            lFz.put("darkred", 9109504);
-            lFz.put("darksalmon", 15308410);
-            lFz.put("darkseagreen", 9419919);
-            lFz.put("darkslateblue", 4734347);
-            lFz.put("darkslategray", 3100495);
-            lFz.put("darkslategrey", 3100495);
-            lFz.put("darkturquoise", 52945);
-            lFz.put("darkviolet", 9699539);
-            lFz.put("deeppink", 16716947);
-            lFz.put("deepskyblue", 49151);
-            lFz.put("dimgray", 6908265);
-            lFz.put("dimgrey", 6908265);
-            lFz.put("dodgerblue", 2003199);
-            lFz.put("firebrick", 11674146);
-            lFz.put("floralwhite", 16775920);
-            lFz.put("forestgreen", 2263842);
-            lFz.put("fuchsia", 16711935);
-            lFz.put("gainsboro", 14474460);
-            lFz.put("ghostwhite", 16316671);
-            lFz.put("gold", 16766720);
-            lFz.put("goldenrod", 14329120);
-            lFz.put(com.baidu.fsg.face.base.b.c.m, 8421504);
-            lFz.put("green", 32768);
-            lFz.put("greenyellow", 11403055);
-            lFz.put("grey", 8421504);
-            lFz.put("honeydew", 15794160);
-            lFz.put("hotpink", 16738740);
-            lFz.put("indianred", 13458524);
-            lFz.put("indigo", 4915330);
-            lFz.put("ivory", 16777200);
-            lFz.put("khaki", 15787660);
-            lFz.put("lavender", 15132410);
-            lFz.put("lavenderblush", 16773365);
-            lFz.put("lawngreen", 8190976);
-            lFz.put("lemonchiffon", 16775885);
-            lFz.put("lightblue", 11393254);
-            lFz.put("lightcoral", 15761536);
-            lFz.put("lightcyan", 14745599);
-            lFz.put("lightgoldenrodyellow", 16448210);
-            lFz.put("lightgray", 13882323);
-            lFz.put("lightgreen", 9498256);
-            lFz.put("lightgrey", 13882323);
-            lFz.put("lightpink", 16758465);
-            lFz.put("lightsalmon", 16752762);
-            lFz.put("lightseagreen", 2142890);
-            lFz.put("lightskyblue", 8900346);
-            lFz.put("lightslategray", 7833753);
-            lFz.put("lightslategrey", 7833753);
-            lFz.put("lightsteelblue", 11584734);
-            lFz.put("lightyellow", 16777184);
-            lFz.put("lime", Integer.valueOf((int) MotionEventCompat.ACTION_POINTER_INDEX_MASK));
-            lFz.put("limegreen", 3329330);
-            lFz.put("linen", 16445670);
-            lFz.put("magenta", 16711935);
-            lFz.put("maroon", 8388608);
-            lFz.put("mediumaquamarine", 6737322);
-            lFz.put("mediumblue", 205);
-            lFz.put("mediumorchid", 12211667);
-            lFz.put("mediumpurple", 9662683);
-            lFz.put("mediumseagreen", 3978097);
-            lFz.put("mediumslateblue", 8087790);
-            lFz.put("mediumspringgreen", 64154);
-            lFz.put("mediumturquoise", 4772300);
-            lFz.put("mediumvioletred", 13047173);
-            lFz.put("midnightblue", 1644912);
-            lFz.put("mintcream", 16121850);
-            lFz.put("mistyrose", 16770273);
-            lFz.put("moccasin", 16770229);
-            lFz.put("navajowhite", 16768685);
-            lFz.put("navy", 128);
-            lFz.put("oldlace", 16643558);
-            lFz.put("olive", 8421376);
-            lFz.put("olivedrab", 7048739);
-            lFz.put("orange", 16753920);
-            lFz.put("orangered", 16729344);
-            lFz.put("orchid", 14315734);
-            lFz.put("palegoldenrod", 15657130);
-            lFz.put("palegreen", 10025880);
-            lFz.put("paleturquoise", 11529966);
-            lFz.put("palevioletred", 14381203);
-            lFz.put("papayawhip", 16773077);
-            lFz.put("peachpuff", 16767673);
-            lFz.put("peru", 13468991);
-            lFz.put("pink", 16761035);
-            lFz.put("plum", 14524637);
-            lFz.put("powderblue", 11591910);
-            lFz.put("purple", 8388736);
-            lFz.put("red", 16711680);
-            lFz.put("rosybrown", 12357519);
-            lFz.put("royalblue", 4286945);
-            lFz.put("saddlebrown", 9127187);
-            lFz.put("salmon", 16416882);
-            lFz.put("sandybrown", 16032864);
-            lFz.put("seagreen", 3050327);
-            lFz.put("seashell", 16774638);
-            lFz.put("sienna", 10506797);
-            lFz.put("silver", 12632256);
-            lFz.put("skyblue", 8900331);
-            lFz.put("slateblue", 6970061);
-            lFz.put("slategray", 7372944);
-            lFz.put("slategrey", 7372944);
-            lFz.put("snow", 16775930);
-            lFz.put("springgreen", 65407);
-            lFz.put("steelblue", 4620980);
-            lFz.put("tan", 13808780);
-            lFz.put("teal", 32896);
-            lFz.put("thistle", 14204888);
-            lFz.put("tomato", 16737095);
-            lFz.put("turquoise", 4251856);
-            lFz.put("violet", 15631086);
-            lFz.put("wheat", 16113331);
-            lFz.put("white", 16777215);
-            lFz.put("whitesmoke", 16119285);
-            lFz.put("yellow", 16776960);
-            lFz.put("yellowgreen", 10145074);
+            lFE.put("aliceblue", 15792383);
+            lFE.put("antiquewhite", 16444375);
+            lFE.put("aqua", 65535);
+            lFE.put("aquamarine", 8388564);
+            lFE.put("azure", 15794175);
+            lFE.put("beige", 16119260);
+            lFE.put("bisque", 16770244);
+            lFE.put("black", 0);
+            lFE.put("blanchedalmond", 16772045);
+            lFE.put("blue", 255);
+            lFE.put("blueviolet", 9055202);
+            lFE.put("brown", 10824234);
+            lFE.put("burlywood", 14596231);
+            lFE.put("cadetblue", 6266528);
+            lFE.put("chartreuse", 8388352);
+            lFE.put("chocolate", 13789470);
+            lFE.put("coral", 16744272);
+            lFE.put("cornflowerblue", 6591981);
+            lFE.put("cornsilk", 16775388);
+            lFE.put("crimson", 14423100);
+            lFE.put("cyan", 65535);
+            lFE.put("darkblue", 139);
+            lFE.put("darkcyan", 35723);
+            lFE.put("darkgoldenrod", 12092939);
+            lFE.put("darkgray", 11119017);
+            lFE.put("darkgreen", 25600);
+            lFE.put("darkgrey", 11119017);
+            lFE.put("darkkhaki", 12433259);
+            lFE.put("darkmagenta", 9109643);
+            lFE.put("darkolivegreen", 5597999);
+            lFE.put("darkorange", 16747520);
+            lFE.put("darkorchid", 10040012);
+            lFE.put("darkred", 9109504);
+            lFE.put("darksalmon", 15308410);
+            lFE.put("darkseagreen", 9419919);
+            lFE.put("darkslateblue", 4734347);
+            lFE.put("darkslategray", 3100495);
+            lFE.put("darkslategrey", 3100495);
+            lFE.put("darkturquoise", 52945);
+            lFE.put("darkviolet", 9699539);
+            lFE.put("deeppink", 16716947);
+            lFE.put("deepskyblue", 49151);
+            lFE.put("dimgray", 6908265);
+            lFE.put("dimgrey", 6908265);
+            lFE.put("dodgerblue", 2003199);
+            lFE.put("firebrick", 11674146);
+            lFE.put("floralwhite", 16775920);
+            lFE.put("forestgreen", 2263842);
+            lFE.put("fuchsia", 16711935);
+            lFE.put("gainsboro", 14474460);
+            lFE.put("ghostwhite", 16316671);
+            lFE.put("gold", 16766720);
+            lFE.put("goldenrod", 14329120);
+            lFE.put(com.baidu.fsg.face.base.b.c.m, 8421504);
+            lFE.put("green", 32768);
+            lFE.put("greenyellow", 11403055);
+            lFE.put("grey", 8421504);
+            lFE.put("honeydew", 15794160);
+            lFE.put("hotpink", 16738740);
+            lFE.put("indianred", 13458524);
+            lFE.put("indigo", 4915330);
+            lFE.put("ivory", 16777200);
+            lFE.put("khaki", 15787660);
+            lFE.put("lavender", 15132410);
+            lFE.put("lavenderblush", 16773365);
+            lFE.put("lawngreen", 8190976);
+            lFE.put("lemonchiffon", 16775885);
+            lFE.put("lightblue", 11393254);
+            lFE.put("lightcoral", 15761536);
+            lFE.put("lightcyan", 14745599);
+            lFE.put("lightgoldenrodyellow", 16448210);
+            lFE.put("lightgray", 13882323);
+            lFE.put("lightgreen", 9498256);
+            lFE.put("lightgrey", 13882323);
+            lFE.put("lightpink", 16758465);
+            lFE.put("lightsalmon", 16752762);
+            lFE.put("lightseagreen", 2142890);
+            lFE.put("lightskyblue", 8900346);
+            lFE.put("lightslategray", 7833753);
+            lFE.put("lightslategrey", 7833753);
+            lFE.put("lightsteelblue", 11584734);
+            lFE.put("lightyellow", 16777184);
+            lFE.put("lime", Integer.valueOf((int) MotionEventCompat.ACTION_POINTER_INDEX_MASK));
+            lFE.put("limegreen", 3329330);
+            lFE.put("linen", 16445670);
+            lFE.put("magenta", 16711935);
+            lFE.put("maroon", 8388608);
+            lFE.put("mediumaquamarine", 6737322);
+            lFE.put("mediumblue", 205);
+            lFE.put("mediumorchid", 12211667);
+            lFE.put("mediumpurple", 9662683);
+            lFE.put("mediumseagreen", 3978097);
+            lFE.put("mediumslateblue", 8087790);
+            lFE.put("mediumspringgreen", 64154);
+            lFE.put("mediumturquoise", 4772300);
+            lFE.put("mediumvioletred", 13047173);
+            lFE.put("midnightblue", 1644912);
+            lFE.put("mintcream", 16121850);
+            lFE.put("mistyrose", 16770273);
+            lFE.put("moccasin", 16770229);
+            lFE.put("navajowhite", 16768685);
+            lFE.put("navy", 128);
+            lFE.put("oldlace", 16643558);
+            lFE.put("olive", 8421376);
+            lFE.put("olivedrab", 7048739);
+            lFE.put("orange", 16753920);
+            lFE.put("orangered", 16729344);
+            lFE.put("orchid", 14315734);
+            lFE.put("palegoldenrod", 15657130);
+            lFE.put("palegreen", 10025880);
+            lFE.put("paleturquoise", 11529966);
+            lFE.put("palevioletred", 14381203);
+            lFE.put("papayawhip", 16773077);
+            lFE.put("peachpuff", 16767673);
+            lFE.put("peru", 13468991);
+            lFE.put("pink", 16761035);
+            lFE.put("plum", 14524637);
+            lFE.put("powderblue", 11591910);
+            lFE.put("purple", 8388736);
+            lFE.put("red", 16711680);
+            lFE.put("rosybrown", 12357519);
+            lFE.put("royalblue", 4286945);
+            lFE.put("saddlebrown", 9127187);
+            lFE.put("salmon", 16416882);
+            lFE.put("sandybrown", 16032864);
+            lFE.put("seagreen", 3050327);
+            lFE.put("seashell", 16774638);
+            lFE.put("sienna", 10506797);
+            lFE.put("silver", 12632256);
+            lFE.put("skyblue", 8900331);
+            lFE.put("slateblue", 6970061);
+            lFE.put("slategray", 7372944);
+            lFE.put("slategrey", 7372944);
+            lFE.put("snow", 16775930);
+            lFE.put("springgreen", 65407);
+            lFE.put("steelblue", 4620980);
+            lFE.put("tan", 13808780);
+            lFE.put("teal", 32896);
+            lFE.put("thistle", 14204888);
+            lFE.put("tomato", 16737095);
+            lFE.put("turquoise", 4251856);
+            lFE.put("violet", 15631086);
+            lFE.put("wheat", 16113331);
+            lFE.put("white", 16777215);
+            lFE.put("whitesmoke", 16119285);
+            lFE.put("yellow", 16776960);
+            lFE.put("yellowgreen", 10145074);
         }
 
         public static Integer Oo(String str) {
-            return lFz.get(str);
+            return lFE.get(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class c {
-        private static final Map<String, SVG.n> lFA = new HashMap(9);
+        private static final Map<String, SVG.n> lFF = new HashMap(9);
 
         static {
-            lFA.put("xx-small", new SVG.n(0.694f, SVG.Unit.pt));
-            lFA.put("x-small", new SVG.n(0.833f, SVG.Unit.pt));
-            lFA.put("small", new SVG.n(10.0f, SVG.Unit.pt));
-            lFA.put("medium", new SVG.n(12.0f, SVG.Unit.pt));
-            lFA.put("large", new SVG.n(14.4f, SVG.Unit.pt));
-            lFA.put("x-large", new SVG.n(17.3f, SVG.Unit.pt));
-            lFA.put("xx-large", new SVG.n(20.7f, SVG.Unit.pt));
-            lFA.put("smaller", new SVG.n(83.33f, SVG.Unit.percent));
-            lFA.put("larger", new SVG.n(120.0f, SVG.Unit.percent));
+            lFF.put("xx-small", new SVG.n(0.694f, SVG.Unit.pt));
+            lFF.put("x-small", new SVG.n(0.833f, SVG.Unit.pt));
+            lFF.put("small", new SVG.n(10.0f, SVG.Unit.pt));
+            lFF.put("medium", new SVG.n(12.0f, SVG.Unit.pt));
+            lFF.put("large", new SVG.n(14.4f, SVG.Unit.pt));
+            lFF.put("x-large", new SVG.n(17.3f, SVG.Unit.pt));
+            lFF.put("xx-large", new SVG.n(20.7f, SVG.Unit.pt));
+            lFF.put("smaller", new SVG.n(83.33f, SVG.Unit.percent));
+            lFF.put("larger", new SVG.n(120.0f, SVG.Unit.percent));
         }
 
         public static SVG.n Op(String str) {
-            return lFA.get(str);
+            return lFF.get(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class d {
-        private static final Map<String, Integer> lFB = new HashMap(13);
+        private static final Map<String, Integer> lFG = new HashMap(13);
 
         static {
-            lFB.put("normal", 400);
-            lFB.put("bold", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING));
-            lFB.put("bolder", 1);
-            lFB.put("lighter", -1);
-            lFB.put("100", 100);
-            lFB.put(BasicPushStatus.SUCCESS_CODE, 200);
-            lFB.put("300", 300);
-            lFB.put("400", 400);
-            lFB.put("500", 500);
-            lFB.put("600", Integer.valueOf((int) Constants.HTTP_DNS_INAVAILABLE_TIME));
-            lFB.put("700", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING));
-            lFB.put("800", 800);
-            lFB.put("900", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
+            lFG.put("normal", 400);
+            lFG.put("bold", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING));
+            lFG.put("bolder", 1);
+            lFG.put("lighter", -1);
+            lFG.put("100", 100);
+            lFG.put(BasicPushStatus.SUCCESS_CODE, 200);
+            lFG.put("300", 300);
+            lFG.put("400", 400);
+            lFG.put("500", 500);
+            lFG.put("600", Integer.valueOf((int) Constants.HTTP_DNS_INAVAILABLE_TIME));
+            lFG.put("700", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING));
+            lFG.put("800", 800);
+            lFG.put("900", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
         }
 
         public static Integer Oo(String str) {
-            return lFB.get(str);
+            return lFG.get(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        private static final Map<String, PreserveAspectRatio.Alignment> lFy = new HashMap(10);
+        private static final Map<String, PreserveAspectRatio.Alignment> lFD = new HashMap(10);
 
         static {
-            lFy.put("none", PreserveAspectRatio.Alignment.None);
-            lFy.put("xMinYMin", PreserveAspectRatio.Alignment.XMinYMin);
-            lFy.put("xMidYMin", PreserveAspectRatio.Alignment.XMidYMin);
-            lFy.put("xMaxYMin", PreserveAspectRatio.Alignment.XMaxYMin);
-            lFy.put("xMinYMid", PreserveAspectRatio.Alignment.XMinYMid);
-            lFy.put("xMidYMid", PreserveAspectRatio.Alignment.XMidYMid);
-            lFy.put("xMaxYMid", PreserveAspectRatio.Alignment.XMaxYMid);
-            lFy.put("xMinYMax", PreserveAspectRatio.Alignment.XMinYMax);
-            lFy.put("xMidYMax", PreserveAspectRatio.Alignment.XMidYMax);
-            lFy.put("xMaxYMax", PreserveAspectRatio.Alignment.XMaxYMax);
+            lFD.put("none", PreserveAspectRatio.Alignment.None);
+            lFD.put("xMinYMin", PreserveAspectRatio.Alignment.XMinYMin);
+            lFD.put("xMidYMin", PreserveAspectRatio.Alignment.XMidYMin);
+            lFD.put("xMaxYMin", PreserveAspectRatio.Alignment.XMaxYMin);
+            lFD.put("xMinYMid", PreserveAspectRatio.Alignment.XMinYMid);
+            lFD.put("xMidYMid", PreserveAspectRatio.Alignment.XMidYMid);
+            lFD.put("xMaxYMid", PreserveAspectRatio.Alignment.XMaxYMid);
+            lFD.put("xMinYMax", PreserveAspectRatio.Alignment.XMinYMax);
+            lFD.put("xMidYMax", PreserveAspectRatio.Alignment.XMidYMax);
+            lFD.put("xMaxYMax", PreserveAspectRatio.Alignment.XMaxYMax);
         }
 
         public static PreserveAspectRatio.Alignment On(String str) {
-            return lFy.get(str);
+            return lFD.get(str);
         }
     }
 
@@ -481,7 +481,7 @@ public class SVGParser extends DefaultHandler2 {
                     xMLReader.setContentHandler(this);
                     xMLReader.setProperty("http://xml.org/sax/properties/lexical-handler", this);
                     xMLReader.parse(new InputSource(inputStream2));
-                    return this.lFm;
+                    return this.lFr;
                 } catch (ParserConfigurationException e3) {
                     throw new SVGParseException("XML Parser problem", e3);
                 }
@@ -501,13 +501,13 @@ public class SVGParser extends DefaultHandler2 {
 
     @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
     public void startDocument() throws SAXException {
-        this.lFm = new SVG();
+        this.lFr = new SVG();
     }
 
     @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
     public void startElement(String str, String str2, String str3, Attributes attributes) throws SAXException {
-        if (this.lFo) {
-            this.lFp++;
+        if (this.lFt) {
+            this.lFu++;
         } else if ("http://www.w3.org/2000/svg".equals(str) || "".equals(str)) {
             SVGElem fromString = SVGElem.fromString(str2);
             switch (fromString) {
@@ -574,8 +574,8 @@ public class SVGParser extends DefaultHandler2 {
                     return;
                 case title:
                 case desc:
-                    this.lFq = true;
-                    this.lFr = fromString;
+                    this.lFv = true;
+                    this.lFw = fromString;
                     return;
                 case clipPath:
                     w(attributes);
@@ -602,8 +602,8 @@ public class SVGParser extends DefaultHandler2 {
                     v(attributes);
                     return;
                 default:
-                    this.lFo = true;
-                    this.lFp = 1;
+                    this.lFt = true;
+                    this.lFu = 1;
                     return;
             }
         }
@@ -611,19 +611,19 @@ public class SVGParser extends DefaultHandler2 {
 
     @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
     public void characters(char[] cArr, int i, int i2) throws SAXException {
-        if (!this.lFo) {
-            if (this.lFq) {
-                if (this.lFs == null) {
-                    this.lFs = new StringBuilder(i2);
+        if (!this.lFt) {
+            if (this.lFv) {
+                if (this.lFx == null) {
+                    this.lFx = new StringBuilder(i2);
                 }
-                this.lFs.append(cArr, i, i2);
-            } else if (this.lFt) {
-                if (this.lFu == null) {
-                    this.lFu = new StringBuilder(i2);
+                this.lFx.append(cArr, i, i2);
+            } else if (this.lFy) {
+                if (this.lFz == null) {
+                    this.lFz = new StringBuilder(i2);
                 }
-                this.lFu.append(cArr, i, i2);
-            } else if (this.lFn instanceof SVG.av) {
-                SVG.ae aeVar = (SVG.ae) this.lFn;
+                this.lFz.append(cArr, i, i2);
+            } else if (this.lFs instanceof SVG.av) {
+                SVG.ae aeVar = (SVG.ae) this.lFs;
                 int size = aeVar.SW.size();
                 SVG.ak akVar = size == 0 ? null : aeVar.SW.get(size - 1);
                 if (akVar instanceof SVG.az) {
@@ -631,28 +631,28 @@ public class SVGParser extends DefaultHandler2 {
                     azVar.text += new String(cArr, i, i2);
                     return;
                 }
-                ((SVG.ae) this.lFn).a(new SVG.az(new String(cArr, i, i2)));
+                ((SVG.ae) this.lFs).a(new SVG.az(new String(cArr, i, i2)));
             }
         }
     }
 
     @Override // org.xml.sax.ext.DefaultHandler2, org.xml.sax.ext.LexicalHandler
     public void comment(char[] cArr, int i, int i2) throws SAXException {
-        if (!this.lFo && this.lFt) {
-            if (this.lFu == null) {
-                this.lFu = new StringBuilder(i2);
+        if (!this.lFt && this.lFy) {
+            if (this.lFz == null) {
+                this.lFz = new StringBuilder(i2);
             }
-            this.lFu.append(cArr, i, i2);
+            this.lFz.append(cArr, i, i2);
         }
     }
 
     @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
     public void endElement(String str, String str2, String str3) throws SAXException {
-        if (this.lFo) {
-            int i = this.lFp - 1;
-            this.lFp = i;
+        if (this.lFt) {
+            int i = this.lFu - 1;
+            this.lFu = i;
             if (i == 0) {
-                this.lFo = false;
+                this.lFt = false;
                 return;
             }
         }
@@ -677,7 +677,7 @@ public class SVGParser extends DefaultHandler2 {
                 case view:
                 case mask:
                 case solidColor:
-                    this.lFn = ((SVG.ak) this.lFn).lEA;
+                    this.lFs = ((SVG.ak) this.lFs).lEF;
                     return;
                 case a:
                 case path:
@@ -692,19 +692,19 @@ public class SVGParser extends DefaultHandler2 {
                     return;
                 case title:
                 case desc:
-                    this.lFq = false;
-                    if (this.lFr == SVGElem.title) {
-                        this.lFm.setTitle(this.lFs.toString());
-                    } else if (this.lFr == SVGElem.desc) {
-                        this.lFm.setDesc(this.lFs.toString());
+                    this.lFv = false;
+                    if (this.lFw == SVGElem.title) {
+                        this.lFr.setTitle(this.lFx.toString());
+                    } else if (this.lFw == SVGElem.desc) {
+                        this.lFr.setDesc(this.lFx.toString());
                     }
-                    this.lFs.setLength(0);
+                    this.lFx.setLength(0);
                     return;
                 case style:
-                    if (this.lFu != null) {
-                        this.lFt = false;
-                        Om(this.lFu.toString());
-                        this.lFu.setLength(0);
+                    if (this.lFz != null) {
+                        this.lFy = false;
+                        Om(this.lFz.toString());
+                        this.lFz.setLength(0);
                         return;
                     }
                     return;
@@ -722,19 +722,19 @@ public class SVGParser extends DefaultHandler2 {
     private void a(Attributes attributes) throws SAXException {
         debug("<svg>", new Object[0]);
         SVG.ac acVar = new SVG.ac();
-        acVar.lEz = this.lFm;
-        acVar.lEA = this.lFn;
+        acVar.lEE = this.lFr;
+        acVar.lEF = this.lFs;
         a((SVG.ai) acVar, attributes);
         b(acVar, attributes);
         a((SVG.ad) acVar, attributes);
         a((SVG.ao) acVar, attributes);
         a(acVar, attributes);
-        if (this.lFn == null) {
-            this.lFm.a(acVar);
+        if (this.lFs == null) {
+            this.lFr.a(acVar);
         } else {
-            this.lFn.a(acVar);
+            this.lFs.a(acVar);
         }
-        this.lFn = acVar;
+        this.lFs = acVar;
     }
 
     private void a(SVG.ac acVar, Attributes attributes) throws SAXException {
@@ -742,20 +742,20 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    acVar.lDd = NM(trim);
+                    acVar.lDi = NM(trim);
                     break;
                 case y:
-                    acVar.lDe = NM(trim);
+                    acVar.lDj = NM(trim);
                     break;
                 case width:
-                    acVar.lDf = NM(trim);
-                    if (acVar.lDf.dhi()) {
+                    acVar.lDk = NM(trim);
+                    if (acVar.lDk.dhk()) {
                         throw new SAXException("Invalid <svg> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    acVar.lDg = NM(trim);
-                    if (acVar.lDg.dhi()) {
+                    acVar.lDl = NM(trim);
+                    if (acVar.lDl.dhk()) {
                         throw new SAXException("Invalid <svg> element. height cannot be negative");
                     }
                     break;
@@ -768,50 +768,50 @@ public class SVGParser extends DefaultHandler2 {
 
     private void b(Attributes attributes) throws SAXException {
         debug("<g>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.k kVar = new SVG.k();
-        kVar.lEz = this.lFm;
-        kVar.lEA = this.lFn;
+        kVar.lEE = this.lFr;
+        kVar.lEF = this.lFs;
         a((SVG.ai) kVar, attributes);
         b(kVar, attributes);
         a((SVG.l) kVar, attributes);
         a((SVG.ad) kVar, attributes);
-        this.lFn.a(kVar);
-        this.lFn = kVar;
+        this.lFs.a(kVar);
+        this.lFs = kVar;
     }
 
     private void c(Attributes attributes) throws SAXException {
         debug("<defs>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.g gVar = new SVG.g();
-        gVar.lEz = this.lFm;
-        gVar.lEA = this.lFn;
+        gVar.lEE = this.lFr;
+        gVar.lEF = this.lFs;
         a((SVG.ai) gVar, attributes);
         b(gVar, attributes);
         a((SVG.l) gVar, attributes);
-        this.lFn.a(gVar);
-        this.lFn = gVar;
+        this.lFs.a(gVar);
+        this.lFs = gVar;
     }
 
     private void d(Attributes attributes) throws SAXException {
         debug("<use>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.ba baVar = new SVG.ba();
-        baVar.lEz = this.lFm;
-        baVar.lEA = this.lFn;
+        baVar.lEE = this.lFr;
+        baVar.lEF = this.lFs;
         a((SVG.ai) baVar, attributes);
         b(baVar, attributes);
         a((SVG.l) baVar, attributes);
         a((SVG.ad) baVar, attributes);
         a(baVar, attributes);
-        this.lFn.a(baVar);
-        this.lFn = baVar;
+        this.lFs.a(baVar);
+        this.lFs = baVar;
     }
 
     private void a(SVG.ba baVar, Attributes attributes) throws SAXException {
@@ -819,20 +819,20 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    baVar.lDd = NM(trim);
+                    baVar.lDi = NM(trim);
                     break;
                 case y:
-                    baVar.lDe = NM(trim);
+                    baVar.lDj = NM(trim);
                     break;
                 case width:
-                    baVar.lDf = NM(trim);
-                    if (baVar.lDf.dhi()) {
+                    baVar.lDk = NM(trim);
+                    if (baVar.lDk.dhk()) {
                         throw new SAXException("Invalid <use> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    baVar.lDg = NM(trim);
-                    if (baVar.lDg.dhi()) {
+                    baVar.lDl = NM(trim);
+                    if (baVar.lDl.dhk()) {
                         throw new SAXException("Invalid <use> element. height cannot be negative");
                     }
                     break;
@@ -849,19 +849,19 @@ public class SVGParser extends DefaultHandler2 {
 
     private void e(Attributes attributes) throws SAXException {
         debug("<image>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.m mVar = new SVG.m();
-        mVar.lEz = this.lFm;
-        mVar.lEA = this.lFn;
+        mVar.lEE = this.lFr;
+        mVar.lEF = this.lFs;
         a((SVG.ai) mVar, attributes);
         b(mVar, attributes);
         a((SVG.l) mVar, attributes);
         a((SVG.ad) mVar, attributes);
         a(mVar, attributes);
-        this.lFn.a(mVar);
-        this.lFn = mVar;
+        this.lFs.a(mVar);
+        this.lFs = mVar;
     }
 
     private void a(SVG.m mVar, Attributes attributes) throws SAXException {
@@ -869,20 +869,20 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    mVar.lDd = NM(trim);
+                    mVar.lDi = NM(trim);
                     break;
                 case y:
-                    mVar.lDe = NM(trim);
+                    mVar.lDj = NM(trim);
                     break;
                 case width:
-                    mVar.lDf = NM(trim);
-                    if (mVar.lDf.dhi()) {
+                    mVar.lDk = NM(trim);
+                    if (mVar.lDk.dhk()) {
                         throw new SAXException("Invalid <use> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    mVar.lDg = NM(trim);
-                    if (mVar.lDg.dhi()) {
+                    mVar.lDl = NM(trim);
+                    if (mVar.lDl.dhk()) {
                         throw new SAXException("Invalid <use> element. height cannot be negative");
                     }
                     break;
@@ -902,18 +902,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void f(Attributes attributes) throws SAXException {
         debug("<path>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.t tVar = new SVG.t();
-        tVar.lEz = this.lFm;
-        tVar.lEA = this.lFn;
+        tVar.lEE = this.lFr;
+        tVar.lEF = this.lFs;
         a((SVG.ai) tVar, attributes);
         b(tVar, attributes);
         a((SVG.l) tVar, attributes);
         a((SVG.ad) tVar, attributes);
         a(tVar, attributes);
-        this.lFn.a(tVar);
+        this.lFs.a(tVar);
     }
 
     private void a(SVG.t tVar, Attributes attributes) throws SAXException {
@@ -921,11 +921,11 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case d:
-                    tVar.lDv = Oi(trim);
+                    tVar.lDA = Oi(trim);
                     break;
                 case pathLength:
-                    tVar.lDw = Float.valueOf(parseFloat(trim));
-                    if (tVar.lDw.floatValue() < 0.0f) {
+                    tVar.lDB = Float.valueOf(parseFloat(trim));
+                    if (tVar.lDB.floatValue() < 0.0f) {
                         throw new SAXException("Invalid <path> element. pathLength cannot be negative");
                     }
                     break;
@@ -935,18 +935,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void g(Attributes attributes) throws SAXException {
         debug("<rect>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.z zVar = new SVG.z();
-        zVar.lEz = this.lFm;
-        zVar.lEA = this.lFn;
+        zVar.lEE = this.lFr;
+        zVar.lEF = this.lFs;
         a((SVG.ai) zVar, attributes);
         b(zVar, attributes);
         a((SVG.l) zVar, attributes);
         a((SVG.ad) zVar, attributes);
         a(zVar, attributes);
-        this.lFn.a(zVar);
+        this.lFs.a(zVar);
     }
 
     private void a(SVG.z zVar, Attributes attributes) throws SAXException {
@@ -954,32 +954,32 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    zVar.lDd = NM(trim);
+                    zVar.lDi = NM(trim);
                     break;
                 case y:
-                    zVar.lDe = NM(trim);
+                    zVar.lDj = NM(trim);
                     break;
                 case width:
-                    zVar.lDf = NM(trim);
-                    if (zVar.lDf.dhi()) {
+                    zVar.lDk = NM(trim);
+                    if (zVar.lDk.dhk()) {
                         throw new SAXException("Invalid <rect> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    zVar.lDg = NM(trim);
-                    if (zVar.lDg.dhi()) {
+                    zVar.lDl = NM(trim);
+                    if (zVar.lDl.dhk()) {
                         throw new SAXException("Invalid <rect> element. height cannot be negative");
                     }
                     break;
                 case rx:
-                    zVar.lCX = NM(trim);
-                    if (zVar.lCX.dhi()) {
+                    zVar.lDc = NM(trim);
+                    if (zVar.lDc.dhk()) {
                         throw new SAXException("Invalid <rect> element. rx cannot be negative");
                     }
                     break;
                 case ry:
-                    zVar.lCY = NM(trim);
-                    if (zVar.lCY.dhi()) {
+                    zVar.lDd = NM(trim);
+                    if (zVar.lDd.dhk()) {
                         throw new SAXException("Invalid <rect> element. ry cannot be negative");
                     }
                     break;
@@ -989,18 +989,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void h(Attributes attributes) throws SAXException {
         debug("<circle>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.c cVar = new SVG.c();
-        cVar.lEz = this.lFm;
-        cVar.lEA = this.lFn;
+        cVar.lEE = this.lFr;
+        cVar.lEF = this.lFs;
         a((SVG.ai) cVar, attributes);
         b(cVar, attributes);
         a((SVG.l) cVar, attributes);
         a((SVG.ad) cVar, attributes);
         a(cVar, attributes);
-        this.lFn.a(cVar);
+        this.lFs.a(cVar);
     }
 
     private void a(SVG.c cVar, Attributes attributes) throws SAXException {
@@ -1008,14 +1008,14 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case cx:
-                    cVar.lCQ = NM(trim);
+                    cVar.lCV = NM(trim);
                     break;
                 case cy:
-                    cVar.lCR = NM(trim);
+                    cVar.lCW = NM(trim);
                     break;
                 case r:
-                    cVar.lCS = NM(trim);
-                    if (cVar.lCS.dhi()) {
+                    cVar.lCX = NM(trim);
+                    if (cVar.lCX.dhk()) {
                         throw new SAXException("Invalid <circle> element. r cannot be negative");
                     }
                     break;
@@ -1025,18 +1025,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void i(Attributes attributes) throws SAXException {
         debug("<ellipse>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.h hVar = new SVG.h();
-        hVar.lEz = this.lFm;
-        hVar.lEA = this.lFn;
+        hVar.lEE = this.lFr;
+        hVar.lEF = this.lFs;
         a((SVG.ai) hVar, attributes);
         b(hVar, attributes);
         a((SVG.l) hVar, attributes);
         a((SVG.ad) hVar, attributes);
         a(hVar, attributes);
-        this.lFn.a(hVar);
+        this.lFs.a(hVar);
     }
 
     private void a(SVG.h hVar, Attributes attributes) throws SAXException {
@@ -1044,22 +1044,22 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case rx:
-                    hVar.lCX = NM(trim);
-                    if (hVar.lCX.dhi()) {
+                    hVar.lDc = NM(trim);
+                    if (hVar.lDc.dhk()) {
                         throw new SAXException("Invalid <ellipse> element. rx cannot be negative");
                     }
                     break;
                 case ry:
-                    hVar.lCY = NM(trim);
-                    if (hVar.lCY.dhi()) {
+                    hVar.lDd = NM(trim);
+                    if (hVar.lDd.dhk()) {
                         throw new SAXException("Invalid <ellipse> element. ry cannot be negative");
                     }
                     break;
                 case cx:
-                    hVar.lCQ = NM(trim);
+                    hVar.lCV = NM(trim);
                     break;
                 case cy:
-                    hVar.lCR = NM(trim);
+                    hVar.lCW = NM(trim);
                     break;
             }
         }
@@ -1067,18 +1067,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void j(Attributes attributes) throws SAXException {
         debug("<line>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.o oVar = new SVG.o();
-        oVar.lEz = this.lFm;
-        oVar.lEA = this.lFn;
+        oVar.lEE = this.lFr;
+        oVar.lEF = this.lFs;
         a((SVG.ai) oVar, attributes);
         b(oVar, attributes);
         a((SVG.l) oVar, attributes);
         a((SVG.ad) oVar, attributes);
         a(oVar, attributes);
-        this.lFn.a(oVar);
+        this.lFs.a(oVar);
     }
 
     private void a(SVG.o oVar, Attributes attributes) throws SAXException {
@@ -1086,16 +1086,16 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x1:
-                    oVar.lDi = NM(trim);
+                    oVar.lDn = NM(trim);
                     break;
                 case y1:
-                    oVar.lDj = NM(trim);
+                    oVar.lDo = NM(trim);
                     break;
                 case x2:
-                    oVar.lDk = NM(trim);
+                    oVar.lDp = NM(trim);
                     break;
                 case y2:
-                    oVar.lDl = NM(trim);
+                    oVar.lDq = NM(trim);
                     break;
             }
         }
@@ -1103,18 +1103,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void k(Attributes attributes) throws SAXException {
         debug("<polyline>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.x xVar = new SVG.x();
-        xVar.lEz = this.lFm;
-        xVar.lEA = this.lFn;
+        xVar.lEE = this.lFr;
+        xVar.lEF = this.lFs;
         a((SVG.ai) xVar, attributes);
         b(xVar, attributes);
         a((SVG.l) xVar, attributes);
         a((SVG.ad) xVar, attributes);
         a(xVar, attributes, "polyline");
-        this.lFn.a(xVar);
+        this.lFs.a(xVar);
     }
 
     private void a(SVG.x xVar, Attributes attributes, String str) throws SAXException {
@@ -1122,18 +1122,18 @@ public class SVGParser extends DefaultHandler2 {
             if (SVGAttr.fromString(attributes.getLocalName(i)) == SVGAttr.points) {
                 e eVar = new e(attributes.getValue(i));
                 ArrayList<Float> arrayList = new ArrayList();
-                eVar.dhN();
-                while (!eVar.dhM()) {
+                eVar.dhP();
+                while (!eVar.dhO()) {
                     float nextFloat = eVar.nextFloat();
                     if (Float.isNaN(nextFloat)) {
                         throw new SAXException("Invalid <" + str + "> points attribute. Non-coordinate content found in list.");
                     }
-                    eVar.dhO();
+                    eVar.dhQ();
                     float nextFloat2 = eVar.nextFloat();
                     if (Float.isNaN(nextFloat2)) {
                         throw new SAXException("Invalid <" + str + "> points attribute. There should be an even number of coordinates.");
                     }
-                    eVar.dhO();
+                    eVar.dhQ();
                     arrayList.add(Float.valueOf(nextFloat));
                     arrayList.add(Float.valueOf(nextFloat2));
                 }
@@ -1149,35 +1149,35 @@ public class SVGParser extends DefaultHandler2 {
 
     private void l(Attributes attributes) throws SAXException {
         debug("<polygon>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.y yVar = new SVG.y();
-        yVar.lEz = this.lFm;
-        yVar.lEA = this.lFn;
+        yVar.lEE = this.lFr;
+        yVar.lEF = this.lFs;
         a((SVG.ai) yVar, attributes);
         b(yVar, attributes);
         a((SVG.l) yVar, attributes);
         a((SVG.ad) yVar, attributes);
         a(yVar, attributes, "polygon");
-        this.lFn.a(yVar);
+        this.lFs.a(yVar);
     }
 
     private void m(Attributes attributes) throws SAXException {
         debug("<text>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.at atVar = new SVG.at();
-        atVar.lEz = this.lFm;
-        atVar.lEA = this.lFn;
+        atVar.lEE = this.lFr;
+        atVar.lEF = this.lFs;
         a((SVG.ai) atVar, attributes);
         b(atVar, attributes);
         a((SVG.l) atVar, attributes);
         a((SVG.ad) atVar, attributes);
         a((SVG.ax) atVar, attributes);
-        this.lFn.a(atVar);
-        this.lFn = atVar;
+        this.lFs.a(atVar);
+        this.lFs = atVar;
     }
 
     private void a(SVG.ax axVar, Attributes attributes) throws SAXException {
@@ -1191,10 +1191,10 @@ public class SVGParser extends DefaultHandler2 {
                     axVar.y = NN(trim);
                     break;
                 case dx:
-                    axVar.lEH = NN(trim);
+                    axVar.lEM = NN(trim);
                     break;
                 case dy:
-                    axVar.lEI = NN(trim);
+                    axVar.lEN = NN(trim);
                     break;
             }
         }
@@ -1202,48 +1202,48 @@ public class SVGParser extends DefaultHandler2 {
 
     private void n(Attributes attributes) throws SAXException {
         debug("<tspan>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
-        if (!(this.lFn instanceof SVG.av)) {
+        if (!(this.lFs instanceof SVG.av)) {
             throw new SAXException("Invalid document. <tspan> elements are only valid inside <text> or other <tspan> elements.");
         }
         SVG.as asVar = new SVG.as();
-        asVar.lEz = this.lFm;
-        asVar.lEA = this.lFn;
+        asVar.lEE = this.lFr;
+        asVar.lEF = this.lFs;
         a((SVG.ai) asVar, attributes);
         b(asVar, attributes);
         a((SVG.ad) asVar, attributes);
         a((SVG.ax) asVar, attributes);
-        this.lFn.a(asVar);
-        this.lFn = asVar;
-        if (asVar.lEA instanceof SVG.ay) {
-            asVar.a((SVG.ay) asVar.lEA);
+        this.lFs.a(asVar);
+        this.lFs = asVar;
+        if (asVar.lEF instanceof SVG.ay) {
+            asVar.a((SVG.ay) asVar.lEF);
         } else {
-            asVar.a(((SVG.au) asVar.lEA).dhp());
+            asVar.a(((SVG.au) asVar.lEF).dhr());
         }
     }
 
     private void o(Attributes attributes) throws SAXException {
         debug("<tref>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
-        if (!(this.lFn instanceof SVG.av)) {
+        if (!(this.lFs instanceof SVG.av)) {
             throw new SAXException("Invalid document. <tref> elements are only valid inside <text> or <tspan> elements.");
         }
         SVG.ar arVar = new SVG.ar();
-        arVar.lEz = this.lFm;
-        arVar.lEA = this.lFn;
+        arVar.lEE = this.lFr;
+        arVar.lEF = this.lFs;
         a((SVG.ai) arVar, attributes);
         b(arVar, attributes);
         a((SVG.ad) arVar, attributes);
         a(arVar, attributes);
-        this.lFn.a(arVar);
-        if (arVar.lEA instanceof SVG.ay) {
-            arVar.a((SVG.ay) arVar.lEA);
+        this.lFs.a(arVar);
+        if (arVar.lEF instanceof SVG.ay) {
+            arVar.a((SVG.ay) arVar.lEF);
         } else {
-            arVar.a(((SVG.au) arVar.lEA).dhp());
+            arVar.a(((SVG.au) arVar.lEF).dhr());
         }
     }
 
@@ -1264,18 +1264,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void p(Attributes attributes) throws SAXException {
         debug("<switch>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.ap apVar = new SVG.ap();
-        apVar.lEz = this.lFm;
-        apVar.lEA = this.lFn;
+        apVar.lEE = this.lFr;
+        apVar.lEF = this.lFs;
         a((SVG.ai) apVar, attributes);
         b(apVar, attributes);
         a((SVG.l) apVar, attributes);
         a((SVG.ad) apVar, attributes);
-        this.lFn.a(apVar);
-        this.lFn = apVar;
+        this.lFs.a(apVar);
+        this.lFs = apVar;
     }
 
     private void a(SVG.ad adVar, Attributes attributes) throws SAXException {
@@ -1304,35 +1304,35 @@ public class SVGParser extends DefaultHandler2 {
 
     private void q(Attributes attributes) throws SAXException {
         debug("<symbol>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.aq aqVar = new SVG.aq();
-        aqVar.lEz = this.lFm;
-        aqVar.lEA = this.lFn;
+        aqVar.lEE = this.lFr;
+        aqVar.lEF = this.lFs;
         a((SVG.ai) aqVar, attributes);
         b(aqVar, attributes);
         a((SVG.ad) aqVar, attributes);
         a((SVG.ao) aqVar, attributes);
-        this.lFn.a(aqVar);
-        this.lFn = aqVar;
+        this.lFs.a(aqVar);
+        this.lFs = aqVar;
     }
 
     private void r(Attributes attributes) throws SAXException {
         debug("<marker>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.p pVar = new SVG.p();
-        pVar.lEz = this.lFm;
-        pVar.lEA = this.lFn;
+        pVar.lEE = this.lFr;
+        pVar.lEF = this.lFs;
         a((SVG.ai) pVar, attributes);
         b(pVar, attributes);
         a((SVG.ad) pVar, attributes);
         a((SVG.ao) pVar, attributes);
         a(pVar, attributes);
-        this.lFn.a(pVar);
-        this.lFn = pVar;
+        this.lFs.a(pVar);
+        this.lFs = pVar;
     }
 
     private void a(SVG.p pVar, Attributes attributes) throws SAXException {
@@ -1340,39 +1340,39 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case refX:
-                    pVar.lDn = NM(trim);
+                    pVar.lDs = NM(trim);
                     break;
                 case refY:
-                    pVar.lDo = NM(trim);
+                    pVar.lDt = NM(trim);
                     break;
                 case markerWidth:
-                    pVar.lDp = NM(trim);
-                    if (pVar.lDp.dhi()) {
+                    pVar.lDu = NM(trim);
+                    if (pVar.lDu.dhk()) {
                         throw new SAXException("Invalid <marker> element. markerWidth cannot be negative");
                     }
                     break;
                 case markerHeight:
-                    pVar.lDq = NM(trim);
-                    if (pVar.lDq.dhi()) {
+                    pVar.lDv = NM(trim);
+                    if (pVar.lDv.dhk()) {
                         throw new SAXException("Invalid <marker> element. markerHeight cannot be negative");
                     }
                     break;
                 case markerUnits:
                     if ("strokeWidth".equals(trim)) {
-                        pVar.lDm = false;
+                        pVar.lDr = false;
                         break;
                     } else if ("userSpaceOnUse".equals(trim)) {
-                        pVar.lDm = true;
+                        pVar.lDr = true;
                         break;
                     } else {
                         throw new SAXException("Invalid value for attribute markerUnits");
                     }
                 case orient:
                     if ("auto".equals(trim)) {
-                        pVar.lDr = Float.valueOf(Float.NaN);
+                        pVar.lDw = Float.valueOf(Float.NaN);
                         break;
                     } else {
-                        pVar.lDr = Float.valueOf(parseFloat(trim));
+                        pVar.lDw = Float.valueOf(parseFloat(trim));
                         break;
                     }
             }
@@ -1381,18 +1381,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void s(Attributes attributes) throws SAXException {
         debug("<linearGradiant>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.aj ajVar = new SVG.aj();
-        ajVar.lEz = this.lFm;
-        ajVar.lEA = this.lFn;
+        ajVar.lEE = this.lFr;
+        ajVar.lEF = this.lFs;
         a((SVG.ai) ajVar, attributes);
         b(ajVar, attributes);
         a((SVG.i) ajVar, attributes);
         a(ajVar, attributes);
-        this.lFn.a(ajVar);
-        this.lFn = ajVar;
+        this.lFs.a(ajVar);
+        this.lFs = ajVar;
     }
 
     private void a(SVG.i iVar, Attributes attributes) throws SAXException {
@@ -1408,20 +1408,20 @@ public class SVGParser extends DefaultHandler2 {
                     }
                 case gradientUnits:
                     if ("objectBoundingBox".equals(trim)) {
-                        iVar.lCZ = false;
+                        iVar.lDe = false;
                         break;
                     } else if ("userSpaceOnUse".equals(trim)) {
-                        iVar.lCZ = true;
+                        iVar.lDe = true;
                         break;
                     } else {
                         throw new SAXException("Invalid value for attribute gradientUnits");
                     }
                 case gradientTransform:
-                    iVar.lDa = NL(trim);
+                    iVar.lDf = NL(trim);
                     break;
                 case spreadMethod:
                     try {
-                        iVar.lDb = SVG.GradientSpread.valueOf(trim);
+                        iVar.lDg = SVG.GradientSpread.valueOf(trim);
                         break;
                     } catch (IllegalArgumentException e2) {
                         throw new SAXException("Invalid spreadMethod attribute. \"" + trim + "\" is not a valid value.");
@@ -1435,16 +1435,16 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x1:
-                    ajVar.lDi = NM(trim);
+                    ajVar.lDn = NM(trim);
                     break;
                 case y1:
-                    ajVar.lDj = NM(trim);
+                    ajVar.lDo = NM(trim);
                     break;
                 case x2:
-                    ajVar.lDk = NM(trim);
+                    ajVar.lDp = NM(trim);
                     break;
                 case y2:
-                    ajVar.lDl = NM(trim);
+                    ajVar.lDq = NM(trim);
                     break;
             }
         }
@@ -1452,18 +1452,18 @@ public class SVGParser extends DefaultHandler2 {
 
     private void t(Attributes attributes) throws SAXException {
         debug("<radialGradient>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.an anVar = new SVG.an();
-        anVar.lEz = this.lFm;
-        anVar.lEA = this.lFn;
+        anVar.lEE = this.lFr;
+        anVar.lEF = this.lFs;
         a((SVG.ai) anVar, attributes);
         b(anVar, attributes);
         a((SVG.i) anVar, attributes);
         a(anVar, attributes);
-        this.lFn.a(anVar);
-        this.lFn = anVar;
+        this.lFs.a(anVar);
+        this.lFs = anVar;
     }
 
     private void a(SVG.an anVar, Attributes attributes) throws SAXException {
@@ -1471,22 +1471,22 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case cx:
-                    anVar.lCQ = NM(trim);
+                    anVar.lCV = NM(trim);
                     break;
                 case cy:
-                    anVar.lCR = NM(trim);
+                    anVar.lCW = NM(trim);
                     break;
                 case r:
-                    anVar.lCS = NM(trim);
-                    if (anVar.lCS.dhi()) {
+                    anVar.lCX = NM(trim);
+                    if (anVar.lCX.dhk()) {
                         throw new SAXException("Invalid <radialGradient> element. r cannot be negative");
                     }
                     break;
                 case fx:
-                    anVar.lEC = NM(trim);
+                    anVar.lEH = NM(trim);
                     break;
                 case fy:
-                    anVar.lED = NM(trim);
+                    anVar.lEI = NM(trim);
                     break;
             }
         }
@@ -1494,20 +1494,20 @@ public class SVGParser extends DefaultHandler2 {
 
     private void u(Attributes attributes) throws SAXException {
         debug("<stop>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
-        if (!(this.lFn instanceof SVG.i)) {
+        if (!(this.lFs instanceof SVG.i)) {
             throw new SAXException("Invalid document. <stop> elements are only valid inside <linearGradiant> or <radialGradient> elements.");
         }
         SVG.ab abVar = new SVG.ab();
-        abVar.lEz = this.lFm;
-        abVar.lEA = this.lFn;
+        abVar.lEE = this.lFr;
+        abVar.lEF = this.lFs;
         a((SVG.ai) abVar, attributes);
         b(abVar, attributes);
         a(abVar, attributes);
-        this.lFn.a(abVar);
-        this.lFn = abVar;
+        this.lFs.a(abVar);
+        this.lFs = abVar;
     }
 
     private void a(SVG.ab abVar, Attributes attributes) throws SAXException {
@@ -1515,7 +1515,7 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case offset:
-                    abVar.lDE = NK(trim);
+                    abVar.lDJ = NK(trim);
                     break;
             }
         }
@@ -1548,33 +1548,33 @@ public class SVGParser extends DefaultHandler2 {
 
     private void v(Attributes attributes) throws SAXException {
         debug("<solidColor>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.aa aaVar = new SVG.aa();
-        aaVar.lEz = this.lFm;
-        aaVar.lEA = this.lFn;
+        aaVar.lEE = this.lFr;
+        aaVar.lEF = this.lFs;
         a(aaVar, attributes);
         b(aaVar, attributes);
-        this.lFn.a(aaVar);
-        this.lFn = aaVar;
+        this.lFs.a(aaVar);
+        this.lFs = aaVar;
     }
 
     private void w(Attributes attributes) throws SAXException {
         debug("<clipPath>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.d dVar = new SVG.d();
-        dVar.lEz = this.lFm;
-        dVar.lEA = this.lFn;
+        dVar.lEE = this.lFr;
+        dVar.lEF = this.lFs;
         a((SVG.ai) dVar, attributes);
         b(dVar, attributes);
         a((SVG.l) dVar, attributes);
         a((SVG.ad) dVar, attributes);
         a(dVar, attributes);
-        this.lFn.a(dVar);
-        this.lFn = dVar;
+        this.lFs.a(dVar);
+        this.lFs = dVar;
     }
 
     private void a(SVG.d dVar, Attributes attributes) throws SAXException {
@@ -1583,10 +1583,10 @@ public class SVGParser extends DefaultHandler2 {
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case clipPathUnits:
                     if ("objectBoundingBox".equals(trim)) {
-                        dVar.lCT = false;
+                        dVar.lCY = false;
                         break;
                     } else if ("userSpaceOnUse".equals(trim)) {
-                        dVar.lCT = true;
+                        dVar.lCY = true;
                         break;
                     } else {
                         throw new SAXException("Invalid value for attribute clipPathUnits");
@@ -1597,22 +1597,22 @@ public class SVGParser extends DefaultHandler2 {
 
     private void x(Attributes attributes) throws SAXException {
         debug("<textPath>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.aw awVar = new SVG.aw();
-        awVar.lEz = this.lFm;
-        awVar.lEA = this.lFn;
+        awVar.lEE = this.lFr;
+        awVar.lEF = this.lFs;
         a((SVG.ai) awVar, attributes);
         b(awVar, attributes);
         a((SVG.ad) awVar, attributes);
         a(awVar, attributes);
-        this.lFn.a(awVar);
-        this.lFn = awVar;
-        if (awVar.lEA instanceof SVG.ay) {
-            awVar.a((SVG.ay) awVar.lEA);
+        this.lFs.a(awVar);
+        this.lFs = awVar;
+        if (awVar.lEF instanceof SVG.ay) {
+            awVar.a((SVG.ay) awVar.lEF);
         } else {
-            awVar.a(((SVG.au) awVar.lEA).dhp());
+            awVar.a(((SVG.au) awVar.lEF).dhr());
         }
     }
 
@@ -1628,7 +1628,7 @@ public class SVGParser extends DefaultHandler2 {
                         break;
                     }
                 case startOffset:
-                    awVar.lEG = NM(trim);
+                    awVar.lEL = NM(trim);
                     break;
             }
         }
@@ -1636,19 +1636,19 @@ public class SVGParser extends DefaultHandler2 {
 
     private void y(Attributes attributes) throws SAXException {
         debug("<pattern>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.w wVar = new SVG.w();
-        wVar.lEz = this.lFm;
-        wVar.lEA = this.lFn;
+        wVar.lEE = this.lFr;
+        wVar.lEF = this.lFs;
         a((SVG.ai) wVar, attributes);
         b(wVar, attributes);
         a((SVG.ad) wVar, attributes);
         a((SVG.ao) wVar, attributes);
         a(wVar, attributes);
-        this.lFn.a(wVar);
-        this.lFn = wVar;
+        this.lFs.a(wVar);
+        this.lFs = wVar;
     }
 
     private void a(SVG.w wVar, Attributes attributes) throws SAXException {
@@ -1656,20 +1656,20 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    wVar.lDd = NM(trim);
+                    wVar.lDi = NM(trim);
                     break;
                 case y:
-                    wVar.lDe = NM(trim);
+                    wVar.lDj = NM(trim);
                     break;
                 case width:
-                    wVar.lDf = NM(trim);
-                    if (wVar.lDf.dhi()) {
+                    wVar.lDk = NM(trim);
+                    if (wVar.lDk.dhk()) {
                         throw new SAXException("Invalid <pattern> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    wVar.lDg = NM(trim);
-                    if (wVar.lDg.dhi()) {
+                    wVar.lDl = NM(trim);
+                    if (wVar.lDl.dhk()) {
                         throw new SAXException("Invalid <pattern> element. height cannot be negative");
                     }
                     break;
@@ -1682,26 +1682,26 @@ public class SVGParser extends DefaultHandler2 {
                     }
                 case patternUnits:
                     if ("objectBoundingBox".equals(trim)) {
-                        wVar.lDB = false;
+                        wVar.lDG = false;
                         break;
                     } else if ("userSpaceOnUse".equals(trim)) {
-                        wVar.lDB = true;
+                        wVar.lDG = true;
                         break;
                     } else {
                         throw new SAXException("Invalid value for attribute patternUnits");
                     }
                 case patternContentUnits:
                     if ("objectBoundingBox".equals(trim)) {
-                        wVar.lDC = false;
+                        wVar.lDH = false;
                         break;
                     } else if ("userSpaceOnUse".equals(trim)) {
-                        wVar.lDC = true;
+                        wVar.lDH = true;
                         break;
                     } else {
                         throw new SAXException("Invalid value for attribute patternContentUnits");
                     }
                 case patternTransform:
-                    wVar.lDD = NL(trim);
+                    wVar.lDI = NL(trim);
                     break;
             }
         }
@@ -1709,33 +1709,33 @@ public class SVGParser extends DefaultHandler2 {
 
     private void z(Attributes attributes) throws SAXException {
         debug("<view>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.bb bbVar = new SVG.bb();
-        bbVar.lEz = this.lFm;
-        bbVar.lEA = this.lFn;
+        bbVar.lEE = this.lFr;
+        bbVar.lEF = this.lFs;
         a((SVG.ai) bbVar, attributes);
         a((SVG.ad) bbVar, attributes);
         a((SVG.ao) bbVar, attributes);
-        this.lFn.a(bbVar);
-        this.lFn = bbVar;
+        this.lFs.a(bbVar);
+        this.lFs = bbVar;
     }
 
     private void A(Attributes attributes) throws SAXException {
         debug("<mask>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         SVG.q qVar = new SVG.q();
-        qVar.lEz = this.lFm;
-        qVar.lEA = this.lFn;
+        qVar.lEE = this.lFr;
+        qVar.lEF = this.lFs;
         a((SVG.ai) qVar, attributes);
         b(qVar, attributes);
         a((SVG.ad) qVar, attributes);
         a(qVar, attributes);
-        this.lFn.a(qVar);
-        this.lFn = qVar;
+        this.lFs.a(qVar);
+        this.lFs = qVar;
     }
 
     private void a(SVG.q qVar, Attributes attributes) throws SAXException {
@@ -1743,39 +1743,39 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    qVar.lDd = NM(trim);
+                    qVar.lDi = NM(trim);
                     break;
                 case y:
-                    qVar.lDe = NM(trim);
+                    qVar.lDj = NM(trim);
                     break;
                 case width:
-                    qVar.lDf = NM(trim);
-                    if (qVar.lDf.dhi()) {
+                    qVar.lDk = NM(trim);
+                    if (qVar.lDk.dhk()) {
                         throw new SAXException("Invalid <mask> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    qVar.lDg = NM(trim);
-                    if (qVar.lDg.dhi()) {
+                    qVar.lDl = NM(trim);
+                    if (qVar.lDl.dhk()) {
                         throw new SAXException("Invalid <mask> element. height cannot be negative");
                     }
                     break;
                 case maskUnits:
                     if ("objectBoundingBox".equals(trim)) {
-                        qVar.lDs = false;
+                        qVar.lDx = false;
                         break;
                     } else if ("userSpaceOnUse".equals(trim)) {
-                        qVar.lDs = true;
+                        qVar.lDx = true;
                         break;
                     } else {
                         throw new SAXException("Invalid value for attribute maskUnits");
                     }
                 case maskContentUnits:
                     if ("objectBoundingBox".equals(trim)) {
-                        qVar.lDt = false;
+                        qVar.lDy = false;
                         break;
                     } else if ("userSpaceOnUse".equals(trim)) {
-                        qVar.lDt = true;
+                        qVar.lDy = true;
                         break;
                     } else {
                         throw new SAXException("Invalid value for attribute maskContentUnits");
@@ -1787,19 +1787,19 @@ public class SVGParser extends DefaultHandler2 {
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes10.dex */
     public static class e {
-        protected String lFC;
-        protected int lFD;
+        protected String lFH;
+        protected int lFI;
         protected int position = 0;
-        private com.caverock.androidsvg.b lFE = new com.caverock.androidsvg.b();
+        private com.caverock.androidsvg.b lFJ = new com.caverock.androidsvg.b();
 
         public e(String str) {
-            this.lFD = 0;
-            this.lFC = str.trim();
-            this.lFD = this.lFC.length();
+            this.lFI = 0;
+            this.lFH = str.trim();
+            this.lFI = this.lFH.length();
         }
 
-        public boolean dhM() {
-            return this.position == this.lFD;
+        public boolean dhO() {
+            return this.position == this.lFI;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -1807,8 +1807,8 @@ public class SVGParser extends DefaultHandler2 {
             return i == 32 || i == 10 || i == 13 || i == 9;
         }
 
-        public void dhN() {
-            while (this.position < this.lFD && Hd(this.lFC.charAt(this.position))) {
+        public void dhP() {
+            while (this.position < this.lFI && Hd(this.lFH.charAt(this.position))) {
                 this.position++;
             }
         }
@@ -1818,29 +1818,29 @@ public class SVGParser extends DefaultHandler2 {
             return i == 10 || i == 13;
         }
 
-        public boolean dhO() {
-            dhN();
-            if (this.position != this.lFD && this.lFC.charAt(this.position) == ',') {
+        public boolean dhQ() {
+            dhP();
+            if (this.position != this.lFI && this.lFH.charAt(this.position) == ',') {
                 this.position++;
-                dhN();
+                dhP();
                 return true;
             }
             return false;
         }
 
         public float nextFloat() {
-            float B = this.lFE.B(this.lFC, this.position, this.lFD);
+            float B = this.lFJ.B(this.lFH, this.position, this.lFI);
             if (!Float.isNaN(B)) {
-                this.position = this.lFE.dgX();
+                this.position = this.lFJ.dgZ();
             }
             return B;
         }
 
-        public float dhP() {
-            dhO();
-            float B = this.lFE.B(this.lFC, this.position, this.lFD);
+        public float dhR() {
+            dhQ();
+            float B = this.lFJ.B(this.lFH, this.position, this.lFI);
             if (!Float.isNaN(B)) {
-                this.position = this.lFE.dgX();
+                this.position = this.lFJ.dgZ();
             }
             return B;
         }
@@ -1849,37 +1849,37 @@ public class SVGParser extends DefaultHandler2 {
             if (Float.isNaN(f)) {
                 return Float.NaN;
             }
-            dhO();
+            dhQ();
             return nextFloat();
         }
 
-        public Integer dhQ() {
-            if (this.position == this.lFD) {
+        public Integer dhS() {
+            if (this.position == this.lFI) {
                 return null;
             }
-            String str = this.lFC;
+            String str = this.lFH;
             int i = this.position;
             this.position = i + 1;
             return Integer.valueOf(str.charAt(i));
         }
 
-        public SVG.n dhR() {
+        public SVG.n dhT() {
             float nextFloat = nextFloat();
             if (Float.isNaN(nextFloat)) {
                 return null;
             }
-            SVG.Unit dhW = dhW();
-            if (dhW == null) {
+            SVG.Unit dhY = dhY();
+            if (dhY == null) {
                 return new SVG.n(nextFloat, SVG.Unit.px);
             }
-            return new SVG.n(nextFloat, dhW);
+            return new SVG.n(nextFloat, dhY);
         }
 
-        public Boolean dhS() {
-            if (this.position == this.lFD) {
+        public Boolean dhU() {
+            if (this.position == this.lFI) {
                 return null;
             }
-            char charAt = this.lFC.charAt(this.position);
+            char charAt = this.lFH.charAt(this.position);
             if (charAt == '0' || charAt == '1') {
                 this.position++;
                 return Boolean.valueOf(charAt == '1');
@@ -1891,12 +1891,12 @@ public class SVGParser extends DefaultHandler2 {
             if (obj == null) {
                 return null;
             }
-            dhO();
-            return dhS();
+            dhQ();
+            return dhU();
         }
 
         public boolean g(char c) {
-            boolean z = this.position < this.lFD && this.lFC.charAt(this.position) == c;
+            boolean z = this.position < this.lFI && this.lFH.charAt(this.position) == c;
             if (z) {
                 this.position++;
             }
@@ -1905,7 +1905,7 @@ public class SVGParser extends DefaultHandler2 {
 
         public boolean Oq(String str) {
             int length = str.length();
-            boolean z = this.position <= this.lFD - length && this.lFC.substring(this.position, this.position + length).equals(str);
+            boolean z = this.position <= this.lFI - length && this.lFH.substring(this.position, this.position + length).equals(str);
             if (z) {
                 this.position = length + this.position;
             }
@@ -1913,13 +1913,13 @@ public class SVGParser extends DefaultHandler2 {
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
-        public int dhT() {
-            if (this.position == this.lFD) {
+        public int dhV() {
+            if (this.position == this.lFI) {
                 return -1;
             }
             this.position++;
-            if (this.position < this.lFD) {
-                return this.lFC.charAt(this.position);
+            if (this.position < this.lFI) {
+                return this.lFH.charAt(this.position);
             }
             return -1;
         }
@@ -1929,65 +1929,65 @@ public class SVGParser extends DefaultHandler2 {
         }
 
         public String h(char c) {
-            if (dhM()) {
+            if (dhO()) {
                 return null;
             }
-            char charAt = this.lFC.charAt(this.position);
+            char charAt = this.lFH.charAt(this.position);
             if (Hd(charAt) || charAt == c) {
                 return null;
             }
             int i = this.position;
-            int dhT = dhT();
-            while (dhT != -1 && dhT != c && !Hd(dhT)) {
-                dhT = dhT();
+            int dhV = dhV();
+            while (dhV != -1 && dhV != c && !Hd(dhV)) {
+                dhV = dhV();
             }
-            return this.lFC.substring(i, this.position);
+            return this.lFH.substring(i, this.position);
         }
 
-        public String dhU() {
-            if (dhM()) {
+        public String dhW() {
+            if (dhO()) {
                 return null;
             }
             int i = this.position;
-            int charAt = this.lFC.charAt(this.position);
+            int charAt = this.lFH.charAt(this.position);
             while (true) {
                 if ((charAt < 97 || charAt > 122) && (charAt < 65 || charAt > 90)) {
                     break;
                 }
-                charAt = dhT();
+                charAt = dhV();
             }
             int i2 = this.position;
             while (Hd(charAt)) {
-                charAt = dhT();
+                charAt = dhV();
             }
             if (charAt == 40) {
                 this.position++;
-                return this.lFC.substring(i, i2);
+                return this.lFH.substring(i, i2);
             }
             this.position = i;
             return null;
         }
 
-        public String dhV() {
+        public String dhX() {
             int i = this.position;
-            while (!dhM() && !Hd(this.lFC.charAt(this.position))) {
+            while (!dhO() && !Hd(this.lFH.charAt(this.position))) {
                 this.position++;
             }
-            String substring = this.lFC.substring(i, this.position);
+            String substring = this.lFH.substring(i, this.position);
             this.position = i;
             return substring;
         }
 
-        public SVG.Unit dhW() {
-            if (dhM()) {
+        public SVG.Unit dhY() {
+            if (dhO()) {
                 return null;
             }
-            if (this.lFC.charAt(this.position) == '%') {
+            if (this.lFH.charAt(this.position) == '%') {
                 this.position++;
                 return SVG.Unit.percent;
-            } else if (this.position <= this.lFD - 2) {
+            } else if (this.position <= this.lFI - 2) {
                 try {
-                    SVG.Unit valueOf = SVG.Unit.valueOf(this.lFC.substring(this.position, this.position + 2).toLowerCase(Locale.US));
+                    SVG.Unit valueOf = SVG.Unit.valueOf(this.lFH.substring(this.position, this.position + 2).toLowerCase(Locale.US));
                     this.position += 2;
                     return valueOf;
                 } catch (IllegalArgumentException e) {
@@ -1998,42 +1998,42 @@ public class SVGParser extends DefaultHandler2 {
             }
         }
 
-        public boolean dhX() {
-            if (this.position == this.lFD) {
+        public boolean dhZ() {
+            if (this.position == this.lFI) {
                 return false;
             }
-            char charAt = this.lFC.charAt(this.position);
+            char charAt = this.lFH.charAt(this.position);
             return (charAt >= 'a' && charAt <= 'z') || (charAt >= 'A' && charAt <= 'Z');
         }
 
-        public String dhY() {
-            if (dhM()) {
+        public String dia() {
+            if (dhO()) {
                 return null;
             }
             int i = this.position;
-            char charAt = this.lFC.charAt(this.position);
+            char charAt = this.lFH.charAt(this.position);
             if (charAt == '\'' || charAt == '\"') {
-                int dhT = dhT();
-                while (dhT != -1 && dhT != charAt) {
-                    dhT = dhT();
+                int dhV = dhV();
+                while (dhV != -1 && dhV != charAt) {
+                    dhV = dhV();
                 }
-                if (dhT == -1) {
+                if (dhV == -1) {
                     this.position = i;
                     return null;
                 }
                 this.position++;
-                return this.lFC.substring(i + 1, this.position - 1);
+                return this.lFH.substring(i + 1, this.position - 1);
             }
             return null;
         }
 
-        public String dhZ() {
-            if (dhM()) {
+        public String dib() {
+            if (dhO()) {
                 return null;
             }
             int i = this.position;
-            this.position = this.lFD;
-            return this.lFC.substring(i);
+            this.position = this.lFI;
+            return this.lFH.substring(i);
         }
     }
 
@@ -2046,10 +2046,10 @@ public class SVGParser extends DefaultHandler2 {
             } else if (qName.equals("xml:space")) {
                 String trim = attributes.getValue(i).trim();
                 if ("default".equals(trim)) {
-                    aiVar.lEw = Boolean.FALSE;
+                    aiVar.lEB = Boolean.FALSE;
                     return;
                 } else if ("preserve".equals(trim)) {
-                    aiVar.lEw = Boolean.TRUE;
+                    aiVar.lEB = Boolean.TRUE;
                     return;
                 } else {
                     throw new SAXException("Invalid value for \"xml:space\" attribute: " + trim);
@@ -2067,13 +2067,13 @@ public class SVGParser extends DefaultHandler2 {
                         a(aiVar, trim);
                         continue;
                     case CLASS:
-                        aiVar.lEy = CSSParser.NB(trim);
+                        aiVar.lED = CSSParser.NB(trim);
                         continue;
                     default:
-                        if (aiVar.lEx == null) {
-                            aiVar.lEx = new SVG.Style();
+                        if (aiVar.lEC == null) {
+                            aiVar.lEC = new SVG.Style();
                         }
-                        a(aiVar.lEx, attributes.getLocalName(i), attributes.getValue(i).trim());
+                        a(aiVar.lEC, attributes.getLocalName(i), attributes.getValue(i).trim());
                         continue;
                 }
             }
@@ -2084,18 +2084,18 @@ public class SVGParser extends DefaultHandler2 {
         e eVar = new e(str.replaceAll("/\\*.*?\\*/", ""));
         while (true) {
             String h = eVar.h(':');
-            eVar.dhN();
+            eVar.dhP();
             if (eVar.g(':')) {
-                eVar.dhN();
+                eVar.dhP();
                 String h2 = eVar.h(';');
                 if (h2 != null) {
-                    eVar.dhN();
-                    if (eVar.dhM() || eVar.g(';')) {
-                        if (aiVar.lCi == null) {
-                            aiVar.lCi = new SVG.Style();
+                    eVar.dhP();
+                    if (eVar.dhO() || eVar.g(';')) {
+                        if (aiVar.lCn == null) {
+                            aiVar.lCn = new SVG.Style();
                         }
-                        a(aiVar.lCi, h, h2);
-                        eVar.dhN();
+                        a(aiVar.lCn, h, h2);
+                        eVar.dhP();
                     }
                 } else {
                     return;
@@ -2111,183 +2111,183 @@ public class SVGParser extends DefaultHandler2 {
         if (str2.length() != 0 && !str2.equals("inherit")) {
             switch (SVGAttr.fromString(str)) {
                 case fill:
-                    style.lDG = eY(str2, "fill");
-                    style.lDF |= 1;
+                    style.lDL = eY(str2, "fill");
+                    style.lDK |= 1;
                     return;
                 case fill_rule:
-                    style.lDH = Oa(str2);
-                    style.lDF |= 2;
+                    style.lDM = Oa(str2);
+                    style.lDK |= 2;
                     return;
                 case fill_opacity:
-                    style.lDI = Float.valueOf(NO(str2));
-                    style.lDF |= 4;
+                    style.lDN = Float.valueOf(NO(str2));
+                    style.lDK |= 4;
                     return;
                 case stroke:
-                    style.lDJ = eY(str2, "stroke");
-                    style.lDF |= 8;
+                    style.lDO = eY(str2, "stroke");
+                    style.lDK |= 8;
                     return;
                 case stroke_opacity:
-                    style.lDK = Float.valueOf(NO(str2));
-                    style.lDF |= 16;
+                    style.lDP = Float.valueOf(NO(str2));
+                    style.lDK |= 16;
                     return;
                 case stroke_width:
-                    style.lDL = NM(str2);
-                    style.lDF |= 32;
+                    style.lDQ = NM(str2);
+                    style.lDK |= 32;
                     return;
                 case stroke_linecap:
-                    style.lDM = Ob(str2);
-                    style.lDF |= 64;
+                    style.lDR = Ob(str2);
+                    style.lDK |= 64;
                     return;
                 case stroke_linejoin:
-                    style.lDN = Oc(str2);
-                    style.lDF |= 128;
+                    style.lDS = Oc(str2);
+                    style.lDK |= 128;
                     return;
                 case stroke_miterlimit:
-                    style.lDO = Float.valueOf(parseFloat(str2));
-                    style.lDF |= 256;
+                    style.lDT = Float.valueOf(parseFloat(str2));
+                    style.lDK |= 256;
                     return;
                 case stroke_dasharray:
                     if ("none".equals(str2)) {
-                        style.lDP = null;
+                        style.lDU = null;
                     } else {
-                        style.lDP = Od(str2);
+                        style.lDU = Od(str2);
                     }
-                    style.lDF |= 512;
+                    style.lDK |= 512;
                     return;
                 case stroke_dashoffset:
-                    style.lDQ = NM(str2);
-                    style.lDF |= 1024;
+                    style.lDV = NM(str2);
+                    style.lDK |= 1024;
                     return;
                 case opacity:
-                    style.lDR = Float.valueOf(NO(str2));
-                    style.lDF |= 2048;
+                    style.lDW = Float.valueOf(NO(str2));
+                    style.lDK |= 2048;
                     return;
                 case color:
-                    style.lDS = NR(str2);
-                    style.lDF |= 4096;
+                    style.lDX = NR(str2);
+                    style.lDK |= 4096;
                     return;
                 case font:
                     a(style, str2);
                     return;
                 case font_family:
-                    style.lDT = NT(str2);
-                    style.lDF |= 8192;
+                    style.lDY = NT(str2);
+                    style.lDK |= 8192;
                     return;
                 case font_size:
-                    style.lDU = NU(str2);
-                    style.lDF |= 16384;
+                    style.lDZ = NU(str2);
+                    style.lDK |= 16384;
                     return;
                 case font_weight:
-                    style.lDV = NV(str2);
-                    style.lDF |= 32768;
+                    style.lEa = NV(str2);
+                    style.lDK |= 32768;
                     return;
                 case font_style:
-                    style.lDW = NW(str2);
-                    style.lDF |= 65536;
+                    style.lEb = NW(str2);
+                    style.lDK |= 65536;
                     return;
                 case text_decoration:
-                    style.lDX = NY(str2);
-                    style.lDF |= 131072;
+                    style.lEc = NY(str2);
+                    style.lDK |= 131072;
                     return;
                 case direction:
-                    style.lDY = NZ(str2);
-                    style.lDF |= 68719476736L;
+                    style.lEd = NZ(str2);
+                    style.lDK |= 68719476736L;
                     return;
                 case text_anchor:
-                    style.lDZ = Oe(str2);
-                    style.lDF |= PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
+                    style.lEe = Oe(str2);
+                    style.lDK |= PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
                     return;
                 case overflow:
-                    style.lEa = Of(str2);
-                    style.lDF |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
+                    style.lEf = Of(str2);
+                    style.lDK |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
                     return;
                 case marker:
-                    style.lEc = eZ(str2, str);
-                    style.lEd = style.lEc;
-                    style.lEe = style.lEc;
-                    style.lDF |= 14680064;
+                    style.lEh = eZ(str2, str);
+                    style.lEi = style.lEh;
+                    style.lEj = style.lEh;
+                    style.lDK |= 14680064;
                     return;
                 case marker_start:
-                    style.lEc = eZ(str2, str);
-                    style.lDF |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+                    style.lEh = eZ(str2, str);
+                    style.lDK |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
                     return;
                 case marker_mid:
-                    style.lEd = eZ(str2, str);
-                    style.lDF |= ImageUploadStrategy.FILE_SIZE_4M;
+                    style.lEi = eZ(str2, str);
+                    style.lDK |= ImageUploadStrategy.FILE_SIZE_4M;
                     return;
                 case marker_end:
-                    style.lEe = eZ(str2, str);
-                    style.lDF |= 8388608;
+                    style.lEj = eZ(str2, str);
+                    style.lDK |= 8388608;
                     return;
                 case display:
                     if (str2.indexOf(com.baidu.android.imsdk.internal.Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER) >= 0 || "|inline|block|list-item|run-in|compact|marker|table|inline-table|table-row-group|table-header-group|table-footer-group|table-row|table-column-group|table-column|table-cell|table-caption|none|".indexOf('|' + str2 + '|') == -1) {
                         throw new SAXException("Invalid value for \"display\" attribute: " + str2);
                     }
-                    style.lEf = Boolean.valueOf(!str2.equals("none"));
-                    style.lDF |= AccountConstants.TYPE_MODIFY_ADDRESSLIST_SWITCH;
+                    style.lEk = Boolean.valueOf(!str2.equals("none"));
+                    style.lDK |= AccountConstants.TYPE_MODIFY_ADDRESSLIST_SWITCH;
                     return;
                 case visibility:
                     if (str2.indexOf(com.baidu.android.imsdk.internal.Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER) >= 0 || "|visible|hidden|collapse|".indexOf('|' + str2 + '|') == -1) {
                         throw new SAXException("Invalid value for \"visibility\" attribute: " + str2);
                     }
-                    style.lEg = Boolean.valueOf(str2.equals("visible"));
-                    style.lDF |= 33554432;
+                    style.lEl = Boolean.valueOf(str2.equals("visible"));
+                    style.lDK |= 33554432;
                     return;
                 case stop_color:
                     if (str2.equals("currentColor")) {
-                        style.lEh = SVG.f.dhh();
+                        style.lEm = SVG.f.dhj();
                     } else {
-                        style.lEh = NR(str2);
+                        style.lEm = NR(str2);
                     }
-                    style.lDF |= 67108864;
+                    style.lDK |= 67108864;
                     return;
                 case stop_opacity:
-                    style.lEi = Float.valueOf(NO(str2));
-                    style.lDF |= 134217728;
+                    style.lEn = Float.valueOf(NO(str2));
+                    style.lDK |= 134217728;
                     return;
                 case clip:
-                    style.lEb = Og(str2);
-                    style.lDF |= 1048576;
+                    style.lEg = Og(str2);
+                    style.lDK |= 1048576;
                     return;
                 case clip_path:
                     style.clipPath = eZ(str2, str);
-                    style.lDF |= AccountConstants.TYPE_MODIFY_NICKNAME;
+                    style.lDK |= AccountConstants.TYPE_MODIFY_NICKNAME;
                     return;
                 case clip_rule:
-                    style.lEj = Oa(str2);
-                    style.lDF |= IjkMediaMeta.AV_CH_STEREO_LEFT;
+                    style.lEo = Oa(str2);
+                    style.lDK |= IjkMediaMeta.AV_CH_STEREO_LEFT;
                     return;
                 case mask:
-                    style.lEk = eZ(str2, str);
-                    style.lDF |= IjkMediaMeta.AV_CH_STEREO_RIGHT;
+                    style.lEp = eZ(str2, str);
+                    style.lDK |= IjkMediaMeta.AV_CH_STEREO_RIGHT;
                     return;
                 case solid_color:
                     if (str2.equals("currentColor")) {
-                        style.lEl = SVG.f.dhh();
+                        style.lEq = SVG.f.dhj();
                     } else {
-                        style.lEl = NR(str2);
+                        style.lEq = NR(str2);
                     }
-                    style.lDF |= IjkMediaMeta.AV_CH_WIDE_LEFT;
+                    style.lDK |= IjkMediaMeta.AV_CH_WIDE_LEFT;
                     return;
                 case solid_opacity:
-                    style.lEm = Float.valueOf(NO(str2));
-                    style.lDF |= 4294967296L;
+                    style.lEr = Float.valueOf(NO(str2));
+                    style.lDK |= 4294967296L;
                     return;
                 case viewport_fill:
                     if (str2.equals("currentColor")) {
-                        style.lEn = SVG.f.dhh();
+                        style.lEs = SVG.f.dhj();
                     } else {
-                        style.lEn = NR(str2);
+                        style.lEs = NR(str2);
                     }
-                    style.lDF |= IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT;
+                    style.lDK |= IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT;
                     return;
                 case viewport_fill_opacity:
-                    style.lEo = Float.valueOf(NO(str2));
-                    style.lDF |= IjkMediaMeta.AV_CH_SURROUND_DIRECT_RIGHT;
+                    style.lEt = Float.valueOf(NO(str2));
+                    style.lDK |= IjkMediaMeta.AV_CH_SURROUND_DIRECT_RIGHT;
                     return;
                 case vector_effect:
-                    style.lEp = Oh(str2);
-                    style.lDF |= IjkMediaMeta.AV_CH_LOW_FREQUENCY_2;
+                    style.lEu = Oh(str2);
+                    style.lDK |= IjkMediaMeta.AV_CH_LOW_FREQUENCY_2;
                     return;
                 default:
                     return;
@@ -2303,7 +2303,7 @@ public class SVGParser extends DefaultHandler2 {
                     a((SVG.am) aoVar, trim);
                     break;
                 case viewBox:
-                    aoVar.lEE = NP(trim);
+                    aoVar.lEJ = NP(trim);
                     break;
             }
         }
@@ -2320,97 +2320,97 @@ public class SVGParser extends DefaultHandler2 {
     private Matrix NL(String str) throws SAXException {
         Matrix matrix = new Matrix();
         e eVar = new e(str);
-        eVar.dhN();
-        while (!eVar.dhM()) {
-            String dhU = eVar.dhU();
-            if (dhU == null) {
+        eVar.dhP();
+        while (!eVar.dhO()) {
+            String dhW = eVar.dhW();
+            if (dhW == null) {
                 throw new SAXException("Bad transform function encountered in transform list: " + str);
             }
-            if (dhU.equals("matrix")) {
-                eVar.dhN();
+            if (dhW.equals("matrix")) {
+                eVar.dhP();
                 float nextFloat = eVar.nextFloat();
-                eVar.dhO();
+                eVar.dhQ();
                 float nextFloat2 = eVar.nextFloat();
-                eVar.dhO();
+                eVar.dhQ();
                 float nextFloat3 = eVar.nextFloat();
-                eVar.dhO();
+                eVar.dhQ();
                 float nextFloat4 = eVar.nextFloat();
-                eVar.dhO();
+                eVar.dhQ();
                 float nextFloat5 = eVar.nextFloat();
-                eVar.dhO();
+                eVar.dhQ();
                 float nextFloat6 = eVar.nextFloat();
-                eVar.dhN();
+                eVar.dhP();
                 if (Float.isNaN(nextFloat6) || !eVar.g(')')) {
                     throw new SAXException("Invalid transform list: " + str);
                 }
                 Matrix matrix2 = new Matrix();
                 matrix2.setValues(new float[]{nextFloat, nextFloat3, nextFloat5, nextFloat2, nextFloat4, nextFloat6, 0.0f, 0.0f, 1.0f});
                 matrix.preConcat(matrix2);
-            } else if (dhU.equals("translate")) {
-                eVar.dhN();
+            } else if (dhW.equals("translate")) {
+                eVar.dhP();
                 float nextFloat7 = eVar.nextFloat();
-                float dhP = eVar.dhP();
-                eVar.dhN();
+                float dhR = eVar.dhR();
+                eVar.dhP();
                 if (Float.isNaN(nextFloat7) || !eVar.g(')')) {
                     throw new SAXException("Invalid transform list: " + str);
                 }
-                if (Float.isNaN(dhP)) {
+                if (Float.isNaN(dhR)) {
                     matrix.preTranslate(nextFloat7, 0.0f);
                 } else {
-                    matrix.preTranslate(nextFloat7, dhP);
+                    matrix.preTranslate(nextFloat7, dhR);
                 }
-            } else if (dhU.equals("scale")) {
-                eVar.dhN();
+            } else if (dhW.equals("scale")) {
+                eVar.dhP();
                 float nextFloat8 = eVar.nextFloat();
-                float dhP2 = eVar.dhP();
-                eVar.dhN();
+                float dhR2 = eVar.dhR();
+                eVar.dhP();
                 if (Float.isNaN(nextFloat8) || !eVar.g(')')) {
                     throw new SAXException("Invalid transform list: " + str);
                 }
-                if (Float.isNaN(dhP2)) {
+                if (Float.isNaN(dhR2)) {
                     matrix.preScale(nextFloat8, nextFloat8);
                 } else {
-                    matrix.preScale(nextFloat8, dhP2);
+                    matrix.preScale(nextFloat8, dhR2);
                 }
-            } else if (dhU.equals(RotateImageAction.ACTION_NAME)) {
-                eVar.dhN();
+            } else if (dhW.equals(RotateImageAction.ACTION_NAME)) {
+                eVar.dhP();
                 float nextFloat9 = eVar.nextFloat();
-                float dhP3 = eVar.dhP();
-                float dhP4 = eVar.dhP();
-                eVar.dhN();
+                float dhR3 = eVar.dhR();
+                float dhR4 = eVar.dhR();
+                eVar.dhP();
                 if (Float.isNaN(nextFloat9) || !eVar.g(')')) {
                     throw new SAXException("Invalid transform list: " + str);
                 }
-                if (Float.isNaN(dhP3)) {
+                if (Float.isNaN(dhR3)) {
                     matrix.preRotate(nextFloat9);
-                } else if (!Float.isNaN(dhP4)) {
-                    matrix.preRotate(nextFloat9, dhP3, dhP4);
+                } else if (!Float.isNaN(dhR4)) {
+                    matrix.preRotate(nextFloat9, dhR3, dhR4);
                 } else {
                     throw new SAXException("Invalid transform list: " + str);
                 }
-            } else if (dhU.equals("skewX")) {
-                eVar.dhN();
+            } else if (dhW.equals("skewX")) {
+                eVar.dhP();
                 float nextFloat10 = eVar.nextFloat();
-                eVar.dhN();
+                eVar.dhP();
                 if (Float.isNaN(nextFloat10) || !eVar.g(')')) {
                     throw new SAXException("Invalid transform list: " + str);
                 }
                 matrix.preSkew((float) Math.tan(Math.toRadians(nextFloat10)), 0.0f);
-            } else if (dhU.equals("skewY")) {
-                eVar.dhN();
+            } else if (dhW.equals("skewY")) {
+                eVar.dhP();
                 float nextFloat11 = eVar.nextFloat();
-                eVar.dhN();
+                eVar.dhP();
                 if (Float.isNaN(nextFloat11) || !eVar.g(')')) {
                     throw new SAXException("Invalid transform list: " + str);
                 }
                 matrix.preSkew(0.0f, (float) Math.tan(Math.toRadians(nextFloat11)));
-            } else if (dhU != null) {
-                throw new SAXException("Invalid transform list fn: " + dhU + ")");
+            } else if (dhW != null) {
+                throw new SAXException("Invalid transform list fn: " + dhW + ")");
             }
-            if (eVar.dhM()) {
+            if (eVar.dhO()) {
                 break;
             }
-            eVar.dhO();
+            eVar.dhQ();
         }
         return matrix;
     }
@@ -2446,18 +2446,18 @@ public class SVGParser extends DefaultHandler2 {
         }
         ArrayList arrayList = new ArrayList(1);
         e eVar = new e(str);
-        eVar.dhN();
-        while (!eVar.dhM()) {
+        eVar.dhP();
+        while (!eVar.dhO()) {
             float nextFloat = eVar.nextFloat();
             if (Float.isNaN(nextFloat)) {
-                throw new SAXException("Invalid length list value: " + eVar.dhV());
+                throw new SAXException("Invalid length list value: " + eVar.dhX());
             }
-            SVG.Unit dhW = eVar.dhW();
-            if (dhW == null) {
-                dhW = SVG.Unit.px;
+            SVG.Unit dhY = eVar.dhY();
+            if (dhY == null) {
+                dhY = SVG.Unit.px;
             }
-            arrayList.add(new SVG.n(nextFloat, dhW));
-            eVar.dhO();
+            arrayList.add(new SVG.n(nextFloat, dhY));
+            eVar.dhQ();
         }
         return arrayList;
     }
@@ -2491,13 +2491,13 @@ public class SVGParser extends DefaultHandler2 {
 
     private static SVG.a NP(String str) throws SAXException {
         e eVar = new e(str);
-        eVar.dhN();
+        eVar.dhP();
         float nextFloat = eVar.nextFloat();
-        eVar.dhO();
+        eVar.dhQ();
         float nextFloat2 = eVar.nextFloat();
-        eVar.dhO();
+        eVar.dhQ();
         float nextFloat3 = eVar.nextFloat();
-        eVar.dhO();
+        eVar.dhQ();
         float nextFloat4 = eVar.nextFloat();
         if (Float.isNaN(nextFloat) || Float.isNaN(nextFloat2) || Float.isNaN(nextFloat3) || Float.isNaN(nextFloat4)) {
             throw new SAXException("Invalid viewBox definition - should have four numbers");
@@ -2514,15 +2514,15 @@ public class SVGParser extends DefaultHandler2 {
     private static void a(SVG.am amVar, String str) throws SAXException {
         PreserveAspectRatio.Scale scale;
         e eVar = new e(str);
-        eVar.dhN();
+        eVar.dhP();
         String nextToken = eVar.nextToken();
         if ("defer".equals(nextToken)) {
-            eVar.dhN();
+            eVar.dhP();
             nextToken = eVar.nextToken();
         }
         PreserveAspectRatio.Alignment On = a.On(nextToken);
-        eVar.dhN();
-        if (eVar.dhM()) {
+        eVar.dhP();
+        if (eVar.dhO()) {
             scale = null;
         } else {
             String nextToken2 = eVar.nextToken();
@@ -2534,7 +2534,7 @@ public class SVGParser extends DefaultHandler2 {
                 throw new SAXException("Invalid preserveAspectRatio definition: " + str);
             }
         }
-        amVar.lEB = new PreserveAspectRatio(On, scale);
+        amVar.lEG = new PreserveAspectRatio(On, scale);
     }
 
     private static SVG.al eY(String str, String str2) throws SAXException {
@@ -2559,7 +2559,7 @@ public class SVGParser extends DefaultHandler2 {
             return null;
         }
         if (str.equals("currentColor")) {
-            return SVG.f.dhh();
+            return SVG.f.dhj();
         }
         return NR(str);
     }
@@ -2570,11 +2570,11 @@ public class SVGParser extends DefaultHandler2 {
             if (A == null) {
                 throw new SAXException("Bad hex colour value: " + str);
             }
-            int dgX = A.dgX();
-            if (dgX == 7) {
+            int dgZ = A.dgZ();
+            if (dgZ == 7) {
                 return new SVG.e(A.value());
             }
-            if (dgX == 4) {
+            if (dgZ == 4) {
                 int value = A.value();
                 int i = value & 3840;
                 int i2 = value & 240;
@@ -2584,7 +2584,7 @@ public class SVGParser extends DefaultHandler2 {
             throw new SAXException("Bad hex colour value: " + str);
         } else if (str.toLowerCase(Locale.US).startsWith("rgb(")) {
             e eVar = new e(str.substring(4));
-            eVar.dhN();
+            eVar.dhP();
             float nextFloat = eVar.nextFloat();
             if (!Float.isNaN(nextFloat) && eVar.g('%')) {
                 nextFloat = (nextFloat * 256.0f) / 100.0f;
@@ -2597,7 +2597,7 @@ public class SVGParser extends DefaultHandler2 {
             if (!Float.isNaN(bj2) && eVar.g('%')) {
                 bj2 = (bj2 * 256.0f) / 100.0f;
             }
-            eVar.dhN();
+            eVar.dhP();
             if (Float.isNaN(bj2) || !eVar.g(')')) {
                 throw new SAXException("Bad rgb() colour value: " + str);
             }
@@ -2634,7 +2634,7 @@ public class SVGParser extends DefaultHandler2 {
             Integer num = null;
             while (true) {
                 h = eVar.h('/');
-                eVar.dhN();
+                eVar.dhP();
                 if (h == null) {
                     throw new SAXException("Invalid font style attribute: missing font size and family");
                 }
@@ -2651,22 +2651,22 @@ public class SVGParser extends DefaultHandler2 {
             }
             SVG.n NU = NU(h);
             if (eVar.g('/')) {
-                eVar.dhN();
+                eVar.dhP();
                 String nextToken = eVar.nextToken();
                 if (nextToken == null) {
                     throw new SAXException("Invalid font style attribute: missing line-height");
                 }
                 NM(nextToken);
-                eVar.dhN();
+                eVar.dhP();
             }
-            style.lDT = NT(eVar.dhZ());
-            style.lDU = NU;
-            style.lDV = Integer.valueOf(num == null ? 400 : num.intValue());
+            style.lDY = NT(eVar.dib());
+            style.lDZ = NU;
+            style.lEa = Integer.valueOf(num == null ? 400 : num.intValue());
             if (fontStyle == null) {
                 fontStyle = SVG.Style.FontStyle.Normal;
             }
-            style.lDW = fontStyle;
-            style.lDF |= 122880;
+            style.lEb = fontStyle;
+            style.lDK |= 122880;
         }
     }
 
@@ -2674,19 +2674,19 @@ public class SVGParser extends DefaultHandler2 {
         ArrayList arrayList = null;
         e eVar = new e(str);
         do {
-            String dhY = eVar.dhY();
-            if (dhY == null) {
-                dhY = eVar.h(',');
+            String dia = eVar.dia();
+            if (dia == null) {
+                dia = eVar.h(',');
             }
-            if (dhY == null) {
+            if (dia == null) {
                 break;
             }
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }
-            arrayList.add(dhY);
-            eVar.dhO();
-        } while (!eVar.dhM());
+            arrayList.add(dia);
+            eVar.dhQ();
+        } while (!eVar.dhO());
         return arrayList;
     }
 
@@ -2793,27 +2793,27 @@ public class SVGParser extends DefaultHandler2 {
     }
 
     private static SVG.n[] Od(String str) throws SAXException {
-        SVG.n dhR;
+        SVG.n dhT;
         e eVar = new e(str);
-        eVar.dhN();
-        if (!eVar.dhM() && (dhR = eVar.dhR()) != null) {
-            if (dhR.dhi()) {
+        eVar.dhP();
+        if (!eVar.dhO() && (dhT = eVar.dhT()) != null) {
+            if (dhT.dhk()) {
                 throw new SAXException("Invalid stroke-dasharray. Dash segemnts cannot be negative: " + str);
             }
-            float floatValue = dhR.floatValue();
+            float floatValue = dhT.floatValue();
             ArrayList arrayList = new ArrayList();
-            arrayList.add(dhR);
-            while (!eVar.dhM()) {
-                eVar.dhO();
-                SVG.n dhR2 = eVar.dhR();
-                if (dhR2 == null) {
+            arrayList.add(dhT);
+            while (!eVar.dhO()) {
+                eVar.dhQ();
+                SVG.n dhT2 = eVar.dhT();
+                if (dhT2 == null) {
                     throw new SAXException("Invalid stroke-dasharray. Non-Length content found: " + str);
                 }
-                if (dhR2.dhi()) {
+                if (dhT2.dhk()) {
                     throw new SAXException("Invalid stroke-dasharray. Dash segemnts cannot be negative: " + str);
                 }
-                arrayList.add(dhR2);
-                floatValue += dhR2.floatValue();
+                arrayList.add(dhT2);
+                floatValue += dhT2.floatValue();
             }
             if (floatValue == 0.0f) {
                 return null;
@@ -2854,15 +2854,15 @@ public class SVGParser extends DefaultHandler2 {
             throw new SAXException("Invalid clip attribute shape. Only rect() is supported.");
         }
         e eVar = new e(str.substring(5));
-        eVar.dhN();
+        eVar.dhP();
         SVG.n a2 = a(eVar);
-        eVar.dhO();
+        eVar.dhQ();
         SVG.n a3 = a(eVar);
-        eVar.dhO();
+        eVar.dhQ();
         SVG.n a4 = a(eVar);
-        eVar.dhO();
+        eVar.dhQ();
         SVG.n a5 = a(eVar);
-        eVar.dhN();
+        eVar.dhP();
         if (!eVar.g(')')) {
             throw new SAXException("Bad rect() clip definition: " + str);
         }
@@ -2870,7 +2870,7 @@ public class SVGParser extends DefaultHandler2 {
     }
 
     private static SVG.n a(e eVar) {
-        return eVar.Oq("auto") ? new SVG.n(0.0f) : eVar.dhR();
+        return eVar.Oq("auto") ? new SVG.n(0.0f) : eVar.dhT();
     }
 
     private static SVG.Style.VectorEffect Oh(String str) throws SAXException {
@@ -2894,7 +2894,7 @@ public class SVGParser extends DefaultHandler2 {
         float f7;
         float f8;
         float f9;
-        float dhP;
+        float dhR;
         float bj;
         float f10;
         e eVar = new e(str);
@@ -2905,7 +2905,7 @@ public class SVGParser extends DefaultHandler2 {
         float f15 = 0.0f;
         float f16 = 0.0f;
         SVG.u uVar = new SVG.u();
-        if (!eVar.dhM() && ((intValue = eVar.dhQ().intValue()) == 77 || intValue == 109)) {
+        if (!eVar.dhO() && ((intValue = eVar.dhS().intValue()) == 77 || intValue == 109)) {
             while (true) {
                 while (true) {
                     float f17 = f14;
@@ -2915,7 +2915,7 @@ public class SVGParser extends DefaultHandler2 {
                     float f20 = f11;
                     float f21 = f15;
                     float f22 = f16;
-                    eVar.dhN();
+                    eVar.dhP();
                     switch (i) {
                         case 65:
                         case 97:
@@ -2926,19 +2926,19 @@ public class SVGParser extends DefaultHandler2 {
                             Boolean aJ2 = eVar.aJ(aJ);
                             if (aJ2 == null) {
                                 bj = Float.NaN;
-                                dhP = Float.NaN;
+                                dhR = Float.NaN;
                             } else {
-                                dhP = eVar.dhP();
-                                bj = eVar.bj(dhP);
+                                dhR = eVar.dhR();
+                                bj = eVar.bj(dhR);
                             }
                             if (!Float.isNaN(bj) && nextFloat >= 0.0f && bj2 >= 0.0f) {
                                 if (i == 97) {
-                                    float f23 = f20 + dhP;
+                                    float f23 = f20 + dhR;
                                     f10 = bj + f19;
                                     f11 = f23;
                                 } else {
                                     float f24 = bj;
-                                    f11 = dhP;
+                                    f11 = dhR;
                                     f10 = f24;
                                 }
                                 uVar.a(nextFloat, bj2, bj3, aJ.booleanValue(), aJ2.booleanValue(), f11, f10);
@@ -3166,10 +3166,10 @@ public class SVGParser extends DefaultHandler2 {
                             intValue = i;
                             break;
                     }
-                    eVar.dhO();
-                    if (!eVar.dhM()) {
-                        if (eVar.dhX()) {
-                            intValue = eVar.dhQ().intValue();
+                    eVar.dhQ();
+                    if (!eVar.dhO()) {
+                        if (eVar.dhZ()) {
+                            intValue = eVar.dhS().intValue();
                         }
                     }
                 }
@@ -3181,14 +3181,14 @@ public class SVGParser extends DefaultHandler2 {
     private static Set<String> Oj(String str) throws SAXException {
         e eVar = new e(str);
         HashSet hashSet = new HashSet();
-        while (!eVar.dhM()) {
+        while (!eVar.dhO()) {
             String nextToken = eVar.nextToken();
             if (nextToken.startsWith("http://www.w3.org/TR/SVG11/feature#")) {
                 hashSet.add(nextToken.substring("http://www.w3.org/TR/SVG11/feature#".length()));
             } else {
                 hashSet.add("UNSUPPORTED");
             }
-            eVar.dhN();
+            eVar.dhP();
         }
         return hashSet;
     }
@@ -3196,14 +3196,14 @@ public class SVGParser extends DefaultHandler2 {
     private static Set<String> Ok(String str) throws SAXException {
         e eVar = new e(str);
         HashSet hashSet = new HashSet();
-        while (!eVar.dhM()) {
+        while (!eVar.dhO()) {
             String nextToken = eVar.nextToken();
             int indexOf = nextToken.indexOf(45);
             if (indexOf != -1) {
                 nextToken = nextToken.substring(0, indexOf);
             }
             hashSet.add(new Locale(nextToken, "", "").getLanguage());
-            eVar.dhN();
+            eVar.dhP();
         }
         return hashSet;
     }
@@ -3211,9 +3211,9 @@ public class SVGParser extends DefaultHandler2 {
     private static Set<String> Ol(String str) throws SAXException {
         e eVar = new e(str);
         HashSet hashSet = new HashSet();
-        while (!eVar.dhM()) {
+        while (!eVar.dhO()) {
             hashSet.add(eVar.nextToken());
-            eVar.dhN();
+            eVar.dhP();
         }
         return hashSet;
     }
@@ -3231,7 +3231,7 @@ public class SVGParser extends DefaultHandler2 {
     private void B(Attributes attributes) throws SAXException {
         boolean z;
         debug("<style>", new Object[0]);
-        if (this.lFn == null) {
+        if (this.lFs == null) {
             throw new SAXException("Invalid document. Root element must be <svg>");
         }
         int i = 0;
@@ -3255,14 +3255,14 @@ public class SVGParser extends DefaultHandler2 {
             z2 = z;
         }
         if (z2 && CSSParser.a(str, CSSParser.MediaType.screen)) {
-            this.lFt = true;
+            this.lFy = true;
             return;
         }
-        this.lFo = true;
-        this.lFp = 1;
+        this.lFt = true;
+        this.lFu = 1;
     }
 
     private void Om(String str) throws SAXException {
-        this.lFm.b(new CSSParser(CSSParser.MediaType.screen).NA(str));
+        this.lFr.b(new CSSParser(CSSParser.MediaType.screen).NA(str));
     }
 }

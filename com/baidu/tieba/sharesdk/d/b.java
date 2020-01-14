@@ -54,11 +54,11 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class b implements View.OnClickListener {
     private int hideMode;
-    private final TextView jUZ;
-    private ShareGridLayout jVb;
-    private View.OnClickListener jVd;
-    private SparseArray<String> jVg;
-    private SparseArray<x> jVh;
+    private final TextView jVe;
+    private ShareGridLayout jVg;
+    private View.OnClickListener jVi;
+    private SparseArray<String> jVl;
+    private SparseArray<x> jVm;
     private final Context mContext;
     private AlertDialog mDialog;
     private boolean mIsLandscape;
@@ -67,28 +67,28 @@ public class b implements View.OnClickListener {
     private DialogInterface.OnCancelListener onCancelListener;
     private static final int fcP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds156);
     private static final int fcQ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds234);
-    private static final int jUW = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-    private static final int jUX = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
-    private static final int jUY = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    private static final int jVb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    private static final int jVc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
+    private static final int jVd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
     private static final int dmx = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-    private final SparseArray<ShareItem> jVe = new SparseArray<>(8);
-    private boolean jVf = false;
-    private boolean jVk = true;
-    private int jVl = 0;
+    private final SparseArray<ShareItem> jVj = new SparseArray<>(8);
+    private boolean jVk = false;
+    private boolean jVp = true;
+    private int jVq = 0;
     private CustomMessageListener cRD = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.sharesdk.d.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                b.this.cGb();
-                b.this.jVb.removeAllViews();
-                b.this.cGa();
+                b.this.cGd();
+                b.this.jVg.removeAllViews();
+                b.this.cGc();
             }
         }
     };
-    private final List<View> jVc = new ArrayList();
+    private final List<View> jVh = new ArrayList();
     private final View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.default_share_dialog_layout, (ViewGroup) null);
-    private final TextView jVa = (TextView) this.mRootView.findViewById(R.id.share_dialog_title);
+    private final TextView jVf = (TextView) this.mRootView.findViewById(R.id.share_dialog_title);
 
     public b(Context context, boolean z, int i) {
         this.mIsLandscape = false;
@@ -98,19 +98,19 @@ public class b implements View.OnClickListener {
         this.mIsLandscape = z;
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
-            this.jVa.setText(sharePanelText);
+            this.jVf.setText(sharePanelText);
         }
-        this.jVb = (ShareGridLayout) this.mRootView.findViewById(R.id.share_grid_layout);
-        ViewGroup.LayoutParams layoutParams = this.jVb.getLayoutParams();
+        this.jVg = (ShareGridLayout) this.mRootView.findViewById(R.id.share_grid_layout);
+        ViewGroup.LayoutParams layoutParams = this.jVg.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.leftMargin = ShareGridLayout.ksN;
-            marginLayoutParams.rightMargin = ShareGridLayout.ksN;
-            this.jVb.setLayoutParams(marginLayoutParams);
+            marginLayoutParams.leftMargin = ShareGridLayout.ksS;
+            marginLayoutParams.rightMargin = ShareGridLayout.ksS;
+            this.jVg.setLayoutParams(marginLayoutParams);
         }
-        this.jVb.setItemParams(fcP, fcQ);
-        this.jUZ = (TextView) this.mRootView.findViewById(R.id.btnShareCancel);
-        this.jUZ.setOnClickListener(this);
+        this.jVg.setItemParams(fcP, fcQ);
+        this.jVe = (TextView) this.mRootView.findViewById(R.id.btnShareCancel);
+        this.jVe.setOnClickListener(this);
     }
 
     private void bec() {
@@ -128,9 +128,9 @@ public class b implements View.OnClickListener {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void cGc() {
-        ArrayList arrayList = new ArrayList(this.jVc);
-        this.jVc.clear();
+    private void cGe() {
+        ArrayList arrayList = new ArrayList(this.jVh);
+        this.jVh.clear();
         if (!BK(this.hideMode)) {
             a(R.string.share_weixin, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg));
         }
@@ -150,9 +150,9 @@ public class b implements View.OnClickListener {
             a(R.string.share_save_pic, new c(R.drawable.icon_pure_share_download40_svg, R.color.cp_cont_b));
         }
         if (arrayList.size() > 0) {
-            this.jVc.addAll(arrayList);
+            this.jVh.addAll(arrayList);
         }
-        if (this.jVk) {
+        if (this.jVp) {
             a(R.string.share_copy, new c(R.drawable.icon_pure_share_copy40_svg, R.color.cp_cont_b));
         }
     }
@@ -167,9 +167,9 @@ public class b implements View.OnClickListener {
                 com.baidu.tbadk.core.util.f.a.aEM().kk(1).kl(R.color.cp_bg_line_i).aQ(imageView);
             }
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(jUW, jUW);
-            layoutParams.topMargin = jUX;
-            layoutParams.bottomMargin = jUY;
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(jVb, jVb);
+            layoutParams.topMargin = jVc;
+            layoutParams.bottomMargin = jVd;
             layoutParams.gravity = 1;
             linearLayout.addView(imageView, layoutParams);
             TextView textView = new TextView(this.mContext);
@@ -181,7 +181,7 @@ public class b implements View.OnClickListener {
             imageView.setImageDrawable(aVar.getDrawable());
             am.setViewTextColor(textView, (int) R.color.cp_cont_f);
             linearLayout.setOnClickListener(this);
-            this.jVc.add(linearLayout);
+            this.jVh.add(linearLayout);
         }
     }
 
@@ -191,9 +191,9 @@ public class b implements View.OnClickListener {
         linearLayout.setTag(Integer.valueOf(i2));
         ImageView imageView = new ImageView(this.mContext);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(jUW, jUW);
-        layoutParams.topMargin = jUX;
-        layoutParams.bottomMargin = jUY;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(jVb, jVb);
+        layoutParams.topMargin = jVc;
+        layoutParams.bottomMargin = jVd;
         layoutParams.gravity = 1;
         linearLayout.addView(imageView, layoutParams);
         TextView textView = new TextView(this.mContext);
@@ -209,16 +209,16 @@ public class b implements View.OnClickListener {
         return linearLayout;
     }
 
-    public int cFZ() {
-        if (this.jVc == null) {
+    public int cGb() {
+        if (this.jVh == null) {
             return 0;
         }
-        return this.jVc.size();
+        return this.jVh.size();
     }
 
     public void a(View view, int i, View.OnClickListener onClickListener) {
-        if (i <= this.jVc.size() && i >= 0) {
-            this.jVc.add(i, view);
+        if (i <= this.jVh.size() && i >= 0) {
+            this.jVh.add(i, view);
             if (onClickListener != null) {
                 view.setOnClickListener(new a(onClickListener));
             }
@@ -227,31 +227,31 @@ public class b implements View.OnClickListener {
 
     /* loaded from: classes9.dex */
     class a implements View.OnClickListener {
-        private View.OnClickListener jVj;
+        private View.OnClickListener jVo;
 
         public a(View.OnClickListener onClickListener) {
-            this.jVj = onClickListener;
+            this.jVo = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b.this.dismiss();
-            if (this.jVj != null) {
-                this.jVj.onClick(view);
+            if (this.jVo != null) {
+                this.jVo.onClick(view);
             }
         }
     }
 
     public void setIsCopyLink(boolean z) {
-        this.jVk = z;
+        this.jVp = z;
     }
 
     public void setCustomCopyTitle(int i) {
-        this.jVl = i;
+        this.jVq = i;
     }
 
     public void e(SparseArray<String> sparseArray) {
-        this.jVg = sparseArray;
+        this.jVl = sparseArray;
     }
 
     public void a(ShareItem shareItem, boolean z) {
@@ -259,9 +259,9 @@ public class b implements View.OnClickListener {
         if (z && (buM = buM()) != null) {
             shareItem.location = buM;
         }
-        this.jVe.put(1, shareItem);
+        this.jVj.put(1, shareItem);
         if (!StringUtils.isNull(shareItem.dlP)) {
-            this.jVa.setText(shareItem.dlP);
+            this.jVf.setText(shareItem.dlP);
         }
     }
 
@@ -270,7 +270,7 @@ public class b implements View.OnClickListener {
         if (z && (buM = buM()) != null) {
             shareItem.location = buM;
         }
-        this.jVe.put(i, shareItem);
+        this.jVj.put(i, shareItem);
     }
 
     private Location buM() {
@@ -293,20 +293,20 @@ public class b implements View.OnClickListener {
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.jVd = onClickListener;
+            this.jVi = onClickListener;
         }
     }
 
-    public void cGa() {
-        cGc();
+    public void cGc() {
+        cGe();
         if (!e.aJZ()) {
-            this.jVb.setVisibility(8);
+            this.jVg.setVisibility(8);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.jVc.size()) {
-                this.jVb.addView(this.jVc.get(i2), new ViewGroup.LayoutParams(fcP, fcQ));
+            if (i2 < this.jVh.size()) {
+                this.jVg.addView(this.jVh.get(i2), new ViewGroup.LayoutParams(fcP, fcQ));
                 i = i2 + 1;
             } else {
                 return;
@@ -320,7 +320,7 @@ public class b implements View.OnClickListener {
         } else if (!e.aJZ()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
-            cGa();
+            cGc();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.b.3
@@ -350,7 +350,7 @@ public class b implements View.OnClickListener {
                 window.setGravity(80);
                 window.setLayout(-1, -2);
                 window.setContentView(this.mRootView);
-                cGb();
+                cGd();
                 bec();
                 i.ab(this.mContext).registerListener(this.cRD);
             }
@@ -369,7 +369,7 @@ public class b implements View.OnClickListener {
 
     public void dismiss() {
         if (this.mDialog != null) {
-            this.jVf = false;
+            this.jVk = false;
             if (this.mContext instanceof Activity) {
                 if (this.mOnDismissListener != null) {
                     this.mOnDismissListener.onDismiss(this.mDialog);
@@ -388,9 +388,9 @@ public class b implements View.OnClickListener {
             i = ((Integer) view.getTag()).intValue();
         }
         dismiss();
-        if (this.jVe.size() != 0) {
-            if (id == R.id.btnShareCancel || !this.jVf) {
-                this.jVf = true;
+        if (this.jVj.size() != 0) {
+            if (id == R.id.btnShareCancel || !this.jVk) {
+                this.jVk = true;
                 ShareItem BI = BI(1);
                 e eVar = new e(this.mContext, null);
                 if (BI != null && BI.dmk) {
@@ -538,8 +538,8 @@ public class b implements View.OnClickListener {
                     }
                 } else if (i == R.drawable.icon_pure_share_copy40_svg) {
                     a(BI, 10);
-                    if (this.jVd != null) {
-                        this.jVd.onClick(view);
+                    if (this.jVi != null) {
+                        this.jVi.onClick(view);
                     } else {
                         com.baidu.adp.lib.util.a.copyToClipboard(BI.linkUrl);
                         l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(R.string.copy_pb_url_success));
@@ -597,25 +597,25 @@ public class b implements View.OnClickListener {
     }
 
     private ShareItem BI(int i) {
-        ShareItem shareItem = this.jVe.get(i);
+        ShareItem shareItem = this.jVj.get(i);
         if (shareItem == null) {
-            return this.jVe.get(1);
+            return this.jVj.get(1);
         }
         return shareItem;
     }
 
     private void BJ(int i) {
         if (i <= 8 && i > 0) {
-            this.jVf = true;
-            if (this.jVh != null) {
-                x xVar = this.jVh.get(i);
+            this.jVk = true;
+            if (this.jVm != null) {
+                x xVar = this.jVm.get(i);
                 if (!StringUtils.isNull(xVar.aHh()) && xVar.aHi() != null && xVar.aHi().size() > 0) {
                     h(xVar.aHh(), xVar.aHi());
                     return;
                 }
             }
-            if (this.jVg != null) {
-                String str = this.jVg.get(i);
+            if (this.jVl != null) {
+                String str = this.jVl.get(i);
                 if (!aq.isEmpty(str)) {
                     h(str, new Object[0]);
                 }
@@ -674,10 +674,10 @@ public class b implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
-    public void cGb() {
+    public void cGd() {
         am.setBackgroundResource(this.mRootView, R.drawable.transmit_share_dialog_background);
-        am.setViewTextColor(this.jVa, R.color.cp_cont_c, 1);
-        am.setViewTextColor(this.jUZ, R.color.cp_cont_j, 1);
+        am.setViewTextColor(this.jVf, R.color.cp_cont_c, 1);
+        am.setViewTextColor(this.jVe, R.color.cp_cont_j, 1);
     }
 
     private String m(ShareItem shareItem) {
@@ -720,7 +720,7 @@ public class b implements View.OnClickListener {
     public void b(ShareDialogConfig.From from) {
         com.baidu.tbadk.coreExtra.data.w sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData();
         if (sharePanelConfData != null && sharePanelConfData.a(from) && sharePanelConfData.aHg() && !aq.isEmpty(sharePanelConfData.getText())) {
-            this.jVa.setText(sharePanelConfData.getText());
+            this.jVf.setText(sharePanelConfData.getText());
         }
     }
 }

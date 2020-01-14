@@ -5,9 +5,9 @@ public interface b {
 
     void a(a[] aVarArr);
 
-    a dxE();
+    a dxG();
 
-    int dxF();
+    int dxH();
 
     void trim();
 }

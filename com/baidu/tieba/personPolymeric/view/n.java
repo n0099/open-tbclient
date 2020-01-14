@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class n extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView jrg;
-    private TextView jrh;
+    private TbImageView jrl;
+    private TextView jrm;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class n extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.jrg = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
-        this.jrh = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
+        this.jrl = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
+        this.jrm = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        am.setBackgroundResource(this.jrg, R.drawable.item_gift_selector);
-        am.setBackgroundColor(this.jrh, R.color.common_color_10294);
-        am.setViewTextColor(this.jrh, (int) R.color.cp_link_tip_a);
+        am.setBackgroundResource(this.jrl, R.drawable.item_gift_selector);
+        am.setBackgroundColor(this.jrm, R.color.common_color_10294);
+        am.setViewTextColor(this.jrm, (int) R.color.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -44,19 +44,19 @@ public class n extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.jrg.startLoad(oVar.picUrl, 10, false);
+        this.jrl.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
         if (oVar.giftNum > 0) {
-            this.jrh.setVisibility(0);
+            this.jrm.setVisibility(0);
             if (oVar.giftNum > 99) {
-                this.jrh.setText("99");
+                this.jrm.setText("99");
                 return;
             } else {
-                this.jrh.setText(String.valueOf(oVar.giftNum));
+                this.jrm.setText(String.valueOf(oVar.giftNum));
                 return;
             }
         }
-        this.jrh.setVisibility(8);
+        this.jrm.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

@@ -10,54 +10,54 @@ import java.util.List;
 import kotlin.jvm.internal.q;
 /* loaded from: classes.dex */
 public class a {
-    private final f njU;
-    private final d nkT;
+    private final f njZ;
+    private final d nkY;
 
     public a(f fVar) {
         q.j(fVar, "videoItem");
-        this.njU = fVar;
-        this.nkT = new d();
+        this.njZ = fVar;
+        this.nkY = new d();
     }
 
-    public final f dDv() {
-        return this.njU;
+    public final f dDx() {
+        return this.njZ;
     }
 
-    public final d dDQ() {
-        return this.nkT;
+    public final d dDS() {
+        return this.nkY;
     }
 
     /* renamed from: com.opensource.svgaplayer.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public final class C0725a {
         private final String imageKey;
-        private final g nkU;
-        final /* synthetic */ a nkV;
+        private final g nkZ;
+        final /* synthetic */ a nla;
 
         public C0725a(a aVar, String str, g gVar) {
             q.j(gVar, "frameEntity");
-            this.nkV = aVar;
+            this.nla = aVar;
             this.imageKey = str;
-            this.nkU = gVar;
+            this.nkZ = gVar;
         }
 
-        public final String dDR() {
+        public final String dDT() {
             return this.imageKey;
         }
 
-        public final g dDS() {
-            return this.nkU;
+        public final g dDU() {
+            return this.nkZ;
         }
     }
 
     public final List<C0725a> Nf(int i) {
         C0725a c0725a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.njU.dDL()) {
-            if (i < 0 || i >= fVar.dEp().size()) {
+        for (com.opensource.svgaplayer.entities.f fVar : this.njZ.dDN()) {
+            if (i < 0 || i >= fVar.dEr().size()) {
                 c0725a = null;
             } else {
-                c0725a = fVar.dEp().get(i).dEq() <= 0.0d ? null : new C0725a(this, fVar.dDR(), fVar.dEp().get(i));
+                c0725a = fVar.dEr().get(i).dEs() <= 0.0d ? null : new C0725a(this, fVar.dDT(), fVar.dEr().get(i));
             }
             if (c0725a != null) {
                 arrayList.add(c0725a);
@@ -69,6 +69,6 @@ public class a {
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         q.j(canvas, "canvas");
         q.j(scaleType, "scaleType");
-        this.nkT.a(canvas.getWidth(), canvas.getHeight(), (float) this.njU.dDJ().getWidth(), (float) this.njU.dDJ().getHeight(), scaleType);
+        this.nkY.a(canvas.getWidth(), canvas.getHeight(), (float) this.njZ.dDL().getWidth(), (float) this.njZ.dDL().getHeight(), scaleType);
     }
 }

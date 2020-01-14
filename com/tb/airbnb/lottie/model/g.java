@@ -7,11 +7,11 @@ import android.support.v4.util.LruCache;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes5.dex */
 public class g {
-    private static final g npT = new g();
+    private static final g npY = new g();
     private final LruCache<String, com.tb.airbnb.lottie.d> hD = new LruCache<>(10485760);
 
-    public static g dFD() {
-        return npT;
+    public static g dFF() {
+        return npY;
     }
 
     @VisibleForTesting

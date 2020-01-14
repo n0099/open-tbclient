@@ -6,7 +6,7 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes5.dex */
 public final class a extends kotlin.random.a {
     @Override // kotlin.random.a
-    public Random dJo() {
+    public Random dJq() {
         ThreadLocalRandom current = ThreadLocalRandom.current();
         q.i(current, "ThreadLocalRandom.current()");
         return current;

@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<d> jOl = new ArrayList();
+    private List<d> jOq = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,8 +22,8 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jOl != null) {
-            return this.jOl.size();
+        if (this.jOq != null) {
+            return this.jOq.size();
         }
         return 0;
     }
@@ -32,10 +32,10 @@ public class c extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: Bf */
     public d getItem(int i) {
-        if (this.jOl == null || i >= this.jOl.size()) {
+        if (this.jOq == null || i >= this.jOq.size()) {
             return null;
         }
-        return this.jOl.get(i);
+        return this.jOq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.jOl.get(i), view, viewGroup);
+        return a(this.jOq.get(i), view, viewGroup);
     }
 
     public View a(d dVar, View view, ViewGroup viewGroup) {
@@ -62,17 +62,17 @@ public class c extends BaseAdapter {
         if (dVar == null) {
             return inflate;
         }
-        cO.jOm.setText(dVar.title);
-        cO.jOn.setText(dVar.content);
-        cO.jOo.setDefaultErrorResource(R.drawable.screen_notify_default_bg);
-        cO.jOo.setDefaultResource(R.drawable.screen_notify_default_bg);
-        cO.jOo.a(dVar.pic, 10, 0, 0, false);
+        cO.jOr.setText(dVar.title);
+        cO.jOs.setText(dVar.content);
+        cO.jOt.setDefaultErrorResource(R.drawable.screen_notify_default_bg);
+        cO.jOt.setDefaultResource(R.drawable.screen_notify_default_bg);
+        cO.jOt.a(dVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
     public void eg(List<d> list) {
         if (list != null && list.size() != 0) {
-            this.jOl.addAll(list);
+            this.jOq.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,9 +80,9 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a {
-        TextView jOm;
-        TextView jOn;
-        TbImageView jOo;
+        TextView jOr;
+        TextView jOs;
+        TbImageView jOt;
         View mLine;
 
         private a() {
@@ -91,10 +91,10 @@ public class c extends BaseAdapter {
 
     private a cO(View view) {
         a aVar = new a();
-        aVar.jOm = (TextView) view.findViewById(R.id.push_msg_title);
-        aVar.jOn = (TextView) view.findViewById(R.id.push_msg_content);
-        aVar.jOo = (TbImageView) view.findViewById(R.id.push_msg_pic);
-        aVar.jOo.setAutoChangeStyle(false);
+        aVar.jOr = (TextView) view.findViewById(R.id.push_msg_title);
+        aVar.jOs = (TextView) view.findViewById(R.id.push_msg_content);
+        aVar.jOt = (TbImageView) view.findViewById(R.id.push_msg_pic);
+        aVar.jOt.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(R.id.line);
         return aVar;
     }

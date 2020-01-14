@@ -10,14 +10,14 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes5.dex */
 public class m<T> implements d.b<T, T> {
-    private final Long nOV = null;
-    private final rx.functions.a nOW = null;
-    private final a.d nOX = rx.a.nLU;
+    private final Long nPa = null;
+    private final rx.functions.a nPb = null;
+    private final a.d nPc = rx.a.nLZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class b {
-        static final m<?> nPc = new m<>();
+        static final m<?> nPh = new m<>();
     }
 
     @Override // rx.functions.f
@@ -25,17 +25,17 @@ public class m<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> m<T> dNb() {
-        return (m<T>) b.nPc;
+    public static <T> m<T> dNd() {
+        return (m<T>) b.nPh;
     }
 
     m() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.nOV, this.nOW, this.nOX);
+        a aVar = new a(jVar, this.nPa, this.nPb, this.nPc);
         jVar.add(aVar);
-        jVar.setProducer(aVar.dNd());
+        jVar.setProducer(aVar.dNf());
         return aVar;
     }
 
@@ -43,19 +43,19 @@ public class m<T> implements d.b<T, T> {
     /* loaded from: classes5.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a nOW;
-        private final a.d nOX;
-        private final AtomicLong nOZ;
-        private final BackpressureDrainManager nPb;
-        private final ConcurrentLinkedQueue<Object> nOY = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean nPa = new AtomicBoolean(false);
+        private final rx.functions.a nPb;
+        private final a.d nPc;
+        private final AtomicLong nPe;
+        private final BackpressureDrainManager nPg;
+        private final ConcurrentLinkedQueue<Object> nPd = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean nPf = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.nOZ = l != null ? new AtomicLong(l.longValue()) : null;
-            this.nOW = aVar;
-            this.nPb = new BackpressureDrainManager(this);
-            this.nOX = dVar;
+            this.nPe = l != null ? new AtomicLong(l.longValue()) : null;
+            this.nPb = aVar;
+            this.nPg = new BackpressureDrainManager(this);
+            this.nPc = dVar;
         }
 
         @Override // rx.j
@@ -65,23 +65,23 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.nPa.get()) {
-                this.nPb.terminateAndDrain();
+            if (!this.nPf.get()) {
+                this.nPg.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.nPa.get()) {
-                this.nPb.terminateAndDrain(th);
+            if (!this.nPf.get()) {
+                this.nPg.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (dNc()) {
-                this.nOY.offer(NotificationLite.next(t));
-                this.nPb.drain();
+            if (dNe()) {
+                this.nPd.offer(NotificationLite.next(t));
+                this.nPg.drain();
             }
         }
 
@@ -101,42 +101,42 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.nOY.peek();
+            return this.nPd.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.nOY.poll();
-            if (this.nOZ != null && poll != null) {
-                this.nOZ.incrementAndGet();
+            Object poll = this.nPd.poll();
+            if (this.nPe != null && poll != null) {
+                this.nPe.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean dNc() {
+        private boolean dNe() {
             long j;
             boolean z;
-            if (this.nOZ == null) {
+            if (this.nPe == null) {
                 return true;
             }
             do {
-                j = this.nOZ.get();
+                j = this.nPe.get();
                 if (j <= 0) {
                     try {
-                        z = this.nOX.dMu() && poll() != null;
+                        z = this.nPc.dMw() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.nPa.compareAndSet(false, true)) {
+                        if (this.nPf.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.nOW != null) {
+                    if (this.nPb != null) {
                         try {
-                            this.nOW.call();
+                            this.nPb.call();
                         } catch (Throwable th) {
                             rx.exceptions.a.I(th);
-                            this.nPb.terminateAndDrain(th);
+                            this.nPg.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -144,12 +144,12 @@ public class m<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.nOZ.compareAndSet(j, j - 1));
+            } while (!this.nPe.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f dNd() {
-            return this.nPb;
+        protected rx.f dNf() {
+            return this.nPg;
         }
     }
 }

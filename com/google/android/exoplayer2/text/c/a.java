@@ -14,12 +14,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public final class a extends c {
-    private static final Pattern mAl = Pattern.compile("(?:(\\d+):)?(\\d+):(\\d+)(?::|\\.)(\\d+)");
-    private final boolean mAm;
-    private int mAn;
-    private int mAo;
-    private int mAp;
-    private int mAq;
+    private static final Pattern mAq = Pattern.compile("(?:(\\d+):)?(\\d+):(\\d+)(?::|\\.)(\\d+)");
+    private final boolean mAr;
+    private int mAs;
+    private int mAt;
+    private int mAu;
+    private int mAv;
 
     public a() {
         this(null);
@@ -28,14 +28,14 @@ public final class a extends c {
     public a(List<byte[]> list) {
         super("SsaDecoder");
         if (list != null && !list.isEmpty()) {
-            this.mAm = true;
+            this.mAr = true;
             String str = new String(list.get(0));
             com.google.android.exoplayer2.util.a.checkArgument(str.startsWith("Format: "));
             PH(str);
             U(new l(list.get(1)));
             return;
         }
-        this.mAm = false;
+        this.mAr = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,13 +46,13 @@ public final class a extends c {
         ArrayList arrayList = new ArrayList();
         g gVar = new g();
         l lVar = new l(bArr, i);
-        if (!this.mAm) {
+        if (!this.mAr) {
             U(lVar);
         }
         a(lVar, arrayList, gVar);
         com.google.android.exoplayer2.text.b[] bVarArr = new com.google.android.exoplayer2.text.b[arrayList.size()];
         arrayList.toArray(bVarArr);
-        return new b(bVarArr, gVar.dya());
+        return new b(bVarArr, gVar.dyc());
     }
 
     private void U(l lVar) {
@@ -69,7 +69,7 @@ public final class a extends c {
         while (true) {
             String readLine = lVar.readLine();
             if (readLine != null) {
-                if (!this.mAm && readLine.startsWith("Format: ")) {
+                if (!this.mAr && readLine.startsWith("Format: ")) {
                     PH(readLine);
                 } else if (readLine.startsWith("Dialogue: ")) {
                     a(readLine, list, gVar);
@@ -84,11 +84,11 @@ public final class a extends c {
     private void PH(String str) {
         char c;
         String[] split = TextUtils.split(str.substring("Format: ".length()), Constants.ACCEPT_TIME_SEPARATOR_SP);
-        this.mAn = split.length;
-        this.mAo = -1;
-        this.mAp = -1;
-        this.mAq = -1;
-        for (int i = 0; i < this.mAn; i++) {
+        this.mAs = split.length;
+        this.mAt = -1;
+        this.mAu = -1;
+        this.mAv = -1;
+        for (int i = 0; i < this.mAs; i++) {
             String Qo = v.Qo(split[i].trim());
             switch (Qo.hashCode()) {
                 case 100571:
@@ -118,13 +118,13 @@ public final class a extends c {
             }
             switch (c) {
                 case 0:
-                    this.mAo = i;
+                    this.mAt = i;
                     break;
                 case 1:
-                    this.mAp = i;
+                    this.mAu = i;
                     break;
                 case 2:
-                    this.mAq = i;
+                    this.mAv = i;
                     break;
             }
         }
@@ -132,17 +132,17 @@ public final class a extends c {
 
     private void a(String str, List<com.google.android.exoplayer2.text.b> list, g gVar) {
         long j;
-        if (this.mAn == 0) {
+        if (this.mAs == 0) {
             Log.w("SsaDecoder", "Skipping dialogue line before format: " + str);
             return;
         }
-        String[] split = str.substring("Dialogue: ".length()).split(Constants.ACCEPT_TIME_SEPARATOR_SP, this.mAn);
-        long PI = PI(split[this.mAo]);
+        String[] split = str.substring("Dialogue: ".length()).split(Constants.ACCEPT_TIME_SEPARATOR_SP, this.mAs);
+        long PI = PI(split[this.mAt]);
         if (PI == -9223372036854775807L) {
             Log.w("SsaDecoder", "Skipping invalid timing: " + str);
             return;
         }
-        String str2 = split[this.mAp];
+        String str2 = split[this.mAu];
         if (str2.trim().isEmpty()) {
             j = -9223372036854775807L;
         } else {
@@ -152,7 +152,7 @@ public final class a extends c {
                 return;
             }
         }
-        list.add(new com.google.android.exoplayer2.text.b(split[this.mAq].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
+        list.add(new com.google.android.exoplayer2.text.b(split[this.mAv].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
         gVar.gI(PI);
         if (j != -9223372036854775807L) {
             list.add(null);
@@ -161,7 +161,7 @@ public final class a extends c {
     }
 
     public static long PI(String str) {
-        Matcher matcher = mAl.matcher(str);
+        Matcher matcher = mAq.matcher(str);
         if (!matcher.matches()) {
             return -9223372036854775807L;
         }

@@ -12,12 +12,12 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String nrs = "";
+    private String nrx = "";
     private String from = "";
-    private String nrt = "";
-    private String nru = "";
-    private String nrv = "";
-    private String nrw = "";
+    private String nry = "";
+    private String nrz = "";
+    private String nrA = "";
+    private String nrB = "";
     private HashMap<String, String> extra = new HashMap<>();
 
     private String Rr(String str) {
@@ -47,19 +47,19 @@ public class b implements Cloneable {
     }
 
     public String wu(boolean z) {
-        return z ? Rr(this.nrv) : this.nrv;
+        return z ? Rr(this.nrA) : this.nrA;
     }
 
     public String wv(boolean z) {
-        return z ? Rr(this.nrt) : this.nrt;
+        return z ? Rr(this.nry) : this.nry;
     }
 
     public void Rs(String str) {
-        this.nrt = str;
+        this.nry = str;
     }
 
     public String ww(boolean z) {
-        return z ? Rr(this.nru) : this.nru;
+        return z ? Rr(this.nrz) : this.nrz;
     }
 
     public String wx(boolean z) {
@@ -87,11 +87,11 @@ public class b implements Cloneable {
     }
 
     public String wz(boolean z) {
-        return z ? Rr(this.nrs) : this.nrs;
+        return z ? Rr(this.nrx) : this.nrx;
     }
 
-    public boolean dGL() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.nrt)) ? false : true;
+    public boolean dGN() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.nry)) ? false : true;
     }
 
     public Object clone() {

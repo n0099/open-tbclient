@@ -6,19 +6,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class MaybeSubject<T> extends k<T> implements m<T> {
+    static final MaybeDisposable[] nAE = new MaybeDisposable[0];
+    static final MaybeDisposable[] nAF = new MaybeDisposable[0];
     Throwable error;
     T value;
-    static final MaybeDisposable[] nAz = new MaybeDisposable[0];
-    static final MaybeDisposable[] nAA = new MaybeDisposable[0];
     final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<MaybeDisposable<T>[]> observers = new AtomicReference<>(nAz);
+    final AtomicReference<MaybeDisposable<T>[]> observers = new AtomicReference<>(nAE);
 
     MaybeSubject() {
     }
 
     @Override // io.reactivex.m
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == nAA) {
+        if (this.observers.get() == nAF) {
             bVar.dispose();
         }
     }
@@ -28,7 +28,7 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
         io.reactivex.internal.functions.a.h(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.value = t;
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(nAA)) {
+            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(nAF)) {
                 maybeDisposable.actual.onSuccess(t);
             }
         }
@@ -39,7 +39,7 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.error = th;
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(nAA)) {
+            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(nAF)) {
                 maybeDisposable.actual.onError(th);
             }
             return;
@@ -50,7 +50,7 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
     @Override // io.reactivex.m
     public void onComplete() {
         if (this.once.compareAndSet(false, true)) {
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(nAA)) {
+            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(nAF)) {
                 maybeDisposable.actual.onComplete();
             }
         }
@@ -85,7 +85,7 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
         MaybeDisposable<T>[] maybeDisposableArr2;
         do {
             maybeDisposableArr = this.observers.get();
-            if (maybeDisposableArr == nAA) {
+            if (maybeDisposableArr == nAF) {
                 return false;
             }
             int length = maybeDisposableArr.length;
@@ -117,7 +117,7 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        maybeDisposableArr2 = nAz;
+                        maybeDisposableArr2 = nAE;
                     } else {
                         maybeDisposableArr2 = new MaybeDisposable[length - 1];
                         System.arraycopy(maybeDisposableArr, 0, maybeDisposableArr2, 0, i);

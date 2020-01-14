@@ -40,16 +40,16 @@ public class g {
         this.remoteViews.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews cBe() {
+    public RemoteViews cBg() {
         return this.remoteViews;
     }
 
-    public void cBf() {
+    public void cBh() {
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
     }
 
-    public void cBg() {
+    public void cBi() {
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
     }

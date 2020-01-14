@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class a extends BaseAdapter implements BdSwitchView.a {
     private ArrayList<OfficialAccountPushInfo> cRO;
     private TbPageContext cRe;
-    private BdSwitchView.a jTT;
+    private BdSwitchView.a jTY;
 
     public a(TbPageContext tbPageContext) {
         this.cRe = tbPageContext;
@@ -55,45 +55,45 @@ public class a extends BaseAdapter implements BdSwitchView.a {
         if (view == null) {
             view = LayoutInflater.from(this.cRe.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
             c0595a = new C0595a();
-            c0595a.jTU = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            c0595a.jTZ = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
             view.setTag(c0595a);
         } else {
             c0595a = (C0595a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (aq.isEmpty(officialAccountPushInfo.name)) {
-            c0595a.jTU.setVisibility(8);
+            c0595a.jTZ.setVisibility(8);
         } else {
-            c0595a.jTU.setVisibility(0);
-            c0595a.jTU.setText(officialAccountPushInfo.name);
+            c0595a.jTZ.setVisibility(0);
+            c0595a.jTZ.setText(officialAccountPushInfo.name);
             if (officialAccountPushInfo.is_on == 1) {
-                c0595a.jTU.getSwitchView().turnOnNoCallback();
+                c0595a.jTZ.getSwitchView().turnOnNoCallback();
             } else {
-                c0595a.jTU.getSwitchView().turnOffNoCallback();
+                c0595a.jTZ.getSwitchView().turnOffNoCallback();
             }
-            c0595a.jTU.setLineVisibility(true);
-            c0595a.jTU.onChangeSkinType(this.cRe, TbadkCoreApplication.getInst().getSkinType());
-            c0595a.jTU.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0595a.jTU.getSwitchView().setTag(officialAccountPushInfo);
+            c0595a.jTZ.setLineVisibility(true);
+            c0595a.jTZ.onChangeSkinType(this.cRe, TbadkCoreApplication.getInst().getSkinType());
+            c0595a.jTZ.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0595a.jTZ.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.jTT = aVar;
+        this.jTY = aVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (this.jTT != null) {
-            this.jTT.a(view, switchState);
+        if (this.jTY != null) {
+            this.jTY.a(view, switchState);
         }
     }
 
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public class C0595a {
-        MsgSettingItemView jTU;
+        MsgSettingItemView jTZ;
 
         public C0595a() {
         }

@@ -29,33 +29,33 @@ final class c {
         com.google.android.exoplayer2.util.a.checkState(a2.size >= 16);
         fVar.o(lVar.data, 0, 16);
         lVar.setPosition(0);
-        int dyi = lVar.dyi();
-        int dyi2 = lVar.dyi();
-        int dyr = lVar.dyr();
-        int dyr2 = lVar.dyr();
-        int dyi3 = lVar.dyi();
-        int dyi4 = lVar.dyi();
-        int i = (dyi2 * dyi4) / 8;
-        if (dyi3 != i) {
-            throw new ParserException("Expected block alignment: " + i + "; got: " + dyi3);
+        int dyk = lVar.dyk();
+        int dyk2 = lVar.dyk();
+        int dyt = lVar.dyt();
+        int dyt2 = lVar.dyt();
+        int dyk3 = lVar.dyk();
+        int dyk4 = lVar.dyk();
+        int i = (dyk2 * dyk4) / 8;
+        if (dyk3 != i) {
+            throw new ParserException("Expected block alignment: " + i + "; got: " + dyk3);
         }
-        int LU = v.LU(dyi4);
+        int LU = v.LU(dyk4);
         if (LU == 0) {
-            Log.e("WavHeaderReader", "Unsupported WAV bit depth: " + dyi4);
+            Log.e("WavHeaderReader", "Unsupported WAV bit depth: " + dyk4);
             return null;
-        } else if (dyi != 1 && dyi != 65534) {
-            Log.e("WavHeaderReader", "Unsupported WAV format type: " + dyi);
+        } else if (dyk != 1 && dyk != 65534) {
+            Log.e("WavHeaderReader", "Unsupported WAV format type: " + dyk);
             return null;
         } else {
             fVar.Jr(((int) a2.size) - 16);
-            return new b(dyi2, dyr, dyr2, dyi3, dyi4, LU);
+            return new b(dyk2, dyt, dyt2, dyk3, dyk4, LU);
         }
     }
 
     public static void a(f fVar, b bVar) throws IOException, InterruptedException {
         com.google.android.exoplayer2.util.a.checkNotNull(fVar);
         com.google.android.exoplayer2.util.a.checkNotNull(bVar);
-        fVar.dtC();
+        fVar.dtE();
         l lVar = new l(8);
         a a2 = a.a(fVar, lVar);
         while (a2.id != v.Qr("data")) {
@@ -87,7 +87,7 @@ final class c {
         public static a a(f fVar, l lVar) throws IOException, InterruptedException {
             fVar.o(lVar.data, 0, 8);
             lVar.setPosition(0);
-            return new a(lVar.readInt(), lVar.dyl());
+            return new a(lVar.readInt(), lVar.dyn());
         }
     }
 }

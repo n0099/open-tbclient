@@ -4,16 +4,16 @@ class fw implements Runnable {
     final /* synthetic */ ft a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f398a;
+    final /* synthetic */ String f399a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fw(ft ftVar, String str) {
         this.a = ftVar;
-        this.f398a = str;
+        this.f399a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cu.a().a(this.f398a, true);
+        cu.a().a(this.f399a, true);
     }
 }

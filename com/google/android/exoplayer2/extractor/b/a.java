@@ -6,35 +6,35 @@ import com.google.android.exoplayer2.util.v;
 /* loaded from: classes5.dex */
 final class a implements b.a {
     private final int bitrate;
-    private final long lYQ;
-    private final long mfN;
+    private final long lYV;
+    private final long mfS;
 
     public a(long j, int i, long j2) {
-        this.mfN = j;
+        this.mfS = j;
         this.bitrate = i;
-        this.lYQ = j2 == -1 ? -9223372036854775807L : fP(j2);
+        this.lYV = j2 == -1 ? -9223372036854775807L : fP(j2);
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public boolean dtB() {
-        return this.lYQ != -9223372036854775807L;
+    public boolean dtD() {
+        return this.lYV != -9223372036854775807L;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
     public long fN(long j) {
-        if (this.lYQ == -9223372036854775807L) {
+        if (this.lYV == -9223372036854775807L) {
             return 0L;
         }
-        return this.mfN + ((v.g(j, 0L, this.lYQ) * this.bitrate) / 8000000);
+        return this.mfS + ((v.g(j, 0L, this.lYV) * this.bitrate) / 8000000);
     }
 
     @Override // com.google.android.exoplayer2.extractor.b.b.a
     public long fP(long j) {
-        return ((Math.max(0L, j - this.mfN) * TimeUtils.NANOS_PER_MS) * 8) / this.bitrate;
+        return ((Math.max(0L, j - this.mfS) * TimeUtils.NANOS_PER_MS) * 8) / this.bitrate;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long dso() {
-        return this.lYQ;
+    public long dsq() {
+        return this.lYV;
     }
 }

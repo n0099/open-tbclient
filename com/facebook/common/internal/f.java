@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes12.dex */
     public static final class a {
         private final String className;
-        private boolean lHA;
-        private C0645a lHy;
-        private C0645a lHz;
+        private C0645a lHD;
+        private C0645a lHE;
+        private boolean lHF;
 
         private a(String str) {
-            this.lHy = new C0645a();
-            this.lHz = this.lHy;
-            this.lHA = false;
+            this.lHD = new C0645a();
+            this.lHE = this.lHD;
+            this.lHF = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,10 +54,10 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.lHA;
+            boolean z = this.lHF;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0645a c0645a = this.lHy.lHB; c0645a != null; c0645a = c0645a.lHB) {
+            for (C0645a c0645a = this.lHD.lHG; c0645a != null; c0645a = c0645a.lHG) {
                 if (!z || c0645a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -70,17 +70,17 @@ public final class f {
             return append.append('}').toString();
         }
 
-        private C0645a djp() {
+        private C0645a djr() {
             C0645a c0645a = new C0645a();
-            this.lHz.lHB = c0645a;
-            this.lHz = c0645a;
+            this.lHE.lHG = c0645a;
+            this.lHE = c0645a;
             return c0645a;
         }
 
         private a y(String str, @Nullable Object obj) {
-            C0645a djp = djp();
-            djp.value = obj;
-            djp.name = (String) g.checkNotNull(str);
+            C0645a djr = djr();
+            djr.value = obj;
+            djr.name = (String) g.checkNotNull(str);
             return this;
         }
 
@@ -88,7 +88,7 @@ public final class f {
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
         public static final class C0645a {
-            C0645a lHB;
+            C0645a lHG;
             @Nullable
             String name;
             @Nullable

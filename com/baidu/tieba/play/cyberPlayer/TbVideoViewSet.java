@@ -13,15 +13,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TbVideoViewSet {
-    private static TbVideoViewSet jwl = null;
-    private LRULinkedHashMap<String, com.baidu.tieba.play.a.a> jwk = new LRULinkedHashMap<>();
-    private boolean jwm;
+    private static TbVideoViewSet jwq = null;
+    private LRULinkedHashMap<String, com.baidu.tieba.play.a.a> jwp = new LRULinkedHashMap<>();
+    private boolean jwr;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cxY();
+        void cya();
 
-        void cxZ();
+        void cyb();
     }
 
     private TbVideoViewSet() {
@@ -36,33 +36,33 @@ public class TbVideoViewSet {
         });
     }
 
-    public static TbVideoViewSet cxX() {
-        if (jwl == null) {
+    public static TbVideoViewSet cxZ() {
+        if (jwq == null) {
             synchronized (TbVideoViewSet.class) {
-                if (jwl == null) {
-                    jwl = new TbVideoViewSet();
+                if (jwq == null) {
+                    jwq = new TbVideoViewSet();
                 }
             }
         }
-        return jwl;
+        return jwq;
     }
 
     public com.baidu.tieba.play.a.a GQ(String str) {
-        if (aq.isEmpty(str) || !this.jwk.containsKey(str)) {
+        if (aq.isEmpty(str) || !this.jwp.containsKey(str)) {
             return null;
         }
-        return this.jwk.get(str);
+        return this.jwp.get(str);
     }
 
     public void a(com.baidu.tieba.play.a.a aVar, String str) {
         String str2;
-        if (this.jwk.containsKey(str) && aVar != this.jwk.get(str)) {
-            com.baidu.tieba.play.a.a aVar2 = this.jwk.get(str);
+        if (this.jwp.containsKey(str) && aVar != this.jwp.get(str)) {
+            com.baidu.tieba.play.a.a aVar2 = this.jwp.get(str);
             if (aVar2 != null && aVar2.isPlaying()) {
                 aVar.stopPlayback();
             }
-        } else if (this.jwk.containsValue(aVar)) {
-            Iterator it = this.jwk.entrySet().iterator();
+        } else if (this.jwp.containsValue(aVar)) {
+            Iterator it = this.jwp.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str2 = null;
@@ -74,23 +74,23 @@ public class TbVideoViewSet {
                     break;
                 }
             }
-            if (!this.jwm && !aq.isEmpty(str2)) {
-                this.jwk.remove(str2);
+            if (!this.jwr && !aq.isEmpty(str2)) {
+                this.jwp.remove(str2);
             }
         }
-        this.jwk.put(str, aVar);
+        this.jwp.put(str, aVar);
     }
 
     public void GR(String str) {
         com.baidu.tieba.play.a.a aVar;
-        if (!this.jwm && this.jwk.containsKey(str) && (aVar = (com.baidu.tieba.play.a.a) this.jwk.remove(str)) != null) {
+        if (!this.jwr && this.jwp.containsKey(str) && (aVar = (com.baidu.tieba.play.a.a) this.jwp.remove(str)) != null) {
             aVar.stopPlayback();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void alu() {
-        Iterator it = this.jwk.entrySet().iterator();
+        Iterator it = this.jwp.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             if (entry != null) {
@@ -117,10 +117,10 @@ public class TbVideoViewSet {
             com.baidu.tieba.play.a.a value;
             boolean z = size() > 2;
             if (z && (value = entry.getValue()) != null) {
-                TbVideoViewSet.this.jwm = true;
-                value.cxt();
+                TbVideoViewSet.this.jwr = true;
+                value.cxv();
                 value.stopPlayback();
-                TbVideoViewSet.this.jwm = false;
+                TbVideoViewSet.this.jwr = false;
             }
             return z;
         }

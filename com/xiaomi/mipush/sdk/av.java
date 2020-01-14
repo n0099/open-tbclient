@@ -52,18 +52,18 @@ public class av {
     private static av a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Object f43a = new Object();
+    private static Object f44a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static Queue<String> f44a;
+    private static Queue<String> f45a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f45a;
+    private Context f46a;
 
     private av(Context context) {
-        this.f45a = context.getApplicationContext();
-        if (this.f45a == null) {
-            this.f45a = context;
+        this.f46a = context.getApplicationContext();
+        if (this.f46a == null) {
+            this.f46a = context;
         }
     }
 
@@ -187,51 +187,51 @@ public class av {
         List<String> list;
         MiPushMessage generateMessage;
         try {
-            ir a2 = ar.a(this.f45a, icVar);
+            ir a2 = ar.a(this.f46a, icVar);
             if (a2 == null) {
-                com.xiaomi.channel.commonutils.logger.b.d("receiving an un-recognized message. " + icVar.f613a);
-                ev.a(this.f45a).b(this.f45a.getPackageName(), eu.m255a(i), str, "receiving an un-recognized message.");
+                com.xiaomi.channel.commonutils.logger.b.d("receiving an un-recognized message. " + icVar.f614a);
+                ev.a(this.f46a).b(this.f46a.getPackageName(), eu.m255a(i), str, "receiving an un-recognized message.");
                 return null;
             }
             hg a3 = icVar.a();
             com.xiaomi.channel.commonutils.logger.b.m42a("processing a message, action=" + a3);
             switch (ax.a[a3.ordinal()]) {
                 case 1:
-                    if (d.m80a(this.f45a).m90d() && !z) {
+                    if (d.m80a(this.f46a).m90d() && !z) {
                         com.xiaomi.channel.commonutils.logger.b.m42a("receive a message in pause state. drop it");
-                        ev.a(this.f45a).a(this.f45a.getPackageName(), eu.m255a(i), str, "receive a message in pause state. drop it");
+                        ev.a(this.f46a).a(this.f46a.getPackageName(), eu.m255a(i), str, "receive a message in pause state. drop it");
                         return null;
                     }
                     ij ijVar = (ij) a2;
                     hs a4 = ijVar.a();
                     if (a4 == null) {
                         com.xiaomi.channel.commonutils.logger.b.d("receive an empty message without push content, drop it");
-                        ev.a(this.f45a).b(this.f45a.getPackageName(), eu.m255a(i), str, "receive an empty message without push content, drop it");
+                        ev.a(this.f46a).b(this.f46a.getPackageName(), eu.m255a(i), str, "receive an empty message without push content, drop it");
                         return null;
                     }
                     if (z) {
                         if (com.xiaomi.push.service.z.m550a(icVar)) {
-                            MiPushClient.reportIgnoreRegMessageClicked(this.f45a, a4.m353a(), icVar.m396a(), icVar.f620b, a4.b());
+                            MiPushClient.reportIgnoreRegMessageClicked(this.f46a, a4.m353a(), icVar.m396a(), icVar.f621b, a4.b());
                         } else {
-                            MiPushClient.reportMessageClicked(this.f45a, a4.m353a(), icVar.m396a(), a4.b());
+                            MiPushClient.reportMessageClicked(this.f46a, a4.m353a(), icVar.m396a(), a4.b());
                         }
                     }
                     if (!z) {
-                        if (!TextUtils.isEmpty(ijVar.d()) && MiPushClient.aliasSetTime(this.f45a, ijVar.d()) < 0) {
-                            MiPushClient.addAlias(this.f45a, ijVar.d());
-                        } else if (!TextUtils.isEmpty(ijVar.c()) && MiPushClient.topicSubscribedTime(this.f45a, ijVar.c()) < 0) {
-                            MiPushClient.addTopic(this.f45a, ijVar.c());
+                        if (!TextUtils.isEmpty(ijVar.d()) && MiPushClient.aliasSetTime(this.f46a, ijVar.d()) < 0) {
+                            MiPushClient.addAlias(this.f46a, ijVar.d());
+                        } else if (!TextUtils.isEmpty(ijVar.c()) && MiPushClient.topicSubscribedTime(this.f46a, ijVar.c()) < 0) {
+                            MiPushClient.addTopic(this.f46a, ijVar.c());
                         }
                     }
                     String str2 = null;
-                    if (icVar.f614a != null && icVar.f614a.m362a() != null) {
-                        str2 = icVar.f614a.f527a.get("jobkey");
+                    if (icVar.f615a != null && icVar.f615a.m362a() != null) {
+                        str2 = icVar.f615a.f528a.get("jobkey");
                     }
                     String m353a = TextUtils.isEmpty(str2) ? a4.m353a() : str2;
-                    if (z || !m59a(this.f45a, m353a)) {
+                    if (z || !m59a(this.f46a, m353a)) {
                         generateMessage = PushMessageHelper.generateMessage(ijVar, icVar.m396a(), z);
                         if (generateMessage.getPassThrough() == 0 && !z && com.xiaomi.push.service.z.m552a(generateMessage.getExtra())) {
-                            com.xiaomi.push.service.z.m546a(this.f45a, icVar, bArr);
+                            com.xiaomi.push.service.z.m546a(this.f46a, icVar, bArr);
                             return null;
                         }
                         com.xiaomi.channel.commonutils.logger.b.m42a("receive a message, msgid=" + a4.m353a() + ", jobkey=" + m353a);
@@ -239,33 +239,33 @@ public class av {
                             Map<String, String> extra = generateMessage.getExtra();
                             String str3 = extra.get("notify_effect");
                             if (com.xiaomi.push.service.z.m550a(icVar)) {
-                                Intent a5 = a(this.f45a, icVar.f620b, extra);
+                                Intent a5 = a(this.f46a, icVar.f621b, extra);
                                 a5.putExtra("eventMessageType", i);
                                 a5.putExtra("messageId", str);
                                 if (a5 == null) {
                                     com.xiaomi.channel.commonutils.logger.b.m42a("Getting Intent fail from ignore reg message. ");
-                                    ev.a(this.f45a).b(this.f45a.getPackageName(), eu.m255a(i), str, "Getting Intent fail from ignore reg message.");
+                                    ev.a(this.f46a).b(this.f46a.getPackageName(), eu.m255a(i), str, "Getting Intent fail from ignore reg message.");
                                     return null;
                                 }
                                 String c = a4.c();
                                 if (!TextUtils.isEmpty(c)) {
                                     a5.putExtra("payload", c);
                                 }
-                                this.f45a.startActivity(a5);
-                                ev.a(this.f45a).a(this.f45a.getPackageName(), eu.m255a(i), str, 3006, "business message is clicked typeId " + str3);
+                                this.f46a.startActivity(a5);
+                                ev.a(this.f46a).a(this.f46a.getPackageName(), eu.m255a(i), str, 3006, "business message is clicked typeId " + str3);
                             } else {
-                                Intent a6 = a(this.f45a, this.f45a.getPackageName(), extra);
+                                Intent a6 = a(this.f46a, this.f46a.getPackageName(), extra);
                                 if (a6 != null) {
                                     if (!str3.equals(com.xiaomi.push.service.ap.c)) {
                                         a6.putExtra(PushMessageHelper.KEY_MESSAGE, generateMessage);
                                         a6.putExtra("eventMessageType", i);
                                         a6.putExtra("messageId", str);
                                     }
-                                    this.f45a.startActivity(a6);
+                                    this.f46a.startActivity(a6);
                                     com.xiaomi.channel.commonutils.logger.b.m42a("start activity succ");
-                                    ev.a(this.f45a).a(this.f45a.getPackageName(), eu.m255a(i), str, 1006, "notification message is clicked typeId " + str3);
+                                    ev.a(this.f46a).a(this.f46a.getPackageName(), eu.m255a(i), str, 1006, "notification message is clicked typeId " + str3);
                                     if (str3.equals(com.xiaomi.push.service.ap.c)) {
-                                        ev.a(this.f45a).a(this.f45a.getPackageName(), eu.m255a(i), str, "try open web page typeId " + str3);
+                                        ev.a(this.f46a).a(this.f46a.getPackageName(), eu.m255a(i), str, "try open web page typeId " + str3);
                                     }
                                 }
                             }
@@ -273,7 +273,7 @@ public class av {
                         }
                     } else {
                         com.xiaomi.channel.commonutils.logger.b.m42a("drop a duplicate message, key=" + m353a);
-                        ev.a(this.f45a).c(this.f45a.getPackageName(), eu.m255a(i), str, "drop a duplicate message, key=" + m353a);
+                        ev.a(this.f46a).c(this.f46a.getPackageName(), eu.m255a(i), str, "drop a duplicate message, key=" + m353a);
                         generateMessage = null;
                     }
                     if (icVar.m396a() != null || z) {
@@ -283,254 +283,254 @@ public class av {
                     return generateMessage;
                 case 2:
                     ih ihVar = (ih) a2;
-                    String str4 = d.m80a(this.f45a).f63a;
+                    String str4 = d.m80a(this.f46a).f64a;
                     if (TextUtils.isEmpty(str4) || !TextUtils.equals(str4, ihVar.m424a())) {
                         com.xiaomi.channel.commonutils.logger.b.m42a("bad Registration result:");
-                        ev.a(this.f45a).b(this.f45a.getPackageName(), eu.m255a(i), str, "bad Registration result:");
+                        ev.a(this.f46a).b(this.f46a.getPackageName(), eu.m255a(i), str, "bad Registration result:");
                         return null;
                     }
-                    d.m80a(this.f45a).f63a = null;
-                    if (ihVar.f675a == 0) {
-                        d.m80a(this.f45a).b(ihVar.f685e, ihVar.f686f, ihVar.f692l);
-                        ev.a(this.f45a).a(this.f45a.getPackageName(), eu.m255a(i), str, 6006, "receive register result success");
+                    d.m80a(this.f46a).f64a = null;
+                    if (ihVar.f676a == 0) {
+                        d.m80a(this.f46a).b(ihVar.f686e, ihVar.f687f, ihVar.f693l);
+                        ev.a(this.f46a).a(this.f46a.getPackageName(), eu.m255a(i), str, 6006, "receive register result success");
                     } else {
-                        ev.a(this.f45a).a(this.f45a.getPackageName(), eu.m255a(i), str, 6006, "receive register result fail");
+                        ev.a(this.f46a).a(this.f46a.getPackageName(), eu.m255a(i), str, 6006, "receive register result fail");
                     }
                     ArrayList arrayList = null;
-                    if (!TextUtils.isEmpty(ihVar.f685e)) {
+                    if (!TextUtils.isEmpty(ihVar.f686e)) {
                         arrayList = new ArrayList();
-                        arrayList.add(ihVar.f685e);
+                        arrayList.add(ihVar.f686e);
                     }
-                    MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fa.COMMAND_REGISTER.f335a, arrayList, ihVar.f675a, ihVar.f684d, null);
-                    ay.a(this.f45a).m76d();
+                    MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fa.COMMAND_REGISTER.f336a, arrayList, ihVar.f676a, ihVar.f685d, null);
+                    ay.a(this.f46a).m76d();
                     return generateCommandMessage;
                 case 3:
-                    if (((in) a2).f751a == 0) {
-                        d.m80a(this.f45a).m82a();
-                        MiPushClient.clearExtras(this.f45a);
+                    if (((in) a2).f752a == 0) {
+                        d.m80a(this.f46a).m82a();
+                        MiPushClient.clearExtras(this.f46a);
                     }
                     PushMessageHandler.a();
                     break;
                 case 4:
                     il ilVar = (il) a2;
-                    if (ilVar.f726a == 0) {
-                        MiPushClient.addTopic(this.f45a, ilVar.a());
+                    if (ilVar.f727a == 0) {
+                        MiPushClient.addTopic(this.f46a, ilVar.a());
                     }
                     ArrayList arrayList2 = null;
                     if (!TextUtils.isEmpty(ilVar.a())) {
                         arrayList2 = new ArrayList();
                         arrayList2.add(ilVar.a());
                     }
-                    return PushMessageHelper.generateCommandMessage(fa.COMMAND_SUBSCRIBE_TOPIC.f335a, arrayList2, ilVar.f726a, ilVar.f732d, ilVar.b());
+                    return PushMessageHelper.generateCommandMessage(fa.COMMAND_SUBSCRIBE_TOPIC.f336a, arrayList2, ilVar.f727a, ilVar.f733d, ilVar.b());
                 case 5:
                     ip ipVar = (ip) a2;
-                    if (ipVar.f771a == 0) {
-                        MiPushClient.removeTopic(this.f45a, ipVar.a());
+                    if (ipVar.f772a == 0) {
+                        MiPushClient.removeTopic(this.f46a, ipVar.a());
                     }
                     ArrayList arrayList3 = null;
                     if (!TextUtils.isEmpty(ipVar.a())) {
                         arrayList3 = new ArrayList();
                         arrayList3.add(ipVar.a());
                     }
-                    return PushMessageHelper.generateCommandMessage(fa.COMMAND_UNSUBSCRIBE_TOPIC.f335a, arrayList3, ipVar.f771a, ipVar.f777d, ipVar.b());
+                    return PushMessageHelper.generateCommandMessage(fa.COMMAND_UNSUBSCRIBE_TOPIC.f336a, arrayList3, ipVar.f772a, ipVar.f778d, ipVar.b());
                 case 6:
-                    da.a(this.f45a.getPackageName(), this.f45a, a2, hg.Command, bArr.length);
+                    da.a(this.f46a.getPackageName(), this.f46a, a2, hg.Command, bArr.length);
                     ib ibVar = (ib) a2;
                     String a7 = ibVar.a();
                     List<String> m391a = ibVar.m391a();
-                    if (ibVar.f601a == 0) {
-                        if (TextUtils.equals(a7, fa.COMMAND_SET_ACCEPT_TIME.f335a) && m391a != null && m391a.size() > 1) {
-                            MiPushClient.addAcceptTime(this.f45a, m391a.get(0), m391a.get(1));
+                    if (ibVar.f602a == 0) {
+                        if (TextUtils.equals(a7, fa.COMMAND_SET_ACCEPT_TIME.f336a) && m391a != null && m391a.size() > 1) {
+                            MiPushClient.addAcceptTime(this.f46a, m391a.get(0), m391a.get(1));
                             if ("00:00".equals(m391a.get(0)) && "00:00".equals(m391a.get(1))) {
-                                d.m80a(this.f45a).a(true);
+                                d.m80a(this.f46a).a(true);
                             } else {
-                                d.m80a(this.f45a).a(false);
+                                d.m80a(this.f46a).a(false);
                             }
                             list = a(TimeZone.getTimeZone("GMT+08"), TimeZone.getDefault(), m391a);
-                        } else if (TextUtils.equals(a7, fa.COMMAND_SET_ALIAS.f335a) && m391a != null && m391a.size() > 0) {
-                            MiPushClient.addAlias(this.f45a, m391a.get(0));
+                        } else if (TextUtils.equals(a7, fa.COMMAND_SET_ALIAS.f336a) && m391a != null && m391a.size() > 0) {
+                            MiPushClient.addAlias(this.f46a, m391a.get(0));
                             list = m391a;
-                        } else if (TextUtils.equals(a7, fa.COMMAND_UNSET_ALIAS.f335a) && m391a != null && m391a.size() > 0) {
-                            MiPushClient.removeAlias(this.f45a, m391a.get(0));
+                        } else if (TextUtils.equals(a7, fa.COMMAND_UNSET_ALIAS.f336a) && m391a != null && m391a.size() > 0) {
+                            MiPushClient.removeAlias(this.f46a, m391a.get(0));
                             list = m391a;
-                        } else if (TextUtils.equals(a7, fa.COMMAND_SET_ACCOUNT.f335a) && m391a != null && m391a.size() > 0) {
-                            MiPushClient.addAccount(this.f45a, m391a.get(0));
+                        } else if (TextUtils.equals(a7, fa.COMMAND_SET_ACCOUNT.f336a) && m391a != null && m391a.size() > 0) {
+                            MiPushClient.addAccount(this.f46a, m391a.get(0));
                             list = m391a;
-                        } else if (TextUtils.equals(a7, fa.COMMAND_UNSET_ACCOUNT.f335a) && m391a != null && m391a.size() > 0) {
-                            MiPushClient.removeAccount(this.f45a, m391a.get(0));
+                        } else if (TextUtils.equals(a7, fa.COMMAND_UNSET_ACCOUNT.f336a) && m391a != null && m391a.size() > 0) {
+                            MiPushClient.removeAccount(this.f46a, m391a.get(0));
                             list = m391a;
-                        } else if (TextUtils.equals(a7, fa.COMMAND_CHK_VDEVID.f335a)) {
+                        } else if (TextUtils.equals(a7, fa.COMMAND_CHK_VDEVID.f336a)) {
                             if (m391a != null && m391a.size() > 0) {
-                                com.xiaomi.push.i.a(this.f45a, m391a.get(0));
+                                com.xiaomi.push.i.a(this.f46a, m391a.get(0));
                             }
                             return null;
                         }
-                        return PushMessageHelper.generateCommandMessage(a7, list, ibVar.f601a, ibVar.f609d, ibVar.b());
+                        return PushMessageHelper.generateCommandMessage(a7, list, ibVar.f602a, ibVar.f610d, ibVar.b());
                     }
                     list = m391a;
-                    return PushMessageHelper.generateCommandMessage(a7, list, ibVar.f601a, ibVar.f609d, ibVar.b());
+                    return PushMessageHelper.generateCommandMessage(a7, list, ibVar.f602a, ibVar.f610d, ibVar.b());
                 case 7:
-                    da.a(this.f45a.getPackageName(), this.f45a, a2, hg.Notification, bArr.length);
+                    da.a(this.f46a.getPackageName(), this.f46a, a2, hg.Notification, bArr.length);
                     if (a2 instanceof hx) {
                         hx hxVar = (hx) a2;
                         String a8 = hxVar.a();
-                        if (hq.DisablePushMessage.f492a.equalsIgnoreCase(hxVar.f577d)) {
-                            if (hxVar.f570a == 0) {
+                        if (hq.DisablePushMessage.f493a.equalsIgnoreCase(hxVar.f578d)) {
+                            if (hxVar.f571a == 0) {
                                 synchronized (ao.class) {
-                                    if (ao.a(this.f45a).m58a(a8)) {
-                                        ao.a(this.f45a).c(a8);
-                                        if ("syncing".equals(ao.a(this.f45a).a(bd.DISABLE_PUSH))) {
-                                            ao.a(this.f45a).a(bd.DISABLE_PUSH, "synced");
-                                            MiPushClient.clearNotification(this.f45a);
-                                            MiPushClient.clearLocalNotificationType(this.f45a);
+                                    if (ao.a(this.f46a).m58a(a8)) {
+                                        ao.a(this.f46a).c(a8);
+                                        if ("syncing".equals(ao.a(this.f46a).a(bd.DISABLE_PUSH))) {
+                                            ao.a(this.f46a).a(bd.DISABLE_PUSH, "synced");
+                                            MiPushClient.clearNotification(this.f46a);
+                                            MiPushClient.clearLocalNotificationType(this.f46a);
                                             PushMessageHandler.a();
-                                            ay.a(this.f45a).m73b();
+                                            ay.a(this.f46a).m73b();
                                         }
                                     }
                                 }
                                 break;
-                            } else if ("syncing".equals(ao.a(this.f45a).a(bd.DISABLE_PUSH))) {
+                            } else if ("syncing".equals(ao.a(this.f46a).a(bd.DISABLE_PUSH))) {
                                 synchronized (ao.class) {
-                                    if (ao.a(this.f45a).m58a(a8)) {
-                                        if (ao.a(this.f45a).a(a8) < 10) {
-                                            ao.a(this.f45a).b(a8);
-                                            ay.a(this.f45a).a(true, a8);
+                                    if (ao.a(this.f46a).m58a(a8)) {
+                                        if (ao.a(this.f46a).a(a8) < 10) {
+                                            ao.a(this.f46a).b(a8);
+                                            ay.a(this.f46a).a(true, a8);
                                         } else {
-                                            ao.a(this.f45a).c(a8);
+                                            ao.a(this.f46a).c(a8);
                                         }
                                     }
                                 }
                                 break;
                             } else {
-                                ao.a(this.f45a).c(a8);
+                                ao.a(this.f46a).c(a8);
                                 break;
                             }
-                        } else if (hq.EnablePushMessage.f492a.equalsIgnoreCase(hxVar.f577d)) {
-                            if (hxVar.f570a == 0) {
+                        } else if (hq.EnablePushMessage.f493a.equalsIgnoreCase(hxVar.f578d)) {
+                            if (hxVar.f571a == 0) {
                                 synchronized (ao.class) {
-                                    if (ao.a(this.f45a).m58a(a8)) {
-                                        ao.a(this.f45a).c(a8);
-                                        if ("syncing".equals(ao.a(this.f45a).a(bd.ENABLE_PUSH))) {
-                                            ao.a(this.f45a).a(bd.ENABLE_PUSH, "synced");
+                                    if (ao.a(this.f46a).m58a(a8)) {
+                                        ao.a(this.f46a).c(a8);
+                                        if ("syncing".equals(ao.a(this.f46a).a(bd.ENABLE_PUSH))) {
+                                            ao.a(this.f46a).a(bd.ENABLE_PUSH, "synced");
                                         }
                                     }
                                 }
                                 break;
-                            } else if ("syncing".equals(ao.a(this.f45a).a(bd.ENABLE_PUSH))) {
+                            } else if ("syncing".equals(ao.a(this.f46a).a(bd.ENABLE_PUSH))) {
                                 synchronized (ao.class) {
-                                    if (ao.a(this.f45a).m58a(a8)) {
-                                        if (ao.a(this.f45a).a(a8) < 10) {
-                                            ao.a(this.f45a).b(a8);
-                                            ay.a(this.f45a).a(false, a8);
+                                    if (ao.a(this.f46a).m58a(a8)) {
+                                        if (ao.a(this.f46a).a(a8) < 10) {
+                                            ao.a(this.f46a).b(a8);
+                                            ay.a(this.f46a).a(false, a8);
                                         } else {
-                                            ao.a(this.f45a).c(a8);
+                                            ao.a(this.f46a).c(a8);
                                         }
                                     }
                                 }
                                 break;
                             } else {
-                                ao.a(this.f45a).c(a8);
+                                ao.a(this.f46a).c(a8);
                                 break;
                             }
-                        } else if (hq.ThirdPartyRegUpdate.f492a.equalsIgnoreCase(hxVar.f577d)) {
+                        } else if (hq.ThirdPartyRegUpdate.f493a.equalsIgnoreCase(hxVar.f578d)) {
                             b(hxVar);
                             break;
-                        } else if (hq.UploadTinyData.f492a.equalsIgnoreCase(hxVar.f577d)) {
+                        } else if (hq.UploadTinyData.f493a.equalsIgnoreCase(hxVar.f578d)) {
                             a(hxVar);
                             break;
                         }
                     } else if (a2 instanceof Cif) {
                         Cif cif = (Cif) a2;
-                        if ("registration id expired".equalsIgnoreCase(cif.f637d)) {
-                            List<String> allAlias = MiPushClient.getAllAlias(this.f45a);
-                            List<String> allTopic = MiPushClient.getAllTopic(this.f45a);
-                            List<String> allUserAccount = MiPushClient.getAllUserAccount(this.f45a);
-                            String acceptTime = MiPushClient.getAcceptTime(this.f45a);
-                            MiPushClient.reInitialize(this.f45a, hu.RegIdExpired);
+                        if ("registration id expired".equalsIgnoreCase(cif.f638d)) {
+                            List<String> allAlias = MiPushClient.getAllAlias(this.f46a);
+                            List<String> allTopic = MiPushClient.getAllTopic(this.f46a);
+                            List<String> allUserAccount = MiPushClient.getAllUserAccount(this.f46a);
+                            String acceptTime = MiPushClient.getAcceptTime(this.f46a);
+                            MiPushClient.reInitialize(this.f46a, hu.RegIdExpired);
                             for (String str5 : allAlias) {
-                                MiPushClient.removeAlias(this.f45a, str5);
-                                MiPushClient.setAlias(this.f45a, str5, null);
+                                MiPushClient.removeAlias(this.f46a, str5);
+                                MiPushClient.setAlias(this.f46a, str5, null);
                             }
                             for (String str6 : allTopic) {
-                                MiPushClient.removeTopic(this.f45a, str6);
-                                MiPushClient.subscribe(this.f45a, str6, null);
+                                MiPushClient.removeTopic(this.f46a, str6);
+                                MiPushClient.subscribe(this.f46a, str6, null);
                             }
                             for (String str7 : allUserAccount) {
-                                MiPushClient.removeAccount(this.f45a, str7);
-                                MiPushClient.setUserAccount(this.f45a, str7, null);
+                                MiPushClient.removeAccount(this.f46a, str7);
+                                MiPushClient.setUserAccount(this.f46a, str7, null);
                             }
                             String[] split = acceptTime.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                             if (split.length == 2) {
-                                MiPushClient.removeAcceptTime(this.f45a);
-                                MiPushClient.addAcceptTime(this.f45a, split[0], split[1]);
+                                MiPushClient.removeAcceptTime(this.f46a);
+                                MiPushClient.addAcceptTime(this.f46a, split[0], split[1]);
                                 break;
                             }
-                        } else if ("client_info_update_ok".equalsIgnoreCase(cif.f637d)) {
+                        } else if ("client_info_update_ok".equalsIgnoreCase(cif.f638d)) {
                             if (cif.m411a() != null && cif.m411a().containsKey("app_version")) {
-                                d.m80a(this.f45a).m83a(cif.m411a().get("app_version"));
+                                d.m80a(this.f46a).m83a(cif.m411a().get("app_version"));
                                 break;
                             }
-                        } else if (hq.AwakeApp.f492a.equalsIgnoreCase(cif.f637d)) {
+                        } else if (hq.AwakeApp.f493a.equalsIgnoreCase(cif.f638d)) {
                             if (icVar.m404b() && cif.m411a() != null && cif.m411a().containsKey("awake_info")) {
-                                p.a(this.f45a, d.m80a(this.f45a).m81a(), com.xiaomi.push.service.ag.a(this.f45a).a(hl.AwakeInfoUploadWaySwitch.a(), 0), cif.m411a().get("awake_info"));
+                                p.a(this.f46a, d.m80a(this.f46a).m81a(), com.xiaomi.push.service.ag.a(this.f46a).a(hl.AwakeInfoUploadWaySwitch.a(), 0), cif.m411a().get("awake_info"));
                                 break;
                             }
-                        } else if (hq.NormalClientConfigUpdate.f492a.equalsIgnoreCase(cif.f637d)) {
+                        } else if (hq.NormalClientConfigUpdate.f493a.equalsIgnoreCase(cif.f638d)) {
                             ie ieVar = new ie();
                             try {
                                 iq.a(ieVar, cif.m416a());
-                                com.xiaomi.push.service.ah.a(com.xiaomi.push.service.ag.a(this.f45a), ieVar);
+                                com.xiaomi.push.service.ah.a(com.xiaomi.push.service.ag.a(this.f46a), ieVar);
                                 break;
                             } catch (iw e) {
                                 com.xiaomi.channel.commonutils.logger.b.a(e);
                                 break;
                             }
-                        } else if (hq.CustomClientConfigUpdate.f492a.equalsIgnoreCase(cif.f637d)) {
+                        } else if (hq.CustomClientConfigUpdate.f493a.equalsIgnoreCase(cif.f638d)) {
                             id idVar = new id();
                             try {
                                 iq.a(idVar, cif.m416a());
-                                com.xiaomi.push.service.ah.a(com.xiaomi.push.service.ag.a(this.f45a), idVar);
+                                com.xiaomi.push.service.ah.a(com.xiaomi.push.service.ag.a(this.f46a), idVar);
                                 break;
                             } catch (iw e2) {
                                 com.xiaomi.channel.commonutils.logger.b.a(e2);
                                 break;
                             }
-                        } else if (hq.SyncInfoResult.f492a.equalsIgnoreCase(cif.f637d)) {
-                            be.a(this.f45a, cif);
+                        } else if (hq.SyncInfoResult.f493a.equalsIgnoreCase(cif.f638d)) {
+                            be.a(this.f46a, cif);
                             break;
-                        } else if (hq.ForceSync.f492a.equalsIgnoreCase(cif.f637d)) {
+                        } else if (hq.ForceSync.f493a.equalsIgnoreCase(cif.f638d)) {
                             com.xiaomi.channel.commonutils.logger.b.m42a("receive force sync notification");
-                            be.a(this.f45a, false);
+                            be.a(this.f46a, false);
                             break;
-                        } else if (!hq.CancelPushMessage.f492a.equals(cif.f637d)) {
-                            if (hq.HybridRegisterResult.f492a.equals(cif.f637d)) {
+                        } else if (!hq.CancelPushMessage.f493a.equals(cif.f638d)) {
+                            if (hq.HybridRegisterResult.f493a.equals(cif.f638d)) {
                                 try {
                                     ih ihVar2 = new ih();
                                     iq.a(ihVar2, cif.m416a());
-                                    MiPushClient4Hybrid.onReceiveRegisterResult(this.f45a, ihVar2);
+                                    MiPushClient4Hybrid.onReceiveRegisterResult(this.f46a, ihVar2);
                                     break;
                                 } catch (iw e3) {
                                     com.xiaomi.channel.commonutils.logger.b.a(e3);
                                     break;
                                 }
-                            } else if (hq.HybridUnregisterResult.f492a.equals(cif.f637d)) {
+                            } else if (hq.HybridUnregisterResult.f493a.equals(cif.f638d)) {
                                 try {
                                     in inVar = new in();
                                     iq.a(inVar, cif.m416a());
-                                    MiPushClient4Hybrid.onReceiveUnregisterResult(this.f45a, inVar);
+                                    MiPushClient4Hybrid.onReceiveUnregisterResult(this.f46a, inVar);
                                     break;
                                 } catch (iw e4) {
                                     com.xiaomi.channel.commonutils.logger.b.a(e4);
                                     break;
                                 }
-                            } else if (hq.PushLogUpload.f492a.equals(cif.f637d) && cif.m411a() != null && cif.m411a().containsKey("packages")) {
+                            } else if (hq.PushLogUpload.f493a.equals(cif.f638d) && cif.m411a() != null && cif.m411a().containsKey("packages")) {
                                 String[] split2 = cif.m411a().get("packages").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                                if (TextUtils.equals(this.f45a.getPackageName(), "com.xiaomi.xmsf")) {
-                                    Logger.uploadLogFile(this.f45a, true);
-                                    a(this.f45a, split2);
+                                if (TextUtils.equals(this.f46a.getPackageName(), "com.xiaomi.xmsf")) {
+                                    Logger.uploadLogFile(this.f46a, true);
+                                    a(this.f46a, split2);
                                     break;
                                 } else {
-                                    Logger.uploadLogFile(this.f45a, false);
+                                    Logger.uploadLogFile(this.f46a, false);
                                     break;
                                 }
                             }
@@ -545,10 +545,10 @@ public class av {
                                         i2 = -2;
                                     }
                                     if (i2 < -1) {
-                                        MiPushClient.clearNotification(this.f45a, i2);
+                                        MiPushClient.clearNotification(this.f46a, i2);
                                         break;
                                     } else {
-                                        MiPushClient.clearNotification(this.f45a, cif.m411a().containsKey(com.xiaomi.push.service.ap.H) ? cif.m411a().get(com.xiaomi.push.service.ap.H) : "", cif.m411a().containsKey(com.xiaomi.push.service.ap.I) ? cif.m411a().get(com.xiaomi.push.service.ap.I) : "");
+                                        MiPushClient.clearNotification(this.f46a, cif.m411a().containsKey(com.xiaomi.push.service.ap.H) ? cif.m411a().get(com.xiaomi.push.service.ap.H) : "", cif.m411a().containsKey(com.xiaomi.push.service.ap.I) ? cif.m411a().get(com.xiaomi.push.service.ap.I) : "");
                                         break;
                                     }
                                 }
@@ -564,12 +564,12 @@ public class av {
         } catch (v e6) {
             com.xiaomi.channel.commonutils.logger.b.a(e6);
             a(icVar);
-            ev.a(this.f45a).a(this.f45a.getPackageName(), eu.m255a(i), str, e6);
+            ev.a(this.f46a).a(this.f46a.getPackageName(), eu.m255a(i), str, e6);
             return null;
         } catch (iw e7) {
             com.xiaomi.channel.commonutils.logger.b.a(e7);
             com.xiaomi.channel.commonutils.logger.b.d("receive a message which action string is not valid. is the reg expired?");
-            ev.a(this.f45a).a(this.f45a.getPackageName(), eu.m255a(i), str, e7);
+            ev.a(this.f46a).a(this.f46a.getPackageName(), eu.m255a(i), str, e7);
             return null;
         }
     }
@@ -577,9 +577,9 @@ public class av {
     private PushMessageHandler.a a(ic icVar, byte[] bArr) {
         String str = null;
         try {
-            ir a2 = ar.a(this.f45a, icVar);
+            ir a2 = ar.a(this.f46a, icVar);
             if (a2 == null) {
-                com.xiaomi.channel.commonutils.logger.b.d("message arrived: receiving an un-recognized message. " + icVar.f613a);
+                com.xiaomi.channel.commonutils.logger.b.d("message arrived: receiving an un-recognized message. " + icVar.f614a);
                 return null;
             }
             hg a3 = icVar.a();
@@ -592,8 +592,8 @@ public class av {
                         com.xiaomi.channel.commonutils.logger.b.d("message arrived: receive an empty message without push content, drop it");
                         return null;
                     }
-                    if (icVar.f614a != null && icVar.f614a.m362a() != null) {
-                        str = icVar.f614a.f527a.get("jobkey");
+                    if (icVar.f615a != null && icVar.f615a.m362a() != null) {
+                        str = icVar.f615a.f528a.get("jobkey");
                     }
                     MiPushMessage generateMessage = PushMessageHelper.generateMessage(ijVar, icVar.m396a(), false);
                     generateMessage.setArrivedMessage(true);
@@ -621,10 +621,10 @@ public class av {
     }
 
     private void a() {
-        SharedPreferences sharedPreferences = this.f45a.getSharedPreferences("mipush_extra", 0);
+        SharedPreferences sharedPreferences = this.f46a.getSharedPreferences("mipush_extra", 0);
         long currentTimeMillis = System.currentTimeMillis();
         if (Math.abs(currentTimeMillis - sharedPreferences.getLong(Constants.SP_KEY_LAST_REINITIALIZE, 0L)) > 1800000) {
-            MiPushClient.reInitialize(this.f45a, hu.PackageUnregistered);
+            MiPushClient.reInitialize(this.f46a, hu.PackageUnregistered);
             sharedPreferences.edit().putLong(Constants.SP_KEY_LAST_REINITIALIZE, currentTimeMillis).commit();
         }
     }
@@ -650,11 +650,11 @@ public class av {
     }
 
     public static void a(Context context, String str) {
-        synchronized (f43a) {
-            f44a.remove(str);
+        synchronized (f44a) {
+            f45a.remove(str);
             d.m80a(context);
             SharedPreferences a2 = d.a(context);
-            String a3 = com.xiaomi.push.ay.a(f44a, Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String a3 = com.xiaomi.push.ay.a(f45a, Constants.ACCEPT_TIME_SEPARATOR_SP);
             SharedPreferences.Editor edit = a2.edit();
             edit.putString("pref_msg_ids", a3);
             com.xiaomi.push.r.a(edit);
@@ -675,19 +675,19 @@ public class av {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.b("receive ack : messageId = " + a2 + "  realSource = " + str);
-            bk.a(this.f45a).a(a2, str, Boolean.valueOf(hxVar.f570a == 0));
+            bk.a(this.f46a).a(a2, str, Boolean.valueOf(hxVar.f571a == 0));
         }
     }
 
     private void a(ic icVar) {
         com.xiaomi.channel.commonutils.logger.b.m42a("receive a message but decrypt failed. report now.");
-        Cif cif = new Cif(icVar.m396a().f525a, false);
-        cif.c(hq.DecryptMessageFail.f492a);
+        Cif cif = new Cif(icVar.m396a().f526a, false);
+        cif.c(hq.DecryptMessageFail.f493a);
         cif.b(icVar.m397a());
-        cif.d(icVar.f620b);
-        cif.f632a = new HashMap();
-        cif.f632a.put("regid", MiPushClient.getRegId(this.f45a));
-        ay.a(this.f45a).a((ay) cif, hg.Notification, false, (ht) null);
+        cif.d(icVar.f621b);
+        cif.f633a = new HashMap();
+        cif.f633a.put("regid", MiPushClient.getRegId(this.f46a));
+        ay.a(this.f46a).a((ay) cif, hg.Notification, false, (ht) null);
     }
 
     private void a(ij ijVar, ic icVar) {
@@ -702,8 +702,8 @@ public class av {
         if (!TextUtils.isEmpty(ijVar.d())) {
             hwVar.d(ijVar.d());
         }
-        hwVar.a(iq.a(this.f45a, icVar));
-        ay.a(this.f45a).a((ay) hwVar, hg.AckMessage, m396a);
+        hwVar.a(iq.a(this.f46a, icVar));
+        ay.a(this.f46a).a((ay) hwVar, hg.AckMessage, m396a);
     }
 
     private void a(String str, long j, f fVar) {
@@ -713,23 +713,23 @@ public class av {
         }
         if (j == 0) {
             synchronized (ao.class) {
-                if (ao.a(this.f45a).m58a(str)) {
-                    ao.a(this.f45a).c(str);
-                    if ("syncing".equals(ao.a(this.f45a).a(a2))) {
-                        ao.a(this.f45a).a(a2, "synced");
+                if (ao.a(this.f46a).m58a(str)) {
+                    ao.a(this.f46a).c(str);
+                    if ("syncing".equals(ao.a(this.f46a).a(a2))) {
+                        ao.a(this.f46a).a(a2, "synced");
                     }
                 }
             }
-        } else if (!"syncing".equals(ao.a(this.f45a).a(a2))) {
-            ao.a(this.f45a).c(str);
+        } else if (!"syncing".equals(ao.a(this.f46a).a(a2))) {
+            ao.a(this.f46a).c(str);
         } else {
             synchronized (ao.class) {
-                if (ao.a(this.f45a).m58a(str)) {
-                    if (ao.a(this.f45a).a(str) < 10) {
-                        ao.a(this.f45a).b(str);
-                        ay.a(this.f45a).a(str, a2, fVar);
+                if (ao.a(this.f46a).m58a(str)) {
+                    if (ao.a(this.f46a).a(str) < 10) {
+                        ao.a(this.f46a).b(str);
+                        ay.a(this.f46a).a(str, a2, fVar);
                     } else {
-                        ao.a(this.f45a).c(str);
+                        ao.a(this.f46a).c(str);
                     }
                 }
             }
@@ -739,24 +739,24 @@ public class av {
     /* renamed from: a  reason: collision with other method in class */
     private static boolean m59a(Context context, String str) {
         boolean z = false;
-        synchronized (f43a) {
+        synchronized (f44a) {
             d.m80a(context);
             SharedPreferences a2 = d.a(context);
-            if (f44a == null) {
+            if (f45a == null) {
                 String[] split = a2.getString("pref_msg_ids", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                f44a = new LinkedList();
+                f45a = new LinkedList();
                 for (String str2 : split) {
-                    f44a.add(str2);
+                    f45a.add(str2);
                 }
             }
-            if (f44a.contains(str)) {
+            if (f45a.contains(str)) {
                 z = true;
             } else {
-                f44a.add(str);
-                if (f44a.size() > 25) {
-                    f44a.poll();
+                f45a.add(str);
+                if (f45a.size() > 25) {
+                    f45a.poll();
                 }
-                String a3 = com.xiaomi.push.ay.a(f44a, Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String a3 = com.xiaomi.push.ay.a(f45a, Constants.ACCEPT_TIME_SEPARATOR_SP);
                 SharedPreferences.Editor edit = a2.edit();
                 edit.putString("pref_msg_ids", a3);
                 com.xiaomi.push.r.a(edit);
@@ -789,20 +789,20 @@ public class av {
             }
             if (str.contains("brand:" + ap.FCM.name())) {
                 com.xiaomi.channel.commonutils.logger.b.m42a("ASSEMBLE_PUSH : receive fcm token sync ack");
-                j.b(this.f45a, f.ASSEMBLE_PUSH_FCM, str);
-                a(a2, hxVar.f570a, f.ASSEMBLE_PUSH_FCM);
+                j.b(this.f46a, f.ASSEMBLE_PUSH_FCM, str);
+                a(a2, hxVar.f571a, f.ASSEMBLE_PUSH_FCM);
             } else if (str.contains("brand:" + ap.HUAWEI.name())) {
                 com.xiaomi.channel.commonutils.logger.b.m42a("ASSEMBLE_PUSH : receive hw token sync ack");
-                j.b(this.f45a, f.ASSEMBLE_PUSH_HUAWEI, str);
-                a(a2, hxVar.f570a, f.ASSEMBLE_PUSH_HUAWEI);
+                j.b(this.f46a, f.ASSEMBLE_PUSH_HUAWEI, str);
+                a(a2, hxVar.f571a, f.ASSEMBLE_PUSH_HUAWEI);
             } else if (str.contains("brand:" + ap.OPPO.name())) {
                 com.xiaomi.channel.commonutils.logger.b.m42a("ASSEMBLE_PUSH : receive COS token sync ack");
-                j.b(this.f45a, f.ASSEMBLE_PUSH_COS, str);
-                a(a2, hxVar.f570a, f.ASSEMBLE_PUSH_COS);
+                j.b(this.f46a, f.ASSEMBLE_PUSH_COS, str);
+                a(a2, hxVar.f571a, f.ASSEMBLE_PUSH_COS);
             } else if (str.contains("brand:" + ap.VIVO.name())) {
                 com.xiaomi.channel.commonutils.logger.b.m42a("ASSEMBLE_PUSH : receive FTOS token sync ack");
-                j.b(this.f45a, f.ASSEMBLE_PUSH_FTOS, str);
-                a(a2, hxVar.f570a, f.ASSEMBLE_PUSH_FTOS);
+                j.b(this.f46a, f.ASSEMBLE_PUSH_FTOS, str);
+                a(a2, hxVar.f571a, f.ASSEMBLE_PUSH_FTOS);
             }
         }
     }
@@ -816,8 +816,8 @@ public class av {
         if (!TextUtils.isEmpty(m396a.m366b())) {
             hwVar.c(m396a.m366b());
         }
-        hwVar.a(iq.a(this.f45a, icVar));
-        ay.a(this.f45a).a((ay) hwVar, hg.AckMessage, false, icVar.m396a());
+        hwVar.a(iq.a(this.f46a, icVar));
+        ay.a(this.f46a).a((ay) hwVar, hg.AckMessage, false, icVar.m396a());
     }
 
     public PushMessageHandler.a a(Intent intent) {
@@ -834,13 +834,13 @@ public class av {
             boolean booleanExtra = intent.getBooleanExtra("mipush_notified", false);
             if (byteArrayExtra == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("receiving an empty message, drop");
-                ev.a(this.f45a).a(this.f45a.getPackageName(), intent, "receiving an empty message, drop");
+                ev.a(this.f46a).a(this.f46a.getPackageName(), intent, "receiving an empty message, drop");
                 return null;
             }
             ic icVar = new ic();
             try {
                 iq.a(icVar, byteArrayExtra);
-                d m80a = d.m80a(this.f45a);
+                d m80a = d.m80a(this.f46a);
                 ht m396a = icVar.m396a();
                 if (icVar.a() == hg.SendMessage && m396a != null && !m80a.m90d() && !booleanExtra) {
                     m396a.a("mrt", stringExtra);
@@ -848,7 +848,7 @@ public class av {
                     if (m60a(icVar)) {
                         com.xiaomi.channel.commonutils.logger.b.b("this is a mina's message, ack later");
                         m396a.a(Constants.EXTRA_KEY_HYBRID_MESSAGE_TS, String.valueOf(m396a.m359a()));
-                        m396a.a(Constants.EXTRA_KEY_HYBRID_DEVICE_STATUS, String.valueOf((int) iq.a(this.f45a, icVar)));
+                        m396a.a(Constants.EXTRA_KEY_HYBRID_DEVICE_STATUS, String.valueOf((int) iq.a(this.f46a, icVar)));
                     } else {
                         b(icVar);
                     }
@@ -859,8 +859,8 @@ public class av {
                         objArr[0] = icVar.b();
                         objArr[1] = m396a != null ? m396a.m361a() : "";
                         com.xiaomi.channel.commonutils.logger.b.m42a(String.format("drop an un-encrypted messages. %1$s, %2$s", objArr));
-                        ev a2 = ev.a(this.f45a);
-                        String packageName = this.f45a.getPackageName();
+                        ev a2 = ev.a(this.f46a);
+                        String packageName = this.f46a.getPackageName();
                         Object[] objArr2 = new Object[2];
                         objArr2[0] = icVar.b();
                         objArr2[1] = m396a != null ? m396a.m361a() : "";
@@ -868,8 +868,8 @@ public class av {
                         return null;
                     } else if (!booleanExtra || m396a.m362a() == null || !m396a.m362a().containsKey("notify_effect")) {
                         com.xiaomi.channel.commonutils.logger.b.m42a(String.format("drop an un-encrypted messages. %1$s, %2$s", icVar.b(), m396a.m361a()));
-                        ev a3 = ev.a(this.f45a);
-                        String packageName2 = this.f45a.getPackageName();
+                        ev a3 = ev.a(this.f46a);
+                        String packageName2 = this.f46a.getPackageName();
                         Object[] objArr3 = new Object[2];
                         objArr3[0] = icVar.b();
                         objArr3[1] = m396a != null ? m396a.m361a() : "";
@@ -877,29 +877,29 @@ public class av {
                         return null;
                     }
                 }
-                if (m80a.m89c() || icVar.f613a == hg.Registration) {
+                if (m80a.m89c() || icVar.f614a == hg.Registration) {
                     if (!m80a.m89c() || !m80a.m91e()) {
                         return a(icVar, booleanExtra, byteArrayExtra, stringExtra2, intExtra);
                     }
-                    if (icVar.f613a == hg.UnRegistration) {
+                    if (icVar.f614a == hg.UnRegistration) {
                         m80a.m82a();
-                        MiPushClient.clearExtras(this.f45a);
+                        MiPushClient.clearExtras(this.f46a);
                         PushMessageHandler.a();
                     } else {
-                        MiPushClient.unregisterPush(this.f45a);
+                        MiPushClient.unregisterPush(this.f46a);
                     }
                 } else if (com.xiaomi.push.service.z.m550a(icVar)) {
                     return a(icVar, booleanExtra, byteArrayExtra, stringExtra2, intExtra);
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.d("receive message without registration. need re-register!");
-                    ev.a(this.f45a).a(this.f45a.getPackageName(), intent, "receive message without registration. need re-register!");
+                    ev.a(this.f46a).a(this.f46a.getPackageName(), intent, "receive message without registration. need re-register!");
                     a();
                 }
             } catch (iw e) {
-                ev.a(this.f45a).a(this.f45a.getPackageName(), intent, e);
+                ev.a(this.f46a).a(this.f46a.getPackageName(), intent, e);
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             } catch (Exception e2) {
-                ev.a(this.f45a).a(this.f45a.getPackageName(), intent, e2);
+                ev.a(this.f46a).a(this.f46a.getPackageName(), intent, e2);
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
         } else if ("com.xiaomi.mipush.ERROR".equals(action)) {
@@ -926,7 +926,7 @@ public class av {
             ic icVar3 = new ic();
             try {
                 iq.a(icVar3, byteArrayExtra3);
-                d m80a2 = d.m80a(this.f45a);
+                d m80a2 = d.m80a(this.f46a);
                 if (com.xiaomi.push.service.z.m550a(icVar3)) {
                     com.xiaomi.channel.commonutils.logger.b.d("message arrived: receive ignore reg message, ignore!");
                 } else if (!m80a2.m89c()) {

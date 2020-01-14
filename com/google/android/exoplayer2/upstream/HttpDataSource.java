@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public interface HttpDataSource extends e {
-    public static final com.google.android.exoplayer2.util.n<String> mFR = new com.google.android.exoplayer2.util.n<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
+    public static final com.google.android.exoplayer2.util.n<String> mFW = new com.google.android.exoplayer2.util.n<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.util.n
         /* renamed from: PY */
@@ -22,28 +22,28 @@ public interface HttpDataSource extends e {
 
     /* loaded from: classes5.dex */
     public static final class b {
-        private final Map<String, String> mFS = new HashMap();
-        private Map<String, String> mFT;
+        private final Map<String, String> mFX = new HashMap();
+        private Map<String, String> mFY;
 
-        public synchronized Map<String, String> dxV() {
-            if (this.mFT == null) {
-                this.mFT = Collections.unmodifiableMap(new HashMap(this.mFS));
+        public synchronized Map<String, String> dxX() {
+            if (this.mFY == null) {
+                this.mFY = Collections.unmodifiableMap(new HashMap(this.mFX));
             }
-            return this.mFT;
+            return this.mFY;
         }
     }
 
     /* loaded from: classes5.dex */
     public static abstract class a implements n {
-        private final b mFL = new b();
+        private final b mFQ = new b();
 
         protected abstract HttpDataSource b(b bVar);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.e.a
-        /* renamed from: dxU */
-        public final HttpDataSource dxH() {
-            return b(this.mFL);
+        /* renamed from: dxW */
+        public final HttpDataSource dxJ() {
+            return b(this.mFQ);
         }
     }
 

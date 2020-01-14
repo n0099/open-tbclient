@@ -13,9 +13,9 @@ import org.json.JSONObject;
 public class k {
     private String mUuid;
     private boolean isSuccess = true;
-    private int jzE = 0;
-    private boolean jyQ = false;
-    private List<com.baidu.tieba.m.c> jzF = new ArrayList();
+    private int jzJ = 0;
+    private boolean jyV = false;
+    private List<com.baidu.tieba.m.c> jzK = new ArrayList();
 
     static {
         if (com.baidu.adp.lib.util.f.checkSD()) {
@@ -37,35 +37,35 @@ public class k {
         this.mUuid = str;
     }
 
-    public void cyN() {
+    public void cyP() {
         this.isSuccess = false;
     }
 
-    public void cyO() {
+    public void cyQ() {
         this.isSuccess = true;
     }
 
-    public void cyP() {
-        this.jzE++;
-    }
-
-    public boolean cyQ() {
-        return this.jzE > 0;
-    }
-
     public void cyR() {
-        this.jyQ = true;
+        this.jzJ++;
     }
 
     public boolean cyS() {
-        return this.jyQ;
+        return this.jzJ > 0;
+    }
+
+    public void cyT() {
+        this.jyV = true;
+    }
+
+    public boolean cyU() {
+        return this.jyV;
     }
 
     public void a(com.baidu.tieba.m.c cVar) {
-        this.jzF.add(cVar);
-        cyU();
+        this.jzK.add(cVar);
+        cyW();
         b(cVar);
-        cyT();
+        cyV();
     }
 
     private void b(com.baidu.tieba.m.c cVar) {
@@ -79,7 +79,7 @@ public class k {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
                         synchronized ("debug") {
-                            com.baidu.tieba.j.d.a(new File(g.a.inS + g.a.inJ + lVar.uuid + g.a.inJ + "debug"), lVar.jzI.cyp().toString() + "\n", true);
+                            com.baidu.tieba.j.d.a(new File(g.a.inS + g.a.inJ + lVar.uuid + g.a.inJ + "debug"), lVar.jzN.cyr().toString() + "\n", true);
                         }
                     }
                     return null;
@@ -88,7 +88,7 @@ public class k {
         }
     }
 
-    private void cyT() {
+    private void cyV() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
             new BdAsyncTask<e, Void, Void>() { // from class: com.baidu.tieba.post.k.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -99,16 +99,16 @@ public class k {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            com.baidu.tieba.j.d.a(new File(g.a.inS + g.a.inJ + eVar.uuid + g.a.inJ + "kpi"), k.c(eVar.isSuccess, eVar.jyP, eVar.jyQ).toString(), false);
+                            com.baidu.tieba.j.d.a(new File(g.a.inS + g.a.inJ + eVar.uuid + g.a.inJ + "kpi"), k.c(eVar.isSuccess, eVar.jyU, eVar.jyV).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.jzE, this.jyQ, this.mUuid));
+            }.execute(new e(this.isSuccess, this.jzJ, this.jyV, this.mUuid));
         }
     }
 
-    private void cyU() {
+    private void cyW() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
             File file = new File(g.a.inS + g.a.inJ + this.mUuid + g.a.inJ);
             if (!file.exists()) {
@@ -118,7 +118,7 @@ public class k {
     }
 
     public JSONObject cfj() {
-        return c(this.isSuccess, this.jzE, this.jyQ);
+        return c(this.isSuccess, this.jzJ, this.jyV);
     }
 
     public static final JSONObject c(boolean z, int i, boolean z2) {
@@ -137,10 +137,10 @@ public class k {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!v.isEmpty(this.jzF)) {
-                int size = this.jzF.size();
+            if (!v.isEmpty(this.jzK)) {
+                int size = this.jzK.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.jzF.get(i).cyp());
+                    jSONArray.put(this.jzK.get(i).cyr());
                 }
             }
             jSONObject.put("running", jSONArray);

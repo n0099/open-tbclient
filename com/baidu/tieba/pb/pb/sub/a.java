@@ -74,13 +74,13 @@ import org.json.JSONArray;
 import tbclient.DeleteThreadInfo;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class a implements KeyboardEventLayout.a {
+public class a implements d, KeyboardEventLayout.a {
     private static final int iTx = TbadkCoreApplication.getInst().getListItemRule().getMaxCache();
     private View.OnClickListener ain;
     private BdTypeListView efW;
     private com.baidu.tbadk.core.view.a fNy;
     private TextView gBJ;
-    private e gOh;
+    private com.baidu.tieba.NEGFeedBack.e gOh;
     private View gbS;
     private NoNetworkView ghZ;
     private m iSh;
@@ -89,7 +89,7 @@ public class a implements KeyboardEventLayout.a {
     private RelativeLayout iTC;
     private View iTG;
     private ThreadSkinView iTN;
-    private d iTO;
+    private e iTO;
     private View iTP;
     private View iTR;
     private View iTT;
@@ -104,7 +104,13 @@ public class a implements KeyboardEventLayout.a {
     private ImageView iUb;
     private ImageView iUc;
     private c iUf;
+    private ArrayList<com.baidu.adp.widget.ListView.m> iUg;
+    private int iUh;
+    private boolean iUi;
+    private int iUj;
+    private int mIndex;
     private ProgressBar mProgress;
+    private int mTop;
     private NoDataView mNoDataView = null;
     private View.OnClickListener cGV = null;
     private NavigationBar mNavigationBar = null;
@@ -152,7 +158,7 @@ public class a implements KeyboardEventLayout.a {
             return true;
         }
     });
-    protected AdapterView.OnItemLongClickListener iUg = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.3
+    protected AdapterView.OnItemLongClickListener iUk = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.3
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
             PostData postData = (PostData) v.getItem(a.this.iTZ, i);
@@ -183,7 +189,7 @@ public class a implements KeyboardEventLayout.a {
             return false;
         }
     };
-    protected AdapterView.OnItemClickListener iUh = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.4
+    protected AdapterView.OnItemClickListener iUl = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.4
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             if (a.this.iTB != null && bc.checkUpIsLogin(a.this.iTB.getPageContext().getPageActivity())) {
@@ -191,7 +197,7 @@ public class a implements KeyboardEventLayout.a {
                     a.this.cpX();
                     if (view != null && (view.getTag() instanceof b.a)) {
                         a.this.cpZ();
-                        a.this.iTd.cqx();
+                        a.this.iTd.cqy();
                         return;
                     }
                     SparseArray sparseArray = (SparseArray) view.getTag();
@@ -252,13 +258,14 @@ public class a implements KeyboardEventLayout.a {
         this.iTy.setNavigationView(this.iTz);
         this.iTy.setListView(this.efW);
         this.iTy.setContentView(this.iTC);
-        this.iTO = new d(this.iTB.getPageContext());
+        this.iTy.setSubPbInitListener(this);
+        this.iTO = new e(this.iTB.getPageContext());
         this.iTO.setLineGone();
         this.iTT = this.iTO.getView();
         this.efW.setNextPage(this.iTO);
         this.iTO.setOnClickListener(this.ain);
-        this.efW.setOnItemClickListener(this.iUh);
-        this.efW.setOnItemLongClickListener(this.iUg);
+        this.efW.setOnItemClickListener(this.iUl);
+        this.efW.setOnItemLongClickListener(this.iUk);
         this.efW.setOnTouchListener(this.dmA);
         this.mProgress = (ProgressBar) this.iTy.findViewById(R.id.progress);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -525,7 +532,7 @@ public class a implements KeyboardEventLayout.a {
         AntiData bBu;
         if (this.iTB != null && sparseArray != null && this.iTA != null) {
             if (this.gOh == null) {
-                this.gOh = new e(this.iTB.getPageContext(), this.iTA);
+                this.gOh = new com.baidu.tieba.NEGFeedBack.e(this.iTB.getPageContext(), this.iTA);
             }
             SparseArray<String> sparseArray2 = new SparseArray<>();
             if (this.iTd != null && (bBu = this.iTd.bBu()) != null && bBu.getDelThreadInfoList() != null) {
@@ -597,7 +604,7 @@ public class a implements KeyboardEventLayout.a {
             this.hNH.a(new v.a() { // from class: com.baidu.tieba.pb.pb.sub.a.2
                 @Override // com.baidu.tieba.tbadkCore.v.a
                 public void a(WriteData writeData) {
-                    a.this.cqr();
+                    a.this.cqs();
                 }
             });
         }
@@ -611,7 +618,7 @@ public class a implements KeyboardEventLayout.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean pI(boolean z) {
-        if (this.iTd == null || this.iTd.cqu() == null) {
+        if (this.iTd == null || this.iTd.cqv() == null) {
             return false;
         }
         if (this.iTd.cje() != 0) {
@@ -622,7 +629,7 @@ public class a implements KeyboardEventLayout.a {
 
     public void cpY() {
         if (this.iTd != null) {
-            if ((!cqb() && this.iTT != null && this.iTT.isShown()) || com.baidu.tbadk.core.util.v.isEmpty(this.iTZ)) {
+            if ((!cqc() && this.iTT != null && this.iTT.isShown()) || com.baidu.tbadk.core.util.v.isEmpty(this.iTZ)) {
                 this.iTd.qL(false);
             } else {
                 this.iTd.qL(true);
@@ -665,7 +672,7 @@ public class a implements KeyboardEventLayout.a {
             postData.sJ(true);
             PostData postData2 = new PostData();
             postData2.setPostType(52);
-            if (!cqb() && this.iTT != null && this.iTT.isShown()) {
+            if (!cqc() && this.iTT != null && this.iTT.isShown()) {
                 i = (this.iUe - this.iUd) - 1;
             } else {
                 i = this.iUe - this.iUd;
@@ -724,13 +731,12 @@ public class a implements KeyboardEventLayout.a {
         this.dsP = z;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v35, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v57, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
     /* JADX WARN: Multi-variable type inference failed */
     public void a(m mVar, int i, boolean z) {
-        int i2;
-        int i3;
-        int i4;
         if (mVar != null) {
+            this.iUh = i;
+            this.iUi = z;
             if (this.dsP && this.iTA != null) {
                 this.iTA.setVisibility(8);
                 this.efW.removeHeaderView(this.iTA);
@@ -746,7 +752,7 @@ public class a implements KeyboardEventLayout.a {
                 this.iTD.setText(R.string.view_subject);
             }
             if (mVar.cjF() != null) {
-                this.dKh = mVar.cjF().cJx();
+                this.dKh = mVar.cjF().cJz();
                 if (this.dKh > 0) {
                     this.mNavigationBar.setCenterTextTitle(String.format(this.iTB.getResources().getString(R.string.subpb_floor_reply), Integer.valueOf(this.dKh)));
                     if (this.iTB != null) {
@@ -770,39 +776,51 @@ public class a implements KeyboardEventLayout.a {
                 this.iUf.setHasMoreData(false);
             }
             this.iTZ = mVar.cjJ();
-            if (this.iTZ == null || this.iTZ.size() <= iTx) {
-                i2 = 0;
-                i3 = 0;
-                i4 = 0;
-            } else {
-                int size = this.iTZ.size() - iTx;
-                zi(size);
-                int firstVisiblePosition = this.efW.getFirstVisiblePosition() - size;
+            this.iUj = 0;
+            this.mIndex = 0;
+            this.mTop = 0;
+            if (this.iTZ != null && this.iTZ.size() > iTx) {
+                this.iUj = this.iTZ.size() - iTx;
+                zi(this.iUj);
+                this.mIndex = this.efW.getFirstVisiblePosition() - this.iUj;
                 View childAt = this.efW.getChildAt(0);
-                i2 = childAt == null ? 0 : childAt.getTop();
-                i3 = firstVisiblePosition;
-                i4 = size;
+                this.mTop = childAt == null ? 0 : childAt.getTop();
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.iTZ);
+            this.iUg = new ArrayList<>();
+            this.iUg.addAll(this.iTZ);
             if (com.baidu.tbadk.core.util.v.isEmpty(this.iTZ)) {
                 this.efW.setNextPage(null);
                 if (this.dsP) {
-                    arrayList.add(0, new com.baidu.tieba.pb.pb.sub.b.a());
+                    this.iUg.add(0, new com.baidu.tieba.pb.pb.sub.b.a());
                 }
             } else {
                 this.efW.setNextPage(this.iTO);
             }
             com.baidu.tieba.pb.pb.sub.b.b bVar = new com.baidu.tieba.pb.pb.sub.b.b();
             bVar.setReplyNum(mVar.getTotalCount());
-            arrayList.add(0, bVar);
+            this.iUg.add(0, bVar);
             if (this.dsP) {
-                arrayList.add(0, mVar.cjF());
+                this.iUg.add(0, mVar.cjF());
             }
-            this.iUf.b(this.iSh.axQ(), arrayList);
-            a(mVar, mVar.cjF(), mVar.bVR(), mVar.aww(), i, z);
-            if (i4 > 0) {
-                this.efW.setSelectionFromTop(i3, i2);
+            if (!this.dsP || this.iTy.cqN()) {
+                this.iTy.setSubPbInitListener(null);
+                this.iUf.b(this.iSh.axQ(), this.iUg);
+                a(this.iSh, this.iSh.cjF(), this.iSh.bVR(), this.iSh.aww(), this.iUh, this.iUi);
+                if (this.iUj > 0) {
+                    this.efW.setSelectionFromTop(this.mIndex, this.mTop);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.sub.d
+    public void cqb() {
+        if (this.iSh != null && this.iSh.axQ() != null && this.iUg != null) {
+            this.iTy.setSubPbInitListener(null);
+            this.iUf.b(this.iSh.axQ(), this.iUg);
+            a(this.iSh, this.iSh.cjF(), this.iSh.bVR(), this.iSh.aww(), this.iUh, this.iUi);
+            if (this.iUj > 0) {
+                this.efW.setSelectionFromTop(this.mIndex, this.mTop);
             }
         }
     }
@@ -825,21 +843,21 @@ public class a implements KeyboardEventLayout.a {
         }
     }
 
-    public boolean cqb() {
+    public boolean cqc() {
         return this.iUf.ZK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(m mVar, PostData postData, boolean z, boolean z2, int i, boolean z3) {
         if (postData != null && !this.dsP) {
-            if (!StringUtils.isNull(postData.cJE())) {
+            if (!StringUtils.isNull(postData.cJG())) {
                 this.iTL.setVisibility(0);
-                this.iTL.startLoad(postData.cJE(), 10, true);
+                this.iTL.startLoad(postData.cJG(), 10, true);
             } else {
                 this.iTL.setVisibility(8);
             }
-            i cJG = postData.cJG();
-            if (cJG != null && cJG.keU) {
+            i cJI = postData.cJI();
+            if (cJI != null && cJI.keZ) {
                 this.iTM.setVisibility(0);
             } else {
                 this.iTM.setVisibility(8);
@@ -864,15 +882,15 @@ public class a implements KeyboardEventLayout.a {
                 }
             }
             this.iTJ.setText(aq.getFormatTime(postData.getTime()));
-            String format = String.format(this.iTB.getPageContext().getString(R.string.is_floor), Integer.valueOf(postData.cJx()));
+            String format = String.format(this.iTB.getPageContext().getString(R.string.is_floor), Integer.valueOf(postData.cJz()));
             if (mVar.axQ() != null && mVar.axQ().aBV()) {
                 this.iTI.setText((CharSequence) null);
             } else {
                 this.iTI.setText(format);
             }
             postData.azX().getUserTbVipInfoData();
-            boolean a = a(this.iTK, postData.cJz());
-            if (StringUtils.isNull(postData.cJE()) && !a && postData.aRH() != null) {
+            boolean a = a(this.iTK, postData.cJB());
+            if (StringUtils.isNull(postData.cJG()) && !a && postData.aRH() != null) {
                 this.Nw.setVisibility(0);
                 this.Nw.setTag(postData.aRH());
                 return;
@@ -948,7 +966,7 @@ public class a implements KeyboardEventLayout.a {
                     case 2:
                     case 18:
                         tbRichTextData.hf(true);
-                        textView.setMovementMethod(com.baidu.tieba.view.c.cRV());
+                        textView.setMovementMethod(com.baidu.tieba.view.c.cRX());
                         continue;
                     case 17:
                         String str = next.aRK().mGifInfo.mSharpText;
@@ -1076,7 +1094,7 @@ public class a implements KeyboardEventLayout.a {
                         z3 = true;
                     }
                     int i2 = 1;
-                    if (postData.cJx() == 1) {
+                    if (postData.cJz() == 1) {
                         i2 = 0;
                     }
                     if (ap.o(postData)) {
@@ -1161,7 +1179,7 @@ public class a implements KeyboardEventLayout.a {
                 z3 = true;
             }
             int i22 = 1;
-            if (postData.cJx() == 1) {
+            if (postData.cJz() == 1) {
             }
             if (ap.o(postData)) {
             }
@@ -1190,7 +1208,7 @@ public class a implements KeyboardEventLayout.a {
         }
     }
 
-    public View cqc() {
+    public View cqd() {
         return this.iTT;
     }
 
@@ -1226,11 +1244,11 @@ public class a implements KeyboardEventLayout.a {
         this.iTB.getLayoutMode().onModeChanged(this.iTR);
     }
 
-    public void cqd() {
+    public void cqe() {
         this.mProgress.setVisibility(0);
     }
 
-    public void cqe() {
+    public void cqf() {
         this.efW.setVisibility(0);
         this.mProgress.setVisibility(8);
         this.iTO.endLoadData();
@@ -1242,15 +1260,15 @@ public class a implements KeyboardEventLayout.a {
         this.iTO.bzy();
     }
 
-    public boolean cqf() {
-        return this.iTy.cqf();
+    public boolean cqg() {
+        return this.iTy.cqg();
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
         this.iUf.setLongClickListener(onLongClickListener);
     }
 
-    public View cqg() {
+    public View cqh() {
         return this.iTA;
     }
 
@@ -1258,11 +1276,11 @@ public class a implements KeyboardEventLayout.a {
         return this.gBJ;
     }
 
-    public ImageView cqh() {
+    public ImageView cqi() {
         return this.iUb;
     }
 
-    public ImageView cqi() {
+    public ImageView cqj() {
         return this.iUc;
     }
 
@@ -1270,15 +1288,15 @@ public class a implements KeyboardEventLayout.a {
     public void zj(int i) {
     }
 
-    public View cqj() {
+    public View cqk() {
         return this.iTD;
     }
 
-    public View cqk() {
+    public View cql() {
         return this.iTL;
     }
 
-    public MorePopupWindow cql() {
+    public MorePopupWindow cqm() {
         return this.iTQ;
     }
 
@@ -1295,7 +1313,7 @@ public class a implements KeyboardEventLayout.a {
         }
     }
 
-    public TextView cqm() {
+    public TextView cqn() {
         return this.iTK;
     }
 
@@ -1309,7 +1327,7 @@ public class a implements KeyboardEventLayout.a {
         }
     }
 
-    public z cqn() {
+    public z cqo() {
         return this.iTg;
     }
 
@@ -1323,12 +1341,12 @@ public class a implements KeyboardEventLayout.a {
         this.iTy.onDestroy();
     }
 
-    public void cqo() {
+    public void cqp() {
         if (this.iTB.isPaused()) {
         }
     }
 
-    public View cqp() {
+    public View cqq() {
         return this.iTE;
     }
 
@@ -1349,14 +1367,14 @@ public class a implements KeyboardEventLayout.a {
         return this.mNavigationBar.getHeight();
     }
 
-    public int cqq() {
+    public int cqr() {
         if (this.hNH == null || this.hNH.aLV() == null) {
             return 0;
         }
         return this.hNH.aLV().getHeight();
     }
 
-    public void cqr() {
+    public void cqs() {
         if (this.gBJ != null && this.hNH != null) {
             if (this.hNH.aMZ()) {
                 this.gBJ.setText(R.string.draft_to_send);

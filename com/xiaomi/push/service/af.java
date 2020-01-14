@@ -27,10 +27,10 @@ public class af {
         int a;
 
         /* renamed from: a  reason: collision with other field name */
-        byte[] f847a;
+        byte[] f848a;
 
         public a(byte[] bArr, int i) {
-            this.f847a = bArr;
+            this.f848a = bArr;
             this.a = i;
         }
     }
@@ -40,10 +40,10 @@ public class af {
         public long a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Bitmap f848a;
+        public Bitmap f849a;
 
         public b(Bitmap bitmap, long j) {
-            this.f848a = bitmap;
+            this.f849a = bitmap;
             this.a = j;
         }
     }
@@ -263,7 +263,7 @@ public class af {
         Bitmap b2 = b(context, str);
         try {
             if (b2 != null) {
-                bVar.f848a = b2;
+                bVar.f849a = b2;
             } else {
                 try {
                     a a2 = a(str, z);
@@ -271,7 +271,7 @@ public class af {
                         com.xiaomi.push.y.a((Closeable) null);
                     } else {
                         bVar.a = a2.a;
-                        byte[] bArr = a2.f847a;
+                        byte[] bArr = a2.f848a;
                         if (bArr != null) {
                             if (z) {
                                 byteArrayInputStream = new ByteArrayInputStream(bArr);
@@ -279,8 +279,8 @@ public class af {
                                     int a3 = a(context, byteArrayInputStream);
                                     BitmapFactory.Options options = new BitmapFactory.Options();
                                     options.inSampleSize = a3;
-                                    bVar.f848a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-                                    a(context, a2.f847a, str);
+                                    bVar.f849a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                                    a(context, a2.f848a, str);
                                     com.xiaomi.push.y.a(byteArrayInputStream);
                                 } catch (Exception e) {
                                     e = e;
@@ -289,11 +289,11 @@ public class af {
                                     return bVar;
                                 }
                             } else {
-                                bVar.f848a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                                bVar.f849a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                             }
                         }
                         byteArrayInputStream = null;
-                        a(context, a2.f847a, str);
+                        a(context, a2.f848a, str);
                         com.xiaomi.push.y.a(byteArrayInputStream);
                     }
                 } catch (Exception e2) {

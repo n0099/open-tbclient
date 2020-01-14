@@ -76,7 +76,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
                         }
                         TiebaStatic.log(anVar);
                         if (e.this.gMa != null && !e.this.gMa.bJO()) {
-                            com.baidu.tieba.r.c.cIs().b(e.this.mBdUniqueId, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 1, gVar2.fJU, false, (String) null, (String) null));
+                            com.baidu.tieba.r.c.cIu().b(e.this.mBdUniqueId, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 1, gVar2.fJU, false, (String) null, (String) null));
                         }
                     } else if (view.getId() == R.id.agree_view_container) {
                         an anVar2 = new an("c12414");
@@ -92,7 +92,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
                             anVar3.cp("uid", TbadkCoreApplication.getCurrentAccount());
                         }
                         TiebaStatic.log(anVar3);
-                        com.baidu.tieba.r.c.cIs().b(e.this.mBdUniqueId, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 5, gVar2.fJU, false, (String) null, (String) null));
+                        com.baidu.tieba.r.c.cIu().b(e.this.mBdUniqueId, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 5, gVar2.fJU, false, (String) null, (String) null));
                     } else if (view.getId() == R.id.user_icon || view.getId() == R.id.user_name) {
                         an anVar4 = new an("c12412");
                         anVar4.cp("fid", gVar2.forumId);
@@ -100,7 +100,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
                             anVar4.cp("uid", TbadkCoreApplication.getCurrentAccount());
                         }
                         TiebaStatic.log(anVar4);
-                        com.baidu.tieba.r.c.cIs().b(e.this.mBdUniqueId, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 2, gVar2.fJU, false, (String) null, (String) null));
+                        com.baidu.tieba.r.c.cIu().b(e.this.mBdUniqueId, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 2, gVar2.fJU, false, (String) null, (String) null));
                     } else if (view.getId() == R.id.attention) {
                         an anVar5 = new an("c12413");
                         anVar5.cp("fid", gVar2.forumId);
@@ -199,7 +199,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
         bjVar.setBaijiahaoData(gVar.mBaijiahao);
         bjVar.setFid(com.baidu.adp.lib.f.b.toLong(gVar.forumId, 0L));
         bjVar.setThreadType(40);
-        com.baidu.tieba.r.c.cIs().a(this.mBdUniqueId, a, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_exp", i + 1, false, null, null));
+        com.baidu.tieba.r.c.cIu().a(this.mBdUniqueId, a, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_exp", i + 1, false, null, null));
         return aVar.getView();
     }
 

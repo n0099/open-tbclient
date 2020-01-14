@@ -36,13 +36,13 @@ public class b extends l {
         }
     }
 
-    public void cTu() {
+    public void cTw() {
         if (this.dss instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dss).cTu();
+            ((EditorInfoContainer) this.dss).cTw();
         }
     }
 
-    public void cTy() {
+    public void cTA() {
         if (this.dss instanceof EditorInfoContainer) {
             ((EditorInfoContainer) this.dss).hide();
         }

@@ -5,8 +5,8 @@ import java.util.PriorityQueue;
 /* loaded from: classes5.dex */
 public final class PriorityTaskManager {
     private final Object lock;
-    private final PriorityQueue<Integer> mGM;
-    private int mGN;
+    private final PriorityQueue<Integer> mGR;
+    private int mGS;
 
     /* loaded from: classes5.dex */
     public static class PriorityTooLowException extends IOException {
@@ -17,15 +17,15 @@ public final class PriorityTaskManager {
 
     public void add(int i) {
         synchronized (this.lock) {
-            this.mGM.add(Integer.valueOf(i));
-            this.mGN = Math.max(this.mGN, i);
+            this.mGR.add(Integer.valueOf(i));
+            this.mGS = Math.max(this.mGS, i);
         }
     }
 
     public void remove(int i) {
         synchronized (this.lock) {
-            this.mGM.remove(Integer.valueOf(i));
-            this.mGN = this.mGM.isEmpty() ? Integer.MIN_VALUE : this.mGM.peek().intValue();
+            this.mGR.remove(Integer.valueOf(i));
+            this.mGS = this.mGR.isEmpty() ? Integer.MIN_VALUE : this.mGR.peek().intValue();
             this.lock.notifyAll();
         }
     }

@@ -8,14 +8,14 @@ public class aj extends ai.b {
     final /* synthetic */ ai a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f122a;
+    final /* synthetic */ String f123a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aj(ai aiVar, ai.a aVar, String str) {
         super(aVar);
         this.a = aiVar;
-        this.f122a = str;
+        this.f123a = str;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,7 +27,7 @@ public class aj extends ai.b {
     @Override // com.xiaomi.push.ai.b
     void b() {
         SharedPreferences sharedPreferences;
-        sharedPreferences = this.a.f118a;
-        sharedPreferences.edit().putLong(this.f122a, System.currentTimeMillis()).commit();
+        sharedPreferences = this.a.f119a;
+        sharedPreferences.edit().putLong(this.f123a, System.currentTimeMillis()).commit();
     }
 }

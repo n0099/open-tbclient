@@ -242,7 +242,7 @@ public class a {
             Iterator<PostData> it = fVar.ciU().iterator();
             while (it.hasNext()) {
                 postData = it.next();
-                if (postData != null && postData.cJx() == 1) {
+                if (postData != null && postData.cJz() == 1) {
                     break;
                 }
             }

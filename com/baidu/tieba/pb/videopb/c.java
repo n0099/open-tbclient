@@ -18,7 +18,7 @@ public class c {
     private k iCN;
     private com.baidu.tieba.pb.pb.a.d iCW;
     private com.baidu.tieba.pb.data.f iCZ;
-    private ReplyFragment iXv;
+    private ReplyFragment iXA;
     private ArrayList<PostData> postList;
     private final List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
     private String anD = null;
@@ -31,15 +31,15 @@ public class c {
     private View.OnLongClickListener mOnLongClickListener = null;
 
     public c(ReplyFragment replyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iXv = replyFragment;
+        this.iXA = replyFragment;
         this.gqN = bdTypeRecyclerView;
         vi();
     }
 
     private void vi() {
-        this.iCN = new k(this.iXv.clL(), PostData.kfm);
-        this.iCN.a((TbRichTextView.c) this.iXv.clL());
-        this.iCW = new com.baidu.tieba.pb.pb.a.d(this.iXv.clL(), PostData.kfr);
+        this.iCN = new k(this.iXA.clL(), PostData.kfr);
+        this.iCN.a((TbRichTextView.c) this.iXA.clL());
+        this.iCW = new com.baidu.tieba.pb.pb.a.d(this.iXA.clL(), PostData.kfw);
         this.apl.add(this.iCN);
         this.apl.add(this.iCW);
         this.gqN.addAdapters(this.apl);
@@ -79,7 +79,7 @@ public class c {
                     break;
                 }
                 m next = it.next();
-                if ((next instanceof PostData) && ((PostData) next).cJx() == 1) {
+                if ((next instanceof PostData) && ((PostData) next).cJz() == 1) {
                     postData = (PostData) next;
                     z = true;
                     break;

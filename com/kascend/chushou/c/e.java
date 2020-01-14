@@ -1848,13 +1848,13 @@ public class e {
                                                     JSONObject optJSONObject9 = optJSONObject8.optJSONObject("landscape");
                                                     if (optJSONObject9 != null) {
                                                         aVar.o = optJSONObject9.optString("url", "");
-                                                        aVar.nbS = dG(optJSONObject9);
+                                                        aVar.nbX = dG(optJSONObject9);
                                                         aVar.a = optJSONObject9.optInt("duration", 0);
                                                     }
                                                     JSONObject optJSONObject10 = optJSONObject8.optJSONObject("portrait");
                                                     if (optJSONObject10 != null) {
                                                         aVar.o = optJSONObject10.optString("url", "");
-                                                        aVar.nbT = dG(optJSONObject10);
+                                                        aVar.nbY = dG(optJSONObject10);
                                                         aVar.a = optJSONObject10.optInt("duration", 0);
                                                     }
                                                     if (arrayList11 == null) {
@@ -2990,11 +2990,11 @@ public class e {
         dVar.q = jSONObject.optString("displayType", "94");
         JSONObject optJSONObject = jSONObject.optJSONObject("landscape");
         if (optJSONObject != null) {
-            dVar.nbS = dG(optJSONObject);
+            dVar.nbX = dG(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("portrait");
         if (optJSONObject2 != null) {
-            dVar.nbT = dG(optJSONObject2);
+            dVar.nbY = dG(optJSONObject2);
         }
         dVar.o = jSONObject.optString("url", "");
     }

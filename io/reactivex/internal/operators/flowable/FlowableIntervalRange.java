@@ -33,9 +33,9 @@ public final class FlowableIntervalRange extends io.reactivex.g<Long> {
         cVar.onSubscribe(intervalRangeSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c dHW = vVar.dHW();
-            intervalRangeSubscriber.setResource(dHW);
-            dHW.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
+            v.c dHY = vVar.dHY();
+            intervalRangeSubscriber.setResource(dHY);
+            dHY.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalRangeSubscriber.setResource(vVar.a(intervalRangeSubscriber, this.initialDelay, this.period, this.unit));

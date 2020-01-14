@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
-    private c jfE;
-    private List<m> jfF;
-    private PersonMoreData jfG;
+    private c jfJ;
+    private List<m> jfK;
+    private PersonMoreData jfL;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, z<g> zVar) {
         this.mPageContext = tbPageContext;
-        this.jfE = new c(tbPageContext);
-        this.jfE.c(zVar);
+        this.jfJ = new c(tbPageContext);
+        this.jfJ.c(zVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.jfG = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.jfL = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
-        this.jfE.initView(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
-        ctE();
-        this.jfE.setData(this.jfF);
+        this.jfJ.initView(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
+        ctG();
+        this.jfJ.setData(this.jfK);
     }
 
     public void onChangeSkinType() {
-        if (this.jfE != null) {
-            this.jfE.onChangeSkinType();
+        if (this.jfJ != null) {
+            this.jfJ.onChangeSkinType();
         }
     }
 
-    private void ctE() {
-        this.jfF = new ArrayList();
-        if (this.jfG != null && !v.isEmpty(this.jfG.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.jfG.mUrlMaps) {
+    private void ctG() {
+        this.jfK = new ArrayList();
+        if (this.jfL != null && !v.isEmpty(this.jfL.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.jfL.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     g gVar = new g();
                     gVar.title = personMoreItemData.mName;
                     gVar.type = 36;
                     gVar.cHN = personMoreItemData.mUrl;
                     gVar.itemId = personMoreItemData.mId;
-                    this.jfF.add(gVar);
+                    this.jfK.add(gVar);
                 }
             }
         }

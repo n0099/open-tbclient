@@ -3,52 +3,52 @@ package com.google.android.exoplayer2.extractor.f;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
 final class o {
-    private boolean mmr;
-    public byte[] mnA;
-    public int mnB;
-    private final int mny;
-    private boolean mnz;
+    private boolean mmw;
+    private final int mnD;
+    private boolean mnE;
+    public byte[] mnF;
+    public int mnG;
 
     public o(int i, int i2) {
-        this.mny = i;
-        this.mnA = new byte[i2 + 3];
-        this.mnA[2] = 1;
+        this.mnD = i;
+        this.mnF = new byte[i2 + 3];
+        this.mnF[2] = 1;
     }
 
     public void reset() {
-        this.mmr = false;
-        this.mnz = false;
+        this.mmw = false;
+        this.mnE = false;
     }
 
     public boolean aW() {
-        return this.mnz;
+        return this.mnE;
     }
 
     public void JU(int i) {
-        com.google.android.exoplayer2.util.a.checkState(!this.mmr);
-        this.mmr = i == this.mny;
-        if (this.mmr) {
-            this.mnB = 3;
-            this.mnz = false;
+        com.google.android.exoplayer2.util.a.checkState(!this.mmw);
+        this.mmw = i == this.mnD;
+        if (this.mmw) {
+            this.mnG = 3;
+            this.mnE = false;
         }
     }
 
     public void s(byte[] bArr, int i, int i2) {
-        if (this.mmr) {
+        if (this.mmw) {
             int i3 = i2 - i;
-            if (this.mnA.length < this.mnB + i3) {
-                this.mnA = Arrays.copyOf(this.mnA, (this.mnB + i3) * 2);
+            if (this.mnF.length < this.mnG + i3) {
+                this.mnF = Arrays.copyOf(this.mnF, (this.mnG + i3) * 2);
             }
-            System.arraycopy(bArr, i, this.mnA, this.mnB, i3);
-            this.mnB = i3 + this.mnB;
+            System.arraycopy(bArr, i, this.mnF, this.mnG, i3);
+            this.mnG = i3 + this.mnG;
         }
     }
 
     public boolean JV(int i) {
-        if (this.mmr) {
-            this.mnB -= i;
-            this.mmr = false;
-            this.mnz = true;
+        if (this.mmw) {
+            this.mnG -= i;
+            this.mmw = false;
+            this.mnE = true;
             return true;
         }
         return false;

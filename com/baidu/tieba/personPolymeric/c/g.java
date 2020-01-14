@@ -9,11 +9,11 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes9.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId jnO = BdUniqueId.gen();
+    public static final BdUniqueId jnT = BdUniqueId.gen();
     public int giftNum = 0;
-    public boolean jnP;
-    public String jnQ;
-    public List<com.baidu.adp.widget.ListView.m> jnR;
+    public boolean jnU;
+    public String jnV;
+    public List<com.baidu.adp.widget.ListView.m> jnW;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
@@ -23,7 +23,7 @@ public class g extends com.baidu.tieba.card.data.b {
         if (user != null && !v.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.sG = user.name;
-            this.jnQ = user.name_show;
+            this.jnV = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.jnP = false;
+                this.jnU = false;
             } else {
-                this.jnP = true;
+                this.jnU = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.jnR = new ArrayList();
+            this.jnW = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.jnR.add(oVar);
+                    this.jnW.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.isEmpty(this.jnR);
+        return !v.isEmpty(this.jnW);
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return jnO;
+        return jnT;
     }
 }

@@ -9,45 +9,45 @@ import java.util.LinkedList;
 public class d {
     private boolean Nj;
     private com.baidu.tieba.pb.data.f iCZ;
-    private com.baidu.tieba.pb.data.f iXw;
-    private Rect iXy;
-    private boolean iXz;
-    private p<bj> iXx = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> iXA = new LinkedList<>();
-    private p<bj> iXB = new p<>();
+    private com.baidu.tieba.pb.data.f iXB;
+    private Rect iXD;
+    private boolean iXE;
     private p<bj> iXC = new p<>();
-    private p<Boolean> iXD = new p<>();
-    private p<Boolean> iXE = new p<>();
-    private p<Boolean> iXF = new p<>();
-    private p<Integer> iXG = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.f> iXF = new LinkedList<>();
+    private p<bj> iXG = new p<>();
+    private p<bj> iXH = new p<>();
+    private p<Boolean> iXI = new p<>();
+    private p<Boolean> iXJ = new p<>();
+    private p<Boolean> iXK = new p<>();
+    private p<Integer> iXL = new p<>();
 
     public void G(com.baidu.tieba.pb.data.f fVar) {
-        this.iXw = fVar;
+        this.iXB = fVar;
         setData(fVar);
-        this.iXB.setValue(null);
-        this.iXx.setValue(fVar.ciS());
+        this.iXG.setValue(null);
+        this.iXC.setValue(fVar.ciS());
     }
 
-    public com.baidu.tieba.pb.data.f crH() {
-        return this.iXw;
+    public com.baidu.tieba.pb.data.f crJ() {
+        return this.iXB;
     }
 
-    public com.baidu.tieba.pb.data.f crI() {
+    public com.baidu.tieba.pb.data.f crK() {
         return this.iCZ;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
         this.iCZ = fVar;
         if (fVar != null) {
-            this.iXx.setValue(fVar.ciS());
+            this.iXC.setValue(fVar.ciS());
             if (!v.isEmpty(fVar.cjr())) {
                 aL(fVar.cjr().get(0));
             }
         }
     }
 
-    public p<bj> crJ() {
-        return this.iXx;
+    public p<bj> crL() {
+        return this.iXC;
     }
 
     public boolean isFromCDN() {
@@ -59,70 +59,70 @@ public class d {
     }
 
     public void i(Rect rect) {
-        this.iXy = rect;
+        this.iXD = rect;
     }
 
-    public Rect crK() {
-        return this.iXy;
-    }
-
-    public void qP(boolean z) {
-        this.iXz = z;
-    }
-
-    public boolean crL() {
-        return this.iXz;
-    }
-
-    public LinkedList<com.baidu.tieba.pb.data.f> crM() {
-        return this.iXA;
-    }
-
-    public void aK(bj bjVar) {
-        this.iXB.setValue(bjVar);
-    }
-
-    public void aL(bj bjVar) {
-        this.iXC.setValue(bjVar);
-    }
-
-    public p<bj> crN() {
-        return this.iXB;
-    }
-
-    public p<bj> crO() {
-        return this.iXC;
-    }
-
-    public p<Boolean> crP() {
+    public Rect crM() {
         return this.iXD;
     }
 
-    public void qQ(boolean z) {
-        this.iXD.setValue(Boolean.valueOf(z));
+    public void qP(boolean z) {
+        this.iXE = z;
     }
 
-    public p<Boolean> crQ() {
+    public boolean crN() {
         return this.iXE;
     }
 
-    public void qR(boolean z) {
-        this.iXE.postValue(Boolean.valueOf(z));
-    }
-
-    public void setIsLoading(boolean z) {
-        this.iXF.setValue(Boolean.valueOf(z));
-    }
-
-    public p<Boolean> crR() {
+    public LinkedList<com.baidu.tieba.pb.data.f> crO() {
         return this.iXF;
     }
 
-    public void setCurrentTab(int i) {
-        this.iXG.setValue(Integer.valueOf(i));
+    public void aK(bj bjVar) {
+        this.iXG.setValue(bjVar);
     }
 
-    public p<Integer> crS() {
+    public void aL(bj bjVar) {
+        this.iXH.setValue(bjVar);
+    }
+
+    public p<bj> crP() {
         return this.iXG;
+    }
+
+    public p<bj> crQ() {
+        return this.iXH;
+    }
+
+    public p<Boolean> crR() {
+        return this.iXI;
+    }
+
+    public void qQ(boolean z) {
+        this.iXI.setValue(Boolean.valueOf(z));
+    }
+
+    public p<Boolean> crS() {
+        return this.iXJ;
+    }
+
+    public void qR(boolean z) {
+        this.iXJ.postValue(Boolean.valueOf(z));
+    }
+
+    public void setIsLoading(boolean z) {
+        this.iXK.setValue(Boolean.valueOf(z));
+    }
+
+    public p<Boolean> crT() {
+        return this.iXK;
+    }
+
+    public void setCurrentTab(int i) {
+        this.iXL.setValue(Integer.valueOf(i));
+    }
+
+    public p<Integer> crU() {
+        return this.iXL;
     }
 }

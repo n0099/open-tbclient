@@ -6,8 +6,8 @@ public class d {
     public int i;
     public String k;
     public int l;
-    public H5Positon nbS;
-    public H5Positon nbT;
+    public H5Positon nbX;
+    public H5Positon nbY;
     public String o;
     public String p;
     public String q;

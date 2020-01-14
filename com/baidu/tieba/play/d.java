@@ -5,23 +5,23 @@ public interface d {
 
     void GK(String str);
 
-    String cwZ();
+    String cxb();
 
-    void cxa();
-
-    boolean cxb();
-
-    boolean cxc();
+    void cxc();
 
     boolean cxd();
 
     boolean cxe();
 
-    int cxf();
+    boolean cxf();
 
-    void cxg();
+    boolean cxg();
 
-    j cxh();
+    int cxh();
+
+    void cxi();
+
+    j cxj();
 
     void ez(long j);
 

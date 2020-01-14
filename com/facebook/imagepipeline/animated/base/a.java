@@ -8,9 +8,9 @@ public interface a {
 
     AnimatedDrawableFrameInfo Hi(int i);
 
-    int dmo();
+    int dmq();
 
-    int dmp();
+    int dmr();
 
     int getFrameCount();
 

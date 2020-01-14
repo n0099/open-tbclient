@@ -4,10 +4,10 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 final class c implements com.google.android.exoplayer2.text.e {
-    private final List<com.google.android.exoplayer2.text.b> myt;
+    private final List<com.google.android.exoplayer2.text.b> myy;
 
     public c(List<com.google.android.exoplayer2.text.b> list) {
-        this.myt = Collections.unmodifiableList(list);
+        this.myy = Collections.unmodifiableList(list);
     }
 
     @Override // com.google.android.exoplayer2.text.e
@@ -16,7 +16,7 @@ final class c implements com.google.android.exoplayer2.text.e {
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public int dww() {
+    public int dwy() {
         return 1;
     }
 
@@ -28,6 +28,6 @@ final class c implements com.google.android.exoplayer2.text.e {
 
     @Override // com.google.android.exoplayer2.text.e
     public List<com.google.android.exoplayer2.text.b> gz(long j) {
-        return j >= 0 ? this.myt : Collections.emptyList();
+        return j >= 0 ? this.myy : Collections.emptyList();
     }
 }

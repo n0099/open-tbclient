@@ -16,14 +16,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity kNZ;
+    private HotTopicChangeFourmActivity kOe;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.kNZ = hotTopicChangeFourmActivity;
-        this.mContext = this.kNZ.getPageContext().getContext();
+        this.kOe = hotTopicChangeFourmActivity;
+        this.mContext = this.kOe.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -84,29 +84,29 @@ public class a extends BaseAdapter {
     private C0625a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0625a c0625a;
         if (obj == null) {
-            c0625a = cTD();
+            c0625a = cTF();
         } else {
             c0625a = (C0625a) obj;
         }
-        c0625a.kOb.setText(KF(hotTopicBussinessData.mForumName));
-        c0625a.kOa.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0625a.kOg.setText(KF(hotTopicBussinessData.mForumName));
+        c0625a.kOf.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         am.setBackgroundResource(c0625a.mRootView, R.drawable.select_forum_item_bg);
-        am.setViewTextColor(c0625a.kOb, (int) R.color.cp_cont_b);
+        am.setViewTextColor(c0625a.kOg, (int) R.color.cp_cont_b);
         am.setBackgroundColor(c0625a.gwt, R.color.cp_bg_line_e);
         return c0625a;
     }
 
-    private C0625a cTD() {
+    private C0625a cTF() {
         C0625a c0625a = new C0625a();
         c0625a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
         am.setBackgroundResource(c0625a.mRootView, R.drawable.select_forum_item_bg);
-        am.setViewTextColor(c0625a.kOb, (int) R.color.cp_cont_b);
-        c0625a.kOb = (TextView) c0625a.mRootView.findViewById(R.id.fourm_tv);
+        am.setViewTextColor(c0625a.kOg, (int) R.color.cp_cont_b);
+        c0625a.kOg = (TextView) c0625a.mRootView.findViewById(R.id.fourm_tv);
         c0625a.gwt = c0625a.mRootView.findViewById(R.id.line_view);
-        c0625a.kOa = (TbImageView) c0625a.mRootView.findViewById(R.id.icon_img);
-        c0625a.kOa.setDefaultBgResource(R.color.cp_bg_line_e);
-        c0625a.kOa.setDefaultResource(R.drawable.transparent_bg);
-        c0625a.kOa.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        c0625a.kOf = (TbImageView) c0625a.mRootView.findViewById(R.id.icon_img);
+        c0625a.kOf.setDefaultBgResource(R.color.cp_bg_line_e);
+        c0625a.kOf.setDefaultResource(R.drawable.transparent_bg);
+        c0625a.kOf.setDefaultErrorResource(R.drawable.icon_default_ba_120);
         c0625a.mRootView.setTag(c0625a);
         return c0625a;
     }
@@ -116,8 +116,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes11.dex */
     public class C0625a {
         public View gwt;
-        public TbImageView kOa;
-        public TextView kOb;
+        public TbImageView kOf;
+        public TextView kOg;
         public View mRootView;
 
         private C0625a() {

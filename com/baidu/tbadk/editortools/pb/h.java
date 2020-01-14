@@ -80,11 +80,11 @@ public class h extends com.baidu.tbadk.editortools.d {
                     str = postWriteCallBackData.getErrorString();
                 }
                 if (z) {
-                    WriteData cGm = h.this.duf.cGm();
+                    WriteData cGo = h.this.duf.cGo();
                     h.this.duf.d((WriteData) null);
                     h.this.duf.sO(false);
                     h.this.mVoiceModel = null;
-                    if (cGm != null && cGm != null && cGm.getType() == 2) {
+                    if (cGo != null && cGo != null && cGo.getType() == 2) {
                         h.this.duP.aMp();
                     }
                 } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.bc(i, str)) {
@@ -221,10 +221,10 @@ public class h extends com.baidu.tbadk.editortools.d {
                     }
                     aMS();
                     gC(true);
-                    WriteData cGm = this.duf.cGm();
+                    WriteData cGo = this.duf.cGo();
                     this.duf.d((WriteData) null);
                     this.duf.sO(false);
-                    if (cGm != null && cGm != null && cGm.getType() == 2) {
+                    if (cGo != null && cGo != null && cGo.getType() == 2) {
                         this.duP.aMp();
                         return;
                     }
@@ -237,7 +237,7 @@ public class h extends com.baidu.tbadk.editortools.d {
                 case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                     PostWriteCallBackData postWriteCallBackData = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
                     if (this.duR != null) {
-                        this.duR.callback(false, postWriteCallBackData, null, this.duf.cGm(), null);
+                        this.duR.callback(false, postWriteCallBackData, null, this.duf.cGo(), null);
                         return;
                     }
                     return;
@@ -248,44 +248,44 @@ public class h extends com.baidu.tbadk.editortools.d {
     }
 
     public void aMQ() {
-        if (this.duf.cGm() == null) {
+        if (this.duf.cGo() == null) {
             WriteData uR = this.duP.uR(this.duP.aMq());
             if (uR != null && this.Np != null) {
                 uR.setBaijiahaoData(this.Np.getBaijiahaoData());
             }
             this.duf.d(uR);
         }
-        if (this.duf.cGm() != null) {
+        if (this.duf.cGo() != null) {
             if (this.duN != null) {
-                this.duf.cGm().setContent(this.duN.mContent);
-                this.duf.cGm().setSubPbReplyPrefix(this.duN.duZ);
+                this.duf.cGo().setContent(this.duN.mContent);
+                this.duf.cGo().setSubPbReplyPrefix(this.duN.duZ);
                 if (this.Np != null) {
-                    this.duf.cGm().setBaijiahaoData(this.Np.getBaijiahaoData());
+                    this.duf.cGo().setBaijiahaoData(this.Np.getBaijiahaoData());
                 }
             }
-            this.duf.cGm().setReplyId(this.duO);
+            this.duf.cGo().setReplyId(this.duO);
             if (this.mPostId != null) {
-                this.duf.cGm().setRepostId(this.duP.aMq());
+                this.duf.cGo().setRepostId(this.duP.aMq());
             }
             if (this.mVoiceModel != null) {
                 if (this.mVoiceModel.getId() != null) {
-                    this.duf.cGm().setVoice(this.mVoiceModel.getId());
-                    this.duf.cGm().setVoiceDuringTime(this.mVoiceModel.duration);
+                    this.duf.cGo().setVoice(this.mVoiceModel.getId());
+                    this.duf.cGo().setVoiceDuringTime(this.mVoiceModel.duration);
                 } else {
-                    this.duf.cGm().setVoice(null);
-                    this.duf.cGm().setVoiceDuringTime(-1);
+                    this.duf.cGo().setVoice(null);
+                    this.duf.cGo().setVoiceDuringTime(-1);
                 }
             } else {
-                this.duf.cGm().setVoice(null);
-                this.duf.cGm().setVoiceDuringTime(-1);
+                this.duf.cGo().setVoice(null);
+                this.duf.cGo().setVoiceDuringTime(-1);
             }
-            if (!this.duf.cKN()) {
+            if (!this.duf.cKP()) {
                 aGW().showToast((int) R.string.write_img_limit);
             } else if (this.dun == null || !this.dun.aMs()) {
                 if (this.dum != null) {
                     this.dum.aMt();
                 }
-                if (!this.duf.cKK()) {
+                if (!this.duf.cKM()) {
                 }
             }
         }

@@ -4,81 +4,81 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes4.dex */
 public final class a implements b {
-    private static final a nUT = new a();
-    private volatile boolean kUR = false;
-    private volatile boolean nUU = false;
+    private static final a nUY = new a();
+    private volatile boolean kUW = false;
+    private volatile boolean nUZ = false;
 
-    public static b dOO() {
-        return nUT;
+    public static b dOQ() {
+        return nUY;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean dOP() {
-        return this.kUR;
+    public boolean dOR() {
+        return this.kUW;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void wZ(boolean z) {
-        this.kUR = z;
+        this.kUW = z;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void xa(boolean z) {
-        this.nUU = z;
+        this.nUZ = z;
     }
 
-    public String dOQ() {
+    public String dOS() {
         return "Router";
     }
 
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
-        if (this.kUR) {
+        if (this.kUW) {
             Log.v(SA(str), SB(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
-        if (this.kUR) {
+        if (this.kUW) {
             Log.d(SA(str), SB(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
-        if (this.kUR) {
+        if (this.kUW) {
             Log.i(SA(str), SB(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
-        if (this.kUR) {
+        if (this.kUW) {
             Log.w(SA(str), SB(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
-        if (this.kUR) {
+        if (this.kUW) {
             Log.e(SA(str), SB(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
-        if (this.kUR) {
+        if (this.kUW) {
             Log.e(SA(str), SB(str2), th);
         }
     }
 
     private String SA(String str) {
-        return TextUtils.isEmpty(str) ? dOQ() : str;
+        return TextUtils.isEmpty(str) ? dOS() : str;
     }
 
     private String SB(String str) {
-        if (this.nUU) {
+        if (this.nUZ) {
             return str + b(Thread.currentThread().getStackTrace()[3]);
         }
         return str;

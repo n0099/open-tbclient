@@ -7,19 +7,19 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public final class b implements ThreadFactory {
-    private static final AtomicInteger nrV = new AtomicInteger(1);
-    private final int nUQ;
-    private final AtomicInteger nrX = new AtomicInteger(1);
+    private static final AtomicInteger nsa = new AtomicInteger(1);
+    private final int nUV;
+    private final AtomicInteger nsc = new AtomicInteger(1);
     private final String prefix;
 
     public b(String str, int i) {
-        this.nUQ = i;
-        this.prefix = "Router thread pool No." + nrV.getAndDecrement() + ", " + str;
+        this.nUV = i;
+        this.prefix = "Router thread pool No." + nsa.getAndDecrement() + ", " + str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(@NonNull final Runnable runnable) {
-        final int i = this.nUQ;
+        final int i = this.nUV;
         if (runnable instanceof c) {
             i = ((c) runnable).priority;
         }
@@ -29,18 +29,18 @@ public final class b implements ThreadFactory {
                 try {
                     Process.setThreadPriority(i);
                 } catch (Throwable th) {
-                    tv.chushou.a.a.c.a.dOO().e(null, "LinuxPriorityThreadFactory:Process.setThreadPriority failed", th);
+                    tv.chushou.a.a.c.a.dOQ().e(null, "LinuxPriorityThreadFactory:Process.setThreadPriority failed", th);
                 }
                 runnable.run();
             }
         };
-        String str = this.prefix + ", thread No." + this.nrX.getAndIncrement();
-        tv.chushou.a.a.c.a.dOO().i(null, "LinuxPriorityThreadFactory: new Thread, name is [" + str + "]");
+        String str = this.prefix + ", thread No." + this.nsc.getAndIncrement();
+        tv.chushou.a.a.c.a.dOQ().i(null, "LinuxPriorityThreadFactory: new Thread, name is [" + str + "]");
         Thread thread = new Thread(runnable2, str);
         thread.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() { // from class: tv.chushou.a.a.b.b.2
             @Override // java.lang.Thread.UncaughtExceptionHandler
             public void uncaughtException(Thread thread2, Throwable th) {
-                tv.chushou.a.a.c.a.dOO().e(null, "LinuxPriorityThreadFactory: UncaughtExceptionHandler! Thread [" + thread2.getName() + "]", th);
+                tv.chushou.a.a.c.a.dOQ().e(null, "LinuxPriorityThreadFactory: UncaughtExceptionHandler! Thread [" + thread2.getName() + "]", th);
             }
         });
         return thread;

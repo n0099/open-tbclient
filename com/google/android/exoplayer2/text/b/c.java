@@ -4,10 +4,10 @@ import com.google.android.exoplayer2.text.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 final class c implements e {
-    private final List<com.google.android.exoplayer2.text.b> myt;
+    private final List<com.google.android.exoplayer2.text.b> myy;
 
     public c(List<com.google.android.exoplayer2.text.b> list) {
-        this.myt = list;
+        this.myy = list;
     }
 
     @Override // com.google.android.exoplayer2.text.e
@@ -16,7 +16,7 @@ final class c implements e {
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public int dww() {
+    public int dwy() {
         return 1;
     }
 
@@ -27,6 +27,6 @@ final class c implements e {
 
     @Override // com.google.android.exoplayer2.text.e
     public List<com.google.android.exoplayer2.text.b> gz(long j) {
-        return this.myt;
+        return this.myy;
     }
 }

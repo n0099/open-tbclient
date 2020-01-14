@@ -6,18 +6,18 @@ import java.io.IOException;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
 public final class b implements f {
-    private static final byte[] mdi = new byte[4096];
+    private static final byte[] mdn = new byte[4096];
     private long fLD;
-    private final com.google.android.exoplayer2.upstream.e mdj;
-    private final long mdk;
-    private byte[] mdl = new byte[65536];
-    private int mdm;
-    private int mdn;
+    private final com.google.android.exoplayer2.upstream.e mdo;
+    private final long mdp;
+    private byte[] mdq = new byte[65536];
+    private int mdr;
+    private int mds;
 
     public b(com.google.android.exoplayer2.upstream.e eVar, long j, long j2) {
-        this.mdj = eVar;
+        this.mdo = eVar;
         this.fLD = j;
-        this.mdk = j2;
+        this.mdp = j2;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f
@@ -49,7 +49,7 @@ public final class b implements f {
     public int Jp(int i) throws IOException, InterruptedException {
         int Jt = Jt(i);
         if (Jt == 0) {
-            Jt = a(mdi, 0, Math.min(i, mdi.length), 0, true);
+            Jt = a(mdn, 0, Math.min(i, mdn.length), 0, true);
         }
         Jv(Jt);
         return Jt;
@@ -58,7 +58,7 @@ public final class b implements f {
     public boolean aa(int i, boolean z) throws IOException, InterruptedException {
         int Jt = Jt(i);
         while (Jt < i && Jt != -1) {
-            Jt = a(mdi, -Jt, Math.min(i, mdi.length + Jt), Jt, z);
+            Jt = a(mdn, -Jt, Math.min(i, mdn.length + Jt), Jt, z);
         }
         Jv(Jt);
         return Jt != -1;
@@ -74,7 +74,7 @@ public final class b implements f {
         if (!ab(i2, z)) {
             return false;
         }
-        System.arraycopy(this.mdl, this.mdm - i2, bArr, i, i2);
+        System.arraycopy(this.mdq, this.mdr - i2, bArr, i, i2);
         return true;
     }
 
@@ -85,15 +85,15 @@ public final class b implements f {
 
     public boolean ab(int i, boolean z) throws IOException, InterruptedException {
         Js(i);
-        int min = Math.min(this.mdn - this.mdm, i);
+        int min = Math.min(this.mds - this.mdr, i);
         while (min < i) {
-            min = a(this.mdl, this.mdm, i, min, z);
+            min = a(this.mdq, this.mdr, i, min, z);
             if (min == -1) {
                 return false;
             }
         }
-        this.mdm += i;
-        this.mdn = Math.max(this.mdn, this.mdm);
+        this.mdr += i;
+        this.mds = Math.max(this.mds, this.mdr);
         return true;
     }
 
@@ -103,13 +103,13 @@ public final class b implements f {
     }
 
     @Override // com.google.android.exoplayer2.extractor.f
-    public void dtC() {
-        this.mdm = 0;
+    public void dtE() {
+        this.mdr = 0;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f
-    public long dtD() {
-        return this.fLD + this.mdm;
+    public long dtF() {
+        return this.fLD + this.mdr;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f
@@ -119,48 +119,48 @@ public final class b implements f {
 
     @Override // com.google.android.exoplayer2.extractor.f
     public long getLength() {
-        return this.mdk;
+        return this.mdp;
     }
 
     private void Js(int i) {
-        int i2 = this.mdm + i;
-        if (i2 > this.mdl.length) {
-            this.mdl = Arrays.copyOf(this.mdl, v.al(this.mdl.length * 2, 65536 + i2, i2 + 524288));
+        int i2 = this.mdr + i;
+        if (i2 > this.mdq.length) {
+            this.mdq = Arrays.copyOf(this.mdq, v.al(this.mdq.length * 2, 65536 + i2, i2 + 524288));
         }
     }
 
     private int Jt(int i) {
-        int min = Math.min(this.mdn, i);
+        int min = Math.min(this.mds, i);
         Ju(min);
         return min;
     }
 
     private int p(byte[] bArr, int i, int i2) {
-        if (this.mdn == 0) {
+        if (this.mds == 0) {
             return 0;
         }
-        int min = Math.min(this.mdn, i2);
-        System.arraycopy(this.mdl, 0, bArr, i, min);
+        int min = Math.min(this.mds, i2);
+        System.arraycopy(this.mdq, 0, bArr, i, min);
         Ju(min);
         return min;
     }
 
     private void Ju(int i) {
-        this.mdn -= i;
-        this.mdm = 0;
-        byte[] bArr = this.mdl;
-        if (this.mdn < this.mdl.length - 524288) {
-            bArr = new byte[this.mdn + 65536];
+        this.mds -= i;
+        this.mdr = 0;
+        byte[] bArr = this.mdq;
+        if (this.mds < this.mdq.length - 524288) {
+            bArr = new byte[this.mds + 65536];
         }
-        System.arraycopy(this.mdl, i, bArr, 0, this.mdn);
-        this.mdl = bArr;
+        System.arraycopy(this.mdq, i, bArr, 0, this.mds);
+        this.mdq = bArr;
     }
 
     private int a(byte[] bArr, int i, int i2, int i3, boolean z) throws InterruptedException, IOException {
         if (Thread.interrupted()) {
             throw new InterruptedException();
         }
-        int read = this.mdj.read(bArr, i + i3, i2 - i3);
+        int read = this.mdo.read(bArr, i + i3, i2 - i3);
         if (read == -1) {
             if (i3 == 0 && z) {
                 return -1;

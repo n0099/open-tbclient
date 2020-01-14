@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     static class C0642a {
-        private static Object njK;
-        private static Class<?> njL;
-        private static Method njM;
-        private static Method njN;
-        private static Method njO;
-        private static Method njP;
+        private static Object njP;
+        private static Class<?> njQ;
+        private static Method njR;
+        private static Method njS;
+        private static Method njT;
+        private static Method njU;
 
         static {
-            njM = null;
-            njN = null;
-            njO = null;
-            njP = null;
+            njR = null;
+            njS = null;
+            njT = null;
+            njU = null;
             try {
-                njL = Class.forName("com.android.id.impl.IdProviderImpl");
-                njK = njL.newInstance();
-                njM = njL.getMethod("getUDID", Context.class);
-                njN = njL.getMethod("getOAID", Context.class);
-                njO = njL.getMethod("getVAID", Context.class);
-                njP = njL.getMethod("getAAID", Context.class);
+                njQ = Class.forName("com.android.id.impl.IdProviderImpl");
+                njP = njQ.newInstance();
+                njR = njQ.getMethod("getUDID", Context.class);
+                njS = njQ.getMethod("getOAID", Context.class);
+                njT = njQ.getMethod("getVAID", Context.class);
+                njU = njQ.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (njL == null || njK == null) ? false : true;
+            return (njQ == null || njP == null) ? false : true;
         }
 
         public static String gw(Context context) {
-            return a(context, njN);
+            return a(context, njS);
         }
 
         private static String a(Context context, Method method) {
-            if (njK != null && method != null) {
+            if (njP != null && method != null) {
                 try {
-                    Object invoke = method.invoke(njK, context);
+                    Object invoke = method.invoke(njP, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

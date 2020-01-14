@@ -11,16 +11,16 @@ public class p {
     private static volatile p a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f802a;
+    private Context f803a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Handler f803a = new Handler(Looper.getMainLooper());
+    private Handler f804a = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Map<String, String>> f804a = new HashMap();
+    private Map<String, Map<String, String>> f805a = new HashMap();
 
     private p(Context context) {
-        this.f802a = context;
+        this.f803a = context;
     }
 
     public static p a(Context context) {
@@ -36,10 +36,10 @@ public class p {
 
     private synchronized String a(String str, String str2) {
         String str3;
-        if (this.f804a != null && !TextUtils.isEmpty(str)) {
+        if (this.f805a != null && !TextUtils.isEmpty(str)) {
             if (!TextUtils.isEmpty(str2)) {
                 try {
-                    Map<String, String> map = this.f804a.get(str);
+                    Map<String, String> map = this.f805a.get(str);
                     str3 = map != null ? map.get(str2) : "";
                 } catch (Throwable th) {
                     str3 = "";
@@ -51,22 +51,22 @@ public class p {
     }
 
     private synchronized void b(String str, String str2, String str3) {
-        if (this.f804a == null) {
-            this.f804a = new HashMap();
+        if (this.f805a == null) {
+            this.f805a = new HashMap();
         }
-        Map<String, String> map = this.f804a.get(str);
+        Map<String, String> map = this.f805a.get(str);
         if (map == null) {
             map = new HashMap<>();
         }
         map.put(str2, str3);
-        this.f804a.put(str, map);
+        this.f805a.put(str, map);
     }
 
     public synchronized String a(String str, String str2, String str3) {
         String a2;
         a2 = a(str, str2);
         if (TextUtils.isEmpty(a2)) {
-            a2 = this.f802a.getSharedPreferences(str, 4).getString(str2, str3);
+            a2 = this.f803a.getSharedPreferences(str, 4).getString(str2, str3);
         }
         return a2;
     }
@@ -74,6 +74,6 @@ public class p {
     /* renamed from: a  reason: collision with other method in class */
     public synchronized void m481a(String str, String str2, String str3) {
         b(str, str2, str3);
-        this.f803a.post(new q(this, str, str2, str3));
+        this.f804a.post(new q(this, str, str2, str3));
     }
 }

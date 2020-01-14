@@ -223,7 +223,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements m<com.b
         if (voiceModel != null) {
             this.Nw.wQ(voiceModel.voice_status.intValue());
         }
-        this.Nw.cKI();
+        this.Nw.cKK();
         this.Nz = true;
     }
 

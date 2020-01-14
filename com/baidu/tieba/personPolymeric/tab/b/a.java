@@ -15,9 +15,9 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private static final int dJZ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int jpy = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int jpz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds39);
-    private static final int jpA = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds106);
+    private static final int jpD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int jpE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds39);
+    private static final int jpF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds106);
 
     public static List<m> dW(List<m> list) {
         bj bjVar;
@@ -122,8 +122,8 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!v.isEmpty(list)) {
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.jnW = jpz;
-            kVar.fMd = jpy;
+            kVar.job = jpE;
+            kVar.fMd = jpD;
             kVar.paddingLeft = dJZ;
             kVar.titleId = R.string.person_center_list_title_dynamic_txt;
             arrayList.add(kVar);
@@ -143,11 +143,11 @@ public class a {
         List<m> dW = dW(list2);
         if (!v.isEmpty(dW)) {
             com.baidu.tieba.personPolymeric.c.k kVar2 = new com.baidu.tieba.personPolymeric.c.k();
-            kVar2.jnW = jpz;
+            kVar2.job = jpE;
             if (v.isEmpty(list)) {
-                kVar2.fMd = jpy;
+                kVar2.fMd = jpD;
             } else {
-                kVar2.fMd = jpA;
+                kVar2.fMd = jpF;
             }
             kVar2.paddingLeft = dJZ;
             kVar2.titleId = R.string.person_center_list_title_thread_txt;

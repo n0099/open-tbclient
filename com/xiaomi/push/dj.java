@@ -11,13 +11,13 @@ public class dj implements Application.ActivityLifecycleCallbacks {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f242a;
+    private String f243a;
     private String b;
 
     public dj(Context context, String str) {
-        this.f242a = "";
+        this.f243a = "";
         this.a = context;
-        this.f242a = str;
+        this.f243a = str;
     }
 
     private void a(String str) {
@@ -39,16 +39,16 @@ public class dj implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
         String localClassName = activity.getLocalClassName();
-        if (TextUtils.isEmpty(this.f242a) || TextUtils.isEmpty(localClassName)) {
+        if (TextUtils.isEmpty(this.f243a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
         this.b = "";
         if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, localClassName)) {
-            this.f242a = "";
+            this.f243a = "";
             return;
         }
-        a(this.a.getPackageName() + "|" + localClassName + ":" + this.f242a + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(System.currentTimeMillis() / 1000));
-        this.f242a = "";
+        a(this.a.getPackageName() + "|" + localClassName + ":" + this.f243a + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(System.currentTimeMillis() / 1000));
+        this.f243a = "";
         this.b = "";
     }
 
@@ -57,7 +57,7 @@ public class dj implements Application.ActivityLifecycleCallbacks {
         if (TextUtils.isEmpty(this.b)) {
             this.b = activity.getLocalClassName();
         }
-        this.f242a = String.valueOf(System.currentTimeMillis() / 1000);
+        this.f243a = String.valueOf(System.currentTimeMillis() / 1000);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

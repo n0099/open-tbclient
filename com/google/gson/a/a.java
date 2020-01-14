@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes5.dex */
 public @interface a {
-    boolean dzk() default true;
+    boolean dzm() default true;
 
-    boolean dzl() default true;
+    boolean dzn() default true;
 }

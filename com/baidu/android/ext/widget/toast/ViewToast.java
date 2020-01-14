@@ -250,7 +250,7 @@ class ViewToast {
         if (contentView != null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(contentView.getContext()).inflate(R.layout.left_icon_clickable_toast_view, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(R.drawable.clickable_toast_view_bg));
-            ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dkh().vd(true).J(uri).dkY());
+            ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dkj().vd(true).J(uri).dla());
             if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.gif_toast_info_view)) != null) {
                 textView.setTextColor(resources.getColor(R.color.white_text));
                 textView.setText(charSequence);

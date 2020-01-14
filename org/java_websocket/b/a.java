@@ -25,23 +25,23 @@ public class a implements b {
 
     @Override // org.java_websocket.b.b
     public void e(Framedata framedata) throws InvalidDataException {
-        if (framedata.dMk() || framedata.dMl() || framedata.dMm()) {
-            throw new InvalidFrameException("bad rsv RSV1: " + framedata.dMk() + " RSV2: " + framedata.dMl() + " RSV3: " + framedata.dMm());
+        if (framedata.dMm() || framedata.dMn() || framedata.dMo()) {
+            throw new InvalidFrameException("bad rsv RSV1: " + framedata.dMm() + " RSV2: " + framedata.dMn() + " RSV3: " + framedata.dMo());
         }
     }
 
     @Override // org.java_websocket.b.b
-    public String dMe() {
+    public String dMg() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public String dMf() {
+    public String dMh() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public b dMg() {
+    public b dMi() {
         return new a();
     }
 

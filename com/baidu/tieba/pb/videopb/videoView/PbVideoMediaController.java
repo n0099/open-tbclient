@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
 /* loaded from: classes7.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
-    private ProgressBar iZt;
+    private ProgressBar iZy;
 
     public PbVideoMediaController(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     }
 
     private void init() {
-        this.iZt = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
+        this.iZy = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView, com.baidu.tieba.play.VideoControllerView
@@ -40,13 +40,13 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     @Override // com.baidu.tieba.play.VideoControllerView
     public void aZ(int i, int i2) {
         super.aZ(i, i2);
-        this.iZt.setProgress(this.dVR.getProgress());
+        this.iZy.setProgress(this.dVR.getProgress());
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
     public void ahT() {
         super.ahT();
-        this.iZt.setProgress(0);
+        this.iZy.setProgress(0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
@@ -58,19 +58,19 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
                 this.dVP.setText(aq.stringForVideoTime(i));
             }
         }
-        this.iZt.setProgress(this.dVR.getProgress());
+        this.iZy.setProgress(this.dVR.getProgress());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.VideoControllerView
     public int aWe() {
         int aWe = super.aWe();
-        this.iZt.setProgress(this.dVR.getProgress());
+        this.iZy.setProgress(this.dVR.getProgress());
         return aWe;
     }
 
     public void setBottomBarShow(boolean z) {
-        this.iZt.setVisibility(z ? 0 : 8);
+        this.iZy.setVisibility(z ? 0 : 8);
         this.dVR.setVisibility(z ? 8 : 0);
         this.dVP.setVisibility(z ? 8 : 0);
         this.dVQ.setVisibility(z ? 8 : 0);

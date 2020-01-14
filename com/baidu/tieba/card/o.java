@@ -118,8 +118,8 @@ public class o {
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, o.this.fHU.fLv));
                     }
-                } else if (!aq.isEmpty(bVar.khZ)) {
-                    com.baidu.adp.lib.util.l.showToast(o.this.mContext, bVar.khZ);
+                } else if (!aq.isEmpty(bVar.kif)) {
+                    com.baidu.adp.lib.util.l.showToast(o.this.mContext, bVar.kif);
                 } else {
                     com.baidu.adp.lib.util.l.showToast(o.this.mContext, (int) R.string.delete_fail);
                 }

@@ -22,11 +22,11 @@ public class k {
     private View emu;
     private TextView emw;
     private ImageView emx;
-    private View jqI;
-    private ImageView jqJ;
-    private ImageView jqK;
-    private com.baidu.tieba.view.e jqL;
-    private PersonStatus jqM;
+    private View jqN;
+    private ImageView jqO;
+    private ImageView jqP;
+    private com.baidu.tieba.view.e jqQ;
+    private PersonStatus jqR;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private int mStatusBarHeight;
@@ -35,7 +35,7 @@ public class k {
     public k(TbPageContext tbPageContext, View view, View view2, boolean z) {
         this(tbPageContext, view, z);
         this.mStatusBarHeight = UtilHelper.getStatusBarHeight();
-        this.jqI = view2;
+        this.jqN = view2;
         xO();
     }
 
@@ -49,7 +49,7 @@ public class k {
         this.emx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (k.this.jqL == null) {
+                if (k.this.jqQ == null) {
                     if (k.this.mPageContext != null) {
                         k.this.mPageContext.getPageActivity().finish();
                         return;
@@ -58,11 +58,11 @@ public class k {
                 }
                 com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
                 bVar.fYp = 8;
-                k.this.jqL.a(view2, bVar);
+                k.this.jqQ.a(view2, bVar);
             }
         });
-        this.jqJ = (ImageView) view.findViewById(R.id.person_center_nav_chat_img);
-        this.jqJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.2
+        this.jqO = (ImageView) view.findViewById(R.id.person_center_nav_chat_img);
+        this.jqO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TiebaStatic.log(new an("c12503").cp("obj_locate", "1"));
@@ -70,21 +70,21 @@ public class k {
                 bVar.fYp = 40;
                 bVar.fYq = new Bundle();
                 bVar.fYq.putSerializable(UserData.TYPE_USER, k.this.mUserData);
-                if (k.this.jqL != null) {
-                    k.this.jqL.a(view2, bVar);
+                if (k.this.jqQ != null) {
+                    k.this.jqQ.a(view2, bVar);
                 }
             }
         });
-        this.jqK = (ImageView) view.findViewById(R.id.person_center_nav_more_img);
-        this.jqK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.3
+        this.jqP = (ImageView) view.findViewById(R.id.person_center_nav_more_img);
+        this.jqP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     TiebaStatic.log(new an("c12503").cp("obj_locate", "2"));
-                    if (k.this.jqL != null) {
+                    if (k.this.jqQ != null) {
                         com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
                         bVar.fYp = 9;
-                        k.this.jqL.a(view2, bVar);
+                        k.this.jqQ.a(view2, bVar);
                     }
                 }
             }
@@ -92,14 +92,14 @@ public class k {
     }
 
     private void xO() {
-        if (this.jqI != null) {
+        if (this.jqN != null) {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ViewGroup.LayoutParams layoutParams = this.jqI.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.jqN.getLayoutParams();
                 layoutParams.height = this.mStatusBarHeight;
-                this.jqI.setLayoutParams(layoutParams);
+                this.jqN.setLayoutParams(layoutParams);
                 return;
             }
-            this.jqI.setVisibility(8);
+            this.jqN.setVisibility(8);
         }
     }
 
@@ -108,34 +108,34 @@ public class k {
             this.mUserData = aVar.getUserData();
             this.emw.setText(this.mUserData.getName_show());
         }
-        this.jqM = personStatus;
-        cwm();
+        this.jqR = personStatus;
+        cwo();
     }
 
     public void a(PersonStatus personStatus) {
-        this.jqM = personStatus;
-        cwm();
+        this.jqR = personStatus;
+        cwo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cwm() {
+    public void cwo() {
         if (this.mIsHost) {
-            this.jqK.setVisibility(8);
-            this.jqJ.setVisibility(8);
+            this.jqP.setVisibility(8);
+            this.jqO.setVisibility(8);
         } else if (TbadkCoreApplication.isLogin()) {
-            this.jqJ.setVisibility(0);
-            this.jqK.setVisibility(0);
+            this.jqO.setVisibility(0);
+            this.jqP.setVisibility(0);
         } else {
-            this.jqK.setVisibility(8);
-            this.jqJ.setVisibility(8);
+            this.jqP.setVisibility(8);
+            this.jqO.setVisibility(8);
         }
     }
 
-    public View cwn() {
+    public View cwp() {
         return this.emt;
     }
 
-    public boolean cwo() {
+    public boolean cwq() {
         return this.mIsHost;
     }
 
@@ -143,8 +143,8 @@ public class k {
         float f2;
         float f3 = 1.0f;
         if (f >= 0.0f || f <= 1.0f) {
-            if (this.jqI != null) {
-                this.jqI.setAlpha(f);
+            if (this.jqN != null) {
+                this.jqN.setAlpha(f);
             }
             this.emu.setAlpha(f);
             this.emw.setAlpha(f);
@@ -158,8 +158,8 @@ public class k {
             f3 = f2 < 0.0f ? 0.0f : f2;
         }
         this.emx.setAlpha(f3);
-        this.jqK.setAlpha(f3);
-        this.jqJ.setAlpha(f3);
+        this.jqP.setAlpha(f3);
+        this.jqO.setAlpha(f3);
     }
 
     public void ry(boolean z) {
@@ -176,19 +176,19 @@ public class k {
         if (this.emx != null) {
             if (z) {
                 SvgManager.aEp().a(this.emx, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.aEp().a(this.jqK, R.drawable.icon_pure_topbar_more44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.aEp().a(this.jqJ, R.drawable.icon_pure_topbar_createchat44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.aEp().a(this.jqP, R.drawable.icon_pure_topbar_more44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.aEp().a(this.jqO, R.drawable.icon_pure_topbar_createchat44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 return;
             }
             SvgManager.aEp().a(this.emx, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.aEp().a(this.jqK, R.drawable.icon_pure_topbar_more44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.aEp().a(this.jqJ, R.drawable.icon_pure_topbar_createchat44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aEp().a(this.jqP, R.drawable.icon_pure_topbar_more44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aEp().a(this.jqO, R.drawable.icon_pure_topbar_createchat44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jqI != null) {
-            am.setBackgroundColor(this.jqI, R.color.cp_bg_line_d);
+        if (this.jqN != null) {
+            am.setBackgroundColor(this.jqN, R.color.cp_bg_line_d);
         }
         am.setBackgroundColor(this.emu, R.color.cp_bg_line_d);
         am.setViewTextColor(this.emw, (int) R.color.cp_cont_b);
@@ -196,6 +196,6 @@ public class k {
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.e eVar) {
-        this.jqL = eVar;
+        this.jqQ = eVar;
     }
 }

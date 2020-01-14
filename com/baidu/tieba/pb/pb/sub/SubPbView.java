@@ -24,10 +24,13 @@ public class SubPbView extends LinearLayout {
     private int dGk;
     private boolean dpq;
     private BdTypeListView efW;
+    private boolean gWN;
     private BlankView iTU;
-    private LinearLayout iUZ;
-    private ValueAnimator iVa;
-    private int iVb;
+    private LinearLayout iVc;
+    private ValueAnimator iVd;
+    private int iVe;
+    private boolean iVf;
+    private d iVg;
     private boolean mIsFinish;
     private float mLastTouchY;
     private float mRatio;
@@ -43,12 +46,13 @@ public class SubPbView extends LinearLayout {
     public SubPbView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mRatio = 0.0f;
-        this.iVb = (l.getEquipmentHeight(context) / 3) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds160);
+        this.gWN = true;
+        this.iVe = (l.getEquipmentHeight(context) / 3) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds160);
         this.dGk = l.getEquipmentHeight(context);
-        this.iVa = ValueAnimator.ofInt(l.getEquipmentHeight(context), 0);
-        this.iVa.setDuration(300L);
-        this.iVa.setInterpolator(new LinearInterpolator());
-        this.iVa.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.pb.sub.SubPbView.1
+        this.iVd = ValueAnimator.ofInt(l.getEquipmentHeight(context), 0);
+        this.iVd.setDuration(300L);
+        this.iVd.setInterpolator(new LinearInterpolator());
+        this.iVd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.pb.sub.SubPbView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 SubPbView.this.dGk = ((Integer) valueAnimator.getAnimatedValue()).intValue();
@@ -75,7 +79,7 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setNavigationView(LinearLayout linearLayout) {
-        this.iUZ = linearLayout;
+        this.iVc = linearLayout;
     }
 
     public void setListView(BdTypeListView bdTypeListView) {
@@ -86,13 +90,21 @@ public class SubPbView extends LinearLayout {
         this.aeG = relativeLayout;
     }
 
-    public boolean cqf() {
+    public boolean cqg() {
         return this.dpq;
+    }
+
+    public boolean cqN() {
+        return this.iVf;
+    }
+
+    public void setSubPbInitListener(d dVar) {
+        this.iVg = dVar;
     }
 
     public void show() {
         if (this.mRatio == 0.0f) {
-            this.iVa.start();
+            this.iVd.start();
         }
     }
 
@@ -103,12 +115,19 @@ public class SubPbView extends LinearLayout {
         } else if (this.dGk == 0) {
             super.onLayout(z, i, i2, i3, i4);
             if (this.mLastTouchY > this.atW) {
-                this.iUZ.layout(i, (int) (this.mLastTouchY - this.atW), i3, ((int) (this.mLastTouchY - this.atW)) + this.iUZ.getHeight());
-                this.aeG.layout(i, ((int) (this.mLastTouchY - this.atW)) + this.iUZ.getHeight(), i3, i4);
+                this.iVc.layout(i, (int) (this.mLastTouchY - this.atW), i3, ((int) (this.mLastTouchY - this.atW)) + this.iVc.getHeight());
+                this.aeG.layout(i, ((int) (this.mLastTouchY - this.atW)) + this.iVc.getHeight(), i3, i4);
+            }
+            if (this.gWN) {
+                this.iVf = true;
+                this.gWN = false;
+                if (this.iVg != null) {
+                    this.iVg.cqb();
+                }
             }
         } else {
-            this.iUZ.layout(i, this.dGk, i3, this.dGk + this.iUZ.getMeasuredHeight());
-            this.aeG.layout(i, this.dGk + this.iUZ.getMeasuredHeight(), i3, i4);
+            this.iVc.layout(i, this.dGk, i3, this.dGk + this.iVc.getMeasuredHeight());
+            this.aeG.layout(i, this.dGk + this.iVc.getMeasuredHeight(), i3, i4);
         }
     }
 
@@ -126,8 +145,8 @@ public class SubPbView extends LinearLayout {
         if (this.iTU == null) {
             return super.dispatchTouchEvent(motionEvent);
         }
-        if (this.iVa.isRunning()) {
-            this.iVa.end();
+        if (this.iVd.isRunning()) {
+            this.iVd.end();
             return true;
         }
         switch (motionEvent.getAction()) {
@@ -139,10 +158,10 @@ public class SubPbView extends LinearLayout {
             case 1:
             case 3:
                 z = this.mLastTouchY > this.atW && this.caG.getTop() == 0 && this.efW.getFirstVisiblePosition() == 0;
-                this.mIsFinish = this.mLastTouchY - this.atW > ((float) this.iVb) && this.caG.getTop() == 0 && this.efW.getFirstVisiblePosition() == 0;
+                this.mIsFinish = this.mLastTouchY - this.atW > ((float) this.iVe) && this.caG.getTop() == 0 && this.efW.getFirstVisiblePosition() == 0;
                 if (this.mIsFinish) {
-                    this.iVa.setIntValues((int) (this.mLastTouchY - this.atW), l.getEquipmentHeight(getContext()));
-                    this.iVa.start();
+                    this.iVd.setIntValues((int) (this.mLastTouchY - this.atW), l.getEquipmentHeight(getContext()));
+                    this.iVd.start();
                     break;
                 } else {
                     this.mRatio = 1.0f;
@@ -175,13 +194,13 @@ public class SubPbView extends LinearLayout {
 
     public void onFinish() {
         this.mIsFinish = true;
-        this.iVa.setIntValues(0, l.getEquipmentHeight(getContext()));
-        this.iVa.start();
+        this.iVd.setIntValues(0, l.getEquipmentHeight(getContext()));
+        this.iVd.start();
     }
 
     public void onDestroy() {
-        this.iVa.cancel();
-        this.iVa.removeAllUpdateListeners();
+        this.iVd.cancel();
+        this.iVd.removeAllUpdateListeners();
         clearAnimation();
     }
 }

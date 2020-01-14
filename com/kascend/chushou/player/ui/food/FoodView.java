@@ -35,15 +35,15 @@ public class FoodView extends RelativeLayout {
     private int j;
     private boolean m;
     private String n;
-    private io.reactivex.disposables.b nab;
-    private ListItem nac;
-    private com.facebook.datasource.b<Void> nad;
-    private k nae;
-    private tv.chushou.zues.c naf;
-    private Random nag;
-    private k.a nah;
-    private io.reactivex.disposables.a nai;
-    private a naj;
+    private io.reactivex.disposables.b nag;
+    private ListItem nah;
+    private com.facebook.datasource.b<Void> nai;
+    private k naj;
+    private tv.chushou.zues.c nak;
+    private Random nal;
+    private k.a nam;
+    private io.reactivex.disposables.a nan;
+    private a nao;
 
     public FoodView(Context context) {
         this(context, null, 0);
@@ -55,12 +55,12 @@ public class FoodView extends RelativeLayout {
 
     public FoodView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nab = null;
+        this.nag = null;
         this.d = false;
         this.m = false;
         this.n = "";
-        this.nag = new Random();
-        this.nai = new io.reactivex.disposables.a();
+        this.nal = new Random();
+        this.nan = new io.reactivex.disposables.a();
         a(context, attributeSet);
     }
 
@@ -70,8 +70,8 @@ public class FoodView extends RelativeLayout {
         this.j = obtainStyledAttributes.getInteger(a.k.FoodView_view_style, 0);
         this.b = obtainStyledAttributes.getFloat(a.k.FoodView_size_ratio, 1.0f);
         obtainStyledAttributes.recycle();
-        this.nae = MO(this.j);
-        this.nae.f(this);
+        this.naj = MO(this.j);
+        this.naj.f(this);
     }
 
     public void setContext(Context context) {
@@ -79,7 +79,7 @@ public class FoodView extends RelativeLayout {
     }
 
     private k MO(int i) {
-        k kVar = k.naP;
+        k kVar = k.naU;
         if (i == 0) {
             return new f();
         }
@@ -114,8 +114,8 @@ public class FoodView extends RelativeLayout {
         if (this.j != i) {
             d();
             this.j = i;
-            this.nae = MO(this.j);
-            this.nae.f(this);
+            this.naj = MO(this.j);
+            this.naj.f(this);
         }
     }
 
@@ -125,7 +125,7 @@ public class FoodView extends RelativeLayout {
     }
 
     private boolean d(ListItem listItem) {
-        return (this.d || listItem == null || listItem.mAdExtraInfo == null || !com.kascend.chushou.a.a.dAE().a(listItem.mAdExtraInfo.mCode, listItem.mAdExtraInfo.mIntervalTime)) ? false : true;
+        return (this.d || listItem == null || listItem.mAdExtraInfo == null || !com.kascend.chushou.a.a.dAG().a(listItem.mAdExtraInfo.mCode, listItem.mAdExtraInfo.mIntervalTime)) ? false : true;
     }
 
     public void a(boolean z, String str) {
@@ -144,10 +144,10 @@ public class FoodView extends RelativeLayout {
             aVar.QI(this.n);
             tv.chushou.zues.a.a.post(aVar);
         }
-        if (this.e != null && this.nac != null && this.nac.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nac.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y) {
-            if (this.nac.mAdExtraInfo != null && !this.nac.mAdExtraInfo.vTrackShow) {
-                this.nac.mAdExtraInfo.vTrackShow = true;
-                com.kascend.chushou.a.a.dAE().a(this.nac);
+        if (this.e != null && this.nah != null && this.nah.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nah.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y) {
+            if (this.nah.mAdExtraInfo != null && !this.nah.mAdExtraInfo.vTrackShow) {
+                this.nah.mAdExtraInfo.vTrackShow = true;
+                com.kascend.chushou.a.a.dAG().a(this.nah);
             }
             tv.chushou.zues.utils.e.d("FoodView", "FoodView:" + toString() + ",Method:updateWithAnimation");
         }
@@ -162,15 +162,15 @@ public class FoodView extends RelativeLayout {
             aVar.QI(this.n);
             tv.chushou.zues.a.a.post(aVar);
         }
-        if (this.e != null && this.nac != null && this.nac.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nac.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nac.mAdExtraInfo != null && !this.nac.mAdExtraInfo.vTrackShow) {
-            this.nac.mAdExtraInfo.vTrackShow = true;
-            com.kascend.chushou.a.a.dAE().a(this.nac);
+        if (this.e != null && this.nah != null && this.nah.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nah.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nah.mAdExtraInfo != null && !this.nah.mAdExtraInfo.vTrackShow) {
+            this.nah.mAdExtraInfo.vTrackShow = true;
+            com.kascend.chushou.a.a.dAG().a(this.nah);
         }
     }
 
     private long ac(long j, long j2) {
         if (j > 0 && j2 > 0 && j2 > j) {
-            return (long) ((this.nag.nextDouble() * (j2 - j)) + j);
+            return (long) ((this.nal.nextDouble() * (j2 - j)) + j);
         }
         return 5L;
     }
@@ -183,10 +183,10 @@ public class FoodView extends RelativeLayout {
         if (listItem != null) {
             this.a = z;
             a(listItem, listItem.mAdExtraInfo);
-            this.nac = listItem;
-            this.nae.a(listItem, z, z3);
+            this.nah = listItem;
+            this.naj.a(listItem, z, z3);
             if (listItem.mAutoCloseTime > 0) {
-                this.nab = io.reactivex.g.a(0L, listItem.mAutoCloseTime, 0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dHX()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.food.FoodView.1
+                this.nag = io.reactivex.g.a(0L, listItem.mAutoCloseTime, 0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dHZ()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.food.FoodView.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // io.reactivex.c.g
                     /* renamed from: a */
@@ -213,22 +213,22 @@ public class FoodView extends RelativeLayout {
     }
 
     private void a(ListItem listItem, AdExtraInfo adExtraInfo) {
-        if (this.nac == null && adExtraInfo != null && adExtraInfo.mAdvertAutoRefreshTimes > 0 && this.naf == null) {
-            this.naf = dCN();
+        if (this.nah == null && adExtraInfo != null && adExtraInfo.mAdvertAutoRefreshTimes > 0 && this.nak == null) {
+            this.nak = dCP();
         }
         if (adExtraInfo != null && adExtraInfo.mAdvertAutoRefreshTimes > 0) {
-            if (this.naf != null && !TextUtils.isEmpty(adExtraInfo.mAdvertRefreshUrl)) {
+            if (this.nak != null && !TextUtils.isEmpty(adExtraInfo.mAdvertRefreshUrl)) {
                 long ac = ac(adExtraInfo.mAdvertMinFreshIntervalSecond, adExtraInfo.mAdvertMaxFreshIntervalSecond);
-                Message Oe = this.naf.Oe(10101);
+                Message Oe = this.nak.Oe(10101);
                 Oe.obj = listItem;
-                this.naf.a(Oe, ac * 1000);
+                this.nak.a(Oe, ac * 1000);
             }
             adExtraInfo.mAdvertAutoRefreshTimes--;
         }
     }
 
     @NonNull
-    private tv.chushou.zues.c dCN() {
+    private tv.chushou.zues.c dCP() {
         return new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.player.ui.food.FoodView.4
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
@@ -249,13 +249,13 @@ public class FoodView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message) {
         final ListItem listItem = (ListItem) message.obj;
-        com.kascend.chushou.a.a.dAE().a(listItem.mAdExtraInfo.mAdvertRefreshUrl, listItem.mAdExtraInfo.mCode, new a.b() { // from class: com.kascend.chushou.player.ui.food.FoodView.5
+        com.kascend.chushou.a.a.dAG().a(listItem.mAdExtraInfo.mAdvertRefreshUrl, listItem.mAdExtraInfo.mCode, new a.b() { // from class: com.kascend.chushou.player.ui.food.FoodView.5
             @Override // com.kascend.chushou.a.a.b
             public void a(ListItem listItem2) {
                 if (listItem2 != null && listItem2.mAdExtraInfo != null) {
                     listItem.adCopy(listItem2);
                 }
-                RxExecutor.post(FoodView.this.nai, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.food.FoodView.5.1
+                RxExecutor.post(FoodView.this.nan, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.food.FoodView.5.1
                     @Override // java.lang.Runnable
                     public void run() {
                         FoodView.this.c(listItem);
@@ -268,30 +268,30 @@ public class FoodView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ListItem listItem) {
         if (this.d) {
-            this.nae.a(listItem, this.nah);
+            this.naj.a(listItem, this.nam);
             if (this.e != null) {
                 listItem.mAdExtraInfo.vTrackShow = true;
-                com.kascend.chushou.a.a.dAE().a(listItem);
+                com.kascend.chushou.a.a.dAG().a(listItem);
             }
             a(listItem, listItem.mAdExtraInfo);
-            this.nae.a(listItem, this.a);
+            this.naj.a(listItem, this.a);
         }
     }
 
     public void a(final ListItem listItem, final int i, final int i2, final boolean z) {
         if (d(listItem)) {
-            this.nah = null;
-            this.nae.a(listItem, (k.a) null);
+            this.nam = null;
+            this.naj.a(listItem, (k.a) null);
             this.d = true;
-            if (this.nae.b()) {
+            if (this.naj.b()) {
                 a(i2, listItem, z, i);
             } else if (listItem.mAdExtraInfo != null && com.kascend.chushou.a.a.y == tv.chushou.zues.utils.h.parseInt(listItem.mAdExtraInfo.mMarketId)) {
                 a(i2, listItem, z, i);
             } else {
-                this.nad = tv.chushou.zues.widget.fresco.a.a(listItem.mCover, this.e, new a.b() { // from class: com.kascend.chushou.player.ui.food.FoodView.6
+                this.nai = tv.chushou.zues.widget.fresco.a.a(listItem.mCover, this.e, new a.b() { // from class: com.kascend.chushou.player.ui.food.FoodView.6
                     @Override // tv.chushou.zues.widget.fresco.a.b
                     public void finish() {
-                        RxExecutor.post(FoodView.this.nai, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.food.FoodView.6.1
+                        RxExecutor.post(FoodView.this.nan, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.food.FoodView.6.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 FoodView.this.a(i2, listItem, z, i);
@@ -300,7 +300,7 @@ public class FoodView extends RelativeLayout {
                     }
 
                     @Override // tv.chushou.zues.widget.fresco.a.b
-                    public void dCO() {
+                    public void dCQ() {
                         FoodView.this.d = false;
                     }
                 });
@@ -312,22 +312,22 @@ public class FoodView extends RelativeLayout {
         if (!d(listItem)) {
             return false;
         }
-        this.nac = null;
         this.nah = null;
-        this.nae.a(listItem, (k.a) null);
+        this.nam = null;
+        this.naj.a(listItem, (k.a) null);
         this.d = true;
-        this.naj = aVar;
-        if (this.nae.b() || z) {
+        this.nao = aVar;
+        if (this.naj.b() || z) {
             b(listItem);
             return true;
         } else if (listItem.mAdExtraInfo != null && com.kascend.chushou.a.a.y == tv.chushou.zues.utils.h.parseInt(listItem.mAdExtraInfo.mMarketId)) {
             b(listItem);
             return true;
         } else {
-            this.nad = tv.chushou.zues.widget.fresco.a.a(listItem.mCover, this.e, new a.b() { // from class: com.kascend.chushou.player.ui.food.FoodView.7
+            this.nai = tv.chushou.zues.widget.fresco.a.a(listItem.mCover, this.e, new a.b() { // from class: com.kascend.chushou.player.ui.food.FoodView.7
                 @Override // tv.chushou.zues.widget.fresco.a.b
                 public void finish() {
-                    RxExecutor.post(FoodView.this.nai, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.food.FoodView.7.1
+                    RxExecutor.post(FoodView.this.nan, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.food.FoodView.7.1
                         @Override // java.lang.Runnable
                         public void run() {
                             FoodView.this.b(listItem);
@@ -336,7 +336,7 @@ public class FoodView extends RelativeLayout {
                 }
 
                 @Override // tv.chushou.zues.widget.fresco.a.b
-                public void dCO() {
+                public void dCQ() {
                     FoodView.this.d = false;
                 }
             });
@@ -359,24 +359,24 @@ public class FoodView extends RelativeLayout {
     public void a(ListItem listItem, a aVar, boolean z, String str, int i, int i2, int i3, boolean z2, boolean z3) {
         if (listItem != null) {
             d();
-            this.nac = null;
+            this.nah = null;
             k.a aVar2 = new k.a();
             aVar2.a = z;
             aVar2.b = z3;
             aVar2.c = i;
             aVar2.d = i2;
             aVar2.e = i3;
-            this.nah = aVar2;
-            this.nae.a(listItem, aVar2);
+            this.nam = aVar2;
+            this.naj.a(listItem, aVar2);
             this.d = true;
-            this.naj = aVar;
+            this.nao = aVar;
             a(listItem, true, false, z2);
             if (z) {
                 this.i = str;
             }
-            if (this.e != null && this.nac != null && this.nac.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nac.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nac.mAdExtraInfo != null && !this.nac.mAdExtraInfo.vTrackShow) {
-                this.nac.mAdExtraInfo.vTrackShow = true;
-                com.kascend.chushou.a.a.dAE().a(this.nac);
+            if (this.e != null && this.nah != null && this.nah.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nah.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nah.mAdExtraInfo != null && !this.nah.mAdExtraInfo.vTrackShow) {
+                this.nah.mAdExtraInfo.vTrackShow = true;
+                com.kascend.chushou.a.a.dAG().a(this.nah);
             }
         }
     }
@@ -384,21 +384,21 @@ public class FoodView extends RelativeLayout {
     public void b(ListItem listItem, a aVar, boolean z, String str) {
         if (listItem != null) {
             d();
-            this.nac = null;
+            this.nah = null;
             k.a aVar2 = new k.a();
             aVar2.a = z;
             aVar2.f = true;
-            this.nah = aVar2;
-            this.nae.a(listItem, aVar2);
+            this.nam = aVar2;
+            this.naj.a(listItem, aVar2);
             this.d = true;
             if (z) {
                 this.i = str;
             }
-            this.naj = aVar;
+            this.nao = aVar;
             a(listItem, true, false);
-            if (this.e != null && this.nac != null && this.nac.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nac.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nac.mAdExtraInfo != null && !this.nac.mAdExtraInfo.vTrackShow) {
-                this.nac.mAdExtraInfo.vTrackShow = true;
-                com.kascend.chushou.a.a.dAE().a(this.nac);
+            if (this.e != null && this.nah != null && this.nah.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nah.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nah.mAdExtraInfo != null && !this.nah.mAdExtraInfo.vTrackShow) {
+                this.nah.mAdExtraInfo.vTrackShow = true;
+                com.kascend.chushou.a.a.dAG().a(this.nah);
             }
         }
     }
@@ -407,77 +407,77 @@ public class FoodView extends RelativeLayout {
         if (listItem != null) {
             setVisibility(0);
             d();
-            this.nac = null;
+            this.nah = null;
             k.a aVar2 = new k.a();
             aVar2.a = z;
             aVar2.f = true;
             aVar2.h = i;
-            this.nah = aVar2;
-            this.nae.a(listItem, aVar2);
+            this.nam = aVar2;
+            this.naj.a(listItem, aVar2);
             this.d = true;
             if (z) {
                 this.i = str;
             }
-            this.naj = aVar;
+            this.nao = aVar;
             a(listItem, true, false);
-            if (this.e != null && this.nac != null && this.nac.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nac.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nac.mAdExtraInfo != null && !this.nac.mAdExtraInfo.vTrackShow) {
-                this.nac.mAdExtraInfo.vTrackShow = true;
-                com.kascend.chushou.a.a.dAE().a(this.nac);
+            if (this.e != null && this.nah != null && this.nah.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nah.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nah.mAdExtraInfo != null && !this.nah.mAdExtraInfo.vTrackShow) {
+                this.nah.mAdExtraInfo.vTrackShow = true;
+                com.kascend.chushou.a.a.dAG().a(this.nah);
             }
         }
     }
 
     public void a(ListItem listItem, int i, a aVar) {
         if (d(listItem)) {
-            this.nac = null;
             this.nah = null;
-            this.nae.a(listItem, (k.a) null);
-            this.naj = aVar;
+            this.nam = null;
+            this.naj.a(listItem, (k.a) null);
+            this.nao = aVar;
             this.d = true;
             a(listItem, true, false);
-            if (this.e != null && this.nac != null && this.nac.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nac.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nac.mAdExtraInfo != null && !this.nac.mAdExtraInfo.vTrackShow) {
-                this.nac.mAdExtraInfo.vTrackShow = true;
-                com.kascend.chushou.a.a.dAE().a(this.nac);
+            if (this.e != null && this.nah != null && this.nah.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.nah.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.nah.mAdExtraInfo != null && !this.nah.mAdExtraInfo.vTrackShow) {
+                this.nah.mAdExtraInfo.vTrackShow = true;
+                com.kascend.chushou.a.a.dAG().a(this.nah);
             }
         }
     }
 
     public void a(final ListItem listItem, boolean z, final int i, final int i2, a aVar) {
         if (!this.d && listItem != null && listItem.mAdExtraInfo != null) {
-            this.nac = null;
+            this.nah = null;
             k.a aVar2 = new k.a();
             aVar2.g = z;
-            this.nah = aVar2;
-            this.nae.a(listItem, aVar2);
+            this.nam = aVar2;
+            this.naj.a(listItem, aVar2);
             this.d = true;
-            this.naj = aVar;
-            if (this.nae.b()) {
+            this.nao = aVar;
+            if (this.naj.b()) {
                 a(i2, listItem, false, i);
-                if (this.naj != null) {
-                    this.naj.b();
+                if (this.nao != null) {
+                    this.nao.b();
                     return;
                 }
                 return;
             }
-            this.nad = tv.chushou.zues.widget.fresco.a.a(listItem.mCover, this.e, new a.b() { // from class: com.kascend.chushou.player.ui.food.FoodView.8
+            this.nai = tv.chushou.zues.widget.fresco.a.a(listItem.mCover, this.e, new a.b() { // from class: com.kascend.chushou.player.ui.food.FoodView.8
                 @Override // tv.chushou.zues.widget.fresco.a.b
                 public void finish() {
-                    RxExecutor.post(FoodView.this.nai, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.food.FoodView.8.1
+                    RxExecutor.post(FoodView.this.nan, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.food.FoodView.8.1
                         @Override // java.lang.Runnable
                         public void run() {
                             FoodView.this.a(i2, listItem, false, i);
-                            if (FoodView.this.naj != null) {
-                                FoodView.this.naj.b();
+                            if (FoodView.this.nao != null) {
+                                FoodView.this.nao.b();
                             }
                         }
                     });
                 }
 
                 @Override // tv.chushou.zues.widget.fresco.a.b
-                public void dCO() {
+                public void dCQ() {
                     FoodView.this.d = false;
-                    if (FoodView.this.naj != null) {
-                        FoodView.this.naj.a();
+                    if (FoodView.this.nao != null) {
+                        FoodView.this.nao.a();
                     }
                 }
             });
@@ -487,9 +487,9 @@ public class FoodView extends RelativeLayout {
     public void a() {
         this.d = false;
         boolean z = true;
-        if (this.naj != null) {
-            z = this.naj.a();
-            this.naj = null;
+        if (this.nao != null) {
+            z = this.nao.a();
+            this.nao = null;
         }
         if (this.m) {
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(4, 8);
@@ -520,9 +520,9 @@ public class FoodView extends RelativeLayout {
                 public void onAnimationEnd(Animation animation) {
                     if (!FoodView.this.d) {
                         boolean z = true;
-                        if (FoodView.this.naj != null) {
-                            z = FoodView.this.naj.a();
-                            FoodView.this.naj = null;
+                        if (FoodView.this.nao != null) {
+                            z = FoodView.this.nao.a();
+                            FoodView.this.nao = null;
                         }
                         if (z) {
                             FoodView.this.setVisibility(8);
@@ -541,19 +541,19 @@ public class FoodView extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
-        if (this.nab != null && !this.nab.isDisposed()) {
-            this.nab.dispose();
+        if (this.nag != null && !this.nag.isDisposed()) {
+            this.nag.dispose();
         }
-        this.nab = null;
+        this.nag = null;
         a();
-        if (this.e != null && this.nac != null) {
-            com.kascend.chushou.a.a.dAE().c(this.nac);
+        if (this.e != null && this.nah != null) {
+            com.kascend.chushou.a.a.dAG().c(this.nah);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, int i2, int i3, int i4) {
-        if (this.nac != null) {
+        if (this.nah != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("__DOWN_X__", String.valueOf(i));
@@ -563,13 +563,13 @@ public class FoodView extends RelativeLayout {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.kascend.chushou.a.a.dAE().a(this.nac, 0, jSONObject);
+            com.kascend.chushou.a.a.dAG().a(this.nah, 0, jSONObject);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(int i, int i2, int i3, int i4) {
-        if (this.e != null && this.nac != null) {
+        if (this.e != null && this.nah != null) {
             String str = Constants.VIA_ACT_TYPE_NINETEEN;
             if (!tv.chushou.zues.utils.h.isEmpty(this.i)) {
                 str = this.i;
@@ -583,28 +583,28 @@ public class FoodView extends RelativeLayout {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.kascend.chushou.d.e.a(this.e, this.nac, M);
-            if ((this.nae instanceof e) && this.naj != null) {
-                this.naj.a();
+            com.kascend.chushou.d.e.a(this.e, this.nah, M);
+            if ((this.naj instanceof e) && this.nao != null) {
+                this.nao.a();
             }
         }
     }
 
     public void d() {
-        if (this.nab != null && !this.nab.isDisposed()) {
-            this.nab.dispose();
+        if (this.nag != null && !this.nag.isDisposed()) {
+            this.nag.dispose();
         }
-        this.nab = null;
-        this.nac = null;
-        if (this.nad != null) {
-            this.nad.Mn();
-            this.nad = null;
+        this.nag = null;
+        this.nah = null;
+        if (this.nai != null) {
+            this.nai.Mn();
+            this.nai = null;
         }
-        if (this.naf != null) {
-            this.naf.cp(null);
+        if (this.nak != null) {
+            this.nak.cp(null);
         }
-        if (this.nae != null) {
-            this.nae.e();
+        if (this.naj != null) {
+            this.naj.e();
         }
     }
 

@@ -12,7 +12,7 @@ public abstract class z implements Iterator<Double> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dIT */
+    /* renamed from: dIV */
     public final Double next() {
         return Double.valueOf(nextDouble());
     }

@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes7.dex */
 public class g {
     private BaseFragmentActivity gpB;
-    private d iVT;
+    private d iVY;
     private int mSkinType = 3;
 
     public g(BaseFragmentActivity baseFragmentActivity) {
@@ -24,32 +24,32 @@ public class g {
 
     private void c(com.baidu.tieba.pb.data.f fVar, String str) {
         if (fVar != null) {
-            if (this.iVT == null) {
-                this.iVT = new d(LayoutInflater.from(this.gpB.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.iVY == null) {
+                this.iVY = new d(LayoutInflater.from(this.gpB.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.iVT.a(fVar, str);
+            this.iVY.a(fVar, str);
         }
     }
 
-    public View cqR() {
-        if (this.iVT == null) {
+    public View cqT() {
+        if (this.iVY == null) {
             return null;
         }
-        return this.iVT.mRootView;
+        return this.iVY.mRootView;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.iVT != null) {
-                this.iVT.aKd();
+            if (this.iVY != null) {
+                this.iVY.aKd();
             }
             this.mSkinType = i;
         }
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        if (this.iVT != null) {
-            bdTypeListView.removeHeaderView(this.iVT.mRootView);
+        if (this.iVY != null) {
+            bdTypeListView.removeHeaderView(this.iVY.mRootView);
         }
     }
 }

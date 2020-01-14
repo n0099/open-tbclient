@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class t implements o {
-    private List<AppData> jFd;
+    private List<AppData> jFi;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
@@ -58,35 +58,35 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j cAP() {
-        return b.cAG();
+    public j cAR() {
+        return b.cAI();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l cAQ() {
-        return b.cAG();
+    public l cAS() {
+        return b.cAI();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.q.a cAR() {
+    public com.baidu.tieba.q.a cAT() {
         return com.baidu.tieba.ad.statis.a.aWg();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public h cAS() {
+    public h cAU() {
         return com.baidu.tieba.ad.a.aVI();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> cAT() {
-        if (this.jFd == null) {
-            this.jFd = new ArrayList();
+    public List<AppData> cAV() {
+        if (this.jFi == null) {
+            this.jFi = new ArrayList();
         }
-        return this.jFd;
+        return this.jFi;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void cAU() {
-        AdDebugService.updateFloatView(this.jFd != null ? StringUtils.string(Integer.valueOf(this.jFd.size())) : "0");
+    public void cAW() {
+        AdDebugService.updateFloatView(this.jFi != null ? StringUtils.string(Integer.valueOf(this.jFi.size())) : "0");
     }
 }

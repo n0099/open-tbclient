@@ -10,23 +10,23 @@ import com.facebook.drawee.drawable.d;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class a extends Drawable implements Animatable, com.facebook.b.a.a {
-    private static final Class<?> lGm = a.class;
-    private static final b lNT = new c();
+    private static final Class<?> lGr = a.class;
+    private static final b lNY = new c();
     private long aGp;
     @Nullable
-    private com.facebook.fresco.animation.d.b lNU;
-    private long lNV;
-    private long lNW;
-    private int lNX;
-    private long lNY;
-    private long lNZ;
+    private com.facebook.fresco.animation.d.b lNZ;
     @Nullable
-    private com.facebook.fresco.animation.a.a lNn;
-    private int lOa;
-    private volatile b lOb;
+    private com.facebook.fresco.animation.a.a lNs;
+    private long lOa;
+    private long lOb;
+    private int lOc;
+    private long lOd;
+    private long lOe;
+    private int lOf;
+    private volatile b lOg;
     @Nullable
-    private volatile InterfaceC0655a lOc;
-    private final Runnable lOd;
+    private volatile InterfaceC0655a lOh;
+    private final Runnable lOi;
     @Nullable
     private d mDrawableProperties;
     private volatile boolean mIsRunning;
@@ -42,41 +42,41 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
     }
 
     public a(@Nullable com.facebook.fresco.animation.a.a aVar) {
-        this.lNY = 8L;
-        this.lNZ = 0L;
-        this.lOb = lNT;
-        this.lOc = null;
-        this.lOd = new Runnable() { // from class: com.facebook.fresco.animation.c.a.1
+        this.lOd = 8L;
+        this.lOe = 0L;
+        this.lOg = lNY;
+        this.lOh = null;
+        this.lOi = new Runnable() { // from class: com.facebook.fresco.animation.c.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.unscheduleSelf(a.this.lOd);
+                a.this.unscheduleSelf(a.this.lOi);
                 a.this.invalidateSelf();
             }
         };
-        this.lNn = aVar;
-        this.lNU = a(this.lNn);
+        this.lNs = aVar;
+        this.lNZ = a(this.lNs);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.lNn == null ? super.getIntrinsicWidth() : this.lNn.getIntrinsicWidth();
+        return this.lNs == null ? super.getIntrinsicWidth() : this.lNs.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.lNn == null ? super.getIntrinsicHeight() : this.lNn.getIntrinsicHeight();
+        return this.lNs == null ? super.getIntrinsicHeight() : this.lNs.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
-        if (!this.mIsRunning && this.lNn != null && this.lNn.getFrameCount() > 1) {
+        if (!this.mIsRunning && this.lNs != null && this.lNs.getFrameCount() > 1) {
             this.mIsRunning = true;
             this.aGp = now();
-            this.lNW = this.aGp;
-            this.lNV = -1L;
-            this.lNX = -1;
+            this.lOb = this.aGp;
+            this.lOa = -1L;
+            this.lOc = -1;
             invalidateSelf();
-            this.lOb.b(this);
+            this.lOg.b(this);
         }
     }
 
@@ -85,11 +85,11 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
         if (this.mIsRunning) {
             this.mIsRunning = false;
             this.aGp = 0L;
-            this.lNW = this.aGp;
-            this.lNV = -1L;
-            this.lNX = -1;
-            unscheduleSelf(this.lOd);
-            this.lOb.c(this);
+            this.lOb = this.aGp;
+            this.lOa = -1L;
+            this.lOc = -1;
+            unscheduleSelf(this.lOi);
+            this.lOg.c(this);
         }
     }
 
@@ -101,47 +101,47 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        if (this.lNn != null) {
-            this.lNn.setBounds(rect);
+        if (this.lNs != null) {
+            this.lNs.setBounds(rect);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.lNn != null && this.lNU != null) {
+        if (this.lNs != null && this.lNZ != null) {
             long now = now();
-            long max = this.mIsRunning ? (now - this.aGp) + this.lNZ : Math.max(this.lNV, 0L);
-            int L = this.lNU.L(max, this.lNV);
+            long max = this.mIsRunning ? (now - this.aGp) + this.lOe : Math.max(this.lOa, 0L);
+            int L = this.lNZ.L(max, this.lOa);
             if (L == -1) {
-                L = this.lNn.getFrameCount() - 1;
-                this.lOb.c(this);
+                L = this.lNs.getFrameCount() - 1;
+                this.lOg.c(this);
                 this.mIsRunning = false;
-            } else if (L == 0 && this.lNX != -1 && now >= this.lNW) {
-                this.lOb.d(this);
+            } else if (L == 0 && this.lOc != -1 && now >= this.lOb) {
+                this.lOg.d(this);
             }
-            boolean a = this.lNn.a(this, canvas, L);
+            boolean a = this.lNs.a(this, canvas, L);
             if (a) {
-                this.lOb.a(this, L);
-                this.lNX = L;
+                this.lOg.a(this, L);
+                this.lOc = L;
             }
             if (!a) {
-                dmd();
+                dmf();
             }
             long j = -1;
             long j2 = -1;
             long now2 = now();
             if (this.mIsRunning) {
-                j = this.lNU.fj(now2 - this.aGp);
+                j = this.lNZ.fj(now2 - this.aGp);
                 if (j != -1) {
-                    j2 = j + this.lNY;
+                    j2 = j + this.lOd;
                     fi(j2);
                 }
             }
-            InterfaceC0655a interfaceC0655a = this.lOc;
+            InterfaceC0655a interfaceC0655a = this.lOh;
             if (interfaceC0655a != null) {
-                interfaceC0655a.a(this, this.lNU, L, a, this.mIsRunning, this.aGp, max, this.lNV, now, now2, j, j2);
+                interfaceC0655a.a(this, this.lNZ, L, a, this.mIsRunning, this.aGp, max, this.lOa, now, now2, j, j2);
             }
-            this.lNV = max;
+            this.lOa = max;
         }
     }
 
@@ -151,8 +151,8 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
             this.mDrawableProperties = new d();
         }
         this.mDrawableProperties.setAlpha(i);
-        if (this.lNn != null) {
-            this.lNn.setAlpha(i);
+        if (this.lNs != null) {
+            this.lNs.setAlpha(i);
         }
     }
 
@@ -162,8 +162,8 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
             this.mDrawableProperties = new d();
         }
         this.mDrawableProperties.setColorFilter(colorFilter);
-        if (this.lNn != null) {
-            this.lNn.setColorFilter(colorFilter);
+        if (this.lNs != null) {
+            this.lNs.setColorFilter(colorFilter);
         }
     }
 
@@ -173,14 +173,14 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
     }
 
     private void fi(long j) {
-        this.lNW = this.aGp + j;
-        scheduleSelf(this.lOd, this.lNW);
+        this.lOb = this.aGp + j;
+        scheduleSelf(this.lOi, this.lOb);
     }
 
-    private void dmd() {
-        this.lOa++;
+    private void dmf() {
+        this.lOf++;
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(lGm, "Dropped a frame. Count: %s", Integer.valueOf(this.lOa));
+            com.facebook.common.c.a.a(lGr, "Dropped a frame. Count: %s", Integer.valueOf(this.lOf));
         }
     }
 
@@ -198,18 +198,18 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
-        if (this.mIsRunning || this.lNV == i) {
+        if (this.mIsRunning || this.lOa == i) {
             return false;
         }
-        this.lNV = i;
+        this.lOa = i;
         invalidateSelf();
         return true;
     }
 
     @Override // com.facebook.b.a.a
-    public void dkb() {
-        if (this.lNn != null) {
-            this.lNn.clear();
+    public void dkd() {
+        if (this.lNs != null) {
+            this.lNs.clear();
         }
     }
 }

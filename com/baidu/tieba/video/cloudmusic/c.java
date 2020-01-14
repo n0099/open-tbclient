@@ -8,7 +8,7 @@ public interface c {
     public interface a {
         void bER();
 
-        void cNT();
+        void cNV();
     }
 
     /* loaded from: classes8.dex */

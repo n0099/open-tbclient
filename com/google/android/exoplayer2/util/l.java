@@ -40,11 +40,11 @@ public final class l {
         this.limit = 0;
     }
 
-    public int dyf() {
+    public int dyh() {
         return this.limit - this.position;
     }
 
-    public int dyg() {
+    public int dyi() {
         return this.limit;
     }
 
@@ -83,7 +83,7 @@ public final class l {
         this.position += i2;
     }
 
-    public char dyh() {
+    public char dyj() {
         return (char) (((this.data[this.position] & 255) << 8) | (this.data[this.position + 1] & 255));
     }
 
@@ -104,7 +104,7 @@ public final class l {
         return ((bArr[i] & 255) << 8) | (bArr2[i2] & 255);
     }
 
-    public int dyi() {
+    public int dyk() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -124,7 +124,7 @@ public final class l {
         return (short) (((bArr[i] & 255) << 8) | (bArr2[i2] & 255));
     }
 
-    public int dyj() {
+    public int dyl() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -138,7 +138,7 @@ public final class l {
         return i3 | (bArr3[i4] & 255);
     }
 
-    public int dyk() {
+    public int dym() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -170,7 +170,7 @@ public final class l {
         return j2 | (bArr4[i4] & 255);
     }
 
-    public long dyl() {
+    public long dyn() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -206,7 +206,7 @@ public final class l {
         return i5 | (bArr4[i6] & 255);
     }
 
-    public int dym() {
+    public int dyo() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -258,7 +258,7 @@ public final class l {
         return j6 | (bArr8[i8] & 255);
     }
 
-    public long dyn() {
+    public long dyp() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -292,7 +292,7 @@ public final class l {
         return j6 | ((bArr8[i8] & 255) << 56);
     }
 
-    public int dyo() {
+    public int dyq() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -304,11 +304,11 @@ public final class l {
         return i3;
     }
 
-    public int dyp() {
+    public int dyr() {
         return (readUnsignedByte() << 21) | (readUnsignedByte() << 14) | (readUnsignedByte() << 7) | readUnsignedByte();
     }
 
-    public int dyq() {
+    public int dys() {
         int readInt = readInt();
         if (readInt < 0) {
             throw new IllegalStateException("Top bit not zero: " + readInt);
@@ -316,15 +316,15 @@ public final class l {
         return readInt;
     }
 
-    public int dyr() {
-        int dym = dym();
-        if (dym < 0) {
-            throw new IllegalStateException("Top bit not zero: " + dym);
+    public int dyt() {
+        int dyo = dyo();
+        if (dyo < 0) {
+            throw new IllegalStateException("Top bit not zero: " + dyo);
         }
-        return dym;
+        return dyo;
     }
 
-    public long dys() {
+    public long dyu() {
         long readLong = readLong();
         if (readLong < 0) {
             throw new IllegalStateException("Top bit not zero: " + readLong);
@@ -356,8 +356,8 @@ public final class l {
         return str;
     }
 
-    public String dyt() {
-        if (dyf() == 0) {
+    public String dyv() {
+        if (dyh() == 0) {
             return null;
         }
         int i = this.position;
@@ -373,7 +373,7 @@ public final class l {
     }
 
     public String readLine() {
-        if (dyf() == 0) {
+        if (dyh() == 0) {
             return null;
         }
         int i = this.position;
@@ -400,7 +400,7 @@ public final class l {
         return str;
     }
 
-    public long dyu() {
+    public long dyw() {
         byte b;
         int i = 0;
         long j = this.data[this.position];

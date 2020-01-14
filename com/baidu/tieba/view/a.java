@@ -20,9 +20,9 @@ public class a {
     private LinearLayout cRI;
     private View cRJ;
     private TextView cRK;
-    private d kGD;
-    private b kGE;
-    private boolean kGF;
+    private d kGI;
+    private b kGJ;
+    private boolean kGK;
     private List<C0621a> mItems;
     private String titleText;
     private View view;
@@ -66,8 +66,8 @@ public class a {
         this.titleText = str;
     }
 
-    public d cRU() {
-        return this.kGD;
+    public d cRW() {
+        return this.kGI;
     }
 
     public void az(List<C0621a> list) {
@@ -91,7 +91,7 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.kGE = bVar;
+        this.kGJ = bVar;
     }
 
     public void onChangeSkinType() {
@@ -106,14 +106,14 @@ public class a {
                 c0621a.onChangeSkinType();
             }
         }
-        if (this.kGF) {
+        if (this.kGK) {
             if (!StringUtils.isNull(this.titleText) && this.cGN != null && (this.cGN.getBackground() instanceof GradientDrawable)) {
                 float dimension = getContext().getResources().getDimension(R.dimen.tbds32);
                 ((GradientDrawable) this.cGN.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
             } else if (v.getCount(this.mItems) > 0) {
                 C0621a c0621a2 = this.mItems.get(0);
-                if (!c0621a2.kGJ) {
-                    c0621a2.kGJ = true;
+                if (!c0621a2.kGO) {
+                    c0621a2.kGO = true;
                     c0621a2.onChangeSkinType();
                 }
             }
@@ -128,11 +128,11 @@ public class a {
             this.cGN.setVisibility(8);
             this.cRJ.setVisibility(8);
         }
-        if (this.kGE != null) {
+        if (this.kGJ != null) {
             this.cRK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.kGE.onClick();
+                    a.this.kGJ.onClick();
                 }
             });
         }
@@ -147,9 +147,9 @@ public class a {
         private int cRs;
         private int cRt;
         private boolean cRv;
-        private a kGH;
-        private c kGI;
-        public boolean kGJ;
+        private a kGM;
+        private c kGN;
+        public boolean kGO;
         private int mId;
         private final View.OnClickListener mOnClickListener;
         private String mText;
@@ -169,16 +169,16 @@ public class a {
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0621a.this.kGI != null) {
-                        C0621a.this.kGI.onClick();
+                    if (C0621a.this.kGN != null) {
+                        C0621a.this.kGN.onClick();
                     }
-                    if (C0621a.this.kGH != null && C0621a.this.kGH.cRU() != null) {
-                        C0621a.this.kGH.cRU().k(C0621a.this.mId, view);
+                    if (C0621a.this.kGM != null && C0621a.this.kGM.cRW() != null) {
+                        C0621a.this.kGM.cRW().k(C0621a.this.mId, view);
                     }
                 }
             };
             this.mText = str;
-            this.kGH = aVar;
+            this.kGM = aVar;
             this.mId = hashCode();
             initView();
             initListener();
@@ -194,13 +194,13 @@ public class a {
         }
 
         public void a(c cVar) {
-            this.kGI = cVar;
+            this.kGN = cVar;
             initListener();
         }
 
         public void onChangeSkinType() {
             if (this.mTextView != null) {
-                if (this.kGJ) {
+                if (this.kGO) {
                     am.setBackgroundResource(this.mTextView, R.drawable.bg_bottom_up_corner_dialog);
                 } else {
                     this.mTextView.setBackgroundDrawable(am.ke(R.color.cp_bg_line_k));
@@ -211,8 +211,8 @@ public class a {
         }
 
         private void initView() {
-            if (this.kGH != null && this.kGH.getContext() != null) {
-                this.mView = LayoutInflater.from(this.kGH.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.kGH.aCD(), false);
+            if (this.kGM != null && this.kGM.getContext() != null) {
+                this.mView = LayoutInflater.from(this.kGM.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.kGM.aCD(), false);
                 this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
                 this.mTextView.setText(this.mText);
                 this.mTextView.setGravity(this.cRt);

@@ -4,7 +4,7 @@ public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> dka() {
+    public static <T> g<T> dkc() {
         return new g<>();
     }
 

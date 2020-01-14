@@ -16,15 +16,15 @@ public class ec extends ai.a {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f249a;
+    private SharedPreferences f250a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ag f250a;
+    private com.xiaomi.push.service.ag f251a;
 
     public ec(Context context) {
         this.a = context;
-        this.f249a = context.getSharedPreferences("mipush_extra", 0);
-        this.f250a = com.xiaomi.push.service.ag.a(context);
+        this.f250a = context.getSharedPreferences("mipush_extra", 0);
+        this.f251a = com.xiaomi.push.service.ag.a(context);
     }
 
     private List<ho> a(File file) {
@@ -128,7 +128,7 @@ public class ec extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f249a.edit();
+        SharedPreferences.Editor edit = this.f250a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
@@ -145,15 +145,15 @@ public class ec extends ai.a {
     }
 
     private boolean b() {
-        if (this.f250a.a(hl.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f249a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f250a.a(hl.Upload3GFrequency.a(), 432000)));
+        if (this.f251a.a(hl.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f250a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f251a.a(hl.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f250a.a(hl.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f249a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f250a.a(hl.Upload4GFrequency.a(), 259200)));
+        if (this.f251a.a(hl.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f250a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f251a.a(hl.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
@@ -183,7 +183,7 @@ public class ec extends ai.a {
                 hzVar.a(a);
                 byte[] a2 = y.a(iq.a(hzVar));
                 Cif cif = new Cif("-1", false);
-                cif.c(hq.DataCollection.f492a);
+                cif.c(hq.DataCollection.f493a);
                 cif.a(a2);
                 dk m218a = dl.a().m218a();
                 if (m218a != null) {
@@ -192,7 +192,7 @@ public class ec extends ai.a {
                 a();
             }
             file.delete();
-            this.f249a.edit().remove("ltapn").commit();
+            this.f250a.edit().remove("ltapn").commit();
         }
     }
 }

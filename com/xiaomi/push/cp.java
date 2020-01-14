@@ -9,10 +9,10 @@ public class cp {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f196a;
+    private long f197a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f197a;
+    private String f198a;
     private long b;
     private long c;
 
@@ -22,11 +22,11 @@ public class cp {
 
     public cp(int i, long j, long j2, Exception exc) {
         this.a = i;
-        this.f196a = j;
+        this.f197a = j;
         this.c = j2;
         this.b = System.currentTimeMillis();
         if (exc != null) {
-            this.f197a = exc.getClass().getSimpleName();
+            this.f198a = exc.getClass().getSimpleName();
         }
     }
 
@@ -35,22 +35,22 @@ public class cp {
     }
 
     public cp a(JSONObject jSONObject) {
-        this.f196a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
+        this.f197a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
         this.c = jSONObject.getLong(TiebaInitialize.LogFields.SIZE);
         this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.a = jSONObject.getInt("wt");
-        this.f197a = jSONObject.optString("expt");
+        this.f198a = jSONObject.optString("expt");
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public JSONObject m191a() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f196a);
+        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f197a);
         jSONObject.put(TiebaInitialize.LogFields.SIZE, this.c);
         jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
         jSONObject.put("wt", this.a);
-        jSONObject.put("expt", this.f197a);
+        jSONObject.put("expt", this.f198a);
         return jSONObject;
     }
 }

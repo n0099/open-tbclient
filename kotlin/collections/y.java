@@ -12,15 +12,15 @@ public class y extends x {
 
     /* loaded from: classes5.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable nBd;
+        final /* synthetic */ Iterable nBi;
 
         public a(Iterable iterable) {
-            this.nBd = iterable;
+            this.nBi = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.nBd.iterator();
+            return this.nBi.iterator();
         }
     }
 
@@ -97,7 +97,7 @@ public class y extends x {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return o.dIS();
+                    return o.dIU();
                 case 1:
                     return o.bR(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:

@@ -245,10 +245,10 @@ public class d {
                             ((ColumnLayout.LayoutParams) this.iPG.getLayoutParams()).rightMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40);
                         }
                         this.iPx.setSpacingRight(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20));
-                        com.baidu.tbadk.data.f cJA = postData.cJA();
-                        if (cJA != null && !TextUtils.isEmpty(cJA.getName()) && !TextUtils.isEmpty(cJA.getName().trim())) {
+                        com.baidu.tbadk.data.f cJC = postData.cJC();
+                        if (cJC != null && !TextUtils.isEmpty(cJC.getName()) && !TextUtils.isEmpty(cJC.getName().trim())) {
                             this.iPM.setVisibility(0);
-                            this.iPM.setText(cJA.getName());
+                            this.iPM.setText(cJC.getName());
                         } else {
                             this.iPM.setVisibility(8);
                         }

@@ -11,8 +11,8 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
     private int bju;
     private Runnable dYQ;
-    private b jMR;
-    private boolean jMS;
+    private b jMW;
+    private boolean jMX;
     private Handler mHandler;
 
     /* loaded from: classes11.dex */
@@ -23,12 +23,12 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context) {
         super(context);
         this.mHandler = null;
-        this.jMR = null;
-        this.jMS = true;
-        cCj();
+        this.jMW = null;
+        this.jMX = true;
+        cCl();
     }
 
-    private void cCj() {
+    private void cCl() {
         this.dYQ = new a();
         this.mHandler = new Handler();
     }
@@ -36,17 +36,17 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = null;
-        this.jMR = null;
-        this.jMS = true;
-        cCj();
+        this.jMW = null;
+        this.jMX = true;
+        cCl();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = null;
-        this.jMR = null;
-        this.jMS = true;
-        cCj();
+        this.jMW = null;
+        this.jMX = true;
+        cCl();
     }
 
     public void update(int i) {
@@ -58,11 +58,11 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(b bVar) {
-        this.jMR = bVar;
+        this.jMW = bVar;
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.jMS = z;
+        this.jMX = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -87,8 +87,8 @@ public class CountDownTextView extends TextView {
     public void nW(int i) {
         if (i > 0) {
             if (this.bju == 0) {
-                if (this.jMR != null && this.jMS && getVisibility() == 0) {
-                    this.jMR.bq(this);
+                if (this.jMW != null && this.jMX && getVisibility() == 0) {
+                    this.jMW.bq(this);
                 }
                 setText(String.valueOf(this.bju));
                 this.mHandler.removeCallbacksAndMessages(null);

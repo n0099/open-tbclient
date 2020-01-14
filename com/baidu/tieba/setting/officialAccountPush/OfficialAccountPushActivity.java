@@ -24,7 +24,7 @@ import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
     private BdListView gGC = null;
-    private a jTS = null;
+    private a jTX = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -43,17 +43,17 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
 
     private void aVp() {
         if (!j.isNetWorkAvailable() && v.isEmpty(this.list)) {
-            cFG();
+            cFI();
         } else if (v.isEmpty(this.list)) {
             bHn();
-        } else if (this.jTS == null) {
-            this.jTS = new a(getPageContext());
-            this.jTS.setData(this.list);
-            this.gGC.setAdapter((ListAdapter) this.jTS);
-            this.jTS.setSwitchStateChangeListener(this);
+        } else if (this.jTX == null) {
+            this.jTX = new a(getPageContext());
+            this.jTX.setData(this.list);
+            this.gGC.setAdapter((ListAdapter) this.jTX);
+            this.jTX.setSwitchStateChangeListener(this);
         } else {
-            this.jTS.setData(this.list);
-            this.jTS.notifyDataSetChanged();
+            this.jTX.setData(this.list);
+            this.jTX.notifyDataSetChanged();
         }
     }
 
@@ -91,7 +91,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void cFG() {
+    public void cFI() {
         this.gGC.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.kQ(R.string.refresh_view_title_text));
@@ -122,9 +122,9 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void e(boolean z, long j) {
-        if (this.list != null && this.jTS != null) {
+        if (this.list != null && this.jTX != null) {
             if (!j.isNetWorkAvailable()) {
-                this.jTS.notifyDataSetChanged();
+                this.jTX.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
@@ -136,7 +136,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
                     }
                 }
             }
-            this.jTS.notifyDataSetChanged();
+            this.jTX.notifyDataSetChanged();
         }
     }
 

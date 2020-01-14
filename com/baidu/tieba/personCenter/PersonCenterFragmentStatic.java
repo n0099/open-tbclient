@@ -11,7 +11,7 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 public class PersonCenterFragmentStatic {
     static {
         aZL();
-        a.cCk();
+        a.cCm();
     }
 
     private static void aZL() {

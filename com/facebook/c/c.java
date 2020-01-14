@@ -4,8 +4,8 @@ import com.baidu.android.util.devices.RomUtils;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class c {
-    public static final c lOM = new c(RomUtils.UNKNOWN, null);
-    private final String lON;
+    public static final c lOR = new c(RomUtils.UNKNOWN, null);
+    private final String lOS;
     private final String mName;
 
     /* loaded from: classes12.dex */
@@ -18,7 +18,7 @@ public class c {
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.lON = str2;
+        this.lOS = str2;
     }
 
     public String toString() {

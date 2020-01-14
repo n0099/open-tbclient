@@ -9,12 +9,12 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     private volatile boolean isScrolling;
-    private PraiseListActivity jef;
+    private PraiseListActivity jek;
     private List<a> mZanItemDataList = null;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.jef = null;
-        this.jef = praiseListActivity;
+        this.jek = null;
+        this.jek = praiseListActivity;
     }
 
     public void dO(List<a> list) {
@@ -64,10 +64,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View g(int i, View view, ViewGroup viewGroup) {
-        b d = b.d(this.jef.getPageContext().getPageActivity(), view);
+        b d = b.d(this.jek.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        d.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.ctq(), this.isScrolling);
-        this.jef.changSkinType(d.getView());
+        d.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.cts(), this.isScrolling);
+        this.jek.changSkinType(d.getView());
         return d.getView();
     }
 }

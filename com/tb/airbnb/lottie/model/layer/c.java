@@ -15,7 +15,7 @@ import com.tb.airbnb.lottie.j;
 public class c extends a {
     private final Rect dst;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> noY;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> npd;
     private final Paint paint;
     private final Rect src;
 
@@ -33,8 +33,8 @@ public class c extends a {
         if (bitmap != null && !bitmap.isRecycled()) {
             float dK = com.tb.airbnb.lottie.d.f.dK();
             this.paint.setAlpha(i);
-            if (this.noY != null) {
-                this.paint.setColorFilter(this.noY.getValue());
+            if (this.npd != null) {
+                this.paint.setColorFilter(this.npd.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
@@ -57,7 +57,7 @@ public class c extends a {
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.J(this.nqH.getRefId());
+        return this.lottieDrawable.J(this.nqM.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
@@ -65,9 +65,9 @@ public class c extends a {
         super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
         if (t == j.fj) {
             if (cVar == null) {
-                this.noY = null;
+                this.npd = null;
             } else {
-                this.noY = new p(cVar);
+                this.npd = new p(cVar);
             }
         }
     }

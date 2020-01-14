@@ -12,7 +12,7 @@ import com.baidu.tieba.recapp.s;
 public class b extends e {
     private TextView bXF;
     private HeadImageView gRP;
-    private TextView jKY;
+    private TextView jLd;
 
     public b(View view, String str) {
         super(view, str);
@@ -26,25 +26,25 @@ public class b extends e {
         this.gRP.setDefaultBgResource(R.color.cp_bg_line_e);
         this.gRP.setIsRound(true);
         this.bXF = (TextView) AW(R.id.user_name);
-        this.jKY = (TextView) AW(R.id.action);
+        this.jLd = (TextView) AW(R.id.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.gRP.startLoad(fVar.jGw, 10, false);
+        this.gRP.startLoad(fVar.jGB, 10, false);
         this.bXF.setText(fVar.userName);
-        this.jKY.setText(fVar.buttonText);
+        this.jLd.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.be(b.this.mRootView.getContext(), fVar.scheme);
-                if (b.this.jLi != null) {
-                    b.this.jLi.AP(302);
-                    com.baidu.tieba.recapp.report.c.cBP().a(b.this.jLi);
+                if (b.this.jLn != null) {
+                    b.this.jLn.AP(302);
+                    com.baidu.tieba.recapp.report.c.cBR().a(b.this.jLn);
                 }
-                if (b.this.jLk != null) {
-                    com.baidu.tieba.lego.card.b.c.a(b.this.jLk);
+                if (b.this.jLp != null) {
+                    com.baidu.tieba.lego.card.b.c.a(b.this.jLp);
                 }
             }
         });
@@ -55,7 +55,7 @@ public class b extends e {
     public void onChangeSkinType() {
         super.onChangeSkinType();
         am.setViewTextColor(this.bXF, R.color.cp_mask_c_alpha83, 1);
-        am.setViewTextColor(this.jKY, R.color.cp_cont_a, 1);
-        am.setBackgroundResource(this.jKY, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+        am.setViewTextColor(this.jLd, R.color.cp_cont_a, 1);
+        am.setBackgroundResource(this.jLd, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
     }
 }

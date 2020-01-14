@@ -8,11 +8,11 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes5.dex */
 public final class b extends rx.g implements h {
-    static final C0791b nQA;
-    static final c nQz;
-    static final int nyl;
+    static final c nQE;
+    static final C0791b nQF;
+    static final int nyq;
     final ThreadFactory aNw;
-    final AtomicReference<C0791b> nyn = new AtomicReference<>(nQA);
+    final AtomicReference<C0791b> nys = new AtomicReference<>(nQF);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -20,10 +20,10 @@ public final class b extends rx.g implements h {
         if (intValue <= 0 || intValue > availableProcessors) {
             intValue = availableProcessors;
         }
-        nyl = intValue;
-        nQz = new c(RxThreadFactory.NONE);
-        nQz.unsubscribe();
-        nQA = new C0791b(null, 0);
+        nyq = intValue;
+        nQE = new c(RxThreadFactory.NONE);
+        nQE.unsubscribe();
+        nQF = new C0791b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,30 +31,30 @@ public final class b extends rx.g implements h {
     /* loaded from: classes5.dex */
     public static final class C0791b {
         long n;
-        final c[] nQG;
-        final int nys;
+        final c[] nQL;
+        final int nyx;
 
         C0791b(ThreadFactory threadFactory, int i) {
-            this.nys = i;
-            this.nQG = new c[i];
+            this.nyx = i;
+            this.nQL = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.nQG[i2] = new c(threadFactory);
+                this.nQL[i2] = new c(threadFactory);
             }
         }
 
-        public c dNh() {
-            int i = this.nys;
+        public c dNj() {
+            int i = this.nyx;
             if (i == 0) {
-                return b.nQz;
+                return b.nQE;
             }
-            c[] cVarArr = this.nQG;
+            c[] cVarArr = this.nQL;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.nQG) {
+            for (c cVar : this.nQL) {
                 cVar.unsubscribe();
             }
         }
@@ -67,13 +67,13 @@ public final class b extends rx.g implements h {
 
     @Override // rx.g
     public g.a createWorker() {
-        return new a(this.nyn.get().dNh());
+        return new a(this.nys.get().dNj());
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0791b c0791b = new C0791b(this.aNw, nyl);
-        if (!this.nyn.compareAndSet(nQA, c0791b)) {
+        C0791b c0791b = new C0791b(this.aNw, nyq);
+        if (!this.nys.compareAndSet(nQF, c0791b)) {
             c0791b.shutdown();
         }
     }
@@ -82,61 +82,61 @@ public final class b extends rx.g implements h {
     public void shutdown() {
         C0791b c0791b;
         do {
-            c0791b = this.nyn.get();
-            if (c0791b == nQA) {
+            c0791b = this.nys.get();
+            if (c0791b == nQF) {
                 return;
             }
-        } while (!this.nyn.compareAndSet(c0791b, nQA));
+        } while (!this.nys.compareAndSet(c0791b, nQF));
         c0791b.shutdown();
     }
 
     public k g(rx.functions.a aVar) {
-        return this.nyn.get().dNh().b(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.nys.get().dNj().b(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
     /* loaded from: classes5.dex */
     static final class a extends g.a {
-        private final rx.internal.util.i nQB = new rx.internal.util.i();
-        private final rx.subscriptions.b nQC = new rx.subscriptions.b();
-        private final rx.internal.util.i nQD = new rx.internal.util.i(this.nQB, this.nQC);
-        private final c nQE;
+        private final rx.internal.util.i nQG = new rx.internal.util.i();
+        private final rx.subscriptions.b nQH = new rx.subscriptions.b();
+        private final rx.internal.util.i nQI = new rx.internal.util.i(this.nQG, this.nQH);
+        private final c nQJ;
 
         a(c cVar) {
-            this.nQE = cVar;
+            this.nQJ = cVar;
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.nQD.unsubscribe();
+            this.nQI.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.nQD.isUnsubscribed();
+            return this.nQI.isUnsubscribed();
         }
 
         @Override // rx.g.a
         public k c(final rx.functions.a aVar) {
-            return isUnsubscribed() ? rx.subscriptions.e.dOl() : this.nQE.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
+            return isUnsubscribed() ? rx.subscriptions.e.dOn() : this.nQJ.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, 0L, (TimeUnit) null, this.nQB);
+            }, 0L, (TimeUnit) null, this.nQG);
         }
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return isUnsubscribed() ? rx.subscriptions.e.dOl() : this.nQE.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
+            return isUnsubscribed() ? rx.subscriptions.e.dOn() : this.nQJ.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, j, timeUnit, this.nQC);
+            }, j, timeUnit, this.nQH);
         }
     }
 

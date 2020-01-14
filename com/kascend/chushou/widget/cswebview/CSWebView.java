@@ -17,17 +17,17 @@ import tv.chushou.zues.widget.fresco.a;
 import tv.chushou.zues.widget.sweetalert.b;
 /* loaded from: classes4.dex */
 public class CSWebView extends SimpleWebview implements View.OnLongClickListener, DownloadListener {
-    private JSInterface nhx;
+    private JSInterface nhC;
 
     @SuppressLint({"AddJavascriptInterface"})
     public static void a(CSWebView cSWebView, Context context, c cVar, a aVar) {
         if (cSWebView != null && context != null) {
-            JSInterface dDo = aVar != null ? aVar.dDo() : null;
-            JSInterface jSInterface = dDo == null ? new JSInterface(context) : dDo;
-            d dDm = aVar != null ? aVar.dDm() : null;
-            com.kascend.chushou.toolkit.b dDn = aVar != null ? aVar.dDn() : null;
-            jSInterface.setCloseListener(dDm);
-            jSInterface.setJsToNative(dDn);
+            JSInterface dDq = aVar != null ? aVar.dDq() : null;
+            JSInterface jSInterface = dDq == null ? new JSInterface(context) : dDq;
+            d dDo = aVar != null ? aVar.dDo() : null;
+            com.kascend.chushou.toolkit.b dDp = aVar != null ? aVar.dDp() : null;
+            jSInterface.setCloseListener(dDo);
+            jSInterface.setJsToNative(dDp);
             Object d = aVar != null ? aVar.d() : null;
             if (d != null) {
                 jSInterface.setExtraData(d);
@@ -52,7 +52,7 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
         String str;
         super.a();
         WebSettings settings = getSettings();
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dOE().T(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dOG().T(tv.chushou.basis.d.a.b.b.class);
         if (bVar == null) {
             str = "Android ChushouTV SDK/5.5.6";
         } else {
@@ -65,7 +65,7 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
     @Override // com.kascend.chushou.widget.cswebview.SimpleWebview
     public void b() {
         super.b();
-        if (Build.VERSION.SDK_INT >= 19 && tv.chushou.zues.utils.e.dPa()) {
+        if (Build.VERSION.SDK_INT >= 19 && tv.chushou.zues.utils.e.dPc()) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
     }
@@ -98,7 +98,7 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
                     }
                     return;
                 }
-                tv.chushou.zues.widget.fresco.a.a(str, com.kascend.chushou.d.c.mOp.dAI().getAbsolutePath(), new a.InterfaceC0807a() { // from class: com.kascend.chushou.widget.cswebview.CSWebView.1.1
+                tv.chushou.zues.widget.fresco.a.a(str, com.kascend.chushou.d.c.mOu.dAK().getAbsolutePath(), new a.InterfaceC0807a() { // from class: com.kascend.chushou.widget.cswebview.CSWebView.1.1
                     @Override // tv.chushou.zues.widget.fresco.a.InterfaceC0807a
                     public void onComplete(boolean z, String str2) {
                         if (ViewCompat.isAttachedToWindow(CSWebView.this)) {
@@ -116,11 +116,11 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
 
     @Override // android.view.View
     public boolean canScrollHorizontally(int i) {
-        return (this.nhx != null && this.nhx.isCanScrollHorizontally()) || super.canScrollHorizontally(i);
+        return (this.nhC != null && this.nhC.isCanScrollHorizontally()) || super.canScrollHorizontally(i);
     }
 
     public void setJSInterface(JSInterface jSInterface) {
-        this.nhx = jSInterface;
+        this.nhC = jSInterface;
     }
 
     public void a(String str) {

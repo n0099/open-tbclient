@@ -8,23 +8,23 @@ import com.facebook.imagepipeline.c.q;
 /* loaded from: classes12.dex */
 public class e implements com.facebook.common.internal.j<q> {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private final ActivityManager jAI;
+    private final ActivityManager jAN;
 
     public e(ActivityManager activityManager) {
-        this.jAI = activityManager;
+        this.jAN = activityManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: czw */
+    /* renamed from: czy */
     public q get() {
-        return new q(czx(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        return new q(czz(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
-    private int czx() {
+    private int czz() {
         int i = 4194304;
-        if (this.jAI != null) {
-            int min = Math.min(this.jAI.getMemoryClass() * 1048576, Integer.MAX_VALUE);
+        if (this.jAN != null) {
+            int min = Math.min(this.jAN.getMemoryClass() * 1048576, Integer.MAX_VALUE);
             if (min >= 33554432) {
                 if (min < 67108864) {
                     i = TbConfig.THREAD_GIF_MIN_USE_MEMORY;

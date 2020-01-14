@@ -36,8 +36,8 @@ public class a extends h<com.baidu.tieba.tbadkCore.f, com.baidu.tieba.ala.liveca
         super.a(i, view, viewGroup, (ViewGroup) fVar, (com.baidu.tieba.tbadkCore.f) bVar);
         if (fVar != null) {
             int topThreadSize = this.glJ != null ? this.glJ.getTopThreadSize() : 0;
-            if (fVar.kde != null && fVar.kde.get(0) != null) {
-                fVar.kde.get(0).cLB = (i + 1) - topThreadSize;
+            if (fVar.kdj != null && fVar.kdj.get(0) != null) {
+                fVar.kdj.get(0).cLB = (i + 1) - topThreadSize;
             }
             bVar.eJn.setForumName(this.mForumName);
             bVar.eJn.a(fVar);

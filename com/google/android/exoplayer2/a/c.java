@@ -5,9 +5,9 @@ import java.lang.Exception;
 public interface c<I, O, E extends Exception> {
     void bv(I i) throws Exception;
 
-    I dtk() throws Exception;
+    I dtm() throws Exception;
 
-    O dtl() throws Exception;
+    O dtn() throws Exception;
 
     void flush();
 

@@ -33,23 +33,23 @@ import com.facebook.imagepipeline.producers.x;
 import com.facebook.imagepipeline.producers.y;
 /* loaded from: classes10.dex */
 public class l {
-    private final com.facebook.common.memory.a lHR;
-    private final com.facebook.imagepipeline.b.f lNw;
-    private final e lOf;
-    private final com.facebook.common.memory.g lPE;
-    private final com.facebook.imagepipeline.decoder.d lRF;
-    private final boolean lRG;
-    private final boolean lRS;
-    private final int lRW;
-    private final int lRX;
-    private boolean lRY;
-    private final p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lRi;
-    private final p<com.facebook.cache.common.b, PooledByteBuffer> lRj;
-    private final com.facebook.imagepipeline.c.e lRl;
-    private final com.facebook.imagepipeline.c.f lRm;
-    private final boolean lRw;
-    private final com.facebook.imagepipeline.decoder.b lRz;
-    private final com.facebook.imagepipeline.c.e lSr;
+    private final com.facebook.common.memory.a lHW;
+    private final com.facebook.imagepipeline.b.f lNB;
+    private final e lOk;
+    private final com.facebook.common.memory.g lPJ;
+    private final boolean lRB;
+    private final com.facebook.imagepipeline.decoder.b lRE;
+    private final com.facebook.imagepipeline.decoder.d lRK;
+    private final boolean lRL;
+    private final boolean lRX;
+    private final p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lRn;
+    private final p<com.facebook.cache.common.b, PooledByteBuffer> lRo;
+    private final com.facebook.imagepipeline.c.e lRq;
+    private final com.facebook.imagepipeline.c.f lRr;
+    private final int lSb;
+    private final int lSc;
+    private boolean lSd;
+    private final com.facebook.imagepipeline.c.e lSw;
     private AssetManager mAssetManager;
     private ContentResolver mContentResolver;
     private Resources mResources;
@@ -58,23 +58,23 @@ public class l {
         this.mContentResolver = context.getApplicationContext().getContentResolver();
         this.mResources = context.getApplicationContext().getResources();
         this.mAssetManager = context.getApplicationContext().getAssets();
-        this.lHR = aVar;
-        this.lRz = bVar;
-        this.lRF = dVar;
-        this.lRw = z;
-        this.lRG = z2;
-        this.lRS = z3;
-        this.lOf = eVar;
-        this.lPE = gVar;
-        this.lRi = pVar;
-        this.lRj = pVar2;
-        this.lSr = eVar2;
-        this.lRl = eVar3;
-        this.lRm = fVar;
-        this.lNw = fVar2;
-        this.lRW = i;
-        this.lRX = i2;
-        this.lRY = z4;
+        this.lHW = aVar;
+        this.lRE = bVar;
+        this.lRK = dVar;
+        this.lRB = z;
+        this.lRL = z2;
+        this.lRX = z3;
+        this.lOk = eVar;
+        this.lPJ = gVar;
+        this.lRn = pVar;
+        this.lRo = pVar2;
+        this.lSw = eVar2;
+        this.lRq = eVar3;
+        this.lRr = fVar;
+        this.lNB = fVar2;
+        this.lSb = i;
+        this.lSc = i2;
+        this.lSd = z4;
     }
 
     public static com.facebook.imagepipeline.producers.a a(aj<com.facebook.imagepipeline.g.e> ajVar) {
@@ -82,99 +82,99 @@ public class l {
     }
 
     public com.facebook.imagepipeline.producers.f b(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        return new com.facebook.imagepipeline.producers.f(this.lRi, this.lRm, ajVar);
+        return new com.facebook.imagepipeline.producers.f(this.lRn, this.lRr, ajVar);
     }
 
     public com.facebook.imagepipeline.producers.g c(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        return new com.facebook.imagepipeline.producers.g(this.lRm, ajVar);
+        return new com.facebook.imagepipeline.producers.g(this.lRr, ajVar);
     }
 
     public com.facebook.imagepipeline.producers.h d(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        return new com.facebook.imagepipeline.producers.h(this.lRi, this.lRm, ajVar);
+        return new com.facebook.imagepipeline.producers.h(this.lRn, this.lRr, ajVar);
     }
 
     public static com.facebook.imagepipeline.producers.j a(aj<com.facebook.imagepipeline.g.e> ajVar, aj<com.facebook.imagepipeline.g.e> ajVar2) {
         return new com.facebook.imagepipeline.producers.j(ajVar, ajVar2);
     }
 
-    public com.facebook.imagepipeline.producers.l dou() {
-        return new com.facebook.imagepipeline.producers.l(this.lPE);
+    public com.facebook.imagepipeline.producers.l dow() {
+        return new com.facebook.imagepipeline.producers.l(this.lPJ);
     }
 
     public com.facebook.imagepipeline.producers.m e(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return new com.facebook.imagepipeline.producers.m(this.lHR, this.lOf.dno(), this.lRz, this.lRF, this.lRw, this.lRG, this.lRS, ajVar);
+        return new com.facebook.imagepipeline.producers.m(this.lHW, this.lOk.dnq(), this.lRE, this.lRK, this.lRB, this.lRL, this.lRX, ajVar);
     }
 
     public o f(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return new o(this.lSr, this.lRl, this.lRm, ajVar);
+        return new o(this.lSw, this.lRq, this.lRr, ajVar);
     }
 
     public com.facebook.imagepipeline.producers.p g(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return new com.facebook.imagepipeline.producers.p(this.lSr, this.lRl, this.lRm, ajVar);
+        return new com.facebook.imagepipeline.producers.p(this.lSw, this.lRq, this.lRr, ajVar);
     }
 
     public ag h(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return new ag(this.lSr, this.lRm, this.lPE, this.lHR, ajVar);
+        return new ag(this.lSw, this.lRr, this.lPJ, this.lHW, ajVar);
     }
 
     public r i(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return new r(this.lRm, ajVar);
+        return new r(this.lRr, ajVar);
     }
 
     public s j(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return new s(this.lRj, this.lRm, ajVar);
+        return new s(this.lRo, this.lRr, ajVar);
     }
 
-    public v dov() {
-        return new v(this.lOf.dnm(), this.lPE, this.mAssetManager);
+    public v dox() {
+        return new v(this.lOk.dno(), this.lPJ, this.mAssetManager);
     }
 
-    public w dow() {
-        return new w(this.lOf.dnm(), this.lPE, this.mContentResolver);
+    public w doy() {
+        return new w(this.lOk.dno(), this.lPJ, this.mContentResolver);
     }
 
-    public x dox() {
-        return new x(this.lOf.dnm(), this.lPE, this.mContentResolver);
+    public x doz() {
+        return new x(this.lOk.dno(), this.lPJ, this.mContentResolver);
     }
 
-    public y doy() {
-        return new y(this.lOf.dnm(), this.lPE, this.mContentResolver);
+    public y doA() {
+        return new y(this.lOk.dno(), this.lPJ, this.mContentResolver);
     }
 
     public av a(aw<com.facebook.imagepipeline.g.e>[] awVarArr) {
         return new av(awVarArr);
     }
 
-    public aa doz() {
-        return new aa(this.lOf.dnm(), this.lPE);
+    public aa doB() {
+        return new aa(this.lOk.dno(), this.lPJ);
     }
 
-    public an doA() {
-        return new an(this.lOf.dnm(), this.lPE, this.mContentResolver);
+    public an doC() {
+        return new an(this.lOk.dno(), this.lPJ, this.mContentResolver);
     }
 
-    public ab doB() {
-        return new ab(this.lOf.dnm(), this.lPE, this.mResources);
+    public ab doD() {
+        return new ab(this.lOk.dno(), this.lPJ, this.mResources);
     }
 
-    public ac doC() {
-        return new ac(this.lOf.dnm(), this.mContentResolver);
+    public ac doE() {
+        return new ac(this.lOk.dno(), this.mContentResolver);
     }
 
     public ae b(af afVar) {
-        return new ae(this.lPE, this.lHR, afVar);
+        return new ae(this.lPJ, this.lHW, afVar);
     }
 
     public ah k(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        return new ah(this.lRi, this.lRm, ajVar);
+        return new ah(this.lRn, this.lRr, ajVar);
     }
 
     public ai l(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        return new ai(ajVar, this.lNw, this.lOf.dnp());
+        return new ai(ajVar, this.lNB, this.lOk.dnr());
     }
 
     public ao a(aj<com.facebook.imagepipeline.g.e> ajVar, boolean z, boolean z2) {
-        return new ao(this.lOf.dnp(), this.lPE, z && !this.lRw, ajVar, z2);
+        return new ao(this.lOk.dnr(), this.lPJ, z && !this.lRB, ajVar, z2);
     }
 
     public static <T> ar<T> m(aj<T> ajVar) {
@@ -186,14 +186,14 @@ public class l {
     }
 
     public <T> au<T> n(aj<T> ajVar) {
-        return new au<>(5, this.lOf.dnq(), ajVar);
+        return new au<>(5, this.lOk.dnt(), ajVar);
     }
 
     public ay o(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return new ay(this.lOf.dnp(), this.lPE, ajVar);
+        return new ay(this.lOk.dnr(), this.lPJ, ajVar);
     }
 
     public com.facebook.imagepipeline.producers.i p(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        return new com.facebook.imagepipeline.producers.i(ajVar, this.lRW, this.lRX, this.lRY);
+        return new com.facebook.imagepipeline.producers.i(ajVar, this.lSb, this.lSc, this.lSd);
     }
 }

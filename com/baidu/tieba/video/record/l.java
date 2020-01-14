@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class l {
-    public static final String kCg;
-    private List<DownloadData> kCh;
-    private a kCi;
-    private String kCj;
-    private com.baidu.tbadk.download.c kCk = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
+    public static final String kCl;
+    private List<DownloadData> kCm;
+    private a kCn;
+    private String kCo;
+    private com.baidu.tbadk.download.c kCp = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
         @Override // com.baidu.tbadk.download.c
         public void onFileUpdateProgress(DownloadData downloadData) {
             if (downloadData.getStatus() == 4) {
@@ -25,8 +25,8 @@ public class l {
                     file.delete();
                 }
                 l.this.w(downloadData);
-                if (l.this.kCi != null && l.this.kCj.equals(downloadData.getUrl())) {
-                    l.this.kCi.cNR();
+                if (l.this.kCn != null && l.this.kCo.equals(downloadData.getUrl())) {
+                    l.this.kCn.cNT();
                 }
             }
         }
@@ -43,11 +43,11 @@ public class l {
 
         @Override // com.baidu.tbadk.download.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.kCg)) {
+            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.kCl)) {
                 l.this.w(downloadData);
-                if (l.this.kCi != null && l.this.kCj.equals(downloadData.getUrl())) {
-                    l.this.kwa.put(downloadData.getPath().substring(l.kCg.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    l.this.kCi.eA(l.this.kCj, downloadData.getPath());
+                if (l.this.kCn != null && l.this.kCo.equals(downloadData.getUrl())) {
+                    l.this.kwf.put(downloadData.getPath().substring(l.kCl.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    l.this.kCn.eA(l.this.kCo, downloadData.getPath());
                 }
             }
         }
@@ -59,24 +59,24 @@ public class l {
                 file.delete();
             }
             l.this.w(downloadData);
-            if (l.this.kCi != null && l.this.kCj.equals(downloadData.getUrl())) {
-                l.this.kCi.JG(str);
+            if (l.this.kCn != null && l.this.kCo.equals(downloadData.getUrl())) {
+                l.this.kCn.JG(str);
             }
         }
     };
-    private HashMap<String, String> kwa;
+    private HashMap<String, String> kwf;
 
     /* loaded from: classes8.dex */
     public interface a {
         void JG(String str);
 
-        void cNR();
+        void cNT();
 
         void eA(String str, String str2);
     }
 
     static {
-        kCg = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+        kCl = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
     public String Kb(String str) {
@@ -84,26 +84,26 @@ public class l {
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.kwa == null) {
-            this.kwa = new HashMap<>();
-            cQD();
+        if (this.kwf == null) {
+            this.kwf = new HashMap<>();
+            cQF();
         }
-        return this.kwa.get(nameMd5FromUrl);
+        return this.kwf.get(nameMd5FromUrl);
     }
 
-    public void cQD() {
-        if (!StringUtils.isNull(kCg)) {
-            if (this.kwa == null) {
-                this.kwa = new HashMap<>();
+    public void cQF() {
+        if (!StringUtils.isNull(kCl)) {
+            if (this.kwf == null) {
+                this.kwf = new HashMap<>();
             } else {
-                this.kwa.clear();
+                this.kwf.clear();
             }
-            File file = new File(kCg);
+            File file = new File(kCl);
             if (file.exists()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
                     if (file2.isFile()) {
-                        this.kwa.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                        this.kwf.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
                 }
             }
@@ -111,40 +111,40 @@ public class l {
     }
 
     public void Kc(String str) {
-        if (TextUtils.isEmpty(str) || StringUtils.isNull(kCg)) {
-            if (this.kCi != null) {
-                this.kCi.JG("");
+        if (TextUtils.isEmpty(str) || StringUtils.isNull(kCl)) {
+            if (this.kCn != null) {
+                this.kCn.JG("");
                 return;
             }
             return;
         }
         String nameMd5FromUrl = as.getNameMd5FromUrl(str);
         if (nameMd5FromUrl != null) {
-            File file = new File(kCg);
+            File file = new File(kCl);
             if (!file.exists()) {
                 file.mkdirs();
             }
             String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-            if (this.kCh == null) {
-                this.kCh = new ArrayList();
+            if (this.kCm == null) {
+                this.kCm = new ArrayList();
             }
             if (!Kd(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
-                downloadData.setPath(kCg + "/" + nameMd5FromUrl + str2);
-                downloadData.setCallback(this.kCk);
-                this.kCh.add(downloadData);
+                downloadData.setPath(kCl + "/" + nameMd5FromUrl + str2);
+                downloadData.setCallback(this.kCp);
+                this.kCm.add(downloadData);
                 com.baidu.tbadk.download.d.aLR().f(downloadData);
             }
         }
     }
 
     private boolean Kd(String str) {
-        if (v.isEmpty(this.kCh) || str == null) {
+        if (v.isEmpty(this.kCm) || str == null) {
             return false;
         }
-        for (DownloadData downloadData : this.kCh) {
+        for (DownloadData downloadData : this.kCm) {
             if (downloadData != null && str.equals(downloadData.getUrl())) {
                 return true;
             }
@@ -155,32 +155,32 @@ public class l {
     /* JADX INFO: Access modifiers changed from: private */
     public void w(DownloadData downloadData) {
         int i;
-        if (!v.isEmpty(this.kCh) && downloadData != null) {
+        if (!v.isEmpty(this.kCm) && downloadData != null) {
             int i2 = 0;
             while (true) {
                 i = i2;
-                if (i >= this.kCh.size()) {
+                if (i >= this.kCm.size()) {
                     i = -1;
                     break;
-                } else if (this.kCh.get(i) != null && this.kCh.get(i).getUrl() != null && this.kCh.get(i).getUrl().equals(downloadData.getUrl())) {
+                } else if (this.kCm.get(i) != null && this.kCm.get(i).getUrl() != null && this.kCm.get(i).getUrl().equals(downloadData.getUrl())) {
                     break;
                 } else {
                     i2 = i + 1;
                 }
             }
-            this.kCh.remove(i);
+            this.kCm.remove(i);
         }
     }
 
     public void a(a aVar) {
-        this.kCi = aVar;
+        this.kCn = aVar;
     }
 
     public void Ke(String str) {
         if (str == null) {
-            this.kCj = "";
+            this.kCo = "";
         } else {
-            this.kCj = str;
+            this.kCo = str;
         }
     }
 }

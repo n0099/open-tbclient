@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a kvE;
-    private b kvF;
-    b.a kvG;
+    private com.baidu.tieba.video.editvideo.data.a kvJ;
+    private b kvK;
+    b.a kvL;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.kvE = aVar;
+        this.kvJ = aVar;
     }
 
-    public boolean cOl() {
-        return (this.kvE == null || "normal".equalsIgnoreCase(this.kvE.value)) ? false : true;
+    public boolean cOn() {
+        return (this.kvJ == null || "normal".equalsIgnoreCase(this.kvJ.value)) ? false : true;
     }
 
     public void JM(String str) {
-        if ((this.kvF == null || !this.kvF.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String cOn = cOn();
+        if ((this.kvK == null || !this.kvK.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String cOp = cOp();
             String str2 = "normal";
-            if (this.kvE != null) {
-                str2 = this.kvE.value;
+            if (this.kvJ != null) {
+                str2 = this.kvJ.value;
             }
-            this.kvF = new b(this.mContext, str, cOn, str2);
-            if (this.kvG != null) {
-                this.kvF.a(this.kvG);
+            this.kvK = new b(this.mContext, str, cOp, str2);
+            if (this.kvL != null) {
+                this.kvK.a(this.kvL);
             }
-            this.kvF.cOo();
+            this.kvK.cOq();
         }
     }
 
-    public boolean cOm() {
-        if (this.kvF != null) {
-            return this.kvF.isRunning();
+    public boolean cOo() {
+        if (this.kvK != null) {
+            return this.kvK.isRunning();
         }
         return false;
     }
 
     public void interruptProcess() {
-        if (this.kvF != null) {
-            this.kvF.cOp();
+        if (this.kvK != null) {
+            this.kvK.cOr();
         }
     }
 
     public void a(b.a aVar) {
-        this.kvG = aVar;
-        if (this.kvF != null) {
-            this.kvF.a(this.kvG);
+        this.kvL = aVar;
+        if (this.kvK != null) {
+            this.kvK.a(this.kvL);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String cOn() {
-        return com.baidu.tieba.video.c.ktJ + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String cOp() {
+        return com.baidu.tieba.video.c.ktO + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

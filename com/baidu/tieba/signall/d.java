@@ -12,15 +12,15 @@ public class d implements ae {
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int jWZ;
-    private int jXa;
-    private int jXb;
-    private int jXc;
-    private boolean jXd;
-    private boolean jXe;
-    private boolean jXf;
-    private boolean jXg;
+    private int jXe;
+    private int jXf;
+    private int jXg;
     private int jXh;
+    private boolean jXi;
+    private boolean jXj;
+    private boolean jXk;
+    private boolean jXl;
+    private int jXm;
 
     public int getForumId() {
         return this.forumId;
@@ -34,28 +34,28 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cHa() {
-        return this.jWZ;
-    }
-
-    public int cHb() {
-        return this.eno;
-    }
-
     public int cHc() {
-        return this.jXa;
+        return this.jXe;
     }
 
     public int cHd() {
-        return this.jXb;
+        return this.eno;
     }
 
     public int cHe() {
-        return this.jXc;
+        return this.jXf;
+    }
+
+    public int cHf() {
+        return this.jXg;
+    }
+
+    public int cHg() {
+        return this.jXh;
     }
 
     public void BX(int i) {
-        this.jWZ = i;
+        this.jXe = i;
     }
 
     public void BY(int i) {
@@ -63,53 +63,53 @@ public class d implements ae {
     }
 
     public void BZ(int i) {
-        this.jXa = i;
+        this.jXf = i;
     }
 
     public boolean baP() {
-        return this.jXd;
+        return this.jXi;
     }
 
     public void sv(boolean z) {
-        this.jXd = z;
-        this.jWZ = 1;
+        this.jXi = z;
+        this.jXe = 1;
     }
 
-    public boolean cHf() {
-        return this.jXf;
+    public boolean cHh() {
+        return this.jXk;
     }
 
     public void sw(boolean z) {
-        this.jXf = z;
-        this.jWZ = 0;
+        this.jXk = z;
+        this.jXe = 0;
     }
 
-    public boolean cHg() {
-        return this.jXg;
+    public boolean cHi() {
+        return this.jXl;
     }
 
     public void sx(boolean z) {
-        this.jXg = z;
+        this.jXl = z;
     }
 
-    public int cHh() {
-        return this.jXh;
+    public int cHj() {
+        return this.jXm;
     }
 
     public void Ca(int i) {
-        this.jXh = i;
+        this.jXm = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean cHi() {
-        return this.jXe;
+    public boolean cHk() {
+        return this.jXj;
     }
 
     public void sy(boolean z) {
-        this.jXe = z;
+        this.jXj = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.jWZ = jSONObject.optInt("is_sign_in");
+            this.jXe = jSONObject.optInt("is_sign_in");
             this.eno = jSONObject.optInt("cont_sign_num");
-            this.jXa = jSONObject.optInt("user_level");
-            this.jXb = jSONObject.optInt("user_exp");
-            this.jXc = jSONObject.optInt("need_exp");
-            if (this.jWZ != 0) {
-                this.jXd = true;
-                this.jXf = false;
+            this.jXf = jSONObject.optInt("user_level");
+            this.jXg = jSONObject.optInt("user_exp");
+            this.jXh = jSONObject.optInt("need_exp");
+            if (this.jXe != 0) {
+                this.jXi = true;
+                this.jXk = false;
             }
         }
     }

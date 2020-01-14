@@ -9,7 +9,7 @@ public final class g implements p {
     }
 
     @Override // com.google.android.exoplayer2.source.p
-    public void duX() throws IOException {
+    public void duZ() throws IOException {
     }
 
     @Override // com.google.android.exoplayer2.source.p

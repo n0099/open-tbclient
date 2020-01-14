@@ -454,7 +454,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     @UiThread
     private void k(Uri uri) {
-        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dkj().e(ImageRequestBuilder.X(uri).drm(), getContext());
+        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dkl().e(ImageRequestBuilder.X(uri).dro(), getContext());
         e.a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.games.view.button.base.ApiButton.1
             @Override // com.facebook.imagepipeline.e.b
             public void onNewResultImpl(@Nullable Bitmap bitmap) {
@@ -472,14 +472,14 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             @Override // com.facebook.datasource.a
             public void onFailureImpl(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
                 if (e.DEBUG) {
-                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.djQ().getMessage());
+                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.djS().getMessage());
                 }
                 ApiButton.this.aor();
                 if (bVar != null) {
                     bVar.Mn();
                 }
             }
-        }, i.djo());
+        }, i.djq());
     }
 
     @Override // android.view.View.OnClickListener

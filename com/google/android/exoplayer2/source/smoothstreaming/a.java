@@ -17,99 +17,99 @@ import com.google.android.exoplayer2.upstream.o;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class a implements b {
-    private final e mdj;
-    private final f mtK;
-    private IOException mtN;
-    private final o mtf;
-    private final int mxj;
-    private final com.google.android.exoplayer2.source.a.d[] mxk;
-    private com.google.android.exoplayer2.source.smoothstreaming.manifest.a mxl;
-    private int mxm;
+    private final e mdo;
+    private final f mtP;
+    private IOException mtS;
+    private final o mtk;
+    private final int mxo;
+    private final com.google.android.exoplayer2.source.a.d[] mxp;
+    private com.google.android.exoplayer2.source.smoothstreaming.manifest.a mxq;
+    private int mxr;
 
     /* renamed from: com.google.android.exoplayer2.source.smoothstreaming.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static final class C0674a implements b.a {
-        private final e.a mrm;
+        private final e.a mrr;
 
         public C0674a(e.a aVar) {
-            this.mrm = aVar;
+            this.mrr = aVar;
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.b.a
         public b a(o oVar, com.google.android.exoplayer2.source.smoothstreaming.manifest.a aVar, int i, f fVar, k[] kVarArr) {
-            return new a(oVar, aVar, i, fVar, this.mrm.dxH(), kVarArr);
+            return new a(oVar, aVar, i, fVar, this.mrr.dxJ(), kVarArr);
         }
     }
 
     public a(o oVar, com.google.android.exoplayer2.source.smoothstreaming.manifest.a aVar, int i, f fVar, e eVar, k[] kVarArr) {
-        this.mtf = oVar;
-        this.mxl = aVar;
-        this.mxj = i;
-        this.mtK = fVar;
-        this.mdj = eVar;
-        a.b bVar = aVar.mxu[i];
-        this.mxk = new com.google.android.exoplayer2.source.a.d[fVar.length()];
-        for (int i2 = 0; i2 < this.mxk.length; i2++) {
+        this.mtk = oVar;
+        this.mxq = aVar;
+        this.mxo = i;
+        this.mtP = fVar;
+        this.mdo = eVar;
+        a.b bVar = aVar.mxz[i];
+        this.mxp = new com.google.android.exoplayer2.source.a.d[fVar.length()];
+        for (int i2 = 0; i2 < this.mxp.length; i2++) {
             int LB = fVar.LB(i2);
-            Format format = bVar.mrI[LB];
-            this.mxk[i2] = new com.google.android.exoplayer2.source.a.d(new com.google.android.exoplayer2.extractor.c.e(3, null, new j(LB, bVar.type, bVar.timescale, -9223372036854775807L, aVar.lYQ, format, 0, kVarArr, bVar.type == 2 ? 4 : 0, null, null), null), bVar.type, format);
+            Format format = bVar.mrN[LB];
+            this.mxp[i2] = new com.google.android.exoplayer2.source.a.d(new com.google.android.exoplayer2.extractor.c.e(3, null, new j(LB, bVar.type, bVar.timescale, -9223372036854775807L, aVar.lYV, format, 0, kVarArr, bVar.type == 2 ? 4 : 0, null, null), null), bVar.type, format);
         }
     }
 
     @Override // com.google.android.exoplayer2.source.smoothstreaming.b
     public void a(com.google.android.exoplayer2.source.smoothstreaming.manifest.a aVar) {
-        a.b bVar = this.mxl.mxu[this.mxj];
-        int i = bVar.msY;
-        a.b bVar2 = aVar.mxu[this.mxj];
-        if (i == 0 || bVar2.msY == 0) {
-            this.mxm += i;
+        a.b bVar = this.mxq.mxz[this.mxo];
+        int i = bVar.mtd;
+        a.b bVar2 = aVar.mxz[this.mxo];
+        if (i == 0 || bVar2.mtd == 0) {
+            this.mxr += i;
         } else {
             long Lc = bVar2.Lc(0);
             if (bVar.Lc(i - 1) + bVar.Ld(i - 1) <= Lc) {
-                this.mxm += i;
+                this.mxr += i;
             } else {
-                this.mxm = bVar.fM(Lc) + this.mxm;
+                this.mxr = bVar.fM(Lc) + this.mxr;
             }
         }
-        this.mxl = aVar;
+        this.mxq = aVar;
     }
 
     @Override // com.google.android.exoplayer2.source.a.g
-    public void duX() throws IOException {
-        if (this.mtN != null) {
-            throw this.mtN;
+    public void duZ() throws IOException {
+        if (this.mtS != null) {
+            throw this.mtS;
         }
-        this.mtf.duX();
+        this.mtk.duZ();
     }
 
     @Override // com.google.android.exoplayer2.source.a.g
     public final void a(l lVar, long j, long j2, com.google.android.exoplayer2.source.a.e eVar) {
-        int dvC;
-        if (this.mtN == null) {
-            a.b bVar = this.mxl.mxu[this.mxj];
-            if (bVar.msY == 0) {
-                eVar.msI = !this.mxl.mwX;
+        int dvE;
+        if (this.mtS == null) {
+            a.b bVar = this.mxq.mxz[this.mxo];
+            if (bVar.mtd == 0) {
+                eVar.msN = !this.mxq.mxc;
                 return;
             }
             if (lVar == null) {
-                dvC = bVar.fM(j2);
+                dvE = bVar.fM(j2);
             } else {
-                dvC = lVar.dvC() - this.mxm;
-                if (dvC < 0) {
-                    this.mtN = new BehindLiveWindowException();
+                dvE = lVar.dvE() - this.mxr;
+                if (dvE < 0) {
+                    this.mtS = new BehindLiveWindowException();
                     return;
                 }
             }
-            if (dvC >= bVar.msY) {
-                eVar.msI = !this.mxl.mwX;
+            if (dvE >= bVar.mtd) {
+                eVar.msN = !this.mxq.mxc;
                 return;
             }
-            this.mtK.f(j, j2 - j, gt(j));
-            long Lc = bVar.Lc(dvC);
-            long Ld = Lc + bVar.Ld(dvC);
-            int i = dvC + this.mxm;
-            int dvV = this.mtK.dvV();
-            eVar.msH = a(this.mtK.dxj(), this.mdj, bVar.dN(this.mtK.LB(dvV), dvC), null, i, Lc, Ld, this.mtK.dvW(), this.mtK.dvX(), this.mxk[dvV]);
+            this.mtP.f(j, j2 - j, gt(j));
+            long Lc = bVar.Lc(dvE);
+            long Ld = Lc + bVar.Ld(dvE);
+            int i = dvE + this.mxr;
+            int dvX = this.mtP.dvX();
+            eVar.msM = a(this.mtP.dxl(), this.mdo, bVar.dN(this.mtP.LB(dvX), dvE), null, i, Lc, Ld, this.mtP.dvY(), this.mtP.dvZ(), this.mxp[dvX]);
         }
     }
 
@@ -119,7 +119,7 @@ public class a implements b {
 
     @Override // com.google.android.exoplayer2.source.a.g
     public boolean a(com.google.android.exoplayer2.source.a.c cVar, boolean z, Exception exc) {
-        return z && h.a(this.mtK, this.mtK.m(cVar.msu), exc);
+        return z && h.a(this.mtP, this.mtP.m(cVar.msz), exc);
     }
 
     private static l a(Format format, e eVar, Uri uri, String str, int i, long j, long j2, int i2, Object obj, com.google.android.exoplayer2.source.a.d dVar) {
@@ -127,11 +127,11 @@ public class a implements b {
     }
 
     private long gt(long j) {
-        if (!this.mxl.mwX) {
+        if (!this.mxq.mxc) {
             return -9223372036854775807L;
         }
-        a.b bVar = this.mxl.mxu[this.mxj];
-        int i = bVar.msY - 1;
+        a.b bVar = this.mxq.mxz[this.mxo];
+        int i = bVar.mtd - 1;
         return (bVar.Ld(i) + bVar.Lc(i)) - j;
     }
 }

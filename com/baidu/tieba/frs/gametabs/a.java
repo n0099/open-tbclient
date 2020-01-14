@@ -46,7 +46,7 @@ public class a extends n {
                 if (StringUtils.isNull(optString2)) {
                     Bd(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.cBb().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.Hz(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.cBd().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.Hz(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
                 TiebaStatic.log(new an("c12775").cp("fid", StringUtils.isNull(this.fKa) ? "" : this.fKa));
             }

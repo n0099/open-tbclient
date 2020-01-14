@@ -9,7 +9,7 @@ public class a {
         q.j(th2, com.baidu.fsg.base.statistics.b.k);
     }
 
-    public d dJg() {
+    public d dJi() {
         return new kotlin.random.b();
     }
 }

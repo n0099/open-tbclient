@@ -16,10 +16,10 @@ import java.util.ArrayList;
 public class a extends BaseAdapter {
     private ArrayList<MetaData> cRO;
     private TbCheckBox.a hKP;
-    private AtListActivity kQP;
-    private boolean kQR;
+    private AtListActivity kQU;
+    private boolean kQW;
     private final Context mContext;
-    private b kQQ = null;
+    private b kQV = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes11.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.kQQ = bVar;
+        this.kQV = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.kQR = true;
-        this.kQP = atListActivity;
-        this.mContext = this.kQP.getPageContext().getContext();
-        this.kQR = z;
+        this.kQW = true;
+        this.kQU = atListActivity;
+        this.mContext = this.kQU.getPageContext().getContext();
+        this.kQW = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -94,29 +94,29 @@ public class a extends BaseAdapter {
         C0632a c0632a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0632a = cUg();
+            c0632a = cUi();
         } else {
             c0632a = (C0632a) obj;
         }
-        if (this.kQQ != null) {
-            this.kQQ.a(c0632a.rootView, metaData);
+        if (this.kQV != null) {
+            this.kQV.a(c0632a.rootView, metaData);
         }
         String avater = metaData.getAvater();
         c0632a.fqi.setText(metaData.getName_show());
         c0632a.hKS.setTagData(metaData);
         c0632a.hKx.setTag(avater);
-        if (this.kQR) {
+        if (this.kQW) {
             c0632a.hKS.setVisibility(0);
         } else {
             c0632a.hKS.setVisibility(8);
         }
         c0632a.hKx.startLoad(avater, 12, false);
-        this.kQP.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.kQP.getPageContext().getLayoutMode().onModeChanged(c0632a.rootView);
+        this.kQU.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.kQU.getPageContext().getLayoutMode().onModeChanged(c0632a.rootView);
         return c0632a;
     }
 
-    private C0632a cUg() {
+    private C0632a cUi() {
         C0632a c0632a = new C0632a();
         c0632a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
         c0632a.hKx = (HeadImageView) c0632a.rootView.findViewById(R.id.photo);

@@ -24,7 +24,7 @@ public class a {
         if (bdUniqueId != null && fVar != null) {
             an anVar = new an("common_exp");
             a(anVar, fVar, postData, i, i2, false, str);
-            c.cIs().a(bdUniqueId, str2, anVar);
+            c.cIu().a(bdUniqueId, str2, anVar);
         }
     }
 

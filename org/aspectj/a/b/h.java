@@ -4,46 +4,46 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h nJs = new h();
-    static h nJt;
-    static h nJu;
-    boolean nJj = true;
-    boolean nJk = true;
-    boolean nJl = false;
-    boolean nJm = false;
-    boolean nJn = false;
+    static h nJx = new h();
+    static h nJy;
+    static h nJz;
     boolean nJo = true;
     boolean nJp = true;
-    boolean nJq = true;
-    int nJr;
+    boolean nJq = false;
+    boolean nJr = false;
+    boolean nJs = false;
+    boolean nJt = true;
+    boolean nJu = true;
+    boolean nJv = true;
+    int nJw;
 
     h() {
     }
 
     static {
-        nJs.nJj = true;
-        nJs.nJk = false;
-        nJs.nJl = false;
-        nJs.nJm = false;
-        nJs.nJn = true;
-        nJs.nJo = false;
-        nJs.nJp = false;
-        nJs.nJr = 0;
-        nJt = new h();
-        nJt.nJj = true;
-        nJt.nJk = true;
-        nJt.nJl = false;
-        nJt.nJm = false;
-        nJt.nJn = false;
-        nJs.nJr = 1;
-        nJu = new h();
-        nJu.nJj = false;
-        nJu.nJk = true;
-        nJu.nJl = false;
-        nJu.nJm = true;
-        nJu.nJn = false;
-        nJu.nJq = false;
-        nJu.nJr = 2;
+        nJx.nJo = true;
+        nJx.nJp = false;
+        nJx.nJq = false;
+        nJx.nJr = false;
+        nJx.nJs = true;
+        nJx.nJt = false;
+        nJx.nJu = false;
+        nJx.nJw = 0;
+        nJy = new h();
+        nJy.nJo = true;
+        nJy.nJp = true;
+        nJy.nJq = false;
+        nJy.nJr = false;
+        nJy.nJs = false;
+        nJx.nJw = 1;
+        nJz = new h();
+        nJz.nJo = false;
+        nJz.nJp = true;
+        nJz.nJq = false;
+        nJz.nJr = true;
+        nJz.nJs = false;
+        nJz.nJv = false;
+        nJz.nJw = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -54,7 +54,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String NR(int i) {
-        if (this.nJm) {
+        if (this.nJr) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(HanziToPinyin.Token.SEPARATOR).toString();
         }
@@ -81,11 +81,11 @@ class h {
     }
 
     public String O(Class cls) {
-        return b(cls, cls.getName(), this.nJj);
+        return b(cls, cls.getName(), this.nJo);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.nJn);
+        return b(cls, str, this.nJs);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -99,7 +99,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.nJk) {
+            if (!this.nJp) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -115,7 +115,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.nJl && clsArr != null && clsArr.length != 0) {
+        if (this.nJq && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

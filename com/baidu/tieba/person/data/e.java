@@ -5,13 +5,13 @@ import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class e {
     private ArrayList<m> cRO;
-    private boolean jfi = true;
+    private boolean jfn = true;
 
     public void aN(ArrayList<m> arrayList) {
         this.cRO = arrayList;
     }
 
     public void rb(boolean z) {
-        this.jfi = z;
+        this.jfn = z;
     }
 }

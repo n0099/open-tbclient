@@ -4,19 +4,19 @@ import tbclient.BannerImage;
 /* loaded from: classes7.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
     private String aAa;
-    private String jgg;
+    private String jgl;
     private String mTitle;
 
     public void a(BannerImage bannerImage) {
         if (bannerImage != null) {
             this.aAa = bannerImage.img_url;
-            this.jgg = bannerImage.ahead_url;
+            this.jgl = bannerImage.ahead_url;
             this.mTitle = bannerImage.title;
         }
     }
 
-    public String ctK() {
-        return this.jgg;
+    public String ctM() {
+        return this.jgl;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
@@ -26,6 +26,6 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String ayl() {
-        return this.jgg;
+        return this.jgl;
     }
 }

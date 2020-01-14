@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.an;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c kcL;
-    private SparseArray<HashSet<String>> kcO;
-    private a kcP;
+    private static c kcQ;
+    private SparseArray<HashSet<String>> kcT;
+    private a kcU;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.r.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -45,79 +45,79 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.kcO != null) {
-                    c.this.kcO.clear();
+                if (c.this.kcT != null) {
+                    c.this.kcT.clear();
                 }
-                c.this.kcM.cIr();
+                c.this.kcR.cIt();
             }
         }
     };
-    private int kcN = com.baidu.tbadk.core.sharedPref.b.aDr().getInt("card_show_statistic_max_count", 200);
-    private final b kcM = new b();
+    private int kcS = com.baidu.tbadk.core.sharedPref.b.aDr().getInt("card_show_statistic_max_count", 200);
+    private final b kcR = new b();
 
     private c() {
         MessageManager.getInstance().registerListener(this.cHC);
     }
 
-    public static c cIs() {
-        if (kcL == null) {
+    public static c cIu() {
+        if (kcQ == null) {
             synchronized (c.class) {
-                if (kcL == null) {
-                    kcL = new c();
+                if (kcQ == null) {
+                    kcQ = new c();
                 }
             }
         }
-        return kcL;
+        return kcQ;
     }
 
     public void w(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.kcM.w(bdUniqueId);
+            this.kcR.w(bdUniqueId);
         }
     }
 
     public void x(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.kcM.x(bdUniqueId);
+            this.kcR.x(bdUniqueId);
             z(bdUniqueId);
         }
     }
 
     public void z(BdUniqueId bdUniqueId) {
-        if (this.kcO != null) {
-            this.kcO.remove(bdUniqueId.getId());
+        if (this.kcT != null) {
+            this.kcT.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, an anVar) {
-        this.kcM.a(bdUniqueId, true);
+        this.kcR.a(bdUniqueId, true);
         TiebaStatic.log(anVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, an anVar) {
         if (bdUniqueId != null && anVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.kcM.y(bdUniqueId)) {
+            if (!this.kcR.y(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + anVar.getKey());
             }
-            if (this.kcO == null) {
-                this.kcO = new SparseArray<>();
+            if (this.kcT == null) {
+                this.kcT = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.kcO.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.kcT.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.kcO.put(bdUniqueId.getId(), hashSet);
+                this.kcT.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = anVar.getKey() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
             if (!hashSet.contains(str2) && !bIg()) {
                 hashSet.add(str2);
-                this.kcM.a(bdUniqueId, anVar);
+                this.kcR.a(bdUniqueId, anVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -126,28 +126,28 @@ public class c {
     }
 
     private boolean bIg() {
-        if (this.kcP == null) {
-            this.kcP = new a();
+        if (this.kcU == null) {
+            this.kcU = new a();
         }
-        if (this.kcP.gHx) {
+        if (this.kcU.gHx) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.kcP.isRunning) {
-            this.kcP.count++;
-            if (currentTimeMillis - this.kcP.gHw < 120000) {
-                if (this.kcP.count >= this.kcN) {
-                    this.kcP.gHx = true;
-                    a(this.kcP);
+        if (this.kcU.isRunning) {
+            this.kcU.count++;
+            if (currentTimeMillis - this.kcU.gHw < 120000) {
+                if (this.kcU.count >= this.kcS) {
+                    this.kcU.gHx = true;
+                    a(this.kcU);
                     return true;
                 }
             } else {
-                this.kcP.isRunning = false;
-                this.kcP.count = 0;
+                this.kcU.isRunning = false;
+                this.kcU.count = 0;
             }
         } else {
-            this.kcP.isRunning = true;
-            this.kcP.gHw = currentTimeMillis;
+            this.kcU.isRunning = true;
+            this.kcU.gHw = currentTimeMillis;
         }
         return false;
     }
@@ -164,7 +164,7 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.kcM.a(bdUniqueId, z);
+        this.kcR.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

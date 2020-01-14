@@ -6,12 +6,12 @@ class ab {
     int a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    String f35a = "";
+    String f36a = "";
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ab)) {
             ab abVar = (ab) obj;
-            if (!TextUtils.isEmpty(abVar.f35a) && abVar.f35a.equals(this.f35a)) {
+            if (!TextUtils.isEmpty(abVar.f36a) && abVar.f36a.equals(this.f36a)) {
                 return true;
             }
         }

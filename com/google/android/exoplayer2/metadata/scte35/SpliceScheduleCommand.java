@@ -32,7 +32,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public final int availsExpected;
         public final long breakDurationUs;
         public final List<a> componentSpliceList;
-        public final long mpO;
+        public final long mpT;
         public final boolean outOfNetworkIndicator;
         public final boolean programSpliceFlag;
         public final boolean spliceEventCancelIndicator;
@@ -45,7 +45,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             this.outOfNetworkIndicator = z2;
             this.programSpliceFlag = z3;
             this.componentSpliceList = Collections.unmodifiableList(list);
-            this.mpO = j2;
+            this.mpT = j2;
             this.autoReturn = z4;
             this.breakDurationUs = j3;
             this.uniqueProgramId = i;
@@ -64,7 +64,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 arrayList.add(a.aG(parcel));
             }
             this.componentSpliceList = Collections.unmodifiableList(arrayList);
-            this.mpO = parcel.readLong();
+            this.mpT = parcel.readLong();
             this.autoReturn = parcel.readByte() == 1;
             this.breakDurationUs = parcel.readLong();
             this.uniqueProgramId = parcel.readInt();
@@ -141,7 +141,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             for (int i = 0; i < size; i++) {
                 this.componentSpliceList.get(i).aC(parcel);
             }
-            parcel.writeLong(this.mpO);
+            parcel.writeLong(this.mpT);
             parcel.writeByte((byte) (this.autoReturn ? 1 : 0));
             parcel.writeLong(this.breakDurationUs);
             parcel.writeInt(this.uniqueProgramId);
@@ -157,12 +157,12 @@ public final class SpliceScheduleCommand extends SpliceCommand {
 
     /* loaded from: classes5.dex */
     public static final class a {
-        public final int mpL;
-        public final long mpO;
+        public final int mpQ;
+        public final long mpT;
 
         private a(int i, long j) {
-            this.mpL = i;
-            this.mpO = j;
+            this.mpQ = i;
+            this.mpT = j;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -172,8 +172,8 @@ public final class SpliceScheduleCommand extends SpliceCommand {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void aC(Parcel parcel) {
-            parcel.writeInt(this.mpL);
-            parcel.writeLong(this.mpO);
+            parcel.writeInt(this.mpQ);
+            parcel.writeLong(this.mpT);
         }
     }
 

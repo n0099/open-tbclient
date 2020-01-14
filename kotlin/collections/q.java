@@ -5,7 +5,7 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class q extends p {
-    public static final <T> List<T> dIS() {
+    public static final <T> List<T> dIU() {
         return EmptyList.INSTANCE;
     }
 
@@ -25,7 +25,7 @@ public class q extends p {
         kotlin.jvm.internal.q.j(list, "receiver$0");
         switch (list.size()) {
             case 0:
-                return o.dIS();
+                return o.dIU();
             case 1:
                 return o.bR(list.get(0));
             default:

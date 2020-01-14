@@ -12,25 +12,25 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class e {
-    private String ktt;
-    private List<String> ktu;
-    private List<String> ktv;
+    private List<String> ktA;
+    private String kty;
+    private List<String> ktz;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        private static final e ktx = new e();
+        private static final e ktC = new e();
     }
 
     private e() {
-        this.ktu = new ArrayList();
-        this.ktv = new ArrayList();
+        this.ktz = new ArrayList();
+        this.ktA = new ArrayList();
         if (f.checkSD()) {
-            cNo();
+            cNq();
         }
     }
 
-    private void cNo() {
+    private void cNq() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.t.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -46,11 +46,11 @@ public class e {
         }.execute(new Void[0]);
     }
 
-    public static e cNp() {
-        return a.ktx;
+    public static e cNr() {
+        return a.ktC;
     }
 
-    public void cNk() {
+    public void cNm() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.t.e.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -104,28 +104,28 @@ public class e {
 
     public synchronized void e(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.ktu.add(jSONObject.toString());
+            this.ktz.add(jSONObject.toString());
             String cfs = cfs();
             if (f.checkSD()) {
                 o(jSONObject, cfs);
             }
-            if (this.ktu.size() >= com.baidu.tbadk.coreExtra.model.f.aJC() || z) {
-                a(new d(this.ktu, cfs));
-                this.ktu.clear();
-                this.ktt = null;
+            if (this.ktz.size() >= com.baidu.tbadk.coreExtra.model.f.aJC() || z) {
+                a(new d(this.ktz, cfs));
+                this.ktz.clear();
+                this.kty = null;
             }
         }
     }
 
     private String cfs() {
-        if (StringUtils.isNull(this.ktt)) {
+        if (StringUtils.isNull(this.kty)) {
             if (f.checkSD()) {
-                this.ktt = String.valueOf(System.currentTimeMillis());
+                this.kty = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.inM + this.ktt;
+        return c.a.inM + this.kty;
     }
 
     private void o(JSONObject jSONObject, String str) {
@@ -147,7 +147,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean ey(String str, String str2) {
         boolean e;
-        if (this.ktv.contains(str)) {
+        if (this.ktA.contains(str)) {
             e = false;
         } else {
             File file = new File(str);
@@ -177,9 +177,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.f(c.er(dVar.ktr), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.kts)) {
-                m.deleteFile(new File(dVar.kts));
-                this.ktv.add(dVar.kts);
+            if (c.f(c.er(dVar.ktw), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.ktx)) {
+                m.deleteFile(new File(dVar.ktx));
+                this.ktA.add(dVar.ktx);
             }
         } catch (Exception e) {
             e.printStackTrace();

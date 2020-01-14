@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 /* loaded from: classes5.dex */
 public class b {
-    private static final c nrx;
+    private static final c nrC;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -16,15 +16,15 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            nrx = new C0748b();
+            nrC = new C0748b();
         } else {
-            nrx = new a();
+            nrC = new a();
         }
     }
 
     @NonNull
     public static h gF(@NonNull Context context) {
-        return nrx.a(new com.yanzhenjie.permission.b.a(context));
+        return nrC.a(new com.yanzhenjie.permission.b.a(context));
     }
 
     /* loaded from: classes5.dex */

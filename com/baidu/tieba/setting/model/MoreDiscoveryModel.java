@@ -27,8 +27,8 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public static final int GET_DATA_FROM_DB = 2;
     public static final int GET_DATA_FROM_NET = 1;
     private b fTW;
-    private a jQn;
-    private NicknameInfo jnC;
+    private a jQs;
+    private NicknameInfo jnH;
     private final Context mContext;
     private String mId;
     private boolean mIsLoading;
@@ -40,7 +40,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.mUIHandler = null;
         this.fTW = null;
         this.mIsLoading = false;
-        this.jQn = new a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.1
+        this.jQs = new a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
@@ -69,11 +69,11 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.mContext = moreActivity.getPageContext().getContext();
         this.mUIHandler = new Handler(Looper.getMainLooper());
         this.fTW = new b("profileStat");
-        registerListener(this.jQn);
+        registerListener(this.jQs);
     }
 
     public NicknameInfo getNicknameInfo() {
-        return this.jnC;
+        return this.jnH;
     }
 
     public UserData getUser() {
@@ -113,7 +113,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             profileRequestMessage.setSelf(true);
             profileRequestMessage.setIs_from_usercenter(1);
             profileRequestMessage.setPage(2);
-            cDB();
+            cDD();
             sendMessage(profileRequestMessage);
         }
     }
@@ -159,7 +159,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(profileSocketResponseMessage.GetUser());
-                this.jnC = profileSocketResponseMessage.getNicknameInfo();
+                this.jnH = profileSocketResponseMessage.getNicknameInfo();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -172,7 +172,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(profileHttpResponseMessage.GetUser());
-                this.jnC = profileHttpResponseMessage.getNicknameInfo();
+                this.jnH = profileHttpResponseMessage.getNicknameInfo();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -181,7 +181,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     }
 
     public void axI() {
-        cDA().a("profile_cache_key", new l.a<byte[]>() { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.2
+        cDC().a("profile_cache_key", new l.a<byte[]>() { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.cache.l.a
             /* renamed from: o */
@@ -215,18 +215,18 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(dataRes.user);
-                this.jnC = dataRes.nickname_info;
+                this.jnH = dataRes.nickname_info;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private l<byte[]> cDA() {
+    private l<byte[]> cDC() {
         return com.baidu.tbadk.core.c.a.aCo().ch("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
     }
 
-    private void cDB() {
+    private void cDD() {
         if (this.fTW == null) {
             this.fTW = new b("profileStat");
             this.fTW.start();

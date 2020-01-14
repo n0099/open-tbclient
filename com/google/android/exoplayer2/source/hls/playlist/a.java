@@ -6,15 +6,15 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class a extends c {
     public final List<C0673a> audios;
-    public final List<Format> muW;
-    public final Format mvH;
-    public final List<C0673a> mvU;
-    public final List<C0673a> mvV;
+    public final Format mvM;
+    public final List<C0673a> mvZ;
+    public final List<Format> mvb;
+    public final List<C0673a> mwa;
 
     /* renamed from: com.google.android.exoplayer2.source.hls.playlist.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static final class C0673a {
-        public final Format lYL;
+        public final Format lYQ;
         public final String url;
 
         public static C0673a Pz(String str) {
@@ -23,17 +23,17 @@ public final class a extends c {
 
         public C0673a(String str, Format format) {
             this.url = str;
-            this.lYL = format;
+            this.lYQ = format;
         }
     }
 
     public a(String str, List<String> list, List<C0673a> list2, List<C0673a> list3, List<C0673a> list4, Format format, List<Format> list5) {
         super(str, list);
-        this.mvU = Collections.unmodifiableList(list2);
+        this.mvZ = Collections.unmodifiableList(list2);
         this.audios = Collections.unmodifiableList(list3);
-        this.mvV = Collections.unmodifiableList(list4);
-        this.mvH = format;
-        this.muW = list5 != null ? Collections.unmodifiableList(list5) : null;
+        this.mwa = Collections.unmodifiableList(list4);
+        this.mvM = format;
+        this.mvb = list5 != null ? Collections.unmodifiableList(list5) : null;
     }
 
     public static a Py(String str) {

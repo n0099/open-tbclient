@@ -34,9 +34,9 @@ import com.baidu.tieba.pb.pb.main.ak;
 import com.baidu.tieba.pb.videopb.MultiNestedLayout;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import com.baidu.tieba.pb.videopb.a;
+import com.baidu.tieba.pb.videopb.b.b;
 import com.baidu.tieba.pb.videopb.c;
 import com.baidu.tieba.pb.videopb.e;
-import com.baidu.tieba.pb.videopb.videoView.b;
 import com.baidu.tieba.pb.view.a;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
@@ -46,13 +46,13 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
     private BdTypeRecyclerView gqN;
     private PbActivity iFv;
     private boolean iGe;
-    private View iYA;
-    private b iYB;
-    private View iYC;
-    private VideoPbFragment iYq;
-    private c iYx;
-    private com.baidu.tieba.pb.videopb.b.b iYy;
-    private MultiNestedLayout iYz;
+    private c iYC;
+    private b iYD;
+    private MultiNestedLayout iYE;
+    private View iYF;
+    private com.baidu.tieba.pb.videopb.videoView.b iYG;
+    private View iYH;
+    private VideoPbFragment iYv;
     private View mRootView;
     private int topMargin;
     private PbListView gsK = null;
@@ -64,15 +64,15 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
     private int iMn = 0;
     private h mPullView = null;
     private boolean iDb = false;
-    private int iYt = 0;
-    private int iYD = 0;
+    private int iYy = 0;
+    private int iYI = 0;
     private RecyclerView.OnScrollListener fAi = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.1
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
             if (i == 1) {
                 ReplyFragment.this.clL().cnR();
-                ReplyFragment.this.clL().crD();
+                ReplyFragment.this.clL().crF();
             }
             if (ReplyFragment.this.clL() != null) {
                 ReplyFragment.this.clL().onScrollStateChanged(i);
@@ -83,31 +83,31 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
             if (recyclerView.canScrollVertically(-1)) {
-                ReplyFragment.this.iYt = 2;
+                ReplyFragment.this.iYy = 2;
                 return;
             }
-            if (Math.abs(i2) > 0 && ReplyFragment.this.iYt != 0) {
-                ReplyFragment.this.iYA.setVisibility(8);
+            if (Math.abs(i2) > 0 && ReplyFragment.this.iYy != 0) {
+                ReplyFragment.this.iYF.setVisibility(8);
             }
-            ReplyFragment.this.iYt = 0;
+            ReplyFragment.this.iYy = 0;
         }
     };
-    private MultiNestedLayout.b iYE = new MultiNestedLayout.b() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.2
+    private MultiNestedLayout.b iYJ = new MultiNestedLayout.b() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.2
         @Override // com.baidu.tieba.pb.videopb.MultiNestedLayout.b
         public void onStateChange(int i) {
-            if (ReplyFragment.this.iYD != 1 || i == 1 || ReplyFragment.this.iYt == 0) {
-                if (ReplyFragment.this.iYD != 0 || i == 0) {
-                    if (ReplyFragment.this.iYD != 0 && i == 0) {
+            if (ReplyFragment.this.iYI != 1 || i == 1 || ReplyFragment.this.iYy == 0) {
+                if (ReplyFragment.this.iYI != 0 || i == 0) {
+                    if (ReplyFragment.this.iYI != 0 && i == 0) {
                         ReplyFragment.this.clL().zp(8);
                     }
-                } else if (ReplyFragment.this.iYA.getVisibility() != 0) {
+                } else if (ReplyFragment.this.iYF.getVisibility() != 0) {
                     ReplyFragment.this.clL().zp(0);
                 }
             } else {
                 ReplyFragment.this.clL().zp(8);
-                ReplyFragment.this.iYA.setVisibility(0);
+                ReplyFragment.this.iYF.setVisibility(0);
             }
-            ReplyFragment.this.iYD = i;
+            ReplyFragment.this.iYI = i;
         }
     };
     private final g.c dcC = new g.c() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.3
@@ -138,7 +138,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
         Bundle bundle = new Bundle();
         ReplyFragment replyFragment = new ReplyFragment();
         replyFragment.setArguments(bundle);
-        replyFragment.iYq = videoPbFragment;
+        replyFragment.iYv = videoPbFragment;
         return replyFragment;
     }
 
@@ -152,7 +152,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.iYy = new com.baidu.tieba.pb.videopb.b.b(this);
+        this.iYD = new b(this);
         this.mRootView = layoutInflater.inflate(R.layout.pb_reply_fragment, (ViewGroup) null);
         initUI();
         return this.mRootView;
@@ -160,21 +160,21 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
 
     private void initUI() {
         this.topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds120);
-        this.iYz = (MultiNestedLayout) this.mRootView.findViewById(R.id.multi_nested_layout);
-        this.iYz.setScrollStateChangeListener(this.iYE);
+        this.iYE = (MultiNestedLayout) this.mRootView.findViewById(R.id.multi_nested_layout);
+        this.iYE.setScrollStateChangeListener(this.iYJ);
         this.gqN = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.video_pb_reply_list);
         this.gqN.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.iYx = new c(this, this.gqN);
-        this.iYx.C(clL().crp());
-        this.iYx.O(clL().crq());
-        this.iYx.setOnLongClickListener(clL().crr());
-        this.iYx.setOnImageClickListener(this.iYy.getOnImageClickListener());
-        this.iYx.setTbGestureDetector(this.iYy.csa());
-        this.iYA = this.mRootView.findViewById(R.id.reply_pager_title_shadow);
+        this.iYC = new c(this, this.gqN);
+        this.iYC.C(clL().crr());
+        this.iYC.O(clL().crs());
+        this.iYC.setOnLongClickListener(clL().crt());
+        this.iYC.setOnImageClickListener(this.iYD.getOnImageClickListener());
+        this.iYC.setTbGestureDetector(this.iYD.csc());
+        this.iYF = this.mRootView.findViewById(R.id.reply_pager_title_shadow);
         this.gsK = new PbListView(getPageContext().getPageActivity());
         this.dyM = this.gsK.getView().findViewById(R.id.pb_more_view);
         if (this.dyM != null) {
-            this.dyM.setOnClickListener(clL().crp());
+            this.dyM.setOnClickListener(clL().crr());
             am.setBackgroundResource(this.dyM, R.drawable.pb_foot_more_trans_selector);
         }
         this.gsK.setLineVisible();
@@ -195,16 +195,16 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
             this.ejj.setEnabled(false);
             am.setBackgroundColor(this.ejj, R.color.cp_bg_line_e);
         }
-        this.iYC = this.mRootView.findViewById(R.id.video_pb_reply_all_title);
-        this.iYB = new b(this.iYC);
-        this.iYB.T(clL().crp());
+        this.iYH = this.mRootView.findViewById(R.id.video_pb_reply_all_title);
+        this.iYG = new com.baidu.tieba.pb.videopb.videoView.b(this.iYH);
+        this.iYG.T(clL().crr());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         e eVar = (e) y.b(clM()).l(e.class);
-        eVar.crR().observe(this, new q<Boolean>() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.4
+        eVar.crT().observe(this, new q<Boolean>() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.arch.lifecycle.q
             /* renamed from: l */
@@ -216,7 +216,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
                 }
             }
         });
-        d(true, 0, 3, 0, eVar.crI(), "", 1);
+        d(true, 0, 3, 0, eVar.crK(), "", 1);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -229,14 +229,14 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
                 am.setBackgroundResource(this.dyM, R.drawable.pb_foot_more_trans_selector);
             }
         }
-        if (this.iYB != null) {
-            this.iYB.onChangeSkinType(i);
+        if (this.iYG != null) {
+            this.iYG.onChangeSkinType(i);
         }
-        if (this.iYx != null) {
-            this.iYx.notifyDataSetChanged();
+        if (this.iYC != null) {
+            this.iYC.notifyDataSetChanged();
         }
-        if (this.iYA != null) {
-            am.setBackgroundResource(this.iYA, R.drawable.personalize_tab_shadow);
+        if (this.iYF != null) {
+            am.setBackgroundResource(this.iYF, R.drawable.personalize_tab_shadow);
         }
         am.setBackgroundColor(this.ejj, R.color.cp_bg_line_d);
     }
@@ -280,8 +280,8 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         qg(z);
-        if (clL() != null && clL().iXi != null) {
-            this.iYq.iXi.crY();
+        if (clL() != null && clL().iXn != null) {
+            this.iYv.iXn.csa();
         }
         if (z && this.iGe) {
             con();
@@ -300,14 +300,14 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
                 this.ejj.setEnabled(true);
                 this.ejj.interruptRefresh();
             }
-            this.iYx.setIsFromCDN(eVar.isFromCDN());
-            this.iYx.setData(fVar);
+            this.iYC.setIsFromCDN(eVar.isFromCDN());
+            this.iYC.setData(fVar);
             this.iNk = false;
             if (TbadkCoreApplication.isLogin()) {
                 this.gqN.setNextPage(this.gsK);
                 this.iMn = 2;
-                if (clL() != null && clL().iXi != null) {
-                    this.iYq.iXi.boJ();
+                if (clL() != null && clL().iXn != null) {
+                    this.iYv.iXn.boJ();
                 }
             } else {
                 this.iNk = true;
@@ -323,7 +323,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
                 }
                 this.iMn = 3;
             }
-            if (this.iYB != null && this.iYC != null) {
+            if (this.iYG != null && this.iYH != null) {
                 k kVar = new k(k.iAI);
                 bj ciS = fVar.ciS();
                 kVar.iAK = ciS != null ? ciS.azO() : 0L;
@@ -332,11 +332,11 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
                 kVar.sortType = fVar.izK;
                 kVar.iAM = fVar.cjt();
                 kVar.isDynamic = fVar.cjs();
-                this.iYB.a(kVar);
+                this.iYG.a(kVar);
             }
             ArrayList<PostData> ciU = fVar.ciU();
             if (fVar.getPage().ayR() == 0 || ciU == null || ciU.size() < fVar.getPage().ayQ()) {
-                if (v.getCount(ciU) == 0 || (v.getCount(ciU) == 1 && ciU.get(0) != null && ciU.get(0).cJx() == 1)) {
+                if (v.getCount(ciU) == 0 || (v.getCount(ciU) == 1 && ciU.get(0) != null && ciU.get(0).cJz() == 1)) {
                     if (clG()) {
                         this.gsK.ae(TbadkCoreApplication.getInst().getResources().getString(R.string.pb_no_host_reply), this.topMargin);
                     } else {
@@ -406,7 +406,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
                     break;
                 case 8:
                     int size = (this.gqN.getData() == null && fVar.ciU() == null) ? 0 : this.gqN.getData().size() - fVar.ciU().size();
-                    this.iYz.setMaxOffset();
+                    this.iYE.setMaxOffset();
                     this.gqN.setSelection(i3 > 0 ? size + i3 : 0);
                     this.gsK.endLoadData();
                     this.gsK.setText(getString(R.string.pb_load_more_without_point));
@@ -424,14 +424,14 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
         }
     }
 
-    public void csh() {
+    public void csj() {
         f pbData = ckc().getPbData();
         if (pbData != null) {
-            this.iYx.setData(pbData);
-            this.iYx.notifyDataSetChanged();
+            this.iYC.setData(pbData);
+            this.iYC.notifyDataSetChanged();
             ArrayList<PostData> ciU = pbData.ciU();
             if (pbData.getPage().ayR() == 0 || ciU == null || ciU.size() < pbData.getPage().ayQ()) {
-                if (v.getCount(ciU) == 0 || (v.getCount(ciU) == 1 && ciU.get(0) != null && ciU.get(0).cJx() == 1)) {
+                if (v.getCount(ciU) == 0 || (v.getCount(ciU) == 1 && ciU.get(0) != null && ciU.get(0).cJz() == 1)) {
                     if (clG()) {
                         this.gsK.ae(TbadkCoreApplication.getInst().getResources().getString(R.string.pb_no_host_reply), this.topMargin);
                     } else {
@@ -455,13 +455,13 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
     }
 
     public VideoPbFragment clL() {
-        if (this.iYq == null && this.iFv != null) {
+        if (this.iYv == null && this.iFv != null) {
             Fragment ckq = this.iFv.ckq();
             if (ckq instanceof VideoPbFragment) {
-                this.iYq = (VideoPbFragment) ckq;
+                this.iYv = (VideoPbFragment) ckq;
             }
         }
-        return this.iYq;
+        return this.iYv;
     }
 
     public PbModel ckc() {
@@ -479,8 +479,8 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
         return false;
     }
 
-    public c csi() {
-        return this.iYx;
+    public c csk() {
+        return this.iYC;
     }
 
     @Override // com.baidu.tieba.pb.videopb.a
@@ -490,8 +490,8 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
         }
     }
 
-    public com.baidu.tieba.pb.videopb.b.b csj() {
-        return this.iYy;
+    public b csl() {
+        return this.iYD;
     }
 
     @Override // com.baidu.tieba.pb.view.a.InterfaceC0577a
@@ -517,8 +517,8 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
             this.gsK.setLineGone();
             this.gsK.endLoadData();
         }
-        if (clL() != null && clL().iXi != null) {
-            this.iYq.iXi.boJ();
+        if (clL() != null && clL().iXn != null) {
+            this.iYv.iXn.boJ();
         }
     }
 
@@ -563,7 +563,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
         return 0;
     }
 
-    public int csk() {
+    public int csm() {
         View childAt;
         if (this.gqN == null || this.gqN.getCount() <= 0 || (childAt = this.gqN.getChildAt(0)) == null) {
             return 0;
@@ -586,17 +586,17 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0577a 
         return this.dyM;
     }
 
-    public int csg() {
-        return this.iYt;
+    public int csi() {
+        return this.iYy;
     }
 
-    public int csl() {
-        return this.iYD;
+    public int csn() {
+        return this.iYI;
     }
 
     public void zp(int i) {
-        if (this.iYA != null) {
-            this.iYA.setVisibility(i);
+        if (this.iYF != null) {
+            this.iYF.setVisibility(i);
         }
     }
 

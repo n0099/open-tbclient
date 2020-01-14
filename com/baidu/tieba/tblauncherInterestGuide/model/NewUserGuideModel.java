@@ -18,10 +18,10 @@ import java.lang.ref.WeakReference;
 public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LIMIT = 100;
     public static final int OFFSET = 0;
-    private static final String kne = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
-    private boolean knf;
-    private InterestFrsData kng;
-    private a knh;
+    private static final String knj = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
+    private boolean knk;
+    private InterestFrsData knl;
+    private a knm;
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -34,30 +34,30 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean cLZ() {
-        return this.knf;
+    public boolean cMb() {
+        return this.knk;
     }
 
     public void ta(boolean z) {
-        this.knf = z;
+        this.knk = z;
     }
 
-    public InterestFrsData cMa() {
-        return this.kng;
+    public InterestFrsData cMc() {
+        return this.knl;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.kng = interestFrsData;
+        this.knl = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.knh = new a(i, i2, i3, bVar);
-        this.knh.execute(new Void[0]);
+        this.knm = new a(i, i2, i3, bVar);
+        this.knm.execute(new Void[0]);
     }
 
-    public void cMb() {
-        if (this.knh != null) {
-            this.knh.cancel();
+    public void cMd() {
+        if (this.knm != null) {
+            this.knm.cancel();
         }
     }
 
@@ -91,7 +91,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public InterestFrsData doInBackground(Void... voidArr) {
-            x xVar = new x(NewUserGuideModel.kne);
+            x xVar = new x(NewUserGuideModel.knj);
             xVar.addPostData("user_type", String.valueOf(this.userType));
             xVar.addPostData("offset", String.valueOf(this.offset));
             xVar.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.limit));

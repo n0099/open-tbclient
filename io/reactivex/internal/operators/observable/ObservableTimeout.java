@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.operators.observable.a<T, T> {
     final h<? super T, ? extends t<V>> itemTimeoutIndicator;
-    final t<U> nxB;
+    final t<U> nxG;
     final t<? extends T> other;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,13 +27,13 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
         if (this.other == null) {
             TimeoutObserver timeoutObserver = new TimeoutObserver(uVar, this.itemTimeoutIndicator);
             uVar.onSubscribe(timeoutObserver);
-            timeoutObserver.startFirstTimeout(this.nxB);
+            timeoutObserver.startFirstTimeout(this.nxG);
             this.source.subscribe(timeoutObserver);
             return;
         }
         TimeoutFallbackObserver timeoutFallbackObserver = new TimeoutFallbackObserver(uVar, this.itemTimeoutIndicator, this.other);
         uVar.onSubscribe(timeoutFallbackObserver);
-        timeoutFallbackObserver.startFirstTimeout(this.nxB);
+        timeoutFallbackObserver.startFirstTimeout(this.nxG);
         this.source.subscribe(timeoutFallbackObserver);
     }
 

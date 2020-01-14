@@ -21,54 +21,54 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class b {
-    private static final int mhX = v.Qr("vide");
-    private static final int mhY = v.Qr("soun");
-    private static final int mhZ = v.Qr("text");
-    private static final int mia = v.Qr("sbtl");
-    private static final int mib = v.Qr("subt");
-    private static final int mic = v.Qr("clcp");
-    private static final int mie = v.Qr("cenc");
-    private static final int mhG = v.Qr(MetaBox.TYPE);
+    private static final int mic = v.Qr("vide");
+    private static final int mie = v.Qr("soun");
+    private static final int mif = v.Qr("text");
+    private static final int mig = v.Qr("sbtl");
+    private static final int mih = v.Qr("subt");
+    private static final int mii = v.Qr("clcp");
+    private static final int mij = v.Qr("cenc");
+    private static final int mhL = v.Qr(MetaBox.TYPE);
 
     /* renamed from: com.google.android.exoplayer2.extractor.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     private interface InterfaceC0667b {
-        int dtN();
+        int dtP();
 
-        boolean dtO();
+        boolean dtQ();
 
         int getSampleCount();
     }
 
     public static j a(a.C0666a c0666a, a.b bVar, long j, DrmInitData drmInitData, boolean z, boolean z2) throws ParserException {
         long h;
-        a.C0666a JH = c0666a.JH(com.google.android.exoplayer2.extractor.c.a.mgJ);
-        int n = n(JH.JG(com.google.android.exoplayer2.extractor.c.a.mgX).mhW);
+        a.C0666a JH = c0666a.JH(com.google.android.exoplayer2.extractor.c.a.mgO);
+        int n = n(JH.JG(com.google.android.exoplayer2.extractor.c.a.mhc).mib);
         if (n == -1) {
             return null;
         }
-        f m = m(c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mgT).mhW);
+        f m = m(c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mgY).mib);
         long j2 = j == -9223372036854775807L ? m.duration : j;
-        long l = l(bVar.mhW);
+        long l = l(bVar.mib);
         if (j2 == -9223372036854775807L) {
             h = -9223372036854775807L;
         } else {
             h = v.h(j2, TimeUtils.NANOS_PER_MS, l);
         }
-        a.C0666a JH2 = JH.JH(com.google.android.exoplayer2.extractor.c.a.mgK).JH(com.google.android.exoplayer2.extractor.c.a.mgL);
-        Pair<Long, String> o = o(JH.JG(com.google.android.exoplayer2.extractor.c.a.mgW).mhW);
-        c a2 = a(JH2.JG(com.google.android.exoplayer2.extractor.c.a.mgY).mhW, m.id, m.rotationDegrees, (String) o.second, drmInitData, z2);
+        a.C0666a JH2 = JH.JH(com.google.android.exoplayer2.extractor.c.a.mgP).JH(com.google.android.exoplayer2.extractor.c.a.mgQ);
+        Pair<Long, String> o = o(JH.JG(com.google.android.exoplayer2.extractor.c.a.mhb).mib);
+        c a2 = a(JH2.JG(com.google.android.exoplayer2.extractor.c.a.mhd).mib, m.id, m.rotationDegrees, (String) o.second, drmInitData, z2);
         long[] jArr = null;
         long[] jArr2 = null;
         if (!z) {
-            Pair<long[], long[]> b = b(c0666a.JH(com.google.android.exoplayer2.extractor.c.a.mgU));
+            Pair<long[], long[]> b = b(c0666a.JH(com.google.android.exoplayer2.extractor.c.a.mgZ));
             jArr2 = (long[]) b.second;
             jArr = (long[]) b.first;
         }
-        if (a2.lYL == null) {
+        if (a2.lYQ == null) {
             return null;
         }
-        return new j(m.id, n, ((Long) o.first).longValue(), l, h, a2.lYL, a2.mim, a2.mil, a2.meb, jArr, jArr2);
+        return new j(m.id, n, ((Long) o.first).longValue(), l, h, a2.lYQ, a2.mis, a2.mir, a2.meg, jArr, jArr2);
     }
 
     public static m a(j jVar, a.C0666a c0666a, com.google.android.exoplayer2.extractor.i iVar) throws ParserException {
@@ -88,11 +88,11 @@ public final class b {
         int i6;
         int i7;
         int i8;
-        a.b JG = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhv);
+        a.b JG = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhA);
         if (JG != null) {
             eVar = new d(JG);
         } else {
-            a.b JG2 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhw);
+            a.b JG2 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhB);
             if (JG2 == null) {
                 throw new ParserException("Track has no sample table size information");
             }
@@ -103,27 +103,27 @@ public final class b {
             return new m(new long[0], new int[0], 0, new long[0], new int[0]);
         }
         boolean z2 = false;
-        a.b JG3 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhx);
+        a.b JG3 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhC);
         if (JG3 == null) {
             z2 = true;
-            JG3 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhy);
+            JG3 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhD);
         }
-        com.google.android.exoplayer2.util.l lVar2 = JG3.mhW;
-        com.google.android.exoplayer2.util.l lVar3 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhu).mhW;
-        com.google.android.exoplayer2.util.l lVar4 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhr).mhW;
-        a.b JG4 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhs);
-        com.google.android.exoplayer2.util.l lVar5 = JG4 != null ? JG4.mhW : null;
-        a.b JG5 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mht);
-        com.google.android.exoplayer2.util.l lVar6 = JG5 != null ? JG5.mhW : null;
+        com.google.android.exoplayer2.util.l lVar2 = JG3.mib;
+        com.google.android.exoplayer2.util.l lVar3 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhz).mib;
+        com.google.android.exoplayer2.util.l lVar4 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhw).mib;
+        a.b JG4 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhx);
+        com.google.android.exoplayer2.util.l lVar5 = JG4 != null ? JG4.mib : null;
+        a.b JG5 = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mhy);
+        com.google.android.exoplayer2.util.l lVar6 = JG5 != null ? JG5.mib : null;
         a aVar = new a(lVar3, lVar2, z2);
         lVar4.setPosition(12);
-        int dyq = lVar4.dyq() - 1;
-        int dyq2 = lVar4.dyq();
-        int dyq3 = lVar4.dyq();
+        int dys = lVar4.dys() - 1;
+        int dys2 = lVar4.dys();
+        int dys3 = lVar4.dys();
         int i9 = 0;
         if (lVar6 != null) {
             lVar6.setPosition(12);
-            i9 = lVar6.dyq();
+            i9 = lVar6.dys();
         }
         if (lVar5 == null) {
             i = -1;
@@ -131,25 +131,25 @@ public final class b {
             i2 = 0;
         } else {
             lVar5.setPosition(12);
-            int dyq4 = lVar5.dyq();
-            if (dyq4 <= 0) {
+            int dys4 = lVar5.dys();
+            if (dys4 <= 0) {
                 i = -1;
                 lVar = null;
-                i2 = dyq4;
+                i2 = dys4;
             } else {
-                i = lVar5.dyq() - 1;
+                i = lVar5.dys() - 1;
                 lVar = lVar5;
-                i2 = dyq4;
+                i2 = dys4;
             }
         }
-        if (!(eVar.dtO() && "audio/raw".equals(jVar.lYL.sampleMimeType) && dyq == 0 && i9 == 0 && i2 == 0)) {
+        if (!(eVar.dtQ() && "audio/raw".equals(jVar.lYQ.sampleMimeType) && dys == 0 && i9 == 0 && i2 == 0)) {
             long[] jArr3 = new long[sampleCount];
             int[] iArr3 = new int[sampleCount];
             long[] jArr4 = new long[sampleCount];
             int[] iArr4 = new int[sampleCount];
             long j2 = 0;
             int i10 = 0;
-            int i11 = dyq2;
+            int i11 = dys2;
             int i12 = 0;
             int i13 = i2;
             int i14 = 0;
@@ -158,8 +158,8 @@ public final class b {
             long j3 = 0;
             int i17 = 0;
             int i18 = 0;
-            int i19 = dyq3;
-            int i20 = dyq;
+            int i19 = dys3;
+            int i20 = dys;
             int i21 = i15;
             while (i10 < sampleCount) {
                 long j4 = j2;
@@ -167,18 +167,18 @@ public final class b {
                 while (i22 == 0) {
                     com.google.android.exoplayer2.util.a.checkState(aVar.moveNext());
                     j4 = aVar.offset;
-                    i22 = aVar.mif;
+                    i22 = aVar.mik;
                 }
                 if (lVar6 != null) {
                     while (i12 == 0 && i16 > 0) {
-                        i12 = lVar6.dyq();
+                        i12 = lVar6.dys();
                         i14 = lVar6.readInt();
                         i16--;
                     }
                     i12--;
                 }
                 jArr3[i10] = j4;
-                iArr3[i10] = eVar.dtN();
+                iArr3[i10] = eVar.dtP();
                 if (iArr3[i10] > i17) {
                     i17 = iArr3[i10];
                 }
@@ -188,7 +188,7 @@ public final class b {
                     iArr4[i10] = 1;
                     int i23 = i13 - 1;
                     if (i23 > 0) {
-                        i21 = lVar.dyq() - 1;
+                        i21 = lVar.dys() - 1;
                         i13 = i23;
                     } else {
                         i13 = i23;
@@ -201,7 +201,7 @@ public final class b {
                     i7 = i24;
                     i8 = i25;
                 } else {
-                    i7 = lVar4.dyq();
+                    i7 = lVar4.dys();
                     i8 = lVar4.readInt();
                     i20--;
                 }
@@ -216,7 +216,7 @@ public final class b {
             }
             com.google.android.exoplayer2.util.a.checkArgument(i12 == 0);
             while (i16 > 0) {
-                com.google.android.exoplayer2.util.a.checkArgument(lVar6.dyq() == 0);
+                com.google.android.exoplayer2.util.a.checkArgument(lVar6.dys() == 0);
                 lVar6.readInt();
                 i16--;
             }
@@ -234,26 +234,26 @@ public final class b {
             int[] iArr5 = new int[aVar.length];
             while (aVar.moveNext()) {
                 jArr5[aVar.index] = aVar.offset;
-                iArr5[aVar.index] = aVar.mif;
+                iArr5[aVar.index] = aVar.mik;
             }
-            d.a a2 = com.google.android.exoplayer2.extractor.c.d.a(eVar.dtN(), jArr5, iArr5, dyq3);
-            jArr = a2.mdf;
-            iArr = a2.mde;
+            d.a a2 = com.google.android.exoplayer2.extractor.c.d.a(eVar.dtP(), jArr5, iArr5, dys3);
+            jArr = a2.mdk;
+            iArr = a2.mdj;
             i3 = a2.maximumSize;
-            jArr2 = a2.mit;
-            iArr2 = a2.miu;
+            jArr2 = a2.miy;
+            iArr2 = a2.miz;
             j = 0;
         }
-        if (jVar.mjO == null || iVar.dtG()) {
+        if (jVar.mjT == null || iVar.dtI()) {
             v.a(jArr2, (long) TimeUtils.NANOS_PER_MS, jVar.timescale);
             return new m(jArr, iArr, i3, jArr2, iArr2);
         }
-        if (jVar.mjO.length == 1 && jVar.type == 1 && jArr2.length >= 2) {
-            long j7 = jVar.mjP[0];
-            long h = v.h(jVar.mjO[0], jVar.timescale, jVar.mjM) + j7;
+        if (jVar.mjT.length == 1 && jVar.type == 1 && jArr2.length >= 2) {
+            long j7 = jVar.mjU[0];
+            long h = v.h(jVar.mjT[0], jVar.timescale, jVar.mjR) + j7;
             if (jArr2[0] <= j7 && j7 < jArr2[1] && jArr2[jArr2.length - 1] < h && h <= j) {
-                long h2 = v.h(j7 - jArr2[0], jVar.lYL.sampleRate, jVar.timescale);
-                long h3 = v.h(j - h, jVar.lYL.sampleRate, jVar.timescale);
+                long h2 = v.h(j7 - jArr2[0], jVar.lYQ.sampleRate, jVar.timescale);
+                long h3 = v.h(j - h, jVar.lYQ.sampleRate, jVar.timescale);
                 if ((h2 != 0 || h3 != 0) && h2 <= 2147483647L && h3 <= 2147483647L) {
                     iVar.encoderDelay = (int) h2;
                     iVar.encoderPadding = (int) h3;
@@ -262,9 +262,9 @@ public final class b {
                 }
             }
         }
-        if (jVar.mjO.length == 1 && jVar.mjO[0] == 0) {
+        if (jVar.mjT.length == 1 && jVar.mjT[0] == 0) {
             for (int i27 = 0; i27 < jArr2.length; i27++) {
-                jArr2[i27] = v.h(jArr2[i27] - jVar.mjP[0], TimeUtils.NANOS_PER_MS, jVar.timescale);
+                jArr2[i27] = v.h(jArr2[i27] - jVar.mjU[0], TimeUtils.NANOS_PER_MS, jVar.timescale);
             }
             return new m(jArr, iArr, i3, jArr2, iArr2);
         }
@@ -278,12 +278,12 @@ public final class b {
             z = z4;
             int i32 = i29;
             i4 = i28;
-            if (i31 >= jVar.mjO.length) {
+            if (i31 >= jVar.mjT.length) {
                 break;
             }
-            long j8 = jVar.mjP[i31];
+            long j8 = jVar.mjU[i31];
             if (j8 != -1) {
-                long h4 = v.h(jVar.mjO[i31], jVar.timescale, jVar.mjM);
+                long h4 = v.h(jVar.mjT[i31], jVar.timescale, jVar.mjR);
                 int b = v.b(jArr2, j8, true, true);
                 i29 = v.b(jArr2, h4 + j8, z3, false);
                 i28 = i4 + (i29 - b);
@@ -305,11 +305,11 @@ public final class b {
         int i35 = 0;
         long j9 = 0;
         int i36 = i33;
-        while (i34 < jVar.mjO.length) {
-            long j10 = jVar.mjP[i34];
-            long j11 = jVar.mjO[i34];
+        while (i34 < jVar.mjT.length) {
+            long j10 = jVar.mjU[i34];
+            long j11 = jVar.mjT[i34];
             if (j10 != -1) {
-                long h5 = j10 + v.h(j11, jVar.timescale, jVar.mjM);
+                long h5 = j10 + v.h(j11, jVar.timescale, jVar.mjR);
                 int b2 = v.b(jArr2, j10, true, true);
                 int b3 = v.b(jArr2, h5, z3, false);
                 if (z5) {
@@ -322,7 +322,7 @@ public final class b {
                 int i39 = i35;
                 int i40 = i36;
                 while (i38 < b3) {
-                    jArr7[i39] = v.h(jArr2[i38] - j10, TimeUtils.NANOS_PER_MS, jVar.timescale) + v.h(j9, TimeUtils.NANOS_PER_MS, jVar.mjM);
+                    jArr7[i39] = v.h(jArr2[i38] - j10, TimeUtils.NANOS_PER_MS, jVar.timescale) + v.h(j9, TimeUtils.NANOS_PER_MS, jVar.mjR);
                     int i41 = (!z5 || iArr6[i39] <= i40) ? i40 : iArr[i38];
                     i39++;
                     i38++;
@@ -355,12 +355,12 @@ public final class b {
         if (z) {
             return null;
         }
-        com.google.android.exoplayer2.util.l lVar = bVar.mhW;
+        com.google.android.exoplayer2.util.l lVar = bVar.mib;
         lVar.setPosition(8);
-        while (lVar.dyf() >= 8) {
+        while (lVar.dyh() >= 8) {
             int position = lVar.getPosition();
             int readInt = lVar.readInt();
-            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhG) {
+            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhL) {
                 lVar.setPosition(position);
                 return d(lVar, position + readInt);
             }
@@ -374,7 +374,7 @@ public final class b {
         while (lVar.getPosition() < i) {
             int position = lVar.getPosition();
             int readInt = lVar.readInt();
-            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhH) {
+            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhM) {
                 lVar.setPosition(position);
                 return e(lVar, position + readInt);
             }
@@ -430,7 +430,7 @@ public final class b {
             lVar.skipBytes(i2);
             readUnsignedInt = -9223372036854775807L;
         } else {
-            readUnsignedInt = JD == 0 ? lVar.readUnsignedInt() : lVar.dys();
+            readUnsignedInt = JD == 0 ? lVar.readUnsignedInt() : lVar.dyu();
             if (readUnsignedInt == 0) {
                 readUnsignedInt = -9223372036854775807L;
             }
@@ -454,16 +454,16 @@ public final class b {
     private static int n(com.google.android.exoplayer2.util.l lVar) {
         lVar.setPosition(16);
         int readInt = lVar.readInt();
-        if (readInt == mhY) {
+        if (readInt == mie) {
             return 1;
         }
-        if (readInt == mhX) {
+        if (readInt == mic) {
             return 2;
         }
-        if (readInt == mhZ || readInt == mia || readInt == mib || readInt == mic) {
+        if (readInt == mif || readInt == mig || readInt == mih || readInt == mii) {
             return 3;
         }
-        if (readInt == mhG) {
+        if (readInt == mhL) {
             return 4;
         }
         return -1;
@@ -488,14 +488,14 @@ public final class b {
             int readInt2 = lVar.readInt();
             com.google.android.exoplayer2.util.a.checkArgument(readInt2 > 0, "childAtomSize should be positive");
             int readInt3 = lVar.readInt();
-            if (readInt3 == com.google.android.exoplayer2.extractor.c.a.mgg || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgh || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhe || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhq || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgi || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgj || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgk || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhP || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhQ) {
+            if (readInt3 == com.google.android.exoplayer2.extractor.c.a.mgl || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgm || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhj || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhv || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgn || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgo || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgp || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhU || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhV) {
                 a(lVar, readInt3, position, readInt2, i, i2, drmInitData, cVar, i3);
-            } else if (readInt3 == com.google.android.exoplayer2.extractor.c.a.mgn || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhf || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgs || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgu || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgw || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgz || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgx || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgy || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhD || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhE || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgq || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgr || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgo || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhT) {
+            } else if (readInt3 == com.google.android.exoplayer2.extractor.c.a.mgs || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhk || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgx || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgz || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgB || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgE || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgC || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgD || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhI || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhJ || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgv || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgw || readInt3 == com.google.android.exoplayer2.extractor.c.a.mgt || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhY) {
                 a(lVar, readInt3, position, readInt2, i, str, z, drmInitData, cVar, i3);
-            } else if (readInt3 == com.google.android.exoplayer2.extractor.c.a.mho || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhz || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhA || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhB || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhC) {
+            } else if (readInt3 == com.google.android.exoplayer2.extractor.c.a.mht || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhE || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhF || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhG || readInt3 == com.google.android.exoplayer2.extractor.c.a.mhH) {
                 a(lVar, readInt3, position, readInt2, i, str, cVar);
-            } else if (readInt3 == com.google.android.exoplayer2.extractor.c.a.mhS) {
-                cVar.lYL = Format.a(Integer.toString(i), "application/x-camera-motion", (String) null, -1, (DrmInitData) null);
+            } else if (readInt3 == com.google.android.exoplayer2.extractor.c.a.mhX) {
+                cVar.lYQ = Format.a(Integer.toString(i), "application/x-camera-motion", (String) null, -1, (DrmInitData) null);
             }
             lVar.setPosition(position + readInt2);
         }
@@ -507,26 +507,26 @@ public final class b {
         lVar.setPosition(i2 + 8 + 8);
         List list = null;
         long j = Format.OFFSET_SAMPLE_RELATIVE;
-        if (i == com.google.android.exoplayer2.extractor.c.a.mho) {
+        if (i == com.google.android.exoplayer2.extractor.c.a.mht) {
             str2 = "application/ttml+xml";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhz) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhE) {
             str2 = "application/x-quicktime-tx3g";
             int i5 = (i3 - 8) - 8;
             byte[] bArr = new byte[i5];
             lVar.C(bArr, 0, i5);
             list = Collections.singletonList(bArr);
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhA) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhF) {
             str2 = "application/x-mp4-vtt";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhB) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhG) {
             str2 = "application/ttml+xml";
             j = 0;
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhC) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhH) {
             str2 = "application/x-mp4-cea-608";
-            cVar.mim = 1;
+            cVar.mis = 1;
         } else {
             throw new IllegalStateException();
         }
-        cVar.lYL = Format.a(Integer.toString(i4), str2, (String) null, -1, 0, str, -1, (DrmInitData) null, j, list);
+        cVar.lYQ = Format.a(Integer.toString(i4), str2, (String) null, -1, 0, str, -1, (DrmInitData) null, j, list);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x007f A[ORIG_RETURN, RETURN] */
@@ -545,12 +545,12 @@ public final class b {
         float f2 = 1.0f;
         lVar.skipBytes(50);
         int position = lVar.getPosition();
-        if (i == com.google.android.exoplayer2.extractor.c.a.mhe) {
+        if (i == com.google.android.exoplayer2.extractor.c.a.mhj) {
             Pair<Integer, k> b = b(lVar, i2, i3);
             if (b != null) {
                 i = ((Integer) b.first).intValue();
                 drmInitData3 = drmInitData == null ? null : drmInitData.Pd(((k) b.second).schemeType);
-                cVar.mil[i6] = (k) b.second;
+                cVar.mir[i6] = (k) b.second;
             } else {
                 drmInitData3 = drmInitData;
             }
@@ -572,47 +572,47 @@ public final class b {
             if (readInt != 0 || lVar.getPosition() - i2 != i3) {
                 com.google.android.exoplayer2.util.a.checkArgument(readInt > 0, "childAtomSize should be positive");
                 int readInt2 = lVar.readInt();
-                if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgM) {
+                if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgR) {
                     com.google.android.exoplayer2.util.a.checkState(str == null);
                     str = "video/avc";
                     lVar.setPosition(position2 + 8);
                     com.google.android.exoplayer2.video.a ag = com.google.android.exoplayer2.video.a.ag(lVar);
                     list = ag.initializationData;
-                    cVar.meb = ag.meb;
+                    cVar.meg = ag.meg;
                     if (!z2) {
-                        f2 = ag.mGF;
+                        f2 = ag.mGK;
                     }
                     z = z2;
-                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgN) {
+                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgS) {
                     com.google.android.exoplayer2.util.a.checkState(str == null);
                     str = "video/hevc";
                     lVar.setPosition(position2 + 8);
                     com.google.android.exoplayer2.video.b ai = com.google.android.exoplayer2.video.b.ai(lVar);
                     list = ai.initializationData;
-                    cVar.meb = ai.meb;
+                    cVar.meg = ai.meg;
                     z = z2;
-                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhR) {
+                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhW) {
                     com.google.android.exoplayer2.util.a.checkState(str == null);
-                    str = i == com.google.android.exoplayer2.extractor.c.a.mhP ? "video/x-vnd.on2.vp8" : "video/x-vnd.on2.vp9";
+                    str = i == com.google.android.exoplayer2.extractor.c.a.mhU ? "video/x-vnd.on2.vp8" : "video/x-vnd.on2.vp9";
                     z = z2;
-                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgl) {
+                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgq) {
                     com.google.android.exoplayer2.util.a.checkState(str == null);
                     str = MimeType.Video.GP3;
                     z = z2;
-                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgO) {
+                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgT) {
                     com.google.android.exoplayer2.util.a.checkState(str == null);
                     Pair<String, byte[]> g = g(lVar, position2);
                     list = Collections.singletonList(g.second);
                     str = (String) g.first;
                     z = z2;
-                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhn) {
+                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhs) {
                     f2 = f(lVar, position2);
                     z = true;
-                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhN) {
+                } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhS) {
                     bArr = d(lVar, position2, readInt);
                     z = z2;
                 } else {
-                    if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhM) {
+                    if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhR) {
                         int readUnsignedByte = lVar.readUnsignedByte();
                         lVar.skipBytes(3);
                         if (readUnsignedByte == 0) {
@@ -641,7 +641,7 @@ public final class b {
                 i8 += readInt;
                 z2 = z;
             } else if (str == null) {
-                cVar.lYL = Format.a(Integer.toString(i4), str, (String) null, -1, -1, readUnsignedShort, readUnsignedShort2, -1.0f, list, i5, f2, bArr, i7, (ColorInfo) null, drmInitData2);
+                cVar.lYQ = Format.a(Integer.toString(i4), str, (String) null, -1, -1, readUnsignedShort, readUnsignedShort2, -1.0f, list, i5, f2, bArr, i7, (ColorInfo) null, drmInitData2);
                 return;
             } else {
                 return;
@@ -653,17 +653,17 @@ public final class b {
 
     private static Pair<long[], long[]> b(a.C0666a c0666a) {
         a.b JG;
-        if (c0666a == null || (JG = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mgV)) == null) {
+        if (c0666a == null || (JG = c0666a.JG(com.google.android.exoplayer2.extractor.c.a.mha)) == null) {
             return Pair.create(null, null);
         }
-        com.google.android.exoplayer2.util.l lVar = JG.mhW;
+        com.google.android.exoplayer2.util.l lVar = JG.mib;
         lVar.setPosition(8);
         int JD = com.google.android.exoplayer2.extractor.c.a.JD(lVar.readInt());
-        int dyq = lVar.dyq();
-        long[] jArr = new long[dyq];
-        long[] jArr2 = new long[dyq];
-        for (int i = 0; i < dyq; i++) {
-            jArr[i] = JD == 1 ? lVar.dys() : lVar.readUnsignedInt();
+        int dys = lVar.dys();
+        long[] jArr = new long[dys];
+        long[] jArr2 = new long[dys];
+        for (int i = 0; i < dys; i++) {
+            jArr[i] = JD == 1 ? lVar.dyu() : lVar.readUnsignedInt();
             jArr2[i] = JD == 1 ? lVar.readLong() : lVar.readInt();
             if (lVar.readShort() != 1) {
                 throw new IllegalArgumentException("Unsupported media rate.");
@@ -675,7 +675,7 @@ public final class b {
 
     private static float f(com.google.android.exoplayer2.util.l lVar, int i) {
         lVar.setPosition(i + 8);
-        return lVar.dyq() / lVar.dyq();
+        return lVar.dys() / lVar.dys();
     }
 
     private static void a(com.google.android.exoplayer2.util.l lVar, int i, int i2, int i3, int i4, String str, boolean z, DrmInitData drmInitData, c cVar, int i5) throws ParserException {
@@ -697,31 +697,31 @@ public final class b {
         if (i6 == 0 || i6 == 1) {
             int readUnsignedShort2 = lVar.readUnsignedShort();
             lVar.skipBytes(6);
-            int dyo = lVar.dyo();
+            int dyq = lVar.dyq();
             if (i6 == 1) {
                 lVar.skipBytes(16);
                 i7 = readUnsignedShort2;
-                i8 = dyo;
+                i8 = dyq;
             } else {
                 i7 = readUnsignedShort2;
-                i8 = dyo;
+                i8 = dyq;
             }
         } else if (i6 == 2) {
             lVar.skipBytes(16);
-            int dyq = lVar.dyq();
+            int dys = lVar.dys();
             lVar.skipBytes(20);
-            i7 = dyq;
+            i7 = dys;
             i8 = (int) Math.round(lVar.readDouble());
         } else {
             return;
         }
         int position = lVar.getPosition();
-        if (i == com.google.android.exoplayer2.extractor.c.a.mhf) {
+        if (i == com.google.android.exoplayer2.extractor.c.a.mhk) {
             Pair<Integer, k> b = b(lVar, i2, i3);
             if (b != null) {
                 i = ((Integer) b.first).intValue();
                 drmInitData3 = drmInitData == null ? null : drmInitData.Pd(((k) b.second).schemeType);
-                cVar.mil[i5] = (k) b.second;
+                cVar.mir[i5] = (k) b.second;
             } else {
                 drmInitData3 = drmInitData;
             }
@@ -731,25 +731,25 @@ public final class b {
             drmInitData2 = drmInitData;
         }
         String str2 = null;
-        if (i == com.google.android.exoplayer2.extractor.c.a.mgs) {
+        if (i == com.google.android.exoplayer2.extractor.c.a.mgx) {
             str2 = "audio/ac3";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgu) {
-            str2 = "audio/eac3";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgw) {
-            str2 = "audio/vnd.dts";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgx || i == com.google.android.exoplayer2.extractor.c.a.mgy) {
-            str2 = "audio/vnd.dts.hd";
         } else if (i == com.google.android.exoplayer2.extractor.c.a.mgz) {
+            str2 = "audio/eac3";
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgB) {
+            str2 = "audio/vnd.dts";
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgC || i == com.google.android.exoplayer2.extractor.c.a.mgD) {
+            str2 = "audio/vnd.dts.hd";
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgE) {
             str2 = "audio/vnd.dts.hd;profile=lbr";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhD) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhI) {
             str2 = "audio/3gpp";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhE) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhJ) {
             str2 = "audio/amr-wb";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgq || i == com.google.android.exoplayer2.extractor.c.a.mgr) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgv || i == com.google.android.exoplayer2.extractor.c.a.mgw) {
             str2 = "audio/raw";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgo) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mgt) {
             str2 = "audio/mpeg";
-        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhT) {
+        } else if (i == com.google.android.exoplayer2.extractor.c.a.mhY) {
             str2 = "audio/alac";
         }
         byte[] bArr2 = null;
@@ -761,8 +761,8 @@ public final class b {
             int readInt = lVar.readInt();
             com.google.android.exoplayer2.util.a.checkArgument(readInt > 0, "childAtomSize should be positive");
             int readInt2 = lVar.readInt();
-            if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgO || (z && readInt2 == com.google.android.exoplayer2.extractor.c.a.mgp)) {
-                int a2 = readInt2 == com.google.android.exoplayer2.extractor.c.a.mgO ? position : a(lVar, position, readInt);
+            if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgT || (z && readInt2 == com.google.android.exoplayer2.extractor.c.a.mgu)) {
+                int a2 = readInt2 == com.google.android.exoplayer2.extractor.c.a.mgT ? position : a(lVar, position, readInt);
                 if (a2 != -1) {
                     Pair<String, byte[]> g = g(lVar, a2);
                     str3 = (String) g.first;
@@ -776,23 +776,23 @@ public final class b {
                     bArr = bArr2;
                 }
                 bArr2 = bArr;
-            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgt) {
+            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgy) {
                 lVar.setPosition(position + 8);
-                cVar.lYL = com.google.android.exoplayer2.audio.a.a(lVar, Integer.toString(i4), str, drmInitData2);
-            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgv) {
-                lVar.setPosition(position + 8);
-                cVar.lYL = com.google.android.exoplayer2.audio.a.b(lVar, Integer.toString(i4), str, drmInitData2);
+                cVar.lYQ = com.google.android.exoplayer2.audio.a.a(lVar, Integer.toString(i4), str, drmInitData2);
             } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgA) {
-                cVar.lYL = Format.a(Integer.toString(i4), str3, null, -1, -1, i10, i9, null, drmInitData2, 0, str);
-            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhT) {
+                lVar.setPosition(position + 8);
+                cVar.lYQ = com.google.android.exoplayer2.audio.a.b(lVar, Integer.toString(i4), str, drmInitData2);
+            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mgF) {
+                cVar.lYQ = Format.a(Integer.toString(i4), str3, null, -1, -1, i10, i9, null, drmInitData2, 0, str);
+            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhY) {
                 bArr2 = new byte[readInt];
                 lVar.setPosition(position);
                 lVar.C(bArr2, 0, readInt);
             }
             position += readInt;
         }
-        if (cVar.lYL == null && str3 != null) {
-            cVar.lYL = Format.a(Integer.toString(i4), str3, (String) null, -1, -1, i10, i9, "audio/raw".equals(str3) ? 2 : -1, bArr2 == null ? null : Collections.singletonList(bArr2), drmInitData2, 0, str);
+        if (cVar.lYQ == null && str3 != null) {
+            cVar.lYQ = Format.a(Integer.toString(i4), str3, (String) null, -1, -1, i10, i9, "audio/raw".equals(str3) ? 2 : -1, bArr2 == null ? null : Collections.singletonList(bArr2), drmInitData2, 0, str);
         }
     }
 
@@ -802,7 +802,7 @@ public final class b {
             lVar.setPosition(position);
             int readInt = lVar.readInt();
             com.google.android.exoplayer2.util.a.checkArgument(readInt > 0, "childAtomSize should be positive");
-            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mgO) {
+            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mgT) {
                 return position;
             }
             position += readInt;
@@ -880,7 +880,7 @@ public final class b {
                 lVar.setPosition(i3);
                 int readInt = lVar.readInt();
                 com.google.android.exoplayer2.util.a.checkArgument(readInt > 0, "childAtomSize should be positive");
-                if (lVar.readInt() != com.google.android.exoplayer2.extractor.c.a.mha || (c2 = c(lVar, i3, readInt)) == null) {
+                if (lVar.readInt() != com.google.android.exoplayer2.extractor.c.a.mhf || (c2 = c(lVar, i3, readInt)) == null) {
                     position = i3 + readInt;
                 } else {
                     return c2;
@@ -901,12 +901,12 @@ public final class b {
             lVar.setPosition(i3);
             int readInt = lVar.readInt();
             int readInt2 = lVar.readInt();
-            if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhg) {
+            if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhl) {
                 num = Integer.valueOf(lVar.readInt());
-            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhb) {
+            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhg) {
                 lVar.skipBytes(4);
                 str = lVar.LP(4);
-            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhc) {
+            } else if (readInt2 == com.google.android.exoplayer2.extractor.c.a.mhh) {
                 i4 = readInt;
                 i5 = i3;
             }
@@ -930,7 +930,7 @@ public final class b {
         while (i5 - i < i2) {
             lVar.setPosition(i5);
             int readInt = lVar.readInt();
-            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhd) {
+            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhi) {
                 int JD = com.google.android.exoplayer2.extractor.c.a.JD(lVar.readInt());
                 lVar.skipBytes(1);
                 if (JD == 0) {
@@ -963,7 +963,7 @@ public final class b {
         while (i3 - i < i2) {
             lVar.setPosition(i3);
             int readInt = lVar.readInt();
-            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhO) {
+            if (lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhT) {
                 return Arrays.copyOfRange(lVar.data, i3, readInt + i3);
             }
             i3 += readInt;
@@ -985,22 +985,22 @@ public final class b {
     private static final class a {
         public int index;
         public final int length;
-        public int mif;
-        private final boolean mig;
-        private final com.google.android.exoplayer2.util.l mih;
-        private final com.google.android.exoplayer2.util.l mii;
-        private int mij;
-        private int mik;
+        public int mik;
+        private final boolean mil;
+        private final com.google.android.exoplayer2.util.l mim;
+        private final com.google.android.exoplayer2.util.l mio;
+        private int mip;
+        private int miq;
         public long offset;
 
         public a(com.google.android.exoplayer2.util.l lVar, com.google.android.exoplayer2.util.l lVar2, boolean z) {
-            this.mii = lVar;
-            this.mih = lVar2;
-            this.mig = z;
+            this.mio = lVar;
+            this.mim = lVar2;
+            this.mil = z;
             lVar2.setPosition(12);
-            this.length = lVar2.dyq();
+            this.length = lVar2.dys();
             lVar.setPosition(12);
-            this.mik = lVar.dyq();
+            this.miq = lVar.dys();
             com.google.android.exoplayer2.util.a.d(lVar.readInt() == 1, "first_chunk must be 1");
             this.index = -1;
         }
@@ -1011,13 +1011,13 @@ public final class b {
             if (i == this.length) {
                 return false;
             }
-            this.offset = this.mig ? this.mih.dys() : this.mih.readUnsignedInt();
-            if (this.index == this.mij) {
-                this.mif = this.mii.dyq();
-                this.mii.skipBytes(4);
-                int i2 = this.mik - 1;
-                this.mik = i2;
-                this.mij = i2 > 0 ? this.mii.dyq() - 1 : -1;
+            this.offset = this.mil ? this.mim.dyu() : this.mim.readUnsignedInt();
+            if (this.index == this.mip) {
+                this.mik = this.mio.dys();
+                this.mio.skipBytes(4);
+                int i2 = this.miq - 1;
+                this.miq = i2;
+                this.mip = i2 > 0 ? this.mio.dys() - 1 : -1;
             }
             return true;
         }
@@ -1040,27 +1040,27 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static final class c {
-        public Format lYL;
-        public int meb;
-        public final k[] mil;
-        public int mim = 0;
+        public Format lYQ;
+        public int meg;
+        public final k[] mir;
+        public int mis = 0;
 
         public c(int i) {
-            this.mil = new k[i];
+            this.mir = new k[i];
         }
     }
 
     /* loaded from: classes5.dex */
     static final class d implements InterfaceC0667b {
-        private final com.google.android.exoplayer2.util.l mhW;
-        private final int mio;
+        private final com.google.android.exoplayer2.util.l mib;
+        private final int mit;
         private final int sampleCount;
 
         public d(a.b bVar) {
-            this.mhW = bVar.mhW;
-            this.mhW.setPosition(12);
-            this.mio = this.mhW.dyq();
-            this.sampleCount = this.mhW.dyq();
+            this.mib = bVar.mib;
+            this.mib.setPosition(12);
+            this.mit = this.mib.dys();
+            this.sampleCount = this.mib.dys();
         }
 
         @Override // com.google.android.exoplayer2.extractor.c.b.InterfaceC0667b
@@ -1069,29 +1069,29 @@ public final class b {
         }
 
         @Override // com.google.android.exoplayer2.extractor.c.b.InterfaceC0667b
-        public int dtN() {
-            return this.mio == 0 ? this.mhW.dyq() : this.mio;
+        public int dtP() {
+            return this.mit == 0 ? this.mib.dys() : this.mit;
         }
 
         @Override // com.google.android.exoplayer2.extractor.c.b.InterfaceC0667b
-        public boolean dtO() {
-            return this.mio != 0;
+        public boolean dtQ() {
+            return this.mit != 0;
         }
     }
 
     /* loaded from: classes5.dex */
     static final class e implements InterfaceC0667b {
-        private final com.google.android.exoplayer2.util.l mhW;
-        private final int mip;
-        private int miq;
-        private int mir;
+        private final com.google.android.exoplayer2.util.l mib;
+        private final int miu;
+        private int miv;
+        private int miw;
         private final int sampleCount;
 
         public e(a.b bVar) {
-            this.mhW = bVar.mhW;
-            this.mhW.setPosition(12);
-            this.mip = this.mhW.dyq() & 255;
-            this.sampleCount = this.mhW.dyq();
+            this.mib = bVar.mib;
+            this.mib.setPosition(12);
+            this.miu = this.mib.dys() & 255;
+            this.sampleCount = this.mib.dys();
         }
 
         @Override // com.google.android.exoplayer2.extractor.c.b.InterfaceC0667b
@@ -1100,24 +1100,24 @@ public final class b {
         }
 
         @Override // com.google.android.exoplayer2.extractor.c.b.InterfaceC0667b
-        public int dtN() {
-            if (this.mip == 8) {
-                return this.mhW.readUnsignedByte();
+        public int dtP() {
+            if (this.miu == 8) {
+                return this.mib.readUnsignedByte();
             }
-            if (this.mip == 16) {
-                return this.mhW.readUnsignedShort();
+            if (this.miu == 16) {
+                return this.mib.readUnsignedShort();
             }
-            int i = this.miq;
-            this.miq = i + 1;
+            int i = this.miv;
+            this.miv = i + 1;
             if (i % 2 == 0) {
-                this.mir = this.mhW.readUnsignedByte();
-                return (this.mir & 240) >> 4;
+                this.miw = this.mib.readUnsignedByte();
+                return (this.miw & 240) >> 4;
             }
-            return this.mir & 15;
+            return this.miw & 15;
         }
 
         @Override // com.google.android.exoplayer2.extractor.c.b.InterfaceC0667b
-        public boolean dtO() {
+        public boolean dtQ() {
             return false;
         }
     }

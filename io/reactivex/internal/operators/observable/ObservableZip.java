@@ -13,19 +13,19 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableZip<T, R> extends q<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends t<? extends T>> nvL;
-    final t<? extends T>[] nxf;
+    final Iterable<? extends t<? extends T>> nvQ;
+    final t<? extends T>[] nxk;
     final h<? super Object[], ? extends R> zipper;
 
     @Override // io.reactivex.q
     public void a(u<? super R> uVar) {
         int length;
         t<? extends T>[] tVarArr;
-        t<? extends T>[] tVarArr2 = this.nxf;
+        t<? extends T>[] tVarArr2 = this.nxk;
         if (tVarArr2 == null) {
             tVarArr2 = new q[8];
             length = 0;
-            for (t<? extends T> tVar : this.nvL) {
+            for (t<? extends T> tVar : this.nvQ) {
                 if (length == tVarArr2.length) {
                     tVarArr = new t[(length >> 2) + length];
                     System.arraycopy(tVarArr2, 0, tVarArr, 0, length);
@@ -209,12 +209,12 @@ public final class ObservableZip<T, R> extends q<R> {
     public static final class a<T, R> implements u<T> {
         volatile boolean done;
         Throwable error;
-        final ZipCoordinator<T, R> nxL;
+        final ZipCoordinator<T, R> nxQ;
         final io.reactivex.internal.queue.a<T> queue;
         final AtomicReference<io.reactivex.disposables.b> s = new AtomicReference<>();
 
         a(ZipCoordinator<T, R> zipCoordinator, int i) {
-            this.nxL = zipCoordinator;
+            this.nxQ = zipCoordinator;
             this.queue = new io.reactivex.internal.queue.a<>(i);
         }
 
@@ -226,20 +226,20 @@ public final class ObservableZip<T, R> extends q<R> {
         @Override // io.reactivex.u
         public void onNext(T t) {
             this.queue.offer(t);
-            this.nxL.drain();
+            this.nxQ.drain();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
-            this.nxL.drain();
+            this.nxQ.drain();
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.done = true;
-            this.nxL.drain();
+            this.nxQ.drain();
         }
 
         public void dispose() {

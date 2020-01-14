@@ -9,9 +9,9 @@ public interface d {
 
     int U(long j, long j2);
 
-    int dvJ();
+    int dvL();
 
-    boolean dvK();
+    boolean dvM();
 
     int gs(long j);
 }

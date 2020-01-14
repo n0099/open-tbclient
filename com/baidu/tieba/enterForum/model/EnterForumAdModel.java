@@ -61,7 +61,7 @@ public class EnterForumAdModel extends BdBaseModel {
         if (!this.fTR) {
             com.baidu.tieba.enterForum.data.a aVar = this.fTQ;
             if (this.fTQ != null && aVar.isValid()) {
-                c.cIs().b(i.ab(context).getUniqueId(), com.baidu.tieba.r.a.b(PageStayDurationConstants.PageName.ENTER_FORUM, "common_fill", true, 1, 5));
+                c.cIu().b(i.ab(context).getUniqueId(), com.baidu.tieba.r.a.b(PageStayDurationConstants.PageName.ENTER_FORUM, "common_fill", true, 1, 5));
                 this.fTR = true;
             }
         }

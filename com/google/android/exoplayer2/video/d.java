@@ -15,17 +15,17 @@ import com.google.android.exoplayer2.util.v;
 @TargetApi(16)
 /* loaded from: classes5.dex */
 public final class d {
-    private final b mHX;
-    private final a mHY;
-    private long mHZ;
-    private long mIa;
-    private long mIb;
-    private long mIc;
-    private long mIe;
-    private boolean mIf;
+    private final b mIc;
+    private final a mIe;
+    private long mIf;
     private long mIg;
     private long mIh;
     private long mIi;
+    private long mIj;
+    private boolean mIk;
+    private long mIl;
+    private long mIm;
+    private long mIn;
     private final WindowManager windowManager;
 
     public d() {
@@ -35,33 +35,33 @@ public final class d {
     public d(@Nullable Context context) {
         this.windowManager = context == null ? null : (WindowManager) context.getSystemService("window");
         if (this.windowManager != null) {
-            this.mHY = v.SDK_INT >= 17 ? gu(context) : null;
-            this.mHX = b.dyR();
+            this.mIe = v.SDK_INT >= 17 ? gu(context) : null;
+            this.mIc = b.dyT();
         } else {
-            this.mHY = null;
-            this.mHX = null;
+            this.mIe = null;
+            this.mIc = null;
         }
-        this.mHZ = -9223372036854775807L;
-        this.mIa = -9223372036854775807L;
+        this.mIf = -9223372036854775807L;
+        this.mIg = -9223372036854775807L;
     }
 
     public void enable() {
-        this.mIf = false;
+        this.mIk = false;
         if (this.windowManager != null) {
-            this.mHX.dyS();
-            if (this.mHY != null) {
-                this.mHY.register();
+            this.mIc.dyU();
+            if (this.mIe != null) {
+                this.mIe.register();
             }
-            dyQ();
+            dyS();
         }
     }
 
     public void disable() {
         if (this.windowManager != null) {
-            if (this.mHY != null) {
-                this.mHY.unregister();
+            if (this.mIe != null) {
+                this.mIe.unregister();
             }
-            this.mHX.dyT();
+            this.mIc.dyV();
         }
     }
 
@@ -73,43 +73,43 @@ public final class d {
         long j3;
         long j4;
         long j5 = j * 1000;
-        if (this.mIf) {
-            if (j != this.mIb) {
-                this.mIi++;
-                this.mIc = this.mIe;
+        if (this.mIk) {
+            if (j != this.mIh) {
+                this.mIn++;
+                this.mIi = this.mIj;
             }
-            if (this.mIi >= 6) {
-                j4 = this.mIc + ((j5 - this.mIh) / this.mIi);
+            if (this.mIn >= 6) {
+                j4 = this.mIi + ((j5 - this.mIm) / this.mIn);
                 if (ab(j4, j2)) {
-                    this.mIf = false;
+                    this.mIk = false;
                     j3 = j2;
                     j4 = j5;
                 } else {
-                    j3 = (this.mIg + j4) - this.mIh;
+                    j3 = (this.mIl + j4) - this.mIm;
                 }
-                if (!this.mIf) {
-                    this.mIh = j5;
-                    this.mIg = j2;
-                    this.mIi = 0L;
-                    this.mIf = true;
+                if (!this.mIk) {
+                    this.mIm = j5;
+                    this.mIl = j2;
+                    this.mIn = 0L;
+                    this.mIk = true;
                 }
-                this.mIb = j;
-                this.mIe = j4;
-                if (this.mHX == null && this.mHZ != -9223372036854775807L) {
-                    long j6 = this.mHX.mIl;
-                    return j6 != -9223372036854775807L ? i(j3, j6, this.mHZ) - this.mIa : j3;
+                this.mIh = j;
+                this.mIj = j4;
+                if (this.mIc == null && this.mIf != -9223372036854775807L) {
+                    long j6 = this.mIc.mIr;
+                    return j6 != -9223372036854775807L ? i(j3, j6, this.mIf) - this.mIg : j3;
                 }
             } else if (ab(j5, j2)) {
-                this.mIf = false;
+                this.mIk = false;
             }
         }
         j3 = j2;
         j4 = j5;
-        if (!this.mIf) {
+        if (!this.mIk) {
         }
-        this.mIb = j;
-        this.mIe = j4;
-        return this.mHX == null ? j3 : j3;
+        this.mIh = j;
+        this.mIj = j4;
+        return this.mIc == null ? j3 : j3;
     }
 
     @TargetApi(17)
@@ -122,16 +122,16 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dyQ() {
+    public void dyS() {
         Display defaultDisplay = this.windowManager.getDefaultDisplay();
         if (defaultDisplay != null) {
-            this.mHZ = (long) (1.0E9d / defaultDisplay.getRefreshRate());
-            this.mIa = (this.mHZ * 80) / 100;
+            this.mIf = (long) (1.0E9d / defaultDisplay.getRefreshRate());
+            this.mIg = (this.mIf * 80) / 100;
         }
     }
 
     private boolean ab(long j, long j2) {
-        return Math.abs((j2 - this.mIg) - (j - this.mIh)) > 20000000;
+        return Math.abs((j2 - this.mIl) - (j - this.mIm)) > 20000000;
     }
 
     private static long i(long j, long j2, long j3) {
@@ -150,18 +150,18 @@ public final class d {
     @TargetApi(17)
     /* loaded from: classes5.dex */
     public final class a implements DisplayManager.DisplayListener {
-        private final DisplayManager mIj;
+        private final DisplayManager mIo;
 
         public a(DisplayManager displayManager) {
-            this.mIj = displayManager;
+            this.mIo = displayManager;
         }
 
         public void register() {
-            this.mIj.registerDisplayListener(this, null);
+            this.mIo.registerDisplayListener(this, null);
         }
 
         public void unregister() {
-            this.mIj.unregisterDisplayListener(this);
+            this.mIo.unregisterDisplayListener(this);
         }
 
         @Override // android.hardware.display.DisplayManager.DisplayListener
@@ -175,77 +175,77 @@ public final class d {
         @Override // android.hardware.display.DisplayManager.DisplayListener
         public void onDisplayChanged(int i) {
             if (i == 0) {
-                d.this.dyQ();
+                d.this.dyS();
             }
         }
     }
 
     /* loaded from: classes5.dex */
     private static final class b implements Handler.Callback, Choreographer.FrameCallback {
-        private static final b mIm = new b();
+        private static final b mIt = new b();
         private final Handler handler;
-        public volatile long mIl = -9223372036854775807L;
-        private final HandlerThread mIn = new HandlerThread("ChoreographerOwner:Handler");
-        private Choreographer mIo;
-        private int mIq;
+        public volatile long mIr = -9223372036854775807L;
+        private final HandlerThread mIu = new HandlerThread("ChoreographerOwner:Handler");
+        private Choreographer mIv;
+        private int mIw;
 
-        public static b dyR() {
-            return mIm;
+        public static b dyT() {
+            return mIt;
         }
 
         private b() {
-            this.mIn.start();
-            this.handler = new Handler(this.mIn.getLooper(), this);
+            this.mIu.start();
+            this.handler = new Handler(this.mIu.getLooper(), this);
             this.handler.sendEmptyMessage(0);
         }
 
-        public void dyS() {
+        public void dyU() {
             this.handler.sendEmptyMessage(1);
         }
 
-        public void dyT() {
+        public void dyV() {
             this.handler.sendEmptyMessage(2);
         }
 
         @Override // android.view.Choreographer.FrameCallback
         public void doFrame(long j) {
-            this.mIl = j;
-            this.mIo.postFrameCallbackDelayed(this, 500L);
+            this.mIr = j;
+            this.mIv.postFrameCallbackDelayed(this, 500L);
         }
 
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    dyU();
+                    dyW();
                     return true;
                 case 1:
-                    dyV();
+                    dyX();
                     return true;
                 case 2:
-                    dyW();
+                    dyY();
                     return true;
                 default:
                     return false;
             }
         }
 
-        private void dyU() {
-            this.mIo = Choreographer.getInstance();
+        private void dyW() {
+            this.mIv = Choreographer.getInstance();
         }
 
-        private void dyV() {
-            this.mIq++;
-            if (this.mIq == 1) {
-                this.mIo.postFrameCallback(this);
+        private void dyX() {
+            this.mIw++;
+            if (this.mIw == 1) {
+                this.mIv.postFrameCallback(this);
             }
         }
 
-        private void dyW() {
-            this.mIq--;
-            if (this.mIq == 0) {
-                this.mIo.removeFrameCallback(this);
-                this.mIl = -9223372036854775807L;
+        private void dyY() {
+            this.mIw--;
+            if (this.mIw == 0) {
+                this.mIv.removeFrameCallback(this);
+                this.mIr = -9223372036854775807L;
             }
         }
     }

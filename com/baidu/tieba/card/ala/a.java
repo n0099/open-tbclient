@@ -46,8 +46,8 @@ public class a implements f {
             if (this.eJt != null && this.Np.aAq() != null) {
                 this.fJQ = this.Np.aAq();
                 this.eJt.setVideoThumbnail(this.fJQ.cover);
-                if (this.egU != null && this.egU.cxB() != null) {
-                    this.egU.cxB().b(this.fJQ);
+                if (this.egU != null && this.egU.cxD() != null) {
+                    this.egU.cxD().b(this.fJQ);
                 }
                 if (z) {
                     this.eJt.setTitle(this.Np.getTitle());

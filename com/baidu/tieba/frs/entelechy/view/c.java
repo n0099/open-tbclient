@@ -320,7 +320,7 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
         if (v.isEmpty(aAl)) {
             this.Nw.setVisibility(8);
         } else {
-            this.Nw.cKI();
+            this.Nw.cKK();
             this.Nw.setVisibility(0);
             VoiceData.VoiceModel voiceModel = aAl.get(0);
             this.Nw.setVoiceModel(voiceModel);

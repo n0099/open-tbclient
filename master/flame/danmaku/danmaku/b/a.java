@@ -22,7 +22,7 @@ public interface a {
 
     void clear();
 
-    void dLv();
+    void dLx();
 
     void release();
 
@@ -35,105 +35,105 @@ public interface a {
         public long beginTime;
         public long endTime;
         public long evF;
-        public int nHA;
-        public int nHB;
+        public boolean nHB;
         public int nHC;
         public int nHD;
-        public int nHE;
+        public d nHE;
         public int nHF;
         public int nHG;
-        public long nHH;
-        public boolean nHI;
-        public long nHJ;
-        public long nHK;
-        private boolean nHM;
-        public boolean nHw;
-        public int nHx;
-        public int nHy;
-        public d nHz;
-        public f nDz = new f();
-        private l nHL = new master.flame.danmaku.danmaku.model.android.d(4);
+        public int nHH;
+        public int nHI;
+        public int nHJ;
+        public int nHK;
+        public int nHL;
+        public long nHM;
+        public boolean nHN;
+        public long nHO;
+        public long nHP;
+        private boolean nHR;
+        public f nDE = new f();
+        private l nHQ = new master.flame.danmaku.danmaku.model.android.d(4);
 
         public int NK(int i) {
-            this.nHF += i;
-            return this.nHF;
+            this.nHK += i;
+            return this.nHK;
         }
 
         public int ey(int i, int i2) {
             switch (i) {
                 case 1:
-                    this.nHA += i2;
-                    return this.nHA;
+                    this.nHF += i2;
+                    return this.nHF;
                 case 2:
                 case 3:
                 default:
                     return 0;
                 case 4:
-                    this.nHD += i2;
-                    return this.nHD;
+                    this.nHI += i2;
+                    return this.nHI;
                 case 5:
-                    this.nHC += i2;
-                    return this.nHC;
+                    this.nHH += i2;
+                    return this.nHH;
                 case 6:
-                    this.nHB += i2;
-                    return this.nHB;
+                    this.nHG += i2;
+                    return this.nHG;
                 case 7:
-                    this.nHE += i2;
-                    return this.nHE;
+                    this.nHJ += i2;
+                    return this.nHJ;
             }
         }
 
         public void reset() {
-            this.nHG = this.nHF;
+            this.nHL = this.nHK;
+            this.nHK = 0;
+            this.nHJ = 0;
+            this.nHI = 0;
+            this.nHH = 0;
+            this.nHG = 0;
             this.nHF = 0;
-            this.nHE = 0;
-            this.nHD = 0;
-            this.nHC = 0;
-            this.nHB = 0;
-            this.nHA = 0;
-            this.nHH = 0L;
+            this.nHM = 0L;
             this.endTime = 0L;
             this.beginTime = 0L;
             this.evF = 0L;
-            this.nHI = false;
+            this.nHN = false;
             synchronized (this) {
-                this.nHL.clear();
+                this.nHQ.clear();
             }
         }
 
         public void b(b bVar) {
             if (bVar != null) {
-                this.nHG = bVar.nHG;
-                this.nHA = bVar.nHA;
-                this.nHB = bVar.nHB;
-                this.nHC = bVar.nHC;
-                this.nHD = bVar.nHD;
-                this.nHE = bVar.nHE;
+                this.nHL = bVar.nHL;
                 this.nHF = bVar.nHF;
+                this.nHG = bVar.nHG;
                 this.nHH = bVar.nHH;
-                this.beginTime = bVar.beginTime;
-                this.endTime = bVar.endTime;
                 this.nHI = bVar.nHI;
-                this.evF = bVar.evF;
                 this.nHJ = bVar.nHJ;
                 this.nHK = bVar.nHK;
+                this.nHM = bVar.nHM;
+                this.beginTime = bVar.beginTime;
+                this.endTime = bVar.endTime;
+                this.nHN = bVar.nHN;
+                this.evF = bVar.evF;
+                this.nHO = bVar.nHO;
+                this.nHP = bVar.nHP;
             }
         }
 
         public void v(d dVar) {
-            if (!this.nHM) {
-                this.nHL.k(dVar);
+            if (!this.nHR) {
+                this.nHQ.k(dVar);
             }
         }
 
-        public l dLw() {
+        public l dLy() {
             l lVar;
-            this.nHM = true;
+            this.nHR = true;
             synchronized (this) {
-                lVar = this.nHL;
-                this.nHL = new master.flame.danmaku.danmaku.model.android.d(4);
+                lVar = this.nHQ;
+                this.nHQ = new master.flame.danmaku.danmaku.model.android.d(4);
             }
-            this.nHM = false;
+            this.nHR = false;
             return lVar;
         }
     }

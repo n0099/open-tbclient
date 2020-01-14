@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.tieba.tbadvert.a.a kjE;
-    private InterfaceC0607a kjF;
-    private InterfaceC0607a kjG = new InterfaceC0607a() { // from class: com.baidu.tieba.tbadvert.b.a.1
+    private com.baidu.tieba.tbadvert.a.a kjJ;
+    private InterfaceC0607a kjK;
+    private InterfaceC0607a kjL = new InterfaceC0607a() { // from class: com.baidu.tieba.tbadvert.b.a.1
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0607a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
-            a.this.kjE = aVar;
-            if (a.this.kjF != null) {
-                a.this.kjF.a(aVar);
+            a.this.kjJ = aVar;
+            if (a.this.kjK != null) {
+                a.this.kjK.a(aVar);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0607a
         public void az(Object obj) {
-            if (a.this.kjF != null) {
-                a.this.kjF.az(obj);
+            if (a.this.kjK != null) {
+                a.this.kjK.az(obj);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0607a
-        public void cKU() {
-            a.this.kjE = null;
-            if (a.this.kjF != null) {
-                a.this.kjF.cKU();
+        public void cKW() {
+            a.this.kjJ = null;
+            if (a.this.kjK != null) {
+                a.this.kjK.cKW();
             }
         }
     };
-    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> kjH = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
+    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> kjM = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar == null || aVar.getRawBitmap() == null) {
-                if (a.this.kjF != null) {
-                    a.this.kjF.cKU();
+                if (a.this.kjK != null) {
+                    a.this.kjK.cKW();
                 }
-            } else if (a.this.kjF != null) {
-                a.this.kjF.az(aVar);
+            } else if (a.this.kjK != null) {
+                a.this.kjK.az(aVar);
             }
         }
 
@@ -55,8 +55,8 @@ public class a {
         @Override // com.baidu.adp.lib.e.b
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (a.this.kjF != null) {
-                a.this.kjF.cKU();
+            if (a.this.kjK != null) {
+                a.this.kjK.cKW();
             }
         }
     };
@@ -68,42 +68,42 @@ public class a {
 
         void az(Object obj);
 
-        void cKU();
+        void cKW();
     }
 
-    public void cKY() {
-        b bVar = new b(this.kjG);
+    public void cLa() {
+        b bVar = new b(this.kjL);
         bVar.setSelfExecute(true);
         bVar.execute(new String[0]);
     }
 
-    public com.baidu.tieba.tbadvert.a.b cKZ() {
-        if (this.kjE == null || v.isEmpty(this.kjE.kjB)) {
+    public com.baidu.tieba.tbadvert.a.b cLb() {
+        if (this.kjJ == null || v.isEmpty(this.kjJ.kjG)) {
             return null;
         }
-        for (com.baidu.tieba.tbadvert.a.b bVar : this.kjE.kjB) {
-            if (bVar != null && bVar.cKX() && bVar.cOH == 3) {
+        for (com.baidu.tieba.tbadvert.a.b bVar : this.kjJ.kjG) {
+            if (bVar != null && bVar.cKZ() && bVar.cOH == 3) {
                 return bVar;
             }
         }
         return null;
     }
 
-    public void cLa() {
-        com.baidu.tieba.tbadvert.a.b cKZ = cKZ();
-        if (cKZ != null && !TextUtils.isEmpty(cKZ.kjD)) {
-            m(cKZ.showType, cKZ.kjD, true);
-        } else if (this.kjF != null) {
-            this.kjF.cKU();
+    public void cLc() {
+        com.baidu.tieba.tbadvert.a.b cLb = cLb();
+        if (cLb != null && !TextUtils.isEmpty(cLb.kjI)) {
+            m(cLb.showType, cLb.kjI, true);
+        } else if (this.kjK != null) {
+            this.kjK.cKW();
         }
     }
 
-    public void cLb() {
-        if (this.kjE != null && !v.isEmpty(this.kjE.kjB)) {
-            com.baidu.tieba.tbadvert.a.b cKZ = cKZ();
-            for (com.baidu.tieba.tbadvert.a.b bVar : this.kjE.kjB) {
-                if (bVar != null && bVar != cKZ && bVar.cKX() && bVar.cOH != 4) {
-                    m(bVar.showType, bVar.kjD, false);
+    public void cLd() {
+        if (this.kjJ != null && !v.isEmpty(this.kjJ.kjG)) {
+            com.baidu.tieba.tbadvert.a.b cLb = cLb();
+            for (com.baidu.tieba.tbadvert.a.b bVar : this.kjJ.kjG) {
+                if (bVar != null && bVar != cLb && bVar.cKZ() && bVar.cOH != 4) {
+                    m(bVar.showType, bVar.kjI, false);
                 }
             }
         }
@@ -112,7 +112,7 @@ public class a {
     private void m(int i, String str, boolean z) {
         if (i == 1 || i == 2) {
             if (z) {
-                c.gr().a(str, 10, this.kjH, null);
+                c.gr().a(str, 10, this.kjM, null);
             } else {
                 c.gr().a(str, 10, null, null);
             }
@@ -120,15 +120,15 @@ public class a {
     }
 
     public void a(InterfaceC0607a interfaceC0607a) {
-        this.kjF = interfaceC0607a;
+        this.kjK = interfaceC0607a;
     }
 
     /* loaded from: classes11.dex */
     private class b extends BdAsyncTask<String, Void, Object> {
-        private InterfaceC0607a kjF;
+        private InterfaceC0607a kjK;
 
         public b(InterfaceC0607a interfaceC0607a) {
-            this.kjF = interfaceC0607a;
+            this.kjK = interfaceC0607a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,11 +148,11 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (this.kjF != null) {
+            if (this.kjK != null) {
                 if (obj instanceof com.baidu.tieba.tbadvert.a.a) {
-                    this.kjF.a((com.baidu.tieba.tbadvert.a.a) obj);
+                    this.kjK.a((com.baidu.tieba.tbadvert.a.a) obj);
                 } else {
-                    this.kjF.cKU();
+                    this.kjK.cKW();
                 }
             }
         }

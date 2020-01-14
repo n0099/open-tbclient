@@ -22,14 +22,14 @@ import com.baidu.tieba.tbadkCore.data.j;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class PbNewChudianCommonView extends RelativeLayout implements View.OnClickListener {
-    private TextView jbZ;
-    private TextView jca;
-    private ImageView jcb;
-    private TextView jcc;
-    private TextView jcd;
     private TextView jce;
-    private i jcf;
-    private b.a jcg;
+    private TextView jcf;
+    private ImageView jcg;
+    private TextView jch;
+    private TextView jci;
+    private TextView jcj;
+    private i jck;
+    private b.a jcl;
     private Context mContext;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -39,14 +39,14 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
         this.mContext = null;
         this.mPageContext = null;
         this.mRootView = null;
-        this.jbZ = null;
-        this.jca = null;
-        this.jcb = null;
-        this.jcc = null;
-        this.jcd = null;
         this.jce = null;
         this.jcf = null;
         this.jcg = null;
+        this.jch = null;
+        this.jci = null;
+        this.jcj = null;
+        this.jck = null;
+        this.jcl = null;
         this.mContext = context;
         init();
     }
@@ -56,14 +56,14 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
         this.mContext = null;
         this.mPageContext = null;
         this.mRootView = null;
-        this.jbZ = null;
-        this.jca = null;
-        this.jcb = null;
-        this.jcc = null;
-        this.jcd = null;
         this.jce = null;
         this.jcf = null;
         this.jcg = null;
+        this.jch = null;
+        this.jci = null;
+        this.jcj = null;
+        this.jck = null;
+        this.jcl = null;
         this.mContext = context;
         init();
     }
@@ -71,16 +71,16 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     protected void init() {
         if (this.mContext != null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.pb_newchudian_common, (ViewGroup) this, true);
-            this.jbZ = (TextView) this.mRootView.findViewById(R.id.service_first);
-            this.jbZ.setOnClickListener(this);
-            this.jca = (TextView) this.mRootView.findViewById(R.id.service_second);
-            this.jca.setOnClickListener(this);
-            this.jcc = (TextView) this.mRootView.findViewById(R.id.land_mark_text);
-            this.jcb = (ImageView) this.mRootView.findViewById(R.id.land_mark_icon);
-            this.jcd = (TextView) this.mRootView.findViewById(R.id.check_detail_up);
-            this.jcd.setOnClickListener(this);
-            this.jce = (TextView) this.mRootView.findViewById(R.id.check_detail_down);
+            this.jce = (TextView) this.mRootView.findViewById(R.id.service_first);
             this.jce.setOnClickListener(this);
+            this.jcf = (TextView) this.mRootView.findViewById(R.id.service_second);
+            this.jcf.setOnClickListener(this);
+            this.jch = (TextView) this.mRootView.findViewById(R.id.land_mark_text);
+            this.jcg = (ImageView) this.mRootView.findViewById(R.id.land_mark_icon);
+            this.jci = (TextView) this.mRootView.findViewById(R.id.check_detail_up);
+            this.jci.setOnClickListener(this);
+            this.jcj = (TextView) this.mRootView.findViewById(R.id.check_detail_down);
+            this.jcj.setOnClickListener(this);
         }
     }
 
@@ -88,44 +88,44 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
         h hVar;
         h hVar2;
         if (iVar != null && tbPageContext != null) {
-            this.jcf = iVar;
+            this.jck = iVar;
             this.mPageContext = tbPageContext;
-            this.jcg = aVar;
-            ArrayList<h> cJb = this.jcf.cJb();
-            if (cJb != null && cJb.size() > 0 && (hVar = cJb.get(0)) != null && !aq.isEmpty(hVar.getText())) {
-                am.setViewTextColor(this.jbZ, R.color.cp_other_c, 1);
-                am.setBackgroundResource(this.jbZ, R.drawable.label_bg_green, 1);
-                this.jbZ.setText(hVar.getText());
-                this.jbZ.setVisibility(0);
-                if (cJb.size() > 1 && (hVar2 = cJb.get(1)) != null && !aq.isEmpty(hVar2.getText())) {
-                    am.setViewTextColor(this.jca, R.color.cp_other_c, 1);
-                    am.setBackgroundResource(this.jca, R.drawable.label_bg_green, 1);
-                    this.jca.setText(hVar2.getText());
-                    this.jca.setVisibility(0);
+            this.jcl = aVar;
+            ArrayList<h> cJd = this.jck.cJd();
+            if (cJd != null && cJd.size() > 0 && (hVar = cJd.get(0)) != null && !aq.isEmpty(hVar.getText())) {
+                am.setViewTextColor(this.jce, R.color.cp_other_c, 1);
+                am.setBackgroundResource(this.jce, R.drawable.label_bg_green, 1);
+                this.jce.setText(hVar.getText());
+                this.jce.setVisibility(0);
+                if (cJd.size() > 1 && (hVar2 = cJd.get(1)) != null && !aq.isEmpty(hVar2.getText())) {
+                    am.setViewTextColor(this.jcf, R.color.cp_other_c, 1);
+                    am.setBackgroundResource(this.jcf, R.drawable.label_bg_green, 1);
+                    this.jcf.setText(hVar2.getText());
+                    this.jcf.setVisibility(0);
                 }
             }
-            if (!aq.isEmpty(this.jcf.getPosition())) {
-                this.jcc.setText(this.jcf.getPosition());
-                am.setViewTextColor(this.jcc, R.color.cp_cont_c, 1);
-                this.jcc.setVisibility(0);
-                am.setImageResource(this.jcb, R.drawable.icon_pic_place);
-                this.jcb.setVisibility(0);
+            if (!aq.isEmpty(this.jck.getPosition())) {
+                this.jch.setText(this.jck.getPosition());
+                am.setViewTextColor(this.jch, R.color.cp_cont_c, 1);
+                this.jch.setVisibility(0);
+                am.setImageResource(this.jcg, R.drawable.icon_pic_place);
+                this.jcg.setVisibility(0);
             }
-            j cJd = this.jcf.cJd();
-            if (cJd != null && !aq.isEmpty(cJd.getText())) {
-                if (this.jbZ.getVisibility() != 0 && this.jca.getVisibility() != 0) {
-                    am.setViewTextColor(this.jce, R.color.cp_link_tip_a, 1);
-                    am.setBackgroundResource(this.jce, R.drawable.label_bg_blue, 1);
-                    this.jce.setText(cJd.getText());
-                    this.jce.setVisibility(0);
+            j cJf = this.jck.cJf();
+            if (cJf != null && !aq.isEmpty(cJf.getText())) {
+                if (this.jce.getVisibility() != 0 && this.jcf.getVisibility() != 0) {
+                    am.setViewTextColor(this.jcj, R.color.cp_link_tip_a, 1);
+                    am.setBackgroundResource(this.jcj, R.drawable.label_bg_blue, 1);
+                    this.jcj.setText(cJf.getText());
+                    this.jcj.setVisibility(0);
                 } else {
-                    am.setViewTextColor(this.jcd, R.color.cp_link_tip_a, 1);
-                    am.setBackgroundResource(this.jcd, R.drawable.label_bg_blue, 1);
-                    this.jcd.setText(cJd.getText());
-                    this.jcd.setVisibility(0);
+                    am.setViewTextColor(this.jci, R.color.cp_link_tip_a, 1);
+                    am.setBackgroundResource(this.jci, R.drawable.label_bg_blue, 1);
+                    this.jci.setText(cJf.getText());
+                    this.jci.setVisibility(0);
                 }
             }
-            if (this.jbZ.getVisibility() != 0 && this.jca.getVisibility() != 0 && this.jcc.getVisibility() != 0 && this.jce.getVisibility() != 0) {
+            if (this.jce.getVisibility() != 0 && this.jcf.getVisibility() != 0 && this.jch.getVisibility() != 0 && this.jcj.getVisibility() != 0) {
                 this.mRootView.setVisibility(8);
             }
         }
@@ -133,21 +133,21 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jcf != null) {
-            if (view == this.jbZ) {
-                if (this.jcf.cJb() != null) {
-                    a(this.jcf.cJb().get(0));
+        if (this.jck != null) {
+            if (view == this.jce) {
+                if (this.jck.cJd() != null) {
+                    a(this.jck.cJd().get(0));
                 }
-            } else if (view == this.jca) {
-                if (this.jcf.cJb() != null) {
-                    a(this.jcf.cJb().get(1));
+            } else if (view == this.jcf) {
+                if (this.jck.cJd() != null) {
+                    a(this.jck.cJd().get(1));
                 }
-            } else if (view == this.jcd || view == this.jce) {
-                j cJd = this.jcf.cJd();
-                if (!aq.isEmpty(cJd.getUrl())) {
-                    a.startWebActivity(this.mContext, cJd.getUrl());
-                    if (this.jcg != null) {
-                        this.jcg.k(cJd.getUrl(), "BUTTON", "CLICK", null, null);
+            } else if (view == this.jci || view == this.jcj) {
+                j cJf = this.jck.cJf();
+                if (!aq.isEmpty(cJf.getUrl())) {
+                    a.startWebActivity(this.mContext, cJf.getUrl());
+                    if (this.jcl != null) {
+                        this.jcl.k(cJf.getUrl(), "BUTTON", "CLICK", null, null);
                     }
                 }
             }
@@ -157,8 +157,8 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     private void a(h hVar) {
         if (hVar != null) {
             final String trim = hVar.getUrl().trim();
-            if (this.jcg != null) {
-                this.jcg.k(trim, "BTN_PHONE", "CLICK", null, null);
+            if (this.jcl != null) {
+                this.jcl.k(trim, "BTN_PHONE", "CLICK", null, null);
             }
             if (!aq.isEmpty(trim)) {
                 int type = hVar.getType();
@@ -172,8 +172,8 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
                             UtilHelper.callPhone(PbNewChudianCommonView.this.mContext, trim);
-                            if (PbNewChudianCommonView.this.jcg != null) {
-                                PbNewChudianCommonView.this.jcg.k(trim, "BTN_CALL", "CLICK_FEEDBACK", null, null);
+                            if (PbNewChudianCommonView.this.jcl != null) {
+                                PbNewChudianCommonView.this.jcl.k(trim, "BTN_CALL", "CLICK_FEEDBACK", null, null);
                             }
                         }
                     });
@@ -181,8 +181,8 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
-                            if (PbNewChudianCommonView.this.jcg != null) {
-                                PbNewChudianCommonView.this.jcg.k(trim, "BTN_CANCEL", "CLICK_FEEDBACK", null, null);
+                            if (PbNewChudianCommonView.this.jcl != null) {
+                                PbNewChudianCommonView.this.jcl.k(trim, "BTN_CANCEL", "CLICK_FEEDBACK", null, null);
                             }
                         }
                     });

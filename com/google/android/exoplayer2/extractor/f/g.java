@@ -7,21 +7,21 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class g implements h {
-    private int mfg;
-    private final List<w.a> mmc;
-    private final com.google.android.exoplayer2.extractor.m[] mmd;
-    private boolean mme;
-    private int mmf;
-    private long mmg;
+    private int mfl;
+    private final List<w.a> mmh;
+    private final com.google.android.exoplayer2.extractor.m[] mmi;
+    private boolean mmj;
+    private int mmk;
+    private long mml;
 
     public g(List<w.a> list) {
-        this.mmc = list;
-        this.mmd = new com.google.android.exoplayer2.extractor.m[list.size()];
+        this.mmh = list;
+        this.mmi = new com.google.android.exoplayer2.extractor.m[list.size()];
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void cxF() {
-        this.mme = false;
+    public void cxH() {
+        this.mmj = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
@@ -29,12 +29,12 @@ public final class g implements h {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.mmd.length) {
-                w.a aVar = this.mmc.get(i2);
-                dVar.dup();
-                com.google.android.exoplayer2.extractor.m dH = gVar.dH(dVar.duq(), 3);
-                dH.h(Format.a(dVar.dur(), "application/dvbsubs", (String) null, -1, Collections.singletonList(aVar.mom), aVar.language, (DrmInitData) null));
-                this.mmd[i2] = dH;
+            if (i2 < this.mmi.length) {
+                w.a aVar = this.mmh.get(i2);
+                dVar.dur();
+                com.google.android.exoplayer2.extractor.m dH = gVar.dH(dVar.dus(), 3);
+                dH.h(Format.a(dVar.dut(), "application/dvbsubs", (String) null, -1, Collections.singletonList(aVar.mos), aVar.language, (DrmInitData) null));
+                this.mmi[i2] = dH;
                 i = i2 + 1;
             } else {
                 return;
@@ -45,49 +45,49 @@ public final class g implements h {
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void m(long j, boolean z) {
         if (z) {
-            this.mme = true;
-            this.mmg = j;
-            this.mfg = 0;
-            this.mmf = 2;
+            this.mmj = true;
+            this.mml = j;
+            this.mfl = 0;
+            this.mmk = 2;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dua() {
-        if (this.mme) {
-            for (com.google.android.exoplayer2.extractor.m mVar : this.mmd) {
-                mVar.a(this.mmg, 1, this.mfg, 0, null);
+    public void duc() {
+        if (this.mmj) {
+            for (com.google.android.exoplayer2.extractor.m mVar : this.mmi) {
+                mVar.a(this.mml, 1, this.mfl, 0, null);
             }
-            this.mme = false;
+            this.mmj = false;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) {
         com.google.android.exoplayer2.extractor.m[] mVarArr;
-        if (this.mme) {
-            if (this.mmf != 2 || j(lVar, 32)) {
-                if (this.mmf != 1 || j(lVar, 0)) {
+        if (this.mmj) {
+            if (this.mmk != 2 || j(lVar, 32)) {
+                if (this.mmk != 1 || j(lVar, 0)) {
                     int position = lVar.getPosition();
-                    int dyf = lVar.dyf();
-                    for (com.google.android.exoplayer2.extractor.m mVar : this.mmd) {
+                    int dyh = lVar.dyh();
+                    for (com.google.android.exoplayer2.extractor.m mVar : this.mmi) {
                         lVar.setPosition(position);
-                        mVar.a(lVar, dyf);
+                        mVar.a(lVar, dyh);
                     }
-                    this.mfg += dyf;
+                    this.mfl += dyh;
                 }
             }
         }
     }
 
     private boolean j(com.google.android.exoplayer2.util.l lVar, int i) {
-        if (lVar.dyf() == 0) {
+        if (lVar.dyh() == 0) {
             return false;
         }
         if (lVar.readUnsignedByte() != i) {
-            this.mme = false;
+            this.mmj = false;
         }
-        this.mmf--;
-        return this.mme;
+        this.mmk--;
+        return this.mmj;
     }
 }

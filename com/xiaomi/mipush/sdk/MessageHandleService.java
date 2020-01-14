@@ -18,17 +18,17 @@ public class MessageHandleService extends BaseService {
     private static ConcurrentLinkedQueue<a> a = new ConcurrentLinkedQueue<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ExecutorService f23a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    private static ExecutorService f24a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     /* loaded from: classes6.dex */
     public static class a {
         private Intent a;
 
         /* renamed from: a  reason: collision with other field name */
-        private PushMessageReceiver f24a;
+        private PushMessageReceiver f25a;
 
         public a(Intent intent, PushMessageReceiver pushMessageReceiver) {
-            this.f24a = pushMessageReceiver;
+            this.f25a = pushMessageReceiver;
             this.a = intent;
         }
 
@@ -38,7 +38,7 @@ public class MessageHandleService extends BaseService {
 
         /* renamed from: a  reason: collision with other method in class */
         public PushMessageReceiver m51a() {
-            return this.f24a;
+            return this.f25a;
         }
     }
 
@@ -59,10 +59,10 @@ public class MessageHandleService extends BaseService {
     }
 
     private static void b(Context context) {
-        if (f23a.isShutdown()) {
+        if (f24a.isShutdown()) {
             return;
         }
-        f23a.execute(new ad(context));
+        f24a.execute(new ad(context));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -84,7 +84,7 @@ public class MessageHandleService extends BaseService {
                             if (a3 instanceof MiPushCommandMessage) {
                                 MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) a3;
                                 m51a.onCommandResult(context, miPushCommandMessage);
-                                if (TextUtils.equals(miPushCommandMessage.getCommand(), fa.COMMAND_REGISTER.f335a)) {
+                                if (TextUtils.equals(miPushCommandMessage.getCommand(), fa.COMMAND_REGISTER.f336a)) {
                                     m51a.onReceiveRegisterResult(context, miPushCommandMessage);
                                     if (miPushCommandMessage.getResultCode() == 0) {
                                         j.b(context);
@@ -125,7 +125,7 @@ public class MessageHandleService extends BaseService {
                 case 3:
                     MiPushCommandMessage miPushCommandMessage2 = (MiPushCommandMessage) a2.getSerializableExtra(PushMessageHelper.KEY_COMMAND);
                     m51a.onCommandResult(context, miPushCommandMessage2);
-                    if (TextUtils.equals(miPushCommandMessage2.getCommand(), fa.COMMAND_REGISTER.f335a)) {
+                    if (TextUtils.equals(miPushCommandMessage2.getCommand(), fa.COMMAND_REGISTER.f336a)) {
                         m51a.onReceiveRegisterResult(context, miPushCommandMessage2);
                         if (miPushCommandMessage2.getResultCode() == 0) {
                             j.b(context);

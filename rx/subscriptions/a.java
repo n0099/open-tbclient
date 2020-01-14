@@ -4,22 +4,22 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
 /* loaded from: classes5.dex */
 public final class a implements k {
-    static final rx.functions.a nTm = new rx.functions.a() { // from class: rx.subscriptions.a.1
+    static final rx.functions.a nTr = new rx.functions.a() { // from class: rx.subscriptions.a.1
         @Override // rx.functions.a
         public void call() {
         }
     };
-    final AtomicReference<rx.functions.a> nTl;
+    final AtomicReference<rx.functions.a> nTq;
 
     public a() {
-        this.nTl = new AtomicReference<>();
+        this.nTq = new AtomicReference<>();
     }
 
     private a(rx.functions.a aVar) {
-        this.nTl = new AtomicReference<>(aVar);
+        this.nTq = new AtomicReference<>(aVar);
     }
 
-    public static a dOe() {
+    public static a dOg() {
         return new a();
     }
 
@@ -29,13 +29,13 @@ public final class a implements k {
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.nTl.get() == nTm;
+        return this.nTq.get() == nTr;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         rx.functions.a andSet;
-        if (this.nTl.get() != nTm && (andSet = this.nTl.getAndSet(nTm)) != null && andSet != nTm) {
+        if (this.nTq.get() != nTr && (andSet = this.nTq.getAndSet(nTr)) != null && andSet != nTr) {
             andSet.call();
         }
     }

@@ -9,12 +9,12 @@ public final class ad implements Runnable {
     final /* synthetic */ List a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f846a;
+    final /* synthetic */ boolean f847a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(List list, boolean z) {
         this.a = list;
-        this.f846a = z;
+        this.f847a = z;
     }
 
     @Override // java.lang.Runnable
@@ -34,7 +34,7 @@ public final class ad implements Runnable {
                 b2 = ac.b(str);
                 if (!b2) {
                     b = false;
-                    if (!b && !this.f846a) {
+                    if (!b && !this.f847a) {
                         break;
                     }
                 }

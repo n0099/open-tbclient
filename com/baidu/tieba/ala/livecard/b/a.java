@@ -81,7 +81,7 @@ public class a extends com.baidu.tieba.card.a<f> implements x {
         this.eJM.setSwipeControlInterface(new SwipeBackLayout.c() { // from class: com.baidu.tieba.ala.livecard.b.a.1
             @Override // com.baidu.adp.widget.SwipeBackLayout.c
             public void disableSwipeBack() {
-                if (a.this.eJQ != null && !v.isEmpty(a.this.eJQ.kde) && a.this.eJQ.kde.size() > 1) {
+                if (a.this.eJQ != null && !v.isEmpty(a.this.eJQ.kdj) && a.this.eJQ.kdj.size() > 1) {
                     if (a.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
                         ((BaseActivity) a.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(false);
                     } else if (a.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
@@ -123,15 +123,15 @@ public class a extends com.baidu.tieba.card.a<f> implements x {
         if (fVar != null) {
             this.eJQ = fVar;
             beM();
-            this.eJO.setData(fVar.kde);
+            this.eJO.setData(fVar.kdj);
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void beM() {
-        if (!v.isEmpty(this.eJQ.kde)) {
+        if (!v.isEmpty(this.eJQ.kdj)) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
-            customMessage.setData(this.eJQ.kde.get(0));
+            customMessage.setData(this.eJQ.kdj.get(0));
             MessageManager.getInstance().sendMessage(customMessage);
         }
     }
@@ -181,8 +181,8 @@ public class a extends com.baidu.tieba.card.a<f> implements x {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            if (this.eJQ != null && !v.isEmpty(this.eJQ.kde)) {
-                for (bj bjVar2 : this.eJQ.kde) {
+            if (this.eJQ != null && !v.isEmpty(this.eJQ.kdj)) {
+                for (bj bjVar2 : this.eJQ.kdj) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(R(bjVar2));
                 }
             }

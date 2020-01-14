@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes5.dex */
 public final class Loader implements o {
-    private final ExecutorService mFU;
-    private b<? extends c> mFV;
-    private IOException mtN;
+    private final ExecutorService mFZ;
+    private b<? extends c> mGa;
+    private IOException mtS;
 
     /* loaded from: classes5.dex */
     public interface a<T extends c> {
@@ -29,14 +29,14 @@ public final class Loader implements o {
     public interface c {
         void cancelLoad();
 
-        boolean dvf();
+        boolean dvh();
 
         void load() throws IOException, InterruptedException;
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        void duZ();
+        void dvb();
     }
 
     /* loaded from: classes5.dex */
@@ -47,7 +47,7 @@ public final class Loader implements o {
     }
 
     public Loader(String str) {
-        this.mFU = v.Ql(str);
+        this.mFZ = v.Ql(str);
     }
 
     public <T extends c> long a(T t, a<T> aVar, int i) {
@@ -59,11 +59,11 @@ public final class Loader implements o {
     }
 
     public boolean isLoading() {
-        return this.mFV != null;
+        return this.mGa != null;
     }
 
-    public void cMb() {
-        this.mFV.vQ(false);
+    public void cMd() {
+        this.mGa.vQ(false);
     }
 
     public void release() {
@@ -72,32 +72,32 @@ public final class Loader implements o {
 
     public boolean a(d dVar) {
         boolean z = false;
-        if (this.mFV != null) {
-            this.mFV.vQ(true);
+        if (this.mGa != null) {
+            this.mGa.vQ(true);
             if (dVar != null) {
-                this.mFU.execute(new e(dVar));
+                this.mFZ.execute(new e(dVar));
             }
         } else if (dVar != null) {
-            dVar.duZ();
+            dVar.dvb();
             z = true;
         }
-        this.mFU.shutdown();
+        this.mFZ.shutdown();
         return z;
     }
 
     @Override // com.google.android.exoplayer2.upstream.o
-    public void duX() throws IOException {
+    public void duZ() throws IOException {
         LN(Integer.MIN_VALUE);
     }
 
     public void LN(int i) throws IOException {
-        if (this.mtN != null) {
-            throw this.mtN;
+        if (this.mtS != null) {
+            throw this.mtS;
         }
-        if (this.mFV != null) {
-            b<? extends c> bVar = this.mFV;
+        if (this.mGa != null) {
+            b<? extends c> bVar = this.mGa;
             if (i == Integer.MIN_VALUE) {
-                i = this.mFV.mFY;
+                i = this.mGa.mGd;
             }
             bVar.LN(i);
         }
@@ -108,31 +108,31 @@ public final class Loader implements o {
     /* loaded from: classes5.dex */
     public final class b<T extends c> extends Handler implements Runnable {
         private int errorCount;
-        private final long laV;
-        private final T mFW;
-        private final a<T> mFX;
-        public final int mFY;
-        private IOException mFZ;
-        private volatile Thread mGa;
+        private final long lba;
+        private final T mGb;
+        private final a<T> mGc;
+        public final int mGd;
+        private IOException mGe;
+        private volatile Thread mGf;
         private volatile boolean released;
 
         public b(Looper looper, T t, a<T> aVar, int i, long j) {
             super(looper);
-            this.mFW = t;
-            this.mFX = aVar;
-            this.mFY = i;
-            this.laV = j;
+            this.mGb = t;
+            this.mGc = aVar;
+            this.mGd = i;
+            this.lba = j;
         }
 
         public void LN(int i) throws IOException {
-            if (this.mFZ != null && this.errorCount > i) {
-                throw this.mFZ;
+            if (this.mGe != null && this.errorCount > i) {
+                throw this.mGe;
             }
         }
 
         public void start(long j) {
-            com.google.android.exoplayer2.util.a.checkState(Loader.this.mFV == null);
-            Loader.this.mFV = this;
+            com.google.android.exoplayer2.util.a.checkState(Loader.this.mGa == null);
+            Loader.this.mGa = this;
             if (j > 0) {
                 sendEmptyMessageDelayed(0, j);
             } else {
@@ -142,33 +142,33 @@ public final class Loader implements o {
 
         public void vQ(boolean z) {
             this.released = z;
-            this.mFZ = null;
+            this.mGe = null;
             if (hasMessages(0)) {
                 removeMessages(0);
                 if (!z) {
                     sendEmptyMessage(1);
                 }
             } else {
-                this.mFW.cancelLoad();
-                if (this.mGa != null) {
-                    this.mGa.interrupt();
+                this.mGb.cancelLoad();
+                if (this.mGf != null) {
+                    this.mGf.interrupt();
                 }
             }
             if (z) {
                 finish();
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                this.mFX.a((a<T>) this.mFW, elapsedRealtime, elapsedRealtime - this.laV, true);
+                this.mGc.a((a<T>) this.mGb, elapsedRealtime, elapsedRealtime - this.lba, true);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.mGa = Thread.currentThread();
-                if (!this.mFW.dvf()) {
-                    t.beginSection("load:" + this.mFW.getClass().getSimpleName());
+                this.mGf = Thread.currentThread();
+                if (!this.mGb.dvh()) {
+                    t.beginSection("load:" + this.mGb.getClass().getSimpleName());
                     try {
-                        this.mFW.load();
+                        this.mGb.load();
                     } finally {
                         t.endSection();
                     }
@@ -187,7 +187,7 @@ public final class Loader implements o {
                 }
                 throw e2;
             } catch (InterruptedException e3) {
-                com.google.android.exoplayer2.util.a.checkState(this.mFW.dvf());
+                com.google.android.exoplayer2.util.a.checkState(this.mGb.dvh());
                 if (!this.released) {
                     sendEmptyMessage(2);
                 }
@@ -214,33 +214,33 @@ public final class Loader implements o {
                 } else {
                     finish();
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    long j = elapsedRealtime - this.laV;
-                    if (this.mFW.dvf()) {
-                        this.mFX.a((a<T>) this.mFW, elapsedRealtime, j, false);
+                    long j = elapsedRealtime - this.lba;
+                    if (this.mGb.dvh()) {
+                        this.mGc.a((a<T>) this.mGb, elapsedRealtime, j, false);
                         return;
                     }
                     switch (message.what) {
                         case 1:
-                            this.mFX.a((a<T>) this.mFW, elapsedRealtime, j, false);
+                            this.mGc.a((a<T>) this.mGb, elapsedRealtime, j, false);
                             return;
                         case 2:
                             try {
-                                this.mFX.a(this.mFW, elapsedRealtime, j);
+                                this.mGc.a(this.mGb, elapsedRealtime, j);
                                 return;
                             } catch (RuntimeException e) {
                                 Log.e("LoadTask", "Unexpected exception handling load completed", e);
-                                Loader.this.mtN = new UnexpectedLoaderException(e);
+                                Loader.this.mtS = new UnexpectedLoaderException(e);
                                 return;
                             }
                         case 3:
-                            this.mFZ = (IOException) message.obj;
-                            int a = this.mFX.a((a<T>) this.mFW, elapsedRealtime, j, this.mFZ);
+                            this.mGe = (IOException) message.obj;
+                            int a = this.mGc.a((a<T>) this.mGb, elapsedRealtime, j, this.mGe);
                             if (a == 3) {
-                                Loader.this.mtN = this.mFZ;
+                                Loader.this.mtS = this.mGe;
                                 return;
                             } else if (a != 2) {
                                 this.errorCount = a == 1 ? 1 : this.errorCount + 1;
-                                start(dxW());
+                                start(dxY());
                                 return;
                             } else {
                                 return;
@@ -253,15 +253,15 @@ public final class Loader implements o {
         }
 
         private void execute() {
-            this.mFZ = null;
-            Loader.this.mFU.execute(Loader.this.mFV);
+            this.mGe = null;
+            Loader.this.mFZ.execute(Loader.this.mGa);
         }
 
         private void finish() {
-            Loader.this.mFV = null;
+            Loader.this.mGa = null;
         }
 
-        private long dxW() {
+        private long dxY() {
             return Math.min((this.errorCount - 1) * 1000, 5000);
         }
     }
@@ -269,10 +269,10 @@ public final class Loader implements o {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static final class e extends Handler implements Runnable {
-        private final d mGc;
+        private final d mGh;
 
         public e(d dVar) {
-            this.mGc = dVar;
+            this.mGh = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -284,7 +284,7 @@ public final class Loader implements o {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            this.mGc.duZ();
+            this.mGh.dvb();
         }
     }
 }

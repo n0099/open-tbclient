@@ -46,8 +46,8 @@ public class ar {
             }
         }
         hv hvVar = new hv();
-        hvVar.f540a = 5L;
-        hvVar.f541a = "fakeid";
+        hvVar.f541a = 5L;
+        hvVar.f542a = "fakeid";
         icVar.a(hvVar);
         icVar.a(ByteBuffer.wrap(a));
         icVar.a(hgVar);
@@ -69,7 +69,7 @@ public class ar {
         } else {
             m402a = icVar.m402a();
         }
-        ir a = a(icVar.a(), icVar.f621b);
+        ir a = a(icVar.a(), icVar.f622b);
         if (a != null) {
             iq.a(a, m402a);
         }

@@ -15,7 +15,7 @@ import java.util.List;
 public class c {
     private BdTypeListView efW;
     private z<g> gzt;
-    private a jfH;
+    private a jfM;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
 
@@ -26,7 +26,7 @@ public class c {
     public void initView(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
         this.efW = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.jfH = new a(this.mPageContext, this.efW, this.gzt);
+        this.jfM = new a(this.mPageContext, this.efW, this.gzt);
         bas();
     }
 
@@ -47,7 +47,7 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.jfH.notifyDataSetChanged();
+        this.jfM.notifyDataSetChanged();
         am.setBackgroundColor(this.efW, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

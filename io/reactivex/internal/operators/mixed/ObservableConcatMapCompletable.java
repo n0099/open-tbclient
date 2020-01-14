@@ -17,13 +17,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
     final ErrorMode errorMode;
     final h<? super T, ? extends e> mapper;
-    final q<T> nxd;
+    final q<T> nxi;
     final int prefetch;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        if (!a.a(this.nxd, this.mapper, cVar)) {
-            this.nxd.subscribe(new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
+        if (!a.a(this.nxi, this.mapper, cVar)) {
+            this.nxi.subscribe(new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
         }
     }
 

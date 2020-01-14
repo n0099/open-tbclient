@@ -3,16 +3,16 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes10.dex */
 public class p implements aj<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.imagepipeline.c.e lRl;
-    private final com.facebook.imagepipeline.c.f lRm;
-    private final com.facebook.imagepipeline.c.e lSr;
-    private final aj<com.facebook.imagepipeline.g.e> lUn;
+    private final com.facebook.imagepipeline.c.e lRq;
+    private final com.facebook.imagepipeline.c.f lRr;
+    private final com.facebook.imagepipeline.c.e lSw;
+    private final aj<com.facebook.imagepipeline.g.e> lUs;
 
     public p(com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.e eVar2, com.facebook.imagepipeline.c.f fVar, aj<com.facebook.imagepipeline.g.e> ajVar) {
-        this.lSr = eVar;
-        this.lRl = eVar2;
-        this.lRm = fVar;
-        this.lUn = ajVar;
+        this.lSw = eVar;
+        this.lRq = eVar2;
+        this.lRr = fVar;
+        this.lUs = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -21,45 +21,45 @@ public class p implements aj<com.facebook.imagepipeline.g.e> {
     }
 
     private void e(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        if (akVar.dqj().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+        if (akVar.dql().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
             kVar.g(null, 1);
         } else {
-            this.lUn.c(akVar.dqh().dnB() ? new a(kVar, akVar, this.lSr, this.lRl, this.lRm) : kVar, akVar);
+            this.lUs.c(akVar.dqj().dnD() ? new a(kVar, akVar, this.lSw, this.lRq, this.lRr) : kVar, akVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private final com.facebook.imagepipeline.c.e lRl;
-        private final com.facebook.imagepipeline.c.f lRm;
-        private final com.facebook.imagepipeline.c.e lSr;
-        private final ak lUA;
+        private final com.facebook.imagepipeline.c.e lRq;
+        private final com.facebook.imagepipeline.c.f lRr;
+        private final com.facebook.imagepipeline.c.e lSw;
+        private final ak lUF;
 
         private a(k<com.facebook.imagepipeline.g.e> kVar, ak akVar, com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.e eVar2, com.facebook.imagepipeline.c.f fVar) {
             super(kVar);
-            this.lUA = akVar;
-            this.lSr = eVar;
-            this.lRl = eVar2;
-            this.lRm = fVar;
+            this.lUF = akVar;
+            this.lSw = eVar;
+            this.lRq = eVar2;
+            this.lRr = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void f(com.facebook.imagepipeline.g.e eVar, int i) {
-            if (IF(i) || eVar == null || dy(i, 10) || eVar.dpj() == com.facebook.c.c.lOM) {
-                dqt().g(eVar, i);
+            if (IF(i) || eVar == null || dy(i, 10) || eVar.dpl() == com.facebook.c.c.lOR) {
+                dqv().g(eVar, i);
                 return;
             }
-            ImageRequest dqh = this.lUA.dqh();
-            com.facebook.cache.common.b c = this.lRm.c(dqh, this.lUA.dkO());
-            if (dqh.dqZ() == ImageRequest.CacheChoice.SMALL) {
-                this.lRl.a(c, eVar);
+            ImageRequest dqj = this.lUF.dqj();
+            com.facebook.cache.common.b c = this.lRr.c(dqj, this.lUF.dkQ());
+            if (dqj.drb() == ImageRequest.CacheChoice.SMALL) {
+                this.lRq.a(c, eVar);
             } else {
-                this.lSr.a(c, eVar);
+                this.lSw.a(c, eVar);
             }
-            dqt().g(eVar, i);
+            dqv().g(eVar, i);
         }
     }
 }

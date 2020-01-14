@@ -22,21 +22,21 @@ public class StickerView extends ImageView {
     private float gpV;
     private float gpW;
     private boolean isEdit;
-    private a kUD;
-    private Matrix kUE;
-    private Matrix kUF;
-    private PointF kUG;
-    private b kUH;
-    private boolean kUI;
-    private com.baidu.tieba.write.write.sticker.a.a kUJ;
-    private float kUK;
-    private float kUL;
+    private a kUI;
+    private Matrix kUJ;
+    private Matrix kUK;
+    private PointF kUL;
+    private b kUM;
+    private boolean kUN;
+    private com.baidu.tieba.write.write.sticker.a.a kUO;
+    private float kUP;
+    private float kUQ;
     private Context mContext;
     private Paint mPaint;
     private int mode;
 
     public void setmOnStickerActionListener(com.baidu.tieba.write.write.sticker.a.a aVar) {
-        this.kUJ = aVar;
+        this.kUO = aVar;
     }
 
     public StickerView(Context context) {
@@ -49,10 +49,10 @@ public class StickerView extends ImageView {
 
     public StickerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kUE = new Matrix();
-        this.kUF = new Matrix();
-        this.kUG = new PointF();
-        this.kUI = true;
+        this.kUJ = new Matrix();
+        this.kUK = new Matrix();
+        this.kUL = new PointF();
+        this.kUN = true;
         this.isEdit = false;
         this.dOp = 0L;
         init(context);
@@ -61,7 +61,7 @@ public class StickerView extends ImageView {
     private void init(Context context) {
         this.mContext = context;
         setScaleType(ImageView.ScaleType.MATRIX);
-        this.kUH = new b(context);
+        this.kUM = new b(context);
         this.mPaint = new Paint();
         this.mPaint.setColor(-1);
         this.mPaint.setStrokeWidth(l.getDimens(context, R.dimen.ds4));
@@ -72,15 +72,15 @@ public class StickerView extends ImageView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            this.kUD.getMatrix().postTranslate((getWidth() - this.kUD.cVN()) / 2, (getHeight() - this.kUD.cVO()) / 2);
+            this.kUI.getMatrix().postTranslate((getWidth() - this.kUI.cVP()) / 2, (getHeight() - this.kUI.cVQ()) / 2);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.kUD != null) {
-            this.kUD.draw(canvas);
-            float[] a = g.a(this.kUD.cVP(), this.kUD.getMatrix());
+        if (this.kUI != null) {
+            this.kUI.draw(canvas);
+            float[] a = g.a(this.kUI.cVR(), this.kUI.getMatrix());
             float f = a[0];
             float f2 = a[1];
             float f3 = a[2];
@@ -98,7 +98,7 @@ public class StickerView extends ImageView {
                 canvas.drawPoint(f3, f4, this.mPaint);
                 canvas.drawPoint(f5, f6, this.mPaint);
                 canvas.drawPoint(f7, f8, this.mPaint);
-                this.kUH.a(canvas, f3, f4);
+                this.kUM.a(canvas, f3, f4);
             }
         }
     }
@@ -110,32 +110,32 @@ public class StickerView extends ImageView {
             case 0:
                 this.gpV = motionEvent.getX();
                 this.gpW = motionEvent.getY();
-                if (this.kUD == null) {
+                if (this.kUI == null) {
                     return false;
                 }
-                if (this.isEdit && this.kUH.L(motionEvent)) {
-                    this.kUI = false;
-                    if (this.kUJ != null) {
-                        this.kUJ.cVQ();
+                if (this.isEdit && this.kUM.L(motionEvent)) {
+                    this.kUN = false;
+                    if (this.kUO != null) {
+                        this.kUO.cVS();
                         break;
                     }
-                } else if (a(this.kUD, motionEvent)) {
-                    this.kUI = true;
-                    if (System.currentTimeMillis() - this.dOp <= 300 && this.kUJ != null) {
-                        this.kUJ.a(this);
-                        this.kUI = false;
+                } else if (a(this.kUI, motionEvent)) {
+                    this.kUN = true;
+                    if (System.currentTimeMillis() - this.dOp <= 300 && this.kUO != null) {
+                        this.kUO.a(this);
+                        this.kUN = false;
                     }
                     this.dOp = System.currentTimeMillis();
                     this.mode = 1;
-                    this.kUE.set(this.kUD.getMatrix());
+                    this.kUJ.set(this.kUI.getMatrix());
                     break;
                 } else {
-                    this.kUI = false;
-                    if (this.kUJ == null) {
+                    this.kUN = false;
+                    if (this.kUO == null) {
                         z = false;
                         break;
                     } else {
-                        this.kUJ.a(this, this.kUI);
+                        this.kUO.a(this, this.kUN);
                         invalidate();
                         z = false;
                         break;
@@ -145,65 +145,65 @@ public class StickerView extends ImageView {
             case 1:
             case 6:
                 this.mode = 0;
-                this.kUG = null;
-                if (this.kUJ != null) {
-                    if (this.kUI) {
-                        this.kUJ.b(this);
+                this.kUL = null;
+                if (this.kUO != null) {
+                    if (this.kUN) {
+                        this.kUO.b(this);
                     }
                     if (this.isEdit) {
-                        this.kUI = false;
+                        this.kUN = false;
                     }
-                    this.kUJ.a(this, this.kUI);
+                    this.kUO.a(this, this.kUN);
                     invalidate();
                     break;
                 }
                 break;
             case 2:
-                if (!this.kUI || motionEvent.getX() != this.gpV || motionEvent.getY() != this.gpW) {
-                    this.kUI = false;
+                if (!this.kUN || motionEvent.getX() != this.gpV || motionEvent.getY() != this.gpW) {
+                    this.kUN = false;
                 }
                 if (this.mode == 2) {
-                    this.kUF.set(this.kUE);
-                    float N = com.baidu.tieba.write.write.sticker.b.a.N(motionEvent) / this.kUK;
-                    float O = com.baidu.tieba.write.write.sticker.b.a.O(motionEvent) - this.kUL;
+                    this.kUK.set(this.kUJ);
+                    float N = com.baidu.tieba.write.write.sticker.b.a.N(motionEvent) / this.kUP;
+                    float O = com.baidu.tieba.write.write.sticker.b.a.O(motionEvent) - this.kUQ;
                     PointF M = com.baidu.tieba.write.write.sticker.b.a.M(motionEvent);
-                    this.kUF.postScale(N, N, this.kUG.x, this.kUG.y);
-                    this.kUF.postRotate(O, this.kUG.x, this.kUG.y);
-                    this.kUF.postTranslate(M.x - this.kUG.x, M.y - this.kUG.y);
-                    this.kUD.getMatrix().set(this.kUF);
+                    this.kUK.postScale(N, N, this.kUL.x, this.kUL.y);
+                    this.kUK.postRotate(O, this.kUL.x, this.kUL.y);
+                    this.kUK.postTranslate(M.x - this.kUL.x, M.y - this.kUL.y);
+                    this.kUI.getMatrix().set(this.kUK);
                 } else if (this.mode == 1) {
-                    this.kUF.set(this.kUE);
-                    this.kUF.postTranslate(motionEvent.getX() - this.gpV, motionEvent.getY() - this.gpW);
-                    this.kUD.getMatrix().set(this.kUF);
+                    this.kUK.set(this.kUJ);
+                    this.kUK.postTranslate(motionEvent.getX() - this.gpV, motionEvent.getY() - this.gpW);
+                    this.kUI.getMatrix().set(this.kUK);
                 }
-                if (!this.kUI) {
+                if (!this.kUN) {
                     invalidate();
                     break;
                 }
                 break;
             case 5:
                 this.mode = 2;
-                this.kUK = com.baidu.tieba.write.write.sticker.b.a.N(motionEvent);
-                this.kUL = com.baidu.tieba.write.write.sticker.b.a.O(motionEvent);
-                this.kUG = com.baidu.tieba.write.write.sticker.b.a.M(motionEvent);
-                this.kUE.set(this.kUD.getMatrix());
+                this.kUP = com.baidu.tieba.write.write.sticker.b.a.N(motionEvent);
+                this.kUQ = com.baidu.tieba.write.write.sticker.b.a.O(motionEvent);
+                this.kUL = com.baidu.tieba.write.write.sticker.b.a.M(motionEvent);
+                this.kUJ.set(this.kUI.getMatrix());
                 break;
         }
         return z;
     }
 
     private boolean a(a aVar, MotionEvent motionEvent) {
-        return com.baidu.tieba.write.write.sticker.b.a.c(g.a(aVar.cVP(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
+        return com.baidu.tieba.write.write.sticker.b.a.c(g.a(aVar.cVR(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        this.kUD = new a(BitmapHelper.getResBitmap(this.mContext, i));
+        this.kUI = new a(BitmapHelper.getResBitmap(this.mContext, i));
     }
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        this.kUD = new a(bitmap);
+        this.kUI = new a(bitmap);
     }
 
     public void setEdit(boolean z) {
@@ -212,6 +212,6 @@ public class StickerView extends ImageView {
     }
 
     public void setRemoveRes(int i) {
-        this.kUH.Es(i);
+        this.kUM.Es(i);
     }
 }

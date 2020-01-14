@@ -15,13 +15,13 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class SubtitleView extends View implements j {
     private float aAz;
-    private boolean mEF;
-    private boolean mEG;
-    private float mEI;
-    private final List<b> mES;
-    private int mET;
-    private com.google.android.exoplayer2.text.a mEU;
-    private List<com.google.android.exoplayer2.text.b> myt;
+    private boolean mEK;
+    private boolean mEL;
+    private float mEN;
+    private final List<b> mEX;
+    private int mEY;
+    private com.google.android.exoplayer2.text.a mEZ;
+    private List<com.google.android.exoplayer2.text.b> myy;
 
     public SubtitleView(Context context) {
         this(context, null);
@@ -29,13 +29,13 @@ public final class SubtitleView extends View implements j {
 
     public SubtitleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mES = new ArrayList();
-        this.mET = 0;
+        this.mEX = new ArrayList();
+        this.mEY = 0;
         this.aAz = 0.0533f;
-        this.mEF = true;
-        this.mEG = true;
-        this.mEU = com.google.android.exoplayer2.text.a.mxJ;
-        this.mEI = 0.08f;
+        this.mEK = true;
+        this.mEL = true;
+        this.mEZ = com.google.android.exoplayer2.text.a.mxO;
+        this.mEN = 0.08f;
     }
 
     @Override // com.google.android.exoplayer2.text.j
@@ -44,11 +44,11 @@ public final class SubtitleView extends View implements j {
     }
 
     public void setCues(List<com.google.android.exoplayer2.text.b> list) {
-        if (this.myt != list) {
-            this.myt = list;
+        if (this.myy != list) {
+            this.myy = list;
             int size = list == null ? 0 : list.size();
-            while (this.mES.size() < size) {
-                this.mES.add(new b(getContext()));
+            while (this.mEX.size() < size) {
+                this.mEX.add(new b(getContext()));
             }
             invalidate();
         }
@@ -78,42 +78,42 @@ public final class SubtitleView extends View implements j {
     }
 
     private void setTextSize(int i, float f) {
-        if (this.mET != i || this.aAz != f) {
-            this.mET = i;
+        if (this.mEY != i || this.aAz != f) {
+            this.mEY = i;
             this.aAz = f;
             invalidate();
         }
     }
 
     public void setApplyEmbeddedStyles(boolean z) {
-        if (this.mEF != z || this.mEG != z) {
-            this.mEF = z;
-            this.mEG = z;
+        if (this.mEK != z || this.mEL != z) {
+            this.mEK = z;
+            this.mEL = z;
             invalidate();
         }
     }
 
     public void setApplyEmbeddedFontSizes(boolean z) {
-        if (this.mEG != z) {
-            this.mEG = z;
+        if (this.mEL != z) {
+            this.mEL = z;
             invalidate();
         }
     }
 
     public void setUserDefaultStyle() {
-        setStyle((v.SDK_INT < 19 || isInEditMode()) ? com.google.android.exoplayer2.text.a.mxJ : getUserCaptionStyleV19());
+        setStyle((v.SDK_INT < 19 || isInEditMode()) ? com.google.android.exoplayer2.text.a.mxO : getUserCaptionStyleV19());
     }
 
     public void setStyle(com.google.android.exoplayer2.text.a aVar) {
-        if (this.mEU != aVar) {
-            this.mEU = aVar;
+        if (this.mEZ != aVar) {
+            this.mEZ = aVar;
             invalidate();
         }
     }
 
     public void setBottomPaddingFraction(float f) {
-        if (this.mEI != f) {
-            this.mEI = f;
+        if (this.mEN != f) {
+            this.mEN = f;
             invalidate();
         }
     }
@@ -121,7 +121,7 @@ public final class SubtitleView extends View implements j {
     @Override // android.view.View
     public void dispatchDraw(Canvas canvas) {
         float f;
-        int size = this.myt == null ? 0 : this.myt.size();
+        int size = this.myy == null ? 0 : this.myy.size();
         int top = getTop();
         int bottom = getBottom();
         int left = getLeft() + getPaddingLeft();
@@ -129,14 +129,14 @@ public final class SubtitleView extends View implements j {
         int right = getRight() + getPaddingRight();
         int paddingBottom = bottom - getPaddingBottom();
         if (paddingBottom > paddingTop && right > left) {
-            if (this.mET == 2) {
+            if (this.mEY == 2) {
                 f = this.aAz;
             } else {
-                f = this.aAz * (this.mET == 0 ? paddingBottom - paddingTop : bottom - top);
+                f = this.aAz * (this.mEY == 0 ? paddingBottom - paddingTop : bottom - top);
             }
             if (f > 0.0f) {
                 for (int i = 0; i < size; i++) {
-                    this.mES.get(i).a(this.myt.get(i), this.mEF, this.mEG, this.mEU, f, this.mEI, canvas, left, paddingTop, right, paddingBottom);
+                    this.mEX.get(i).a(this.myy.get(i), this.mEK, this.mEL, this.mEZ, f, this.mEN, canvas, left, paddingTop, right, paddingBottom);
                 }
             }
         }

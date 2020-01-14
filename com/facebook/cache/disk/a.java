@@ -4,7 +4,7 @@ import com.facebook.cache.disk.c;
 /* loaded from: classes12.dex */
 public class a implements g {
     @Override // com.facebook.cache.disk.g
-    public f diM() {
+    public f diO() {
         return new f() { // from class: com.facebook.cache.disk.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator

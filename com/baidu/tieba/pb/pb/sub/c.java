@@ -13,13 +13,13 @@ import java.util.List;
 public class c {
     private BdTypeListView efW;
     private NewSubPbActivity iTB;
-    private com.baidu.tieba.pb.pb.sub.a.b iUr;
-    private com.baidu.tieba.pb.pb.sub.a.d iUs;
-    private s iUt;
+    private com.baidu.tieba.pb.pb.sub.a.b iUu;
+    private com.baidu.tieba.pb.pb.sub.a.d iUv;
+    private s iUw;
     private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
     private View.OnClickListener ain = null;
     private boolean fMV = false;
-    private boolean iUu = true;
+    private boolean iUx = true;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         this.iTB = newSubPbActivity;
@@ -27,21 +27,21 @@ public class c {
     }
 
     public void vi() {
-        this.iUr = new com.baidu.tieba.pb.pb.sub.a.b(this.iTB, PostData.kfm);
-        this.iUr.x(this.ain);
-        this.iUr.a(this.iUt);
-        this.iUr.setFromCDN(this.iUu);
-        this.apl.add(this.iUr);
-        this.iUs = new com.baidu.tieba.pb.pb.sub.a.d(this.iTB, com.baidu.tieba.pb.pb.sub.b.b.iVk);
-        this.apl.add(this.iUs);
-        this.apl.add(new com.baidu.tieba.pb.pb.sub.a.c(this.iTB, com.baidu.tieba.pb.pb.sub.b.a.iVj));
+        this.iUu = new com.baidu.tieba.pb.pb.sub.a.b(this.iTB, PostData.kfr);
+        this.iUu.x(this.ain);
+        this.iUu.a(this.iUw);
+        this.iUu.setFromCDN(this.iUx);
+        this.apl.add(this.iUu);
+        this.iUv = new com.baidu.tieba.pb.pb.sub.a.d(this.iTB, com.baidu.tieba.pb.pb.sub.b.b.iVp);
+        this.apl.add(this.iUv);
+        this.apl.add(new com.baidu.tieba.pb.pb.sub.a.c(this.iTB, com.baidu.tieba.pb.pb.sub.b.a.iVo));
         this.efW.addAdapters(this.apl);
     }
 
     public void b(bj bjVar, List<m> list) {
-        this.iUr.setThreadData(bjVar);
+        this.iUu.setThreadData(bjVar);
         if (this.iTB.cpW().cmW()) {
-            this.iUr.Gf(this.iTB.cpW().cmb());
+            this.iUu.Gf(this.iTB.cpW().cmb());
         }
         this.efW.setData(list);
         this.efW.getAdapter().notifyDataSetChanged();
@@ -60,15 +60,15 @@ public class c {
     }
 
     public void setLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.iUr.setOnLongClickListener(onLongClickListener);
+        this.iUu.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.iUr.setOnImageClickListener(iVar);
+        this.iUu.setOnImageClickListener(iVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.iUu = z;
+        this.iUx = z;
     }
 
     public void notifyDataSetChanged() {

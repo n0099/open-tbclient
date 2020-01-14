@@ -4,18 +4,18 @@ import com.baidu.android.common.others.IStringUtil;
 import kotlin.jvm.internal.o;
 /* loaded from: classes5.dex */
 public final class c extends kotlin.b.a {
-    public static final a nBV = new a(null);
-    private static final c nBU = new c(1, 0);
+    public static final a nCa = new a(null);
+    private static final c nBZ = new c(1, 0);
 
     public c(int i, int i2) {
         super(i, i2, 1);
     }
 
-    public Integer dJt() {
+    public Integer dJv() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer dJu() {
+    public Integer dJw() {
         return Integer.valueOf(getLast());
     }
 
@@ -51,8 +51,8 @@ public final class c extends kotlin.b.a {
             this();
         }
 
-        public final c dJw() {
-            return c.nBU;
+        public final c dJy() {
+            return c.nBZ;
         }
     }
 }

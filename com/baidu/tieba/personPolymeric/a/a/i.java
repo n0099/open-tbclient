@@ -28,8 +28,8 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     private String Lg;
     public BdUniqueId dxg;
     private int fpl;
-    private int jlR;
-    private int jlS;
+    private int jlW;
+    private int jlX;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
@@ -41,8 +41,8 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.jlR = 0;
-        this.jlS = 0;
+        this.jlW = 0;
+        this.jlX = 0;
         this.fpl = 0;
         this.JE = new z<l>() { // from class: com.baidu.tieba.personPolymeric.a.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -75,8 +75,8 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         eVar.setPageUniqueId(this.dxg);
         eVar.aI(1024);
         eVar.aI(32768);
-        if (this.jlR > 0) {
-            eVar.aH(this.jlR);
+        if (this.jlW > 0) {
+            eVar.aH(this.jlW);
         }
         eVar.Y(false);
         eVar.Z(false);
@@ -116,7 +116,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         aVar2.setPageId(this.dxg);
         mT.a(this.JE);
         mT.aM(4);
-        aVar2.aU(this.jlS);
+        aVar2.aU(this.jlX);
         a(new s() { // from class: com.baidu.tieba.personPolymeric.a.a.i.3
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar2, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -173,7 +173,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     }
 
     public void zQ(int i) {
-        this.jlR = i;
+        this.jlW = i;
     }
 
     private void bNs() {
@@ -189,6 +189,6 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     }
 
     public void zP(int i) {
-        this.jlS = i;
+        this.jlX = i;
     }
 }

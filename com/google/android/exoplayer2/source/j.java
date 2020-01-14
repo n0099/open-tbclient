@@ -10,8 +10,8 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dsl() {
-        return this.timeline.dsl();
+    public int dsn() {
+        return this.timeline.dsn();
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -40,8 +40,8 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dsm() {
-        return this.timeline.dsm();
+    public int dso() {
+        return this.timeline.dso();
     }
 
     @Override // com.google.android.exoplayer2.x

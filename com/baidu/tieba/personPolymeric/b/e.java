@@ -41,14 +41,14 @@ public class e extends d {
     private com.baidu.tbadk.k.g epL;
     private PluginErrorTipView fSv;
     private float gJB;
-    private b jmg;
-    private ImageView jmh;
-    private a jmi;
-    private LinearLayout jmj;
-    protected FrameLayout jmk;
-    private NoNetworkView jml;
-    protected RelativeLayout jmm;
-    private k jmn;
+    private b jml;
+    private ImageView jmm;
+    private a jmn;
+    private LinearLayout jmo;
+    protected FrameLayout jmq;
+    private NoNetworkView jmr;
+    protected RelativeLayout jms;
+    private k jmt;
     protected NoDataView mNoDataView;
     public View mRootView;
     private int mSkinType;
@@ -62,19 +62,19 @@ public class e extends d {
     public e(TbPageContext tbPageContext, View view, boolean z) {
         super(z);
         this.gJB = 360.0f;
-        this.jmi = new a();
+        this.jmn = new a();
         this.mSkinType = 3;
         if (tbPageContext != null && view != null) {
             this.cRe = tbPageContext;
             this.mRootView = view;
             this.ehd = (NoNetworkView) this.mRootView.findViewById(R.id.person_center_no_network_view);
             this.fSv = (PluginErrorTipView) this.mRootView.findViewById(R.id.person_center_plugin_error_tip_view);
-            this.jmj = (LinearLayout) this.mRootView.findViewById(R.id.person_center_anti_container);
-            this.jmn = new k(this.cRe, this.mRootView.findViewById(R.id.person_center_anti_navigation_bar), this.mRootView.findViewById(R.id.person_center_anti_status_bar_space), z);
-            this.jmn.a(PersonStatus.GUEST_DEFAULT);
-            this.jmk = (FrameLayout) this.mRootView.findViewById(R.id.person_center_anti_content);
-            this.jml = (NoNetworkView) this.mRootView.findViewById(R.id.person_center_anti_no_network_view);
-            this.jmm = (RelativeLayout) this.mRootView.findViewById(R.id.person_center_noanti_rootview);
+            this.jmo = (LinearLayout) this.mRootView.findViewById(R.id.person_center_anti_container);
+            this.jmt = new k(this.cRe, this.mRootView.findViewById(R.id.person_center_anti_navigation_bar), this.mRootView.findViewById(R.id.person_center_anti_status_bar_space), z);
+            this.jmt.a(PersonStatus.GUEST_DEFAULT);
+            this.jmq = (FrameLayout) this.mRootView.findViewById(R.id.person_center_anti_content);
+            this.jmr = (NoNetworkView) this.mRootView.findViewById(R.id.person_center_anti_no_network_view);
+            this.jms = (RelativeLayout) this.mRootView.findViewById(R.id.person_center_noanti_rootview);
             this.ehe = new PbListView(this.cRe.getPageActivity());
             this.ehe.getView();
             this.ehe.setTextColor(am.getColor(R.color.cp_cont_d));
@@ -90,26 +90,26 @@ public class e extends d {
 
     /* loaded from: classes9.dex */
     public static class a implements View.OnClickListener {
-        private com.baidu.tieba.personPolymeric.event.b jmq = new com.baidu.tieba.personPolymeric.event.b();
-        public com.baidu.tieba.view.e jmr;
+        private com.baidu.tieba.personPolymeric.event.b jmv = new com.baidu.tieba.personPolymeric.event.b();
+        public com.baidu.tieba.view.e jmw;
         public UserData userData;
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (this.userData == null || this.userData.getBaijiahaoInfo() == null) {
                 TiebaStatic.log(new an("c12502").cp("obj_locate", "3"));
-                this.jmq.fYp = 10;
-                this.jmq.fYq = new Bundle();
-                this.jmq.fYq.putSerializable(UserData.TYPE_USER, this.userData);
-                if (this.jmr != null) {
-                    this.jmr.a(view, this.jmq);
+                this.jmv.fYp = 10;
+                this.jmv.fYq = new Bundle();
+                this.jmv.fYq.putSerializable(UserData.TYPE_USER, this.userData);
+                if (this.jmw != null) {
+                    this.jmw.a(view, this.jmv);
                 }
             }
         }
     }
 
     public void rl(boolean z) {
-        this.jmm.setVisibility(8);
+        this.jms.setVisibility(8);
         int dimensionPixelSize = this.cRe.getResources().getDimensionPixelSize(R.dimen.ds240);
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.cRe.getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.d.cr(null, this.cRe.getString(R.string.user_to_anti)), null);
@@ -120,17 +120,17 @@ public class e extends d {
     }
 
     public void bLw() {
-        if (this.jmk != null) {
-            if (this.jmh != null) {
-                this.jmh.setVisibility(8);
+        if (this.jmq != null) {
+            if (this.jmm != null) {
+                this.jmm.setVisibility(8);
             }
-            this.jmj.setVisibility(0);
+            this.jmo.setVisibility(0);
             int dimensionPixelSize = this.cRe.getResources().getDimensionPixelSize(R.dimen.ds220);
             int dimensionPixelSize2 = this.cRe.getResources().getDimensionPixelSize(R.dimen.ds480);
             int dimensionPixelSize3 = this.cRe.getResources().getDimensionPixelSize(R.dimen.ds360);
             int dimensionPixelSize4 = this.cRe.getResources().getDimensionPixelSize(R.dimen.ds60);
             int dimensionPixelSize5 = this.cRe.getResources().getDimensionPixelSize(R.dimen.ds20);
-            this.mNoDataView = NoDataViewFactory.a(this.cRe.getPageActivity(), this.jmk, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.aE(R.string.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.b.a(new NoDataViewFactory.a(this.cRe.getString(R.string.unlogin_person_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.1
+            this.mNoDataView = NoDataViewFactory.a(this.cRe.getPageActivity(), this.jmq, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.aE(R.string.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.b.a(new NoDataViewFactory.a(this.cRe.getString(R.string.unlogin_person_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TiebaStatic.eventStat(e.this.cRe.getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
@@ -147,11 +147,11 @@ public class e extends d {
             if (this.mNoDataView != null) {
                 this.mNoDataView.onChangeSkinType(this.cRe, i);
             }
-            if (this.jml != null) {
-                this.jml.onChangeSkinType(this.cRe, i);
+            if (this.jmr != null) {
+                this.jmr.onChangeSkinType(this.cRe, i);
             }
-            if (this.jmn != null) {
-                this.jmn.onChangeSkinType(i);
+            if (this.jmt != null) {
+                this.jmt.onChangeSkinType(i);
             }
             am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
             if (this.refreshView != null) {
@@ -162,12 +162,12 @@ public class e extends d {
     }
 
     public void a(b bVar) {
-        this.jmg = bVar;
+        this.jml = bVar;
     }
 
     public void baf() {
         if (this.refreshView != null) {
-            this.refreshView.dettachView(this.jmk);
+            this.refreshView.dettachView(this.jmq);
             this.refreshView = null;
         }
     }
@@ -195,17 +195,17 @@ public class e extends d {
 
     public void rm(boolean z) {
         if (z) {
-            cvo();
+            cvq();
         }
     }
 
     public void zR(int i) {
-        this.jmm.setVisibility(i);
+        this.jms.setVisibility(i);
     }
 
     public void an(String str, boolean z) {
         if (!bxH()) {
-            this.jmj.setVisibility(0);
+            this.jmo.setVisibility(0);
             if (this.refreshView == null) {
                 this.refreshView = new com.baidu.tbadk.k.h(this.cRe.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.2
                     @Override // android.view.View.OnClickListener
@@ -213,19 +213,19 @@ public class e extends d {
                         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
                             e.this.baf();
                             e.this.rm(true);
-                            if (e.this.jmg != null) {
-                                e.this.jmg.cI(view);
+                            if (e.this.jml != null) {
+                                e.this.jml.cI(view);
                             }
                         }
                     }
                 });
             }
             this.refreshView.mo(R.drawable.new_pic_emotion_08);
-            this.refreshView.attachView(this.jmk, z);
+            this.refreshView.attachView(this.jmq, z);
             this.refreshView.showRefreshButton();
             this.refreshView.onChangeSkinType();
-            if (this.jmh != null) {
-                this.jmh.setVisibility(8);
+            if (this.jmm != null) {
+                this.jmm.setVisibility(8);
             }
         }
     }
@@ -249,20 +249,20 @@ public class e extends d {
         }
     }
 
-    public void cvo() {
+    public void cvq() {
         if (NickNameActivitySwitch.isOn()) {
-            if (this.jmh == null) {
-                this.jmh = new ImageView(this.cRe.getPageActivity());
-                this.jmh.setImageResource(R.drawable.icon_nichengjun);
-                this.jmh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.3
+            if (this.jmm == null) {
+                this.jmm = new ImageView(this.cRe.getPageActivity());
+                this.jmm.setImageResource(R.drawable.icon_nichengjun);
+                this.jmm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(e.this.cRe.getPageActivity(), null, com.baidu.tieba.pb.d.cix(), true)));
                     }
                 });
             }
-            if (this.jmh.getParent() != null) {
-                ((ViewGroup) this.jmh.getParent()).removeView(this.jmh);
+            if (this.jmm.getParent() != null) {
+                ((ViewGroup) this.jmm.getParent()).removeView(this.jmm);
             }
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
@@ -270,10 +270,10 @@ public class e extends d {
             layoutParams.topMargin = l.getDimens(this.cRe.getPageActivity(), R.dimen.ds504);
             layoutParams.rightMargin = l.getDimens(this.cRe.getPageActivity(), R.dimen.ds26);
             if (this.mRootView instanceof RelativeLayout) {
-                ((RelativeLayout) this.mRootView).addView(this.jmh, layoutParams);
+                ((RelativeLayout) this.mRootView).addView(this.jmm, layoutParams);
             }
-        } else if (this.jmh != null && this.jmh.getParent() != null && this.jmh.getParent() == this.mRootView) {
-            ((RelativeLayout) this.mRootView).removeView(this.jmh);
+        } else if (this.jmm != null && this.jmm.getParent() != null && this.jmm.getParent() == this.mRootView) {
+            ((RelativeLayout) this.mRootView).removeView(this.jmm);
         }
     }
 

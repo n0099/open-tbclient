@@ -12,13 +12,13 @@ import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 public abstract class AdOperateBarHolder<M extends ICardInfo> {
     protected a hWE;
     protected c hWF;
-    protected final int jLB;
+    protected final int jLG;
     protected TbPageContext mPageContext;
     protected final View mRootView;
 
     public AdOperateBarHolder(TbPageContext tbPageContext, int i, View view) {
         this.mPageContext = tbPageContext;
-        this.jLB = i;
+        this.jLG = i;
         this.mRootView = view;
     }
 

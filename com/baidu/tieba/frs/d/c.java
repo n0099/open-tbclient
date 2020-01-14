@@ -182,9 +182,9 @@ public class c {
                 if (bjVar.cLB >= 0) {
                     anVar.Z("obj_floor", bjVar.cLB);
                 }
-                boolean z = (bjVar.aBx() == null || (bjVar.aBx().cJz() == null && bjVar.aBx().aRH() == null)) ? false : true;
-                if (z && bjVar.aBx().cJz() != null && bjVar.aBx().cJz().aRz() != null && bjVar.aBx().cJz().aRz().size() > 0) {
-                    anVar.Z("obj_name", bjVar.aBx().kfT ? 3 : 2);
+                boolean z = (bjVar.aBx() == null || (bjVar.aBx().cJB() == null && bjVar.aBx().aRH() == null)) ? false : true;
+                if (z && bjVar.aBx().cJB() != null && bjVar.aBx().cJB().aRz() != null && bjVar.aBx().cJB().aRz().size() > 0) {
+                    anVar.Z("obj_name", bjVar.aBx().kfY ? 3 : 2);
                 } else {
                     anVar.Z("obj_name", z ? 1 : 0);
                 }

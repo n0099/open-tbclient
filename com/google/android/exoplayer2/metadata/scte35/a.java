@@ -9,43 +9,43 @@ import com.google.android.exoplayer2.util.s;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public final class a implements com.google.android.exoplayer2.metadata.a {
-    private s miE;
-    private final l mnQ = new l();
-    private final k mpK = new k();
+    private s miJ;
+    private final l mnV = new l();
+    private final k mpP = new k();
 
     @Override // com.google.android.exoplayer2.metadata.a
     public Metadata a(c cVar) throws MetadataDecoderException {
         SpliceCommand a;
-        if (this.miE == null || cVar.subsampleOffsetUs != this.miE.dyD()) {
-            this.miE = new s(cVar.mcQ);
-            this.miE.gL(cVar.mcQ - cVar.subsampleOffsetUs);
+        if (this.miJ == null || cVar.subsampleOffsetUs != this.miJ.dyF()) {
+            this.miJ = new s(cVar.mcV);
+            this.miJ.gL(cVar.mcV - cVar.subsampleOffsetUs);
         }
         ByteBuffer byteBuffer = cVar.data;
         byte[] array = byteBuffer.array();
         int limit = byteBuffer.limit();
-        this.mnQ.G(array, limit);
-        this.mpK.G(array, limit);
-        this.mpK.JP(39);
-        long readBits = this.mpK.readBits(32) | (this.mpK.readBits(1) << 32);
-        this.mpK.JP(20);
-        int readBits2 = this.mpK.readBits(12);
-        int readBits3 = this.mpK.readBits(8);
-        this.mnQ.skipBytes(14);
+        this.mnV.G(array, limit);
+        this.mpP.G(array, limit);
+        this.mpP.JP(39);
+        long readBits = this.mpP.readBits(32) | (this.mpP.readBits(1) << 32);
+        this.mpP.JP(20);
+        int readBits2 = this.mpP.readBits(12);
+        int readBits3 = this.mpP.readBits(8);
+        this.mnV.skipBytes(14);
         switch (readBits3) {
             case 0:
                 a = new SpliceNullCommand();
                 break;
             case 4:
-                a = SpliceScheduleCommand.Q(this.mnQ);
+                a = SpliceScheduleCommand.Q(this.mnV);
                 break;
             case 5:
-                a = SpliceInsertCommand.a(this.mnQ, readBits, this.miE);
+                a = SpliceInsertCommand.a(this.mnV, readBits, this.miJ);
                 break;
             case 6:
-                a = TimeSignalCommand.b(this.mnQ, readBits, this.miE);
+                a = TimeSignalCommand.b(this.mnV, readBits, this.miJ);
                 break;
             case 255:
-                a = PrivateCommand.a(this.mnQ, readBits2, readBits);
+                a = PrivateCommand.a(this.mnV, readBits2, readBits);
                 break;
             default:
                 a = null;

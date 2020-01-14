@@ -113,8 +113,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.dun = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.6
             @Override // com.baidu.tbadk.editortools.pb.b
             public boolean aMs() {
-                if (TopicDetailView.this.heO.cSM()) {
-                    TopicDetailView.this.mPageContext.showToast(TopicDetailView.this.heO.cSO());
+                if (TopicDetailView.this.heO.cSO()) {
+                    TopicDetailView.this.mPageContext.showToast(TopicDetailView.this.heO.cSQ());
                     TopicDetailView.this.mN(true);
                     return true;
                 }
@@ -142,7 +142,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     TopicDetailView.this.heO.aV(postWriteCallBackData.getSensitiveWords());
                     TopicDetailView.this.heO.Kx(postWriteCallBackData.getErrorString());
-                    if (!v.isEmpty(TopicDetailView.this.heO.cSK())) {
+                    if (!v.isEmpty(TopicDetailView.this.heO.cSM())) {
                         TopicDetailView.this.mN(true);
                     }
                 }
@@ -275,7 +275,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     if (TopicDetailView.this.heO != null) {
-                        if (!TopicDetailView.this.heO.cSN()) {
+                        if (!TopicDetailView.this.heO.cSP()) {
                             TopicDetailView.this.mN(false);
                         }
                         TopicDetailView.this.heO.tD(false);
@@ -292,13 +292,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             if (a != null) {
                 this.heO.tD(true);
                 this.heP.setText(a);
-                if (z && this.heO.cSL() >= 0) {
+                if (z && this.heO.cSN() >= 0) {
                     this.heP.requestFocus();
-                    this.heP.setSelection(this.heO.cSL());
+                    this.heP.setSelection(this.heO.cSN());
                 } else {
                     this.heP.setSelection(selectionEnd);
                 }
-                this.heO.tC(this.heO.cSL() >= 0);
+                this.heO.tC(this.heO.cSN() >= 0);
             }
         }
     }

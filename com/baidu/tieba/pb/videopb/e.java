@@ -11,12 +11,12 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes7.dex */
 public class e extends w {
     private PbModel iCx;
-    private d iXH = new d();
-    private int iXI = 0;
+    private d iXM = new d();
+    private int iXN = 0;
 
     public void init(Intent intent) {
-        this.iXH.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.iXH.qP(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.iXM.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.iXM.qP(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void g(PbModel pbModel) {
@@ -25,11 +25,11 @@ public class e extends w {
 
     public void b(com.baidu.tieba.pb.data.f fVar, int i) {
         boolean z = true;
-        if (i >= this.iXI) {
-            this.iXI = i;
-            this.iXH.G(fVar);
+        if (i >= this.iXN) {
+            this.iXN = i;
+            this.iXM.G(fVar);
             if (fVar != null) {
-                d dVar = this.iXH;
+                d dVar = this.iXM;
                 if (fVar.getIsNewUrl() != 1 && !fVar.cjs()) {
                     z = false;
                 }
@@ -38,46 +38,46 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.f crH() {
-        return this.iXH.crH();
+    public com.baidu.tieba.pb.data.f crJ() {
+        return this.iXM.crJ();
     }
 
     public boolean isFromCDN() {
-        return this.iXH.isFromCDN();
+        return this.iXM.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.f crI() {
-        return this.iXH.crI();
+    public com.baidu.tieba.pb.data.f crK() {
+        return this.iXM.crK();
     }
 
     public void c(com.baidu.tieba.pb.data.f fVar, int i) {
         if (i == 3) {
-            this.iXH.setData(fVar);
+            this.iXM.setData(fVar);
         }
     }
 
-    public p<bj> crJ() {
-        return this.iXH.crJ();
+    public p<bj> crL() {
+        return this.iXM.crL();
     }
 
-    public Rect crK() {
-        if (this.iXH.crK() == null || this.iXH.crK().isEmpty()) {
+    public Rect crM() {
+        if (this.iXM.crM() == null || this.iXM.crM().isEmpty()) {
             return null;
         }
-        return this.iXH.crK();
+        return this.iXM.crM();
     }
 
     public void qS(boolean z) {
-        if (this.iXH.crO().getValue() != null) {
-            com.baidu.tieba.pb.data.f aD = this.iCx.aD(this.iXH.crO().getValue());
+        if (this.iXM.crQ().getValue() != null) {
+            com.baidu.tieba.pb.data.f aD = this.iCx.aD(this.iXM.crQ().getValue());
             if (aD != null) {
-                this.iXH.crM().addLast(this.iXH.crI());
-                this.iXH.setData(aD);
-                this.iXH.aL(!v.isEmpty(aD.cjr()) ? aD.cjr().get(0) : null);
-                this.iXH.aK(this.iXH.crM().getLast() != null ? this.iXH.crM().getLast().ciS() : null);
+                this.iXM.crO().addLast(this.iXM.crK());
+                this.iXM.setData(aD);
+                this.iXM.aL(!v.isEmpty(aD.cjr()) ? aD.cjr().get(0) : null);
+                this.iXM.aK(this.iXM.crO().getLast() != null ? this.iXM.crO().getLast().ciS() : null);
                 this.iCx.yS(z ? 21 : 22);
                 this.iCx.h(aD);
-                this.iXH.setIsLoading(true);
+                this.iXM.setIsLoading(true);
             }
         }
     }
@@ -85,68 +85,68 @@ public class e extends w {
     public void aM(bj bjVar) {
         com.baidu.tieba.pb.data.f aD;
         if (bjVar != null && (aD = this.iCx.aD(bjVar)) != null) {
-            this.iXH.crM().addLast(this.iXH.crI());
-            this.iXH.setData(aD);
-            this.iXH.aL(!v.isEmpty(aD.cjr()) ? aD.cjr().get(0) : null);
-            this.iXH.aK(this.iXH.crM().getLast() != null ? this.iXH.crM().getLast().ciS() : null);
+            this.iXM.crO().addLast(this.iXM.crK());
+            this.iXM.setData(aD);
+            this.iXM.aL(!v.isEmpty(aD.cjr()) ? aD.cjr().get(0) : null);
+            this.iXM.aK(this.iXM.crO().getLast() != null ? this.iXM.crO().getLast().ciS() : null);
             this.iCx.yS(20);
             this.iCx.h(aD);
-            this.iXH.setIsLoading(true);
+            this.iXM.setIsLoading(true);
         }
     }
 
-    public void crT() {
-        com.baidu.tieba.pb.data.f pollLast = this.iXH.crM().pollLast();
+    public void crV() {
+        com.baidu.tieba.pb.data.f pollLast = this.iXM.crO().pollLast();
         if (pollLast != null) {
-            this.iXH.setData(pollLast);
-            this.iXH.aL(!v.isEmpty(pollLast.cjr()) ? pollLast.cjr().get(0) : null);
-            this.iXH.aK(this.iXH.crM().peekLast() != null ? this.iXH.crM().peekLast().ciS() : null);
+            this.iXM.setData(pollLast);
+            this.iXM.aL(!v.isEmpty(pollLast.cjr()) ? pollLast.cjr().get(0) : null);
+            this.iXM.aK(this.iXM.crO().peekLast() != null ? this.iXM.crO().peekLast().ciS() : null);
             this.iCx.h(pollLast);
-            this.iXH.setIsLoading(true);
+            this.iXM.setIsLoading(true);
         }
     }
 
-    public p<bj> crN() {
-        return this.iXH.crN();
+    public p<bj> crP() {
+        return this.iXM.crP();
     }
 
-    public p<bj> crO() {
-        return this.iXH.crO();
-    }
-
-    public p<Boolean> crP() {
-        return this.iXH.crP();
-    }
-
-    public void qQ(boolean z) {
-        this.iXH.qQ(z);
-    }
-
-    public p<Boolean> crQ() {
-        return this.iXH.crQ();
-    }
-
-    public void qR(boolean z) {
-        this.iXH.qR(z);
-    }
-
-    public void setIsLoading(boolean z) {
-        this.iXH.setIsLoading(z);
+    public p<bj> crQ() {
+        return this.iXM.crQ();
     }
 
     public p<Boolean> crR() {
-        return this.iXH.crR();
+        return this.iXM.crR();
     }
 
-    public boolean crL() {
-        return this.iXH.crL();
+    public void qQ(boolean z) {
+        this.iXM.qQ(z);
+    }
+
+    public p<Boolean> crS() {
+        return this.iXM.crS();
+    }
+
+    public void qR(boolean z) {
+        this.iXM.qR(z);
+    }
+
+    public void setIsLoading(boolean z) {
+        this.iXM.setIsLoading(z);
+    }
+
+    public p<Boolean> crT() {
+        return this.iXM.crT();
+    }
+
+    public boolean crN() {
+        return this.iXM.crN();
     }
 
     public void setCurrentTab(int i) {
-        this.iXH.setCurrentTab(i);
+        this.iXM.setCurrentTab(i);
     }
 
-    public p<Integer> crS() {
-        return this.iXH.crS();
+    public p<Integer> crU() {
+        return this.iXM.crU();
     }
 }

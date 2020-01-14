@@ -14,7 +14,7 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
-    final io.reactivex.parallel.a<? extends T> nxM;
+    final io.reactivex.parallel.a<? extends T> nxR;
     final int prefetch;
     final v scheduler;
 
@@ -27,10 +27,10 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
                 ((h) this.scheduler).a(length, new a(cVarArr, cVarArr2));
             } else {
                 for (int i = 0; i < length; i++) {
-                    a(i, cVarArr, cVarArr2, this.scheduler.dHW());
+                    a(i, cVarArr, cVarArr2, this.scheduler.dHY());
                 }
             }
-            this.nxM.a(cVarArr2);
+            this.nxR.a(cVarArr2);
         }
     }
 
@@ -46,23 +46,23 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
 
     /* loaded from: classes5.dex */
     final class a implements h.a {
-        final c<T>[] nxQ;
+        final c<T>[] nxV;
         final c<? super T>[] subscribers;
 
         a(c<? super T>[] cVarArr, c<T>[] cVarArr2) {
             this.subscribers = cVarArr;
-            this.nxQ = cVarArr2;
+            this.nxV = cVarArr2;
         }
 
         @Override // io.reactivex.internal.schedulers.h.a
         public void a(int i, v.c cVar) {
-            ParallelRunOn.this.a(i, this.subscribers, this.nxQ, cVar);
+            ParallelRunOn.this.a(i, this.subscribers, this.nxV, cVar);
         }
     }
 
     @Override // io.reactivex.parallel.a
-    public int dIg() {
-        return this.nxM.dIg();
+    public int dIi() {
+        return this.nxR.dIi();
     }
 
     /* loaded from: classes5.dex */

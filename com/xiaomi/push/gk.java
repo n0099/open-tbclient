@@ -13,7 +13,7 @@ public class gk {
     private static gk a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f421a = new ConcurrentHashMap();
+    private Map<String, Object> f422a = new ConcurrentHashMap();
     private Map<String, Object> b = new ConcurrentHashMap();
 
     private gk() {
@@ -54,7 +54,7 @@ public class gk {
 
     /* renamed from: a  reason: collision with other method in class */
     public Object m305a(String str, String str2) {
-        return this.f421a.get(a(str, str2));
+        return this.f422a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -104,13 +104,13 @@ public class gk {
                                 newPullParser.next();
                                 String nextText6 = newPullParser.nextText();
                                 String a3 = a(nextText4, nextText5);
-                                if (!this.f421a.containsKey(a3)) {
+                                if (!this.f422a.containsKey(a3)) {
                                     try {
                                         Class<?> cls2 = Class.forName(nextText6);
                                         if (gj.class.isAssignableFrom(cls2)) {
-                                            this.f421a.put(a3, cls2.newInstance());
+                                            this.f422a.put(a3, cls2.newInstance());
                                         } else if (ge.class.isAssignableFrom(cls2)) {
-                                            this.f421a.put(a3, cls2);
+                                            this.f422a.put(a3, cls2);
                                         }
                                     } catch (ClassNotFoundException e2) {
                                         e2.printStackTrace();
@@ -135,6 +135,6 @@ public class gk {
         if (!(obj instanceof gj) && !(obj instanceof Class)) {
             throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
         }
-        this.f421a.put(a(str, str2), obj);
+        this.f422a.put(a(str, str2), obj);
     }
 }

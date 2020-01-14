@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.nBf;
-        long j = this.nRQ;
-        long dIk = dIk();
-        long hv = hv(dIk);
+        E[] eArr = this.nBk;
+        long j = this.nRV;
+        long dIm = dIm();
+        long hv = hv(dIm);
         if (b(eArr, hv) != null) {
-            if (dIk - dIl() > j) {
+            if (dIm - dIn() > j) {
                 return false;
             }
             do {
             } while (b(eArr, hv) != null);
             a(eArr, hv, e);
-            hx(1 + dIk);
+            hx(1 + dIm);
             return true;
         }
         a(eArr, hv, e);
-        hx(1 + dIk);
+        hx(1 + dIm);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long dIl;
-        long dNx = dNx();
+        long dIn;
+        long dNz = dNz();
         do {
-            dIl = dIl();
-            if (dIl >= dNx) {
-                long dIk = dIk();
-                if (dIl >= dIk) {
+            dIn = dIn();
+            if (dIn >= dNz) {
+                long dIm = dIm();
+                if (dIn >= dIm) {
                     return null;
                 }
-                hy(dIk);
+                hy(dIm);
             }
-        } while (!am(dIl, 1 + dIl));
-        long hv = hv(dIl);
-        E[] eArr = this.nBf;
+        } while (!am(dIn, 1 + dIn));
+        long hv = hv(dIn);
+        E[] eArr = this.nBk;
         E a = a(eArr, hv);
         b(eArr, hv, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E hw;
-        long dNx = dNx();
+        long dNz = dNz();
         do {
-            long dIl = dIl();
-            if (dIl >= dNx) {
-                long dIk = dIk();
-                if (dIl >= dIk) {
+            long dIn = dIn();
+            if (dIn >= dNz) {
+                long dIm = dIm();
+                if (dIn >= dIm) {
                     return null;
                 }
-                hy(dIk);
+                hy(dIm);
             }
-            hw = hw(hv(dIl));
+            hw = hw(hv(dIn));
         } while (hw == null);
         return hw;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dIl = dIl();
+        long dIn = dIn();
         while (true) {
-            long dIk = dIk();
-            long dIl2 = dIl();
-            if (dIl == dIl2) {
-                return (int) (dIk - dIl2);
+            long dIm = dIm();
+            long dIn2 = dIn();
+            if (dIn == dIn2) {
+                return (int) (dIm - dIn2);
             }
-            dIl = dIl2;
+            dIn = dIn2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dIl() == dIk();
+        return dIn() == dIm();
     }
 }

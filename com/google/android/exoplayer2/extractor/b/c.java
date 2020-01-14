@@ -7,12 +7,12 @@ import com.google.android.exoplayer2.util.l;
 import com.google.android.exoplayer2.util.v;
 /* loaded from: classes5.dex */
 final class c implements b.a {
-    private final long lYQ;
-    private final long[] mdh;
-    private final long[] mga;
+    private final long lYV;
+    private final long[] mdm;
+    private final long[] mgf;
 
     public static c a(j jVar, l lVar, long j, long j2) {
-        int dyq;
+        int dys;
         lVar.skipBytes(10);
         int readInt = lVar.readInt();
         if (readInt <= 0) {
@@ -32,21 +32,21 @@ final class c implements b.a {
         for (int i2 = 1; i2 < jArr.length; i2++) {
             switch (readUnsignedShort3) {
                 case 1:
-                    dyq = lVar.readUnsignedByte();
+                    dys = lVar.readUnsignedByte();
                     break;
                 case 2:
-                    dyq = lVar.readUnsignedShort();
+                    dys = lVar.readUnsignedShort();
                     break;
                 case 3:
-                    dyq = lVar.dyj();
+                    dys = lVar.dyl();
                     break;
                 case 4:
-                    dyq = lVar.dyq();
+                    dys = lVar.dys();
                     break;
                 default:
                     return null;
             }
-            j3 += dyq * readUnsignedShort2;
+            j3 += dys * readUnsignedShort2;
             jArr[i2] = (i2 * h) / readUnsignedShort;
             jArr2[i2] = j2 == -1 ? j3 : Math.min(j2, j3);
         }
@@ -54,28 +54,28 @@ final class c implements b.a {
     }
 
     private c(long[] jArr, long[] jArr2, long j) {
-        this.mdh = jArr;
-        this.mga = jArr2;
-        this.lYQ = j;
+        this.mdm = jArr;
+        this.mgf = jArr2;
+        this.lYV = j;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public boolean dtB() {
+    public boolean dtD() {
         return true;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
     public long fN(long j) {
-        return this.mga[v.a(this.mdh, j, true, true)];
+        return this.mgf[v.a(this.mdm, j, true, true)];
     }
 
     @Override // com.google.android.exoplayer2.extractor.b.b.a
     public long fP(long j) {
-        return this.mdh[v.a(this.mga, j, true, true)];
+        return this.mdm[v.a(this.mgf, j, true, true)];
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long dso() {
-        return this.lYQ;
+    public long dsq() {
+        return this.lYV;
     }
 }

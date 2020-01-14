@@ -505,7 +505,7 @@ public class aq {
         if (cnV < 0) {
             cnV = 0;
         }
-        if (this.iMD.yz(cnV) != null && this.iMD.yz(cnV) != PostData.kfl) {
+        if (this.iMD.yz(cnV) != null && this.iMD.yz(cnV) != PostData.kfq) {
             i = cnV + 1;
         }
         return this.iMD.getItem(i) instanceof PostData ? (PostData) this.iMD.getItem(i) : null;
@@ -937,7 +937,7 @@ public class aq {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (aq.this.iCe.iGb != null && aq.this.iCe.iGb.cpd() != null) {
-                    if (!aq.this.iCe.iGb.cpd().cSN()) {
+                    if (!aq.this.iCe.iGb.cpd().cSP()) {
                         aq.this.iCe.iGb.qt(false);
                     }
                     aq.this.iCe.iGb.cpd().tD(false);
@@ -1493,7 +1493,7 @@ public class aq {
         }
         ArrayList<PostData> ciU = fVar.ciU();
         if (fVar.getPage().ayR() == 0 || ciU == null || ciU.size() < fVar.getPage().ayQ()) {
-            if (com.baidu.tbadk.core.util.v.getCount(ciU) == 0 || (com.baidu.tbadk.core.util.v.getCount(ciU) == 1 && ciU.get(0) != null && ciU.get(0).cJx() == 1)) {
+            if (com.baidu.tbadk.core.util.v.getCount(ciU) == 0 || (com.baidu.tbadk.core.util.v.getCount(ciU) == 1 && ciU.get(0) != null && ciU.get(0).cJz() == 1)) {
                 if (this.iNu == null || this.iNu.iOy == null || this.iNu.iOy.getView() == null) {
                     i = 0;
                 } else {
@@ -1534,7 +1534,7 @@ public class aq {
             Iterator<PostData> it = fVar.ciU().iterator();
             while (it.hasNext()) {
                 postData = it.next();
-                if (postData != null && postData.cJx() == 1) {
+                if (postData != null && postData.cJz() == 1) {
                     break;
                 }
             }
@@ -1849,7 +1849,7 @@ public class aq {
             }
             ArrayList<PostData> ciU = fVar.ciU();
             if (fVar.getPage().ayR() == 0 || ciU == null || ciU.size() < fVar.getPage().ayQ()) {
-                if (com.baidu.tbadk.core.util.v.getCount(ciU) == 0 || (com.baidu.tbadk.core.util.v.getCount(ciU) == 1 && ciU.get(0) != null && ciU.get(0).cJx() == 1)) {
+                if (com.baidu.tbadk.core.util.v.getCount(ciU) == 0 || (com.baidu.tbadk.core.util.v.getCount(ciU) == 1 && ciU.get(0) != null && ciU.get(0).cJz() == 1)) {
                     if (this.iNu == null || this.iNu.iOy == null || this.iNu.iOy.getView() == null) {
                         i4 = 0;
                     } else {

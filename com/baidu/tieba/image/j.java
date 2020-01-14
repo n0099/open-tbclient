@@ -64,10 +64,10 @@ public class j {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             n nVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof n) && !j.this.hQE.isFinishing() && (nVar = (n) customResponsedMessage.getData()) != null) {
-                nVar.kgt = null;
-                if (!TextUtils.isEmpty(nVar.kgv) && !TextUtils.isEmpty(nVar.kgs) && nVar.kgs.equals(j.this.hQG)) {
-                    j.this.hPU.setCurrentImageQRInfo(nVar.kgv);
-                    j.this.DB(nVar.kgv);
+                nVar.kgy = null;
+                if (!TextUtils.isEmpty(nVar.kgA) && !TextUtils.isEmpty(nVar.kgx) && nVar.kgx.equals(j.this.hQG)) {
+                    j.this.hPU.setCurrentImageQRInfo(nVar.kgA);
+                    j.this.DB(nVar.kgA);
                 }
             }
         }
@@ -433,14 +433,14 @@ public class j {
             if ((imageUrlData == null || TextUtils.isEmpty(imageUrlData.qrInfo)) && (imageBitmap = dragImageView.getImageBitmap()) != null && !imageBitmap.isRecycled()) {
                 n nVar = new n();
                 nVar.type = 0;
-                nVar.kgt = imageBitmap;
+                nVar.kgy = imageBitmap;
                 String currentImageUrl = this.hPU.getCurrentImageUrl();
                 if (!TextUtils.isEmpty(currentImageUrl)) {
-                    nVar.kgs = String.valueOf(System.currentTimeMillis()) + as.getNameMd5FromUrl(currentImageUrl);
+                    nVar.kgx = String.valueOf(System.currentTimeMillis()) + as.getNameMd5FromUrl(currentImageUrl);
                 } else {
-                    nVar.kgs = String.valueOf(BdUniqueId.gen().getId());
+                    nVar.kgx = String.valueOf(BdUniqueId.gen().getId());
                 }
-                this.hQG = nVar.kgs;
+                this.hQG = nVar.kgx;
                 this.hQE.sendMessage(new CustomMessage(2921403, nVar));
             }
         }

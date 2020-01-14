@@ -108,8 +108,8 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
                 if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24) {
                     m bDf = FrsCommonTabFragment.this.gtz.bDf();
-                    if (bDf != null && bDf.cxl() != null && (bDf.cxl().getTag() instanceof af)) {
-                        FrsCommonTabFragment.this.gmy = (af) bDf.cxl().getTag();
+                    if (bDf != null && bDf.cxn() != null && (bDf.cxn().getTag() instanceof af)) {
+                        FrsCommonTabFragment.this.gmy = (af) bDf.cxn().getTag();
                     }
                     if (FrsCommonTabFragment.this.gmy != null && FrsCommonTabFragment.this.gmy.mU() != null) {
                         FrsCommonTabFragment.this.gmy.mU().b(new a.C0050a(3));
@@ -131,7 +131,7 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
             if (i == 0) {
-                com.baidu.tieba.r.c.cIs().b(FrsCommonTabFragment.this.getUniqueId(), true);
+                com.baidu.tieba.r.c.cIu().b(FrsCommonTabFragment.this.getUniqueId(), true);
             }
         }
     };
@@ -161,7 +161,7 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
         }
         this.gmi = getVoiceManager();
         this.gmi.onCreate(getPageContext());
-        com.baidu.tieba.r.c.cIs().w(getUniqueId());
+        com.baidu.tieba.r.c.cIu().w(getUniqueId());
         this.gtA = new c(this, com.baidu.adp.lib.f.b.toInt(this.forumId, 0), this.tabId);
         registerListener(this.gnh);
         registerListener(this.gtG);
@@ -249,7 +249,7 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
             if (this.gtA.bFc() && this.tabId == 89) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_TAB_SHOW_RED_POINT, false));
             }
-            com.baidu.tieba.r.c.cIs().b(getUniqueId(), false);
+            com.baidu.tieba.r.c.cIu().b(getUniqueId(), false);
         }
     }
 
@@ -330,7 +330,7 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        com.baidu.tieba.r.c.cIs().x(getUniqueId());
+        com.baidu.tieba.r.c.cIu().x(getUniqueId());
         r.btA().kn(false);
         MessageManager.getInstance().unRegisterListener(this.gpd);
         super.onDestroy();
@@ -495,7 +495,7 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        com.baidu.tieba.r.c.cIs().b(getUniqueId(), false);
+        com.baidu.tieba.r.c.cIu().b(getUniqueId(), false);
         if (this.gmi != null) {
             this.gmi.onStop(getPageContext());
         }

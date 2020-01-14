@@ -54,7 +54,7 @@ public class d extends com.baidu.tieba.play.operableVideoView.d {
     }
 
     protected void bNG() {
-        this.fGO = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) cwU());
+        this.fGO = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) cwW());
         this.fGO.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.d.1
             @Override // com.baidu.afd.videopaster.d.a
             public void kW() {
@@ -62,14 +62,14 @@ public class d extends com.baidu.tieba.play.operableVideoView.d {
 
             @Override // com.baidu.afd.videopaster.d.a
             public void kV() {
-                d.this.zr(d.this.jwM);
-                d.this.jwQ |= 1;
-                d.this.zr(d.this.jwQ);
+                d.this.zr(d.this.jwR);
+                d.this.jwV |= 1;
+                d.this.zr(d.this.jwV);
             }
 
             @Override // com.baidu.afd.videopaster.d.a
             public void kU() {
-                d.this.cyi();
+                d.this.cyk();
             }
 
             @Override // com.baidu.afd.videopaster.d.a
@@ -80,7 +80,7 @@ public class d extends com.baidu.tieba.play.operableVideoView.d {
         a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.d.2
             @Override // com.baidu.tieba.play.operableVideoView.d.a
             public void bW(int i, int i2) {
-                if (!d.this.cyl()) {
+                if (!d.this.cyn()) {
                     if (i2 >= i) {
                         if (d.this.fGO.a(d.this.isFullScreen(), d.this.OF, "NEWINDEX")) {
                         }
@@ -118,9 +118,9 @@ public class d extends com.baidu.tieba.play.operableVideoView.d {
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.g.a
     public void onCompletion(g gVar) {
         if (!this.fGO.a(isFullScreen(), this.OF, "NEWINDEX")) {
-            zr(this.jwM);
-            this.jwQ |= 1;
-            zr(this.jwQ);
+            zr(this.jwR);
+            this.jwV |= 1;
+            zr(this.jwV);
         }
     }
 

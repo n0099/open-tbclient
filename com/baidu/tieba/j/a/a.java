@@ -81,7 +81,7 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).cyp());
+            jSONArray.put(list.get(i).cyr());
         }
         com.baidu.tieba.j.d.e(new File(str), jSONArray.toString() + "\n");
     }

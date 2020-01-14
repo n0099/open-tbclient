@@ -12,14 +12,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class ObservableCreate<T> extends q<T> {
-    final s<T> nxl;
+    final s<T> nxq;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
         CreateEmitter createEmitter = new CreateEmitter(uVar);
         uVar.onSubscribe(createEmitter);
         try {
-            this.nxl.a(createEmitter);
+            this.nxq.a(createEmitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             createEmitter.onError(th);

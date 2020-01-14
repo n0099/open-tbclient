@@ -7,33 +7,33 @@ import com.google.android.exoplayer2.util.l;
 import com.google.android.exoplayer2.util.v;
 /* loaded from: classes5.dex */
 final class d implements b.a {
-    private final long lYQ;
-    private final long mfN;
-    private final long mgb;
-    private final long[] mgc;
-    private final long mgd;
-    private final int mge;
+    private final long lYV;
+    private final long mfS;
+    private final long mgg;
+    private final long[] mgh;
+    private final long mgi;
+    private final int mgj;
 
     public static d b(j jVar, l lVar, long j, long j2) {
-        int dyq;
+        int dys;
         int i = jVar.samplesPerFrame;
         int i2 = jVar.sampleRate;
         long j3 = j + jVar.frameSize;
         int readInt = lVar.readInt();
-        if ((readInt & 1) != 1 || (dyq = lVar.dyq()) == 0) {
+        if ((readInt & 1) != 1 || (dys = lVar.dys()) == 0) {
             return null;
         }
-        long h = v.h(dyq, i * TimeUtils.NANOS_PER_MS, i2);
+        long h = v.h(dys, i * TimeUtils.NANOS_PER_MS, i2);
         if ((readInt & 6) != 6) {
             return new d(j3, h, j2);
         }
-        long dyq2 = lVar.dyq();
+        long dys2 = lVar.dys();
         lVar.skipBytes(1);
         long[] jArr = new long[99];
         for (int i3 = 0; i3 < 99; i3++) {
             jArr[i3] = lVar.readUnsignedByte();
         }
-        return new d(j3, h, j2, jArr, dyq2, jVar.frameSize);
+        return new d(j3, h, j2, jArr, dys2, jVar.frameSize);
     }
 
     private d(long j, long j2, long j3) {
@@ -41,54 +41,54 @@ final class d implements b.a {
     }
 
     private d(long j, long j2, long j3, long[] jArr, long j4, int i) {
-        this.mfN = j;
-        this.lYQ = j2;
-        this.mgb = j3;
-        this.mgc = jArr;
-        this.mgd = j4;
-        this.mge = i;
+        this.mfS = j;
+        this.lYV = j2;
+        this.mgg = j3;
+        this.mgh = jArr;
+        this.mgi = j4;
+        this.mgj = i;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public boolean dtB() {
-        return this.mgc != null;
+    public boolean dtD() {
+        return this.mgh != null;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
     public long fN(long j) {
-        if (!dtB()) {
-            return this.mfN;
+        if (!dtD()) {
+            return this.mfS;
         }
-        float f = (((float) j) * 100.0f) / ((float) this.lYQ);
+        float f = (((float) j) * 100.0f) / ((float) this.lYV);
         if (f <= 0.0f) {
             r0 = 0.0f;
         } else if (f < 100.0f) {
             int i = (int) f;
-            float f2 = i != 0 ? (float) this.mgc[i - 1] : 0.0f;
-            r0 = (((i < 99 ? (float) this.mgc[i] : 256.0f) - f2) * (f - i)) + f2;
+            float f2 = i != 0 ? (float) this.mgh[i - 1] : 0.0f;
+            r0 = (((i < 99 ? (float) this.mgh[i] : 256.0f) - f2) * (f - i)) + f2;
         }
-        return Math.min(this.mfN + Math.round(r0 * 0.00390625d * this.mgd), this.mgb != -1 ? this.mgb - 1 : ((this.mfN - this.mge) + this.mgd) - 1);
+        return Math.min(this.mfS + Math.round(r0 * 0.00390625d * this.mgi), this.mgg != -1 ? this.mgg - 1 : ((this.mfS - this.mgj) + this.mgi) - 1);
     }
 
     @Override // com.google.android.exoplayer2.extractor.b.b.a
     public long fP(long j) {
-        if (!dtB() || j < this.mfN) {
+        if (!dtD() || j < this.mfS) {
             return 0L;
         }
-        double d = (256.0d * (j - this.mfN)) / this.mgd;
-        int a = v.a(this.mgc, (long) d, true, false) + 1;
+        double d = (256.0d * (j - this.mfS)) / this.mgi;
+        int a = v.a(this.mgh, (long) d, true, false) + 1;
         long JC = JC(a);
-        long j2 = a == 0 ? 0L : this.mgc[a - 1];
-        long j3 = a == 99 ? 256L : this.mgc[a];
+        long j2 = a == 0 ? 0L : this.mgh[a - 1];
+        long j3 = a == 99 ? 256L : this.mgh[a];
         return JC + (j3 == j2 ? 0L : (long) (((JC(a + 1) - JC) * (d - j2)) / (j3 - j2)));
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long dso() {
-        return this.lYQ;
+    public long dsq() {
+        return this.lYV;
     }
 
     private long JC(int i) {
-        return (this.lYQ * i) / 100;
+        return (this.lYV * i) / 100;
     }
 }

@@ -12,16 +12,16 @@ import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class c extends CharacterStyle implements UpdateAppearance {
     private int[] colors = {-17920, -6748254};
-    public int lNe = 90;
-    private int lNf = 8;
-    private Shader lNg = null;
+    public int lNj = 90;
+    private int lNk = 8;
+    private Shader lNl = null;
     private Matrix matrix = new Matrix();
-    private float lNh = 0.0f;
+    private float lNm = 0.0f;
 
     /* loaded from: classes4.dex */
     public static class a {
-        private int lNe;
-        private int lNf;
+        private int lNj;
+        private int lNk;
         private int[] mColors;
 
         public a bb(ArrayList<String> arrayList) {
@@ -44,7 +44,7 @@ public class c extends CharacterStyle implements UpdateAppearance {
         }
 
         public a HM(int i) {
-            this.lNf = i;
+            this.lNk = i;
             return this;
         }
 
@@ -55,36 +55,36 @@ public class c extends CharacterStyle implements UpdateAppearance {
             return str.replace("#", "#FF");
         }
 
-        public c dlT() {
+        public c dlV() {
             c cVar = new c();
             if (this.mColors != null) {
                 cVar.colors = this.mColors;
             }
-            if (this.lNe != 0) {
-                cVar.lNe = this.lNe;
+            if (this.lNj != 0) {
+                cVar.lNj = this.lNj;
             }
-            if (this.lNf != 0) {
-                cVar.lNf = this.lNf;
+            if (this.lNk != 0) {
+                cVar.lNk = this.lNk;
             }
             return cVar;
         }
     }
 
     public void bs(float f) {
-        this.lNh = f;
+        this.lNm = f;
     }
 
     @Override // android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         textPaint.setStyle(Paint.Style.FILL);
-        float textSize = textPaint.getTextSize() * this.lNf;
-        if (this.lNg == null) {
-            this.lNg = new LinearGradient(0.0f, 0.0f, 0.0f, textSize, this.colors, (float[]) null, Shader.TileMode.MIRROR);
+        float textSize = textPaint.getTextSize() * this.lNk;
+        if (this.lNl == null) {
+            this.lNl = new LinearGradient(0.0f, 0.0f, 0.0f, textSize, this.colors, (float[]) null, Shader.TileMode.MIRROR);
         }
         this.matrix.reset();
-        this.matrix.setRotate(this.lNe);
-        this.matrix.postTranslate(this.lNh * textSize, 0.0f);
-        this.lNg.setLocalMatrix(this.matrix);
-        textPaint.setShader(this.lNg);
+        this.matrix.setRotate(this.lNj);
+        this.matrix.postTranslate(this.lNm * textSize, 0.0f);
+        this.lNl.setLocalMatrix(this.matrix);
+        textPaint.setShader(this.lNl);
     }
 }

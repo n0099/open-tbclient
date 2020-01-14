@@ -3,10 +3,10 @@ package com.google.android.exoplayer2.upstream;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
 /* loaded from: classes5.dex */
 public final class m extends HttpDataSource.a {
-    private final q<? super e> mEV;
-    private final boolean mFH;
-    private final int mFI;
-    private final int mFJ;
+    private final boolean mFM;
+    private final int mFN;
+    private final int mFO;
+    private final q<? super e> mFa;
     private final String userAgent;
 
     public m(String str, q<? super e> qVar) {
@@ -15,10 +15,10 @@ public final class m extends HttpDataSource.a {
 
     public m(String str, q<? super e> qVar, int i, int i2, boolean z) {
         this.userAgent = str;
-        this.mEV = qVar;
-        this.mFI = i;
-        this.mFJ = i2;
-        this.mFH = z;
+        this.mFa = qVar;
+        this.mFN = i;
+        this.mFO = i2;
+        this.mFM = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,6 +26,6 @@ public final class m extends HttpDataSource.a {
     @Override // com.google.android.exoplayer2.upstream.HttpDataSource.a
     /* renamed from: a */
     public l b(HttpDataSource.b bVar) {
-        return new l(this.userAgent, null, this.mEV, this.mFI, this.mFJ, this.mFH, bVar);
+        return new l(this.userAgent, null, this.mFa, this.mFN, this.mFO, this.mFM, bVar);
     }
 }

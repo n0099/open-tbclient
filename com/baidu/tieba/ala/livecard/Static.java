@@ -34,8 +34,8 @@ public class Static {
                         absDelegateAdapterList.add(new c(null, bj.cNx, null));
                         absDelegateAdapterList.add(new f(null, bj.cNw, null));
                         absDelegateAdapterList.add(new e(null, bj.cNy, null));
-                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.f.kdd, null));
-                        absDelegateAdapterList.add(new d(null, g.kdg, null));
+                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.f.kdi, null));
+                        absDelegateAdapterList.add(new d(null, g.kdl, null));
                     }
                 }
             });

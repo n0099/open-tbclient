@@ -5,7 +5,7 @@ public class e {
     /* loaded from: classes6.dex */
     public static class a {
         public int cur_score;
-        public String kdb;
+        public String kdg;
         public int level;
         public int levelup_score;
     }
@@ -16,7 +16,7 @@ public class e {
         public boolean isSuccess = false;
         public int errorCode = 0;
         public String errorMsg = "";
-        public long kdc = 0;
+        public long kdh = 0;
         public boolean isWifi = false;
     }
 }

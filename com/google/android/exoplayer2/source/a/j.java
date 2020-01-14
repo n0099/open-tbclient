@@ -8,7 +8,7 @@ import java.util.Arrays;
 public abstract class j extends c {
     private byte[] data;
     private int limit;
-    private volatile boolean mrh;
+    private volatile boolean mrm;
 
     protected abstract void z(byte[] bArr, int i) throws IOException;
 
@@ -17,47 +17,47 @@ public abstract class j extends c {
         this.data = bArr;
     }
 
-    public byte[] dvE() {
+    public byte[] dvG() {
         return this.data;
     }
 
     @Override // com.google.android.exoplayer2.source.a.c
-    public long dvx() {
+    public long dvz() {
         return this.limit;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void cancelLoad() {
-        this.mrh = true;
+        this.mrm = true;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public final boolean dvf() {
-        return this.mrh;
+    public final boolean dvh() {
+        return this.mrm;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void load() throws IOException, InterruptedException {
         int i = 0;
         try {
-            this.mdj.a(this.dataSpec);
+            this.mdo.a(this.dataSpec);
             this.limit = 0;
-            while (i != -1 && !this.mrh) {
-                dvF();
-                i = this.mdj.read(this.data, this.limit, 16384);
+            while (i != -1 && !this.mrm) {
+                dvH();
+                i = this.mdo.read(this.data, this.limit, 16384);
                 if (i != -1) {
                     this.limit += i;
                 }
             }
-            if (!this.mrh) {
+            if (!this.mrm) {
                 z(this.data, this.limit);
             }
         } finally {
-            v.a(this.mdj);
+            v.a(this.mdo);
         }
     }
 
-    private void dvF() {
+    private void dvH() {
         if (this.data == null) {
             this.data = new byte[16384];
         } else if (this.data.length < this.limit + 16384) {

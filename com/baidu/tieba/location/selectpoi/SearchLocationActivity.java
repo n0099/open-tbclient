@@ -156,9 +156,9 @@ public class SearchLocationActivity extends NavigationBarActivity {
 
     public void initData() {
         this.ick = new com.baidu.tieba.location.data.a();
-        com.baidu.tieba.tbadkCore.location.a locationData = c.cKe().getLocationData();
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cKg().getLocationData();
         if (locationData != null) {
-            this.ick.ax(b(locationData.cKd(), locationData.cKc(), locationData.getSn()));
+            this.ick.ax(b(locationData.cKf(), locationData.cKe(), locationData.getSn()));
         }
         this.icl.a(this.ick);
         this.icl.notifyDataSetChanged();

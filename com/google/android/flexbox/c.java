@@ -16,14 +16,14 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private final com.google.android.flexbox.a mIL;
-    private boolean[] mIM;
+    private final com.google.android.flexbox.a mIQ;
+    private boolean[] mIR;
     @Nullable
-    int[] mIN;
+    int[] mIS;
     @Nullable
-    long[] mIO;
+    long[] mIT;
     @Nullable
-    private long[] mIP;
+    private long[] mIU;
 
     static {
         $assertionsDisabled = !c.class.desiredAssertionStatus();
@@ -31,12 +31,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.google.android.flexbox.a aVar) {
-        this.mIL = aVar;
+        this.mIQ = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int[] a(View view, int i, ViewGroup.LayoutParams layoutParams, SparseIntArray sparseIntArray) {
-        int flexItemCount = this.mIL.getFlexItemCount();
+        int flexItemCount = this.mIQ.getFlexItemCount();
         List<b> Mb = Mb(flexItemCount);
         b bVar = new b();
         if (view != null && (layoutParams instanceof FlexItem)) {
@@ -46,7 +46,7 @@ public class c {
         }
         if (i == -1 || i == flexItemCount) {
             bVar.index = flexItemCount;
-        } else if (i < this.mIL.getFlexItemCount()) {
+        } else if (i < this.mIQ.getFlexItemCount()) {
             bVar.index = i;
             while (i < flexItemCount) {
                 Mb.get(i).index++;
@@ -61,7 +61,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int[] c(SparseIntArray sparseIntArray) {
-        int flexItemCount = this.mIL.getFlexItemCount();
+        int flexItemCount = this.mIQ.getFlexItemCount();
         return a(flexItemCount, Mb(flexItemCount), sparseIntArray);
     }
 
@@ -70,7 +70,7 @@ public class c {
         ArrayList arrayList = new ArrayList(i);
         for (int i2 = 0; i2 < i; i2++) {
             b bVar = new b();
-            bVar.order = ((FlexItem) this.mIL.LZ(i2).getLayoutParams()).getOrder();
+            bVar.order = ((FlexItem) this.mIQ.LZ(i2).getLayoutParams()).getOrder();
             bVar.index = i2;
             arrayList.add(bVar);
         }
@@ -79,12 +79,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean d(SparseIntArray sparseIntArray) {
-        int flexItemCount = this.mIL.getFlexItemCount();
+        int flexItemCount = this.mIQ.getFlexItemCount();
         if (sparseIntArray.size() != flexItemCount) {
             return true;
         }
         for (int i = 0; i < flexItemCount; i++) {
-            View LZ = this.mIL.LZ(i);
+            View LZ = this.mIQ.LZ(i);
             if (LZ != null && ((FlexItem) LZ.getLayoutParams()).getOrder() != sparseIntArray.get(i)) {
                 return true;
             }
@@ -152,26 +152,26 @@ public class c {
         boolean z;
         int i11;
         int i12;
-        boolean dyX = this.mIL.dyX();
+        boolean dyZ = this.mIQ.dyZ();
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
         int i13 = 0;
         if (list == null) {
             list = new ArrayList<>();
         }
-        aVar.mIQ = list;
+        aVar.mIV = list;
         boolean z2 = i5 == -1;
-        int vU = vU(dyX);
-        int vV = vV(dyX);
-        int vW = vW(dyX);
-        int vX = vX(dyX);
+        int vU = vU(dyZ);
+        int vV = vV(dyZ);
+        int vW = vW(dyZ);
+        int vX = vX(dyZ);
         int i14 = Integer.MIN_VALUE;
         int i15 = 0;
         int i16 = 0;
         com.google.android.flexbox.b bVar2 = new com.google.android.flexbox.b();
-        bVar2.mIJ = i4;
-        bVar2.mIz = vU + vV;
-        int flexItemCount = this.mIL.getFlexItemCount();
+        bVar2.mIO = i4;
+        bVar2.mIF = vU + vV;
+        int flexItemCount = this.mIQ.getFlexItemCount();
         int i17 = i4;
         boolean z3 = z2;
         while (true) {
@@ -179,7 +179,7 @@ public class c {
                 i6 = i13;
                 break;
             }
-            View Ma = this.mIL.Ma(i17);
+            View Ma = this.mIQ.Ma(i17);
             if (Ma == null) {
                 if (a(i17, flexItemCount, bVar2)) {
                     a(list, bVar2, i17, i15);
@@ -189,7 +189,7 @@ public class c {
                 z = z3;
                 i11 = i13;
             } else if (Ma.getVisibility() == 8) {
-                bVar2.mIC++;
+                bVar2.mII++;
                 bVar2.mItemCount++;
                 if (a(i17, flexItemCount, bVar2)) {
                     a(list, bVar2, i17, i15);
@@ -200,49 +200,49 @@ public class c {
                 i11 = i13;
             } else {
                 FlexItem flexItem = (FlexItem) Ma.getLayoutParams();
-                if (flexItem.dyY() == 4) {
-                    bVar2.mII.add(Integer.valueOf(i17));
+                if (flexItem.dza() == 4) {
+                    bVar2.mIN.add(Integer.valueOf(i17));
                 }
-                int a2 = a(flexItem, dyX);
-                if (flexItem.dza() != -1.0f && mode == 1073741824) {
-                    a2 = Math.round(size * flexItem.dza());
+                int a2 = a(flexItem, dyZ);
+                if (flexItem.dzc() != -1.0f && mode == 1073741824) {
+                    a2 = Math.round(size * flexItem.dzc());
                 }
-                if (dyX) {
-                    int am = this.mIL.am(i, vU + vV + c(flexItem, true) + d(flexItem, true), a2);
-                    int an = this.mIL.an(i2, vW + vX + e(flexItem, true) + f(flexItem, true) + i15, b(flexItem, true));
+                if (dyZ) {
+                    int am = this.mIQ.am(i, vU + vV + c(flexItem, true) + d(flexItem, true), a2);
+                    int an = this.mIQ.an(i2, vW + vX + e(flexItem, true) + f(flexItem, true) + i15, b(flexItem, true));
                     Ma.measure(am, an);
                     a(i17, am, an, Ma);
                     i7 = am;
                 } else {
-                    int am2 = this.mIL.am(i2, vW + vX + e(flexItem, false) + f(flexItem, false) + i15, b(flexItem, false));
-                    int an2 = this.mIL.an(i, vU + vV + c(flexItem, false) + d(flexItem, false), a2);
+                    int am2 = this.mIQ.am(i2, vW + vX + e(flexItem, false) + f(flexItem, false) + i15, b(flexItem, false));
+                    int an2 = this.mIQ.an(i, vU + vV + c(flexItem, false) + d(flexItem, false), a2);
                     Ma.measure(am2, an2);
                     a(i17, am2, an2, Ma);
                     i7 = an2;
                 }
-                this.mIL.m(i17, Ma);
+                this.mIQ.m(i17, Ma);
                 y(Ma, i17);
                 i6 = View.combineMeasuredStates(i13, Ma.getMeasuredState());
-                if (a(Ma, mode, size, bVar2.mIz, d(flexItem, dyX) + l(Ma, dyX) + c(flexItem, dyX), flexItem, i17, i16, list.size())) {
-                    if (bVar2.dze() > 0) {
+                if (a(Ma, mode, size, bVar2.mIF, d(flexItem, dyZ) + l(Ma, dyZ) + c(flexItem, dyZ), flexItem, i17, i16, list.size())) {
+                    if (bVar2.dzg() > 0) {
                         a(list, bVar2, i17 > 0 ? i17 - 1 : 0, i15);
-                        i12 = i15 + bVar2.mIB;
+                        i12 = i15 + bVar2.mIH;
                     } else {
                         i12 = i15;
                     }
-                    if (dyX) {
+                    if (dyZ) {
                         if (flexItem.getHeight() == -1) {
-                            Ma.measure(i7, this.mIL.an(i2, this.mIL.getPaddingTop() + this.mIL.getPaddingBottom() + flexItem.dzb() + flexItem.dzc() + i12, flexItem.getHeight()));
+                            Ma.measure(i7, this.mIQ.an(i2, this.mIQ.getPaddingTop() + this.mIQ.getPaddingBottom() + flexItem.dzd() + flexItem.dze() + i12, flexItem.getHeight()));
                             y(Ma, i17);
                         }
                     } else if (flexItem.getWidth() == -1) {
-                        Ma.measure(this.mIL.am(i2, this.mIL.getPaddingLeft() + this.mIL.getPaddingRight() + flexItem.getMarginLeft() + flexItem.getMarginRight() + i12, flexItem.getWidth()), i7);
+                        Ma.measure(this.mIQ.am(i2, this.mIQ.getPaddingLeft() + this.mIQ.getPaddingRight() + flexItem.getMarginLeft() + flexItem.getMarginRight() + i12, flexItem.getWidth()), i7);
                         y(Ma, i17);
                     }
                     com.google.android.flexbox.b bVar3 = new com.google.android.flexbox.b();
                     bVar3.mItemCount = 1;
-                    bVar3.mIz = vU + vV;
-                    bVar3.mIJ = i17;
+                    bVar3.mIF = vU + vV;
+                    bVar3.mIO = i17;
                     i9 = Integer.MIN_VALUE;
                     i10 = i12;
                     i8 = 0;
@@ -254,31 +254,31 @@ public class c {
                     i9 = i14;
                     i10 = i15;
                 }
-                if (this.mIN != null) {
-                    this.mIN[i17] = list.size();
+                if (this.mIS != null) {
+                    this.mIS[i17] = list.size();
                 }
-                bVar.mIz += l(Ma, dyX) + c(flexItem, dyX) + d(flexItem, dyX);
-                bVar.mIE += flexItem.getFlexGrow();
-                bVar.mIF += flexItem.getFlexShrink();
-                this.mIL.a(Ma, i17, i8, bVar);
-                i14 = Math.max(i9, m(Ma, dyX) + e(flexItem, dyX) + f(flexItem, dyX) + this.mIL.dq(Ma));
-                bVar.mIB = Math.max(bVar.mIB, i14);
-                if (dyX) {
-                    if (this.mIL.getFlexWrap() != 2) {
-                        bVar.mIG = Math.max(bVar.mIG, Ma.getBaseline() + flexItem.dzb());
+                bVar.mIF += l(Ma, dyZ) + c(flexItem, dyZ) + d(flexItem, dyZ);
+                bVar.mIJ += flexItem.getFlexGrow();
+                bVar.mIK += flexItem.getFlexShrink();
+                this.mIQ.a(Ma, i17, i8, bVar);
+                i14 = Math.max(i9, m(Ma, dyZ) + e(flexItem, dyZ) + f(flexItem, dyZ) + this.mIQ.dq(Ma));
+                bVar.mIH = Math.max(bVar.mIH, i14);
+                if (dyZ) {
+                    if (this.mIQ.getFlexWrap() != 2) {
+                        bVar.mIL = Math.max(bVar.mIL, Ma.getBaseline() + flexItem.dzd());
                     } else {
-                        bVar.mIG = Math.max(bVar.mIG, (Ma.getMeasuredHeight() - Ma.getBaseline()) + flexItem.dzc());
+                        bVar.mIL = Math.max(bVar.mIL, (Ma.getMeasuredHeight() - Ma.getBaseline()) + flexItem.dze());
                     }
                 }
                 if (a(i17, flexItemCount, bVar)) {
                     a(list, bVar, i17, i10);
-                    i15 = i10 + bVar.mIB;
+                    i15 = i10 + bVar.mIH;
                 } else {
                     i15 = i10;
                 }
                 if (i5 != -1 && list.size() > 0) {
-                    if (list.get(list.size() - 1).mIK >= i5 && i17 >= i5 && !z3) {
-                        i15 = -bVar.dzd();
+                    if (list.get(list.size() - 1).mIP >= i5 && i17 >= i5 && !z3) {
+                        i15 = -bVar.dzf();
                         z = true;
                         if (i15 <= i3 && z) {
                             break;
@@ -299,23 +299,23 @@ public class c {
             z3 = z;
             i13 = i11;
         }
-        aVar.mIR = i6;
+        aVar.mIW = i6;
     }
 
     private int vU(boolean z) {
-        return z ? this.mIL.getPaddingStart() : this.mIL.getPaddingTop();
+        return z ? this.mIQ.getPaddingStart() : this.mIQ.getPaddingTop();
     }
 
     private int vV(boolean z) {
-        return z ? this.mIL.getPaddingEnd() : this.mIL.getPaddingBottom();
+        return z ? this.mIQ.getPaddingEnd() : this.mIQ.getPaddingBottom();
     }
 
     private int vW(boolean z) {
-        return z ? this.mIL.getPaddingTop() : this.mIL.getPaddingStart();
+        return z ? this.mIQ.getPaddingTop() : this.mIQ.getPaddingStart();
     }
 
     private int vX(boolean z) {
-        return z ? this.mIL.getPaddingBottom() : this.mIL.getPaddingEnd();
+        return z ? this.mIQ.getPaddingBottom() : this.mIQ.getPaddingEnd();
     }
 
     private int l(View view, boolean z) {
@@ -335,32 +335,32 @@ public class c {
     }
 
     private int c(FlexItem flexItem, boolean z) {
-        return z ? flexItem.getMarginLeft() : flexItem.dzb();
+        return z ? flexItem.getMarginLeft() : flexItem.dzd();
     }
 
     private int d(FlexItem flexItem, boolean z) {
-        return z ? flexItem.getMarginRight() : flexItem.dzc();
+        return z ? flexItem.getMarginRight() : flexItem.dze();
     }
 
     private int e(FlexItem flexItem, boolean z) {
-        return z ? flexItem.dzb() : flexItem.getMarginLeft();
+        return z ? flexItem.dzd() : flexItem.getMarginLeft();
     }
 
     private int f(FlexItem flexItem, boolean z) {
-        return z ? flexItem.dzc() : flexItem.getMarginRight();
+        return z ? flexItem.dze() : flexItem.getMarginRight();
     }
 
     private boolean a(View view, int i, int i2, int i3, int i4, FlexItem flexItem, int i5, int i6, int i7) {
-        if (this.mIL.getFlexWrap() == 0) {
+        if (this.mIQ.getFlexWrap() == 0) {
             return false;
         }
-        if (flexItem.dyZ()) {
+        if (flexItem.dzb()) {
             return true;
         }
         if (i != 0) {
-            int maxLine = this.mIL.getMaxLine();
+            int maxLine = this.mIQ.getMaxLine();
             if (maxLine == -1 || maxLine > i7 + 1) {
-                int g = this.mIL.g(view, i5, i6);
+                int g = this.mIQ.g(view, i5, i6);
                 if (g > 0) {
                     i4 += g;
                 }
@@ -372,13 +372,13 @@ public class c {
     }
 
     private boolean a(int i, int i2, com.google.android.flexbox.b bVar) {
-        return i == i2 + (-1) && bVar.dze() != 0;
+        return i == i2 + (-1) && bVar.dzg() != 0;
     }
 
     private void a(List<com.google.android.flexbox.b> list, com.google.android.flexbox.b bVar, int i, int i2) {
-        bVar.mIH = i2;
-        this.mIL.a(bVar);
-        bVar.mIK = i;
+        bVar.mIM = i2;
+        this.mIQ.a(bVar);
+        bVar.mIP = i;
         list.add(bVar);
     }
 
@@ -409,7 +409,7 @@ public class c {
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i2, 1073741824);
             view.measure(makeMeasureSpec, makeMeasureSpec2);
             a(i, makeMeasureSpec, makeMeasureSpec2, view);
-            this.mIL.m(i, view);
+            this.mIQ.m(i, view);
         }
     }
 
@@ -422,18 +422,18 @@ public class c {
     public void ao(int i, int i2, int i3) {
         int paddingTop;
         int i4;
-        Mc(this.mIL.getFlexItemCount());
-        if (i3 < this.mIL.getFlexItemCount()) {
-            int flexDirection = this.mIL.getFlexDirection();
-            switch (this.mIL.getFlexDirection()) {
+        Mc(this.mIQ.getFlexItemCount());
+        if (i3 < this.mIQ.getFlexItemCount()) {
+            int flexDirection = this.mIQ.getFlexDirection();
+            switch (this.mIQ.getFlexDirection()) {
                 case 0:
                 case 1:
                     int mode = View.MeasureSpec.getMode(i);
                     int size = View.MeasureSpec.getSize(i);
                     if (mode != 1073741824) {
-                        size = this.mIL.getLargestMainSize();
+                        size = this.mIQ.getLargestMainSize();
                     }
-                    paddingTop = this.mIL.getPaddingLeft() + this.mIL.getPaddingRight();
+                    paddingTop = this.mIQ.getPaddingLeft() + this.mIQ.getPaddingRight();
                     i4 = size;
                     break;
                 case 2:
@@ -441,20 +441,20 @@ public class c {
                     int mode2 = View.MeasureSpec.getMode(i2);
                     int size2 = View.MeasureSpec.getSize(i2);
                     if (mode2 != 1073741824) {
-                        size2 = this.mIL.getLargestMainSize();
+                        size2 = this.mIQ.getLargestMainSize();
                     }
-                    paddingTop = this.mIL.getPaddingTop() + this.mIL.getPaddingBottom();
+                    paddingTop = this.mIQ.getPaddingTop() + this.mIQ.getPaddingBottom();
                     i4 = size2;
                     break;
                 default:
                     throw new IllegalArgumentException("Invalid flex direction: " + flexDirection);
             }
-            int i5 = this.mIN != null ? this.mIN[i3] : 0;
-            List<com.google.android.flexbox.b> flexLinesInternal = this.mIL.getFlexLinesInternal();
+            int i5 = this.mIS != null ? this.mIS[i3] : 0;
+            List<com.google.android.flexbox.b> flexLinesInternal = this.mIQ.getFlexLinesInternal();
             int size3 = flexLinesInternal.size();
             for (int i6 = i5; i6 < size3; i6++) {
                 com.google.android.flexbox.b bVar = flexLinesInternal.get(i6);
-                if (bVar.mIz < i4) {
+                if (bVar.mIF < i4) {
                     a(i, i2, bVar, i4, paddingTop, false);
                 } else {
                     b(i, i2, bVar, i4, paddingTop, false);
@@ -464,19 +464,19 @@ public class c {
     }
 
     private void Mc(int i) {
-        if (this.mIM == null) {
+        if (this.mIR == null) {
             if (i < 10) {
                 i = 10;
             }
-            this.mIM = new boolean[i];
-        } else if (this.mIM.length < i) {
-            int length = this.mIM.length * 2;
+            this.mIR = new boolean[i];
+        } else if (this.mIR.length < i) {
+            int length = this.mIR.length * 2;
             if (length >= i) {
                 i = length;
             }
-            this.mIM = new boolean[i];
+            this.mIR = new boolean[i];
         } else {
-            Arrays.fill(this.mIM, false);
+            Arrays.fill(this.mIR, false);
         }
     }
 
@@ -488,12 +488,12 @@ public class c {
         float f3;
         float f4;
         int i7;
-        if (bVar.mIE > 0.0f && i3 >= bVar.mIz) {
-            int i8 = bVar.mIz;
-            float f5 = (i3 - bVar.mIz) / bVar.mIE;
-            bVar.mIz = bVar.mIA + i4;
+        if (bVar.mIJ > 0.0f && i3 >= bVar.mIF) {
+            int i8 = bVar.mIF;
+            float f5 = (i3 - bVar.mIF) / bVar.mIJ;
+            bVar.mIF = bVar.mIG + i4;
             if (!z) {
-                bVar.mIB = Integer.MIN_VALUE;
+                bVar.mIH = Integer.MIN_VALUE;
             }
             int i9 = 0;
             boolean z2 = false;
@@ -504,21 +504,21 @@ public class c {
                 if (i11 >= bVar.mItemCount) {
                     break;
                 }
-                int i12 = bVar.mIJ + i11;
-                View Ma = this.mIL.Ma(i12);
+                int i12 = bVar.mIO + i11;
+                View Ma = this.mIQ.Ma(i12);
                 if (Ma != null && Ma.getVisibility() != 8) {
                     FlexItem flexItem = (FlexItem) Ma.getLayoutParams();
-                    int flexDirection = this.mIL.getFlexDirection();
+                    int flexDirection = this.mIQ.getFlexDirection();
                     if (flexDirection == 0 || flexDirection == 1) {
                         int measuredWidth = Ma.getMeasuredWidth();
-                        if (this.mIP != null) {
-                            measuredWidth = gQ(this.mIP[i12]);
+                        if (this.mIU != null) {
+                            measuredWidth = gQ(this.mIU[i12]);
                         }
                         int measuredHeight = Ma.getMeasuredHeight();
-                        if (this.mIP != null) {
-                            measuredHeight = gR(this.mIP[i12]);
+                        if (this.mIU != null) {
+                            measuredHeight = gR(this.mIU[i12]);
                         }
-                        if (!this.mIM[i12] && flexItem.getFlexGrow() > 0.0f) {
+                        if (!this.mIR[i12] && flexItem.getFlexGrow() > 0.0f) {
                             float flexGrow = measuredWidth + (flexItem.getFlexGrow() * f5);
                             if (i11 == bVar.mItemCount - 1) {
                                 f2 = f6 + flexGrow;
@@ -531,8 +531,8 @@ public class c {
                             if (round > flexItem.getMaxWidth()) {
                                 z2 = true;
                                 i6 = flexItem.getMaxWidth();
-                                this.mIM[i12] = true;
-                                bVar.mIE -= flexItem.getFlexGrow();
+                                this.mIR[i12] = true;
+                                bVar.mIJ -= flexItem.getFlexGrow();
                             } else {
                                 f += f2 - round;
                                 if (f > 1.0d) {
@@ -545,29 +545,29 @@ public class c {
                                     i6 = round;
                                 }
                             }
-                            int b2 = b(i2, flexItem, bVar.mIH);
+                            int b2 = b(i2, flexItem, bVar.mIM);
                             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i6, 1073741824);
                             Ma.measure(makeMeasureSpec, b2);
                             int measuredWidth2 = Ma.getMeasuredWidth();
                             measuredHeight = Ma.getMeasuredHeight();
                             a(i12, makeMeasureSpec, b2, Ma);
-                            this.mIL.m(i12, Ma);
+                            this.mIQ.m(i12, Ma);
                             f6 = f;
                             measuredWidth = measuredWidth2;
                         }
-                        int max = Math.max(i10, measuredHeight + flexItem.dzb() + flexItem.dzc() + this.mIL.dq(Ma));
-                        bVar.mIz = flexItem.getMarginRight() + measuredWidth + flexItem.getMarginLeft() + bVar.mIz;
+                        int max = Math.max(i10, measuredHeight + flexItem.dzd() + flexItem.dze() + this.mIQ.dq(Ma));
+                        bVar.mIF = flexItem.getMarginRight() + measuredWidth + flexItem.getMarginLeft() + bVar.mIF;
                         i5 = max;
                     } else {
                         int measuredHeight2 = Ma.getMeasuredHeight();
-                        if (this.mIP != null) {
-                            measuredHeight2 = gR(this.mIP[i12]);
+                        if (this.mIU != null) {
+                            measuredHeight2 = gR(this.mIU[i12]);
                         }
                         int measuredWidth3 = Ma.getMeasuredWidth();
-                        if (this.mIP != null) {
-                            measuredWidth3 = gQ(this.mIP[i12]);
+                        if (this.mIU != null) {
+                            measuredWidth3 = gQ(this.mIU[i12]);
                         }
-                        if (!this.mIM[i12] && flexItem.getFlexGrow() > 0.0f) {
+                        if (!this.mIR[i12] && flexItem.getFlexGrow() > 0.0f) {
                             float flexGrow2 = measuredHeight2 + (flexItem.getFlexGrow() * f5);
                             if (i11 == bVar.mItemCount - 1) {
                                 f4 = f6 + flexGrow2;
@@ -580,8 +580,8 @@ public class c {
                             if (round2 > flexItem.getMaxHeight()) {
                                 z2 = true;
                                 i7 = flexItem.getMaxHeight();
-                                this.mIM[i12] = true;
-                                bVar.mIE -= flexItem.getFlexGrow();
+                                this.mIR[i12] = true;
+                                bVar.mIJ -= flexItem.getFlexGrow();
                             } else {
                                 f3 += f4 - round2;
                                 if (f3 > 1.0d) {
@@ -594,26 +594,26 @@ public class c {
                                     i7 = round2;
                                 }
                             }
-                            int a2 = a(i, flexItem, bVar.mIH);
+                            int a2 = a(i, flexItem, bVar.mIM);
                             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i7, 1073741824);
                             Ma.measure(a2, makeMeasureSpec2);
                             measuredWidth3 = Ma.getMeasuredWidth();
                             int measuredHeight3 = Ma.getMeasuredHeight();
                             a(i12, a2, makeMeasureSpec2, Ma);
-                            this.mIL.m(i12, Ma);
+                            this.mIQ.m(i12, Ma);
                             f6 = f3;
                             measuredHeight2 = measuredHeight3;
                         }
-                        int max2 = Math.max(i10, measuredWidth3 + flexItem.getMarginLeft() + flexItem.getMarginRight() + this.mIL.dq(Ma));
-                        bVar.mIz = flexItem.dzc() + measuredHeight2 + flexItem.dzb() + bVar.mIz;
+                        int max2 = Math.max(i10, measuredWidth3 + flexItem.getMarginLeft() + flexItem.getMarginRight() + this.mIQ.dq(Ma));
+                        bVar.mIF = flexItem.dze() + measuredHeight2 + flexItem.dzd() + bVar.mIF;
                         i5 = max2;
                     }
-                    bVar.mIB = Math.max(bVar.mIB, i5);
+                    bVar.mIH = Math.max(bVar.mIH, i5);
                     i10 = i5;
                 }
                 i9 = i11 + 1;
             }
-            if (z2 && i8 != bVar.mIz) {
+            if (z2 && i8 != bVar.mIF) {
                 a(i, i2, bVar, i3, i4, true);
             }
         }
@@ -627,12 +627,12 @@ public class c {
         float f3;
         float f4;
         int i7;
-        int i8 = bVar.mIz;
-        if (bVar.mIF > 0.0f && i3 <= bVar.mIz) {
-            float f5 = (bVar.mIz - i3) / bVar.mIF;
-            bVar.mIz = bVar.mIA + i4;
+        int i8 = bVar.mIF;
+        if (bVar.mIK > 0.0f && i3 <= bVar.mIF) {
+            float f5 = (bVar.mIF - i3) / bVar.mIK;
+            bVar.mIF = bVar.mIG + i4;
             if (!z) {
-                bVar.mIB = Integer.MIN_VALUE;
+                bVar.mIH = Integer.MIN_VALUE;
             }
             int i9 = 0;
             boolean z2 = false;
@@ -643,21 +643,21 @@ public class c {
                 if (i11 >= bVar.mItemCount) {
                     break;
                 }
-                int i12 = bVar.mIJ + i11;
-                View Ma = this.mIL.Ma(i12);
+                int i12 = bVar.mIO + i11;
+                View Ma = this.mIQ.Ma(i12);
                 if (Ma != null && Ma.getVisibility() != 8) {
                     FlexItem flexItem = (FlexItem) Ma.getLayoutParams();
-                    int flexDirection = this.mIL.getFlexDirection();
+                    int flexDirection = this.mIQ.getFlexDirection();
                     if (flexDirection == 0 || flexDirection == 1) {
                         int measuredWidth = Ma.getMeasuredWidth();
-                        if (this.mIP != null) {
-                            measuredWidth = gQ(this.mIP[i12]);
+                        if (this.mIU != null) {
+                            measuredWidth = gQ(this.mIU[i12]);
                         }
                         int measuredHeight = Ma.getMeasuredHeight();
-                        if (this.mIP != null) {
-                            measuredHeight = gR(this.mIP[i12]);
+                        if (this.mIU != null) {
+                            measuredHeight = gR(this.mIU[i12]);
                         }
-                        if (!this.mIM[i12] && flexItem.getFlexShrink() > 0.0f) {
+                        if (!this.mIR[i12] && flexItem.getFlexShrink() > 0.0f) {
                             float flexShrink = measuredWidth - (flexItem.getFlexShrink() * f5);
                             if (i11 == bVar.mItemCount - 1) {
                                 f2 = f6 + flexShrink;
@@ -670,8 +670,8 @@ public class c {
                             if (round < flexItem.getMinWidth()) {
                                 z2 = true;
                                 i6 = flexItem.getMinWidth();
-                                this.mIM[i12] = true;
-                                bVar.mIF -= flexItem.getFlexShrink();
+                                this.mIR[i12] = true;
+                                bVar.mIK -= flexItem.getFlexShrink();
                             } else {
                                 f += f2 - round;
                                 if (f > 1.0d) {
@@ -684,29 +684,29 @@ public class c {
                                     i6 = round;
                                 }
                             }
-                            int b2 = b(i2, flexItem, bVar.mIH);
+                            int b2 = b(i2, flexItem, bVar.mIM);
                             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i6, 1073741824);
                             Ma.measure(makeMeasureSpec, b2);
                             int measuredWidth2 = Ma.getMeasuredWidth();
                             measuredHeight = Ma.getMeasuredHeight();
                             a(i12, makeMeasureSpec, b2, Ma);
-                            this.mIL.m(i12, Ma);
+                            this.mIQ.m(i12, Ma);
                             f6 = f;
                             measuredWidth = measuredWidth2;
                         }
-                        int max = Math.max(i10, measuredHeight + flexItem.dzb() + flexItem.dzc() + this.mIL.dq(Ma));
-                        bVar.mIz = flexItem.getMarginRight() + measuredWidth + flexItem.getMarginLeft() + bVar.mIz;
+                        int max = Math.max(i10, measuredHeight + flexItem.dzd() + flexItem.dze() + this.mIQ.dq(Ma));
+                        bVar.mIF = flexItem.getMarginRight() + measuredWidth + flexItem.getMarginLeft() + bVar.mIF;
                         i5 = max;
                     } else {
                         int measuredHeight2 = Ma.getMeasuredHeight();
-                        if (this.mIP != null) {
-                            measuredHeight2 = gR(this.mIP[i12]);
+                        if (this.mIU != null) {
+                            measuredHeight2 = gR(this.mIU[i12]);
                         }
                         int measuredWidth3 = Ma.getMeasuredWidth();
-                        if (this.mIP != null) {
-                            measuredWidth3 = gQ(this.mIP[i12]);
+                        if (this.mIU != null) {
+                            measuredWidth3 = gQ(this.mIU[i12]);
                         }
-                        if (!this.mIM[i12] && flexItem.getFlexShrink() > 0.0f) {
+                        if (!this.mIR[i12] && flexItem.getFlexShrink() > 0.0f) {
                             float flexShrink2 = measuredHeight2 - (flexItem.getFlexShrink() * f5);
                             if (i11 == bVar.mItemCount - 1) {
                                 f4 = f6 + flexShrink2;
@@ -719,8 +719,8 @@ public class c {
                             if (round2 < flexItem.getMinHeight()) {
                                 z2 = true;
                                 i7 = flexItem.getMinHeight();
-                                this.mIM[i12] = true;
-                                bVar.mIF -= flexItem.getFlexShrink();
+                                this.mIR[i12] = true;
+                                bVar.mIK -= flexItem.getFlexShrink();
                             } else {
                                 f3 += f4 - round2;
                                 if (f3 > 1.0d) {
@@ -733,33 +733,33 @@ public class c {
                                     i7 = round2;
                                 }
                             }
-                            int a2 = a(i, flexItem, bVar.mIH);
+                            int a2 = a(i, flexItem, bVar.mIM);
                             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i7, 1073741824);
                             Ma.measure(a2, makeMeasureSpec2);
                             measuredWidth3 = Ma.getMeasuredWidth();
                             int measuredHeight3 = Ma.getMeasuredHeight();
                             a(i12, a2, makeMeasureSpec2, Ma);
-                            this.mIL.m(i12, Ma);
+                            this.mIQ.m(i12, Ma);
                             f6 = f3;
                             measuredHeight2 = measuredHeight3;
                         }
-                        int max2 = Math.max(i10, measuredWidth3 + flexItem.getMarginLeft() + flexItem.getMarginRight() + this.mIL.dq(Ma));
-                        bVar.mIz = flexItem.dzc() + measuredHeight2 + flexItem.dzb() + bVar.mIz;
+                        int max2 = Math.max(i10, measuredWidth3 + flexItem.getMarginLeft() + flexItem.getMarginRight() + this.mIQ.dq(Ma));
+                        bVar.mIF = flexItem.dze() + measuredHeight2 + flexItem.dzd() + bVar.mIF;
                         i5 = max2;
                     }
-                    bVar.mIB = Math.max(bVar.mIB, i5);
+                    bVar.mIH = Math.max(bVar.mIH, i5);
                     i10 = i5;
                 }
                 i9 = i11 + 1;
             }
-            if (z2 && i8 != bVar.mIz) {
+            if (z2 && i8 != bVar.mIF) {
                 b(i, i2, bVar, i3, i4, true);
             }
         }
     }
 
     private int a(int i, FlexItem flexItem, int i2) {
-        int am = this.mIL.am(i, this.mIL.getPaddingLeft() + this.mIL.getPaddingRight() + flexItem.getMarginLeft() + flexItem.getMarginRight() + i2, flexItem.getWidth());
+        int am = this.mIQ.am(i, this.mIQ.getPaddingLeft() + this.mIQ.getPaddingRight() + flexItem.getMarginLeft() + flexItem.getMarginRight() + i2, flexItem.getWidth());
         int size = View.MeasureSpec.getSize(am);
         if (size > flexItem.getMaxWidth()) {
             return View.MeasureSpec.makeMeasureSpec(flexItem.getMaxWidth(), View.MeasureSpec.getMode(am));
@@ -771,7 +771,7 @@ public class c {
     }
 
     private int b(int i, FlexItem flexItem, int i2) {
-        int an = this.mIL.an(i, this.mIL.getPaddingTop() + this.mIL.getPaddingBottom() + flexItem.dzb() + flexItem.dzc() + i2, flexItem.getHeight());
+        int an = this.mIQ.an(i, this.mIQ.getPaddingTop() + this.mIQ.getPaddingBottom() + flexItem.dzd() + flexItem.dze() + i2, flexItem.getHeight());
         int size = View.MeasureSpec.getSize(an);
         if (size > flexItem.getMaxHeight()) {
             return View.MeasureSpec.makeMeasureSpec(flexItem.getMaxHeight(), View.MeasureSpec.getMode(an));
@@ -789,7 +789,7 @@ public class c {
         float f;
         float f2;
         int i4;
-        int flexDirection = this.mIL.getFlexDirection();
+        int flexDirection = this.mIQ.getFlexDirection();
         switch (flexDirection) {
             case 0:
             case 1:
@@ -804,21 +804,21 @@ public class c {
             default:
                 throw new IllegalArgumentException("Invalid flex direction: " + flexDirection);
         }
-        List<com.google.android.flexbox.b> flexLinesInternal = this.mIL.getFlexLinesInternal();
+        List<com.google.android.flexbox.b> flexLinesInternal = this.mIQ.getFlexLinesInternal();
         if (mode == 1073741824) {
-            int sumOfCrossSize = this.mIL.getSumOfCrossSize() + i3;
+            int sumOfCrossSize = this.mIQ.getSumOfCrossSize() + i3;
             if (flexLinesInternal.size() == 1) {
-                flexLinesInternal.get(0).mIB = size - i3;
+                flexLinesInternal.get(0).mIH = size - i3;
             } else if (flexLinesInternal.size() >= 2) {
-                switch (this.mIL.getAlignContent()) {
+                switch (this.mIQ.getAlignContent()) {
                     case 1:
                         int i5 = size - sumOfCrossSize;
                         com.google.android.flexbox.b bVar = new com.google.android.flexbox.b();
-                        bVar.mIB = i5;
+                        bVar.mIH = i5;
                         flexLinesInternal.add(0, bVar);
                         return;
                     case 2:
-                        this.mIL.setFlexLines(g(flexLinesInternal, size, sumOfCrossSize));
+                        this.mIQ.setFlexLines(g(flexLinesInternal, size, sumOfCrossSize));
                         return;
                     case 3:
                         if (sumOfCrossSize < size) {
@@ -832,18 +832,18 @@ public class c {
                                 if (i6 != flexLinesInternal.size() - 1) {
                                     com.google.android.flexbox.b bVar2 = new com.google.android.flexbox.b();
                                     if (i6 == flexLinesInternal.size() - 2) {
-                                        bVar2.mIB = Math.round(size2 + f3);
+                                        bVar2.mIH = Math.round(size2 + f3);
                                         f2 = 0.0f;
                                     } else {
-                                        bVar2.mIB = Math.round(size2);
+                                        bVar2.mIH = Math.round(size2);
                                         f2 = f3;
                                     }
-                                    f = f2 + (size2 - bVar2.mIB);
+                                    f = f2 + (size2 - bVar2.mIH);
                                     if (f > 1.0f) {
-                                        bVar2.mIB++;
+                                        bVar2.mIH++;
                                         f -= 1.0f;
                                     } else if (f < -1.0f) {
-                                        bVar2.mIB--;
+                                        bVar2.mIH--;
                                         f += 1.0f;
                                     }
                                     arrayList.add(bVar2);
@@ -853,25 +853,25 @@ public class c {
                                 i6++;
                                 f3 = f;
                             }
-                            this.mIL.setFlexLines(arrayList);
+                            this.mIQ.setFlexLines(arrayList);
                             return;
                         }
                         return;
                     case 4:
                         if (sumOfCrossSize >= size) {
-                            this.mIL.setFlexLines(g(flexLinesInternal, size, sumOfCrossSize));
+                            this.mIQ.setFlexLines(g(flexLinesInternal, size, sumOfCrossSize));
                             return;
                         }
                         int size4 = (size - sumOfCrossSize) / (flexLinesInternal.size() * 2);
                         ArrayList arrayList2 = new ArrayList();
                         com.google.android.flexbox.b bVar3 = new com.google.android.flexbox.b();
-                        bVar3.mIB = size4;
+                        bVar3.mIH = size4;
                         for (com.google.android.flexbox.b bVar4 : flexLinesInternal) {
                             arrayList2.add(bVar3);
                             arrayList2.add(bVar4);
                             arrayList2.add(bVar3);
                         }
-                        this.mIL.setFlexLines(arrayList2);
+                        this.mIQ.setFlexLines(arrayList2);
                         return;
                     case 5:
                         if (sumOfCrossSize < size) {
@@ -880,7 +880,7 @@ public class c {
                             int size6 = flexLinesInternal.size();
                             for (int i7 = 0; i7 < size6; i7++) {
                                 com.google.android.flexbox.b bVar5 = flexLinesInternal.get(i7);
-                                float f5 = bVar5.mIB + size5;
+                                float f5 = bVar5.mIH + size5;
                                 if (i7 == flexLinesInternal.size() - 1) {
                                     f5 += f4;
                                     f4 = 0.0f;
@@ -896,7 +896,7 @@ public class c {
                                 } else {
                                     i4 = round;
                                 }
-                                bVar5.mIB = i4;
+                                bVar5.mIH = i4;
                             }
                             return;
                         }
@@ -911,7 +911,7 @@ public class c {
     private List<com.google.android.flexbox.b> g(List<com.google.android.flexbox.b> list, int i, int i2) {
         ArrayList arrayList = new ArrayList();
         com.google.android.flexbox.b bVar = new com.google.android.flexbox.b();
-        bVar.mIB = (i - i2) / 2;
+        bVar.mIH = (i - i2) / 2;
         int size = list.size();
         for (int i3 = 0; i3 < size; i3++) {
             if (i3 == 0) {
@@ -926,35 +926,35 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dzf() {
+    public void dzh() {
         Md(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void Md(int i) {
         View Ma;
-        if (i < this.mIL.getFlexItemCount()) {
-            int flexDirection = this.mIL.getFlexDirection();
-            if (this.mIL.getAlignItems() == 4) {
-                int i2 = this.mIN != null ? this.mIN[i] : 0;
-                List<com.google.android.flexbox.b> flexLinesInternal = this.mIL.getFlexLinesInternal();
+        if (i < this.mIQ.getFlexItemCount()) {
+            int flexDirection = this.mIQ.getFlexDirection();
+            if (this.mIQ.getAlignItems() == 4) {
+                int i2 = this.mIS != null ? this.mIS[i] : 0;
+                List<com.google.android.flexbox.b> flexLinesInternal = this.mIQ.getFlexLinesInternal();
                 int size = flexLinesInternal.size();
                 for (int i3 = i2; i3 < size; i3++) {
                     com.google.android.flexbox.b bVar = flexLinesInternal.get(i3);
                     int i4 = bVar.mItemCount;
                     for (int i5 = 0; i5 < i4; i5++) {
-                        int i6 = bVar.mIJ + i5;
-                        if (i5 < this.mIL.getFlexItemCount() && (Ma = this.mIL.Ma(i6)) != null && Ma.getVisibility() != 8) {
+                        int i6 = bVar.mIO + i5;
+                        if (i5 < this.mIQ.getFlexItemCount() && (Ma = this.mIQ.Ma(i6)) != null && Ma.getVisibility() != 8) {
                             FlexItem flexItem = (FlexItem) Ma.getLayoutParams();
-                            if (flexItem.dyY() == -1 || flexItem.dyY() == 4) {
+                            if (flexItem.dza() == -1 || flexItem.dza() == 4) {
                                 switch (flexDirection) {
                                     case 0:
                                     case 1:
-                                        h(Ma, bVar.mIB, i6);
+                                        h(Ma, bVar.mIH, i6);
                                         break;
                                     case 2:
                                     case 3:
-                                        i(Ma, bVar.mIB, i6);
+                                        i(Ma, bVar.mIH, i6);
                                         break;
                                     default:
                                         throw new IllegalArgumentException("Invalid flex direction: " + flexDirection);
@@ -965,17 +965,17 @@ public class c {
                 }
                 return;
             }
-            for (com.google.android.flexbox.b bVar2 : this.mIL.getFlexLinesInternal()) {
-                for (Integer num : bVar2.mII) {
-                    View Ma2 = this.mIL.Ma(num.intValue());
+            for (com.google.android.flexbox.b bVar2 : this.mIQ.getFlexLinesInternal()) {
+                for (Integer num : bVar2.mIN) {
+                    View Ma2 = this.mIQ.Ma(num.intValue());
                     switch (flexDirection) {
                         case 0:
                         case 1:
-                            h(Ma2, bVar2.mIB, num.intValue());
+                            h(Ma2, bVar2.mIH, num.intValue());
                             break;
                         case 2:
                         case 3:
-                            i(Ma2, bVar2.mIB, num.intValue());
+                            i(Ma2, bVar2.mIH, num.intValue());
                             break;
                         default:
                             throw new IllegalArgumentException("Invalid flex direction: " + flexDirection);
@@ -988,9 +988,9 @@ public class c {
     private void h(View view, int i, int i2) {
         int measuredWidth;
         FlexItem flexItem = (FlexItem) view.getLayoutParams();
-        int min = Math.min(Math.max(((i - flexItem.dzb()) - flexItem.dzc()) - this.mIL.dq(view), flexItem.getMinHeight()), flexItem.getMaxHeight());
-        if (this.mIP != null) {
-            measuredWidth = gQ(this.mIP[i2]);
+        int min = Math.min(Math.max(((i - flexItem.dzd()) - flexItem.dze()) - this.mIQ.dq(view), flexItem.getMinHeight()), flexItem.getMaxHeight());
+        if (this.mIU != null) {
+            measuredWidth = gQ(this.mIU[i2]);
         } else {
             measuredWidth = view.getMeasuredWidth();
         }
@@ -998,15 +998,15 @@ public class c {
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(min, 1073741824);
         view.measure(makeMeasureSpec, makeMeasureSpec2);
         a(i2, makeMeasureSpec, makeMeasureSpec2, view);
-        this.mIL.m(i2, view);
+        this.mIQ.m(i2, view);
     }
 
     private void i(View view, int i, int i2) {
         int measuredHeight;
         FlexItem flexItem = (FlexItem) view.getLayoutParams();
-        int min = Math.min(Math.max(((i - flexItem.getMarginLeft()) - flexItem.getMarginRight()) - this.mIL.dq(view), flexItem.getMinWidth()), flexItem.getMaxWidth());
-        if (this.mIP != null) {
-            measuredHeight = gR(this.mIP[i2]);
+        int min = Math.min(Math.max(((i - flexItem.getMarginLeft()) - flexItem.getMarginRight()) - this.mIQ.dq(view), flexItem.getMinWidth()), flexItem.getMaxWidth());
+        if (this.mIU != null) {
+            measuredHeight = gR(this.mIU[i2]);
         } else {
             measuredHeight = view.getMeasuredHeight();
         }
@@ -1014,37 +1014,37 @@ public class c {
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(min, 1073741824);
         view.measure(makeMeasureSpec2, makeMeasureSpec);
         a(i2, makeMeasureSpec2, makeMeasureSpec, view);
-        this.mIL.m(i2, view);
+        this.mIQ.m(i2, view);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(View view, com.google.android.flexbox.b bVar, int i, int i2, int i3, int i4) {
         FlexItem flexItem = (FlexItem) view.getLayoutParams();
-        int alignItems = this.mIL.getAlignItems();
-        if (flexItem.dyY() != -1) {
-            alignItems = flexItem.dyY();
+        int alignItems = this.mIQ.getAlignItems();
+        if (flexItem.dza() != -1) {
+            alignItems = flexItem.dza();
         }
-        int i5 = bVar.mIB;
+        int i5 = bVar.mIH;
         switch (alignItems) {
             case 0:
             case 4:
-                if (this.mIL.getFlexWrap() != 2) {
-                    view.layout(i, flexItem.dzb() + i2, i3, flexItem.dzb() + i4);
+                if (this.mIQ.getFlexWrap() != 2) {
+                    view.layout(i, flexItem.dzd() + i2, i3, flexItem.dzd() + i4);
                     return;
                 } else {
-                    view.layout(i, i2 - flexItem.dzc(), i3, i4 - flexItem.dzc());
+                    view.layout(i, i2 - flexItem.dze(), i3, i4 - flexItem.dze());
                     return;
                 }
             case 1:
-                if (this.mIL.getFlexWrap() != 2) {
-                    view.layout(i, ((i2 + i5) - view.getMeasuredHeight()) - flexItem.dzc(), i3, (i5 + i2) - flexItem.dzc());
+                if (this.mIQ.getFlexWrap() != 2) {
+                    view.layout(i, ((i2 + i5) - view.getMeasuredHeight()) - flexItem.dze(), i3, (i5 + i2) - flexItem.dze());
                     return;
                 }
-                view.layout(i, (i2 - i5) + view.getMeasuredHeight() + flexItem.dzb(), i3, flexItem.dzb() + (i4 - i5) + view.getMeasuredHeight());
+                view.layout(i, (i2 - i5) + view.getMeasuredHeight() + flexItem.dzd(), i3, flexItem.dzd() + (i4 - i5) + view.getMeasuredHeight());
                 return;
             case 2:
-                int measuredHeight = (((i5 - view.getMeasuredHeight()) + flexItem.dzb()) - flexItem.dzc()) / 2;
-                if (this.mIL.getFlexWrap() != 2) {
+                int measuredHeight = (((i5 - view.getMeasuredHeight()) + flexItem.dzd()) - flexItem.dze()) / 2;
+                if (this.mIQ.getFlexWrap() != 2) {
                     view.layout(i, i2 + measuredHeight, i3, measuredHeight + i2 + view.getMeasuredHeight());
                     return;
                 } else {
@@ -1052,12 +1052,12 @@ public class c {
                     return;
                 }
             case 3:
-                if (this.mIL.getFlexWrap() != 2) {
-                    int max = Math.max(bVar.mIG - view.getBaseline(), flexItem.dzb());
+                if (this.mIQ.getFlexWrap() != 2) {
+                    int max = Math.max(bVar.mIL - view.getBaseline(), flexItem.dzd());
                     view.layout(i, i2 + max, i3, max + i4);
                     return;
                 }
-                int max2 = Math.max((bVar.mIG - view.getMeasuredHeight()) + view.getBaseline(), flexItem.dzc());
+                int max2 = Math.max((bVar.mIL - view.getMeasuredHeight()) + view.getBaseline(), flexItem.dze());
                 view.layout(i, i2 - max2, i3, i4 - max2);
                 return;
             default:
@@ -1068,11 +1068,11 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(View view, com.google.android.flexbox.b bVar, boolean z, int i, int i2, int i3, int i4) {
         FlexItem flexItem = (FlexItem) view.getLayoutParams();
-        int alignItems = this.mIL.getAlignItems();
-        if (flexItem.dyY() != -1) {
-            alignItems = flexItem.dyY();
+        int alignItems = this.mIQ.getAlignItems();
+        if (flexItem.dza() != -1) {
+            alignItems = flexItem.dza();
         }
-        int i5 = bVar.mIB;
+        int i5 = bVar.mIH;
         switch (alignItems) {
             case 0:
             case 3:
@@ -1108,33 +1108,33 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void Me(int i) {
-        if (this.mIP == null) {
+        if (this.mIU == null) {
             if (i < 10) {
                 i = 10;
             }
-            this.mIP = new long[i];
-        } else if (this.mIP.length < i) {
-            int length = this.mIP.length * 2;
+            this.mIU = new long[i];
+        } else if (this.mIU.length < i) {
+            int length = this.mIU.length * 2;
             if (length >= i) {
                 i = length;
             }
-            this.mIP = Arrays.copyOf(this.mIP, i);
+            this.mIU = Arrays.copyOf(this.mIU, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void Mf(int i) {
-        if (this.mIO == null) {
+        if (this.mIT == null) {
             if (i < 10) {
                 i = 10;
             }
-            this.mIO = new long[i];
-        } else if (this.mIO.length < i) {
-            int length = this.mIO.length * 2;
+            this.mIT = new long[i];
+        } else if (this.mIT.length < i) {
+            int length = this.mIT.length * 2;
             if (length >= i) {
                 i = length;
             }
-            this.mIO = Arrays.copyOf(this.mIO, i);
+            this.mIT = Arrays.copyOf(this.mIT, i);
         }
     }
 
@@ -1154,56 +1154,56 @@ public class c {
     }
 
     private void a(int i, int i2, int i3, View view) {
-        if (this.mIO != null) {
-            this.mIO[i] = dZ(i2, i3);
+        if (this.mIT != null) {
+            this.mIT[i] = dZ(i2, i3);
         }
-        if (this.mIP != null) {
-            this.mIP[i] = dZ(view.getMeasuredWidth(), view.getMeasuredHeight());
+        if (this.mIU != null) {
+            this.mIU[i] = dZ(view.getMeasuredWidth(), view.getMeasuredHeight());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void Mg(int i) {
-        if (this.mIN == null) {
+        if (this.mIS == null) {
             if (i < 10) {
                 i = 10;
             }
-            this.mIN = new int[i];
-        } else if (this.mIN.length < i) {
-            int length = this.mIN.length * 2;
+            this.mIS = new int[i];
+        } else if (this.mIS.length < i) {
+            int length = this.mIS.length * 2;
             if (length >= i) {
                 i = length;
             }
-            this.mIN = Arrays.copyOf(this.mIN, i);
+            this.mIS = Arrays.copyOf(this.mIS, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void r(List<com.google.android.flexbox.b> list, int i) {
-        if (!$assertionsDisabled && this.mIN == null) {
+        if (!$assertionsDisabled && this.mIS == null) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && this.mIO == null) {
+        if (!$assertionsDisabled && this.mIT == null) {
             throw new AssertionError();
         }
-        int i2 = this.mIN[i];
+        int i2 = this.mIS[i];
         if (i2 == -1) {
             i2 = 0;
         }
         for (int size = list.size() - 1; size >= i2; size--) {
             list.remove(size);
         }
-        int length = this.mIN.length - 1;
+        int length = this.mIS.length - 1;
         if (i > length) {
-            Arrays.fill(this.mIN, -1);
+            Arrays.fill(this.mIS, -1);
         } else {
-            Arrays.fill(this.mIN, i, length, -1);
+            Arrays.fill(this.mIS, i, length, -1);
         }
-        int length2 = this.mIO.length - 1;
+        int length2 = this.mIT.length - 1;
         if (i > length2) {
-            Arrays.fill(this.mIO, 0L);
+            Arrays.fill(this.mIT, 0L);
         } else {
-            Arrays.fill(this.mIO, i, length2, 0L);
+            Arrays.fill(this.mIT, i, length2, 0L);
         }
     }
 
@@ -1231,13 +1231,13 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class a {
-        List<com.google.android.flexbox.b> mIQ;
-        int mIR;
+        List<com.google.android.flexbox.b> mIV;
+        int mIW;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void reset() {
-            this.mIQ = null;
-            this.mIR = 0;
+            this.mIV = null;
+            this.mIW = 0;
         }
     }
 }

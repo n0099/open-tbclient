@@ -17,8 +17,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public class b {
     private String cxh;
-    private ArrayList<String> kKL;
-    private final String kQZ = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private ArrayList<String> kKQ;
+    private final String kRe = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -38,10 +38,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.kKL)) {
+        if (spannable != null && !v.isEmpty(this.kKQ)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.kKL.iterator();
+                Iterator<String> it = this.kKQ.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -90,7 +90,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(cSK())) {
+        if (v.isEmpty(cSM())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -113,18 +113,18 @@ public class b {
     }
 
     public void aV(ArrayList<String> arrayList) {
-        this.kKL = arrayList;
+        this.kKQ = arrayList;
     }
 
-    public ArrayList<String> cSK() {
-        return this.kKL;
+    public ArrayList<String> cSM() {
+        return this.kKQ;
     }
 
     public void Kx(String str) {
         this.cxh = str;
     }
 
-    public String cSO() {
+    public String cSQ() {
         return this.cxh;
     }
 

@@ -20,11 +20,11 @@ import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
     private View.OnClickListener arL;
-    private MsgSettingItemView jSG;
-    private MsgSettingItemView jSH;
-    private MsgSettingItemView jSI;
-    private TbSettingTextTipView jSJ;
-    private MsgReceiveActivity jSK;
+    private MsgSettingItemView jSL;
+    private MsgSettingItemView jSM;
+    private MsgSettingItemView jSN;
+    private TbSettingTextTipView jSO;
+    private MsgReceiveActivity jSP;
     private ArrayList<OfficialAccountPushInfo> list;
     private View mBack;
     private NavigationBar mNavigationBar;
@@ -35,80 +35,80 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
         this.arL = new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && view == f.this.jSJ) {
+                if (view != null && view == f.this.jSO) {
                     TiebaStatic.log(new an("c13287").cp("uid", TbadkCoreApplication.getCurrentAccount()));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialAccountPushActivityConfig(f.this.jSK, f.this.getList())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialAccountPushActivityConfig(f.this.jSP, f.this.getList())));
                 }
             }
         };
-        this.jSK = msgReceiveActivity;
+        this.jSP = msgReceiveActivity;
     }
 
     public void init() {
-        if (this.jSK != null) {
+        if (this.jSP != null) {
             initUI();
         }
     }
 
     private void initUI() {
-        if (this.jSK != null) {
-            this.jSK.setContentView(R.layout.msg_receive_activity);
-            this.mRootView = (ViewGroup) this.jSK.findViewById(R.id.msg_receive_root_view);
-            this.mNavigationBar = (NavigationBar) this.jSK.findViewById(R.id.navigation_bar_msg_receive);
-            this.mNavigationBar.setCenterTextTitle(this.jSK.getPageContext().getString(R.string.receive_message));
+        if (this.jSP != null) {
+            this.jSP.setContentView(R.layout.msg_receive_activity);
+            this.mRootView = (ViewGroup) this.jSP.findViewById(R.id.msg_receive_root_view);
+            this.mNavigationBar = (NavigationBar) this.jSP.findViewById(R.id.navigation_bar_msg_receive);
+            this.mNavigationBar.setCenterTextTitle(this.jSP.getPageContext().getString(R.string.receive_message));
             this.mNavigationBar.showBottomLine();
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.jSG = (MsgSettingItemView) this.jSK.findViewById(R.id.item_view_friend_msg);
-            this.jSG.setText(R.string.friend_msg_switch);
-            this.jSG.setOnSwitchStateChangeListener(this.jSK);
-            this.jSH = (MsgSettingItemView) this.jSK.findViewById(R.id.item_view_stranger_msg);
-            this.jSH.setText(R.string.stranger_msg_switch);
-            this.jSH.setOnSwitchStateChangeListener(this.jSK);
-            this.jSH.setLineVisibility(false);
-            cEC();
-            this.jSI = (MsgSettingItemView) this.jSK.findViewById(R.id.item_view_forum_broadcast_msg);
-            this.jSI.setText(R.string.receive_forum_broadcast_message);
-            this.jSI.setOnSwitchStateChangeListener(this.jSK);
-            this.jSI.setLineVisibility(false);
-            cED();
-            this.jSJ = (TbSettingTextTipView) this.jSK.findViewById(R.id.item_view_offical_account_push_msg);
-            this.jSJ.setOnClickListener(this.arL);
+            this.jSL = (MsgSettingItemView) this.jSP.findViewById(R.id.item_view_friend_msg);
+            this.jSL.setText(R.string.friend_msg_switch);
+            this.jSL.setOnSwitchStateChangeListener(this.jSP);
+            this.jSM = (MsgSettingItemView) this.jSP.findViewById(R.id.item_view_stranger_msg);
+            this.jSM.setText(R.string.stranger_msg_switch);
+            this.jSM.setOnSwitchStateChangeListener(this.jSP);
+            this.jSM.setLineVisibility(false);
+            cEE();
+            this.jSN = (MsgSettingItemView) this.jSP.findViewById(R.id.item_view_forum_broadcast_msg);
+            this.jSN.setText(R.string.receive_forum_broadcast_message);
+            this.jSN.setOnSwitchStateChangeListener(this.jSP);
+            this.jSN.setLineVisibility(false);
+            cEF();
+            this.jSO = (TbSettingTextTipView) this.jSP.findViewById(R.id.item_view_offical_account_push_msg);
+            this.jSO.setOnClickListener(this.arL);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cEC() {
-        if (this.jSG == null || this.jSH == null) {
+    private void cEE() {
+        if (this.jSL == null || this.jSM == null) {
             return;
         }
         switch (GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE) {
             case 0:
                 return;
             case 1:
-                this.jSG.getSwitchView().turnOnNoCallback();
-                this.jSG.setLineVisibility(true);
-                this.jSH.getSwitchView().turnOffNoCallback();
+                this.jSL.getSwitchView().turnOnNoCallback();
+                this.jSL.setLineVisibility(true);
+                this.jSM.getSwitchView().turnOffNoCallback();
                 return;
             default:
-                this.jSG.getSwitchView().turnOffNoCallback();
-                this.jSG.setLineVisibility(false);
-                this.jSH.setVisibility(8);
-                this.jSH.getSwitchView().turnOffNoCallback();
+                this.jSL.getSwitchView().turnOffNoCallback();
+                this.jSL.setLineVisibility(false);
+                this.jSM.setVisibility(8);
+                this.jSM.getSwitchView().turnOffNoCallback();
                 return;
         }
     }
 
-    private void cED() {
-        if (this.jSI != null) {
-            this.jSI.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJk());
+    private void cEF() {
+        if (this.jSN != null) {
+            this.jSN.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJk());
         }
     }
 
     public void sl(boolean z) {
         if (z) {
-            this.jSH.setVisibility(0);
+            this.jSM.setVisibility(0);
         } else {
-            this.jSH.setVisibility(8);
+            this.jSM.setVisibility(8);
         }
     }
 
@@ -118,31 +118,31 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c, i);
-        this.mNavigationBar.onChangeSkinType(this.jSK.getPageContext(), i);
-        this.jSG.onChangeSkinType(this.jSK.getPageContext(), i);
-        this.jSH.onChangeSkinType(this.jSK.getPageContext(), i);
-        this.jSI.onChangeSkinType(this.jSK.getPageContext(), i);
-        this.jSJ.onChangeSkinType(i);
+        this.mNavigationBar.onChangeSkinType(this.jSP.getPageContext(), i);
+        this.jSL.onChangeSkinType(this.jSP.getPageContext(), i);
+        this.jSM.onChangeSkinType(this.jSP.getPageContext(), i);
+        this.jSN.onChangeSkinType(this.jSP.getPageContext(), i);
+        this.jSO.onChangeSkinType(i);
     }
 
     public View bUZ() {
         return this.mBack;
     }
 
-    public BdSwitchView cEE() {
-        return this.jSG.getSwitchView();
-    }
-
-    public BdSwitchView cEF() {
-        return this.jSH.getSwitchView();
-    }
-
     public BdSwitchView cEG() {
-        return this.jSI.getSwitchView();
+        return this.jSL.getSwitchView();
+    }
+
+    public BdSwitchView cEH() {
+        return this.jSM.getSwitchView();
+    }
+
+    public BdSwitchView cEI() {
+        return this.jSN.getSwitchView();
     }
 
     public void sm(boolean z) {
-        this.jSG.setLineVisibility(z);
+        this.jSL.setLineVisibility(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

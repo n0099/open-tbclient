@@ -17,16 +17,16 @@ import org.a.d;
 public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
     final h<? super T, ? extends e> mapper;
-    final g<T> nvK;
+    final g<T> nvP;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        this.nvK.a((j) new SwitchMapCompletableObserver(cVar, this.mapper, this.delayErrors));
+        this.nvP.a((j) new SwitchMapCompletableObserver(cVar, this.mapper, this.delayErrors));
     }
 
     /* loaded from: classes5.dex */
     static final class SwitchMapCompletableObserver<T> implements b, j<T> {
-        static final SwitchMapInnerObserver nxc = new SwitchMapInnerObserver(null);
+        static final SwitchMapInnerObserver nxh = new SwitchMapInnerObserver(null);
         final boolean delayErrors;
         volatile boolean done;
         final c downstream;
@@ -58,7 +58,7 @@ public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
                 SwitchMapInnerObserver switchMapInnerObserver2 = new SwitchMapInnerObserver(this);
                 do {
                     switchMapInnerObserver = this.inner.get();
-                    if (switchMapInnerObserver == nxc) {
+                    if (switchMapInnerObserver == nxh) {
                         return;
                     }
                 } while (!this.inner.compareAndSet(switchMapInnerObserver, switchMapInnerObserver2));
@@ -105,8 +105,8 @@ public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
         }
 
         void disposeInner() {
-            SwitchMapInnerObserver andSet = this.inner.getAndSet(nxc);
-            if (andSet != null && andSet != nxc) {
+            SwitchMapInnerObserver andSet = this.inner.getAndSet(nxh);
+            if (andSet != null && andSet != nxh) {
                 andSet.dispose();
             }
         }
@@ -119,7 +119,7 @@ public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.inner.get() == nxc;
+            return this.inner.get() == nxh;
         }
 
         void a(SwitchMapInnerObserver switchMapInnerObserver, Throwable th) {

@@ -186,7 +186,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             bVar.isSuccess = !mvcSocketResponsedMessage.hasError();
             bVar.errorCode = mvcSocketResponsedMessage.getError();
             bVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            bVar.kdc = mvcSocketResponsedMessage.getDownSize();
+            bVar.kdh = mvcSocketResponsedMessage.getDownSize();
             this.gDG = bVar;
             FrsRequestData frsRequestData2 = null;
             l data = mvcSocketResponsedMessage.getData();
@@ -231,7 +231,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             bVar.isSuccess = !mvcHttpResponsedMessage.hasError();
             bVar.errorCode = mvcHttpResponsedMessage.getError();
             bVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            bVar.kdc = mvcHttpResponsedMessage.getDownSize();
+            bVar.kdh = mvcHttpResponsedMessage.getDownSize();
             this.gDG = bVar;
             FrsRequestData frsRequestData2 = null;
             l data = mvcHttpResponsedMessage.getData();

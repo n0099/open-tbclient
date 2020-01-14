@@ -279,7 +279,7 @@ public class z extends com.baidu.tbadk.core.dialog.i {
                 z6 = ((Boolean) sparseArray.get(R.id.tag_richtext_emotion)).booleanValue();
                 if (this.cRe.getPageActivity() instanceof NewSubPbActivity) {
                     NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.cRe.getPageActivity();
-                    z6 = (!z6 || newSubPbActivity.cpW() == null || newSubPbActivity.cpW().cqu() == null || newSubPbActivity.cpW().cqu().axQ() == null || newSubPbActivity.cpW().cqu().axQ().isBjh()) ? false : true;
+                    z6 = (!z6 || newSubPbActivity.cpW() == null || newSubPbActivity.cpW().cqv() == null || newSubPbActivity.cpW().cqv().axQ() == null || newSubPbActivity.cpW().cqv().axQ().isBjh()) ? false : true;
                 }
             }
             if (!(sparseArray.get(R.id.tag_richtext_image) instanceof Boolean)) {

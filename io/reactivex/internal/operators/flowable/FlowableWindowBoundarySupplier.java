@@ -19,7 +19,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.g<T>> cVar) {
-        this.nvK.a((j) new WindowBoundaryMainSubscriber(cVar, this.capacityHint, this.other));
+        this.nvP.a((j) new WindowBoundaryMainSubscriber(cVar, this.capacityHint, this.other));
     }
 
     /* loaded from: classes5.dex */
@@ -229,10 +229,10 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
     /* loaded from: classes5.dex */
     public static final class a<T, B> extends io.reactivex.subscribers.a<B> {
         boolean done;
-        final WindowBoundaryMainSubscriber<T, B> nwH;
+        final WindowBoundaryMainSubscriber<T, B> nwM;
 
         a(WindowBoundaryMainSubscriber<T, B> windowBoundaryMainSubscriber) {
-            this.nwH = windowBoundaryMainSubscriber;
+            this.nwM = windowBoundaryMainSubscriber;
         }
 
         @Override // org.a.c
@@ -240,7 +240,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.nwH.innerNext(this);
+                this.nwM.innerNext(this);
             }
         }
 
@@ -251,14 +251,14 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
                 return;
             }
             this.done = true;
-            this.nwH.innerError(th);
+            this.nwM.innerError(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.nwH.innerComplete();
+                this.nwM.innerComplete();
             }
         }
     }

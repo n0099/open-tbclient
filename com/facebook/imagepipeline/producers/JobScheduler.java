@@ -8,19 +8,19 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes10.dex */
 public class JobScheduler {
-    private final a lUZ;
-    private final int lVc;
+    private final a lVe;
+    private final int lVh;
     private final Executor mExecutor;
-    private final Runnable lVa = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final Runnable lVf = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dqC();
+            JobScheduler.this.dqE();
         }
     };
-    private final Runnable lVb = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    private final Runnable lVg = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dqB();
+            JobScheduler.this.dqD();
         }
     };
     @GuardedBy("this")
@@ -28,11 +28,11 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState lVd = JobState.IDLE;
+    JobState lVi = JobState.IDLE;
     @GuardedBy("this")
-    long lVe = 0;
+    long lVj = 0;
     @GuardedBy("this")
-    long lVf = 0;
+    long lVk = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes10.dex */
@@ -51,23 +51,23 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes10.dex */
     public static class b {
-        private static ScheduledExecutorService lVi;
+        private static ScheduledExecutorService lVn;
 
-        static ScheduledExecutorService dqF() {
-            if (lVi == null) {
-                lVi = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService dqH() {
+            if (lVn == null) {
+                lVn = Executors.newSingleThreadScheduledExecutor();
             }
-            return lVi;
+            return lVn;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.lUZ = aVar;
-        this.lVc = i;
+        this.lVe = aVar;
+        this.lVh = i;
     }
 
-    public void dqz() {
+    public void dqB() {
         com.facebook.imagepipeline.g.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,21 +91,21 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean dqA() {
+    public boolean dqC() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.lVd) {
+                switch (this.lVi) {
                     case IDLE:
-                        j = Math.max(this.lVf + this.lVc, uptimeMillis);
-                        this.lVe = uptimeMillis;
-                        this.lVd = JobState.QUEUED;
+                        j = Math.max(this.lVk + this.lVh, uptimeMillis);
+                        this.lVj = uptimeMillis;
+                        this.lVi = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.lVd = JobState.RUNNING_AND_PENDING;
+                        this.lVi = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
@@ -119,19 +119,19 @@ public class JobScheduler {
 
     private void fm(long j) {
         if (j > 0) {
-            b.dqF().schedule(this.lVb, j, TimeUnit.MILLISECONDS);
+            b.dqH().schedule(this.lVg, j, TimeUnit.MILLISECONDS);
         } else {
-            this.lVb.run();
+            this.lVg.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dqB() {
-        this.mExecutor.execute(this.lVa);
+    public void dqD() {
+        this.mExecutor.execute(this.lVf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dqC() {
+    public void dqE() {
         com.facebook.imagepipeline.g.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -140,31 +140,31 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.lVd = JobState.RUNNING;
-            this.lVf = uptimeMillis;
+            this.lVi = JobState.RUNNING;
+            this.lVk = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.lUZ.d(eVar, i);
+                this.lVe.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.g.e.e(eVar);
-            dqD();
+            dqF();
         }
     }
 
-    private void dqD() {
+    private void dqF() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.lVd == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.lVf + this.lVc, uptimeMillis);
+            if (this.lVi == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.lVk + this.lVh, uptimeMillis);
                 z = true;
-                this.lVe = uptimeMillis;
-                this.lVd = JobState.QUEUED;
+                this.lVj = uptimeMillis;
+                this.lVi = JobState.QUEUED;
             } else {
-                this.lVd = JobState.IDLE;
+                this.lVi = JobState.IDLE;
             }
         }
         if (z) {
@@ -176,7 +176,7 @@ public class JobScheduler {
         return com.facebook.imagepipeline.producers.b.IE(i) || com.facebook.imagepipeline.producers.b.dx(i, 4) || com.facebook.imagepipeline.g.e.f(eVar);
     }
 
-    public synchronized long dqE() {
-        return this.lVf - this.lVe;
+    public synchronized long dqG() {
+        return this.lVk - this.lVj;
     }
 }

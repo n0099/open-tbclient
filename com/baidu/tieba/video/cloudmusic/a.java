@@ -10,34 +10,34 @@ import com.baidu.tieba.video.editvideo.model.a;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class a implements d.a {
-    private final CloudMusicListModel kuu;
-    private final d.b kuv;
-    private MusicPlayer kuw;
+    private final d.b kuA;
+    private MusicPlayer kuB;
+    private final CloudMusicListModel kuz;
 
     public a(CloudMusicListModel cloudMusicListModel, d.b bVar) {
-        this.kuu = cloudMusicListModel;
-        this.kuv = bVar;
+        this.kuz = cloudMusicListModel;
+        this.kuA = bVar;
         bVar.a(this);
-        this.kuw = MusicPlayer.cNU();
+        this.kuB = MusicPlayer.cNW();
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
     public void Dq(int i) {
-        this.kuv.tj(true);
-        this.kuu.a(i, new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData.MusicTagList>() { // from class: com.baidu.tieba.video.cloudmusic.a.1
+        this.kuA.tj(true);
+        this.kuz.a(i, new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData.MusicTagList>() { // from class: com.baidu.tieba.video.cloudmusic.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: d */
             public void aA(CloudMusicData.MusicTagList musicTagList) {
-                a.this.kuv.tj(false);
+                a.this.kuA.tj(false);
                 if (!v.isEmpty(musicTagList.music_list) || musicTagList.page.pn != 1) {
-                    a.this.kuv.ti(false);
-                    a.this.kuv.b(musicTagList);
+                    a.this.kuA.ti(false);
+                    a.this.kuA.b(musicTagList);
                 } else {
-                    a.this.kuv.ti(true);
+                    a.this.kuA.ti(true);
                 }
                 if (musicTagList.page.has_more == 0) {
-                    a.this.kuv.cNQ();
+                    a.this.kuA.cNS();
                 }
             }
         });
@@ -46,38 +46,38 @@ public class a implements d.a {
     @Override // com.baidu.tieba.video.cloudmusic.d.a
     public void c(CloudMusicData.MusicTagList musicTagList) {
         if (v.isEmpty(musicTagList.music_list)) {
-            this.kuv.ti(true);
+            this.kuA.ti(true);
         } else {
-            this.kuv.ti(false);
-            this.kuv.b(musicTagList);
+            this.kuA.ti(false);
+            this.kuA.b(musicTagList);
         }
         if (musicTagList.page.has_more == 0) {
-            this.kuv.cNQ();
+            this.kuA.cNS();
         }
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
     public void a(final CloudMusicData.MusicTagList.MusicList musicList, final int i) {
         if (musicList != null && !TextUtils.isEmpty(musicList.resource)) {
-            final String JN = com.baidu.tieba.video.editvideo.model.a.cOB().JN(musicList.resource);
+            final String JN = com.baidu.tieba.video.editvideo.model.a.cOD().JN(musicList.resource);
             if (TextUtils.isEmpty(JN)) {
-                this.kuv.Dn(i);
-                com.baidu.tieba.video.editvideo.model.a.cOB().a(String.valueOf(musicList.music_id), musicList.resource, new a.InterfaceC0612a() { // from class: com.baidu.tieba.video.cloudmusic.a.2
+                this.kuA.Dn(i);
+                com.baidu.tieba.video.editvideo.model.a.cOD().a(String.valueOf(musicList.music_id), musicList.resource, new a.InterfaceC0612a() { // from class: com.baidu.tieba.video.cloudmusic.a.2
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0612a
                     public void eA(final String str, String str2) {
                         if (!TextUtils.isEmpty(str2)) {
                             str = str2;
                         }
-                        a.this.kuw.a(str, musicList, new MusicPlayer.a() { // from class: com.baidu.tieba.video.cloudmusic.a.2.1
+                        a.this.kuB.a(str, musicList, new MusicPlayer.a() { // from class: com.baidu.tieba.video.cloudmusic.a.2.1
                             @Override // com.baidu.tieba.video.cloudmusic.MusicPlayer.a
-                            public void cNS() {
-                                a.this.kuw.aUk();
+                            public void cNU() {
+                                a.this.kuB.aUk();
                                 if (str.startsWith("/")) {
                                     File file = new File(str);
                                     if (file.exists()) {
                                         file.delete();
                                     }
-                                    com.baidu.tieba.video.editvideo.model.a.cOB().cOC();
+                                    com.baidu.tieba.video.editvideo.model.a.cOD().cOE();
                                     a.this.a(musicList, i);
                                 }
                             }
@@ -86,26 +86,26 @@ public class a implements d.a {
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0612a
                     public void JG(String str) {
-                        a.this.kuv.Dp(i);
+                        a.this.kuA.Dp(i);
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0612a
-                    public void cNR() {
-                        a.this.kuv.Do(i);
+                    public void cNT() {
+                        a.this.kuA.Do(i);
                     }
                 });
                 return;
             }
-            this.kuw.a(JN, musicList, new MusicPlayer.a() { // from class: com.baidu.tieba.video.cloudmusic.a.3
+            this.kuB.a(JN, musicList, new MusicPlayer.a() { // from class: com.baidu.tieba.video.cloudmusic.a.3
                 @Override // com.baidu.tieba.video.cloudmusic.MusicPlayer.a
-                public void cNS() {
-                    a.this.kuw.aUk();
+                public void cNU() {
+                    a.this.kuB.aUk();
                     if (JN.startsWith("/")) {
                         File file = new File(JN);
                         if (file.exists()) {
                             file.delete();
                         }
-                        com.baidu.tieba.video.editvideo.model.a.cOB().cOC();
+                        com.baidu.tieba.video.editvideo.model.a.cOD().cOE();
                         a.this.a(musicList, i);
                     }
                 }
@@ -115,11 +115,11 @@ public class a implements d.a {
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
     public void bER() {
-        this.kuu.cancelLoadData();
+        this.kuz.cancelLoadData();
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void czp() {
-        this.kuu.cOa();
+    public void czr() {
+        this.kuz.cOc();
     }
 }

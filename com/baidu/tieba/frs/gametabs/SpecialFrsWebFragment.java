@@ -497,7 +497,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ai {
             this.gCT.onDestroy();
         }
         if (this.jsBridge != null) {
-            this.jsBridge.cKb();
+            this.jsBridge.cKd();
         }
         if (this.ezq != null) {
             this.ezq.getSettings().setBuiltInZoomControls(true);

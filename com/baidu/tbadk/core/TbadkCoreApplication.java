@@ -348,9 +348,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                         TbadkCoreApplication.this.setLocationLat(valueOf);
                         TbadkCoreApplication.this.setLocationLng(valueOf2);
                         TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                        com.baidu.tieba.recapp.d.a.cBK().Co(valueOf);
-                        com.baidu.tieba.recapp.d.a.cBK().Cn(valueOf2);
-                        com.baidu.tieba.recapp.d.a.cBK().eC(System.currentTimeMillis());
+                        com.baidu.tieba.recapp.d.a.cBM().Co(valueOf);
+                        com.baidu.tieba.recapp.d.a.cBM().Cn(valueOf2);
+                        com.baidu.tieba.recapp.d.a.cBM().eC(System.currentTimeMillis());
                     }
                 } catch (IllegalStateException e) {
                     BdLog.e(e.getMessage());
@@ -829,20 +829,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     private void initJpusbSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.s.b.cMe().initSdk(this);
+            com.baidu.tieba.s.b.cMg().initSdk(this);
         }
     }
 
     private void initStatSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.s.c.cMh().autoTrace(this);
-            com.baidu.tieba.s.c.cMh().setAppChannel(this, getFrom(), true);
+            com.baidu.tieba.s.c.cMj().autoTrace(this);
+            com.baidu.tieba.s.c.cMj().setAppChannel(this, getFrom(), true);
         }
     }
 
     private void initQuickWebViewManager() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.quickWebView.c.cAv().init();
+            com.baidu.tieba.quickWebView.c.cAx().init();
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().initSetting();
             n.aOY().cd(System.currentTimeMillis() - currentTimeMillis);
@@ -888,7 +888,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             case 2:
                 com.baidu.adp.lib.Disk.d.fj().initial(TbConfig.getTempDirName());
                 initAccountChangeReceiver();
-                com.baidu.tieba.n.a.cAA().init();
+                com.baidu.tieba.n.a.cAC().init();
                 boolean isMainProcess = isMainProcess(false);
                 com.baidu.tbadk.distribute.a.aLJ().gp(isMainProcess);
                 intReadThreadHistory(isMainProcess);
@@ -1225,9 +1225,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         TbConfig.initBigImageWidth(getContext());
         TbConfig.initFriendPhotoConfig(getContext());
         if (IS_SUPPORT_EXCEPTION_HANDLER) {
-            com.baidu.tieba.s.d.cMi();
+            com.baidu.tieba.s.d.cMk();
         }
-        com.baidu.tieba.video.g.cNI();
+        com.baidu.tieba.video.g.cNK();
         boolean isMainProcess = isMainProcess(false);
         long currentTimeMillis = System.currentTimeMillis();
         TiebaStatic.init(getContext(), isMainProcess);
@@ -2814,7 +2814,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921410));
         com.baidu.tbadk.coreExtra.messageCenter.b.aIj().fQ(true);
         NotificationHelper.cancelAllNotification(this);
-        com.baidu.tieba.tbadkCore.util.a.cKv();
+        com.baidu.tieba.tbadkCore.util.a.cKx();
     }
 
     public void onUserChanged(Intent intent2) {

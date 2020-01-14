@@ -11,14 +11,14 @@ public class IntHashMap {
     public static class a {
         int hash;
         int key;
-        a mNA;
+        a mNF;
         Object value;
 
         protected a(int i, int i2, Object obj, a aVar) {
             this.hash = i;
             this.key = i2;
             this.value = obj;
-            this.mNA = aVar;
+            this.mNF = aVar;
         }
     }
 
@@ -60,7 +60,7 @@ public class IntHashMap {
         while (true) {
             int i = length - 1;
             if (length > 0) {
-                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.mNA) {
+                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.mNF) {
                     if (aVar.value.equals(obj)) {
                         return true;
                     }
@@ -78,7 +78,7 @@ public class IntHashMap {
 
     public boolean containsKey(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.mNA) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.mNF) {
             if (aVar.hash == i) {
                 return true;
             }
@@ -88,7 +88,7 @@ public class IntHashMap {
 
     public Object get(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.mNA) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.mNF) {
             if (aVar.hash == i) {
                 return aVar.value;
             }
@@ -108,9 +108,9 @@ public class IntHashMap {
             if (length > 0) {
                 a aVar = aVarArr[i2];
                 while (aVar != null) {
-                    a aVar2 = aVar.mNA;
+                    a aVar2 = aVar.mNF;
                     int i3 = (aVar.hash & Integer.MAX_VALUE) % i;
-                    aVar.mNA = aVarArr2[i3];
+                    aVar.mNF = aVarArr2[i3];
                     aVarArr2[i3] = aVar;
                     aVar = aVar2;
                 }
@@ -124,7 +124,7 @@ public class IntHashMap {
     public Object put(int i, Object obj) {
         a[] aVarArr = this.table;
         int length = (i & Integer.MAX_VALUE) % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.mNA) {
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.mNF) {
             if (aVar.hash == i) {
                 Object obj2 = aVar.value;
                 aVar.value = obj;
@@ -149,13 +149,13 @@ public class IntHashMap {
         while (aVar != null) {
             if (aVar.hash != i) {
                 a aVar3 = aVar;
-                aVar = aVar.mNA;
+                aVar = aVar.mNF;
                 aVar2 = aVar3;
             } else {
                 if (aVar2 != null) {
-                    aVar2.mNA = aVar.mNA;
+                    aVar2.mNF = aVar.mNF;
                 } else {
-                    aVarArr[length] = aVar.mNA;
+                    aVarArr[length] = aVar.mNF;
                 }
                 this.count--;
                 Object obj = aVar.value;

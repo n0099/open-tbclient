@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
 public abstract class n implements Iterator<Character> {
-    public abstract char dIR();
+    public abstract char dIT();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class n implements Iterator<Character> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dIQ */
+    /* renamed from: dIS */
     public final Character next() {
-        return Character.valueOf(dIR());
+        return Character.valueOf(dIT());
     }
 }

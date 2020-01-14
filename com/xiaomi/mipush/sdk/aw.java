@@ -9,29 +9,29 @@ public class aw implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ av f46a;
+    final /* synthetic */ av f47a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String[] f47a;
+    final /* synthetic */ String[] f48a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(av avVar, String[] strArr, Context context) {
-        this.f46a = avVar;
-        this.f47a = strArr;
+        this.f47a = avVar;
+        this.f48a = strArr;
         this.a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        for (int i = 0; i < this.f47a.length; i++) {
+        for (int i = 0; i < this.f48a.length; i++) {
             try {
-                if (!TextUtils.isEmpty(this.f47a[i])) {
+                if (!TextUtils.isEmpty(this.f48a[i])) {
                     if (i > 0) {
                         Thread.sleep(((long) ((Math.random() * 2.0d) + 1.0d)) * 1000);
                     }
-                    PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.f47a[i], 4);
+                    PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.f48a[i], 4);
                     if (packageInfo != null) {
-                        this.f46a.a(this.a, packageInfo);
+                        this.f47a.a(this.a, packageInfo);
                     }
                 }
             } catch (Throwable th) {

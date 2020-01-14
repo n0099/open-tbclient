@@ -21,13 +21,13 @@ import java.util.regex.Pattern;
 @TargetApi(16)
 /* loaded from: classes5.dex */
 public final class MediaCodecUtil {
-    private static final SparseIntArray mps;
-    private static final Map<String, Integer> mpt;
-    private static final com.google.android.exoplayer2.mediacodec.a mpo = com.google.android.exoplayer2.mediacodec.a.Ph("OMX.google.raw.decoder");
-    private static final Pattern mpp = Pattern.compile("^\\D?(\\d+)$");
-    private static final HashMap<a, List<com.google.android.exoplayer2.mediacodec.a>> mpq = new HashMap<>();
-    private static int mpu = -1;
-    private static final SparseIntArray mpr = new SparseIntArray();
+    private static final SparseIntArray mpx;
+    private static final Map<String, Integer> mpy;
+    private static final com.google.android.exoplayer2.mediacodec.a mpt = com.google.android.exoplayer2.mediacodec.a.Ph("OMX.google.raw.decoder");
+    private static final Pattern mpu = Pattern.compile("^\\D?(\\d+)$");
+    private static final HashMap<a, List<com.google.android.exoplayer2.mediacodec.a>> mpv = new HashMap<>();
+    private static int mpz = -1;
+    private static final SparseIntArray mpw = new SparseIntArray();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -36,9 +36,9 @@ public final class MediaCodecUtil {
 
         boolean a(String str, MediaCodecInfo.CodecCapabilities codecCapabilities);
 
-        int duM();
+        int duO();
 
-        boolean duN();
+        boolean duP();
     }
 
     /* loaded from: classes5.dex */
@@ -49,58 +49,58 @@ public final class MediaCodecUtil {
     }
 
     static {
-        mpr.put(66, 1);
-        mpr.put(77, 2);
-        mpr.put(88, 4);
-        mpr.put(100, 8);
-        mps = new SparseIntArray();
-        mps.put(10, 1);
-        mps.put(11, 4);
-        mps.put(12, 8);
-        mps.put(13, 16);
-        mps.put(20, 32);
-        mps.put(21, 64);
-        mps.put(22, 128);
-        mps.put(30, 256);
-        mps.put(31, 512);
-        mps.put(32, 1024);
-        mps.put(40, 2048);
-        mps.put(41, 4096);
-        mps.put(42, 8192);
-        mps.put(50, 16384);
-        mps.put(51, 32768);
-        mps.put(52, 65536);
-        mpt = new HashMap();
-        mpt.put("L30", 1);
-        mpt.put("L60", 4);
-        mpt.put("L63", 16);
-        mpt.put("L90", 64);
-        mpt.put("L93", 256);
-        mpt.put("L120", 1024);
-        mpt.put("L123", 4096);
-        mpt.put("L150", 16384);
-        mpt.put("L153", 65536);
-        mpt.put("L156", 262144);
-        mpt.put("L180", 1048576);
-        mpt.put("L183", 4194304);
-        mpt.put("L186", 16777216);
-        mpt.put("H30", 2);
-        mpt.put("H60", 8);
-        mpt.put("H63", 32);
-        mpt.put("H90", 128);
-        mpt.put("H93", 512);
-        mpt.put("H120", 2048);
-        mpt.put("H123", 8192);
-        mpt.put("H150", 32768);
-        mpt.put("H153", 131072);
-        mpt.put("H156", 524288);
-        mpt.put("H180", 2097152);
-        mpt.put("H183", 8388608);
-        mpt.put("H186", 33554432);
+        mpw.put(66, 1);
+        mpw.put(77, 2);
+        mpw.put(88, 4);
+        mpw.put(100, 8);
+        mpx = new SparseIntArray();
+        mpx.put(10, 1);
+        mpx.put(11, 4);
+        mpx.put(12, 8);
+        mpx.put(13, 16);
+        mpx.put(20, 32);
+        mpx.put(21, 64);
+        mpx.put(22, 128);
+        mpx.put(30, 256);
+        mpx.put(31, 512);
+        mpx.put(32, 1024);
+        mpx.put(40, 2048);
+        mpx.put(41, 4096);
+        mpx.put(42, 8192);
+        mpx.put(50, 16384);
+        mpx.put(51, 32768);
+        mpx.put(52, 65536);
+        mpy = new HashMap();
+        mpy.put("L30", 1);
+        mpy.put("L60", 4);
+        mpy.put("L63", 16);
+        mpy.put("L90", 64);
+        mpy.put("L93", 256);
+        mpy.put("L120", 1024);
+        mpy.put("L123", 4096);
+        mpy.put("L150", 16384);
+        mpy.put("L153", 65536);
+        mpy.put("L156", 262144);
+        mpy.put("L180", 1048576);
+        mpy.put("L183", 4194304);
+        mpy.put("L186", 16777216);
+        mpy.put("H30", 2);
+        mpy.put("H60", 8);
+        mpy.put("H63", 32);
+        mpy.put("H90", 128);
+        mpy.put("H93", 512);
+        mpy.put("H120", 2048);
+        mpy.put("H123", 8192);
+        mpy.put("H150", 32768);
+        mpy.put("H153", 131072);
+        mpy.put("H156", 524288);
+        mpy.put("H180", 2097152);
+        mpy.put("H183", 8388608);
+        mpy.put("H186", 33554432);
     }
 
-    public static com.google.android.exoplayer2.mediacodec.a duK() {
-        return mpo;
+    public static com.google.android.exoplayer2.mediacodec.a duM() {
+        return mpt;
     }
 
     public static com.google.android.exoplayer2.mediacodec.a aL(String str, boolean z) throws DecoderQueryException {
@@ -115,7 +115,7 @@ public final class MediaCodecUtil {
         List<com.google.android.exoplayer2.mediacodec.a> list;
         synchronized (MediaCodecUtil.class) {
             a aVar = new a(str, z);
-            list = mpq.get(aVar);
+            list = mpv.get(aVar);
             if (list == null) {
                 List<com.google.android.exoplayer2.mediacodec.a> a2 = a(aVar, v.SDK_INT >= 21 ? new d(z) : new c());
                 if (z && a2.isEmpty() && 21 <= v.SDK_INT && v.SDK_INT <= 23) {
@@ -127,29 +127,29 @@ public final class MediaCodecUtil {
                 }
                 fg(a2);
                 list = Collections.unmodifiableList(a2);
-                mpq.put(aVar, list);
+                mpv.put(aVar, list);
             }
         }
         return list;
     }
 
-    public static int duL() throws DecoderQueryException {
+    public static int duN() throws DecoderQueryException {
         int i = 0;
-        if (mpu == -1) {
+        if (mpz == -1) {
             com.google.android.exoplayer2.mediacodec.a aL = aL("video/avc", false);
             if (aL != null) {
-                MediaCodecInfo.CodecProfileLevel[] duz = aL.duz();
-                int length = duz.length;
+                MediaCodecInfo.CodecProfileLevel[] duB = aL.duB();
+                int length = duB.length;
                 int i2 = 0;
                 while (i < length) {
-                    i2 = Math.max(JY(duz[i].level), i2);
+                    i2 = Math.max(JY(duB[i].level), i2);
                     i++;
                 }
                 i = Math.max(i2, v.SDK_INT >= 21 ? 345600 : 172800);
             }
-            mpu = i;
+            mpz = i;
         }
-        return mpu;
+        return mpz;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -211,21 +211,21 @@ public final class MediaCodecUtil {
         try {
             ArrayList arrayList = new ArrayList();
             String str = aVar.mimeType;
-            int duM = bVar.duM();
-            boolean duN = bVar.duN();
-            loop0: for (int i = 0; i < duM; i++) {
+            int duO = bVar.duO();
+            boolean duP = bVar.duP();
+            loop0: for (int i = 0; i < duO; i++) {
                 MediaCodecInfo JZ = bVar.JZ(i);
                 String name = JZ.getName();
-                if (a(JZ, name, duN)) {
+                if (a(JZ, name, duP)) {
                     for (String str2 : JZ.getSupportedTypes()) {
                         if (str2.equalsIgnoreCase(str)) {
                             try {
                                 MediaCodecInfo.CodecCapabilities capabilitiesForType = JZ.getCapabilitiesForType(str2);
                                 boolean a2 = bVar.a(str, capabilitiesForType);
                                 boolean Pq = Pq(name);
-                                if ((duN && aVar.secure == a2) || (!duN && !aVar.secure)) {
+                                if ((duP && aVar.secure == a2) || (!duP && !aVar.secure)) {
                                     arrayList.add(com.google.android.exoplayer2.mediacodec.a.a(name, str, capabilitiesForType, Pq, false));
-                                } else if (!duN && a2) {
+                                } else if (!duP && a2) {
                                     arrayList.add(com.google.android.exoplayer2.mediacodec.a.a(name + ".secure", str, capabilitiesForType, Pq, true));
                                     break loop0;
                                 }
@@ -256,24 +256,24 @@ public final class MediaCodecUtil {
             if (v.SDK_INT >= 21 || !("CIPAACDecoder".equals(str) || "CIPMP3Decoder".equals(str) || "CIPVorbisDecoder".equals(str) || "CIPAMRNBDecoder".equals(str) || "AACDecoder".equals(str) || "MP3Decoder".equals(str))) {
                 if (v.SDK_INT >= 18 || !"OMX.SEC.MP3.Decoder".equals(str)) {
                     if (v.SDK_INT < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str)) {
-                        if ("a70".equals(v.mHb)) {
+                        if ("a70".equals(v.mHg)) {
                             return false;
                         }
-                        if ("Xiaomi".equals(v.MANUFACTURER) && v.mHb.startsWith("HM")) {
+                        if ("Xiaomi".equals(v.MANUFACTURER) && v.mHg.startsWith("HM")) {
                             return false;
                         }
                     }
-                    if (v.SDK_INT == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(v.mHb) || "protou".equals(v.mHb) || "ville".equals(v.mHb) || "villeplus".equals(v.mHb) || "villec2".equals(v.mHb) || v.mHb.startsWith("gee") || "C6602".equals(v.mHb) || "C6603".equals(v.mHb) || "C6606".equals(v.mHb) || "C6616".equals(v.mHb) || "L36h".equals(v.mHb) || "SO-02E".equals(v.mHb))) {
+                    if (v.SDK_INT == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(v.mHg) || "protou".equals(v.mHg) || "ville".equals(v.mHg) || "villeplus".equals(v.mHg) || "villec2".equals(v.mHg) || v.mHg.startsWith("gee") || "C6602".equals(v.mHg) || "C6603".equals(v.mHg) || "C6606".equals(v.mHg) || "C6616".equals(v.mHg) || "L36h".equals(v.mHg) || "SO-02E".equals(v.mHg))) {
                         return false;
                     }
-                    if (v.SDK_INT == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(v.mHb) || "C1505".equals(v.mHb) || "C1604".equals(v.mHb) || "C1605".equals(v.mHb))) {
+                    if (v.SDK_INT == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(v.mHg) || "C1505".equals(v.mHg) || "C1604".equals(v.mHg) || "C1605".equals(v.mHg))) {
                         return false;
                     }
-                    if (v.SDK_INT >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && v.MANUFACTURER.equals("samsung") && (v.mHb.startsWith("zeroflte") || v.mHb.startsWith("zerolte") || v.mHb.startsWith("zenlte") || v.mHb.equals("SC-05G") || v.mHb.equals("marinelteatt") || v.mHb.equals("404SC") || v.mHb.equals("SC-04G") || v.mHb.equals("SCV31")))) {
-                        if (v.SDK_INT <= 19 && "OMX.SEC.vp8.dec".equals(str) && "samsung".equals(v.MANUFACTURER) && (v.mHb.startsWith("d2") || v.mHb.startsWith("serrano") || v.mHb.startsWith("jflte") || v.mHb.startsWith("santos") || v.mHb.startsWith("t0"))) {
+                    if (v.SDK_INT >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && v.MANUFACTURER.equals("samsung") && (v.mHg.startsWith("zeroflte") || v.mHg.startsWith("zerolte") || v.mHg.startsWith("zenlte") || v.mHg.equals("SC-05G") || v.mHg.equals("marinelteatt") || v.mHg.equals("404SC") || v.mHg.equals("SC-04G") || v.mHg.equals("SCV31")))) {
+                        if (v.SDK_INT <= 19 && "OMX.SEC.vp8.dec".equals(str) && "samsung".equals(v.MANUFACTURER) && (v.mHg.startsWith("d2") || v.mHg.startsWith("serrano") || v.mHg.startsWith("jflte") || v.mHg.startsWith("santos") || v.mHg.startsWith("t0"))) {
                             return false;
                         }
-                        return (v.SDK_INT <= 19 && v.mHb.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
+                        return (v.SDK_INT <= 19 && v.mHg.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
                     }
                     return false;
                 }
@@ -307,7 +307,7 @@ public final class MediaCodecUtil {
             Log.w("MediaCodecUtil", "Ignoring malformed HEVC codec string: " + str);
             return null;
         }
-        Matcher matcher = mpp.matcher(strArr[1]);
+        Matcher matcher = mpu.matcher(strArr[1]);
         if (!matcher.matches()) {
             Log.w("MediaCodecUtil", "Ignoring malformed HEVC codec string: " + str);
             return null;
@@ -321,7 +321,7 @@ public final class MediaCodecUtil {
             Log.w("MediaCodecUtil", "Unknown HEVC profile string: " + group);
             return null;
         }
-        Integer num = mpt.get(strArr[3]);
+        Integer num = mpy.get(strArr[3]);
         if (num == null) {
             Log.w("MediaCodecUtil", "Unknown HEVC level string: " + matcher.group(1));
             return null;
@@ -347,12 +347,12 @@ public final class MediaCodecUtil {
                 Log.w("MediaCodecUtil", "Ignoring malformed AVC codec string: " + str);
                 return null;
             }
-            Integer valueOf3 = Integer.valueOf(mpr.get(valueOf.intValue()));
+            Integer valueOf3 = Integer.valueOf(mpw.get(valueOf.intValue()));
             if (valueOf3 == null) {
                 Log.w("MediaCodecUtil", "Unknown AVC profile: " + valueOf);
                 return null;
             }
-            Integer valueOf4 = Integer.valueOf(mps.get(valueOf2.intValue()));
+            Integer valueOf4 = Integer.valueOf(mpx.get(valueOf2.intValue()));
             if (valueOf4 == null) {
                 Log.w("MediaCodecUtil", "Unknown AVC level: " + valueOf2);
                 return null;
@@ -406,27 +406,27 @@ public final class MediaCodecUtil {
     @TargetApi(21)
     /* loaded from: classes5.dex */
     public static final class d implements b {
-        private final int mpv;
-        private MediaCodecInfo[] mpw;
+        private final int mpA;
+        private MediaCodecInfo[] mpB;
 
         public d(boolean z) {
-            this.mpv = z ? 1 : 0;
+            this.mpA = z ? 1 : 0;
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.b
-        public int duM() {
-            duO();
-            return this.mpw.length;
+        public int duO() {
+            duQ();
+            return this.mpB.length;
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.b
         public MediaCodecInfo JZ(int i) {
-            duO();
-            return this.mpw[i];
+            duQ();
+            return this.mpB[i];
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.b
-        public boolean duN() {
+        public boolean duP() {
             return true;
         }
 
@@ -435,9 +435,9 @@ public final class MediaCodecUtil {
             return codecCapabilities.isFeatureSupported("secure-playback");
         }
 
-        private void duO() {
-            if (this.mpw == null) {
-                this.mpw = new MediaCodecList(this.mpv).getCodecInfos();
+        private void duQ() {
+            if (this.mpB == null) {
+                this.mpB = new MediaCodecList(this.mpA).getCodecInfos();
             }
         }
     }
@@ -449,7 +449,7 @@ public final class MediaCodecUtil {
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.b
-        public int duM() {
+        public int duO() {
             return MediaCodecList.getCodecCount();
         }
 
@@ -459,7 +459,7 @@ public final class MediaCodecUtil {
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.b
-        public boolean duN() {
+        public boolean duP() {
             return false;
         }
 

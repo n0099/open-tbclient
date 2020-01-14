@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.util;
 public interface h {
     com.google.android.exoplayer2.q d(com.google.android.exoplayer2.q qVar);
 
-    com.google.android.exoplayer2.q drF();
+    com.google.android.exoplayer2.q drH();
 
-    long dsW();
+    long dsY();
 }

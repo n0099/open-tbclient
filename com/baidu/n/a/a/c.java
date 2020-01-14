@@ -9,15 +9,15 @@ public interface c {
 
     void Ny(String str);
 
-    c dgI();
+    boolean dgA();
 
-    String dgJ();
-
-    String dgK();
+    c dgK();
 
     String dgL();
 
-    boolean dgy();
+    String dgM();
+
+    String dgN();
 
     int getStatusCode();
 

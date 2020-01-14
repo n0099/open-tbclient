@@ -3,21 +3,21 @@ package com.dd.plist;
 import com.baidu.android.util.devices.NetWorkUtils;
 /* loaded from: classes5.dex */
 public class h extends i implements Comparable<Object> {
-    private long lFS;
-    private double lFT;
-    private boolean lFU;
+    private long lFX;
+    private double lFY;
+    private boolean lFZ;
     private int type;
 
     public h(byte[] bArr, int i) {
         switch (i) {
             case 0:
                 long ab = c.ab(bArr);
-                this.lFS = ab;
-                this.lFT = ab;
+                this.lFX = ab;
+                this.lFY = ab;
                 break;
             case 1:
-                this.lFT = c.ac(bArr);
-                this.lFS = Math.round(this.lFT);
+                this.lFY = c.ac(bArr);
+                this.lFX = Math.round(this.lFY);
                 break;
             default:
                 throw new IllegalArgumentException("Type argument is not valid.");
@@ -32,24 +32,24 @@ public class h extends i implements Comparable<Object> {
         }
         try {
             long parseLong = Long.parseLong(str);
-            this.lFS = parseLong;
-            this.lFT = parseLong;
+            this.lFX = parseLong;
+            this.lFY = parseLong;
             this.type = 0;
         } catch (Exception e) {
             try {
-                this.lFT = Double.parseDouble(str);
-                this.lFS = Math.round(this.lFT);
+                this.lFY = Double.parseDouble(str);
+                this.lFX = Math.round(this.lFY);
                 this.type = 1;
             } catch (Exception e2) {
                 try {
-                    this.lFU = (str.toLowerCase().equals("true") || str.toLowerCase().equals("yes")) ? true : z;
-                    if (!this.lFU && !str.toLowerCase().equals("false") && !str.toLowerCase().equals(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED)) {
+                    this.lFZ = (str.toLowerCase().equals("true") || str.toLowerCase().equals("yes")) ? true : z;
+                    if (!this.lFZ && !str.toLowerCase().equals("false") && !str.toLowerCase().equals(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED)) {
                         throw new Exception("not a boolean");
                     }
                     this.type = 2;
-                    long j = this.lFU ? 1L : 0L;
-                    this.lFS = j;
-                    this.lFT = j;
+                    long j = this.lFZ ? 1L : 0L;
+                    this.lFX = j;
+                    this.lFY = j;
                 } catch (Exception e3) {
                     throw new IllegalArgumentException("The given string neither represents a double, an int nor a boolean value.");
                 }
@@ -58,50 +58,50 @@ public class h extends i implements Comparable<Object> {
     }
 
     public h(long j) {
-        this.lFS = j;
-        this.lFT = j;
+        this.lFX = j;
+        this.lFY = j;
         this.type = 0;
     }
 
     public h(double d) {
-        this.lFT = d;
-        this.lFS = (long) d;
+        this.lFY = d;
+        this.lFX = (long) d;
         this.type = 1;
     }
 
     public h(boolean z) {
-        this.lFU = z;
+        this.lFZ = z;
         long j = z ? 1L : 0L;
-        this.lFS = j;
-        this.lFT = j;
+        this.lFX = j;
+        this.lFY = j;
         this.type = 2;
     }
 
-    public boolean dil() {
+    public boolean din() {
         if (this.type == 2) {
-            return this.lFU;
+            return this.lFZ;
         }
-        return this.lFS != 0;
+        return this.lFX != 0;
     }
 
     public long longValue() {
-        return this.lFS;
+        return this.lFX;
     }
 
     public double doubleValue() {
-        return this.lFT;
+        return this.lFY;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof h) {
             h hVar = (h) obj;
-            return this.type == hVar.type && this.lFS == hVar.lFS && this.lFT == hVar.lFT && this.lFU == hVar.lFU;
+            return this.type == hVar.type && this.lFX == hVar.lFX && this.lFY == hVar.lFY && this.lFZ == hVar.lFZ;
         }
         return false;
     }
 
     public int hashCode() {
-        return (dil() ? 1 : 0) + (((((this.type * 37) + ((int) (this.lFS ^ (this.lFS >>> 32)))) * 37) + ((int) (Double.doubleToLongBits(this.lFT) ^ (Double.doubleToLongBits(this.lFT) >>> 32)))) * 37);
+        return (din() ? 1 : 0) + (((((this.type * 37) + ((int) (this.lFX ^ (this.lFX >>> 32)))) * 37) + ((int) (Double.doubleToLongBits(this.lFY) ^ (Double.doubleToLongBits(this.lFY) >>> 32)))) * 37);
     }
 
     public String toString() {
@@ -111,7 +111,7 @@ public class h extends i implements Comparable<Object> {
             case 1:
                 return String.valueOf(doubleValue());
             case 2:
-                return String.valueOf(dil());
+                return String.valueOf(din());
             default:
                 return super.toString();
         }

@@ -45,8 +45,8 @@ final class FormUploader {
             postArgs.fileName = String.valueOf(Math.abs((str2.substring(0, lastIndexOf) + System.currentTimeMillis()).hashCode())) + str2.substring(lastIndexOf);
         }
         stringMap.H("token", upToken.token);
-        final UploadOptions dEU = uploadOptions != null ? uploadOptions : UploadOptions.dEU();
-        stringMap.B(dEU.params);
+        final UploadOptions dEW = uploadOptions != null ? uploadOptions : UploadOptions.dEW();
+        stringMap.B(dEW.params);
         long j = 0;
         if (file != null) {
             try {
@@ -62,86 +62,86 @@ final class FormUploader {
             @Override // com.qiniu.android.http.ProgressHandler
             public void onProgress(long j2, long j3) {
                 double d = j2 / j3;
-                UploadOptions.this.nnO.a(str, d <= 0.95d ? d : 0.95d);
+                UploadOptions.this.nnT.a(str, d <= 0.95d ? d : 0.95d);
             }
         };
         postArgs.data = bArr;
         postArgs.file = file;
-        postArgs.mimeType = dEU.mimeType;
-        postArgs.nmG = stringMap;
-        String d = configuration.nnb.d(upToken.token, configuration.useHttps, null);
+        postArgs.mimeType = dEW.mimeType;
+        postArgs.nmL = stringMap;
+        String d = configuration.nng.d(upToken.token, configuration.useHttps, null);
         Log.d("Qiniu.FormUploader", "upload use up host " + d);
-        client.a(d, postArgs, upToken, progressHandler, new AnonymousClass2(dEU, upCompletionHandler, str, configuration, upToken, d, client, postArgs, progressHandler), dEU.nnP);
+        client.a(d, postArgs, upToken, progressHandler, new AnonymousClass2(dEW, upCompletionHandler, str, configuration, upToken, d, client, postArgs, progressHandler), dEW.nnU);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qiniu.android.storage.FormUploader$2  reason: invalid class name */
     /* loaded from: classes4.dex */
     public static class AnonymousClass2 implements CompletionHandler {
-        final /* synthetic */ UploadOptions nnd;
-        final /* synthetic */ UpCompletionHandler nne;
-        final /* synthetic */ Configuration nnf;
-        final /* synthetic */ UpToken nng;
-        final /* synthetic */ String nnh;
-        final /* synthetic */ Client nni;
-        final /* synthetic */ PostArgs nnj;
-        final /* synthetic */ ProgressHandler nnk;
+        final /* synthetic */ UploadOptions nni;
+        final /* synthetic */ UpCompletionHandler nnj;
+        final /* synthetic */ Configuration nnk;
+        final /* synthetic */ UpToken nnl;
+        final /* synthetic */ String nnm;
+        final /* synthetic */ Client nnn;
+        final /* synthetic */ PostArgs nno;
+        final /* synthetic */ ProgressHandler nnp;
         final /* synthetic */ String val$key;
 
         AnonymousClass2(UploadOptions uploadOptions, UpCompletionHandler upCompletionHandler, String str, Configuration configuration, UpToken upToken, String str2, Client client, PostArgs postArgs, ProgressHandler progressHandler) {
-            this.nnd = uploadOptions;
-            this.nne = upCompletionHandler;
+            this.nni = uploadOptions;
+            this.nnj = upCompletionHandler;
             this.val$key = str;
-            this.nnf = configuration;
-            this.nng = upToken;
-            this.nnh = str2;
-            this.nni = client;
-            this.nnj = postArgs;
-            this.nnk = progressHandler;
+            this.nnk = configuration;
+            this.nnl = upToken;
+            this.nnm = str2;
+            this.nnn = client;
+            this.nno = postArgs;
+            this.nnp = progressHandler;
         }
 
         @Override // com.qiniu.android.http.CompletionHandler
         public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
-            if (responseInfo.dEE() && !AndroidNetwork.dEV()) {
-                this.nnd.nnQ.dEP();
-                if (!AndroidNetwork.dEV()) {
-                    this.nne.a(this.val$key, responseInfo, jSONObject);
+            if (responseInfo.dEG() && !AndroidNetwork.dEX()) {
+                this.nni.nnV.dER();
+                if (!AndroidNetwork.dEX()) {
+                    this.nnj.a(this.val$key, responseInfo, jSONObject);
                     return;
                 }
             }
-            if (responseInfo.dED()) {
-                this.nnd.nnO.a(this.val$key, 1.0d);
-                this.nne.a(this.val$key, responseInfo, jSONObject);
-            } else if (responseInfo.dEH()) {
-                final String d = this.nnf.nnb.d(this.nng.token, this.nnf.useHttps, this.nnh);
+            if (responseInfo.dEF()) {
+                this.nni.nnT.a(this.val$key, 1.0d);
+                this.nnj.a(this.val$key, responseInfo, jSONObject);
+            } else if (responseInfo.dEJ()) {
+                final String d = this.nnk.nng.d(this.nnl.token, this.nnk.useHttps, this.nnm);
                 Log.d("Qiniu.FormUploader", "retry upload first time use up host " + d);
-                this.nni.a(d, this.nnj, this.nng, this.nnk, new CompletionHandler() { // from class: com.qiniu.android.storage.FormUploader.2.1
+                this.nnn.a(d, this.nno, this.nnl, this.nnp, new CompletionHandler() { // from class: com.qiniu.android.storage.FormUploader.2.1
                     @Override // com.qiniu.android.http.CompletionHandler
                     public void a(ResponseInfo responseInfo2, JSONObject jSONObject2) {
-                        if (responseInfo2.dED()) {
-                            AnonymousClass2.this.nnd.nnO.a(AnonymousClass2.this.val$key, 1.0d);
-                            AnonymousClass2.this.nne.a(AnonymousClass2.this.val$key, responseInfo2, jSONObject2);
-                        } else if (responseInfo2.dEH()) {
-                            final String d2 = AnonymousClass2.this.nnf.nnb.d(AnonymousClass2.this.nng.token, AnonymousClass2.this.nnf.useHttps, d);
+                        if (responseInfo2.dEF()) {
+                            AnonymousClass2.this.nni.nnT.a(AnonymousClass2.this.val$key, 1.0d);
+                            AnonymousClass2.this.nnj.a(AnonymousClass2.this.val$key, responseInfo2, jSONObject2);
+                        } else if (responseInfo2.dEJ()) {
+                            final String d2 = AnonymousClass2.this.nnk.nng.d(AnonymousClass2.this.nnl.token, AnonymousClass2.this.nnk.useHttps, d);
                             Log.d("Qiniu.FormUploader", "retry upload second time use up host " + d2);
-                            AnonymousClass2.this.nni.a(d2, AnonymousClass2.this.nnj, AnonymousClass2.this.nng, AnonymousClass2.this.nnk, new CompletionHandler() { // from class: com.qiniu.android.storage.FormUploader.2.1.1
+                            AnonymousClass2.this.nnn.a(d2, AnonymousClass2.this.nno, AnonymousClass2.this.nnl, AnonymousClass2.this.nnp, new CompletionHandler() { // from class: com.qiniu.android.storage.FormUploader.2.1.1
                                 @Override // com.qiniu.android.http.CompletionHandler
                                 public void a(ResponseInfo responseInfo3, JSONObject jSONObject3) {
-                                    if (responseInfo3.dED()) {
-                                        AnonymousClass2.this.nnd.nnO.a(AnonymousClass2.this.val$key, 1.0d);
-                                    } else if (responseInfo3.dEH()) {
-                                        AnonymousClass2.this.nnf.nnb.QZ(d2);
+                                    if (responseInfo3.dEF()) {
+                                        AnonymousClass2.this.nni.nnT.a(AnonymousClass2.this.val$key, 1.0d);
+                                    } else if (responseInfo3.dEJ()) {
+                                        AnonymousClass2.this.nnk.nng.QZ(d2);
                                     }
-                                    AnonymousClass2.this.nne.a(AnonymousClass2.this.val$key, responseInfo3, jSONObject3);
+                                    AnonymousClass2.this.nnj.a(AnonymousClass2.this.val$key, responseInfo3, jSONObject3);
                                 }
-                            }, AnonymousClass2.this.nnd.nnP);
+                            }, AnonymousClass2.this.nni.nnU);
                         } else {
-                            AnonymousClass2.this.nne.a(AnonymousClass2.this.val$key, responseInfo2, jSONObject2);
+                            AnonymousClass2.this.nnj.a(AnonymousClass2.this.val$key, responseInfo2, jSONObject2);
                         }
                     }
-                }, this.nnd.nnP);
+                }, this.nni.nnU);
             } else {
-                this.nne.a(this.val$key, responseInfo, jSONObject);
+                this.nnj.a(this.val$key, responseInfo, jSONObject);
             }
         }
     }

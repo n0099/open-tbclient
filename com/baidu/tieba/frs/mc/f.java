@@ -88,8 +88,8 @@ public class f {
         mVar2.a(bdTypeRecyclerView);
         com.baidu.adp.widget.ListView.a<? extends bi, ? extends v.a> a = com.baidu.tieba.frs.c.bBC().a(frsNewAreaFragment.getPageContext(), this.gFD.getUniqueId(), true);
         com.baidu.adp.widget.ListView.a<? extends bj, ? extends v.a> b = com.baidu.tieba.frs.c.bBC().b(frsNewAreaFragment.getPageContext(), bj.cPi, this.gFD.getUniqueId());
-        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.cAV().a(this.gFD, AdvertAppInfo.cIB);
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.cAV().a(this.gFD, AdvertAppInfo.cIK);
+        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.cAX().a(this.gFD, AdvertAppInfo.cIB);
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.cAX().a(this.gFD, AdvertAppInfo.cIK);
         com.baidu.tieba.frs.entelechy.a.v vVar = new com.baidu.tieba.frs.entelechy.a.v(frsNewAreaFragment.getPageContext(), bj.cNz, this.gFD.getUniqueId());
         vVar.a(bdTypeRecyclerView);
         this.apl.add(wVar);
@@ -268,13 +268,13 @@ public class f {
             return false;
         }
         this.gDJ = new ArrayList();
-        ArrayList<BdUniqueId> cIK = com.baidu.tieba.tbadkCore.s.cIK();
-        if (cIK == null || cIK.size() <= 0) {
+        ArrayList<BdUniqueId> cIM = com.baidu.tieba.tbadkCore.s.cIM();
+        if (cIM == null || cIM.size() <= 0) {
             return false;
         }
-        int size = cIK.size();
+        int size = cIM.size();
         for (int i = 0; i < size; i++) {
-            com.baidu.tieba.frs.h<ICardInfo, ? extends v.a> a = com.baidu.tieba.frs.c.bBC().a(this.gFD.getPageContext(), cIK.get(i), this.gFD.getUniqueId());
+            com.baidu.tieba.frs.h<ICardInfo, ? extends v.a> a = com.baidu.tieba.frs.c.bBC().a(this.gFD.getPageContext(), cIM.get(i), this.gFD.getUniqueId());
             if (a != null) {
                 this.apl.add(a);
                 this.gDJ.add(a);

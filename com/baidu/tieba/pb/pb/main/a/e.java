@@ -47,8 +47,8 @@ public class e {
             }
             this.iPQ.b(postData, fVar.ciS(), fVar.cjo());
             this.iPS = false;
-            bdTypeListView.removeHeaderView(this.iPQ.cqY());
-            bdTypeListView.addHeaderView(this.iPQ.cqY(), 0);
+            bdTypeListView.removeHeaderView(this.iPQ.cra());
+            bdTypeListView.addHeaderView(this.iPQ.cra(), 0);
             if (this.iPQ.bat() != null && this.iPQ.bat().getParent() == null) {
                 frameLayout.addView(this.iPQ.bat());
             }
@@ -56,8 +56,8 @@ public class e {
                 this.iPR = new g(this.iCe.getBaseFragmentActivity());
             }
             this.iPR.b(fVar, str);
-            bdTypeListView.removeHeaderView(this.iPR.cqR());
-            bdTypeListView.addHeaderView(this.iPR.cqR(), 1);
+            bdTypeListView.removeHeaderView(this.iPR.cqT());
+            bdTypeListView.addHeaderView(this.iPR.cqT(), 1);
             dVar.c(bdTypeListView);
             dVar.a(bdTypeListView, 2);
             if (this.iPQ != null) {
@@ -70,7 +70,7 @@ public class e {
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
             if (this.iPQ != null) {
-                bdTypeListView.removeHeaderView(this.iPQ.cqY());
+                bdTypeListView.removeHeaderView(this.iPQ.cra());
             }
             if (this.iPR != null) {
                 this.iPR.e(bdTypeListView);
@@ -111,14 +111,14 @@ public class e {
                     pbLandscapeListView.setTextViewAdded(false);
                 }
                 if (i != 1) {
-                    pbLandscapeListView.removeHeaderView(this.iPQ.cqY());
-                    pbLandscapeListView.addHeaderView(this.iPQ.cqY(), 0);
+                    pbLandscapeListView.removeHeaderView(this.iPQ.cra());
+                    pbLandscapeListView.addHeaderView(this.iPQ.cra(), 0);
                     return;
                 }
                 return;
             }
             if (this.iPQ != null) {
-                pbLandscapeListView.removeHeaderView(this.iPQ.cqY());
+                pbLandscapeListView.removeHeaderView(this.iPQ.cra());
             }
             if (textView != null) {
                 pbLandscapeListView.removeHeaderView(textView);

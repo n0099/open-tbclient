@@ -93,9 +93,9 @@ public class a {
     }
 
     public void cgh() {
-        ArrayList<MarkData> cKu = com.baidu.tieba.tbadkCore.util.a.cKu();
-        if (cKu != null) {
-            aH(cKu);
+        ArrayList<MarkData> cKw = com.baidu.tieba.tbadkCore.util.a.cKw();
+        if (cKw != null) {
+            aH(cKw);
         }
     }
 

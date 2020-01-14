@@ -81,7 +81,7 @@ public class ha {
         try {
             gw.a a2 = gw.a(exc);
             m320a.a(a2.a.a());
-            m320a.c(a2.f438a);
+            m320a.c(a2.f439a);
             m320a.b(str);
             gy.m318a().a(m320a);
         } catch (NullPointerException e) {
@@ -93,7 +93,7 @@ public class ha {
             gw.a b = gw.b(exc);
             fc m320a = gy.m318a().m320a();
             m320a.a(b.a.a());
-            m320a.c(b.f438a);
+            m320a.c(b.f439a);
             m320a.b(str);
             gy.m318a().a(m320a);
         } catch (NullPointerException e) {
@@ -118,7 +118,7 @@ public class ha {
             gw.a d = gw.d(exc);
             fc m320a = gy.m318a().m320a();
             m320a.a(d.a.a());
-            m320a.c(d.f438a);
+            m320a.c(d.f439a);
             m320a.b(str);
             gy.m318a().a(m320a);
         } catch (NullPointerException e) {

@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableRefCount<T> extends q<T> {
     RefConnection connection;
     final int n;
-    final io.reactivex.d.a<T> nxt;
+    final io.reactivex.d.a<T> nxy;
     final v scheduler;
     final long timeout;
     final TimeUnit unit;
@@ -39,9 +39,9 @@ public final class ObservableRefCount<T> extends q<T> {
                 refConnection.connected = true;
             }
         }
-        this.nxt.subscribe(new RefCountObserver(uVar, this, refConnection));
+        this.nxy.subscribe(new RefCountObserver(uVar, this, refConnection));
         if (z) {
-            this.nxt.c(refConnection);
+            this.nxy.c(refConnection);
         }
     }
 
@@ -70,8 +70,8 @@ public final class ObservableRefCount<T> extends q<T> {
                 if (refConnection.timer != null) {
                     refConnection.timer.dispose();
                 }
-                if (this.nxt instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nxt).dispose();
+                if (this.nxy instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nxy).dispose();
                 }
             }
         }
@@ -82,8 +82,8 @@ public final class ObservableRefCount<T> extends q<T> {
             if (refConnection.subscriberCount == 0 && refConnection == this.connection) {
                 this.connection = null;
                 DisposableHelper.dispose(refConnection);
-                if (this.nxt instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nxt).dispose();
+                if (this.nxy instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nxy).dispose();
                 }
             }
         }

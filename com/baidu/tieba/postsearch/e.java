@@ -93,11 +93,11 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.cRe.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.jAu = (TextView) view.findViewById(R.id.title_text);
-            aVar.jAv = (TextView) view.findViewById(R.id.content_text);
-            aVar.jAw = (TextView) view.findViewById(R.id.label_text);
+            aVar.jAz = (TextView) view.findViewById(R.id.title_text);
+            aVar.jAA = (TextView) view.findViewById(R.id.content_text);
+            aVar.jAB = (TextView) view.findViewById(R.id.label_text);
             aVar.fqb = (TextView) view.findViewById(R.id.user_name);
-            aVar.jAx = (TextView) view.findViewById(R.id.time_text);
+            aVar.jAC = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -107,24 +107,24 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.jAu.setText(Html.fromHtml(aq.getHighLightString(aVar3.title, str)));
-            aVar2.jAv.setText(Html.fromHtml(aq.getHighLightString(aVar3.content, str)));
+            aVar2.jAz.setText(Html.fromHtml(aq.getHighLightString(aVar3.title, str)));
+            aVar2.jAA.setText(Html.fromHtml(aq.getHighLightString(aVar3.content, str)));
             aVar2.fqb.setText(aVar3.name_show);
-            aVar2.jAx.setText(aq.getFormatTime(aVar3.time));
-            aVar2.jAw.setVisibility(0);
-            if (aVar3.jzS == 1) {
-                aVar2.jAw.setText(R.string.floor_text);
-            } else if (aVar3.jzT == 1) {
-                aVar2.jAw.setText(R.string.reply_post);
+            aVar2.jAC.setText(aq.getFormatTime(aVar3.time));
+            aVar2.jAB.setVisibility(0);
+            if (aVar3.jzX == 1) {
+                aVar2.jAB.setText(R.string.floor_text);
+            } else if (aVar3.jzY == 1) {
+                aVar2.jAB.setText(R.string.reply_post);
             } else {
-                aVar2.jAw.setVisibility(8);
+                aVar2.jAB.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (e.this.cRe != null) {
                         e.this.a(aVar3);
-                        if (aVar3.jzS == 1) {
+                        if (aVar3.jzX == 1) {
                             SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.cRe.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
                             e.this.cRe.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
@@ -154,7 +154,7 @@ public class e extends BaseAdapter {
             cp.Z("tab_id", this.fpl);
         }
         if (aVar != null) {
-            if (aVar.jzS == 1 || aVar.jzT == 1) {
+            if (aVar.jzX == 1 || aVar.jzY == 1) {
                 cp.s("pid", aVar.pid);
             } else {
                 cp.s("tid", aVar.tid);
@@ -166,10 +166,10 @@ public class e extends BaseAdapter {
     /* loaded from: classes9.dex */
     private static class a {
         TextView fqb;
-        TextView jAu;
-        TextView jAv;
-        TextView jAw;
-        TextView jAx;
+        TextView jAA;
+        TextView jAB;
+        TextView jAC;
+        TextView jAz;
 
         private a() {
         }

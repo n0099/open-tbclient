@@ -18,8 +18,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements View.OnClickListener {
     private TextView hMb;
-    private List<AppData> jFd;
-    private LinearLayout jFg;
+    private List<AppData> jFi;
+    private LinearLayout jFl;
     private TextView mTitle;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -29,10 +29,10 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             showToast("已复制到系统剪贴板");
             return;
         }
-        int indexOfChild = this.jFg.indexOfChild(view);
-        if (indexOfChild >= 0 && indexOfChild < this.jFd.size()) {
+        int indexOfChild = this.jFl.indexOfChild(view);
+        if (indexOfChild >= 0 && indexOfChild < this.jFi.size()) {
             this.mTitle.setText("AD" + indexOfChild);
-            a(this.jFd.get(indexOfChild));
+            a(this.jFi.get(indexOfChild));
         }
     }
 
@@ -43,39 +43,39 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         setContentView(R.layout.ad_debug_layout);
         this.mTitle = (TextView) findViewById(R.id.ad_debug_label_data);
         this.hMb = (TextView) findViewById(R.id.ad_debug_content);
-        this.jFg = (LinearLayout) findViewById(R.id.ad_debug_item_container);
+        this.jFl = (LinearLayout) findViewById(R.id.ad_debug_item_container);
         ((TextView) findViewById(R.id.ad_debug_copy)).setOnClickListener(this);
         this.hMb.setMovementMethod(new ScrollingMovementMethod());
         this.hMb.setText("没刷到广告~ 换个姿势试试！");
-        this.jFd = r.cAV().cAT();
+        this.jFi = r.cAX().cAV();
         aFa();
     }
 
     private void aFa() {
-        if (this.jFd.size() == 0) {
-            TextView cAY = cAY();
-            cAY.setOnClickListener(null);
-            cAY.setText("No AD");
-            this.jFg.addView(cAY, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+        if (this.jFi.size() == 0) {
+            TextView cBa = cBa();
+            cBa.setOnClickListener(null);
+            cBa.setText("No AD");
+            this.jFl.addView(cBa, new LinearLayout.LayoutParams(-1, -1, 1.0f));
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 != this.jFd.size()) {
-                TextView cAY2 = cAY();
-                cAY2.setText("AD" + i2);
-                AppData appData = this.jFd.get(i2);
+            if (i2 != this.jFi.size()) {
+                TextView cBa2 = cBa();
+                cBa2.setText("AD" + i2);
+                AppData appData = this.jFi.get(i2);
                 if (appData.mDiscardReason > 0) {
-                    am.setBackgroundResource(cAY2, R.drawable.btn_all_red);
+                    am.setBackgroundResource(cBa2, R.drawable.btn_all_red);
                 } else {
-                    am.setBackgroundResource(cAY2, R.drawable.btn_all_green);
+                    am.setBackgroundResource(cBa2, R.drawable.btn_all_green);
                 }
                 if (i2 == 0) {
                     a(appData);
                     this.mTitle.setText("AD0");
                 }
-                this.jFg.addView(cAY2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+                this.jFl.addView(cBa2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
                 i = i2 + 1;
             } else {
                 return;
@@ -83,7 +83,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         }
     }
 
-    private TextView cAY() {
+    private TextView cBa() {
         TextView textView = new TextView(this);
         textView.setGravity(17);
         am.setViewTextColor(textView, (int) R.color.cp_other_f);
@@ -102,7 +102,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             try {
                 String str2 = new String();
                 if (appData.mDiscardReason > 0) {
-                    String str3 = e.jKP.get(Integer.valueOf(appData.mDiscardReason));
+                    String str3 = e.jKU.get(Integer.valueOf(appData.mDiscardReason));
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "未知原因";
                     }

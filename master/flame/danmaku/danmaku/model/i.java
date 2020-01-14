@@ -1,22 +1,22 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes4.dex */
 public class i extends d {
-    private float nEY;
-    private float nEZ;
-    private int nFa;
+    private float nFd;
+    private float nFe;
+    private int nFf;
     private float x = 0.0f;
     protected float y = -1.0f;
-    private float[] nEX = null;
+    private float[] nFc = null;
 
     public i(g gVar) {
-        this.nEF = gVar;
+        this.nEK = gVar;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public void a(m mVar, float f, float f2) {
-        if (this.nEd != null) {
-            long dKB = this.nEd.nEU - dKB();
-            if (dKB > 0 && dKB < this.nEF.value) {
+        if (this.nEi != null) {
+            long dKD = this.nEi.nEZ - dKD();
+            if (dKD > 0 && dKD < this.nEK.value) {
                 if (!isShown()) {
                     this.x = b(mVar);
                     this.y = f2;
@@ -32,50 +32,50 @@ public class i extends d {
     }
 
     protected float b(m mVar) {
-        if (this.nFa == mVar.getWidth() && this.nEZ == this.nED) {
-            return this.nEY;
+        if (this.nFf == mVar.getWidth() && this.nFe == this.nEI) {
+            return this.nFd;
         }
-        float width = (mVar.getWidth() - this.nED) / 2.0f;
-        this.nFa = mVar.getWidth();
-        this.nEZ = this.nED;
-        this.nEY = width;
+        float width = (mVar.getWidth() - this.nEI) / 2.0f;
+        this.nFf = mVar.getWidth();
+        this.nFe = this.nEI;
+        this.nFd = width;
         return width;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float[] a(m mVar, long j) {
-        if (!dKq()) {
+        if (!dKs()) {
             return null;
         }
         float b = b(mVar);
-        if (this.nEX == null) {
-            this.nEX = new float[4];
+        if (this.nFc == null) {
+            this.nFc = new float[4];
         }
-        this.nEX[0] = b;
-        this.nEX[1] = this.y;
-        this.nEX[2] = b + this.nED;
-        this.nEX[3] = this.y + this.nEE;
-        return this.nEX;
-    }
-
-    @Override // master.flame.danmaku.danmaku.model.d
-    public float dKw() {
-        return this.x;
-    }
-
-    @Override // master.flame.danmaku.danmaku.model.d
-    public float dKx() {
-        return this.y;
+        this.nFc[0] = b;
+        this.nFc[1] = this.y;
+        this.nFc[2] = b + this.nEI;
+        this.nFc[3] = this.y + this.nEJ;
+        return this.nFc;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float dKy() {
-        return this.x + this.nED;
+        return this.x;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float dKz() {
-        return this.y + this.nEE;
+        return this.y;
+    }
+
+    @Override // master.flame.danmaku.danmaku.model.d
+    public float dKA() {
+        return this.x + this.nEI;
+    }
+
+    @Override // master.flame.danmaku.danmaku.model.d
+    public float dKB() {
+        return this.y + this.nEJ;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d

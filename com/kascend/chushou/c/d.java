@@ -55,7 +55,7 @@ public class d {
                             arrayList3.add(optJSONArray2.optString(i3));
                         }
                         if (!h.isEmpty(arrayList3)) {
-                            com.kascend.chushou.d.h.dAK().a((List<String>) arrayList3);
+                            com.kascend.chushou.d.h.dAM().a((List<String>) arrayList3);
                         }
                     }
                     tv.chushou.zues.utils.e.i("Parser_Home", "parser sucess");

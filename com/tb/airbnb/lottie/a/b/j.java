@@ -21,7 +21,7 @@ public class j extends f<PointF> {
         }
         PointF pointF2 = aVar.km;
         PointF pointF3 = aVar.kn;
-        if (this.npA == null || (pointF = (PointF) this.npA.b(aVar.ec, aVar.kp.floatValue(), pointF2, pointF3, f, bS(), getProgress())) == null) {
+        if (this.npF == null || (pointF = (PointF) this.npF.b(aVar.ec, aVar.kp.floatValue(), pointF2, pointF3, f, bS(), getProgress())) == null) {
             this.gK.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
             return this.gK;
         }

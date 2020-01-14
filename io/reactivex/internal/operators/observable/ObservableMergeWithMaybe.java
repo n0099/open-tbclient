@@ -124,7 +124,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
         f<T> getOrCreateQueue() {
             f<T> fVar = this.queue;
             if (fVar == null) {
-                io.reactivex.internal.queue.a aVar = new io.reactivex.internal.queue.a(q.dHR());
+                io.reactivex.internal.queue.a aVar = new io.reactivex.internal.queue.a(q.dHT());
                 this.queue = aVar;
                 return aVar;
             }

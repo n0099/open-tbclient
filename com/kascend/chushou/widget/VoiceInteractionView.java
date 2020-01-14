@@ -34,8 +34,8 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     private final int i;
     private final int j;
     private final int k;
-    private FlexboxLayout ngM;
-    private b ngN;
+    private FlexboxLayout ngR;
+    private b ngS;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -60,7 +60,7 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
         this.j = ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
         this.k = 100000000;
         LayoutInflater.from(context).inflate(a.h.view_voice_interaction, (ViewGroup) this, true);
-        this.ngM = (FlexboxLayout) findViewById(a.f.fbl_container);
+        this.ngR = (FlexboxLayout) findViewById(a.f.fbl_container);
         this.b = (LinearLayout) findViewById(a.f.ll_rule);
         this.a = (TextView) findViewById(a.f.tv_current_charts);
         this.b.setOnClickListener(this);
@@ -83,9 +83,9 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     public void onVoiceVolumesEvent(r rVar) {
         if (getVisibility() == 0) {
             for (a aVar : this.d) {
-                if (aVar.ngO != null) {
+                if (aVar.ngT != null) {
                     try {
-                        Integer num = rVar.a.get(Long.valueOf(Long.parseLong(aVar.ngO.uid)));
+                        Integer num = rVar.a.get(Long.valueOf(Long.parseLong(aVar.ngT.uid)));
                         aVar.a(num != null && num.intValue() > 0);
                     } catch (NumberFormatException e) {
                         e.printStackTrace();
@@ -99,22 +99,22 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.ll_rule) {
-            if (this.ngN != null) {
-                this.ngN.a();
+            if (this.ngS != null) {
+                this.ngS.a();
             }
-        } else if (id == a.f.tv_current_charts && this.ngN != null) {
-            this.ngN.b();
+        } else if (id == a.f.tv_current_charts && this.ngS != null) {
+            this.ngS.b();
         }
     }
 
     public void setupCount(int i) {
-        if (i > 0 && this.ngM != null && this.d.size() != i) {
-            this.ngM.removeAllViews();
+        if (i > 0 && this.ngR != null && this.d.size() != i) {
+            this.ngR.removeAllViews();
             this.d.clear();
             for (int i2 = 0; i2 < i; i2++) {
                 View a2 = a();
                 this.d.add(new a(i2, a2));
-                this.ngM.addView(a2, new FlexboxLayout.LayoutParams(tv.chushou.zues.utils.a.dip2px(getContext(), 48.0f), tv.chushou.zues.utils.a.dip2px(getContext(), 64.0f)));
+                this.ngR.addView(a2, new FlexboxLayout.LayoutParams(tv.chushou.zues.utils.a.dip2px(getContext(), 48.0f), tv.chushou.zues.utils.a.dip2px(getContext(), 64.0f)));
             }
         }
     }
@@ -143,7 +143,7 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     }
 
     public void setOnActionListener(b bVar) {
-        this.ngN = bVar;
+        this.ngS = bVar;
     }
 
     private View a() {
@@ -163,14 +163,14 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
         private LinearLayout k;
         private ImageView l;
         private TextView m;
-        private FrescoThumbnailView mWR;
-        private MicMemberInfo ngO;
+        private FrescoThumbnailView mWW;
+        private MicMemberInfo ngT;
 
         a(int i, View view) {
             this.b = i;
             this.e = view;
             view.setOnClickListener(this);
-            this.mWR = (FrescoThumbnailView) view.findViewById(a.f.ftv_avatar);
+            this.mWW = (FrescoThumbnailView) view.findViewById(a.f.ftv_avatar);
             this.g = (FrameLayout) view.findViewById(a.f.fl_nobody);
             this.h = (ImageView) view.findViewById(a.f.iv_nobody);
             this.i = (ImageView) view.findViewById(a.f.iv_voice);
@@ -182,7 +182,7 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
         }
 
         public void a(MicMemberInfo micMemberInfo) {
-            this.ngO = micMemberInfo;
+            this.ngT = micMemberInfo;
             if (micMemberInfo == null) {
                 b(false);
                 c(true);
@@ -191,7 +191,7 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
             }
             c(false);
             b(micMemberInfo.micStatus == 1);
-            this.mWR.i(micMemberInfo.avatar, com.kascend.chushou.view.a.a(micMemberInfo.gender), b.a.small, b.a.small);
+            this.mWW.i(micMemberInfo.avatar, com.kascend.chushou.view.a.a(micMemberInfo.gender), b.a.small, b.a.small);
             this.j.setText(VoiceInteractionView.this.getContext().getString(a.i.str_order_with_name, Integer.valueOf(micMemberInfo.order), micMemberInfo.nickname));
             this.m.setText(VoiceInteractionView.this.getContext().getString(a.i.str_ticket_count, VoiceInteractionView.this.a(micMemberInfo.contributePoint)));
         }
@@ -243,14 +243,14 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
         public void c(boolean z) {
             this.c = z;
             if (z) {
-                this.mWR.setVisibility(8);
+                this.mWW.setVisibility(8);
                 this.g.setVisibility(0);
                 this.k.setVisibility(8);
                 this.h.setImageResource(VoiceInteractionView.this.f ? a.e.icon_voice_interaction_lock : a.e.icon_voice_interaction_nobody);
                 this.j.setVisibility(VoiceInteractionView.this.f ? 8 : 0);
                 return;
             }
-            this.mWR.setVisibility(0);
+            this.mWW.setVisibility(0);
             this.g.setVisibility(8);
             this.k.setVisibility(VoiceInteractionView.this.g ? 0 : 8);
             this.j.setVisibility(0);
@@ -258,8 +258,8 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!this.c && VoiceInteractionView.this.ngN != null) {
-                VoiceInteractionView.this.ngN.a(this.b, this.ngO, VoiceInteractionView.this.f);
+            if (!this.c && VoiceInteractionView.this.ngS != null) {
+                VoiceInteractionView.this.ngS.a(this.b, this.ngT, VoiceInteractionView.this.f);
             }
         }
     }

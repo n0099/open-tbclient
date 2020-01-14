@@ -19,23 +19,23 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 /* loaded from: classes5.dex */
 public class n {
-    private static DocumentBuilderFactory lFX = null;
+    private static DocumentBuilderFactory lGc = null;
 
-    private static synchronized void dim() {
+    private static synchronized void dio() {
         synchronized (n.class) {
-            lFX = DocumentBuilderFactory.newInstance();
-            lFX.setIgnoringComments(true);
-            lFX.setCoalescing(true);
+            lGc = DocumentBuilderFactory.newInstance();
+            lGc.setIgnoringComments(true);
+            lGc.setCoalescing(true);
         }
     }
 
-    private static synchronized DocumentBuilder din() throws ParserConfigurationException {
+    private static synchronized DocumentBuilder dip() throws ParserConfigurationException {
         DocumentBuilder newDocumentBuilder;
         synchronized (n.class) {
-            if (lFX == null) {
-                dim();
+            if (lGc == null) {
+                dio();
             }
-            newDocumentBuilder = lFX.newDocumentBuilder();
+            newDocumentBuilder = lGc.newDocumentBuilder();
             newDocumentBuilder.setEntityResolver(new EntityResolver() { // from class: com.dd.plist.n.1
                 @Override // org.xml.sax.EntityResolver
                 public InputSource resolveEntity(String str, String str2) {
@@ -54,7 +54,7 @@ public class n {
     }
 
     public static i q(InputStream inputStream) throws ParserConfigurationException, IOException, SAXException, PropertyListFormatException, ParseException {
-        return a(din().parse(inputStream));
+        return a(dip().parse(inputStream));
     }
 
     private static i a(Document document) throws PropertyListFormatException, IOException, ParseException {

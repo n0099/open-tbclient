@@ -33,22 +33,22 @@ public class c implements View.OnClickListener, a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                c.this.cGb();
-                c.this.g(c.this.ksW);
+                c.this.cGd();
+                c.this.g(c.this.ktb);
             }
         }
     };
-    private TextView jUZ;
-    private b ksU;
-    private boolean ksV;
-    private ShareDialogConfig ksW;
+    private TextView jVe;
+    private b ksZ;
+    private boolean kta;
+    private ShareDialogConfig ktb;
     private Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private LinearLayout mRootView;
     private TextView mTitle;
-    private static final int ksX = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-    private static final int ksY = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+    private static final int ktc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
+    private static final int ktd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds48);
     private static final int ant = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds34);
     private static final int dJZ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
 
@@ -58,23 +58,23 @@ public class c implements View.OnClickListener, a {
         this.mRootView.setOrientation(1);
         this.mTitle = new TextView(context);
         this.mTitle.setTextSize(0, ant);
-        this.mTitle.setPadding(ksY, 0, ksY, 0);
+        this.mTitle.setPadding(ktd, 0, ktd, 0);
         this.mTitle.setGravity(17);
-        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, ksX));
+        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, ktc));
         this.mRootView.addView(this.mTitle);
-        this.ksU = new b(context);
+        this.ksZ = new b(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.leftMargin = ShareGridLayout.ksN;
-        layoutParams.rightMargin = ShareGridLayout.ksN;
-        this.mRootView.addView(this.ksU.cNf(), layoutParams);
-        this.jUZ = new TextView(context);
-        this.jUZ.setTextSize(0, dJZ);
-        this.jUZ.setGravity(17);
-        this.jUZ.setText(R.string.cancel);
-        this.jUZ.setLayoutParams(new LinearLayout.LayoutParams(-1, ksX));
-        this.jUZ.setOnClickListener(this);
-        this.mRootView.addView(this.jUZ);
-        this.ksU.a(this);
+        layoutParams.leftMargin = ShareGridLayout.ksS;
+        layoutParams.rightMargin = ShareGridLayout.ksS;
+        this.mRootView.addView(this.ksZ.cNh(), layoutParams);
+        this.jVe = new TextView(context);
+        this.jVe.setTextSize(0, dJZ);
+        this.jVe.setGravity(17);
+        this.jVe.setText(R.string.cancel);
+        this.jVe.setLayoutParams(new LinearLayout.LayoutParams(-1, ktc));
+        this.jVe.setOnClickListener(this);
+        this.mRootView.addView(this.jVe);
+        this.ksZ.a(this);
     }
 
     public void g(ShareDialogConfig shareDialogConfig) {
@@ -91,8 +91,8 @@ public class c implements View.OnClickListener, a {
                 this.mTitle.setText(R.string.transmit_share_not_add_experience);
             }
         }
-        this.ksU.a(shareDialogConfig, this.ksV);
-        this.ksW = shareDialogConfig;
+        this.ksZ.a(shareDialogConfig, this.kta);
+        this.ktb = shareDialogConfig;
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -100,11 +100,11 @@ public class c implements View.OnClickListener, a {
     }
 
     public void tf(boolean z) {
-        this.ksV = z;
+        this.kta = z;
     }
 
     public void show() {
-        cGb();
+        cGd();
         this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
         this.mDialog.setCanceledOnTouchOutside(true);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.transmitShare.c.2
@@ -114,8 +114,8 @@ public class c implements View.OnClickListener, a {
                     c.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_TRANSMIT_SHARE_DIALOG_DISMISS);
-                if (c.this.ksU != null) {
-                    c.this.ksU.release();
+                if (c.this.ksZ != null) {
+                    c.this.ksZ.release();
                 }
             }
         });
@@ -135,10 +135,10 @@ public class c implements View.OnClickListener, a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGb() {
+    public void cGd() {
         am.setBackgroundResource(this.mRootView, R.drawable.transmit_share_dialog_background);
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_c);
-        am.setViewTextColor(this.jUZ, R.color.cp_cont_j, 1);
+        am.setViewTextColor(this.jVe, R.color.cp_cont_j, 1);
     }
 
     private void bec() {
@@ -165,7 +165,7 @@ public class c implements View.OnClickListener, a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jUZ) {
+        if (view == this.jVe) {
             h("share_cancel", new Object[0]);
             dismiss();
         }

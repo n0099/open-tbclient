@@ -5,14 +5,14 @@ import android.media.MediaCrypto;
 @TargetApi(16)
 /* loaded from: classes5.dex */
 public final class c implements b {
-    private final MediaCrypto mdc;
-    private final boolean mdd;
+    private final MediaCrypto mdh;
+    private final boolean mdi;
 
-    public MediaCrypto dtA() {
-        return this.mdc;
+    public MediaCrypto dtC() {
+        return this.mdh;
     }
 
     public boolean Pe(String str) {
-        return !this.mdd && this.mdc.requiresSecureDecoderComponent(str);
+        return !this.mdi && this.mdh.requiresSecureDecoderComponent(str);
     }
 }

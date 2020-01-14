@@ -18,8 +18,8 @@ import tv.chushou.zues.utils.h;
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String f;
     private boolean j;
-    private com.kascend.chushou.view.a.a<ListItem> mPX;
-    private com.kascend.chushou.view.a.a<PannelItem> nel;
+    private com.kascend.chushou.view.a.a<ListItem> mQc;
+    private com.kascend.chushou.view.a.a<PannelItem> neq;
     private final List<Object> c = new ArrayList();
     private boolean g = true;
     private boolean h = false;
@@ -39,8 +39,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public b(String str, com.kascend.chushou.view.a.a<PannelItem> aVar, com.kascend.chushou.view.a.a<ListItem> aVar2, boolean z) {
         this.j = false;
         this.f = str;
-        this.nel = new com.kascend.chushou.view.a.b(aVar);
-        this.mPX = new com.kascend.chushou.view.a.b(aVar2);
+        this.neq = new com.kascend.chushou.view.a.b(aVar);
+        this.mQc = new com.kascend.chushou.view.a.b(aVar2);
         this.j = z;
     }
 
@@ -117,7 +117,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 6:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "10");
             case 22:
-                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.mPX, this.j ? false : true, this.f);
+                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.mQc, this.j ? false : true, this.f);
             case 34:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "32");
             default:

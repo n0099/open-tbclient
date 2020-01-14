@@ -22,7 +22,7 @@ public class d {
     private float ed;
     private float frameRate;
     private Map<String, g> images;
-    private final m noE = new m();
+    private final m noJ = new m();
     private final HashSet<String> dV = new HashSet<>();
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
@@ -45,11 +45,11 @@ public class d {
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.noE.setEnabled(z);
+        this.noJ.setEnabled(z);
     }
 
     public m getPerformanceTracker() {
-        return this.noE;
+        return this.noJ;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})

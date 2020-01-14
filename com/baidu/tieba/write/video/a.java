@@ -12,7 +12,7 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private List<VideoTitleData> kPz;
+    private List<VideoTitleData> kPE;
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -23,17 +23,17 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.isEmpty(this.kPz)) {
+        if (v.isEmpty(this.kPE)) {
             return 0;
         }
-        return this.kPz.size();
+        return this.kPE.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: Eh */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.getItem(this.kPz, i);
+        return (VideoTitleData) v.getItem(this.kPE, i);
     }
 
     @Override // android.widget.Adapter
@@ -64,7 +64,7 @@ public class a extends BaseAdapter {
     }
 
     public void eD(List<VideoTitleData> list) {
-        this.kPz = list;
+        this.kPE = list;
         notifyDataSetChanged();
     }
 }

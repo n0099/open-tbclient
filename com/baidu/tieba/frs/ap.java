@@ -23,7 +23,7 @@ class ap implements ae {
 
     @Override // com.baidu.tieba.frs.ae
     public com.baidu.adp.widget.ListView.a<? extends bj, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        if (bdUniqueId == com.baidu.tieba.tbadkCore.u.kek) {
+        if (bdUniqueId == com.baidu.tieba.tbadkCore.u.kep) {
             return new com.baidu.tieba.frs.entelechy.a.e(tbPageContext, bdUniqueId, z);
         }
         if (bdUniqueId == bj.cPa) {

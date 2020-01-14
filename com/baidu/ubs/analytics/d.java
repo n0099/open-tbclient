@@ -16,12 +16,12 @@ public final class d {
     private String i;
     private boolean j;
     private Map<String, g> k;
-    private JSONArray kUX;
+    private JSONArray kVc;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        public static final d kUY = new d((byte) 0);
+        public static final d kVd = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
@@ -40,8 +40,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d cVW() {
-        return a.kUY;
+    public static d cVY() {
+        return a.kVd;
     }
 
     public final void a(Context context) {
@@ -88,7 +88,7 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final SampleResult KY(String str) {
-        if (this.kUX == null) {
+        if (this.kVc == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
@@ -97,8 +97,8 @@ public final class d {
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.kUX.length(); i++) {
-            JSONObject optJSONObject = this.kUX.optJSONObject(i);
+        for (int i = 0; i < this.kVc.length(); i++) {
+            JSONObject optJSONObject = this.kVc.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                 return i.Ll(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }

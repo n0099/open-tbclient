@@ -16,13 +16,13 @@ public interface Framedata {
 
     boolean JY();
 
-    ByteBuffer dMj();
-
-    boolean dMk();
-
-    boolean dMl();
+    ByteBuffer dMl();
 
     boolean dMm();
 
-    Opcode dMn();
+    boolean dMn();
+
+    boolean dMo();
+
+    Opcode dMp();
 }

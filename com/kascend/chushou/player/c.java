@@ -1,33 +1,33 @@
 package com.kascend.chushou.player;
 /* loaded from: classes4.dex */
 public class c {
-    private static c mQx = null;
-    private tv.chushou.common.player.a mOy;
-    private tv.chushou.common.player.a mQw;
+    private static c mQC = null;
+    private tv.chushou.common.player.a mOD;
+    private tv.chushou.common.player.a mQB;
 
     public c() {
-        this.mQw = null;
-        this.mOy = null;
-        this.mQw = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dOE().T(tv.chushou.basis.d.a.a.b.class)).createPlayer();
-        this.mOy = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dOE().T(tv.chushou.basis.d.a.a.b.class)).createPlayer();
+        this.mQB = null;
+        this.mOD = null;
+        this.mQB = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dOG().T(tv.chushou.basis.d.a.a.b.class)).createPlayer();
+        this.mOD = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dOG().T(tv.chushou.basis.d.a.a.b.class)).createPlayer();
     }
 
-    public tv.chushou.common.player.a dBy() {
-        return this.mQw;
+    public tv.chushou.common.player.a dBA() {
+        return this.mQB;
     }
 
-    public tv.chushou.common.player.a dBz() {
-        return this.mOy;
+    public tv.chushou.common.player.a dBB() {
+        return this.mOD;
     }
 
     public void c() {
-        if (this.mQw != null) {
-            this.mQw.release();
-            this.mQw = null;
+        if (this.mQB != null) {
+            this.mQB.release();
+            this.mQB = null;
         }
-        if (this.mOy != null) {
-            this.mOy.release();
-            this.mOy = null;
+        if (this.mOD != null) {
+            this.mOD.release();
+            this.mOD = null;
         }
     }
 }

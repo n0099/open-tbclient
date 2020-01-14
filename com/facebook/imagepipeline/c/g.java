@@ -10,33 +10,33 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public class g<K, V> {
-    private final v<V> lQe;
+    private final v<V> lQj;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> lQf = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> lQk = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int lQg = 0;
+    private int lQl = 0;
 
     public g(v<V> vVar) {
-        this.lQe = vVar;
+        this.lQj = vVar;
     }
 
     public synchronized int getCount() {
-        return this.lQf.size();
+        return this.lQk.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.lQg;
+        return this.lQl;
     }
 
     @Nullable
-    public synchronized K dmD() {
-        return this.lQf.isEmpty() ? null : this.lQf.keySet().iterator().next();
+    public synchronized K dmF() {
+        return this.lQk.isEmpty() ? null : this.lQk.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.lQf.entrySet().size());
-        for (Map.Entry<K, V> entry : this.lQf.entrySet()) {
+        arrayList = new ArrayList<>(this.lQk.entrySet().size());
+        for (Map.Entry<K, V> entry : this.lQk.entrySet()) {
             if (hVar == null || hVar.aR(entry.getKey())) {
                 arrayList.add(entry);
             }
@@ -45,41 +45,41 @@ public class g<K, V> {
     }
 
     public synchronized boolean contains(K k) {
-        return this.lQf.containsKey(k);
+        return this.lQk.containsKey(k);
     }
 
     @Nullable
     public synchronized V get(K k) {
-        return this.lQf.get(k);
+        return this.lQk.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.lQf.remove(k);
-        this.lQg -= bj(remove);
-        this.lQf.put(k, v);
-        this.lQg += bj(v);
+        remove = this.lQk.remove(k);
+        this.lQl -= bj(remove);
+        this.lQk.put(k, v);
+        this.lQl += bj(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.lQf.remove(k);
-        this.lQg -= bj(remove);
+        remove = this.lQk.remove(k);
+        this.lQl -= bj(remove);
         return remove;
     }
 
     public synchronized ArrayList<V> b(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<V> arrayList;
         arrayList = new ArrayList<>();
-        Iterator<Map.Entry<K, V>> it = this.lQf.entrySet().iterator();
+        Iterator<Map.Entry<K, V>> it = this.lQk.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<K, V> next = it.next();
             if (hVar == null || hVar.aR(next.getKey())) {
                 arrayList.add(next.getValue());
-                this.lQg -= bj(next.getValue());
+                this.lQl -= bj(next.getValue());
                 it.remove();
             }
         }
@@ -90,6 +90,6 @@ public class g<K, V> {
         if (v == null) {
             return 0;
         }
-        return this.lQe.bh(v);
+        return this.lQj.bh(v);
     }
 }

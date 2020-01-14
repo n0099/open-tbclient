@@ -13,33 +13,33 @@ import java.nio.ByteOrder;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 /* loaded from: classes8.dex */
 public class g {
-    public static boolean kzh = false;
+    public static boolean kzm = false;
 
     /* loaded from: classes8.dex */
     public static class a {
         public int sampleRate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
         public int channelCount = 1;
-        public int kzf = 16;
+        public int kzk = 16;
         public int reason = 0;
 
-        public boolean cPs() {
+        public boolean cPu() {
             return this.reason == 1 || this.reason == 4 || this.reason == 6 || this.reason == 9;
         }
 
-        public boolean cPt() {
+        public boolean cPv() {
             return this.reason == 3 || this.reason == 4 || this.reason == 8 || this.reason == 9;
         }
 
-        public boolean cPu() {
+        public boolean cPw() {
             return this.reason == 5 || this.reason == 6 || this.reason == 8 || this.reason == 9;
         }
     }
 
-    public static void cPr() {
+    public static void cPt() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            kzh = true;
+            kzm = true;
         } else {
-            kzh = false;
+            kzm = false;
         }
     }
 
@@ -58,7 +58,7 @@ public class g {
                 aVarArr[i].reason += 3;
                 z = false;
             }
-            if (aVar.kzf != aVarArr[i].kzf) {
+            if (aVar.kzk != aVarArr[i].kzk) {
                 aVarArr[i].reason += 5;
                 z = false;
             }
@@ -93,7 +93,7 @@ public class g {
             a aVar = new a();
             aVar.sampleRate = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
             aVar.channelCount = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-            aVar.kzf = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+            aVar.kzk = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
             mediaExtractor.release();
             return aVar;
         } catch (IOException e) {
@@ -175,7 +175,7 @@ public class g {
                                             break;
                                         case 2:
                                             for (int i6 = 0; i6 < i5; i6 += 2) {
-                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], kzh);
+                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], kzm);
                                                 bArr3[i6] = a2[0];
                                                 bArr3[i6 + 1] = a2[1];
                                             }
@@ -205,7 +205,7 @@ public class g {
                         case 2:
                             byte[] bArr2 = new byte[length * 2];
                             for (int i3 = 0; i3 < length; i3++) {
-                                byte[] a2 = a((short) (bArr[i3] * 256), kzh);
+                                byte[] a2 = a((short) (bArr[i3] * 256), kzm);
                                 bArr2[i3 * 2] = a2[0];
                                 bArr2[(i3 * 2) + 1] = a2[1];
                             }
@@ -219,7 +219,7 @@ public class g {
                             int i4 = length / 2;
                             byte[] bArr3 = new byte[i4];
                             for (int i5 = 0; i5 < i4; i5++) {
-                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], kzh) / 256);
+                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], kzm) / 256);
                             }
                             return bArr3;
                         default:

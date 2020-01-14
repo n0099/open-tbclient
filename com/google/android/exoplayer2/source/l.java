@@ -15,7 +15,7 @@ public interface l {
 
     void a(com.google.android.exoplayer2.g gVar, boolean z, a aVar);
 
-    void duY() throws IOException;
+    void dva() throws IOException;
 
     void e(k kVar);
 
@@ -23,9 +23,9 @@ public interface l {
 
     /* loaded from: classes5.dex */
     public static final class b {
-        public static final b mrr = new b(-1, -1, -1);
-        public final int mrs;
-        public final int mrt;
+        public static final b mrw = new b(-1, -1, -1);
+        public final int mrx;
+        public final int mry;
         public final int periodIndex;
 
         public b(int i) {
@@ -34,16 +34,16 @@ public interface l {
 
         public b(int i, int i2, int i3) {
             this.periodIndex = i;
-            this.mrs = i2;
-            this.mrt = i3;
+            this.mrx = i2;
+            this.mry = i3;
         }
 
         public b KA(int i) {
-            return this.periodIndex == i ? this : new b(i, this.mrs, this.mrt);
+            return this.periodIndex == i ? this : new b(i, this.mrx, this.mry);
         }
 
-        public boolean dvg() {
-            return this.mrs != -1;
+        public boolean dvi() {
+            return this.mrx != -1;
         }
 
         public boolean equals(Object obj) {
@@ -54,11 +54,11 @@ public interface l {
                 return false;
             }
             b bVar = (b) obj;
-            return this.periodIndex == bVar.periodIndex && this.mrs == bVar.mrs && this.mrt == bVar.mrt;
+            return this.periodIndex == bVar.periodIndex && this.mrx == bVar.mrx && this.mry == bVar.mry;
         }
 
         public int hashCode() {
-            return ((((this.periodIndex + 527) * 31) + this.mrs) * 31) + this.mrt;
+            return ((((this.periodIndex + 527) * 31) + this.mrx) * 31) + this.mry;
         }
     }
 }

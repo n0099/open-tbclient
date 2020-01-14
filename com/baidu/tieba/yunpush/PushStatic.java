@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
 /* loaded from: classes6.dex */
 public class PushStatic {
-    private static CustomMessageListener kUO = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
+    private static CustomMessageListener kUT = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -22,18 +22,18 @@ public class PushStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.yunpush.PushStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PushStatic.cVU();
+                        PushStatic.cVW();
                     }
                 }).start();
             }
         }
     };
 
-    private static void cVS() {
+    private static void cVU() {
         fK(TbadkApplication.getInst());
     }
 
-    private static void cVT() {
+    private static void cVV() {
         fL(TbadkCoreApplication.getInst());
     }
 
@@ -55,17 +55,17 @@ public class PushStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cVU() {
+    public static void cVW() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
-                cVS();
+                cVU();
             } else {
-                cVT();
+                cVV();
             }
         }
     }
 
     static {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, kUO);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, kUT);
     }
 }

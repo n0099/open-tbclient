@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes7.dex */
 public abstract class a<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
     protected o iEC;
-    protected com.baidu.tieba.pb.pb.a iVd;
+    protected com.baidu.tieba.pb.pb.a iVi;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -23,7 +23,7 @@ public abstract class a<T, V extends v.a> extends com.baidu.adp.widget.ListView.
         super(aVar.getPageContext().getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.iVd = aVar;
+        this.iVi = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a

@@ -11,19 +11,19 @@ public class ab {
     private static Object a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, Queue<String>> f843a = new HashMap();
+    private static Map<String, Queue<String>> f844a = new HashMap();
 
     public static boolean a(XMPushService xMPushService, String str, String str2) {
         synchronized (a) {
             SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-            Queue<String> queue = f843a.get(str);
+            Queue<String> queue = f844a.get(str);
             if (queue == null) {
                 String[] split = sharedPreferences.getString(str, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 queue = new LinkedList<>();
                 for (String str3 : split) {
                     queue.add(str3);
                 }
-                f843a.put(str, queue);
+                f844a.put(str, queue);
             }
             if (queue.contains(str2)) {
                 return true;

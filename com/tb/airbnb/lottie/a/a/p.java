@@ -10,17 +10,17 @@ public class p implements l, a.InterfaceC0730a {
     private boolean fV;
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
+    private final com.tb.airbnb.lottie.a.b.a<?, Path> npA;
     @Nullable
-    private r noZ;
-    private final com.tb.airbnb.lottie.a.b.a<?, Path> npv;
+    private r npe;
     private final Path path = new Path();
 
     public p(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.lottieDrawable = fVar;
-        this.npv = kVar.dGl().dFE();
-        aVar.a(this.npv);
-        this.npv.b(this);
+        this.npA = kVar.dGn().dFG();
+        aVar.a(this.npA);
+        this.npA.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0730a
@@ -40,9 +40,9 @@ public class p implements l, a.InterfaceC0730a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dFu() == ShapeTrimPath.Type.Simultaneously) {
-                    this.noZ = (r) bVar;
-                    this.noZ.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dFw() == ShapeTrimPath.Type.Simultaneously) {
+                    this.npe = (r) bVar;
+                    this.npe.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -57,9 +57,9 @@ public class p implements l, a.InterfaceC0730a {
             return this.path;
         }
         this.path.reset();
-        this.path.set(this.npv.getValue());
+        this.path.set(this.npA.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.tb.airbnb.lottie.d.f.a(this.path, this.noZ);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.npe);
         this.fV = true;
         return this.path;
     }

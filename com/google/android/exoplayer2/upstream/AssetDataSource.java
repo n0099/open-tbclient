@@ -11,8 +11,8 @@ public final class AssetDataSource implements e {
     private final AssetManager assetManager;
     private long bytesRemaining;
     private InputStream inputStream;
-    private final q<? super AssetDataSource> mEV;
-    private boolean mEW;
+    private final q<? super AssetDataSource> mFa;
+    private boolean mFb;
     private Uri uri;
 
     /* loaded from: classes5.dex */
@@ -24,7 +24,7 @@ public final class AssetDataSource implements e {
 
     public AssetDataSource(Context context, q<? super AssetDataSource> qVar) {
         this.assetManager = context.getAssets();
-        this.mEV = qVar;
+        this.mFa = qVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
@@ -49,9 +49,9 @@ public final class AssetDataSource implements e {
                     this.bytesRemaining = -1L;
                 }
             }
-            this.mEW = true;
-            if (this.mEV != null) {
-                this.mEV.a(this, gVar);
+            this.mFb = true;
+            if (this.mFa != null) {
+                this.mFa.a(this, gVar);
             }
             return this.bytesRemaining;
         } catch (IOException e) {
@@ -79,8 +79,8 @@ public final class AssetDataSource implements e {
                 if (this.bytesRemaining != -1) {
                     this.bytesRemaining -= read;
                 }
-                if (this.mEV != null) {
-                    this.mEV.h(this, read);
+                if (this.mFa != null) {
+                    this.mFa.h(this, read);
                 }
                 return read;
             } catch (IOException e) {
@@ -108,10 +108,10 @@ public final class AssetDataSource implements e {
             }
         } finally {
             this.inputStream = null;
-            if (this.mEW) {
-                this.mEW = false;
-                if (this.mEV != null) {
-                    this.mEV.bz(this);
+            if (this.mFb) {
+                this.mFb = false;
+                if (this.mFa != null) {
+                    this.mFa.bz(this);
                 }
             }
         }

@@ -326,7 +326,7 @@ public class a extends com.baidu.tieba.card.a<k> implements e {
             if (voiceModel != null) {
                 this.Nw.wQ(voiceModel.voice_status.intValue());
             }
-            this.Nw.cKI();
+            this.Nw.cKK();
             z = true;
         }
         if (this.fHp.fKP && z) {

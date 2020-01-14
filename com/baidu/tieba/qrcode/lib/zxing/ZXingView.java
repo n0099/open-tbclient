@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes8.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader jDk;
+    private MultiFormatReader jDp;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,12 +19,12 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        cAu();
+        cAw();
     }
 
-    private void cAu() {
-        this.jDk = new MultiFormatReader();
-        this.jDk.setHints(a.jDj);
+    private void cAw() {
+        this.jDp = new MultiFormatReader();
+        this.jDp.setHints(a.jDo);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect AD = this.jCf.AD(i2);
+                Rect AD = this.jCk.AD(i2);
                 if (AD != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, AD.left, AD.top, AD.width(), AD.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.jDk.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.jDp.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.jDk.reset();
+                this.jDp.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.jDk.reset();
+            this.jDp.reset();
         }
     }
 }

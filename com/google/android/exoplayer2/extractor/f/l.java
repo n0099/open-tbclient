@@ -6,64 +6,64 @@ import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.extractor.f.w;
 /* loaded from: classes5.dex */
 public final class l implements h {
-    private com.google.android.exoplayer2.extractor.m mdY;
-    private int meY;
-    private boolean mme;
-    private long mmg;
-    private final com.google.android.exoplayer2.util.l mnj = new com.google.android.exoplayer2.util.l(10);
+    private com.google.android.exoplayer2.extractor.m med;
+    private int mfd;
+    private boolean mmj;
+    private long mml;
+    private final com.google.android.exoplayer2.util.l mno = new com.google.android.exoplayer2.util.l(10);
     private int sampleSize;
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void cxF() {
-        this.mme = false;
+    public void cxH() {
+        this.mmj = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        dVar.dup();
-        this.mdY = gVar.dH(dVar.duq(), 4);
-        this.mdY.h(Format.a(dVar.dur(), "application/id3", (String) null, -1, (DrmInitData) null));
+        dVar.dur();
+        this.med = gVar.dH(dVar.dus(), 4);
+        this.med.h(Format.a(dVar.dut(), "application/id3", (String) null, -1, (DrmInitData) null));
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void m(long j, boolean z) {
         if (z) {
-            this.mme = true;
-            this.mmg = j;
+            this.mmj = true;
+            this.mml = j;
             this.sampleSize = 0;
-            this.meY = 0;
+            this.mfd = 0;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) {
-        if (this.mme) {
-            int dyf = lVar.dyf();
-            if (this.meY < 10) {
-                int min = Math.min(dyf, 10 - this.meY);
-                System.arraycopy(lVar.data, lVar.getPosition(), this.mnj.data, this.meY, min);
-                if (min + this.meY == 10) {
-                    this.mnj.setPosition(0);
-                    if (73 != this.mnj.readUnsignedByte() || 68 != this.mnj.readUnsignedByte() || 51 != this.mnj.readUnsignedByte()) {
+        if (this.mmj) {
+            int dyh = lVar.dyh();
+            if (this.mfd < 10) {
+                int min = Math.min(dyh, 10 - this.mfd);
+                System.arraycopy(lVar.data, lVar.getPosition(), this.mno.data, this.mfd, min);
+                if (min + this.mfd == 10) {
+                    this.mno.setPosition(0);
+                    if (73 != this.mno.readUnsignedByte() || 68 != this.mno.readUnsignedByte() || 51 != this.mno.readUnsignedByte()) {
                         Log.w("Id3Reader", "Discarding invalid ID3 tag");
-                        this.mme = false;
+                        this.mmj = false;
                         return;
                     }
-                    this.mnj.skipBytes(3);
-                    this.sampleSize = this.mnj.dyp() + 10;
+                    this.mno.skipBytes(3);
+                    this.sampleSize = this.mno.dyr() + 10;
                 }
             }
-            int min2 = Math.min(dyf, this.sampleSize - this.meY);
-            this.mdY.a(lVar, min2);
-            this.meY = min2 + this.meY;
+            int min2 = Math.min(dyh, this.sampleSize - this.mfd);
+            this.med.a(lVar, min2);
+            this.mfd = min2 + this.mfd;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dua() {
-        if (this.mme && this.sampleSize != 0 && this.meY == this.sampleSize) {
-            this.mdY.a(this.mmg, 1, this.sampleSize, 0, null);
-            this.mme = false;
+    public void duc() {
+        if (this.mmj && this.sampleSize != 0 && this.mfd == this.sampleSize) {
+            this.med.a(this.mml, 1, this.sampleSize, 0, null);
+            this.mmj = false;
         }
     }
 }

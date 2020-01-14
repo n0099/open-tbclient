@@ -11,11 +11,11 @@ public interface a {
 
     void JH(String str);
 
-    void cOh();
-
     void cOj();
 
-    void csU();
+    void cOl();
+
+    void csW();
 
     void et(List<PendantData> list);
 

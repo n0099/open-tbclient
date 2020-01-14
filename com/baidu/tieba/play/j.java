@@ -8,28 +8,28 @@ import android.widget.MediaController;
 public class j {
     private MediaController.MediaPlayerControl dVO;
     private a fHh;
-    private c jtv;
-    private b jtw;
-    private int jtt = 1000;
-    private int jtu = 0;
+    private c jtA;
+    private b jtB;
+    private int jty = 1000;
+    private int jtz = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.j.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message != null && message.what == 1 && j.this.dVO != null && j.this.dVO.isPlaying()) {
                 int currentPosition = j.this.dVO.getCurrentPosition();
                 int duration = j.this.dVO.getDuration();
-                if (currentPosition < j.this.jtu) {
+                if (currentPosition < j.this.jtz) {
                     if (j.this.fHh != null) {
                         j.this.fHh.lh();
                     }
-                } else if (currentPosition == j.this.jtu && j.this.jtv != null) {
-                    j.this.jtv.aZZ();
+                } else if (currentPosition == j.this.jtz && j.this.jtA != null) {
+                    j.this.jtA.aZZ();
                 }
-                if (j.this.jtw != null) {
-                    j.this.jtw.bx(duration, currentPosition);
+                if (j.this.jtB != null) {
+                    j.this.jtB.bx(duration, currentPosition);
                 }
-                j.this.jtu = currentPosition;
-                j.this.cxi();
+                j.this.jtz = currentPosition;
+                j.this.cxk();
             }
         }
     };
@@ -54,8 +54,8 @@ public class j {
     }
 
     public void start() {
-        this.jtu = 0;
-        cxi();
+        this.jtz = 0;
+        cxk();
     }
 
     public void stop() {
@@ -63,9 +63,9 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxi() {
+    public void cxk() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.jtt);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.jty);
     }
 
     public void a(a aVar) {
@@ -73,10 +73,10 @@ public class j {
     }
 
     public void a(c cVar) {
-        this.jtv = cVar;
+        this.jtA = cVar;
     }
 
     public void a(b bVar) {
-        this.jtw = bVar;
+        this.jtB = bVar;
     }
 }

@@ -6,16 +6,16 @@ class ck extends AsyncTask<String, Integer, Integer> {
     ch a;
 
     /* renamed from: a  reason: collision with other field name */
-    co f194a;
+    co f195a;
 
     /* renamed from: a  reason: collision with other field name */
-    String f195a;
+    String f196a;
     String b;
 
     public ck(co coVar, String str, String str2, ch chVar) {
-        this.f195a = str;
+        this.f196a = str;
         this.b = str2;
-        this.f194a = coVar;
+        this.f195a = coVar;
         this.a = chVar;
     }
 
@@ -24,7 +24,7 @@ class ck extends AsyncTask<String, Integer, Integer> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public Integer doInBackground(String... strArr) {
-        return Integer.valueOf(cl.a(this.f195a, this.b, this.a));
+        return Integer.valueOf(cl.a(this.f196a, this.b, this.a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,16 +33,16 @@ class ck extends AsyncTask<String, Integer, Integer> {
     /* renamed from: a */
     public void onPostExecute(Integer num) {
         super.onPostExecute(num);
-        if (this.f194a != null) {
-            this.f194a.a(num, this.a);
+        if (this.f195a != null) {
+            this.f195a.a(num, this.a);
         }
     }
 
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        if (this.f194a != null) {
-            this.f194a.a(1, this.a);
+        if (this.f195a != null) {
+            this.f195a.a(1, this.a);
         }
     }
 }

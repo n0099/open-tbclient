@@ -12,13 +12,13 @@ public class b {
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dmA() {
-                n.this.dmK();
+            public void dmC() {
+                n.this.dmM();
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dmB() {
-                n.this.dmJ();
+            public void dmD() {
+                n.this.dmL();
             }
         });
     }

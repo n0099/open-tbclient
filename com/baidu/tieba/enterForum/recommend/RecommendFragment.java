@@ -37,7 +37,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
         if (this.fUy.getParent() instanceof ViewGroup) {
             ((ViewGroup) this.fUy.getParent()).removeView(this.fUy);
         }
-        com.baidu.tieba.r.c.cIs().w(getUniqueId());
+        com.baidu.tieba.r.c.cIu().w(getUniqueId());
         return this.fUy;
     }
 
@@ -65,7 +65,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
         if (this.fUx != null) {
             this.fUx.bxy();
         }
-        com.baidu.tieba.r.c.cIs().z(getUniqueId());
+        com.baidu.tieba.r.c.cIu().z(getUniqueId());
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
@@ -102,7 +102,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
         this.fSt = null;
         this.fUy.onDestroy();
         this.fUx.onDestroy();
-        com.baidu.tieba.r.c.cIs().x(getUniqueId());
+        com.baidu.tieba.r.c.cIu().x(getUniqueId());
         super.onDestroyView();
     }
 
@@ -129,7 +129,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
             UtilHelper.changeStatusBarIconAndTextColor(z, getActivity());
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
-        com.baidu.tieba.r.c.cIs().b(getUniqueId(), false);
+        com.baidu.tieba.r.c.cIu().b(getUniqueId(), false);
     }
 
     public void setTabViewController(c cVar) {

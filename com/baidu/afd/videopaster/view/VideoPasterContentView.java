@@ -247,7 +247,7 @@ public class VideoPasterContentView extends FrameLayout {
                     this.En.resume();
                 }
                 if (this.Em) {
-                    this.mStartPosition = x.cxU().GP(this.pasterData.videoUrl);
+                    this.mStartPosition = x.cxW().GP(this.pasterData.videoUrl);
                     if (this.mStartPosition > 100 && this.Et > this.mStartPosition) {
                         i = this.mStartPosition;
                     }
@@ -325,7 +325,7 @@ public class VideoPasterContentView extends FrameLayout {
 
     private void lf() {
         if (this.pasterData != null && this.pasterData.kY() == 1) {
-            x.cxU().remove(this.pasterData.videoUrl);
+            x.cxW().remove(this.pasterData.videoUrl);
             if (this.Dn != null && this.Dn.getPlayer() != null) {
                 this.Dn.getPlayer().seekTo(0);
             }
@@ -385,7 +385,7 @@ public class VideoPasterContentView extends FrameLayout {
         }
         if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.Em && this.pasterData.kY() == 1) {
             this.Ej.setVisibility(0);
-            this.mStartPosition = x.cxU().GP(this.pasterData.videoUrl);
+            this.mStartPosition = x.cxW().GP(this.pasterData.videoUrl);
             if (this.mStartPosition > 100 && this.Et > this.mStartPosition) {
                 i = this.mStartPosition;
             }

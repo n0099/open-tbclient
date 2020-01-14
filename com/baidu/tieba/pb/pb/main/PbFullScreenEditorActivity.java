@@ -139,7 +139,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
             public void afterTextChanged(Editable editable) {
                 PbFullScreenEditorActivity.this.clV();
                 if (PbFullScreenEditorActivity.this.iGb != null && PbFullScreenEditorActivity.this.iGb.cpd() != null) {
-                    if (!PbFullScreenEditorActivity.this.iGb.cpd().cSN()) {
+                    if (!PbFullScreenEditorActivity.this.iGb.cpd().cSP()) {
                         PbFullScreenEditorActivity.this.iGb.qt(false);
                     }
                     PbFullScreenEditorActivity.this.iGb.cpd().tD(false);
@@ -348,8 +348,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
         this.iHY.setVoiceModel(this.iHX.getVoiceModel());
         intent.putExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA, this.iHY);
         if (z) {
-            if (this.iGb != null && this.iGb.cpd() != null && this.iGb.cpd().cSM()) {
-                showToast(this.iGb.cpd().cSO());
+            if (this.iGb != null && this.iGb.cpd() != null && this.iGb.cpd().cSO()) {
+                showToast(this.iGb.cpd().cSQ());
                 this.iGb.qt(true);
                 return;
             }

@@ -516,7 +516,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                     a(intValue, this.gDt, false);
                     this.gDr.tD(this.mCurrentTab);
                     r.btA().kn(false);
-                    c.cIs().b(this.gDr.getUniqueId(), false);
+                    c.cIu().b(this.gDr.getUniqueId(), false);
                 }
             }
             a(tab);

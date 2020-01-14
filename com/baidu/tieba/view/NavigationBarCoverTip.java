@@ -16,7 +16,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     private Animation gJQ;
     private Animation gJR;
     private View gqx;
-    private a kGW;
+    private a kHb;
     private Activity mActivity;
     private Runnable mHideRunnable;
     private int mSkinType;
@@ -25,7 +25,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public interface a {
         void biO();
 
-        void cRW();
+        void cRY();
     }
 
     public NavigationBarCoverTip(Context context) {
@@ -67,8 +67,8 @@ public class NavigationBarCoverTip extends LinearLayout {
         this.gJQ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (NavigationBarCoverTip.this.kGW != null) {
-                    NavigationBarCoverTip.this.kGW.biO();
+                if (NavigationBarCoverTip.this.kHb != null) {
+                    NavigationBarCoverTip.this.kHb.biO();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -91,8 +91,8 @@ public class NavigationBarCoverTip extends LinearLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (NavigationBarCoverTip.this.kGW != null) {
-                    NavigationBarCoverTip.this.kGW.cRW();
+                if (NavigationBarCoverTip.this.kHb != null) {
+                    NavigationBarCoverTip.this.kHb.cRY();
                 }
                 NavigationBarCoverTip.this.release();
             }
@@ -170,6 +170,6 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public void setCoverTipListener(a aVar) {
-        this.kGW = aVar;
+        this.kHb = aVar;
     }
 }

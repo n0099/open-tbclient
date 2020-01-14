@@ -18,21 +18,21 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes8.dex */
 public class e {
     private boolean aHc;
-    private h kgF;
-    private c lWL;
-    private int lWM;
+    private h kgK;
+    private c lWQ;
+    private int lWR;
     private MediaCodec.BufferInfo mBufferInfo;
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private Bundle bEK = new Bundle();
-    private long lXc = 0;
+    private long lXh = 0;
     private boolean mRequestStop = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.kgF = lVar.cfr();
+            this.kgK = lVar.cfr();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -48,9 +48,9 @@ public class e {
             this.bEK.putInt("request-sync", 0);
             this.mEncoder.setParameters(this.bEK);
         }
-        this.lWM = -1;
+        this.lWR = -1;
         this.aHc = false;
-        this.lWL = cVar;
+        this.lWQ = cVar;
     }
 
     public synchronized void requestStop() {
@@ -67,15 +67,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.lWL != null) {
+        if (this.lWQ != null) {
             try {
-                this.lWL.stop();
+                this.lWQ.stop();
             } catch (IllegalStateException e) {
-                if (this.kgF != null) {
-                    this.kgF.aP(17, com.baidu.tieba.j.a.r(e));
+                if (this.kgK != null) {
+                    this.kgK.aP(17, com.baidu.tieba.j.a.r(e));
                 }
             }
-            this.lWL = null;
+            this.lWQ = null;
         }
     }
 
@@ -98,12 +98,12 @@ public class e {
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.lWM = this.lWL.i(outputFormat);
-                if (!this.lWL.start()) {
-                    synchronized (this.lWL) {
-                        while (!this.lWL.isStarted() && !this.mRequestStop) {
+                this.lWR = this.lWQ.i(outputFormat);
+                if (!this.lWQ.start()) {
+                    synchronized (this.lWQ) {
+                        while (!this.lWQ.isStarted() && !this.mRequestStop) {
                             try {
-                                this.lWL.wait(100L);
+                                this.lWQ.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -131,12 +131,12 @@ public class e {
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.lWL.d(this.lWM, byteBuffer, this.mBufferInfo);
+                    this.lWQ.d(this.lWR, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.lXc >= 500) {
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.lXh >= 500) {
                     this.mEncoder.setParameters(this.bEK);
-                    this.lXc = System.currentTimeMillis();
+                    this.lXh = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

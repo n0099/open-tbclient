@@ -9,9 +9,9 @@ public class d {
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
-    public String jOq = "";
-    public long jOr;
-    public boolean jnh;
+    public String jOv = "";
+    public long jOw;
+    public boolean jnm;
     public long lastTime;
     public long msgId;
     public int msgType;

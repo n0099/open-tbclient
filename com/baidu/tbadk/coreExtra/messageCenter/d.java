@@ -33,7 +33,7 @@ public class d {
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.cKv();
+        com.baidu.tieba.tbadkCore.util.a.cKx();
     }
 
     public void aIR() {

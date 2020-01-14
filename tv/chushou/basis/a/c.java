@@ -8,27 +8,27 @@ import dalvik.system.DexClassLoader;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class c {
-    private static c nTK;
+    private static c nTP;
     private Context mContext;
-    private final HashMap<String, d> nTL = new HashMap<>();
-    private String nTM;
-    private String nTN;
+    private final HashMap<String, d> nTQ = new HashMap<>();
+    private String nTR;
+    private String nTS;
 
     private c(Context context) {
-        this.nTM = null;
+        this.nTR = null;
         this.mContext = context.getApplicationContext();
-        this.nTM = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.nTR = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
     public static c hb(Context context) {
-        if (nTK == null) {
+        if (nTP == null) {
             synchronized (c.class) {
-                if (nTK == null) {
-                    nTK = new c(context);
+                if (nTP == null) {
+                    nTP = new c(context);
                 }
             }
         }
-        return nTK;
+        return nTP;
     }
 
     public d aV(String str, boolean z) {
@@ -45,21 +45,21 @@ public class c {
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.nTL.get(packageInfo.packageName);
+        d dVar = this.nTQ.get(packageInfo.packageName);
         if (dVar == null) {
             d dVar2 = new d(Ss(str), a(St(str)), packageInfo);
-            this.nTL.put(packageInfo.packageName, dVar2);
+            this.nTQ.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
     private DexClassLoader Ss(String str) {
-        this.nTN = dOp();
-        return new DexClassLoader(str, this.nTN, this.nTM, this.mContext.getClassLoader());
+        this.nTS = dOr();
+        return new DexClassLoader(str, this.nTS, this.nTR, this.mContext.getClassLoader());
     }
 
-    public String dOp() {
+    public String dOr() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
@@ -75,7 +75,7 @@ public class c {
     }
 
     public d Su(String str) {
-        return this.nTL.get(str);
+        return this.nTQ.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -84,6 +84,6 @@ public class c {
     }
 
     private void Sv(String str) {
-        e.dOr().y(this.mContext, str, this.nTM);
+        e.dOt().y(this.mContext, str, this.nTR);
     }
 }

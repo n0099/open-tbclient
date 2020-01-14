@@ -5,24 +5,24 @@ import java.util.Arrays;
 public final class g {
     private int hashCode;
     public final int length;
-    private final f[] mCy;
+    private final f[] mCD;
 
     public g(f... fVarArr) {
-        this.mCy = fVarArr;
+        this.mCD = fVarArr;
         this.length = fVarArr.length;
     }
 
     public f LD(int i) {
-        return this.mCy[i];
+        return this.mCD[i];
     }
 
-    public f[] dxn() {
-        return (f[]) this.mCy.clone();
+    public f[] dxp() {
+        return (f[]) this.mCD.clone();
     }
 
     public int hashCode() {
         if (this.hashCode == 0) {
-            this.hashCode = Arrays.hashCode(this.mCy) + 527;
+            this.hashCode = Arrays.hashCode(this.mCD) + 527;
         }
         return this.hashCode;
     }
@@ -34,6 +34,6 @@ public final class g {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return Arrays.equals(this.mCy, ((g) obj).mCy);
+        return Arrays.equals(this.mCD, ((g) obj).mCD);
     }
 }

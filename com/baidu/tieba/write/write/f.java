@@ -27,12 +27,12 @@ import java.util.List;
 public class f extends BaseAdapter {
     private com.baidu.tbadk.img.b dtB;
     private m dtL;
-    private a kTk;
-    private int kTl;
+    private a kTp;
+    private int kTq;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mDataList = new ArrayList();
-    private boolean kMl = false;
+    private boolean kMq = false;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -40,7 +40,7 @@ public class f extends BaseAdapter {
 
         void Eq(int i);
 
-        void cVn();
+        void cVp();
     }
 
     private String getString(int i) {
@@ -52,18 +52,18 @@ public class f extends BaseAdapter {
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(this.mContext);
         this.dtB = bVar;
-        this.kTk = aVar;
+        this.kTp = aVar;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
         if (writeImagesInfo != null) {
-            this.kTl = writeImagesInfo.getMaxImagesAllowed();
+            this.kTq = writeImagesInfo.getMaxImagesAllowed();
             int count = v.getCount(writeImagesInfo.getChosedFiles());
             this.mDataList.clear();
             if (count > 0) {
                 this.mDataList.addAll(writeImagesInfo.getChosedFiles());
             }
-            if (count < this.kTl && this.kMl) {
+            if (count < this.kTq && this.kMq) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setFilePath("FLAG_ADD_ICON");
                 this.mDataList.add(imageFileInfo);
@@ -121,8 +121,8 @@ public class f extends BaseAdapter {
             inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (f.this.kTk != null) {
-                        f.this.kTk.cVn();
+                    if (f.this.kTp != null) {
+                        f.this.kTp.cVp();
                     }
                 }
             });
@@ -166,8 +166,8 @@ public class f extends BaseAdapter {
                         if (f.this.dtL != null) {
                             f.this.dtL.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                         }
-                        if (f.this.kTk != null) {
-                            f.this.kTk.Eq(i);
+                        if (f.this.kTp != null) {
+                            f.this.kTp.Eq(i);
                         }
                     }
                 }
@@ -176,8 +176,8 @@ public class f extends BaseAdapter {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (f.this.kTk != null) {
-                    f.this.kTk.Ej(i);
+                if (f.this.kTp != null) {
+                    f.this.kTp.Ej(i);
                 }
             }
         });
@@ -231,6 +231,6 @@ public class f extends BaseAdapter {
     }
 
     public void tI(boolean z) {
-        this.kMl = z;
+        this.kMq = z;
     }
 }

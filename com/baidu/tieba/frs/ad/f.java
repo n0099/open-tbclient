@@ -152,7 +152,7 @@ public class f {
         this.grw = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
         this.grw.setOnClickListener(this.mClickListener);
         if (this.gry != null) {
-            this.grv.startLoad(this.gry.cIv(), 10, false);
+            this.grv.startLoad(this.gry.cIx(), 10, false);
         }
     }
 }

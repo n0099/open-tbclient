@@ -32,15 +32,15 @@ public class OperableVideoShareView extends LinearLayout {
     private bj Kn;
     private int cQy;
     private View caf;
-    private d jxF;
-    private View jxG;
-    private ImageView jxH;
-    private View jxI;
-    private ImageView jxJ;
-    private View jxK;
-    private ImageView jxL;
-    private View jxM;
-    private ImageView jxN;
+    private d jxK;
+    private View jxL;
+    private ImageView jxM;
+    private View jxN;
+    private ImageView jxO;
+    private View jxP;
+    private ImageView jxQ;
+    private View jxR;
+    private ImageView jxS;
     private View.OnClickListener mOnClickListener;
 
     public OperableVideoShareView(Context context) {
@@ -50,11 +50,11 @@ public class OperableVideoShareView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!k.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.jxG) {
+                    if (view == OperableVideoShareView.this.jxL) {
                         OperableVideoShareView.this.Al(3);
-                    } else if (view == OperableVideoShareView.this.jxI) {
+                    } else if (view == OperableVideoShareView.this.jxN) {
                         OperableVideoShareView.this.Al(2);
-                    } else if (view == OperableVideoShareView.this.jxK) {
+                    } else if (view == OperableVideoShareView.this.jxP) {
                         OperableVideoShareView.this.Al(8);
                     }
                 }
@@ -70,11 +70,11 @@ public class OperableVideoShareView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!k.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.jxG) {
+                    if (view == OperableVideoShareView.this.jxL) {
                         OperableVideoShareView.this.Al(3);
-                    } else if (view == OperableVideoShareView.this.jxI) {
+                    } else if (view == OperableVideoShareView.this.jxN) {
                         OperableVideoShareView.this.Al(2);
-                    } else if (view == OperableVideoShareView.this.jxK) {
+                    } else if (view == OperableVideoShareView.this.jxP) {
                         OperableVideoShareView.this.Al(8);
                     }
                 }
@@ -90,11 +90,11 @@ public class OperableVideoShareView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!k.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.jxG) {
+                    if (view == OperableVideoShareView.this.jxL) {
                         OperableVideoShareView.this.Al(3);
-                    } else if (view == OperableVideoShareView.this.jxI) {
+                    } else if (view == OperableVideoShareView.this.jxN) {
                         OperableVideoShareView.this.Al(2);
-                    } else if (view == OperableVideoShareView.this.jxK) {
+                    } else if (view == OperableVideoShareView.this.jxP) {
                         OperableVideoShareView.this.Al(8);
                     }
                 }
@@ -109,43 +109,43 @@ public class OperableVideoShareView extends LinearLayout {
 
     private void init() {
         inflate(getContext(), getLayoutR(), this);
-        this.jxG = findViewById(R.id.share_weixin);
-        this.jxH = (ImageView) findViewById(R.id.share_weixin_img);
-        this.jxI = findViewById(R.id.share_weixin_timeline);
-        this.jxJ = (ImageView) findViewById(R.id.share_weixin_timeline_img);
-        this.jxK = findViewById(R.id.share_qq);
-        this.jxL = (ImageView) findViewById(R.id.share_qq_img);
+        this.jxL = findViewById(R.id.share_weixin);
+        this.jxM = (ImageView) findViewById(R.id.share_weixin_img);
+        this.jxN = findViewById(R.id.share_weixin_timeline);
+        this.jxO = (ImageView) findViewById(R.id.share_weixin_timeline_img);
+        this.jxP = findViewById(R.id.share_qq);
+        this.jxQ = (ImageView) findViewById(R.id.share_qq_img);
         this.caf = findViewById(R.id.divider_line);
-        this.jxM = findViewById(R.id.video_replay);
-        this.jxN = (ImageView) findViewById(R.id.replay_img);
-        this.jxG.setOnClickListener(this.mOnClickListener);
-        this.jxI.setOnClickListener(this.mOnClickListener);
-        this.jxK.setOnClickListener(this.mOnClickListener);
+        this.jxR = findViewById(R.id.video_replay);
+        this.jxS = (ImageView) findViewById(R.id.replay_img);
+        this.jxL.setOnClickListener(this.mOnClickListener);
+        this.jxN.setOnClickListener(this.mOnClickListener);
+        this.jxP.setOnClickListener(this.mOnClickListener);
         setOnClickListener(this.mOnClickListener);
-        this.jxH.setImageDrawable(SvgManager.aEp().h(R.drawable.icon_mask_share_wechat40_svg, 1, false));
-        this.jxJ.setImageDrawable(SvgManager.aEp().h(R.drawable.icon_mask_share_circle40_svg, 1, false));
-        this.jxL.setImageDrawable(SvgManager.aEp().h(R.drawable.icon_mask_share_qq40_svg, 1, false));
-        this.jxN.setImageDrawable(SvgManager.aEp().a(R.drawable.ic_icon_pure_video_replay44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null, false));
-        this.jxN.setBackgroundDrawable(am.ay(l.getDimens(getContext(), R.dimen.tbds52), getResources().getColor(R.color.cp_mask_c_alpha100)));
+        this.jxM.setImageDrawable(SvgManager.aEp().h(R.drawable.icon_mask_share_wechat40_svg, 1, false));
+        this.jxO.setImageDrawable(SvgManager.aEp().h(R.drawable.icon_mask_share_circle40_svg, 1, false));
+        this.jxQ.setImageDrawable(SvgManager.aEp().h(R.drawable.icon_mask_share_qq40_svg, 1, false));
+        this.jxS.setImageDrawable(SvgManager.aEp().a(R.drawable.ic_icon_pure_video_replay44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null, false));
+        this.jxS.setBackgroundDrawable(am.ay(l.getDimens(getContext(), R.dimen.tbds52), getResources().getColor(R.color.cp_mask_c_alpha100)));
     }
 
     public void setVideoContainer(d dVar) {
-        this.jxF = dVar;
-        this.jxM.setOnClickListener(this.jxF);
+        this.jxK = dVar;
+        this.jxR.setOnClickListener(this.jxK);
     }
 
     public void setShareData(bj bjVar) {
         this.Kn = bjVar;
         if (this.Kn != null && !this.Kn.aBV()) {
-            this.jxK.setVisibility(0);
-            this.jxG.setVisibility(0);
-            this.jxI.setVisibility(0);
+            this.jxP.setVisibility(0);
+            this.jxL.setVisibility(0);
+            this.jxN.setVisibility(0);
             this.caf.setVisibility(0);
             return;
         }
-        this.jxK.setVisibility(8);
-        this.jxG.setVisibility(8);
-        this.jxI.setVisibility(8);
+        this.jxP.setVisibility(8);
+        this.jxL.setVisibility(8);
+        this.jxN.setVisibility(8);
         this.caf.setVisibility(8);
     }
 
@@ -261,11 +261,11 @@ public class OperableVideoShareView extends LinearLayout {
     public void af(boolean z, boolean z2) {
         int dimens;
         int dimens2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jxI.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.jxG.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.jxK.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jxN.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.jxL.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.jxP.getLayoutParams();
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.caf.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.jxM.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.jxR.getLayoutParams();
         if (z2 && !z) {
             dimens = l.getDimens(getContext(), R.dimen.tbds72);
             dimens2 = l.getDimens(getContext(), R.dimen.tbds52);

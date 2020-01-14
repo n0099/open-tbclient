@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
 /* loaded from: classes6.dex */
 public final class e {
-    private static final e kVp = new e();
-    private l kVq = new l();
+    private static final e kVu = new e();
+    private l kVv = new l();
 
-    public static e cWg() {
-        return kVp;
+    public static e cWi() {
+        return kVu;
     }
 
     public final void KV(String str) {
-        this.kVq.KV(str);
+        this.kVv.KV(str);
     }
 
     public final void KW(String str) {
-        this.kVq.KW(str);
+        this.kVv.KW(str);
     }
 }

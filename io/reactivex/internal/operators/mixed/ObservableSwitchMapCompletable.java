@@ -14,18 +14,18 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
     final h<? super T, ? extends e> mapper;
-    final q<T> nxd;
+    final q<T> nxi;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        if (!a.a(this.nxd, this.mapper, cVar)) {
-            this.nxd.subscribe(new SwitchMapCompletableObserver(cVar, this.mapper, this.delayErrors));
+        if (!a.a(this.nxi, this.mapper, cVar)) {
+            this.nxi.subscribe(new SwitchMapCompletableObserver(cVar, this.mapper, this.delayErrors));
         }
     }
 
     /* loaded from: classes5.dex */
     static final class SwitchMapCompletableObserver<T> implements b, u<T> {
-        static final SwitchMapInnerObserver nxe = new SwitchMapInnerObserver(null);
+        static final SwitchMapInnerObserver nxj = new SwitchMapInnerObserver(null);
         final boolean delayErrors;
         volatile boolean done;
         final c downstream;
@@ -56,7 +56,7 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
                 SwitchMapInnerObserver switchMapInnerObserver2 = new SwitchMapInnerObserver(this);
                 do {
                     switchMapInnerObserver = this.inner.get();
-                    if (switchMapInnerObserver == nxe) {
+                    if (switchMapInnerObserver == nxj) {
                         return;
                     }
                 } while (!this.inner.compareAndSet(switchMapInnerObserver, switchMapInnerObserver2));
@@ -103,8 +103,8 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
         }
 
         void disposeInner() {
-            SwitchMapInnerObserver andSet = this.inner.getAndSet(nxe);
-            if (andSet != null && andSet != nxe) {
+            SwitchMapInnerObserver andSet = this.inner.getAndSet(nxj);
+            if (andSet != null && andSet != nxj) {
                 andSet.dispose();
             }
         }
@@ -117,7 +117,7 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.inner.get() == nxe;
+            return this.inner.get() == nxj;
         }
 
         void a(SwitchMapInnerObserver switchMapInnerObserver, Throwable th) {

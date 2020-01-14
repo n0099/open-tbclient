@@ -9,9 +9,9 @@ import java.io.InputStream;
 public final class p<T> implements Loader.c {
     public final g dataSpec;
     private volatile boolean isCanceled;
-    private final a<? extends T> mGd;
-    private volatile long mGe;
-    private final e mdj;
+    private final a<? extends T> mGi;
+    private volatile long mGj;
+    private final e mdo;
     private volatile T result;
     public final int type;
 
@@ -25,18 +25,18 @@ public final class p<T> implements Loader.c {
     }
 
     public p(e eVar, g gVar, int i, a<? extends T> aVar) {
-        this.mdj = eVar;
+        this.mdo = eVar;
         this.dataSpec = gVar;
         this.type = i;
-        this.mGd = aVar;
+        this.mGi = aVar;
     }
 
     public final T getResult() {
         return this.result;
     }
 
-    public long dvx() {
-        return this.mGe;
+    public long dvz() {
+        return this.mGj;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
@@ -45,18 +45,18 @@ public final class p<T> implements Loader.c {
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public final boolean dvf() {
+    public final boolean dvh() {
         return this.isCanceled;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void load() throws IOException {
-        f fVar = new f(this.mdj, this.dataSpec);
+        f fVar = new f(this.mdo, this.dataSpec);
         try {
             fVar.open();
-            this.result = this.mGd.b(this.mdj.getUri(), fVar);
+            this.result = this.mGi.b(this.mdo.getUri(), fVar);
         } finally {
-            this.mGe = fVar.dxI();
+            this.mGj = fVar.dxK();
             v.closeQuietly(fVar);
         }
     }

@@ -3,26 +3,26 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes10.dex */
 public class j implements aj<com.facebook.imagepipeline.g.e> {
-    private final aj<com.facebook.imagepipeline.g.e> lUy;
-    private final aj<com.facebook.imagepipeline.g.e> lUz;
+    private final aj<com.facebook.imagepipeline.g.e> lUD;
+    private final aj<com.facebook.imagepipeline.g.e> lUE;
 
     public j(aj<com.facebook.imagepipeline.g.e> ajVar, aj<com.facebook.imagepipeline.g.e> ajVar2) {
-        this.lUy = ajVar;
-        this.lUz = ajVar2;
+        this.lUD = ajVar;
+        this.lUE = ajVar2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.lUy.c(new a(kVar, akVar), akVar);
+        this.lUD.c(new a(kVar, akVar), akVar);
     }
 
     /* loaded from: classes10.dex */
     private class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private ak lUA;
+        private ak lUF;
 
         private a(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
             super(kVar);
-            this.lUA = akVar;
+            this.lUF = akVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -30,25 +30,25 @@ public class j implements aj<com.facebook.imagepipeline.g.e> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void f(com.facebook.imagepipeline.g.e eVar, int i) {
-            ImageRequest dqh = this.lUA.dqh();
+            ImageRequest dqj = this.lUF.dqj();
             boolean IE = IE(i);
-            boolean a = ax.a(eVar, dqh.drc());
-            if (eVar != null && (a || dqh.drg())) {
+            boolean a = ax.a(eVar, dqj.dre());
+            if (eVar != null && (a || dqj.dri())) {
                 if (IE && a) {
-                    dqt().g(eVar, i);
+                    dqv().g(eVar, i);
                 } else {
-                    dqt().g(eVar, dw(i, 1));
+                    dqv().g(eVar, dw(i, 1));
                 }
             }
             if (IE && !a) {
                 com.facebook.imagepipeline.g.e.e(eVar);
-                j.this.lUz.c(dqt(), this.lUA);
+                j.this.lUE.c(dqv(), this.lUF);
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
         protected void C(Throwable th) {
-            j.this.lUz.c(dqt(), this.lUA);
+            j.this.lUE.c(dqv(), this.lUF);
         }
     }
 }

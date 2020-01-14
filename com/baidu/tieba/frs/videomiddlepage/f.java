@@ -72,7 +72,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
                 if (list.get(0) instanceof i) {
                     i iVar = (i) list.get(0);
                     iVar.setAutoPlay(true);
-                    if (com.baidu.adp.lib.util.j.isMobileNet() && !com.baidu.tieba.video.g.cNI().cNJ()) {
+                    if (com.baidu.adp.lib.util.j.isMobileNet() && !com.baidu.tieba.video.g.cNK().cNL()) {
                         iVar.setWaitConfirm(true);
                     } else {
                         iVar.setWaitConfirm(false);
@@ -83,7 +83,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
             if (this.mDatas.size() > i && !z && i != -1 && (this.mDatas.get(i) instanceof i)) {
                 i iVar2 = (i) this.mDatas.get(i);
                 iVar2.setAutoPlay(true);
-                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNI().cNJ()) {
+                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL()) {
                     iVar2.setWaitConfirm(false);
                     return;
                 }
@@ -207,7 +207,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
                 if (this.mDatas.get(i2) instanceof i) {
                     i iVar = (i) this.mDatas.get(i2);
                     iVar.setAutoPlay(true);
-                    if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNI().cNJ()) {
+                    if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL()) {
                         iVar.setWaitConfirm(false);
                     } else {
                         iVar.setWaitConfirm(true);
@@ -237,7 +237,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
             } else if (this.gsq == this.mDatas.size() - 1 && (this.mDatas.get(this.gsq) instanceof i)) {
                 i iVar2 = (i) this.mDatas.get(this.gsq);
                 iVar2.setAutoPlay(true);
-                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNI().cNJ()) {
+                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL()) {
                     iVar2.setWaitConfirm(false);
                 } else {
                     iVar2.setWaitConfirm(true);
@@ -297,7 +297,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
                     if (this.gsq <= this.mDatas.size() - 1 && (this.mDatas.get(this.gsq) instanceof i)) {
                         i iVar = (i) this.mDatas.get(this.gsq);
                         iVar.setAutoPlay(true);
-                        if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNI().cNJ()) {
+                        if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL()) {
                             iVar.setWaitConfirm(false);
                         } else {
                             iVar.setWaitConfirm(true);

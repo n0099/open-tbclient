@@ -38,40 +38,40 @@ public class cu {
     protected static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f204a;
+    private static a f205a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static cu f205a;
+    private static cu f206a;
     private static String c;
     private static String d;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f207a;
+    private long f208a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ct f208a;
+    private ct f209a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected b f209a;
+    protected b f210a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f210a;
+    private String f211a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Map<String, cr> f211a;
+    protected Map<String, cr> f212a;
 
     /* renamed from: b  reason: collision with other field name */
-    private final long f212b;
+    private final long f213b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f213b;
+    private String f214b;
 
     /* renamed from: c  reason: collision with other field name */
-    private long f214c;
+    private long f215c;
     protected static Map<String, cq> b = new HashMap();
 
     /* renamed from: a  reason: collision with other field name */
-    protected static boolean f206a = false;
+    protected static boolean f207a = false;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -89,19 +89,19 @@ public class cu {
     }
 
     protected cu(Context context, ct ctVar, b bVar, String str, String str2, String str3) {
-        this.f211a = new HashMap();
-        this.f210a = "0";
-        this.f207a = 0L;
-        this.f212b = 15L;
-        this.f214c = 0L;
-        this.f213b = "isp_prov_city_country_ip";
-        this.f209a = bVar;
+        this.f212a = new HashMap();
+        this.f211a = "0";
+        this.f208a = 0L;
+        this.f213b = 15L;
+        this.f215c = 0L;
+        this.f214b = "isp_prov_city_country_ip";
+        this.f210a = bVar;
         if (ctVar == null) {
-            this.f208a = new cv(this);
+            this.f209a = new cv(this);
         } else {
-            this.f208a = ctVar;
+            this.f209a = ctVar;
         }
-        this.f210a = str;
+        this.f211a = str;
         c = str2 == null ? context.getPackageName() : str2;
         d = str3 == null ? f() : str3;
     }
@@ -109,10 +109,10 @@ public class cu {
     public static synchronized cu a() {
         cu cuVar;
         synchronized (cu.class) {
-            if (f205a == null) {
+            if (f206a == null) {
                 throw new IllegalStateException("the host manager is not initialized yet.");
             }
-            cuVar = f205a;
+            cuVar = f206a;
         }
         return cuVar;
     }
@@ -167,9 +167,9 @@ public class cu {
 
     private ArrayList<cq> a(ArrayList<String> arrayList) {
         m210d();
-        synchronized (this.f211a) {
+        synchronized (this.f212a) {
             m206a();
-            for (String str : this.f211a.keySet()) {
+            for (String str : this.f212a.keySet()) {
                 if (!arrayList.contains(str)) {
                     arrayList.add(str);
                 }
@@ -184,7 +184,7 @@ public class cu {
                 cq cqVar = (cq) array[i];
                 if (!cqVar.b()) {
                     isEmpty = true;
-                    b.remove(cqVar.f201b);
+                    b.remove(cqVar.f202b);
                 }
                 i++;
                 isEmpty = isEmpty;
@@ -199,7 +199,7 @@ public class cu {
         }
         try {
             String str2 = as.d(a) ? "wifi" : "wap";
-            String a2 = a(arrayList, str2, this.f210a, isEmpty);
+            String a2 = a(arrayList, str2, this.f211a, isEmpty);
             if (!TextUtils.isEmpty(a2)) {
                 JSONObject jSONObject = new JSONObject(a2);
                 com.xiaomi.channel.commonutils.logger.b.b(a2);
@@ -262,7 +262,7 @@ public class cu {
                                     }
                                 }
                                 synchronized (b) {
-                                    if (this.f208a.a(next)) {
+                                    if (this.f209a.a(next)) {
                                         b.put(next, cqVar3);
                                     }
                                 }
@@ -295,11 +295,11 @@ public class cu {
             if (a == null) {
                 a = context;
             }
-            if (f205a == null) {
-                if (f204a == null) {
-                    f205a = new cu(context, ctVar, bVar, str, str2, str3);
+            if (f206a == null) {
+                if (f205a == null) {
+                    f206a = new cu(context, ctVar, bVar, str, str2, str3);
                 } else {
-                    f205a = f204a.a(context, ctVar, bVar, str);
+                    f206a = f205a.a(context, ctVar, bVar, str);
                 }
             }
         }
@@ -307,8 +307,8 @@ public class cu {
 
     public static synchronized void a(a aVar) {
         synchronized (cu.class) {
-            f204a = aVar;
-            f205a = null;
+            f205a = aVar;
+            f206a = null;
         }
     }
 
@@ -350,7 +350,7 @@ public class cu {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        if (this.f208a.a(str)) {
+        if (this.f209a.a(str)) {
             cq c2 = c(str);
             return (c2 == null || !c2.b()) ? (z && as.b(a) && (d2 = d(str)) != null) ? d2 : new cw(this, str, c2) : c2;
         }
@@ -398,7 +398,7 @@ public class cu {
                 buildUpon.appendQueryParameter(arVar.a(), arVar.b());
             }
             try {
-                str3 = this.f209a == null ? as.a(a, new URL(buildUpon.toString())) : this.f209a.a(buildUpon.toString());
+                str3 = this.f210a == null ? as.a(a, new URL(buildUpon.toString())) : this.f210a.a(buildUpon.toString());
                 return str3;
             } catch (IOException e2) {
                 e = e2;
@@ -414,11 +414,11 @@ public class cu {
     /* renamed from: a  reason: collision with other method in class */
     protected JSONObject m203a() {
         JSONObject jSONObject;
-        synchronized (this.f211a) {
+        synchronized (this.f212a) {
             jSONObject = new JSONObject();
             jSONObject.put("ver", 2);
             JSONArray jSONArray = new JSONArray();
-            for (cr crVar : this.f211a.values()) {
+            for (cr crVar : this.f212a.values()) {
                 jSONArray.put(crVar.m198a());
             }
             jSONObject.put("data", jSONArray);
@@ -433,29 +433,29 @@ public class cu {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m204a() {
-        synchronized (this.f211a) {
-            this.f211a.clear();
+        synchronized (this.f212a) {
+            this.f212a.clear();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m205a(String str) {
-        this.f213b = str;
+        this.f214b = str;
     }
 
     public void a(String str, cq cqVar) {
         if (TextUtils.isEmpty(str) || cqVar == null) {
             throw new IllegalArgumentException("the argument is invalid " + str + ", " + cqVar);
         }
-        if (this.f208a.a(str)) {
-            synchronized (this.f211a) {
+        if (this.f209a.a(str)) {
+            synchronized (this.f212a) {
                 m206a();
-                if (this.f211a.containsKey(str)) {
-                    this.f211a.get(str).a(cqVar);
+                if (this.f212a.containsKey(str)) {
+                    this.f212a.get(str).a(cqVar);
                 } else {
                     cr crVar = new cr(str);
                     crVar.a(cqVar);
-                    this.f211a.put(str, crVar);
+                    this.f212a.put(str, crVar);
                 }
             }
         }
@@ -463,12 +463,12 @@ public class cu {
 
     /* renamed from: a  reason: collision with other method in class */
     protected boolean m206a() {
-        synchronized (this.f211a) {
-            if (f206a) {
+        synchronized (this.f212a) {
+            if (f207a) {
                 return true;
             }
-            f206a = true;
-            this.f211a.clear();
+            f207a = true;
+            this.f212a.clear();
             String d2 = d();
             if (TextUtils.isEmpty(d2)) {
                 return false;
@@ -491,11 +491,11 @@ public class cu {
     /* renamed from: b  reason: collision with other method in class */
     public void m207b() {
         ArrayList<String> arrayList;
-        synchronized (this.f211a) {
+        synchronized (this.f212a) {
             m206a();
-            arrayList = new ArrayList<>(this.f211a.keySet());
+            arrayList = new ArrayList<>(this.f212a.keySet());
             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                cr crVar = this.f211a.get(arrayList.get(size));
+                cr crVar = this.f212a.get(arrayList.get(size));
                 if (crVar != null && crVar.a() != null) {
                     arrayList.remove(size);
                 }
@@ -517,8 +517,8 @@ public class cu {
 
     /* renamed from: b  reason: collision with other method in class */
     protected void m208b(String str) {
-        synchronized (this.f211a) {
-            this.f211a.clear();
+        synchronized (this.f212a) {
+            this.f212a.clear();
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.optInt("ver") != 2) {
                 throw new JSONException("Bad version");
@@ -526,12 +526,12 @@ public class cu {
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             for (int i = 0; i < optJSONArray.length(); i++) {
                 cr a2 = new cr().a(optJSONArray.getJSONObject(i));
-                this.f211a.put(a2.m196a(), a2);
+                this.f212a.put(a2.m196a(), a2);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("reserved");
             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 cq a3 = new cq("").a(optJSONArray2.getJSONObject(i2));
-                b.put(a3.f201b, a3);
+                b.put(a3.f202b, a3);
             }
         }
     }
@@ -539,9 +539,9 @@ public class cu {
     protected cq c(String str) {
         cr crVar;
         cq a2;
-        synchronized (this.f211a) {
+        synchronized (this.f212a) {
             m206a();
-            crVar = this.f211a.get(str);
+            crVar = this.f212a.get(str);
         }
         if (crVar == null || (a2 = crVar.a()) == null) {
             return null;
@@ -551,8 +551,8 @@ public class cu {
 
     public String c() {
         StringBuilder sb = new StringBuilder();
-        synchronized (this.f211a) {
-            for (Map.Entry<String, cr> entry : this.f211a.entrySet()) {
+        synchronized (this.f212a) {
+            for (Map.Entry<String, cr> entry : this.f212a.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append(":\n");
                 sb.append(entry.getValue().toString());
@@ -564,7 +564,7 @@ public class cu {
 
     /* renamed from: c  reason: collision with other method in class */
     public void m209c() {
-        synchronized (this.f211a) {
+        synchronized (this.f212a) {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(a.openFileOutput(e(), 0)));
                 String jSONObject = m203a().toString();
@@ -579,16 +579,16 @@ public class cu {
     }
 
     protected cq d(String str) {
-        if (System.currentTimeMillis() - this.f214c > this.f207a * 60 * 1000) {
-            this.f214c = System.currentTimeMillis();
+        if (System.currentTimeMillis() - this.f215c > this.f208a * 60 * 1000) {
+            this.f215c = System.currentTimeMillis();
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);
             cq cqVar = a(arrayList).get(0);
             if (cqVar != null) {
-                this.f207a = 0L;
+                this.f208a = 0L;
                 return cqVar;
-            } else if (this.f207a < 15) {
-                this.f207a++;
+            } else if (this.f208a < 15) {
+                this.f208a++;
             }
         }
         return null;
@@ -632,21 +632,21 @@ public class cu {
 
     /* renamed from: d  reason: collision with other method in class */
     public void m210d() {
-        synchronized (this.f211a) {
-            for (cr crVar : this.f211a.values()) {
+        synchronized (this.f212a) {
+            for (cr crVar : this.f212a.values()) {
                 crVar.a(true);
             }
             boolean z = false;
             while (!z) {
-                Iterator<String> it = this.f211a.keySet().iterator();
+                Iterator<String> it = this.f212a.keySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;
                         break;
                     }
                     String next = it.next();
-                    if (this.f211a.get(next).m197a().isEmpty()) {
-                        this.f211a.remove(next);
+                    if (this.f212a.get(next).m197a().isEmpty()) {
+                        this.f212a.remove(next);
                         z = false;
                         break;
                     }

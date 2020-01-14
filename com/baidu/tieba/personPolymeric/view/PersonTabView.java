@@ -12,13 +12,13 @@ import com.baidu.tieba.R;
 public class PersonTabView extends LinearLayout {
     private int dak;
     private int dal;
-    private TextView jsa;
-    private TextView jsb;
-    private View jsc;
-    private View jsd;
-    private View jse;
-    private View jsf;
-    private a jsg;
+    private TextView jsf;
+    private TextView jsg;
+    private View jsh;
+    private View jsi;
+    private View jsj;
+    private View jsk;
+    private a jsl;
     private Context mContext;
     private int mCurrentTab;
     private View.OnClickListener mOnClickListener;
@@ -41,8 +41,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == R.id.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.jsg != null) {
-                    PersonTabView.this.jsg.Aa(PersonTabView.this.mCurrentTab);
+                if (PersonTabView.this.jsl != null) {
+                    PersonTabView.this.jsl.Aa(PersonTabView.this.mCurrentTab);
                 }
             }
         };
@@ -62,8 +62,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == R.id.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.jsg != null) {
-                    PersonTabView.this.jsg.Aa(PersonTabView.this.mCurrentTab);
+                if (PersonTabView.this.jsl != null) {
+                    PersonTabView.this.jsl.Aa(PersonTabView.this.mCurrentTab);
                 }
             }
         };
@@ -83,8 +83,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == R.id.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.jsg != null) {
-                    PersonTabView.this.jsg.Aa(PersonTabView.this.mCurrentTab);
+                if (PersonTabView.this.jsl != null) {
+                    PersonTabView.this.jsl.Aa(PersonTabView.this.mCurrentTab);
                 }
             }
         };
@@ -94,14 +94,14 @@ public class PersonTabView extends LinearLayout {
     private void init(Context context) {
         this.mContext = context;
         LayoutInflater.from(this.mContext).inflate(R.layout.person_button_header_view, this);
-        this.jsa = (TextView) findViewById(R.id.main_thread_btn);
-        this.jsa.setOnClickListener(this.mOnClickListener);
-        this.jsb = (TextView) findViewById(R.id.reply_btn);
-        this.jsb.setOnClickListener(this.mOnClickListener);
-        this.jsc = findViewById(R.id.main_thread_divider);
-        this.jsd = findViewById(R.id.reply_btn_divider);
-        this.jse = findViewById(R.id.main_thread_bottom_divider);
-        this.jsf = findViewById(R.id.reply_btn_bottom_divider);
+        this.jsf = (TextView) findViewById(R.id.main_thread_btn);
+        this.jsf.setOnClickListener(this.mOnClickListener);
+        this.jsg = (TextView) findViewById(R.id.reply_btn);
+        this.jsg.setOnClickListener(this.mOnClickListener);
+        this.jsh = findViewById(R.id.main_thread_divider);
+        this.jsi = findViewById(R.id.reply_btn_divider);
+        this.jsj = findViewById(R.id.main_thread_bottom_divider);
+        this.jsk = findViewById(R.id.reply_btn_bottom_divider);
         setCurrentTab(0);
     }
 
@@ -109,20 +109,20 @@ public class PersonTabView extends LinearLayout {
         if (i != this.mCurrentTab) {
             this.mCurrentTab = i;
             if (i == 0) {
-                this.jsc.setVisibility(0);
-                this.jsd.setVisibility(4);
-                this.jsa.setTextColor(this.dak);
-                this.jsb.setTextColor(this.dal);
+                this.jsh.setVisibility(0);
+                this.jsi.setVisibility(4);
+                this.jsf.setTextColor(this.dak);
+                this.jsg.setTextColor(this.dal);
             } else if (i == 1) {
-                this.jsc.setVisibility(4);
-                this.jsd.setVisibility(0);
-                this.jsa.setTextColor(this.dal);
-                this.jsb.setTextColor(this.dak);
+                this.jsh.setVisibility(4);
+                this.jsi.setVisibility(0);
+                this.jsf.setTextColor(this.dal);
+                this.jsg.setTextColor(this.dak);
             }
         }
     }
 
     public void setOnTabSelectListener(a aVar) {
-        this.jsg = aVar;
+        this.jsl = aVar;
     }
 }

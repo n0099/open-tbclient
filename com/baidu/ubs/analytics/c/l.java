@@ -6,17 +6,17 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class l {
-    private static String kVA;
-    private static String kVB;
-    private final LinkedHashMap<String, Long> kVC = new LinkedHashMap<>();
+    private static String kVF;
+    private static String kVG;
+    private final LinkedHashMap<String, Long> kVH = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void KV(String str) {
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.kVC) {
-                this.kVC.put(str, Long.valueOf(System.currentTimeMillis()));
-                kVA = str;
-                kVB = String.valueOf(System.currentTimeMillis());
+            synchronized (this.kVH) {
+                this.kVH.put(str, Long.valueOf(System.currentTimeMillis()));
+                kVF = str;
+                kVG = String.valueOf(System.currentTimeMillis());
             }
         }
     }
@@ -26,16 +26,16 @@ public final class l {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.kVC) {
-                Long remove = this.kVC.remove(str);
+            synchronized (this.kVH) {
+                Long remove = this.kVH.remove(str);
                 if (remove != null) {
                     try {
                         lVar.setStartTime(String.valueOf(remove));
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
-                        dVar = d.a.kVo;
-                        lVar.setPath(dVar.cWe());
-                        lVar.x(m.cWo().I());
+                        dVar = d.a.kVt;
+                        lVar.setPath(dVar.cWg());
+                        lVar.x(m.cWq().I());
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.Lm(e.toString());
                         com.baidu.ubs.analytics.d.b.Lf(e.toString());

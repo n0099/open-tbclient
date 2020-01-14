@@ -21,16 +21,16 @@ public abstract class c extends com.google.android.exoplayer2.a.g<h, i, Subtitle
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a.g
-    /* renamed from: dwu */
-    public final h dtw() {
+    /* renamed from: dww */
+    public final h dty() {
         return new h();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a.g
-    /* renamed from: dwv */
-    public final i dtx() {
+    /* renamed from: dwx */
+    public final i dtz() {
         return new d(this);
     }
 
@@ -47,7 +47,7 @@ public abstract class c extends com.google.android.exoplayer2.a.g<h, i, Subtitle
     public final SubtitleDecoderException a(h hVar, i iVar, boolean z) {
         try {
             ByteBuffer byteBuffer = hVar.data;
-            iVar.a(hVar.mcQ, b(byteBuffer.array(), byteBuffer.limit(), z), hVar.subsampleOffsetUs);
+            iVar.a(hVar.mcV, b(byteBuffer.array(), byteBuffer.limit(), z), hVar.subsampleOffsetUs);
             iVar.aI(Integer.MIN_VALUE);
             return null;
         } catch (SubtitleDecoderException e) {

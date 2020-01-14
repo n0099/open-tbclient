@@ -12,14 +12,14 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedM
 public class m {
     public static void init() {
         bPN();
-        cyV();
+        cyX();
     }
 
     public static void bPN() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_USER_POST_PAGE, UserPostPageSocketResponsedMessage.class, false, false);
     }
 
-    private static void cyV() {
+    private static void cyX() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001503, com.baidu.tieba.tbadkCore.a.a.bv(Config.USER_POST_ADDRESS, CmdConfigSocket.CMD_USER_POST_PAGE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

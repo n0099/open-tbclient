@@ -50,13 +50,13 @@ public class g {
                         if (jSONObject2.has("rank")) {
                             JSONObject jSONObject4 = jSONObject2.getJSONObject("rank");
                             if (jSONObject4.has(Config.EVENT_HEAT_POINT)) {
-                                h.dAK().b(jSONObject4.getString(Config.EVENT_HEAT_POINT), null);
+                                h.dAM().b(jSONObject4.getString(Config.EVENT_HEAT_POINT), null);
                             }
                             if (jSONObject4.has("noblePoint")) {
-                                h.dAK().a(jSONObject4.optString("noblePoint"));
+                                h.dAM().a(jSONObject4.optString("noblePoint"));
                             }
                             if (jSONObject4.has("nobleState")) {
-                                h.dAK().a(jSONObject4.optInt("nobleState"));
+                                h.dAM().a(jSONObject4.optInt("nobleState"));
                             }
                         }
                         if (jSONObject2.has(MetaBox.TYPE) && (optJSONObject = jSONObject2.optJSONObject(MetaBox.TYPE)) != null) {

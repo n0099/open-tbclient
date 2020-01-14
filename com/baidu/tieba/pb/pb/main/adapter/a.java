@@ -77,12 +77,12 @@ public class a extends m<com.baidu.tieba.pb.data.b, C0568a> {
 
     private void a(com.baidu.tieba.pb.data.b bVar) {
         String str = bVar.izy.izz + "";
-        com.baidu.tieba.r.c.cIs().a(this.iCe.getUniqueId(), com.baidu.tieba.r.a.a(this.iCZ.ciS().getTid(), str, "", null), com.baidu.tieba.r.a.a(this.iCZ.ciS(), PageStayDurationConstants.PageName.PB, "common_exp", bVar.locate, true, str, "", 18));
+        com.baidu.tieba.r.c.cIu().a(this.iCe.getUniqueId(), com.baidu.tieba.r.a.a(this.iCZ.ciS().getTid(), str, "", null), com.baidu.tieba.r.a.a(this.iCZ.ciS(), PageStayDurationConstants.PageName.PB, "common_exp", bVar.locate, true, str, "", 18));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.pb.data.b bVar) {
-        com.baidu.tieba.r.c.cIs().b(this.iCe.getUniqueId(), com.baidu.tieba.r.a.a(this.iCZ.ciS(), PageStayDurationConstants.PageName.PB, "common_click", 1, bVar.locate, true, bVar.izy.izz + "", (String) null, 18));
+        com.baidu.tieba.r.c.cIu().b(this.iCe.getUniqueId(), com.baidu.tieba.r.a.a(this.iCZ.ciS(), PageStayDurationConstants.PageName.PB, "common_click", 1, bVar.locate, true, bVar.izy.izz + "", (String) null, 18));
     }
 
     public void onDestroy() {

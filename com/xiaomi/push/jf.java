@@ -53,7 +53,7 @@ public class jf {
                 }
             case 13:
                 jb m465a = jcVar.m465a();
-                while (i2 < m465a.f795a) {
+                while (i2 < m465a.f796a) {
                     a(jcVar, m465a.a, i - 1);
                     a(jcVar, m465a.b, i - 1);
                     i2++;
@@ -62,7 +62,7 @@ public class jf {
                 return;
             case 14:
                 jg m466a = jcVar.m466a();
-                while (i2 < m466a.f796a) {
+                while (i2 < m466a.f797a) {
                     a(jcVar, m466a.a, i - 1);
                     i2++;
                 }
@@ -70,7 +70,7 @@ public class jf {
                 return;
             case 15:
                 ja m464a = jcVar.m464a();
-                while (i2 < m464a.f794a) {
+                while (i2 < m464a.f795a) {
                     a(jcVar, m464a.a, i - 1);
                     i2++;
                 }

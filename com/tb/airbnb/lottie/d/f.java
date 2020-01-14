@@ -50,7 +50,7 @@ public final class f {
 
     public static void a(Path path, @Nullable r rVar) {
         if (rVar != null) {
-            a(path, rVar.dFv().getValue().floatValue() / 100.0f, rVar.dFw().getValue().floatValue() / 100.0f, rVar.dFx().getValue().floatValue() / 360.0f);
+            a(path, rVar.dFx().getValue().floatValue() / 100.0f, rVar.dFy().getValue().floatValue() / 100.0f, rVar.dFz().getValue().floatValue() / 360.0f);
         }
     }
 

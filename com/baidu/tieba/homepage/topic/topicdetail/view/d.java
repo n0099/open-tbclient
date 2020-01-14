@@ -216,7 +216,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
                 if (this.heX.source == 1) {
                     name_show = aBx.azX().getName_show();
                     formatTime = aq.getFormatTime(aBx.getTime());
-                    azO = aBx.cJB();
+                    azO = aBx.cJD();
                 } else {
                     name_show = bjVar.azX().getName_show();
                     formatTime = aq.getFormatTime(bjVar.getCreateTime());
@@ -259,7 +259,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
     private void a(PostData postData, bj bjVar) {
         if (this.heX.source == 1) {
             this.hfe.setVisibility(0);
-            this.hfe.setText(postData.cJz());
+            this.hfe.setText(postData.cJB());
             return;
         }
         List<PbContent> azN = bjVar.azN();

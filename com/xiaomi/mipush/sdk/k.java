@@ -8,25 +8,25 @@ public final class k implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ f f75a;
+    final /* synthetic */ f f76a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f76a;
+    final /* synthetic */ String f77a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(String str, Context context, f fVar) {
-        this.f76a = str;
+        this.f77a = str;
         this.a = context;
-        this.f75a = fVar;
+        this.f76a = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (TextUtils.isEmpty(this.f76a)) {
+        if (TextUtils.isEmpty(this.f77a)) {
             return;
         }
         String str = "";
-        String[] split = this.f76a.split(Constants.WAVE_SEPARATOR);
+        String[] split = this.f77a.split(Constants.WAVE_SEPARATOR);
         int length = split.length;
         int i = 0;
         while (true) {
@@ -45,7 +45,7 @@ public final class k implements Runnable {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m42a("ASSEMBLE_PUSH : receive correct token");
-        j.d(this.a, this.f75a, str);
+        j.d(this.a, this.f76a, str);
         j.m98a(this.a);
     }
 }

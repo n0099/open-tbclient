@@ -1,43 +1,43 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes4.dex */
 public class j {
-    public int nFb = 0;
-    public int nFc = 0;
-    public int nFd = 0;
-    public int nFe = 0;
-    public int nFf = 0;
     public int nFg = 0;
+    public int nFh = 0;
+    public int nFi = 0;
+    public int nFj = 0;
+    public int nFk = 0;
+    public int nFl = 0;
 
     public void resetAll() {
-        this.nFc = 0;
-        this.nFb = 0;
-        this.nFd = 0;
-        this.nFe = 0;
-        this.nFf = 0;
+        this.nFh = 0;
         this.nFg = 0;
-    }
-
-    public void dKD() {
-        this.nFc++;
-    }
-
-    public void dKE() {
-        this.nFb++;
+        this.nFi = 0;
+        this.nFj = 0;
+        this.nFk = 0;
+        this.nFl = 0;
     }
 
     public void dKF() {
-        this.nFd++;
+        this.nFh++;
     }
 
     public void dKG() {
-        this.nFe++;
+        this.nFg++;
     }
 
     public void dKH() {
-        this.nFf++;
+        this.nFi++;
     }
 
     public void dKI() {
-        this.nFg++;
+        this.nFj++;
+    }
+
+    public void dKJ() {
+        this.nFk++;
+    }
+
+    public void dKK() {
+        this.nFl++;
     }
 }

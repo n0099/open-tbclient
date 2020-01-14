@@ -54,19 +54,19 @@ import org.json.JSONObject;
 public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivity> implements View.OnClickListener {
     private ImageView Ez;
     private BaseActivity aBW;
-    private String jDP;
-    private String jDQ;
-    private EditText jDR;
-    private EditText jDS;
-    private TextView jDT;
-    private TextView jDU;
-    private a jDV;
-    private TextView jDW;
-    private String jDX;
-    private LinearLayout jDY;
+    private String jDU;
+    private String jDV;
+    private EditText jDW;
+    private EditText jDX;
+    private TextView jDY;
     private TextView jDZ;
-    private ao jEa;
-    private RelativeLayout jEb;
+    private a jEa;
+    private TextView jEb;
+    private String jEc;
+    private LinearLayout jEd;
+    private TextView jEe;
+    private ao jEf;
+    private RelativeLayout jEg;
     private Context mContext;
     private String mUid;
     private String mUserName;
@@ -74,14 +74,14 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
     private ImageView selectorImg;
     private String sign;
     private boolean mChosen = true;
-    private b jEc = new b() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.6
+    private b jEh = new b() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.6
         @Override // com.baidu.tieba.realauthen.a.b
         public void a(int i, String str, Object obj) {
             if (obj != null) {
                 if (obj instanceof RealAuthenSpResponseMessage) {
                     RealAuthenSpResponseMessage realAuthenSpResponseMessage = (RealAuthenSpResponseMessage) obj;
-                    FaceRecognitionActivity.this.jDQ = realAuthenSpResponseMessage.jDQ;
-                    FaceRecognitionActivity.this.reqId = realAuthenSpResponseMessage.jEg;
+                    FaceRecognitionActivity.this.jDV = realAuthenSpResponseMessage.jDV;
+                    FaceRecognitionActivity.this.reqId = realAuthenSpResponseMessage.jEl;
                     FaceRecognitionActivity.this.sign = realAuthenSpResponseMessage.sign;
                 }
                 if ((obj instanceof RealAuthenCertifyInfoResponseMessage) && ((RealAuthenCertifyInfoResponseMessage) obj).errno == 0) {
@@ -97,7 +97,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
-                    FaceRecognitionActivity.this.cAD();
+                    FaceRecognitionActivity.this.cAF();
                 }
             }
         }
@@ -123,73 +123,73 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
         if (TextUtils.isEmpty(this.mUid)) {
             this.mUid = TbadkCoreApplication.getCurrentAccount();
         }
-        this.jDP = getIntent().getStringExtra("retry");
+        this.jDU = getIntent().getStringExtra("retry");
         setupViews();
-        this.jDV = new com.baidu.tieba.realauthen.a.a(this.jEc);
-        this.jDV.cAE();
+        this.jEa = new com.baidu.tieba.realauthen.a.a(this.jEh);
+        this.jEa.cAG();
         MessageManager.getInstance().registerListener(this.ato);
     }
 
     private void setupViews() {
-        this.jEb = (RelativeLayout) findViewById(a.g.rl_content);
-        this.jEb.setOnClickListener(this);
+        this.jEg = (RelativeLayout) findViewById(a.g.rl_content);
+        this.jEg.setOnClickListener(this);
         this.Ez = (ImageView) findViewById(a.g.img_back);
         this.Ez.setOnClickListener(this);
-        this.jEa = com.baidu.live.s.a.wR().atk;
+        this.jEf = com.baidu.live.s.a.wR().atk;
         this.selectorImg = (ImageView) findViewById(a.g.selector_img);
         this.selectorImg.setOnClickListener(this);
-        this.jDW = (TextView) findViewById(a.g.agreement);
-        this.jDW.setMovementMethod(LinkMovementMethod.getInstance());
-        cAD();
-        this.jDR = (EditText) findViewById(a.g.name);
-        com.baidu.tieba.realauthen.b.a.g(this.jDR);
-        this.jDR.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.1
+        this.jEb = (TextView) findViewById(a.g.agreement);
+        this.jEb.setMovementMethod(LinkMovementMethod.getInstance());
+        cAF();
+        this.jDW = (EditText) findViewById(a.g.name);
+        com.baidu.tieba.realauthen.b.a.g(this.jDW);
+        this.jDW.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                FaceRecognitionActivity.this.jDU.setVisibility(4);
+                FaceRecognitionActivity.this.jDZ.setVisibility(4);
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                FaceRecognitionActivity.this.cAB();
+                FaceRecognitionActivity.this.cAD();
             }
         });
-        this.jDR.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.2
+        this.jDW.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.2
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
-                String obj = FaceRecognitionActivity.this.jDR.getText().toString();
-                FaceRecognitionActivity.this.cAB();
+                String obj = FaceRecognitionActivity.this.jDW.getText().toString();
+                FaceRecognitionActivity.this.cAD();
                 if (!z && !TextUtils.isEmpty(obj) && !k.dS(obj)) {
                     FaceRecognitionActivity.this.aY(0, "请输入正确的姓名！");
                 }
             }
         });
-        com.baidu.tieba.realauthen.b.a.h(this.jDR);
-        this.jDS = (EditText) findViewById(a.g.idno);
-        this.jDS.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.3
+        com.baidu.tieba.realauthen.b.a.h(this.jDW);
+        this.jDX = (EditText) findViewById(a.g.idno);
+        this.jDX.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                FaceRecognitionActivity.this.jDU.setVisibility(4);
+                FaceRecognitionActivity.this.jDZ.setVisibility(4);
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                FaceRecognitionActivity.this.cAB();
+                FaceRecognitionActivity.this.cAD();
             }
         });
-        this.jDS.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.4
+        this.jDX.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
-                String obj = FaceRecognitionActivity.this.jDS.getText().toString();
-                FaceRecognitionActivity.this.cAB();
+                String obj = FaceRecognitionActivity.this.jDX.getText().toString();
+                FaceRecognitionActivity.this.cAD();
                 if (!z && !TextUtils.isEmpty(obj)) {
                     String dO = e.dO(obj);
                     if (!HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS.equals(dO)) {
@@ -198,50 +198,50 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
                 }
             }
         });
-        com.baidu.tieba.realauthen.b.a.h(this.jDS);
-        this.jDT = (TextView) findViewById(a.g.toAuth_textView);
-        this.jDT.setOnClickListener(this);
-        this.jDY = (LinearLayout) findViewById(a.g.ll_authen_retry);
-        this.jDZ = (TextView) findViewById(a.g.authen_retry);
-        this.jDZ.setOnClickListener(this);
-        this.jDU = (TextView) findViewById(a.g.authen_fail_tip);
+        com.baidu.tieba.realauthen.b.a.h(this.jDX);
+        this.jDY = (TextView) findViewById(a.g.toAuth_textView);
+        this.jDY.setOnClickListener(this);
+        this.jEd = (LinearLayout) findViewById(a.g.ll_authen_retry);
+        this.jEe = (TextView) findViewById(a.g.authen_retry);
+        this.jEe.setOnClickListener(this);
+        this.jDZ = (TextView) findViewById(a.g.authen_fail_tip);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jEb) {
-            this.jDR.clearFocus();
-            this.jDS.clearFocus();
+        if (view == this.jEg) {
+            this.jDW.clearFocus();
+            this.jDX.clearFocus();
             InputMethodManager inputMethodManager = (InputMethodManager) this.mContext.getSystemService("input_method");
             if (inputMethodManager != null) {
-                inputMethodManager.hideSoftInputFromWindow(this.jEb.getWindowToken(), 2);
+                inputMethodManager.hideSoftInputFromWindow(this.jEg.getWindowToken(), 2);
             }
         } else if (view == this.Ez) {
             AH(-1);
         } else if (view == this.selectorImg) {
             this.mChosen = this.mChosen ? false : true;
-            cAB();
+            cAD();
             SkinManager.setImageResource(this.selectorImg, this.mChosen ? a.f.icon_live_choose_s : a.f.icon_live_operatechoose_n);
-        } else if (view == this.jDT) {
-            this.jDU.setVisibility(4);
-            if (TextUtils.isEmpty(this.jDR.getText().toString()) || TextUtils.isEmpty(this.jDS.getText().toString())) {
+        } else if (view == this.jDY) {
+            this.jDZ.setVisibility(4);
+            if (TextUtils.isEmpty(this.jDW.getText().toString()) || TextUtils.isEmpty(this.jDX.getText().toString())) {
                 Toast.makeText(this.mContext, "输入参数不能为空", 1).show();
                 return;
             }
             rV(false);
-            cAC();
-        } else if (view == this.jDZ && this.jEa.aba != null) {
-            CommonWebViewActivityConfig commonWebViewActivityConfig = new CommonWebViewActivityConfig(this.aBW.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SDK_WEB_VIEW, this.jEa.aba.abD);
-            if (!TextUtils.isEmpty(this.jDP)) {
-                commonWebViewActivityConfig.setCertRetryTag(this.jDP);
+            cAE();
+        } else if (view == this.jEe && this.jEf.aba != null) {
+            CommonWebViewActivityConfig commonWebViewActivityConfig = new CommonWebViewActivityConfig(this.aBW.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SDK_WEB_VIEW, this.jEf.aba.abD);
+            if (!TextUtils.isEmpty(this.jDU)) {
+                commonWebViewActivityConfig.setCertRetryTag(this.jDU);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, commonWebViewActivityConfig));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAB() {
-        if (!TextUtils.isEmpty(this.jDR.getText().toString()) && k.dS(this.jDR.getText().toString()) && !TextUtils.isEmpty(this.jDS.getText().toString()) && HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS.equals(e.dO(this.jDS.getText().toString())) && this.mChosen) {
+    public void cAD() {
+        if (!TextUtils.isEmpty(this.jDW.getText().toString()) && k.dS(this.jDW.getText().toString()) && !TextUtils.isEmpty(this.jDX.getText().toString()) && HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS.equals(e.dO(this.jDX.getText().toString())) && this.mChosen) {
             rV(true);
         } else {
             rV(false);
@@ -251,41 +251,41 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
     /* JADX INFO: Access modifiers changed from: private */
     public void aY(int i, String str) {
         if (i == 0) {
-            this.jDU.setVisibility(0);
-            this.jDU.setText(str);
-            this.jDY.setVisibility(0);
+            this.jDZ.setVisibility(0);
+            this.jDZ.setText(str);
+            this.jEd.setVisibility(0);
             return;
         }
-        this.jDU.setVisibility(4);
-        this.jDY.setVisibility(4);
+        this.jDZ.setVisibility(4);
+        this.jEd.setVisibility(4);
     }
 
     private void rV(boolean z) {
-        if (this.jDT != null) {
+        if (this.jDY != null) {
             if (z) {
-                this.jDT.setClickable(true);
-                this.jDT.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
-                this.jDT.setBackgroundResource(a.f.bg_toauth_shape_corner);
+                this.jDY.setClickable(true);
+                this.jDY.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+                this.jDY.setBackgroundResource(a.f.bg_toauth_shape_corner);
                 return;
             }
-            this.jDT.setClickable(false);
-            this.jDT.setTextColor(getResources().getColor(a.d.sdk_common_color_10259));
-            this.jDT.setBackgroundResource(a.f.bg_toauth_shape_corner_n);
+            this.jDY.setClickable(false);
+            this.jDY.setTextColor(getResources().getColor(a.d.sdk_common_color_10259));
+            this.jDY.setBackgroundResource(a.f.bg_toauth_shape_corner_n);
         }
     }
 
-    private void cAC() {
+    private void cAE() {
         final HashMap hashMap = new HashMap();
         hashMap.put("method", "startLivenessRecognize");
         hashMap.put("recogType", "certinfo");
-        this.mUserName = this.jDR.getText().toString();
-        hashMap.put("realName", this.jDR.getText().toString());
-        this.jDX = this.jDS.getText().toString();
-        hashMap.put("idCardNo", this.jDS.getText().toString());
+        this.mUserName = this.jDW.getText().toString();
+        hashMap.put("realName", this.jDW.getText().toString());
+        this.jEc = this.jDX.getText().toString();
+        hashMap.put("idCardNo", this.jDX.getText().toString());
         hashMap.put("exuid", this.mUid);
         hashMap.put("showGuidePage", "0");
         hashMap.put("imageFlag", "0");
-        hashMap.put("spParams", c.as(this.jDQ, this.reqId, this.sign));
+        hashMap.put("spParams", c.as(this.jDV, this.reqId, this.sign));
         runOnUiThread(new Runnable() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.5
             @Override // java.lang.Runnable
             public void run() {
@@ -293,7 +293,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
                     RealAuthenManager.getInstance().getRealAuthen().doAuthen(hashMap, new AuthenCallback() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.5.1
                         @Override // com.baidu.live.tbadk.realAuthen.AuthenCallback
                         public void onAuthenResult(int i, Map<String, Object> map) {
-                            FaceRecognitionActivity.this.cAB();
+                            FaceRecognitionActivity.this.cAD();
                             String str = "";
                             if (map.containsKey("retMsg")) {
                                 str = (String) map.get("retMsg");
@@ -302,8 +302,8 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
                                 if (map != null) {
                                     try {
                                         String str2 = (String) new JSONObject((String) map.get("result")).get("callbackkey");
-                                        if (FaceRecognitionActivity.this.jDV != null) {
-                                            FaceRecognitionActivity.this.jDV.y(FaceRecognitionActivity.this.mUid, str2, FaceRecognitionActivity.this.mUserName, FaceRecognitionActivity.this.jDX);
+                                        if (FaceRecognitionActivity.this.jEa != null) {
+                                            FaceRecognitionActivity.this.jEa.y(FaceRecognitionActivity.this.mUid, str2, FaceRecognitionActivity.this.mUserName, FaceRecognitionActivity.this.jEc);
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -342,11 +342,11 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAD() {
-        if (this.jDW != null) {
+    public void cAF() {
+        if (this.jEb != null) {
             String str = "";
-            if (this.jEa.aaZ != null) {
-                str = this.jEa.aaZ.acJ;
+            if (this.jEf.aaZ != null) {
+                str = this.jEf.aaZ.acJ;
             }
             if (TextUtils.isEmpty(str)) {
                 str = "我已阅读并同意《主播协议》";
@@ -357,8 +357,8 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
                     spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.8
                         @Override // android.text.style.ClickableSpan
                         public void onClick(View view) {
-                            if (FaceRecognitionActivity.this.jEa.aaZ != null) {
-                                BrowserHelper.startInternalWebActivity(TbadkCoreApplication.getInst(), FaceRecognitionActivity.this.jEa.aaZ.link);
+                            if (FaceRecognitionActivity.this.jEf.aaZ != null) {
+                                BrowserHelper.startInternalWebActivity(TbadkCoreApplication.getInst(), FaceRecognitionActivity.this.jEf.aaZ.link);
                             }
                         }
 
@@ -369,7 +369,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
                     }, str.indexOf("《"), str.indexOf("》") + 1, 33);
                     spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(a.d.sdk_color_4886E2)), str.indexOf("《"), str.indexOf("》") + 1, 33);
                 }
-                this.jDW.setText(spannableString);
+                this.jEb.setText(spannableString);
             }
         }
     }

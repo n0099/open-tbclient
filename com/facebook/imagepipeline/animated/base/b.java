@@ -5,7 +5,7 @@ public interface b {
 
     c Hk(int i);
 
-    boolean diB();
+    boolean diD();
 
     int getFrameCount();
 

@@ -4,19 +4,19 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
 public class b implements a {
-    private final String nLP;
+    private final String nLU;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.nLP = str;
+        this.nLU = str;
     }
 
     @Override // org.java_websocket.d.a
     public boolean Sn(String str) {
         for (String str2 : str.replaceAll(HanziToPinyin.Token.SEPARATOR, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.nLP.equals(str2)) {
+            if (this.nLU.equals(str2)) {
                 return true;
             }
         }
@@ -24,18 +24,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String dMq() {
-        return this.nLP;
+    public String dMs() {
+        return this.nLU;
     }
 
     @Override // org.java_websocket.d.a
-    public a dMr() {
-        return new b(dMq());
+    public a dMt() {
+        return new b(dMs());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return dMq();
+        return dMs();
     }
 
     public boolean equals(Object obj) {
@@ -45,10 +45,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.nLP.equals(((b) obj).nLP);
+        return this.nLU.equals(((b) obj).nLU);
     }
 
     public int hashCode() {
-        return this.nLP.hashCode();
+        return this.nLU.hashCode();
     }
 }

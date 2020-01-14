@@ -20,7 +20,7 @@ public class b extends PopupWindow implements View.OnClickListener {
     private static final int[] b = {6666, 1314, UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD, 188, 66, 10, 1};
     private static final int[] c = {a.i.str_gift_count_6666, a.i.str_gift_count_1314, a.i.str_gift_count_520, a.i.str_gift_count_188, a.i.str_gift_count_66, a.i.str_gift_count_10, a.i.str_gift_count_1};
     private List<Pair<String, String>> a;
-    private a nja;
+    private a njf;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -32,7 +32,7 @@ public class b extends PopupWindow implements View.OnClickListener {
         this.a = new ArrayList();
         View inflate = LayoutInflater.from(context).inflate(a.h.popup_gift_count, (ViewGroup) null, false);
         setContentView(inflate);
-        this.nja = aVar;
+        this.njf = aVar;
         inflate.findViewById(a.f.tv_customize).setOnClickListener(this);
         for (int i = 0; i < b.length; i++) {
             this.a.add(new Pair<>(String.valueOf(b[i]), context.getString(c[i])));
@@ -43,8 +43,8 @@ public class b extends PopupWindow implements View.OnClickListener {
             @Override // tv.chushou.zues.widget.adapterview.d
             public void onItemClick(View view, int i2) {
                 Pair pair = (Pair) b.this.a.get(i2);
-                if (b.this.nja != null) {
-                    b.this.nja.a(false, Integer.parseInt((String) pair.first));
+                if (b.this.njf != null) {
+                    b.this.njf.a(false, Integer.parseInt((String) pair.first));
                 }
                 b.this.dismiss();
             }
@@ -67,8 +67,8 @@ public class b extends PopupWindow implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == a.f.tv_customize) {
             dismiss();
-            if (this.nja != null) {
-                this.nja.a(true, -1);
+            if (this.njf != null) {
+                this.njf.a(true, -1);
             }
         }
     }

@@ -7,19 +7,19 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes10.dex */
 public class l implements PooledByteBuffer {
     @GuardedBy("this")
-    com.facebook.common.references.a<NativeMemoryChunk> lTI;
+    com.facebook.common.references.a<NativeMemoryChunk> lTN;
     private final int mSize;
 
     public l(com.facebook.common.references.a<NativeMemoryChunk> aVar, int i) {
         com.facebook.common.internal.g.checkNotNull(aVar);
         com.facebook.common.internal.g.checkArgument(i >= 0 && i <= aVar.get().getSize());
-        this.lTI = aVar.clone();
+        this.lTN = aVar.clone();
         this.mSize = i;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int size() {
-        djH();
+        djJ();
         return this.mSize;
     }
 
@@ -27,39 +27,39 @@ public class l implements PooledByteBuffer {
     public synchronized byte Ho(int i) {
         byte Ho;
         synchronized (this) {
-            djH();
+            djJ();
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            Ho = this.lTI.get().Ho(i);
+            Ho = this.lTN.get().Ho(i);
         }
         return Ho;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        djH();
+        djJ();
         com.facebook.common.internal.g.checkArgument(i + i3 <= this.mSize);
-        return this.lTI.get().c(i, bArr, i2, i3);
+        return this.lTN.get().c(i, bArr, i2, i3);
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized long djy() {
-        djH();
-        return this.lTI.get().djy();
+    public synchronized long djA() {
+        djJ();
+        return this.lTN.get().djA();
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized boolean isClosed() {
-        return !com.facebook.common.references.a.a(this.lTI);
+        return !com.facebook.common.references.a.a(this.lTN);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        com.facebook.common.references.a.c(this.lTI);
-        this.lTI = null;
+        com.facebook.common.references.a.c(this.lTN);
+        this.lTN = null;
     }
 
-    synchronized void djH() {
+    synchronized void djJ() {
         if (isClosed()) {
             throw new PooledByteBuffer.ClosedException();
         }

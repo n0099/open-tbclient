@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class d {
-    private static d lOO;
-    private int lOP;
+    private static d lOT;
+    private int lOU;
     @Nullable
-    private List<c.a> lOQ;
-    private final c.a lOR = new a();
+    private List<c.a> lOV;
+    private final c.a lOW = new a();
 
     private d() {
-        dmm();
+        dmo();
     }
 
     public void eY(@Nullable List<c.a> list) {
-        this.lOQ = list;
-        dmm();
+        this.lOV = list;
+        dmo();
     }
 
     public c t(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.lOP];
-        int a = a(this.lOP, inputStream, bArr);
-        c p = this.lOR.p(bArr, a);
-        if (p == null || p == c.lOM) {
-            if (this.lOQ != null) {
-                for (c.a aVar : this.lOQ) {
+        byte[] bArr = new byte[this.lOU];
+        int a = a(this.lOU, inputStream, bArr);
+        c p = this.lOW.p(bArr, a);
+        if (p == null || p == c.lOR) {
+            if (this.lOV != null) {
+                for (c.a aVar : this.lOV) {
                     c p2 = aVar.p(bArr, a);
-                    if (p2 != null && p2 != c.lOM) {
+                    if (p2 != null && p2 != c.lOR) {
                         return p2;
                     }
                 }
             }
-            return c.lOM;
+            return c.lOR;
         }
         return p;
     }
 
-    private void dmm() {
-        this.lOP = this.lOR.getHeaderSize();
-        if (this.lOQ != null) {
-            for (c.a aVar : this.lOQ) {
-                this.lOP = Math.max(this.lOP, aVar.getHeaderSize());
+    private void dmo() {
+        this.lOU = this.lOW.getHeaderSize();
+        if (this.lOV != null) {
+            for (c.a aVar : this.lOV) {
+                this.lOU = Math.max(this.lOU, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dmn() {
+    public static synchronized d dmp() {
         d dVar;
         synchronized (d.class) {
-            if (lOO == null) {
-                lOO = new d();
+            if (lOT == null) {
+                lOT = new d();
             }
-            dVar = lOO;
+            dVar = lOT;
         }
         return dVar;
     }
 
     public static c u(InputStream inputStream) throws IOException {
-        return dmn().t(inputStream);
+        return dmp().t(inputStream);
     }
 
     public static c v(InputStream inputStream) {

@@ -8,20 +8,20 @@ public class df extends al.b {
     al.b a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ dd f237a;
+    final /* synthetic */ dd f238a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public df(dd ddVar) {
-        this.f237a = ddVar;
+        this.f238a = ddVar;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
-        dd.b bVar = (dd.b) this.f237a.f225a.peek();
+        dd.b bVar = (dd.b) this.f238a.f226a.peek();
         if (bVar == null || !bVar.a()) {
             return;
         }
-        if (this.f237a.f225a.remove(bVar)) {
+        if (this.f238a.f226a.remove(bVar)) {
             this.a = bVar;
         }
         if (this.a != null) {

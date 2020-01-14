@@ -6,9 +6,9 @@ import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public abstract class v {
-    static final long nuZ = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
+    static final long nve = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
 
-    public abstract c dHW();
+    public abstract c dHY();
 
     public long a(TimeUnit timeUnit) {
         return timeUnit.convert(System.currentTimeMillis(), TimeUnit.MILLISECONDS);
@@ -22,16 +22,16 @@ public abstract class v {
     }
 
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        c dHW = dHW();
-        a aVar = new a(io.reactivex.e.a.F(runnable), dHW);
-        dHW.c(aVar, j, timeUnit);
+        c dHY = dHY();
+        a aVar = new a(io.reactivex.e.a.F(runnable), dHY);
+        dHY.c(aVar, j, timeUnit);
         return aVar;
     }
 
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        c dHW = dHW();
-        b bVar = new b(io.reactivex.e.a.F(runnable), dHW);
-        io.reactivex.disposables.b b2 = dHW.b(bVar, j, j2, timeUnit);
+        c dHY = dHY();
+        b bVar = new b(io.reactivex.e.a.F(runnable), dHY);
+        io.reactivex.disposables.b b2 = dHY.b(bVar, j, j2, timeUnit);
         return b2 == EmptyDisposable.INSTANCE ? b2 : bVar;
     }
 
@@ -66,17 +66,17 @@ public abstract class v {
         public final class a implements Runnable {
             long count;
             final Runnable decoratedRun;
-            final long nvb;
-            long nvc;
-            long nvd;
+            final long nvg;
+            long nvh;
+            long nvi;
             final SequentialDisposable sd;
 
             a(long j, Runnable runnable, long j2, SequentialDisposable sequentialDisposable, long j3) {
                 this.decoratedRun = runnable;
                 this.sd = sequentialDisposable;
-                this.nvb = j3;
-                this.nvc = j2;
-                this.nvd = j;
+                this.nvg = j3;
+                this.nvh = j2;
+                this.nvi = j;
             }
 
             @Override // java.lang.Runnable
@@ -85,19 +85,19 @@ public abstract class v {
                 this.decoratedRun.run();
                 if (!this.sd.isDisposed()) {
                     long a = c.this.a(TimeUnit.NANOSECONDS);
-                    if (v.nuZ + a < this.nvc || a >= this.nvc + this.nvb + v.nuZ) {
-                        j = this.nvb + a;
-                        long j2 = this.nvb;
+                    if (v.nve + a < this.nvh || a >= this.nvh + this.nvg + v.nve) {
+                        j = this.nvg + a;
+                        long j2 = this.nvg;
                         long j3 = this.count + 1;
                         this.count = j3;
-                        this.nvd = j - (j2 * j3);
+                        this.nvi = j - (j2 * j3);
                     } else {
-                        long j4 = this.nvd;
+                        long j4 = this.nvi;
                         long j5 = this.count + 1;
                         this.count = j5;
-                        j = j4 + (j5 * this.nvb);
+                        j = j4 + (j5 * this.nvg);
                     }
-                    this.nvc = a;
+                    this.nvh = a;
                     this.sd.replace(c.this.c(this, j - a, TimeUnit.NANOSECONDS));
                 }
             }
@@ -107,11 +107,11 @@ public abstract class v {
     /* loaded from: classes5.dex */
     static final class b implements io.reactivex.disposables.b, Runnable {
         volatile boolean disposed;
-        final Runnable nva;
+        final Runnable nvf;
         final c worker;
 
         b(Runnable runnable, c cVar) {
-            this.nva = runnable;
+            this.nvf = runnable;
             this.worker = cVar;
         }
 
@@ -119,7 +119,7 @@ public abstract class v {
         public void run() {
             if (!this.disposed) {
                 try {
-                    this.nva.run();
+                    this.nvf.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.I(th);
                     this.worker.dispose();

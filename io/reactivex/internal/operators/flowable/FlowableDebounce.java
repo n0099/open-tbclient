@@ -15,7 +15,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nvK.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
+        this.nvP.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -114,12 +114,12 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
         static final class a<T, U> extends io.reactivex.subscribers.a<U> {
             boolean done;
             final long index;
-            final DebounceSubscriber<T, U> nwa;
+            final DebounceSubscriber<T, U> nwf;
             final AtomicBoolean once = new AtomicBoolean();
             final T value;
 
             a(DebounceSubscriber<T, U> debounceSubscriber, long j, T t) {
-                this.nwa = debounceSubscriber;
+                this.nwf = debounceSubscriber;
                 this.index = j;
                 this.value = t;
             }
@@ -135,7 +135,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
 
             void emit() {
                 if (this.once.compareAndSet(false, true)) {
-                    this.nwa.emit(this.index, this.value);
+                    this.nwf.emit(this.index, this.value);
                 }
             }
 
@@ -146,7 +146,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
                     return;
                 }
                 this.done = true;
-                this.nwa.onError(th);
+                this.nwf.onError(th);
             }
 
             @Override // org.a.c

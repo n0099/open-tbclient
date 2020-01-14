@@ -34,12 +34,12 @@ public final class Utils {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (c.dkj().O(Uri.parse(str))) {
+        if (c.dkl().O(Uri.parse(str))) {
             return true;
         }
-        b<Boolean> P = c.dkj().P(Uri.parse(str));
+        b<Boolean> P = c.dkl().P(Uri.parse(str));
         if (P != null) {
-            z = P.djO() && P.getResult() != null && P.getResult().booleanValue();
+            z = P.djQ() && P.getResult() != null && P.getResult().booleanValue();
             P.Mn();
         } else {
             z = false;
@@ -51,7 +51,7 @@ public final class Utils {
         if (TextUtils.isEmpty(str) || !inFrescoCache(str)) {
             return "";
         }
-        a d = j.dog().don().d(com.facebook.imagepipeline.c.j.dmI().c(ImageRequestBuilder.X(Uri.parse(str)).drm(), context.getApplicationContext()));
+        a d = j.doi().dop().d(com.facebook.imagepipeline.c.j.dmK().c(ImageRequestBuilder.X(Uri.parse(str)).dro(), context.getApplicationContext()));
         if (d == null) {
             return "";
         }

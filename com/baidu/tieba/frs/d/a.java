@@ -75,7 +75,7 @@ public class a {
                             a.delete("thread_type");
                             a.Z("thread_type", bjVar.getThreadType());
                         }
-                        com.baidu.tieba.r.c.cIs().b(bdUniqueId, a);
+                        com.baidu.tieba.r.c.cIu().b(bdUniqueId, a);
                         return;
                     }
                     return;
@@ -100,7 +100,7 @@ public class a {
         if (bjVar != null && (a = com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_exp", i, false, null, null)) != null) {
             a.Z("list_order", c.bIf().a(bVar));
             a(a, bjVar, tbPageTag);
-            com.baidu.tieba.r.c.cIs().a(bdUniqueId, com.baidu.tieba.r.a.a(bjVar.getTid(), "", "", bjVar.getBaijiahaoData()), a);
+            com.baidu.tieba.r.c.cIu().a(bdUniqueId, com.baidu.tieba.r.a.a(bjVar.getTid(), "", "", bjVar.getBaijiahaoData()), a);
         }
     }
 
@@ -164,7 +164,7 @@ public class a {
                             a.delete("thread_type");
                             a.Z("thread_type", bjVar.getThreadType());
                         }
-                        com.baidu.tieba.r.c.cIs().a(bdUniqueId, com.baidu.tieba.r.a.a(bjVar.getTid(), str2, "", bjVar.getBaijiahaoData()), a);
+                        com.baidu.tieba.r.c.cIu().a(bdUniqueId, com.baidu.tieba.r.a.a(bjVar.getTid(), str2, "", bjVar.getBaijiahaoData()), a);
                         if (bjVar.cQj) {
                             a(bjVar, bdUniqueId, tbPageTag);
                             return;
@@ -222,7 +222,7 @@ public class a {
                 }
             }
             b.Z("list_order", i2);
-            com.baidu.tieba.r.c.cIs().b(bdUniqueId, b);
+            com.baidu.tieba.r.c.cIu().b(bdUniqueId, b);
         }
     }
 
@@ -240,7 +240,7 @@ public class a {
             if (bjVar.aBk() && bjVar.getFeedBackReasonMap() != null && !z) {
                 an cp = new an("common_exp").cp("page_type", PageStayDurationConstants.PageName.FRS).Z("obj_isad", 1).Z("obj_adlocate", 15).cp("obj_id", bjVar.getId()).Z("obj_floor", bjVar.cLB).s("fid", bjVar.getFid()).Z("thread_type", bjVar.getThreadType()).cp("tid", bjVar.getId()).cp("first_dir", bjVar.aBD()).cp("second_dir", bjVar.aBE());
                 a(cp, bjVar, tbPageTag);
-                com.baidu.tieba.r.c.cIs().a(bdUniqueId, com.baidu.tieba.r.a.a(bjVar.getTid(), "", "", bjVar.getBaijiahaoData()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + 15, cp);
+                com.baidu.tieba.r.c.cIu().a(bdUniqueId, com.baidu.tieba.r.a.a(bjVar.getTid(), "", "", bjVar.getBaijiahaoData()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + 15, cp);
             }
         }
     }

@@ -3,22 +3,22 @@ package com.dd.plist;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
 public class d extends i {
-    private i[] lFO;
+    private i[] lFT;
 
     public d(int i) {
-        this.lFO = new i[i];
+        this.lFT = new i[i];
     }
 
     public d(i... iVarArr) {
-        this.lFO = iVarArr;
+        this.lFT = iVarArr;
     }
 
     public void j(int i, Object obj) {
-        this.lFO[i] = i.aM(obj);
+        this.lFT[i] = i.aM(obj);
     }
 
-    public i[] dik() {
-        return this.lFO;
+    public i[] dim() {
+        return this.lFT;
     }
 
     public boolean equals(Object obj) {
@@ -26,16 +26,16 @@ public class d extends i {
             return false;
         }
         if (obj.getClass().equals(d.class)) {
-            return Arrays.equals(((d) obj).dik(), this.lFO);
+            return Arrays.equals(((d) obj).dim(), this.lFT);
         }
         i aM = i.aM(obj);
         if (aM.getClass().equals(d.class)) {
-            return Arrays.equals(((d) aM).dik(), this.lFO);
+            return Arrays.equals(((d) aM).dim(), this.lFT);
         }
         return false;
     }
 
     public int hashCode() {
-        return Arrays.deepHashCode(this.lFO) + 623;
+        return Arrays.deepHashCode(this.lFT) + 623;
     }
 }

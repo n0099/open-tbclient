@@ -8,8 +8,8 @@ public final class g {
     public final int flags;
     public final String key;
     public final long length;
-    public final byte[] mFb;
-    public final long mFc;
+    public final byte[] mFh;
+    public final long mFi;
     public final Uri uri;
 
     public g(Uri uri, int i) {
@@ -33,8 +33,8 @@ public final class g {
         com.google.android.exoplayer2.util.a.checkArgument(j2 >= 0);
         com.google.android.exoplayer2.util.a.checkArgument(j3 > 0 || j3 == -1);
         this.uri = uri;
-        this.mFb = bArr;
-        this.mFc = j;
+        this.mFh = bArr;
+        this.mFi = j;
         this.fLD = j2;
         this.length = j3;
         this.key = str;
@@ -46,7 +46,7 @@ public final class g {
     }
 
     public String toString() {
-        return "DataSpec[" + this.uri + ", " + Arrays.toString(this.mFb) + ", " + this.mFc + ", " + this.fLD + ", " + this.length + ", " + this.key + ", " + this.flags + "]";
+        return "DataSpec[" + this.uri + ", " + Arrays.toString(this.mFh) + ", " + this.mFi + ", " + this.fLD + ", " + this.length + ", " + this.key + ", " + this.flags + "]";
     }
 
     public g gH(long j) {
@@ -54,6 +54,6 @@ public final class g {
     }
 
     public g W(long j, long j2) {
-        return (j == 0 && this.length == j2) ? this : new g(this.uri, this.mFb, this.mFc + j, this.fLD + j, j2, this.key, this.flags);
+        return (j == 0 && this.length == j2) ? this : new g(this.uri, this.mFh, this.mFi + j, this.fLD + j, j2, this.key, this.flags);
     }
 }

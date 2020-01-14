@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final List<String> kcI = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+    private static final List<String> kcN = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
     public static String IA(String str) {
         return "enterfourm_att_" + str;
@@ -79,7 +79,7 @@ public class a {
     public static an b(String str, String str2, boolean z, int i, int i2) {
         an anVar = new an(str2);
         anVar.cp("page_type", str).Z("ad_exp", z ? 1 : 0).Z("ad_exp_cnt", i).Z("obj_floor", 0).Z("obj_adlocate", i2);
-        if (str != null && kcI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && kcN.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
         }
         return anVar;
@@ -105,7 +105,7 @@ public class a {
         if (!aq.isEmpty(bjVar.aBq())) {
             anVar.cp("list_strategy", bjVar.aBq());
         }
-        if (str != null && kcI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().dhR)) {
+        if (str != null && kcN.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().dhR)) {
             anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
         } else if (!aq.isEmpty(bjVar.mRecomAbTag)) {
             anVar.cp(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag);
@@ -139,7 +139,7 @@ public class a {
             str3 = str4;
         }
         Z.cp("obj_id", str3).Z("obj_adlocate", i3);
-        if (str != null && kcI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && kcN.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
         }
         if (z) {

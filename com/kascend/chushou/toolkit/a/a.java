@@ -49,6 +49,6 @@ public class a {
                 str5 = "6";
             }
         }
-        com.kascend.chushou.c.c.dAG().a(str5, str2, str3, str4);
+        com.kascend.chushou.c.c.dAI().a(str5, str2, str3, str4);
     }
 }

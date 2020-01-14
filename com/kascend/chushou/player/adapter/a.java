@@ -44,14 +44,14 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private LayoutInflater c;
     private final int l;
     private final int m;
-    private tv.chushou.zues.a mPF;
-    private tv.chushou.zues.a mPG;
-    private tv.chushou.zues.a mPH;
-    private tv.chushou.zues.a mPI;
-    private tv.chushou.zues.a mPJ;
-    private final tv.chushou.zues.toolkit.richtext.a mPK;
-    private RoomInfo mPL;
-    private HashMap<String, Drawable> mPN;
+    private tv.chushou.zues.a mPK;
+    private tv.chushou.zues.a mPL;
+    private tv.chushou.zues.a mPM;
+    private tv.chushou.zues.a mPN;
+    private tv.chushou.zues.a mPO;
+    private final tv.chushou.zues.toolkit.richtext.a mPP;
+    private RoomInfo mPQ;
+    private HashMap<String, Drawable> mPS;
     private final int n;
     private final int o;
     private final int p;
@@ -62,7 +62,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int i = 14;
     private final int j = 18;
     private final int k = 5;
-    private HashMap<String, String> mPM = new HashMap<>();
+    private HashMap<String, String> mPR = new HashMap<>();
     private final int x = tv.chushou.widget.a.c.S(28.0f);
     private final int y = tv.chushou.widget.a.c.S(21.0f);
 
@@ -70,31 +70,31 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /* renamed from: com.kascend.chushou.player.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0685a extends RecyclerView.ViewHolder implements Drawable.Callback {
-        SimpleDraweeSpanTextView mPR;
+        SimpleDraweeSpanTextView mPW;
 
         C0685a(View view) {
             super(view);
-            this.mPR = (SimpleDraweeSpanTextView) view.findViewById(a.f.tv_content);
+            this.mPW = (SimpleDraweeSpanTextView) view.findViewById(a.f.tv_content);
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void invalidateDrawable(@NonNull Drawable drawable) {
-            if (this.mPR != null && ViewCompat.isAttachedToWindow(this.mPR)) {
-                this.mPR.invalidate();
+            if (this.mPW != null && ViewCompat.isAttachedToWindow(this.mPW)) {
+                this.mPW.invalidate();
             }
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
-            if (this.mPR != null) {
-                this.mPR.postDelayed(runnable, j);
+            if (this.mPW != null) {
+                this.mPW.postDelayed(runnable, j);
             }
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void unscheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable) {
-            if (this.mPR != null) {
-                this.mPR.removeCallbacks(runnable);
+            if (this.mPW != null) {
+                this.mPW.removeCallbacks(runnable);
             }
         }
     }
@@ -104,43 +104,43 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class c extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView c;
         private int d;
-        private SimpleDraweeSpanTextView mPS;
-        private ChatInfo mPW;
+        private SimpleDraweeSpanTextView mPX;
+        private ChatInfo mQb;
 
         c(View view) {
             super(view);
-            this.mPS = (SimpleDraweeSpanTextView) view.findViewById(a.f.tv_content);
+            this.mPX = (SimpleDraweeSpanTextView) view.findViewById(a.f.tv_content);
             this.c = (TextView) view.findViewById(a.f.tv_share_room);
             this.c.setOnClickListener(this);
             this.c.setText(new tv.chushou.zues.widget.a.c().append(a.this.b.getString(a.i.videoplayer_danmaku_share)).O(a.this.b, a.e.videoplayer_danmaku_share_icon));
             String Oh = tv.chushou.zues.utils.a.Oh(a.this.p);
-            String str = (String) a.this.mPM.get(Oh);
+            String str = (String) a.this.mPR.get(Oh);
             this.d = Color.parseColor(h.isEmpty(str) ? Oh : str);
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            com.kascend.chushou.player.b dAV;
+            com.kascend.chushou.player.b dAX;
             JSONObject jSONObject = null;
-            if (this.mPW != null && this.mPW.mItem != null) {
-                String str = (!(a.this.b instanceof VideoPlayer) || (dAV = ((VideoPlayer) a.this.b).dAV()) == null) ? null : dAV.h;
+            if (this.mQb != null && this.mQb.mItem != null) {
+                String str = (!(a.this.b instanceof VideoPlayer) || (dAX = ((VideoPlayer) a.this.b).dAX()) == null) ? null : dAX.h;
                 if (!h.isEmpty(str)) {
                     try {
                         jSONObject = new JSONObject(str);
                     } catch (JSONException e) {
                     }
                 }
-                e.a(a.this.b, this.mPW.mItem, jSONObject);
+                e.a(a.this.b, this.mQb.mItem, jSONObject);
             }
         }
 
         void a(ChatInfo chatInfo) {
-            this.mPW = chatInfo;
+            this.mQb = chatInfo;
             tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
-            if (!tv.chushou.zues.toolkit.richtext.b.a(a.this.b, cVar, chatInfo.mContentRichText, 18, this.d, this.mPS, null, a.this.mPK, a.this.mPM)) {
+            if (!tv.chushou.zues.toolkit.richtext.b.a(a.this.b, cVar, chatInfo.mContentRichText, 18, this.d, this.mPX, null, a.this.mPP, a.this.mPR)) {
                 cVar.a(chatInfo.mContent, new ForegroundColorSpan(this.d));
             }
-            this.mPS.setDraweeSpanStringBuilder(cVar);
+            this.mPX.setDraweeSpanStringBuilder(cVar);
         }
     }
 
@@ -149,61 +149,61 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class b extends RecyclerView.ViewHolder implements Drawable.Callback {
         View a;
         private int e;
-        SimpleDraweeSpanTextView mPS;
-        EmojiGiftView mPT;
+        SimpleDraweeSpanTextView mPX;
+        EmojiGiftView mPY;
 
         b(View view) {
             super(view);
             this.e = tv.chushou.widget.a.c.S(21.0f);
             this.a = view;
-            this.mPS = (SimpleDraweeSpanTextView) view.findViewById(a.f.tvTitle);
-            this.mPT = (EmojiGiftView) view.findViewById(a.f.tvEmoji);
+            this.mPX = (SimpleDraweeSpanTextView) view.findViewById(a.f.tvTitle);
+            this.mPY = (EmojiGiftView) view.findViewById(a.f.tvEmoji);
         }
 
         void a(ChatInfo chatInfo) {
             tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
             if (!h.isEmpty(chatInfo.mHeadIcon) && chatInfo.mPrivilegeInfo.mShowAvatar) {
-                d.mOq.a(chatInfo.mPrivilegeInfo.mAvatarFrame, chatInfo.mHeadIcon, cVar, a.this.x, this.e);
+                d.mOv.a(chatInfo.mPrivilegeInfo.mAvatarFrame, chatInfo.mHeadIcon, cVar, a.this.x, this.e);
             }
             if (!h.isEmpty(chatInfo.mPrivilegeInfo.mMedals)) {
                 for (int i = 0; i < chatInfo.mPrivilegeInfo.mMedals.size(); i++) {
                     String str = chatInfo.mPrivilegeInfo.mMedals.get(i);
                     if (!h.isEmpty(str)) {
-                        a.this.a(this.mPS, this, cVar, str, a.e.default_medal_icon, a.this.n, a.this.o);
+                        a.this.a(this.mPX, this, cVar, str, a.e.default_medal_icon, a.this.n, a.this.o);
                     }
                 }
             }
             if (chatInfo.mCoolMessage != null) {
-                tv.chushou.zues.toolkit.richtext.b.a(a.this.b, cVar, chatInfo.mCoolMessage.mNicknameRichText, 18, ContextCompat.getColor(a.this.b, a.c.banrrage_chat_name_color), this.mPS, " : ", a.this.mPK);
-            } else if (!tv.chushou.zues.toolkit.richtext.b.a(a.this.b, cVar, chatInfo.mNicknameRichText, 18, ContextCompat.getColor(a.this.b, a.c.kas_red_n), this.mPS)) {
+                tv.chushou.zues.toolkit.richtext.b.a(a.this.b, cVar, chatInfo.mCoolMessage.mNicknameRichText, 18, ContextCompat.getColor(a.this.b, a.c.banrrage_chat_name_color), this.mPX, " : ", a.this.mPP);
+            } else if (!tv.chushou.zues.toolkit.richtext.b.a(a.this.b, cVar, chatInfo.mNicknameRichText, 18, ContextCompat.getColor(a.this.b, a.c.kas_red_n), this.mPX)) {
                 cVar.a(chatInfo.mUserNickname + " : ", new ForegroundColorSpan(a.this.b.getResources().getColor(a.c.kas_red_n)));
             } else {
                 cVar.a(" : ", new ForegroundColorSpan(a.this.b.getResources().getColor(a.c.kas_red_n)));
             }
-            this.mPS.setMovementMethod(tv.chushou.zues.widget.a.b.dPB());
-            cVar.setSpan(new tv.chushou.zues.widget.a.a(a.this.mPF), 0, cVar.length() + (-1) > 0 ? cVar.length() - 1 : 0, 17);
-            this.mPS.setTag(a.f.tag_position, chatInfo);
+            this.mPX.setMovementMethod(tv.chushou.zues.widget.a.b.dPD());
+            cVar.setSpan(new tv.chushou.zues.widget.a.a(a.this.mPK), 0, cVar.length() + (-1) > 0 ? cVar.length() - 1 : 0, 17);
+            this.mPX.setTag(a.f.tag_position, chatInfo);
             cVar.a(new b.c() { // from class: com.kascend.chushou.player.adapter.a.b.1
                 @Override // com.facebook.drawee.span.b.c
                 public void d(com.facebook.drawee.span.b bVar) {
-                    if (b.this.mPS != null) {
-                        b.this.mPS.measure(0, 0);
-                        b.this.mPS.requestLayout();
+                    if (b.this.mPX != null) {
+                        b.this.mPX.measure(0, 0);
+                        b.this.mPX.requestLayout();
                     }
                 }
             });
-            this.mPS.setDraweeSpanStringBuilder(cVar);
+            this.mPX.setDraweeSpanStringBuilder(cVar);
             int S = chatInfo.giftDisplayWidth > 0 ? tv.chushou.widget.a.c.S(chatInfo.giftDisplayWidth) : a.this.w;
             int S2 = chatInfo.giftDisplayHeight > 0 ? tv.chushou.widget.a.c.S(chatInfo.giftDisplayHeight) : a.this.w;
-            FlexboxLayout.LayoutParams layoutParams = (FlexboxLayout.LayoutParams) this.mPT.getLayoutParams();
+            FlexboxLayout.LayoutParams layoutParams = (FlexboxLayout.LayoutParams) this.mPY.getLayoutParams();
             layoutParams.width = S;
             layoutParams.height = S2;
-            this.mPT.setLayoutParams(layoutParams);
-            this.mPT.g(chatInfo.mGift.icon, a.c.transparent, S, S2);
-            this.mPT.setOnClickListener(a.this.mPI);
-            this.mPT.setTag(a.f.tag_position, Integer.valueOf(chatInfo.mGift.id));
+            this.mPY.setLayoutParams(layoutParams);
+            this.mPY.g(chatInfo.mGift.icon, a.c.transparent, S, S2);
+            this.mPY.setOnClickListener(a.this.mPN);
+            this.mPY.setTag(a.f.tag_position, Integer.valueOf(chatInfo.mGift.id));
             if (chatInfo.mCoolMessage != null && !h.isEmpty(chatInfo.mCoolMessage.mBgImage)) {
-                com.kascend.chushou.toolkit.b.a.dCU().a(chatInfo.mCoolMessage.mBgImage, this.a, a.e.bg_bubble_default);
+                com.kascend.chushou.toolkit.b.a.dCW().a(chatInfo.mCoolMessage.mBgImage, this.a, a.e.bg_bubble_default);
                 return;
             }
             this.a.setBackgroundResource(0);
@@ -212,49 +212,49 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void invalidateDrawable(@NonNull Drawable drawable) {
-            if (this.mPS != null && ViewCompat.isAttachedToWindow(this.mPS)) {
-                this.mPS.invalidate();
+            if (this.mPX != null && ViewCompat.isAttachedToWindow(this.mPX)) {
+                this.mPX.invalidate();
             }
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
-            if (this.mPS != null) {
-                this.mPS.postDelayed(runnable, j);
+            if (this.mPX != null) {
+                this.mPX.postDelayed(runnable, j);
             }
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void unscheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable) {
-            if (this.mPS != null) {
-                this.mPS.removeCallbacks(runnable);
+            if (this.mPX != null) {
+                this.mPX.removeCallbacks(runnable);
             }
         }
     }
 
     public void a() {
-        if (this.mPN != null) {
-            this.mPN.clear();
-            this.mPN = null;
+        if (this.mPS != null) {
+            this.mPS.clear();
+            this.mPS = null;
         }
         com.kascend.chushou.toolkit.b.a.b();
     }
 
     public void a(RoomInfo roomInfo) {
-        this.mPL = roomInfo;
-        if (this.mPL != null) {
+        this.mPQ = roomInfo;
+        if (this.mPQ != null) {
             HashMap hashMap = new HashMap();
             hashMap.put("_fromView", Constants.VIA_REPORT_TYPE_START_WAP);
             hashMap.put("_fromPos", Constants.VIA_REPORT_TYPE_JOININ_GROUP);
-            hashMap.put("_fbroomid", this.mPL.mRoomID);
+            hashMap.put("_fbroomid", this.mPQ.mRoomID);
             this.r = e.a(hashMap);
         }
     }
 
     public void a(HashMap<String, String> hashMap) {
-        if (this.mPM != null) {
-            this.mPM.clear();
-            this.mPM.putAll(hashMap);
+        if (this.mPR != null) {
+            this.mPR.clear();
+            this.mPR.putAll(hashMap);
         }
     }
 
@@ -267,57 +267,57 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         hashMap.put("_fromView", Constants.VIA_REPORT_TYPE_START_WAP);
         hashMap.put("_fromPos", Constants.VIA_REPORT_TYPE_JOININ_GROUP);
         this.r = e.a(hashMap);
-        this.mPG = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.1
+        this.mPL = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.1
             @Override // tv.chushou.zues.a
             public void dx(View view) {
                 ChatInfo chatInfo = (ChatInfo) view.getTag(a.f.tag_position);
                 if (chatInfo != null) {
-                    com.kascend.chushou.d.a.a(a.this.b, chatInfo.mRoomID, chatInfo.mUserID, chatInfo.mUserNickname, a.this.mPL.mCreatorUID, a.this.r);
+                    com.kascend.chushou.d.a.a(a.this.b, chatInfo.mRoomID, chatInfo.mUserID, chatInfo.mUserNickname, a.this.mPQ.mCreatorUID, a.this.r);
                 }
             }
         };
-        this.mPF = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.2
+        this.mPK = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.2
             @Override // tv.chushou.zues.a
             public void dx(View view) {
                 ChatInfo chatInfo = (ChatInfo) view.getTag(a.f.tag_position);
                 if (chatInfo != null) {
                     if (chatInfo.mItem != null && !h.isEmpty(chatInfo.mItem.mType)) {
-                        if (!chatInfo.mItem.mType.equals("1") || a.this.mPL == null || !chatInfo.mItem.mTargetKey.equals(a.this.mPL.mRoomID)) {
+                        if (!chatInfo.mItem.mType.equals("1") || a.this.mPQ == null || !chatInfo.mItem.mTargetKey.equals(a.this.mPQ.mRoomID)) {
                             a.this.a(chatInfo.mItem);
                             e.a(a.this.b, chatInfo.mItem, a.this.r);
                             return;
                         }
                         return;
                     }
-                    com.kascend.chushou.d.a.a(a.this.b, chatInfo.mRoomID, chatInfo.mUserID, chatInfo.mUserNickname, a.this.mPL.mCreatorUID, a.this.r);
+                    com.kascend.chushou.d.a.a(a.this.b, chatInfo.mRoomID, chatInfo.mUserID, chatInfo.mUserNickname, a.this.mPQ.mCreatorUID, a.this.r);
                 }
             }
         };
-        this.mPH = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.3
+        this.mPM = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.3
             @Override // tv.chushou.zues.a
             public void dx(View view) {
                 ChatInfo chatInfo = (ChatInfo) view.getTag(a.f.tag_position);
                 if (chatInfo != null && chatInfo.mItem != null && !h.isEmpty(chatInfo.mItem.mType)) {
-                    if (!chatInfo.mItem.mType.equals("1") || a.this.mPL == null || !chatInfo.mItem.mTargetKey.equals(a.this.mPL.mRoomID)) {
+                    if (!chatInfo.mItem.mType.equals("1") || a.this.mPQ == null || !chatInfo.mItem.mTargetKey.equals(a.this.mPQ.mRoomID)) {
                         a.this.a(chatInfo.mItem);
                         e.a(a.this.b, chatInfo.mItem, a.this.r);
                     }
                 }
             }
         };
-        this.mPI = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.4
+        this.mPN = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.4
             @Override // tv.chushou.zues.a
             public void dx(View view) {
                 String valueOf = String.valueOf(view.getTag(a.f.tag_position));
                 if (!TextUtils.isEmpty(valueOf)) {
                     try {
-                        com.kascend.chushou.view.b.a.b(valueOf, a.this.r, a.this.mPL.mRoomID).show(((FragmentActivity) context).getSupportFragmentManager(), "emojiDialog");
+                        com.kascend.chushou.view.b.a.b(valueOf, a.this.r, a.this.mPQ.mRoomID).show(((FragmentActivity) context).getSupportFragmentManager(), "emojiDialog");
                     } catch (Exception e) {
                     }
                 }
             }
         };
-        this.mPJ = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.5
+        this.mPO = new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.adapter.a.5
             @Override // tv.chushou.zues.a
             public void dx(View view) {
                 com.kascend.chushou.d.a.a(a.this.b, "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol", tv.chushou.widget.a.c.getString(a.i.baidu_live_agreement_title));
@@ -331,7 +331,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.o = tv.chushou.zues.utils.a.dip2px(this.b, 21.0f);
         this.n = this.o;
         this.w = tv.chushou.zues.utils.a.dip2px(this.b, 40.0f);
-        this.mPK = new com.kascend.chushou.toolkit.a(tv.chushou.zues.utils.a.dip2px(this.b, 13.0f));
+        this.mPP = new com.kascend.chushou.toolkit.a(tv.chushou.zues.utils.a.dip2px(this.b, 13.0f));
         this.p = ContextCompat.getColor(this.b, a.c.videoplayer_share_danmaku);
     }
 
@@ -394,11 +394,11 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 String str = this.s.get(i).mType;
                 if (str.equals("1") || str.equals("3")) {
                     ChatInfo chatInfo = this.s.get(i);
-                    if (chatInfo != null && c0685a.mPR != null) {
-                        c0685a.mPR.setTag(a.f.tag_position, chatInfo);
+                    if (chatInfo != null && c0685a.mPW != null) {
+                        c0685a.mPW.setTag(a.f.tag_position, chatInfo);
                     }
-                } else if (c0685a.mPR != null) {
-                    c0685a.mPR.setOnClickListener(null);
+                } else if (c0685a.mPW != null) {
+                    c0685a.mPW.setOnClickListener(null);
                 }
             } else if (viewHolder instanceof c) {
                 onBindViewHolder(viewHolder, i);
@@ -421,7 +421,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 case 2:
                     String str = this.s.get(i).mType;
                     final C0685a c0685a = (C0685a) viewHolder;
-                    c0685a.mPR.setShadowLayer(2.0f, 2.0f, 2.0f, this.b.getResources().getColor(a.c.color_E5000000));
+                    c0685a.mPW.setShadowLayer(2.0f, 2.0f, 2.0f, this.b.getResources().getColor(a.c.color_E5000000));
                     char c2 = 65535;
                     switch (str.hashCode()) {
                         case 49:
@@ -458,28 +458,28 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     switch (c2) {
                         case 0:
                             tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
-                            if (this.mPL != null) {
-                                if (h.isEmpty(this.mPL.mSystemAnnouncement)) {
-                                    cVar.a(this.b.getString(a.i.danmu_list_title, this.mPL.mCreatorNickname), new ForegroundColorSpan(Color.parseColor("#ff5959")));
+                            if (this.mPQ != null) {
+                                if (h.isEmpty(this.mPQ.mSystemAnnouncement)) {
+                                    cVar.a(this.b.getString(a.i.danmu_list_title, this.mPQ.mCreatorNickname), new ForegroundColorSpan(Color.parseColor("#ff5959")));
                                 } else {
-                                    ArrayList<RichText> SH = tv.chushou.zues.toolkit.richtext.b.SH(this.mPL.mSystemAnnouncement);
+                                    ArrayList<RichText> SH = tv.chushou.zues.toolkit.richtext.b.SH(this.mPQ.mSystemAnnouncement);
                                     if (h.isEmpty(SH)) {
-                                        cVar.a(this.mPL.mSystemAnnouncement, new ForegroundColorSpan(Color.parseColor("#ff5959")));
+                                        cVar.a(this.mPQ.mSystemAnnouncement, new ForegroundColorSpan(Color.parseColor("#ff5959")));
                                     } else {
-                                        tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar, SH, 18, ContextCompat.getColor(this.b, a.c.kas_red_n), c0685a.mPR, null, null, this.mPM);
+                                        tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar, SH, 18, ContextCompat.getColor(this.b, a.c.kas_red_n), c0685a.mPW, null, null, this.mPR);
                                     }
                                 }
                             }
-                            c0685a.mPR.setText(cVar);
-                            c0685a.mPR.setOnClickListener(null);
-                            c0685a.mPR.setBackgroundResource(0);
+                            c0685a.mPW.setText(cVar);
+                            c0685a.mPW.setOnClickListener(null);
+                            c0685a.mPW.setBackgroundResource(0);
                             return;
                         case 1:
                             ChatInfo chatInfo = this.s.get(i);
-                            if (chatInfo != null && c0685a.mPR != null) {
+                            if (chatInfo != null && c0685a.mPW != null) {
                                 tv.chushou.zues.widget.a.c cVar2 = new tv.chushou.zues.widget.a.c();
                                 if (!h.isEmpty(chatInfo.mHeadIcon) && chatInfo.mPrivilegeInfo.mShowAvatar) {
-                                    d.mOq.a(chatInfo.mPrivilegeInfo.mAvatarFrame, chatInfo.mHeadIcon, cVar2, this.x, this.y);
+                                    d.mOv.a(chatInfo.mPrivilegeInfo.mAvatarFrame, chatInfo.mHeadIcon, cVar2, this.x, this.y);
                                 }
                                 if (!h.isEmpty(chatInfo.mPrivilegeInfo.mMedals)) {
                                     int i4 = 0;
@@ -488,26 +488,26 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         if (i5 < chatInfo.mPrivilegeInfo.mMedals.size()) {
                                             String str2 = chatInfo.mPrivilegeInfo.mMedals.get(i5);
                                             if (!h.isEmpty(str2)) {
-                                                a(c0685a.mPR, c0685a, cVar2, str2, a.e.default_medal_icon, this.n, this.o);
+                                                a(c0685a.mPW, c0685a, cVar2, str2, a.e.default_medal_icon, this.n, this.o);
                                             }
                                             i4 = i5 + 1;
                                         }
                                     }
                                 }
                                 if (chatInfo.mCoolMessage != null) {
-                                    c0685a.mPR.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
-                                    tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mCoolMessage.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_name_color), c0685a.mPR, " : ", this.mPK, this.mPM);
+                                    c0685a.mPW.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+                                    tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mCoolMessage.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_name_color), c0685a.mPW, " : ", this.mPP, this.mPR);
                                     int length = cVar2.length();
-                                    cVar2.setSpan(new tv.chushou.zues.widget.a.a(this.mPG), 0, cVar2.length() + (-1) > 0 ? cVar2.length() - 1 : 0, 18);
-                                    tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mCoolMessage.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPR, null, this.mPK, this.mPM);
+                                    cVar2.setSpan(new tv.chushou.zues.widget.a.a(this.mPL), 0, cVar2.length() + (-1) > 0 ? cVar2.length() - 1 : 0, 18);
+                                    tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mCoolMessage.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPW, null, this.mPP, this.mPR);
                                     i3 = length;
                                 } else {
                                     if (chatInfo.mCoolNickname != null && !h.isEmpty(chatInfo.mCoolNickname.mNickName)) {
                                         ArrayList<String> arrayList3 = new ArrayList<>();
-                                        if (this.mPM != null && !h.isEmpty(chatInfo.mCoolNickname.mFontColors)) {
+                                        if (this.mPR != null && !h.isEmpty(chatInfo.mCoolNickname.mFontColors)) {
                                             int size = chatInfo.mCoolNickname.mFontColors.size();
                                             for (int i6 = 0; i6 < size; i6++) {
-                                                String str3 = this.mPM.get(chatInfo.mCoolNickname.mFontColors.get(i6).toLowerCase());
+                                                String str3 = this.mPR.get(chatInfo.mCoolNickname.mFontColors.get(i6).toLowerCase());
                                                 if (h.isEmpty(str3)) {
                                                     arrayList3.add(chatInfo.mCoolNickname.mFontColors.get(i6));
                                                 } else {
@@ -518,10 +518,10 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         } else {
                                             arrayList2 = chatInfo.mCoolNickname.mFontColors;
                                         }
-                                        cVar2.a(chatInfo.mCoolNickname.mNickName + " : ", new c.a().bb(arrayList2).HM(chatInfo.mCoolNickname.mNickName.length()).dlT());
-                                    } else if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_name_color), c0685a.mPR, " : ", this.mPK, this.mPM)) {
-                                        if (this.mPM != null) {
-                                            String str4 = this.mPM.get(tv.chushou.zues.utils.a.Oh(this.b.getResources().getColor(a.c.banrrage_chat_name_color)));
+                                        cVar2.a(chatInfo.mCoolNickname.mNickName + " : ", new c.a().bb(arrayList2).HM(chatInfo.mCoolNickname.mNickName.length()).dlV());
+                                    } else if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_name_color), c0685a.mPW, " : ", this.mPP, this.mPR)) {
+                                        if (this.mPR != null) {
+                                            String str4 = this.mPR.get(tv.chushou.zues.utils.a.Oh(this.b.getResources().getColor(a.c.banrrage_chat_name_color)));
                                             if (h.isEmpty(str4)) {
                                                 cVar2.a(chatInfo.mUserNickname + " : ", new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_name_color)));
                                             } else {
@@ -532,14 +532,14 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         }
                                     }
                                     int length2 = cVar2.length();
-                                    cVar2.setSpan(new tv.chushou.zues.widget.a.a(this.mPG), 0, cVar2.length() + (-1) > 0 ? cVar2.length() - 1 : 0, 18);
+                                    cVar2.setSpan(new tv.chushou.zues.widget.a.a(this.mPL), 0, cVar2.length() + (-1) > 0 ? cVar2.length() - 1 : 0, 18);
                                     if (chatInfo.mCoolContent != null && !h.isEmpty(chatInfo.mCoolContent.mContent)) {
-                                        CharSequence QL = this.mPK.QL(chatInfo.mCoolContent.mContent);
+                                        CharSequence QL = this.mPP.QL(chatInfo.mCoolContent.mContent);
                                         ArrayList<String> arrayList4 = new ArrayList<>();
-                                        if (this.mPM != null && !h.isEmpty(chatInfo.mCoolContent.mFontColors)) {
+                                        if (this.mPR != null && !h.isEmpty(chatInfo.mCoolContent.mFontColors)) {
                                             int size2 = chatInfo.mCoolContent.mFontColors.size();
                                             for (int i7 = 0; i7 < size2; i7++) {
-                                                String str5 = this.mPM.get(chatInfo.mCoolContent.mFontColors.get(i7).toLowerCase());
+                                                String str5 = this.mPR.get(chatInfo.mCoolContent.mFontColors.get(i7).toLowerCase());
                                                 if (h.isEmpty(str5)) {
                                                     arrayList4.add(chatInfo.mCoolContent.mFontColors.get(i7));
                                                 } else {
@@ -550,20 +550,20 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         } else {
                                             arrayList = chatInfo.mCoolContent.mFontColors;
                                         }
-                                        cVar2.a(QL, new c.a().bb(arrayList).HM(chatInfo.mCoolContent.mContent.length()).dlT());
+                                        cVar2.a(QL, new c.a().bb(arrayList).HM(chatInfo.mCoolContent.mContent.length()).dlV());
                                         i3 = length2;
                                     } else {
-                                        if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPR, null, this.mPK, this.mPM)) {
-                                            if (this.mPM != null) {
-                                                String str6 = this.mPM.get(tv.chushou.zues.utils.a.Oh(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
+                                        if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPW, null, this.mPP, this.mPR)) {
+                                            if (this.mPR != null) {
+                                                String str6 = this.mPR.get(tv.chushou.zues.utils.a.Oh(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                                 if (h.isEmpty(str6)) {
-                                                    cVar2.a(this.mPK.QL(chatInfo.mContent), new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
+                                                    cVar2.a(this.mPP.QL(chatInfo.mContent), new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                                 } else {
-                                                    cVar2.a(this.mPK.QL(chatInfo.mContent), new ForegroundColorSpan(Color.parseColor(str6)));
+                                                    cVar2.a(this.mPP.QL(chatInfo.mContent), new ForegroundColorSpan(Color.parseColor(str6)));
                                                 }
                                                 i3 = length2;
                                             } else {
-                                                cVar2.a(this.mPK.QL(chatInfo.mContent), new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
+                                                cVar2.a(this.mPP.QL(chatInfo.mContent), new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                             }
                                         }
                                         i3 = length2;
@@ -572,31 +572,31 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                 cVar2.a(new b.c() { // from class: com.kascend.chushou.player.adapter.a.6
                                     @Override // com.facebook.drawee.span.b.c
                                     public void d(com.facebook.drawee.span.b bVar) {
-                                        if (c0685a.mPR != null) {
-                                            c0685a.mPR.measure(0, 0);
-                                            c0685a.mPR.requestLayout();
+                                        if (c0685a.mPW != null) {
+                                            c0685a.mPW.measure(0, 0);
+                                            c0685a.mPW.requestLayout();
                                         }
                                     }
                                 });
                                 cVar2.append(HanziToPinyin.Token.SEPARATOR);
-                                cVar2.setSpan(new tv.chushou.zues.widget.a.a(this.mPF), i3, cVar2.length() + (-1) > 0 ? cVar2.length() - 1 : 0, 18);
-                                c0685a.mPR.setDraweeSpanStringBuilder(cVar2);
-                                c0685a.mPR.setTag(a.f.tag_position, chatInfo);
-                                c0685a.mPR.setMovementMethod(tv.chushou.zues.widget.a.b.dPB());
+                                cVar2.setSpan(new tv.chushou.zues.widget.a.a(this.mPK), i3, cVar2.length() + (-1) > 0 ? cVar2.length() - 1 : 0, 18);
+                                c0685a.mPW.setDraweeSpanStringBuilder(cVar2);
+                                c0685a.mPW.setTag(a.f.tag_position, chatInfo);
+                                c0685a.mPW.setMovementMethod(tv.chushou.zues.widget.a.b.dPD());
                                 if (chatInfo.mCoolMessage != null) {
-                                    com.kascend.chushou.toolkit.b.a.dCU().a(chatInfo.mCoolMessage.mBgImage, c0685a.mPR, a.e.bg_bubble_default);
+                                    com.kascend.chushou.toolkit.b.a.dCW().a(chatInfo.mCoolMessage.mBgImage, c0685a.mPW, a.e.bg_bubble_default);
                                     return;
                                 }
-                                c0685a.mPR.setBackgroundResource(0);
-                                c0685a.mPR.setPadding(tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f), tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f));
+                                c0685a.mPW.setBackgroundResource(0);
+                                c0685a.mPW.setPadding(tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f), tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f));
                                 return;
                             }
                             return;
                         case 2:
                         case 3:
                             ChatInfo chatInfo2 = this.s.get(i);
-                            if (chatInfo2 != null && c0685a.mPR != null) {
-                                c0685a.mPR.setTextSize(14.0f);
+                            if (chatInfo2 != null && c0685a.mPW != null) {
+                                c0685a.mPW.setTextSize(14.0f);
                                 tv.chushou.zues.widget.a.c cVar3 = new tv.chushou.zues.widget.a.c();
                                 int i8 = 0;
                                 while (true) {
@@ -604,16 +604,16 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                     if (i9 < chatInfo2.mPrivilegeInfo.mMedals.size()) {
                                         String str7 = chatInfo2.mPrivilegeInfo.mMedals.get(i9);
                                         if (!h.isEmpty(str7)) {
-                                            a(c0685a.mPR, c0685a, cVar3, str7, a.e.default_medal_icon, this.n, this.o);
+                                            a(c0685a.mPW, c0685a, cVar3, str7, a.e.default_medal_icon, this.n, this.o);
                                         }
                                         i8 = i9 + 1;
                                     } else {
                                         if (chatInfo2.mCoolMessage != null) {
-                                            c0685a.mPR.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
-                                            tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar3, chatInfo2.mCoolMessage.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPR, null, this.mPK, this.mPM);
-                                        } else if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar3, chatInfo2.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPR, null, this.mPK, this.mPM)) {
-                                            if (this.mPM != null) {
-                                                String str8 = this.mPM.get(tv.chushou.zues.utils.a.Oh(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
+                                            c0685a.mPW.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+                                            tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar3, chatInfo2.mCoolMessage.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPW, null, this.mPP, this.mPR);
+                                        } else if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar3, chatInfo2.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPW, null, this.mPP, this.mPR)) {
+                                            if (this.mPR != null) {
+                                                String str8 = this.mPR.get(tv.chushou.zues.utils.a.Oh(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                                 if (h.isEmpty(str8)) {
                                                     cVar3.a(chatInfo2.mContent, new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                                 } else {
@@ -626,22 +626,22 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         cVar3.a(new b.c() { // from class: com.kascend.chushou.player.adapter.a.7
                                             @Override // com.facebook.drawee.span.b.c
                                             public void d(com.facebook.drawee.span.b bVar) {
-                                                if (c0685a.mPR != null) {
-                                                    c0685a.mPR.measure(0, 0);
-                                                    c0685a.mPR.requestLayout();
+                                                if (c0685a.mPW != null) {
+                                                    c0685a.mPW.measure(0, 0);
+                                                    c0685a.mPW.requestLayout();
                                                 }
                                             }
                                         });
-                                        cVar3.setSpan(new tv.chushou.zues.widget.a.a(this.mPH), 0, cVar3.length() + (-1) > 0 ? cVar3.length() - 1 : 0, 18);
-                                        c0685a.mPR.setDraweeSpanStringBuilder(cVar3);
-                                        c0685a.mPR.setTag(a.f.tag_position, chatInfo2);
-                                        c0685a.mPR.setMovementMethod(tv.chushou.zues.widget.a.b.dPB());
+                                        cVar3.setSpan(new tv.chushou.zues.widget.a.a(this.mPM), 0, cVar3.length() + (-1) > 0 ? cVar3.length() - 1 : 0, 18);
+                                        c0685a.mPW.setDraweeSpanStringBuilder(cVar3);
+                                        c0685a.mPW.setTag(a.f.tag_position, chatInfo2);
+                                        c0685a.mPW.setMovementMethod(tv.chushou.zues.widget.a.b.dPD());
                                         if (chatInfo2.mCoolMessage != null) {
-                                            com.kascend.chushou.toolkit.b.a.dCU().a(chatInfo2.mCoolMessage.mBgImage, c0685a.mPR, a.e.bg_bubble_default);
+                                            com.kascend.chushou.toolkit.b.a.dCW().a(chatInfo2.mCoolMessage.mBgImage, c0685a.mPW, a.e.bg_bubble_default);
                                             return;
                                         }
-                                        c0685a.mPR.setBackgroundResource(0);
-                                        c0685a.mPR.setPadding(tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f), tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f));
+                                        c0685a.mPW.setBackgroundResource(0);
+                                        c0685a.mPW.setPadding(tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f), tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f));
                                         return;
                                     }
                                 }
@@ -651,27 +651,27 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                             break;
                         case 4:
                             ChatInfo chatInfo3 = this.s.get(i);
-                            if (chatInfo3 != null && c0685a.mPR != null) {
-                                c0685a.mPR.setTextSize(14.0f);
+                            if (chatInfo3 != null && c0685a.mPW != null) {
+                                c0685a.mPW.setTextSize(14.0f);
                                 tv.chushou.zues.widget.a.c cVar4 = new tv.chushou.zues.widget.a.c();
                                 if (chatInfo3.mCoolMessage != null) {
-                                    c0685a.mPR.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
-                                    tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar4, chatInfo3.mCoolMessage.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_name_color), c0685a.mPR, " : ", this.mPK, this.mPM);
+                                    c0685a.mPW.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+                                    tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar4, chatInfo3.mCoolMessage.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_name_color), c0685a.mPW, " : ", this.mPP, this.mPR);
                                     int length3 = cVar4.length();
-                                    cVar4.setSpan(new tv.chushou.zues.widget.a.a(this.mPG), 0, cVar4.length() + (-1) > 0 ? cVar4.length() - 1 : 0, 18);
-                                    tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar4, chatInfo3.mCoolMessage.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPR, null, this.mPK, this.mPM);
+                                    cVar4.setSpan(new tv.chushou.zues.widget.a.a(this.mPL), 0, cVar4.length() + (-1) > 0 ? cVar4.length() - 1 : 0, 18);
+                                    tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar4, chatInfo3.mCoolMessage.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPW, null, this.mPP, this.mPR);
                                     i2 = length3;
                                 } else {
-                                    if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar4, chatInfo3.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.kas_red_n), c0685a.mPR, null, null, this.mPM)) {
+                                    if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar4, chatInfo3.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.kas_red_n), c0685a.mPW, null, null, this.mPR)) {
                                         cVar4.a(chatInfo3.mUserNickname + " : ", new ForegroundColorSpan(this.b.getResources().getColor(a.c.kas_red_n)));
                                     } else {
                                         cVar4.a(" : ", new ForegroundColorSpan(this.b.getResources().getColor(a.c.kas_red_n)));
                                     }
                                     int length4 = cVar4.length();
-                                    cVar4.setSpan(new tv.chushou.zues.widget.a.a(this.mPG), 0, cVar4.length() + (-1) > 0 ? cVar4.length() - 1 : 0, 18);
-                                    if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar4, chatInfo3.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPR, null, null, this.mPM)) {
-                                        if (this.mPM != null) {
-                                            String str9 = this.mPM.get(tv.chushou.zues.utils.a.Oh(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
+                                    cVar4.setSpan(new tv.chushou.zues.widget.a.a(this.mPL), 0, cVar4.length() + (-1) > 0 ? cVar4.length() - 1 : 0, 18);
+                                    if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar4, chatInfo3.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0685a.mPW, null, null, this.mPR)) {
+                                        if (this.mPR != null) {
+                                            String str9 = this.mPR.get(tv.chushou.zues.utils.a.Oh(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                             if (h.isEmpty(str9)) {
                                                 cVar4.a(chatInfo3.mContent, new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                             } else {
@@ -686,7 +686,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                 }
                                 cVar4.append(HanziToPinyin.Token.SEPARATOR);
                                 if (!h.isEmpty(chatInfo3.mGift.icon)) {
-                                    a(c0685a.mPR, c0685a, cVar4, chatInfo3.mGift.icon, a.e.zues_default_gift_color, this.l, this.m);
+                                    a(c0685a.mPW, c0685a, cVar4, chatInfo3.mGift.icon, a.e.zues_default_gift_color, this.l, this.m);
                                 }
                                 if (chatInfo3.mUserComboCount > 1) {
                                     String valueOf = String.valueOf(chatInfo3.mUserComboCount);
@@ -695,17 +695,17 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                     int i10 = 0;
                                     while (i10 < length5) {
                                         String substring = valueOf.substring(i10, i10 + 1);
-                                        if (this.mPN == null) {
-                                            this.mPN = new HashMap<>();
+                                        if (this.mPS == null) {
+                                            this.mPS = new HashMap<>();
                                         }
                                         Drawable drawable = null;
-                                        if (this.mPN.containsKey(substring)) {
-                                            drawable = this.mPN.get(substring);
+                                        if (this.mPS.containsKey(substring)) {
+                                            drawable = this.mPS.get(substring);
                                         }
                                         if (drawable == null) {
                                             drawable = this.b.getResources().getDrawable(this.b.getResources().getIdentifier("icon_combo_" + substring, "drawable", this.b.getPackageName()));
                                             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                                            this.mPN.put(substring, drawable);
+                                            this.mPS.put(substring, drawable);
                                         }
                                         Drawable drawable2 = drawable;
                                         if (drawable2 != null) {
@@ -719,28 +719,28 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                     }
                                     if (z2) {
                                         Drawable drawable3 = null;
-                                        if (this.mPN.containsKey("-1")) {
-                                            drawable3 = this.mPN.get("-1");
+                                        if (this.mPS.containsKey("-1")) {
+                                            drawable3 = this.mPS.get("-1");
                                         }
                                         if (drawable3 == null) {
                                             drawable3 = this.b.getResources().getDrawable(a.e.icon_combo);
                                             drawable3.setBounds(0, 0, drawable3.getIntrinsicWidth(), drawable3.getIntrinsicHeight());
-                                            this.mPN.put("-1", drawable3);
+                                            this.mPS.put("-1", drawable3);
                                         }
                                         cVar4.a("", new tv.chushou.zues.widget.a.e(drawable3));
                                     }
                                 }
-                                cVar4.setSpan(new tv.chushou.zues.widget.a.a(this.mPF), i2, cVar4.length() + (-1) > 0 ? cVar4.length() - 1 : 0, 17);
-                                c0685a.mPR.setDraweeSpanStringBuilder(cVar4);
-                                c0685a.mPR.setTag(a.f.tag_position, chatInfo3);
-                                c0685a.mPR.setMovementMethod(tv.chushou.zues.widget.a.b.dPB());
-                                c0685a.mPR.setFocusable(false);
+                                cVar4.setSpan(new tv.chushou.zues.widget.a.a(this.mPK), i2, cVar4.length() + (-1) > 0 ? cVar4.length() - 1 : 0, 17);
+                                c0685a.mPW.setDraweeSpanStringBuilder(cVar4);
+                                c0685a.mPW.setTag(a.f.tag_position, chatInfo3);
+                                c0685a.mPW.setMovementMethod(tv.chushou.zues.widget.a.b.dPD());
+                                c0685a.mPW.setFocusable(false);
                                 if (chatInfo3.mCoolMessage != null) {
-                                    com.kascend.chushou.toolkit.b.a.dCU().a(chatInfo3.mCoolMessage.mBgImage, c0685a.mPR, a.e.bg_bubble_default);
+                                    com.kascend.chushou.toolkit.b.a.dCW().a(chatInfo3.mCoolMessage.mBgImage, c0685a.mPW, a.e.bg_bubble_default);
                                     return;
                                 }
-                                c0685a.mPR.setBackgroundResource(0);
-                                c0685a.mPR.setPadding(tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f), tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f));
+                                c0685a.mPW.setBackgroundResource(0);
+                                c0685a.mPW.setPadding(tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f), tv.chushou.zues.utils.a.dip2px(this.b, 0.0f), tv.chushou.zues.utils.a.dip2px(this.b, 5.0f));
                                 return;
                             }
                             return;
@@ -755,11 +755,11 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     return;
                 case 5:
                     C0685a c0685a2 = (C0685a) viewHolder;
-                    c0685a2.mPR.setOnClickListener(null);
+                    c0685a2.mPW.setOnClickListener(null);
                     tv.chushou.zues.widget.a.c cVar5 = new tv.chushou.zues.widget.a.c();
-                    cVar5.a((CharSequence) tv.chushou.widget.a.c.getString(a.i.baidu_live_agreement), new ForegroundColorSpan(Color.parseColor("#ff5959")), new tv.chushou.zues.widget.a.a(this.mPJ), new UnderlineSpan());
-                    c0685a2.mPR.setDraweeSpanStringBuilder(cVar5);
-                    c0685a2.mPR.setMovementMethod(tv.chushou.zues.widget.a.b.dPB());
+                    cVar5.a((CharSequence) tv.chushou.widget.a.c.getString(a.i.baidu_live_agreement), new ForegroundColorSpan(Color.parseColor("#ff5959")), new tv.chushou.zues.widget.a.a(this.mPO), new UnderlineSpan());
+                    c0685a2.mPW.setDraweeSpanStringBuilder(cVar5);
+                    c0685a2.mPW.setMovementMethod(tv.chushou.zues.widget.a.b.dPD());
                     return;
                 default:
                     return;
@@ -771,13 +771,13 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(SimpleDraweeSpanTextView simpleDraweeSpanTextView, Drawable.Callback callback, tv.chushou.zues.widget.a.c cVar, String str, int i, int i2, int i3) {
         if (!h.isEmpty(str)) {
             if (e.a(str)) {
-                cVar.a("", new b.a().a(callback).wp(true).Nb(i2).Nc(i3).QP(str).Na(i).f(simpleDraweeSpanTextView).dDr());
+                cVar.a("", new b.a().a(callback).wp(true).Nb(i2).Nc(i3).QP(str).Na(i).f(simpleDraweeSpanTextView).dDt());
                 cVar.append(HanziToPinyin.Token.SEPARATOR);
                 return;
             }
             int length = cVar.length();
-            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(this.b.getResources()).HJ(i).dlI(), this.b);
-            a.setController(com.facebook.drawee.a.a.c.dkh().OI(str).dkY());
+            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(this.b.getResources()).HJ(i).dlK(), this.b);
+            a.setController(com.facebook.drawee.a.a.c.dkj().OI(str).dla());
             cVar.append("1");
             cVar.a(a, length, length, i2, i3, true, 2);
             cVar.append(HanziToPinyin.Token.SEPARATOR);
@@ -786,10 +786,10 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ListItem listItem) {
-        if (!h.isEmpty(listItem.mUrl) && this.mPL != null && !h.isEmpty(this.mPL.mRoomID)) {
+        if (!h.isEmpty(listItem.mUrl) && this.mPQ != null && !h.isEmpty(this.mPQ.mRoomID)) {
             HashMap hashMap = new HashMap(1);
-            hashMap.put("roomId", this.mPL.mRoomID);
-            Http http = (Http) tv.chushou.basis.d.b.dOE().T(Http.class);
+            hashMap.put("roomId", this.mPQ.mRoomID);
+            Http http = (Http) tv.chushou.basis.d.b.dOG().T(Http.class);
             if (http != null) {
                 listItem.mUrl = http.packParams(listItem.mUrl, hashMap);
             }

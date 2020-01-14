@@ -11,13 +11,13 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class i {
     private VideoInfo cJt;
-    public String keT;
-    public boolean keU;
-    private int keV;
-    private ArrayList<h> keW;
-    private ArrayList<k> keX;
-    private j keY;
-    private int keZ;
+    public String keY;
+    public boolean keZ;
+    private int kfa;
+    private ArrayList<h> kfb;
+    private ArrayList<k> kfc;
+    private j kfd;
+    private int kfe;
     public String position;
     private String tagName;
     public long templateId;
@@ -27,27 +27,27 @@ public class i {
             try {
                 this.position = tPointPost.position;
                 this.templateId = tPointPost.template_id.longValue();
-                this.keU = tPointPost.is_tuiguang.intValue() != 0;
-                this.keV = tPointPost.template_type.intValue();
+                this.keZ = tPointPost.is_tuiguang.intValue() != 0;
+                this.kfa = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.keW = new ArrayList<>();
+                    this.kfb = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.keW.add(new h(list.get(i)));
+                        this.kfb.add(new h(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.keX = new ArrayList<>();
+                    this.kfc = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.keX.add(new k(list2.get(i2)));
+                        this.kfc.add(new k(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.keY = new j(tPointPost.detail_info);
+                    this.kfd = new j(tPointPost.detail_info);
                 }
-                this.keT = tPointPost.monitor_id;
-                this.keZ = tPointPost.hidden_day.intValue();
+                this.keY = tPointPost.monitor_id;
+                this.kfe = tPointPost.hidden_day.intValue();
                 this.cJt = tPointPost.t_video;
                 this.tagName = tPointPost.tag_name;
             } catch (Exception e) {
@@ -56,8 +56,8 @@ public class i {
         }
     }
 
-    public k cJa() {
-        return (k) v.getItem(this.keX, 0);
+    public k cJc() {
+        return (k) v.getItem(this.kfc, 0);
     }
 
     public String getPosition() {
@@ -68,20 +68,20 @@ public class i {
         return this.templateId;
     }
 
-    public ArrayList<h> cJb() {
-        return this.keW;
+    public ArrayList<h> cJd() {
+        return this.kfb;
     }
 
-    public ArrayList<k> cJc() {
-        return this.keX;
+    public ArrayList<k> cJe() {
+        return this.kfc;
     }
 
-    public j cJd() {
-        return this.keY;
+    public j cJf() {
+        return this.kfd;
     }
 
-    public int cJe() {
-        return this.keV;
+    public int cJg() {
+        return this.kfa;
     }
 
     public String getTagName() {

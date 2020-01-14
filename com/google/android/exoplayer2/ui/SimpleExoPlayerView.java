@@ -33,21 +33,21 @@ import java.util.List;
 @TargetApi(16)
 /* loaded from: classes5.dex */
 public final class SimpleExoPlayerView extends FrameLayout {
-    private final AspectRatioFrameLayout mDZ;
-    private final View mEa;
-    private final View mEb;
-    private final ImageView mEc;
-    private final SubtitleView mEd;
-    private final PlaybackControlView mEe;
-    private final a mEf;
-    private final FrameLayout mEg;
-    private w mEh;
-    private boolean mEi;
-    private boolean mEj;
-    private Bitmap mEk;
-    private int mEl;
-    private boolean mEm;
+    private final AspectRatioFrameLayout mEe;
+    private final View mEf;
+    private final View mEg;
+    private final ImageView mEh;
+    private final SubtitleView mEi;
+    private final PlaybackControlView mEj;
+    private final a mEk;
+    private final FrameLayout mEl;
+    private w mEm;
     private boolean mEn;
+    private boolean mEo;
+    private Bitmap mEp;
+    private int mEq;
+    private boolean mEr;
+    private boolean mEs;
 
     public SimpleExoPlayerView(Context context) {
         this(context, null);
@@ -69,14 +69,14 @@ public final class SimpleExoPlayerView extends FrameLayout {
         boolean z3;
         boolean z4;
         if (isInEditMode()) {
-            this.mDZ = null;
-            this.mEa = null;
-            this.mEb = null;
-            this.mEc = null;
-            this.mEd = null;
             this.mEe = null;
             this.mEf = null;
             this.mEg = null;
+            this.mEh = null;
+            this.mEi = null;
+            this.mEj = null;
+            this.mEk = null;
+            this.mEl = null;
             ImageView imageView = new ImageView(context);
             if (v.SDK_INT >= 23) {
                 a(getResources(), imageView);
@@ -129,260 +129,260 @@ public final class SimpleExoPlayerView extends FrameLayout {
             }
         }
         LayoutInflater.from(context).inflate(i2, this);
-        this.mEf = new a();
+        this.mEk = new a();
         setDescendantFocusability(262144);
-        this.mDZ = (AspectRatioFrameLayout) findViewById(a.c.exo_content_frame);
-        if (this.mDZ != null) {
-            a(this.mDZ, i5);
+        this.mEe = (AspectRatioFrameLayout) findViewById(a.c.exo_content_frame);
+        if (this.mEe != null) {
+            a(this.mEe, i5);
         }
-        this.mEa = findViewById(a.c.exo_shutter);
-        if (this.mEa != null && z5) {
-            this.mEa.setBackgroundColor(i7);
+        this.mEf = findViewById(a.c.exo_shutter);
+        if (this.mEf != null && z5) {
+            this.mEf.setBackgroundColor(i7);
         }
-        if (this.mDZ != null && i4 != 0) {
+        if (this.mEe != null && i4 != 0) {
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
-            this.mEb = i4 == 2 ? new TextureView(context) : new SurfaceView(context);
-            this.mEb.setLayoutParams(layoutParams);
-            this.mDZ.addView(this.mEb, 0);
+            this.mEg = i4 == 2 ? new TextureView(context) : new SurfaceView(context);
+            this.mEg.setLayoutParams(layoutParams);
+            this.mEe.addView(this.mEg, 0);
         } else {
-            this.mEb = null;
+            this.mEg = null;
         }
-        this.mEg = (FrameLayout) findViewById(a.c.exo_overlay);
-        this.mEc = (ImageView) findViewById(a.c.exo_artwork);
-        this.mEj = z && this.mEc != null;
+        this.mEl = (FrameLayout) findViewById(a.c.exo_overlay);
+        this.mEh = (ImageView) findViewById(a.c.exo_artwork);
+        this.mEo = z && this.mEh != null;
         if (i3 != 0) {
-            this.mEk = BitmapFactory.decodeResource(context.getResources(), i3);
+            this.mEp = BitmapFactory.decodeResource(context.getResources(), i3);
         }
-        this.mEd = (SubtitleView) findViewById(a.c.exo_subtitles);
-        if (this.mEd != null) {
-            this.mEd.setUserDefaultStyle();
-            this.mEd.setUserDefaultTextSize();
+        this.mEi = (SubtitleView) findViewById(a.c.exo_subtitles);
+        if (this.mEi != null) {
+            this.mEi.setUserDefaultStyle();
+            this.mEi.setUserDefaultTextSize();
         }
         PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(a.c.exo_controller);
         View findViewById = findViewById(a.c.exo_controller_placeholder);
         if (playbackControlView != null) {
-            this.mEe = playbackControlView;
+            this.mEj = playbackControlView;
         } else if (findViewById != null) {
-            this.mEe = new PlaybackControlView(context, null, 0, attributeSet);
-            this.mEe.setLayoutParams(findViewById.getLayoutParams());
+            this.mEj = new PlaybackControlView(context, null, 0, attributeSet);
+            this.mEj.setLayoutParams(findViewById.getLayoutParams());
             ViewGroup viewGroup = (ViewGroup) findViewById.getParent();
             int indexOfChild = viewGroup.indexOfChild(findViewById);
             viewGroup.removeView(findViewById);
-            viewGroup.addView(this.mEe, indexOfChild);
+            viewGroup.addView(this.mEj, indexOfChild);
         } else {
-            this.mEe = null;
+            this.mEj = null;
         }
-        this.mEl = this.mEe == null ? 0 : i6;
-        this.mEn = z3;
-        this.mEm = z4;
-        this.mEi = z2 && this.mEe != null;
-        dxy();
+        this.mEq = this.mEj == null ? 0 : i6;
+        this.mEs = z3;
+        this.mEr = z4;
+        this.mEn = z2 && this.mEj != null;
+        dxA();
     }
 
     public w getPlayer() {
-        return this.mEh;
+        return this.mEm;
     }
 
     public void setPlayer(w wVar) {
-        if (this.mEh != wVar) {
-            if (this.mEh != null) {
-                this.mEh.b((r.b) this.mEf);
-                this.mEh.b((j) this.mEf);
-                this.mEh.b((w.b) this.mEf);
-                if (this.mEb instanceof TextureView) {
-                    this.mEh.c((TextureView) this.mEb);
-                } else if (this.mEb instanceof SurfaceView) {
-                    this.mEh.b((SurfaceView) this.mEb);
+        if (this.mEm != wVar) {
+            if (this.mEm != null) {
+                this.mEm.b((r.b) this.mEk);
+                this.mEm.b((j) this.mEk);
+                this.mEm.b((w.b) this.mEk);
+                if (this.mEg instanceof TextureView) {
+                    this.mEm.c((TextureView) this.mEg);
+                } else if (this.mEg instanceof SurfaceView) {
+                    this.mEm.b((SurfaceView) this.mEg);
                 }
             }
-            this.mEh = wVar;
-            if (this.mEi) {
-                this.mEe.setPlayer(wVar);
+            this.mEm = wVar;
+            if (this.mEn) {
+                this.mEj.setPlayer(wVar);
             }
-            if (this.mEa != null) {
-                this.mEa.setVisibility(0);
+            if (this.mEf != null) {
+                this.mEf.setVisibility(0);
             }
             if (wVar != null) {
-                if (this.mEb instanceof TextureView) {
-                    wVar.b((TextureView) this.mEb);
-                } else if (this.mEb instanceof SurfaceView) {
-                    wVar.a((SurfaceView) this.mEb);
+                if (this.mEg instanceof TextureView) {
+                    wVar.b((TextureView) this.mEg);
+                } else if (this.mEg instanceof SurfaceView) {
+                    wVar.a((SurfaceView) this.mEg);
                 }
-                wVar.a((w.b) this.mEf);
-                wVar.a((j) this.mEf);
-                wVar.a((r.b) this.mEf);
+                wVar.a((w.b) this.mEk);
+                wVar.a((j) this.mEk);
+                wVar.a((r.b) this.mEk);
                 vP(false);
-                dxA();
+                dxC();
                 return;
             }
-            dxy();
-            dxB();
+            dxA();
+            dxD();
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        if (this.mEb instanceof SurfaceView) {
-            this.mEb.setVisibility(i);
+        if (this.mEg instanceof SurfaceView) {
+            this.mEg.setVisibility(i);
         }
     }
 
     public void setResizeMode(int i) {
-        com.google.android.exoplayer2.util.a.checkState(this.mDZ != null);
-        this.mDZ.setResizeMode(i);
+        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
+        this.mEe.setResizeMode(i);
     }
 
     public boolean getUseArtwork() {
-        return this.mEj;
+        return this.mEo;
     }
 
     public void setUseArtwork(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState((z && this.mEc == null) ? false : true);
-        if (this.mEj != z) {
-            this.mEj = z;
-            dxA();
+        com.google.android.exoplayer2.util.a.checkState((z && this.mEh == null) ? false : true);
+        if (this.mEo != z) {
+            this.mEo = z;
+            dxC();
         }
     }
 
     public Bitmap getDefaultArtwork() {
-        return this.mEk;
+        return this.mEp;
     }
 
     public void setDefaultArtwork(Bitmap bitmap) {
-        if (this.mEk != bitmap) {
-            this.mEk = bitmap;
-            dxA();
+        if (this.mEp != bitmap) {
+            this.mEp = bitmap;
+            dxC();
         }
     }
 
     public boolean getUseController() {
-        return this.mEi;
+        return this.mEn;
     }
 
     public void setUseController(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState((z && this.mEe == null) ? false : true);
-        if (this.mEi != z) {
-            this.mEi = z;
+        com.google.android.exoplayer2.util.a.checkState((z && this.mEj == null) ? false : true);
+        if (this.mEn != z) {
+            this.mEn = z;
             if (z) {
-                this.mEe.setPlayer(this.mEh);
-            } else if (this.mEe != null) {
-                this.mEe.hide();
-                this.mEe.setPlayer(null);
+                this.mEj.setPlayer(this.mEm);
+            } else if (this.mEj != null) {
+                this.mEj.hide();
+                this.mEj.setPlayer(null);
             }
         }
     }
 
     public void setShutterBackgroundColor(int i) {
-        if (this.mEa != null) {
-            this.mEa.setBackgroundColor(i);
+        if (this.mEf != null) {
+            this.mEf.setBackgroundColor(i);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (this.mEh != null && this.mEh.drL()) {
-            this.mEg.requestFocus();
+        if (this.mEm != null && this.mEm.drN()) {
+            this.mEl.requestFocus();
             return super.dispatchKeyEvent(keyEvent);
         }
-        boolean z = LK(keyEvent.getKeyCode()) && this.mEi && !this.mEe.isVisible();
+        boolean z = LK(keyEvent.getKeyCode()) && this.mEn && !this.mEj.isVisible();
         vP(true);
         return z || b(keyEvent) || super.dispatchKeyEvent(keyEvent);
     }
 
     public boolean b(KeyEvent keyEvent) {
-        return this.mEi && this.mEe.b(keyEvent);
+        return this.mEn && this.mEj.b(keyEvent);
     }
 
-    public void dxy() {
-        if (this.mEe != null) {
-            this.mEe.hide();
+    public void dxA() {
+        if (this.mEj != null) {
+            this.mEj.hide();
         }
     }
 
     public int getControllerShowTimeoutMs() {
-        return this.mEl;
+        return this.mEq;
     }
 
     public void setControllerShowTimeoutMs(int i) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEl = i;
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEq = i;
     }
 
     public boolean getControllerHideOnTouch() {
-        return this.mEn;
+        return this.mEs;
     }
 
     public void setControllerHideOnTouch(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEn = z;
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEs = z;
     }
 
     public boolean getControllerAutoShow() {
-        return this.mEm;
+        return this.mEr;
     }
 
     public void setControllerAutoShow(boolean z) {
-        this.mEm = z;
+        this.mEr = z;
     }
 
     public void setControllerVisibilityListener(PlaybackControlView.d dVar) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEe.setVisibilityListener(dVar);
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEj.setVisibilityListener(dVar);
     }
 
     public void setControlDispatcher(@Nullable com.google.android.exoplayer2.c cVar) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEe.setControlDispatcher(cVar);
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEj.setControlDispatcher(cVar);
     }
 
     public void setRewindIncrementMs(int i) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEe.setRewindIncrementMs(i);
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEj.setRewindIncrementMs(i);
     }
 
     public void setFastForwardIncrementMs(int i) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEe.setFastForwardIncrementMs(i);
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEj.setFastForwardIncrementMs(i);
     }
 
     public void setRepeatToggleModes(int i) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEe.setRepeatToggleModes(i);
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEj.setRepeatToggleModes(i);
     }
 
     public void setShowShuffleButton(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEe.setShowShuffleButton(z);
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEj.setShowShuffleButton(z);
     }
 
     public void setShowMultiWindowTimeBar(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mEe != null);
-        this.mEe.setShowMultiWindowTimeBar(z);
+        com.google.android.exoplayer2.util.a.checkState(this.mEj != null);
+        this.mEj.setShowMultiWindowTimeBar(z);
     }
 
     public View getVideoSurfaceView() {
-        return this.mEb;
-    }
-
-    public FrameLayout getOverlayFrameLayout() {
         return this.mEg;
     }
 
+    public FrameLayout getOverlayFrameLayout() {
+        return this.mEl;
+    }
+
     public SubtitleView getSubtitleView() {
-        return this.mEd;
+        return this.mEi;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.mEi || this.mEh == null || motionEvent.getActionMasked() != 0) {
+        if (!this.mEn || this.mEm == null || motionEvent.getActionMasked() != 0) {
             return false;
         }
-        if (!this.mEe.isVisible()) {
+        if (!this.mEj.isVisible()) {
             vP(true);
             return true;
-        } else if (this.mEn) {
-            this.mEe.hide();
+        } else if (this.mEs) {
+            this.mEj.hide();
             return true;
         } else {
             return true;
@@ -391,7 +391,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
 
     @Override // android.view.View
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        if (!this.mEi || this.mEh == null) {
+        if (!this.mEn || this.mEm == null) {
             return false;
         }
         vP(true);
@@ -400,51 +400,51 @@ public final class SimpleExoPlayerView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vP(boolean z) {
-        if (!drL() && this.mEi) {
-            boolean z2 = this.mEe.isVisible() && this.mEe.getShowTimeoutMs() <= 0;
-            boolean dxz = dxz();
-            if (z || z2 || dxz) {
-                sd(dxz);
+        if (!drN() && this.mEn) {
+            boolean z2 = this.mEj.isVisible() && this.mEj.getShowTimeoutMs() <= 0;
+            boolean dxB = dxB();
+            if (z || z2 || dxB) {
+                sd(dxB);
             }
         }
     }
 
-    private boolean dxz() {
-        if (this.mEh == null) {
+    private boolean dxB() {
+        if (this.mEm == null) {
             return true;
         }
-        int cYx = this.mEh.cYx();
-        return this.mEm && (cYx == 1 || cYx == 4 || !this.mEh.drD());
+        int cYz = this.mEm.cYz();
+        return this.mEr && (cYz == 1 || cYz == 4 || !this.mEm.drF());
     }
 
     private void sd(boolean z) {
-        if (this.mEi) {
-            this.mEe.setShowTimeoutMs(z ? 0 : this.mEl);
-            this.mEe.show();
+        if (this.mEn) {
+            this.mEj.setShowTimeoutMs(z ? 0 : this.mEq);
+            this.mEj.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean drL() {
-        return this.mEh != null && this.mEh.drL() && this.mEh.drD();
+    public boolean drN() {
+        return this.mEm != null && this.mEm.drN() && this.mEm.drF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dxA() {
-        if (this.mEh != null) {
-            g drN = this.mEh.drN();
-            for (int i = 0; i < drN.length; i++) {
-                if (this.mEh.IO(i) == 2 && drN.LD(i) != null) {
-                    dxB();
+    public void dxC() {
+        if (this.mEm != null) {
+            g drP = this.mEm.drP();
+            for (int i = 0; i < drP.length; i++) {
+                if (this.mEm.IO(i) == 2 && drP.LD(i) != null) {
+                    dxD();
                     return;
                 }
             }
-            if (this.mEa != null) {
-                this.mEa.setVisibility(0);
+            if (this.mEf != null) {
+                this.mEf.setVisibility(0);
             }
-            if (this.mEj) {
-                for (int i2 = 0; i2 < drN.length; i2++) {
-                    f LD = drN.LD(i2);
+            if (this.mEo) {
+                for (int i2 = 0; i2 < drP.length; i2++) {
+                    f LD = drP.LD(i2);
                     if (LD != null) {
                         for (int i3 = 0; i3 < LD.length(); i3++) {
                             Metadata metadata = LD.KL(i3).metadata;
@@ -455,11 +455,11 @@ public final class SimpleExoPlayerView extends FrameLayout {
                         continue;
                     }
                 }
-                if (ae(this.mEk)) {
+                if (ae(this.mEp)) {
                     return;
                 }
             }
-            dxB();
+            dxD();
         }
     }
 
@@ -481,20 +481,20 @@ public final class SimpleExoPlayerView extends FrameLayout {
             if (width <= 0 || height <= 0) {
                 return false;
             }
-            if (this.mDZ != null) {
-                this.mDZ.setAspectRatio(width / height);
+            if (this.mEe != null) {
+                this.mEe.setAspectRatio(width / height);
             }
-            this.mEc.setImageBitmap(bitmap);
-            this.mEc.setVisibility(0);
+            this.mEh.setImageBitmap(bitmap);
+            this.mEh.setVisibility(0);
             return true;
         }
         return false;
     }
 
-    private void dxB() {
-        if (this.mEc != null) {
-            this.mEc.setImageResource(17170445);
-            this.mEc.setVisibility(4);
+    private void dxD() {
+        if (this.mEh != null) {
+            this.mEh.setImageResource(17170445);
+            this.mEh.setVisibility(4);
         }
     }
 
@@ -525,43 +525,43 @@ public final class SimpleExoPlayerView extends FrameLayout {
 
         @Override // com.google.android.exoplayer2.text.j
         public void fe(List<com.google.android.exoplayer2.text.b> list) {
-            if (SimpleExoPlayerView.this.mEd != null) {
-                SimpleExoPlayerView.this.mEd.fe(list);
+            if (SimpleExoPlayerView.this.mEi != null) {
+                SimpleExoPlayerView.this.mEi.fe(list);
             }
         }
 
         @Override // com.google.android.exoplayer2.w.b
         public void b(int i, int i2, int i3, float f) {
-            if (SimpleExoPlayerView.this.mDZ != null) {
-                SimpleExoPlayerView.this.mDZ.setAspectRatio(i2 == 0 ? 1.0f : (i * f) / i2);
+            if (SimpleExoPlayerView.this.mEe != null) {
+                SimpleExoPlayerView.this.mEe.setAspectRatio(i2 == 0 ? 1.0f : (i * f) / i2);
             }
         }
 
         @Override // com.google.android.exoplayer2.w.b
-        public void cYZ() {
-            if (SimpleExoPlayerView.this.mEa != null) {
-                SimpleExoPlayerView.this.mEa.setVisibility(4);
+        public void cZb() {
+            if (SimpleExoPlayerView.this.mEf != null) {
+                SimpleExoPlayerView.this.mEf.setVisibility(4);
             }
         }
 
         @Override // com.google.android.exoplayer2.r.a, com.google.android.exoplayer2.r.b
         public void a(u uVar, g gVar) {
-            SimpleExoPlayerView.this.dxA();
+            SimpleExoPlayerView.this.dxC();
         }
 
         @Override // com.google.android.exoplayer2.r.a, com.google.android.exoplayer2.r.b
         public void z(boolean z, int i) {
-            if (!SimpleExoPlayerView.this.drL()) {
+            if (!SimpleExoPlayerView.this.drN()) {
                 SimpleExoPlayerView.this.vP(false);
             } else {
-                SimpleExoPlayerView.this.dxy();
+                SimpleExoPlayerView.this.dxA();
             }
         }
 
         @Override // com.google.android.exoplayer2.r.a, com.google.android.exoplayer2.r.b
         public void EO(int i) {
-            if (SimpleExoPlayerView.this.drL()) {
-                SimpleExoPlayerView.this.dxy();
+            if (SimpleExoPlayerView.this.drN()) {
+                SimpleExoPlayerView.this.dxA();
             }
         }
     }

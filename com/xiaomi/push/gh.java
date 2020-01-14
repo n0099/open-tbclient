@@ -12,10 +12,10 @@ public class gh {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f418a;
+    private String f419a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<ga> f419a;
+    private List<ga> f420a;
     private String b;
     private String c;
     private String d;
@@ -48,62 +48,62 @@ public class gh {
         public static final a x = new a("request-timeout");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f420a;
+        private String f421a;
 
         public a(String str) {
-            this.f420a = str;
+            this.f421a = str;
         }
 
         public String toString() {
-            return this.f420a;
+            return this.f421a;
         }
     }
 
     public gh(int i, String str, String str2, String str3, String str4, List<ga> list) {
-        this.f419a = null;
+        this.f420a = null;
         this.a = i;
-        this.f418a = str;
+        this.f419a = str;
         this.c = str2;
         this.b = str3;
         this.d = str4;
-        this.f419a = list;
+        this.f420a = list;
     }
 
     public gh(Bundle bundle) {
-        this.f419a = null;
+        this.f420a = null;
         this.a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
-            this.f418a = bundle.getString("ext_err_type");
+            this.f419a = bundle.getString("ext_err_type");
         }
         this.b = bundle.getString("ext_err_cond");
         this.c = bundle.getString("ext_err_reason");
         this.d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
-            this.f419a = new ArrayList(parcelableArray.length);
+            this.f420a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
                 ga a2 = ga.a((Bundle) parcelable);
                 if (a2 != null) {
-                    this.f419a.add(a2);
+                    this.f420a.add(a2);
                 }
             }
         }
     }
 
     public gh(a aVar) {
-        this.f419a = null;
+        this.f420a = null;
         a(aVar);
         this.d = null;
     }
 
     private void a(a aVar) {
-        this.b = aVar.f420a;
+        this.b = aVar.f421a;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        if (this.f418a != null) {
-            bundle.putString("ext_err_type", this.f418a);
+        if (this.f419a != null) {
+            bundle.putString("ext_err_type", this.f419a);
         }
         bundle.putInt("ext_err_code", this.a);
         if (this.c != null) {
@@ -115,10 +115,10 @@ public class gh {
         if (this.d != null) {
             bundle.putString("ext_err_msg", this.d);
         }
-        if (this.f419a != null) {
-            Bundle[] bundleArr = new Bundle[this.f419a.size()];
+        if (this.f420a != null) {
+            Bundle[] bundleArr = new Bundle[this.f420a.size()];
             int i = 0;
-            Iterator<ga> it = this.f419a.iterator();
+            Iterator<ga> it = this.f420a.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
@@ -141,9 +141,9 @@ public class gh {
     public String m302a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"").append(this.a).append("\"");
-        if (this.f418a != null) {
+        if (this.f419a != null) {
             sb.append(" type=\"");
-            sb.append(this.f418a);
+            sb.append(this.f419a);
             sb.append("\"");
         }
         if (this.c != null) {
@@ -170,7 +170,7 @@ public class gh {
 
     /* renamed from: a  reason: collision with other method in class */
     public synchronized List<ga> m303a() {
-        return this.f419a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f419a);
+        return this.f420a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f420a);
     }
 
     public String toString() {

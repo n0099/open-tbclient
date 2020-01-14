@@ -13,12 +13,12 @@ public abstract class ft extends fm {
     protected Exception a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Socket f394a;
+    protected Socket f395a;
     protected XMPushService b;
     private int c;
 
     /* renamed from: c  reason: collision with other field name */
-    String f395c;
+    String f396c;
     private String d;
     protected volatile long e;
     protected volatile long f;
@@ -27,7 +27,7 @@ public abstract class ft extends fm {
     public ft(XMPushService xMPushService, fn fnVar) {
         super(xMPushService, fnVar);
         this.a = null;
-        this.f395c = null;
+        this.f396c = null;
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
@@ -75,24 +75,24 @@ public abstract class ft extends fm {
             }
             String next = it.next();
             long currentTimeMillis = System.currentTimeMillis();
-            this.f375a++;
+            this.f376a++;
             try {
                 com.xiaomi.channel.commonutils.logger.b.m42a("begin to connect to " + next);
-                this.f394a = a();
-                this.f394a.connect(cs.m199a(next, i), 8000);
+                this.f395a = a();
+                this.f395a.connect(cs.m199a(next, i), 8000);
                 com.xiaomi.channel.commonutils.logger.b.m42a("tcp connected");
-                this.f394a.setTcpNoDelay(true);
+                this.f395a.setTcpNoDelay(true);
                 this.d = next;
                 a();
                 z = true;
                 try {
-                    this.f376a = System.currentTimeMillis() - currentTimeMillis;
-                    this.f385b = m127a;
+                    this.f377a = System.currentTimeMillis() - currentTimeMillis;
+                    this.f386b = m127a;
                     if (a != null) {
-                        a.b(next, this.f376a, 0L);
+                        a.b(next, this.f377a, 0L);
                     }
                     this.g = SystemClock.elapsedRealtime();
-                    com.xiaomi.channel.commonutils.logger.b.m42a("connected to " + next + " in " + this.f376a);
+                    com.xiaomi.channel.commonutils.logger.b.m42a("connected to " + next + " in " + this.f377a);
                     break;
                 } catch (Exception e2) {
                     e = e2;
@@ -191,9 +191,9 @@ public abstract class ft extends fm {
     public synchronized void a(int i, Exception exc) {
         if (b() != 2) {
             a(2, i, exc);
-            this.f380a = "";
+            this.f381a = "";
             try {
-                this.f394a.close();
+                this.f395a.close();
             } catch (Throwable th) {
             }
             this.e = 0L;
@@ -251,7 +251,7 @@ public abstract class ft extends fm {
 
     @Override // com.xiaomi.push.fm
     public String c() {
-        return this.f380a;
+        return this.f381a;
     }
 
     public void c(int i, Exception exc) {
@@ -265,7 +265,7 @@ public abstract class ft extends fm {
                 com.xiaomi.channel.commonutils.logger.b.m42a("WARNING: current xmpp has connected");
             } else {
                 a(0, 0, (Exception) null);
-                a(this.f377a);
+                a(this.f378a);
             }
         } catch (IOException e) {
             throw new fx(e);

@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes12.dex */
 public class a {
-    private static a lJU = null;
-    private final Runnable lJW = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a lJZ = null;
+    private final Runnable lKb = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.dkC();
-            for (InterfaceC0650a interfaceC0650a : a.this.lJV) {
+            a.dkE();
+            for (InterfaceC0650a interfaceC0650a : a.this.lKa) {
                 interfaceC0650a.release();
             }
-            a.this.lJV.clear();
+            a.this.lKa.clear();
         }
     };
-    private final Set<InterfaceC0650a> lJV = new HashSet();
+    private final Set<InterfaceC0650a> lKa = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
@@ -27,31 +27,31 @@ public class a {
         void release();
     }
 
-    public static synchronized a dkB() {
+    public static synchronized a dkD() {
         a aVar;
         synchronized (a.class) {
-            if (lJU == null) {
-                lJU = new a();
+            if (lJZ == null) {
+                lJZ = new a();
             }
-            aVar = lJU;
+            aVar = lJZ;
         }
         return aVar;
     }
 
     public void a(InterfaceC0650a interfaceC0650a) {
-        dkC();
-        if (this.lJV.add(interfaceC0650a) && this.lJV.size() == 1) {
-            this.mUiHandler.post(this.lJW);
+        dkE();
+        if (this.lKa.add(interfaceC0650a) && this.lKa.size() == 1) {
+            this.mUiHandler.post(this.lKb);
         }
     }
 
     public void b(InterfaceC0650a interfaceC0650a) {
-        dkC();
-        this.lJV.remove(interfaceC0650a);
+        dkE();
+        this.lKa.remove(interfaceC0650a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void dkC() {
+    public static void dkE() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

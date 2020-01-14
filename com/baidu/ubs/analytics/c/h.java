@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a kVx;
+    private a kVC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.kVx = aVar;
+        this.kVC = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.kVx.cWb()) {
-            for (a.InterfaceC0634a interfaceC0634a : this.kVx.cWb()) {
+        synchronized (this.kVC.cWd()) {
+            for (a.InterfaceC0634a interfaceC0634a : this.kVC.cWd()) {
                 interfaceC0634a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.kVx.cWb()) {
-            for (a.InterfaceC0634a interfaceC0634a : this.kVx.cWb()) {
+        synchronized (this.kVC.cWd()) {
+            for (a.InterfaceC0634a interfaceC0634a : this.kVC.cWd()) {
                 interfaceC0634a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.kVx.cWb()) {
-            for (a.InterfaceC0634a interfaceC0634a : this.kVx.cWb()) {
+        synchronized (this.kVC.cWd()) {
+            for (a.InterfaceC0634a interfaceC0634a : this.kVC.cWd()) {
                 interfaceC0634a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.kVx.cWb()) {
-            Iterator<a.InterfaceC0634a> it = this.kVx.cWb().iterator();
+        synchronized (this.kVC.cWd()) {
+            Iterator<a.InterfaceC0634a> it = this.kVC.cWd().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.kVx.cWb()) {
-            Iterator<a.InterfaceC0634a> it = this.kVx.cWb().iterator();
+        synchronized (this.kVC.cWd()) {
+            Iterator<a.InterfaceC0634a> it = this.kVC.cWd().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.kVx.cWb()) {
-            Iterator<a.InterfaceC0634a> it = this.kVx.cWb().iterator();
+        synchronized (this.kVC.cWd()) {
+            Iterator<a.InterfaceC0634a> it = this.kVC.cWd().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.kVx.cWb()) {
-            for (a.InterfaceC0634a interfaceC0634a : this.kVx.cWb()) {
+        synchronized (this.kVC.cWd()) {
+            for (a.InterfaceC0634a interfaceC0634a : this.kVC.cWd()) {
                 interfaceC0634a.onActivityDestroyed(activity);
             }
         }

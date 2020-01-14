@@ -31,7 +31,7 @@ public class UgcUBCManager implements com.baidu.ubc.a {
 
     @Override // com.baidu.ubc.a
     public void a(Flow flow) {
-        ((FlowExt) flow).czE();
+        ((FlowExt) flow).czG();
     }
 
     @Override // com.baidu.ubc.a
@@ -79,7 +79,7 @@ public class UgcUBCManager implements com.baidu.ubc.a {
             Log.d("UgcUBCManager", "Flow id:" + this.id + " setValueWithDuration value:" + str);
         }
 
-        public void czE() {
+        public void czG() {
             Log.d("UgcUBCManager", "Flow id:" + this.id + " endFlow");
         }
 

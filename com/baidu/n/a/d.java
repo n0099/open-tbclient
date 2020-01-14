@@ -4,32 +4,32 @@ import android.content.Context;
 import android.util.Log;
 /* loaded from: classes5.dex */
 class d {
-    private com.baidu.n.a.a.c lBH;
+    private com.baidu.n.a.a.c lBM;
     private static String TAG = "UnionIDFactory";
-    private static boolean DEBUG = a.dgB();
+    private static boolean DEBUG = a.dgD();
 
     public d(Context context) {
-        int dgC = b.dgC();
+        int dgE = b.dgE();
         if (DEBUG) {
-            Log.e(TAG, "UnionIDFactory manufacturer:" + dgC);
+            Log.e(TAG, "UnionIDFactory manufacturer:" + dgE);
         }
-        switch (dgC) {
+        switch (dgE) {
             case 10001:
-                this.lBH = new com.baidu.n.a.b.a(context);
+                this.lBM = new com.baidu.n.a.b.a(context);
                 return;
             case 10002:
                 if (DEBUG) {
                     Log.e(TAG, "UnionIDFactory XMUnionID");
                 }
-                this.lBH = new com.baidu.n.a.b.c(context);
+                this.lBM = new com.baidu.n.a.b.c(context);
                 return;
             default:
-                this.lBH = new com.baidu.n.a.b.b(context);
+                this.lBM = new com.baidu.n.a.b.b(context);
                 return;
         }
     }
 
-    public com.baidu.n.a.a.c dgD() {
-        return this.lBH;
+    public com.baidu.n.a.a.c dgF() {
+        return this.lBM;
     }
 }

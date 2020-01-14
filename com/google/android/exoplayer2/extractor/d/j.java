@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 final class j extends h {
-    private a mld;
-    private int mle;
-    private boolean mlf;
-    private k.d mlg;
-    private k.b mlh;
+    private a mli;
+    private int mlj;
+    private boolean mlk;
+    private k.d mll;
+    private k.b mlm;
 
     public static boolean A(l lVar) {
         try {
@@ -28,20 +28,20 @@ final class j extends h {
     public void reset(boolean z) {
         super.reset(z);
         if (z) {
-            this.mld = null;
-            this.mlg = null;
-            this.mlh = null;
+            this.mli = null;
+            this.mll = null;
+            this.mlm = null;
         }
-        this.mle = 0;
-        this.mlf = false;
+        this.mlj = 0;
+        this.mlk = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.extractor.d.h
     public void fY(long j) {
         super.fY(j);
-        this.mlf = j != 0;
-        this.mle = this.mlg != null ? this.mlg.mlx : 0;
+        this.mlk = j != 0;
+        this.mlj = this.mll != null ? this.mll.mlC : 0;
     }
 
     @Override // com.google.android.exoplayer2.extractor.d.h
@@ -49,42 +49,42 @@ final class j extends h {
         if ((lVar.data[0] & 1) == 1) {
             return -1L;
         }
-        int a2 = a(lVar.data[0], this.mld);
-        int i = this.mlf ? (this.mle + a2) / 4 : 0;
+        int a2 = a(lVar.data[0], this.mli);
+        int i = this.mlk ? (this.mlj + a2) / 4 : 0;
         d(lVar, i);
-        this.mlf = true;
-        this.mle = a2;
+        this.mlk = true;
+        this.mlj = a2;
         return i;
     }
 
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected boolean a(l lVar, long j, h.a aVar) throws IOException, InterruptedException {
-        if (this.mld != null) {
+        if (this.mli != null) {
             return false;
         }
-        this.mld = F(lVar);
-        if (this.mld == null) {
+        this.mli = F(lVar);
+        if (this.mli == null) {
             return true;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.mld.mli.data);
-        arrayList.add(this.mld.mlj);
-        aVar.lYL = Format.a(null, "audio/vorbis", null, this.mld.mli.mlv, -1, this.mld.mli.channels, (int) this.mld.mli.sampleRate, arrayList, null, 0, null);
+        arrayList.add(this.mli.mln.data);
+        arrayList.add(this.mli.mlo);
+        aVar.lYQ = Format.a(null, "audio/vorbis", null, this.mli.mln.mlA, -1, this.mli.mln.channels, (int) this.mli.mln.sampleRate, arrayList, null, 0, null);
         return true;
     }
 
     a F(l lVar) throws IOException {
-        if (this.mlg == null) {
-            this.mlg = k.G(lVar);
+        if (this.mll == null) {
+            this.mll = k.G(lVar);
             return null;
-        } else if (this.mlh == null) {
-            this.mlh = k.H(lVar);
+        } else if (this.mlm == null) {
+            this.mlm = k.H(lVar);
             return null;
         } else {
-            byte[] bArr = new byte[lVar.dyg()];
-            System.arraycopy(lVar.data, 0, bArr, 0, lVar.dyg());
-            k.c[] i = k.i(lVar, this.mlg.channels);
-            return new a(this.mlg, this.mlh, bArr, i, k.JQ(i.length - 1));
+            byte[] bArr = new byte[lVar.dyi()];
+            System.arraycopy(lVar.data, 0, bArr, 0, lVar.dyi());
+            k.c[] i = k.i(lVar, this.mll.channels);
+            return new a(this.mll, this.mlm, bArr, i, k.JQ(i.length - 1));
         }
     }
 
@@ -93,35 +93,35 @@ final class j extends h {
     }
 
     static void d(l lVar, long j) {
-        lVar.setLimit(lVar.dyg() + 4);
-        lVar.data[lVar.dyg() - 4] = (byte) (j & 255);
-        lVar.data[lVar.dyg() - 3] = (byte) ((j >>> 8) & 255);
-        lVar.data[lVar.dyg() - 2] = (byte) ((j >>> 16) & 255);
-        lVar.data[lVar.dyg() - 1] = (byte) ((j >>> 24) & 255);
+        lVar.setLimit(lVar.dyi() + 4);
+        lVar.data[lVar.dyi() - 4] = (byte) (j & 255);
+        lVar.data[lVar.dyi() - 3] = (byte) ((j >>> 8) & 255);
+        lVar.data[lVar.dyi() - 2] = (byte) ((j >>> 16) & 255);
+        lVar.data[lVar.dyi() - 1] = (byte) ((j >>> 24) & 255);
     }
 
     private static int a(byte b, a aVar) {
-        if (!aVar.mlk[a(b, aVar.mll, 1)].mlq) {
-            return aVar.mli.mlx;
+        if (!aVar.mlp[a(b, aVar.mlq, 1)].mlv) {
+            return aVar.mln.mlC;
         }
-        return aVar.mli.mly;
+        return aVar.mln.mlD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class a {
-        public final k.b mlh;
-        public final k.d mli;
-        public final byte[] mlj;
-        public final k.c[] mlk;
-        public final int mll;
+        public final k.b mlm;
+        public final k.d mln;
+        public final byte[] mlo;
+        public final k.c[] mlp;
+        public final int mlq;
 
         public a(k.d dVar, k.b bVar, byte[] bArr, k.c[] cVarArr, int i) {
-            this.mli = dVar;
-            this.mlh = bVar;
-            this.mlj = bArr;
-            this.mlk = cVarArr;
-            this.mll = i;
+            this.mln = dVar;
+            this.mlm = bVar;
+            this.mlo = bArr;
+            this.mlp = cVarArr;
+            this.mlq = i;
         }
     }
 }

@@ -19,8 +19,8 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     private String cKw;
     private final com.baidu.tbadk.h.e dxI;
     private View gqx;
-    private View.OnClickListener kGV;
-    private NavigationBarCoverTip.a kGW;
+    private View.OnClickListener kHa;
+    private NavigationBarCoverTip.a kHb;
     private Activity mActivity;
 
     public static DefaultNavigationBarCoverTip d(Activity activity, String str, String str2) {
@@ -32,7 +32,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.kGV = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.kHa = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
@@ -51,19 +51,19 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.kGW = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.kHb = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
             public void biO() {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void cRW() {
+            public void cRY() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };
         this.mActivity = activity;
         aYY();
-        setCoverTipListener(this.kGW);
+        setCoverTipListener(this.kHb);
     }
 
     public void show() {
@@ -84,7 +84,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            textView2.setOnClickListener(this.kGV);
+            textView2.setOnClickListener(this.kHa);
             if (TextUtils.isEmpty(str2)) {
                 textView2.setVisibility(8);
             } else {

@@ -8,9 +8,9 @@ public interface h {
 
     void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar);
 
-    void cxF();
+    void cxH();
 
-    void dua();
+    void duc();
 
     void m(long j, boolean z);
 }

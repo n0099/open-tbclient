@@ -10,35 +10,35 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class k extends com.google.android.exoplayer2.a implements Handler.Callback {
-    private final m moI;
-    private final Handler mpA;
-    private boolean mpi;
-    private boolean mpj;
-    private final j mxZ;
-    private final g mya;
-    private int myb;
-    private Format myc;
-    private f myd;
-    private h mye;
-    private i myf;
-    private i myg;
-    private int myh;
+    private final m moN;
+    private final Handler mpF;
+    private boolean mpn;
+    private boolean mpo;
+    private final j mye;
+    private final g myf;
+    private int myg;
+    private Format myh;
+    private f myi;
+    private h myj;
+    private i myk;
+    private i myl;
+    private int mym;
 
     public k(j jVar, Looper looper) {
-        this(jVar, looper, g.mxX);
+        this(jVar, looper, g.myc);
     }
 
     public k(j jVar, Looper looper, g gVar) {
         super(3);
-        this.mxZ = (j) com.google.android.exoplayer2.util.a.checkNotNull(jVar);
-        this.mpA = looper == null ? null : new Handler(looper, this);
-        this.mya = gVar;
-        this.moI = new m();
+        this.mye = (j) com.google.android.exoplayer2.util.a.checkNotNull(jVar);
+        this.mpF = looper == null ? null : new Handler(looper, this);
+        this.myf = gVar;
+        this.moN = new m();
     }
 
     @Override // com.google.android.exoplayer2.t
     public int e(Format format) {
-        if (this.mya.i(format)) {
+        if (this.myf.i(format)) {
             return a((com.google.android.exoplayer2.drm.a<?>) null, format.drmInitData) ? 4 : 2;
         } else if (com.google.android.exoplayer2.util.i.Qc(format.sampleMimeType)) {
             return 1;
@@ -50,100 +50,100 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a
     public void a(Format[] formatArr, long j) throws ExoPlaybackException {
-        this.myc = formatArr[0];
-        if (this.myd != null) {
-            this.myb = 1;
+        this.myh = formatArr[0];
+        if (this.myi != null) {
+            this.myg = 1;
         } else {
-            this.myd = this.mya.p(this.myc);
+            this.myi = this.myf.p(this.myh);
         }
     }
 
     @Override // com.google.android.exoplayer2.a
     protected void j(long j, boolean z) {
-        dwA();
-        this.mpi = false;
-        this.mpj = false;
-        if (this.myb != 0) {
-            dwy();
+        dwC();
+        this.mpn = false;
+        this.mpo = false;
+        if (this.myg != 0) {
+            dwA();
             return;
         }
         Da();
-        this.myd.flush();
+        this.myi.flush();
     }
 
     @Override // com.google.android.exoplayer2.s
     public void N(long j, long j2) throws ExoPlaybackException {
         boolean z;
-        if (!this.mpj) {
-            if (this.myg == null) {
-                this.myd.gx(j);
+        if (!this.mpo) {
+            if (this.myl == null) {
+                this.myi.gx(j);
                 try {
-                    this.myg = this.myd.dtl();
+                    this.myl = this.myi.dtn();
                 } catch (SubtitleDecoderException e) {
                     throw ExoPlaybackException.createForRenderer(e, getIndex());
                 }
             }
             if (getState() == 2) {
-                if (this.myf != null) {
-                    long dwz = dwz();
+                if (this.myk != null) {
+                    long dwB = dwB();
                     z = false;
-                    while (dwz <= j) {
-                        this.myh++;
-                        dwz = dwz();
+                    while (dwB <= j) {
+                        this.mym++;
+                        dwB = dwB();
                         z = true;
                     }
                 } else {
                     z = false;
                 }
-                if (this.myg != null) {
-                    if (this.myg.dtf()) {
-                        if (!z && dwz() == Format.OFFSET_SAMPLE_RELATIVE) {
-                            if (this.myb == 2) {
-                                dwy();
+                if (this.myl != null) {
+                    if (this.myl.dth()) {
+                        if (!z && dwB() == Format.OFFSET_SAMPLE_RELATIVE) {
+                            if (this.myg == 2) {
+                                dwA();
                             } else {
                                 Da();
-                                this.mpj = true;
+                                this.mpo = true;
                             }
                         }
-                    } else if (this.myg.mcQ <= j) {
-                        if (this.myf != null) {
-                            this.myf.release();
+                    } else if (this.myl.mcV <= j) {
+                        if (this.myk != null) {
+                            this.myk.release();
                         }
-                        this.myf = this.myg;
-                        this.myg = null;
-                        this.myh = this.myf.gy(j);
+                        this.myk = this.myl;
+                        this.myl = null;
+                        this.mym = this.myk.gy(j);
                         z = true;
                     }
                 }
                 if (z) {
-                    fn(this.myf.gz(j));
+                    fn(this.myk.gz(j));
                 }
-                if (this.myb != 2) {
-                    while (!this.mpi) {
+                if (this.myg != 2) {
+                    while (!this.mpn) {
                         try {
-                            if (this.mye == null) {
-                                this.mye = this.myd.dtk();
-                                if (this.mye == null) {
+                            if (this.myj == null) {
+                                this.myj = this.myi.dtm();
+                                if (this.myj == null) {
                                     return;
                                 }
                             }
-                            if (this.myb == 1) {
-                                this.mye.setFlags(4);
-                                this.myd.bv(this.mye);
-                                this.mye = null;
-                                this.myb = 2;
+                            if (this.myg == 1) {
+                                this.myj.setFlags(4);
+                                this.myi.bv(this.myj);
+                                this.myj = null;
+                                this.myg = 2;
                                 return;
                             }
-                            int a = a(this.moI, (com.google.android.exoplayer2.a.e) this.mye, false);
+                            int a = a(this.moN, (com.google.android.exoplayer2.a.e) this.myj, false);
                             if (a == -4) {
-                                if (this.mye.dtf()) {
-                                    this.mpi = true;
+                                if (this.myj.dth()) {
+                                    this.mpn = true;
                                 } else {
-                                    this.mye.subsampleOffsetUs = this.moI.lYL.subsampleOffsetUs;
-                                    this.mye.dtq();
+                                    this.myj.subsampleOffsetUs = this.moN.lYQ.subsampleOffsetUs;
+                                    this.myj.dts();
                                 }
-                                this.myd.bv(this.mye);
-                                this.mye = null;
+                                this.myi.bv(this.myj);
+                                this.myj = null;
                             } else if (a == -3) {
                                 return;
                             }
@@ -157,15 +157,15 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     }
 
     @Override // com.google.android.exoplayer2.a
-    protected void dry() {
-        this.myc = null;
-        dwA();
-        dwx();
+    protected void drA() {
+        this.myh = null;
+        dwC();
+        dwz();
     }
 
     @Override // com.google.android.exoplayer2.s
     public boolean atB() {
-        return this.mpj;
+        return this.mpo;
     }
 
     @Override // com.google.android.exoplayer2.s
@@ -174,43 +174,43 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     }
 
     private void Da() {
-        this.mye = null;
-        this.myh = -1;
-        if (this.myf != null) {
-            this.myf.release();
-            this.myf = null;
+        this.myj = null;
+        this.mym = -1;
+        if (this.myk != null) {
+            this.myk.release();
+            this.myk = null;
         }
-        if (this.myg != null) {
-            this.myg.release();
-            this.myg = null;
+        if (this.myl != null) {
+            this.myl.release();
+            this.myl = null;
         }
     }
 
-    private void dwx() {
+    private void dwz() {
         Da();
-        this.myd.release();
-        this.myd = null;
-        this.myb = 0;
+        this.myi.release();
+        this.myi = null;
+        this.myg = 0;
     }
 
-    private void dwy() {
-        dwx();
-        this.myd = this.mya.p(this.myc);
+    private void dwA() {
+        dwz();
+        this.myi = this.myf.p(this.myh);
     }
 
-    private long dwz() {
-        return (this.myh == -1 || this.myh >= this.myf.dww()) ? Format.OFFSET_SAMPLE_RELATIVE : this.myf.Lf(this.myh);
+    private long dwB() {
+        return (this.mym == -1 || this.mym >= this.myk.dwy()) ? Format.OFFSET_SAMPLE_RELATIVE : this.myk.Lf(this.mym);
     }
 
     private void fn(List<b> list) {
-        if (this.mpA != null) {
-            this.mpA.obtainMessage(0, list).sendToTarget();
+        if (this.mpF != null) {
+            this.mpF.obtainMessage(0, list).sendToTarget();
         } else {
             fo(list);
         }
     }
 
-    private void dwA() {
+    private void dwC() {
         fn(Collections.emptyList());
     }
 
@@ -226,6 +226,6 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     }
 
     private void fo(List<b> list) {
-        this.mxZ.fe(list);
+        this.mye.fe(list);
     }
 }

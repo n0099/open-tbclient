@@ -3,84 +3,84 @@ package com.google.android.exoplayer2.extractor.f;
 import com.google.android.exoplayer2.extractor.f.w;
 /* loaded from: classes5.dex */
 public final class s implements w {
-    private int mlM;
-    private final r mnP;
-    private final com.google.android.exoplayer2.util.l mnQ = new com.google.android.exoplayer2.util.l(32);
-    private int mnR;
-    private boolean mnS;
-    private boolean mnT;
+    private int mlR;
+    private final r mnU;
+    private final com.google.android.exoplayer2.util.l mnV = new com.google.android.exoplayer2.util.l(32);
+    private int mnW;
+    private boolean mnX;
+    private boolean mnY;
 
     public s(r rVar) {
-        this.mnP = rVar;
+        this.mnU = rVar;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.w
     public void a(com.google.android.exoplayer2.util.s sVar, com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        this.mnP.a(sVar, gVar, dVar);
-        this.mnT = true;
+        this.mnU.a(sVar, gVar, dVar);
+        this.mnY = true;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.w
-    public void cxF() {
-        this.mnT = true;
+    public void cxH() {
+        this.mnY = true;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.w
     public void a(com.google.android.exoplayer2.util.l lVar, boolean z) {
         int readUnsignedByte = z ? lVar.readUnsignedByte() + lVar.getPosition() : -1;
-        if (this.mnT) {
+        if (this.mnY) {
             if (z) {
-                this.mnT = false;
+                this.mnY = false;
                 lVar.setPosition(readUnsignedByte);
-                this.mlM = 0;
+                this.mlR = 0;
             } else {
                 return;
             }
         }
-        while (lVar.dyf() > 0) {
-            if (this.mlM < 3) {
-                if (this.mlM == 0) {
+        while (lVar.dyh() > 0) {
+            if (this.mlR < 3) {
+                if (this.mlR == 0) {
                     int readUnsignedByte2 = lVar.readUnsignedByte();
                     lVar.setPosition(lVar.getPosition() - 1);
                     if (readUnsignedByte2 == 255) {
-                        this.mnT = true;
+                        this.mnY = true;
                         return;
                     }
                 }
-                int min = Math.min(lVar.dyf(), 3 - this.mlM);
-                lVar.C(this.mnQ.data, this.mlM, min);
-                this.mlM = min + this.mlM;
-                if (this.mlM == 3) {
-                    this.mnQ.reset(3);
-                    this.mnQ.skipBytes(1);
-                    int readUnsignedByte3 = this.mnQ.readUnsignedByte();
-                    int readUnsignedByte4 = this.mnQ.readUnsignedByte();
-                    this.mnS = (readUnsignedByte3 & 128) != 0;
-                    this.mnR = (((readUnsignedByte3 & 15) << 8) | readUnsignedByte4) + 3;
-                    if (this.mnQ.capacity() < this.mnR) {
-                        byte[] bArr = this.mnQ.data;
-                        this.mnQ.reset(Math.min(4098, Math.max(this.mnR, bArr.length * 2)));
-                        System.arraycopy(bArr, 0, this.mnQ.data, 0, 3);
+                int min = Math.min(lVar.dyh(), 3 - this.mlR);
+                lVar.C(this.mnV.data, this.mlR, min);
+                this.mlR = min + this.mlR;
+                if (this.mlR == 3) {
+                    this.mnV.reset(3);
+                    this.mnV.skipBytes(1);
+                    int readUnsignedByte3 = this.mnV.readUnsignedByte();
+                    int readUnsignedByte4 = this.mnV.readUnsignedByte();
+                    this.mnX = (readUnsignedByte3 & 128) != 0;
+                    this.mnW = (((readUnsignedByte3 & 15) << 8) | readUnsignedByte4) + 3;
+                    if (this.mnV.capacity() < this.mnW) {
+                        byte[] bArr = this.mnV.data;
+                        this.mnV.reset(Math.min(4098, Math.max(this.mnW, bArr.length * 2)));
+                        System.arraycopy(bArr, 0, this.mnV.data, 0, 3);
                     }
                 }
             } else {
-                int min2 = Math.min(lVar.dyf(), this.mnR - this.mlM);
-                lVar.C(this.mnQ.data, this.mlM, min2);
-                this.mlM = min2 + this.mlM;
-                if (this.mlM != this.mnR) {
+                int min2 = Math.min(lVar.dyh(), this.mnW - this.mlR);
+                lVar.C(this.mnV.data, this.mlR, min2);
+                this.mlR = min2 + this.mlR;
+                if (this.mlR != this.mnW) {
                     continue;
                 } else {
-                    if (this.mnS) {
-                        if (com.google.android.exoplayer2.util.v.e(this.mnQ.data, 0, this.mnR, -1) != 0) {
-                            this.mnT = true;
+                    if (this.mnX) {
+                        if (com.google.android.exoplayer2.util.v.e(this.mnV.data, 0, this.mnW, -1) != 0) {
+                            this.mnY = true;
                             return;
                         }
-                        this.mnQ.reset(this.mnR - 4);
+                        this.mnV.reset(this.mnW - 4);
                     } else {
-                        this.mnQ.reset(this.mnR);
+                        this.mnV.reset(this.mnW);
                     }
-                    this.mnP.I(this.mnQ);
-                    this.mlM = 0;
+                    this.mnU.I(this.mnV);
+                    this.mlR = 0;
                 }
             }
         }

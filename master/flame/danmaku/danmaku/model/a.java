@@ -1,15 +1,15 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes4.dex */
 public abstract class a {
-    public abstract long dKl();
+    public abstract long dKn();
 
-    public abstract int dKm();
+    public abstract int dKo();
 
-    public long dKn() {
+    public long dKp() {
         return 1500L;
     }
 
-    public boolean dKo() {
+    public boolean dKq() {
         return false;
     }
 }

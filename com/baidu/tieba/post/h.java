@@ -11,8 +11,8 @@ import com.baidu.tieba.R;
 public class h {
     private com.baidu.tbadk.k.h eiA;
     private NavigationBarShadowView hMA;
-    BdTypeListView jzA;
-    private d jzl;
+    BdTypeListView jzF;
+    private d jzq;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
@@ -24,8 +24,8 @@ public class h {
                     h.this.eiA.dettachView(h.this.mRootView);
                     h.this.eiA = null;
                 }
-                if (h.this.jzl != null) {
-                    h.this.jzl.cyx();
+                if (h.this.jzq != null) {
+                    h.this.jzq.cyz();
                 }
             }
         }
@@ -47,29 +47,29 @@ public class h {
         }
     };
 
-    public BdTypeListView cyH() {
-        return this.jzA;
+    public BdTypeListView cyJ() {
+        return this.jzF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.jzA = (BdTypeListView) view.findViewById(R.id.list);
+        this.jzF = (BdTypeListView) view.findViewById(R.id.list);
         this.hMA = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_thread);
-        this.jzA.setOnScrollListener(this.mOnScrollListener);
+        this.jzF.setOnScrollListener(this.mOnScrollListener);
     }
 
-    public d cyI() {
-        return this.jzl;
+    public d cyK() {
+        return this.jzq;
     }
 
     public void b(d dVar) {
-        this.jzl = dVar;
+        this.jzq = dVar;
     }
 
     public void an(String str, boolean z) {
         f.a(this.eiA, this.hzH, this.mContext, this.mRootView, str, z);
-        this.jzA.setVisibility(8);
+        this.jzF.setVisibility(8);
     }
 }

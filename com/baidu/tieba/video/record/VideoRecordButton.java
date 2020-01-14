@@ -11,13 +11,13 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class VideoRecordButton extends FrameLayout {
     private TextView Fu;
-    private View kDo;
-    private View kDp;
-    private View kDq;
-    private ObjectAnimator kDr;
-    private ObjectAnimator kDs;
-    private ObjectAnimator kDt;
-    private ObjectAnimator kDu;
+    private View kDt;
+    private View kDu;
+    private View kDv;
+    private ObjectAnimator kDw;
+    private ObjectAnimator kDx;
+    private ObjectAnimator kDy;
+    private ObjectAnimator kDz;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_record_button, this);
-        this.kDo = findViewById(R.id.record_layer1);
-        this.kDp = findViewById(R.id.record_layer2);
-        this.kDq = findViewById(R.id.record_layer3);
+        this.kDt = findViewById(R.id.record_layer1);
+        this.kDu = findViewById(R.id.record_layer2);
+        this.kDv = findViewById(R.id.record_layer3);
         this.Fu = (TextView) findViewById(R.id.tv_tip);
-        this.kDq.setScaleX(0.766f);
-        this.kDq.setScaleY(0.766f);
+        this.kDv.setScaleX(0.766f);
+        this.kDv.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.kDq;
+        return this.kDv;
     }
 
     public View getLayer1() {
-        return this.kDo;
+        return this.kDt;
     }
 
     public View getLayer2() {
-        return this.kDp;
+        return this.kDu;
     }
 
     public TextView getTvTip() {
         return this.Fu;
     }
 
-    public void cQQ() {
-        if (this.kDu != null && this.kDu.isRunning()) {
-            this.kDt.cancel();
+    public void cQS() {
+        if (this.kDz != null && this.kDz.isRunning()) {
+            this.kDy.cancel();
         }
-        if (this.kDt == null) {
-            this.kDt = ObjectAnimator.ofPropertyValuesHolder(this.kDp, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.kDt.setDuration(200L);
+        if (this.kDy == null) {
+            this.kDy = ObjectAnimator.ofPropertyValuesHolder(this.kDu, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.kDy.setDuration(200L);
         }
-        this.kDt.start();
+        this.kDy.start();
     }
 
-    public void cQR() {
-        if (this.kDt != null && this.kDt.isRunning()) {
-            this.kDt.cancel();
+    public void cQT() {
+        if (this.kDy != null && this.kDy.isRunning()) {
+            this.kDy.cancel();
         }
-        if (this.kDp.getScaleX() != 1.0f) {
-            if (this.kDu == null) {
-                this.kDu = ObjectAnimator.ofPropertyValuesHolder(this.kDp, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.kDu.setDuration(200L);
+        if (this.kDu.getScaleX() != 1.0f) {
+            if (this.kDz == null) {
+                this.kDz = ObjectAnimator.ofPropertyValuesHolder(this.kDu, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.kDz.setDuration(200L);
             }
-            this.kDu.start();
+            this.kDz.start();
         }
     }
 
     public void ts(boolean z) {
-        if (this.kDs != null && this.kDs.isRunning()) {
-            this.kDs.cancel();
+        if (this.kDx != null && this.kDx.isRunning()) {
+            this.kDx.cancel();
         }
-        if (this.kDr == null) {
-            this.kDr = ObjectAnimator.ofPropertyValuesHolder(this.kDq, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.kDr.setRepeatCount(-1);
-            this.kDr.setRepeatMode(2);
-            this.kDr.setDuration(1000L);
+        if (this.kDw == null) {
+            this.kDw = ObjectAnimator.ofPropertyValuesHolder(this.kDv, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.kDw.setRepeatCount(-1);
+            this.kDw.setRepeatMode(2);
+            this.kDw.setDuration(1000L);
         }
-        this.kDq.setVisibility(0);
+        this.kDv.setVisibility(0);
         if (z) {
-            this.kDo.setVisibility(8);
+            this.kDt.setVisibility(8);
         } else {
-            this.kDo.setBackgroundResource(R.drawable.red_square_bg);
+            this.kDt.setBackgroundResource(R.drawable.red_square_bg);
         }
         this.Fu.setVisibility(8);
-        this.kDr.start();
+        this.kDw.start();
     }
 
-    public void cQF() {
-        if (this.kDr != null && this.kDr.isRunning()) {
-            this.kDr.cancel();
+    public void cQH() {
+        if (this.kDw != null && this.kDw.isRunning()) {
+            this.kDw.cancel();
         }
-        if (this.kDs == null) {
-            this.kDs = ObjectAnimator.ofPropertyValuesHolder(this.kDq, PropertyValuesHolder.ofFloat("scaleX", this.kDq.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.kDq.getScaleY(), 0.766f));
-            this.kDs.setDuration((500.0f * Math.abs(0.766f - this.kDq.getScaleX())) / 0.3f);
+        if (this.kDx == null) {
+            this.kDx = ObjectAnimator.ofPropertyValuesHolder(this.kDv, PropertyValuesHolder.ofFloat("scaleX", this.kDv.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.kDv.getScaleY(), 0.766f));
+            this.kDx.setDuration((500.0f * Math.abs(0.766f - this.kDv.getScaleX())) / 0.3f);
         }
-        this.kDo.setVisibility(0);
-        this.kDo.setBackgroundResource(R.drawable.red_circle_bg);
-        this.kDs.start();
+        this.kDt.setVisibility(0);
+        this.kDt.setBackgroundResource(R.drawable.red_circle_bg);
+        this.kDx.start();
     }
 }

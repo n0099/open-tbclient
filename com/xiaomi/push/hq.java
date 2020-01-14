@@ -48,14 +48,14 @@ public enum hq {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f492a;
+    public final String f493a;
 
     hq(String str) {
-        this.f492a = str;
+        this.f493a = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f492a;
+        return this.f493a;
     }
 }

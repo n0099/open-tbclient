@@ -7,25 +7,25 @@ import android.widget.ImageView;
 import kotlin.jvm.internal.q;
 /* loaded from: classes.dex */
 public final class b extends Drawable {
-    private boolean njQ;
-    private int njR;
-    private ImageView.ScaleType njS;
-    private final com.opensource.svgaplayer.a.b njT;
-    private final f njU;
-    private final c njV;
+    private boolean njV;
+    private int njW;
+    private ImageView.ScaleType njX;
+    private final com.opensource.svgaplayer.a.b njY;
+    private final f njZ;
+    private final c nka;
 
     public b(f fVar, c cVar) {
         q.j(fVar, "videoItem");
         q.j(cVar, "dynamicItem");
-        this.njU = fVar;
-        this.njV = cVar;
-        this.njQ = true;
-        this.njS = ImageView.ScaleType.MATRIX;
-        this.njT = new com.opensource.svgaplayer.a.b(this.njU, this.njV);
+        this.njZ = fVar;
+        this.nka = cVar;
+        this.njV = true;
+        this.njX = ImageView.ScaleType.MATRIX;
+        this.njY = new com.opensource.svgaplayer.a.b(this.njZ, this.nka);
     }
 
-    public final f dDv() {
-        return this.njU;
+    public final f dDx() {
+        return this.njZ;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -35,32 +35,32 @@ public final class b extends Drawable {
     }
 
     public final void wq(boolean z) {
-        if (this.njQ != z) {
-            this.njQ = z;
+        if (this.njV != z) {
+            this.njV = z;
             invalidateSelf();
         }
     }
 
-    public final int dDu() {
-        return this.njR;
+    public final int dDw() {
+        return this.njW;
     }
 
     public final void Ne(int i) {
-        if (this.njR != i) {
-            this.njR = i;
+        if (this.njW != i) {
+            this.njW = i;
             invalidateSelf();
         }
     }
 
     public final void setScaleType(ImageView.ScaleType scaleType) {
         q.j(scaleType, "<set-?>");
-        this.njS = scaleType;
+        this.njX = scaleType;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.njQ && canvas != null) {
-            this.njT.a(canvas, this.njR, this.njS);
+        if (!this.njV && canvas != null) {
+            this.njY.a(canvas, this.njW, this.njX);
         }
     }
 

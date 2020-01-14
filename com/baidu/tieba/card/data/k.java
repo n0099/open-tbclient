@@ -163,7 +163,7 @@ public class k extends c {
                 zG.setPosition(this.position);
                 if (axQ() != null) {
                     bj axQ = axQ();
-                    zG.Z("obj_name", axQ.aBx() != null && (axQ.aBx().cJz() != null || axQ.aBx().aRH() != null) ? 1 : 0);
+                    zG.Z("obj_name", axQ.aBx() != null && (axQ.aBx().cJB() != null || axQ.aBx().aRH() != null) ? 1 : 0);
                     if (axQ.azX() != null) {
                         zG.Z(TiebaInitialize.Params.AB_TYPE, axQ.azX().hadConcerned() ? 1 : 0);
                     }
@@ -192,10 +192,10 @@ public class k extends c {
                 zG3.cp(TiebaInitialize.Params.AB_TAG, btL()).cp(TiebaInitialize.Params.AB_ACTION, "show");
                 if (axQ() != null) {
                     bj axQ2 = axQ();
-                    boolean z = (axQ2.aBx() == null || (axQ2.aBx().cJz() == null && axQ2.aBx().aRH() == null)) ? false : true;
+                    boolean z = (axQ2.aBx() == null || (axQ2.aBx().cJB() == null && axQ2.aBx().aRH() == null)) ? false : true;
                     zG3.Z("obj_name", z ? 1 : 0);
-                    if (z && axQ2.aBx().cJz() != null && axQ2.aBx().cJz().aRz() != null && axQ2.aBx().cJz().aRz().size() > 0) {
-                        zG3.Z(TiebaInitialize.Params.OBJ_TO, axQ2.aBx().kfT ? 2 : 1);
+                    if (z && axQ2.aBx().cJB() != null && axQ2.aBx().cJB().aRz() != null && axQ2.aBx().cJB().aRz().size() > 0) {
+                        zG3.Z(TiebaInitialize.Params.OBJ_TO, axQ2.aBx().kfY ? 2 : 1);
                     }
                     if (axQ2.azX() != null) {
                         zG3.Z(TiebaInitialize.Params.AB_TYPE, axQ2.azX().hadConcerned() ? 1 : 0);
@@ -249,10 +249,10 @@ public class k extends c {
             zG.cp(TiebaInitialize.Params.AB_TAG, btL()).cp(TiebaInitialize.Params.AB_ACTION, "show");
             if (axQ() != null) {
                 bj axQ = axQ();
-                boolean z = (axQ.aBx() == null || (axQ.aBx().cJz() == null && axQ.aBx().aRH() == null)) ? false : true;
+                boolean z = (axQ.aBx() == null || (axQ.aBx().cJB() == null && axQ.aBx().aRH() == null)) ? false : true;
                 zG.Z("obj_name", z ? 1 : 0);
-                if (z && axQ.aBx().cJz() != null && axQ.aBx().cJz().aRz() != null && axQ.aBx().cJz().aRz().size() > 0) {
-                    zG.Z(TiebaInitialize.Params.OBJ_TO, axQ.aBx().kfT ? 2 : 1);
+                if (z && axQ.aBx().cJB() != null && axQ.aBx().cJB().aRz() != null && axQ.aBx().cJB().aRz().size() > 0) {
+                    zG.Z(TiebaInitialize.Params.OBJ_TO, axQ.aBx().kfY ? 2 : 1);
                 }
             }
         }

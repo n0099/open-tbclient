@@ -15,15 +15,15 @@ import com.tencent.tauth.UiError;
 import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.sharesdk.a.a {
-    protected int jUE;
-    protected Tencent jUJ;
-    IUiListener jUK;
-    private final com.baidu.adp.lib.e.b<f.a> jUL;
+    protected int jUJ;
+    protected Tencent jUO;
+    IUiListener jUP;
+    private final com.baidu.adp.lib.e.b<f.a> jUQ;
 
     public b(Context context) {
         super(context);
-        this.jUE = 8;
-        this.jUL = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.b.1
+        this.jUJ = 8;
+        this.jUQ = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
@@ -31,7 +31,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             public void onLoaded(f.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
                 if (aVar != null && aVar.cXA != null && !TextUtils.isEmpty(aVar.path)) {
-                    b.this.a(aVar.path, b.this.jUK);
+                    b.this.a(aVar.path, b.this.jUP);
                 } else {
                     b.this.BF(2);
                 }
@@ -44,12 +44,12 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
                 b.this.BF(3);
             }
         };
-        this.jUJ = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.jUO = Tencent.createInstance("101462192", context.getApplicationContext());
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.jUJ == null) {
+        if (shareEntity == null || this.jUO == null) {
             BF(2);
             if (bVar != null) {
                 bVar.cC(0, 2);
@@ -60,16 +60,16 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
                 bVar.cC(0, 2);
             }
         } else {
-            this.jUK = new a(bVar);
+            this.jUP = new a(bVar);
             String ayq = shareEntity.ayq();
-            if (uh(shareEntity.cFM())) {
-                a(shareEntity.cFM(), this.jUK);
-            } else if (shareEntity.cFO() != 0 && !TextUtils.isEmpty(ayq) && (ayq.startsWith("http://") || ayq.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
-                com.baidu.adp.lib.e.c.gr().a(ayq, 34, this.jUL, 0, 0, getPageId(), new Object[0]);
+            if (uh(shareEntity.cFO())) {
+                a(shareEntity.cFO(), this.jUP);
+            } else if (shareEntity.cFQ() != 0 && !TextUtils.isEmpty(ayq) && (ayq.startsWith("http://") || ayq.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+                com.baidu.adp.lib.e.c.gr().a(ayq, 34, this.jUQ, 0, 0, getPageId(), new Object[0]);
             } else if (!TextUtils.isEmpty(shareEntity.getLinkUrl()) && !TextUtils.isEmpty(shareEntity.getTitle())) {
-                a(shareEntity, this.jUK);
+                a(shareEntity, this.jUP);
             } else if (v(shareEntity.getImageUri())) {
-                a(shareEntity.getImageUri().getPath(), this.jUK);
+                a(shareEntity.getImageUri().getPath(), this.jUP);
             } else {
                 b(shareEntity, bVar);
             }
@@ -84,7 +84,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             bundle.putString("targetUrl", shareEntity.getLinkUrl());
             bundle.putInt("req_type", 1);
             bundle.putString("imageUrl", shareEntity.ayq());
-            this.jUJ.shareToQQ((Activity) this.context, bundle, iUiListener);
+            this.jUO.shareToQQ((Activity) this.context, bundle, iUiListener);
         }
     }
 
@@ -95,7 +95,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             bundle.putString("imageLocalUrl", str);
             bundle.putInt("req_type", 5);
             bundle.putInt("cflag", 2);
-            this.jUJ.shareToQQ((Activity) this.context, bundle, iUiListener);
+            this.jUO.shareToQQ((Activity) this.context, bundle, iUiListener);
         }
     }
 
@@ -124,13 +124,13 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             intent2.setFlags(268435456);
             if (com.baidu.tieba.sharesdk.c.a.startActivity(this.context, intent2)) {
                 if (bVar != null) {
-                    bVar.cC(this.jUE, 1);
+                    bVar.cC(this.jUJ, 1);
                     return;
                 }
                 return;
             }
             if (bVar != null) {
-                bVar.cC(this.jUE, 2);
+                bVar.cC(this.jUJ, 2);
             }
             BF(2);
         }
@@ -138,34 +138,34 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
 
     /* loaded from: classes9.dex */
     protected class a implements IUiListener {
-        private com.baidu.tieba.sharesdk.b.b jUN;
+        private com.baidu.tieba.sharesdk.b.b jUS;
 
         public a(com.baidu.tieba.sharesdk.b.b bVar) {
-            this.jUN = bVar;
+            this.jUS = bVar;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
-            if (this.jUN != null) {
-                this.jUN.cC(b.this.jUE, 1);
+            if (this.jUS != null) {
+                this.jUS.cC(b.this.jUJ, 1);
             }
             b.this.BF(1);
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            if (this.jUN != null) {
-                this.jUN.cC(b.this.jUE, 2);
+            if (this.jUS != null) {
+                this.jUS.cC(b.this.jUJ, 2);
             }
             b.this.ba(2, uiError != null ? uiError.errorMessage : null);
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            if (this.jUN != null) {
-                this.jUN.cC(b.this.jUE, 3);
+            if (this.jUS != null) {
+                this.jUS.cC(b.this.jUJ, 3);
             }
-            if (b.this.jUE != 8 && b.this.jUE == 4) {
+            if (b.this.jUJ != 8 && b.this.jUJ == 4) {
             }
         }
     }

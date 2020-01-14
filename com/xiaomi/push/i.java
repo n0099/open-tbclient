@@ -20,7 +20,7 @@ public class i {
     private static String e = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f587a = false;
+    private static volatile boolean f588a = false;
 
     @TargetApi(17)
     public static int a() {
@@ -196,10 +196,10 @@ public class i {
     public static String d(Context context) {
         u uVar;
         String str;
-        if (!m385a(context) || f587a) {
+        if (!m385a(context) || f588a) {
             return null;
         }
-        f587a = true;
+        f588a = true;
         u filesDir = context.getFilesDir();
         String a2 = y.a(new File((File) filesDir, ".vdevid"));
         try {

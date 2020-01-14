@@ -133,7 +133,7 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
         private void aYb() {
             this.eaA = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.eaA.getHierarchy().b(p.b.lMf);
+            this.eaA.getHierarchy().b(p.b.lMk);
             addView(this.eaA, layoutParams);
         }
 
@@ -166,7 +166,7 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.lMf;
+                p.b bVar = p.b.lMk;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -190,16 +190,16 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.lMe;
+                        p.b bVar2 = p.b.lMj;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.lMf;
+                        p.b bVar3 = p.b.lMk;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.lLZ;
+                        p.b bVar4 = p.b.lMe;
                         break;
                 }
-                this.eaA.getHierarchy().b(p.b.lMf);
+                this.eaA.getHierarchy().b(p.b.lMk);
                 a(str, this.eaA);
             }
         }
@@ -216,7 +216,7 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
             if (measuredWidth > 0 && measuredHeight > 0) {
                 X.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dkh().c(simpleDraweeView.getController()).be(X.drm()).dkY());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dkj().c(simpleDraweeView.getController()).be(X.dro()).dla());
         }
 
         public Uri getUri(String str) {

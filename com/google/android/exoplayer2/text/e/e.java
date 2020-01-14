@@ -8,15 +8,15 @@ final class e {
     private int gMR;
     private String hz;
     private String id;
-    private boolean mAJ;
-    private boolean mAK;
-    private e mAN;
-    private Layout.Alignment mAO;
-    private int mAL = -1;
+    private boolean mAO;
+    private boolean mAP;
+    private e mAS;
+    private Layout.Alignment mAT;
+    private int mAQ = -1;
     private int underline = -1;
     private int bold = -1;
     private int italic = -1;
-    private int mAM = -1;
+    private int mAR = -1;
 
     public int getStyle() {
         if (this.bold == -1 && this.italic == -1) {
@@ -25,68 +25,68 @@ final class e {
         return (this.bold == 1 ? 1 : 0) | (this.italic == 1 ? 2 : 0);
     }
 
-    public boolean dwX() {
-        return this.mAL == 1;
+    public boolean dwZ() {
+        return this.mAQ == 1;
     }
 
     public e vG(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mAN == null);
-        this.mAL = z ? 1 : 0;
+        com.google.android.exoplayer2.util.a.checkState(this.mAS == null);
+        this.mAQ = z ? 1 : 0;
         return this;
     }
 
-    public boolean dwY() {
+    public boolean dxa() {
         return this.underline == 1;
     }
 
     public e vH(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mAN == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mAS == null);
         this.underline = z ? 1 : 0;
         return this;
     }
 
     public e vI(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mAN == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mAS == null);
         this.bold = z ? 1 : 0;
         return this;
     }
 
     public e vJ(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mAN == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mAS == null);
         this.italic = z ? 1 : 0;
         return this;
     }
 
-    public String dwZ() {
+    public String dxb() {
         return this.hz;
     }
 
     public e PN(String str) {
-        com.google.android.exoplayer2.util.a.checkState(this.mAN == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mAS == null);
         this.hz = str;
         return this;
     }
 
     public int getFontColor() {
-        if (!this.mAJ) {
+        if (!this.mAO) {
             throw new IllegalStateException("Font color has not been defined.");
         }
         return this.gMR;
     }
 
     public e Lt(int i) {
-        com.google.android.exoplayer2.util.a.checkState(this.mAN == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mAS == null);
         this.gMR = i;
-        this.mAJ = true;
+        this.mAO = true;
         return this;
     }
 
-    public boolean dxa() {
-        return this.mAJ;
+    public boolean dxc() {
+        return this.mAO;
     }
 
     public int getBackgroundColor() {
-        if (!this.mAK) {
+        if (!this.mAP) {
             throw new IllegalStateException("Background color has not been defined.");
         }
         return this.backgroundColor;
@@ -94,12 +94,12 @@ final class e {
 
     public e Lu(int i) {
         this.backgroundColor = i;
-        this.mAK = true;
+        this.mAP = true;
         return this;
     }
 
-    public boolean dxb() {
-        return this.mAK;
+    public boolean dxd() {
+        return this.mAP;
     }
 
     public e b(e eVar) {
@@ -108,7 +108,7 @@ final class e {
 
     private e a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!this.mAJ && eVar.mAJ) {
+            if (!this.mAO && eVar.mAO) {
                 Lt(eVar.gMR);
             }
             if (this.bold == -1) {
@@ -120,20 +120,20 @@ final class e {
             if (this.hz == null) {
                 this.hz = eVar.hz;
             }
-            if (this.mAL == -1) {
-                this.mAL = eVar.mAL;
+            if (this.mAQ == -1) {
+                this.mAQ = eVar.mAQ;
             }
             if (this.underline == -1) {
                 this.underline = eVar.underline;
             }
-            if (this.mAO == null) {
-                this.mAO = eVar.mAO;
+            if (this.mAT == null) {
+                this.mAT = eVar.mAT;
             }
-            if (this.mAM == -1) {
-                this.mAM = eVar.mAM;
+            if (this.mAR == -1) {
+                this.mAR = eVar.mAR;
                 this.Ro = eVar.Ro;
             }
-            if (z && !this.mAK && eVar.mAK) {
+            if (z && !this.mAP && eVar.mAP) {
                 Lu(eVar.backgroundColor);
             }
         }
@@ -149,12 +149,12 @@ final class e {
         return this.id;
     }
 
-    public Layout.Alignment dxc() {
-        return this.mAO;
+    public Layout.Alignment dxe() {
+        return this.mAT;
     }
 
     public e a(Layout.Alignment alignment) {
-        this.mAO = alignment;
+        this.mAT = alignment;
         return this;
     }
 
@@ -164,15 +164,15 @@ final class e {
     }
 
     public e Lv(int i) {
-        this.mAM = i;
+        this.mAR = i;
         return this;
     }
 
-    public int dxd() {
-        return this.mAM;
+    public int dxf() {
+        return this.mAR;
     }
 
-    public float dxe() {
+    public float dxg() {
         return this.Ro;
     }
 }

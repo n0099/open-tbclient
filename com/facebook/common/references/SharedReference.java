@@ -7,8 +7,8 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes12.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> lHX = new IdentityHashMap();
-    private final c<T> lHL;
+    private static final Map<Object, Integer> lIc = new IdentityHashMap();
+    private final c<T> lHQ;
     @GuardedBy("this")
     private int mRefCount = 1;
     @GuardedBy("this")
@@ -16,30 +16,30 @@ public class SharedReference<T> {
 
     public SharedReference(T t, c<T> cVar) {
         this.mValue = (T) g.checkNotNull(t);
-        this.lHL = (c) g.checkNotNull(cVar);
+        this.lHQ = (c) g.checkNotNull(cVar);
         aT(t);
     }
 
     private static void aT(Object obj) {
-        synchronized (lHX) {
-            Integer num = lHX.get(obj);
+        synchronized (lIc) {
+            Integer num = lIc.get(obj);
             if (num == null) {
-                lHX.put(obj, 1);
+                lIc.put(obj, 1);
             } else {
-                lHX.put(obj, Integer.valueOf(num.intValue() + 1));
+                lIc.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void aU(Object obj) {
-        synchronized (lHX) {
-            Integer num = lHX.get(obj);
+        synchronized (lIc) {
+            Integer num = lIc.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.j("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                lHX.remove(obj);
+                lIc.remove(obj);
             } else {
-                lHX.put(obj, Integer.valueOf(num.intValue() - 1));
+                lIc.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -56,31 +56,31 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void djE() {
-        djH();
+    public synchronized void djG() {
+        djJ();
         this.mRefCount++;
     }
 
-    public void djF() {
+    public void djH() {
         T t;
-        if (djG() == 0) {
+        if (djI() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
             }
-            this.lHL.release(t);
+            this.lHQ.release(t);
             aU(t);
         }
     }
 
-    private synchronized int djG() {
-        djH();
+    private synchronized int djI() {
+        djJ();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void djH() {
+    private void djJ() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

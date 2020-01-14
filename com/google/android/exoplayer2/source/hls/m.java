@@ -5,19 +5,19 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.util.s;
 /* loaded from: classes5.dex */
 public final class m {
-    private final SparseArray<s> mvP = new SparseArray<>();
+    private final SparseArray<s> mvU = new SparseArray<>();
 
     public s Lb(int i) {
-        s sVar = this.mvP.get(i);
+        s sVar = this.mvU.get(i);
         if (sVar == null) {
             s sVar2 = new s(Format.OFFSET_SAMPLE_RELATIVE);
-            this.mvP.put(i, sVar2);
+            this.mvU.put(i, sVar2);
             return sVar2;
         }
         return sVar;
     }
 
     public void reset() {
-        this.mvP.clear();
+        this.mvU.clear();
     }
 }

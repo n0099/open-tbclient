@@ -14,8 +14,8 @@ public class i extends h {
         CharSequence charSequence;
         if ((dVar.text instanceof Spanned) && (charSequence = dVar.text) != null) {
             StaticLayout staticLayout = new StaticLayout(charSequence, textPaint, (int) Math.ceil(StaticLayout.getDesiredWidth(dVar.text, textPaint)), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
-            dVar.nED = staticLayout.getWidth();
-            dVar.nEE = staticLayout.getHeight();
+            dVar.nEI = staticLayout.getWidth();
+            dVar.nEJ = staticLayout.getHeight();
             dVar.obj = new SoftReference(staticLayout);
             return;
         }
@@ -38,21 +38,21 @@ public class i extends h {
             return;
         }
         StaticLayout staticLayout3 = (StaticLayout) ((SoftReference) dVar.obj).get();
-        boolean z2 = (dVar.nER & 1) != 0;
-        boolean z3 = (dVar.nER & 2) != 0;
+        boolean z2 = (dVar.nEW & 1) != 0;
+        boolean z3 = (dVar.nEW & 2) != 0;
         if (z3 || staticLayout3 == null) {
             if (z3) {
-                dVar.nER &= -3;
+                dVar.nEW &= -3;
             }
             CharSequence charSequence = dVar.text;
             if (charSequence != null) {
                 if (z2) {
                     staticLayout = new StaticLayout(charSequence, textPaint, (int) Math.ceil(StaticLayout.getDesiredWidth(dVar.text, textPaint)), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
-                    dVar.nED = staticLayout.getWidth();
-                    dVar.nEE = staticLayout.getHeight();
-                    dVar.nER &= -2;
+                    dVar.nEI = staticLayout.getWidth();
+                    dVar.nEJ = staticLayout.getHeight();
+                    dVar.nEW &= -2;
                 } else {
-                    staticLayout = new StaticLayout(charSequence, textPaint, (int) dVar.nED, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
+                    staticLayout = new StaticLayout(charSequence, textPaint, (int) dVar.nEI, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
                 }
                 dVar.obj = new SoftReference(staticLayout);
                 staticLayout2 = staticLayout;

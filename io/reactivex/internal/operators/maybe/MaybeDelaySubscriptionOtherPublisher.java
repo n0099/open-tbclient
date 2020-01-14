@@ -19,12 +19,12 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends io.reactiv
 
     /* loaded from: classes5.dex */
     static final class a<T> implements io.reactivex.disposables.b, j<Object> {
-        final DelayMaybeObserver<T> nwT;
+        final DelayMaybeObserver<T> nwY;
         d s;
         o<T> source;
 
         a(m<? super T> mVar, o<T> oVar) {
-            this.nwT = new DelayMaybeObserver<>(mVar);
+            this.nwY = new DelayMaybeObserver<>(mVar);
             this.source = oVar;
         }
 
@@ -32,7 +32,7 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends io.reactiv
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
-                this.nwT.actual.onSubscribe(this);
+                this.nwY.actual.onSubscribe(this);
                 dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
             }
         }
@@ -50,7 +50,7 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends io.reactiv
         public void onError(Throwable th) {
             if (this.s != SubscriptionHelper.CANCELLED) {
                 this.s = SubscriptionHelper.CANCELLED;
-                this.nwT.actual.onError(th);
+                this.nwY.actual.onError(th);
                 return;
             }
             io.reactivex.e.a.onError(th);
@@ -67,19 +67,19 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends io.reactiv
         void subscribeNext() {
             o<T> oVar = this.source;
             this.source = null;
-            oVar.a(this.nwT);
+            oVar.a(this.nwY);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.nwT.get());
+            return DisposableHelper.isDisposed(this.nwY.get());
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             this.s.cancel();
             this.s = SubscriptionHelper.CANCELLED;
-            DisposableHelper.dispose(this.nwT);
+            DisposableHelper.dispose(this.nwY);
         }
     }
 

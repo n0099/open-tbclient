@@ -30,16 +30,16 @@ public class g extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     private int fpl;
     private com.baidu.adp.lib.d.b<ConstrainImageLayout> gri;
     private com.baidu.adp.lib.d.b<TbImageView> grj;
-    private int jlR;
-    private int jlS;
+    private int jlW;
+    private int jlX;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.Nj = true;
-        this.jlR = 0;
-        this.jlS = 0;
+        this.jlW = 0;
+        this.jlX = 0;
         this.fpl = 0;
         this.gri = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -139,8 +139,8 @@ public class g extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
         eVar.setPageUniqueId(this.dxg);
         eVar.aI(1024);
         eVar.aI(32768);
-        if (this.jlR > 0) {
-            eVar.aH(this.jlR);
+        if (this.jlW > 0) {
+            eVar.aH(this.jlW);
         }
         eVar.Y(false);
         eVar.Z(false);
@@ -180,7 +180,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
         mT.aM(4);
         af afVar = new af(mT);
         afVar.setPageId(this.dxg);
-        afVar.aU(this.jlS);
+        afVar.aU(this.jlX);
         a(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.personPolymeric.a.a.g.5
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -224,11 +224,11 @@ public class g extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     }
 
     public void zQ(int i) {
-        this.jlR = i;
+        this.jlW = i;
     }
 
     public void zP(int i) {
-        this.jlS = i;
+        this.jlX = i;
     }
 
     private void bNs() {

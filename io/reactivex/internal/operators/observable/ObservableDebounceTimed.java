@@ -14,7 +14,7 @@ public final class ObservableDebounceTimed<T> extends io.reactivex.internal.oper
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
-        this.source.subscribe(new a(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.dHW()));
+        this.source.subscribe(new a(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.dHY()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

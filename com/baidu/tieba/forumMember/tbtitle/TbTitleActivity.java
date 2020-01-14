@@ -83,7 +83,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         public void callback(Object obj) {
             boolean z = false;
             if (obj != null && (obj instanceof t)) {
-                com.baidu.tieba.tbadkCore.d.cIt().aA(TbTitleActivity.this.mForumName, false);
+                com.baidu.tieba.tbadkCore.d.cIv().aA(TbTitleActivity.this.mForumName, false);
                 z = true;
             }
             if (!z) {

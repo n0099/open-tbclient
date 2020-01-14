@@ -282,9 +282,9 @@ public class b {
 
     private void aZX() {
         if (this.egU != null) {
-            if (this.egU.cxh() != null) {
-                this.egU.cxh().setPlayer(null);
-                this.egU.cxh().stop();
+            if (this.egU.cxj() != null) {
+                this.egU.cxj().setPlayer(null);
+                this.egU.cxj().stop();
             }
             this.egU = null;
         }
@@ -348,8 +348,8 @@ public class b {
                     yVar.fKa = String.valueOf(this.egN.Np.getFid());
                     yVar.OG = this.egN.Np.getTid();
                     this.egU.setVideoStatsData(yVar);
-                    if (this.egU.cxB() != null) {
-                        this.egU.cxB().b(this.egN.Np.aAq());
+                    if (this.egU.cxD() != null) {
+                        this.egU.cxD().b(this.egN.Np.aAq());
                     }
                 }
                 if (this.egS != null) {

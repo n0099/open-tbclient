@@ -20,45 +20,45 @@ public final class MaybeDelayOtherPublisher<T, U> extends io.reactivex.internal.
     /* loaded from: classes5.dex */
     static final class a<T, U> implements io.reactivex.disposables.b, m<T> {
         io.reactivex.disposables.b d;
-        final OtherSubscriber<T> nwR;
-        final org.a.b<U> nwS;
+        final OtherSubscriber<T> nwW;
+        final org.a.b<U> nwX;
 
         a(m<? super T> mVar, org.a.b<U> bVar) {
-            this.nwR = new OtherSubscriber<>(mVar);
-            this.nwS = bVar;
+            this.nwW = new OtherSubscriber<>(mVar);
+            this.nwX = bVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             this.d.dispose();
             this.d = DisposableHelper.DISPOSED;
-            SubscriptionHelper.cancel(this.nwR);
+            SubscriptionHelper.cancel(this.nwW);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return SubscriptionHelper.isCancelled(this.nwR.get());
+            return SubscriptionHelper.isCancelled(this.nwW.get());
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.validate(this.d, bVar)) {
                 this.d = bVar;
-                this.nwR.actual.onSubscribe(this);
+                this.nwW.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             this.d = DisposableHelper.DISPOSED;
-            this.nwR.value = t;
+            this.nwW.value = t;
             subscribeNext();
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
             this.d = DisposableHelper.DISPOSED;
-            this.nwR.error = th;
+            this.nwW.error = th;
             subscribeNext();
         }
 
@@ -69,7 +69,7 @@ public final class MaybeDelayOtherPublisher<T, U> extends io.reactivex.internal.
         }
 
         void subscribeNext() {
-            this.nwS.subscribe(this.nwR);
+            this.nwX.subscribe(this.nwW);
         }
     }
 

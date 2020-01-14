@@ -110,8 +110,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                             }
                             FrsLoadMoreModel.this.a((LoadMoreResponseSocketMessage) responsedMessage);
                         }
-                        if (!TextUtils.isEmpty(FrsLoadMoreModel.this.gEl.getForumName()) && r.cAV().cAP() != null) {
-                            r.cAV().cAP().g(FrsLoadMoreModel.this.gEl.getForumName(), 2, false);
+                        if (!TextUtils.isEmpty(FrsLoadMoreModel.this.gEl.getForumName()) && r.cAX().cAR() != null) {
+                            r.cAX().cAR().g(FrsLoadMoreModel.this.gEl.getForumName(), 2, false);
                         }
                         FrsLoadMoreModel.this.loadIndex++;
                     }
@@ -185,8 +185,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     private void a(String str, LoadMoreRequestMessage loadMoreRequestMessage) {
-        if (r.cAV().cAP() != null) {
-            loadMoreRequestMessage.setLoadCount(r.cAV().cAP().ay(str, false) + 1);
+        if (r.cAX().cAR() != null) {
+            loadMoreRequestMessage.setLoadCount(r.cAX().cAR().ay(str, false) + 1);
         }
     }
 

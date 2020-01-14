@@ -21,12 +21,12 @@ import org.a.d;
 public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
     final ErrorMode errorMode;
     final h<? super T, ? extends e> mapper;
-    final g<T> nvK;
+    final g<T> nvP;
     final int prefetch;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        this.nvK.a((j) new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
+        this.nvP.a((j) new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
     }
 
     /* loaded from: classes5.dex */

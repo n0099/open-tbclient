@@ -29,28 +29,28 @@ public final class b implements TypeAdapterFactory {
 
     /* loaded from: classes5.dex */
     private static final class a<E> extends TypeAdapter<Collection<E>> {
-        private final TypeAdapter<E> mKy;
-        private final com.google.gson.internal.f<? extends Collection<E>> mKz;
+        private final TypeAdapter<E> mKD;
+        private final com.google.gson.internal.f<? extends Collection<E>> mKE;
 
         public a(Gson gson, Type type, TypeAdapter<E> typeAdapter, com.google.gson.internal.f<? extends Collection<E>> fVar) {
-            this.mKy = new m(gson, typeAdapter, type);
-            this.mKz = fVar;
+            this.mKD = new m(gson, typeAdapter, type);
+            this.mKE = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: b */
         public Collection<E> read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.dzJ() == JsonToken.NULL) {
-                aVar.dzO();
+            if (aVar.dzL() == JsonToken.NULL) {
+                aVar.dzQ();
                 return null;
             }
-            Collection<E> construct = this.mKz.construct();
-            aVar.dzF();
+            Collection<E> construct = this.mKE.construct();
+            aVar.dzH();
             while (aVar.hasNext()) {
-                construct.add(this.mKy.read(aVar));
+                construct.add(this.mKD.read(aVar));
             }
-            aVar.dzG();
+            aVar.dzI();
             return construct;
         }
 
@@ -59,14 +59,14 @@ public final class b implements TypeAdapterFactory {
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                bVar.dzY();
+                bVar.dAa();
                 return;
             }
-            bVar.dzU();
+            bVar.dzW();
             for (E e : collection) {
-                this.mKy.write(bVar, e);
+                this.mKD.write(bVar, e);
             }
-            bVar.dzV();
+            bVar.dzX();
         }
     }
 }

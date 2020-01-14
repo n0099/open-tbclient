@@ -17,11 +17,11 @@ public class b {
     private k iLZ;
     private int iSO;
     private int iSP;
-    private TextView iZu;
-    private TextView iZv;
+    private TextView iZA;
+    private TextView iZz;
     private View mRootView;
     private int iLX = 0;
-    private int iZw = 0;
+    private int iZB = 0;
     private View.OnClickListener iMc = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -30,8 +30,8 @@ public class b {
             }
             if (j.isNetWorkAvailable()) {
                 if (view == null || !(view.getTag() instanceof Boolean) || ((Boolean) view.getTag()).booleanValue()) {
-                    if (view != b.this.iZu) {
-                        if (view == b.this.iZv) {
+                    if (view != b.this.iZz) {
+                        if (view == b.this.iZA) {
                             b.this.setSelection(1);
                             return;
                         }
@@ -54,10 +54,10 @@ public class b {
     public b(View view) {
         if (view != null) {
             this.mRootView = view;
-            this.iZu = (TextView) this.mRootView.findViewById(R.id.all_reply);
-            this.iZu.setOnClickListener(this.iMc);
-            this.iZv = (TextView) this.mRootView.findViewById(R.id.owner_reply);
-            this.iZv.setOnClickListener(this.iMc);
+            this.iZz = (TextView) this.mRootView.findViewById(R.id.all_reply);
+            this.iZz.setOnClickListener(this.iMc);
+            this.iZA = (TextView) this.mRootView.findViewById(R.id.owner_reply);
+            this.iZA.setOnClickListener(this.iMc);
             this.iLM = (TextView) this.mRootView.findViewById(R.id.pb_sort_type);
             this.iLM.setOnClickListener(this.iMd);
             if (com.baidu.tbadk.util.a.aPt().aGI()) {
@@ -70,17 +70,17 @@ public class b {
     }
 
     public void setSelection(int i) {
-        this.iZw = i;
+        this.iZB = i;
         if (i == 0) {
-            this.iZu.setTypeface(Typeface.defaultFromStyle(1));
-            this.iZv.setTypeface(Typeface.defaultFromStyle(0));
-            this.iZu.setTextColor(this.iSP);
-            this.iZv.setTextColor(this.iSO);
+            this.iZz.setTypeface(Typeface.defaultFromStyle(1));
+            this.iZA.setTypeface(Typeface.defaultFromStyle(0));
+            this.iZz.setTextColor(this.iSP);
+            this.iZA.setTextColor(this.iSO);
         } else if (i == 1) {
-            this.iZu.setTypeface(Typeface.defaultFromStyle(0));
-            this.iZv.setTypeface(Typeface.defaultFromStyle(1));
-            this.iZu.setTextColor(this.iSO);
-            this.iZv.setTextColor(this.iSP);
+            this.iZz.setTypeface(Typeface.defaultFromStyle(0));
+            this.iZA.setTypeface(Typeface.defaultFromStyle(1));
+            this.iZz.setTextColor(this.iSO);
+            this.iZA.setTextColor(this.iSP);
         }
     }
 
@@ -88,7 +88,7 @@ public class b {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_h);
         this.iSP = am.getColor(R.color.cp_cont_b);
         this.iSO = am.getColor(R.color.cp_cont_j);
-        setSelection(this.iZw);
+        setSelection(this.iZB);
         am.setViewTextColor(this.iLM, (int) R.color.cp_cont_j);
         this.iLM.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aEp().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null);
     }
@@ -119,17 +119,17 @@ public class b {
         this.iLZ = kVar;
         if (kVar != null) {
             if (kVar.zN == k.iAI) {
-                this.iZu.setClickable(true);
-                this.iZu.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-                this.iZv.setVisibility(0);
+                this.iZz.setClickable(true);
+                this.iZz.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+                this.iZA.setVisibility(0);
                 qb(kVar.iAN);
                 aV(kVar.sortType, kVar.iAM);
             }
             if (kVar.isDynamic) {
-                this.iZv.setVisibility(8);
+                this.iZA.setVisibility(8);
                 this.iLM.setVisibility(8);
             } else {
-                this.iZv.setVisibility(0);
+                this.iZA.setVisibility(0);
                 this.iLM.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

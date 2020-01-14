@@ -7,21 +7,21 @@ import dalvik.system.DexClassLoader;
 /* loaded from: classes4.dex */
 public class d {
     public AssetManager assetManager;
-    public String nTO = dOq();
-    public DexClassLoader nTP;
+    public String nTT = dOs();
+    public DexClassLoader nTU;
     public PackageInfo packageInfo;
     public String packageName;
     public Resources resources;
 
     public d(DexClassLoader dexClassLoader, Resources resources, PackageInfo packageInfo) {
         this.packageName = packageInfo.packageName;
-        this.nTP = dexClassLoader;
+        this.nTU = dexClassLoader;
         this.assetManager = resources.getAssets();
         this.resources = resources;
         this.packageInfo = packageInfo;
     }
 
-    private final String dOq() {
+    private final String dOs() {
         return (this.packageInfo.activities == null || this.packageInfo.activities.length <= 0) ? "" : this.packageInfo.activities[0].name;
     }
 }

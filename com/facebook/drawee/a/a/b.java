@@ -9,62 +9,62 @@ import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class b {
     @Nullable
-    private final ImmutableList<com.facebook.imagepipeline.f.a> lIW;
+    private final ImmutableList<com.facebook.imagepipeline.f.a> lJb;
     @Nullable
-    private final g lIX;
-    private final j<Boolean> lIY;
+    private final g lJc;
+    private final j<Boolean> lJd;
 
     private b(a aVar) {
         ImmutableList<com.facebook.imagepipeline.f.a> immutableList;
         j<Boolean> aS;
-        if (aVar.lIZ == null) {
+        if (aVar.lJe == null) {
             immutableList = null;
         } else {
-            immutableList = ImmutableList.copyOf(aVar.lIZ);
+            immutableList = ImmutableList.copyOf(aVar.lJe);
         }
-        this.lIW = immutableList;
-        if (aVar.lIY == null) {
+        this.lJb = immutableList;
+        if (aVar.lJd == null) {
             aS = k.aS(false);
         } else {
-            aS = aVar.lIY;
+            aS = aVar.lJd;
         }
-        this.lIY = aS;
-        this.lIX = aVar.lIX;
+        this.lJd = aS;
+        this.lJc = aVar.lJc;
     }
 
     @Nullable
-    public ImmutableList<com.facebook.imagepipeline.f.a> dkc() {
-        return this.lIW;
+    public ImmutableList<com.facebook.imagepipeline.f.a> dke() {
+        return this.lJb;
     }
 
     @Nullable
-    public g dkd() {
-        return this.lIX;
+    public g dkf() {
+        return this.lJc;
     }
 
-    public static a dke() {
+    public static a dkg() {
         return new a();
     }
 
-    public j<Boolean> dkf() {
-        return this.lIY;
+    public j<Boolean> dkh() {
+        return this.lJd;
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        private g lIX;
-        private j<Boolean> lIY;
-        private List<com.facebook.imagepipeline.f.a> lIZ;
+        private g lJc;
+        private j<Boolean> lJd;
+        private List<com.facebook.imagepipeline.f.a> lJe;
 
         public a a(com.facebook.imagepipeline.f.a aVar) {
-            if (this.lIZ == null) {
-                this.lIZ = new ArrayList();
+            if (this.lJe == null) {
+                this.lJe = new ArrayList();
             }
-            this.lIZ.add(aVar);
+            this.lJe.add(aVar);
             return this;
         }
 
-        public b dkg() {
+        public b dki() {
             return new b(this);
         }
     }

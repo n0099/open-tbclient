@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes5.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State nAU = State.NotReady;
-    private T nAV;
+    private State nAZ = State.NotReady;
+    private T nBa;
 
-    protected abstract void dIO();
+    protected abstract void dIQ();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +16,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.nAU != State.Failed) {
-            switch (this.nAU) {
+        if (this.nAZ != State.Failed) {
+            switch (this.nAZ) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return dIN();
+                    return dIP();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.nAU = State.NotReady;
-            return this.nAV;
+            this.nAZ = State.NotReady;
+            return this.nBa;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean dIN() {
-        this.nAU = State.Failed;
-        dIO();
-        return this.nAU == State.Ready;
+    private final boolean dIP() {
+        this.nAZ = State.Failed;
+        dIQ();
+        return this.nAZ == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bQ(T t) {
-        this.nAV = t;
-        this.nAU = State.Ready;
+        this.nBa = t;
+        this.nAZ = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.nAU = State.Done;
+        this.nAZ = State.Done;
     }
 }

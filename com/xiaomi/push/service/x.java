@@ -14,14 +14,14 @@ public final class x extends bc.a {
     final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ k f939a;
+    final /* synthetic */ k f940a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(String str, long j, XMPushService xMPushService, k kVar) {
         super(str, j);
         this.a = xMPushService;
-        this.f939a = kVar;
+        this.f940a = kVar;
     }
 
     @Override // com.xiaomi.push.service.bc.a
@@ -34,11 +34,11 @@ public final class x extends bc.a {
         }
         bcVar.a("GAID", "gaid", b);
         Cif cif = new Cif();
-        cif.b(this.f939a.d);
-        cif.c(hq.ClientInfoUpdate.f492a);
+        cif.b(this.f940a.d);
+        cif.c(hq.ClientInfoUpdate.f493a);
         cif.a(aj.a());
         cif.a(new HashMap());
         cif.m411a().put("gaid", b);
-        this.a.a(this.a.getPackageName(), iq.a(w.a(this.a.getPackageName(), this.f939a.d, cif, hg.Notification)), true);
+        this.a.a(this.a.getPackageName(), iq.a(w.a(this.a.getPackageName(), this.f940a.d, cif, hg.Notification)), true);
     }
 }

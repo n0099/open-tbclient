@@ -8,8 +8,8 @@ import java.io.RandomAccessFile;
 public final class FileDataSource implements e {
     private long bytesRemaining;
     private RandomAccessFile file;
-    private final q<? super FileDataSource> mEV;
-    private boolean mEW;
+    private final q<? super FileDataSource> mFa;
+    private boolean mFb;
     private Uri uri;
 
     /* loaded from: classes5.dex */
@@ -24,7 +24,7 @@ public final class FileDataSource implements e {
     }
 
     public FileDataSource(q<? super FileDataSource> qVar) {
-        this.mEV = qVar;
+        this.mFa = qVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
@@ -37,9 +37,9 @@ public final class FileDataSource implements e {
             if (this.bytesRemaining < 0) {
                 throw new EOFException();
             }
-            this.mEW = true;
-            if (this.mEV != null) {
-                this.mEV.a(this, gVar);
+            this.mFb = true;
+            if (this.mFa != null) {
+                this.mFa.a(this, gVar);
             }
             return this.bytesRemaining;
         } catch (IOException e) {
@@ -59,8 +59,8 @@ public final class FileDataSource implements e {
             int read = this.file.read(bArr, i, (int) Math.min(this.bytesRemaining, i2));
             if (read > 0) {
                 this.bytesRemaining -= read;
-                if (this.mEV != null) {
-                    this.mEV.h(this, read);
+                if (this.mFa != null) {
+                    this.mFa.h(this, read);
                     return read;
                 }
                 return read;
@@ -89,10 +89,10 @@ public final class FileDataSource implements e {
             }
         } finally {
             this.file = null;
-            if (this.mEW) {
-                this.mEW = false;
-                if (this.mEV != null) {
-                    this.mEV.bz(this);
+            if (this.mFb) {
+                this.mFb = false;
+                if (this.mFa != null) {
+                    this.mFa.bz(this);
                 }
             }
         }

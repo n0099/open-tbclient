@@ -10,7 +10,7 @@ import java.net.URLDecoder;
 public final class d implements e {
     private byte[] data;
     private g dataSpec;
-    private int mlM;
+    private int mlR;
 
     @Override // com.google.android.exoplayer2.upstream.e
     public long a(g gVar) throws IOException {
@@ -42,13 +42,13 @@ public final class d implements e {
         if (i2 == 0) {
             return 0;
         }
-        int length = this.data.length - this.mlM;
+        int length = this.data.length - this.mlR;
         if (length == 0) {
             return -1;
         }
         int min = Math.min(i2, length);
-        System.arraycopy(this.data, this.mlM, bArr, i, min);
-        this.mlM += min;
+        System.arraycopy(this.data, this.mlR, bArr, i, min);
+        this.mlR += min;
         return min;
     }
 

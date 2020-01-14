@@ -15,9 +15,9 @@ import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private ArrayList<MuteUser> cRO;
-    private b jUp;
-    private InterfaceC0596a jUq;
-    private SimpleDateFormat jUs = new SimpleDateFormat("yyyy.MM.dd");
+    private b jUu;
+    private InterfaceC0596a jUv;
+    private SimpleDateFormat jUx = new SimpleDateFormat("yyyy.MM.dd");
     private BaseActivity mActivity;
 
     /* renamed from: com.baidu.tieba.setting.usermutelist.a$a  reason: collision with other inner class name */
@@ -33,8 +33,8 @@ public class a extends BaseAdapter {
 
     public a(BaseActivity baseActivity, b bVar, InterfaceC0596a interfaceC0596a) {
         this.mActivity = baseActivity;
-        this.jUp = bVar;
-        this.jUq = interfaceC0596a;
+        this.jUu = bVar;
+        this.jUv = interfaceC0596a;
     }
 
     public void setData(ArrayList<MuteUser> arrayList) {
@@ -84,44 +84,44 @@ public class a extends BaseAdapter {
             cVar = new c();
             cVar.rootView = LayoutInflater.from(this.mActivity.getPageContext().getContext()).inflate(R.layout.user_mute_list_item, (ViewGroup) null);
             cVar.fqi = (TextView) cVar.rootView.findViewById(R.id.item_user_name);
-            cVar.jUw = (TextView) cVar.rootView.findViewById(R.id.item_mute_terminate_time);
-            cVar.jUx = (TextView) cVar.rootView.findViewById(R.id.item_remove_button);
-            cVar.jUv = (HeadImageView) cVar.rootView.findViewById(R.id.item_header_view);
+            cVar.jUB = (TextView) cVar.rootView.findViewById(R.id.item_mute_terminate_time);
+            cVar.jUC = (TextView) cVar.rootView.findViewById(R.id.item_remove_button);
+            cVar.jUA = (HeadImageView) cVar.rootView.findViewById(R.id.item_header_view);
             cVar.rootView.setTag(cVar);
-            cVar.jUx.setTag(Integer.valueOf(i));
-            cVar.jUv.setTag(Integer.valueOf(i));
+            cVar.jUC.setTag(Integer.valueOf(i));
+            cVar.jUA.setTag(Integer.valueOf(i));
             cVar.fqi.setTag(Integer.valueOf(i));
         } else {
             cVar = (c) obj;
         }
-        cVar.jUx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.1
+        cVar.jUC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.jUp != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.jUp.t(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.jUu != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.jUu.t(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
-        cVar.jUv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.2
+        cVar.jUA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.jUq != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.jUq.u(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.jUv != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.jUv.u(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
         cVar.fqi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.jUq != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.jUq.u(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.jUv != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.jUv.u(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
         String str = muteUser.portrait;
         if (str != null) {
-            cVar.jUv.setTag(str);
-            cVar.jUv.startLoad(str, 12, false);
+            cVar.jUA.setTag(str);
+            cVar.jUA.startLoad(str, 12, false);
         }
         if (muteUser.name_show != null) {
             cVar.fqi.setText(muteUser.name_show);
@@ -129,10 +129,10 @@ public class a extends BaseAdapter {
             cVar.fqi.setText(muteUser.user_name);
         }
         if (muteUser.mute_time != null) {
-            cVar.jUw.setText(this.mActivity.getResources().getString(R.string.auto_terminate_mute_time, this.jUs.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
+            cVar.jUB.setText(this.mActivity.getResources().getString(R.string.auto_terminate_mute_time, this.jUx.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
         }
         if (muteUser.user_id != null) {
-            cVar.jUx.setTag(muteUser.user_id);
+            cVar.jUC.setTag(muteUser.user_id);
         }
         this.mActivity.getLayoutMode().onModeChanged(cVar.rootView);
         return cVar;
@@ -142,9 +142,9 @@ public class a extends BaseAdapter {
     /* loaded from: classes11.dex */
     public class c {
         TextView fqi;
-        HeadImageView jUv;
-        TextView jUw;
-        TextView jUx;
+        HeadImageView jUA;
+        TextView jUB;
+        TextView jUC;
         View rootView;
 
         private c() {

@@ -35,13 +35,13 @@ public class ap {
     }
 
     public static boolean o(PostData postData) {
-        if (postData == null || postData.cJG() == null) {
+        if (postData == null || postData.cJI() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.i cJG = postData.cJG();
-        if (cJG.keU) {
-            int cJe = cJG.cJe();
-            return cJe == 2 || cJe == 1 || cJe == 3;
+        com.baidu.tieba.tbadkCore.data.i cJI = postData.cJI();
+        if (cJI.keZ) {
+            int cJg = cJI.cJg();
+            return cJg == 2 || cJg == 1 || cJg == 3;
         }
         return false;
     }

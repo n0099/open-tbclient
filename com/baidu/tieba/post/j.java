@@ -11,11 +11,11 @@ public class j implements com.baidu.tieba.j.h {
 
     /* loaded from: classes8.dex */
     private static class a {
-        private static final com.baidu.tieba.j.h jzD = new j();
+        private static final com.baidu.tieba.j.h jzI = new j();
     }
 
-    public static com.baidu.tieba.j.h cyJ() {
-        return a.jzD;
+    public static com.baidu.tieba.j.h cyL() {
+        return a.jzI;
     }
 
     private j() {
@@ -29,38 +29,38 @@ public class j implements com.baidu.tieba.j.h {
 
     @Override // com.baidu.tieba.j.h
     public void aP(int i, String str) {
-        cyK().p(this.mUuid, i, str);
+        cyM().p(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void aQ(int i, String str) {
-        cyK().q(this.mUuid, i, str);
+        cyM().q(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void aR(int i, String str) {
-        cyK().r(this.mUuid, i, str);
+        cyM().r(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void ceV() {
-        cyK().EG(this.mUuid);
+        cyM().EG(this.mUuid);
     }
 
     @Override // com.baidu.tieba.j.h
     public void l(int i, int i2, String str) {
-        cyK().e(this.mUuid, i, i2, str);
+        cyM().e(this.mUuid, i, i2, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void ceW() {
-        cyK().EH(this.mUuid);
+        cyM().EH(this.mUuid);
         eE(this.mUuid);
     }
 
     @Override // com.baidu.tieba.j.h
     public void aS(int i, String str) {
-        cyK().s(this.mUuid, i, str);
+        cyM().s(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
@@ -73,7 +73,7 @@ public class j implements com.baidu.tieba.j.h {
                 this.cQ.remove(this.mUuid);
             }
             ceU();
-            cyK().dM(this.inT, str);
+            cyM().dM(this.inT, str);
             this.inT = null;
         }
     }
@@ -85,7 +85,7 @@ public class j implements com.baidu.tieba.j.h {
 
     @Override // com.baidu.tieba.j.h
     public void EL(String str) {
-        cyK().dN(this.mUuid, str);
+        cyM().dN(this.mUuid, str);
         if (EI(this.mUuid) || EJ(this.mUuid)) {
             eE(this.mUuid);
         } else {
@@ -96,11 +96,11 @@ public class j implements com.baidu.tieba.j.h {
     }
 
     public boolean EI(String str) {
-        return cyK().EI(str);
+        return cyM().EI(str);
     }
 
     public boolean EJ(String str) {
-        return cyK().EJ(str);
+        return cyM().EJ(str);
     }
 
     public void eE(String str) {
@@ -111,15 +111,15 @@ public class j implements com.baidu.tieba.j.h {
         }
     }
 
-    private com.baidu.tieba.j.f cyK() {
+    private com.baidu.tieba.j.f cyM() {
         com.baidu.tieba.j.f fVar = this.cQ.get(this.mUuid);
         if (fVar == null) {
-            return cyL();
+            return cyN();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.j.f cyL() {
+    private com.baidu.tieba.j.f cyN() {
         i iVar = new i(this.mUuid);
         this.cQ.put(this.mUuid, iVar);
         return iVar;

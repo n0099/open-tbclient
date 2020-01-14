@@ -61,7 +61,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.aGW().showToast((int) R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.cRM();
+                                aVar.cRO();
                                 if (b.this.a(aVar.aGW(), 11001)) {
                                     aVar.aMQ();
                                     return;

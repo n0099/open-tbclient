@@ -32,6 +32,6 @@ public final class c {
     }
 
     private static String c(b bVar) throws UnsupportedEncodingException {
-        return com.facebook.common.util.b.ag(bVar.diD().getBytes("UTF-8"));
+        return com.facebook.common.util.b.ag(bVar.diF().getBytes("UTF-8"));
     }
 }

@@ -13,14 +13,14 @@ import java.util.Map;
 public class a {
     private final AssetManager assetManager;
     @Nullable
-    private com.tb.airbnb.lottie.a npQ;
-    private final h<String> npP = new h<>();
+    private com.tb.airbnb.lottie.a npV;
+    private final h<String> npU = new h<>();
     private final Map<h<String>, Typeface> hc = new HashMap();
     private final Map<String, Typeface> hd = new HashMap();
     private String hg = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.tb.airbnb.lottie.a aVar) {
-        this.npQ = aVar;
+        this.npV = aVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
             this.assetManager = null;
@@ -30,15 +30,15 @@ public class a {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.a aVar) {
-        this.npQ = aVar;
+        this.npV = aVar;
     }
 
     public Typeface g(String str, String str2) {
-        this.npP.set(str, str2);
-        Typeface typeface = this.hc.get(this.npP);
+        this.npU.set(str, str2);
+        Typeface typeface = this.hc.get(this.npU);
         if (typeface == null) {
             Typeface a = a(M(str), str2);
-            this.hc.put(this.npP, a);
+            this.hc.put(this.npU, a);
             return a;
         }
         return typeface;
@@ -49,10 +49,10 @@ public class a {
         Typeface typeface = this.hd.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.npQ != null) {
-                typeface = this.npQ.D(str);
+            if (this.npV != null) {
+                typeface = this.npV.D(str);
             }
-            if (this.npQ != null && typeface == null && (E = this.npQ.E(str)) != null) {
+            if (this.npV != null && typeface == null && (E = this.npV.E(str)) != null) {
                 typeface = Typeface.createFromAsset(this.assetManager, E);
             }
             if (typeface == null) {

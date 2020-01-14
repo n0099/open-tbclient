@@ -5,35 +5,35 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 abstract class b<E> extends AbstractQueue<E> {
-    private final AtomicReference<LinkedQueueNode<E>> nya = new AtomicReference<>();
-    private final AtomicReference<LinkedQueueNode<E>> nyb = new AtomicReference<>();
-
-    protected final LinkedQueueNode<E> dNt() {
-        return this.nya.get();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> dNu() {
-        return this.nya.get();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(LinkedQueueNode<E> linkedQueueNode) {
-        this.nya.lazySet(linkedQueueNode);
-    }
+    private final AtomicReference<LinkedQueueNode<E>> nyf = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<E>> nyg = new AtomicReference<>();
 
     protected final LinkedQueueNode<E> dNv() {
-        return this.nyb.get();
+        return this.nyf.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final LinkedQueueNode<E> dNw() {
-        return this.nyb.get();
+        return this.nyf.get();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void a(LinkedQueueNode<E> linkedQueueNode) {
+        this.nyf.lazySet(linkedQueueNode);
+    }
+
+    protected final LinkedQueueNode<E> dNx() {
+        return this.nyg.get();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final LinkedQueueNode<E> dNy() {
+        return this.nyg.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(LinkedQueueNode<E> linkedQueueNode) {
-        this.nyb.lazySet(linkedQueueNode);
+        this.nyg.lazySet(linkedQueueNode);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -44,21 +44,21 @@ abstract class b<E> extends AbstractQueue<E> {
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
         LinkedQueueNode<E> lvNext;
+        LinkedQueueNode<E> dNx = dNx();
         LinkedQueueNode<E> dNv = dNv();
-        LinkedQueueNode<E> dNt = dNt();
         int i = 0;
-        while (dNv != dNt && i < Integer.MAX_VALUE) {
+        while (dNx != dNv && i < Integer.MAX_VALUE) {
             do {
-                lvNext = dNv.lvNext();
+                lvNext = dNx.lvNext();
             } while (lvNext == null);
             i++;
-            dNv = lvNext;
+            dNx = lvNext;
         }
         return i;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final boolean isEmpty() {
-        return dNv() == dNt();
+        return dNx() == dNv();
     }
 }

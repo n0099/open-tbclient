@@ -17,7 +17,7 @@ public class JSONObjectAdapter extends TypeAdapter<JSONObject> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public JSONObject read(a aVar) throws IOException {
-        if (aVar.dzJ() == JsonToken.BEGIN_OBJECT) {
+        if (aVar.dzL() == JsonToken.BEGIN_OBJECT) {
             return JSONParser.readJSONObject(aVar);
         }
         return null;

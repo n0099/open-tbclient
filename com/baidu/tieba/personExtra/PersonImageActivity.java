@@ -30,11 +30,11 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     private String hpn;
     private Context mContext;
     private ProgressBar mProgress = null;
-    private a jkN = null;
+    private a jkS = null;
     private MultiImageView hpi = null;
     private View.OnClickListener mOnClickListener = null;
     private View.OnLongClickListener mOnLongClickListener = null;
-    private b.a jkO = null;
+    private b.a jkT = null;
     private BaseViewPager.a hpj = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -101,9 +101,9 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public void onDestroy() {
         TbadkCoreApplication.getInst().delRemoteActivity(this);
         this.hpi.onDestroy();
-        if (this.jkN != null) {
-            this.jkN.cancel();
-            this.jkN = null;
+        if (this.jkS != null) {
+            this.jkS.cancel();
+            this.jkS = null;
         }
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
@@ -130,12 +130,12 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         this.mOnLongClickListener = new View.OnLongClickListener() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.2
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                PersonImageActivity.this.createListMenu(new String[]{PersonImageActivity.this.getPageContext().getString(R.string.save)}, PersonImageActivity.this.jkO);
+                PersonImageActivity.this.createListMenu(new String[]{PersonImageActivity.this.getPageContext().getString(R.string.save)}, PersonImageActivity.this.jkT);
                 PersonImageActivity.this.showListMenu();
                 return false;
             }
         };
-        this.jkO = new b.a() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.3
+        this.jkT = new b.a() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.3
             @Override // com.baidu.tbadk.core.dialog.b.a
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar == PersonImageActivity.this.getListMenu()) {
@@ -144,8 +144,8 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                             byte[] currentImageData = PersonImageActivity.this.hpi.getCurrentImageData();
                             if (currentImageData != null) {
                                 String currentImageUrl = PersonImageActivity.this.hpi.getCurrentImageUrl();
-                                PersonImageActivity.this.jkN = new a(currentImageUrl, currentImageData);
-                                PersonImageActivity.this.jkN.execute(new String[0]);
+                                PersonImageActivity.this.jkS = new a(currentImageUrl, currentImageData);
+                                PersonImageActivity.this.jkS.execute(new String[0]);
                                 PersonImageActivity.this.mProgress.setVisibility(0);
                             } else {
                                 PersonImageActivity.this.showToast(PersonImageActivity.this.getPageContext().getString(R.string.no_data));
@@ -236,7 +236,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
             PersonImageActivity.this.showToast(str);
-            PersonImageActivity.this.jkN = null;
+            PersonImageActivity.this.jkS = null;
             PersonImageActivity.this.mProgress.setVisibility(8);
         }
 
@@ -248,7 +248,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            PersonImageActivity.this.jkN = null;
+            PersonImageActivity.this.jkS = null;
             PersonImageActivity.this.mProgress.setVisibility(8);
             super.cancel(true);
         }

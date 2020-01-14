@@ -18,11 +18,11 @@ public class b implements e {
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0588b {
-        private static b jFf = new b();
+        private static b jFk = new b();
     }
 
-    public static b cAW() {
-        return C0588b.jFf;
+    public static b cAY() {
+        return C0588b.jFk;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {

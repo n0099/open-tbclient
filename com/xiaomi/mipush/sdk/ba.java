@@ -22,13 +22,13 @@ public class ba extends ContentObserver {
         Context context2;
         Context context3;
         ay ayVar = this.a;
-        context = this.a.f49a;
-        ayVar.f53a = Integer.valueOf(com.xiaomi.push.service.as.a(context).a());
-        num = this.a.f53a;
+        context = this.a.f50a;
+        ayVar.f54a = Integer.valueOf(com.xiaomi.push.service.as.a(context).a());
+        num = this.a.f54a;
         if (num.intValue() != 0) {
-            context2 = this.a.f49a;
+            context2 = this.a.f50a;
             context2.getContentResolver().unregisterContentObserver(this);
-            context3 = this.a.f49a;
+            context3 = this.a.f50a;
             if (com.xiaomi.push.as.b(context3)) {
                 this.a.m75c();
             }

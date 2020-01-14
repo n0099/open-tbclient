@@ -102,8 +102,8 @@ public class s extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bi>> implemen
                         com.baidu.tieba.frs.d.c.bIf().a(s.this.gun, biVar.cNb, 1);
                     } else {
                         int i = 6;
-                        if (biVar.cNb.aBx() != null && biVar.cNb.aBx().cJz() != null && biVar.cNb.aBx().cJz().aRz() != null && biVar.cNb.aBx().cJz().aRz().size() > 0) {
-                            i = biVar.cNb.aBx().kfT ? 9 : 8;
+                        if (biVar.cNb.aBx() != null && biVar.cNb.aBx().cJB() != null && biVar.cNb.aBx().cJB().aRz() != null && biVar.cNb.aBx().cJB().aRz().size() > 0) {
+                            i = biVar.cNb.aBx().kfY ? 9 : 8;
                         }
                         com.baidu.tieba.frs.d.c.bIf().a(s.this.gun, biVar.cNb, i);
                     }

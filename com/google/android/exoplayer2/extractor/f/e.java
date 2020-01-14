@@ -10,7 +10,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class e implements w.c {
     private final int flags;
-    private final List<Format> mma;
+    private final List<Format> mmf;
 
     public e() {
         this(0);
@@ -25,11 +25,11 @@ public final class e implements w.c {
         if (!isSet(32) && list.isEmpty()) {
             list = Collections.singletonList(Format.a(null, "application/cea-608", 0, null));
         }
-        this.mma = list;
+        this.mmf = list;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.w.c
-    public SparseArray<w> duh() {
+    public SparseArray<w> duj() {
         return new SparseArray<>();
     }
 
@@ -61,7 +61,7 @@ public final class e implements w.c {
             case 36:
                 return new p(new k(a(bVar)));
             case 89:
-                return new p(new g(bVar.moo));
+                return new p(new g(bVar.mot));
             case 129:
             case 135:
                 return new p(new b(bVar.language));
@@ -82,11 +82,11 @@ public final class e implements w.c {
         String str;
         int i;
         if (isSet(32)) {
-            return new t(this.mma);
+            return new t(this.mmf);
         }
-        com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(bVar.mop);
-        List<Format> list = this.mma;
-        while (lVar.dyf() > 0) {
+        com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(bVar.mou);
+        List<Format> list = this.mmf;
+        while (lVar.dyh() > 0) {
             int readUnsignedByte = lVar.readUnsignedByte();
             int position = lVar.getPosition() + lVar.readUnsignedByte();
             if (readUnsignedByte == 134) {

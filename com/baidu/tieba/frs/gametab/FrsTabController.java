@@ -869,7 +869,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
                 int intExtra = intent.getIntExtra("extra_share_status", 2);
                 int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
                 if (intExtra == 1) {
-                    com.baidu.tieba.n.a.cAA().A(this.gCn.getPageContext());
+                    com.baidu.tieba.n.a.cAC().A(this.gCn.getPageContext());
                     ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                     if (shareItem != null && shareItem.linkUrl != null && this.gCs != null) {
                         this.gCs.a(shareItem.linkUrl, intExtra2, new ShareSuccessReplyToServerModel.a() { // from class: com.baidu.tieba.frs.gametab.FrsTabController.11
@@ -892,7 +892,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
                     }
                 }
             } else if (i == 13011) {
-                com.baidu.tieba.n.a.cAA().A(this.gCn.getPageContext());
+                com.baidu.tieba.n.a.cAC().A(this.gCn.getPageContext());
             }
         }
     }

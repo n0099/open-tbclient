@@ -100,7 +100,7 @@ public class o extends com.baidu.tieba.frs.h<bi, c<com.baidu.tieba.frs.entelechy
             yVar.OG = bjVar.getTid();
             yVar.mAbTag = bjVar.mRecomAbTag;
             if (bjVar.aAo() != null) {
-                yVar.jvN = bjVar.aAo().video_md5;
+                yVar.jvS = bjVar.aAo().video_md5;
             }
             bjVar.aBh();
         }

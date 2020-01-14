@@ -10,7 +10,7 @@ public interface AudioSink {
     public interface a {
         void EP(int i);
 
-        void dsH();
+        void dsJ();
 
         void i(int i, long j, long j2);
     }
@@ -31,15 +31,15 @@ public interface AudioSink {
 
     q d(q qVar);
 
-    q drF();
+    q drH();
 
-    void dsD();
+    void dsF();
 
-    void dsE() throws WriteException;
+    void dsG() throws WriteException;
 
-    boolean dsF();
+    boolean dsH();
 
-    void dsG();
+    void dsI();
 
     void pause();
 

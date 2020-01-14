@@ -79,7 +79,7 @@ public final class CombinedContext implements Serializable, c {
     }
 
     private final boolean contains(c.b bVar) {
-        return q.h(get(bVar.dJc()), bVar);
+        return q.h(get(bVar.dJe()), bVar);
     }
 
     private final boolean containsAll(CombinedContext combinedContext) {
@@ -113,7 +113,7 @@ public final class CombinedContext implements Serializable, c {
         c[] cVarArr = new c[size];
         Ref.IntRef intRef = new Ref.IntRef();
         intRef.element = 0;
-        fold(k.nAT, new CombinedContext$writeReplace$1(cVarArr, intRef));
+        fold(k.nAY, new CombinedContext$writeReplace$1(cVarArr, intRef));
         if (intRef.element == size) {
             return new Serialized(cVarArr);
         }

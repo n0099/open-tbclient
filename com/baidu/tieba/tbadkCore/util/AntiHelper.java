@@ -118,7 +118,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            cKo();
+            cKq();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -316,7 +316,7 @@ public class AntiHelper {
         }
     }
 
-    private static void cKo() {
+    private static void cKq() {
         com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP);
     }
 }

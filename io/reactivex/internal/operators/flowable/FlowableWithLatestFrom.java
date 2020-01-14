@@ -16,7 +16,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
         this.other.subscribe(new a(withLatestFromSubscriber));
-        this.nvK.a((j) withLatestFromSubscriber);
+        this.nvP.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes5.dex */
@@ -97,27 +97,27 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
 
     /* loaded from: classes5.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> nwI;
+        private final WithLatestFromSubscriber<T, U, R> nwN;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.nwI = withLatestFromSubscriber;
+            this.nwN = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.nwI.setOther(dVar)) {
+            if (this.nwN.setOther(dVar)) {
                 dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.nwI.lazySet(u);
+            this.nwN.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.nwI.otherError(th);
+            this.nwN.otherError(th);
         }
 
         @Override // org.a.c

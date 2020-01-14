@@ -7,71 +7,71 @@ import tbclient.SimpleUser;
 public class a {
     private int drb;
     private int dre;
-    private int jPC;
-    private int jPD;
-    private boolean jPE;
-    private int jPF;
-    private SimpleUser jPG;
     private int jPH;
+    private int jPI;
+    private boolean jPJ;
+    private int jPK;
+    private SimpleUser jPL;
+    private int jPM;
 
-    public boolean cDh() {
+    public boolean cDj() {
         com.baidu.tbadk.core.sharedPref.b aDr = com.baidu.tbadk.core.sharedPref.b.aDr();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.jPC = aDr.getInt("post" + currentAccount, 0);
-        this.jPD = aDr.getInt("like" + currentAccount, 0);
+        this.jPH = aDr.getInt("post" + currentAccount, 0);
+        this.jPI = aDr.getInt("like" + currentAccount, 0);
         this.drb = aDr.getInt(TbEnum.ParamKey.GROUP + currentAccount, 0);
         this.dre = aDr.getInt("live" + currentAccount, 0);
-        this.jPF = aDr.getInt("reply" + currentAccount, 1);
-        this.jPE = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.jPC == 0 && this.jPD == 0 && this.drb == 0 && this.dre == 0 && this.jPF == 1) ? false : true;
+        this.jPK = aDr.getInt("reply" + currentAccount, 1);
+        this.jPJ = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.jPH == 0 && this.jPI == 0 && this.drb == 0 && this.dre == 0 && this.jPK == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.jPC = aVar.jPC;
-            this.jPD = aVar.jPD;
-            this.drb = aVar.drb;
-            this.jPE = aVar.jPE;
-            this.dre = aVar.dre;
             this.jPH = aVar.jPH;
-            this.jPF = aVar.jPF;
+            this.jPI = aVar.jPI;
+            this.drb = aVar.drb;
+            this.jPJ = aVar.jPJ;
+            this.dre = aVar.dre;
+            this.jPM = aVar.jPM;
+            this.jPK = aVar.jPK;
         }
     }
 
-    public int cDi() {
-        return this.jPC;
+    public int cDk() {
+        return this.jPH;
     }
 
     public void br(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.aDr().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void cDj() {
+    public void cDl() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b aDr = com.baidu.tbadk.core.sharedPref.b.aDr();
-        aDr.putInt("post" + currentAccount, this.jPC);
-        aDr.putInt("like" + currentAccount, this.jPD);
+        aDr.putInt("post" + currentAccount, this.jPH);
+        aDr.putInt("like" + currentAccount, this.jPI);
         aDr.putInt(TbEnum.ParamKey.GROUP + currentAccount, this.drb);
         aDr.putInt("live" + currentAccount, this.dre);
-        aDr.putInt("reply" + currentAccount, this.jPF);
-        TbadkCoreApplication.getInst().setLocationShared(this.jPE);
+        aDr.putInt("reply" + currentAccount, this.jPK);
+        TbadkCoreApplication.getInst().setLocationShared(this.jPJ);
     }
 
     public void Bj(int i) {
-        this.jPC = i;
+        this.jPH = i;
     }
 
-    public int cDk() {
-        return this.jPD;
+    public int cDm() {
+        return this.jPI;
     }
 
     public void Bk(int i) {
         if (i <= 3 && i >= 1) {
-            this.jPD = i;
+            this.jPI = i;
         }
     }
 
-    public int cDl() {
+    public int cDn() {
         return this.dre;
     }
 
@@ -81,7 +81,7 @@ public class a {
         }
     }
 
-    public int cDm() {
+    public int cDo() {
         return this.drb;
     }
 
@@ -91,42 +91,42 @@ public class a {
         }
     }
 
-    public boolean cDn() {
-        return this.jPE;
+    public boolean cDp() {
+        return this.jPJ;
     }
 
     public void Bn(int i) {
         switch (i) {
             case 1:
-                this.jPE = true;
+                this.jPJ = true;
                 return;
             default:
-                this.jPE = false;
+                this.jPJ = false;
                 return;
         }
     }
 
     public SimpleUser aVG() {
-        return this.jPG;
+        return this.jPL;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.jPG = simpleUser;
+        this.jPL = simpleUser;
     }
 
     public void Bo(int i) {
-        this.jPH = i;
+        this.jPM = i;
     }
 
     public void Bp(int i) {
         if (i == 0) {
-            this.jPF = 1;
+            this.jPK = 1;
         } else {
-            this.jPF = i;
+            this.jPK = i;
         }
     }
 
-    public int cDo() {
-        return this.jPF;
+    public int cDq() {
+        return this.jPK;
     }
 }

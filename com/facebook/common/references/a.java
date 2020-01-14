@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes12.dex */
 public final class a<T> implements Closeable, Cloneable {
-    private static Class<a> lGm = a.class;
-    private static final c<Closeable> lHT = new c<Closeable>() { // from class: com.facebook.common.references.a.1
+    private static Class<a> lGr = a.class;
+    private static final c<Closeable> lHY = new c<Closeable>() { // from class: com.facebook.common.references.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.references.c
         /* renamed from: c */
@@ -23,17 +23,17 @@ public final class a<T> implements Closeable, Cloneable {
             }
         }
     };
-    private final SharedReference<T> lHS;
+    private final SharedReference<T> lHX;
     @GuardedBy("this")
     private boolean vi = false;
 
     private a(SharedReference<T> sharedReference) {
-        this.lHS = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.djE();
+        this.lHX = (SharedReference) g.checkNotNull(sharedReference);
+        sharedReference.djG();
     }
 
     private a(T t, c<T> cVar) {
-        this.lHS = new SharedReference<>(t, cVar);
+        this.lHX = new SharedReference<>(t, cVar);
     }
 
     /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/a<TT;>; */
@@ -41,7 +41,7 @@ public final class a<T> implements Closeable, Cloneable {
         if (closeable == null) {
             return null;
         }
-        return new a(closeable, lHT);
+        return new a(closeable, lHY);
     }
 
     public static <T> a<T> a(@PropagatesNullable T t, c<T> cVar) {
@@ -53,18 +53,18 @@ public final class a<T> implements Closeable, Cloneable {
 
     public synchronized T get() {
         g.checkState(!this.vi);
-        return this.lHS.get();
+        return this.lHX.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: djB */
+    /* renamed from: djD */
     public synchronized a<T> clone() {
         g.checkState(isValid());
-        return new a<>(this.lHS);
+        return new a<>(this.lHX);
     }
 
     @Nullable
-    public synchronized a<T> djC() {
+    public synchronized a<T> djE() {
         return isValid() ? clone() : null;
     }
 
@@ -72,9 +72,9 @@ public final class a<T> implements Closeable, Cloneable {
         return !this.vi;
     }
 
-    public int djD() {
+    public int djF() {
         if (isValid()) {
-            return System.identityHashCode(this.lHS.get());
+            return System.identityHashCode(this.lHX.get());
         }
         return 0;
     }
@@ -84,7 +84,7 @@ public final class a<T> implements Closeable, Cloneable {
         synchronized (this) {
             if (!this.vi) {
                 this.vi = true;
-                this.lHS.djF();
+                this.lHX.djH();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.djC();
+            return aVar.djE();
         }
         return null;
     }
@@ -130,7 +130,7 @@ public final class a<T> implements Closeable, Cloneable {
         try {
             synchronized (this) {
                 if (!this.vi) {
-                    com.facebook.common.c.a.c(lGm, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.lHS)), this.lHS.get().getClass().getName());
+                    com.facebook.common.c.a.c(lGr, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.lHX)), this.lHX.get().getClass().getName());
                     close();
                 }
             }

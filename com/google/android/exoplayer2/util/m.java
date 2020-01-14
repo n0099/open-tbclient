@@ -4,7 +4,7 @@ public final class m {
     private int bitOffset;
     private int byteOffset;
     private byte[] data;
-    private int mlc;
+    private int mlh;
 
     public m(byte[] bArr, int i, int i2) {
         D(bArr, i, i2);
@@ -13,19 +13,19 @@ public final class m {
     public void D(byte[] bArr, int i, int i2) {
         this.data = bArr;
         this.byteOffset = i;
-        this.mlc = i2;
+        this.mlh = i2;
         this.bitOffset = 0;
-        dtZ();
+        dub();
     }
 
-    public void dyd() {
+    public void dyf() {
         int i = this.bitOffset + 1;
         this.bitOffset = i;
         if (i == 8) {
             this.bitOffset = 0;
             this.byteOffset = (LS(this.byteOffset + 1) ? 2 : 1) + this.byteOffset;
         }
-        dtZ();
+        dub();
     }
 
     public void JP(int i) {
@@ -45,7 +45,7 @@ public final class m {
                     i2 += 2;
                 }
             } else {
-                dtZ();
+                dub();
                 return;
             }
         }
@@ -63,19 +63,19 @@ public final class m {
         int i6 = i2 + 1;
         int i7 = i4;
         int i8 = i6;
-        while (i8 <= i7 && i7 < this.mlc) {
+        while (i8 <= i7 && i7 < this.mlh) {
             if (LS(i8)) {
                 i7++;
                 i8 += 2;
             }
             i8++;
         }
-        return i7 < this.mlc || (i7 == this.mlc && i5 == 0);
+        return i7 < this.mlh || (i7 == this.mlh && i5 == 0);
     }
 
-    public boolean dtY() {
+    public boolean dua() {
         boolean z = (this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0;
-        dyd();
+        dyf();
         return z;
     }
 
@@ -92,45 +92,45 @@ public final class m {
             this.bitOffset = 0;
             this.byteOffset += LS(this.byteOffset + 1) ? 2 : 1;
         }
-        dtZ();
+        dub();
         return i3;
     }
 
-    public boolean dyv() {
+    public boolean dyx() {
         int i = this.byteOffset;
         int i2 = this.bitOffset;
         int i3 = 0;
-        while (this.byteOffset < this.mlc && !dtY()) {
+        while (this.byteOffset < this.mlh && !dua()) {
             i3++;
         }
-        boolean z = this.byteOffset == this.mlc;
+        boolean z = this.byteOffset == this.mlh;
         this.byteOffset = i;
         this.bitOffset = i2;
         return !z && LR((i3 * 2) + 1);
     }
 
-    public int dyw() {
-        return dyy();
+    public int dyy() {
+        return dyA();
     }
 
-    public int dyx() {
-        int dyy = dyy();
-        return (dyy % 2 == 0 ? -1 : 1) * ((dyy + 1) / 2);
+    public int dyz() {
+        int dyA = dyA();
+        return (dyA % 2 == 0 ? -1 : 1) * ((dyA + 1) / 2);
     }
 
-    private int dyy() {
+    private int dyA() {
         int i = 0;
-        while (!dtY()) {
+        while (!dua()) {
             i++;
         }
         return ((1 << i) - 1) + (i > 0 ? readBits(i) : 0);
     }
 
     private boolean LS(int i) {
-        return 2 <= i && i < this.mlc && this.data[i] == 3 && this.data[i + (-2)] == 0 && this.data[i + (-1)] == 0;
+        return 2 <= i && i < this.mlh && this.data[i] == 3 && this.data[i + (-2)] == 0 && this.data[i + (-1)] == 0;
     }
 
-    private void dtZ() {
-        a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mlc || (this.byteOffset == this.mlc && this.bitOffset == 0)));
+    private void dub() {
+        a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mlh || (this.byteOffset == this.mlh && this.bitOffset == 0)));
     }
 }

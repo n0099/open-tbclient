@@ -95,9 +95,9 @@ public class KasVerticalViewPager extends ViewGroup {
     private final Rect mTempRect;
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
-    private e oaA;
-    private d oaB;
-    private final b oaz;
+    private final b oaE;
+    private e oaF;
+    private d oaG;
     private static final int[] LAYOUT_ATTRS = {16842931};
     private static final Comparator<b> COMPARATOR = new Comparator<b>() { // from class: tv.chushou.zues.widget.viewpager.KasVerticalViewPager.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,7 +114,7 @@ public class KasVerticalViewPager extends ViewGroup {
             return (f3 * f3 * f3 * f3 * f3) + 1.0f;
         }
     };
-    private static final f oaC = new f();
+    private static final f oaH = new f();
 
     /* loaded from: classes4.dex */
     interface a {
@@ -141,7 +141,7 @@ public class KasVerticalViewPager extends ViewGroup {
     public KasVerticalViewPager(Context context) {
         super(context);
         this.mItems = new ArrayList<>();
-        this.oaz = new b();
+        this.oaE = new b();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
         this.mRestoredAdapterState = null;
@@ -166,7 +166,7 @@ public class KasVerticalViewPager extends ViewGroup {
     public KasVerticalViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mItems = new ArrayList<>();
-        this.oaz = new b();
+        this.oaE = new b();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
         this.mRestoredAdapterState = null;
@@ -231,7 +231,7 @@ public class KasVerticalViewPager extends ViewGroup {
 
     public void setAdapter(PagerAdapter pagerAdapter) {
         if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(this.oaA);
+            this.mAdapter.unregisterDataSetObserver(this.oaF);
             this.mAdapter.startUpdate((ViewGroup) this);
             for (int i = 0; i < this.mItems.size(); i++) {
                 b bVar = this.mItems.get(i);
@@ -247,10 +247,10 @@ public class KasVerticalViewPager extends ViewGroup {
         this.mAdapter = pagerAdapter;
         this.mExpectedAdapterCount = 0;
         if (this.mAdapter != null) {
-            if (this.oaA == null) {
-                this.oaA = new e();
+            if (this.oaF == null) {
+                this.oaF = new e();
             }
-            this.mAdapter.registerDataSetObserver(this.oaA);
+            this.mAdapter.registerDataSetObserver(this.oaF);
             this.mPopulatePending = false;
             boolean z = this.mFirstLayout;
             this.mFirstLayout = true;
@@ -267,8 +267,8 @@ public class KasVerticalViewPager extends ViewGroup {
                 requestLayout();
             }
         }
-        if (this.oaB != null && pagerAdapter2 != pagerAdapter) {
-            this.oaB.a(pagerAdapter2, pagerAdapter);
+        if (this.oaG != null && pagerAdapter2 != pagerAdapter) {
+            this.oaG.a(pagerAdapter2, pagerAdapter);
         }
     }
 
@@ -293,7 +293,7 @@ public class KasVerticalViewPager extends ViewGroup {
     }
 
     void setOnAdapterChangeListener(d dVar) {
-        this.oaB = dVar;
+        this.oaG = dVar;
     }
 
     private int getClientHeight() {
@@ -767,7 +767,7 @@ public class KasVerticalViewPager extends ViewGroup {
             for (int i = 0; i < childCount; i++) {
                 this.mDrawingOrderedChildren.add(getChildAt(i));
             }
-            Collections.sort(this.mDrawingOrderedChildren, oaC);
+            Collections.sort(this.mDrawingOrderedChildren, oaH);
         }
     }
 
@@ -1258,12 +1258,12 @@ public class KasVerticalViewPager extends ViewGroup {
             }
             throw new IllegalStateException("onPageScrolled did not call superclass implementation");
         }
-        b dPE = dPE();
+        b dPG = dPG();
         int clientHeight = getClientHeight();
         int i2 = this.mPageMargin + clientHeight;
         float f2 = this.mPageMargin / clientHeight;
-        int i3 = dPE.position;
-        float f3 = ((i / clientHeight) - dPE.offset) / (dPE.dOn + f2);
+        int i3 = dPG.position;
+        float f3 = ((i / clientHeight) - dPG.offset) / (dPG.dOn + f2);
         this.mCalledSuper = false;
         onPageScrolled(i3, f3, (int) (i2 * f3));
         if (!this.mCalledSuper) {
@@ -1514,8 +1514,8 @@ public class KasVerticalViewPager extends ViewGroup {
                         this.mPopulatePending = true;
                         int clientHeight = getClientHeight();
                         int scrollY = getScrollY();
-                        b dPE = dPE();
-                        setCurrentItemInternal(determineTargetPage(dPE.position, ((scrollY / clientHeight) - dPE.offset) / dPE.dOn, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
+                        b dPG = dPG();
+                        setCurrentItemInternal(determineTargetPage(dPG.position, ((scrollY / clientHeight) - dPG.offset) / dPG.dOn, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
                         this.mActivePointerId = -1;
                         endDrag();
                         z = this.dOh.onRelease() | this.dOg.onRelease();
@@ -1620,7 +1620,7 @@ public class KasVerticalViewPager extends ViewGroup {
         return r2;
     }
 
-    private b dPE() {
+    private b dPG() {
         int i;
         b bVar;
         int clientHeight = getClientHeight();
@@ -1638,7 +1638,7 @@ public class KasVerticalViewPager extends ViewGroup {
                 i = i3;
                 bVar = bVar3;
             } else {
-                b bVar4 = this.oaz;
+                b bVar4 = this.oaE;
                 bVar4.offset = f3 + f4 + f2;
                 bVar4.position = i2 + 1;
                 bVar4.dOn = this.mAdapter.getPageWidth(bVar4.position);

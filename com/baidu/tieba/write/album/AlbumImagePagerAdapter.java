@@ -15,13 +15,13 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
     private Map<Integer, Boolean> aya = new HashMap();
-    private AlbumActivity kMa;
+    private AlbumActivity kMf;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.kMa = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.kMa.getPageContext().getPageActivity());
+        this.kMf = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.kMf.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {

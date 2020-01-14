@@ -240,7 +240,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                         this.writeImagesInfo.clear();
                         aMS();
                         aLV().b(new com.baidu.tbadk.editortools.a(2, 10, null));
-                        this.duR.callback(true, postWriteCallBackData2, null, this.duf.cGm(), null);
+                        this.duR.callback(true, postWriteCallBackData2, null, this.duf.cGo(), null);
                         return;
                     }
                     return;
@@ -274,7 +274,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                 case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                     PostWriteCallBackData postWriteCallBackData3 = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
                     if (this.duR != null) {
-                        this.duR.callback(false, postWriteCallBackData3, null, this.duf.cGm(), null);
+                        this.duR.callback(false, postWriteCallBackData3, null, this.duf.cGo(), null);
                         return;
                     }
                     return;
@@ -344,29 +344,29 @@ public class a extends com.baidu.tbadk.editortools.d {
     }
 
     public void aMQ() {
-        if (this.duf.cGm() == null) {
+        if (this.duf.cGo() == null) {
             this.duf.d(new WriteData());
         }
-        if (this.duf.cGm() != null) {
-            this.duf.cGm().setForumId("0");
-            this.duf.cGm().setType(9);
-            this.duf.cGm().setEntranceType(1);
-            this.duf.cGm().setCanNoForum(true);
-            this.duf.cGm().setTransmitForumData("[]");
-            this.duf.cGm().setCallFrom("1");
-            this.duf.cGm().setTopicId(String.valueOf(this.hev));
-            this.duf.cGm().setContent(this.mPostContent);
-            this.duf.cGm().setIsNoTitle(true);
-            this.duf.cGm().setTitle("");
-            this.duf.cGm().setVoice(null);
-            this.duf.cGm().setVoiceDuringTime(-1);
-            if (!this.duf.cKN()) {
+        if (this.duf.cGo() != null) {
+            this.duf.cGo().setForumId("0");
+            this.duf.cGo().setType(9);
+            this.duf.cGo().setEntranceType(1);
+            this.duf.cGo().setCanNoForum(true);
+            this.duf.cGo().setTransmitForumData("[]");
+            this.duf.cGo().setCallFrom("1");
+            this.duf.cGo().setTopicId(String.valueOf(this.hev));
+            this.duf.cGo().setContent(this.mPostContent);
+            this.duf.cGo().setIsNoTitle(true);
+            this.duf.cGo().setTitle("");
+            this.duf.cGo().setVoice(null);
+            this.duf.cGo().setVoiceDuringTime(-1);
+            if (!this.duf.cKP()) {
                 aGW().showToast((int) R.string.write_img_limit);
             } else if (this.dun == null || !this.dun.aMs()) {
                 if (this.dum != null) {
                     this.dum.aMt();
                 }
-                if (!this.duf.cKK()) {
+                if (!this.duf.cKM()) {
                 }
             }
         }

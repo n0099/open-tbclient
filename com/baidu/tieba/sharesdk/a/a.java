@@ -107,7 +107,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap cFS() {
+    public Bitmap cFU() {
         return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
     }
 

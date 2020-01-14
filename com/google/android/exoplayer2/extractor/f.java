@@ -11,9 +11,9 @@ public interface f {
 
     boolean d(byte[] bArr, int i, int i2, boolean z) throws IOException, InterruptedException;
 
-    void dtC();
+    void dtE();
 
-    long dtD();
+    long dtF();
 
     boolean e(byte[] bArr, int i, int i2, boolean z) throws IOException, InterruptedException;
 

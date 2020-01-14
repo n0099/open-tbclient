@@ -9,13 +9,13 @@ public class c extends XMPushService.i {
     private XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ff[] f906a;
+    private ff[] f907a;
 
     public c(XMPushService xMPushService, ff[] ffVarArr) {
         super(4);
         this.a = null;
         this.a = xMPushService;
-        this.f906a = ffVarArr;
+        this.f907a = ffVarArr;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -26,8 +26,8 @@ public class c extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            if (this.f906a != null) {
-                this.a.a(this.f906a);
+            if (this.f907a != null) {
+                this.a.a(this.f907a);
             }
         } catch (fx e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

@@ -5,7 +5,7 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes10.dex */
 public class a {
     private final int hKB;
-    private final com.facebook.common.references.c<Bitmap> lTv;
+    private final com.facebook.common.references.c<Bitmap> lTA;
     @GuardedBy("this")
     private int mCount;
     private final int mMaxSize;
@@ -17,7 +17,7 @@ public class a {
         com.facebook.common.internal.g.checkArgument(i2 > 0);
         this.hKB = i;
         this.mMaxSize = i2;
-        this.lTv = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
+        this.lTA = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             public void release(Bitmap bitmap) {
@@ -62,7 +62,7 @@ public class a {
         return this.mSize;
     }
 
-    public synchronized int dpy() {
+    public synchronized int dpA() {
         return this.hKB;
     }
 
@@ -70,7 +70,7 @@ public class a {
         return this.mMaxSize;
     }
 
-    public com.facebook.common.references.c<Bitmap> dpz() {
-        return this.lTv;
+    public com.facebook.common.references.c<Bitmap> dpB() {
+        return this.lTA;
     }
 }

@@ -15,74 +15,74 @@ import java.util.Arrays;
 /* loaded from: classes12.dex */
 public abstract class m extends Drawable implements j, q {
     @Nullable
-    RectF lLD;
+    float[] lLE;
     @Nullable
-    Matrix lLE;
-    private final Drawable lLI;
+    RectF lLI;
     @Nullable
-    Matrix lLV;
+    Matrix lLJ;
+    private final Drawable lLN;
     @Nullable
-    float[] lLz;
+    Matrix lMa;
     @Nullable
     private r mTransformCallback;
     protected boolean dDw = false;
-    protected boolean lLJ = false;
+    protected boolean lLO = false;
     protected float mBorderWidth = 0.0f;
     protected final Path mPath = new Path();
-    protected boolean lLK = true;
+    protected boolean lLP = true;
     protected int mBorderColor = 0;
     protected final Path caR = new Path();
-    private final float[] lLL = new float[8];
-    final float[] lLy = new float[8];
-    final RectF lLM = new RectF();
-    final RectF lLN = new RectF();
-    final RectF lLO = new RectF();
-    final RectF lLP = new RectF();
-    final Matrix lLQ = new Matrix();
-    final Matrix lLR = new Matrix();
-    final Matrix lLS = new Matrix();
-    final Matrix lLT = new Matrix();
-    final Matrix lLU = new Matrix();
+    private final float[] lLQ = new float[8];
+    final float[] lLD = new float[8];
+    final RectF lLR = new RectF();
+    final RectF lLS = new RectF();
+    final RectF lLT = new RectF();
+    final RectF lLU = new RectF();
+    final Matrix lLV = new Matrix();
+    final Matrix lLW = new Matrix();
+    final Matrix lLX = new Matrix();
+    final Matrix lLY = new Matrix();
+    final Matrix lLZ = new Matrix();
     final Matrix mTransform = new Matrix();
     private float mPadding = 0.0f;
-    private boolean lLA = false;
-    private boolean lLW = true;
+    private boolean lLF = false;
+    private boolean lMb = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(Drawable drawable) {
-        this.lLI = drawable;
+        this.lLN = drawable;
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void ve(boolean z) {
         this.dDw = z;
-        this.lLW = true;
+        this.lMb = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkState(f >= 0.0f);
-        Arrays.fill(this.lLL, f);
-        this.lLJ = f != 0.0f;
-        this.lLW = true;
+        Arrays.fill(this.lLQ, f);
+        this.lLO = f != 0.0f;
+        this.lMb = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void k(float[] fArr) {
         if (fArr == null) {
-            Arrays.fill(this.lLL, 0.0f);
-            this.lLJ = false;
+            Arrays.fill(this.lLQ, 0.0f);
+            this.lLO = false;
         } else {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
-            System.arraycopy(fArr, 0, this.lLL, 0, 8);
-            this.lLJ = false;
+            System.arraycopy(fArr, 0, this.lLQ, 0, 8);
+            this.lLO = false;
             for (int i = 0; i < 8; i++) {
-                this.lLJ = (fArr[i] > 0.0f) | this.lLJ;
+                this.lLO = (fArr[i] > 0.0f) | this.lLO;
             }
         }
-        this.lLW = true;
+        this.lMb = true;
         invalidateSelf();
     }
 
@@ -91,7 +91,7 @@ public abstract class m extends Drawable implements j, q {
         if (this.mBorderColor != i || this.mBorderWidth != f) {
             this.mBorderColor = i;
             this.mBorderWidth = f;
-            this.lLW = true;
+            this.lMb = true;
             invalidateSelf();
         }
     }
@@ -100,16 +100,16 @@ public abstract class m extends Drawable implements j, q {
     public void bn(float f) {
         if (this.mPadding != f) {
             this.mPadding = f;
-            this.lLW = true;
+            this.lMb = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void vf(boolean z) {
-        if (this.lLA != z) {
-            this.lLA = z;
-            this.lLW = true;
+        if (this.lLF != z) {
+            this.lLF = z;
+            this.lMb = true;
             invalidateSelf();
         }
     }
@@ -120,153 +120,153 @@ public abstract class m extends Drawable implements j, q {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dll() {
+    public void dln() {
         if (this.mTransformCallback != null) {
-            this.mTransformCallback.getTransform(this.lLS);
-            this.mTransformCallback.getRootBounds(this.lLM);
+            this.mTransformCallback.getTransform(this.lLX);
+            this.mTransformCallback.getRootBounds(this.lLR);
         } else {
-            this.lLS.reset();
-            this.lLM.set(getBounds());
+            this.lLX.reset();
+            this.lLR.set(getBounds());
         }
-        this.lLO.set(0.0f, 0.0f, getIntrinsicWidth(), getIntrinsicHeight());
-        this.lLP.set(this.lLI.getBounds());
-        this.lLQ.setRectToRect(this.lLO, this.lLP, Matrix.ScaleToFit.FILL);
-        if (this.lLA) {
-            if (this.lLD == null) {
-                this.lLD = new RectF(this.lLM);
+        this.lLT.set(0.0f, 0.0f, getIntrinsicWidth(), getIntrinsicHeight());
+        this.lLU.set(this.lLN.getBounds());
+        this.lLV.setRectToRect(this.lLT, this.lLU, Matrix.ScaleToFit.FILL);
+        if (this.lLF) {
+            if (this.lLI == null) {
+                this.lLI = new RectF(this.lLR);
             } else {
-                this.lLD.set(this.lLM);
+                this.lLI.set(this.lLR);
             }
-            this.lLD.inset(this.mBorderWidth, this.mBorderWidth);
-            if (this.lLE == null) {
-                this.lLE = new Matrix();
+            this.lLI.inset(this.mBorderWidth, this.mBorderWidth);
+            if (this.lLJ == null) {
+                this.lLJ = new Matrix();
             }
-            this.lLE.setRectToRect(this.lLM, this.lLD, Matrix.ScaleToFit.FILL);
-        } else if (this.lLE != null) {
-            this.lLE.reset();
+            this.lLJ.setRectToRect(this.lLR, this.lLI, Matrix.ScaleToFit.FILL);
+        } else if (this.lLJ != null) {
+            this.lLJ.reset();
         }
-        if (!this.lLS.equals(this.lLT) || !this.lLQ.equals(this.lLR) || (this.lLE != null && !this.lLE.equals(this.lLV))) {
-            this.lLK = true;
-            this.lLS.invert(this.lLU);
-            this.mTransform.set(this.lLS);
-            if (this.lLA) {
-                this.mTransform.postConcat(this.lLE);
+        if (!this.lLX.equals(this.lLY) || !this.lLV.equals(this.lLW) || (this.lLJ != null && !this.lLJ.equals(this.lMa))) {
+            this.lLP = true;
+            this.lLX.invert(this.lLZ);
+            this.mTransform.set(this.lLX);
+            if (this.lLF) {
+                this.mTransform.postConcat(this.lLJ);
             }
-            this.mTransform.preConcat(this.lLQ);
-            this.lLT.set(this.lLS);
-            this.lLR.set(this.lLQ);
-            if (this.lLA) {
-                if (this.lLV == null) {
-                    this.lLV = new Matrix(this.lLE);
+            this.mTransform.preConcat(this.lLV);
+            this.lLY.set(this.lLX);
+            this.lLW.set(this.lLV);
+            if (this.lLF) {
+                if (this.lMa == null) {
+                    this.lMa = new Matrix(this.lLJ);
                 } else {
-                    this.lLV.set(this.lLE);
+                    this.lMa.set(this.lLJ);
                 }
-            } else if (this.lLV != null) {
-                this.lLV.reset();
+            } else if (this.lMa != null) {
+                this.lMa.reset();
             }
         }
-        if (!this.lLM.equals(this.lLN)) {
-            this.lLW = true;
-            this.lLN.set(this.lLM);
+        if (!this.lLR.equals(this.lLS)) {
+            this.lMb = true;
+            this.lLS.set(this.lLR);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dlk() {
-        if (this.lLW) {
+    public void dlm() {
+        if (this.lMb) {
             this.caR.reset();
-            this.lLM.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+            this.lLR.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
             if (this.dDw) {
-                this.caR.addCircle(this.lLM.centerX(), this.lLM.centerY(), Math.min(this.lLM.width(), this.lLM.height()) / 2.0f, Path.Direction.CW);
+                this.caR.addCircle(this.lLR.centerX(), this.lLR.centerY(), Math.min(this.lLR.width(), this.lLR.height()) / 2.0f, Path.Direction.CW);
             } else {
-                for (int i = 0; i < this.lLy.length; i++) {
-                    this.lLy[i] = (this.lLL[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
+                for (int i = 0; i < this.lLD.length; i++) {
+                    this.lLD[i] = (this.lLQ[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
                 }
-                this.caR.addRoundRect(this.lLM, this.lLy, Path.Direction.CW);
+                this.caR.addRoundRect(this.lLR, this.lLD, Path.Direction.CW);
             }
-            this.lLM.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+            this.lLR.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
             this.mPath.reset();
-            float f = this.mPadding + (this.lLA ? this.mBorderWidth : 0.0f);
-            this.lLM.inset(f, f);
+            float f = this.mPadding + (this.lLF ? this.mBorderWidth : 0.0f);
+            this.lLR.inset(f, f);
             if (this.dDw) {
-                this.mPath.addCircle(this.lLM.centerX(), this.lLM.centerY(), Math.min(this.lLM.width(), this.lLM.height()) / 2.0f, Path.Direction.CW);
-            } else if (this.lLA) {
-                if (this.lLz == null) {
-                    this.lLz = new float[8];
+                this.mPath.addCircle(this.lLR.centerX(), this.lLR.centerY(), Math.min(this.lLR.width(), this.lLR.height()) / 2.0f, Path.Direction.CW);
+            } else if (this.lLF) {
+                if (this.lLE == null) {
+                    this.lLE = new float[8];
                 }
-                for (int i2 = 0; i2 < this.lLy.length; i2++) {
-                    this.lLz[i2] = this.lLL[i2] - this.mBorderWidth;
+                for (int i2 = 0; i2 < this.lLD.length; i2++) {
+                    this.lLE[i2] = this.lLQ[i2] - this.mBorderWidth;
                 }
-                this.mPath.addRoundRect(this.lLM, this.lLz, Path.Direction.CW);
+                this.mPath.addRoundRect(this.lLR, this.lLE, Path.Direction.CW);
             } else {
-                this.mPath.addRoundRect(this.lLM, this.lLL, Path.Direction.CW);
+                this.mPath.addRoundRect(this.lLR, this.lLQ, Path.Direction.CW);
             }
-            this.lLM.inset(-f, -f);
+            this.lLR.inset(-f, -f);
             this.mPath.setFillType(Path.FillType.WINDING);
-            this.lLW = false;
+            this.lMb = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dlj() {
-        return this.dDw || this.lLJ || this.mBorderWidth > 0.0f;
+    public boolean dll() {
+        return this.dDw || this.lLO || this.mBorderWidth > 0.0f;
     }
 
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        this.lLI.setBounds(rect);
+        this.lLN.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.lLI.getIntrinsicWidth();
+        return this.lLN.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.lLI.getIntrinsicHeight();
+        return this.lLN.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.lLI.getOpacity();
+        return this.lLN.getOpacity();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
-        this.lLI.setColorFilter(i, mode);
+        this.lLN.setColorFilter(i, mode);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        this.lLI.setColorFilter(colorFilter);
+        this.lLN.setColorFilter(colorFilter);
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(api = 21)
     @Nullable
     public ColorFilter getColorFilter() {
-        return this.lLI.getColorFilter();
+        return this.lLN.getColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void clearColorFilter() {
-        this.lLI.clearColorFilter();
+        this.lLN.clearColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(api = 19)
     public int getAlpha() {
-        return this.lLI.getAlpha();
+        return this.lLN.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.lLI.setAlpha(i);
+        this.lLN.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        this.lLI.draw(canvas);
+        this.lLN.draw(canvas);
     }
 }

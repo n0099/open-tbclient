@@ -18,9 +18,9 @@ import java.util.List;
 public class d extends v.a {
     public int MH;
     public TextView cGN;
-    public View jfo;
-    public HTypeListView jfp;
-    public e jfq;
+    public View jft;
+    public HTypeListView jfu;
+    public e jfv;
     public TbPageContext mPageContext;
     public View rootView;
 
@@ -29,15 +29,15 @@ public class d extends v.a {
         this.MH = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jfo = view.findViewById(R.id.divider_view_under_photo_album);
+        this.jft = view.findViewById(R.id.divider_view_under_photo_album);
         this.cGN = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.jfp = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.jfq = new e(this.mPageContext, this.jfp);
+        this.jfu = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.jfv = new e(this.mPageContext, this.jfu);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.jfq.setDatas(dP(fVar.getPhotoAlbum()));
+            this.jfv.setDatas(dP(fVar.getPhotoAlbum()));
         }
     }
 
@@ -52,13 +52,13 @@ public class d extends v.a {
         return list;
     }
 
-    public void ctD() {
+    public void ctF() {
         if (this.MH != TbadkCoreApplication.getInst().getSkinType()) {
             this.MH = TbadkCoreApplication.getInst().getSkinType();
             am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            am.setBackgroundColor(this.jfo, R.color.cp_bg_line_c);
+            am.setBackgroundColor(this.jft, R.color.cp_bg_line_c);
             am.setViewTextColor(this.cGN, R.color.cp_cont_d, 1);
-            this.jfq.notifyDataSetChanged();
+            this.jfv.notifyDataSetChanged();
         }
     }
 }

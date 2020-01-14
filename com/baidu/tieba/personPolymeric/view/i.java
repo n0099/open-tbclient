@@ -32,7 +32,7 @@ public class i extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.k kVar) {
         if (kVar != null) {
-            this.cGN.setPadding(kVar.paddingLeft, kVar.fMd, 0, kVar.jnW);
+            this.cGN.setPadding(kVar.paddingLeft, kVar.fMd, 0, kVar.job);
             this.cGN.setText(this.mContext.getString(kVar.titleId));
         }
     }

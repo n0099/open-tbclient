@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final h<? super T, ? extends org.a.b<V>> itemTimeoutIndicator;
-    final org.a.b<U> nwA;
+    final org.a.b<U> nwF;
     final org.a.b<? extends T> other;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,14 +27,14 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
         if (this.other == null) {
             TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.itemTimeoutIndicator);
             cVar.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.nwA);
-            this.nvK.a((j) timeoutSubscriber);
+            timeoutSubscriber.startFirstTimeout(this.nwF);
+            this.nvP.a((j) timeoutSubscriber);
             return;
         }
         TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.other);
         cVar.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.nwA);
-        this.nvK.a((j) timeoutFallbackSubscriber);
+        timeoutFallbackSubscriber.startFirstTimeout(this.nwF);
+        this.nvP.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes5.dex */

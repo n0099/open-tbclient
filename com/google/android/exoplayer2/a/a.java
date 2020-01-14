@@ -7,15 +7,15 @@ public abstract class a {
         this.flags = 0;
     }
 
-    public final boolean dte() {
+    public final boolean dtg() {
         return Ji(Integer.MIN_VALUE);
     }
 
-    public final boolean dtf() {
+    public final boolean dth() {
         return Ji(4);
     }
 
-    public final boolean dtg() {
+    public final boolean dti() {
         return Ji(1);
     }
 

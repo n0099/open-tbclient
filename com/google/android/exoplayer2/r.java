@@ -16,7 +16,7 @@ public interface r {
 
         void a(x xVar, Object obj);
 
-        void cYP();
+        void cYR();
 
         void onRepeatModeChanged(int i);
 
@@ -37,29 +37,29 @@ public interface r {
 
     void b(b bVar);
 
-    int cYx();
+    int cYz();
 
-    boolean drD();
+    boolean drF();
 
-    boolean drE();
+    boolean drG();
 
-    q drF();
-
-    int drH();
-
-    int drI();
+    q drH();
 
     int drJ();
 
     int drK();
 
-    boolean drL();
+    int drL();
 
-    long drM();
+    int drM();
 
-    com.google.android.exoplayer2.b.g drN();
+    boolean drN();
 
-    x drO();
+    long drO();
+
+    com.google.android.exoplayer2.b.g drP();
+
+    x drQ();
 
     long getBufferedPosition();
 
@@ -118,7 +118,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void cYP() {
+        public void cYR() {
         }
     }
 }

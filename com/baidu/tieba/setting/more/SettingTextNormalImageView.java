@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 public class SettingTextNormalImageView extends FrameLayout {
     private LinearLayout dpb;
     private ImageView dpf;
-    private TbImageView jTB;
+    private TbImageView jTG;
     private Context mContext;
     private TextView textView;
 
@@ -41,7 +41,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         am.setViewTextColor(this.textView, R.color.cp_cont_b, 1);
         SvgManager.aEp().a(this.dpf, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
         setBackgroundDrawable(am.ke(R.color.cp_bg_line_e));
-        this.jTB.invalidate();
+        this.jTG.invalidate();
     }
 
     public void setText(String str) {
@@ -49,16 +49,16 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.jTB.aQz();
-        this.jTB.setConrers(0);
-        this.jTB.setImageResource(i);
+        this.jTG.aQz();
+        this.jTG.setConrers(0);
+        this.jTG.setImageResource(i);
     }
 
     private void aKt() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
         this.dpb = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.jTB = (TbImageView) findViewById(R.id.icon);
+        this.jTG = (TbImageView) findViewById(R.id.icon);
         this.dpf = (ImageView) findViewById(R.id.arrow);
     }
 

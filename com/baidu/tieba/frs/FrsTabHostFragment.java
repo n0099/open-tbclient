@@ -479,7 +479,7 @@ public class FrsTabHostFragment extends BaseFragment {
     }
 
     public void bDT() {
-        if (bc.checkUpIsLogin(this.gpB) && !this.fSG.cNi() && !bDW()) {
+        if (bc.checkUpIsLogin(this.gpB) && !this.fSG.cNk() && !bDW()) {
             if (this.gpD.bCi().ul(502) != null) {
                 this.gpJ.aD(this.gpD.getForumId(), this.gpD.bCi().bJv().tabId);
             } else {

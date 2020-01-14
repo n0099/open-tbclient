@@ -24,10 +24,10 @@ public class bn extends ai.a {
         ca caVar;
         ca caVar2;
         Context context;
-        caVar = this.a.f154a;
+        caVar = this.a.f155a;
         if (caVar != null) {
-            caVar2 = this.a.f154a;
-            context = this.a.f151a;
+            caVar2 = this.a.f155a;
+            context = this.a.f152a;
             caVar2.b(context);
             this.a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
         }

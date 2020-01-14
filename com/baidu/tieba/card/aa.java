@@ -94,7 +94,7 @@ public class aa extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(aa.this.mContext, (int) R.string.delete_success);
                                 return;
                             } else {
-                                String string = !TextUtils.isEmpty(bVar.khZ) ? bVar.khZ : aa.this.getString(R.string.delete_fail, new Object[0]);
+                                String string = !TextUtils.isEmpty(bVar.kif) ? bVar.kif : aa.this.getString(R.string.delete_fail, new Object[0]);
                                 if (bVar.mErrCode == 1211066) {
                                     if (aa.this.fJq == null) {
                                         aa.this.fJq = new com.baidu.tbadk.core.dialog.a(aa.this.mPageContext.getPageActivity());
@@ -122,10 +122,10 @@ public class aa extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(aa.this.mContext, aa.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             } else if (dVar.mSuccess) {
-                                com.baidu.adp.lib.util.l.showToast(aa.this.mContext, !TextUtils.isEmpty(dVar.khZ) ? dVar.khZ : aa.this.getString(R.string.mute_success, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(aa.this.mContext, !TextUtils.isEmpty(dVar.kif) ? dVar.kif : aa.this.getString(R.string.mute_success, new Object[0]));
                                 return;
                             } else {
-                                com.baidu.adp.lib.util.l.showToast(aa.this.mContext, !TextUtils.isEmpty(dVar.khZ) ? dVar.khZ : aa.this.getString(R.string.mute_fail, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(aa.this.mContext, !TextUtils.isEmpty(dVar.kif) ? dVar.kif : aa.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             }
                         case 2:
@@ -140,7 +140,7 @@ public class aa extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(aa.this.mContext, aa.this.getString(R.string.operation_failed, new Object[0]));
                                 return;
                             } else {
-                                aa.this.ac(gVar.kic);
+                                aa.this.ac(gVar.kii);
                                 return;
                             }
                         default:
@@ -410,22 +410,22 @@ public class aa extends com.baidu.tbadk.core.dialog.i {
             String str = "";
             if (i == 2) {
                 this.Np.jv(1);
-                str = ay(gVar.khZ, R.string.operation_success);
+                str = ay(gVar.kif, R.string.operation_success);
             } else if (i == 3) {
                 this.Np.jv(0);
-                str = ay(gVar.khZ, R.string.operation_success);
+                str = ay(gVar.kif, R.string.operation_success);
             } else if (i == 4) {
                 this.Np.ju(1);
-                str = ay(gVar.khZ, R.string.top_success);
+                str = ay(gVar.kif, R.string.top_success);
             } else if (i == 5) {
                 this.Np.ju(0);
-                str = ay(gVar.khZ, R.string.operation_success);
+                str = ay(gVar.kif, R.string.operation_success);
             }
             ForumManageModel.e eVar = new ForumManageModel.e();
             eVar.threadId = this.Np.getId();
             eVar.forumName = this.Np.aAc();
             eVar.forumId = String.valueOf(this.Np.getFid());
-            eVar.kia = i;
+            eVar.kig = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_THREAD_MANAGE, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.operation_success, new Object[0]);
@@ -433,8 +433,8 @@ public class aa extends com.baidu.tbadk.core.dialog.i {
             com.baidu.adp.lib.util.l.showToast(this.mContext, str);
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.khZ)) {
-            string = gVar.khZ;
+        if (gVar != null && !TextUtils.isEmpty(gVar.kif)) {
+            string = gVar.kif;
         } else {
             string = getString(R.string.operation_failed, new Object[0]);
         }

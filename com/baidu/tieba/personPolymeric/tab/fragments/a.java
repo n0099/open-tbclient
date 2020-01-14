@@ -6,7 +6,7 @@ import java.util.List;
 public interface a {
     List<m> cdi();
 
-    com.baidu.tieba.personPolymeric.tab.view.a cwg();
+    com.baidu.tieba.personPolymeric.tab.view.a cwi();
 
-    boolean cwh();
+    boolean cwj();
 }

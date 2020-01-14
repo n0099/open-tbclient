@@ -142,8 +142,8 @@ public class EnterForumAdView extends FrameLayout {
             }
             setVisibility(0);
             if (this.fWV != bxe && (a2 = com.baidu.tieba.r.a.a(false, PageStayDurationConstants.PageName.ENTER_FORUM, "common_exp", 0, 1, true, String.valueOf(bxe.fRt), String.valueOf(bxe.fRt), 5)) != null) {
-                com.baidu.tieba.r.c.cIs().a(this.mTag, com.baidu.tieba.r.a.IA("" + bxe.fRt), a2);
-                com.baidu.tieba.r.c.cIs().b(this.mTag, false);
+                com.baidu.tieba.r.c.cIu().a(this.mTag, com.baidu.tieba.r.a.IA("" + bxe.fRt), a2);
+                com.baidu.tieba.r.c.cIu().b(this.mTag, false);
             }
         } else {
             if (this.fWT != null) {
@@ -215,7 +215,7 @@ public class EnterForumAdView extends FrameLayout {
                     com.baidu.tbadk.browser.a.startWebActivity(context, str);
                 }
                 if (bdUniqueId != null && (a2 = com.baidu.tieba.r.a.a(true, PageStayDurationConstants.PageName.ENTER_FORUM, "common_click", 3, 1, true, String.valueOf(bxe.fRt), String.valueOf(bxe.fRt), 5)) != null) {
-                    com.baidu.tieba.r.c.cIs().b(bdUniqueId, a2);
+                    com.baidu.tieba.r.c.cIu().b(bdUniqueId, a2);
                 }
             }
         }

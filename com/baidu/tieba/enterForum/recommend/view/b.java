@@ -103,7 +103,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
     public void onDestroy() {
         super.onDestroy();
         if (this.dfN != null) {
-            this.dfN.cIM();
+            this.dfN.cIO();
         }
     }
 

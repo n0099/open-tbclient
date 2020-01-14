@@ -6,15 +6,15 @@ import com.google.android.exoplayer2.util.l;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class c implements com.google.android.exoplayer2.extractor.e {
-    public static final com.google.android.exoplayer2.extractor.h mdK = new com.google.android.exoplayer2.extractor.h() { // from class: com.google.android.exoplayer2.extractor.d.c.1
+    public static final com.google.android.exoplayer2.extractor.h mdP = new com.google.android.exoplayer2.extractor.h() { // from class: com.google.android.exoplayer2.extractor.d.c.1
         @Override // com.google.android.exoplayer2.extractor.h
-        public com.google.android.exoplayer2.extractor.e[] dtE() {
+        public com.google.android.exoplayer2.extractor.e[] dtG() {
             return new com.google.android.exoplayer2.extractor.e[]{new c()};
         }
     };
-    private com.google.android.exoplayer2.extractor.g mkC;
-    private boolean mkD;
-    private h mko;
+    private com.google.android.exoplayer2.extractor.g mkH;
+    private boolean mkI;
+    private h mkt;
 
     @Override // com.google.android.exoplayer2.extractor.e
     public boolean a(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
@@ -27,13 +27,13 @@ public class c implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(com.google.android.exoplayer2.extractor.g gVar) {
-        this.mkC = gVar;
+        this.mkH = gVar;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void O(long j, long j2) {
-        if (this.mko != null) {
-            this.mko.O(j, j2);
+        if (this.mkt != null) {
+            this.mkt.O(j, j2);
         }
     }
 
@@ -43,35 +43,35 @@ public class c implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(com.google.android.exoplayer2.extractor.f fVar, com.google.android.exoplayer2.extractor.k kVar) throws IOException, InterruptedException {
-        if (this.mko == null) {
+        if (this.mkt == null) {
             if (!x(fVar)) {
                 throw new ParserException("Failed to determine bitstream type");
             }
-            fVar.dtC();
+            fVar.dtE();
         }
-        if (!this.mkD) {
-            m dH = this.mkC.dH(0, 1);
-            this.mkC.dtF();
-            this.mko.a(this.mkC, dH);
-            this.mkD = true;
+        if (!this.mkI) {
+            m dH = this.mkH.dH(0, 1);
+            this.mkH.dtH();
+            this.mkt.a(this.mkH, dH);
+            this.mkI = true;
         }
-        return this.mko.a(fVar, kVar);
+        return this.mkt.a(fVar, kVar);
     }
 
     private boolean x(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         e eVar = new e();
         if (eVar.c(fVar, true) && (eVar.type & 2) == 2) {
-            int min = Math.min(eVar.mkP, 8);
+            int min = Math.min(eVar.mkU, 8);
             l lVar = new l(min);
             fVar.o(lVar.data, 0, min);
             if (b.A(E(lVar))) {
-                this.mko = new b();
+                this.mkt = new b();
             } else if (j.A(E(lVar))) {
-                this.mko = new j();
+                this.mkt = new j();
             } else if (!g.A(E(lVar))) {
                 return false;
             } else {
-                this.mko = new g();
+                this.mkt = new g();
             }
             return true;
         }

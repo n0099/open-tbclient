@@ -16,68 +16,68 @@ import java.util.concurrent.CopyOnWriteArraySet;
 final class j implements g {
     private int dT;
     private boolean isLoading;
-    private int kZX;
-    private final s[] lXJ;
-    private final com.google.android.exoplayer2.b.h lXK;
-    private final com.google.android.exoplayer2.b.g lXL;
-    private final Handler lXM;
-    private final k lXN;
-    private boolean lXO;
-    private boolean lXP;
-    private boolean lXQ;
-    private int lXR;
-    private int lXS;
-    private com.google.android.exoplayer2.source.u lXT;
-    private com.google.android.exoplayer2.b.g lXU;
-    private q lXV;
-    private p lXW;
+    private final s[] lXO;
+    private final com.google.android.exoplayer2.b.h lXP;
+    private final com.google.android.exoplayer2.b.g lXQ;
+    private final Handler lXR;
+    private final k lXS;
+    private boolean lXT;
+    private boolean lXU;
+    private boolean lXV;
+    private int lXW;
     private int lXX;
-    private int lXY;
-    private long lXZ;
-    private final x.b laT;
-    private final x.a laU;
-    private final CopyOnWriteArraySet<r.b> lbd;
+    private com.google.android.exoplayer2.source.u lXY;
+    private com.google.android.exoplayer2.b.g lXZ;
+    private q lYa;
+    private p lYb;
+    private int lYc;
+    private int lYd;
+    private long lYe;
+    private final x.b laY;
+    private final x.a laZ;
+    private int lac;
+    private final CopyOnWriteArraySet<r.b> lbi;
 
     @SuppressLint({"HandlerLeak"})
     public j(s[] sVarArr, com.google.android.exoplayer2.b.h hVar, n nVar) {
-        Log.i("ExoPlayerImpl", "Init " + Integer.toHexString(System.identityHashCode(this)) + " [ExoPlayerLib/2.6.0] [" + com.google.android.exoplayer2.util.v.mHc + "]");
+        Log.i("ExoPlayerImpl", "Init " + Integer.toHexString(System.identityHashCode(this)) + " [ExoPlayerLib/2.6.0] [" + com.google.android.exoplayer2.util.v.mHh + "]");
         com.google.android.exoplayer2.util.a.checkState(sVarArr.length > 0);
-        this.lXJ = (s[]) com.google.android.exoplayer2.util.a.checkNotNull(sVarArr);
-        this.lXK = (com.google.android.exoplayer2.b.h) com.google.android.exoplayer2.util.a.checkNotNull(hVar);
-        this.lXP = false;
+        this.lXO = (s[]) com.google.android.exoplayer2.util.a.checkNotNull(sVarArr);
+        this.lXP = (com.google.android.exoplayer2.b.h) com.google.android.exoplayer2.util.a.checkNotNull(hVar);
+        this.lXU = false;
         this.dT = 0;
-        this.lXQ = false;
-        this.kZX = 1;
-        this.lbd = new CopyOnWriteArraySet<>();
-        this.lXL = new com.google.android.exoplayer2.b.g(new com.google.android.exoplayer2.b.f[sVarArr.length]);
-        this.laT = new x.b();
-        this.laU = new x.a();
-        this.lXT = com.google.android.exoplayer2.source.u.msp;
-        this.lXU = this.lXL;
-        this.lXV = q.lYW;
-        this.lXM = new Handler(Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper()) { // from class: com.google.android.exoplayer2.j.1
+        this.lXV = false;
+        this.lac = 1;
+        this.lbi = new CopyOnWriteArraySet<>();
+        this.lXQ = new com.google.android.exoplayer2.b.g(new com.google.android.exoplayer2.b.f[sVarArr.length]);
+        this.laY = new x.b();
+        this.laZ = new x.a();
+        this.lXY = com.google.android.exoplayer2.source.u.msu;
+        this.lXZ = this.lXQ;
+        this.lYa = q.lZb;
+        this.lXR = new Handler(Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper()) { // from class: com.google.android.exoplayer2.j.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 j.this.N(message);
             }
         };
-        this.lXW = new p(x.lZs, null, 0, 0L);
-        this.lXN = new k(sVarArr, hVar, nVar, this.lXP, this.dT, this.lXQ, this.lXM, this);
+        this.lYb = new p(x.lZx, null, 0, 0L);
+        this.lXS = new k(sVarArr, hVar, nVar, this.lXU, this.dT, this.lXV, this.lXR, this);
     }
 
     @Override // com.google.android.exoplayer2.r
     public void a(r.b bVar) {
-        this.lbd.add(bVar);
+        this.lbi.add(bVar);
     }
 
     @Override // com.google.android.exoplayer2.r
     public void b(r.b bVar) {
-        this.lbd.remove(bVar);
+        this.lbi.remove(bVar);
     }
 
     @Override // com.google.android.exoplayer2.r
-    public int cYx() {
-        return this.kZX;
+    public int cYz() {
+        return this.lac;
     }
 
     @Override // com.google.android.exoplayer2.g
@@ -87,60 +87,60 @@ final class j implements g {
 
     public void a(com.google.android.exoplayer2.source.l lVar, boolean z, boolean z2) {
         if (!z) {
-            this.lXX = drH();
-            this.lXY = drG();
-            this.lXZ = getCurrentPosition();
+            this.lYc = drJ();
+            this.lYd = drI();
+            this.lYe = getCurrentPosition();
         } else {
-            this.lXX = 0;
-            this.lXY = 0;
-            this.lXZ = 0L;
+            this.lYc = 0;
+            this.lYd = 0;
+            this.lYe = 0L;
         }
         if (z2) {
-            if (!this.lXW.timeline.isEmpty() || this.lXW.lYH != null) {
-                this.lXW = this.lXW.b(x.lZs, null);
-                Iterator<r.b> it = this.lbd.iterator();
+            if (!this.lYb.timeline.isEmpty() || this.lYb.lYM != null) {
+                this.lYb = this.lYb.b(x.lZx, null);
+                Iterator<r.b> it = this.lbi.iterator();
                 while (it.hasNext()) {
-                    it.next().a(this.lXW.timeline, this.lXW.lYH);
+                    it.next().a(this.lYb.timeline, this.lYb.lYM);
                 }
             }
-            if (this.lXO) {
-                this.lXO = false;
-                this.lXT = com.google.android.exoplayer2.source.u.msp;
-                this.lXU = this.lXL;
-                this.lXK.by(null);
-                Iterator<r.b> it2 = this.lbd.iterator();
+            if (this.lXT) {
+                this.lXT = false;
+                this.lXY = com.google.android.exoplayer2.source.u.msu;
+                this.lXZ = this.lXQ;
+                this.lXP.by(null);
+                Iterator<r.b> it2 = this.lbi.iterator();
                 while (it2.hasNext()) {
-                    it2.next().a(this.lXT, this.lXU);
+                    it2.next().a(this.lXY, this.lXZ);
                 }
             }
         }
-        this.lXS++;
-        this.lXN.a(lVar, z);
+        this.lXX++;
+        this.lXS.a(lVar, z);
     }
 
     @Override // com.google.android.exoplayer2.r
     public void vu(boolean z) {
-        if (this.lXP != z) {
-            this.lXP = z;
-            this.lXN.vu(z);
-            Iterator<r.b> it = this.lbd.iterator();
+        if (this.lXU != z) {
+            this.lXU = z;
+            this.lXS.vu(z);
+            Iterator<r.b> it = this.lbi.iterator();
             while (it.hasNext()) {
-                it.next().z(z, this.kZX);
+                it.next().z(z, this.lac);
             }
         }
     }
 
     @Override // com.google.android.exoplayer2.r
-    public boolean drD() {
-        return this.lXP;
+    public boolean drF() {
+        return this.lXU;
     }
 
     @Override // com.google.android.exoplayer2.r
     public void setRepeatMode(int i) {
         if (this.dT != i) {
             this.dT = i;
-            this.lXN.setRepeatMode(i);
-            Iterator<r.b> it = this.lbd.iterator();
+            this.lXS.setRepeatMode(i);
+            Iterator<r.b> it = this.lbi.iterator();
             while (it.hasNext()) {
                 it.next().onRepeatModeChanged(i);
             }
@@ -154,10 +154,10 @@ final class j implements g {
 
     @Override // com.google.android.exoplayer2.r
     public void vv(boolean z) {
-        if (this.lXQ != z) {
-            this.lXQ = z;
-            this.lXN.vv(z);
-            Iterator<r.b> it = this.lbd.iterator();
+        if (this.lXV != z) {
+            this.lXV = z;
+            this.lXS.vv(z);
+            Iterator<r.b> it = this.lbi.iterator();
             while (it.hasNext()) {
                 it.next().ua(z);
             }
@@ -165,48 +165,48 @@ final class j implements g {
     }
 
     @Override // com.google.android.exoplayer2.r
-    public boolean drE() {
-        return this.lXQ;
+    public boolean drG() {
+        return this.lXV;
     }
 
     @Override // com.google.android.exoplayer2.r
     public void B(int i, long j) {
-        x xVar = this.lXW.timeline;
-        if (i < 0 || (!xVar.isEmpty() && i >= xVar.dsl())) {
+        x xVar = this.lYb.timeline;
+        if (i < 0 || (!xVar.isEmpty() && i >= xVar.dsn())) {
             throw new IllegalSeekPositionException(xVar, i, j);
         }
-        if (drL()) {
+        if (drN()) {
             Log.w("ExoPlayerImpl", "seekTo ignored because an ad is playing");
-            if (this.lXR == 0) {
-                Iterator<r.b> it = this.lbd.iterator();
+            if (this.lXW == 0) {
+                Iterator<r.b> it = this.lbi.iterator();
                 while (it.hasNext()) {
-                    it.next().cYP();
+                    it.next().cYR();
                 }
                 return;
             }
             return;
         }
-        this.lXR++;
-        this.lXX = i;
+        this.lXW++;
+        this.lYc = i;
         if (xVar.isEmpty()) {
-            this.lXZ = j == -9223372036854775807L ? 0L : j;
-            this.lXY = 0;
+            this.lYe = j == -9223372036854775807L ? 0L : j;
+            this.lYd = 0;
         } else {
-            xVar.a(i, this.laT);
-            long dst = j == -9223372036854775807L ? this.laT.dst() : b.fq(j);
-            int i2 = this.laT.lZE;
-            long dsu = this.laT.dsu() + dst;
-            long dso = xVar.a(i2, this.laU).dso();
-            while (dso != -9223372036854775807L && dsu >= dso && i2 < this.laT.lZF) {
-                dsu -= dso;
+            xVar.a(i, this.laY);
+            long dsv = j == -9223372036854775807L ? this.laY.dsv() : b.fq(j);
+            int i2 = this.laY.lZJ;
+            long dsw = this.laY.dsw() + dsv;
+            long dsq = xVar.a(i2, this.laZ).dsq();
+            while (dsq != -9223372036854775807L && dsw >= dsq && i2 < this.laY.lZK) {
+                dsw -= dsq;
                 i2++;
-                dso = xVar.a(i2, this.laU).dso();
+                dsq = xVar.a(i2, this.laZ).dsq();
             }
-            this.lXZ = b.fp(dst);
-            this.lXY = i2;
+            this.lYe = b.fp(dsv);
+            this.lYd = i2;
         }
-        this.lXN.a(xVar, i, b.fq(j));
-        Iterator<r.b> it2 = this.lbd.iterator();
+        this.lXS.a(xVar, i, b.fq(j));
+        Iterator<r.b> it2 = this.lbi.iterator();
         while (it2.hasNext()) {
             it2.next().EO(1);
         }
@@ -215,91 +215,91 @@ final class j implements g {
     @Override // com.google.android.exoplayer2.r
     public void b(@Nullable q qVar) {
         if (qVar == null) {
-            qVar = q.lYW;
+            qVar = q.lZb;
         }
-        this.lXN.b(qVar);
+        this.lXS.b(qVar);
     }
 
     @Override // com.google.android.exoplayer2.r
-    public q drF() {
-        return this.lXV;
+    public q drH() {
+        return this.lYa;
     }
 
     @Override // com.google.android.exoplayer2.r
     public void stop() {
-        this.lXN.stop();
+        this.lXS.stop();
     }
 
     @Override // com.google.android.exoplayer2.r
     public void release() {
-        Log.i("ExoPlayerImpl", "Release " + Integer.toHexString(System.identityHashCode(this)) + " [ExoPlayerLib/2.6.0] [" + com.google.android.exoplayer2.util.v.mHc + "] [" + l.dsh() + "]");
-        this.lXN.release();
-        this.lXM.removeCallbacksAndMessages(null);
+        Log.i("ExoPlayerImpl", "Release " + Integer.toHexString(System.identityHashCode(this)) + " [ExoPlayerLib/2.6.0] [" + com.google.android.exoplayer2.util.v.mHh + "] [" + l.dsj() + "]");
+        this.lXS.release();
+        this.lXR.removeCallbacksAndMessages(null);
     }
 
     @Override // com.google.android.exoplayer2.g
     public void a(g.b... bVarArr) {
-        this.lXN.a(bVarArr);
+        this.lXS.a(bVarArr);
     }
 
     @Override // com.google.android.exoplayer2.g
     public void b(g.b... bVarArr) {
-        this.lXN.b(bVarArr);
+        this.lXS.b(bVarArr);
     }
 
-    public int drG() {
-        return drP() ? this.lXY : this.lXW.lYT.periodIndex;
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public int drH() {
-        return drP() ? this.lXX : this.lXW.timeline.a(this.lXW.lYT.periodIndex, this.laU).windowIndex;
-    }
-
-    @Override // com.google.android.exoplayer2.r
     public int drI() {
-        x xVar = this.lXW.timeline;
-        if (xVar.isEmpty()) {
-            return -1;
-        }
-        return xVar.p(drH(), this.dT, this.lXQ);
+        return drR() ? this.lYd : this.lYb.lYY.periodIndex;
     }
 
     @Override // com.google.android.exoplayer2.r
     public int drJ() {
-        x xVar = this.lXW.timeline;
-        if (xVar.isEmpty()) {
-            return -1;
-        }
-        return xVar.q(drH(), this.dT, this.lXQ);
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public long getDuration() {
-        x xVar = this.lXW.timeline;
-        if (xVar.isEmpty()) {
-            return -9223372036854775807L;
-        }
-        if (drL()) {
-            l.b bVar = this.lXW.lYT;
-            xVar.a(bVar.periodIndex, this.laU);
-            return b.fp(this.laU.dE(bVar.mrs, bVar.mrt));
-        }
-        return xVar.a(drH(), this.laT).dsn();
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public long getCurrentPosition() {
-        return drP() ? this.lXZ : ft(this.lXW.lYU);
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public long getBufferedPosition() {
-        return drP() ? this.lXZ : ft(this.lXW.lYV);
+        return drR() ? this.lYc : this.lYb.timeline.a(this.lYb.lYY.periodIndex, this.laZ).windowIndex;
     }
 
     @Override // com.google.android.exoplayer2.r
     public int drK() {
+        x xVar = this.lYb.timeline;
+        if (xVar.isEmpty()) {
+            return -1;
+        }
+        return xVar.p(drJ(), this.dT, this.lXV);
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public int drL() {
+        x xVar = this.lYb.timeline;
+        if (xVar.isEmpty()) {
+            return -1;
+        }
+        return xVar.q(drJ(), this.dT, this.lXV);
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public long getDuration() {
+        x xVar = this.lYb.timeline;
+        if (xVar.isEmpty()) {
+            return -9223372036854775807L;
+        }
+        if (drN()) {
+            l.b bVar = this.lYb.lYY;
+            xVar.a(bVar.periodIndex, this.laZ);
+            return b.fp(this.laZ.dE(bVar.mrx, bVar.mry));
+        }
+        return xVar.a(drJ(), this.laY).dsp();
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public long getCurrentPosition() {
+        return drR() ? this.lYe : ft(this.lYb.lYZ);
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public long getBufferedPosition() {
+        return drR() ? this.lYe : ft(this.lYb.lZa);
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public int drM() {
         long bufferedPosition = getBufferedPosition();
         long duration = getDuration();
         if (bufferedPosition == -9223372036854775807L || duration == -9223372036854775807L) {
@@ -312,60 +312,60 @@ final class j implements g {
     }
 
     @Override // com.google.android.exoplayer2.r
-    public boolean drL() {
-        return !drP() && this.lXW.lYT.dvg();
+    public boolean drN() {
+        return !drR() && this.lYb.lYY.dvi();
     }
 
     @Override // com.google.android.exoplayer2.r
-    public long drM() {
-        if (drL()) {
-            this.lXW.timeline.a(this.lXW.lYT.periodIndex, this.laU);
-            return this.laU.dsp() + b.fp(this.lXW.lYP);
+    public long drO() {
+        if (drN()) {
+            this.lYb.timeline.a(this.lYb.lYY.periodIndex, this.laZ);
+            return this.laZ.dsr() + b.fp(this.lYb.lYU);
         }
         return getCurrentPosition();
     }
 
     @Override // com.google.android.exoplayer2.r
     public int IO(int i) {
-        return this.lXJ[i].getTrackType();
+        return this.lXO[i].getTrackType();
     }
 
     @Override // com.google.android.exoplayer2.r
-    public com.google.android.exoplayer2.b.g drN() {
-        return this.lXU;
+    public com.google.android.exoplayer2.b.g drP() {
+        return this.lXZ;
     }
 
     @Override // com.google.android.exoplayer2.r
-    public x drO() {
-        return this.lXW.timeline;
+    public x drQ() {
+        return this.lYb.timeline;
     }
 
     void N(Message message) {
         switch (message.what) {
             case 0:
-                this.kZX = message.arg1;
-                Iterator<r.b> it = this.lbd.iterator();
+                this.lac = message.arg1;
+                Iterator<r.b> it = this.lbi.iterator();
                 while (it.hasNext()) {
-                    it.next().z(this.lXP, this.kZX);
+                    it.next().z(this.lXU, this.lac);
                 }
                 return;
             case 1:
                 this.isLoading = message.arg1 != 0;
-                Iterator<r.b> it2 = this.lbd.iterator();
+                Iterator<r.b> it2 = this.lbi.iterator();
                 while (it2.hasNext()) {
                     it2.next().tZ(this.isLoading);
                 }
                 return;
             case 2:
-                if (this.lXS == 0) {
+                if (this.lXX == 0) {
                     com.google.android.exoplayer2.b.i iVar = (com.google.android.exoplayer2.b.i) message.obj;
-                    this.lXO = true;
-                    this.lXT = iVar.mCA;
-                    this.lXU = iVar.mCC;
-                    this.lXK.by(iVar.mCD);
-                    Iterator<r.b> it3 = this.lbd.iterator();
+                    this.lXT = true;
+                    this.lXY = iVar.mCF;
+                    this.lXZ = iVar.mCH;
+                    this.lXP.by(iVar.mCI);
+                    Iterator<r.b> it3 = this.lbi.iterator();
                     while (it3.hasNext()) {
-                        it3.next().a(this.lXT, this.lXU);
+                        it3.next().a(this.lXY, this.lXZ);
                     }
                     return;
                 }
@@ -381,9 +381,9 @@ final class j implements g {
                 return;
             case 6:
                 q qVar = (q) message.obj;
-                if (!this.lXV.equals(qVar)) {
-                    this.lXV = qVar;
-                    Iterator<r.b> it4 = this.lbd.iterator();
+                if (!this.lYa.equals(qVar)) {
+                    this.lYa = qVar;
+                    Iterator<r.b> it4 = this.lbi.iterator();
                     while (it4.hasNext()) {
                         it4.next().a(qVar);
                     }
@@ -392,7 +392,7 @@ final class j implements g {
                 return;
             case 7:
                 ExoPlaybackException exoPlaybackException = (ExoPlaybackException) message.obj;
-                Iterator<r.b> it5 = this.lbd.iterator();
+                Iterator<r.b> it5 = this.lbi.iterator();
                 while (it5.hasNext()) {
                     it5.next().a(exoPlaybackException);
                 }
@@ -404,47 +404,47 @@ final class j implements g {
 
     private void a(p pVar, int i, int i2, boolean z, int i3) {
         com.google.android.exoplayer2.util.a.checkNotNull(pVar.timeline);
-        this.lXS -= i;
-        this.lXR -= i2;
-        if (this.lXS == 0 && this.lXR == 0) {
-            boolean z2 = (this.lXW.timeline == pVar.timeline && this.lXW.lYH == pVar.lYH) ? false : true;
-            this.lXW = pVar;
+        this.lXX -= i;
+        this.lXW -= i2;
+        if (this.lXX == 0 && this.lXW == 0) {
+            boolean z2 = (this.lYb.timeline == pVar.timeline && this.lYb.lYM == pVar.lYM) ? false : true;
+            this.lYb = pVar;
             if (pVar.timeline.isEmpty()) {
-                this.lXY = 0;
-                this.lXX = 0;
-                this.lXZ = 0L;
+                this.lYd = 0;
+                this.lYc = 0;
+                this.lYe = 0L;
             }
             if (z2) {
-                Iterator<r.b> it = this.lbd.iterator();
+                Iterator<r.b> it = this.lbi.iterator();
                 while (it.hasNext()) {
-                    it.next().a(pVar.timeline, pVar.lYH);
+                    it.next().a(pVar.timeline, pVar.lYM);
                 }
             }
             if (z) {
-                Iterator<r.b> it2 = this.lbd.iterator();
+                Iterator<r.b> it2 = this.lbi.iterator();
                 while (it2.hasNext()) {
                     it2.next().EO(i3);
                 }
             }
         }
-        if (this.lXR == 0 && i2 > 0) {
-            Iterator<r.b> it3 = this.lbd.iterator();
+        if (this.lXW == 0 && i2 > 0) {
+            Iterator<r.b> it3 = this.lbi.iterator();
             while (it3.hasNext()) {
-                it3.next().cYP();
+                it3.next().cYR();
             }
         }
     }
 
     private long ft(long j) {
         long fp = b.fp(j);
-        if (!this.lXW.lYT.dvg()) {
-            this.lXW.timeline.a(this.lXW.lYT.periodIndex, this.laU);
-            return fp + this.laU.dsp();
+        if (!this.lYb.lYY.dvi()) {
+            this.lYb.timeline.a(this.lYb.lYY.periodIndex, this.laZ);
+            return fp + this.laZ.dsr();
         }
         return fp;
     }
 
-    private boolean drP() {
-        return this.lXW.timeline.isEmpty() || this.lXR > 0 || this.lXS > 0;
+    private boolean drR() {
+        return this.lYb.timeline.isEmpty() || this.lXW > 0 || this.lXX > 0;
     }
 }
