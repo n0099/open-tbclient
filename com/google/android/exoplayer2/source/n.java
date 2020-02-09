@@ -3,8 +3,9 @@ package com.google.android.exoplayer2.source;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.extractor.m;
 import com.google.android.exoplayer2.util.v;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-final class n {
+public final class n {
     private int length;
     private int mrO;
     private int mrP;

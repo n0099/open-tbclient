@@ -1,9 +1,8 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.al;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class an implements Runnable {
+class an implements Runnable {
     final /* synthetic */ al.b a;
 
     /* renamed from: a  reason: collision with other field name */
