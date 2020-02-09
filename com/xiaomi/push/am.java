@@ -4,9 +4,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.xiaomi.push.al;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class am extends Handler {
+class am extends Handler {
     final /* synthetic */ al a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

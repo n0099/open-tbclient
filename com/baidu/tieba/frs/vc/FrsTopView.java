@@ -79,7 +79,6 @@ public class FrsTopView extends LinearLayout {
         this.gKZ = new ArrayList();
         this.gLa = new ArrayList();
         this.topThreadList = new ArrayList();
-        this.gLc = new ArrayList<>(Collections.nCopies(3, Boolean.FALSE));
         this.gLe = false;
         this.mContext = context;
         init();
@@ -157,6 +156,9 @@ public class FrsTopView extends LinearLayout {
                 }
                 i = i2 + 1;
             }
+        }
+        if (this.gLc == null && this.gKZ != null) {
+            this.gLc = new ArrayList<>(Collections.nCopies(this.gKZ.size(), Boolean.FALSE));
         }
         bJB();
     }
@@ -282,7 +284,10 @@ public class FrsTopView extends LinearLayout {
         @Override // android.support.v4.view.PagerAdapter
         public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
             super.setPrimaryItem(viewGroup, i, obj);
-            if (FrsTopView.this.gLc != null && FrsTopView.this.gLc.get(i) == Boolean.FALSE && FrsTopView.this.gLa != null && FrsTopView.this.topThreadList != null && FrsTopView.this.gLa.size() > i && FrsTopView.this.topThreadList.size() > i * 2) {
+            if (FrsTopView.this.gLd != null) {
+                i--;
+            }
+            if (i >= 0 && FrsTopView.this.gLc != null && v.getItem(FrsTopView.this.gLc, i) == Boolean.FALSE && FrsTopView.this.gLa != null && FrsTopView.this.topThreadList != null && FrsTopView.this.gLa.size() > i && FrsTopView.this.topThreadList.size() > i * 2) {
                 com.baidu.tieba.frs.view.e eVar = (com.baidu.tieba.frs.view.e) FrsTopView.this.gLa.get(i);
                 List<com.baidu.adp.widget.ListView.m> subList = FrsTopView.this.topThreadList.size() > (i * 2) + 1 ? FrsTopView.this.topThreadList.subList(i * 2, (i * 2) + 2) : FrsTopView.this.topThreadList.subList(i * 2, (i * 2) + 1);
                 TbPageTag ea = com.baidu.tbadk.pageInfo.c.ea(FrsTopView.this.mContext);
