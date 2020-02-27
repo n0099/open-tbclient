@@ -1,7 +1,7 @@
 package com.baidu.sapi2.permissions;
 
 import android.app.Activity;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface PermissionsCallback {
     AlertDialogInterface getDialog(Activity activity);
 

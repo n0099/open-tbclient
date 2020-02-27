@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BeautyDataManager {
     public static final float CHINHEIGHT = 0.25f;
     public static final float CHINWIDTH = 0.5f;

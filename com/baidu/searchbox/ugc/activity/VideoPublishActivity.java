@@ -41,7 +41,7 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.lang.ref.WeakReference;
 import rx.functions.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPresenter> implements View.OnClickListener {
     private static final int INCREASE_PROGRESS_INTERVAL = 10;
     private static final int MAX_PROGRESS = 100;
@@ -164,7 +164,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.searchbox.ugc.activity.VideoPublishActivity$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class AnonymousClass1 implements Runnable {
         int progress = 0;
 
@@ -206,10 +206,10 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
     public void updateVideoCover() {
         String str = TextUtils.isEmpty(((VideoBasePublishPresenter) this.mPublishPresenter).mVideoCover) ? ((VideoBasePublishPresenter) this.mPublishPresenter).mVideoPath : ((VideoBasePublishPresenter) this.mPublishPresenter).mVideoCover;
         if (!TextUtils.isEmpty(str)) {
-            ImageRequestBuilder X = ImageRequestBuilder.X(UgcUriUtils.getUri(str));
-            X.c(new d((int) (this.mVideoWidth / 2.0f), (int) (this.mVideoHeight / 2.0f)));
-            X.vs(true);
-            this.mVideoImg.setController(c.dkj().vd(true).be(X.dro()).c(this.mVideoImg.getController()).dla());
+            ImageRequestBuilder Y = ImageRequestBuilder.Y(UgcUriUtils.getUri(str));
+            Y.c(new d((int) (this.mVideoWidth / 2.0f), (int) (this.mVideoHeight / 2.0f)));
+            Y.vw(true);
+            this.mVideoImg.setController(c.dlw().vh(true).bg(Y.dsA()).c(this.mVideoImg.getController()).dmn());
         }
     }
 
@@ -420,7 +420,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class DraftOnPositiveClickListener implements DialogInterface.OnClickListener {
         private SaveDraftTask mSaveDraftTask;
         private UgcSchemeModel mUgcSchemeModel;
@@ -444,7 +444,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class DraftOnNegativeClickListener implements DialogInterface.OnClickListener {
         private String mDraftKey;
         private UgcSchemeModel mUgcSchemeModel;
@@ -497,7 +497,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class SaveDraftTask implements Runnable {
         String inputStr;
 

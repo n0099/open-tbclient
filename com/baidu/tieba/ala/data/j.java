@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.data;
 
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j {
     public String errorNo;
     public String message;

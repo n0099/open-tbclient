@@ -4,11 +4,11 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
     private int errorCode;
     private String errorMsg;
-    private Date jYT;
+    private Date jZS;
 
     protected abstract void dg(JSONObject jSONObject) throws Exception;
 
@@ -54,7 +54,7 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.jYT = new Date(optLong * 1000);
+                this.jZS = new Date(optLong * 1000);
             }
             dg(jSONObject);
         } catch (Exception e) {

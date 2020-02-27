@@ -14,7 +14,6 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
@@ -34,6 +33,7 @@ import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.live.tbadk.pay.PayManager;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import com.baidu.live.tbadk.util.PageDialogHelper;
+import com.baidu.live.u.a;
 import com.baidu.live.utils.c;
 import com.baidu.tieba.live.tbean.BuyTBeanModel;
 import com.baidu.tieba.live.tbean.BuyTBeanView;
@@ -42,9 +42,13 @@ import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.CallBack {
+    public static final String ACTION_CALLBACK_LIVE_BUYTBEAN_RESULT = "action_callback_live_buytbean_result";
     public static final String GIFT_TBEAN = "gift_tbean";
+    public static final int PAY_STATUS_CANCEL = 1;
+    public static final int PAY_STATUS_FAIL = 2;
+    public static final int PAY_STATUS_SUCC = 0;
     private Activity activity;
     private IBuyTBeanActivity buyTBeanActivityImpl;
     private String callback;
@@ -59,10 +63,6 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     private String mReferPage;
     private BuyTBeanView mView;
     private TbPageContext<?> tbPageContext;
-    public final int PAY_STATUS_SUCC = 0;
-    public final int PAY_STATUS_CANCEL = 1;
-    public final int PAY_STATUS_FAIL = 2;
-    public final String ACTION_CALLBACK_LIVE_BUYTBEAN_RESULT = "action_callback_live_buytbean_result";
     private boolean mIsFromH5 = false;
     private boolean isInputShowing = false;
     private int mPayStatus = 1;
@@ -234,7 +234,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (Build.VERSION.SDK_INT >= 28 && !c.aF(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !c.aJ(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);
@@ -392,7 +392,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
 
     private void setBuyResultForCallback(int i) {
         if (!TextUtils.isEmpty(this.callback)) {
-            Intent intent = new Intent("action_callback_live_buytbean_result");
+            Intent intent = new Intent(ACTION_CALLBACK_LIVE_BUYTBEAN_RESULT);
             intent.putExtra(BuyTBeanActivityConfig.CALLBACK, this.callback);
             if (this.mLastPayDataInfo != null && !TextUtils.isEmpty(this.mLastPayDataInfo.productId)) {
                 intent.putExtra("productId", this.mLastPayDataInfo.productId);

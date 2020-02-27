@@ -11,21 +11,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final org.a.b<?>[] nwP;
-    final Iterable<? extends org.a.b<?>> nwQ;
+    final org.a.b<?>[] nxr;
+    final Iterable<? extends org.a.b<?>> nxs;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         int length;
-        org.a.b<?>[] bVarArr = this.nwP;
+        org.a.b<?>[] bVarArr = this.nxr;
         int i = 0;
         if (bVarArr == null) {
             bVarArr = new org.a.b[8];
             try {
-                for (org.a.b<?> bVar : this.nwQ) {
+                for (org.a.b<?> bVar : this.nxs) {
                     if (i == bVarArr.length) {
                         bVarArr = (org.a.b[]) Arrays.copyOf(bVarArr, (i >> 1) + i);
                     }
@@ -35,7 +35,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
                 }
                 length = i;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 EmptySubscription.error(th, cVar);
                 return;
             }
@@ -43,16 +43,16 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
             length = bVarArr.length;
         }
         if (length == 0) {
-            new f(this.nvP, new a()).a(cVar);
+            new f(this.nwr, new a()).a(cVar);
             return;
         }
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(cVar, this.combiner, length);
         cVar.onSubscribe(withLatestFromSubscriber);
         withLatestFromSubscriber.subscribe(bVarArr, length);
-        this.nvP.a((j) withLatestFromSubscriber);
+        this.nwr.a((j) withLatestFromSubscriber);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WithLatestFromSubscriber<T, R> extends AtomicInteger implements io.reactivex.internal.a.a<T>, org.a.d {
         private static final long serialVersionUID = 1577321883966341961L;
         final org.a.c<? super R> actual;
@@ -118,7 +118,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
                 io.reactivex.internal.util.e.a(this.actual, io.reactivex.internal.functions.a.h(this.combiner.apply(objArr), "The combiner returned a null value"), this, this.error);
                 return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 cancel();
                 onError(th);
                 return false;
@@ -189,7 +189,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class WithLatestInnerSubscriber extends AtomicReference<org.a.d> implements j<Object> {
         private static final long serialVersionUID = 3256684027868224024L;
         boolean hasValue;
@@ -229,7 +229,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     final class a implements h<T, R> {
         a() {
         }

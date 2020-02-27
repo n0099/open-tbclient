@@ -6,7 +6,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
 import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class r implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -19,8 +19,8 @@ public class r implements CustomMessageTask.CustomRunnable<Object> {
         responseSearchGroupLocalMessage.setError(0);
         responseSearchGroupLocalMessage.setGid(groupId);
         String str = groupId + "";
-        com.baidu.adp.lib.cache.l<String> sA = com.baidu.tbadk.core.c.a.aCo().sA("tb.im_group_search_history");
-        sA.setForever(str, sA.get(str));
+        com.baidu.adp.lib.cache.l<String> sQ = com.baidu.tbadk.core.c.a.aEz().sQ("tb.im_group_search_history");
+        sQ.setForever(str, sQ.get(str));
         return responseSearchGroupLocalMessage;
     }
 }

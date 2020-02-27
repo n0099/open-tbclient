@@ -2,9 +2,9 @@ package com.baidu.swan.config.core;
 
 import android.content.SharedPreferences;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public static SharedPreferences agJ() {
+    public static SharedPreferences aiX() {
         return AppRuntime.getAppContext().getSharedPreferences("swan_config_sp_name", 0);
     }
 }

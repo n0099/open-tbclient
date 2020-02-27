@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SelfDestructiveThread {
     private static final int MSG_DESTRUCTION = 0;
     private static final int MSG_INVOKE_RUNNABLE = 1;
@@ -42,7 +42,7 @@ public class SelfDestructiveThread {
     @GuardedBy("mLock")
     private int mGeneration = 0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface ReplyCallback<T> {
         void onReply(T t);
     }

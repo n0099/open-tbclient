@@ -13,17 +13,17 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class l<T> {
-    public static Executor fk = Executors.newCachedThreadPool();
+    public static Executor fs = Executors.newCachedThreadPool();
     @Nullable
-    private Thread fn;
-    private final Set<h<T>> fo;
-    private final Set<h<Throwable>> fq;
-    private final FutureTask<k<T>> fs;
+    private Thread ft;
+    private final Set<h<T>> fu;
+    private final Set<h<Throwable>> fv;
+    private final FutureTask<k<T>> fw;
     private final Handler handler;
     @Nullable
-    private volatile k<T> noW;
+    private volatile k<T> npy;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public l(Callable<k<T>> callable) {
@@ -32,11 +32,11 @@ public class l<T> {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     l(Callable<k<T>> callable, boolean z) {
-        this.fo = new LinkedHashSet(1);
-        this.fq = new LinkedHashSet(1);
+        this.fu = new LinkedHashSet(1);
+        this.fv = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.noW = null;
-        this.fs = new FutureTask<>(callable);
+        this.npy = null;
+        this.fw = new FutureTask<>(callable);
         if (z) {
             try {
                 a(callable.call());
@@ -46,59 +46,59 @@ public class l<T> {
                 return;
             }
         }
-        fk.execute(this.fs);
-        bz();
+        fs.execute(this.fw);
+        bA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable k<T> kVar) {
-        if (this.noW != null) {
+        if (this.npy != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.noW = kVar;
-        by();
+        this.npy = kVar;
+        bz();
     }
 
     public synchronized l<T> a(h<T> hVar) {
-        if (this.noW != null && this.noW.getValue() != null) {
-            hVar.onResult(this.noW.getValue());
+        if (this.npy != null && this.npy.getValue() != null) {
+            hVar.onResult(this.npy.getValue());
         }
-        this.fo.add(hVar);
-        bz();
+        this.fu.add(hVar);
+        bA();
         return this;
     }
 
     public synchronized l<T> b(h<T> hVar) {
-        this.fo.remove(hVar);
-        bA();
+        this.fu.remove(hVar);
+        bB();
         return this;
     }
 
     public synchronized l<T> c(h<Throwable> hVar) {
-        if (this.noW != null && this.noW.bx() != null) {
-            hVar.onResult(this.noW.bx());
+        if (this.npy != null && this.npy.by() != null) {
+            hVar.onResult(this.npy.by());
         }
-        this.fq.add(hVar);
-        bz();
-        return this;
-    }
-
-    public synchronized l<T> d(h<Throwable> hVar) {
-        this.fq.remove(hVar);
+        this.fv.add(hVar);
         bA();
         return this;
     }
 
-    private void by() {
+    public synchronized l<T> d(h<Throwable> hVar) {
+        this.fv.remove(hVar);
+        bB();
+        return this;
+    }
+
+    private void bz() {
         this.handler.post(new Runnable() { // from class: com.tb.airbnb.lottie.l.1
             @Override // java.lang.Runnable
             public void run() {
-                if (l.this.noW != null && !l.this.fs.isCancelled()) {
-                    k kVar = l.this.noW;
+                if (l.this.npy != null && !l.this.fw.isCancelled()) {
+                    k kVar = l.this.npy;
                     if (kVar.getValue() != null) {
                         l.this.m(kVar.getValue());
                     } else {
-                        l.this.h(kVar.bx());
+                        l.this.g(kVar.by());
                     }
                 }
             }
@@ -107,14 +107,14 @@ public class l<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(T t) {
-        for (h hVar : new ArrayList(this.fo)) {
+        for (h hVar : new ArrayList(this.fu)) {
             hVar.onResult(t);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h(Throwable th) {
-        ArrayList<h> arrayList = new ArrayList(this.fq);
+    public void g(Throwable th) {
+        ArrayList<h> arrayList = new ArrayList(this.fv);
         if (arrayList.isEmpty()) {
             Log.w("LOTTIE", "Lottie encountered an error but no failure listener was added.", th);
             return;
@@ -124,41 +124,41 @@ public class l<T> {
         }
     }
 
-    private synchronized void bz() {
-        if (!bB() && this.noW == null) {
-            this.fn = new Thread("LottieTaskObserver") { // from class: com.tb.airbnb.lottie.l.2
-                private boolean fv = false;
+    private synchronized void bA() {
+        if (!bC() && this.npy == null) {
+            this.ft = new Thread("LottieTaskObserver") { // from class: com.tb.airbnb.lottie.l.2
+                private boolean fB = false;
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    while (!isInterrupted() && !this.fv) {
-                        if (l.this.fs.isDone()) {
+                    while (!isInterrupted() && !this.fB) {
+                        if (l.this.fw.isDone()) {
                             try {
-                                l.this.a((k) l.this.fs.get());
+                                l.this.a((k) l.this.fw.get());
                             } catch (InterruptedException | ExecutionException e) {
                                 l.this.a(new k(e));
                             }
-                            this.fv = true;
-                            l.this.bA();
+                            this.fB = true;
+                            l.this.bB();
                         }
                     }
                 }
             };
-            this.fn.start();
+            this.ft.start();
             c.debug("Starting TaskObserver thread");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void bA() {
-        if (bB() && (this.fo.isEmpty() || this.noW != null)) {
-            this.fn.interrupt();
-            this.fn = null;
+    public synchronized void bB() {
+        if (bC() && (this.fu.isEmpty() || this.npy != null)) {
+            this.ft.interrupt();
+            this.ft = null;
             c.debug("Stopping TaskObserver thread");
         }
     }
 
-    private boolean bB() {
-        return this.fn != null && this.fn.isAlive();
+    private boolean bC() {
+        return this.ft != null && this.ft.isAlive();
     }
 }

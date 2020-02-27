@@ -1,24 +1,38 @@
 package com.baidu.live.data;
 
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+import java.util.ArrayList;
+/* loaded from: classes3.dex */
 public class d {
-    public int id = 0;
-    public String name;
-    public int number;
+    private String Xq;
+    private ArrayList<Integer> Xr;
+    private boolean Xs;
+    private int categoryId;
 
-    public void parser(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.number = jSONObject.optInt("num");
-            this.name = jSONObject.optString("name");
-        }
+    public void setCategoryId(int i) {
+        this.categoryId = i;
     }
 
-    public int getNumber() {
-        return this.number;
+    public void setCategoryName(String str) {
+        this.Xq = str;
     }
 
-    public String getName() {
-        return this.name;
+    public void f(ArrayList<Integer> arrayList) {
+        this.Xr = arrayList;
+    }
+
+    public String getCategoryName() {
+        return this.Xq;
+    }
+
+    public int getCategoryId() {
+        return this.categoryId;
+    }
+
+    public ArrayList<Integer> qq() {
+        return this.Xr;
+    }
+
+    public void aw(boolean z) {
+        this.Xs = z;
     }
 }

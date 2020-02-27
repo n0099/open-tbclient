@@ -12,17 +12,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.internal.operators.flowable.a<T, io.reactivex.g<T>> {
     final int capacityHint;
     final Callable<? extends org.a.b<B>> other;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.g<T>> cVar) {
-        this.nvP.a((j) new WindowBoundaryMainSubscriber(cVar, this.capacityHint, this.other));
+        this.nwr.a((j) new WindowBoundaryMainSubscriber(cVar, this.capacityHint, this.other));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WindowBoundaryMainSubscriber<T, B> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         static final a<Object, Object> BOUNDARY_DISPOSED = new a<>(null);
         static final Object NEXT_WINDOW = new Object();
@@ -197,7 +197,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
                                             cVar.onNext(a);
                                         }
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.I(th);
+                                        io.reactivex.exceptions.a.H(th);
                                         atomicThrowable.addThrowable(th);
                                         this.done = true;
                                     }
@@ -226,13 +226,13 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a<T, B> extends io.reactivex.subscribers.a<B> {
         boolean done;
-        final WindowBoundaryMainSubscriber<T, B> nwM;
+        final WindowBoundaryMainSubscriber<T, B> nxo;
 
         a(WindowBoundaryMainSubscriber<T, B> windowBoundaryMainSubscriber) {
-            this.nwM = windowBoundaryMainSubscriber;
+            this.nxo = windowBoundaryMainSubscriber;
         }
 
         @Override // org.a.c
@@ -240,7 +240,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.nwM.innerNext(this);
+                this.nxo.innerNext(this);
             }
         }
 
@@ -251,14 +251,14 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
                 return;
             }
             this.done = true;
-            this.nwM.innerError(th);
+            this.nxo.innerError(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.nwM.innerComplete();
+                this.nxo.innerComplete();
             }
         }
     }

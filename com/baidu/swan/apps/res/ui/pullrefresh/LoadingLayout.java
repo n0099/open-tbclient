@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class LoadingLayout extends FrameLayout implements ILoadingLayout {
-    private View bHD;
-    private ILoadingLayout.State bHE;
-    private ILoadingLayout.State bHF;
+    private View bLI;
+    private ILoadingLayout.State bLJ;
+    private ILoadingLayout.State bLK;
 
     protected abstract View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet);
 
@@ -27,27 +27,27 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     public LoadingLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bHE = ILoadingLayout.State.NONE;
-        this.bHF = ILoadingLayout.State.NONE;
+        this.bLJ = ILoadingLayout.State.NONE;
+        this.bLK = ILoadingLayout.State.NONE;
         init(context, attributeSet);
     }
 
     protected void init(Context context, AttributeSet attributeSet) {
-        this.bHD = a(context, this, attributeSet);
-        if (this.bHD == null) {
+        this.bLI = a(context, this, attributeSet);
+        if (this.bLI == null) {
             throw new NullPointerException("Loading view can not be null.");
         }
         int i = -2;
-        ViewGroup.LayoutParams layoutParams = this.bHD.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bLI.getLayoutParams();
         if (layoutParams != null) {
             i = layoutParams.height;
         }
-        addView(this.bHD, new FrameLayout.LayoutParams(-1, i));
+        addView(this.bLI, new FrameLayout.LayoutParams(-1, i));
     }
 
     public void show(boolean z) {
         ViewGroup.LayoutParams layoutParams;
-        if (z != (getVisibility() == 0) && (layoutParams = this.bHD.getLayoutParams()) != null) {
+        if (z != (getVisibility() == 0) && (layoutParams = this.bLI.getLayoutParams()) != null) {
             if (z) {
                 layoutParams.height = -2;
             } else {
@@ -74,34 +74,34 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     public void setHeaderBackgroundColor(int i) {
-        if (this.bHD != null) {
-            this.bHD.setBackgroundColor(i);
+        if (this.bLI != null) {
+            this.bLI.setBackgroundColor(i);
         }
     }
 
     public void setHeaderBackgroundResource(int i) {
-        if (this.bHD != null) {
-            this.bHD.setBackgroundColor(getResources().getColor(i));
+        if (this.bLI != null) {
+            this.bLI.setBackgroundColor(getResources().getColor(i));
         }
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        if (this.bHD != null) {
-            this.bHD.setBackgroundColor(i);
+        if (this.bLI != null) {
+            this.bLI.setBackgroundColor(i);
         }
     }
 
     public void setState(ILoadingLayout.State state) {
-        if (this.bHE != state) {
-            this.bHF = this.bHE;
-            this.bHE = state;
-            a(state, this.bHF);
+        if (this.bLJ != state) {
+            this.bLK = this.bLJ;
+            this.bLJ = state;
+            a(state, this.bLK);
         }
     }
 
     public ILoadingLayout.State getState() {
-        return this.bHE;
+        return this.bLJ;
     }
 
     public void onPull(float f) {
@@ -109,7 +109,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ILoadingLayout.State getPreState() {
-        return this.bHF;
+        return this.bLK;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -131,7 +131,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
                 onNoMoreData();
                 return;
             case RELEASE_TO_LONG_REFRESH:
-                Zw();
+                abK();
                 return;
             default:
                 return;
@@ -145,7 +145,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Zw() {
+    public void abK() {
     }
 
     protected void onReleaseToRefresh() {
@@ -167,7 +167,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ft(int i) {
+    public void fJ(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

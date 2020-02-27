@@ -1,27 +1,27 @@
 package com.baidu.swan.apps.media.chooser.model;
 
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements Comparable<Object> {
-    private String byW;
-    public ArrayList<MediaModel> byX;
-    private String eJ;
+    private String bDd;
+    public ArrayList<MediaModel> bDe;
+    private String eM;
     private long lastModified;
 
-    public String bw() {
-        return this.eJ;
+    public String bx() {
+        return this.eM;
     }
 
-    public void iU(String str) {
-        this.eJ = str;
+    public void jj(String str) {
+        this.eM = str;
     }
 
     public String getDir() {
-        return this.byW;
+        return this.bDd;
     }
 
-    public void iV(String str) {
-        this.byW = str;
+    public void jk(String str) {
+        this.bDd = str;
     }
 
     public long getLastModified() {
@@ -33,27 +33,27 @@ public class a implements Comparable<Object> {
     }
 
     public int getImageCount() {
-        return this.byX.size();
+        return this.bDe.size();
     }
 
-    public ArrayList<MediaModel> Vq() {
-        return this.byX;
+    public ArrayList<MediaModel> XE() {
+        return this.bDe;
     }
 
     public void h(MediaModel mediaModel) {
-        if (this.byX == null) {
-            this.byX = new ArrayList<>();
+        if (this.bDe == null) {
+            this.bDe = new ArrayList<>();
         }
-        this.byX.add(mediaModel);
+        this.bDe.add(mediaModel);
     }
 
     public String toString() {
-        return "MediaDir [firstImgPath=, dirName=" + this.eJ + ", imageCount=" + getImageCount() + "]";
+        return "MediaDir [firstImgPath=, dirName=" + this.eM + ", imageCount=" + getImageCount() + "]";
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
-            return this.eJ.equals(((a) obj).eJ);
+            return this.eM.equals(((a) obj).eM);
         }
         return false;
     }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 116=4] */
     /* JADX WARN: Removed duplicated region for block: B:53:0x0163  */
@@ -90,7 +90,7 @@ public class e {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && JX(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
+                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && Kk(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
                         videoPath = dVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -133,11 +133,11 @@ public class e {
         return arrayList;
     }
 
-    public static int JF(String str) {
-        return VideoConvertUtil.JF(str);
+    public static int JS(String str) {
+        return VideoConvertUtil.JS(str);
     }
 
-    public static d JV(String str) {
+    public static d Ki(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -182,7 +182,7 @@ public class e {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static d JW(String str) {
+    public static d Kj(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -216,13 +216,13 @@ public class e {
         return dVar;
     }
 
-    public static String JE(String str) {
-        return VideoConvertUtil.JE(str);
+    public static String JR(String str) {
+        return VideoConvertUtil.JR(str);
     }
 
     public static void b(String str, List<d> list, boolean z) {
         File[] listFiles;
-        d JV;
+        d Ki;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -232,8 +232,8 @@ public class e {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (JV = JV(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && JV.getDuration() >= 1000 && JX(JV.getMimeType())) {
-                            list.add(JV);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (Ki = Ki(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && Ki.getDuration() >= 1000 && Kk(Ki.getMimeType())) {
+                            list.add(Ki);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
                         b(path, list, z);
@@ -243,11 +243,11 @@ public class e {
         }
     }
 
-    public static void ex(List<d> list) {
+    public static void es(List<d> list) {
         Collections.sort(list, new a());
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class a implements Comparator<d> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -264,7 +264,7 @@ public class e {
         }
     }
 
-    public static boolean JX(String str) {
+    public static boolean Kk(String str) {
         return MimeType.Video.MP4.equals(str) || "video/ext-mp4".equals(str);
     }
 }

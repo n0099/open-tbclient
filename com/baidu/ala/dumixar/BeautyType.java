@@ -1,7 +1,7 @@
 package com.baidu.ala.dumixar;
 
 import com.baidu.ar.FilterType;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum BeautyType {
     babyFace(0.5f, FilterType.babyFace),
     webCelebrityFace(0.5f, FilterType.webCelebrityFace),

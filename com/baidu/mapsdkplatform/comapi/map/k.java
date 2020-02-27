@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class k extends Handler {
     final /* synthetic */ j a;
 

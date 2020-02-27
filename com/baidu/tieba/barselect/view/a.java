@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a extends AlertDialog {
-    private View fDU;
+    private View fGr;
     private String mTitle;
     private TextView mTitleView;
 
@@ -27,16 +27,16 @@ public class a extends AlertDialog {
         if (window != null) {
             window.setDimAmount(0.0f);
             window.setContentView(R.layout.id_card_dialog);
-            this.fDU = window.findViewById(R.id.toast_container);
+            this.fGr = window.findViewById(R.id.toast_container);
             this.mTitleView = (TextView) window.findViewById(R.id.toast_tv);
             if (!StringUtils.isNull(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
             }
-            oU(TbadkCoreApplication.getInst().getSkinType());
+            pk(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void oU(int i) {
-        am.c(this.fDU, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5), (int) R.color.cp_cont_b_alpha80, (int) R.color.cp_cont_b_alpha80, i);
+    public void pk(int i) {
+        am.c(this.fGr, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5), (int) R.color.cp_cont_b_alpha80, (int) R.color.cp_cont_b_alpha80, i);
     }
 }

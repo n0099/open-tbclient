@@ -14,13 +14,13 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.coreextra.NoNetworkMoreActivity;
+import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
     private static final int GONE = 0;
     private static final int SHOW_NO_NET = 1;
@@ -33,7 +33,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     private TextView mGuide;
     private final ArrayList<NetworkChangeListener> networkChangeListeners;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface NetworkChangeListener {
         void onNetworkChange(boolean z);
     }

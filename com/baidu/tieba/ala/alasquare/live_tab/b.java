@@ -6,35 +6,35 @@ import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private BdTypeRecyclerView Bs;
-    private List<com.baidu.adp.widget.ListView.a> apl;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c eht;
+    private BdTypeRecyclerView BK;
+    private List<com.baidu.adp.widget.ListView.a> asE;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c elz;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.Bs = bdTypeRecyclerView;
-        vi();
+        this.BK = bdTypeRecyclerView;
+        wM();
     }
 
-    private void vi() {
-        this.apl = new ArrayList();
-        this.eht = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.apl.add(this.eht);
-        this.Bs.addAdapters(this.apl);
+    private void wM() {
+        this.asE = new ArrayList();
+        this.elz = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.asE.add(this.elz);
+        this.BK.addAdapters(this.asE);
     }
 
     public void setData(List<m> list) {
-        this.Bs.setData(list);
+        this.BK.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Bs != null) {
-            this.Bs.getListAdapter().notifyDataSetChanged();
+        if (this.BK != null) {
+            this.BK.getListAdapter().notifyDataSetChanged();
         }
     }
 }

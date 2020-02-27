@@ -10,7 +10,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Code128Reader extends OneDReader {
     private static final int CODE_CODE_A = 101;
     private static final int CODE_CODE_B = 100;

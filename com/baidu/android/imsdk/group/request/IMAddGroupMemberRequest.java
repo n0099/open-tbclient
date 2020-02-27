@@ -23,7 +23,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMAddGroupMemberRequest.class.getSimpleName();
     boolean isCreateGroup;
@@ -42,7 +42,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
         this.isCreateGroup = z;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(Context context, String str, String str2) {
             super(str, str2);

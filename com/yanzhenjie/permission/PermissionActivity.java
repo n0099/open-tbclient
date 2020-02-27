@@ -12,17 +12,17 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 @RequiresApi(api = 23)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PermissionActivity extends Activity {
-    private static a nrJ;
+    private static a nsl;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface a {
-        void W(@NonNull String[] strArr);
+        void X(@NonNull String[] strArr);
     }
 
     public static void a(Context context, String[] strArr, a aVar) {
-        nrJ = aVar;
+        nsl = aVar;
         Intent intent = new Intent(context, PermissionActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("KEY_INPUT_PERMISSIONS", strArr);
@@ -32,9 +32,9 @@ public final class PermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        az(this);
+        aA(this);
         String[] stringArrayExtra = getIntent().getStringArrayExtra("KEY_INPUT_PERMISSIONS");
-        if (stringArrayExtra != null && nrJ != null) {
+        if (stringArrayExtra != null && nsl != null) {
             requestPermissions(stringArrayExtra, 1);
         } else {
             finish();
@@ -43,8 +43,8 @@ public final class PermissionActivity extends Activity {
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (nrJ != null) {
-            nrJ.W(strArr);
+        if (nsl != null) {
+            nsl.X(strArr);
         }
         finish();
     }
@@ -52,7 +52,7 @@ public final class PermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        nrJ = null;
+        nsl = null;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -63,7 +63,7 @@ public final class PermissionActivity extends Activity {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private static void az(Activity activity) {
+    private static void aA(Activity activity) {
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = activity.getWindow();
             View decorView = window.getDecorView();

@@ -3,7 +3,7 @@ package com.baidu.spswitch.emotion.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EmotionBaseFragment extends Fragment {
     protected Bundle mArgs;
 

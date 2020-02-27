@@ -53,7 +53,7 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VideoBasePublishPresenter extends BasePublishPresenter implements EmojiconEditText.TextNumbersChangedListener {
     protected static final int MINI_VIDEO = 1;
     protected static final int UGC_VIDEO = 0;

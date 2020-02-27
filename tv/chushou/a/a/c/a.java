@@ -2,83 +2,83 @@ package tv.chushou.a.a.c;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a implements b {
-    private static final a nUY = new a();
-    private volatile boolean kUW = false;
-    private volatile boolean nUZ = false;
+    private static final a nVN = new a();
+    private volatile boolean kVC = false;
+    private volatile boolean nVO = false;
 
-    public static b dOQ() {
-        return nUY;
+    public static b dQd() {
+        return nVN;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean dOR() {
-        return this.kUW;
+    public boolean dQe() {
+        return this.kVC;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public void wZ(boolean z) {
-        this.kUW = z;
+    public void xc(boolean z) {
+        this.kVC = z;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public void xa(boolean z) {
-        this.nUZ = z;
+    public void xd(boolean z) {
+        this.nVO = z;
     }
 
-    public String dOS() {
+    public String dQf() {
         return "Router";
     }
 
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
-        if (this.kUW) {
-            Log.v(SA(str), SB(str2));
+        if (this.kVC) {
+            Log.v(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
-        if (this.kUW) {
-            Log.d(SA(str), SB(str2));
+        if (this.kVC) {
+            Log.d(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
-        if (this.kUW) {
-            Log.i(SA(str), SB(str2));
+        if (this.kVC) {
+            Log.i(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
-        if (this.kUW) {
-            Log.w(SA(str), SB(str2));
+        if (this.kVC) {
+            Log.w(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
-        if (this.kUW) {
-            Log.e(SA(str), SB(str2));
+        if (this.kVC) {
+            Log.e(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
-        if (this.kUW) {
-            Log.e(SA(str), SB(str2), th);
+        if (this.kVC) {
+            Log.e(SL(str), SM(str2), th);
         }
     }
 
-    private String SA(String str) {
-        return TextUtils.isEmpty(str) ? dOS() : str;
+    private String SL(String str) {
+        return TextUtils.isEmpty(str) ? dQf() : str;
     }
 
-    private String SB(String str) {
-        if (this.nUZ) {
+    private String SM(String str) {
+        if (this.nVO) {
             return str + b(Thread.currentThread().getStackTrace()[3]);
         }
         return str;

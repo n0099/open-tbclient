@@ -1,11 +1,7 @@
 package com.baidu.live.o;
 
-import android.app.Activity;
-/* loaded from: classes2.dex */
+import android.view.ViewGroup;
+/* loaded from: classes3.dex */
 public interface b {
-    boolean d(Activity activity, int i);
-
-    void dI(String str);
-
-    boolean wQ();
+    ViewGroup getLiveContainerView();
 }

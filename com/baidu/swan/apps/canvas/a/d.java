@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -19,8 +19,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject dL(int i) {
-        return super.dL(i);
+    public /* bridge */ /* synthetic */ JSONObject eb(int i) {
+        return super.eb(i);
     }
 
     public d(j jVar) {
@@ -32,22 +32,22 @@ public class d extends a {
         boolean z = false;
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = dL(201);
+            unitedSchemeEntity.result = eb(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert action parse model is null");
         } else if (context == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "context is null");
-            unitedSchemeEntity.result = dL(1001);
+            unitedSchemeEntity.result = eb(1001);
         } else {
-            String str = d.bdV;
-            com.baidu.swan.apps.model.a.a.a aVar = d.bdZ;
+            String str = d.bik;
+            com.baidu.swan.apps.model.a.a.a aVar = d.bip;
             if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = dL(202);
+                unitedSchemeEntity.result = eb(202);
             } else {
-                com.baidu.swan.apps.component.b.c Io = new com.baidu.swan.apps.component.components.d.a(context, d).Io();
-                z = Io.isSuccess();
+                com.baidu.swan.apps.component.b.c KD = new com.baidu.swan.apps.component.components.d.a(context, d).KD();
+                z = KD.isSuccess();
                 if (!z) {
-                    com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert canvas fail: " + Io.msg);
+                    com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert canvas fail: " + KD.msg);
                 }
                 a(unitedSchemeEntity, callbackHandler, z);
             }

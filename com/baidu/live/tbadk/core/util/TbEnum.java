@@ -1,8 +1,8 @@
 package com.baidu.live.tbadk.core.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class TbEnum {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BroadcastType {
         public static final String BROADCAST_CREATE_GROUP = "com.baidu.tieba.broadcast.create_group";
         public static final String BROADCAST_EDIT_GROUP = "com.baidu.tieba.broadcast.edit_group";
@@ -25,7 +25,7 @@ public abstract class TbEnum {
         public static final String BROADCAST_WEBSOCKET_SEND_DATA = "com.baidu.adp.socket.send_data";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ChatInputStatus {
         public static final String INPUT_DRAFT_KEY = "input_draft";
         public static final String INPUT_STATUS_KEY = "input_status";
@@ -33,20 +33,20 @@ public abstract class TbEnum {
         public static final String INPUT_STATUS_VOICE = "input_voice";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ChatType {
         public static final int GROUP_MODE = 0;
         public static final int PERSONAL_MODE = 1;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CreateGroupSource {
         public static final String FROM_BAR_GROUP = "bargp";
         public static final String FROM_MY_GROUP = "mygp";
         public static final String FROM_NEAR_GROUP = "neargp";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CustomGroupId {
         public static final String GROUP_UPDATE = "-1002";
         public static final String GROUP_VALIDATION = "-1003";
@@ -54,7 +54,7 @@ public abstract class TbEnum {
         public static final String STRANGE_MERGE = "-1001";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CustomGroupType {
         public static final int GROUP = 1;
         public static final int GROUP_UPDATE = -3;
@@ -72,7 +72,7 @@ public abstract class TbEnum {
         public static final int YY_UID = 6;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GroupInfoSource {
         public static final String FROM_FORUM_GROUP_HOT = "forumgroup_hot";
         public static final String FROM_FORUM_GROUP_OFFICIAL = "forumgroup_official";
@@ -82,7 +82,7 @@ public abstract class TbEnum {
         public static final String FROM_USER_GROUP = "usergroup";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class GroupType {
         public static final int FORUM_FRIEND_GROUP = 3;
         public static final int GROUP_TYPE_NOTIFY = 8;
@@ -97,14 +97,14 @@ public abstract class TbEnum {
         public static final int YY_UID_NOTIFY = 10;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class MsgContentSubType {
         public static final short FRS_SUB_TYPE_EXTRA_SHARE = 4;
         public static final short MSG_SUB_TYPE_EXTRA_SHARE = 1;
         public static final short MSG_TOPIC_TYPE_EXTRA_SHARE = 5;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class MsgContentType {
         public static final short MSG_CONTENT_TYPE_ACTIVITY = 6;
         public static final short MSG_CONTENT_TYPE_BIG_EMOTION = 4;
@@ -123,7 +123,7 @@ public abstract class TbEnum {
         public static final short MSG_UNSHOW_SYSTEM = 22;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class MsgStatus {
         public static final short MSG_STATUS_MY_SENDFAIL = 2;
         public static final short MSG_STATUS_MY_SENDING = 1;
@@ -131,14 +131,14 @@ public abstract class TbEnum {
         public static final short MSG_STATUS_MY_UNKNOW = 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class MsgVoiceStatus {
         public static final int VOICE_STATUS_DOWNLOADING = 2;
         public static final int VOICE_STATUS_PLAYING = 3;
         public static final int VOICE_STATUS_WAITING = 1;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ParamKey {
         public static final String CHAT_MODE = "chat_mode";
         public static final String GID = "gid";
@@ -148,13 +148,13 @@ public abstract class TbEnum {
         public static final String VTAG = "vtag";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ResourceType {
         public static final int BIGIMAGE = 1;
         public static final int SMALLIMAGE = 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class SystemMessage {
         public static final String EVENT_ID_ADD_FRIEND = "406";
         public static final String EVENT_ID_APPLY_ADD_FRIEND = "410";

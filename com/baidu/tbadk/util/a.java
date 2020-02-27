@@ -2,20 +2,22 @@ package com.baidu.tbadk.util;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 /* loaded from: classes.dex */
 public class a {
-    private static a dBZ;
-    private com.baidu.tbadk.coreExtra.data.a dld;
+    private static a dGd;
+    private com.baidu.tbadk.coreExtra.data.a dpk;
+    private ABTestExtraData dpl;
 
-    public static a aPt() {
-        if (dBZ == null) {
+    public static a aRJ() {
+        if (dGd == null) {
             synchronized (a.class) {
-                if (dBZ == null) {
-                    dBZ = new a();
+                if (dGd == null) {
+                    dGd = new a();
                 }
             }
         }
-        return dBZ;
+        return dGd;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -24,22 +26,34 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.dld == null || aVar.aGI() != this.dld.aGI()) ? true : true;
-        this.dld = aVar;
+        z = (aVar == null || this.dpk == null || aVar.aIW() != this.dpk.aIW()) ? true : true;
+        this.dpk = aVar;
         if (z) {
-            vu("zan_or_cai_smallflow");
+            vO("zan_or_cai_smallflow");
         }
     }
 
-    public boolean aGI() {
-        if (this.dld == null) {
-            this.dld = new com.baidu.tbadk.coreExtra.data.a();
-            this.dld.aGJ();
+    public boolean aIW() {
+        if (this.dpk == null) {
+            this.dpk = new com.baidu.tbadk.coreExtra.data.a();
+            this.dpk.aIX();
         }
-        return this.dld.aGI();
+        return this.dpk.aIW();
     }
 
-    private void vu(String str) {
+    private void vO(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+    }
+
+    public void a(ABTestExtraData aBTestExtraData) {
+        this.dpl = aBTestExtraData;
+    }
+
+    public String aRK() {
+        if (this.dpl == null) {
+            this.dpl = new ABTestExtraData();
+            this.dpl.parserABTestExtraFormSharedPref();
+        }
+        return this.dpl.getABTestResult();
     }
 }

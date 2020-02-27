@@ -16,15 +16,15 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
     public static final String DEFAULT_CLIPPATH = "";
     private static final long serialVersionUID = 0;
-    @WireField(dFn = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(dGu = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float alpha;
-    @WireField(dFn = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
+    @WireField(dGu = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
     public final String clipPath;
-    @WireField(dFn = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
+    @WireField(dGu = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
     public final Layout layout;
-    @WireField(dFn = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", dFo = WireField.Label.REPEATED, tag = 5)
+    @WireField(dGu = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", dGv = WireField.Label.REPEATED, tag = 5)
     public final List<ShapeEntity> shapes;
-    @WireField(dFn = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
+    @WireField(dGu = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
     public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
@@ -37,7 +37,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         this.layout = layout;
         this.transform = transform;
         this.clipPath = str;
-        this.shapes = a.t("shapes", list);
+        this.shapes = a.u("shapes", list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         builder.layout = this.layout;
         builder.transform = this.transform;
         builder.clipPath = this.clipPath;
-        builder.shapes = a.s("shapes", this.shapes);
+        builder.shapes = a.t("shapes", this.shapes);
         builder.addUnknownFields(unknownFields());
         return builder;
     }
@@ -102,7 +102,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
         public Layout layout;
-        public List<ShapeEntity> shapes = a.dFq();
+        public List<ShapeEntity> shapes = a.dGx();
         public Transform transform;
 
         public Builder alpha(Float f) {
@@ -126,7 +126,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
 
         public Builder shapes(List<ShapeEntity> list) {
-            a.fv(list);
+            a.fq(list);
             this.shapes = list;
             return this;
         }
@@ -175,11 +175,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public FrameEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dFf = cVar.dFf();
+            long dGm = cVar.dGm();
             while (true) {
-                int dFg = cVar.dFg();
-                if (dFg != -1) {
-                    switch (dFg) {
+                int dGn = cVar.dGn();
+                if (dGn != -1) {
+                    switch (dGn) {
                         case 1:
                             builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -196,12 +196,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                             builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dFh = cVar.dFh();
-                            builder.addUnknownField(dFg, dFh, dFh.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dGo = cVar.dGo();
+                            builder.addUnknownField(dGn, dGo, dGo.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.hb(dFf);
+                    cVar.gZ(dGm);
                     return builder.build();
                 }
             }

@@ -2,12 +2,13 @@ package kotlin.collections;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State nAZ = State.NotReady;
-    private T nBa;
+    private State nBB = State.NotReady;
+    private T nBC;
 
-    protected abstract void dIQ();
+    protected abstract void dJX();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.nAZ != State.Failed) {
-            switch (this.nAZ) {
+        if (this.nBB != State.Failed) {
+            switch (this.nBB) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return dIP();
+                    return dJW();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.nAZ = State.NotReady;
-            return this.nBa;
+            this.nBB = State.NotReady;
+            return this.nBC;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean dIP() {
-        this.nAZ = State.Failed;
-        dIQ();
-        return this.nAZ == State.Ready;
+    private final boolean dJW() {
+        this.nBB = State.Failed;
+        dJX();
+        return this.nBB == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bQ(T t) {
-        this.nBa = t;
-        this.nAZ = State.Ready;
+    public final void bR(T t) {
+        this.nBC = t;
+        this.nBB = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.nAZ = State.Done;
+        this.nBB = State.Done;
     }
 }

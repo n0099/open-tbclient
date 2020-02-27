@@ -5,17 +5,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static ThreadPoolExecutor a = null;
 
     /* renamed from: com.baidu.webkit.internal.daemon.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private static class ThreadFactoryC0639a implements ThreadFactory {
-        private ThreadFactoryC0639a() {
+    /* loaded from: classes11.dex */
+    private static class ThreadFactoryC0647a implements ThreadFactory {
+        private ThreadFactoryC0647a() {
         }
 
-        /* synthetic */ ThreadFactoryC0639a(byte b) {
+        /* synthetic */ ThreadFactoryC0647a(byte b) {
             this();
         }
 
@@ -32,7 +32,7 @@ public final class a {
         Log.d("SdkDaemon", "start");
         try {
             if (a == null) {
-                a = new ThreadPoolExecutor(2, 30, 50L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC0639a((byte) 0), new ThreadPoolExecutor.DiscardOldestPolicy());
+                a = new ThreadPoolExecutor(2, 30, 50L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC0647a((byte) 0), new ThreadPoolExecutor.DiscardOldestPolicy());
             }
         } catch (Exception e) {
             com.a.a.a.a.a.a.a.a(e);

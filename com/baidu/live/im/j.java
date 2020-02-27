@@ -1,17 +1,17 @@
 package com.baidu.live.im;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface j {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void uV();
+        void wz();
     }
 
-    void a(com.baidu.live.data.l lVar);
+    void a(com.baidu.live.data.m mVar);
 
-    void a(com.baidu.live.data.l lVar, boolean z);
+    void a(com.baidu.live.data.m mVar, boolean z);
 
     void a(a aVar);
 
@@ -19,9 +19,9 @@ public interface j {
 
     void setOtherParams(String str);
 
-    View uT();
+    void vW();
 
-    void uU();
+    View wx();
 
-    void us();
+    void wy();
 }

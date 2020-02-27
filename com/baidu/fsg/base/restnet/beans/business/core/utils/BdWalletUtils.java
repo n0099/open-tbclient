@@ -19,7 +19,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdWalletUtils {
     private static final String DEVICE_FP = "rim_device_fp";
     private static final String PREF_FILE_NAME_FP = "__RIM_SDK_FP_V1";

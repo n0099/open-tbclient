@@ -2,7 +2,7 @@ package com.tencent.open.b;
 
 import android.os.SystemClock;
 import com.tencent.open.utils.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d {
     protected static d a;
 

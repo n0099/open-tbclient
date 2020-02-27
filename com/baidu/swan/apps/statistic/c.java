@@ -8,111 +8,111 @@ import com.baidu.swan.apps.x.b.b;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile boolean bQF = false;
-    private static volatile boolean bQG = false;
-    private static volatile boolean bQH = false;
-    private static volatile boolean bQI = false;
-    private static volatile boolean bQJ = false;
-    private static HashMap<String, String> bQK;
-    private static String bQL;
+    private static volatile boolean bUK = false;
+    private static volatile boolean bUL = false;
+    private static volatile boolean bUM = false;
+    private static volatile boolean bUN = false;
+    private static volatile boolean bUO = false;
+    private static HashMap<String, String> bUP;
+    private static String bUQ;
 
-    public static synchronized void dK(boolean z) {
+    public static synchronized void dR(boolean z) {
         synchronized (c.class) {
-            bQF = z;
+            bUK = z;
         }
     }
 
-    public static synchronized boolean acx() {
+    public static synchronized boolean aeL() {
         boolean z;
         synchronized (c.class) {
-            z = bQF;
+            z = bUK;
         }
         return z;
     }
 
-    public static void acy() {
-        dK(false);
+    public static void aeM() {
+        dR(false);
     }
 
-    public static void acz() {
-        com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
-        if (aap != null) {
-            n(aap.aas());
+    public static void aeN() {
+        com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
+        if (acD != null) {
+            n(acD.acG());
         }
     }
 
-    public static void acA() {
-        com.baidu.swan.apps.adaptation.b.c LN;
-        com.baidu.swan.apps.core.d.e El = com.baidu.swan.apps.y.f.UC().El();
-        if (El != null) {
-            com.baidu.swan.apps.core.d.b LX = El.LX();
-            if ((LX instanceof com.baidu.swan.apps.core.d.d) && (LN = ((com.baidu.swan.apps.core.d.d) LX).LN()) != null) {
-                bQL = LN.GA();
+    public static void aeO() {
+        com.baidu.swan.apps.adaptation.b.c Ob;
+        com.baidu.swan.apps.core.d.e GA = com.baidu.swan.apps.y.f.WQ().GA();
+        if (GA != null) {
+            com.baidu.swan.apps.core.d.b Ol = GA.Ol();
+            if ((Ol instanceof com.baidu.swan.apps.core.d.d) && (Ob = ((com.baidu.swan.apps.core.d.d) Ol).Ob()) != null) {
+                bUQ = Ob.IP();
             }
         }
     }
 
-    public static void be(String str, String str2) {
+    public static void bn(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (bQK == null) {
-                bQK = new HashMap<>();
+            if (bUP == null) {
+                bUP = new HashMap<>();
             }
-            bQK.put(str, str2);
+            bUP.put(str, str2);
         }
     }
 
     public static void n(com.baidu.swan.apps.x.b.b bVar) {
-        Bundle Ty;
-        if (bVar != null && acx() && (Ty = bVar.Ty()) != null && Ty.getLong("page_display_flag_for_statistic") > 0) {
+        Bundle VM;
+        if (bVar != null && aeL() && (VM = bVar.VM()) != null && VM.getLong("page_display_flag_for_statistic") > 0) {
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = f.gb(bVar.getAppFrameType());
+            fVar.mFrom = f.gs(bVar.getAppFrameType());
             fVar.mAppId = bVar.getAppId();
-            fVar.mSource = bVar.Tt();
+            fVar.mSource = bVar.VH();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realsuccess";
-            fVar.lC(Ty.getString("ubc"));
+            fVar.lR(VM.getString("ubc"));
             f.a("606", fVar);
-            Ty.remove("page_display_flag_for_statistic");
+            VM.remove("page_display_flag_for_statistic");
         }
     }
 
-    public static synchronized void dL(boolean z) {
+    public static synchronized void dS(boolean z) {
         synchronized (c.class) {
-            bQG = z;
+            bUL = z;
         }
     }
 
-    public static void acB() {
-        dL(false);
+    public static void aeP() {
+        dS(false);
     }
 
-    public static void acC() {
-        acy();
-        dN(false);
-        acB();
-        acE();
+    public static void aeQ() {
+        aeM();
+        dU(false);
+        aeP();
+        aeS();
     }
 
-    private static synchronized void dM(boolean z) {
+    private static synchronized void dT(boolean z) {
         synchronized (c.class) {
-            bQH = z;
+            bUM = z;
         }
     }
 
-    private static boolean acD() {
-        return bQH;
+    private static boolean aeR() {
+        return bUM;
     }
 
-    public static void acE() {
-        dM(false);
+    public static void aeS() {
+        dT(false);
     }
 
     private static void a(b.a aVar, long j, String str, long j2, String str2, boolean z) {
         if (aVar != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            dL(true);
+            dS(true);
             if (z || j > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -135,42 +135,42 @@ public final class c {
     }
 
     public static void a(com.baidu.swan.apps.adaptation.b.a.d dVar) {
-        com.baidu.swan.apps.runtime.e aap;
-        b.a aas;
-        if (!acG() && !acD() && dVar != null && (aap = com.baidu.swan.apps.runtime.e.aap()) != null && (aas = aap.aas()) != null) {
+        com.baidu.swan.apps.runtime.e acD;
+        b.a acG;
+        if (!aeU() && !aeR() && dVar != null && (acD = com.baidu.swan.apps.runtime.e.acD()) != null && (acG = acD.acG()) != null) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchUbc", "real start handle arrival report ");
             }
-            dL(true);
-            dM(true);
-            a(aas, dVar.aXp, "0", dVar.aXq, TextUtils.equals(dVar.aXr, "1") ? "2" : "0", false);
+            dS(true);
+            dT(true);
+            a(acG, dVar.bbA, "0", dVar.bbB, TextUtils.equals(dVar.bbC, "1") ? "2" : "0", false);
         }
     }
 
     public static void a(b.a aVar) {
-        if (aVar != null && !acD()) {
-            dM(true);
+        if (aVar != null && !aeR()) {
+            dT(true);
             a(aVar, "arrivecancel");
         }
     }
 
-    public static void dN(boolean z) {
-        bQI = z;
+    public static void dU(boolean z) {
+        bUN = z;
     }
 
-    public static boolean acF() {
-        return bQI;
+    public static boolean aeT() {
+        return bUN;
     }
 
     public static void b(b.a aVar) {
-        if (aVar != null && !bQI) {
-            dN(true);
+        if (aVar != null && !bUN) {
+            dU(true);
             a(aVar, "naarrsuccess");
         }
     }
 
-    public static boolean acG() {
-        return bQG;
+    public static boolean aeU() {
+        return bUL;
     }
 
     private static void a(b.a aVar, String str) {
@@ -189,12 +189,12 @@ public final class c {
                 j2 = j - j3;
             }
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = f.gb(aVar.getAppFrameType());
+            fVar.mFrom = f.gs(aVar.getAppFrameType());
             fVar.mAppId = appId;
-            if (com.baidu.swan.apps.console.debugger.a.e.Jy()) {
+            if (com.baidu.swan.apps.console.debugger.a.e.LN()) {
                 fVar.mSource = "remote-debug";
             } else {
-                fVar.mSource = aVar.Tt();
+                fVar.mSource = aVar.VH();
             }
             fVar.mType = Config.LAUNCH;
             fVar.mValue = str;
@@ -202,9 +202,9 @@ public final class c {
             if (jSONObject != null) {
                 fVar.aZ(jSONObject);
             }
-            Bundle Ty = aVar.Ty();
-            if (Ty != null) {
-                fVar.lC(Ty.getString("ubc"));
+            Bundle VM = aVar.VM();
+            if (VM != null) {
+                fVar.lR(VM.getString("ubc"));
             }
             if (DEBUG) {
                 Log.d("SwanAppLaunchUbc", "handle record arrival event, arrivalValue " + str + " arrive time : " + j2 + " extJson :" + (jSONObject == null ? "" : jSONObject.toString()));
@@ -217,16 +217,16 @@ public final class c {
         if (DEBUG) {
             Log.d("SwanAppLaunchUbc", "handle relaunch arrival");
         }
-        com.baidu.swan.apps.ac.e.jn(bQL);
-        if (!acG() && !acD()) {
+        com.baidu.swan.apps.ac.e.jC(bUQ);
+        if (!aeU() && !aeR()) {
             a(aVar, -1L, "1", -1L, "1", true);
         }
     }
 
     public static void a(String str, b.a aVar) {
         String str2 = "";
-        if (bQK != null) {
-            str2 = bQK.get(bQL);
+        if (bUP != null) {
+            str2 = bUP.get(bUQ);
         }
         if (DEBUG) {
             Log.d("SwanAppLaunchUbc", "handle relaunch , launchPage : " + str + " lastSlavePath ：" + (str2 == null ? "" : str2));
@@ -235,19 +235,19 @@ public final class c {
             c(aVar);
             return;
         }
-        acB();
-        bQJ = true;
+        aeP();
+        bUO = true;
     }
 
-    public static void lr(String str) {
-        if (bQJ) {
+    public static void lG(String str) {
+        if (bUO) {
             Log.d("SwanAppLaunchUbc", "handle record slave id case relaunch");
-            com.baidu.swan.apps.ac.e.jn(str);
-            bQJ = false;
+            com.baidu.swan.apps.ac.e.jC(str);
+            bUO = false;
         }
     }
 
-    public static boolean acH() {
-        return bQJ;
+    public static boolean aeV() {
+        return bUO;
     }
 }

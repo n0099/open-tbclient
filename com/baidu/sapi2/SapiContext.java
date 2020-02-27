@@ -22,7 +22,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SapiContext implements c {
     public static final String CHINA_TELECOM_EXPIRED_TIME = "china_telecom_expired_time";
     public static final String CHINA_UNICOM_EXPIRED_TIME = "china_telecom_expired_time";

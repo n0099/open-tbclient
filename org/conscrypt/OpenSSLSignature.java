@@ -18,7 +18,7 @@ import java.security.spec.PSSParameterSpec;
 import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
 import org.conscrypt.EvpMdRef;
 import org.conscrypt.NativeRef;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OpenSSLSignature extends SignatureSpi {
     private NativeRef.EVP_MD_CTX ctx;
     private final EngineType engineType;
@@ -29,7 +29,7 @@ public class OpenSSLSignature extends SignatureSpi {
     private final byte[] singleByte;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum EngineType {
         RSA,
         EC
@@ -206,7 +206,7 @@ public class OpenSSLSignature extends SignatureSpi {
         return this.evpPkeyCtx;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static abstract class RSAPKCS1Padding extends OpenSSLSignature {
         RSAPKCS1Padding(long j) {
             super(j, EngineType.RSA);
@@ -218,84 +218,84 @@ public class OpenSSLSignature extends SignatureSpi {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class MD5RSA extends RSAPKCS1Padding {
         public MD5RSA() {
             super(EvpMdRef.MD5.EVP_MD);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA1RSA extends RSAPKCS1Padding {
         public SHA1RSA() {
             super(EvpMdRef.SHA1.EVP_MD);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA224RSA extends RSAPKCS1Padding {
         public SHA224RSA() {
             super(EvpMdRef.SHA224.EVP_MD);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA256RSA extends RSAPKCS1Padding {
         public SHA256RSA() {
             super(EvpMdRef.SHA256.EVP_MD);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA384RSA extends RSAPKCS1Padding {
         public SHA384RSA() {
             super(EvpMdRef.SHA384.EVP_MD);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA512RSA extends RSAPKCS1Padding {
         public SHA512RSA() {
             super(EvpMdRef.SHA512.EVP_MD);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA1ECDSA extends OpenSSLSignature {
         public SHA1ECDSA() {
             super(EvpMdRef.SHA1.EVP_MD, EngineType.EC);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA224ECDSA extends OpenSSLSignature {
         public SHA224ECDSA() {
             super(EvpMdRef.SHA224.EVP_MD, EngineType.EC);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA256ECDSA extends OpenSSLSignature {
         public SHA256ECDSA() {
             super(EvpMdRef.SHA256.EVP_MD, EngineType.EC);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA384ECDSA extends OpenSSLSignature {
         public SHA384ECDSA() {
             super(EvpMdRef.SHA384.EVP_MD, EngineType.EC);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA512ECDSA extends OpenSSLSignature {
         public SHA512ECDSA() {
             super(EvpMdRef.SHA512.EVP_MD, EngineType.EC);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static abstract class RSAPSSPadding extends OpenSSLSignature {
         private static final int TRAILER_FIELD_BC_ID = 1;
         private final String contentDigestAlgorithm;
@@ -380,35 +380,35 @@ public class OpenSSLSignature extends SignatureSpi {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA1RSAPSS extends RSAPSSPadding {
         public SHA1RSAPSS() {
             super(EvpMdRef.SHA1.EVP_MD, "SHA-1", EvpMdRef.SHA1.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA224RSAPSS extends RSAPSSPadding {
         public SHA224RSAPSS() {
             super(EvpMdRef.SHA224.EVP_MD, MessageDigestAlgorithms.SHA_224, EvpMdRef.SHA224.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA256RSAPSS extends RSAPSSPadding {
         public SHA256RSAPSS() {
             super(EvpMdRef.SHA256.EVP_MD, "SHA-256", EvpMdRef.SHA256.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA384RSAPSS extends RSAPSSPadding {
         public SHA384RSAPSS() {
             super(EvpMdRef.SHA384.EVP_MD, "SHA-384", EvpMdRef.SHA384.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SHA512RSAPSS extends RSAPSSPadding {
         public SHA512RSAPSS() {
             super(EvpMdRef.SHA512.EVP_MD, "SHA-512", EvpMdRef.SHA512.SIZE_BYTES);

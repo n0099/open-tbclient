@@ -12,21 +12,21 @@ import io.reactivex.q;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableConcatMapMaybe<T, R> extends q<R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends o<? extends R>> mapper;
-    final q<T> nxi;
+    final q<T> nxK;
     final int prefetch;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        if (!a.a(this.nxi, this.mapper, uVar)) {
-            this.nxi.subscribe(new ConcatMapMaybeMainObserver(uVar, this.mapper, this.prefetch, this.errorMode));
+        if (!a.a(this.nxK, this.mapper, uVar)) {
+            this.nxK.subscribe(new ConcatMapMaybeMainObserver(uVar, this.mapper, this.prefetch, this.errorMode));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ConcatMapMaybeMainObserver<T, R> extends AtomicInteger implements b, u<T> {
         static final int STATE_ACTIVE = 1;
         static final int STATE_INACTIVE = 0;
@@ -157,7 +157,7 @@ public final class ObservableConcatMapMaybe<T, R> extends q<R> {
                                         this.state = 1;
                                         oVar.a(this.inner);
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.I(th);
+                                        io.reactivex.exceptions.a.H(th);
                                         this.upstream.dispose();
                                         fVar.clear();
                                         atomicThrowable.addThrowable(th);
@@ -185,7 +185,7 @@ public final class ObservableConcatMapMaybe<T, R> extends q<R> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class ConcatMapMaybeObserver<R> extends AtomicReference<b> implements m<R> {
             private static final long serialVersionUID = -3051469169682093892L;
             final ConcatMapMaybeMainObserver<?, R> parent;

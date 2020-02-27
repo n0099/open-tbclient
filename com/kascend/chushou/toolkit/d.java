@@ -2,17 +2,17 @@ package com.kascend.chushou.toolkit;
 
 import android.os.Looper;
 import android.os.SystemClock;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
     private final long a;
     private final Runnable d;
     private long e;
     private long f;
     private int g;
-    private final tv.chushou.zues.c nee;
-    private final a nef;
+    private final tv.chushou.zues.c neI;
+    private final a neJ;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
     }
@@ -20,11 +20,11 @@ public class d {
     public d(long j, a aVar, tv.chushou.zues.c cVar) {
         this.a = j;
         this.e = j;
-        this.nef = aVar;
+        this.neJ = aVar;
         if (cVar == null) {
-            this.nee = new tv.chushou.zues.c(Looper.getMainLooper());
+            this.neI = new tv.chushou.zues.c(Looper.getMainLooper());
         } else {
-            this.nee = cVar;
+            this.neI = cVar;
         }
         this.d = new Runnable() { // from class: com.kascend.chushou.toolkit.d.1
             @Override // java.lang.Runnable
@@ -37,13 +37,13 @@ public class d {
 
     public void a() {
         this.f = SystemClock.uptimeMillis();
-        this.nee.d(this.d, this.e);
+        this.neI.d(this.d, this.e);
         this.g = 1;
     }
 
     public void b() {
         if (this.g != 3) {
-            this.nee.removeCallbacks(this.d);
+            this.neI.removeCallbacks(this.d);
             this.e -= SystemClock.uptimeMillis() - this.f;
             this.f = 0L;
             this.g = 2;
@@ -58,16 +58,16 @@ public class d {
     }
 
     public void d() {
-        this.nee.removeCallbacks(this.d);
+        this.neI.removeCallbacks(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.nee.removeCallbacks(this.d);
+        this.neI.removeCallbacks(this.d);
         this.e = this.a;
         this.g = 3;
-        if (this.nef != null) {
-            this.nef.a();
+        if (this.neJ != null) {
+            this.neJ.a();
         }
     }
 }

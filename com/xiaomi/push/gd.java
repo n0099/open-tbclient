@@ -19,19 +19,19 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class gd {
     private static long a;
     private static String c;
 
     /* renamed from: a  reason: collision with other field name */
-    private gh f412a;
+    private gh f409a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<ga> f413a;
+    private List<ga> f410a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, Object> f414a;
+    private final Map<String, Object> f411a;
     private String d;
     private String e;
     private String f;
@@ -40,14 +40,14 @@ public abstract class gd {
     private String i;
 
     /* renamed from: a  reason: collision with other field name */
-    protected static final String f410a = Locale.getDefault().getLanguage().toLowerCase();
+    protected static final String f407a = Locale.getDefault().getLanguage().toLowerCase();
     private static String b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final DateFormat f411a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+    public static final DateFormat f408a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 
     static {
-        f411a.setTimeZone(TimeZone.getTimeZone("UTC"));
+        f408a.setTimeZone(TimeZone.getTimeZone("UTC"));
         c = go.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         a = 0L;
     }
@@ -59,9 +59,9 @@ public abstract class gd {
         this.g = null;
         this.h = null;
         this.i = null;
-        this.f413a = new CopyOnWriteArrayList();
-        this.f414a = new HashMap();
-        this.f412a = null;
+        this.f410a = new CopyOnWriteArrayList();
+        this.f411a = new HashMap();
+        this.f409a = null;
     }
 
     public gd(Bundle bundle) {
@@ -71,26 +71,26 @@ public abstract class gd {
         this.g = null;
         this.h = null;
         this.i = null;
-        this.f413a = new CopyOnWriteArrayList();
-        this.f414a = new HashMap();
-        this.f412a = null;
+        this.f410a = new CopyOnWriteArrayList();
+        this.f411a = new HashMap();
+        this.f409a = null;
         this.f = bundle.getString("ext_to");
         this.g = bundle.getString("ext_from");
         this.h = bundle.getString("ext_chid");
         this.e = bundle.getString("ext_pkt_id");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
-            this.f413a = new ArrayList(parcelableArray.length);
+            this.f410a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
                 ga a2 = ga.a((Bundle) parcelable);
                 if (a2 != null) {
-                    this.f413a.add(a2);
+                    this.f410a.add(a2);
                 }
             }
         }
         Bundle bundle2 = bundle.getBundle("ext_ERROR");
         if (bundle2 != null) {
-            this.f412a = new gh(bundle2);
+            this.f409a = new gh(bundle2);
         }
     }
 
@@ -106,7 +106,7 @@ public abstract class gd {
     }
 
     public static String q() {
-        return f410a;
+        return f407a;
     }
 
     public Bundle a() {
@@ -126,13 +126,13 @@ public abstract class gd {
         if (!TextUtils.isEmpty(this.h)) {
             bundle.putString("ext_chid", this.h);
         }
-        if (this.f412a != null) {
-            bundle.putBundle("ext_ERROR", this.f412a.a());
+        if (this.f409a != null) {
+            bundle.putBundle("ext_ERROR", this.f409a.a());
         }
-        if (this.f413a != null) {
-            Bundle[] bundleArr = new Bundle[this.f413a.size()];
+        if (this.f410a != null) {
+            Bundle[] bundleArr = new Bundle[this.f410a.size()];
             int i = 0;
-            Iterator<ga> it = this.f413a.iterator();
+            Iterator<ga> it = this.f410a.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
@@ -156,9 +156,9 @@ public abstract class gd {
     }
 
     public ga a(String str, String str2) {
-        for (ga gaVar : this.f413a) {
+        for (ga gaVar : this.f410a) {
             if (str2 == null || str2.equals(gaVar.b())) {
-                if (str.equals(gaVar.m296a())) {
+                if (str.equals(gaVar.m301a())) {
                     return gaVar;
                 }
             }
@@ -167,33 +167,33 @@ public abstract class gd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gh m298a() {
-        return this.f412a;
+    public gh m303a() {
+        return this.f409a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m299a(String str) {
-        return this.f414a == null ? null : this.f414a.get(str);
+    public synchronized Object m304a(String str) {
+        return this.f411a == null ? null : this.f411a.get(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m300a();
+    public abstract String m305a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<ga> m301a() {
-        return this.f413a == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList(this.f413a));
+    public synchronized Collection<ga> m306a() {
+        return this.f410a == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList(this.f410a));
     }
 
     public void a(ga gaVar) {
-        this.f413a.add(gaVar);
+        this.f410a.add(gaVar);
     }
 
     public void a(gh ghVar) {
-        this.f412a = ghVar;
+        this.f409a = ghVar;
     }
 
     public synchronized Collection<String> b() {
-        return this.f414a == null ? Collections.emptySet() : Collections.unmodifiableSet(new HashSet(this.f414a.keySet()));
+        return this.f411a == null ? Collections.emptySet() : Collections.unmodifiableSet(new HashSet(this.f411a.keySet()));
     }
 
     public boolean equals(Object obj) {
@@ -205,11 +205,11 @@ public abstract class gd {
             return false;
         }
         gd gdVar = (gd) obj;
-        if (this.f412a != null) {
-            if (!this.f412a.equals(gdVar.f412a)) {
+        if (this.f409a != null) {
+            if (!this.f409a.equals(gdVar.f409a)) {
                 return false;
             }
-        } else if (gdVar.f412a != null) {
+        } else if (gdVar.f409a != null) {
             return false;
         }
         if (this.g != null) {
@@ -219,7 +219,7 @@ public abstract class gd {
         } else if (gdVar.g != null) {
             return false;
         }
-        if (this.f413a.equals(gdVar.f413a)) {
+        if (this.f410a.equals(gdVar.f410a)) {
             if (this.e != null) {
                 if (!this.e.equals(gdVar.e)) {
                     return false;
@@ -234,11 +234,11 @@ public abstract class gd {
             } else if (gdVar.h != null) {
                 return false;
             }
-            if (this.f414a != null) {
-                if (!this.f414a.equals(gdVar.f414a)) {
+            if (this.f411a != null) {
+                if (!this.f411a.equals(gdVar.f411a)) {
                     return false;
                 }
-            } else if (gdVar.f414a != null) {
+            } else if (gdVar.f411a != null) {
                 return false;
             }
             if (this.f != null) {
@@ -257,7 +257,7 @@ public abstract class gd {
     }
 
     public int hashCode() {
-        return (((((((this.h != null ? this.h.hashCode() : 0) + (((this.g != null ? this.g.hashCode() : 0) + (((this.f != null ? this.f.hashCode() : 0) + (((this.e != null ? this.e.hashCode() : 0) + ((this.d != null ? this.d.hashCode() : 0) * 31)) * 31)) * 31)) * 31)) * 31) + this.f413a.hashCode()) * 31) + this.f414a.hashCode()) * 31) + (this.f412a != null ? this.f412a.hashCode() : 0);
+        return (((((((this.h != null ? this.h.hashCode() : 0) + (((this.g != null ? this.g.hashCode() : 0) + (((this.f != null ? this.f.hashCode() : 0) + (((this.e != null ? this.e.hashCode() : 0) + ((this.d != null ? this.d.hashCode() : 0) * 31)) * 31)) * 31)) * 31)) * 31) + this.f410a.hashCode()) * 31) + this.f411a.hashCode()) * 31) + (this.f409a != null ? this.f409a.hashCode() : 0);
     }
 
     public String j() {
@@ -315,29 +315,29 @@ public abstract class gd {
         ObjectOutputStream objectOutputStream2;
         ByteArrayOutputStream byteArrayOutputStream2;
         sb = new StringBuilder();
-        for (ga gaVar : m301a()) {
+        for (ga gaVar : m306a()) {
             sb.append(gaVar.d());
         }
-        if (this.f414a != null && !this.f414a.isEmpty()) {
+        if (this.f411a != null && !this.f411a.isEmpty()) {
             sb.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");
             for (String str : b()) {
-                Object m299a = m299a(str);
+                Object m304a = m304a(str);
                 sb.append("<property>");
                 sb.append("<name>").append(go.a(str)).append("</name>");
                 sb.append("<value type=\"");
-                if (m299a instanceof Integer) {
-                    sb.append("integer\">").append(m299a).append("</value>");
-                } else if (m299a instanceof Long) {
-                    sb.append("long\">").append(m299a).append("</value>");
-                } else if (m299a instanceof Float) {
-                    sb.append("float\">").append(m299a).append("</value>");
-                } else if (m299a instanceof Double) {
-                    sb.append("double\">").append(m299a).append("</value>");
-                } else if (m299a instanceof Boolean) {
-                    sb.append("boolean\">").append(m299a).append("</value>");
-                } else if (m299a instanceof String) {
+                if (m304a instanceof Integer) {
+                    sb.append("integer\">").append(m304a).append("</value>");
+                } else if (m304a instanceof Long) {
+                    sb.append("long\">").append(m304a).append("</value>");
+                } else if (m304a instanceof Float) {
+                    sb.append("float\">").append(m304a).append("</value>");
+                } else if (m304a instanceof Double) {
+                    sb.append("double\">").append(m304a).append("</value>");
+                } else if (m304a instanceof Boolean) {
+                    sb.append("boolean\">").append(m304a).append("</value>");
+                } else if (m304a instanceof String) {
                     sb.append("string\">");
-                    sb.append(go.a((String) m299a));
+                    sb.append(go.a((String) m304a));
                     sb.append("</value>");
                 } else {
                     try {
@@ -362,7 +362,7 @@ public abstract class gd {
                         byteArrayOutputStream = null;
                     }
                     try {
-                        objectOutputStream.writeObject(m299a);
+                        objectOutputStream.writeObject(m304a);
                         sb.append("java-object\">");
                         sb.append(go.a(byteArrayOutputStream.toByteArray())).append("</value>");
                         if (objectOutputStream != null) {

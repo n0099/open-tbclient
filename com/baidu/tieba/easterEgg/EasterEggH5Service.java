@@ -25,7 +25,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class EasterEggH5Service extends Service {
     private static String KEY_URL = "url";
     private a eggBridge;
@@ -52,7 +52,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.zR("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.Ah("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -75,7 +75,7 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.zR(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.Ah(gVar.mUrl);
                 } else {
                     str = null;
                 }
@@ -125,14 +125,14 @@ public class EasterEggH5Service extends Service {
         this.model.a(new e.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
             @Override // com.baidu.tieba.easterEgg.e.a
             public void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar) {
-                if (z && aVar != null && !aq.isEmpty(aVar.bvD()) && aVar.isOpen()) {
+                if (z && aVar != null && !aq.isEmpty(aVar.bxh()) && aVar.isOpen()) {
                     if (EasterEggH5Service.this.mWebView != null) {
-                        EasterEggH5Service.this.mWebView.loadUrl(aVar.bvD());
+                        EasterEggH5Service.this.mWebView.loadUrl(aVar.bxh());
                     }
-                    HashMap<String, String> bvC = aVar.bvC();
-                    if (bvC != null) {
-                        EasterEggH5Service.this.mHttpRule.q(bvC);
-                        EasterEggH5Service.this.mSocketRule.q(bvC);
+                    HashMap<String, String> bxg = aVar.bxg();
+                    if (bxg != null) {
+                        EasterEggH5Service.this.mHttpRule.q(bxg);
+                        EasterEggH5Service.this.mSocketRule.q(bxg);
                         return;
                     }
                     return;

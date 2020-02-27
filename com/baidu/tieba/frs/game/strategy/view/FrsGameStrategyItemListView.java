@@ -36,74 +36,74 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsGameStrategyItemListView extends FrameLayout implements com.baidu.tieba.frs.game.strategy.tab.b {
-    private BdTypeListView efW;
-    private PbListView ehe;
-    private g.c eib;
-    private com.baidu.tbadk.k.g epL;
-    private com.baidu.tieba.frs.gametab.b exV;
-    private int gxQ;
-    private com.baidu.tieba.frs.game.strategy.tab.a gxZ;
-    private c gyD;
-    private int gyE;
+    private s Ae;
+    private com.baidu.tieba.frs.gametab.b eCe;
+    private BdTypeListView eka;
+    private PbListView eli;
+    private g.c emi;
+    private com.baidu.tbadk.k.g etW;
+    private c gAD;
+    private int gAE;
+    private int gzQ;
+    private com.baidu.tieba.frs.game.strategy.tab.a gzZ;
     private List<m> mData;
     private boolean mHasMore;
     private NoDataView mNoDataView;
     private TbPageContext mPageContext;
     private BdUniqueId mPageId;
     private h mPullView;
-    private s zL;
 
     public FrsGameStrategyItemListView(Context context, BdUniqueId bdUniqueId) {
         super(context);
-        this.zL = new s() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.1
+        this.Ae = new s() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.1
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
-                bj axQ;
-                com.baidu.tieba.frs.game.strategy.tab.e tk;
-                if (mVar != null && (mVar instanceof com.baidu.tieba.frs.game.strategy.data.b) && (axQ = ((com.baidu.tieba.frs.game.strategy.data.b) mVar).axQ()) != null) {
-                    if (FrsGameStrategyItemListView.this.gxZ != null && (tk = FrsGameStrategyItemListView.this.gxZ.tk(FrsGameStrategyItemListView.this.gxQ)) != null && (tk.extra instanceof LabelDataList)) {
-                        String labelName = ((LabelDataList) tk.extra).getLabelName(FrsGameStrategyItemListView.this.gyE);
+                bj aAe;
+                com.baidu.tieba.frs.game.strategy.tab.e tq;
+                if (mVar != null && (mVar instanceof com.baidu.tieba.frs.game.strategy.data.b) && (aAe = ((com.baidu.tieba.frs.game.strategy.data.b) mVar).aAe()) != null) {
+                    if (FrsGameStrategyItemListView.this.gzZ != null && (tq = FrsGameStrategyItemListView.this.gzZ.tq(FrsGameStrategyItemListView.this.gzQ)) != null && (tq.extra instanceof LabelDataList)) {
+                        String labelName = ((LabelDataList) tq.extra).getLabelName(FrsGameStrategyItemListView.this.gAE);
                         if (labelName == null) {
                             labelName = "";
                         }
-                        TiebaStatic.log(new an("c12388").cp("fid", FrsGameStrategyItemListView.this.gxZ.getForumId()).cp("tid", axQ.getId()).cp("obj_id", tk.tabName).cp("obj_locate", labelName));
+                        TiebaStatic.log(new an("c12388").cy("fid", FrsGameStrategyItemListView.this.gzZ.getForumId()).cy("tid", aAe.getId()).cy("obj_id", tq.tabName).cy("obj_locate", labelName));
                     }
-                    if (axQ.aAV() == null || axQ.aAV().getGroup_id() == 0 || bc.checkUpIsLogin(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
-                        if (axQ.aAH() != 1 || bc.checkUpIsLogin(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
+                    if (aAe.aDj() == null || aAe.aDj().getGroup_id() == 0 || bc.checkUpIsLogin(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
+                        if (aAe.aCW() != 1 || bc.checkUpIsLogin(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
                             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                            if (readThreadHistory != null && !readThreadHistory.Jb(axQ.getId())) {
-                                readThreadHistory.Ja(axQ.getId());
-                                FrsGameStrategyItemListView.this.gyD.notifyDataSetChanged();
+                            if (readThreadHistory != null && !readThreadHistory.Jo(aAe.getId())) {
+                                readThreadHistory.Jn(aAe.getId());
+                                FrsGameStrategyItemListView.this.gAD.notifyDataSetChanged();
                             }
                             boolean z = false;
-                            final String aAe = axQ.aAe();
-                            if (aAe != null && !aAe.equals("")) {
+                            final String aCt = aAe.aCt();
+                            if (aCt != null && !aCt.equals("")) {
                                 z = true;
                                 new Thread(new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.1.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        x xVar = new x(aAe);
-                                        xVar.aDU().aEu().mIsNeedAddCommenParam = false;
-                                        xVar.aDU().aEu().mIsUseCurrentBDUSS = false;
+                                        x xVar = new x(aCt);
+                                        xVar.aGe().aGF().mIsNeedAddCommenParam = false;
+                                        xVar.aGe().aGF().mIsUseCurrentBDUSS = false;
                                         xVar.getNetData();
                                     }
                                 }).start();
                             }
-                            String tid = axQ.getTid();
+                            String tid = aAe.getTid();
                             if (tid == null) {
                                 tid = "";
                             }
-                            if (axQ.azS() == 2 && !tid.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
-                                ba.aEt().b(FrsGameStrategyItemListView.this.mPageContext, new String[]{tid, "", null});
+                            if (aAe.aCh() == 2 && !tid.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
+                                ba.aGE().b(FrsGameStrategyItemListView.this.mPageContext, new String[]{tid, "", null});
                                 return;
                             }
                             if (tid.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
-                                axQ.setId(tid.substring(3));
+                                aAe.setId(tid.substring(3));
                             }
-                            PbActivityConfig createFromThreadCfg = new PbActivityConfig(FrsGameStrategyItemListView.this.mPageContext.getPageActivity()).createFromThreadCfg(axQ, null, "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
-                            createFromThreadCfg.setForumId(String.valueOf(axQ.getFid()));
+                            PbActivityConfig createFromThreadCfg = new PbActivityConfig(FrsGameStrategyItemListView.this.mPageContext.getPageActivity()).createFromThreadCfg(aAe, null, "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
+                            createFromThreadCfg.setForumId(String.valueOf(aAe.getFid()));
                             createFromThreadCfg.setStartFrom(3);
                             FrsGameStrategyItemListView.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
                         }
@@ -111,7 +111,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
                 }
             }
         };
-        this.eib = new g.c() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.2
+        this.emi = new g.c() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.2
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
                 FrsGameStrategyItemListView.this.refresh();
@@ -123,108 +123,108 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
     }
 
     private void init() {
-        this.efW = new BdTypeListView(getContext());
-        this.efW.setDivider(new ColorDrawable(am.getColor(R.color.cp_bg_line_c)));
-        this.efW.setDividerHeight(getContext().getResources().getDimensionPixelSize(R.dimen.ds1));
-        this.efW.setCacheColorHint(getContext().getResources().getColor(17170445));
-        this.efW.setFadingEdgeLength(0);
-        this.efW.setSelector(getContext().getResources().getDrawable(R.drawable.list_selector_transparent));
-        this.efW.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.3
+        this.eka = new BdTypeListView(getContext());
+        this.eka.setDivider(new ColorDrawable(am.getColor(R.color.cp_bg_line_c)));
+        this.eka.setDividerHeight(getContext().getResources().getDimensionPixelSize(R.dimen.ds1));
+        this.eka.setCacheColorHint(getContext().getResources().getColor(17170445));
+        this.eka.setFadingEdgeLength(0);
+        this.eka.setSelector(getContext().getResources().getDrawable(R.drawable.list_selector_transparent));
+        this.eka.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.3
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                if (FrsGameStrategyItemListView.this.mHasMore && FrsGameStrategyItemListView.this.gxZ != null) {
-                    FrsGameStrategyItemListView.this.gxZ.bH(FrsGameStrategyItemListView.this.gxQ, FrsGameStrategyItemListView.this.gyE);
+                if (FrsGameStrategyItemListView.this.mHasMore && FrsGameStrategyItemListView.this.gzZ != null) {
+                    FrsGameStrategyItemListView.this.gzZ.bI(FrsGameStrategyItemListView.this.gzQ, FrsGameStrategyItemListView.this.gAE);
                 }
             }
         });
-        this.efW.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.4
+        this.eka.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.4
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (FrsGameStrategyItemListView.this.exV != null) {
-                    FrsGameStrategyItemListView.this.exV.c(view, motionEvent);
+                if (FrsGameStrategyItemListView.this.eCe != null) {
+                    FrsGameStrategyItemListView.this.eCe.c(view, motionEvent);
                     return false;
                 }
                 return false;
             }
         });
-        addView(this.efW);
-        this.gyD = new c(this.mPageContext, this.efW);
-        this.gyD.b(this.zL);
+        addView(this.eka);
+        this.gAD = new c(this.mPageContext, this.eka);
+        this.gAD.b(this.Ae);
         this.mPullView = new h(this.mPageContext);
         this.mPullView.setTag(this.mPageId);
-        this.mPullView.setListPullRefreshListener(this.eib);
-        this.exV = new com.baidu.tieba.frs.gametab.b(this.mPageContext.getPageActivity(), this.mPageId, true);
-        this.efW.setPullRefresh(this.mPullView);
-        if (this.ehe == null) {
-            this.ehe = new PbListView(this.mPageContext.getPageActivity());
-            this.ehe.createView();
+        this.mPullView.setListPullRefreshListener(this.emi);
+        this.eCe = new com.baidu.tieba.frs.gametab.b(this.mPageContext.getPageActivity(), this.mPageId, true);
+        this.eka.setPullRefresh(this.mPullView);
+        if (this.eli == null) {
+            this.eli = new PbListView(this.mPageContext.getPageActivity());
+            this.eli.createView();
         }
-        this.ehe.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
+        this.eli.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.b
     public void a(int i, int i2, List<m> list, List<com.baidu.tieba.frs.game.strategy.tab.e> list2, boolean z, boolean z2, int i3) {
-        if ((i == 0 && i2 == 0) || (i == this.gxQ && i2 == this.gyE)) {
+        if ((i == 0 && i2 == 0) || (i == this.gzQ && i2 == this.gAE)) {
             hideLoadingView();
-            this.efW.completePullRefresh();
+            this.eka.completePullRefresh();
             if (v.isEmpty(list) && v.isEmpty(this.mData)) {
-                zw(getContext().getString(R.string.no_data_text));
-                bbc();
+                zM(getContext().getString(R.string.no_data_text));
+                bdr();
                 this.mHasMore = false;
                 return;
             }
             if (!v.isEmpty(list)) {
                 this.mData = list;
             }
-            this.gyD.setData(this.mData);
+            this.gAD.setData(this.mData);
             this.mHasMore = z;
             if (z) {
-                bba();
+                bdp();
             } else {
-                bbb();
+                bdq();
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.b
     public void j(int i, int i2, String str) {
-        if ((i == 0 && i2 == 0) || (i == this.gxQ && i2 == this.gyE)) {
+        if ((i == 0 && i2 == 0) || (i == this.gzQ && i2 == this.gAE)) {
             this.mHasMore = false;
             hideLoadingView();
             if (v.isEmpty(this.mData)) {
-                zw(str);
-                bbc();
+                zM(str);
+                bdr();
                 return;
             }
             this.mPageContext.showToast(str);
-            bbb();
+            bdq();
         }
     }
 
-    private void bba() {
+    private void bdp() {
         this.mHasMore = true;
-        this.efW.setNextPage(this.ehe);
-        this.ehe.startLoadData();
+        this.eka.setNextPage(this.eli);
+        this.eli.startLoadData();
     }
 
-    private void bbb() {
+    private void bdq() {
         this.mHasMore = false;
-        this.efW.setNextPage(this.ehe);
-        this.ehe.endLoadData();
-        this.ehe.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
+        this.eka.setNextPage(this.eli);
+        this.eli.endLoadData();
+        this.eli.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
     }
 
-    private void bbc() {
+    private void bdr() {
         this.mHasMore = false;
-        this.efW.setNextPage(null);
+        this.eka.setNextPage(null);
     }
 
-    private void zw(String str) {
+    private void zM(String str) {
         if (this.mNoDataView == null) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds120);
             int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds480);
             int dimensionPixelSize3 = getResources().getDimensionPixelSize(R.dimen.ds360);
-            this.mNoDataView = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.tE(str), NoDataViewFactory.b.a(new NoDataViewFactory.a(getContext().getString(R.string.refresh_view_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.5
+            this.mNoDataView = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.tU(str), NoDataViewFactory.b.a(new NoDataViewFactory.a(getContext().getString(R.string.refresh_view_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     FrsGameStrategyItemListView.this.refresh();
@@ -243,33 +243,33 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
     }
 
     private void showLoadingView() {
-        if (this.epL == null) {
-            this.epL = new com.baidu.tbadk.k.g(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.ds120));
-            this.epL.onChangeSkinType();
+        if (this.etW == null) {
+            this.etW = new com.baidu.tbadk.k.g(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.ds120));
+            this.etW.onChangeSkinType();
         }
-        this.epL.attachView(this, false);
+        this.etW.attachView(this, false);
     }
 
     private void hideLoadingView() {
-        if (this.epL != null) {
-            this.epL.dettachView(this);
+        if (this.etW != null) {
+            this.etW.dettachView(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refresh() {
         hideNoDataView();
-        if (this.gxZ != null) {
-            this.gxZ.bG(this.gxQ, this.gyE);
+        if (this.gzZ != null) {
+            this.gzZ.bH(this.gzQ, this.gAE);
         }
     }
 
     public void pullToRefresh() {
-        this.efW.startPullRefresh();
+        this.eka.startPullRefresh();
     }
 
     public void onChangeSkinType(int i) {
-        am.setBackgroundColor(this.efW, R.color.cp_bg_line_c);
+        am.setBackgroundColor(this.eka, R.color.cp_bg_line_c);
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
@@ -279,32 +279,32 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
     }
 
     public void setFrsGameTabDataLoadListener(com.baidu.tieba.frs.game.strategy.tab.a aVar) {
-        this.gxZ = aVar;
+        this.gzZ = aVar;
     }
 
-    public void bM(int i, int i2) {
-        this.gxQ = i;
-        this.gyE = i2;
-        bbc();
+    public void bN(int i, int i2) {
+        this.gzQ = i;
+        this.gAE = i2;
+        bdr();
         this.mData = new LinkedList();
-        this.gyD.setData(this.mData);
-        this.gxZ.bI(i, i2);
+        this.gAD.setData(this.mData);
+        this.gzZ.bJ(i, i2);
     }
 
-    public void bGf() {
-        if (v.isEmpty(this.mData) && (this.gxQ != 0 || this.gyE != 0)) {
+    public void bHH() {
+        if (v.isEmpty(this.mData) && (this.gzQ != 0 || this.gAE != 0)) {
             showLoadingView();
-            this.gxZ.bG(this.gxQ, this.gyE);
+            this.gzZ.bH(this.gzQ, this.gAE);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public int getTabId() {
-        return this.gxQ;
+        return this.gzQ;
     }
 
     public int getLabelId() {
-        return this.gyE;
+        return this.gAE;
     }
 
     public void onDestory() {

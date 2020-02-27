@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
 import android.util.Log;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
@@ -19,7 +20,7 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends File {
     private static DexClassLoader f = null;
     private e a;
@@ -103,7 +104,7 @@ public class b extends File {
 
     private static PublicKey c(String str) {
         try {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
+            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
         } catch (NullPointerException e) {
             throw new Exception("NullPointerException");
         } catch (NoSuchAlgorithmException e2) {

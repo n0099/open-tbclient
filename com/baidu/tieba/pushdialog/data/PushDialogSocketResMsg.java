@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
 import java.io.IOException;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
     a mData;
 

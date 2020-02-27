@@ -2,7 +2,7 @@ package com.vivo.push.b;
 
 import com.baidu.mapapi.UIMsg;
 import com.baidu.sapi2.SapiContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class b extends c {
     private String a;
     private String b;

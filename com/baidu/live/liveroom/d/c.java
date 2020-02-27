@@ -1,5 +1,6 @@
 package com.baidu.live.liveroom.d;
-/* loaded from: classes2.dex */
-public interface c {
-    void a(a aVar, int i, int i2);
+/* loaded from: classes3.dex */
+public class c {
+    public Object avZ;
+    public short awa;
 }

@@ -10,7 +10,7 @@ import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import java.util.Hashtable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PermissionCheck {
     private static Context b;
     private static String c;
@@ -19,10 +19,10 @@ public class PermissionCheck {
     private static LBSAuthManager e = null;
     private static LBSAuthManagerListener f = null;
     private static c g = null;
-    private static int h = LBSAuthManager.CODE_UNAUTHENTICATE;
+    private static int h = 601;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements LBSAuthManagerListener {
         private a() {
         }
@@ -62,7 +62,7 @@ public class PermissionCheck {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public int a = 0;
         public String b = "-1";
@@ -75,7 +75,7 @@ public class PermissionCheck {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(b bVar);
     }

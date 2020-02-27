@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
     private DataRes resultData;
 
@@ -28,11 +28,11 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            g.hcV = false;
+            g.heV = false;
             if (g.g(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
-                this.resultData = g.bNC();
-                g.hcV = true;
-                g.bND();
+                this.resultData = g.bPe();
+                g.heV = true;
+                g.bPf();
                 return;
             }
             this.resultData = personalizedResIdl.data;

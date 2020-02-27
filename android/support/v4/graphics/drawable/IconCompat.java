@@ -22,7 +22,7 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class IconCompat {
     private static final float ADAPTIVE_ICON_INSET_FACTOR = 0.25f;
     private static final int AMBIENT_SHADOW_ALPHA = 30;

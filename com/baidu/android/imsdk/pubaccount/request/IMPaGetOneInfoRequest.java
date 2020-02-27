@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -13,14 +14,16 @@ import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.SapiContext;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     private static final String TAG = "IMPaGetOneInfoRequest";
     private long mAppid;
@@ -53,7 +56,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        String md5 = getMd5("" + currentTimeMillis + bduss + this.mAppid);
+        Object md5 = getMd5("" + currentTimeMillis + bduss + this.mAppid);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appid", this.mAppid);
@@ -63,12 +66,19 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
             if (this.mPaids != null) {
                 Iterator<Long> it = this.mPaids.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next());
+                    Long next = it.next();
+                    if (next.longValue() > 0) {
+                        jSONArray.put(next);
+                    }
                 }
             }
             jSONObject.put("pa_uids", jSONArray);
             jSONObject.put("is_https", true);
             jSONObject.put("sign", md5);
+            jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
+            jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
+            jSONObject.put("device_type", 2);
         } catch (JSONException e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -81,8 +91,8 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0175  */
-    /* JADX WARN: Removed duplicated region for block: B:55:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x01c8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -130,8 +140,6 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                             paInfo.setClassAvatar(jSONObject2.optString("pa_classavatar"));
                             paInfo.setClassshow(jSONObject2.optInt("pa_classshow", 0));
                             paInfo.setStatus(jSONObject2.optInt("status", 0));
-                            paInfo.setMarkTopTime(jSONObject2.optLong("upmark_time"));
-                            paInfo.setMarkTop(jSONObject2.optInt("is_upmark", 0));
                             String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
                             paInfo.setPaExt(optString);
                             if (!TextUtils.isEmpty(optString)) {
@@ -140,6 +148,18 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                                 } catch (JSONException e2) {
                                     LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
                                 }
+                            }
+                            paInfo.setVipId(jSONObject2.optString("vip"));
+                            paInfo.setVPortrait(jSONObject2.optString("v_portrait", ""));
+                            paInfo.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
+                            paInfo.setIdentity(jSONObject2.optString("identity", ""));
+                            paInfo.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
+                            PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
+                            if (queryPaInfo != null) {
+                                paInfo.setMarkTop(queryPaInfo.getMarkTop());
+                                paInfo.setMarkTopTime(queryPaInfo.getMarkTopTime());
+                                paInfo.setShield(queryPaInfo.getShield());
+                                paInfo.setShieldTime(queryPaInfo.getShieldTime());
                             }
                             arrayList4.add(paInfo);
                         }

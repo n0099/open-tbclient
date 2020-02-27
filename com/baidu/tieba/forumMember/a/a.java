@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends h<b, c> {
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -31,7 +31,7 @@ public class a extends h<b, c> {
             am.setBackgroundColor(cVar.getView(), R.color.cp_bg_line_d);
             am.setViewTextColor(cVar.title, R.color.cp_cont_b, 1);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.bAQ())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.bCs())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

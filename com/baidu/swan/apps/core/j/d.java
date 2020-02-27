@@ -2,9 +2,9 @@ package com.baidu.swan.apps.core.j;
 
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    public static void i(String str, String str2, boolean z) {
+    public static void j(String str, String str2, boolean z) {
         if (!z) {
             try {
                 System.loadLibrary(str);

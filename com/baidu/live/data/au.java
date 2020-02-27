@@ -1,6 +1,7 @@
 package com.baidu.live.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class au {
-    public String abC;
-    public String abD;
+    public String adB;
+    public String adC;
+    public String liveId;
 }

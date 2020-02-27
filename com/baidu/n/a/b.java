@@ -2,30 +2,30 @@ package com.baidu.n.a;
 
 import android.text.TextUtils;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    static ArrayList<Integer> lBK = new ArrayList<>(4);
-    static String lBL;
+    static ArrayList<Integer> lCr = new ArrayList<>(4);
+    static String lCs;
 
     static {
-        lBK.add(10000);
-        lBK.add(10001);
-        lBK.add(10002);
-        lBK.add(20001);
-        lBK.add(-1);
+        lCr.add(10000);
+        lCr.add(10001);
+        lCr.add(10002);
+        lCr.add(20001);
+        lCr.add(-1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int dgE() {
-        if (TextUtils.isEmpty(lBL)) {
-            lBL = com.baidu.n.a.c.d.getManufacturer();
+    public static int dhS() {
+        if (TextUtils.isEmpty(lCs)) {
+            lCs = com.baidu.n.a.c.d.getManufacturer();
         }
-        if (TextUtils.isEmpty(lBL)) {
+        if (TextUtils.isEmpty(lCs)) {
             return 20001;
         }
-        if (lBL.toUpperCase().contains("HUAWEI")) {
+        if (lCs.toUpperCase().contains("HUAWEI")) {
             return 10001;
         }
-        return lBL.toUpperCase().contains("XIAOMI") ? 10002 : 20001;
+        return lCs.toUpperCase().contains("XIAOMI") ? 10002 : 20001;
     }
 }

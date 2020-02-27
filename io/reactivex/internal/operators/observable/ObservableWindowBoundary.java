@@ -10,7 +10,7 @@ import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.operators.observable.a<T, q<T>> {
     final int capacityHint;
     final t<B> other;
@@ -23,7 +23,7 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
         this.source.subscribe(windowBoundaryMainObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WindowBoundaryMainObserver<T, B> extends AtomicInteger implements io.reactivex.disposables.b, u<T>, Runnable {
         static final Object NEXT_WINDOW = new Object();
         private static final long serialVersionUID = 2233020065421370272L;
@@ -184,19 +184,19 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class a<T, B> extends io.reactivex.observers.a<B> {
         boolean done;
-        final WindowBoundaryMainObserver<T, B> nxK;
+        final WindowBoundaryMainObserver<T, B> nym;
 
         a(WindowBoundaryMainObserver<T, B> windowBoundaryMainObserver) {
-            this.nxK = windowBoundaryMainObserver;
+            this.nym = windowBoundaryMainObserver;
         }
 
         @Override // io.reactivex.u
         public void onNext(B b) {
             if (!this.done) {
-                this.nxK.innerNext();
+                this.nym.innerNext();
             }
         }
 
@@ -207,14 +207,14 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
                 return;
             }
             this.done = true;
-            this.nxK.innerError(th);
+            this.nym.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.nxK.innerComplete();
+                this.nym.innerComplete();
             }
         }
     }

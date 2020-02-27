@@ -25,68 +25,68 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.entereffect.a.b;
 import com.baidu.live.entereffect.b.d;
-import com.baidu.live.gift.s;
-import com.baidu.live.r.a;
+import com.baidu.live.gift.t;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class ALAImEnterView extends LinearLayout {
-    private static int Me;
-    private TbImageView aqm;
-    private TextView aqn;
-    private ObjectAnimator aqo;
-    private int aqp;
-    private boolean aqq;
+    private static int MC;
+    private TbImageView atW;
+    private TextView atX;
+    private ObjectAnimator atY;
+    private int atZ;
+    private boolean aua;
 
     public ALAImEnterView(Context context) {
         super(context);
-        this.aqq = false;
+        this.aua = false;
         init();
     }
 
-    public void k(com.baidu.live.im.data.a aVar) {
-        if (!d.qp().qq() && !d.qp().hasMsg() && !this.aqq) {
-            d.qp().c(aVar);
-            vG();
+    public void r(com.baidu.live.im.data.a aVar) {
+        if (!d.ra().rb() && !d.ra().hasMsg() && !this.aua) {
+            d.ra().c(aVar);
+            xE();
             return;
         }
-        d.qp().c(aVar);
+        d.ra().c(aVar);
     }
 
-    public void vh() {
-        vE();
+    public void wL() {
+        xC();
     }
 
     public void release() {
-        this.aqq = false;
-        d.qp().release();
+        this.aua = false;
+        d.ra().release();
         setVisibility(4);
-        if (this.aqo != null) {
-            this.aqo.cancel();
+        if (this.atY != null) {
+            this.atY.cancel();
         }
-        if (this.aqm != null) {
-            this.aqm.stopLoad();
+        if (this.atW != null) {
+            this.atW.stopLoad();
         }
-        vF();
+        xD();
     }
 
     @Override // android.view.View
     protected void onVisibilityChanged(@NonNull View view, int i) {
         super.onVisibilityChanged(view, i);
-        if (i != 0 && this.aqm != null) {
-            this.aqm.stopLoad();
+        if (i != 0 && this.atW != null) {
+            this.atW.stopLoad();
         }
     }
 
     private void init() {
-        vD();
+        xB();
         initView();
         setVisibility(4);
-        Me = BdUtilHelper.getEquipmentWidth(getContext());
-        this.aqp = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
+        MC = BdUtilHelper.getEquipmentWidth(getContext());
+        this.atZ = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
     }
 
-    private void vD() {
+    private void xB() {
         setGravity(16);
         setOrientation(0);
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds16);
@@ -103,18 +103,18 @@ public class ALAImEnterView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_im_enter, (ViewGroup) this, true);
-        this.aqm = (TbImageView) findViewById(a.g.iv_icon);
-        this.aqn = (TextView) findViewById(a.g.tv_content);
-        this.aqm.setDefaultBgResource(a.f.sdk_shape_transparent);
-        this.aqm.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.atW = (TbImageView) findViewById(a.g.iv_icon);
+        this.atX = (TextView) findViewById(a.g.tv_content);
+        this.atW.setDefaultBgResource(a.f.sdk_shape_transparent);
+        this.atW.setDefaultErrorResource(a.f.sdk_shape_transparent);
     }
 
-    private void vE() {
+    private void xC() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913109, new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.live.im.view.ALAImEnterView.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ALAImEnterView.this.bL(customMessage.getData().intValue());
+                    ALAImEnterView.this.bY(customMessage.getData().intValue());
                     return null;
                 }
                 return null;
@@ -124,58 +124,58 @@ public class ALAImEnterView extends LinearLayout {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void vF() {
+    private void xD() {
         MessageManager.getInstance().unRegisterTask(2913109);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bL(int i) {
+    public void bY(int i) {
         if (i == 0) {
-            vH();
+            xF();
         } else if (i == 1) {
-            vG();
+            xE();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vG() {
-        com.baidu.live.im.data.a qr = d.qp().qr();
-        if (qr != null) {
-            com.baidu.live.data.a vq = qr.vq();
-            if (vq == null) {
-                vG();
+    public void xE() {
+        com.baidu.live.im.data.a rc = d.ra().rc();
+        if (rc != null) {
+            com.baidu.live.data.a xo = rc.xo();
+            if (xo == null) {
+                xE();
                 return;
             }
-            b b = com.baidu.live.entereffect.a.qg().b(qr);
+            b b = com.baidu.live.entereffect.a.qR().b(rc);
             if (b == null) {
-                vG();
-            } else if (!a(vq, b)) {
-                b(vq, b);
+                xE();
+            } else if (!a(xo, b)) {
+                b(xo, b);
                 setVisibility(0);
-                vI();
+                xG();
             }
         }
     }
 
-    private void vH() {
-        com.baidu.live.im.data.a qs = d.qp().qs();
-        if (qs == null) {
-            vG();
+    private void xF() {
+        com.baidu.live.im.data.a rd = d.ra().rd();
+        if (rd == null) {
+            xE();
             return;
         }
-        com.baidu.live.data.a vq = qs.vq();
-        if (vq == null) {
-            vG();
+        com.baidu.live.data.a xo = rd.xo();
+        if (xo == null) {
+            xE();
             return;
         }
-        b b = com.baidu.live.entereffect.a.qg().b(qs);
+        b b = com.baidu.live.entereffect.a.qR().b(rd);
         if (b == null) {
-            vG();
+            xE();
             return;
         }
-        b(vq, b);
+        b(xo, b);
         setVisibility(0);
-        vI();
+        xG();
     }
 
     private boolean a(com.baidu.live.data.a aVar, b bVar) {
@@ -183,12 +183,12 @@ public class ALAImEnterView extends LinearLayout {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        com.baidu.live.entereffect.a.a cR = com.baidu.live.entereffect.a.qg().cR(str);
-        if (cR != null) {
-            s.b(str, 1L, "", "", aVar.userId, aVar.portrait, aVar.name_show, "", "", false, "", "", "", false, false, cR.priority == 1);
+        com.baidu.live.entereffect.a.a da = com.baidu.live.entereffect.a.qR().da(str);
+        if (da != null) {
+            t.b(str, 1L, "", "", aVar.userId, aVar.portrait, aVar.name_show, "", "", false, "", "", "", false, false, da.priority == 1);
             return true;
         }
-        com.baidu.live.entereffect.a.qg().cS(str);
+        com.baidu.live.entereffect.a.qR().db(str);
         return false;
     }
 
@@ -214,8 +214,8 @@ public class ALAImEnterView extends LinearLayout {
         if (Build.VERSION.SDK_INT >= 16) {
             Drawable background = getBackground();
             if (background instanceof GradientDrawable) {
-                String str = bVar.adg;
-                String str2 = bVar.adh;
+                String str = bVar.afi;
+                String str2 = bVar.afj;
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     i = 0;
                     i2 = 0;
@@ -245,7 +245,7 @@ public class ALAImEnterView extends LinearLayout {
                     }
                 }
                 if (!z) {
-                    String str3 = bVar.adi;
+                    String str3 = bVar.afk;
                     if (!TextUtils.isEmpty(str3)) {
                         try {
                             i4 = Integer.parseInt(str3);
@@ -257,7 +257,7 @@ public class ALAImEnterView extends LinearLayout {
                             i2 = ColorUtils.setAlphaComponent(i2, (i4 * 255) / 100);
                         }
                     }
-                    String str4 = bVar.adj;
+                    String str4 = bVar.afl;
                     if (!TextUtils.isEmpty(str4)) {
                         try {
                             i6 = Integer.parseInt(str4);
@@ -281,26 +281,26 @@ public class ALAImEnterView extends LinearLayout {
     }
 
     private void a(b bVar) {
-        if (this.aqm != null) {
-            this.aqm.stopLoad();
-            if (!TextUtils.isEmpty(bVar.iconUrl) && bVar.adm > 0 && bVar.adn > 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aqm.getLayoutParams();
-                layoutParams.height = this.aqp;
-                layoutParams.width = (int) (((layoutParams.height * 1.0f) / bVar.adn) * bVar.adm);
-                this.aqm.setLayoutParams(layoutParams);
-                this.aqm.startLoad(bVar.iconUrl, 10, false, false);
-                this.aqm.setVisibility(0);
+        if (this.atW != null) {
+            this.atW.stopLoad();
+            if (!TextUtils.isEmpty(bVar.iconUrl) && bVar.afo > 0 && bVar.afp > 0) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.atW.getLayoutParams();
+                layoutParams.height = this.atZ;
+                layoutParams.width = (int) (((layoutParams.height * 1.0f) / bVar.afp) * bVar.afo);
+                this.atW.setLayoutParams(layoutParams);
+                this.atW.startLoad(bVar.iconUrl, 10, false, false);
+                this.atW.setVisibility(0);
                 return;
             }
-            this.aqm.setVisibility(8);
+            this.atW.setVisibility(8);
         }
     }
 
     private void c(com.baidu.live.data.a aVar, b bVar) {
         int parseColor;
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(bVar.adk)) {
-            sb.append(bVar.adk);
+        if (!TextUtils.isEmpty(bVar.afm)) {
+            sb.append(bVar.afm);
         }
         String str = aVar.name_show;
         if (!TextUtils.isEmpty(str)) {
@@ -312,46 +312,46 @@ public class ALAImEnterView extends LinearLayout {
             }
             sb.append(str);
         }
-        if (!TextUtils.isEmpty(bVar.adl)) {
+        if (!TextUtils.isEmpty(bVar.afn)) {
             if (sb.length() > 0) {
                 sb.append("  ");
             }
-            sb.append(bVar.adl);
+            sb.append(bVar.afn);
         }
-        this.aqn.setText(sb.toString());
+        this.atX.setText(sb.toString());
         try {
-            parseColor = Color.parseColor(bVar.aaC);
+            parseColor = Color.parseColor(bVar.acA);
         } catch (Exception e) {
             parseColor = Color.parseColor("#FFFFFFFF");
         }
-        this.aqn.setTextColor(parseColor);
+        this.atX.setTextColor(parseColor);
     }
 
-    private void vI() {
-        this.aqq = true;
-        this.aqo = ObjectAnimator.ofFloat(this, "TranslationX", Me, -Me);
-        this.aqo.setDuration(4600L);
-        this.aqo.setEvaluator(new a());
-        this.aqo.setInterpolator(new TimeInterpolator() { // from class: com.baidu.live.im.view.ALAImEnterView.2
+    private void xG() {
+        this.aua = true;
+        this.atY = ObjectAnimator.ofFloat(this, "TranslationX", MC, -MC);
+        this.atY.setDuration(4600L);
+        this.atY.setEvaluator(new a());
+        this.atY.setInterpolator(new TimeInterpolator() { // from class: com.baidu.live.im.view.ALAImEnterView.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return f;
             }
         });
-        this.aqo.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.ALAImEnterView.3
+        this.atY.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.ALAImEnterView.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 ALAImEnterView.this.setVisibility(4);
-                ALAImEnterView.this.aqq = false;
-                ALAImEnterView.this.vG();
+                ALAImEnterView.this.aua = false;
+                ALAImEnterView.this.xE();
             }
         });
-        this.aqo.start();
+        this.atY.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends FloatEvaluator {
         private a() {
         }
@@ -363,9 +363,9 @@ public class ALAImEnterView extends LinearLayout {
             float f2;
             float f3 = f * 4600.0f;
             if (f3 <= 300.0f) {
-                f2 = ((f3 / 300.0f) * ALAImEnterView.Me) + (-ALAImEnterView.Me);
+                f2 = ((f3 / 300.0f) * ALAImEnterView.MC) + (-ALAImEnterView.MC);
             } else if (4600.0f - f3 <= 300.0f) {
-                f2 = -((((4600.0f - f3) / 300.0f) * (-ALAImEnterView.Me)) + ALAImEnterView.Me);
+                f2 = -((((4600.0f - f3) / 300.0f) * (-ALAImEnterView.MC)) + ALAImEnterView.MC);
             } else {
                 f2 = 0.0f;
             }

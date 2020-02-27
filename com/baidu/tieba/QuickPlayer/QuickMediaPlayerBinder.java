@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayerLocal;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     private static final String MODEL_MX4 = "MX4";
     private static final int STATE_ERROR = -1;
@@ -191,7 +191,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                     } else {
                         i = MODEL_MX4.equals(Build.MODEL) ? 2 : 0;
                     }
-                    TiebaStatic.log(new an("c12200").Z("obj_type", i).cp("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new an("c12200").X("obj_type", i).cy("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
                 if (this.mContext instanceof a) {
                     ((a) this.mContext).addPlayer(this.mMediaPlayer, this.mUri);
@@ -226,7 +226,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mCurrentState = -1;
             this.mTargetState = -1;
             if (this.mOnSubErrorInfoListener != null) {
-                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, com.baidu.tieba.j.a.r(e));
+                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, com.baidu.tieba.k.a.q(e));
             }
             if (this.mOnErrorListener != null) {
                 this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -24399, -24399);
@@ -238,7 +238,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mCurrentState = -1;
             this.mTargetState = -1;
             if (this.mOnSubErrorInfoListener != null) {
-                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, com.baidu.tieba.j.a.r(e2));
+                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, com.baidu.tieba.k.a.q(e2));
             }
             if (this.mOnErrorListener != null) {
                 this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -34399, -34399);

@@ -11,7 +11,7 @@ import android.view.animation.DecelerateInterpolator;
 import com.baidu.searchbox.suspensionwindow.util.DeviceUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SuspensionWindow {
     private static Builder mBuilder;
     private static Map<String, IFloatWindow> mFloatWindowMap;
@@ -51,7 +51,7 @@ public class SuspensionWindow {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Builder {
         Context mApplicationContext;
         View[] mBarriers;

@@ -7,11 +7,11 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MovieExtendsHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mehd";
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_1 = null;
     private long fragmentDuration;
 
     static {
@@ -55,7 +55,7 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
     }
 
     public void setFragmentDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.hs(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.hq(j)));
         this.fragmentDuration = j;
     }
 }

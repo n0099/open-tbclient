@@ -9,7 +9,7 @@ import com.google.android.exoplayer2.extractor.f.v;
 import com.google.android.exoplayer2.util.s;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c implements f {
     @Override // com.google.android.exoplayer2.source.hls.f
     public Pair<com.google.android.exoplayer2.extractor.e, Boolean> a(com.google.android.exoplayer2.extractor.e eVar, Uri uri, Format format, List<Format> list, DrmInitData drmInitData, s sVar) {
@@ -38,10 +38,10 @@ public final class c implements f {
             }
             String str = format.codecs;
             if (!TextUtils.isEmpty(str)) {
-                if (!"audio/mp4a-latm".equals(com.google.android.exoplayer2.util.i.Qe(str))) {
+                if (!"audio/mp4a-latm".equals(com.google.android.exoplayer2.util.i.Qr(str))) {
                     i |= 2;
                 }
-                if (!"video/avc".equals(com.google.android.exoplayer2.util.i.Qd(str))) {
+                if (!"video/avc".equals(com.google.android.exoplayer2.util.i.Qq(str))) {
                     i |= 4;
                 }
             }

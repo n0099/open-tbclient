@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class C extends HttpHandlerWrap {
     final /* synthetic */ GetTplStokenCallback a;
     final /* synthetic */ GetTplStokenResult b;

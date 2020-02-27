@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveFeedDiversionData extends BaseData implements Serializable {
     public int needToast;
     public long watchDuration;

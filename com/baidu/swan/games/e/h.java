@@ -1,5 +1,5 @@
 package com.baidu.swan.games.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class h {
     public String mID;
     public int mType;
@@ -19,22 +19,22 @@ public final class h {
         return "V8EngineModel{mType=" + this.mType + ", mID='" + this.mID + "'}";
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        private h ciB = new h();
+        private h cmF = new h();
 
-        public a hz(int i) {
-            this.ciB.mType = i;
+        public a hQ(int i) {
+            this.cmF.mType = i;
             return this;
         }
 
-        public a ou(String str) {
-            this.ciB.mID = str;
+        public a oJ(String str) {
+            this.cmF.mID = str;
             return this;
         }
 
-        public h alp() {
-            return this.ciB;
+        public h anC() {
+            return this.cmF;
         }
     }
 }

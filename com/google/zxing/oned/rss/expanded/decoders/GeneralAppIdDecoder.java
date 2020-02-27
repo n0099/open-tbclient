@@ -5,7 +5,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class GeneralAppIdDecoder {
     private final BitArray information;
     private final CurrentParsingState current = new CurrentParsingState();

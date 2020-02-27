@@ -15,15 +15,15 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MarkLevelGroup extends LinearLayout {
-    private LinearLayout ftQ;
-    private List<View> ftR;
-    private a ftS;
+    private LinearLayout fwr;
+    private List<View> fws;
+    private a fwt;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void cP(String str, String str2);
+        void cY(String str, String str2);
     }
 
     public MarkLevelGroup(Context context) {
@@ -42,20 +42,20 @@ public class MarkLevelGroup extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.ftS = aVar;
+        this.fwt = aVar;
     }
 
     private void initView() {
         setOrientation(0);
         setGravity(1);
         LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_layout, (ViewGroup) this, true);
-        this.ftQ = (LinearLayout) findViewById(R.id.mark_level_list_container);
+        this.fwr = (LinearLayout) findViewById(R.id.mark_level_list_container);
     }
 
     public void c(b bVar) {
         if (bVar != null) {
-            List<d> bqI = bVar.bqI();
-            if (v.isEmpty(bqI)) {
+            List<d> bsm = bVar.bsm();
+            if (v.isEmpty(bsm)) {
                 if (getLayoutParams() != null) {
                     ViewGroup.LayoutParams layoutParams = getLayoutParams();
                     layoutParams.height = getContext().getResources().getDimensionPixelSize(R.dimen.ds118);
@@ -65,53 +65,53 @@ public class MarkLevelGroup extends LinearLayout {
                 return;
             }
             setVisibility(0);
-            this.ftQ.removeAllViews();
-            if (this.ftR == null) {
-                this.ftR = new ArrayList();
+            this.fwr.removeAllViews();
+            if (this.fws == null) {
+                this.fws = new ArrayList();
             } else {
-                this.ftR.clear();
+                this.fws.clear();
             }
-            int size = bqI.size();
+            int size = bsm.size();
             for (int i = 0; i < size; i++) {
-                final d dVar = bqI.get(i);
+                final d dVar = bsm.get(i);
                 if (dVar != null) {
                     View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_item_view, (ViewGroup) null);
                     FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.mark_level_layout);
                     TextView textView = (TextView) inflate.findViewById(R.id.mark_level_tv);
                     textView.setText(String.valueOf(i + 1));
-                    ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.bqT()));
-                    this.ftR.add(inflate);
-                    boolean z = bVar.bqN() == 0;
-                    if (bVar.bqP() == dVar.bqP()) {
+                    ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.bsx()));
+                    this.fws.add(inflate);
+                    boolean z = bVar.bsr() == 0;
+                    if (bVar.bst() == dVar.bst()) {
                         a(frameLayout, true);
                         if (z) {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                         } else {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_on);
                         }
-                    } else if (bVar.bqP() > dVar.bqP()) {
+                    } else if (bVar.bst() > dVar.bst()) {
                         a(frameLayout, false);
                         if (z) {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                         } else {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_on);
                         }
-                    } else if (bVar.bqP() < dVar.bqP()) {
+                    } else if (bVar.bst() < dVar.bst()) {
                         a(frameLayout, false);
                         textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                     }
                     inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.MarkLevelGroup.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            for (View view2 : MarkLevelGroup.this.ftR) {
+                            for (View view2 : MarkLevelGroup.this.fws) {
                                 if (view == view2) {
                                     MarkLevelGroup.this.a((FrameLayout) view2.findViewById(R.id.mark_level_layout), true);
                                 } else {
                                     MarkLevelGroup.this.a((FrameLayout) view2.findViewById(R.id.mark_level_layout), false);
                                 }
                             }
-                            if (MarkLevelGroup.this.ftS != null) {
-                                MarkLevelGroup.this.ftS.cP(dVar.bqM(), dVar.bqL());
+                            if (MarkLevelGroup.this.fwt != null) {
+                                MarkLevelGroup.this.fwt.cY(dVar.bsq(), dVar.bsp());
                             }
                         }
                     });
@@ -122,7 +122,7 @@ public class MarkLevelGroup extends LinearLayout {
                         layoutParams2.width = getContext().getResources().getDimensionPixelSize(R.dimen.ds82);
                         layoutParams2.height = -2;
                     }
-                    this.ftQ.addView(inflate, layoutParams2);
+                    this.fwr.addView(inflate, layoutParams2);
                 }
             }
         }

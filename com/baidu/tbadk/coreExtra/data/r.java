@@ -1,34 +1,51 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import android.net.Uri;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.tbadk.core.util.aq;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    private int FrsMaxCache;
-    private int FrsPn;
-    private int maxCache;
+    public static final List<String> dmv = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+    private static List<String> dmw;
 
-    public int getMaxCache() {
-        if (this.maxCache == 0) {
-            return Integer.MAX_VALUE;
+    public static boolean uj(String str) {
+        String string;
+        if (aq.isEmpty(str)) {
+            return false;
         }
-        return this.maxCache;
+        if (dmw == null && (string = com.baidu.tbadk.core.sharedPref.b.aFB().getString("js_host_white_list", null)) != null) {
+            dmw = ul(string);
+        }
+        if (dmw == null) {
+            dmw = dmv;
+        }
+        Uri parse = Uri.parse(str);
+        if (parse != null) {
+            String host = parse.getHost();
+            for (String str2 : dmw) {
+                if (host.endsWith(str2)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
-    public void setMaxCache(String str) {
-        this.maxCache = com.baidu.adp.lib.f.b.toInt(str, 0);
+    public static void uk(String str) {
+        if (str == null) {
+            com.baidu.tbadk.core.sharedPref.b.aFB().putString("js_host_white_list", "");
+        } else {
+            com.baidu.tbadk.core.sharedPref.b.aFB().putString("js_host_white_list", str);
+        }
+        dmw = ul(str);
     }
 
-    public int getFrsMaxCache() {
-        return this.FrsMaxCache;
-    }
-
-    public void setFrsMaxCache(String str) {
-        this.FrsMaxCache = com.baidu.adp.lib.f.b.toInt(str, 0);
-    }
-
-    public int getFrsPn() {
-        return this.FrsPn;
-    }
-
-    public void setFrsPn(String str) {
-        this.FrsPn = com.baidu.adp.lib.f.b.toInt(str, 0);
+    private static List<String> ul(String str) {
+        if (aq.isEmpty(str)) {
+            return null;
+        }
+        return Arrays.asList(str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR));
     }
 }

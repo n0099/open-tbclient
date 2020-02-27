@@ -5,13 +5,13 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class d extends b {
-    private final int lLA;
-    private final int lLB;
+    private final int lMh;
+    private final int lMi;
     @GuardedBy("this")
-    private com.facebook.common.references.a<Bitmap> lTg;
-    private final h lTh;
+    private com.facebook.common.references.a<Bitmap> lTN;
+    private final h lTO;
     private volatile Bitmap mBitmap;
 
     public d(Bitmap bitmap, com.facebook.common.references.c<Bitmap> cVar, h hVar, int i) {
@@ -20,10 +20,10 @@ public class d extends b {
 
     public d(Bitmap bitmap, com.facebook.common.references.c<Bitmap> cVar, h hVar, int i, int i2) {
         this.mBitmap = (Bitmap) com.facebook.common.internal.g.checkNotNull(bitmap);
-        this.lTg = com.facebook.common.references.a.a(this.mBitmap, (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar));
-        this.lTh = hVar;
-        this.lLA = i;
-        this.lLB = i2;
+        this.lTN = com.facebook.common.references.a.a(this.mBitmap, (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar));
+        this.lTO = hVar;
+        this.lMh = i;
+        this.lMi = i2;
     }
 
     public d(com.facebook.common.references.a<Bitmap> aVar, h hVar, int i) {
@@ -31,41 +31,41 @@ public class d extends b {
     }
 
     public d(com.facebook.common.references.a<Bitmap> aVar, h hVar, int i, int i2) {
-        this.lTg = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.djE());
-        this.mBitmap = this.lTg.get();
-        this.lTh = hVar;
-        this.lLA = i;
-        this.lLB = i2;
+        this.lTN = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.dkR());
+        this.mBitmap = this.lTN.get();
+        this.lTO = hVar;
+        this.lMh = i;
+        this.lMi = i2;
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a<Bitmap> dpf = dpf();
-        if (dpf != null) {
-            dpf.close();
+        com.facebook.common.references.a<Bitmap> dqr = dqr();
+        if (dqr != null) {
+            dqr.close();
         }
     }
 
-    private synchronized com.facebook.common.references.a<Bitmap> dpf() {
+    private synchronized com.facebook.common.references.a<Bitmap> dqr() {
         com.facebook.common.references.a<Bitmap> aVar;
-        aVar = this.lTg;
-        this.lTg = null;
+        aVar = this.lTN;
+        this.lTN = null;
         this.mBitmap = null;
         return aVar;
     }
 
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> dpg() {
-        return com.facebook.common.references.a.b((com.facebook.common.references.a) this.lTg);
+    public synchronized com.facebook.common.references.a<Bitmap> dqs() {
+        return com.facebook.common.references.a.b((com.facebook.common.references.a) this.lTN);
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized boolean isClosed() {
-        return this.lTg == null;
+        return this.lTN == null;
     }
 
     @Override // com.facebook.imagepipeline.g.b
-    public Bitmap dpd() {
+    public Bitmap dqp() {
         return this.mBitmap;
     }
 
@@ -76,12 +76,12 @@ public class d extends b {
 
     @Override // com.facebook.imagepipeline.g.f
     public int getWidth() {
-        return (this.lLA % 180 != 0 || this.lLB == 5 || this.lLB == 7) ? U(this.mBitmap) : T(this.mBitmap);
+        return (this.lMh % 180 != 0 || this.lMi == 5 || this.lMi == 7) ? U(this.mBitmap) : T(this.mBitmap);
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public int getHeight() {
-        return (this.lLA % 180 != 0 || this.lLB == 5 || this.lLB == 7) ? T(this.mBitmap) : U(this.mBitmap);
+        return (this.lMh % 180 != 0 || this.lMi == 5 || this.lMi == 7) ? T(this.mBitmap) : U(this.mBitmap);
     }
 
     private static int T(@Nullable Bitmap bitmap) {
@@ -98,16 +98,16 @@ public class d extends b {
         return bitmap.getHeight();
     }
 
-    public int dph() {
-        return this.lLA;
+    public int dqt() {
+        return this.lMh;
     }
 
-    public int dpi() {
-        return this.lLB;
+    public int dqu() {
+        return this.lMi;
     }
 
     @Override // com.facebook.imagepipeline.g.c
-    public h dpe() {
-        return this.lTh;
+    public h dqq() {
+        return this.lTO;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.lbsapi.panoramaview;
 import android.os.Bundle;
 import com.baidu.pano.platform.comapi.a.a;
 import com.baidu.searchbox.config.FontSizeConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TextMarker extends a {
     private String a;
     private int b;

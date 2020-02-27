@@ -2,7 +2,8 @@ package kotlin.text;
 
 import kotlin.Pair;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements kotlin.jvm.a.m<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>> {
     final /* synthetic */ char[] $delimiters;
     final /* synthetic */ boolean $ignoreCase;
@@ -27,6 +28,6 @@ final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements k
         if (a < 0) {
             return null;
         }
-        return kotlin.i.l(Integer.valueOf(a), 1);
+        return kotlin.j.k(Integer.valueOf(a), 1);
     }
 }

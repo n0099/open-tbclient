@@ -1,23 +1,23 @@
 package rx.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
     @Deprecated
-    public void E(Throwable th) {
+    public void D(Throwable th) {
     }
 
-    public final String cl(Object obj) {
+    public final String cm(Object obj) {
         try {
-            return cm(obj);
+            return cn(obj);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return obj.getClass().getName() + ".errorRendering";
         } catch (Throwable th) {
-            rx.exceptions.a.I(th);
+            rx.exceptions.a.H(th);
             return obj.getClass().getName() + ".errorRendering";
         }
     }
 
-    protected String cm(Object obj) throws InterruptedException {
+    protected String cn(Object obj) throws InterruptedException {
         return null;
     }
 }

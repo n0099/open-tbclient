@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.liveroom.challenge.message;
 
-import com.baidu.live.data.ac;
 import com.baidu.live.data.ad;
+import com.baidu.live.data.ae;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage {
-    private ac eQA;
-    private ad eQB;
-    private ad eQC;
+    private ad eUr;
+    private ae eUs;
+    private ae eUt;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -22,33 +22,33 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
             if (optJSONObject != null && getError() == 0) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
                 if (optJSONObject2 != null) {
-                    this.eQA = new ac();
-                    this.eQA.parseJson(optJSONObject2);
+                    this.eUr = new ad();
+                    this.eUr.parseJson(optJSONObject2);
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
                 if (optJSONObject3 != null) {
-                    this.eQB = new ad();
-                    this.eQB.parseJson(optJSONObject3);
+                    this.eUs = new ae();
+                    this.eUs.parseJson(optJSONObject3);
                 }
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
                 if (optJSONObject4 != null) {
-                    this.eQC = new ad();
-                    this.eQC.parseJson(optJSONObject4);
+                    this.eUt = new ae();
+                    this.eUt.parseJson(optJSONObject4);
                 }
             }
             jSONObject.optString("logid");
         }
     }
 
-    public ac biy() {
-        return this.eQA;
+    public ad bko() {
+        return this.eUr;
     }
 
-    public ad biz() {
-        return this.eQB;
+    public ae bkp() {
+        return this.eUs;
     }
 
-    public ad biA() {
-        return this.eQC;
+    public ae bkq() {
+        return this.eUt;
     }
 }

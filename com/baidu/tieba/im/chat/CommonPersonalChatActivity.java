@@ -24,15 +24,15 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void bQb() {
-        super.bQb();
+    public void bRC() {
+        super.bRC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void an(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
         b(userData);
-        ((CommonPersonalMsglistModel) this.hro).setUser(userData);
+        ((CommonPersonalMsglistModel) this.htn).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,7 +40,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             b(userData);
-            ((CommonPersonalMsglistModel) this.hro).setUser(userData);
+            ((CommonPersonalMsglistModel) this.htn).setUser(userData);
         }
     }
 
@@ -48,30 +48,30 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.hro).getUser()));
+        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.htn).getUser()));
     }
 
     protected void b(UserData userData) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bQd() {
+    public boolean bRE() {
         UserData user;
-        return (!(this.hro instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.hro).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
+        return (!(this.htn instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.htn).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void an(Bundle bundle) throws Exception {
-        this.hro.setIsAcceptNotify(bundle.getBoolean("is_accept_notify", true));
+        this.htn.setIsAcceptNotify(bundle.getBoolean("is_accept_notify", true));
         ao(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bQc() {
+    public void bRD() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra("is_accept_notify", true);
-        if (this.hro != null) {
-            this.hro.setIsAcceptNotify(booleanExtra);
+        if (this.htn != null) {
+            this.htn.setIsAcceptNotify(booleanExtra);
             an(intent);
         }
     }
@@ -83,7 +83,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.onItemViewClick(view, i, i2, j);
         switch (i) {
             case 7:
-                if (bQN() && this.hro != null && (msg = this.hro.getMsg(i2)) != null && com.baidu.tieba.im.util.e.p(msg) && (content = msg.getContent()) != null) {
+                if (bSo() && this.htn != null && (msg = this.htn.getMsg(i2)) != null && com.baidu.tieba.im.util.e.p(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);
@@ -112,7 +112,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] I(int i, boolean z) {
-        return super.I(i, true);
+    public String[] H(int i, boolean z) {
+        return super.H(i, true);
     }
 }

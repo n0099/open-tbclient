@@ -7,23 +7,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class b extends l {
     public b(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
-        this.dtf = R.drawable.icon_pure_post_voice_n_svg;
-        this.dtg = R.drawable.icon_mask_post_voice24_selection_svg;
-        this.dth = true;
-        this.dtk = 6;
-        this.dtl = true;
-        this.dss = new NewVoiceRecordButton(context);
-        this.dtm = new int[]{1, 9};
+        this.dxl = R.drawable.icon_pure_post_voice_n_svg;
+        this.dxm = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.dxn = true;
+        this.dxq = 6;
+        this.dxr = true;
+        this.dwz = new NewVoiceRecordButton(context);
+        this.dxs = new int[]{1, 9};
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public boolean lK() {
+    public boolean lZ() {
         if (TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
-            return super.lK();
+            return super.lZ();
         }
         String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
         if (StringUtils.isNull(uegVoiceWarning)) {

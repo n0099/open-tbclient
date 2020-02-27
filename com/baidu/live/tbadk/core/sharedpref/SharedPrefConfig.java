@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.sharedpref;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SharedPrefConfig {
     public static final String ACCOUNT_FIRST_LOGIN = "account_first_login_";
     public static final String ACCOUNT_SHARE = "account_share";
@@ -102,6 +102,8 @@ public class SharedPrefConfig {
     public static final String KEY_FEEDBACK_TIP_SHOW = "key_feedback_tip_show";
     public static final String KEY_HAS_BORROW_CASH_CLICKED = "key_has_borrow_cash_clicked";
     public static final String KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN = "key_is_window_permission_dialog_shown";
+    public static final String KEY_LIVE_VIDEO_CHAT_SENDER_CHAT_ID = "key_live_video_chat_sender_chat_id";
+    public static final String KEY_LIVE_VIDEO_CHAT_SENDER_LIVE_ID = "key_live_video_chat_sender_live_id";
     public static final String KEY_MAX_STRANGER = "key_max_stranger";
     public static final String KEY_MY_CONCERNED_PERSON_TIP = "key_my_concerned_person_tip";
     public static final String KEY_NEXT_CHECK_BAIDU_SIM_TIME = "key_next_check_baidu_sim_time";

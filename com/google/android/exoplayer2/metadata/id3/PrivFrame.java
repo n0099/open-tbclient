@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.exoplayer2.util.v;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PrivFrame extends Id3Frame {
     public static final Parcelable.Creator<PrivFrame> CREATOR = new Parcelable.Creator<PrivFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.PrivFrame.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public final class PrivFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kl */
+        /* renamed from: Kq */
         public PrivFrame[] newArray(int i) {
             return new PrivFrame[i];
         }

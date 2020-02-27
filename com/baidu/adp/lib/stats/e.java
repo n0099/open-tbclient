@@ -7,9 +7,9 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e sL;
-    private HashMap<String, a> sJ = new HashMap<>();
-    private HashMap<String, b> sK = new HashMap<>();
+    private static e sN;
+    private HashMap<String, a> sL = new HashMap<>();
+    private HashMap<String, b> sM = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -19,7 +19,7 @@ public class e {
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
                         aVar.L(false);
                         aVar.M(false);
-                        aVar.S(0);
+                        aVar.V(0);
                         aVar.k(System.currentTimeMillis());
                         return;
                     }
@@ -30,69 +30,69 @@ public class e {
         }
     };
 
-    public static e gA() {
-        if (sL == null) {
+    public static e gB() {
+        if (sN == null) {
             synchronized (e.class) {
-                if (sL == null) {
-                    sL = new e();
+                if (sN == null) {
+                    sN = new e();
                 }
             }
         }
-        return sL;
+        return sN;
     }
 
     public e() {
         b bVar = new b();
-        bVar.T(3000);
-        bVar.U(120000);
-        bVar.V(500);
-        this.sK.put("net", bVar);
-        this.sK.put("op", bVar);
-        this.sK.put("stat", bVar);
-        this.sK.put("crash", bVar);
-        this.sK.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
+        bVar.W(3000);
+        bVar.X(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar.Y(500);
+        this.sM.put("net", bVar);
+        this.sM.put("op", bVar);
+        this.sM.put("stat", bVar);
+        this.sM.put("crash", bVar);
+        this.sM.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
         b bVar2 = new b();
-        bVar2.T(3000);
-        bVar2.U(120000);
-        bVar2.V(1500);
-        this.sK.put("file", bVar2);
-        this.sK.put(BdStatsConstant.OpSubType.DB, bVar2);
-        this.sK.put("img", bVar2);
-        this.sK.put("voice", bVar2);
-        this.sK.put(BdStatsConstant.StatsType.ERROR, bVar2);
+        bVar2.W(3000);
+        bVar2.X(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar2.Y(1500);
+        this.sM.put("file", bVar2);
+        this.sM.put(BdStatsConstant.OpSubType.DB, bVar2);
+        this.sM.put("img", bVar2);
+        this.sM.put("voice", bVar2);
+        this.sM.put(BdStatsConstant.StatsType.ERROR, bVar2);
         b bVar3 = new b();
-        bVar3.T(3000);
-        bVar3.U(120000);
-        bVar3.V(1500);
-        this.sK.put("dbg", bVar3);
+        bVar3.W(3000);
+        bVar3.X(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar3.Y(1500);
+        this.sM.put("dbg", bVar3);
     }
 
     public synchronized boolean aA(String str) {
         a aVar;
         boolean z;
-        b bVar = this.sK.get(str);
+        b bVar = this.sM.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.sJ.get(str);
+            a aVar2 = this.sL.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
                 aVar3.M(false);
                 aVar3.L(false);
                 aVar3.k(currentTimeMillis);
-                this.sJ.put(str, aVar3);
+                this.sL.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
             }
-            if (aVar.gB()) {
+            if (aVar.gC()) {
                 z = true;
             } else {
-                if (aVar.gF()) {
-                    aVar.S(aVar.gD() + 1);
-                    if (currentTimeMillis - aVar.gC() < bVar.gH()) {
-                        if (aVar.gD() >= bVar.gI()) {
+                if (aVar.gG()) {
+                    aVar.V(aVar.gE() + 1);
+                    if (currentTimeMillis - aVar.gD() < bVar.gI()) {
+                        if (aVar.gE() >= bVar.gJ()) {
                             aVar.L(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, BdStatsConstant.ErrorCode.ERR_LOG_FAST, str, new Object[0]);
                             a(aVar);
@@ -100,10 +100,10 @@ public class e {
                         }
                     } else {
                         aVar.M(false);
-                        aVar.S(0);
+                        aVar.V(0);
                         aVar.k(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.gE() < bVar.gG()) {
+                } else if (currentTimeMillis - aVar.gF() < bVar.gH()) {
                     aVar.M(true);
                     aVar.j(currentTimeMillis);
                 } else {
@@ -128,49 +128,49 @@ public class e {
     public class a {
         private int mCount;
         private boolean mIsRunning;
-        private long sN;
-        private long sO;
-        private boolean sP;
+        private long sP;
+        private long sQ;
+        private boolean sR;
 
         private a() {
             this.mIsRunning = false;
             this.mCount = 0;
-            this.sP = false;
+            this.sR = false;
         }
 
-        public boolean gB() {
-            return this.sP;
+        public boolean gC() {
+            return this.sR;
         }
 
         public void L(boolean z) {
-            this.sP = z;
+            this.sR = z;
         }
 
-        public long gC() {
-            return this.sO;
+        public long gD() {
+            return this.sQ;
         }
 
         public void j(long j) {
-            this.sO = j;
+            this.sQ = j;
         }
 
-        public int gD() {
+        public int gE() {
             return this.mCount;
         }
 
-        public void S(int i) {
+        public void V(int i) {
             this.mCount = i;
         }
 
-        public long gE() {
-            return this.sN;
+        public long gF() {
+            return this.sP;
         }
 
         public void k(long j) {
-            this.sN = j;
+            this.sP = j;
         }
 
-        public boolean gF() {
+        public boolean gG() {
             return this.mIsRunning;
         }
 
@@ -183,34 +183,34 @@ public class e {
     /* loaded from: classes.dex */
     public class b {
         private int mInterval;
-        private int sQ;
-        private int sR;
+        private int sS;
+        private int sT;
 
         private b() {
         }
 
-        public int gG() {
+        public int gH() {
             return this.mInterval;
         }
 
-        public void T(int i) {
+        public void W(int i) {
             this.mInterval = i;
         }
 
-        public int gH() {
-            return this.sQ;
-        }
-
-        public void U(int i) {
-            this.sQ = i;
-        }
-
         public int gI() {
-            return this.sR;
+            return this.sS;
         }
 
-        public void V(int i) {
-            this.sR = i;
+        public void X(int i) {
+            this.sS = i;
+        }
+
+        public int gJ() {
+            return this.sT;
+        }
+
+        public void Y(int i) {
+            this.sT = i;
         }
     }
 }

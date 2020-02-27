@@ -20,9 +20,9 @@ import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.u.a;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,7 +31,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileHelper {
     private static final String DIR_DOWNLOAD = "download";
     public static final String DIR_ROOT = "tieba";
@@ -1976,7 +1976,7 @@ public class FileHelper {
         return -1L;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DataDir {
         public static final String PACKAGE_DATA_DIR = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
         public static final String PACKAGE_VERSION_CUR_DIR = "/package.cur";

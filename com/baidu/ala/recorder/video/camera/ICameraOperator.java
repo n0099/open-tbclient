@@ -6,7 +6,7 @@ import android.view.Surface;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.VideoFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ICameraOperator {
     Handler getDataThreadHandler();
 

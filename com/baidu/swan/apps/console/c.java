@@ -9,67 +9,67 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.h;
 import com.baidu.swan.apps.y.f;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private static boolean bfv = false;
+    private static boolean bjI = false;
 
-    public static void bZ(boolean z) {
-        bfv = z;
+    public static void ch(boolean z) {
+        bjI = z;
     }
 
-    public static boolean Jd() {
-        return bfv;
+    public static boolean Ls() {
+        return bjI;
     }
 
     public static void v(String str, String str2) {
-        o(TbConfig.TMP_LOG_DIR_NAME, str, str2);
+        p(TbConfig.TMP_LOG_DIR_NAME, str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.v(str, str2);
         }
     }
 
     public static void d(String str, String str2) {
-        o("debug", str, str2);
+        p("debug", str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d(str, str2);
         }
     }
 
     public static void i(String str, String str2) {
-        o("info", str, str2);
+        p("info", str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
     }
 
     public static void w(String str, String str2) {
-        o("warn", str, str2);
+        p("warn", str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.w(str, str2);
         }
     }
 
     public static void e(String str, String str2) {
-        o(BdStatsConstant.StatsType.ERROR, str, str2);
+        p(BdStatsConstant.StatsType.ERROR, str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        o(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
+        p(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
     }
 
-    private static void o(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && bfv) {
+    private static void p(String str, String str2, String str3) {
+        if (!TextUtils.isEmpty(str3) && bjI) {
             StringBuilder sb = new StringBuilder();
             String formatDate = h.getFormatDate(h.getCurrDate(), DateTimeUtil.TIME_FORMAT);
             String fileName = getFileName();
             sb.append(formatDate).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.UC().Ug().ag(str, sb.toString());
+            f.WQ().Wu().aq(str, sb.toString());
         }
     }
 

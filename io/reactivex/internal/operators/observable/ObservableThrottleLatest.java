@@ -6,7 +6,7 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableThrottleLatest<T> extends a<T, T> {
     final boolean emitLast;
     final v scheduler;
@@ -15,10 +15,10 @@ public final class ObservableThrottleLatest<T> extends a<T, T> {
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.source.subscribe(new ThrottleLatestObserver(uVar, this.timeout, this.unit, this.scheduler.dHY(), this.emitLast));
+        this.source.subscribe(new ThrottleLatestObserver(uVar, this.timeout, this.unit, this.scheduler.dJf(), this.emitLast));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ThrottleLatestObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T>, Runnable {
         private static final long serialVersionUID = -8296689127439125014L;
         volatile boolean cancelled;

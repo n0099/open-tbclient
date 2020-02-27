@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tieba.sdk.b.a;
 import com.baidu.tieba.sdk.login.a;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetLoginTbsResponsedMessage extends JsonHttpResponsedMessage {
     public GetLoginTbsResponsedMessage() {
         super(1003402);
@@ -20,23 +20,23 @@ public class GetLoginTbsResponsedMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            a cCW = com.baidu.tieba.sdk.login.a.cCT().cCW();
-            a.C0594a c0594a = new a.C0594a();
-            if (cCW != null) {
-                c0594a.Ie(cCW.bduss);
-                c0594a.Ic(cCW.userName);
-                c0594a.Id(cCW.nickName);
-                c0594a.Ib(cCW.userId);
-                c0594a.Ig(cCW.portrait);
-                c0594a.Bh(cCW.sex);
+            a cEx = com.baidu.tieba.sdk.login.a.cEu().cEx();
+            a.C0601a c0601a = new a.C0601a();
+            if (cEx != null) {
+                c0601a.Is(cEx.bduss);
+                c0601a.Iq(cEx.userName);
+                c0601a.Ir(cEx.nickName);
+                c0601a.Ip(cEx.userId);
+                c0601a.Iu(cEx.portrait);
+                c0601a.Bq(cEx.sex);
             }
-            c0594a.Bi(1);
+            c0601a.Br(1);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI)) != null) {
-                c0594a.If(optJSONObject.optString("tbs"));
+                c0601a.It(optJSONObject.optString("tbs"));
             }
-            AccountData cDb = c0594a.cDb();
-            TbadkCoreApplication.setCurrentAccount(cDb, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-            c.oJ().putString("ala_account_user_tbs", cDb.getTbs());
+            AccountData cEC = c0601a.cEC();
+            TbadkCoreApplication.setCurrentAccount(cEC, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            c.pr().putString("ala_account_user_tbs", cEC.getTbs());
         }
     }
 }

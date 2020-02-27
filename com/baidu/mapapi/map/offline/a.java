@@ -3,7 +3,7 @@ package com.baidu.mapapi.map.offline;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mapsdkplatform.comapi.map.v;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class a implements v {
     final /* synthetic */ MKOfflineMap a;
 

@@ -1,5 +1,6 @@
 package com.baidubce.util;
 
+import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.Protocol;
@@ -32,7 +33,7 @@ public class HttpUtils {
         URI_UNRESERVED_CHARACTERS.set(45);
         URI_UNRESERVED_CHARACTERS.set(46);
         URI_UNRESERVED_CHARACTERS.set(95);
-        URI_UNRESERVED_CHARACTERS.set(126);
+        URI_UNRESERVED_CHARACTERS.set(Opcodes.IAND);
         for (int i4 = 0; i4 < PERCENT_ENCODED_STRINGS.length; i4++) {
             PERCENT_ENCODED_STRINGS[i4] = String.format("%%%02X", Integer.valueOf(i4));
         }

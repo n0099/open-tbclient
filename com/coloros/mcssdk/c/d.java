@@ -1,7 +1,7 @@
 package com.coloros.mcssdk.c;
 
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static final String a = "com.coloros.mcssdk---";
     private static String b = "MCS";

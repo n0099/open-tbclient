@@ -15,34 +15,34 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private String byi;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> byj;
-    private int byk;
+    private String bCp;
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> bCq;
+    private int bCr;
     private Activity mContext;
 
     public b(Activity activity, String str, ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {
         this.mContext = activity;
-        this.byi = str;
-        this.byj = arrayList;
-        this.byk = (int) (af.dip2px(this.mContext, 50.0f) / 2.0f);
+        this.bCp = str;
+        this.bCq = arrayList;
+        this.bCr = (int) (af.dip2px(this.mContext, 50.0f) / 2.0f);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.byj == null) {
+        if (this.bCq == null) {
             return 0;
         }
-        return this.byj.size();
+        return this.bCq.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < 0 || i > this.byj.size()) {
+        if (i < 0 || i > this.bCq.size()) {
             return null;
         }
-        return this.byj.get(i);
+        return this.bCq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,36 +62,36 @@ public class b extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         view.setBackground(this.mContext.getResources().getDrawable(a.e.swanapp_album_name_item_selector));
-        com.baidu.swan.apps.media.chooser.model.a aVar3 = this.byj.get(i);
+        com.baidu.swan.apps.media.chooser.model.a aVar3 = this.bCq.get(i);
         if (aVar3 != null) {
-            aVar.titleTv.setText(aVar3.bw());
-            if (aVar3.byX != null) {
-                aVar.bym.setText(fa(aVar3.byX.size()));
-                if (aVar3.byX.get(0) != null && !TextUtils.isEmpty(aVar3.byX.get(0).getPath())) {
-                    ImageRequestBuilder X = ImageRequestBuilder.X(Uri.fromFile(new File(aVar3.byX.get(0).getPath())));
-                    X.c(new d(this.byk, this.byk));
-                    X.vs(true);
-                    aVar.byl.setController(com.facebook.drawee.a.a.c.dkj().vd(false).be(X.dro()).c(aVar.byl.getController()).dla());
+            aVar.titleTv.setText(aVar3.bx());
+            if (aVar3.bDe != null) {
+                aVar.bCt.setText(fq(aVar3.bDe.size()));
+                if (aVar3.bDe.get(0) != null && !TextUtils.isEmpty(aVar3.bDe.get(0).getPath())) {
+                    ImageRequestBuilder Y = ImageRequestBuilder.Y(Uri.fromFile(new File(aVar3.bDe.get(0).getPath())));
+                    Y.c(new d(this.bCr, this.bCr));
+                    Y.vw(true);
+                    aVar.bCs.setController(com.facebook.drawee.a.a.c.dlw().vh(false).bg(Y.dsA()).c(aVar.bCs.getController()).dmn());
                 }
             }
         }
         return view;
     }
 
-    private String fa(int i) {
-        return TextUtils.equals(this.byi, "Image") ? this.mContext.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.mContext.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
+    private String fq(int i) {
+        return TextUtils.equals(this.bCp, "Image") ? this.mContext.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.mContext.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a {
-        SimpleDraweeView byl;
-        TextView bym;
+        SimpleDraweeView bCs;
+        TextView bCt;
         TextView titleTv;
 
         public a(View view) {
-            this.byl = (SimpleDraweeView) view.findViewById(a.f.album_name_item_img);
+            this.bCs = (SimpleDraweeView) view.findViewById(a.f.album_name_item_img);
             this.titleTv = (TextView) view.findViewById(a.f.album_name_item_title);
-            this.bym = (TextView) view.findViewById(a.f.album_name_item_number);
+            this.bCt = (TextView) view.findViewById(a.f.album_name_item_number);
         }
     }
 }

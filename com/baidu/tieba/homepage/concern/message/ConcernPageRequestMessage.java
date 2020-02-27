@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.util.t;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     private String pageTag;
 
@@ -20,7 +20,7 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            builder.last_req_unix = Long.valueOf(b.aDr().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
+            builder.last_req_unix = Long.valueOf(b.aFB().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
             if (z) {
                 t.a(builder, true);
             }

@@ -1,7 +1,7 @@
 package com.baidu.live.adp.lib.util;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdDistanceHelper {
     public static long getPxByEquipWidth(Context context, double d) {
         return Math.round(getEquipmentWidth(context) * d);

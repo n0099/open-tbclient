@@ -6,11 +6,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static List<b> mS(String str) {
+    public static List<b> nh(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

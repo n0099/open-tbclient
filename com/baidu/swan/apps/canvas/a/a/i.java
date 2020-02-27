@@ -9,7 +9,7 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i {
     private int mColor;
     private Shader mShader;
@@ -27,7 +27,7 @@ public class i {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean Ia() {
+    public boolean Kp() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 
@@ -35,7 +35,7 @@ public class i {
         return this.mColor;
     }
 
-    public Shader Ib() {
+    public Shader Kq() {
         return this.mShader;
     }
 

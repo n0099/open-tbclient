@@ -11,44 +11,44 @@ import java.io.File;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static String a(SwanAppConfigData swanAppConfigData, boolean z) {
         if (swanAppConfigData == null) {
             com.baidu.swan.apps.ag.d.a.print("parse app.json is null");
             return null;
         }
-        List<com.baidu.swan.apps.ag.f.a> fV = swanAppConfigData.fV(3);
-        if (fV == null || fV.isEmpty()) {
-            com.baidu.swan.apps.ag.g.b.aW("dynamicLibPath", null);
+        List<com.baidu.swan.apps.ag.f.a> gl = swanAppConfigData.gl(3);
+        if (gl == null || gl.isEmpty()) {
+            com.baidu.swan.apps.ag.g.b.bf("dynamicLibPath", null);
             com.baidu.swan.apps.ag.d.a.print("this swan app not apply on someone dynamic lib");
             return null;
         }
         JSONObject jSONObject = new JSONObject();
-        for (com.baidu.swan.apps.ag.f.a aVar : fV) {
+        for (com.baidu.swan.apps.ag.f.a aVar : gl) {
             if (aVar != null && aVar.isValid()) {
-                String str = aVar.xC;
-                long c = c(e.hP(str), str);
-                long ma = com.baidu.swan.apps.swancore.b.ma(aVar.bEF);
-                File ay = c > ma ? e.ay(str, String.valueOf(c)) : null;
-                if (ay == null) {
+                String str = aVar.xU;
+                long c = c(e.m26if(str), str);
+                long mp = com.baidu.swan.apps.swancore.b.mp(aVar.bIK);
+                File aI = c > mp ? e.aI(str, String.valueOf(c)) : null;
+                if (aI == null) {
                     try {
-                        jSONObject.put(str, aVar.bEH);
+                        jSONObject.put(str, aVar.bIM);
                         com.baidu.swan.apps.ag.d.a.print("apply path inner swan app, name = " + str);
                     } catch (JSONException e) {
                         com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(e));
                     }
                 } else {
-                    jSONObject.put(str, ay.getAbsolutePath());
+                    jSONObject.put(str, aI.getAbsolutePath());
                     com.baidu.swan.apps.ag.d.a.print("apply path in workspace, name = " + str);
                 }
-                if (c > ma) {
+                if (c > mp) {
                     try {
                         aVar = (com.baidu.swan.apps.ag.f.a) aVar.clone();
                     } catch (CloneNotSupportedException e2) {
                         com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(e2));
                     }
-                    aVar.bEF = com.baidu.swan.apps.swancore.b.aB(c);
+                    aVar.bIK = com.baidu.swan.apps.swancore.b.aF(c);
                 }
                 if (z) {
                     a(aVar, true);
@@ -56,7 +56,7 @@ public class b {
             }
         }
         String jSONObject2 = jSONObject.toString();
-        com.baidu.swan.apps.ag.g.b.aW("dynamicLibPath", jSONObject2);
+        com.baidu.swan.apps.ag.g.b.bf("dynamicLibPath", jSONObject2);
         return jSONObject2;
     }
 
@@ -65,20 +65,20 @@ public class b {
             com.baidu.swan.apps.ag.d.a.print("plugin is invalid");
             return;
         }
-        final String str = aVar.xC;
-        String str2 = aVar.bEF;
-        h bU = com.baidu.swan.pms.database.a.arf().bU(str, str2);
-        if (bU != null && !bU.aru()) {
+        final String str = aVar.xU;
+        String str2 = aVar.bIK;
+        h cd = com.baidu.swan.pms.database.a.att().cd(str, str2);
+        if (cd != null && !cd.atI()) {
             com.baidu.swan.apps.ag.d.a.print("plugin is new, not yet expired");
         } else {
-            c.a(new d(str, str2, aVar.bEG), new com.baidu.swan.apps.ag.a.a(str, str2, new com.baidu.swan.apps.core.f.b<Boolean>() { // from class: com.baidu.swan.apps.ag.b.b.1
+            c.a(new d(str, str2, aVar.bIL), new com.baidu.swan.apps.ag.a.a(str, str2, new com.baidu.swan.apps.core.f.b<Boolean>() { // from class: com.baidu.swan.apps.ag.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.core.f.b
                 /* renamed from: d */
-                public void D(Boolean bool) {
+                public void F(Boolean bool) {
                     com.baidu.swan.apps.ag.d.a.print("download plugin result = " + bool);
                     if (z) {
-                        com.baidu.swan.apps.ag.e.a.E(str, 2);
+                        com.baidu.swan.apps.ag.e.a.C(str, 2);
                     }
                 }
             }));
@@ -105,9 +105,9 @@ public class b {
                     com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(e));
                     j = -1;
                 }
-                h bU = com.baidu.swan.pms.database.a.arf().bU(str, com.baidu.swan.apps.swancore.b.aB(j));
+                h cd = com.baidu.swan.pms.database.a.att().cd(str, com.baidu.swan.apps.swancore.b.aF(j));
                 if (j > j2) {
-                    if (bU == null) {
+                    if (cd == null) {
                         com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(new RuntimeException("get latest plugin version, but it hasn't insert the db yet")));
                     }
                 }

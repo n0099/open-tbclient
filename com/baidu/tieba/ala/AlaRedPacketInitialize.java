@@ -9,19 +9,19 @@ import com.baidu.live.c.o;
 import com.baidu.live.c.p;
 import com.baidu.live.c.q;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaRedPacketInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(q.class, AlaSnatchRedPacketActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(p.class, AlaRedPktSendActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(o.class, AlaRedPacketSnatchResultActivity.class);
-        aZp();
+        bbE();
     }
 
-    private static void aZp() {
+    private static void bbE() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913130, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaRedPacketInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.n.a> run(CustomMessage<Context> customMessage) {
+            public CustomResponsedMessage<com.baidu.live.q.a> run(CustomMessage<Context> customMessage) {
                 return new CustomResponsedMessage<>(2913130, new com.baidu.tieba.ala.charm.d(customMessage.getData()));
             }
         });

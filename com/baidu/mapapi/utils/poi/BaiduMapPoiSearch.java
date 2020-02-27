@@ -12,7 +12,7 @@ import com.baidu.mapapi.utils.route.BaiduMapRoutePlan;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BaiduMapPoiSearch {
     private static boolean a = true;
 

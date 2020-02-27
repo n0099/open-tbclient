@@ -23,7 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class ImageUtils {
     private static final boolean DEBUG = false;
     public static final long DEFAULT_MAX_PIXELS = 131072;

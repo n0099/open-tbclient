@@ -4,7 +4,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class u extends HttpHandlerWrap {
     final /* synthetic */ com.baidu.sapi2.callback.a.a a;
     final /* synthetic */ com.baidu.sapi2.result.a.a b;

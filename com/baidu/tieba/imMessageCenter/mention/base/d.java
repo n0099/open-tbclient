@@ -6,13 +6,13 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d extends RecyclerView.ItemDecoration {
-    private int fLG;
+    private int fOc;
 
     public d() {
-        if (this.fLG <= 0) {
-            this.fLG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
+        if (this.fOc <= 0) {
+            this.fOc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
         }
     }
 
@@ -26,6 +26,6 @@ public class d extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        rect.set(0, 0, 0, this.fLG);
+        rect.set(0, 0, 0, this.fOc);
     }
 }

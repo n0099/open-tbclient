@@ -21,27 +21,27 @@ import com.baidu.swan.bdprivate.b;
 import com.baidu.swan.bdprivate.widget.SwanAppBdActionBar;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DeliveryListActivity extends BaseActivity implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.bdprivate.widget.b bXk;
-    private String bXm;
-    private ChooseAddressView bXq;
-    private List<com.baidu.swan.bdprivate.address.c.b> bXr = new ArrayList();
-    private com.baidu.swan.bdprivate.widget.a bXs;
-    private Handler bXt;
-    private Bundle bXu;
-    private boolean bXv;
+    private com.baidu.swan.bdprivate.widget.b cbn;
+    private String cbp;
+    private ChooseAddressView cbu;
+    private List<com.baidu.swan.bdprivate.address.c.b> cbv = new ArrayList();
+    private com.baidu.swan.bdprivate.widget.a cbw;
+    private Handler cbx;
+    private Bundle cby;
+    private boolean cbz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         C(getIntent());
-        afH();
+        ahV();
     }
 
-    private void afH() {
+    private void ahV() {
         if (!com.baidu.swan.bdprivate.a.a.isLogin(this)) {
             com.baidu.swan.bdprivate.a.a.a((Activity) this, false, (Bundle) null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.1
                 @Override // com.baidu.swan.apps.a.a
@@ -60,33 +60,33 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void init() {
-        this.bXq = new ChooseAddressView(this);
-        setContentView(this.bXq);
-        af.V(this);
-        this.bXk = new com.baidu.swan.bdprivate.widget.b(this);
-        this.bXk.setMessage("加载中...");
-        this.bXk.setCancelable(true);
-        afC();
-        this.bXq.setDeliveryChooseListener(this);
-        this.bXt = new Handler() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.2
+        this.cbu = new ChooseAddressView(this);
+        setContentView(this.cbu);
+        af.W(this);
+        this.cbn = new com.baidu.swan.bdprivate.widget.b(this);
+        this.cbn.setMessage("加载中...");
+        this.cbn.setCancelable(true);
+        ahQ();
+        this.cbu.setDeliveryChooseListener(this);
+        this.cbx = new Handler() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.2
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        DeliveryListActivity.this.bXq.ag(DeliveryListActivity.this.bXr);
-                        DeliveryListActivity.this.afJ();
+                        DeliveryListActivity.this.cbu.ag(DeliveryListActivity.this.cbv);
+                        DeliveryListActivity.this.ahX();
                         return;
                     default:
                         return;
                 }
             }
         };
-        com.baidu.swan.bdprivate.address.b.a.afP().R(this.bXu);
-        afI();
+        com.baidu.swan.bdprivate.address.b.a.aid().R(this.cby);
+        ahW();
     }
 
-    private void afC() {
-        SwanAppBdActionBar bdActionBar = this.bXq.getBdActionBar();
+    private void ahQ() {
+        SwanAppBdActionBar bdActionBar = this.cbu.getBdActionBar();
         bdActionBar.setRightMenuVisibility(false);
         bdActionBar.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.3
             @Override // android.view.View.OnClickListener
@@ -94,7 +94,7 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
                 DeliveryListActivity.this.finish();
             }
         });
-        if (TextUtils.equals(this.bXm, "aiapp")) {
+        if (TextUtils.equals(this.cbp, "aiapp")) {
             bdActionBar.setTitle(b.g.delivery_title_choose);
         } else {
             bdActionBar.setTitle(b.g.delivery_title_list);
@@ -105,47 +105,47 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (this.bXv) {
-            this.bXr = com.baidu.swan.bdprivate.address.b.a.afP().afS();
-            this.bXq.ag(this.bXr);
+        if (this.cbz) {
+            this.cbv = com.baidu.swan.bdprivate.address.b.a.aid().aig();
+            this.cbu.ag(this.cbv);
         }
     }
 
-    private void afI() {
-        List<com.baidu.swan.bdprivate.address.c.b> afS = com.baidu.swan.bdprivate.address.b.a.afP().afS();
-        if (afS.size() > 0) {
-            this.bXr = afS;
-            this.bXq.ag(this.bXr);
-            afJ();
+    private void ahW() {
+        List<com.baidu.swan.bdprivate.address.c.b> aig = com.baidu.swan.bdprivate.address.b.a.aid().aig();
+        if (aig.size() > 0) {
+            this.cbv = aig;
+            this.cbu.ag(this.cbv);
+            ahX();
             return;
         }
         m.postOnIO(new Runnable() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.4
             @Override // java.lang.Runnable
             public void run() {
-                List<com.baidu.swan.bdprivate.address.c.b> afQ = com.baidu.swan.bdprivate.address.b.a.afP().afQ();
-                if (afQ != null && afQ.size() > 0) {
-                    DeliveryListActivity.this.bXr = afQ;
+                List<com.baidu.swan.bdprivate.address.c.b> aie = com.baidu.swan.bdprivate.address.b.a.aid().aie();
+                if (aie != null && aie.size() > 0) {
+                    DeliveryListActivity.this.cbv = aie;
                 }
-                DeliveryListActivity.this.bXt.sendEmptyMessage(1);
+                DeliveryListActivity.this.cbx.sendEmptyMessage(1);
             }
         }, "loadDeliveryData");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afJ() {
+    public void ahX() {
         showLoading();
-        if (TextUtils.equals(this.bXm, "aiapp")) {
+        if (TextUtils.equals(this.cbp, "aiapp")) {
             com.baidu.swan.bdprivate.a.a.a(this, new com.baidu.swan.apps.as.d.b<Bundle>() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: z */
-                public void B(Bundle bundle) {
+                public void D(Bundle bundle) {
                     if (bundle != null) {
                         String string = bundle.getString("dev", "");
                         if (!TextUtils.isEmpty(string)) {
-                            DeliveryListActivity.this.bXu.putString("stoken", string);
-                            com.baidu.swan.bdprivate.address.b.a.afP().R(DeliveryListActivity.this.bXu);
-                            DeliveryListActivity.this.afK();
+                            DeliveryListActivity.this.cby.putString("stoken", string);
+                            com.baidu.swan.bdprivate.address.b.a.aid().R(DeliveryListActivity.this.cby);
+                            DeliveryListActivity.this.ahY();
                             return;
                         }
                     }
@@ -153,31 +153,31 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
                 }
             }, "dev");
         } else {
-            afK();
+            ahY();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afK() {
-        com.baidu.swan.bdprivate.address.b.a.afP().a(new a.C0306a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.6
-            @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
-            public void afL() {
-                DeliveryListActivity.this.afG();
+    public void ahY() {
+        com.baidu.swan.bdprivate.address.b.a.aid().a(new a.C0316a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.6
+            @Override // com.baidu.swan.bdprivate.address.b.a.C0316a, com.baidu.swan.bdprivate.address.b.b
+            public void ahZ() {
+                DeliveryListActivity.this.ahU();
             }
 
-            @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
+            @Override // com.baidu.swan.bdprivate.address.b.a.C0316a, com.baidu.swan.bdprivate.address.b.b
             public void b(List<com.baidu.swan.bdprivate.address.c.b> list, int i) {
                 DeliveryListActivity.this.ab(list);
             }
 
-            @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
+            @Override // com.baidu.swan.bdprivate.address.b.a.C0316a, com.baidu.swan.bdprivate.address.b.b
             public void onFailure() {
                 d.a(AppRuntime.getAppContext(), DeliveryListActivity.this.getResources().getString(b.g.delivery_net_error)).showToast();
-                if (DeliveryListActivity.this.bXr == null || DeliveryListActivity.this.bXr.size() == 0) {
-                    DeliveryListActivity.this.bXq.e(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.6.1
+                if (DeliveryListActivity.this.cbv == null || DeliveryListActivity.this.cbv.size() == 0) {
+                    DeliveryListActivity.this.cbu.e(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.6.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            DeliveryListActivity.this.afJ();
+                            DeliveryListActivity.this.ahX();
                         }
                     });
                 }
@@ -186,23 +186,23 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
     }
 
     private void showLoading() {
-        this.bXk.show();
+        this.cbn.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afG() {
+    public void ahU() {
         if (this != null && !isFinishing()) {
-            this.bXk.dismiss();
+            this.cbn.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ab(List<com.baidu.swan.bdprivate.address.c.b> list) {
         if (list != null && list.size() > 0) {
-            this.bXq.ag(list);
-            this.bXr = list;
-        } else if (this.bXr == null || this.bXr.size() <= 0) {
-            this.bXq.age();
+            this.cbu.ag(list);
+            this.cbv = list;
+        } else if (this.cbv == null || this.cbv.size() <= 0) {
+            this.cbu.ais();
         }
     }
 
@@ -214,13 +214,13 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
             bundle.putString("addrInfo", com.baidu.swan.bdprivate.address.c.b.c(bVar).toString());
             bundle.putString("type", str);
             intent.putExtra("data", bundle);
-            intent.putExtra("openSource", this.bXm);
+            intent.putExtra("openSource", this.cbp);
             intent.setClass(this, DeliveryEditActivity.class);
-            startActivityForResult(intent, mN(str));
+            startActivityForResult(intent, nc(str));
         }
     }
 
-    private int mN(String str) {
+    private int nc(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -838846263:
@@ -250,18 +250,18 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
-            this.bXv = intent.getBooleanExtra("dataChanged", false);
+            this.cbz = intent.getBooleanExtra("dataChanged", false);
         }
     }
 
     @Override // com.baidu.swan.bdprivate.address.a.a.b
     public void onItemClick(int i) {
-        if (this.bXr != null && i < this.bXr.size()) {
-            com.baidu.swan.bdprivate.address.c.b bVar = this.bXr.get(i);
-            if (TextUtils.equals(this.bXm, "main")) {
+        if (this.cbv != null && i < this.cbv.size()) {
+            com.baidu.swan.bdprivate.address.c.b bVar = this.cbv.get(i);
+            if (TextUtils.equals(this.cbp, "main")) {
                 a(bVar, i);
             }
-            if (TextUtils.equals(this.bXm, "aiapp")) {
+            if (TextUtils.equals(this.cbp, "aiapp")) {
                 Intent intent = new Intent();
                 intent.putExtra("data", com.baidu.swan.bdprivate.address.c.b.d(bVar).toString());
                 setResult(-1, intent);
@@ -273,20 +273,20 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
     private void a(com.baidu.swan.bdprivate.address.c.b bVar, final int i) {
         com.baidu.swan.bdprivate.address.c.b bVar2 = new com.baidu.swan.bdprivate.address.c.b();
         bVar2.id = bVar.id;
-        com.baidu.swan.bdprivate.address.b.a.afP().d(bVar2, new a.C0306a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.7
-            @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
-            public void L(String str, int i2) {
-                for (int i3 = 0; i3 < DeliveryListActivity.this.bXr.size(); i3++) {
-                    com.baidu.swan.bdprivate.address.c.b bVar3 = (com.baidu.swan.bdprivate.address.c.b) DeliveryListActivity.this.bXr.get(i3);
-                    bVar3.bYm = false;
+        com.baidu.swan.bdprivate.address.b.a.aid().d(bVar2, new a.C0316a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.7
+            @Override // com.baidu.swan.bdprivate.address.b.a.C0316a, com.baidu.swan.bdprivate.address.b.b
+            public void J(String str, int i2) {
+                for (int i3 = 0; i3 < DeliveryListActivity.this.cbv.size(); i3++) {
+                    com.baidu.swan.bdprivate.address.c.b bVar3 = (com.baidu.swan.bdprivate.address.c.b) DeliveryListActivity.this.cbv.get(i3);
+                    bVar3.ccq = false;
                     if (i3 == i) {
-                        bVar3.bYm = true;
+                        bVar3.ccq = true;
                     }
                 }
-                DeliveryListActivity.this.bXq.ag(DeliveryListActivity.this.bXr);
+                DeliveryListActivity.this.cbu.ag(DeliveryListActivity.this.cbv);
             }
 
-            @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
+            @Override // com.baidu.swan.bdprivate.address.b.a.C0316a, com.baidu.swan.bdprivate.address.b.b
             public void onFailure() {
                 d.a(AppRuntime.getAppContext(), DeliveryListActivity.this.getResources().getString(b.g.delivery_net_error)).showToast();
             }
@@ -294,53 +294,53 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
     }
 
     @Override // com.baidu.swan.bdprivate.address.a.a.b
-    public void gZ(final int i) {
-        if (this.bXs == null) {
-            this.bXs = new com.baidu.swan.bdprivate.widget.a(this.bXq);
-            this.bXs.setPopupWindowWidth(af.S(148.0f));
-            this.bXs.setLayoutInCenter(true);
-            this.bXs.r(0, b.g.delivery_delete, b.d.delivery_delete);
+    public void hq(final int i) {
+        if (this.cbw == null) {
+            this.cbw = new com.baidu.swan.bdprivate.widget.a(this.cbu);
+            this.cbw.setPopupWindowWidth(af.S(148.0f));
+            this.cbw.setLayoutInCenter(true);
+            this.cbw.s(0, b.g.delivery_delete, b.d.delivery_delete);
         }
-        this.bXs.a(new b.a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.8
+        this.cbw.a(new b.a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.8
             @Override // com.baidu.swan.apps.res.widget.a.b.a
             public void c(com.baidu.swan.apps.res.widget.a.b bVar) {
                 switch (bVar.getItemId()) {
                     case 0:
-                        DeliveryListActivity.this.ha(i);
+                        DeliveryListActivity.this.hr(i);
                         return;
                     default:
                         return;
                 }
             }
         });
-        this.bXs.show();
+        this.cbw.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ha(final int i) {
+    public void hr(final int i) {
         com.baidu.swan.bdprivate.address.c.b bVar;
-        if (this.bXr != null && i < this.bXr.size() && (bVar = this.bXr.get(i)) != null && !TextUtils.isEmpty(bVar.id)) {
-            final boolean z = bVar.bYm;
+        if (this.cbv != null && i < this.cbv.size() && (bVar = this.cbv.get(i)) != null && !TextUtils.isEmpty(bVar.id)) {
+            final boolean z = bVar.ccq;
             com.baidu.swan.bdprivate.address.c.b bVar2 = new com.baidu.swan.bdprivate.address.c.b();
             bVar2.id = bVar.id;
             showLoading();
-            com.baidu.swan.bdprivate.address.b.a.afP().b(bVar2, new a.C0306a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.9
-                @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
-                public void afL() {
-                    DeliveryListActivity.this.afG();
+            com.baidu.swan.bdprivate.address.b.a.aid().b(bVar2, new a.C0316a() { // from class: com.baidu.swan.bdprivate.address.DeliveryListActivity.9
+                @Override // com.baidu.swan.bdprivate.address.b.a.C0316a, com.baidu.swan.bdprivate.address.b.b
+                public void ahZ() {
+                    DeliveryListActivity.this.ahU();
                 }
 
-                @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
-                public void M(String str, int i2) {
-                    DeliveryListActivity.this.bXr.remove(i);
-                    if (z && DeliveryListActivity.this.bXr.size() > 0) {
-                        ((com.baidu.swan.bdprivate.address.c.b) DeliveryListActivity.this.bXr.get(0)).bYm = true;
+                @Override // com.baidu.swan.bdprivate.address.b.a.C0316a, com.baidu.swan.bdprivate.address.b.b
+                public void K(String str, int i2) {
+                    DeliveryListActivity.this.cbv.remove(i);
+                    if (z && DeliveryListActivity.this.cbv.size() > 0) {
+                        ((com.baidu.swan.bdprivate.address.c.b) DeliveryListActivity.this.cbv.get(0)).ccq = true;
                     }
-                    DeliveryListActivity.this.bXv = true;
-                    DeliveryListActivity.this.bXq.ag(DeliveryListActivity.this.bXr);
+                    DeliveryListActivity.this.cbz = true;
+                    DeliveryListActivity.this.cbu.ag(DeliveryListActivity.this.cbv);
                 }
 
-                @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
+                @Override // com.baidu.swan.bdprivate.address.b.a.C0316a, com.baidu.swan.bdprivate.address.b.b
                 public void onFailure() {
                     d.a(AppRuntime.getAppContext(), "网络异常").showToast();
                 }
@@ -349,13 +349,13 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
     }
 
     private void C(Intent intent) {
-        this.bXu = intent.getExtras();
-        if (this.bXu == null) {
-            this.bXu = new Bundle();
+        this.cby = intent.getExtras();
+        if (this.cby == null) {
+            this.cby = new Bundle();
         }
-        String string = this.bXu.getString("openSource");
+        String string = this.cby.getString("openSource");
         if (!TextUtils.isEmpty(string)) {
-            this.bXm = string;
+            this.cbp = string;
         }
     }
 
@@ -363,8 +363,8 @@ public class DeliveryListActivity extends BaseActivity implements a.b {
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bXv) {
-            com.baidu.swan.bdprivate.address.b.a.afP().afR();
+        if (this.cbz) {
+            com.baidu.swan.bdprivate.address.b.a.aid().aif();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.mapsdkvi;
 
 import android.net.NetworkInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     public String a;
     public int b;

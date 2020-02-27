@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e implements c {
     @Override // com.baidu.swan.apps.media.image.a.c
     public Bitmap decode(Context context, Uri uri) throws Exception {

@@ -2,12 +2,11 @@ package com.baidu.android.imsdk.chatmessage.sync;
 
 import android.content.Context;
 import com.baidu.android.imsdk.account.AccountManager;
-import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SyncAllMessage extends SyncStrategy {
-    private static final String FETCHED_MAX_NOTIFY_MSGID = "fetched_max_msgid";
+    public static final String FETCHED_MAX_NOTIFY_MSGID = "fetched_max_msgid";
     private static final String TAG = SyncAllMessage.class.getSimpleName();
     private static SyncAllMessage mInstance;
     private long mMaxMsgid = -1;
@@ -98,8 +97,5 @@ public class SyncAllMessage extends SyncStrategy {
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
     protected void onComplete(int i) {
         super.onComplete(i);
-        if (this.mTriggerReason == 0 || this.mTriggerReason == 1) {
-            ChatMessageDBManager.getInstance(this.mContext).delExpiresMsgByChatType(19);
-        }
     }
 }

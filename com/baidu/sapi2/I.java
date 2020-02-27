@@ -6,7 +6,7 @@ import com.baidu.sapi2.result.OAuthResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class I implements SapiCallback<OAuthResult> {
     final /* synthetic */ Map a;
     final /* synthetic */ SapiAccount b;

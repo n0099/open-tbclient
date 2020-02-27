@@ -5,7 +5,7 @@ import android.graphics.PorterDuff;
 import android.support.annotation.ColorInt;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface TintAwareDrawable {
     void setTint(@ColorInt int i);
 

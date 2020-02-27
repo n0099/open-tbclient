@@ -2,11 +2,10 @@ package com.baidu.adp.lib.stats.upload;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.Disk.ops.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.base.c>> {
+class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.base.d>> {
     private static final long serialVersionUID = -1737585838278753290L;
     private String mLogDir;
     private boolean mMustSuccess;
@@ -23,12 +22,12 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
         String[] split;
         boolean z;
         int size = arrayList != null ? arrayList.size() : 0;
-        ArrayList<com.baidu.adp.lib.stats.base.c> arrayList2 = get(i);
+        ArrayList<com.baidu.adp.lib.stats.base.d> arrayList2 = get(i);
         ArrayList<String> arrayList3 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList2.size(); i2++) {
-            String aG = aG(arrayList2.get(i2).mFileName);
-            if (!TextUtils.isEmpty(aG)) {
-                for (String str : aG.split("\r\n")) {
+            String aK = aK(arrayList2.get(i2).mFileName);
+            if (!TextUtils.isEmpty(aK)) {
+                for (String str : aK.split("\r\n")) {
                     if (size > 0) {
                         Iterator<String> it = arrayList.iterator();
                         while (it.hasNext()) {
@@ -48,14 +47,29 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
         return arrayList3;
     }
 
-    private String aG(String str) {
-        d dVar = new d(this.mLogDir, str, DiskFileOperate.Action.READ);
+    public ArrayList<String> getTrackLogStringByIndex(int i) {
+        ArrayList<com.baidu.adp.lib.stats.base.d> arrayList = get(i);
+        ArrayList<String> arrayList2 = new ArrayList<>();
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            String aK = aK(arrayList.get(i2).mFileName);
+            if (!TextUtils.isEmpty(aK)) {
+                String[] split = aK.split("\r\n");
+                for (String str : split) {
+                    arrayList2.add(str);
+                }
+            }
+        }
+        return arrayList2;
+    }
+
+    private String aK(String str) {
+        com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(this.mLogDir, str, DiskFileOperate.Action.READ);
         dVar.setSdCard(this.mUseSdCard);
         if (!this.mMustSuccess) {
             dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             dVar.setTrySuccessWeight(3);
         }
-        com.baidu.adp.lib.Disk.d.fj().b(dVar);
+        com.baidu.adp.lib.Disk.d.fk().b(dVar);
         if (dVar.isSuccess()) {
             return dVar.getContent();
         }

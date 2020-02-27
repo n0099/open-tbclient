@@ -13,7 +13,7 @@ import com.baidu.fsg.face.liveness.view.BioAlertDialog;
 import com.baidu.sapi2.biometrics.liveness.R;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LivenessBaseActivity extends BeanActivity {
     protected LivenessRecogDTO livenessRecogDTO;
 

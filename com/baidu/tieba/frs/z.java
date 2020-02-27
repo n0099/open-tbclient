@@ -2,9 +2,9 @@ package com.baidu.tieba.frs;
 
 import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class z extends SparseArray<ag> {
-    public BdUniqueId dxg = null;
+    public BdUniqueId dBj = null;
 
     public void a(aj ajVar) {
         int i = 0;
@@ -46,7 +46,7 @@ public class z extends SparseArray<ag> {
                 ag valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.beK();
+                    valueAt.bgU();
                 }
                 i = i2 + 1;
             } else {
@@ -62,7 +62,7 @@ public class z extends SparseArray<ag> {
         put(i, agVar);
     }
 
-    public ag sT(int i) {
+    public ag sZ(int i) {
         if (i > 100) {
             i = 100;
         }

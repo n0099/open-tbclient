@@ -1,7 +1,7 @@
 package com.baidu.swan.games.v.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends com.baidu.swan.games.binding.model.b {
     @V8JavascriptField
     public long currentSize;

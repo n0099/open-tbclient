@@ -2,7 +2,7 @@ package com.baidu.ar.npc;
 
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class q implements Runnable {
     final /* synthetic */ int a;
     final /* synthetic */ int b;

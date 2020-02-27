@@ -1,7 +1,7 @@
 package com.baidu.tieba.publisher.a;
 
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class n extends UnitedSchemeBaseInterceptor {
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
     public String getInterceptorName() {

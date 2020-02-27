@@ -1,11 +1,10 @@
 package com.baidu.tieba.ala.liveroom.p;
-/* loaded from: classes2.dex */
-public interface a {
-    void pause();
 
-    void release();
-
-    void resume();
-
-    void yw(String str);
+import android.content.Context;
+/* loaded from: classes3.dex */
+public class a implements com.baidu.live.liveroom.e.b {
+    @Override // com.baidu.live.liveroom.e.b
+    public com.baidu.live.liveroom.e.a aG(Context context) {
+        return new b(context);
+    }
 }

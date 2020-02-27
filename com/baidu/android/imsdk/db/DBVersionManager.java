@@ -12,13 +12,13 @@ import com.baidu.android.imsdk.pubaccount.PaManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DBVersionManager {
     public static final String TAG = DBVersionManager.class.getCanonicalName();
     private static DBVersionManager mInstance = null;
     private Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     interface VersionHandler {
         void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
 
@@ -39,7 +39,7 @@ public class DBVersionManager {
         return mInstance;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DefaultHandler implements VersionHandler {
         public DefaultHandler() {
         }
@@ -163,7 +163,7 @@ public class DBVersionManager {
         return i;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version21And22Handler implements VersionHandler {
         public Version21And22Handler() {
         }
@@ -191,7 +191,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version22And223Handler implements VersionHandler {
         public Version22And223Handler() {
         }
@@ -211,7 +211,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version23And24Handler implements VersionHandler {
         public Version23And24Handler() {
         }
@@ -225,7 +225,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version24And25Handler implements VersionHandler {
         public Version24And25Handler() {
         }
@@ -245,7 +245,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version25And26Handler implements VersionHandler {
         public Version25And26Handler() {
         }
@@ -260,7 +260,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version26And27Handler implements VersionHandler {
         public Version26And27Handler() {
         }
@@ -287,7 +287,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version22And23Handler implements VersionHandler {
         public Version22And23Handler() {
         }
@@ -390,6 +390,14 @@ public class DBVersionManager {
             }
             if (i3 == 40 && i2 >= 41) {
                 new Version40And41Handler().onUpgrade(sQLiteDatabase, i3, i2);
+                i3 = 41;
+            }
+            if (i3 == 41 && i2 >= 42) {
+                new Version41And42Handler().onUpgrade(sQLiteDatabase, i3, i2);
+                i3 = 42;
+            }
+            if (i3 == 42 && i2 >= 43) {
+                new Version42And43Handler().onUpgrade(sQLiteDatabase, i3, i2);
             }
             Cursor cursor = null;
             try {
@@ -406,19 +414,20 @@ public class DBVersionManager {
                             LogUtils.e(TAG, "close curse exception");
                         }
                     }
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "database exception, check table dialog_record exist");
+                } catch (Throwable th) {
                     if (cursor != null) {
                         try {
                             cursor.close();
-                        } catch (Exception e3) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                        } catch (Exception e2) {
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                             LogUtils.e(TAG, "close curse exception");
                         }
                     }
+                    throw th;
                 }
-            } catch (Throwable th) {
+            } catch (Exception e3) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                LogUtils.e(TAG, "database exception, check table dialog_record exist");
                 if (cursor != null) {
                     try {
                         cursor.close();
@@ -427,12 +436,80 @@ public class DBVersionManager {
                         LogUtils.e(TAG, "close curse exception");
                     }
                 }
-                throw th;
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public class Version42And43Handler implements VersionHandler {
+        public Version42And43Handler() {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN service_type TEXT ");
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(DBVersionManager.this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "onUpgrade:42->43", e);
+            }
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class Version41And42Handler implements VersionHandler {
+        public Version41And42Handler() {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            try {
+                try {
+                    LogUtils.d(DBVersionManager.TAG, "---Version41And42Handler---");
+                    sQLiteDatabase.beginTransaction();
+                    sQLiteDatabase.execSQL("ALTER TABLE userinfo RENAME TO userinfo_temp");
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_USERINFO);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_COPY_TABLE_USERINFO);
+                    sQLiteDatabase.execSQL("DROP TABLE userinfo_temp");
+                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN v_portrait  TEXT DEFAULT '' ");
+                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN vip_id  TEXT DEFAULT '' ");
+                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN identity  TEXT DEFAULT '' ");
+                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN has_identity INTEGER DEFAULT 0 ");
+                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN shield  INTEGER DEFAULT 0 ");
+                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN shield_time  LONG DEFAULT 0 ");
+                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN third_ext  TEXT DEFAULT '' ");
+                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN subscribe  INTEGER DEFAULT 0 ");
+                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN v_portrait  TEXT DEFAULT '' ");
+                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN vip_id  TEXT DEFAULT '' ");
+                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN certification  TEXT DEFAULT '' ");
+                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN shield  INTEGER DEFAULT 0 ");
+                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN shield_time  LONG DEFAULT 0 ");
+                    sQLiteDatabase.setTransactionSuccessful();
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(DBVersionManager.this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:41->42", e);
+                    if (sQLiteDatabase != null) {
+                        sQLiteDatabase.endTransaction();
+                    }
+                }
+                PaManager.delPaLocalInfosByPaType(DBVersionManager.this.mContext, 19);
+            } finally {
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+            }
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class Version40And41Handler implements VersionHandler {
         public Version40And41Handler() {
         }
@@ -453,7 +530,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version39And40Handler implements VersionHandler {
         public Version39And40Handler() {
         }
@@ -474,7 +551,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version38And39Handler implements VersionHandler {
         public Version38And39Handler() {
         }
@@ -496,7 +573,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version37And38Handler implements VersionHandler {
         public Version37And38Handler() {
         }
@@ -517,7 +594,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version35And36Handler implements VersionHandler {
         public Version35And36Handler() {
         }
@@ -538,7 +615,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version36And37Handler implements VersionHandler {
         public Version36And37Handler() {
         }
@@ -559,7 +636,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version34And35Handler implements VersionHandler {
         public Version34And35Handler() {
         }
@@ -581,7 +658,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version33And34Handler implements VersionHandler {
         public Version33And34Handler() {
         }
@@ -603,7 +680,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version32And33Handler implements VersionHandler {
         public Version32And33Handler() {
         }
@@ -623,7 +700,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version31And32Handler implements VersionHandler {
         public Version31And32Handler() {
         }
@@ -645,7 +722,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version30And31Handler implements VersionHandler {
         public Version30And31Handler() {
         }
@@ -666,7 +743,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version29And30Handler implements VersionHandler {
         public Version29And30Handler() {
         }
@@ -690,7 +767,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Version28And29Handler implements VersionHandler {
         public Version28And29Handler() {
         }

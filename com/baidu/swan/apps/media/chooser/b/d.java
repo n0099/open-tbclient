@@ -26,35 +26,35 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    public static boolean bxm;
-    private static ArrayList<MediaModel> byK;
-    public static String byL;
-    public static int byM;
-    public static String byN;
-    public static String byi = "album";
+    public static boolean bBt;
+    private static ArrayList<MediaModel> bCR;
+    public static String bCS;
+    public static int bCT;
+    public static String bCU;
+    public static String bCp = "album";
     public static int mMaxSelected = 9;
     public static String mMode = "single";
     public static boolean mIsShowCamera = true;
     public static boolean mIsFrontCamera = false;
 
-    public static void m(ArrayList<MediaModel> arrayList) {
-        if (byK == null) {
-            byK = new ArrayList<>();
+    public static void o(ArrayList<MediaModel> arrayList) {
+        if (bCR == null) {
+            bCR = new ArrayList<>();
         }
-        byK.clear();
-        byK.addAll(arrayList);
+        bCR.clear();
+        bCR.addAll(arrayList);
     }
 
-    public static ArrayList<MediaModel> Vs() {
-        return byK;
+    public static ArrayList<MediaModel> XG() {
+        return bCR;
     }
 
     public static void clear() {
-        if (byK != null) {
-            byK.clear();
-            byK = null;
+        if (bCR != null) {
+            bCR.clear();
+            bCR = null;
         }
     }
 
@@ -62,36 +62,36 @@ public class d {
         Intent intent = new Intent(context, SwanAppAlbumActivity.class);
         intent.putExtra("launchParams", bundle);
         if (!(context instanceof ActivityResultDispatcherHolder)) {
-            cVar.iO("choose: context error");
+            cVar.jd("choose: context error");
             return;
         }
         ActivityResultDispatcher resultDispatcher = ((ActivityResultDispatcherHolder) context).getResultDispatcher();
         if (resultDispatcher == null) {
-            cVar.iO("choose: ActivityResultDispatcher null");
+            cVar.jd("choose: ActivityResultDispatcher null");
             return;
         }
         resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.media.chooser.b.d.1
             @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
             public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
-                com.baidu.swan.apps.y.f.UC().Ue();
+                com.baidu.swan.apps.y.f.WQ().Ws();
                 if (i == -1) {
                     if (intent2 == null) {
-                        com.baidu.swan.apps.media.chooser.c.c.this.iO("choose: Selected data is null");
+                        com.baidu.swan.apps.media.chooser.c.c.this.jd("choose: Selected data is null");
                         return true;
                     }
                     com.baidu.swan.apps.media.chooser.c.c.this.U(intent2.getParcelableArrayListExtra("mediaModels"));
                     return true;
                 } else if (i == 0) {
-                    com.baidu.swan.apps.media.chooser.c.c.this.iO("选择文件失败：用户取消操作");
+                    com.baidu.swan.apps.media.chooser.c.c.this.jd("选择文件失败：用户取消操作");
                     return true;
                 } else {
                     return true;
                 }
             }
         });
-        com.baidu.swan.apps.y.f.UC().Ud();
+        com.baidu.swan.apps.y.f.WQ().Wr();
         resultDispatcher.startActivityForResult(intent);
-        ((Activity) context).overridePendingTransition(a.C0187a.swanapp_album_slide_bottom_in, 0);
+        ((Activity) context).overridePendingTransition(a.C0197a.swanapp_album_slide_bottom_in, 0);
     }
 
     public static JSONObject a(List<MediaModel> list, com.baidu.swan.apps.runtime.e eVar, String str) {
@@ -102,11 +102,11 @@ public class d {
             JSONArray jSONArray2 = new JSONArray();
             for (MediaModel mediaModel : list) {
                 if (mediaModel != null) {
-                    String qS = com.baidu.swan.d.c.qS(mediaModel.Vw());
-                    if (eVar.aaG()) {
-                        str2 = l.oP(mediaModel.Vw());
+                    String rh = com.baidu.swan.d.c.rh(mediaModel.XK());
+                    if (eVar.acU()) {
+                        str2 = l.pe(mediaModel.XK());
                     } else {
-                        str2 = com.baidu.swan.apps.storage.b.bi(mediaModel.Vw(), eVar.id) + "." + qS;
+                        str2 = com.baidu.swan.apps.storage.b.br(mediaModel.XK(), eVar.id) + "." + rh;
                     }
                     jSONArray.put(str2);
                     JSONObject jSONObject2 = new JSONObject();
@@ -143,11 +143,11 @@ public class d {
             return null;
         }
         VideoModel videoModel = (VideoModel) list.get(0);
-        String qS = com.baidu.swan.d.c.qS(videoModel.Vw());
-        if (eVar.aaG()) {
-            str = l.oP(videoModel.Vw());
+        String rh = com.baidu.swan.d.c.rh(videoModel.XK());
+        if (eVar.acU()) {
+            str = l.pe(videoModel.XK());
         } else {
-            str = com.baidu.swan.apps.storage.b.bi(videoModel.Vw(), eVar.id) + "." + qS;
+            str = com.baidu.swan.apps.storage.b.br(videoModel.XK(), eVar.id) + "." + rh;
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -171,7 +171,7 @@ public class d {
         Intent intent = new Intent(activity, SwanAppAlbumPreviewActivity.class);
         intent.putExtra("launchParams", bundle);
         activity.startActivityForResult(intent, 32770);
-        activity.overridePendingTransition(a.C0187a.swanapp_album_preview_enter, a.C0187a.aiapps_hold);
+        activity.overridePendingTransition(a.C0197a.swanapp_album_preview_enter, a.C0197a.aiapps_hold);
     }
 
     public static void c(final Activity activity, Bundle bundle) {
@@ -179,7 +179,7 @@ public class d {
             Log.d("SwanAppChooseHelper", "selectCompleted");
         }
         if (e.getSelectedCount() > 0) {
-            com.baidu.swan.apps.w.a.RX().a(activity, bundle, new com.baidu.swan.apps.media.chooser.c.d() { // from class: com.baidu.swan.apps.media.chooser.b.d.2
+            com.baidu.swan.apps.w.a.Ul().a(activity, bundle, new com.baidu.swan.apps.media.chooser.c.d() { // from class: com.baidu.swan.apps.media.chooser.b.d.2
                 @Override // com.baidu.swan.apps.media.chooser.c.d
                 public void onResult(boolean z, String str, Object obj) {
                     if (z && (obj instanceof ArrayList)) {
@@ -187,7 +187,7 @@ public class d {
                         if (c.DEBUG) {
                             Iterator<? extends Parcelable> it = arrayList.iterator();
                             while (it.hasNext()) {
-                                Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).Vw());
+                                Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).XK());
                             }
                         }
                         Intent intent = new Intent();
@@ -205,23 +205,23 @@ public class d {
             Log.d("SwanAppChooseHelper", "selectCompleted");
         }
         if (e.getSelectedCount() > 0) {
-            com.baidu.swan.apps.w.a.RX().a(activity, bundle, dVar);
+            com.baidu.swan.apps.w.a.Ul().a(activity, bundle, dVar);
         }
     }
 
     public static boolean a(String str, MediaModel mediaModel) {
         if (e.getSelectedCount() < mMaxSelected || e.c(mediaModel)) {
-            return TextUtils.equals(str, "single") && e.getSelectedCount() > 0 && !TextUtils.equals(e.Vu(), mediaModel.getType());
+            return TextUtils.equals(str, "single") && e.getSelectedCount() > 0 && !TextUtils.equals(e.XI(), mediaModel.getType());
         }
         return true;
     }
 
-    public static void iT(String str) {
+    public static void ji(String str) {
         if (e.getSelectedCount() != 0) {
             Context appContext = AppRuntime.getAppContext();
             String string = appContext.getString(a.h.swanapp_album_selected_max_files, Integer.valueOf(mMaxSelected));
             if (TextUtils.equals(str, "single")) {
-                if (e.Vt().get(0) instanceof ImageModel) {
+                if (e.XH().get(0) instanceof ImageModel) {
                     string = appContext.getString(a.h.swanapp_album_selected_max_photos, Integer.valueOf(mMaxSelected));
                 } else {
                     string = appContext.getString(a.h.swanapp_album_selected_max_videos, Integer.valueOf(mMaxSelected));

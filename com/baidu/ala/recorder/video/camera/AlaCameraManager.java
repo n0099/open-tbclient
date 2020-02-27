@@ -3,8 +3,6 @@ package com.baidu.ala.recorder.video.camera;
 import android.app.Activity;
 import android.hardware.Camera;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
 import com.baidu.ala.recorder.IFaceUnityOperator;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
@@ -16,7 +14,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaCameraManager implements ICameraStatusHandler {
     private static final int CAMERA_FLUSHLIGHT_OFF = 2;
     private static final int CAMERA_FLUSHLIGHT_ON = 1;
@@ -27,9 +25,7 @@ public class AlaCameraManager implements ICameraStatusHandler {
     private static final String SP_CAMERA_FACING = "ala_carema_is_back";
     private static int mFlushLightStatus = 0;
     private Activity mActivity;
-    private volatile CameraHandler mCameraHandler;
     private ICameraOperator mCameraOperator;
-    private volatile Looper mLooper;
     private RecorderHandler mMainHandler;
     private boolean mNeedBeauty;
     private AlaCameraRecorder.SurfaceHolder mSurfaceHolder;
@@ -38,10 +34,8 @@ public class AlaCameraManager implements ICameraStatusHandler {
     private Camera mCamera = null;
     private int mCameraId = -1;
     private int mCameraBufferLength = 0;
-    private volatile boolean mIsSendDataStart = false;
     private boolean mIsBackCamera = false;
     private int mDisplayRotate = 0;
-    private int mDisplayRotateOffset = 0;
     private int mPreviewWidth = 0;
     private int mPreviewHeight = 0;
     private long mLastTimeCaremaError = 0;
@@ -50,7 +44,7 @@ public class AlaCameraManager implements ICameraStatusHandler {
     private int mSurfaceHeight = 0;
     protected int fps = 0;
 
-    static /* synthetic */ int access$108(AlaCameraManager alaCameraManager) {
+    static /* synthetic */ int access$508(AlaCameraManager alaCameraManager) {
         int i = alaCameraManager.mCaremaErrorCount;
         alaCameraManager.mCaremaErrorCount = i + 1;
         return i;
@@ -68,51 +62,101 @@ public class AlaCameraManager implements ICameraStatusHandler {
         this.mCameraOperator = createCameraOperator(this.mNeedBeauty, videoBeautyType);
     }
 
-    public void setCameraLooper(Looper looper) {
-        this.mLooper = looper;
-        if (this.mCameraHandler == null) {
-            this.mCameraHandler = new CameraHandler(this, this.mLooper);
-        }
+    public void postStartCamera() {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.1
+            @Override // java.lang.Runnable
+            public void run() {
+                AlaCameraManager.this.doStartCamera();
+            }
+        });
     }
 
-    public void prepStartCamera() {
-        if (this.mCameraHandler != null) {
-            this.mCameraHandler.sendStartCamera();
-        }
+    public void postStopCamera() {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.2
+            @Override // java.lang.Runnable
+            public void run() {
+                AlaCameraManager.this.doStopCamera();
+            }
+        });
     }
 
-    public void prepStopCamera() {
-        this.mIsSendDataStart = false;
-        if (this.mCameraHandler != null) {
-            this.mCameraHandler.sendStopCamera();
-        }
+    public void postSurfaceChanged(final int i, final int i2) {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.3
+            @Override // java.lang.Runnable
+            public void run() {
+                AlaCameraManager.this.surfaceChanged(i, i2);
+            }
+        });
     }
 
+    public void postSwitchCamera() {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.4
+            @Override // java.lang.Runnable
+            public void run() {
+                AlaCameraManager.this.switchCamera();
+            }
+        });
+    }
+
+    public void postSwitchFlashLight() {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.5
+            @Override // java.lang.Runnable
+            public void run() {
+                AlaCameraManager.this.switchFlashingLight();
+            }
+        });
+    }
+
+    public void postBeautyLevel(final int i) {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.6
+            @Override // java.lang.Runnable
+            public void run() {
+                AlaCameraManager.this.setBeauty(i);
+            }
+        });
+    }
+
+    public void postSendData() {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.7
+            @Override // java.lang.Runnable
+            public void run() {
+            }
+        });
+    }
+
+    public void postResetCamera() {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.8
+            @Override // java.lang.Runnable
+            public void run() {
+                AlaCameraManager.this.resetCamera2();
+            }
+        });
+    }
+
+    public void postDestroy() {
+        CameraExecutor.getInst().posRunnable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.9
+            @Override // java.lang.Runnable
+            public void run() {
+                if (AlaCameraManager.this.mCameraOperator != null) {
+                    AlaCameraManager.this.mCameraOperator.release();
+                    AlaCameraManager.this.mCameraOperator = null;
+                }
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void doStartCamera() {
         this.mIsBackCamera = SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(SP_CAMERA_FACING), false);
         boolean openCamera = openCamera();
-        if (this.mIsSendDataStart) {
-            startSendData();
-        }
         if (this.mMainHandler != null) {
             this.mMainHandler.sendVideoCollectionStart(openCamera, this.mPreviewHeight, this.mPreviewWidth);
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void doStopCamera() {
-        if (this.mCameraHandler != null) {
-            this.mCameraHandler.removeCallbacksAndMessages(null);
-        }
-        if (this.mCameraOperator != null) {
-            this.mCameraOperator.release();
-        }
         releaseCamera(true);
-        this.mActivity = null;
-        this.mCameraHandler = null;
-    }
-
-    public CameraHandler getHandler() {
-        return this.mCameraHandler;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -171,10 +215,9 @@ public class AlaCameraManager implements ICameraStatusHandler {
                 this.mPreviewWidth = previewSize.width;
                 this.mPreviewHeight = previewSize.height;
                 this.mDisplayRotate = CameraUtils.getCameraDisplayOrientation(this.mActivity, cameraInfo, this.mCameraId);
-                this.mDisplayRotate += this.mDisplayRotateOffset;
                 this.mCamera.setDisplayOrientation(this.mDisplayRotate);
                 this.mCameraBufferLength = (int) (this.mPreviewWidth * this.mPreviewHeight * 1.5d);
-                this.mCamera.setErrorCallback(new Camera.ErrorCallback() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.1
+                this.mCamera.setErrorCallback(new Camera.ErrorCallback() { // from class: com.baidu.ala.recorder.video.camera.AlaCameraManager.10
                     @Override // android.hardware.Camera.ErrorCallback
                     public void onError(int i2, Camera camera) {
                         BdLog.e("Camera error. errcode is " + i2);
@@ -184,7 +227,7 @@ public class AlaCameraManager implements ICameraStatusHandler {
                             }
                             AlaCameraManager.this.mLastTimeCaremaError = System.currentTimeMillis();
                             if (AlaCameraManager.this.mCaremaErrorCount <= 3) {
-                                AlaCameraManager.access$108(AlaCameraManager.this);
+                                AlaCameraManager.access$508(AlaCameraManager.this);
                                 AlaCameraManager.this.releaseCamera(false);
                                 AlaCameraManager.this.openCamera();
                             }
@@ -235,18 +278,26 @@ public class AlaCameraManager implements ICameraStatusHandler {
             if (videoBeautyType == VideoBeautyType.DUMIX_AR) {
                 this.mNeedBeauty = false;
                 return new DuArCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
-            } else if (videoBeautyType == VideoBeautyType.BEAUTY_FACEUNITY && FUCameraOperator.isValid()) {
-                return new FUCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
-            } else {
-                return new BaoBaoCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
             }
+            if (videoBeautyType == VideoBeautyType.BEAUTY_FACEUNITY) {
+                if (FUCameraOperator.isValid()) {
+                    return new FUCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
+                }
+            } else if (videoBeautyType == VideoBeautyType.BEAUTY_NONE) {
+                return new GPUCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
+            }
+            return new TBCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
         }
         this.mNeedBeauty = false;
+        if (GPUCameraOperator.isValid()) {
+            return new GPUCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
+        }
         return new CPUCaremaOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void surfaceChanged(int i, int i2) {
-        if (this.mCameraHandler != null || this.mCamera != null || this.mActivity != null) {
+        if (this.mCamera != null || this.mActivity != null) {
             if (this.mSurfaceWidth != i || this.mSurfaceHeight != i2) {
                 resetCamera();
             }
@@ -334,10 +385,6 @@ public class AlaCameraManager implements ICameraStatusHandler {
         return null;
     }
 
-    public Handler getDataHandler() {
-        return (this.mCameraOperator == null || this.mCameraOperator.getDataThreadHandler() == null) ? this.mCameraHandler : this.mCameraOperator.getDataThreadHandler();
-    }
-
     @Override // com.baidu.ala.recorder.video.camera.ICameraStatusHandler
     public void setVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
         this.mVideoConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
@@ -350,29 +397,10 @@ public class AlaCameraManager implements ICameraStatusHandler {
         try {
             if (this.mCamera != null && this.mCamera.getParameters() != null) {
                 this.mDisplayRotate = CameraUtils.getCameraDisplayOrientation(this.mActivity, null, this.mCameraId);
-                this.mDisplayRotate += this.mDisplayRotateOffset;
                 this.mCamera.setDisplayOrientation(this.mDisplayRotate);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    public void setSendDataFlag(boolean z) {
-        this.mIsSendDataStart = z;
-    }
-
-    public void startSendData() {
-        resetCamera();
-        if (this.mCameraOperator != null) {
-            this.mCameraOperator.startRecorderData();
-        }
-        this.mIsSendDataStart = true;
-    }
-
-    public void setDisplayRotateOffset(int i) {
-        if (!(this.mCameraOperator instanceof IFaceUnityOperator)) {
-            this.mDisplayRotateOffset = i;
         }
     }
 
@@ -411,9 +439,9 @@ public class AlaCameraManager implements ICameraStatusHandler {
         }
     }
 
-    public void onBeautyChanged(float f, HashMap<String, Object> hashMap) {
+    public void onBeautyParamsChanged(float f, HashMap<String, Object> hashMap) {
         if (this.mCameraOperator instanceof DuArCameraOperator) {
-            ((DuArCameraOperator) this.mCameraOperator).onBeautyChanged(f, hashMap);
+            ((DuArCameraOperator) this.mCameraOperator).onBeautyParamsChanged(f, hashMap);
         }
     }
 }

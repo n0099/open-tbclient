@@ -13,7 +13,7 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AccountRealNameActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_NEED_CB_KEY = "EXTRA_NEED_CB_KEY";

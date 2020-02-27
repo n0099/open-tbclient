@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a extends c<HomePageRecommendFragment> {
     public String c;
     final ArrayList<PannelItem> d = new ArrayList<>();
@@ -35,7 +35,7 @@ public class a extends c<HomePageRecommendFragment> {
     }
 
     private void d() {
-        com.kascend.chushou.c.c.dAI().a(new b() { // from class: com.kascend.chushou.view.homepage.a.1
+        com.kascend.chushou.c.c.dBO().a(new b() { // from class: com.kascend.chushou.view.homepage.a.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (a.this.b()) {
@@ -75,7 +75,7 @@ public class a extends c<HomePageRecommendFragment> {
     }
 
     private void e() {
-        com.kascend.chushou.c.c.dAI().b(new b() { // from class: com.kascend.chushou.view.homepage.a.2
+        com.kascend.chushou.c.c.dBO().b(new b() { // from class: com.kascend.chushou.view.homepage.a.2
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (a.this.b()) {

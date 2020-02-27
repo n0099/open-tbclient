@@ -1,19 +1,19 @@
 package com.baidu.tieba.im.creategroup;
 
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface o {
-    int bRj();
+    int bSK();
 
-    void bRp();
+    void bSQ();
 
-    void bRq();
+    void bSR();
 
-    String bRs();
+    String bST();
 
-    boolean bRt();
+    boolean bSU();
 
-    boolean bRu();
+    boolean bSV();
 
     String getErrMsg();
 

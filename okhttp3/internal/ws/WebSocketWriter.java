@@ -1,5 +1,6 @@
 package okhttp3.internal.ws;
 
+import com.alibaba.fastjson.asm.Opcodes;
 import java.io.IOException;
 import java.util.Random;
 import okio.Buffer;
@@ -7,7 +8,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Sink;
 import okio.Timeout;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class WebSocketWriter {
     boolean activeWriter;
     final Buffer buffer = new Buffer();
@@ -121,7 +122,7 @@ final class WebSocketWriter {
         if (j <= 125) {
             this.sinkBuffer.writeByte(i3 | ((int) j));
         } else if (j <= 65535) {
-            this.sinkBuffer.writeByte(i3 | 126);
+            this.sinkBuffer.writeByte(i3 | Opcodes.IAND);
             this.sinkBuffer.writeShort((int) j);
         } else {
             this.sinkBuffer.writeByte(i3 | 127);
@@ -144,7 +145,7 @@ final class WebSocketWriter {
         this.sink.emit();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     final class FrameSink implements Sink {
         boolean closed;
         long contentLength;

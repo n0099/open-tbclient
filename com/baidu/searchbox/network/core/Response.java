@@ -10,7 +10,7 @@ import java.util.List;
 import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.http.auth.AUTH;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class Response implements Closeable {
     @Nullable
     final ResponseBody body;
@@ -207,7 +207,7 @@ public final class Response implements Closeable {
         return "Response{protocol=" + this.protocol + ", code=" + this.code + ", message=" + this.message + ", url=" + this.request.url() + '}';
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Builder {
         @Nullable
         ResponseBody body;

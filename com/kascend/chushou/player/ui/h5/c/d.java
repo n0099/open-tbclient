@@ -1,13 +1,13 @@
 package com.kascend.chushou.player.ui.h5.c;
 
 import com.kascend.chushou.constants.H5Positon;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
     public int i;
     public String k;
     public int l;
-    public H5Positon nbX;
-    public H5Positon nbY;
+    public H5Positon ncA;
+    public H5Positon ncB;
     public String o;
     public String p;
     public String q;

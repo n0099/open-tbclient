@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class RoundAndShadowLinearLayout extends LinearLayout {
-    private Shape cRS;
+    private Shape cVU;
     private Paint mPaint;
     private float mRadius;
 
@@ -46,16 +46,16 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.cRS == null) {
+            if (this.cVU == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 RectF rectF = new RectF(getPaddingLeft() <= 0 ? 0.1f : getPaddingLeft(), getPaddingTop() <= 0 ? 0.1f : getPaddingTop(), getPaddingRight() <= 0 ? 0.1f : getPaddingRight(), getPaddingBottom() > 0 ? getPaddingBottom() : 0.1f);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 Arrays.fill(fArr2, this.mRadius);
-                this.cRS = new RoundRectShape(fArr, rectF, fArr2);
+                this.cVU = new RoundRectShape(fArr, rectF, fArr2);
             }
-            this.cRS.resize(getWidth(), getHeight());
+            this.cVU.resize(getWidth(), getHeight());
         }
     }
 
@@ -64,8 +64,8 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.cRS != null) {
-            this.cRS.draw(canvas, this.mPaint);
+        if (this.cVU != null) {
+            this.cVU.draw(canvas, this.mPaint);
         }
         canvas.restoreToCount(saveCount);
     }

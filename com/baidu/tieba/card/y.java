@@ -1,5 +1,5 @@
 package com.baidu.tieba.card;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface y {
-    void kp(boolean z);
+    void kr(boolean z);
 }

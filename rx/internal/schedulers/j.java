@@ -5,9 +5,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.g;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j extends rx.g {
-    public static final j nRt = new j();
+    public static final j nSi = new j();
 
     @Override // rx.g
     public g.a createWorker() {
@@ -17,11 +17,11 @@ public final class j extends rx.g {
     private j() {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class a extends g.a implements k {
-        final AtomicInteger nzu = new AtomicInteger();
-        final PriorityBlockingQueue<b> nzt = new PriorityBlockingQueue<>();
-        private final rx.subscriptions.a nQW = new rx.subscriptions.a();
+        final AtomicInteger nzW = new AtomicInteger();
+        final PriorityBlockingQueue<b> nzV = new PriorityBlockingQueue<>();
+        private final rx.subscriptions.a nRL = new rx.subscriptions.a();
         private final AtomicInteger wip = new AtomicInteger();
 
         a() {
@@ -39,49 +39,49 @@ public final class j extends rx.g {
         }
 
         private k a(rx.functions.a aVar, long j) {
-            if (this.nQW.isUnsubscribed()) {
-                return rx.subscriptions.e.dOn();
+            if (this.nRL.isUnsubscribed()) {
+                return rx.subscriptions.e.dPA();
             }
-            final b bVar = new b(aVar, Long.valueOf(j), this.nzu.incrementAndGet());
-            this.nzt.add(bVar);
+            final b bVar = new b(aVar, Long.valueOf(j), this.nzW.incrementAndGet());
+            this.nzV.add(bVar);
             if (this.wip.getAndIncrement() == 0) {
                 do {
-                    b poll = this.nzt.poll();
+                    b poll = this.nzV.poll();
                     if (poll != null) {
                         poll.action.call();
                     }
                 } while (this.wip.decrementAndGet() > 0);
-                return rx.subscriptions.e.dOn();
+                return rx.subscriptions.e.dPA();
             }
             return rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.schedulers.j.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.nzt.remove(bVar);
+                    a.this.nzV.remove(bVar);
                 }
             });
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.nQW.unsubscribe();
+            this.nRL.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.nQW.isUnsubscribed();
+            return this.nRL.isUnsubscribed();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b implements Comparable<b> {
         final rx.functions.a action;
         final int count;
-        final Long nRw;
+        final Long nSl;
 
         b(rx.functions.a aVar, Long l, int i) {
             this.action = aVar;
-            this.nRw = l;
+            this.nSl = l;
             this.count = i;
         }
 
@@ -89,7 +89,7 @@ public final class j extends rx.g {
         @Override // java.lang.Comparable
         /* renamed from: a */
         public int compareTo(b bVar) {
-            int compareTo = this.nRw.compareTo(bVar.nRw);
+            int compareTo = this.nSl.compareTo(bVar.nSl);
             if (compareTo == 0) {
                 return j.compare(this.count, bVar.count);
             }

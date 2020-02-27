@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0469a fsi;
-    private HttpMessageListener fsj = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0477a fuK;
+    private HttpMessageListener fuL = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.fsi != null) {
-                    a.this.fsi.k(z, errorString);
+                if (a.this.fuK != null) {
+                    a.this.fuK.l(z, errorString);
                 }
             }
         }
@@ -25,18 +25,18 @@ public class a {
     private TbPageContext mPageContext;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0469a {
-        void k(boolean z, String str);
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0477a {
+        void l(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0469a interfaceC0469a) {
+    public a(TbPageContext tbPageContext, InterfaceC0477a interfaceC0477a) {
         this.mPageContext = tbPageContext;
-        this.fsi = interfaceC0469a;
-        this.mPageContext.registerListener(this.fsj);
+        this.fuK = interfaceC0477a;
+        this.mPageContext.registerListener(this.fuL);
     }
 
-    public void aw(String str, int i) {
+    public void au(String str, int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
         httpMessage.addParam("props_id", i);
         httpMessage.addParam("effect_id", str);

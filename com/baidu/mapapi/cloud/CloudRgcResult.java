@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CloudRgcResult {
     public AddressCompents addressCompents;
     public String customLocationDescription;
@@ -22,7 +22,7 @@ public class CloudRgcResult {
     public String recommendedLocationDescription;
     public int status;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class AddressCompents {
         public int adminAreaCode;
         public String city;
@@ -50,7 +50,7 @@ public class CloudRgcResult {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class PoiInfo {
         public String address;
         public String direction;

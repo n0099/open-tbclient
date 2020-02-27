@@ -7,7 +7,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.baidu.mapframework.open.aidl.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -30,7 +30,7 @@ public final class d implements ServiceConnection {
             if (aVar2 != null) {
                 com.baidu.mapframework.open.aidl.a unused = b.d = null;
             }
-            com.baidu.mapframework.open.aidl.a unused2 = b.d = a.AbstractBinderC0107a.a(iBinder);
+            com.baidu.mapframework.open.aidl.a unused2 = b.d = a.AbstractBinderC0115a.a(iBinder);
             aVar3 = b.d;
             aVar3.a(new e(this));
         } catch (RemoteException e) {

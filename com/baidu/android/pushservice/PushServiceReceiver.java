@@ -15,7 +15,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     private static Intent a(Context context, PublicMsg publicMsg) {
         try {

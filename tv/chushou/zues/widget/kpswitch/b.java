@@ -1,9 +1,9 @@
 package tv.chushou.zues.widget.kpswitch;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface b {
-    void dv(int i);
+    void dL(int i);
 
     int getHeight();
 
-    void wf(boolean z);
+    void wj(boolean z);
 }

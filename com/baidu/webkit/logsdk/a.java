@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk;
 import android.content.Context;
 import android.os.Message;
 import android.text.TextUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     public static boolean a = false;
     public static boolean b = false;

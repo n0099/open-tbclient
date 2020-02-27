@@ -1,5 +1,6 @@
 package org.conscrypt;
 
+import com.baidu.android.common.security.RSAUtil;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,7 +9,7 @@ import java.security.InvalidKeyException;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OpenSSLRSAPublicKey implements RSAPublicKey, OpenSSLKeyHolder {
     private static final long serialVersionUID = 123125005824688292L;
     private transient boolean fetchedParams;
@@ -46,7 +47,7 @@ public class OpenSSLRSAPublicKey implements RSAPublicKey, OpenSSLKeyHolder {
 
     @Override // java.security.Key
     public String getAlgorithm() {
-        return "RSA";
+        return RSAUtil.ALGORITHM_RSA;
     }
 
     @Override // java.security.Key

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.pass.biometrics.base.R;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PassBioGlobalUtils {
     private PassBioGlobalUtils() {
     }

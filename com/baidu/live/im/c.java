@@ -8,121 +8,121 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class c extends TypeAdapter.ViewHolder {
-    public int Zt;
-    public int Zu;
-    public int Zv;
-    public int Zw;
-    public int Zx;
-    public String Zy;
-    private ViewGroup anv;
-    public TextView anw;
-    public TbImageView anx;
-    private boolean any;
-    public boolean anz;
-    private static final int ank = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds4);
-    private static final int anl = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds6);
-    private static final int anm = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds8);
-    private static final int ann = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10);
-    private static final int ano = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds12);
-    private static final int anp = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds26);
-    private static final int anq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds6);
-    private static final int anr = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds10);
-    private static final int ans = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds18);
-    private static final int Nt = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds26);
-    private static final int ant = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds34);
-    private static final int anu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds48);
+    public int abn;
+    public int abo;
+    public int abp;
+    public int abq;
+    public int abr;
+    public String abt;
+    private ViewGroup aqN;
+    public TextView aqO;
+    public TbImageView aqP;
+    private boolean aqQ;
+    public boolean aqR;
+    private static final int aqC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds4);
+    private static final int aqD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds6);
+    private static final int aqE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds8);
+    private static final int aqF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10);
+    private static final int aqG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds12);
+    private static final int aqH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds26);
+    private static final int aqI = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds6);
+    private static final int aqJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds10);
+    private static final int aqK = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds18);
+    private static final int NV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds26);
+    private static final int aqL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds34);
+    private static final int aqM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds48);
 
     public c(Context context, boolean z) {
         super(LayoutInflater.from(context).inflate(a.h.ala_msg_item_layout, (ViewGroup) null));
-        this.any = z;
-        this.anv = (ViewGroup) getView().findViewById(a.g.ala_msg_root_layout);
-        this.anw = (TextView) getView().findViewById(a.g.ala_msg_content);
-        this.anx = (TbImageView) getView().findViewById(a.g.iv_tail);
-        this.anx.setDefaultBgResource(a.f.sdk_shape_transparent);
-        this.anx.setDefaultErrorResource(a.f.sdk_shape_transparent);
-        this.anx.setAutoChangeStyle(false);
-        if (this.any) {
-            this.anw.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
-            this.anv.setBackgroundDrawable(null);
-            this.anv.setPadding(0, 0, 0, 0);
+        this.aqQ = z;
+        this.aqN = (ViewGroup) getView().findViewById(a.g.ala_msg_root_layout);
+        this.aqO = (TextView) getView().findViewById(a.g.ala_msg_content);
+        this.aqP = (TbImageView) getView().findViewById(a.g.iv_tail);
+        this.aqP.setDefaultBgResource(a.f.sdk_shape_transparent);
+        this.aqP.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.aqP.setAutoChangeStyle(false);
+        if (this.aqQ) {
+            this.aqO.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+            this.aqN.setBackgroundDrawable(null);
+            this.aqN.setPadding(0, 0, 0, 0);
         }
     }
 
     public void a(Context context, boolean z, boolean z2, boolean z3, boolean z4) {
-        if (!this.any) {
-            this.anx.stopLoad();
-            if (!TextUtils.isEmpty(this.Zy)) {
-                this.anx.startLoad(this.Zy, 10, false, false);
-                this.anx.setVisibility(0);
+        if (!this.aqQ) {
+            this.aqP.stopLoad();
+            if (!TextUtils.isEmpty(this.abt)) {
+                this.aqP.startLoad(this.abt, 10, false, false);
+                this.aqP.setVisibility(0);
             } else {
-                this.anx.setVisibility(8);
+                this.aqP.setVisibility(8);
             }
             if (z) {
-                this.anw.setPadding(Nt, ank, Nt, anl);
-                if (this.anz) {
-                    aA(context);
+                this.aqO.setPadding(NV, aqC, NV, aqD);
+                if (this.aqR) {
+                    aD(context);
                 } else if (z3) {
-                    this.anw.setBackgroundResource(a.f.ala_im_msg_redpacket_bg);
+                    this.aqO.setBackgroundResource(a.f.ala_im_msg_redpacket_bg);
                 } else if (z4) {
-                    this.anw.setBackgroundResource(a.f.ala_im_msg_throne_bg);
+                    this.aqO.setBackgroundResource(a.f.ala_im_msg_throne_bg);
                 } else {
-                    this.anw.setBackgroundResource(a.f.ala_im_msg_normal_bg);
+                    this.aqO.setBackgroundResource(a.f.ala_im_msg_normal_bg);
                 }
             } else if (z2) {
-                this.anw.setBackgroundDrawable(null);
-                this.anw.setPadding(anr, 0, anr, 0);
+                this.aqO.setBackgroundDrawable(null);
+                this.aqO.setPadding(aqJ, 0, aqJ, 0);
             } else {
-                this.anw.setBackgroundDrawable(null);
-                this.anw.setPadding(0, 0, 0, 0);
+                this.aqO.setBackgroundDrawable(null);
+                this.aqO.setPadding(0, 0, 0, 0);
             }
         }
     }
 
     public void g(Context context, boolean z) {
-        if (!this.any) {
+        if (!this.aqQ) {
             if (z) {
-                this.anw.setShadowLayer(1.0f, 2.0f, 2.0f, context.getResources().getColor(a.d.sdk_black_alpha30));
+                this.aqO.setShadowLayer(1.0f, 2.0f, 2.0f, context.getResources().getColor(a.d.sdk_black_alpha30));
             } else {
-                this.anw.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+                this.aqO.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
             }
         }
     }
 
-    public void aN(boolean z) {
+    public void aQ(boolean z) {
         if (z) {
-            if (this.anw != null) {
-                this.anw.setTextSize(0, anu);
-                this.anw.setTypeface(Typeface.defaultFromStyle(1));
+            if (this.aqO != null) {
+                this.aqO.setTextSize(0, aqM);
+                this.aqO.setTypeface(Typeface.defaultFromStyle(1));
             }
-        } else if (this.anw != null) {
-            this.anw.setTextSize(0, anp);
+        } else if (this.aqO != null) {
+            this.aqO.setTextSize(0, aqH);
         }
     }
 
-    private void aA(Context context) {
+    private void aD(Context context) {
         com.baidu.live.view.g gVar = new com.baidu.live.view.g();
-        gVar.setAlpha(this.Zx);
+        gVar.setAlpha(this.abr);
         gVar.setCornerRadius(context.getResources().getDimensionPixelOffset(a.e.sdk_tbds36));
-        if (this.Zv != 0 || this.Zw != 0) {
-            gVar.i(this.Zt, this.Zu, this.Zv, this.Zw);
+        if (this.abp != 0 || this.abq != 0) {
+            gVar.i(this.abn, this.abo, this.abp, this.abq);
             gVar.setStrokeWidth(TypedValue.applyDimension(1, 0.5f, context.getResources().getDisplayMetrics()));
         } else {
-            gVar.F(this.Zt, this.Zu);
+            gVar.G(this.abn, this.abo);
         }
-        this.anw.setBackgroundDrawable(gVar);
+        this.aqO.setBackgroundDrawable(gVar);
     }
 
     public void reset() {
-        this.Zt = 0;
-        this.Zu = 0;
-        this.Zv = 0;
-        this.Zw = 0;
-        this.Zx = 255;
-        this.Zy = "";
+        this.abn = 0;
+        this.abo = 0;
+        this.abp = 0;
+        this.abq = 0;
+        this.abr = 255;
+        this.abt = "";
     }
 }

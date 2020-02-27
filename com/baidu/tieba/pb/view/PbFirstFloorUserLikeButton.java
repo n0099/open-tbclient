@@ -8,11 +8,11 @@ import android.view.animation.Animation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    protected String dfI;
-    protected String dfJ;
-    private AlphaAnimation jag;
+    protected String djO;
+    protected String djP;
+    private AlphaAnimation jbH;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -30,45 +30,45 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     private void init() {
-        this.dfI = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.dfJ = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.djO = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.djP = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.tbds36);
-        setText(this.dfJ);
+        setText(this.djP);
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.lb(R.color.cp_link_tip_a);
+        cVar.ls(R.color.cp_link_tip_a);
         setConfig(cVar);
     }
 
-    public void fN(boolean z) {
-        this.dfk = Boolean.valueOf(z);
+    public void fU(boolean z) {
+        this.djq = Boolean.valueOf(z);
         if (z) {
             setVisibility(8);
             setClickable(false);
-            setText(this.dfI);
+            setText(this.djO);
         } else {
             setVisibility(0);
             setClickable(true);
-            setText(this.dfJ);
+            setText(this.djP);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void l(boolean z, int i) {
-        fN(z);
+    public void m(boolean z, int i) {
+        fU(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void b(boolean z, int i, boolean z2) {
         if (z2) {
-            this.dfk = Boolean.valueOf(z);
+            this.djq = Boolean.valueOf(z);
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.jag == null) {
-                        this.jag = new AlphaAnimation(1.0f, 0.0f);
-                        this.jag.setDuration(500L);
-                        this.jag.setFillAfter(true);
-                        this.jag.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.jbH == null) {
+                        this.jbH = new AlphaAnimation(1.0f, 0.0f);
+                        this.jbH.setDuration(500L);
+                        this.jbH.setFillAfter(true);
+                        this.jbH.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -84,10 +84,10 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
                             }
                         });
                     } else {
-                        this.jag.cancel();
+                        this.jbH.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.jag);
+                        startAnimation(this.jbH);
                         return;
                     } else {
                         setVisibility(8);
@@ -96,18 +96,18 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
                 }
                 setVisibility(0);
                 setClickable(true);
-                setText(this.dfJ);
+                setText(this.djP);
                 setPadding(getResources().getDimensionPixelSize(R.dimen.tbds18), 0, getResources().getDimensionPixelSize(R.dimen.tbds12), 0);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             return;
         }
-        fN(z);
+        fU(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void lg(int i) {
+    public void lx(int i) {
     }
 
     public void ba(View view) {
@@ -119,6 +119,6 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     public void onChangeSkinType(int i) {
-        aFw();
+        aHL();
     }
 }

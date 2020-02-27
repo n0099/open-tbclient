@@ -15,7 +15,7 @@ import com.baidu.swan.apps.n.a.d;
 import com.baidu.swan.apps.performance.e;
 import com.baidu.swan.apps.y.f;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
     private static final String TAG = "SwanAppJsBridge";
@@ -30,14 +30,14 @@ public class SwanAppJsBridge extends a {
         if (DEBUG) {
             Log.d(TAG, "slave id: " + str + " data: " + str2);
         }
-        e.aK("postMessage", "PostMsg setData handle");
+        e.z("postMessage", "PostMsg setData handle");
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             i = 202;
         } else {
             d dVar = new d(str, str2);
-            e.aK("postMessage", "PostMsg setData start");
-            f.UC().a(dVar, false);
-            e.aK("postMessage", "PostMsg setData end");
+            e.z("postMessage", "PostMsg setData start");
+            f.WQ().a(dVar, false);
+            e.z("postMessage", "PostMsg setData end");
         }
         return UnitedSchemeUtility.wrapCallbackParams(i).toString();
     }

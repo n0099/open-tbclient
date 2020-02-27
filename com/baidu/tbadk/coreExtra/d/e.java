@@ -17,22 +17,22 @@ import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class e extends Handler implements com.baidu.adp.framework.client.socket.b {
-    private static e dqs = null;
+    private static e duA = null;
     private long mLastPingTime = 0;
     private int mForegroundInterval = 180000;
     private int mBackgroundInterval = 900000;
     private int mCurrentInterval = this.mBackgroundInterval;
-    private PingMessage dqt = null;
+    private PingMessage duB = null;
 
-    public static e aKW() {
-        if (dqs == null) {
+    public static e aNs() {
+        if (duA == null) {
             synchronized (e.class) {
-                if (dqs == null) {
-                    dqs = new e();
+                if (duA == null) {
+                    duA = new e();
                 }
             }
         }
-        return dqs;
+        return duA;
     }
 
     @Override // android.os.Handler
@@ -61,8 +61,8 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
     public boolean sendPing(boolean z, String str) {
         if ((z || System.currentTimeMillis() - this.mLastPingTime >= 180000) && BdSocketLinkService.isOpen()) {
             this.mLastPingTime = System.currentTimeMillis();
-            MessageManager.getInstance().sendMessage(this.dqt);
-            com.baidu.adp.framework.client.socket.i.a("PingManager", this.dqt, 0, "send_ping", 0, str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (this.mCurrentInterval == this.mBackgroundInterval ? "back" : "fore"));
+            MessageManager.getInstance().sendMessage(this.duB);
+            com.baidu.adp.framework.client.socket.i.a("PingManager", this.duB, 0, "send_ping", 0, str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (this.mCurrentInterval == this.mBackgroundInterval ? "back" : "fore"));
             return true;
         }
         return false;
@@ -88,7 +88,7 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
         bVar.a(SocketMessageTask.DupLicateMode.REMOVE_ME);
         bVar.setCanRetry(false);
         MessageManager.getInstance().registerTask(bVar);
-        this.dqt = new PingMessage();
+        this.duB = new PingMessage();
         setInterval();
         com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(1003) { // from class: com.baidu.tbadk.coreExtra.d.e.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -120,7 +120,7 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
                 return;
             }
             BdSocketLinkService.close(7, "ping error");
-            com.baidu.adp.framework.client.socket.i.debug("PingManager", this.dqt.getCmd(), this.dqt.getClientLogID(), 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.mLastPingTime));
+            com.baidu.adp.framework.client.socket.i.debug("PingManager", this.duB.getCmd(), this.duB.getClientLogID(), 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.mLastPingTime));
         }
     }
 

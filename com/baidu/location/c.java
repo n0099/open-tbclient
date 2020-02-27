@@ -2,7 +2,7 @@ package com.baidu.location;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c extends Thread {
     final /* synthetic */ LocationClient a;
 

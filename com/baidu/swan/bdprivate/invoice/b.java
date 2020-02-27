@@ -1,9 +1,9 @@
 package com.baidu.swan.bdprivate.invoice;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void agk();
+    void aiA();
 
-    void agl();
+    void aiy();
 
-    void agm();
+    void aiz();
 }

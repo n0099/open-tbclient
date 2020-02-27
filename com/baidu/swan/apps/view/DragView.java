@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DragView extends FrameLayout {
-    private a bVp;
+    private a bZt;
     private int mAutoCloseDistance;
     private View mChildView;
     private boolean mDragEnabled;
@@ -21,7 +21,7 @@ public class DragView extends FrameLayout {
     private int mTopMinValue;
     private ViewDragHelper mViewDragHelper;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onClose();
 
@@ -74,10 +74,10 @@ public class DragView extends FrameLayout {
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public void onViewReleased(View view, float f, float f2) {
                 if (DragView.this.mChildView != null) {
-                    int top = DragView.this.mChildView.getTop() - DragView.this.mInitY;
-                    if (Math.abs(top) <= DragView.this.mAutoCloseDistance) {
+                    int top2 = DragView.this.mChildView.getTop() - DragView.this.mInitY;
+                    if (Math.abs(top2) <= DragView.this.mAutoCloseDistance) {
                         DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.mInitX, DragView.this.mInitY);
-                    } else if (top < 0) {
+                    } else if (top2 < 0) {
                         DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.mChildView.getMeasuredHeight());
                     } else {
                         DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), 0, DragView.this.mChildView.getMeasuredHeight());
@@ -89,8 +89,8 @@ public class DragView extends FrameLayout {
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
                 super.onViewPositionChanged(view, i, i2, i3, i4);
-                if (DragView.this.bVp != null) {
-                    DragView.this.bVp.onClosing(i2 - DragView.this.mInitY);
+                if (DragView.this.bZt != null) {
+                    DragView.this.bZt.onClosing(i2 - DragView.this.mInitY);
                 }
             }
 
@@ -118,8 +118,8 @@ public class DragView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.mDragEnabled) {
             this.mViewDragHelper.processTouchEvent(motionEvent);
-            if (this.bVp != null) {
-                this.bVp.onDragViewTouchEvent(motionEvent);
+            if (this.bZt != null) {
+                this.bZt.onDragViewTouchEvent(motionEvent);
             }
             return true;
         }
@@ -160,8 +160,8 @@ public class DragView extends FrameLayout {
     public void computeScroll() {
         if (this.mViewDragHelper.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
-        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.mInitY) >= this.mAutoCloseDistance && this.bVp != null) {
-            this.bVp.onClose();
+        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.mInitY) >= this.mAutoCloseDistance && this.bZt != null) {
+            this.bZt.onClose();
         }
     }
 
@@ -173,7 +173,7 @@ public class DragView extends FrameLayout {
     }
 
     public void setOnCloseListener(a aVar) {
-        this.bVp = aVar;
+        this.bZt = aVar;
     }
 
     public void setTopMinValue(int i) {

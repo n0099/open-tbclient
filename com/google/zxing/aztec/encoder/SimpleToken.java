@@ -1,7 +1,7 @@
 package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class SimpleToken extends Token {
     private final short bitCount;
     private final short value;

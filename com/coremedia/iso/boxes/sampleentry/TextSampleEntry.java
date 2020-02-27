@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "tx3g";
     public static final String TYPE_ENCRYPTED = "enct";
@@ -195,32 +195,34 @@ public class TextSampleEntry extends AbstractSampleEntry {
         this.backgroundColorRgba = iArr;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class BoxRecord {
         int bottom;
         int left;
         int right;
-        int top;
+
+        /* renamed from: top  reason: collision with root package name */
+        int f1040top;
 
         public BoxRecord() {
         }
 
         public BoxRecord(int i, int i2, int i3, int i4) {
-            this.top = i;
+            this.f1040top = i;
             this.left = i2;
             this.bottom = i3;
             this.right = i4;
         }
 
         public void parse(ByteBuffer byteBuffer) {
-            this.top = IsoTypeReader.readUInt16(byteBuffer);
+            this.f1040top = IsoTypeReader.readUInt16(byteBuffer);
             this.left = IsoTypeReader.readUInt16(byteBuffer);
             this.bottom = IsoTypeReader.readUInt16(byteBuffer);
             this.right = IsoTypeReader.readUInt16(byteBuffer);
         }
 
         public void getContent(ByteBuffer byteBuffer) {
-            IsoTypeWriter.writeUInt16(byteBuffer, this.top);
+            IsoTypeWriter.writeUInt16(byteBuffer, this.f1040top);
             IsoTypeWriter.writeUInt16(byteBuffer, this.left);
             IsoTypeWriter.writeUInt16(byteBuffer, this.bottom);
             IsoTypeWriter.writeUInt16(byteBuffer, this.right);
@@ -238,15 +240,15 @@ public class TextSampleEntry extends AbstractSampleEntry {
                 return false;
             }
             BoxRecord boxRecord = (BoxRecord) obj;
-            return this.bottom == boxRecord.bottom && this.left == boxRecord.left && this.right == boxRecord.right && this.top == boxRecord.top;
+            return this.bottom == boxRecord.bottom && this.left == boxRecord.left && this.right == boxRecord.right && this.f1040top == boxRecord.f1040top;
         }
 
         public int hashCode() {
-            return (((((this.top * 31) + this.left) * 31) + this.bottom) * 31) + this.right;
+            return (((((this.f1040top * 31) + this.left) * 31) + this.bottom) * 31) + this.right;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class StyleRecord {
         int endChar;
         int faceStyleFlags;

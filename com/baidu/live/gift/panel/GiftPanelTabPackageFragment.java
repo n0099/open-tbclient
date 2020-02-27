@@ -5,84 +5,85 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.ao;
-import com.baidu.live.data.az;
+import com.baidu.live.data.ap;
+import com.baidu.live.data.bb;
 import com.baidu.live.data.d;
+import com.baidu.live.data.e;
 import com.baidu.live.gift.g;
 import com.baidu.live.gift.i;
 import com.baidu.live.gift.widget.panel.GiftPanelTabView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GiftPanelTabPackageFragment extends GiftPanelTabBaseFragment {
-    private com.baidu.live.gift.c.a aml;
-    private long amm;
+    private com.baidu.live.gift.c.a aoy;
+    private long aoz;
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInflate(View view, Bundle bundle) {
         super.onInflate(view, bundle);
-        this.amc.setType(1);
-        this.amc.ahS.setSelect(1);
-        this.amc.ahS.setCallback(new GiftPanelTabView.a() { // from class: com.baidu.live.gift.panel.GiftPanelTabPackageFragment.1
+        this.aop.setType(1);
+        this.aop.ajZ.setSelect(1);
+        this.aop.ajZ.setCallback(new GiftPanelTabView.a() { // from class: com.baidu.live.gift.panel.GiftPanelTabPackageFragment.1
             @Override // com.baidu.live.gift.widget.panel.GiftPanelTabView.a
-            public void bI(int i) {
-                if (GiftPanelTabPackageFragment.this.amd != null) {
-                    GiftPanelTabPackageFragment.this.amd.tE();
+            public void bP(int i) {
+                if (GiftPanelTabPackageFragment.this.aoq != null) {
+                    GiftPanelTabPackageFragment.this.aoq.uU();
                 }
             }
         });
-        this.amc.sh();
+        this.aop.tt();
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInitial() {
         super.onInitial();
-        dP();
-        this.aml.tv();
+        dQ();
+        this.aoy.uN();
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment
-    protected boolean tK() {
-        g ss = this.amc.ss();
-        if (ss == null) {
+    protected boolean va() {
+        g tE = this.aop.tE();
+        if (tE == null) {
             return false;
         }
-        dP();
-        int sv = this.amc.sv();
-        if (!a(ss, sv) || d(ss)) {
+        dQ();
+        int tH = this.aop.tH();
+        if (!a(tE, tH) || e(tE)) {
             return true;
         }
-        if (ss.qM()) {
-            ss.ael = this.amc.su();
-            ss.ael.afi = ss.qJ();
-            com.baidu.live.gift.b.b.ta().b(ss, sv, this.ame.mUserId, this.ame.mUserName, this.ame.mLiveId, this.ame.mRoomId, this.ame.mAppId, this.ame.ajy, this.ame.otherParams);
+        if (tE.rF()) {
+            tE.ags = this.aop.tG();
+            tE.ags.ahp = tE.rC();
+            com.baidu.live.gift.b.b.uu().a(tE, tH, this.aor.mUserId, this.aor.mUserName, this.aor.mLiveId, this.aor.mRoomId, this.aor.mAppId, this.aor.alG, this.aor.otherParams);
             closeActivity();
         } else {
-            com.baidu.live.gift.b.b.ta().a(ss, sv, this.ame.mUserId, this.ame.mUserName, this.ame.mLiveId, this.ame.mRoomId, this.ame.mAppId, this.ame.ajy, this.ame.otherParams);
+            com.baidu.live.gift.b.b.uu().c(tE, tH, this.aor.mUserId, this.aor.mUserName, this.aor.mLiveId, this.aor.mRoomId, this.aor.mAppId, this.aor.alG, this.aor.otherParams);
         }
         String str = null;
-        if (ss.ael != null) {
-            str = ss.ael.rn();
+        if (tE.ags != null) {
+            str = tE.ags.so();
         }
         if (str == null) {
             str = "";
         }
-        this.aml.a(ss.qE(), ss.aeg.aem, this.ame.mUserId, this.ame.mLiveId, sv, sv > 1 ? 1 : 0, str);
+        this.aoy.c(tE.rx(), tE.agn.agt, this.aor.mUserId, this.aor.mLiveId, tH, tH > 1 ? 1 : 0, str);
         return true;
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment
-    protected void tL() {
-        dP();
-        this.aml.tv();
+    protected void vb() {
+        dQ();
+        this.aoy.uN();
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment
     protected boolean a(g gVar, int i) {
         g.a aVar;
         boolean a = super.a(gVar, i);
-        if (a && (aVar = gVar.aeg) != null && i > aVar.aen) {
+        if (a && (aVar = gVar.agn) != null && i > aVar.agu) {
             showToast("赠送失败，达到最高发送礼物上限");
             return false;
         }
@@ -90,10 +91,10 @@ public class GiftPanelTabPackageFragment extends GiftPanelTabBaseFragment {
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment
-    protected boolean tJ() {
+    protected boolean uZ() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.amm >= 400) {
-            this.amm = currentTimeMillis;
+        if (currentTimeMillis - this.aoz >= 400) {
+            this.aoz = currentTimeMillis;
             return true;
         }
         return false;
@@ -102,53 +103,53 @@ public class GiftPanelTabPackageFragment extends GiftPanelTabBaseFragment {
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment, com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.aml != null) {
-            this.aml.release();
+        if (this.aoy != null) {
+            this.aoy.release();
         }
     }
 
-    private void dP() {
-        if (this.aml == null) {
-            this.aml = new com.baidu.live.gift.c.a();
-            this.aml.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.GiftPanelTabPackageFragment.2
+    private void dQ() {
+        if (this.aoy == null) {
+            this.aoy = new com.baidu.live.gift.c.a();
+            this.aoy.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.GiftPanelTabPackageFragment.2
                 @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
-                public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.c> arrayList2, ArrayList<d> arrayList3) {
+                public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<d> arrayList2, ArrayList<e> arrayList3) {
                     super.a(z, i, str, arrayList, arrayList2, arrayList3);
                     if (!z && !TextUtils.isEmpty(str) && GiftPanelTabPackageFragment.this.mVisible) {
                         GiftPanelTabPackageFragment.this.showToast(str);
                     }
-                    GiftPanelTabPackageFragment.this.amc.a(true, arrayList, arrayList2, arrayList3, z, i);
+                    GiftPanelTabPackageFragment.this.aop.a(true, arrayList, arrayList2, arrayList3, z, i);
                 }
 
                 @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
                 public void a(boolean z, int i, String str, String str2, int i2) {
                     ArrayList<i> arrayList;
                     super.a(z, i, str, str2, i2);
-                    if (z && !TextUtils.isEmpty(str2) && (arrayList = GiftPanelTabPackageFragment.this.amc.aht) != null) {
+                    if (z && !TextUtils.isEmpty(str2) && (arrayList = GiftPanelTabPackageFragment.this.aop.ajC) != null) {
                         Iterator<i> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            List<g> qX = it.next().qX();
-                            if (qX != null) {
+                            List<g> rY = it.next().rY();
+                            if (rY != null) {
                                 if (i2 == 0) {
-                                    Iterator<g> it2 = qX.iterator();
+                                    Iterator<g> it2 = rY.iterator();
                                     while (it2.hasNext()) {
-                                        if (it2.next().qE().equals(str2)) {
+                                        if (it2.next().rx().equals(str2)) {
                                             it2.remove();
                                         }
                                     }
                                 } else {
-                                    for (g gVar : qX) {
-                                        if (gVar.qE().equals(str2)) {
-                                            gVar.aeg.aen = i2;
+                                    for (g gVar : rY) {
+                                        if (gVar.rx().equals(str2)) {
+                                            gVar.agn.agu = i2;
                                         }
                                     }
                                 }
                             }
                         }
                         if (i2 == 0) {
-                            GiftPanelTabPackageFragment.this.amc.a(false, z, i);
+                            GiftPanelTabPackageFragment.this.aop.a(false, z, i);
                         } else {
-                            GiftPanelTabPackageFragment.this.amc.p(str2, i2);
+                            GiftPanelTabPackageFragment.this.aop.p(str2, i2);
                         }
                     }
                 }
@@ -156,26 +157,26 @@ public class GiftPanelTabPackageFragment extends GiftPanelTabBaseFragment {
         }
     }
 
-    private boolean d(g gVar) {
-        g.a.C0079a c0079a;
-        g.a aVar = gVar.aeg;
-        if (aVar == null || (c0079a = aVar.aeq) == null || c0079a.key != 10) {
+    private boolean e(g gVar) {
+        g.a.C0086a c0086a;
+        g.a aVar = gVar.agn;
+        if (aVar == null || (c0086a = aVar.agx) == null || c0086a.key != 10) {
             return false;
         }
-        if (c0079a.aes != null && c0079a.aes.optInt("price") == 100) {
-            tN();
+        if (c0086a.agz != null && c0086a.agz.optInt("price") == 100) {
+            ve();
         }
         return true;
     }
 
-    private void tN() {
-        az[] azVarArr;
-        ao aoVar = com.baidu.live.s.a.wR().atk;
-        if (aoVar != null && aoVar.aaX != null && aoVar.aaX.acv && aoVar.aaU != null && (azVarArr = aoVar.aaU.abH) != null && azVarArr.length > 0) {
-            for (int i = 0; i < azVarArr.length; i++) {
-                if (azVarArr[i].price == 100) {
+    private void ve() {
+        bb[] bbVarArr;
+        ap apVar = com.baidu.live.v.a.zj().axB;
+        if (apVar != null && apVar.acV != null && apVar.acV.aex && apVar.acS != null && (bbVarArr = apVar.acS.adM) != null && bbVarArr.length > 0) {
+            for (int i = 0; i < bbVarArr.length; i++) {
+                if (bbVarArr[i].price == 100) {
                     closeActivity();
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913121, azVarArr[i].id));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913121, bbVarArr[i].id));
                     return;
                 }
             }

@@ -2,14 +2,14 @@ package com.baidu.e.a.a;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class m {
     public static String md5(String str) {
         n.notNull(str, "str");
-        return n(str.getBytes());
+        return s(str.getBytes());
     }
 
-    public static String n(byte[] bArr) {
+    public static String s(byte[] bArr) {
         n.notNull(bArr, "data");
         StringBuilder sb = new StringBuilder();
         try {

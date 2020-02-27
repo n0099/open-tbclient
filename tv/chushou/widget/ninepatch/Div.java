@@ -4,7 +4,7 @@ import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Div implements Externalizable {
     public int start;
     public int stop;

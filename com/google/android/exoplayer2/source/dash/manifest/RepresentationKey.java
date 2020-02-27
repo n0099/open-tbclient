@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source.dash.manifest;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class RepresentationKey implements Parcelable, Comparable<RepresentationKey> {
     public static final Parcelable.Creator<RepresentationKey> CREATOR = new Parcelable.Creator<RepresentationKey>() { // from class: com.google.android.exoplayer2.source.dash.manifest.RepresentationKey.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: KY */
+        /* renamed from: Ld */
         public RepresentationKey[] newArray(int i) {
             return new RepresentationKey[i];
         }

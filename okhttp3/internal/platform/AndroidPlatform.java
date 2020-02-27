@@ -2,6 +2,7 @@ package okhttp3.internal.platform;
 
 import android.os.Build;
 import android.util.Log;
+import com.baidu.android.common.security.RSAUtil;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,7 +25,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AndroidPlatform extends Platform {
     private static final int MAX_LOG_LENGTH = 4000;
     private final CloseGuard closeGuard = CloseGuard.get();
@@ -237,7 +238,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class AndroidCertificateChainCleaner extends CertificateChainCleaner {
         private final Method checkServerTrusted;
         private final Object x509TrustManagerExtensions;
@@ -250,7 +251,7 @@ public class AndroidPlatform extends Platform {
         @Override // okhttp3.internal.tls.CertificateChainCleaner
         public List<Certificate> clean(List<Certificate> list, String str) throws SSLPeerUnverifiedException {
             try {
-                return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
+                return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), RSAUtil.ALGORITHM_RSA, str);
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             } catch (InvocationTargetException e2) {
@@ -269,7 +270,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class CloseGuard {
         private final Method getMethod;
         private final Method openMethod;
@@ -322,7 +323,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class AndroidTrustRootIndex implements TrustRootIndex {
         private final Method findByIssuerAndSignatureMethod;
         private final X509TrustManager trustManager;

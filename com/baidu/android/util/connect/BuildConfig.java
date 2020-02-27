@@ -1,5 +1,5 @@
 package com.baidu.android.util.connect;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.util.connect";
     public static final String BUILD_TYPE = "release";

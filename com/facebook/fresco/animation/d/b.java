@@ -1,7 +1,7 @@
 package com.facebook.fresco.animation.d;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface b {
-    int L(long j, long j2);
+    int K(long j, long j2);
 
-    long fj(long j);
+    long fh(long j);
 }

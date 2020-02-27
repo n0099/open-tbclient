@@ -1,8 +1,8 @@
 package com.baidu.swan.config.core;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends a {
     @Override // com.baidu.swan.config.core.a
-    protected void aN(long j) {
+    protected void aR(long j) {
         c.m(j, System.currentTimeMillis());
     }
 }

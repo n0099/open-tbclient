@@ -6,7 +6,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static final Drawable a(Resources resources, int i) {
         return a(resources, i, -1006632960);

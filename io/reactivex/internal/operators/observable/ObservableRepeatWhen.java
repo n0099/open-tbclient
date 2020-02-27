@@ -11,26 +11,26 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableRepeatWhen<T> extends a<T, T> {
-    final h<? super q<Object>, ? extends t<?>> nwy;
+    final h<? super q<Object>, ? extends t<?>> nxa;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        io.reactivex.subjects.b<T> dIJ = PublishSubject.dII().dIJ();
+        io.reactivex.subjects.b<T> dJQ = PublishSubject.dJP().dJQ();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.h(this.nwy.apply(dIJ), "The handler returned a null ObservableSource");
-            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, dIJ, this.source);
+            t tVar = (t) io.reactivex.internal.functions.a.h(this.nxa.apply(dJQ), "The handler returned a null ObservableSource");
+            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, dJQ, this.source);
             uVar.onSubscribe(repeatWhenObserver);
             tVar.subscribe(repeatWhenObserver.inner);
             repeatWhenObserver.subscribeNext();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.I(th);
+            io.reactivex.exceptions.a.H(th);
             EmptyDisposable.error(th, uVar);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class RepeatWhenObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 802743776666017014L;
         volatile boolean active;
@@ -109,7 +109,7 @@ public final class ObservableRepeatWhen<T> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         final class InnerRepeatObserver extends AtomicReference<io.reactivex.disposables.b> implements u<Object> {
             private static final long serialVersionUID = 3254781284376480842L;
 

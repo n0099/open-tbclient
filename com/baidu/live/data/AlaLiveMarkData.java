@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveMarkData implements Serializable {
     public static final String DEFAULT_ANCHOR_USER_ID = "0";
     public static final int TYPE_FAN = 6;

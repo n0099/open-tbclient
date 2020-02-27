@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.c;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public long a = 0;
     public long b = 0;

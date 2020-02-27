@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.RandomAccess;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public class i extends h {
     public static final <T> List<T> asList(T[] tArr) {
         kotlin.jvm.internal.q.j(tArr, "receiver$0");
@@ -13,12 +14,13 @@ public class i extends h {
         return asList;
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] nBh;
+        final /* synthetic */ byte[] nBJ;
 
         a(byte[] bArr) {
-            this.nBh = bArr;
+            this.nBJ = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -47,42 +49,42 @@ public class i extends h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.nBh.length;
+            return this.nBJ.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.nBh.length == 0;
+            return this.nBJ.length == 0;
         }
 
         public boolean l(byte b) {
-            return f.a(this.nBh, b);
+            return f.a(this.nBJ, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: NA */
+        /* renamed from: ND */
         public Byte get(int i) {
-            return Byte.valueOf(this.nBh[i]);
+            return Byte.valueOf(this.nBJ[i]);
         }
 
         public int m(byte b) {
-            return f.b(this.nBh, b);
+            return f.b(this.nBJ, b);
         }
 
         public int n(byte b) {
-            return f.c(this.nBh, b);
+            return f.c(this.nBJ, b);
         }
     }
 
-    public static final List<Byte> aB(byte[] bArr) {
+    public static final List<Byte> aG(byte[] bArr) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
         return new a(bArr);
     }
 
-    public static final byte[] h(byte[] bArr, int i, int i2) {
+    public static final byte[] l(byte[] bArr, int i, int i2) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
-        f.em(i2, bArr.length);
+        f.ep(i2, bArr.length);
         byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
         kotlin.jvm.internal.q.i(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;

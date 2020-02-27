@@ -1,21 +1,46 @@
 package com.baidu.live.liveroom.c;
+/* loaded from: classes3.dex */
+public class d {
+    private static volatile d avP;
+    private c avQ;
+    private b avR;
 
-import android.view.View;
-/* loaded from: classes2.dex */
-public interface d {
-    void enterBackground();
+    private d() {
+    }
 
-    void enterForeground();
+    public static d yr() {
+        if (avP == null) {
+            synchronized (d.class) {
+                if (avP == null) {
+                    avP = new d();
+                }
+            }
+        }
+        return avP;
+    }
 
-    String getTitle();
+    private b ys() {
+        if (this.avQ != null) {
+            return this.avQ.yq();
+        }
+        return null;
+    }
 
-    void onChangeSkinType(int i);
+    public boolean yp() {
+        if (this.avR == null) {
+            this.avR = ys();
+        }
+        if (this.avR == null) {
+            return false;
+        }
+        return this.avR.yp();
+    }
 
-    void onDestroy();
-
-    View uA();
-
-    String uB();
-
-    short uC();
+    public b yt() {
+        if (this.avR != null) {
+            return this.avR;
+        }
+        this.avR = ys();
+        return this.avR;
+    }
 }

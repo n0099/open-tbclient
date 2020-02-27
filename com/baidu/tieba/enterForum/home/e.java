@@ -11,17 +11,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private PopupWindow fTK;
+    private PopupWindow fWc;
     private TbPageContext<?> mPageContext;
     private View mRootView;
     private Handler mHandler = new Handler();
-    private Runnable fTL = new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.1
+    private Runnable fWd = new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.fTK != null) {
-                g.dismissPopupWindow(e.this.fTK);
+            if (e.this.fWc != null) {
+                g.dismissPopupWindow(e.this.fWc);
             }
         }
     };
@@ -32,17 +32,17 @@ public class e {
 
     public void a(LinkedList<VisitedForumData> linkedList, final int i) {
         if (linkedList == null || linkedList.size() < 1) {
-            com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
+            com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
             return;
         }
         final int i2 = i(linkedList);
         if (i2 < 0) {
-            com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
-        } else if (!com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, false)) {
+            com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
+        } else if (!com.baidu.tbadk.core.sharedPref.b.aFB().getBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, false)) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    e.this.bA(i, i2);
+                    e.this.bB(i, i2);
                 }
             }, 100L);
         }
@@ -52,7 +52,7 @@ public class e {
         int size = linkedList.size();
         for (int i = 0; i < 3 && i < size; i++) {
             VisitedForumData visitedForumData = linkedList.get(i);
-            if (visitedForumData != null && visitedForumData.aLE()) {
+            if (visitedForumData != null && visitedForumData.aOa()) {
                 return i;
             }
         }
@@ -60,30 +60,30 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bA(int i, int i2) {
-        com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
-        if (this.fTK == null || !this.fTK.isShowing()) {
+    public void bB(int i, int i2) {
+        com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
+        if (this.fWc == null || !this.fWc.isShowing()) {
             if (this.mRootView == null) {
                 this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.enter_forum_ufan_item_tip, (ViewGroup) null);
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.bxc();
+                        e.this.byH();
                     }
                 });
             }
-            if (this.fTK == null) {
-                this.fTK = new PopupWindow(this.mRootView, -2, -2);
-                this.fTK.setOutsideTouchable(true);
+            if (this.fWc == null) {
+                this.fWc = new PopupWindow(this.mRootView, -2, -2);
+                this.fWc.setOutsideTouchable(true);
             }
-            g.showPopupWindowAtLocation(this.fTK, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds220) * i2), i);
-            this.mHandler.postDelayed(this.fTL, 5000L);
+            g.showPopupWindowAtLocation(this.fWc, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds220) * i2), i);
+            this.mHandler.postDelayed(this.fWd, 5000L);
         }
     }
 
-    public void bxc() {
-        if (this.fTK != null) {
-            g.dismissPopupWindow(this.fTK);
+    public void byH() {
+        if (this.fWc != null) {
+            g.dismissPopupWindow(this.fWc);
         }
     }
 

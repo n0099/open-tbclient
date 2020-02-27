@@ -6,14 +6,15 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.c.a.d;
-import com.baidu.swan.apps.c.a.h;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
+import kotlin.h;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+@h
+/* loaded from: classes11.dex */
 public final class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/setMaBdussSync");
@@ -24,22 +25,22 @@ public final class a extends ab {
         boolean z;
         q.j(unitedSchemeEntity, "entity");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.c.a.e.aYc.bR(true);
+        com.baidu.swan.apps.c.a.e.bcm.bZ(true);
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.a.a GU = com.baidu.swan.apps.c.a.e.aYc.GU();
-            if (GU != null) {
-                GU.onResult(-1);
+            com.baidu.swan.apps.a.a Jj = com.baidu.swan.apps.c.a.e.bcm.Jj();
+            if (Jj != null) {
+                Jj.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
         int optInt = optParamsAsJo.optInt("errno");
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-        ai.l(RunnableC0218a.aYi);
+        ai.l(RunnableC0228a.bcs);
         if (optInt != 0) {
-            com.baidu.swan.apps.a.a GU2 = com.baidu.swan.apps.c.a.e.aYc.GU();
-            if (GU2 != null) {
-                GU2.onResult(-1);
+            com.baidu.swan.apps.a.a Jj2 = com.baidu.swan.apps.c.a.e.bcm.Jj();
+            if (Jj2 != null) {
+                Jj2.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
             return false;
@@ -47,19 +48,19 @@ public final class a extends ab {
             String optString = optJSONObject.optString("ma_bduss");
             String str = optString;
             if (!(str == null || l.isBlank(str))) {
-                h.aYh.d(optInt, optJSONObject);
+                com.baidu.swan.apps.c.a.h.bcr.d(optInt, optJSONObject);
                 com.baidu.swan.apps.c.a.a.ae(context, optString);
-                com.baidu.swan.apps.c.a.e.aYc.bK(true);
-                com.baidu.swan.apps.a.a GU3 = com.baidu.swan.apps.c.a.e.aYc.GU();
-                if (GU3 != null) {
-                    GU3.onResult(0);
+                com.baidu.swan.apps.c.a.e.bcm.bS(true);
+                com.baidu.swan.apps.a.a Jj3 = com.baidu.swan.apps.c.a.e.bcm.Jj();
+                if (Jj3 != null) {
+                    Jj3.onResult(0);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 z = true;
             } else {
-                com.baidu.swan.apps.a.a GU4 = com.baidu.swan.apps.c.a.e.aYc.GU();
-                if (GU4 != null) {
-                    GU4.onResult(-1);
+                com.baidu.swan.apps.a.a Jj4 = com.baidu.swan.apps.c.a.e.bcm.Jj();
+                if (Jj4 != null) {
+                    Jj4.onResult(-1);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "maBduss is null");
                 z = false;
@@ -71,17 +72,18 @@ public final class a extends ab {
         }
     }
 
+    @h
     /* renamed from: com.baidu.swan.apps.c.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    static final class RunnableC0218a implements Runnable {
-        public static final RunnableC0218a aYi = new RunnableC0218a();
+    /* loaded from: classes11.dex */
+    static final class RunnableC0228a implements Runnable {
+        public static final RunnableC0228a bcs = new RunnableC0228a();
 
-        RunnableC0218a() {
+        RunnableC0228a() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            d.Mn();
+            d.OB();
         }
     }
 }

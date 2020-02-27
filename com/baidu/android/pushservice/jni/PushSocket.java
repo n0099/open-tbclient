@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.jni;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.message.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushSocket {
     public static boolean a;
     private static byte[] b = null;

@@ -1,4 +1,21 @@
 package com.baidu.live.liveroom.d;
-/* loaded from: classes2.dex */
-public abstract class d implements c {
+
+import android.view.View;
+/* loaded from: classes3.dex */
+public interface d {
+    void enterBackground();
+
+    void enterForeground();
+
+    String getTitle();
+
+    void onChangeSkinType(int i);
+
+    void onDestroy();
+
+    View we();
+
+    String wf();
+
+    short wg();
 }

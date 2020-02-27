@@ -3,11 +3,11 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class o {
-    private static PackageManager Qt;
-    private static PackageInfo Qu;
-    private static String Qv;
+    private static PackageManager RZ;
+    private static PackageInfo Sa;
+    private static String Sb;
     private static Context mContext;
 
     public static String F() {
@@ -15,32 +15,32 @@ public final class o {
     }
 
     public static String G() {
-        if (Qv == null) {
-            if (Qu == null) {
+        if (Sb == null) {
+            if (Sa == null) {
                 return "N/A";
             }
-            Qv = Qu.applicationInfo.loadLabel(Qt).toString();
+            Sb = Sa.applicationInfo.loadLabel(RZ).toString();
         }
-        return Qv;
+        return Sb;
     }
 
     public static String H() {
-        return Qu == null ? "N/A" : Qu.versionName;
+        return Sa == null ? "N/A" : Sa.versionName;
     }
 
     public static int I() {
-        if (Qu == null) {
+        if (Sa == null) {
             return 0;
         }
-        return Qu.versionCode;
+        return Sa.versionCode;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            Qt = context.getPackageManager();
+            RZ = context.getPackageManager();
             try {
-                Qu = Qt.getPackageInfo(mContext.getPackageName(), 0);
+                Sa = RZ.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
             }

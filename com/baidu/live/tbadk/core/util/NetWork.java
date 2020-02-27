@@ -13,7 +13,6 @@ import com.baidu.live.adp.lib.network.http.interfaces.NetResponse;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.AccountData;
@@ -23,6 +22,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.NetWorkState;
 import com.baidu.live.tbadk.core.util.httpnet.HttpResponse;
+import com.baidu.live.u.a;
 import com.baidu.sofire.ac.FH;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.http.Headers;
@@ -35,7 +35,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetWork {
     public static final String BDUSS = "BDUSS";
     public static final String CLIENT_ID = "_client_id";
@@ -65,7 +65,7 @@ public class NetWork {
     private NetWorkState.StatisticsData mStatisticsData = null;
     private int mErrorNums = 0;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface DownloadResultCallback {
         void onFail(int i);
 
@@ -73,7 +73,7 @@ public class NetWork {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum SORT {
         ASCEND,
         DESCEND,
@@ -399,7 +399,7 @@ public class NetWork {
         return httpResponse;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private static class ParamsComparator implements Comparator<Map.Entry<String, Object>> {
         private SORT mSort;
 

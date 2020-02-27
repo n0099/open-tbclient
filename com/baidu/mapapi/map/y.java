@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class y implements View.OnClickListener {
     final /* synthetic */ WearMapView a;
 

@@ -1,5 +1,6 @@
 package org.conscrypt;
 
+import com.baidu.android.common.security.RSAUtil;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
@@ -12,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class CryptoUpcalls {
     private static final Logger logger = Logger.getLogger(CryptoUpcalls.class.getName());
 
@@ -37,7 +38,7 @@ final class CryptoUpcalls {
         String str;
         Signature signature;
         String algorithm = privateKey.getAlgorithm();
-        if ("RSA".equals(algorithm)) {
+        if (RSAUtil.ALGORITHM_RSA.equals(algorithm)) {
             str = "NONEwithRSA";
         } else if ("EC".equals(algorithm)) {
             str = "NONEwithECDSA";
@@ -91,7 +92,7 @@ final class CryptoUpcalls {
         String str;
         Cipher cipher;
         String algorithm = privateKey.getAlgorithm();
-        if (!"RSA".equals(algorithm)) {
+        if (!RSAUtil.ALGORITHM_RSA.equals(algorithm)) {
             logger.warning("Unexpected key type: " + algorithm);
             return null;
         }

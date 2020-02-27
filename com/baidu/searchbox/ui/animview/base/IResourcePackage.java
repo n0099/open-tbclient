@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IResourcePackage {
     Drawable getDrawable(String str, Object... objArr);
 
@@ -25,7 +25,7 @@ public interface IResourcePackage {
 
     void releaseResource();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Utils {
         public static LottieResource prepareLottieResource(Context context, File file, String str) {
             if (file == null) {
@@ -89,7 +89,7 @@ public interface IResourcePackage {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class LottieResource {
         public c mImageAssetDelegate;
         public e mLottieComposition;
@@ -139,7 +139,7 @@ public interface IResourcePackage {
                         Throwable th3;
                         Bitmap bitmap = null;
                         try {
-                            fileInputStream3 = new FileInputStream(new File(file.getParent() + "/" + hVar.bw() + hVar.getFileName()));
+                            fileInputStream3 = new FileInputStream(new File(file.getParent() + "/" + hVar.bx() + hVar.getFileName()));
                             try {
                                 try {
                                     bitmap = BitmapFactory.decodeStream(fileInputStream3);

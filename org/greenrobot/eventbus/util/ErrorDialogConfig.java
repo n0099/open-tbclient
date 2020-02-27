@@ -3,7 +3,7 @@ package org.greenrobot.eventbus.util;
 import android.content.res.Resources;
 import android.util.Log;
 import org.greenrobot.eventbus.EventBus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ErrorDialogConfig {
     int defaultDialogIconId;
     final int defaultErrorMsgId;

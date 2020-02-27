@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework;
 
 import com.baidu.down.utils.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface MessageConfig {
     public static final int BASE_CMD_START = 1000;
     public static final int BASE_COMMON_ERROR = -1000;

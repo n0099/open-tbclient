@@ -2,57 +2,57 @@ package com.baidu.tieba.VideoCache;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private List<d> dSm = new ArrayList();
-    private long dSn = 0;
+    private List<d> dWr = new ArrayList();
+    private long dWs = 0;
 
-    public List<d> aUD() {
-        return this.dSm;
+    public List<d> aWT() {
+        return this.dWr;
     }
 
-    public long aUE() {
-        return this.dSn;
+    public long aWU() {
+        return this.dWs;
     }
 
     public void a(d dVar) {
-        if (this.dSm != null) {
-            this.dSm.add(dVar);
+        if (this.dWr != null) {
+            this.dWr.add(dVar);
             if (dVar != null) {
-                this.dSn += dVar.getCurrentSize();
+                this.dWs += dVar.getCurrentSize();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.dSm != null) {
-            this.dSm.remove(dVar);
+        if (this.dWr != null) {
+            this.dWr.remove(dVar);
             if (dVar != null) {
-                this.dSn -= dVar.getCurrentSize();
+                this.dWs -= dVar.getCurrentSize();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.dSm != null) {
-            d dVar = this.dSm.get(i);
+        if (this.dWr != null) {
+            d dVar = this.dWr.get(i);
             if (dVar != null) {
-                this.dSn -= dVar.getCurrentSize();
+                this.dWs -= dVar.getCurrentSize();
             }
-            this.dSm.remove(i);
+            this.dWr.remove(i);
         }
     }
 
-    public int aUF() {
-        if (this.dSm != null) {
-            return this.dSm.size();
+    public int aWV() {
+        if (this.dWr != null) {
+            return this.dWr.size();
         }
         return 0;
     }
 
-    public d nG(int i) {
-        if (this.dSm != null) {
-            return this.dSm.get(i);
+    public d nX(int i) {
+        if (this.dWr != null) {
+            return this.dWr.get(i);
         }
         return null;
     }

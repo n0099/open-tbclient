@@ -8,25 +8,25 @@ import com.baidu.swan.games.bdtls.model.Bdtls;
 import com.baidu.swan.games.bdtls.model.h;
 import com.baidu.swan.games.bdtls.model.j;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private static volatile e cgI = new e();
-    private j cgF = new j();
-    private volatile boolean cgH = false;
-    private ConcurrentLinkedQueue<com.baidu.swan.games.bdtls.model.f> cgG = new ConcurrentLinkedQueue<>();
+    private static volatile e ckM = new e();
+    private j ckJ = new j();
+    private volatile boolean ckL = false;
+    private ConcurrentLinkedQueue<com.baidu.swan.games.bdtls.model.f> ckK = new ConcurrentLinkedQueue<>();
 
     private e() {
     }
 
-    public static e ajt() {
-        return cgI;
+    public static e alH() {
+        return ckM;
     }
 
-    public j aju() {
-        if (this.cgF == null) {
-            this.cgF = new j();
+    public j alI() {
+        if (this.ckJ == null) {
+            this.ckJ = new j();
         }
-        return this.cgF;
+        return this.ckJ;
     }
 
     public void b(final String str, final com.baidu.swan.games.bdtls.b.b bVar) {
@@ -40,13 +40,13 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str, com.baidu.swan.games.bdtls.b.b bVar) {
-        if (c.ajr().isEnable() && this.cgF != null && this.cgF.akw() && this.cgF.akt() != -1) {
-            if (!this.cgF.akv()) {
-                if (this.cgG == null) {
-                    this.cgG = new ConcurrentLinkedQueue<>();
+        if (c.alF().isEnable() && this.ckJ != null && this.ckJ.amK() && this.ckJ.amH() != -1) {
+            if (!this.ckJ.amJ()) {
+                if (this.ckK == null) {
+                    this.ckK = new ConcurrentLinkedQueue<>();
                 }
-                this.cgG.offer(new com.baidu.swan.games.bdtls.model.f(str, bVar));
-                ajv();
+                this.ckK.offer(new com.baidu.swan.games.bdtls.model.f(str, bVar));
+                alJ();
                 return;
             }
             d(str, bVar);
@@ -55,74 +55,74 @@ public class e {
         e(str, bVar);
     }
 
-    public void ajv() {
+    public void alJ() {
         if (a.DEBUG) {
             Log.d("BDTLS", "doHandShake");
         }
-        if (this.cgH) {
+        if (this.ckL) {
             if (a.DEBUG) {
                 Log.d("BDTLS", "doHandShake isHandshakeRunning");
                 return;
             }
             return;
         }
-        this.cgH = true;
-        byte[] a = d.ajs().a(this.cgF);
+        this.ckL = true;
+        byte[] a = d.alG().a(this.ckJ);
         if (a == null || a.length <= 0) {
-            this.cgH = false;
-            hq(-1);
+            this.ckL = false;
+            hH(-1);
             return;
         }
-        if (this.cgF != null) {
-            this.cgF.aku();
+        if (this.ckJ != null) {
+            this.ckJ.amI();
         }
         new com.baidu.swan.games.bdtls.b.c().a(a, new c.a() { // from class: com.baidu.swan.games.bdtls.e.2
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [225=4] */
             @Override // com.baidu.swan.games.bdtls.b.c.a
             public void b(boolean z, byte[] bArr) {
-                h G;
+                h L;
                 try {
                     if (a.DEBUG) {
                         Log.d("BDTLS", "doHandShake response");
                     }
-                    if (z && bArr != null && (G = com.baidu.swan.games.bdtls.a.b.G(bArr)) != null) {
-                        byte akl = G.akl();
-                        byte[] akp = G.akp();
-                        if (akp != null) {
+                    if (z && bArr != null && (L = com.baidu.swan.games.bdtls.a.b.L(bArr)) != null) {
+                        byte amz = L.amz();
+                        byte[] amD = L.amD();
+                        if (amD != null) {
                             if (a.DEBUG) {
-                                Log.d("BDTLS", "doHandShake response schemeType =" + ((int) akl));
+                                Log.d("BDTLS", "doHandShake response schemeType =" + ((int) amz));
                             }
-                            switch (akl) {
+                            switch (amz) {
                                 case 21:
                                     if (a.DEBUG) {
                                         Log.d("BDTLS", "doHandShake alert");
                                     }
-                                    e.this.cgF.hw(-1);
-                                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(akp);
+                                    e.this.ckJ.hN(-1);
+                                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(amD);
                                     if (parseFrom != null) {
                                         if (a.DEBUG) {
                                             Log.d("BDTLS", "bdtls ubc handshake alert");
                                         }
-                                        f.a(e.this.cgF, parseFrom);
+                                        f.a(e.this.ckJ, parseFrom);
                                         break;
                                     }
                                     break;
                                 case 22:
-                                    if (com.baidu.swan.games.bdtls.a.a.b(e.this.cgF, akp) == null) {
-                                        e.this.cgF.hw(-1);
+                                    if (com.baidu.swan.games.bdtls.a.a.b(e.this.ckJ, amD) == null) {
+                                        e.this.ckJ.hN(-1);
                                         break;
                                     } else {
                                         if (a.DEBUG) {
                                             Log.d("BDTLS", "doHandShake serverHello");
                                         }
-                                        e.this.cgF.hw(1);
-                                        f.oe("serverHello");
+                                        e.this.ckJ.hN(1);
+                                        f.ov("serverHello");
                                         while (true) {
-                                            com.baidu.swan.games.bdtls.model.f fVar = (com.baidu.swan.games.bdtls.model.f) e.this.cgG.poll();
+                                            com.baidu.swan.games.bdtls.model.f fVar = (com.baidu.swan.games.bdtls.model.f) e.this.ckK.poll();
                                             if (fVar == null) {
                                                 return;
                                             }
-                                            e.this.d(fVar.akh(), fVar.aki());
+                                            e.this.d(fVar.amv(), fVar.amw());
                                         }
                                     }
                             }
@@ -134,9 +134,9 @@ public class e {
                         Log.d("BDTLS", "exception=" + e.getMessage());
                     }
                 } finally {
-                    e.this.cgH = false;
+                    e.this.ckL = false;
                 }
-                e.this.hq(-1);
+                e.this.hH(-1);
             }
         });
     }
@@ -144,13 +144,13 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(String str, com.baidu.swan.games.bdtls.b.b bVar) {
         if (bVar != null && str != null) {
-            byte[] a = d.ajs().a(this.cgF, str);
+            byte[] a = d.alG().a(this.ckJ, str);
             if (a != null) {
                 if (a.DEBUG) {
                     Log.d("BDTLS", "doBdtlsApplicationDataRequest");
                 }
-                bVar.et(true);
-                bVar.H(a);
+                bVar.eA(true);
+                bVar.M(a);
                 return;
             }
             e(str, bVar);
@@ -164,8 +164,8 @@ public class e {
             if (a.DEBUG) {
                 Log.d("BDTLS", "doNormalApplicationDataRequest");
             }
-            bVar.et(false);
-            bVar.H(str.getBytes());
+            bVar.eA(false);
+            bVar.M(str.getBytes());
             return;
         }
         a(-1, bVar);
@@ -173,20 +173,20 @@ public class e {
 
     private void a(int i, com.baidu.swan.games.bdtls.b.b bVar) {
         if (bVar != null) {
-            bVar.hx(i);
+            bVar.hO(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hq(int i) {
+    public void hH(int i) {
         if (a.DEBUG) {
             Log.d("BDTLS", "onHandshakeError");
         }
-        this.cgF.hw(-1);
+        this.ckJ.hN(-1);
         while (true) {
-            com.baidu.swan.games.bdtls.model.f poll = this.cgG.poll();
+            com.baidu.swan.games.bdtls.model.f poll = this.ckK.poll();
             if (poll != null) {
-                e(poll.akh(), poll.aki());
+                e(poll.amv(), poll.amw());
             } else {
                 return;
             }

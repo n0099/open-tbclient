@@ -24,7 +24,7 @@ import com.baidu.swan.apps.res.widget.b.d;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 final class a {
     private static Toast mSystemToast;
     private static WeakReference<b> mToastRef;
@@ -280,7 +280,7 @@ final class a {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().vi(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().vm(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -334,7 +334,7 @@ final class a {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:

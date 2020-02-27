@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.meida;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i {
     public final String msg;
     public final int result;

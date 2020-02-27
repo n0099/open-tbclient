@@ -6,20 +6,20 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FixedZone extends Zone {
-    public static final Zone nmm = new FixedZone(new String[]{"upload.qiniup.com", "upload-jjh.qiniup.com", "upload-xs.qiniup.com", "up.qiniup.com", "up-jjh.qiniup.com", "up-xs.qiniup.com", "upload.qbox.me", "up.qbox.me"});
-    public static final Zone nmn = new FixedZone(new String[]{"upload-z1.qiniup.com", "up-z1.qiniup.com", "upload-z1.qbox.me", "up-z1.qbox.me"});
-    public static final Zone nmo = new FixedZone(new String[]{"upload-z2.qiniup.com", "upload-dg.qiniup.com", "upload-fs.qiniup.com", "up-z2.qiniup.com", "up-dg.qiniup.com", "up-fs.qiniup.com", "upload-z2.qbox.me", "up-z2.qbox.me"});
-    public static final Zone nmp = new FixedZone(new String[]{"upload-na0.qiniup.com", "up-na0.qiniup.com", "upload-na0.qbox.me", "up-na0.qbox.me"});
-    public static final Zone nmq = new FixedZone(new String[]{"upload-as0.qiniup.com", "up-as0.qiniup.com", "upload-as0.qbox.me", "up-as0.qbox.me"});
-    private ZoneInfo nmr;
+    public static final Zone nmN = new FixedZone(new String[]{"upload.qiniup.com", "upload-jjh.qiniup.com", "upload-xs.qiniup.com", "up.qiniup.com", "up-jjh.qiniup.com", "up-xs.qiniup.com", "upload.qbox.me", "up.qbox.me"});
+    public static final Zone nmO = new FixedZone(new String[]{"upload-z1.qiniup.com", "up-z1.qiniup.com", "upload-z1.qbox.me", "up-z1.qbox.me"});
+    public static final Zone nmP = new FixedZone(new String[]{"upload-z2.qiniup.com", "upload-dg.qiniup.com", "upload-fs.qiniup.com", "up-z2.qiniup.com", "up-dg.qiniup.com", "up-fs.qiniup.com", "upload-z2.qbox.me", "up-z2.qbox.me"});
+    public static final Zone nmQ = new FixedZone(new String[]{"upload-na0.qiniup.com", "up-na0.qiniup.com", "upload-na0.qbox.me", "up-na0.qbox.me"});
+    public static final Zone nmR = new FixedZone(new String[]{"upload-as0.qiniup.com", "up-as0.qiniup.com", "upload-as0.qbox.me", "up-as0.qbox.me"});
+    private ZoneInfo nmS;
 
     public FixedZone(String[] strArr) {
-        this.nmr = T(strArr);
+        this.nmS = U(strArr);
     }
 
-    public static ZoneInfo T(String[] strArr) {
+    public static ZoneInfo U(String[] strArr) {
         ArrayList arrayList = new ArrayList();
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         for (String str : strArr) {
@@ -32,8 +32,8 @@ public final class FixedZone extends Zone {
     @Override // com.qiniu.android.common.Zone
     public synchronized String d(String str, boolean z, String str2) {
         String a;
-        a = a(this.nmr, z, str2);
-        for (Map.Entry<String, Long> entry : this.nmr.nmu.entrySet()) {
+        a = a(this.nmS, z, str2);
+        for (Map.Entry<String, Long> entry : this.nmS.nmV.entrySet()) {
             Log.d("Qiniu.FixedZone", entry.getKey() + ", " + entry.getValue());
         }
         return a;
@@ -45,9 +45,9 @@ public final class FixedZone extends Zone {
     }
 
     @Override // com.qiniu.android.common.Zone
-    public synchronized void QZ(String str) {
+    public synchronized void Rk(String str) {
         if (str != null) {
-            this.nmr.QZ(URI.create(str).getHost());
+            this.nmS.Rk(URI.create(str).getHost());
         }
     }
 }

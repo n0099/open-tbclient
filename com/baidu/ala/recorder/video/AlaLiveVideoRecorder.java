@@ -11,7 +11,7 @@ import com.baidu.ala.recorder.video.camera.AlaCameraRecorder;
 import com.baidu.ala.recorder.video.camera.ICameraStatusHandler;
 import com.baidu.ala.recorder.video.screen.AlaScreenRecorder;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
     private Context mContext;
     private RecorderHandler mHandler;
@@ -330,12 +330,6 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
         return ((AlaCameraRecorder) this.mRealRecorder).isPushMirror();
     }
 
-    public void setCameraLooper(Looper looper) {
-        if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
-            ((AlaCameraRecorder) this.mRealRecorder).setCameraLooper(looper);
-        }
-    }
-
     public void setPreviewFps(int i) {
         if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
             ((AlaCameraRecorder) this.mRealRecorder).setPreviewFps(i);
@@ -348,9 +342,15 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
         }
     }
 
-    public void onBeautyChanged(float f, HashMap<String, Object> hashMap) {
+    public void onBeautyParamsChanged(float f, HashMap<String, Object> hashMap) {
         if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
-            ((AlaCameraRecorder) this.mRealRecorder).onBeautyChanged(f, hashMap);
+            ((AlaCameraRecorder) this.mRealRecorder).onBeautyParamsChanged(f, hashMap);
+        }
+    }
+
+    public void onBeautyTypeChanged(VideoBeautyType videoBeautyType) {
+        if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
+            ((AlaCameraRecorder) this.mRealRecorder).onBeautyTypeChanged(videoBeautyType);
         }
     }
 }

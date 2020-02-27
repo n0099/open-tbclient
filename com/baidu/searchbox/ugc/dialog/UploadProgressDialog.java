@@ -16,7 +16,7 @@ import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.ugc.R;
 import com.baidu.searchbox.ugc.view.RoundProgressBar;
 import java.lang.ref.WeakReference;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UploadProgressDialog extends Dialog {
     private static final int INCREASE_PROGRESS_INTERVAL = 10;
     public static final int MAX_PROGRESS = 100;
@@ -27,7 +27,7 @@ public class UploadProgressDialog extends Dialog {
     private RoundProgressBar mProgressBar;
     private WeakReference<Activity> mWeakRefContext;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface CancalProgressListener {
         void cancel();
     }

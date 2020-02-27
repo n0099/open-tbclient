@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdStatsItem {
     public String childType;
     public long logID;

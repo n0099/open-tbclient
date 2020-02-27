@@ -13,7 +13,7 @@ import com.baidu.ala.recorder.video.hardware.TextureEncoder;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoEncoderCore {
     private static final int DEFAULT_FRAME_RATE = 15;
     private static final int DEFAULT_IFRAME_INTERVAL = 2;
@@ -38,7 +38,7 @@ public class VideoEncoderCore {
     private int mH264MetaSize = 0;
     private byte[] mH264MetaBuff = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OutputCallback {
         public static final int KEY_FRAME = 2;
         public static final int MC_ENCODER_CONFIGURE_ERR = 1;
@@ -56,7 +56,7 @@ public class VideoEncoderCore {
         void onFormatChanged(MediaFormat mediaFormat);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [151=7, 152=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [151=7, 152=6] */
     @TargetApi(19)
     public VideoEncoderCore(TextureEncoder.EncodeConfig encodeConfig, OutputCallback outputCallback) {
         try {

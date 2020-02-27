@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.b.b;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     @NonNull
     public String filePath;

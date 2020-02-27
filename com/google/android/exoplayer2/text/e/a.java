@@ -18,20 +18,20 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a extends com.google.android.exoplayer2.text.c {
-    private static final Pattern mAA = Pattern.compile("^([0-9][0-9]+):([0-9][0-9]):([0-9][0-9])(?:(\\.[0-9]+)|:([0-9][0-9])(?:\\.([0-9]+))?)?$");
-    private static final Pattern mAB = Pattern.compile("^([0-9]+(?:\\.[0-9]+)?)(h|m|s|ms|f|t)$");
-    private static final Pattern mAC = Pattern.compile("^(([0-9]*.)?[0-9]+)(px|em|%)$");
-    private static final Pattern mAD = Pattern.compile("^(\\d+\\.?\\d*?)% (\\d+\\.?\\d*?)%$");
-    private static final C0679a mAE = new C0679a(30.0f, 1, 1);
-    private final XmlPullParserFactory muo;
+    private static final Pattern mBh = Pattern.compile("^([0-9][0-9]+):([0-9][0-9]):([0-9][0-9])(?:(\\.[0-9]+)|:([0-9][0-9])(?:\\.([0-9]+))?)?$");
+    private static final Pattern mBi = Pattern.compile("^([0-9]+(?:\\.[0-9]+)?)(h|m|s|ms|f|t)$");
+    private static final Pattern mBj = Pattern.compile("^(([0-9]*.)?[0-9]+)(px|em|%)$");
+    private static final Pattern mBk = Pattern.compile("^(\\d+\\.?\\d*?)% (\\d+\\.?\\d*?)%$");
+    private static final C0687a mBl = new C0687a(30.0f, 1, 1);
+    private final XmlPullParserFactory muU;
 
     public a() {
         super("TtmlDecoder");
         try {
-            this.muo = XmlPullParserFactory.newInstance();
-            this.muo.setNamespaceAware(true);
+            this.muU = XmlPullParserFactory.newInstance();
+            this.muU.setNamespaceAware(true);
         } catch (XmlPullParserException e) {
             throw new RuntimeException("Couldn't create XmlPullParserFactory instance", e);
         }
@@ -42,11 +42,11 @@ public final class a extends com.google.android.exoplayer2.text.c {
     @Override // com.google.android.exoplayer2.text.c
     /* renamed from: f */
     public f b(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
-        C0679a c0679a;
+        C0687a c0687a;
         int i2;
         f fVar;
         try {
-            XmlPullParser newPullParser = this.muo.newPullParser();
+            XmlPullParser newPullParser = this.muU.newPullParser();
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = new HashMap();
             hashMap2.put("", new c(null));
@@ -55,64 +55,64 @@ public final class a extends com.google.android.exoplayer2.text.c {
             LinkedList linkedList = new LinkedList();
             int i3 = 0;
             int eventType = newPullParser.getEventType();
-            C0679a c0679a2 = mAE;
+            C0687a c0687a2 = mBl;
             for (int i4 = eventType; i4 != 1; i4 = newPullParser.getEventType()) {
                 b bVar = (b) linkedList.peekLast();
                 if (i3 == 0) {
                     String name = newPullParser.getName();
                     if (i4 == 2) {
                         if (PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP.equals(name)) {
-                            c0679a2 = t(newPullParser);
+                            c0687a2 = t(newPullParser);
                         }
-                        if (!PK(name)) {
+                        if (!PX(name)) {
                             Log.i("TtmlDecoder", "Ignoring unsupported tag: " + newPullParser.getName());
                             int i5 = i3 + 1;
                             fVar = fVar2;
-                            c0679a = c0679a2;
+                            c0687a = c0687a2;
                             i2 = i5;
                         } else if ("head".equals(name)) {
                             a(newPullParser, hashMap, hashMap2);
-                            c0679a = c0679a2;
+                            c0687a = c0687a2;
                             i2 = i3;
                             fVar = fVar2;
                         } else {
                             try {
-                                b a = a(newPullParser, bVar, hashMap2, c0679a2);
+                                b a = a(newPullParser, bVar, hashMap2, c0687a2);
                                 linkedList.addLast(a);
                                 if (bVar != null) {
                                     bVar.a(a);
                                 }
-                                c0679a = c0679a2;
+                                c0687a = c0687a2;
                                 i2 = i3;
                                 fVar = fVar2;
                             } catch (SubtitleDecoderException e) {
                                 Log.w("TtmlDecoder", "Suppressing parser error", e);
                                 int i6 = i3 + 1;
                                 fVar = fVar2;
-                                c0679a = c0679a2;
+                                c0687a = c0687a2;
                                 i2 = i6;
                             }
                         }
                     } else if (i4 == 4) {
-                        bVar.a(b.PL(newPullParser.getText()));
-                        c0679a = c0679a2;
+                        bVar.a(b.PY(newPullParser.getText()));
+                        c0687a = c0687a2;
                         i2 = i3;
                         fVar = fVar2;
                     } else if (i4 == 3) {
                         f fVar3 = newPullParser.getName().equals(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP) ? new f((b) linkedList.getLast(), hashMap, hashMap2) : fVar2;
                         linkedList.removeLast();
-                        C0679a c0679a3 = c0679a2;
+                        C0687a c0687a3 = c0687a2;
                         i2 = i3;
                         fVar = fVar3;
-                        c0679a = c0679a3;
+                        c0687a = c0687a3;
                     } else {
-                        c0679a = c0679a2;
+                        c0687a = c0687a2;
                         i2 = i3;
                         fVar = fVar2;
                     }
                     fVar2 = fVar;
                     i3 = i2;
-                    c0679a2 = c0679a;
+                    c0687a2 = c0687a;
                 } else if (i4 == 2) {
                     i3++;
                 } else if (i4 == 3) {
@@ -128,7 +128,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
         }
     }
 
-    private C0679a t(XmlPullParser xmlPullParser) throws SubtitleDecoderException {
+    private C0687a t(XmlPullParser xmlPullParser) throws SubtitleDecoderException {
         int i = 30;
         String attributeValue = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "frameRate");
         if (attributeValue != null) {
@@ -143,17 +143,17 @@ public final class a extends com.google.android.exoplayer2.text.c {
             }
             f = Integer.parseInt(split[0]) / Integer.parseInt(split[1]);
         }
-        int i2 = mAE.mAG;
+        int i2 = mBl.mBn;
         String attributeValue3 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "subFrameRate");
         if (attributeValue3 != null) {
             i2 = Integer.parseInt(attributeValue3);
         }
-        int i3 = mAE.mAH;
+        int i3 = mBl.mBo;
         String attributeValue4 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "tickRate");
         if (attributeValue4 != null) {
             i3 = Integer.parseInt(attributeValue4);
         }
-        return new C0679a(i * f, i2, i3);
+        return new C0687a(i * f, i2, i3);
     }
 
     private Map<String, e> a(XmlPullParser xmlPullParser, Map<String, e> map, Map<String, c> map2) throws IOException, XmlPullParserException {
@@ -164,7 +164,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
                 String i = w.i(xmlPullParser, "style");
                 e a = a(xmlPullParser, new e());
                 if (i != null) {
-                    for (String str : PJ(i)) {
+                    for (String str : PW(i)) {
                         a.b(map.get(str));
                     }
                 }
@@ -186,31 +186,31 @@ public final class a extends com.google.android.exoplayer2.text.c {
         }
         String i3 = w.i(xmlPullParser, "origin");
         if (i3 != null) {
-            Matcher matcher = mAD.matcher(i3);
+            Matcher matcher = mBk.matcher(i3);
             if (matcher.matches()) {
                 try {
                     float parseFloat = Float.parseFloat(matcher.group(1)) / 100.0f;
                     float parseFloat2 = Float.parseFloat(matcher.group(2)) / 100.0f;
                     String i4 = w.i(xmlPullParser, "extent");
                     if (i4 != null) {
-                        Matcher matcher2 = mAD.matcher(i4);
+                        Matcher matcher2 = mBk.matcher(i4);
                         if (matcher2.matches()) {
                             try {
                                 float parseFloat3 = Float.parseFloat(matcher2.group(1)) / 100.0f;
                                 float parseFloat4 = Float.parseFloat(matcher2.group(2)) / 100.0f;
                                 String i5 = w.i(xmlPullParser, "displayAlign");
                                 if (i5 != null) {
-                                    String Qo = v.Qo(i5);
+                                    String QB = v.QB(i5);
                                     char c = 65535;
-                                    switch (Qo.hashCode()) {
+                                    switch (QB.hashCode()) {
                                         case -1364013995:
-                                            if (Qo.equals("center")) {
+                                            if (QB.equals("center")) {
                                                 c = 0;
                                                 break;
                                             }
                                             break;
                                         case 92734940:
-                                            if (Qo.equals("after")) {
+                                            if (QB.equals("after")) {
                                                 c = 1;
                                                 break;
                                             }
@@ -251,7 +251,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
         return null;
     }
 
-    private String[] PJ(String str) {
+    private String[] PW(String str) {
         return str.split("\\s+");
     }
 
@@ -336,7 +336,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
             switch (c) {
                 case 0:
                     if ("style".equals(xmlPullParser.getName())) {
-                        eVar2 = a(eVar2).PO(attributeValue);
+                        eVar2 = a(eVar2).Qb(attributeValue);
                         break;
                     } else {
                         break;
@@ -344,7 +344,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
                 case 1:
                     eVar2 = a(eVar2);
                     try {
-                        eVar2.Lu(com.google.android.exoplayer2.util.d.PZ(attributeValue));
+                        eVar2.Lz(com.google.android.exoplayer2.util.d.Qm(attributeValue));
                         break;
                     } catch (IllegalArgumentException e) {
                         Log.w("TtmlDecoder", "Failed parsing background value: " + attributeValue);
@@ -353,14 +353,14 @@ public final class a extends com.google.android.exoplayer2.text.c {
                 case 2:
                     eVar2 = a(eVar2);
                     try {
-                        eVar2.Lt(com.google.android.exoplayer2.util.d.PZ(attributeValue));
+                        eVar2.Ly(com.google.android.exoplayer2.util.d.Qm(attributeValue));
                         break;
                     } catch (IllegalArgumentException e2) {
                         Log.w("TtmlDecoder", "Failed parsing color value: " + attributeValue);
                         break;
                     }
                 case 3:
-                    eVar2 = a(eVar2).PN(attributeValue);
+                    eVar2 = a(eVar2).Qa(attributeValue);
                     break;
                 case 4:
                     try {
@@ -372,44 +372,44 @@ public final class a extends com.google.android.exoplayer2.text.c {
                         break;
                     }
                 case 5:
-                    eVar2 = a(eVar2).vI("bold".equalsIgnoreCase(attributeValue));
+                    eVar2 = a(eVar2).vM("bold".equalsIgnoreCase(attributeValue));
                     break;
                 case 6:
-                    eVar2 = a(eVar2).vJ("italic".equalsIgnoreCase(attributeValue));
+                    eVar2 = a(eVar2).vN("italic".equalsIgnoreCase(attributeValue));
                     break;
                 case 7:
-                    String Qo = v.Qo(attributeValue);
-                    switch (Qo.hashCode()) {
+                    String QB = v.QB(attributeValue);
+                    switch (QB.hashCode()) {
                         case -1364013995:
-                            if (Qo.equals("center")) {
+                            if (QB.equals("center")) {
                                 c2 = 4;
                                 break;
                             }
                             c2 = 65535;
                             break;
                         case 100571:
-                            if (Qo.equals("end")) {
+                            if (QB.equals("end")) {
                                 c2 = 3;
                                 break;
                             }
                             c2 = 65535;
                             break;
                         case 3317767:
-                            if (Qo.equals("left")) {
+                            if (QB.equals("left")) {
                                 c2 = 0;
                                 break;
                             }
                             c2 = 65535;
                             break;
                         case 108511772:
-                            if (Qo.equals(HorizontalTranslateLayout.RIGHT)) {
+                            if (QB.equals(HorizontalTranslateLayout.DIRECTION_RIGHT)) {
                                 c2 = 2;
                                 break;
                             }
                             c2 = 65535;
                             break;
                         case 109757538:
-                            if (Qo.equals("start")) {
+                            if (QB.equals("start")) {
                                 c2 = 1;
                                 break;
                             }
@@ -437,31 +437,31 @@ public final class a extends com.google.android.exoplayer2.text.c {
                             continue;
                     }
                 case '\b':
-                    String Qo2 = v.Qo(attributeValue);
-                    switch (Qo2.hashCode()) {
+                    String QB2 = v.QB(attributeValue);
+                    switch (QB2.hashCode()) {
                         case -1461280213:
-                            if (Qo2.equals("nounderline")) {
+                            if (QB2.equals("nounderline")) {
                                 z = true;
                                 break;
                             }
                             z = true;
                             break;
                         case -1026963764:
-                            if (Qo2.equals("underline")) {
+                            if (QB2.equals("underline")) {
                                 z = true;
                                 break;
                             }
                             z = true;
                             break;
                         case 913457136:
-                            if (Qo2.equals("nolinethrough")) {
+                            if (QB2.equals("nolinethrough")) {
                                 z = true;
                                 break;
                             }
                             z = true;
                             break;
                         case 1679736913:
-                            if (Qo2.equals("linethrough")) {
+                            if (QB2.equals("linethrough")) {
                                 z = false;
                                 break;
                             }
@@ -473,16 +473,16 @@ public final class a extends com.google.android.exoplayer2.text.c {
                     }
                     switch (z) {
                         case false:
-                            eVar2 = a(eVar2).vG(true);
+                            eVar2 = a(eVar2).vK(true);
                             continue;
                         case true:
-                            eVar2 = a(eVar2).vG(false);
+                            eVar2 = a(eVar2).vK(false);
                             continue;
                         case true:
-                            eVar2 = a(eVar2).vH(true);
+                            eVar2 = a(eVar2).vL(true);
                             continue;
                         case true:
-                            eVar2 = a(eVar2).vH(false);
+                            eVar2 = a(eVar2).vL(false);
                             continue;
                     }
             }
@@ -498,7 +498,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private b a(XmlPullParser xmlPullParser, b bVar, Map<String, c> map, C0679a c0679a) throws SubtitleDecoderException {
+    private b a(XmlPullParser xmlPullParser, b bVar, Map<String, c> map, C0687a c0687a) throws SubtitleDecoderException {
         long j;
         long j2;
         long j3;
@@ -550,7 +550,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
             }
             switch (c) {
                 case 0:
-                    long a2 = a(attributeValue, c0679a);
+                    long a2 = a(attributeValue, c0687a);
                     j5 = j6;
                     j3 = j8;
                     j4 = a2;
@@ -560,7 +560,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
                     j7 = j4;
                     j8 = j3;
                 case 1:
-                    j3 = a(attributeValue, c0679a);
+                    j3 = a(attributeValue, c0687a);
                     j4 = j7;
                     j5 = j6;
                     continue;
@@ -571,7 +571,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
                 case 2:
                     long j9 = j8;
                     j4 = j7;
-                    j5 = a(attributeValue, c0679a);
+                    j5 = a(attributeValue, c0687a);
                     j3 = j9;
                     continue;
                     i++;
@@ -579,9 +579,9 @@ public final class a extends com.google.android.exoplayer2.text.c {
                     j7 = j4;
                     j8 = j3;
                 case 3:
-                    String[] PJ = PJ(attributeValue);
-                    if (PJ.length > 0) {
-                        strArr = PJ;
+                    String[] PW = PW(attributeValue);
+                    if (PW.length > 0) {
+                        strArr = PW;
                         j3 = j8;
                         j4 = j7;
                         j5 = j6;
@@ -614,19 +614,19 @@ public final class a extends com.google.android.exoplayer2.text.c {
             j7 = j4;
             j8 = j3;
         }
-        if (bVar != null && bVar.msC != -9223372036854775807L) {
+        if (bVar != null && bVar.mti != -9223372036854775807L) {
             if (j7 != -9223372036854775807L) {
-                j7 += bVar.msC;
+                j7 += bVar.mti;
             }
             if (j8 != -9223372036854775807L) {
-                long j10 = j8 + bVar.msC;
+                long j10 = j8 + bVar.mti;
                 j = j7;
                 j2 = j10;
                 if (j2 == -9223372036854775807L) {
                     if (j6 != -9223372036854775807L) {
                         j2 = j + j6;
-                    } else if (bVar != null && bVar.msD != -9223372036854775807L) {
-                        j2 = bVar.msD;
+                    } else if (bVar != null && bVar.mtj != -9223372036854775807L) {
+                        j2 = bVar.mtj;
                     }
                 }
                 return b.a(xmlPullParser.getName(), j, j2, a, strArr, str);
@@ -640,7 +640,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
         return b.a(xmlPullParser.getName(), j, j2, a, strArr, str);
     }
 
-    private static boolean PK(String str) {
+    private static boolean PX(String str) {
         return str.equals(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP) || str.equals("head") || str.equals("body") || str.equals("div") || str.equals("p") || str.equals("span") || str.equals("br") || str.equals("style") || str.equals("styling") || str.equals("layout") || str.equals("region") || str.equals("metadata") || str.equals("smpte:image") || str.equals("smpte:data") || str.equals("smpte:information");
     }
 
@@ -648,9 +648,9 @@ public final class a extends com.google.android.exoplayer2.text.c {
         Matcher matcher;
         String[] split = str.split("\\s+");
         if (split.length == 1) {
-            matcher = mAC.matcher(str);
+            matcher = mBj.matcher(str);
         } else if (split.length == 2) {
-            matcher = mAC.matcher(split[1]);
+            matcher = mBj.matcher(split[1]);
             Log.w("TtmlDecoder", "Multiple values in fontSize attribute. Picking the second value for vertical font size and ignoring the first.");
         } else {
             throw new SubtitleDecoderException("Invalid number of entries for fontSize: " + split.length + ".");
@@ -680,33 +680,33 @@ public final class a extends com.google.android.exoplayer2.text.c {
             }
             switch (c) {
                 case 0:
-                    eVar.Lv(1);
+                    eVar.LA(1);
                     break;
                 case 1:
-                    eVar.Lv(2);
+                    eVar.LA(2);
                     break;
                 case 2:
-                    eVar.Lv(3);
+                    eVar.LA(3);
                     break;
                 default:
                     throw new SubtitleDecoderException("Invalid unit for fontSize: '" + group + "'.");
             }
-            eVar.bz(Float.valueOf(matcher.group(1)).floatValue());
+            eVar.by(Float.valueOf(matcher.group(1)).floatValue());
             return;
         }
         throw new SubtitleDecoderException("Invalid expression for fontSize: '" + str + "'.");
     }
 
-    private static long a(String str, C0679a c0679a) throws SubtitleDecoderException {
+    private static long a(String str, C0687a c0687a) throws SubtitleDecoderException {
         String group;
         String group2;
-        Matcher matcher = mAA.matcher(str);
+        Matcher matcher = mBh.matcher(str);
         if (matcher.matches()) {
             double parseLong = Long.parseLong(matcher.group(3)) + (Long.parseLong(matcher.group(1)) * 3600) + (Long.parseLong(matcher.group(2)) * 60);
             String group3 = matcher.group(4);
-            return (long) (((matcher.group(5) != null ? ((float) Long.parseLong(group)) / c0679a.mAF : 0.0d) + parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c0679a.mAG) / c0679a.mAF : 0.0d)) * 1000000.0d);
+            return (long) (((matcher.group(5) != null ? ((float) Long.parseLong(group)) / c0687a.mBm : 0.0d) + parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c0687a.mBn) / c0687a.mBm : 0.0d)) * 1000000.0d);
         }
-        Matcher matcher2 = mAB.matcher(str);
+        Matcher matcher2 = mBi.matcher(str);
         if (matcher2.matches()) {
             double parseDouble = Double.parseDouble(matcher2.group(1));
             String group4 = matcher2.group(2);
@@ -760,10 +760,10 @@ public final class a extends com.google.android.exoplayer2.text.c {
                     parseDouble /= 1000.0d;
                     break;
                 case 4:
-                    parseDouble /= c0679a.mAF;
+                    parseDouble /= c0687a.mBm;
                     break;
                 case 5:
-                    parseDouble /= c0679a.mAH;
+                    parseDouble /= c0687a.mBo;
                     break;
             }
             return (long) (parseDouble * 1000000.0d);
@@ -773,16 +773,16 @@ public final class a extends com.google.android.exoplayer2.text.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.android.exoplayer2.text.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0679a {
-        final float mAF;
-        final int mAG;
-        final int mAH;
+    /* loaded from: classes6.dex */
+    public static final class C0687a {
+        final float mBm;
+        final int mBn;
+        final int mBo;
 
-        C0679a(float f, int i, int i2) {
-            this.mAF = f;
-            this.mAG = i;
-            this.mAH = i2;
+        C0687a(float f, int i, int i2) {
+            this.mBm = f;
+            this.mBn = i;
+            this.mBo = i2;
         }
     }
 }

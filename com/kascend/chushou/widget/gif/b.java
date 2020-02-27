@@ -15,15 +15,15 @@ import pl.droidsonroids.gif.GifDrawable;
 import tv.chushou.basis.http.HttpConsts;
 import tv.chushou.basis.http.listener.DownloadListener;
 import tv.chushou.zues.widget.a.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b extends e {
-    private static final tv.chushou.zues.toolkit.b.a ndN = tv.chushou.zues.toolkit.b.a.nVN;
+    private static final tv.chushou.zues.toolkit.b.a neq = tv.chushou.zues.toolkit.b.a.nWC;
 
     private b(GifDrawable gifDrawable) {
         super(gifDrawable);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         private String a;
         @DrawableRes
@@ -34,25 +34,25 @@ public class b extends e {
         private int d;
         private WeakReference<TextView> e;
         private boolean f = false;
-        private Drawable.Callback nhW;
+        private Drawable.Callback niA;
 
-        public a QP(String str) {
+        public a Rc(String str) {
             f.a(str);
             this.a = str;
             return this;
         }
 
-        public a Na(@DrawableRes int i) {
+        public a Nd(@DrawableRes int i) {
             this.b = i;
             return this;
         }
 
-        public a Nb(@Px int i) {
+        public a Ne(@Px int i) {
             this.c = i;
             return this;
         }
 
-        public a Nc(@Px int i) {
+        public a Nf(@Px int i) {
             this.d = i;
             return this;
         }
@@ -62,25 +62,25 @@ public class b extends e {
             return this;
         }
 
-        public a wp(boolean z) {
+        public a wt(boolean z) {
             this.f = z;
             return this;
         }
 
         public a a(Drawable.Callback callback) {
-            this.nhW = callback;
+            this.niA = callback;
             return this;
         }
 
-        public ImageSpan dDt() {
+        public ImageSpan dEA() {
             Drawable drawable;
             f.a(this.a);
             f.a(this.d != 0, "should set height");
-            String SG = b.ndN.SG(this.a);
-            File c = com.kascend.chushou.d.c.mOu.c();
-            final File file = new File(c, SG);
+            String SR = b.neq.SR(this.a);
+            File c = com.kascend.chushou.d.c.mOW.c();
+            final File file = new File(c, SR);
             if (!file.exists() || file.isDirectory()) {
-                com.kascend.chushou.c.c.dAI().a(this.a, new File(c, SG + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
+                com.kascend.chushou.c.c.dBO().a(this.a, new File(c, SR + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
                     @Override // tv.chushou.basis.d.a.c.a
                     public void onStart() {
                     }
@@ -111,7 +111,7 @@ public class b extends e {
                                                 i = (gifDrawable.getIntrinsicWidth() * a.this.d) / gifDrawable.getIntrinsicHeight();
                                             }
                                             gifDrawable.setBounds(0, 0, i, a.this.d);
-                                            gifDrawable.setCallback(a.this.nhW);
+                                            gifDrawable.setCallback(a.this.niA);
                                             int spanStart = spannable.getSpanStart(cVar);
                                             int spanEnd = spannable.getSpanEnd(cVar);
                                             spannable.removeSpan(cVar);
@@ -158,7 +158,7 @@ public class b extends e {
             }
             drawable.setBounds(0, 0, i2, this.d);
             if (drawable instanceof GifDrawable) {
-                drawable.setCallback(this.nhW);
+                drawable.setCallback(this.niA);
                 return new b((GifDrawable) drawable);
             }
             return new e(drawable);

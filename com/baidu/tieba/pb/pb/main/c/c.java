@@ -11,38 +11,38 @@ import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
-    private OriginalThreadCardView fIC;
-    private int fqf;
-    private int iFj;
+    private OriginalThreadCardView fKZ;
+    private int fsI;
+    private int iGN;
 
     public c(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.fqf = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
-        this.iFj = i;
+        this.fsI = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
+        this.iGN = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.fIC == null) {
-            this.fIC = new OriginalThreadCardView(this.cRe.getPageActivity());
-            this.fIC.fJm = this.iFj;
-            this.fIC.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
+        if (this.fKZ == null) {
+            this.fKZ = new OriginalThreadCardView(this.cVg.getPageActivity());
+            this.fKZ.fLJ = this.iGN;
+            this.fKZ.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
                 @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                 public void a(OriginalThreadInfo originalThreadInfo) {
-                    if (c.this.iRy != null) {
-                        c.this.iRy.a(c.this.fIC, new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
+                    if (c.this.iST != null) {
+                        c.this.iST.a(c.this.fKZ, new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
                             @Override // com.baidu.tbadk.core.data.a
-                            public bj axQ() {
-                                if (c.this.iRz != null) {
-                                    return c.this.iRz.ayG();
+                            public bj aAe() {
+                                if (c.this.iSU != null) {
+                                    return c.this.iSU.aAU();
                                 }
                                 return null;
                             }
 
                             @Override // com.baidu.tbadk.core.data.a
-                            public al axS() {
+                            public al aAg() {
                                 return null;
                             }
 
@@ -55,20 +55,20 @@ public class c extends a {
                 }
             });
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = this.fqf;
-            layoutParams.leftMargin = this.fqf;
-            layoutParams.rightMargin = this.fqf;
-            this.fIC.setLayoutParams(layoutParams);
-            this.fIC.onChangeSkinType();
+            layoutParams.bottomMargin = this.fsI;
+            layoutParams.leftMargin = this.fsI;
+            layoutParams.rightMargin = this.fsI;
+            this.fKZ.setLayoutParams(layoutParams);
+            this.fKZ.onChangeSkinType();
         }
-        return this.fIC;
+        return this.fKZ;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
-    public void f(OriginalThreadInfo originalThreadInfo) {
-        this.iRz = originalThreadInfo;
-        if (this.fIC != null) {
-            this.fIC.b(this.iRz);
+    public void g(OriginalThreadInfo originalThreadInfo) {
+        this.iSU = originalThreadInfo;
+        if (this.fKZ != null) {
+            this.fKZ.b(this.iSU);
         }
     }
 
@@ -76,8 +76,8 @@ public class c extends a {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.fIC != null) {
-                this.fIC.onChangeSkinType();
+            if (this.fKZ != null) {
+                this.fKZ.onChangeSkinType();
             }
         }
     }

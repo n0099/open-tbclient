@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.network;
 import com.sina.weibo.sdk.network.base.RequestResult;
 import com.sina.weibo.sdk.network.exception.RequestException;
 import com.sina.weibo.sdk.network.target.Target;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IRequestService {
     <T> RequestCancelable asyncRequest(IRequestParam iRequestParam, Target<T> target);
 

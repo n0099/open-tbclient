@@ -1,16 +1,16 @@
 package com.facebook.common.e;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a {
-    private static volatile b lId = new C0644a();
+    private static volatile b lIK = new C0652a();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void loadLibrary(String str);
     }
 
     /* renamed from: com.facebook.common.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public static class C0644a implements b {
+    /* loaded from: classes13.dex */
+    public static class C0652a implements b {
         @Override // com.facebook.common.e.a.b
         public void loadLibrary(String str) {
             System.loadLibrary(str);
@@ -18,6 +18,6 @@ public class a {
     }
 
     public static void loadLibrary(String str) {
-        lId.loadLibrary(str);
+        lIK.loadLibrary(str);
     }
 }

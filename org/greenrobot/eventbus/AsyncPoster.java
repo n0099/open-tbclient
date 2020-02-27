@@ -1,5 +1,5 @@
 package org.greenrobot.eventbus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class AsyncPoster implements Runnable {
     private final EventBus eventBus;
     private final PendingPostQueue queue = new PendingPostQueue();

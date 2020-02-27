@@ -12,7 +12,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbListTextView extends TextView {
     private boolean checkSelection;
 
@@ -65,7 +65,7 @@ public class TbListTextView extends TextView {
 
     private void fixSpannedWithSpaces(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         FixingResult addSpacesAroundSpansUntilFixed = addSpacesAroundSpansUntilFixed(spannableStringBuilder, i, i2);
-        if (addSpacesAroundSpansUntilFixed.fixed) {
+        if (addSpacesAroundSpansUntilFixed.isFixed) {
             removeUnneededSpaces(i, i2, spannableStringBuilder, addSpacesAroundSpansUntilFixed);
         } else {
             fallbackToString(i, i2);
@@ -139,9 +139,9 @@ public class TbListTextView extends TextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FixingResult {
-        public final boolean fixed;
+        public final boolean isFixed;
         public final List<Object> spansWithSpacesAfter;
         public final List<Object> spansWithSpacesBefore;
 
@@ -154,7 +154,7 @@ public class TbListTextView extends TextView {
         }
 
         private FixingResult(boolean z, List<Object> list, List<Object> list2) {
-            this.fixed = z;
+            this.isFixed = z;
             this.spansWithSpacesBefore = list;
             this.spansWithSpacesAfter = list2;
         }

@@ -23,7 +23,7 @@ import android.widget.TextView;
 import com.baidu.searchbox.ui.view.BadgeFactory;
 import com.baidu.searchbox.ui.view.BadgeView;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class TabLayout extends HorizontalScrollView {
     private static final int INDICATOR_HEIGHT_DIPS = 2;
     private static final int TAB_ITEM_DISTANCE_DIPS = 1;
@@ -58,7 +58,7 @@ public class TabLayout extends HorizontalScrollView {
     private float mUnSelectedTextSize;
     private ViewPager mViewPager;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface TabSelectedListener {
         void onTabReselected(int i);
 
@@ -492,7 +492,7 @@ public class TabLayout extends HorizontalScrollView {
         this.mTabSelectedListenerList.clear();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class TabSelectedListenerAdapter implements TabSelectedListener {
         @Override // com.baidu.searchbox.ui.TabLayout.TabSelectedListener
         public void onTabSelected(int i, boolean z) {
@@ -508,7 +508,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class TabClickListener implements View.OnClickListener {
         private int clickPos;
 
@@ -522,7 +522,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     private class InternalViewPagerListener implements ViewPager.OnPageChangeListener {
         private boolean mIsUserDrag;
         private int mScrollState;

@@ -19,10 +19,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
+    private com.baidu.tbadk.browser.b mCommonJsBridge;
     private Context mContext;
     private b mDownloadListener;
     private boolean mIsLoaded;
@@ -133,7 +135,7 @@ public class BaseWebView extends WebView {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
-        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
+        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + am.aGt());
         com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         this.mWebChromeClient = new h();
@@ -168,7 +170,8 @@ public class BaseWebView extends WebView {
     }
 
     public void initCommonJsBridge(Context context) {
-        this.mJsBridge.a(new com.baidu.tbadk.browser.b(context));
+        this.mCommonJsBridge = new com.baidu.tbadk.browser.b(context, this);
+        this.mJsBridge.a(this.mCommonJsBridge);
     }
 
     @Override // android.webkit.WebView
@@ -332,6 +335,9 @@ public class BaseWebView extends WebView {
     @Override // android.webkit.WebView
     public void destroy() {
         super.destroy();
+        if (this.mCommonJsBridge != null) {
+            this.mCommonJsBridge.onDestroy();
+        }
         this.mContext = null;
         this.mWebViewClient = null;
         this.mWebChromeClient = null;
@@ -347,5 +353,11 @@ public class BaseWebView extends WebView {
 
     public boolean getIsLoaded() {
         return this.mIsLoaded;
+    }
+
+    public void onChangeSkinType() {
+        if (this.mCommonJsBridge != null) {
+            this.mCommonJsBridge.azl();
+        }
     }
 }

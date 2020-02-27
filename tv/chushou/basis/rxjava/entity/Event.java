@@ -1,7 +1,7 @@
 package tv.chushou.basis.rxjava.entity;
 
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 abstract class Event {
     public void throwRuntimeException(String str, InvocationTargetException invocationTargetException) {
         throwRuntimeException(str, invocationTargetException.getCause());

@@ -3,22 +3,22 @@ package com.baidu.tieba.ala.liveroom.share;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Build;
-import com.baidu.live.data.l;
+import com.baidu.live.data.m;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private Dialog fgX;
+    private Dialog fkd;
     private TbPageContext mContext;
 
     public b(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
     }
 
-    public void s(l lVar) {
-        if (lVar != null && this.mContext != null) {
+    public void x(m mVar) {
+        if (mVar != null && this.mContext != null) {
             dismiss();
-            this.fgX = new a(this.mContext.getPageActivity(), this.mContext, lVar, this);
-            this.fgX.show();
+            this.fkd = new a(this.mContext.getPageActivity(), this.mContext, mVar, this);
+            this.fkd.show();
         }
     }
 
@@ -27,23 +27,23 @@ public class b {
     }
 
     public void dismiss() {
-        if (boI()) {
-            xe();
-            this.fgX = null;
+        if (bqo()) {
+            sN();
+            this.fkd = null;
         }
     }
 
-    private void xe() {
-        if (this.fgX != null && this.fgX.isShowing()) {
+    private void sN() {
+        if (this.fkd != null && this.fkd.isShowing()) {
             try {
-                this.fgX.dismiss();
+                this.fkd.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private boolean boI() {
+    private boolean bqo() {
         if (this.mContext == null || this.mContext.getPageActivity() == null) {
             return false;
         }

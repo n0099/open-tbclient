@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import tv.chushou.zues.widget.kpswitch.a;
 import tv.chushou.zues.widget.kpswitch.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b {
-    private tv.chushou.zues.widget.kpswitch.a.b nYQ;
+    private tv.chushou.zues.widget.kpswitch.a.b nZE;
 
     public KPSwitchPanelRelativeLayout(Context context) {
         super(context);
@@ -25,62 +25,62 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
     }
 
     private void init(AttributeSet attributeSet) {
-        this.nYQ = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
+        this.nZE = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.nYQ.dx(i)) {
+        if (!this.nZE.dN(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int[] S = this.nYQ.S(i, i2);
+        int[] S = this.nZE.S(i, i2);
         super.onMeasure(S[0], S[1]);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dPy() {
-        return this.nYQ.dPy();
+    public boolean dQL() {
+        return this.nZE.dQL();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public boolean isVisible() {
-        return this.nYQ.isVisible();
+        return this.nZE.isVisible();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public void DQ() {
+    public void Gf() {
         super.setVisibility(0);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public void DR() {
-        this.nYQ.DR();
+    public void Gg() {
+        this.nZE.Gg();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.nYQ.setIgnoreRecommendHeight(z);
+        this.nZE.setIgnoreRecommendHeight(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void dv(int i) {
-        this.nYQ.Ou(i);
+    public void dL(int i) {
+        this.nZE.Ox(i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void wf(boolean z) {
-        this.nYQ.xe(z);
+    public void wj(boolean z) {
+        this.nZE.xh(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dPz() {
-        return this.nYQ.dPz();
+    public boolean dQM() {
+        return this.nZE.dQM();
     }
 
     public void setPanelEnabled(boolean z) {
-        this.nYQ.setPanelEnabled(z);
+        this.nZE.setPanelEnabled(z);
     }
 }

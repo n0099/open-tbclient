@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LightBrowserView extends FrameLayout {
     public static final int NORMAL_LOADING = 1;
     public static final int SHIMMER_LOADING = 2;

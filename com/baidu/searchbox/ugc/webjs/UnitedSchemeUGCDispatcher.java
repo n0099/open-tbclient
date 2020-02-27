@@ -51,7 +51,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UnitedSchemeUGCDispatcher extends UnitedSchemeBaseDispatcher {
     public static final String MODULE_UGC = "ugc";
     public static final int REQ_CODE_PUBLISH = 101;

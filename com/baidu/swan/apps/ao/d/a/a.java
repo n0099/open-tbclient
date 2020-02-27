@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/brightness");
@@ -93,7 +93,7 @@ public class a extends ab {
                     z = false;
                     break;
                 } else {
-                    com.baidu.swan.apps.ao.d.b.a.adx().b(activity, f);
+                    com.baidu.swan.apps.ao.d.b.a.afL().b(activity, f);
                     jSONObject = null;
                     z = true;
                     break;
@@ -102,7 +102,7 @@ public class a extends ab {
             case 1:
                 jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("value", com.baidu.swan.apps.ao.d.b.a.adx().R(activity));
+                    jSONObject.put("value", com.baidu.swan.apps.ao.d.b.a.afL().S(activity));
                     z = true;
                     break;
                 } catch (JSONException e2) {
@@ -117,7 +117,7 @@ public class a extends ab {
                     return false;
                 }
                 try {
-                    com.baidu.swan.apps.ao.d.b.a.adx().e(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                    com.baidu.swan.apps.ao.d.b.a.afL().e(activity, optParamsAsJo.getBoolean("keepScreenOn"));
                     jSONObject = null;
                     z = true;
                     break;

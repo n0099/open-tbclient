@@ -11,20 +11,20 @@ import io.reactivex.internal.util.AtomicThrowable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableCreate<T> extends io.reactivex.g<T> {
-    final i<T> nwc;
-    final BackpressureStrategy nwd;
+    final i<T> nwE;
+    final BackpressureStrategy nwF;
 
     public FlowableCreate(i<T> iVar, BackpressureStrategy backpressureStrategy) {
-        this.nwc = iVar;
-        this.nwd = backpressureStrategy;
+        this.nwE = iVar;
+        this.nwF = backpressureStrategy;
     }
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         BaseEmitter latestAsyncEmitter;
-        switch (this.nwd) {
+        switch (this.nwF) {
             case MISSING:
                 latestAsyncEmitter = new MissingEmitter(cVar);
                 break;
@@ -38,19 +38,19 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
                 latestAsyncEmitter = new LatestAsyncEmitter(cVar);
                 break;
             default:
-                latestAsyncEmitter = new BufferAsyncEmitter(cVar, dHT());
+                latestAsyncEmitter = new BufferAsyncEmitter(cVar, dJa());
                 break;
         }
         cVar.onSubscribe(latestAsyncEmitter);
         try {
-            this.nwc.subscribe(latestAsyncEmitter);
+            this.nwE.subscribe(latestAsyncEmitter);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.I(th);
+            io.reactivex.exceptions.a.H(th);
             latestAsyncEmitter.onError(th);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SerializedEmitter<T> extends AtomicInteger implements h<T> {
         private static final long serialVersionUID = 4883307006032401862L;
         volatile boolean done;
@@ -180,7 +180,7 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class BaseEmitter<T> extends AtomicLong implements h<T>, org.a.d {
         private static final long serialVersionUID = 7326289992464377023L;
         final org.a.c<? super T> actual;
@@ -280,7 +280,7 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class MissingEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 3776720187248809713L;
 
@@ -307,7 +307,7 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static abstract class NoOverflowBaseAsyncEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 4127754106204442833L;
 
@@ -332,7 +332,7 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class DropAsyncEmitter<T> extends NoOverflowBaseAsyncEmitter<T> {
         private static final long serialVersionUID = 8360058422307496563L;
 
@@ -345,7 +345,7 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ErrorAsyncEmitter<T> extends NoOverflowBaseAsyncEmitter<T> {
         private static final long serialVersionUID = 338953216916120960L;
 
@@ -359,7 +359,7 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class BufferAsyncEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 2427151001689639875L;
         volatile boolean done;
@@ -476,7 +476,7 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class LatestAsyncEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 4023437720691792495L;
         volatile boolean done;

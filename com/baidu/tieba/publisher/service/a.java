@@ -26,15 +26,15 @@ import com.baidu.tieba.publisher.a.d;
 import com.baidu.tieba.publisher.a.o;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class a implements BoxAccountManager {
-    private static boolean jAT = false;
+    private static boolean jBJ = false;
     private static String mUid = "";
     private static String mBduss = "";
     private static String mZid = "";
 
     public a() {
-        initData(com.baidu.tieba.publisher.b.a.czH());
+        initData(com.baidu.tieba.publisher.b.a.cBc());
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
@@ -45,21 +45,21 @@ public class a implements BoxAccountManager {
     public void login(Context context, LoginParams loginParams) {
     }
 
-    public void n(Context context, boolean z) {
+    public void m(Context context, boolean z) {
         if (TbadkCoreApplication.isLogin()) {
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
                 String bduss = currentAccountInfo.getBDUSS();
                 String id = currentAccountInfo.getID();
                 String gz = FH.gz(TbadkCoreApplication.getInst());
-                o.jAS.putBoolean("mloginState", true);
-                o.jAS.putString("mUid", id);
-                o.jAS.putString("mBduss", bduss);
-                o.jAS.putString("mZid", gz);
-                o.jAS.apply();
+                o.jBI.putBoolean("mloginState", true);
+                o.jBI.putString("mUid", id);
+                o.jBI.putString("mBduss", bduss);
+                o.jBI.putString("mZid", gz);
+                o.jBI.apply();
                 d.au(mBduss);
                 com.baidu.tieba.publisher.a.b.setZid(mZid);
-                jAT = true;
+                jBJ = true;
                 return;
             }
             logout(context);
@@ -78,7 +78,7 @@ public class a implements BoxAccountManager {
     public void initData(Context context) {
         e.a(BoxAccountManager.SERVICE_REFERENCE, new b());
         o.sp = context.getSharedPreferences("account", 0);
-        o.jAS = o.sp.edit();
+        o.jBI = o.sp.edit();
         mUid = o.sp.getString("mUid", "");
         mBduss = o.sp.getString("mBduss", "");
         mZid = o.sp.getString("mZid", "");
@@ -99,10 +99,10 @@ public class a implements BoxAccountManager {
     }
 
     public void logout(Context context) {
-        jAT = false;
-        o.jAS.putBoolean("mloginState", false);
-        o.jAS.apply();
-        d.czx();
+        jBJ = false;
+        o.jBI.putBoolean("mloginState", false);
+        o.jBI.apply();
+        d.cAS();
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
@@ -111,13 +111,13 @@ public class a implements BoxAccountManager {
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin() {
-        jAT = o.sp.getBoolean("mloginState", false);
-        return jAT;
+        jBJ = o.sp.getBoolean("mloginState", false);
+        return jBJ;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin(int i) {
-        return jAT;
+        return jBJ;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager

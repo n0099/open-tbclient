@@ -1,24 +1,24 @@
 package com.baidu.tieba.ala.liveroom.task;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public int fhq;
-    public String fhr;
-    public int fhs;
-    public int fht;
+    public int fkw;
+    public String fkx;
+    public int fky;
+    public int fkz;
     public String tips;
     public String title;
     public String url;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.fhq = jSONObject.optInt("istip");
+            this.fkw = jSONObject.optInt("istip");
             this.tips = jSONObject.optString("tips");
-            this.fhr = jSONObject.optString("righttips");
-            this.fhs = jSONObject.optInt("upperlimit");
+            this.fkx = jSONObject.optString("righttips");
+            this.fky = jSONObject.optInt("upperlimit");
             this.url = jSONObject.optString("url");
-            this.fht = jSONObject.optInt("isreward");
+            this.fkz = jSONObject.optInt("isreward");
             this.title = jSONObject.optString("title");
         }
     }

@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.core.g;
 
 import android.app.Activity;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void G(Activity activity);
+    void H(Activity activity);
 
-    com.baidu.swan.apps.core.container.a Hm();
+    com.baidu.swan.apps.core.container.a JB();
 
     void a(com.baidu.swan.apps.core.b bVar);
 

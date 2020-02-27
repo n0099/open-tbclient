@@ -6,22 +6,22 @@ import android.util.Log;
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, c> bLr = null;
+    private Map<String, c> bPw = null;
 
     public c a(String str, String str2, @NonNull c cVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return cVar;
         }
-        if (this.bLr == null) {
-            this.bLr = new TreeMap();
+        if (this.bPw == null) {
+            this.bPw = new TreeMap();
         }
-        c cVar2 = this.bLr.get(str2);
+        c cVar2 = this.bPw.get(str2);
         if (cVar2 == null) {
             c b = b(str, str2, cVar);
-            this.bLr.put(str2, b);
+            this.bPw.put(str2, b);
             return b;
         }
         return cVar2;

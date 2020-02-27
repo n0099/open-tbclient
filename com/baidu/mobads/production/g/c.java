@@ -8,7 +8,7 @@ import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import java.util.Observable;
 import java.util.Observer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements Observer {
     final /* synthetic */ a a;
 

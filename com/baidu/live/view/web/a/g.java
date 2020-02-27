@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.extrajump.ExtraJumpManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends com.baidu.live.view.web.a {
     private Activity context;
     private boolean isHost;
@@ -29,7 +29,7 @@ public class g extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void dV(String str) {
+    public void ek(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);

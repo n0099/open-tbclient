@@ -18,7 +18,7 @@ import com.baidu.fsg.base.widget.SafeScrollView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BaseActivity extends Activity implements NoProguard {
     public static final int DIALOG_LOADING = 242;
     public static final int DIALOG_PROMPT = 241;

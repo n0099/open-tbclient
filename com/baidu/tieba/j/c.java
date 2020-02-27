@@ -1,20 +1,20 @@
 package com.baidu.tieba.j;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidubce.AbstractBceClient;
-import java.io.File;
+import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-public interface c {
+public class c extends j {
+    public c() {
+        super(0);
+    }
 
-    /* loaded from: classes.dex */
-    public interface a {
-        public static final String inJ = File.separator;
-        public static final String dSV = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-        public static final String inK = dSV + inJ + ".tieba_video_monitor";
-        public static final String inL = inK + inJ + AbstractBceClient.URL_PREFIX;
-        public static final String inM = inL + inJ;
-        public static final String inN = dSV + inJ + ".tieba_video_monitor_log";
-        public static final String inO = inN + inJ + AbstractBceClient.URL_PREFIX;
-        public static final String inP = inO + inJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !a.uV(socketResponsedMessage.getCmd())) {
+            a.bMC();
+        }
+        return socketResponsedMessage;
     }
 }

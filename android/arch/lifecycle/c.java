@@ -3,7 +3,7 @@ package android.arch.lifecycle;
 import android.arch.lifecycle.Lifecycle;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c implements h {
     private final g[] bL;
 

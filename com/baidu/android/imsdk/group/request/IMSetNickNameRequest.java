@@ -16,7 +16,7 @@ import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMSetNickNameRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMSetNickNameRequest.class.getSimpleName();
     private long mAppid;
@@ -25,7 +25,7 @@ public class IMSetNickNameRequest extends GroupBaseHttpRequest {
     private String mKey;
     private String mNickName;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

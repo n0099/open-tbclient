@@ -5,7 +5,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableConcatWithMaybe<T> extends a<T, T> {
     final o<? extends T> other;
 
@@ -14,7 +14,7 @@ public final class ObservableConcatWithMaybe<T> extends a<T, T> {
         this.source.subscribe(new ConcatWithObserver(uVar, this.other));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ConcatWithObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T>, u<T> {
         private static final long serialVersionUID = -1953724749712440952L;
         final u<? super T> actual;

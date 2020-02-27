@@ -1,6 +1,5 @@
 package com.google.zxing.qrcode.encoder;
 
-import com.baidu.down.manage.DownloadConstants;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitArray;
@@ -13,7 +12,7 @@ import com.google.zxing.qrcode.decoder.Version;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Encoder {
     private static final int[] ALPHANUMERIC_TABLE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 36, -1, -1, -1, 37, 38, -1, -1, -1, -1, 39, 40, -1, 41, 42, 43, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 44, -1, -1, -1, -1, -1, -1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1};
     static final String DEFAULT_BYTE_MODE_ENCODING = "ISO-8859-1";
@@ -382,7 +381,7 @@ public final class Encoder {
                 if (i == -1) {
                     throw new WriterException("Invalid byte sequence");
                 }
-                bitArray.appendBits((i & 255) + ((i >> 8) * DownloadConstants.STATUS_RUNNING), 13);
+                bitArray.appendBits((i & 255) + ((i >> 8) * 192), 13);
             }
         } catch (UnsupportedEncodingException e) {
             throw new WriterException(e);

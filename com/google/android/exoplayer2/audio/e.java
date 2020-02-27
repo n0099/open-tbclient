@@ -4,40 +4,40 @@ import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class e implements AudioProcessor {
     private boolean active;
-    private int[] man;
-    private int[] mao;
-    private boolean mar;
+    private int[] maV;
+    private int[] maW;
+    private boolean maY;
     private ByteBuffer buffer = EMPTY_BUFFER;
-    private ByteBuffer maq = EMPTY_BUFFER;
+    private ByteBuffer maX = EMPTY_BUFFER;
     private int channelCount = -1;
-    private int mam = -1;
+    private int maU = -1;
 
-    public void o(int[] iArr) {
-        this.man = iArr;
+    public void n(int[] iArr) {
+        this.maV = iArr;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean ae(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
-        boolean z = !Arrays.equals(this.man, this.mao);
-        this.mao = this.man;
-        if (this.mao == null) {
+    public boolean af(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
+        boolean z = !Arrays.equals(this.maV, this.maW);
+        this.maW = this.maV;
+        if (this.maW == null) {
             this.active = false;
             return z;
         } else if (i3 != 2) {
             throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
         } else {
-            if (!z && this.mam == i && this.channelCount == i2) {
+            if (!z && this.maU == i && this.channelCount == i2) {
                 return false;
             }
-            this.mam = i;
+            this.maU = i;
             this.channelCount = i2;
-            this.active = i2 != this.mao.length;
+            this.active = i2 != this.maW.length;
             int i4 = 0;
-            while (i4 < this.mao.length) {
-                int i5 = this.mao[i4];
+            while (i4 < this.maW.length) {
+                int i5 = this.maW[i4];
                 if (i5 >= i2) {
                     throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
                 }
@@ -54,18 +54,18 @@ final class e implements AudioProcessor {
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int dsA() {
-        return this.mao == null ? this.channelCount : this.mao.length;
+    public int dtL() {
+        return this.maW == null ? this.channelCount : this.maW.length;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int dsB() {
+    public int dtM() {
         return 2;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int dsC() {
-        return this.mam;
+    public int dtN() {
+        return this.maU;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -73,7 +73,7 @@ final class e implements AudioProcessor {
         int i;
         int position = byteBuffer.position();
         int limit = byteBuffer.limit();
-        int length = ((limit - position) / (this.channelCount * 2)) * this.mao.length * 2;
+        int length = ((limit - position) / (this.channelCount * 2)) * this.maW.length * 2;
         if (this.buffer.capacity() < length) {
             this.buffer = ByteBuffer.allocateDirect(length).order(ByteOrder.nativeOrder());
             i = position;
@@ -82,37 +82,37 @@ final class e implements AudioProcessor {
             i = position;
         }
         while (i < limit) {
-            for (int i2 : this.mao) {
+            for (int i2 : this.maW) {
                 this.buffer.putShort(byteBuffer.getShort((i2 * 2) + i));
             }
             i = (this.channelCount * 2) + i;
         }
         byteBuffer.position(limit);
         this.buffer.flip();
-        this.maq = this.buffer;
+        this.maX = this.buffer;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public void dsD() {
-        this.mar = true;
+    public void dtO() {
+        this.maY = true;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public ByteBuffer dsE() {
-        ByteBuffer byteBuffer = this.maq;
-        this.maq = EMPTY_BUFFER;
+    public ByteBuffer dtP() {
+        ByteBuffer byteBuffer = this.maX;
+        this.maX = EMPTY_BUFFER;
         return byteBuffer;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean atB() {
-        return this.mar && this.maq == EMPTY_BUFFER;
+    public boolean avP() {
+        return this.maY && this.maX == EMPTY_BUFFER;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public void flush() {
-        this.maq = EMPTY_BUFFER;
-        this.mar = false;
+        this.maX = EMPTY_BUFFER;
+        this.maY = false;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -120,8 +120,8 @@ final class e implements AudioProcessor {
         flush();
         this.buffer = EMPTY_BUFFER;
         this.channelCount = -1;
-        this.mam = -1;
-        this.mao = null;
+        this.maU = -1;
+        this.maW = null;
         this.active = false;
     }
 }

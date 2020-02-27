@@ -10,7 +10,7 @@ import io.reactivex.internal.operators.single.SingleToObservable;
 import io.reactivex.o;
 import io.reactivex.u;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T> boolean a(Object obj, h<? super T, ? extends e> hVar, c cVar) {
@@ -28,7 +28,7 @@ final class a {
                 }
                 return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 EmptyDisposable.error(th, cVar);
                 return true;
             }
@@ -52,7 +52,7 @@ final class a {
                 }
                 return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 EmptyDisposable.error(th, uVar);
                 return true;
             }
@@ -76,7 +76,7 @@ final class a {
                 }
                 return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 EmptyDisposable.error(th, uVar);
                 return true;
             }

@@ -7,7 +7,7 @@ import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CompletableObserveOn extends a {
     final v scheduler;
     final e source;
@@ -17,7 +17,7 @@ public final class CompletableObserveOn extends a {
         this.source.a(new ObserveOnCompletableObserver(cVar, this.scheduler));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ObserveOnCompletableObserver extends AtomicReference<b> implements c, b, Runnable {
         private static final long serialVersionUID = 8571289934935992137L;
         final c actual;

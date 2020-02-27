@@ -1,0 +1,6 @@
+package com.baidu.searchbox.afx.gl;
+/* loaded from: classes13.dex */
+public class AlphaVideoShaders {
+    static final String SHADER_FRAGMENT = "#extension GL_OES_EGL_image_external : require \n precision highp float; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n uniform samplerExternalOES sTexture; \n varying float vFilterFactor; \n void main() { \n vec4 alphaColor = texture2D(sTexture, vTextureAlphaCoord); \n vec4 color = texture2D(sTexture, vTextureColorCoord); \n float blendFactor = alphaColor.r; \n if (blendFactor == 0.0) { \n blendFactor = 1.0; \n } \n gl_FragColor = vec4(color.r/blendFactor*vFilterFactor,color.g/blendFactor*vFilterFactor,color.b/blendFactor*vFilterFactor,alphaColor.r); \n } \n ";
+    static final String SHADER_VERTEX = "uniform mat4 uMVPMatrix; \n uniform mat4 uSTMatrix; \n uniform float uFilterFactor; \n attribute vec4 aPosition; \n attribute vec4 aTextureAlphaCoord; \n attribute vec4 aTextureColorCoord; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n varying float vFilterFactor; \n void main() { \n gl_Position = uMVPMatrix * aPosition; \n vTextureAlphaCoord = (uSTMatrix * aTextureAlphaCoord).xy; \n vTextureColorCoord = (uSTMatrix * aTextureColorCoord).xy; \n vFilterFactor = (1.0 - uFilterFactor); \n } \n ";
+}

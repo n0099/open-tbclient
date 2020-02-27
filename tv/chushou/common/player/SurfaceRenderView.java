@@ -3,7 +3,7 @@ package tv.chushou.common.player;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SurfaceRenderView extends SurfaceView {
     public int mMeasuredHeight;
     public int mMeasuredWidth;

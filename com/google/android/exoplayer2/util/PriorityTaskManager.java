@@ -2,13 +2,13 @@ package com.google.android.exoplayer2.util;
 
 import java.io.IOException;
 import java.util.PriorityQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PriorityTaskManager {
     private final Object lock;
-    private final PriorityQueue<Integer> mGR;
-    private int mGS;
+    private final PriorityQueue<Integer> mHw;
+    private int mHx;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class PriorityTooLowException extends IOException {
         public PriorityTooLowException(int i, int i2) {
             super("Priority too low [priority=" + i + ", highest=" + i2 + "]");
@@ -17,15 +17,15 @@ public final class PriorityTaskManager {
 
     public void add(int i) {
         synchronized (this.lock) {
-            this.mGR.add(Integer.valueOf(i));
-            this.mGS = Math.max(this.mGS, i);
+            this.mHw.add(Integer.valueOf(i));
+            this.mHx = Math.max(this.mHx, i);
         }
     }
 
     public void remove(int i) {
         synchronized (this.lock) {
-            this.mGR.remove(Integer.valueOf(i));
-            this.mGS = this.mGR.isEmpty() ? Integer.MIN_VALUE : this.mGR.peek().intValue();
+            this.mHw.remove(Integer.valueOf(i));
+            this.mHx = this.mHw.isEmpty() ? Integer.MIN_VALUE : this.mHw.peek().intValue();
             this.lock.notifyAll();
         }
     }

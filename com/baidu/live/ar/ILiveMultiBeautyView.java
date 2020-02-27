@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.base.BdPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ILiveMultiBeautyView extends LinearLayout {
-    public abstract void oQ();
+    public abstract void pB();
 
-    public abstract void oR();
+    public abstract void pC();
 
     public abstract void setArModel(c cVar);
 

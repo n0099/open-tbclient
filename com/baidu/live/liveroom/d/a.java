@@ -1,30 +1,22 @@
 package com.baidu.live.liveroom.d;
 
-import android.content.Context;
-import android.net.Uri;
-import android.view.View;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public interface a {
-    void a(c cVar);
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes3.dex */
+public class a {
+    public b avW;
+    private List<d> VW = new LinkedList();
+    private List<e> avX = new LinkedList();
 
-    void b(int i, JSONObject jSONObject);
+    public void a(d dVar) {
+        if (dVar != null && !this.VW.contains(dVar)) {
+            this.VW.add(dVar);
+        }
+    }
 
-    void b(Uri uri);
-
-    void bQ(int i);
-
-    void d(Context context, Uri uri);
-
-    View getPlayerView();
-
-    void release();
-
-    void setDecodeMode(int i);
-
-    void setVideoScalingMode(int i);
-
-    void start();
-
-    void stop();
+    public void a(e eVar) {
+        if (eVar != null && !this.avX.contains(eVar)) {
+            this.avX.add(eVar);
+        }
+    }
 }

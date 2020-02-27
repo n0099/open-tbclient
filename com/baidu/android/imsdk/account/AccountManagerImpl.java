@@ -13,7 +13,6 @@ import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.account.request.IMUserLogoutMsg;
 import com.baidu.android.imsdk.account.request.IMUserQueryPrivacyRequest;
 import com.baidu.android.imsdk.account.request.IMUserSetPrivacyRequest;
-import com.baidu.android.imsdk.chatuser.ChatUserManager;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -37,13 +36,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccountManagerImpl {
     private static Context mContext;
     private static volatile AccountManagerImpl mInstance;
     private String mAppVersion;
     private long mAppid;
-    private IConnectListener mConnectListener;
     private ILoginStateChangedListener mILoginStateChangedListener;
     private IKickOutListener mKickOutListener;
     private String mToken;
@@ -52,7 +50,6 @@ public class AccountManagerImpl {
     private String mUid = "";
     private CopyOnWriteArrayList<TodoAfterLogin> mToDoListenersAfterLogin = new CopyOnWriteArrayList<>();
     private ArrayList<TodoBeforeLogout> mToDoListenersBeforeLogout = new ArrayList<>();
-    private boolean mIsjustLogin = false;
     private int mLoginType = -1;
     private String mCuid = null;
     private String mFrom = "";
@@ -61,6 +58,8 @@ public class AccountManagerImpl {
     private String mVersionCode = "";
     private int mLoginState = 0;
     private Timer mTimer = null;
+    private int mOpenType = 0;
+    private boolean isMediaRole = false;
 
     private AccountManagerImpl() {
         this.mAppid = -1L;
@@ -193,38 +192,55 @@ public class AccountManagerImpl {
         LogUtils.d(TAG, "login type :" + i);
         LogUtils.d(TAG, "start login loginState:" + LoginManager.getInstance(mContext).getCurrentState());
         LogUtils.d(TAG, "current version:" + IMConfigInternal.getInstance().getSDKVersionValue(mContext) + HanziToPinyin.Token.SEPARATOR + IMConfigInternal.getInstance().getSDKVersionValue(mContext));
-        this.mIsjustLogin = true;
+        Utility.writeLoginFlag(mContext, "5N_1", "login begin");
         McastManagerImpl.getInstance(mContext);
-        McastManagerImpl.resetHeartBeat(120000);
+        McastManagerImpl.resetHeartBeat(60000);
         if (Utility.isPeakTime()) {
             if (this.mTimer != null) {
                 this.mTimer.cancel();
+                this.mTimer = null;
             }
             this.mTimer = new Timer();
             long nextInt = (new Random().nextInt(Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID) + 10) * 1000;
             LogUtils.d(TAG, "*** peak time! login will delay " + nextInt + " ms ***");
-            this.mTimer.schedule(new TimerTask() { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.1
-                @Override // java.util.TimerTask, java.lang.Runnable
-                public void run() {
-                    AccountManagerImpl.this.startLoginServiceRunnable(i, str, str2, str3, str4, iLoginListener);
-                }
-            }, nextInt);
-            return;
+            try {
+                this.mTimer.schedule(new TimerTask() { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.1
+                    @Override // java.util.TimerTask, java.lang.Runnable
+                    public void run() {
+                        AccountManagerImpl.this.startLoginServiceRunnable(i, str, str2, str3, str4, iLoginListener);
+                    }
+                }, nextInt);
+                return;
+            } catch (Exception e) {
+                LogUtils.e(TAG, "timer exception", e);
+                startLoginServiceRunnable(i, str, str2, str3, str4, iLoginListener);
+                return;
+            }
         }
-        TaskManager.getInstance(mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.2
+        Utility.writeLoginFlag(mContext, "5N_2", "startLoginServiceRunnable");
+        if (!TaskManager.getInstance(mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.2
             @Override // java.lang.Runnable
             public void run() {
                 AccountManagerImpl.this.startLoginServiceRunnable(i, str, str2, str3, str4, iLoginListener);
             }
-        });
+        })) {
+            startLoginServiceRunnable(i, str, str2, str3, str4, iLoginListener);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startLoginServiceRunnable(final int i, final String str, final String str2, final String str3, final String str4, final ILoginListener iLoginListener) {
         LogUtils.d(TAG, "*** startLoginServiceRunnable will start ***");
         String token = getToken();
-        if (i != 6 && !TextUtils.isEmpty(token) && !str2.equals(token)) {
+        boolean z = (i == 6 || TextUtils.isEmpty(token) || str2.equals(token)) ? false : true;
+        Utility.writeLoginFlag(mContext, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
+        if (z) {
             LogUtils.d(TAG, "need logout before login");
+            if (IMService.isSmallFlow) {
+                BIMManager.imLogoutByLcp(mContext);
+                startLoginService(i, str, str2, str3, str4, iLoginListener);
+                return;
+            }
             LoginManager.getInstance(mContext).logoutInternal(null);
             Utility.clearCache(mContext);
             logout(0, new ILoginListener() { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.3
@@ -243,6 +259,7 @@ public class AccountManagerImpl {
                         @Override // com.baidu.android.imsdk.account.ILoginListener
                         public void onLogoutResult(int i4, String str6, int i5) {
                             LogUtils.d(AccountManagerImpl.TAG, "disconnect onLogoutResult");
+                            Utility.writeLoginFlag(AccountManagerImpl.mContext, "5Y", "Logout and disconnect success");
                             AccountManagerImpl.this.startLoginService(i, str, str2, str3, str4, iLoginListener);
                         }
                     }));
@@ -257,6 +274,7 @@ public class AccountManagerImpl {
     public void startLoginService(int i, String str, String str2, String str3, String str4, ILoginListener iLoginListener) {
         boolean loginInternal = LoginManager.getInstance(mContext).loginInternal(iLoginListener);
         LogUtils.d(TAG, "startLoginService isNeedLogin: " + loginInternal);
+        Utility.writeLoginFlag(mContext, "6N", "startLoginService isNeedLogin :" + loginInternal);
         if (loginInternal) {
             noticeStateChanged(1);
             Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 50);
@@ -279,18 +297,12 @@ public class AccountManagerImpl {
             Utility.writeAccessToken(mContext, str2);
             try {
                 mContext.startService(creatMethodIntent);
+                Utility.writeLoginFlag(mContext, "6Y", "startLoginService");
             } catch (Exception e) {
+                Utility.writeLoginFlag(mContext, "6N_1", "startLoginService exception");
                 LogUtils.e(TAG, "startService", e);
             }
         }
-    }
-
-    public boolean isJustLogin() {
-        return this.mIsjustLogin;
-    }
-
-    public void setJustLogin(boolean z) {
-        this.mIsjustLogin = z;
     }
 
     public long getUK() {
@@ -302,13 +314,21 @@ public class AccountManagerImpl {
 
     public boolean clearToken(String str) {
         boolean clearAccessToken = Utility.clearAccessToken(mContext);
-        clearUid(mContext);
-        clearLoginParam(mContext);
-        if (clearAccessToken) {
-            Utility.clearCache(mContext);
-            this.mToken = null;
+        if (!IMService.isSmallFlow) {
+            clearLoginParam(mContext);
+            if (clearAccessToken) {
+                Utility.clearCache(mContext);
+                this.mToken = null;
+            }
+            clearUid(mContext);
+            disconnect(str);
+        } else if (!TextUtils.isEmpty(str)) {
+            IMListener removeListener = ListenerManager.getInstance().removeListener(str);
+            if (removeListener instanceof ILoginListener) {
+                LoginManager.getInstance(mContext).logoutInternal((ILoginListener) removeListener);
+                ((ILoginListener) removeListener).onLogoutResult(0, "logout success", -1);
+            }
         }
-        disconnect(str);
         return clearAccessToken;
     }
 
@@ -383,30 +403,28 @@ public class AccountManagerImpl {
         LogUtils.d(TAG, "onLoginResult----errorCode: " + i + " msg: " + str2);
         if (i == 0) {
             noticeStateChanged(3);
-            connectStatusNotify(0);
-            Utility.sendConnectionStateBroadCast(mContext, 0);
+            if (!IMService.isSmallFlow) {
+                BIMManager.connectStatusNotify(0);
+                Utility.sendConnectionStateBroadCast(mContext, 0);
+            }
         } else {
             noticeStateChanged(2);
         }
+        LoginManager.getInstance(mContext).onLoginResultInternal(i, str2);
         if (i == 0 && this.mToDoListenersAfterLogin != null && this.mToDoListenersAfterLogin.size() > 0) {
             Iterator<TodoAfterLogin> it = this.mToDoListenersAfterLogin.iterator();
             while (it.hasNext()) {
                 it.next().todo(z);
             }
         }
-        LoginManager.getInstance(mContext).onLoginResultInternal(i, str2);
         if (i == 0) {
             ConversationManagerImpl.getInstance(mContext).init(getUid());
-        }
-        if (!TextUtils.isEmpty(this.mUid) && Utility.syncUserProfileTime(mContext, "AccountManagerImpl", this.mUid)) {
-            LogUtils.d(TAG, "sync privacy and user attr of blacklist " + this.mUid);
-            syncPrivacy();
-            ChatUserManager.syncUsersProfileBatch(mContext);
         }
     }
 
     public void onLogoutResult(String str, int i, String str2, int i2) {
         LogUtils.d(TAG, "onLogoutResult----errorCode: " + i + " msg: " + str2);
+        Utility.writeLoginFlag(mContext, "5Y", "onLogoutResult errCode = " + i + ", errMsg :" + str2);
         if (i == 0) {
             noticeStateChanged(6);
             Utility.sendConnectionStateBroadCast(mContext, 1);
@@ -421,9 +439,10 @@ public class AccountManagerImpl {
         ILoginListener iLoginListener = (ILoginListener) ListenerManager.getInstance().removeListener(str);
         if (iLoginListener != null) {
             iLoginListener.onLogoutResult(i, str2, BIMManager.getLoginType(mContext));
-        } else {
-            LogUtils.d(LogUtils.TAG, TAG + "mLoginListener is null");
+            return;
         }
+        Utility.writeLoginFlag(mContext, "5N", "onLogoutResult listener is null");
+        LogUtils.d(LogUtils.TAG, TAG + "mLoginListener is null");
     }
 
     public boolean isLogin() {
@@ -477,15 +496,26 @@ public class AccountManagerImpl {
         final String addListener = ListenerManager.getInstance().addListener(iGetTokenByCuidListener);
         if (this.mTimer != null) {
             this.mTimer.cancel();
+            this.mTimer = null;
         }
         this.mTimer = new Timer();
-        this.mTimer.schedule(new TimerTask() { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.4
-            @Override // java.util.TimerTask, java.lang.Runnable
-            public void run() {
-                IMGetTokenByCuidRequest iMGetTokenByCuidRequest = new IMGetTokenByCuidRequest(AccountManagerImpl.mContext, j, str, addListener);
-                HttpHelper.executor(AccountManagerImpl.mContext, iMGetTokenByCuidRequest, iMGetTokenByCuidRequest);
-            }
-        }, Utility.getPeakDelayTime());
+        try {
+            this.mTimer.schedule(new TimerTask() { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.4
+                @Override // java.util.TimerTask, java.lang.Runnable
+                public void run() {
+                    AccountManagerImpl.this.getTokenByCuid(j, str, addListener);
+                }
+            }, Utility.getPeakDelayTime());
+        } catch (Exception e) {
+            LogUtils.e(TAG, "getTokenByCuid Exception", e);
+            getTokenByCuid(j, str, addListener);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void getTokenByCuid(long j, String str, String str2) {
+        IMGetTokenByCuidRequest iMGetTokenByCuidRequest = new IMGetTokenByCuidRequest(mContext, j, str, str2);
+        HttpHelper.executor(mContext, iMGetTokenByCuidRequest, iMGetTokenByCuidRequest);
     }
 
     public void onGetTokenByCuidResult(String str, int i, String str2, String str3) {
@@ -493,9 +523,10 @@ public class AccountManagerImpl {
         IGetTokenByCuidListener iGetTokenByCuidListener = (IGetTokenByCuidListener) ListenerManager.getInstance().removeListener(str);
         if (iGetTokenByCuidListener != null) {
             iGetTokenByCuidListener.onGetTokenByCuidResult(i, str2, str3);
-        } else {
-            LogUtils.d(TAG, "onGetTokenByCuidResult> listener is null");
+            return;
         }
+        Utility.writeLoginFlag(mContext, "3N", "onGetTokenByCuidResult listener is null");
+        LogUtils.d(TAG, "onGetTokenByCuidResult> listener is null");
     }
 
     public void getUidByUk(long[] jArr, IGetUidByUkListener iGetUidByUkListener) {
@@ -599,20 +630,6 @@ public class AccountManagerImpl {
         return Utility.readPrivate(context);
     }
 
-    public void setConnectListener(IConnectListener iConnectListener) {
-        this.mConnectListener = iConnectListener;
-    }
-
-    public void removeConnectListener() {
-        this.mConnectListener = null;
-    }
-
-    public void connectStatusNotify(int i) {
-        if (this.mConnectListener != null) {
-            this.mConnectListener.onResult(i);
-        }
-    }
-
     public static void tryConnection(Context context) {
         try {
             Intent intent = new Intent(mContext, IMService.class);
@@ -666,5 +683,40 @@ public class AccountManagerImpl {
                 }
             }
         });
+    }
+
+    public void setAppOpenType(int i) {
+        this.mOpenType = i;
+    }
+
+    public int getAppOpenType() {
+        return this.mOpenType;
+    }
+
+    public void setUpdateSwitch(int i) {
+        switch (i) {
+            case 1:
+                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, false);
+                return;
+            case 2:
+                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, false);
+                return;
+            case 3:
+                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, false);
+                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, false);
+                return;
+            default:
+                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, true);
+                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, true);
+                return;
+        }
+    }
+
+    public void setMediaRole(boolean z) {
+        this.isMediaRole = z;
+    }
+
+    public boolean getMediaRole() {
+        return this.isMediaRole;
     }
 }

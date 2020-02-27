@@ -1,13 +1,13 @@
 package com.baidu.live.utils;
 
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.u.a;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static String numFormatOverWanNaForAudienceNum(long j) {
         if (j > 99990000) {
@@ -40,18 +40,18 @@ public class i {
         return new SimpleDateFormat("mm:ss").format(new Date((l.longValue() * 1000) - 28800000));
     }
 
-    public static String cG(int i) {
+    public static String cW(int i) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHH");
         Date date = new Date();
         date.setHours(date.getHours() - i);
         return simpleDateFormat.format(date);
     }
 
-    public static String yF() {
+    public static String AW() {
         return new SimpleDateFormat("HH").format(new Date());
     }
 
-    public static String yG() {
+    public static String AX() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         date.setHours(date.getHours() - 1);

@@ -6,12 +6,12 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.c, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b>> {
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.c.hfI);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.c.hhI);
         this.mPageContext = tbPageContext;
     }
 
@@ -32,11 +32,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topictab.b.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> aVar) {
-        if (cVar == null || aVar == null || aVar.bue() == null) {
+        if (cVar == null || aVar == null || aVar.bvI() == null) {
             return null;
         }
-        aVar.bue().a(cVar);
-        aVar.bue().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bvI().a(cVar);
+        aVar.bvI().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

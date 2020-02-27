@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
-    private String apk;
-    private long bDL;
-    private String dUk;
-    private String kgB;
-    private List<String> kgC;
+    private String asD;
+    private String dYo;
+    private String khC;
+    private List<String> khD;
+    private long mEndTime;
     private long mStartTime;
     private int mType;
 
     public void a(RedpacketRain redpacketRain) {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
-            this.bDL = redpacketRain.end_time.longValue() * 1000;
-            this.dUk = redpacketRain.jump_url;
-            this.kgB = redpacketRain.float_url;
-            this.kgC = redpacketRain.dynamic_img;
-            this.apk = redpacketRain.activity_id;
+            this.mEndTime = redpacketRain.end_time.longValue() * 1000;
+            this.dYo = redpacketRain.jump_url;
+            this.khC = redpacketRain.float_url;
+            this.khD = redpacketRain.dynamic_img;
+            this.asD = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -29,23 +29,23 @@ public class o {
     }
 
     public long getEndTime() {
-        return this.bDL;
+        return this.mEndTime;
     }
 
-    public String aVC() {
-        return this.dUk;
+    public String aXR() {
+        return this.dYo;
     }
 
-    public String cJN() {
-        return this.kgB;
+    public String cLm() {
+        return this.khC;
     }
 
-    public List<String> cJO() {
-        return this.kgC;
+    public List<String> cLn() {
+        return this.khD;
     }
 
-    public String cJP() {
-        return this.apk;
+    public String gL() {
+        return this.asD;
     }
 
     public void setStartTime(long j) {
@@ -53,23 +53,23 @@ public class o {
     }
 
     public void setEndTime(long j) {
-        this.bDL = j;
+        this.mEndTime = j;
     }
 
-    public void IO(String str) {
-        this.dUk = str;
+    public void Jc(String str) {
+        this.dYo = str;
     }
 
-    public void IP(String str) {
-        this.kgB = str;
+    public void Jd(String str) {
+        this.khC = str;
     }
 
-    public void ei(List<String> list) {
-        this.kgC = list;
+    public void ee(List<String> list) {
+        this.khD = list;
     }
 
-    public void IQ(String str) {
-        this.apk = str;
+    public void aC(String str) {
+        this.asD = str;
     }
 
     public int getType() {

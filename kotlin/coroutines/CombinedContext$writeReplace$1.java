@@ -1,13 +1,15 @@
 package kotlin.coroutines;
 
 import kotlin.coroutines.c;
+import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.q;
-import kotlin.k;
-/* loaded from: classes5.dex */
-final class CombinedContext$writeReplace$1 extends Lambda implements m<k, c.b, k> {
+import kotlin.l;
+@h
+/* loaded from: classes7.dex */
+final class CombinedContext$writeReplace$1 extends Lambda implements m<l, c.b, l> {
     final /* synthetic */ c[] $elements;
     final /* synthetic */ Ref.IntRef $index;
 
@@ -22,14 +24,14 @@ final class CombinedContext$writeReplace$1 extends Lambda implements m<k, c.b, k
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.m
-    public /* bridge */ /* synthetic */ k invoke(k kVar, c.b bVar) {
-        invoke2(kVar, bVar);
-        return k.nAY;
+    public /* bridge */ /* synthetic */ l invoke(l lVar, c.b bVar) {
+        invoke2(lVar, bVar);
+        return l.nBA;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(k kVar, c.b bVar) {
-        q.j(kVar, "<anonymous parameter 0>");
+    public final void invoke2(l lVar, c.b bVar) {
+        q.j(lVar, "<anonymous parameter 0>");
         q.j(bVar, "element");
         c[] cVarArr = this.$elements;
         Ref.IntRef intRef = this.$index;

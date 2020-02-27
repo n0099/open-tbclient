@@ -5,53 +5,53 @@ import android.os.Looper;
 import com.facebook.common.internal.g;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a {
-    private static a lJZ = null;
-    private final Runnable lKb = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a lKG = null;
+    private final Runnable lKI = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.dkE();
-            for (InterfaceC0650a interfaceC0650a : a.this.lKa) {
-                interfaceC0650a.release();
+            a.dlR();
+            for (InterfaceC0658a interfaceC0658a : a.this.lKH) {
+                interfaceC0658a.release();
             }
-            a.this.lKa.clear();
+            a.this.lKH.clear();
         }
     };
-    private final Set<InterfaceC0650a> lKa = new HashSet();
+    private final Set<InterfaceC0658a> lKH = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public interface InterfaceC0650a {
+    /* loaded from: classes13.dex */
+    public interface InterfaceC0658a {
         void release();
     }
 
-    public static synchronized a dkD() {
+    public static synchronized a dlQ() {
         a aVar;
         synchronized (a.class) {
-            if (lJZ == null) {
-                lJZ = new a();
+            if (lKG == null) {
+                lKG = new a();
             }
-            aVar = lJZ;
+            aVar = lKG;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0650a interfaceC0650a) {
-        dkE();
-        if (this.lKa.add(interfaceC0650a) && this.lKa.size() == 1) {
-            this.mUiHandler.post(this.lKb);
+    public void a(InterfaceC0658a interfaceC0658a) {
+        dlR();
+        if (this.lKH.add(interfaceC0658a) && this.lKH.size() == 1) {
+            this.mUiHandler.post(this.lKI);
         }
     }
 
-    public void b(InterfaceC0650a interfaceC0650a) {
-        dkE();
-        this.lKa.remove(interfaceC0650a);
+    public void b(InterfaceC0658a interfaceC0658a) {
+        dlR();
+        this.lKH.remove(interfaceC0658a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void dkE() {
+    public static void dlR() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

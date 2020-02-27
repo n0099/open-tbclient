@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.coreExtra.share.e;
+import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.w;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
     private Context mContext;
 
@@ -31,91 +31,90 @@ public class a {
     }
 
     public void a(int i, ShareItem shareItem, boolean z) {
-        Location buM;
+        Location bwq;
         if (shareItem != null) {
             if (!j.isNetWorkAvailable()) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                 return;
             }
-            if (z && (buM = buM()) != null) {
-                shareItem.location = buM;
+            if (z && (bwq = bwq()) != null) {
+                shareItem.location = bwq;
             }
-            e eVar = new e(this.mContext, null);
+            f fVar = new f(this.mContext, null);
             if (i == 3) {
                 IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
                 if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
-                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).aCu();
+                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).aEF();
                     return;
                 }
                 a(shareItem, 4);
-                eVar.e(shareItem);
+                fVar.e(shareItem);
             } else if (i == 2) {
                 IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
                 if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
-                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).aCu();
+                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).aEF();
                     return;
                 }
                 a(shareItem, 3);
-                if (shareItem.dlF) {
+                if (shareItem.dpN) {
                     shareItem.content = m(shareItem);
                 }
-                eVar.f(shareItem);
+                fVar.f(shareItem);
             } else if (i == 4) {
                 if (w.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     a(shareItem, 5);
-                    eVar.h(shareItem);
+                    fVar.h(shareItem);
                     return;
                 }
-                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).aCu();
+                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).aEF();
             } else if (i == 5) {
-                a(shareItem, 6);
-                if (!shareItem.dlE) {
+                if (!shareItem.dpM) {
                     shareItem.content = m(shareItem);
                 }
-                eVar.i(shareItem);
+                fVar.i(shareItem);
             } else if (i == 6) {
                 a(shareItem, 7);
-                if (!shareItem.dlE) {
+                if (!shareItem.dpM) {
                     shareItem.content = m(shareItem);
                 }
-                eVar.j(shareItem);
+                fVar.j(shareItem);
             } else if (i == 7) {
-                a(shareItem, 8);
-                if (!shareItem.dlE) {
+                if (!shareItem.dpM) {
                     shareItem.content = m(shareItem);
                 }
-                eVar.k(shareItem);
+                fVar.k(shareItem);
             } else if (i == 8) {
                 if (w.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     a(shareItem, 9);
-                    eVar.g(shareItem);
+                    fVar.g(shareItem);
                     return;
                 }
-                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).aCu();
+                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).aEF();
             }
         }
     }
 
     private void a(ShareItem shareItem, int i) {
         if (shareItem != null && shareItem.extData != null) {
-            if (shareItem.dlF) {
-                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cp("fid", shareItem.extData).Z("obj_type", i));
-            } else if (shareItem.dlG || shareItem.dlJ) {
-                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cp("tid", shareItem.extData).Z("obj_type", i).Z("obj_source", shareItem.dlU).Z("obj_param1", shareItem.dlV).cp("fid", shareItem.fid));
-            } else if (shareItem.dlH) {
-                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).cp("tid", shareItem.extData).Z("obj_type", i));
-            } else if (shareItem.dlE) {
-                aZ(i, shareItem.dlR);
-            } else if (shareItem.dlI) {
-                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).Z("obj_param1", 7).Z("obj_type", i).cp("fid", shareItem.extData));
-            } else if (shareItem.dlK) {
-                an Z = new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).Z("obj_type", i);
+            if (shareItem.dpN) {
+                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cy("fid", shareItem.extData).X("obj_type", i));
+            } else if (shareItem.dpO || shareItem.dpR) {
+                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cy("tid", shareItem.extData).X("obj_type", i).X("obj_source", shareItem.dqd).X("obj_param1", shareItem.dqe).cy("fid", shareItem.fid).X(TiebaInitialize.Params.OBJ_PARAM2, shareItem.dqf));
+            } else if (shareItem.dpP) {
+                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).cy("tid", shareItem.extData).X("obj_type", i));
+            } else if (shareItem.dpM) {
+                aZ(i, shareItem.dqa);
+            } else if (shareItem.dpQ) {
+                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).X("obj_param1", 7).X("obj_type", i).cy("fid", shareItem.extData));
+            } else if (shareItem.dpS) {
+                an X = new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).X("obj_type", i);
+                X.X("obj_source", shareItem.dqd);
                 if (!aq.isEmpty(shareItem.linkUrl) && shareItem.linkUrl.contains("worldcup")) {
-                    Z.Z("obj_param1", 9);
+                    X.X("obj_param1", 9);
                 }
-                TiebaStatic.log(Z);
-            } else if (shareItem.dlL) {
-                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cp("tid", shareItem.extData).cp("fid", shareItem.fid).Z("obj_type", i).Z("obj_source", shareItem.dlU).Z("obj_param1", shareItem.dlV).Z(TiebaInitialize.Params.OBJ_PARAM2, shareItem.dlW).Z(TiebaInitialize.Params.OBJ_PARAM3, shareItem.dlX).Z("obj_locate", shareItem.dlY));
+                TiebaStatic.log(X);
+            } else if (shareItem.dpT) {
+                TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cy("tid", shareItem.extData).cy("fid", shareItem.fid).X("obj_type", i).X("obj_source", shareItem.dqd).X("obj_param1", shareItem.dqe).X(TiebaInitialize.Params.OBJ_PARAM2, shareItem.dqf).X(TiebaInitialize.Params.OBJ_PARAM3, shareItem.dqg).X("obj_locate", shareItem.dqh));
             }
         }
     }
@@ -130,7 +129,7 @@ public class a {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location buM() {
+    private Location bwq() {
         if (ab.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService("location");
             Criteria criteria = new Criteria();

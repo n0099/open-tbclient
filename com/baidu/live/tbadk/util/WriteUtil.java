@@ -8,7 +8,6 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
@@ -17,8 +16,9 @@ import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
+import com.baidu.live.u.a;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WriteUtil {
     private static final String TMP_IMAGE_NAME = "camera.jpg";
 

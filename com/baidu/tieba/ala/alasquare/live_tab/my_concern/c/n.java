@@ -9,20 +9,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private a ekj;
+    private a eou;
 
     public n(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.ekj = new a(this);
+        this.eou = new a(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setBackgroundColor(this.ekj.cqd, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.ekj.mTitle, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(this.eou.cue, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.eou.mTitle, (int) R.color.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -33,8 +33,8 @@ public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (gVar != null && !StringUtils.isNull(gVar.enh) && this.ekj != null) {
-            this.ekj.mTitle.setText(gVar.enh);
+        if (gVar != null && !StringUtils.isNull(gVar.eru) && this.eou != null) {
+            this.eou.mTitle.setText(gVar.eru);
         }
     }
 
@@ -42,17 +42,17 @@ public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     public void onClick(View view) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public View cqd;
-        public n ekk;
+        public View cue;
+        public n eov;
         public TextView mTitle;
 
         public a(n nVar) {
             super(nVar.getView());
-            this.ekk = nVar;
-            this.cqd = nVar.getView();
-            this.mTitle = (TextView) this.cqd.findViewById(R.id.tab_sub_rec_title_tv);
+            this.eov = nVar;
+            this.cue = nVar.getView();
+            this.mTitle = (TextView) this.cue.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class c {
-    public static b dZ(Context context) {
+    public static b ec(Context context) {
         if (context != null) {
             f<?> aa = i.aa(context);
             if (aa instanceof a) {
@@ -24,15 +24,15 @@ public class c {
         return null;
     }
 
-    public static TbPageTag ea(Context context) {
-        b dZ = dZ(context);
-        if (dZ == null) {
+    public static TbPageTag ed(Context context) {
+        b ec = ec(context);
+        if (ec == null) {
             return null;
         }
-        return dZ.aOC();
+        return ec.aQS();
     }
 
-    public static TbPageTag eb(Context context) {
+    public static TbPageTag ee(Context context) {
         f<?> aa;
         if (context == null || (aa = i.aa(context)) == null || aa.getPageContext() == null || aa.getPageContext().getPageActivity() == null) {
             return null;
@@ -48,11 +48,11 @@ public class c {
     }
 
     public static an a(Context context, an anVar) {
-        return (context == null || anVar == null) ? anVar : a(anVar, dZ(context));
+        return (context == null || anVar == null) ? anVar : a(anVar, ec(context));
     }
 
     public static an a(an anVar, b bVar) {
-        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.aOC());
+        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.aQS());
     }
 
     public static an a(an anVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
@@ -61,12 +61,12 @@ public class c {
         }
         if (tbPageTag2 != null) {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                anVar.cp("obj_tab", tbPageTag2.locatePage);
+                anVar.cy("obj_tab", tbPageTag2.locatePage);
             }
-            anVar.Z("sort_tab", tbPageTag2.sortType);
+            anVar.X("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-            anVar.cp(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
+            anVar.cy(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
             return anVar;
         }
         return anVar;
@@ -77,9 +77,9 @@ public class c {
             return null;
         }
         if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
-            anVar.cp("obj_tab", tbPageTag.locatePage);
+            anVar.cy("obj_tab", tbPageTag.locatePage);
         }
-        anVar.Z("sort_tab", tbPageTag.sortType);
+        anVar.X("sort_tab", tbPageTag.sortType);
         return anVar;
     }
 
@@ -87,12 +87,12 @@ public class c {
         if (context == null || anVar == null) {
             return null;
         }
-        TbPageTag eb = eb(context);
-        if (eb != null) {
-            if (!TextUtils.isEmpty(eb.locatePage)) {
-                anVar.cp("obj_tab", eb.locatePage);
+        TbPageTag ee = ee(context);
+        if (ee != null) {
+            if (!TextUtils.isEmpty(ee.locatePage)) {
+                anVar.cy("obj_tab", ee.locatePage);
             }
-            anVar.Z("sort_tab", eb.sortType);
+            anVar.X("sort_tab", ee.sortType);
             return anVar;
         }
         return anVar;
@@ -103,8 +103,8 @@ public class c {
             return null;
         }
         an anVar = new an(str);
-        anVar.cp("tid", bjVar.getId()).s("fid", bjVar.getFid()).Z("card_type", bjVar.aBY());
-        anVar.cp(TableDefine.SessionColumns.COLUMN_WEIGHT, bjVar.mRecomWeight).cp(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag).cp("extra", bjVar.mRecomExtra).cp("source", bjVar.mRecomSource);
+        anVar.cy("tid", bjVar.getId()).s("fid", bjVar.getFid()).X("card_type", bjVar.aEj());
+        anVar.cy(TableDefine.SessionColumns.COLUMN_WEIGHT, bjVar.mRecomWeight).cy(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag).cy("extra", bjVar.mRecomExtra).cy("source", bjVar.mRecomSource);
         b(context, anVar);
         return anVar;
     }

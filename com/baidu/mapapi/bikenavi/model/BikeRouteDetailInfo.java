@@ -1,5 +1,5 @@
 package com.baidu.mapapi.bikenavi.model;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BikeRouteDetailInfo {
     public float altitude;
     public double avSpeed;

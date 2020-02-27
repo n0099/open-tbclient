@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import pl.droidsonroids.gif.GifDrawable;
 import tv.chushou.a.a.d.a;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImageInfo implements Parcelable {
     public static final Parcelable.Creator<ImageInfo> CREATOR = new Parcelable.Creator<ImageInfo>() { // from class: com.kascend.chushou.bean.ImageInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class ImageInfo implements Parcelable {
     public int width;
 
     public ImageInfo() {
-        this.type = c.lOR.getName().toLowerCase();
+        this.type = c.lPy.getName().toLowerCase();
         this.width = -1;
         this.height = -1;
         this.frameCount = 0;
@@ -44,7 +44,7 @@ public class ImageInfo implements Parcelable {
     }
 
     protected ImageInfo(Parcel parcel) {
-        this.type = c.lOR.getName().toLowerCase();
+        this.type = c.lPy.getName().toLowerCase();
         this.width = -1;
         this.height = -1;
         this.frameCount = 0;
@@ -88,7 +88,7 @@ public class ImageInfo implements Parcelable {
         if (!file.exists() || file.isDirectory()) {
             return imageInfo;
         }
-        c cVar = c.lOR;
+        c cVar = c.lPy;
         try {
             fileInputStream = new FileInputStream(file);
             try {
@@ -98,7 +98,7 @@ public class ImageInfo implements Parcelable {
             } catch (Exception e) {
                 a.b(fileInputStream);
                 imageInfo.type = cVar.getName().toLowerCase();
-                if (cVar != c.lOR) {
+                if (cVar != c.lPy) {
                 }
             } catch (Throwable th) {
                 th = th;
@@ -112,10 +112,10 @@ public class ImageInfo implements Parcelable {
             fileInputStream = null;
         }
         imageInfo.type = cVar.getName().toLowerCase();
-        if (cVar != c.lOR) {
+        if (cVar != c.lPy) {
             return imageInfo;
         }
-        if (cVar == b.lOJ) {
+        if (cVar == b.lPq) {
             try {
                 GifDrawable gifDrawable = new GifDrawable(file);
                 imageInfo.frameCount = gifDrawable.getNumberOfFrames();
@@ -124,7 +124,7 @@ public class ImageInfo implements Parcelable {
             } catch (Throwable th3) {
             }
             return imageInfo;
-        } else if (cVar == b.lOP) {
+        } else if (cVar == b.lPw) {
             return imageInfo;
         } else {
             BitmapFactory.Options options = new BitmapFactory.Options();

@@ -1,15 +1,15 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class k implements com.facebook.common.internal.j<q> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: czy */
+    /* renamed from: cAT */
     public q get() {
-        int czz = czz();
-        return new q(czz, Integer.MAX_VALUE, czz, Integer.MAX_VALUE, czz / 8);
+        int cAU = cAU();
+        return new q(cAU, Integer.MAX_VALUE, cAU, Integer.MAX_VALUE, cAU / 8);
     }
 
-    private int czz() {
+    private int cAU() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         if (min < 16777216) {
             return 1048576;

@@ -3,7 +3,7 @@ package android.support.v4.content;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class IntentCompat {
     public static final String CATEGORY_LEANBACK_LAUNCHER = "android.intent.category.LEANBACK_LAUNCHER";
     public static final String EXTRA_HTML_TEXT = "android.intent.extra.HTML_TEXT";

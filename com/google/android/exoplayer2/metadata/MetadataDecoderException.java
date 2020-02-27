@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.metadata;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MetadataDecoderException extends Exception {
     public MetadataDecoderException(String str) {
         super(str);

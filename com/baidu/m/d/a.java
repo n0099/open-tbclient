@@ -5,53 +5,53 @@ import android.support.v4.app.ActivityCompat;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private Map<String, com.baidu.m.a> cCm;
+    private Map<String, com.baidu.m.a> cGk;
 
     private a() {
-        this.cCm = new HashMap();
+        this.cGk = new HashMap();
     }
 
     /* renamed from: com.baidu.m.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private static class C0105a {
-        private static final a cCn = new a();
+    /* loaded from: classes6.dex */
+    private static class C0113a {
+        private static final a cGl = new a();
     }
 
-    public static a auB() {
-        return C0105a.cCn;
+    public static a awP() {
+        return C0113a.cGl;
     }
 
     public boolean a(com.baidu.m.a aVar, String str) {
         if (aVar == null || str == null) {
             return false;
         }
-        for (Map.Entry<String, com.baidu.m.a> entry : this.cCm.entrySet()) {
+        for (Map.Entry<String, com.baidu.m.a> entry : this.cGk.entrySet()) {
             entry.getValue().stop();
         }
-        this.cCm.clear();
-        this.cCm.put(str, aVar);
+        this.cGk.clear();
+        this.cGk.put(str, aVar);
         return true;
     }
 
-    public void ra(String str) {
+    public void rp(String str) {
         com.baidu.m.a aVar;
-        if (str != null && (aVar = this.cCm.get(str)) != null) {
+        if (str != null && (aVar = this.cGk.get(str)) != null) {
             aVar.stop();
-            this.cCm.remove(str);
+            this.cGk.remove(str);
         }
     }
 
-    public com.baidu.m.a rb(String str) {
+    public com.baidu.m.a rq(String str) {
         com.baidu.m.a aVar;
-        if (str == null || (aVar = this.cCm.get(str)) == null) {
+        if (str == null || (aVar = this.cGk.get(str)) == null) {
             return null;
         }
         return aVar;
     }
 
-    public static boolean bE(Context context) {
+    public static boolean bI(Context context) {
         return !com.baidu.swan.apps.as.a.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 }

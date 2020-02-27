@@ -8,13 +8,13 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
-    private SpecialLiveFragment emR;
+    private SpecialLiveFragment ere;
 
     public a(String str, String str2) {
-        this.emR = SpecialLiveFragment.cG(str, str2);
-        aNy().frag = this.emR;
+        this.ere = SpecialLiveFragment.cQ(str, str2);
+        getFragmentTabStructure().frag = this.ere;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,7 +23,7 @@ public class a extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c aNx() {
+    public c createFragmentTabStructure() {
         c cVar = new c();
         cVar.type = 4;
         cVar.textResId = R.string.ala_live;
@@ -32,9 +32,9 @@ public class a extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator dW(Context context) {
-        this.dxc = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.dxc.setTextSize(2.0f);
-        return this.dxc;
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
+        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.mIndicator.setTextSize(2.0f);
+        return this.mIndicator;
     }
 }

@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RoomInfo implements Serializable {
     private static final long serialVersionUID = -6142732605146513339L;
     public int mCreatorLevel;

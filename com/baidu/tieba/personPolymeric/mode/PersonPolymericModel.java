@@ -21,25 +21,25 @@ import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 import tbclient.UserMuteCheck.DataRes;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int RN = 20;
-    private CustomMessageListener iGR;
-    private CustomMessageListener iGS;
-    private CustomMessageListener iGT;
+    private CustomMessageListener iIu;
+    private CustomMessageListener iIv;
+    private CustomMessageListener iIw;
     private boolean isHost;
-    private com.baidu.tieba.personPolymeric.c.a jmX;
-    private int jmh;
-    private String jmi;
-    private b joZ;
-    private a jpa;
-    private com.baidu.adp.framework.listener.a jpb;
+    private com.baidu.tieba.personPolymeric.c.a jnQ;
+    private int jnb;
+    private String jnc;
+    private b jpV;
+    private a jpW;
+    private com.baidu.adp.framework.listener.a jpX;
 
     public PersonPolymericModel(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, boolean z) {
         super(baseFragmentActivity.getPageContext());
-        this.jmh = -1;
-        this.jmi = "";
-        this.jpb = new com.baidu.adp.framework.listener.a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.1
+        this.jnb = -1;
+        this.jnc = "";
+        this.jpX = new com.baidu.adp.framework.listener.a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
@@ -49,86 +49,86 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                             cVar = (ProfileHttpResponseMessage) responsedMessage;
                         }
                         if (cVar.getErrorCode() == 0) {
-                            PersonPolymericModel.this.jmX.a(cVar);
+                            PersonPolymericModel.this.jnQ.a(cVar);
                         }
                         if (responsedMessage.getError() == 0) {
-                            PersonPolymericModel.this.joZ.c(PersonPolymericModel.this.jmX);
+                            PersonPolymericModel.this.jpV.c(PersonPolymericModel.this.jnQ);
                         } else {
-                            PersonPolymericModel.this.joZ.c(null);
+                            PersonPolymericModel.this.jpV.c(null);
                         }
                     }
                 }
             }
         };
-        this.iGT = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.2
+        this.iIw = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a) && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
                     com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                    DataRes dataRes = aVar.ktH;
+                    DataRes dataRes = aVar.kuE;
                     if (aVar.error == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
                         if (dataRes.is_mute.equals("0")) {
-                            PersonPolymericModel.this.jmh = 0;
-                            PersonPolymericModel.this.jmi = dataRes.mute_confirm;
-                            if (aq.isEmpty(PersonPolymericModel.this.jmi)) {
-                                PersonPolymericModel.this.jmi = "确定禁言？";
+                            PersonPolymericModel.this.jnb = 0;
+                            PersonPolymericModel.this.jnc = dataRes.mute_confirm;
+                            if (aq.isEmpty(PersonPolymericModel.this.jnc)) {
+                                PersonPolymericModel.this.jnc = "确定禁言？";
                             }
                         } else if (dataRes.is_mute.equals("1")) {
-                            PersonPolymericModel.this.jmh = 1;
+                            PersonPolymericModel.this.jnb = 1;
                         }
-                        PersonPolymericModel.this.jpa.a(0, PersonPolymericModel.this.jmh, PersonPolymericModel.this.jmi, aVar.error, aVar.errorString);
+                        PersonPolymericModel.this.jpW.a(0, PersonPolymericModel.this.jnb, PersonPolymericModel.this.jnc, aVar.error, aVar.errorString);
                     }
                 }
             }
         };
-        this.iGR = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_ADD) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.3
+        this.iIu = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_ADD) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
                     UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                     if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                        PersonPolymericModel.this.jmh = 1;
+                        PersonPolymericModel.this.jnb = 1;
                     }
-                    PersonPolymericModel.this.jpa.a(1, PersonPolymericModel.this.jmh, PersonPolymericModel.this.jmi, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
+                    PersonPolymericModel.this.jpW.a(1, PersonPolymericModel.this.jnb, PersonPolymericModel.this.jnc, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
                 }
             }
         };
-        this.iGS = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_DEL) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.4
+        this.iIv = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_DEL) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
-                    PersonPolymericModel.this.jmh = 0;
+                    PersonPolymericModel.this.jnb = 0;
                     UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
-                    PersonPolymericModel.this.jpa.a(2, PersonPolymericModel.this.jmh, PersonPolymericModel.this.jmi, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
+                    PersonPolymericModel.this.jpW.a(2, PersonPolymericModel.this.jnb, PersonPolymericModel.this.jnc, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
                 }
             }
         };
         setUniqueId(bdUniqueId);
         if (!z) {
-            registerListener(this.iGT);
-            registerListener(this.iGR);
-            registerListener(this.iGS);
+            registerListener(this.iIw);
+            registerListener(this.iIu);
+            registerListener(this.iIv);
         }
         this.isHost = z;
-        registerListener(this.jpb);
+        registerListener(this.jpX);
     }
 
     public void e(com.baidu.tieba.personPolymeric.c.a aVar) {
-        this.jmX = aVar;
+        this.jnQ = aVar;
     }
 
     public void a(b bVar) {
-        this.joZ = bVar;
+        this.jpV = bVar;
     }
 
     public void a(a aVar) {
-        this.jpa = aVar;
+        this.jpW = aVar;
     }
 
-    public void ew(long j) {
+    public void t(long j, String str) {
         if (j.isNetworkAvailableForImmediately()) {
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -138,6 +138,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                 profileRequestMessage.set_friend_uid(Long.valueOf(j));
                 profileRequestMessage.set_is_guest(1);
             }
+            profileRequestMessage.set_friend_uid_portrait(str);
             profileRequestMessage.set_need_post_count(1);
             profileRequestMessage.set_pn(1);
             profileRequestMessage.set_rn(20);
@@ -152,7 +153,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void ex(long j) {
+    public void eu(long j) {
         if (j.isNetworkAvailableForImmediately()) {
             long j2 = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (j != j2 && TbadkCoreApplication.isLogin()) {
@@ -178,11 +179,11 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void resetData() {
-        this.jmX.cvK();
+        this.jnQ.cxd();
     }
 
-    public com.baidu.tieba.personPolymeric.c.a cwf() {
-        return this.jmX;
+    public com.baidu.tieba.personPolymeric.c.a cxB() {
+        return this.jnQ;
     }
 
     public void destroy() {

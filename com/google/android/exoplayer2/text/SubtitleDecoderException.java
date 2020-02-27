@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.text;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SubtitleDecoderException extends Exception {
     public SubtitleDecoderException(String str) {
         super(str);

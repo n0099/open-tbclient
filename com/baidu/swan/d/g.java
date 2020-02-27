@@ -3,7 +3,7 @@ package com.baidu.swan.d;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g {
     public static String getStringFromInput(InputStream inputStream) {
         byte[] byteFromInputStream;

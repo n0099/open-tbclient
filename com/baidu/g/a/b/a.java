@@ -1,5 +1,5 @@
 package com.baidu.g.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void onResult(int i);
 }

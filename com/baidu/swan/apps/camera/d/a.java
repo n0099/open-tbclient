@@ -3,10 +3,10 @@ package com.baidu.swan.apps.camera.d;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
-    private String bbJ;
-    public String bbK;
+    private String bfX;
+    public String bfY;
     private String devicePosition;
 
     public a(String str) {
@@ -22,36 +22,36 @@ public class a extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.devicePosition = jSONObject.optString("devicePosition", "back");
-        this.bbJ = jSONObject.optString("flash", "auto");
-        this.bbK = jSONObject.optString("cameraId");
+        this.bfX = jSONObject.optString("flash", "auto");
+        this.bfY = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
         return TextUtils.equals(this.devicePosition, "front");
     }
 
-    public String HS() {
-        return C0220a.fW(this.bbJ);
+    public String Kh() {
+        return C0230a.gl(this.bfX);
     }
 
     public int getWidth() {
-        if (this.bdZ == null) {
+        if (this.bip == null) {
             return 0;
         }
-        return this.bdZ.getWidth();
+        return this.bip.getWidth();
     }
 
     public int getHeight() {
-        if (this.bdZ == null) {
+        if (this.bip == null) {
             return 0;
         }
-        return this.bdZ.getHeight();
+        return this.bip.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private static class C0220a {
-        static String fW(String str) {
+    /* loaded from: classes11.dex */
+    private static class C0230a {
+        static String gl(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

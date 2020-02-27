@@ -2,23 +2,23 @@ package com.google.android.flexbox;
 
 import android.view.View;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 interface a {
-    View LZ(int i);
+    View Me(int i);
 
-    View Ma(int i);
+    View Mf(int i);
 
     void a(View view, int i, int i2, b bVar);
 
     void a(b bVar);
 
-    int am(int i, int i2, int i3);
-
     int an(int i, int i2, int i3);
 
-    int dq(View view);
+    int ao(int i, int i2, int i3);
 
-    boolean dyZ();
+    boolean dAj();
+
+    int ds(View view);
 
     int g(View view, int i, int i2);
 

@@ -17,21 +17,21 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.c;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private TbPageContext<?> cRe;
-    private a fsM;
+    private TbPageContext<?> cVg;
+    private a fvo;
     private List<com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.a> list;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar);
     }
 
     public b(TbPageContext<?> tbPageContext, a aVar) {
-        this.cRe = null;
-        this.cRe = tbPageContext;
-        this.fsM = aVar;
+        this.cVg = null;
+        this.cVg = tbPageContext;
+        this.fvo = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -57,126 +57,126 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0471b c0471b;
+        C0479b c0479b;
         final com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.a aVar = this.list.get(i);
         if (view == null) {
-            view = LayoutInflater.from(this.cRe.getPageActivity()).inflate(R.layout.ala_achievement_mark_list_item_line_layout, viewGroup, false);
-            C0471b c0471b2 = new C0471b();
-            c0471b2.fsP = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv0);
-            c0471b2.fsQ = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv0);
-            c0471b2.fsR = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv0);
-            c0471b2.fsS = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper0);
-            c0471b2.fsT = (TextView) view.findViewById(R.id.ala_achievement_mark_price0);
-            c0471b2.fsU = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv1);
-            c0471b2.fsV = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv1);
-            c0471b2.fsW = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv1);
-            c0471b2.fsX = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper1);
-            c0471b2.fsY = (TextView) view.findViewById(R.id.ala_achievement_mark_price1);
-            c0471b2.fsZ = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv2);
-            c0471b2.fta = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv2);
-            c0471b2.ftb = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv2);
-            c0471b2.ftc = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper2);
-            c0471b2.ftd = (TextView) view.findViewById(R.id.ala_achievement_mark_price2);
-            c0471b2.fte = view.findViewById(R.id.ala_achievement_mark_item_line);
-            c0471b2.title = (TextView) view.findViewById(R.id.ala_achievement_mark_item_main_title_tv);
-            c0471b = c0471b2;
+            view = LayoutInflater.from(this.cVg.getPageActivity()).inflate(R.layout.ala_achievement_mark_list_item_line_layout, viewGroup, false);
+            C0479b c0479b2 = new C0479b();
+            c0479b2.fvr = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv0);
+            c0479b2.fvs = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv0);
+            c0479b2.fvt = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv0);
+            c0479b2.fvu = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper0);
+            c0479b2.fvv = (TextView) view.findViewById(R.id.ala_achievement_mark_price0);
+            c0479b2.fvw = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv1);
+            c0479b2.fvx = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv1);
+            c0479b2.fvy = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv1);
+            c0479b2.fvz = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper1);
+            c0479b2.fvA = (TextView) view.findViewById(R.id.ala_achievement_mark_price1);
+            c0479b2.fvB = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv2);
+            c0479b2.fvC = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv2);
+            c0479b2.fvD = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv2);
+            c0479b2.fvE = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper2);
+            c0479b2.fvF = (TextView) view.findViewById(R.id.ala_achievement_mark_price2);
+            c0479b2.fvG = view.findViewById(R.id.ala_achievement_mark_item_line);
+            c0479b2.title = (TextView) view.findViewById(R.id.ala_achievement_mark_item_main_title_tv);
+            c0479b = c0479b2;
         } else {
-            c0471b = (C0471b) view.getTag();
+            c0479b = (C0479b) view.getTag();
         }
-        a(c0471b);
+        a(c0479b);
         if (aVar != null) {
-            if (aVar.qG(0) != null) {
-                com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b qG = aVar.qG(0);
-                c0471b.fsS.setVisibility(0);
-                c0471b.fsP.setText(qG.bqL() == null ? "" : qG.bqL());
-                if (qG.bqM() != null) {
-                    c0471b.fsQ.setDefaultBgResource(R.color.transparent);
-                    c0471b.fsQ.startLoad(qG.bqM(), 10, false);
+            if (aVar.qN(0) != null) {
+                com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b qN = aVar.qN(0);
+                c0479b.fvu.setVisibility(0);
+                c0479b.fvr.setText(qN.bsp() == null ? "" : qN.bsp());
+                if (qN.bsq() != null) {
+                    c0479b.fvs.setDefaultBgResource(R.color.transparent);
+                    c0479b.fvs.startLoad(qN.bsq(), 10, false);
                 }
-                b(c0471b.fsR, qG.bqN());
-                c(c0471b.fsQ, qG.bqN());
-                a(c0471b.fsT, qG.bqR(), qG.price);
-                c0471b.fsS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.1
+                b(c0479b.fvt, qN.bsr());
+                c(c0479b.fvs, qN.bsr());
+                a(c0479b.fvv, qN.bsv(), qN.price);
+                c0479b.fvu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (b.this.fsM != null) {
-                            b.this.fsM.a(aVar.qG(0));
+                        if (b.this.fvo != null) {
+                            b.this.fvo.a(aVar.qN(0));
                         }
                     }
                 });
             } else {
-                c0471b.fsS.setVisibility(4);
-                c0471b.fsS.setOnClickListener(null);
+                c0479b.fvu.setVisibility(4);
+                c0479b.fvu.setOnClickListener(null);
             }
-            if (aVar.qG(1) != null) {
-                com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b qG2 = aVar.qG(1);
-                c0471b.fsX.setVisibility(0);
-                c0471b.fsU.setText(qG2.bqL() == null ? "" : qG2.bqL());
-                if (qG2.bqM() != null) {
-                    c0471b.fsV.setDefaultBgResource(R.color.transparent);
-                    c0471b.fsV.startLoad(qG2.bqM(), 10, false);
+            if (aVar.qN(1) != null) {
+                com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b qN2 = aVar.qN(1);
+                c0479b.fvz.setVisibility(0);
+                c0479b.fvw.setText(qN2.bsp() == null ? "" : qN2.bsp());
+                if (qN2.bsq() != null) {
+                    c0479b.fvx.setDefaultBgResource(R.color.transparent);
+                    c0479b.fvx.startLoad(qN2.bsq(), 10, false);
                 }
-                b(c0471b.fsW, qG2.bqN());
-                c(c0471b.fsV, qG2.bqN());
-                a(c0471b.fsY, qG2.bqR(), qG2.price);
-                c0471b.fsX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.2
+                b(c0479b.fvy, qN2.bsr());
+                c(c0479b.fvx, qN2.bsr());
+                a(c0479b.fvA, qN2.bsv(), qN2.price);
+                c0479b.fvz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (b.this.fsM != null) {
-                            b.this.fsM.a(aVar.qG(1));
+                        if (b.this.fvo != null) {
+                            b.this.fvo.a(aVar.qN(1));
                         }
                     }
                 });
             } else {
-                c0471b.fsX.setVisibility(4);
-                c0471b.fsX.setOnClickListener(null);
+                c0479b.fvz.setVisibility(4);
+                c0479b.fvz.setOnClickListener(null);
             }
-            if (aVar.qG(2) != null) {
-                com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b qG3 = aVar.qG(2);
-                c0471b.ftc.setVisibility(0);
-                c0471b.fsZ.setText(qG3.bqL() == null ? "" : qG3.bqL());
-                if (qG3.bqM() != null) {
-                    c0471b.fta.setDefaultBgResource(R.color.transparent);
-                    c0471b.fta.startLoad(qG3.bqM(), 10, false);
+            if (aVar.qN(2) != null) {
+                com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b qN3 = aVar.qN(2);
+                c0479b.fvE.setVisibility(0);
+                c0479b.fvB.setText(qN3.bsp() == null ? "" : qN3.bsp());
+                if (qN3.bsq() != null) {
+                    c0479b.fvC.setDefaultBgResource(R.color.transparent);
+                    c0479b.fvC.startLoad(qN3.bsq(), 10, false);
                 }
-                b(c0471b.ftb, qG3.bqN());
-                c(c0471b.fta, qG3.bqN());
-                a(c0471b.ftd, qG3.bqR(), qG3.price);
-                c0471b.ftc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.3
+                b(c0479b.fvD, qN3.bsr());
+                c(c0479b.fvC, qN3.bsr());
+                a(c0479b.fvF, qN3.bsv(), qN3.price);
+                c0479b.fvE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (b.this.fsM != null) {
-                            b.this.fsM.a(aVar.qG(2));
+                        if (b.this.fvo != null) {
+                            b.this.fvo.a(aVar.qN(2));
                         }
                     }
                 });
             } else {
-                c0471b.ftc.setVisibility(4);
-                c0471b.ftc.setOnClickListener(null);
+                c0479b.fvE.setVisibility(4);
+                c0479b.fvE.setOnClickListener(null);
             }
             if (aVar.getType() == 3 || aVar.getType() == 1) {
-                c0471b.fte.setVisibility(0);
+                c0479b.fvG.setVisibility(0);
             } else {
-                c0471b.fte.setVisibility(8);
+                c0479b.fvG.setVisibility(8);
             }
-            if ((aVar.getType() == 1 || aVar.getType() == 2) && aVar.bqH() != null) {
-                c0471b.title.setVisibility(0);
-                c0471b.title.setText(aVar.bqH());
+            if ((aVar.getType() == 1 || aVar.getType() == 2) && aVar.bsl() != null) {
+                c0479b.title.setVisibility(0);
+                c0479b.title.setText(aVar.bsl());
             } else {
-                c0471b.title.setVisibility(8);
+                c0479b.title.setVisibility(8);
             }
         }
-        view.setTag(c0471b);
+        view.setTag(c0479b);
         return view;
     }
 
     private void a(TextView textView, boolean z, long j) {
         if (z) {
             textView.setVisibility(0);
-            Drawable drawable = this.cRe.getResources().getDrawable(R.drawable.icon_huobi_tdou);
-            int dimensionPixelSize = this.cRe.getResources().getDimensionPixelSize(R.dimen.ds24);
+            Drawable drawable = this.cVg.getResources().getDrawable(R.drawable.icon_huobi_tdou);
+            int dimensionPixelSize = this.cVg.getResources().getDimensionPixelSize(R.dimen.ds24);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-            textView.setCompoundDrawablePadding(this.cRe.getResources().getDimensionPixelSize(R.dimen.ds4));
+            textView.setCompoundDrawablePadding(this.cVg.getResources().getDimensionPixelSize(R.dimen.ds4));
             textView.setCompoundDrawables(drawable, null, null, null);
             textView.setText(AlaStringHelper.formatLowercasekDou(j));
             return;
@@ -196,29 +196,29 @@ public class b extends BaseAdapter {
         }
     }
 
-    private void a(C0471b c0471b) {
-        if (c0471b != null) {
-            am.setViewTextColor(c0471b.title, R.color.cp_cont_b, TbadkApplication.getInst().getSkinType());
-            am.setViewTextColor(c0471b.fsP, R.color.cp_cont_j, TbadkApplication.getInst().getSkinType());
-            am.setViewTextColor(c0471b.fsU, R.color.cp_cont_j, TbadkApplication.getInst().getSkinType());
-            am.setViewTextColor(c0471b.fsZ, R.color.cp_cont_j, TbadkApplication.getInst().getSkinType());
-            am.setViewTextColor(c0471b.fsT, R.color.cp_link_tip_d, 1, TbadkApplication.getInst().getSkinType());
-            am.setViewTextColor(c0471b.fsY, R.color.cp_link_tip_d, 1, TbadkApplication.getInst().getSkinType());
-            am.setViewTextColor(c0471b.ftd, R.color.cp_link_tip_d, 1, TbadkApplication.getInst().getSkinType());
+    private void a(C0479b c0479b) {
+        if (c0479b != null) {
+            am.setViewTextColor(c0479b.title, R.color.cp_cont_b, TbadkApplication.getInst().getSkinType());
+            am.setViewTextColor(c0479b.fvr, R.color.cp_cont_j, TbadkApplication.getInst().getSkinType());
+            am.setViewTextColor(c0479b.fvw, R.color.cp_cont_j, TbadkApplication.getInst().getSkinType());
+            am.setViewTextColor(c0479b.fvB, R.color.cp_cont_j, TbadkApplication.getInst().getSkinType());
+            am.setViewTextColor(c0479b.fvv, R.color.cp_link_tip_d, 1, TbadkApplication.getInst().getSkinType());
+            am.setViewTextColor(c0479b.fvA, R.color.cp_link_tip_d, 1, TbadkApplication.getInst().getSkinType());
+            am.setViewTextColor(c0479b.fvF, R.color.cp_link_tip_d, 1, TbadkApplication.getInst().getSkinType());
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                c0471b.fsQ.setDefaultResource(R.drawable.pic_live_honor_1);
-                c0471b.fsQ.setDefaultErrorResource(R.drawable.pic_live_honor_1);
-                c0471b.fsV.setDefaultResource(R.drawable.pic_live_honor_1);
-                c0471b.fsV.setDefaultErrorResource(R.drawable.pic_live_honor_1);
-                c0471b.fta.setDefaultResource(R.drawable.pic_live_honor_1);
+                c0479b.fvs.setDefaultResource(R.drawable.pic_live_honor_1);
+                c0479b.fvs.setDefaultErrorResource(R.drawable.pic_live_honor_1);
+                c0479b.fvx.setDefaultResource(R.drawable.pic_live_honor_1);
+                c0479b.fvx.setDefaultErrorResource(R.drawable.pic_live_honor_1);
+                c0479b.fvC.setDefaultResource(R.drawable.pic_live_honor_1);
             } else {
-                c0471b.fsQ.setDefaultResource(R.drawable.pic_live_honor);
-                c0471b.fsQ.setDefaultErrorResource(R.drawable.pic_live_honor);
-                c0471b.fsV.setDefaultResource(R.drawable.pic_live_honor);
-                c0471b.fsV.setDefaultErrorResource(R.drawable.pic_live_honor);
-                c0471b.fta.setDefaultResource(R.drawable.pic_live_honor);
+                c0479b.fvs.setDefaultResource(R.drawable.pic_live_honor);
+                c0479b.fvs.setDefaultErrorResource(R.drawable.pic_live_honor);
+                c0479b.fvx.setDefaultResource(R.drawable.pic_live_honor);
+                c0479b.fvx.setDefaultErrorResource(R.drawable.pic_live_honor);
+                c0479b.fvC.setDefaultResource(R.drawable.pic_live_honor);
             }
-            am.setBackgroundColor(c0471b.fte, R.color.cp_bg_line_c);
+            am.setBackgroundColor(c0479b.fvG, R.color.cp_bg_line_c);
         }
     }
 
@@ -279,7 +279,7 @@ public class b extends BaseAdapter {
             com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][] bVarArr = (com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) Array.newInstance(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b.class, i, 3);
             for (int i4 = 0; i4 < size; i4++) {
                 bVarArr[i4 / 3][i4 % 3] = list2.get(i4);
-                bVarArr[i4 / 3][i4 % 3].zn(list.get(i3).bqH());
+                bVarArr[i4 / 3][i4 % 3].zE(list.get(i3).bsl());
             }
             arrayList2.add(bVarArr);
             i2 = i3 + 1;
@@ -323,7 +323,7 @@ public class b extends BaseAdapter {
                         i9 = i10 + 1;
                     }
                     if (((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0] != null) {
-                        aVar.zn(((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0].bqH());
+                        aVar.zE(((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0].bsl());
                     }
                     arrayList.add(aVar);
                     i7 = i8 + 1;
@@ -335,27 +335,27 @@ public class b extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0471b {
-        TextView fsP;
-        TbImageView fsQ;
-        TextView fsR;
-        RelativeLayout fsS;
-        TextView fsT;
-        TextView fsU;
-        TbImageView fsV;
-        TextView fsW;
-        RelativeLayout fsX;
-        TextView fsY;
-        TextView fsZ;
-        TbImageView fta;
-        TextView ftb;
-        RelativeLayout ftc;
-        TextView ftd;
-        View fte;
+    /* loaded from: classes3.dex */
+    public class C0479b {
+        TextView fvA;
+        TextView fvB;
+        TbImageView fvC;
+        TextView fvD;
+        RelativeLayout fvE;
+        TextView fvF;
+        View fvG;
+        TextView fvr;
+        TbImageView fvs;
+        TextView fvt;
+        RelativeLayout fvu;
+        TextView fvv;
+        TextView fvw;
+        TbImageView fvx;
+        TextView fvy;
+        RelativeLayout fvz;
         TextView title;
 
-        private C0471b() {
+        private C0479b() {
         }
     }
 }

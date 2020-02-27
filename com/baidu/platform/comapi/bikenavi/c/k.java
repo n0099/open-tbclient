@@ -1,6 +1,6 @@
 package com.baidu.platform.comapi.bikenavi.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class k implements com.baidu.platform.comapi.wnplatform.walkmap.c {
     final /* synthetic */ b a;
 

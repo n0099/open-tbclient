@@ -3,14 +3,14 @@ package io.reactivex.subjects;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PublishSubject<T> extends b<T> {
-    static final PublishDisposable[] nAG = new PublishDisposable[0];
-    static final PublishDisposable[] nAH = new PublishDisposable[0];
+    static final PublishDisposable[] nBi = new PublishDisposable[0];
+    static final PublishDisposable[] nBj = new PublishDisposable[0];
     Throwable error;
-    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(nAH);
+    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(nBj);
 
-    public static <T> PublishSubject<T> dII() {
+    public static <T> PublishSubject<T> dJP() {
         return new PublishSubject<>();
     }
 
@@ -41,7 +41,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr == nAG) {
+            if (publishDisposableArr == nBi) {
                 return false;
             }
             int length = publishDisposableArr.length;
@@ -57,7 +57,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr != nAG && publishDisposableArr != nAH) {
+            if (publishDisposableArr != nBi && publishDisposableArr != nBj) {
                 int length = publishDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -73,7 +73,7 @@ public final class PublishSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishDisposableArr2 = nAH;
+                        publishDisposableArr2 = nBj;
                     } else {
                         publishDisposableArr2 = new PublishDisposable[length - 1];
                         System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, i);
@@ -90,7 +90,7 @@ public final class PublishSubject<T> extends b<T> {
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == nAG) {
+        if (this.subscribers.get() == nBi) {
             bVar.dispose();
         }
     }
@@ -106,27 +106,27 @@ public final class PublishSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == nAG) {
+        if (this.subscribers.get() == nBi) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nAG)) {
+        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nBi)) {
             publishDisposable.onError(th);
         }
     }
 
     @Override // io.reactivex.u
     public void onComplete() {
-        if (this.subscribers.get() != nAG) {
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nAG)) {
+        if (this.subscribers.get() != nBi) {
+            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nBi)) {
                 publishDisposable.onComplete();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class PublishDisposable<T> extends AtomicBoolean implements io.reactivex.disposables.b {
         private static final long serialVersionUID = 3562861878281475070L;
         final u<? super T> actual;

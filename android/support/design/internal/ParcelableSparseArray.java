@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
 import android.util.SparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ParcelableSparseArray extends SparseArray<Parcelable> implements Parcelable {
     public static final Parcelable.Creator<ParcelableSparseArray> CREATOR = new Parcelable.ClassLoaderCreator<ParcelableSparseArray>() { // from class: android.support.design.internal.ParcelableSparseArray.1
         /* JADX DEBUG: Method merged with bridge method */

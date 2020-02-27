@@ -3,7 +3,7 @@ package com.baidu.live.entereffect.b;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static com.baidu.live.entereffect.a.a o(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -26,14 +26,14 @@ public class a {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        aVar.ade = new com.baidu.live.gift.c();
+        aVar.afg = new com.baidu.live.gift.c();
         com.baidu.live.gift.b bVar = new com.baidu.live.gift.b();
         bVar.parseJson(jSONObject);
-        aVar.ade.adJ = bVar;
+        aVar.afg.afL = bVar;
         return aVar;
     }
 
-    public static com.baidu.live.entereffect.a.b cT(String str) {
+    public static com.baidu.live.entereffect.a.b dc(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -45,20 +45,20 @@ public class a {
             if (!TextUtils.isEmpty(optString) && optString.charAt(0) != '#') {
                 optString = '#' + optString;
             }
-            bVar.adg = optString;
+            bVar.afi = optString;
             String optString2 = jSONObject.optString("bg_color_end");
             if (!TextUtils.isEmpty(optString2) && optString2.charAt(0) != '#') {
                 optString2 = '#' + optString2;
             }
-            bVar.adh = optString2;
-            bVar.adi = jSONObject.optString("transparency_begin");
-            bVar.adj = jSONObject.optString("transparency_end");
-            bVar.aaC = jSONObject.optString("text_color");
-            bVar.adk = jSONObject.optString("nickname_preix");
-            bVar.adl = jSONObject.optString("nickname_suffix");
+            bVar.afj = optString2;
+            bVar.afk = jSONObject.optString("transparency_begin");
+            bVar.afl = jSONObject.optString("transparency_end");
+            bVar.acA = jSONObject.optString("text_color");
+            bVar.afm = jSONObject.optString("nickname_preix");
+            bVar.afn = jSONObject.optString("nickname_suffix");
             bVar.iconUrl = jSONObject.optString("icon_url");
-            bVar.adm = jSONObject.optInt("icon_width");
-            bVar.adn = jSONObject.optInt("icon_height");
+            bVar.afo = jSONObject.optInt("icon_width");
+            bVar.afp = jSONObject.optInt("icon_height");
             return bVar;
         } catch (JSONException e) {
             e.printStackTrace();

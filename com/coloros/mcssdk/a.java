@@ -1,5 +1,5 @@
 package com.coloros.mcssdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static final boolean a = false;
     public static final String b = "com.coloros.mcssdk";

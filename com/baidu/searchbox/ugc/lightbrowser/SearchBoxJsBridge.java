@@ -6,7 +6,7 @@ import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.unitedscheme.BaseRouter;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SearchBoxJsBridge extends BaseJsBridge implements NoProGuard {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_jsbridge";
     private static final String TAG = "SearchBoxJsBridge";

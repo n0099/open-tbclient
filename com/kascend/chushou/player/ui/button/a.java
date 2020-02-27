@@ -1,5 +1,5 @@
 package com.kascend.chushou.player.ui.button;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public int a;
     public int b;
@@ -11,12 +11,12 @@ public class a {
         this.b = i2;
     }
 
-    public a QI(String str) {
+    public a QV(String str) {
         this.d = str;
         return this;
     }
 
-    public a wm(boolean z) {
+    public a wq(boolean z) {
         this.c = z;
         return this;
     }

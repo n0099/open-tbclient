@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class b extends BaseAdapter {
-    private static int iup = 3;
+    private static int iwk = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -52,53 +52,53 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.aFw();
+            aVar.aHL();
             aVar.a(this.mDataList.get(i));
         }
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
-        public TextView ddX;
-        public BarImageView iur;
-        public View kOM;
+        public TextView dib;
+        public BarImageView iwm;
+        public View kPs;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.ddX = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.iur = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.kOM = view.findViewById(R.id.divider_line);
+                this.dib = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.iwm = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.kPs = view.findViewById(R.id.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.ddX.setText(transmitForumData.forumName);
-                this.iur.startLoad(transmitForumData.avatar, 10, false);
+                this.dib.setText(transmitForumData.forumName);
+                this.iwm.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void aFw() {
-            if (b.iup != this.mSkinType) {
-                am.setViewTextColor(this.ddX, (int) R.color.cp_cont_b);
-                am.setBackgroundColor(this.kOM, R.color.cp_bg_line_c);
+        public void aHL() {
+            if (b.iwk != this.mSkinType) {
+                am.setViewTextColor(this.dib, (int) R.color.cp_cont_b);
+                am.setBackgroundColor(this.kPs, R.color.cp_bg_line_c);
             }
-            this.mSkinType = b.iup;
+            this.mSkinType = b.iwk;
         }
     }
 
-    public void dr(List<TransmitForumData> list) {
+    public void dn(List<TransmitForumData> list) {
         this.mDataList.clear();
         this.mDataList.addAll(list);
         notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
-        if (iup != i) {
+        if (iwk != i) {
             notifyDataSetChanged();
         }
-        iup = i;
+        iwk = i;
     }
 }

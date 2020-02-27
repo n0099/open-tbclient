@@ -4,23 +4,23 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class c implements h {
-    private static final com.yanzhenjie.permission.a.a nrD = new com.yanzhenjie.permission.a.b();
-    private String[] Ip;
-    private com.yanzhenjie.permission.b.b nrE;
-    private a nrF;
-    private a nrG;
+    private static final com.yanzhenjie.permission.a.a nsf = new com.yanzhenjie.permission.a.b();
+    private String[] IL;
+    private com.yanzhenjie.permission.b.b nsg;
+    private a nsh;
+    private a nsi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.yanzhenjie.permission.b.b bVar) {
-        this.nrE = bVar;
+        this.nsg = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
-    public h V(String... strArr) {
-        this.Ip = strArr;
+    public h W(String... strArr) {
+        this.IL = strArr;
         return this;
     }
 
@@ -33,50 +33,50 @@ class c implements h {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.nrF = aVar;
+        this.nsh = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.nrG = aVar;
+        this.nsi = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a = a(this.nrE, this.Ip);
+        List<String> a = a(this.nsg, this.IL);
         if (a.isEmpty()) {
-            dGO();
+            dHV();
         } else {
-            fx(a);
+            fs(a);
         }
     }
 
-    private void dGO() {
-        if (this.nrF != null) {
-            List<String> asList = Arrays.asList(this.Ip);
+    private void dHV() {
+        if (this.nsh != null) {
+            List<String> asList = Arrays.asList(this.IL);
             try {
-                this.nrF.onAction(asList);
+                this.nsh.onAction(asList);
             } catch (Exception e) {
-                if (this.nrG != null) {
-                    this.nrG.onAction(asList);
+                if (this.nsi != null) {
+                    this.nsi.onAction(asList);
                 }
             }
         }
     }
 
-    private void fx(@NonNull List<String> list) {
-        if (this.nrG != null) {
-            this.nrG.onAction(list);
+    private void fs(@NonNull List<String> list) {
+        if (this.nsi != null) {
+            this.nsi.onAction(list);
         }
     }
 
     private static List<String> a(@NonNull com.yanzhenjie.permission.b.b bVar, @NonNull String... strArr) {
         ArrayList arrayList = new ArrayList(1);
         for (String str : strArr) {
-            if (!nrD.e(bVar.getContext(), str)) {
+            if (!nsf.e(bVar.getContext(), str)) {
                 arrayList.add(str);
             }
         }

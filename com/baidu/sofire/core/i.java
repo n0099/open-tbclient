@@ -1,7 +1,7 @@
 package com.baidu.sofire.core;
 
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i {
     private static String a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 

@@ -2,42 +2,42 @@ package com.baidu.swan.apps.media.chooser.b;
 
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private static ArrayList<MediaModel> byP;
+    private static ArrayList<MediaModel> bCW;
 
-    public static ArrayList<MediaModel> Vt() {
-        return byP;
+    public static ArrayList<MediaModel> XH() {
+        return bCW;
     }
 
     public static int getSelectedCount() {
-        if (byP == null) {
+        if (bCW == null) {
             return 0;
         }
-        return byP.size();
+        return bCW.size();
     }
 
-    public static String Vu() {
-        if (byP == null || byP.size() == 0 || byP.get(0) == null) {
+    public static String XI() {
+        if (bCW == null || bCW.size() == 0 || bCW.get(0) == null) {
             return null;
         }
-        return byP.get(0).getType();
+        return bCW.get(0).getType();
     }
 
     public static boolean c(MediaModel mediaModel) {
-        if (byP == null || byP.size() == 0) {
+        if (bCW == null || bCW.size() == 0) {
             return false;
         }
-        return byP.contains(mediaModel);
+        return bCW.contains(mediaModel);
     }
 
     public static int d(MediaModel mediaModel) {
-        if (mediaModel == null || byP == null) {
+        if (mediaModel == null || bCW == null) {
             return -1;
         }
-        int size = byP.size();
+        int size = bCW.size();
         for (int i = 0; i < size; i++) {
-            if (mediaModel.equals(byP.get(i))) {
+            if (mediaModel.equals(bCW.get(i))) {
                 return i;
             }
         }
@@ -45,31 +45,31 @@ public class e {
     }
 
     public static void clear() {
-        if (byP != null) {
-            byP.clear();
-            byP = null;
+        if (bCW != null) {
+            bCW.clear();
+            bCW = null;
         }
     }
 
     public static void e(MediaModel mediaModel) {
         if (mediaModel != null) {
-            if (byP == null) {
-                byP = new ArrayList<>();
+            if (bCW == null) {
+                bCW = new ArrayList<>();
             }
-            byP.add(mediaModel);
+            bCW.add(mediaModel);
         }
     }
 
     public static void f(MediaModel mediaModel) {
-        if (byP != null) {
-            byP.remove(mediaModel);
+        if (bCW != null) {
+            bCW.remove(mediaModel);
         }
     }
 
     public static boolean g(MediaModel mediaModel) {
-        if (byP == null) {
+        if (bCW == null) {
             return false;
         }
-        return byP.contains(mediaModel);
+        return bCW.contains(mediaModel);
     }
 }

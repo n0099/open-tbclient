@@ -18,6 +18,7 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.request.RcvMessage;
 import com.baidu.android.imsdk.utils.BigEndianDataIutputStream;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
@@ -35,7 +36,7 @@ import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class IMessageHandler {
     protected static final int MAX_BODY_LENGTH = 1048576;
     public static final int MSG_ID_HERATBEAT = 101;
@@ -203,11 +204,13 @@ public abstract class IMessageHandler {
                 if (jSONObject2.has("method")) {
                     int optInt2 = jSONObject2.optInt("method");
                     if (optInt2 == 96) {
-                        handleDeliverMessage(jSONObject2);
+                        NotifyMessageHandler.handleDeliverMessage(this.mContext, jSONObject2);
                     } else if (optInt2 == 196) {
-                        handleMcastMessage(jSONObject2);
+                        NotifyMessageHandler.handleMcastMessage(this.mContext, jSONObject2);
                     } else if (optInt2 == 197) {
-                        handleConfigMessage(jSONObject2);
+                        NotifyMessageHandler.handleConfigMessage(this.mContext, jSONObject2);
+                    } else if (optInt2 == 226) {
+                        NotifyMessageHandler.handleMediaNotifyMessage(this.mContext, jSONObject2);
                     }
                 }
             }
@@ -304,7 +307,7 @@ public abstract class IMessageHandler {
         McastManagerImpl.getInstance(this.mContext).handleMessage(jSONObject);
     }
 
-    /* JADX WARN: Type inference failed for: r3v2, types: [T, java.lang.Long] */
+    /* JADX WARN: Type inference failed for: r3v5, types: [T, java.lang.Long] */
     private void handleConfigMessage(JSONObject jSONObject) throws JSONException {
         LogUtils.i(TAG, "handleMessage Config:" + jSONObject.toString());
         JSONArray jSONArray = new JSONArray();
@@ -320,7 +323,7 @@ public abstract class IMessageHandler {
         if (jSONArray.length() != 0) {
             Type type = new Type();
             type.t = 0L;
-            arrayList = MessageParser.parserMessage(this.mContext, jSONArray, type, true, true);
+            arrayList = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
             ChatMsgManagerImpl.getInstance(this.mContext).persisConfigMsgIds(arrayList);
             ChatMsgManagerImpl.getInstance(this.mContext).deliverConfigMessage(arrayList);
         }
@@ -329,9 +332,10 @@ public abstract class IMessageHandler {
     public void onSessionOpened() {
         String token = AccountManager.getToken(this.mContext);
         LogUtils.d(TAG, "Send handShake Message token is: " + token);
-        if (!TextUtils.isEmpty(token) && LoginManager.getInstance(this.mContext).loginInternal(null)) {
+        if (!TextUtils.isEmpty(token)) {
+            Utility.writeLoginFlag(this.mContext, "16Y_1", "send Logig msg");
             sendMessage(new IMUserLoginByTokenMsg(this.mContext, token, true, AccountManagerImpl.getInstance(this.mContext).getFrom(), AccountManagerImpl.getInstance(this.mContext).getcFrom()), true);
-            LogUtils.d(TAG, "Logining");
+            LogUtils.d(TAG, "onSessionOpened, send IMUserLoginByTokenMsg...");
         }
     }
 

@@ -1,17 +1,12 @@
 package kotlin;
 
-import kotlin.Result;
-import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
-public final class h {
-    public static final Object O(Throwable th) {
-        q.j(th, com.baidu.fsg.base.statistics.b.k);
-        return new Result.Failure(th);
-    }
-
-    public static final void bP(Object obj) {
-        if (obj instanceof Result.Failure) {
-            throw ((Result.Failure) obj).exception;
-        }
-    }
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@h
+/* loaded from: classes7.dex */
+public @interface h {
 }

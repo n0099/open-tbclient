@@ -1,80 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String uP;
-    private boolean vA;
-    private int vB;
-    private int vC;
-    private boolean vD;
-    private boolean vE;
-    private int vx;
-    private int vy;
-    private boolean vz;
+    private int vO;
+    private int vP;
+    private boolean vQ;
+    private boolean vR;
+    private int vS;
+    private int vT;
+    private boolean vU;
+    private boolean vV;
+    private String vg;
 
     public l() {
-        this.uP = null;
-        this.vx = 32768;
-        this.vy = 131072;
-        this.vz = false;
-        this.vA = true;
-        this.vB = 30000;
-        this.vC = 30000;
-        this.vD = true;
-        this.vE = true;
-        this.uP = null;
+        this.vg = null;
+        this.vO = 32768;
+        this.vP = 131072;
+        this.vQ = false;
+        this.vR = true;
+        this.vS = 30000;
+        this.vT = 30000;
+        this.vU = true;
+        this.vV = true;
+        this.vg = null;
     }
 
     public l(l lVar) {
-        this.uP = null;
-        this.vx = lVar.vx;
-        this.vy = lVar.vy;
-        this.vz = lVar.vz;
-        this.vA = lVar.vA;
-        this.vB = lVar.vB;
-        this.vC = lVar.vC;
-        this.vD = lVar.vD;
-        this.vE = lVar.vE;
-        this.uP = lVar.uP;
+        this.vg = null;
+        this.vO = lVar.vO;
+        this.vP = lVar.vP;
+        this.vQ = lVar.vQ;
+        this.vR = lVar.vR;
+        this.vS = lVar.vS;
+        this.vT = lVar.vT;
+        this.vU = lVar.vU;
+        this.vV = lVar.vV;
+        this.vg = lVar.vg;
     }
 
-    public boolean hZ() {
-        return this.vz;
+    public boolean ip() {
+        return this.vQ;
     }
 
-    public int ia() {
-        return this.vx;
+    public int iq() {
+        return this.vO;
     }
 
-    public int ib() {
-        return this.vy;
+    public int ir() {
+        return this.vP;
     }
 
     public boolean getTcpNoDelay() {
-        return this.vA;
+        return this.vR;
     }
 
-    public int ic() {
-        return this.vB;
+    public int is() {
+        return this.vS;
     }
 
-    public int id() {
-        return this.vC;
+    public int it() {
+        return this.vT;
     }
 
-    public boolean ie() {
-        return this.vD;
+    public boolean iu() {
+        return this.vU;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public boolean m10if() {
-        return this.vE;
+    public boolean iv() {
+        return this.vV;
     }
 
-    public String ig() {
-        return this.uP;
+    public String iw() {
+        return this.vg;
     }
 
-    public void aK(String str) {
-        this.uP = str;
+    public void aN(String str) {
+        this.vg = str;
     }
 }

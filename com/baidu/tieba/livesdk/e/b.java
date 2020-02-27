@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements IImageLoader {
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void loadImage(final String str, final IImageLoaderListener iImageLoaderListener) {
@@ -66,12 +66,16 @@ public class b implements IImageLoader {
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void cancelLoad(String str) {
         if (str != null) {
-            if (str.toLowerCase().startsWith("file://")) {
-                c.gr().g(str, 36);
-                return;
+            try {
+                if (str.toLowerCase().startsWith("file://")) {
+                    c.gr().g(str, 36);
+                } else {
+                    c.gr().g(str, 10);
+                    c.gr().g(str, 39);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            c.gr().g(str, 10);
-            c.gr().g(str, 39);
         }
     }
 }

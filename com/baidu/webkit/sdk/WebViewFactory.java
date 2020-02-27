@@ -12,6 +12,7 @@ import android.os.Process;
 import android.os.StrictMode;
 import android.util.AndroidRuntimeException;
 import com.a.a.a.a.a.a.a;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.internal.GlobalConstants;
@@ -31,7 +32,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class WebViewFactory {
     private static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
     private static final String CHROMIUM_LIBS_PATH = "files/zeus/libs";
@@ -58,7 +59,7 @@ public final class WebViewFactory {
     private static int sIsPreInitWebViewEnable = -1;
     private static boolean mIsZeusProvideInit = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -321,7 +322,7 @@ public final class WebViewFactory {
             if (!a.a.a() && !EngineManager.getInstance().isInstalled()) {
                 LoadErrorCode.getInstance().trace(513);
             }
-            packageInfo = context.getPackageManager().getPackageArchiveInfo(str, 132);
+            packageInfo = context.getPackageManager().getPackageArchiveInfo(str, IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER);
             if (packageInfo != null) {
                 try {
                     packageInfo.applicationInfo.sourceDir = str;

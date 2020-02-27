@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.webkit.internal.GlobalConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static short a() {
         return (short) 80;

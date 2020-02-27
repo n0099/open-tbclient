@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMPaSubscribeMsg extends Message {
     private Context mContext;
     private long mPaId;
@@ -60,7 +60,7 @@ public class IMPaSubscribeMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         if (i == 0) {
             try {
                 PaInfoDBManager.getInstance(context).subscribePa(this.mPaInfo);

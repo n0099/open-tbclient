@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.ElectionInfo.DataReq;
 import tbclient.ElectionInfo.ElectionInfoReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VoteElectionRequestMessage extends NetMessage {
     private long fid;
     private int pn;

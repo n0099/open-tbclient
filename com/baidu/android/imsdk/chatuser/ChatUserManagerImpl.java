@@ -3,19 +3,20 @@ package com.baidu.android.imsdk.chatuser;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.LongSparseArray;
 import com.baidu.android.imsdk.Filter;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.account.AccountManagerImpl;
+import com.baidu.android.imsdk.account.IGetUidByUkListener;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
 import com.baidu.android.imsdk.chatuser.db.IMUserManager;
+import com.baidu.android.imsdk.chatuser.request.IMGetUserIdentityRequest;
 import com.baidu.android.imsdk.chatuser.request.IMGetUserIpLocation;
-import com.baidu.android.imsdk.chatuser.request.IMGetUserProfileBaiduUidMsg;
-import com.baidu.android.imsdk.chatuser.request.IMGetUserProfileMsg;
-import com.baidu.android.imsdk.chatuser.request.IMGetUsersProfileBatch;
-import com.baidu.android.imsdk.chatuser.request.IMGetUsersProfileByBaiduUidBatch;
 import com.baidu.android.imsdk.chatuser.request.IMGetUsersStatusRequest;
 import com.baidu.android.imsdk.chatuser.request.IMUserQueryRequest;
 import com.baidu.android.imsdk.chatuser.request.IMUserSetRequest;
@@ -28,7 +29,8 @@ import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+import java.util.Map;
+/* loaded from: classes3.dex */
 public class ChatUserManagerImpl {
     private static final String TAG = ChatUserManagerImpl.class.getSimpleName();
     private static Context mContext;
@@ -52,8 +54,8 @@ public class ChatUserManagerImpl {
     };
 
     private ChatUserManagerImpl() {
-        Class<?>[] clsArr = {IMGetUserIpLocation.class, IMGetUserProfileMsg.class, IMGetUsersProfileBatch.class, IMGetUserProfileBaiduUidMsg.class, IMGetUsersProfileByBaiduUidBatch.class, IMGetUsersStatusRequest.class};
-        int[] iArr = {91, 70, 71, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 21};
+        Class<?>[] clsArr = {IMGetUserIpLocation.class, IMGetUsersStatusRequest.class};
+        int[] iArr = {91, 21};
         for (int i = 0; i < clsArr.length; i++) {
             MessageFactory.getInstance().addType(iArr[i], clsArr[i]);
         }
@@ -92,23 +94,27 @@ public class ChatUserManagerImpl {
     }
 
     public void getUser(long j, int i, IGetUserListener iGetUserListener) {
-        long uk = j == 0 ? com.baidu.android.imsdk.utils.Utility.getUK(mContext) : j;
+        long uk = j <= 0 ? com.baidu.android.imsdk.utils.Utility.getUK(mContext) : j;
         String addListener = ListenerManager.getInstance().addListener(iGetUserListener);
+        LogUtils.d(TAG, "getUser uid:" + uk);
         if (!com.baidu.android.imsdk.utils.Utility.isContacterCorrect(uk)) {
             onGetUserResult(mContext, i, addListener, 1005, uk);
         } else if (AccountManager.isLogin(mContext)) {
             if (IMUserManager.getInstance(mContext).isUserExist(uk)) {
+                LogUtils.d(TAG, "isUserExist:" + uk);
                 onGetUserResult(mContext, i, addListener, 0, uk);
-            } else {
-                com.baidu.android.imsdk.utils.Utility.getUserProfile(addListener, i, mContext, uk);
+                return;
             }
+            LogUtils.d(TAG, "updateUserProfileByUks:" + uk);
+            updateUserProfileByUks(new long[]{uk}, true, addListener);
         } else {
+            LogUtils.d(TAG, "ACCOUNT_NOT_LOGIN:" + uk);
             onGetUserResult(mContext, i, addListener, 1000, uk);
         }
     }
 
     public void getUserByBuid(long j, int i, IGetUserListener iGetUserListener) {
-        long buid = j == 0 ? com.baidu.android.imsdk.utils.Utility.getBuid(mContext) : j;
+        long buid = j <= 0 ? com.baidu.android.imsdk.utils.Utility.getBuid(mContext) : j;
         String addListener = ListenerManager.getInstance().addListener(iGetUserListener);
         if (!com.baidu.android.imsdk.utils.Utility.isContacterCorrect(buid)) {
             onGetUserResultByBuid(mContext, i, addListener, 1005, buid);
@@ -117,7 +123,7 @@ public class ChatUserManagerImpl {
             if (uKbyBuid > -1 && IMUserManager.getInstance(mContext).isUserExist(uKbyBuid)) {
                 onGetUserResultByBuid(mContext, i, addListener, 0, buid);
             } else {
-                com.baidu.android.imsdk.utils.Utility.getUserProfileByBuid(addListener, i, mContext, buid);
+                updateUserProfileByUks(new long[]{buid}, true, addListener);
             }
         } else {
             onGetUserResultByBuid(mContext, i, addListener, 1000, buid);
@@ -132,7 +138,7 @@ public class ChatUserManagerImpl {
             if (uKbyBuid > 0) {
                 ChatUser chatUser = IMUserManager.getInstance(mContext).getChatUser(uKbyBuid);
                 if (chatUser != null) {
-                    LogUtils.d(TAG, "onGetUserResult: " + chatUser.getUserName());
+                    LogUtils.d(TAG, "onGetUserResultByBuid: " + chatUser.getUserName());
                 }
                 iGetUserListener.onGetUserResult(i2, j, chatUser);
                 return;
@@ -140,7 +146,7 @@ public class ChatUserManagerImpl {
             iGetUserListener.onGetUserResult(i2, j, null);
             return;
         }
-        LogUtils.d(TAG, "IGetUserListener is null!");
+        LogUtils.d(TAG, "onGetUserResultByBuid IGetUserListener is null!");
     }
 
     public void onGetUserResult(Context context, int i, String str, int i2, long j) {
@@ -148,62 +154,140 @@ public class ChatUserManagerImpl {
         if (removeListener != null && (removeListener instanceof IGetUserListener)) {
             IGetUserListener iGetUserListener = (IGetUserListener) removeListener;
             ChatUser chatUser = IMUserManager.getInstance(mContext).getChatUser(j);
+            LogUtils.d(TAG, "onGetUserResult :" + chatUser);
             if (chatUser != null) {
                 LogUtils.d(TAG, "onGetUserResult: " + chatUser.getUserName());
             }
             iGetUserListener.onGetUserResult(i2, j, chatUser);
             return;
         }
-        LogUtils.d(TAG, "IGetUserListener is null!");
+        LogUtils.d(TAG, "onGetUserResult IGetUserListener is null!");
+    }
+
+    public void onGetUserResult(String str, ChatUser chatUser, int i, long j) {
+        IMListener removeListener = ListenerManager.getInstance().removeListener(str);
+        if (removeListener instanceof IGetUserListener) {
+            IGetUserListener iGetUserListener = (IGetUserListener) removeListener;
+            if (chatUser != null) {
+                LogUtils.d(TAG, "onGetUserResult: " + chatUser.toString());
+            }
+            iGetUserListener.onGetUserResult(i, j, chatUser);
+            return;
+        }
+        LogUtils.d(TAG, "onGetUserResult IGetUserListener is null!");
     }
 
     public ArrayList<ChatUser> getChatUser() {
         return ChatUserDBManager.getInstance(mContext).getChatUser();
     }
 
-    public void getUsersProfileBatchByBuid(ArrayList<Long> arrayList, boolean z, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
-        String addListener = ListenerManager.getInstance().addListener(iGetUsersProfileBatchListener);
-        if (arrayList == null) {
-            onGetUsersProfileBatchResult(addListener, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList, null);
-        } else if (AccountManager.isLogin(mContext)) {
-            Intent creatMethodIntent = com.baidu.android.imsdk.utils.Utility.creatMethodIntent(mContext, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID);
-            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-            creatMethodIntent.putExtra(Constants.EXTRA_USERS_SYNC, z);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(Constants.EXTRA_BAIDU_UIDS, arrayList);
-            creatMethodIntent.putExtras(bundle);
-            try {
-                mContext.startService(creatMethodIntent);
-            } catch (Exception e) {
-                ListenerManager.getInstance().removeListener(addListener);
-                LogUtils.e(TAG, "Exception ", e);
+    public void updateUserProfileByUks(long[] jArr, boolean z, final String str) {
+        AccountManagerImpl.getInstance(mContext).getUidByUk(jArr, new IGetUidByUkListener() { // from class: com.baidu.android.imsdk.chatuser.ChatUserManagerImpl.3
+            @Override // com.baidu.android.imsdk.account.IGetUidByUkListener
+            public void onGetUidByUkResult(int i, String str2, long[] jArr2, Map<Long, Long> map) {
+                if (i != 0) {
+                    if (!TextUtils.isEmpty(str)) {
+                        ChatUserManagerImpl.this.onGetUserResult(ChatUserManagerImpl.mContext, 0, str, 1011, -1L);
+                        return;
+                    }
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (Map.Entry<Long, Long> entry : map.entrySet()) {
+                    if (entry.getValue().longValue() > 0) {
+                        arrayList.add(entry.getValue());
+                    }
+                }
+                LogUtils.d(ChatUserManagerImpl.TAG, "updateUserProfileByUks bduidList :" + arrayList.toString());
+                ChatUserManagerImpl.this.updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatuser.ChatUserManagerImpl.3.1
+                    @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
+                    public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
+                        if (i2 != 0 || list == null) {
+                            LogUtils.i(ChatUserManagerImpl.TAG, "updateUserProfileByUks fail");
+                            if (!TextUtils.isEmpty(str)) {
+                                ChatUserManagerImpl.this.onGetUserResult(ChatUserManagerImpl.mContext, 0, str, 0, -1L);
+                                return;
+                            }
+                            return;
+                        }
+                        if (!TextUtils.isEmpty(str)) {
+                            ChatUserManagerImpl.this.onGetUserResult(str, list.get(0), 0, list.get(0).getUk());
+                        }
+                        for (ChatUser chatUser : list) {
+                            ChatUserDBManager.getInstance(ChatUserManagerImpl.mContext).updateUser(chatUser);
+                            ChatMessageDBManager.getInstance(ChatUserManagerImpl.mContext).updateSessionClass(chatUser);
+                        }
+                    }
+                });
             }
-        } else {
-            LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-            onGetUsersProfileBatchResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, arrayList, null);
-        }
+        });
     }
 
-    public void getUsersProfileBatch(ArrayList<Long> arrayList, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
-        String addListener = ListenerManager.getInstance().addListener(iGetUsersProfileBatchListener);
-        if (arrayList == null) {
+    public void getUsersProfileBatchByBuid(final ArrayList<Long> arrayList, boolean z, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
+        final String addListener = ListenerManager.getInstance().addListener(iGetUsersProfileBatchListener);
+        if (arrayList == null || arrayList.size() <= 0) {
             onGetUsersProfileBatchResult(addListener, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList, null);
-        } else if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
-            Intent creatMethodIntent = com.baidu.android.imsdk.utils.Utility.creatMethodIntent(mContext, 71);
-            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
-            creatMethodIntent.putExtras(bundle);
-            try {
-                mContext.startService(creatMethodIntent);
-            } catch (Exception e) {
-                ListenerManager.getInstance().removeListener(addListener);
-                LogUtils.e(TAG, "Exception ", e);
-            }
-        } else {
-            LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-            onGetUsersProfileBatchResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, arrayList, null);
+            return;
         }
+        ArrayList<ChatUser> arrayList2 = new ArrayList<>();
+        Iterator<Long> it = arrayList.iterator();
+        while (it.hasNext()) {
+            ChatUser chatUserByBuid = ChatUserDBManager.getInstance(mContext).getChatUserByBuid(it.next().longValue());
+            if (chatUserByBuid != null) {
+                arrayList2.add(chatUserByBuid);
+            }
+        }
+        if (arrayList2.size() > 0) {
+            onGetUsersProfileBatchResult(addListener, 0, Constants.ERROR_MSG_SUCCESS, arrayList, arrayList2);
+            return;
+        }
+        LogUtils.d(TAG, "getUsersProfileBatchByBuid buids :" + arrayList.toString());
+        updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatuser.ChatUserManagerImpl.4
+            @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
+            public void onGetUserIdentityResult(int i, List<ChatUser> list) {
+                ChatUserManagerImpl.this.updateUserInfoToDB(i, list, addListener, arrayList);
+            }
+        });
+    }
+
+    public void getUsersProfileBatch(final ArrayList<Long> arrayList, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
+        final String addListener = ListenerManager.getInstance().addListener(iGetUsersProfileBatchListener);
+        if (arrayList == null || arrayList.size() <= 0) {
+            onGetUsersProfileBatchResult(addListener, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList, null);
+            return;
+        }
+        ArrayList<ChatUser> arrayList2 = new ArrayList<>();
+        Iterator<Long> it = arrayList.iterator();
+        while (it.hasNext()) {
+            ChatUser chatUserByBuid = ChatUserDBManager.getInstance(mContext).getChatUserByBuid(it.next().longValue());
+            if (chatUserByBuid != null) {
+                arrayList2.add(chatUserByBuid);
+            }
+        }
+        if (arrayList2.size() > 0) {
+            onGetUsersProfileBatchResult(addListener, 0, Constants.ERROR_MSG_SUCCESS, arrayList, arrayList2);
+            return;
+        }
+        LogUtils.d(TAG, "getUsersProfileBatch uks :" + arrayList.toString());
+        updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatuser.ChatUserManagerImpl.5
+            @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
+            public void onGetUserIdentityResult(int i, List<ChatUser> list) {
+                ChatUserManagerImpl.this.updateUserInfoToDB(i, list, addListener, arrayList);
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateUserInfoToDB(int i, List<ChatUser> list, String str, ArrayList<Long> arrayList) {
+        if (i == 0) {
+            onGetUsersProfileBatchResult(str, 0, Constants.ERROR_MSG_SUCCESS, arrayList, (ArrayList) list);
+            for (ChatUser chatUser : list) {
+                IMUserManager.getInstance(mContext).updateUser(chatUser);
+                ChatMessageDBManager.getInstance(mContext).updateSessionClass(chatUser);
+            }
+            return;
+        }
+        onGetUsersProfileBatchResult(str, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList, null);
     }
 
     public void getUsersStatus(ArrayList<Long> arrayList, IGetUserStatusListener iGetUserStatusListener) {
@@ -236,6 +320,7 @@ public class ChatUserManagerImpl {
             Iterator<ChatUser> it = arrayList2.iterator();
             while (it.hasNext()) {
                 ChatUser next = it.next();
+                LogUtils.d(TAG, "onGetUsersProfileBatchResult ChatUser: " + next.toString());
                 String iconUrl = next.getIconUrl();
                 if (!TextUtils.isEmpty(iconUrl)) {
                     next.setIconUrl(iconUrl.replace("http://himg", "https://himg"));
@@ -266,6 +351,26 @@ public class ChatUserManagerImpl {
 
     public boolean isUserExist(long j) {
         return IMUserManager.getInstance(mContext).isUserExist(j);
+    }
+
+    public void updateUserIdentity(List<Long> list, @NonNull IGetUserIdentityListener iGetUserIdentityListener) {
+        if (list == null || list.size() <= 0) {
+            iGetUserIdentityListener.onGetUserIdentityResult(1005, null);
+            return;
+        }
+        LogUtils.d(TAG, "updateUserIdentity bduids :" + list.toString());
+        int size = list.size() / 20;
+        for (int i = 0; i < size; i++) {
+            requestUserIdentity(list.subList(i * 20, (i + 1) * 20), iGetUserIdentityListener);
+        }
+        if (list.size() % 20 > 0) {
+            requestUserIdentity(list.subList(size * 20, list.size()), iGetUserIdentityListener);
+        }
+    }
+
+    private void requestUserIdentity(List<Long> list, IGetUserIdentityListener iGetUserIdentityListener) {
+        IMGetUserIdentityRequest iMGetUserIdentityRequest = new IMGetUserIdentityRequest(mContext, list, iGetUserIdentityListener);
+        HttpHelper.executor(mContext, iMGetUserIdentityRequest, iMGetUserIdentityRequest);
     }
 
     public void getUserIp(int i, ArrayList<Long> arrayList, IGetUserIpListener iGetUserIpListener) {

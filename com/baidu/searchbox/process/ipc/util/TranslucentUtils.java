@@ -3,7 +3,7 @@ package com.baidu.searchbox.process.ipc.util;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TranslucentUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "TranslucentUtils";

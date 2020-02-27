@@ -6,16 +6,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class AlaFollowRemindView extends LinearLayout {
-    private TextView eMs;
-    private TextView eMt;
-    private ImageView eMu;
-    private HeadImageView eMv;
-    private LinearLayout eMw;
+    private TextView eQv;
+    private TextView eQw;
+    private ImageView eQx;
+    private HeadImageView eQy;
+    private LinearLayout eQz;
     private View mRootView;
     private TextView mTipView;
 
@@ -36,20 +36,20 @@ public class AlaFollowRemindView extends LinearLayout {
 
     private void initView() {
         this.mRootView = View.inflate(getContext(), a.h.ala_follow_remind_view_layout, this);
-        this.eMs = (TextView) findViewById(a.g.ala_liveroom_follow_remind_attention);
-        this.eMv = (HeadImageView) findViewById(a.g.ala_liveroom_follow_remind_image);
-        this.eMv.setIsRound(true);
-        this.eMv.setAutoChangeStyle(false);
-        this.eMt = (TextView) findViewById(a.g.ala_liveroom_follow_remind_hostname);
-        this.eMu = (ImageView) findViewById(a.g.ala_liveroom_follow_remind_user_sex);
+        this.eQv = (TextView) findViewById(a.g.ala_liveroom_follow_remind_attention);
+        this.eQy = (HeadImageView) findViewById(a.g.ala_liveroom_follow_remind_image);
+        this.eQy.setIsRound(true);
+        this.eQy.setAutoChangeStyle(false);
+        this.eQw = (TextView) findViewById(a.g.ala_liveroom_follow_remind_hostname);
+        this.eQx = (ImageView) findViewById(a.g.ala_liveroom_follow_remind_user_sex);
         this.mTipView = (TextView) findViewById(a.g.ala_liveroom_follow_remind_tip);
-        this.eMw = (LinearLayout) findViewById(a.g.ala_liveroom_follow_remind_view);
+        this.eQz = (LinearLayout) findViewById(a.g.ala_liveroom_follow_remind_view);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.eMs.setBackgroundResource(a.f.sdk_round_btn_hk_bg_radius_12_selector);
+            this.eQv.setBackgroundResource(a.f.sdk_round_btn_hk_bg_radius_12_selector);
         } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-            this.eMs.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_12_selector);
+            this.eQv.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_12_selector);
         } else {
-            this.eMs.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_12_selector);
+            this.eQv.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_12_selector);
         }
     }
 
@@ -58,11 +58,11 @@ public class AlaFollowRemindView extends LinearLayout {
     }
 
     public View getContentView() {
-        return this.eMw;
+        return this.eQz;
     }
 
     public View getAttentionView() {
-        return this.eMs;
+        return this.eQv;
     }
 
     public void setClickCallBack(View.OnClickListener onClickListener) {

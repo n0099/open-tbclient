@@ -9,20 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class GuardClubRankInfoView extends RelativeLayout {
-    private HeadImageView afA;
-    private TextView aqn;
-    private TextView eEG;
-    private TextView eEH;
-    private a eEI;
-    private TextView eEt;
+    private HeadImageView ahI;
+    private TextView atX;
+    private TextView eIA;
+    private TextView eIB;
+    private a eIC;
+    private TextView eIn;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void bdA();
+        void bfI();
     }
 
     public GuardClubRankInfoView(Context context, AttributeSet attributeSet) {
@@ -31,23 +31,23 @@ public class GuardClubRankInfoView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.eEI = aVar;
+        this.eIC = aVar;
     }
 
     public void setData(String str, String str2, String str3, String str4, boolean z) {
-        this.eEG.setText(str);
-        this.afA.startLoad(str2, 12, false, false);
-        this.eEt.setText(str3);
-        this.aqn.setText(str4);
-        this.eEH.setVisibility(z ? 0 : 4);
-        if (dP(str)) {
-            this.eEG.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize40));
+        this.eIA.setText(str);
+        this.ahI.startLoad(str2, 12, false, false);
+        this.eIn.setText(str3);
+        this.atX.setText(str4);
+        this.eIB.setVisibility(z ? 0 : 4);
+        if (ee(str)) {
+            this.eIA.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize40));
         } else {
-            this.eEG.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize20));
+            this.eIA.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize20));
         }
     }
 
-    private boolean dP(String str) {
+    private boolean ee(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -62,8 +62,8 @@ public class GuardClubRankInfoView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.afA != null) {
-            this.afA.stopLoad();
+        if (this.ahI != null) {
+            this.ahI.stopLoad();
         }
     }
 
@@ -71,19 +71,19 @@ public class GuardClubRankInfoView extends RelativeLayout {
         setBackgroundColor(Color.parseColor("#FF201443"));
         setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds20), 0, 0, 0);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_rank_info, (ViewGroup) this, true);
-        this.eEG = (TextView) findViewById(a.g.tv_rank);
-        this.afA = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.eEt = (TextView) findViewById(a.g.tv_name);
-        this.aqn = (TextView) findViewById(a.g.tv_content);
-        this.eEH = (TextView) findViewById(a.g.tv_hit);
-        this.afA.setIsRound(true);
-        this.afA.setAutoChangeStyle(false);
-        this.afA.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.eEH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
+        this.eIA = (TextView) findViewById(a.g.tv_rank);
+        this.ahI = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.eIn = (TextView) findViewById(a.g.tv_name);
+        this.atX = (TextView) findViewById(a.g.tv_content);
+        this.eIB = (TextView) findViewById(a.g.tv_hit);
+        this.ahI.setIsRound(true);
+        this.ahI.setAutoChangeStyle(false);
+        this.ahI.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.eIB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GuardClubRankInfoView.this.eEI != null) {
-                    GuardClubRankInfoView.this.eEI.bdA();
+                if (GuardClubRankInfoView.this.eIC != null) {
+                    GuardClubRankInfoView.this.eIC.bfI();
                 }
             }
         });

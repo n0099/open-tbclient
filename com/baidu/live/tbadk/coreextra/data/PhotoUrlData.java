@@ -7,7 +7,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PhotoUrlData implements Serializable {
     private static final long serialVersionUID = -6994746964706195260L;
     private String bigurl;
@@ -98,15 +98,12 @@ public class PhotoUrlData implements Serializable {
     }
 
     private void parsePicInfo(String str) {
-        if (!StringUtils.isNull(str)) {
-            str.replaceAll("#\\(|\\)", "");
-            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            if (split != null && split.length == 4) {
-                this.pic = split[0];
-                this.picId = split[1];
-                this.width = split[2];
-                this.height = split[3];
-            }
+        String[] split;
+        if (!StringUtils.isNull(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length == 4) {
+            this.pic = split[0];
+            this.picId = split[1];
+            this.width = split[2];
+            this.height = split[3];
         }
     }
 

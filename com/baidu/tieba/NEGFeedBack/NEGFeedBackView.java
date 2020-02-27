@@ -15,17 +15,17 @@ import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class NEGFeedBackView extends AppCompatImageView {
-    private long agy;
-    c dPZ;
-    private View.OnClickListener dQa;
+    private long aiH;
+    c dUf;
+    private View.OnClickListener dUg;
     private Context mContext;
     private int mPaddingLeft;
     private int mPaddingRight;
     private int mPaddingTop;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(al alVar, CompoundButton compoundButton, boolean z);
 
@@ -37,16 +37,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.agy = 0L;
-        this.dQa = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.aiH = 0L;
+        this.dUg = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.aTV();
+                NEGFeedBackView.this.aWl();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.agy > 500) {
+                if (currentTimeMillis - NEGFeedBackView.this.aiH > 500) {
                     NEGFeedBackView.this.R(view);
                 }
-                NEGFeedBackView.this.agy = currentTimeMillis;
+                NEGFeedBackView.this.aiH = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -54,14 +54,14 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     private void i(TbPageContext tbPageContext) {
-        this.dPZ = new c(tbPageContext, this);
-        setOnClickListener(this.dQa);
-        SvgManager.aEp().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.dUf = new c(tbPageContext, this);
+        setOnClickListener(this.dUg);
+        SvgManager.aGA().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.dPZ.setUniqueId(bdUniqueId);
+        this.dUf.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -85,11 +85,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R(View view) {
-        this.dPZ.R(view);
+        this.dUf.R(view);
     }
 
-    public void aTV() {
-        this.dPZ.aTV();
+    public void aWl() {
+        this.dUf.aWl();
     }
 
     public void setCWRotateAnimation() {
@@ -101,39 +101,39 @@ public class NEGFeedBackView extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.dPZ.onDetachedFromWindow();
+        this.dUf.onDetachedFromWindow();
     }
 
     public void setData(al alVar) {
-        this.dPZ.setData(alVar);
+        this.dUf.setData(alVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.dPZ.setFirstRowSingleColumn(z);
+        this.dUf.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        SvgManager.aEp().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aGA().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setEventCallback(a aVar) {
-        this.dPZ.setEventCallback(aVar);
+        this.dUf.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.dPZ.setAutoProcess(z);
+        this.dUf.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.dPZ.setHeadText(str);
+        this.dUf.setHeadText(str);
     }
 
-    public void ab(boolean z) {
-        this.dPZ.ab(z);
+    public void ae(boolean z) {
+        this.dUf.ae(z);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.dPZ.setDefaultReasonArray(strArr);
+        this.dUf.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

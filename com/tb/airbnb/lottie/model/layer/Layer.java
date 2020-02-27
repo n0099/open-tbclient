@@ -7,35 +7,35 @@ import com.tb.airbnb.lottie.model.a.l;
 import com.tb.airbnb.lottie.model.content.Mask;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Layer {
     private final com.tb.airbnb.lottie.d composition;
-    private final float ec;
-    private final List<Mask> gJ;
-    private final List<com.tb.airbnb.lottie.e.a<Float>> jA;
-    private final String jm;
-    private final long jn;
-    private final long jp;
-    @Nullable
+    private final float ed;
+    private final List<Mask> gN;
+    private final int jA;
+    private final List<com.tb.airbnb.lottie.e.a<Float>> jE;
     private final String jq;
-    private final int jr;
-    private final int js;
-    private final int jt;
-    private final float ju;
+    private final long jr;
+    private final long jt;
+    @Nullable
+    private final String ju;
     private final int jv;
     private final int jw;
-    private final l nqI;
-    private final LayerType nqT;
+    private final int jx;
+    private final float jy;
+    private final int jz;
+    private final l nrk;
+    private final LayerType nrv;
     @Nullable
-    private final j nqU;
+    private final j nrw;
     @Nullable
-    private final k nqV;
+    private final k nrx;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nqW;
-    private final MatteType nqX;
+    private final com.tb.airbnb.lottie.model.a.b nry;
+    private final MatteType nrz;
     private final List<com.tb.airbnb.lottie.model.content.b> shapes;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum LayerType {
         PreComp,
         Solid,
@@ -46,7 +46,7 @@ public class Layer {
         Unknown
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum MatteType {
         None,
         Add,
@@ -57,25 +57,25 @@ public class Layer {
     public Layer(List<com.tb.airbnb.lottie.model.content.b> list, com.tb.airbnb.lottie.d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.tb.airbnb.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.tb.airbnb.lottie.model.a.b bVar) {
         this.shapes = list;
         this.composition = dVar;
-        this.jm = str;
-        this.jn = j;
-        this.nqT = layerType;
-        this.jp = j2;
-        this.jq = str2;
-        this.gJ = list2;
-        this.nqI = lVar;
-        this.jr = i;
-        this.js = i2;
-        this.jt = i3;
-        this.ju = f;
-        this.ec = f2;
-        this.jv = i4;
-        this.jw = i5;
-        this.nqU = jVar;
-        this.nqV = kVar;
-        this.jA = list3;
-        this.nqX = matteType;
-        this.nqW = bVar;
+        this.jq = str;
+        this.jr = j;
+        this.nrv = layerType;
+        this.jt = j2;
+        this.ju = str2;
+        this.gN = list2;
+        this.nrk = lVar;
+        this.jv = i;
+        this.jw = i2;
+        this.jx = i3;
+        this.jy = f;
+        this.ed = f2;
+        this.jz = i4;
+        this.jA = i5;
+        this.nrw = jVar;
+        this.nrx = kVar;
+        this.jE = list3;
+        this.nrz = matteType;
+        this.nry = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -84,106 +84,105 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float dh() {
-        return this.ju;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public float di() {
-        return this.ec / this.composition.bn();
+        return this.jy;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<com.tb.airbnb.lottie.e.a<Float>> dj() {
-        return this.jA;
+    public float dj() {
+        return this.ed / this.composition.bo();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<com.tb.airbnb.lottie.e.a<Float>> dk() {
+        return this.jE;
     }
 
     public long getId() {
-        return this.jn;
+        return this.jr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getName() {
-        return this.jm;
+        return this.jq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public String getRefId() {
-        return this.jq;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int dk() {
-        return this.jv;
+        return this.ju;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int dl() {
-        return this.jw;
+        return this.jz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Mask> bW() {
-        return this.gJ;
-    }
-
-    public LayerType dGr() {
-        return this.nqT;
+    public int dm() {
+        return this.jA;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType dGs() {
-        return this.nqX;
+    public List<Mask> bX() {
+        return this.gN;
+    }
+
+    public LayerType dHy() {
+        return this.nrv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: do  reason: not valid java name */
-    public long m41do() {
-        return this.jp;
+    public MatteType dHz() {
+        return this.nrz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<com.tb.airbnb.lottie.model.content.b> ci() {
-        return this.shapes;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l dGl() {
-        return this.nqI;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getSolidColor() {
+    public long dp() {
         return this.jt;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int dp() {
-        return this.js;
+    public List<com.tb.airbnb.lottie.model.content.b> cj() {
+        return this.shapes;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l dHs() {
+        return this.nrk;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int getSolidColor() {
+        return this.jx;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int dq() {
-        return this.jr;
+        return this.jw;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int dr() {
+        return this.jv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j dGt() {
-        return this.nqU;
+    public j dHA() {
+        return this.nrw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public k dGu() {
-        return this.nqV;
+    public k dHB() {
+        return this.nrx;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b dGv() {
-        return this.nqW;
+    public com.tb.airbnb.lottie.model.a.b dHC() {
+        return this.nry;
     }
 
     public String toString() {
@@ -193,21 +192,21 @@ public class Layer {
     public String toString(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str).append(getName()).append("\n");
-        Layer hc = this.composition.hc(m41do());
-        if (hc != null) {
-            sb.append("\t\tParents: ").append(hc.getName());
-            Layer hc2 = this.composition.hc(hc.m41do());
-            while (hc2 != null) {
-                sb.append("->").append(hc2.getName());
-                hc2 = this.composition.hc(hc2.m41do());
+        Layer ha = this.composition.ha(dp());
+        if (ha != null) {
+            sb.append("\t\tParents: ").append(ha.getName());
+            Layer ha2 = this.composition.ha(ha.dp());
+            while (ha2 != null) {
+                sb.append("->").append(ha2.getName());
+                ha2 = this.composition.ha(ha2.dp());
             }
             sb.append(str).append("\n");
         }
-        if (!bW().isEmpty()) {
-            sb.append(str).append("\tMasks: ").append(bW().size()).append("\n");
+        if (!bX().isEmpty()) {
+            sb.append(str).append("\tMasks: ").append(bX().size()).append("\n");
         }
-        if (dq() != 0 && dp() != 0) {
-            sb.append(str).append("\tBackground: ").append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(dq()), Integer.valueOf(dp()), Integer.valueOf(getSolidColor())));
+        if (dr() != 0 && dq() != 0) {
+            sb.append(str).append("\tBackground: ").append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(dr()), Integer.valueOf(dq()), Integer.valueOf(getSolidColor())));
         }
         if (!this.shapes.isEmpty()) {
             sb.append(str).append("\tShapes:\n");

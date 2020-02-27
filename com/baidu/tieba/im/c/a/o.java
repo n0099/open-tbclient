@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
 import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class o implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -18,7 +18,7 @@ public class o implements CustomMessageTask.CustomRunnable<Object> {
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.aCo().sz("tb.im_entergroup").get("p_group_info" + str);
+        byte[] bArr = com.baidu.tbadk.core.c.a.aEz().sP("tb.im_entergroup").get("p_group_info" + str);
         ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
         if (bArr != null) {
             try {

@@ -4,14 +4,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.live.data.f> cRO = new ArrayList<>();
-    private View.OnClickListener esJ;
+    private ArrayList<com.baidu.live.data.g> cVQ = new ArrayList<>();
+    private View.OnClickListener ewT;
     private TbPageContext mPageContext;
 
     public f(TbPageContext tbPageContext, int i) {
@@ -19,33 +19,33 @@ public class f extends BaseAdapter {
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.esJ = onClickListener;
+        this.ewT = onClickListener;
     }
 
-    public void setData(List<com.baidu.live.data.f> list) {
+    public void setData(List<com.baidu.live.data.g> list) {
         if (list != null) {
-            this.cRO.clear();
-            this.cRO.addAll(list);
+            this.cVQ.clear();
+            this.cVQ.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cRO == null) {
+        if (this.cVQ == null) {
             return 0;
         }
-        return this.cRO.size();
+        return this.cVQ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oL */
-    public com.baidu.live.data.f getItem(int i) {
-        if (this.cRO == null) {
+    /* renamed from: pc */
+    public com.baidu.live.data.g getItem(int i) {
+        if (this.cVQ == null) {
             return null;
         }
-        return this.cRO.get(i);
+        return this.cVQ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class f extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.online_item_layout, (ViewGroup) null);
             gVar = new g(view);
-            gVar.p(this.esJ);
+            gVar.p(this.ewT);
             view.setTag(gVar);
         } else {
             gVar = (g) view.getTag();

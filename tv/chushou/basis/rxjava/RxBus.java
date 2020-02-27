@@ -1,7 +1,7 @@
 package tv.chushou.basis.rxjava;
 
 import tv.chushou.basis.rxjava.thread.ThreadEnforcer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RxBus {
     private static volatile Bus sBus;
 

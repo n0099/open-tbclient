@@ -8,42 +8,42 @@ import okhttp3.Callback;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends HttpManager {
-    private static volatile b cmh;
+    private static volatile b cqj;
 
     private b() {
-        super(com.baidu.swan.apps.w.a.RG());
+        super(com.baidu.swan.apps.w.a.TU());
     }
 
-    public static b amC() {
+    public static b aoP() {
         b bVar = new b();
-        bVar.setHttpDnsEnable(amD().getHttpDnsEnable());
+        bVar.setHttpDnsEnable(aoQ().getHttpDnsEnable());
         return bVar;
     }
 
-    public static b amD() {
-        if (cmh == null) {
+    public static b aoQ() {
+        if (cqj == null) {
             synchronized (b.class) {
-                if (cmh == null) {
-                    cmh = new b();
+                if (cqj == null) {
+                    cqj = new b();
                 }
             }
         }
-        return cmh;
+        return cqj;
     }
 
     @Override // com.baidu.searchbox.http.AbstractHttpManager
     protected OkHttpClient initClient() {
-        if (e.aap() == null) {
+        if (e.acD() == null) {
             return super.initClient();
         }
-        com.baidu.swan.games.s.a.a aaw = e.aap().aaw();
+        com.baidu.swan.games.s.a.a acK = e.acD().acK();
         OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
         int i = 60000;
-        if (aaw != null && aaw.cne != null) {
-            i = aaw.cne.bLs;
-            newBuilder.connectTimeout(aaw.cne.bLt, TimeUnit.MILLISECONDS);
+        if (acK != null && acK.crh != null) {
+            i = acK.crh.bPx;
+            newBuilder.connectTimeout(acK.crh.bPy, TimeUnit.MILLISECONDS);
             newBuilder.addNetworkInterceptor(new com.baidu.swan.apps.network.a.c());
         }
         newBuilder.readTimeout(i, TimeUnit.MILLISECONDS);

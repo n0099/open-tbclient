@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.adaptation.a.q;
 import com.baidu.swan.apps.scheme.actions.p;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a implements q {
     @Override // com.baidu.swan.apps.adaptation.a.q
     public boolean a(Activity activity, Uri uri, String str) {

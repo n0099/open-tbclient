@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.nio.ByteBuffer;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class t {
     public static byte[] a(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};

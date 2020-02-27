@@ -10,12 +10,12 @@ import org.json.JSONObject;
 import tbclient.Error;
 import tbclient.HotThread.HotThreadResIdl;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.tbadk.mvc.b.b, j {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> buo() {
+    public List<tinfo> bvS() {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }

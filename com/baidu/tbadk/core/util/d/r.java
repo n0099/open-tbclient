@@ -31,18 +31,18 @@ public class r extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aEE() {
+    public boolean aGQ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aEF() {
+    public boolean aGR() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.lib.Disk.ops.c tq(String str) {
+    public com.baidu.adp.lib.Disk.ops.c tG(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -50,13 +50,13 @@ public class r extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a vg = com.baidu.tbadk.imageManager.c.aNs().vg(str);
-        if (vg != null) {
-            vg.zF.resourceFromType = "memory";
-            vg.zF.costTime = 0L;
-            vg.zF.isScuess = true;
+        com.baidu.adp.widget.ImageView.a vx = com.baidu.tbadk.imageManager.c.aPO().vx(str);
+        if (vx != null) {
+            vx.zX.resourceFromType = "memory";
+            vx.zX.costTime = 0L;
+            vx.zX.isScuess = true;
         }
-        return vg;
+        return vx;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -97,7 +97,7 @@ public class r extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int aEG() {
+    public int aGS() {
         return this.procType;
     }
 }

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.kascend.chushou.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SubscribeButton extends LinearLayout {
     public static float a;
     private boolean b;
@@ -19,8 +19,8 @@ public class SubscribeButton extends LinearLayout {
     private LinearLayout d;
     private LinearLayout e;
     private Context h;
-    private AnimatorSet ndy;
-    private AnimatorSet ngL;
+    private AnimatorSet neb;
+    private AnimatorSet nho;
 
     public SubscribeButton(Context context) {
         this(context, null, 0);
@@ -44,16 +44,16 @@ public class SubscribeButton extends LinearLayout {
         a = this.h.getResources().getDisplayMetrics().density;
         if (a >= 2.0f) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.subscribe_btn_height);
-            this.ngL = new AnimatorSet();
+            this.nho = new AnimatorSet();
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("alpha", 1.0f, 0.0f));
             ofPropertyValuesHolder.setDuration(20L);
             ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("translationY", 0.0f, dimensionPixelOffset));
             ofPropertyValuesHolder2.setDuration(10L);
-            this.ngL.play(ofPropertyValuesHolder2).after(ofPropertyValuesHolder);
-            this.ndy = new AnimatorSet();
+            this.nho.play(ofPropertyValuesHolder2).after(ofPropertyValuesHolder);
+            this.neb = new AnimatorSet();
             ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("translationY", dimensionPixelOffset, 0.0f));
             ofPropertyValuesHolder3.setDuration(250L);
-            this.ndy.play(ofPropertyValuesHolder3);
+            this.neb.play(ofPropertyValuesHolder3);
         }
     }
 }

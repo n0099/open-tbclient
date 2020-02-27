@@ -8,7 +8,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebviewHelper {
     public static final String TAG = "WebviewHelper";
 
@@ -106,7 +106,7 @@ public class WebviewHelper {
         return bundle;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TiebaCookieInfo {
         public String BDUSS;
         public String PTOKEN;

@@ -15,7 +15,7 @@ import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static Animation P(Context context, int i) throws Resources.NotFoundException {
         XmlResourceParser xmlResourceParser = null;

@@ -3,7 +3,7 @@ package com.vivo.push;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class x extends Handler {
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(Looper looper) {

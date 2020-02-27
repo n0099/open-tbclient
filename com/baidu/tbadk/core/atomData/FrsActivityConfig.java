@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class FrsActivityConfig extends IntentConfig {
@@ -46,8 +47,8 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_HOT_THREAD_ID = "frs_hot_thread_id";
     public static final String FRS_PB_CARD_GIFT = "tb_pb_card_gift";
     public static final String GOOD = "good";
-    public static final String IS_SELECTION = "is_selection";
     public static final String KEY_REFRESH = "refresh_all";
+    public static final String KEY_URI = "key_uri";
     public static final String NAME = "name";
     public static final int READ_CHAT = 1;
     public static final int READ_REPLYORAT = 0;
@@ -118,5 +119,12 @@ public class FrsActivityConfig extends IntentConfig {
     public FrsActivityConfig setCallFrom(int i) {
         getIntent().putExtra(FRS_CALL_FROM, i);
         return this;
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("key_uri", uri);
+        }
     }
 }

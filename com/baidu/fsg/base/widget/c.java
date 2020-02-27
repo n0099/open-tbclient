@@ -2,7 +2,7 @@ package com.baidu.fsg.base.widget;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c implements View.OnLongClickListener {
     final /* synthetic */ SafeKeyBoardEditText a;
 

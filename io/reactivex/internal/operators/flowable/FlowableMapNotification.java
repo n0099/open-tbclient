@@ -5,7 +5,7 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import io.reactivex.j;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableMapNotification<T, R> extends a<T, R> {
     final Callable<? extends R> onCompleteSupplier;
     final h<? super Throwable, ? extends R> onErrorMapper;
@@ -13,10 +13,10 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.nvP.a((j) new MapNotificationSubscriber(cVar, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));
+        this.nwr.a((j) new MapNotificationSubscriber(cVar, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class MapNotificationSubscriber<T, R> extends SinglePostCompleteSubscriber<T, R> {
         private static final long serialVersionUID = 2757120512858778108L;
         final Callable<? extends R> onCompleteSupplier;
@@ -37,7 +37,7 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
                 this.produced++;
                 this.actual.onNext(h);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.actual.onError(th);
             }
         }
@@ -49,7 +49,7 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
             try {
                 complete(io.reactivex.internal.functions.a.h(this.onErrorMapper.apply(th), "The onError publisher returned is null"));
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.I(th2);
+                io.reactivex.exceptions.a.H(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }
@@ -61,7 +61,7 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
             try {
                 complete(io.reactivex.internal.functions.a.h(this.onCompleteSupplier.call(), "The onComplete publisher returned is null"));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.actual.onError(th);
             }
         }

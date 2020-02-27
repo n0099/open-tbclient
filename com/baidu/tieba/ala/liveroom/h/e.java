@@ -1,197 +1,224 @@
 package com.baidu.tieba.ala.liveroom.h;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.adp.framework.task.HttpMessageTask;
-import com.baidu.live.data.l;
-import com.baidu.live.r.a;
-import com.baidu.live.tbadk.TbConfig;
+import android.widget.LinearLayout;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.data.m;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.browser.BrowserHelper;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.task.TbHttpMessageTask;
-import com.baidu.live.tbadk.timer.LiveTimerManager;
-import com.baidu.live.tbadk.timer.OnLiveTimerListener;
-import com.baidu.tieba.ala.liveroom.data.LiveTaskResponseMessage;
-import com.baidu.tieba.ala.liveroom.data.j;
-/* loaded from: classes2.dex */
-public class e {
-    private j eOk;
-    private long eWj;
-    private int eWk;
-    private int eWl;
-    private HttpMessageListener eWm = new HttpMessageListener(1021152) { // from class: com.baidu.tieba.ala.liveroom.h.e.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.hasError()) {
-                if (e.this.eWl < 2) {
-                    e.this.eWl++;
-                    e.this.jl(false);
+import com.baidu.live.tbadk.apk.ApkData;
+import com.baidu.live.tbadk.apk.ApkManager;
+import com.baidu.live.tbadk.apk.ApkStatus;
+import com.baidu.live.tbadk.apk.ApkStatusCallback;
+import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
+import com.baidu.live.tbadk.log.LogManager;
+import com.baidu.live.u.a;
+import com.baidu.live.utils.k;
+import com.baidu.live.view.PriorityVerticalLinearLayout;
+/* loaded from: classes3.dex */
+public class e implements f {
+    private static long fbA = 0;
+    private static ApkData fbz;
+    private m ald;
+    private d fbB;
+    private ApkStatusCallback fbC = new ApkStatusCallback() { // from class: com.baidu.tieba.ala.liveroom.h.e.1
+        @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
+        public void onApkDownloadStart(ApkData apkData) {
+            e.this.blV();
+        }
+
+        @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
+        public void onApkDownloadProgress(long j, long j2) {
+            if (e.this.fbB != null) {
+                e.this.fbB.setProgress((int) ((100 * j) / j2));
+            }
+        }
+
+        @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
+        public void onApkDownloadSucceed(ApkData apkData) {
+        }
+
+        @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
+        public void onApkDownloadFailed(ApkData apkData, int i, String str) {
+            e.this.mPageContext.showToast(e.this.mPageContext.getString(a.i.ala_feedback_flow_download_fail_tip_prefix) + str);
+            e.this.blY();
+        }
+
+        @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
+        public void onApkStartInstall(ApkData apkData) {
+            e.this.blY();
+        }
+    };
+    private String fbj;
+    private TbPageContext mPageContext;
+    private ViewGroup mParentView;
+    private long roomId;
+
+    public e(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
+        if (fbz != null && fbA != 0) {
+            fbz.apkStatusCallBack = this.fbC;
+        }
+    }
+
+    public void a(m mVar, ViewGroup viewGroup) {
+        this.ald = mVar;
+        this.mParentView = viewGroup;
+        if (isDownloading() && mVar != null && mVar.mLiveInfo != null) {
+            blV();
+            if (this.fbB != null) {
+                if (mVar.mLiveInfo.live_id == fbA) {
+                    this.fbB.jp(false);
                 } else {
-                    return;
+                    this.fbB.jp(true);
                 }
-            }
-            if (httpResponsedMessage instanceof LiveTaskResponseMessage) {
-                LiveTaskResponseMessage liveTaskResponseMessage = (LiveTaskResponseMessage) httpResponsedMessage;
-                e.this.a(e.this.pageContext.getPageActivity(), liveTaskResponseMessage.message, liveTaskResponseMessage.btnText, TextUtils.isEmpty(liveTaskResponseMessage.scheme) ? liveTaskResponseMessage.url : liveTaskResponseMessage.scheme, liveTaskResponseMessage.eXo);
-            }
-        }
-    };
-    private CustomMessageListener eWn = new CustomMessageListener(2913124) { // from class: com.baidu.tieba.ala.liveroom.h.e.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (e.this.eOk.eXj == 1) {
-                e.this.eWk++;
-                if (e.this.eOk.eXk <= e.this.eWk) {
-                    e.this.jl(true);
-                }
-            }
-        }
-    };
-    private CustomMessageListener eWo = new CustomMessageListener(2913126) { // from class: com.baidu.tieba.ala.liveroom.h.e.4
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (e.this.eOk.eXj == 2 && (customResponsedMessage.getData() instanceof Long)) {
-                long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                e.this.eWj = longValue + e.this.eWj;
-                if (e.this.eOk.eXl <= e.this.eWj) {
-                    e.this.jl(true);
-                }
-            }
-        }
-    };
-    private Handler handler = new Handler(Looper.getMainLooper());
-    private TbPageContext pageContext;
-
-    public e(TbPageContext tbPageContext, j jVar) {
-        this.pageContext = tbPageContext;
-        this.eOk = jVar;
-        bjV();
-    }
-
-    public void m(l lVar) {
-        if (this.eOk != null && this.eOk.eXg && lVar.mLiveInfo != null) {
-            MessageManager.getInstance().registerListener(this.eWn);
-            MessageManager.getInstance().registerListener(this.eWo);
-            MessageManager.getInstance().registerListener(this.eWm);
-            if (this.eOk.eXj == 3) {
-                long j = this.eOk.eXm;
-                LiveTimerManager.getInstance().addLiveTimerTask("live_task", lVar.mLiveInfo.live_id, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.liveroom.h.e.1
-                    @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
-                    public void onComplete(boolean z) {
-                        e.this.jl(true);
-                    }
-
-                    @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
-                    public void onInterrupt() {
-                    }
-                }, (j <= 0 ? 10L : j) * 1000, true);
             }
         }
     }
 
-    public void onDestroy() {
-        LiveTimerManager.getInstance().removeLiveTimerTask("live_task", true);
-        MessageManager.getInstance().unRegisterListener(this.eWn);
-        MessageManager.getInstance().unRegisterListener(this.eWo);
-        MessageManager.getInstance().unRegisterListener(this.eWm);
+    public void bkx() {
+        blX();
+    }
+
+    public void blU() {
+        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), fbz, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jl(boolean z) {
-        if (this.eOk != null) {
-            if (z) {
-                this.eWl = 0;
+    public void blV() {
+        if (isDownloading()) {
+            blW();
+        }
+    }
+
+    private void blW() {
+        if (this.fbB == null) {
+            this.fbB = new d(this.mPageContext.getPageActivity());
+            this.fbB.setProgress(0);
+            this.fbB.jp(false);
+        }
+        if (this.fbB.getRootView() != null && this.fbB.getRootView().getParent() == null) {
+            int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds100);
+            if (this.mParentView instanceof PriorityVerticalLinearLayout) {
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
+                layoutParams.rightMargin = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
+                layoutParams.bottomMargin = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds54);
+                layoutParams.gravity = 5;
+                this.fbB.getRootView().setTag(a.g.sdk_pvl_layout_priority_tag_key, 23);
+                this.mParentView.addView(this.fbB.getRootView(), layoutParams);
             }
-            HttpMessage httpMessage = new HttpMessage(1021152);
-            httpMessage.addParam("task", this.eOk.eXi);
-            httpMessage.addParam("zid", ExtraParamsManager.getBaiduzid());
-            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    private void blX() {
+        if (this.fbB != null && this.fbB.getRootView() != null && this.fbB.getRootView().getParent() != null) {
+            ((ViewGroup) this.fbB.getRootView().getParent()).removeView(this.fbB.getRootView());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final Context context, String str, String str2, final String str3, long j) {
-        if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-            if (j <= 0) {
-                j = 3;
-            }
-            View inflate = LayoutInflater.from(context).inflate(TbadkCoreApplication.getInst().isMobileBaidu() ? a.h.dialog_task_shoubai : a.h.dialog_task_default, (ViewGroup) null);
-            final Dialog dialog = new Dialog(context, a.j.PlayLevelDialog);
-            dialog.requestWindowFeature(1);
-            dialog.setCancelable(true);
-            dialog.setContentView(inflate);
-            dialog.setCanceledOnTouchOutside(true);
-            dialog.getWindow().getAttributes().gravity = 17;
-            ((TextView) inflate.findViewById(a.g.message_textView)).setText(str);
-            ((TextView) inflate.findViewById(a.g.tip_textView)).setText(str2);
-            View findViewById = inflate.findViewById(a.g.result_layout);
-            final Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.h.e.5
-                @Override // java.lang.Runnable
-                public void run() {
-                    try {
-                        Activity activity = (Activity) context;
-                        if (Build.VERSION.SDK_INT >= 17) {
-                            if (!activity.isDestroyed() && !activity.isFinishing()) {
-                                dialog.dismiss();
-                            }
-                        } else if (!activity.isFinishing()) {
-                            dialog.dismiss();
+    public void blY() {
+        fbA = 0L;
+        if (fbz != null) {
+            fbz.apkStatusCallBack = null;
+            fbz = null;
+        }
+        blX();
+        this.fbB = null;
+    }
+
+    public void be(boolean z) {
+        if (z && fbz != null) {
+            ApkManager.getInstance().stopApkDownload(fbz);
+            blY();
+        } else if (fbz != null) {
+            fbz.apkStatusCallBack = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.h.f
+    public boolean isDownloading() {
+        return (fbA == 0 || fbz == null) ? false : true;
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.h.f
+    public ApkStatus a(ApkData apkData) {
+        return ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), apkData);
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.h.f
+    public void b(final ApkData apkData) {
+        ApkStatus a = a(apkData);
+        if (a == ApkStatus.READY) {
+            ApkManager.getInstance().launchApkByDeeplink(this.mPageContext.getPageActivity(), apkData.m20clone());
+        } else if (a == ApkStatus.DOWNLOADED) {
+            fbz = apkData.m20clone();
+            ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), apkData.m20clone(), false);
+        } else if (a == ApkStatus.NONE || a == ApkStatus.OVERTIME) {
+            if (BdNetTypeUtil.isMobileNet() && k.AY()) {
+                BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
+                bdAlertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.liveroom.h.e.2
+                    @Override // android.content.DialogInterface.OnKeyListener
+                    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                        if (i == 4) {
+                            LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.fbj);
+                            dialogInterface.dismiss();
+                            return true;
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        return false;
                     }
-                }
-            };
-            this.handler.postDelayed(runnable, 1000 * j);
-            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.e.6
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (!TextUtils.isEmpty(str3)) {
-                        BrowserHelper.startInternalWebActivity(context, str3);
+                });
+                bdAlertDialog.setCanceledOnTouchOutside(false);
+                bdAlertDialog.setTitle(this.mPageContext.getResources().getString(a.i.ala_feedback_flow_download_net_title));
+                bdAlertDialog.setMessage(this.mPageContext.getResources().getString(a.i.ala_feedback_flow_download_net_tip));
+                bdAlertDialog.setPositiveButton(this.mPageContext.getResources().getString(a.i.sdk_go_on), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.e.3
+                    @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
+                    public void onClick(BdAlertDialog bdAlertDialog2) {
+                        e.this.c(apkData);
+                        LogManager.getFeedDiversionLogger().doContinueFlowDialogLog(e.this.roomId + "", e.this.fbj);
+                        bdAlertDialog2.dismiss();
                     }
-                    e.this.handler.removeCallbacks(runnable);
-                    try {
-                        dialog.dismiss();
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                });
+                bdAlertDialog.setNegativeButton(this.mPageContext.getResources().getString(a.i.sdk_stop), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.e.4
+                    @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
+                    public void onClick(BdAlertDialog bdAlertDialog2) {
+                        LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.fbj);
+                        bdAlertDialog2.dismiss();
                     }
-                }
-            });
-            try {
-                dialog.show();
-                onDestroy();
-            } catch (Exception e) {
-                e.printStackTrace();
+                });
+                bdAlertDialog.setNagetiveButtonTextColor(-13421773);
+                bdAlertDialog.create(this.mPageContext);
+                bdAlertDialog.show();
+                LogManager.getFeedDiversionLogger().doDisplayFlowDialogLog(this.roomId + "", this.fbj);
+                return;
             }
+            c(apkData);
         }
     }
 
-    private static void bjV() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021152, TbConfig.SERVER_ADDRESS + "ala/task/complete");
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        tbHttpMessageTask.setResponsedClass(LiveTaskResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(ApkData apkData) {
+        fbz = apkData.m20clone();
+        fbz.apkStatusCallBack = this.fbC;
+        if (this.ald != null && this.ald.mLiveInfo != null) {
+            fbA = this.ald.mLiveInfo.live_id;
+        }
+        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), fbz, true);
+    }
+
+    public void setRoomId(long j) {
+        this.roomId = j;
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.h.f
+    public void za(String str) {
+        this.fbj = str;
+    }
+
+    public void setVisible(int i) {
+        if (this.fbB != null && this.fbB.getRootView() != null) {
+            this.fbB.getRootView().setVisibility(i);
+        }
     }
 }

@@ -1,22 +1,22 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.u.a;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveStreamSessionInfo implements Serializable {
     public static final String STREAM_LEVEL_DEFAULT = "L0";
     public static final String STREAM_LEVEL_HIGH = "L3";
     public static final String STREAM_LEVEL_LOW = "L1";
     public static final String STREAM_LEVEL_MEDIUM = "L2";
     public static final String STREAM_LEVEL_SUPER_HIGH = "L4";
-    private static ah iReplaceUrl;
+    private static ai iReplaceUrl;
     public String defaultLine;
     public String flvUrl;
     public String hlsUrl;
@@ -25,7 +25,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     private String pushUrl;
     public String rtmpUrl;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AlaLiveStreamSessionLine implements Serializable {
         public String flvUrl;
         public String hslUrl;
@@ -216,11 +216,11 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         return iReplaceUrl != null ? iReplaceUrl.replacePushUrl(this.pushUrl) : this.pushUrl;
     }
 
-    public static ah getIReplaceUrl() {
+    public static ai getIReplaceUrl() {
         return iReplaceUrl;
     }
 
-    public static void setIReplaceUrl(ah ahVar) {
-        iReplaceUrl = ahVar;
+    public static void setIReplaceUrl(ai aiVar) {
+        iReplaceUrl = aiVar;
     }
 }

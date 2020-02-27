@@ -222,6 +222,7 @@ public class CmdConfigHttp {
     public static final int CMD_TOPIC_RELATE_THREAD = 1003042;
     public static final int CMD_TOPIC_THREAD = 1003425;
     public static final int CMD_TOP_THEME_LIST = 1003031;
+    public static final int CMD_TRACK_CONFIG = 1003452;
     public static final int CMD_UEG_CANCEL = 1003414;
     public static final int CMD_UEG_REPORT = 1003402;
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;

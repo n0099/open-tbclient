@@ -10,33 +10,33 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements o {
-    CreateGroupStepActivity htP;
-    TbImageView htQ;
-    private ImageView htR;
-    private int htT;
+    CreateGroupStepActivity hvO;
+    TbImageView hvP;
+    private ImageView hvQ;
+    private int hvS;
     private int mIndex;
     private int mStep;
     TextView mTipView;
     View mView;
-    private int htO = 3;
-    private boolean htS = false;
+    private int hvN = 3;
+    private boolean hvR = false;
 
     public b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.htP = null;
+        this.hvO = null;
         this.mView = null;
-        this.htQ = null;
+        this.hvP = null;
         this.mTipView = null;
-        this.htR = null;
-        this.htP = createGroupStepActivity;
+        this.hvQ = null;
+        this.hvO = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_step4_view, (ViewGroup) null);
-        this.htQ = (TbImageView) this.mView.findViewById(R.id.step4_img_bg);
+        this.hvP = (TbImageView) this.mView.findViewById(R.id.step4_img_bg);
         this.mTipView = (TextView) this.mView.findViewById(R.id.txt_tip_view);
-        this.htR = (ImageView) this.mView.findViewById(R.id.create_group_address_rightarrwow);
+        this.hvQ = (ImageView) this.mView.findViewById(R.id.create_group_address_rightarrwow);
         this.mIndex = i;
         this.mStep = i2;
-        this.htT = i3;
+        this.hvS = i3;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -45,74 +45,74 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int bRj() {
+    public int bSK() {
         return this.mIndex;
     }
 
-    public View bRk() {
+    public View bSL() {
         return this.mTipView;
     }
 
-    public int bRl() {
-        return this.htO;
+    public int bSM() {
+        return this.hvN;
     }
 
-    public void bRm() {
-        this.htR.setVisibility(0);
-        this.htS = false;
-        bRr();
+    public void bSN() {
+        this.hvQ.setVisibility(0);
+        this.hvR = false;
+        bSS();
         this.mTipView.setText(R.string.location_loading);
-        this.htO = 3;
+        this.hvN = 3;
     }
 
     public void setBusiness(String str) {
-        this.htR.setVisibility(0);
-        this.htS = true;
-        bRr();
+        this.hvQ.setVisibility(0);
+        this.hvR = true;
+        bSS();
         this.mTipView.setText(str);
-        this.htO = 0;
+        this.hvN = 0;
     }
 
     public void setAddress(String str) {
-        this.htR.setVisibility(8);
-        this.htS = true;
-        bRr();
+        this.hvQ.setVisibility(8);
+        this.hvR = true;
+        bSS();
         this.mTipView.setText(str);
-        this.htO = 4;
+        this.hvN = 4;
     }
 
-    public void bRn() {
-        this.htR.setVisibility(0);
-        this.htS = false;
-        bRr();
+    public void bSO() {
+        this.hvQ.setVisibility(0);
+        this.hvR = false;
+        bSS();
         this.mTipView.setText(R.string.address_locate_failed_opengps);
-        this.htO = 1;
+        this.hvN = 1;
     }
 
-    public void bRo() {
-        this.htS = false;
-        bRr();
+    public void bSP() {
+        this.hvR = false;
+        bSS();
         this.mTipView.setText(R.string.address_locate_failed_tryagain);
-        this.htR.setVisibility(8);
-        this.htO = 2;
+        this.hvQ.setVisibility(8);
+        this.hvN = 2;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void bRp() {
-        this.htQ.setBackgroundDrawable(null);
+    public void bSQ() {
+        this.hvP.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void bRq() {
+    public void bSR() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.htP.getLayoutMode().setNightMode(z);
-        this.htP.getLayoutMode().onModeChanged(this.mView);
-        this.htQ.startLoad(c.a(this.htP.getActivity(), c.htU, z), 29, false);
-        bRr();
+        this.hvO.getLayoutMode().setNightMode(z);
+        this.hvO.getLayoutMode().onModeChanged(this.mView);
+        this.hvP.startLoad(c.a(this.hvO.getActivity(), c.hvT, z), 29, false);
+        bSS();
     }
 
-    private void bRr() {
-        if (this.htS) {
+    private void bSS() {
+        if (this.hvR) {
             Drawable drawable = am.getDrawable(R.drawable.icon_jq_lbs_s);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             this.mTipView.setCompoundDrawables(drawable, null, null, null);
@@ -127,19 +127,19 @@ public class b implements o {
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.htP.getPageContext().getString(R.string.group_create_step_address), Integer.valueOf(this.mStep));
+        return String.format(this.hvO.getPageContext().getString(R.string.group_create_step_address), Integer.valueOf(this.mStep));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String bRs() {
-        if (this.mIndex != this.htT) {
-            return this.htP.getPageContext().getString(R.string.next_step);
+    public String bST() {
+        if (this.mIndex != this.hvS) {
+            return this.hvO.getPageContext().getString(R.string.next_step);
         }
-        return this.htP.getPageContext().getString(R.string.group_create_step_done_tip);
+        return this.hvO.getPageContext().getString(R.string.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean bRt() {
+    public boolean bSU() {
         return true;
     }
 
@@ -149,7 +149,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean bRu() {
+    public boolean bSV() {
         return true;
     }
 }

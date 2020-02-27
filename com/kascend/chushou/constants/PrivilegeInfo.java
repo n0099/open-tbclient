@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import tv.chushou.zues.toolkit.richtext.RichText;
 import tv.chushou.zues.toolkit.richtext.RichTextPlus;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PrivilegeInfo {
     public boolean mShowAvatar = false;
     public String mAvatarFrame = "";

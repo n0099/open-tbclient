@@ -5,20 +5,20 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.view.LoadMoreFooter;
-import com.baidu.tieba.ala.guardclub.k;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+import com.baidu.tieba.ala.guardclub.m;
+/* loaded from: classes3.dex */
 public class GuardClubRankListView extends BdListView {
-    private a eEK;
-    private boolean eEL;
-    private LoadMoreFooter eEM;
+    private a eIE;
+    private boolean eIF;
+    private LoadMoreFooter eIG;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void bdy();
+        void bfG();
 
-        void bdz();
+        void bfH();
     }
 
     public GuardClubRankListView(Context context, AttributeSet attributeSet) {
@@ -27,24 +27,24 @@ public class GuardClubRankListView extends BdListView {
     }
 
     public void setCallback(a aVar) {
-        this.eEK = aVar;
+        this.eIE = aVar;
     }
 
     public void setLoadMoreEnabled(boolean z, boolean z2) {
-        this.eEL = z;
+        this.eIF = z;
         if (z) {
-            bcU();
+            bfj();
         } else {
-            iw(z2);
+            iD(z2);
         }
     }
 
     public void release() {
-        this.eEK = null;
-        bdI();
+        this.eIE = null;
+        bfS();
     }
 
-    public void bdI() {
+    public void bfS() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -52,8 +52,8 @@ public class GuardClubRankListView extends BdListView {
                 View childAt = getChildAt(i2);
                 if (childAt != null) {
                     Object tag = childAt.getTag();
-                    if (tag instanceof k.b) {
-                        ((k.b) tag).recycle();
+                    if (tag instanceof m.b) {
+                        ((m.b) tag).recycle();
                     }
                 }
                 i = i2 + 1;
@@ -65,9 +65,9 @@ public class GuardClubRankListView extends BdListView {
 
     private void init() {
         initUI();
-        bdJ();
-        bdK();
-        bdL();
+        bfT();
+        bfU();
+        bfV();
     }
 
     private void initUI() {
@@ -79,7 +79,7 @@ public class GuardClubRankListView extends BdListView {
         setVerticalScrollBarEnabled(false);
     }
 
-    private void bdJ() {
+    private void bfT() {
         setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -87,62 +87,62 @@ public class GuardClubRankListView extends BdListView {
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (GuardClubRankListView.this.eEK != null) {
-                    GuardClubRankListView.this.eEK.bdy();
+                if (GuardClubRankListView.this.eIE != null) {
+                    GuardClubRankListView.this.eIE.bfG();
                 }
-                if (GuardClubRankListView.this.eEK != null && GuardClubRankListView.this.eEL && !GuardClubRankListView.this.eEM.isLoading() && i + i2 > i3 - 2) {
-                    GuardClubRankListView.this.bdM();
-                    GuardClubRankListView.this.eEK.bdz();
+                if (GuardClubRankListView.this.eIE != null && GuardClubRankListView.this.eIF && !GuardClubRankListView.this.eIG.isLoading() && i + i2 > i3 - 2) {
+                    GuardClubRankListView.this.bfW();
+                    GuardClubRankListView.this.eIE.bfH();
                 }
             }
         });
     }
 
-    private void bdK() {
+    private void bfU() {
         setRecyclerListener(new AbsListView.RecyclerListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.2
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
                 Object tag = view.getTag();
-                if (tag instanceof k.b) {
-                    ((k.b) tag).recycle();
+                if (tag instanceof m.b) {
+                    ((m.b) tag).recycle();
                 }
             }
         });
     }
 
-    private void bdL() {
-        this.eEM = new LoadMoreFooter(getContext());
-        this.eEM.setBackgroundColor(getResources().getColor(a.d.live_gcb_primary));
-        this.eEM.createView();
+    private void bfV() {
+        this.eIG = new LoadMoreFooter(getContext());
+        this.eIG.setBackgroundColor(getResources().getColor(a.d.live_gcb_primary));
+        this.eIG.createView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bdM() {
-        if (this.eEM != null) {
-            if (this.eEM.getView().getParent() == null) {
-                setNextPage(this.eEM);
+    public void bfW() {
+        if (this.eIG != null) {
+            if (this.eIG.getView().getParent() == null) {
+                setNextPage(this.eIG);
             }
-            this.eEM.showLoadView();
+            this.eIG.showLoadView();
         }
     }
 
-    private void bcU() {
-        if (this.eEM != null) {
-            this.eEM.endLoadData();
+    private void bfj() {
+        if (this.eIG != null) {
+            this.eIG.endLoadData();
             setNextPage(null);
         }
     }
 
-    private void iw(boolean z) {
+    private void iD(boolean z) {
         if (z) {
-            if (this.eEM != null) {
+            if (this.eIG != null) {
                 setNextPage(null);
             }
-        } else if (this.eEM != null) {
-            if (this.eEM.getView().getParent() == null) {
-                setNextPage(this.eEM);
+        } else if (this.eIG != null) {
+            if (this.eIG.getView().getParent() == null) {
+                setNextPage(this.eIG);
             }
-            this.eEM.showNoMoreData();
+            this.eIG.showNoMoreData();
         }
     }
 }

@@ -1,26 +1,26 @@
 package com.xiaomi.push;
 
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class au {
     private LinkedList<a> a = new LinkedList<>();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         private static final au a = new au();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f134a;
+        public int f131a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f135a;
+        public Object f132a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f136a;
+        public String f133a;
 
         a(int i, Object obj) {
-            this.f134a = i;
-            this.f135a = obj;
+            this.f131a = i;
+            this.f132a = obj;
         }
     }
 
@@ -29,19 +29,19 @@ public class au {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m132a() {
+    private void m137a() {
         if (this.a.size() > 100) {
             this.a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m133a() {
+    public synchronized int m138a() {
         return this.a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m134a() {
+    public synchronized LinkedList<a> m139a() {
         LinkedList<a> linkedList;
         linkedList = this.a;
         this.a = new LinkedList<>();
@@ -50,6 +50,6 @@ public class au {
 
     public synchronized void a(Object obj) {
         this.a.add(new a(0, obj));
-        m132a();
+        m137a();
     }
 }

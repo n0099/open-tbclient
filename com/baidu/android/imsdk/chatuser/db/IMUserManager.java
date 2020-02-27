@@ -6,11 +6,13 @@ import com.baidu.android.imsdk.ChatObjectCache;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.IpInfo;
 import com.baidu.android.imsdk.internal.UKCache;
+import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMUserManager {
+    private static final String TAG = "IMUserManager";
     private Context mContext;
     private static ChatObjectCache sChatObjectCache = null;
     private static IMUserManager mInstance = null;
@@ -158,5 +160,13 @@ public class IMUserManager {
             }
         }
         return z;
+    }
+
+    public void removeChatObject(long j) {
+        ChatObject createChatObject = createChatObject(j);
+        if (sChatObjectCache != null && sChatObjectCache.get(createChatObject) != null) {
+            LogUtils.e(TAG, "removeChatObject uk = " + j);
+            sChatObjectCache.remove(createChatObject);
+        }
     }
 }

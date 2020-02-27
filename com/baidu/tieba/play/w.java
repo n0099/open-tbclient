@@ -7,64 +7,64 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class w {
-    private ViewGroup jvp;
-    private ImageView jvq;
-    private VideoLoadingProgressView jvr;
-    ObjectAnimator jvs;
-    ObjectAnimator jvt;
-    ObjectAnimator jvu;
+    private ViewGroup jwf;
+    private ImageView jwg;
+    private VideoLoadingProgressView jwh;
+    ObjectAnimator jwi;
+    ObjectAnimator jwj;
+    ObjectAnimator jwk;
 
     public w(ViewGroup viewGroup) {
-        this.jvp = viewGroup;
-        this.jvq = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.jvr = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        this.jwf = viewGroup;
+        this.jwg = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.jwh = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
         init();
     }
 
     private void init() {
-        this.jvs = ObjectAnimator.ofFloat(this.jvq, "alpha", 1.0f, 0.5f);
-        this.jvt = ObjectAnimator.ofFloat(this.jvq, "alpha", 0.5f, 0.0f);
-        this.jvu = ObjectAnimator.ofFloat(this.jvr, "alpha", 1.0f, 0.0f);
-        this.jvs.setDuration(50L);
-        this.jvt.setDuration(50L);
-        this.jvu.setDuration(50L);
+        this.jwi = ObjectAnimator.ofFloat(this.jwg, "alpha", 1.0f, 0.5f);
+        this.jwj = ObjectAnimator.ofFloat(this.jwg, "alpha", 0.5f, 0.0f);
+        this.jwk = ObjectAnimator.ofFloat(this.jwh, "alpha", 1.0f, 0.0f);
+        this.jwi.setDuration(50L);
+        this.jwj.setDuration(50L);
+        this.jwk.setDuration(50L);
     }
 
     public void startLoading() {
         cancelAnimator();
-        this.jvq.setAlpha(1.0f);
-        this.jvr.setAlpha(1.0f);
-        this.jvp.setVisibility(0);
-        this.jvr.startLoading();
-        this.jvs.start();
+        this.jwg.setAlpha(1.0f);
+        this.jwh.setAlpha(1.0f);
+        this.jwf.setVisibility(0);
+        this.jwh.startLoading();
+        this.jwi.start();
     }
 
-    public void cxR() {
+    public void czl() {
         cancelAnimator();
-        this.jvr.cxR();
+        this.jwh.czl();
     }
 
-    public void cxS() {
+    public void czm() {
         cancelAnimator();
-        this.jvt.start();
-        this.jvu.start();
+        this.jwj.start();
+        this.jwk.start();
     }
 
-    public void cxT() {
+    public void czn() {
         cancelAnimator();
-        this.jvp.setVisibility(8);
-        this.jvr.cxT();
+        this.jwf.setVisibility(8);
+        this.jwh.czn();
     }
 
     private void cancelAnimator() {
-        this.jvs.cancel();
-        this.jvt.cancel();
-        this.jvu.cancel();
+        this.jwi.cancel();
+        this.jwj.cancel();
+        this.jwk.cancel();
     }
 
     public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.jvr != null) {
-            this.jvr.setLoadingAnimationListener(aVar);
+        if (this.jwh != null) {
+            this.jwh.setLoadingAnimationListener(aVar);
         }
     }
 }

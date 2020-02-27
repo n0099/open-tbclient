@@ -1,16 +1,16 @@
 package com.google.zxing.oned;
 
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.down.utils.Constants;
-import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class EANManufacturerOrgSupport {
     private final List<int[]> ranges = new ArrayList();
     private final List<String> countryIdentifiers = new ArrayList();
@@ -81,13 +81,13 @@ final class EANManufacturerOrgSupport {
             add(new int[]{590}, "PL");
             add(new int[]{594}, "RO");
             add(new int[]{599}, "HU");
-            add(new int[]{Constants.HTTP_DNS_INAVAILABLE_TIME, LBSAuthManager.CODE_UNAUTHENTICATE}, "ZA");
+            add(new int[]{Constants.HTTP_DNS_INAVAILABLE_TIME, 601}, "ZA");
             add(new int[]{ResponseCode.TFE_IMMGR_KVACCESS_NOT_EXIST}, "GH");
             add(new int[]{608}, "BH");
             add(new int[]{609}, "MU");
             add(new int[]{611}, "MA");
             add(new int[]{613}, "DZ");
-            add(new int[]{616}, "KE");
+            add(new int[]{IMConstants.ERROR_MSG_SHEILD_ME_TIPS}, "KE");
             add(new int[]{618}, "CI");
             add(new int[]{619}, "TN");
             add(new int[]{621}, "SY");

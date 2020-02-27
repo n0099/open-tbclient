@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.as.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b<MsgType> {
-    void B(MsgType msgtype);
+    void D(MsgType msgtype);
 }

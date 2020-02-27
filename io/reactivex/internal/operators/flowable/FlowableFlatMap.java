@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -21,8 +21,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!g.a(this.nvP, cVar, this.mapper)) {
-            this.nvP.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!g.a(this.nwr, cVar, this.mapper)) {
+            this.nwr.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
@@ -31,7 +31,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class MergeSubscriber<T, U> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -2117620485640801370L;
         final org.a.c<? super U> actual;
@@ -105,7 +105,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.I(th);
+                            io.reactivex.exceptions.a.H(th);
                             this.errs.addThrowable(th);
                             drain();
                             return;
@@ -118,7 +118,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                         bVar.subscribe(innerSubscriber);
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.I(th2);
+                    io.reactivex.exceptions.a.H(th2);
                     this.upstream.cancel();
                     onError(th2);
                 }
@@ -449,7 +449,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.I(th);
+                                            io.reactivex.exceptions.a.H(th);
                                             innerSubscriber.dispose();
                                             this.errs.addThrowable(th);
                                             if (!this.delayErrors) {
@@ -594,7 +594,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class InnerSubscriber<T, U> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         final int bufferSize;

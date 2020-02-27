@@ -4,41 +4,41 @@ import com.google.android.exoplayer2.util.v;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class f implements com.google.android.exoplayer2.text.e {
-    private final b mAU;
-    private final long[] mAV;
-    private final Map<String, e> mAW;
-    private final Map<String, c> mAX;
+    private final b mBB;
+    private final long[] mBC;
+    private final Map<String, e> mBD;
+    private final Map<String, c> mBE;
 
     public f(b bVar, Map<String, e> map, Map<String, c> map2) {
-        this.mAU = bVar;
-        this.mAX = map2;
-        this.mAW = map != null ? Collections.unmodifiableMap(map) : Collections.emptyMap();
-        this.mAV = bVar.dwY();
+        this.mBB = bVar;
+        this.mBE = map2;
+        this.mBD = map != null ? Collections.unmodifiableMap(map) : Collections.emptyMap();
+        this.mBC = bVar.dyi();
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public int gy(long j) {
-        int b = v.b(this.mAV, j, false, false);
-        if (b < this.mAV.length) {
+    public int gw(long j) {
+        int b = v.b(this.mBC, j, false, false);
+        if (b < this.mBC.length) {
             return b;
         }
         return -1;
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public int dwy() {
-        return this.mAV.length;
+    public int dxI() {
+        return this.mBC.length;
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public long Lf(int i) {
-        return this.mAV[i];
+    public long Lk(int i) {
+        return this.mBC[i];
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public List<com.google.android.exoplayer2.text.b> gz(long j) {
-        return this.mAU.a(j, this.mAW, this.mAX);
+    public List<com.google.android.exoplayer2.text.b> gx(long j) {
+        return this.mBB.a(j, this.mBD, this.mBE);
     }
 }

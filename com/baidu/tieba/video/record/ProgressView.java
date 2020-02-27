@@ -11,111 +11,111 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ProgressView extends View {
-    private long fSK;
+    private long fVe;
     private boolean isVisible;
-    private a kAM;
-    private Paint kAN;
-    private Paint kAO;
-    private Paint kAP;
-    private Paint kAQ;
-    private Paint kAR;
-    private float kAS;
-    private float kAT;
-    private LinkedList<Integer> kAU;
-    private float kAV;
-    private volatile State kAW;
-    private float kAX;
-    private float kAY;
-    private float kAZ;
-    private long kBa;
-    private long kBb;
-    private long kBc;
+    private a kBH;
+    private Paint kBI;
+    private Paint kBJ;
+    private Paint kBK;
+    private Paint kBL;
+    private Paint kBM;
+    private float kBN;
+    private float kBO;
+    private LinkedList<Integer> kBP;
+    private float kBQ;
+    private volatile State kBR;
+    private float kBS;
+    private float kBT;
+    private float kBU;
+    private long kBV;
+    private long kBW;
+    private long kBX;
     private long lastStartTime;
     private int mProgress;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void DB(int i);
+        void DH(int i);
     }
 
     public ProgressView(Context context) {
         super(context);
-        this.kAU = new LinkedList<>();
-        this.kAV = 0.0f;
-        this.kAW = State.PAUSE;
+        this.kBP = new LinkedList<>();
+        this.kBQ = 0.0f;
+        this.kBR = State.PAUSE;
         this.isVisible = true;
-        this.kAX = 0.0f;
-        this.kAY = 0.0f;
-        this.kAZ = 0.0f;
-        this.kBa = 0L;
+        this.kBS = 0.0f;
+        this.kBT = 0.0f;
+        this.kBU = 0.0f;
+        this.kBV = 0L;
         this.lastStartTime = 0L;
-        this.kBb = 0L;
-        this.kBc = 0L;
+        this.kBW = 0L;
+        this.kBX = 0L;
         init(context);
     }
 
     public ProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kAU = new LinkedList<>();
-        this.kAV = 0.0f;
-        this.kAW = State.PAUSE;
+        this.kBP = new LinkedList<>();
+        this.kBQ = 0.0f;
+        this.kBR = State.PAUSE;
         this.isVisible = true;
-        this.kAX = 0.0f;
-        this.kAY = 0.0f;
-        this.kAZ = 0.0f;
-        this.kBa = 0L;
+        this.kBS = 0.0f;
+        this.kBT = 0.0f;
+        this.kBU = 0.0f;
+        this.kBV = 0L;
         this.lastStartTime = 0L;
-        this.kBb = 0L;
-        this.kBc = 0L;
+        this.kBW = 0L;
+        this.kBX = 0L;
         init(context);
     }
 
     public ProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kAU = new LinkedList<>();
-        this.kAV = 0.0f;
-        this.kAW = State.PAUSE;
+        this.kBP = new LinkedList<>();
+        this.kBQ = 0.0f;
+        this.kBR = State.PAUSE;
         this.isVisible = true;
-        this.kAX = 0.0f;
-        this.kAY = 0.0f;
-        this.kAZ = 0.0f;
-        this.kBa = 0L;
+        this.kBS = 0.0f;
+        this.kBT = 0.0f;
+        this.kBU = 0.0f;
+        this.kBV = 0L;
         this.lastStartTime = 0L;
-        this.kBb = 0L;
-        this.kBc = 0L;
+        this.kBW = 0L;
+        this.kBX = 0L;
         init(context);
     }
 
     private void init(Context context) {
-        this.kAN = new Paint();
-        this.kAO = new Paint();
-        this.kAP = new Paint();
-        this.kAR = new Paint();
-        this.kAQ = new Paint();
+        this.kBI = new Paint();
+        this.kBJ = new Paint();
+        this.kBK = new Paint();
+        this.kBM = new Paint();
+        this.kBL = new Paint();
         setBackgroundColor(Color.parseColor("#FFFFFF"));
-        this.kAN.setStyle(Paint.Style.FILL);
-        this.kAN.setColor(Color.parseColor("#33aaff"));
-        this.kAO.setStyle(Paint.Style.FILL);
-        this.kAO.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
-        this.kAP.setStyle(Paint.Style.FILL);
-        this.kAP.setColor(Color.parseColor("#FFFFFF"));
-        this.kAR.setStyle(Paint.Style.FILL);
-        this.kAR.setColor(Color.parseColor("#e53917"));
-        this.kAQ.setStyle(Paint.Style.FILL);
-        this.kAQ.setColor(Color.parseColor("#33aaff"));
+        this.kBI.setStyle(Paint.Style.FILL);
+        this.kBI.setColor(Color.parseColor("#33aaff"));
+        this.kBJ.setStyle(Paint.Style.FILL);
+        this.kBJ.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
+        this.kBK.setStyle(Paint.Style.FILL);
+        this.kBK.setColor(Color.parseColor("#FFFFFF"));
+        this.kBM.setStyle(Paint.Style.FILL);
+        this.kBM.setColor(Color.parseColor("#e53917"));
+        this.kBL.setStyle(Paint.Style.FILL);
+        this.kBL.setColor(Color.parseColor("#33aaff"));
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.kAV = displayMetrics.widthPixels / 15000.0f;
-        this.kAZ = this.kAV;
+        this.kBQ = displayMetrics.widthPixels / 15000.0f;
+        this.kBU = this.kBQ;
     }
 
     public void setListener(a aVar) {
-        this.kAM = aVar;
+        this.kBH = aVar;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum State {
         START(1),
         PAUSE(2),
@@ -146,136 +146,136 @@ public class ProgressView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.fSK == 0) {
-            this.fSK = System.currentTimeMillis();
+        if (this.fVe == 0) {
+            this.fVe = System.currentTimeMillis();
         }
-        if (this.kBc == 0) {
-            this.kBc = getHeight();
+        if (this.kBX == 0) {
+            this.kBX = getHeight();
         }
-        this.kAS = (float) this.kBc;
-        this.kAT = (float) ((this.kBc * 1) / 3);
+        this.kBN = (float) this.kBX;
+        this.kBO = (float) ((this.kBX * 1) / 3);
         long currentTimeMillis = System.currentTimeMillis();
-        this.kAX = 0.0f;
-        if (!this.kAU.isEmpty()) {
-            Iterator<Integer> it = this.kAU.iterator();
+        this.kBS = 0.0f;
+        if (!this.kBP.isEmpty()) {
+            Iterator<Integer> it = this.kBP.iterator();
             long j = 0;
             while (it.hasNext()) {
                 this.lastStartTime = j;
                 long intValue = it.next().intValue();
-                this.kBb = intValue;
-                float f = this.kAX;
-                this.kAX += ((float) (intValue - j)) * this.kAV;
-                float f2 = this.kAX - this.kAT;
+                this.kBW = intValue;
+                float f = this.kBS;
+                this.kBS += ((float) (intValue - j)) * this.kBQ;
+                float f2 = this.kBS - this.kBO;
                 if (f2 < 1.0f) {
                     f2 = 1.0f;
                 }
-                canvas.drawRect(f, 0.0f, f2, (float) (this.kBc - 1), this.kAN);
-                canvas.drawRect(f2, 0.0f, this.kAX, (float) (this.kBc - 1), this.kAP);
+                canvas.drawRect(f, 0.0f, f2, (float) (this.kBX - 1), this.kBI);
+                canvas.drawRect(f2, 0.0f, this.kBS, (float) (this.kBX - 1), this.kBK);
                 j = intValue;
             }
-            if (this.kAU.getLast().intValue() <= 3000.0f) {
-                canvas.drawRect(3000.0f * this.kAV, 0.0f, this.kAS + (this.kAV * 3000.0f), (float) (this.kBc - 1), this.kAO);
+            if (this.kBP.getLast().intValue() <= 3000.0f) {
+                canvas.drawRect(3000.0f * this.kBQ, 0.0f, this.kBN + (this.kBQ * 3000.0f), (float) (this.kBX - 1), this.kBJ);
             }
         } else {
-            canvas.drawRect(3000.0f * this.kAV, 0.0f, this.kAS + (this.kAV * 3000.0f), (float) (this.kBc - 1), this.kAO);
+            canvas.drawRect(3000.0f * this.kBQ, 0.0f, this.kBN + (this.kBQ * 3000.0f), (float) (this.kBX - 1), this.kBJ);
         }
-        if (this.kAW == State.ROLLBACK) {
-            canvas.drawRect(this.kAX - (((float) (this.kBb - this.lastStartTime)) * this.kAV), 0.0f, this.kAX, (float) this.kBc, this.kAR);
+        if (this.kBR == State.ROLLBACK) {
+            canvas.drawRect(this.kBS - (((float) (this.kBW - this.lastStartTime)) * this.kBQ), 0.0f, this.kBS, (float) this.kBX, this.kBM);
         }
-        if (this.kAW == State.START) {
-            this.kAY += this.kAZ * ((float) (currentTimeMillis - this.fSK));
-            float f3 = this.kAX + this.kAY;
+        if (this.kBR == State.START) {
+            this.kBT += this.kBU * ((float) (currentTimeMillis - this.fVe));
+            float f3 = this.kBS + this.kBT;
             if (f3 <= getMeasuredWidth()) {
-                canvas.drawRect(this.kAX, 0.0f, this.kAY + this.kAX, (float) (this.kBc - 1), this.kAN);
+                canvas.drawRect(this.kBS, 0.0f, this.kBT + this.kBS, (float) (this.kBX - 1), this.kBI);
             } else {
-                canvas.drawRect(this.kAX, 0.0f, getMeasuredWidth(), (float) (this.kBc - 1), this.kAN);
+                canvas.drawRect(this.kBS, 0.0f, getMeasuredWidth(), (float) (this.kBX - 1), this.kBI);
             }
-            canvas.drawRect(f3 - 5.0f, 0.0f, ((float) this.kBc) + (f3 - 5.0f), (float) (this.kBc - 1), this.kAQ);
-            if (this.kAM != null) {
+            canvas.drawRect(f3 - 5.0f, 0.0f, ((float) this.kBX) + (f3 - 5.0f), (float) (this.kBX - 1), this.kBL);
+            if (this.kBH != null) {
                 int measuredWidth = (int) ((f3 / getMeasuredWidth()) * 100.0f);
                 if (measuredWidth > 100) {
                     measuredWidth = 100;
                 }
                 if (measuredWidth != this.mProgress) {
                     this.mProgress = measuredWidth;
-                    this.kAM.DB(this.mProgress);
+                    this.kBH.DH(this.mProgress);
                 }
             }
         } else {
-            if (this.kAM != null) {
-                int measuredWidth2 = (int) ((this.kAX / getMeasuredWidth()) * 100.0f);
+            if (this.kBH != null) {
+                int measuredWidth2 = (int) ((this.kBS / getMeasuredWidth()) * 100.0f);
                 if (measuredWidth2 > 100) {
                     measuredWidth2 = 100;
                 }
                 if (measuredWidth2 != this.mProgress) {
                     this.mProgress = measuredWidth2;
-                    this.kAM.DB(this.mProgress);
+                    this.kBH.DH(this.mProgress);
                 }
             }
-            if (this.kBa == 0 || currentTimeMillis - this.kBa >= 800) {
+            if (this.kBV == 0 || currentTimeMillis - this.kBV >= 800) {
                 this.isVisible = !this.isVisible;
-                this.kBa = System.currentTimeMillis();
+                this.kBV = System.currentTimeMillis();
             }
             if (this.isVisible) {
-                canvas.drawRect(this.kAX - 5.0f, 0.0f, ((float) this.kBc) + (this.kAX - 5.0f), (float) (this.kBc - 1), this.kAQ);
+                canvas.drawRect(this.kBS - 5.0f, 0.0f, ((float) this.kBX) + (this.kBS - 5.0f), (float) (this.kBX - 1), this.kBL);
             }
         }
-        this.fSK = System.currentTimeMillis();
+        this.fVe = System.currentTimeMillis();
         invalidate();
     }
 
     public void setCurrentState(State state) {
-        this.kAW = state;
+        this.kBR = state;
         if (state != State.START) {
-            this.kAY = this.kAZ;
+            this.kBT = this.kBU;
         }
-        if (state == State.DELETE && this.kAU != null && !this.kAU.isEmpty()) {
-            this.kAU.removeLast();
+        if (state == State.DELETE && this.kBP != null && !this.kBP.isEmpty()) {
+            this.kBP.removeLast();
         }
     }
 
     public State getCurrentState() {
-        return this.kAW;
+        return this.kBR;
     }
 
-    public void DA(int i) {
-        this.kAU.add(Integer.valueOf(i));
+    public void DG(int i) {
+        this.kBP.add(Integer.valueOf(i));
     }
 
     public int getLastProgress() {
-        if (this.kAU == null || this.kAU.isEmpty()) {
+        if (this.kBP == null || this.kBP.isEmpty()) {
             return 0;
         }
-        return this.kAU.getLast().intValue();
+        return this.kBP.getLast().intValue();
     }
 
-    public boolean cQd() {
-        return this.kAU.isEmpty();
+    public boolean cRw() {
+        return this.kBP.isEmpty();
     }
 
     public LinkedList<Integer> getTimeList() {
-        return this.kAU;
+        return this.kBP;
     }
 
     public void setTimeList(LinkedList<Integer> linkedList) {
         if (linkedList != null && linkedList.size() > 0) {
-            this.kAU = linkedList;
+            this.kBP = linkedList;
         }
     }
 
     public void setPaintHeight(int i) {
-        this.kBc = i;
+        this.kBX = i;
     }
 
     public void reset() {
-        this.kAU.clear();
-        this.kAW = State.PAUSE;
-        this.kAU.clear();
-        this.kAX = 0.0f;
-        this.fSK = 0L;
+        this.kBP.clear();
+        this.kBR = State.PAUSE;
+        this.kBP.clear();
+        this.kBS = 0.0f;
+        this.fVe = 0L;
         this.lastStartTime = 0L;
-        this.kBb = 0L;
+        this.kBW = 0L;
         this.mProgress = 0;
-        this.kBa = 0L;
+        this.kBV = 0L;
     }
 }

@@ -7,31 +7,31 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class n implements j, l, a.InterfaceC0730a {
-    private boolean fV;
+/* loaded from: classes6.dex */
+public class n implements j, l, a.InterfaceC0738a {
+    private boolean fZ;
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
     @Nullable
-    private r npe;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> npg;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nph;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> npv;
+    private r npG;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> npI;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> npJ;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npX;
     private final Path path = new Path();
     private final RectF rect = new RectF();
 
     public n(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.f fVar2) {
         this.name = fVar2.getName();
         this.lottieDrawable = fVar;
-        this.nph = fVar2.dFJ().dFG();
-        this.npg = fVar2.dFQ().dFG();
-        this.npv = fVar2.dGi().dFG();
-        aVar.a(this.nph);
-        aVar.a(this.npg);
-        aVar.a(this.npv);
-        this.nph.b(this);
-        this.npg.b(this);
-        this.npv.b(this);
+        this.npJ = fVar2.dGQ().dGN();
+        this.npI = fVar2.dGX().dGN();
+        this.npX = fVar2.dHp().dGN();
+        aVar.a(this.npJ);
+        aVar.a(this.npI);
+        aVar.a(this.npX);
+        this.npJ.b(this);
+        this.npI.b(this);
+        this.npX.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b
@@ -39,13 +39,13 @@ public class n implements j, l, a.InterfaceC0730a {
         return this.name;
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0730a
-    public void bC() {
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0738a
+    public void bD() {
         invalidate();
     }
 
     private void invalidate() {
-        this.fV = false;
+        this.fZ = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -56,9 +56,9 @@ public class n implements j, l, a.InterfaceC0730a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dFw() == ShapeTrimPath.Type.Simultaneously) {
-                    this.npe = (r) bVar;
-                    this.npe.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dGD() == ShapeTrimPath.Type.Simultaneously) {
+                    this.npG = (r) bVar;
+                    this.npG.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -68,20 +68,20 @@ public class n implements j, l, a.InterfaceC0730a {
     }
 
     @Override // com.tb.airbnb.lottie.a.a.l
-    public Path bF() {
-        if (this.fV) {
+    public Path bG() {
+        if (this.fZ) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.npg.getValue();
+        PointF value = this.npI.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
-        float floatValue = this.npv == null ? 0.0f : this.npv.getValue().floatValue();
+        float floatValue = this.npX == null ? 0.0f : this.npX.getValue().floatValue();
         float min = Math.min(f, f2);
         if (floatValue <= min) {
             min = floatValue;
         }
-        PointF value2 = this.nph.getValue();
+        PointF value2 = this.npJ.getValue();
         this.path.moveTo(value2.x + f, (value2.y - f2) + min);
         this.path.lineTo(value2.x + f, (value2.y + f2) - min);
         if (min > 0.0f) {
@@ -104,8 +104,8 @@ public class n implements j, l, a.InterfaceC0730a {
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.npe);
-        this.fV = true;
+        com.tb.airbnb.lottie.d.f.a(this.path, this.npG);
+        this.fZ = true;
         return this.path;
     }
 

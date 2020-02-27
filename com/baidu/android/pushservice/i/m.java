@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.i;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class m {
     public static String a(Context context, String str, String str2) {
         try {

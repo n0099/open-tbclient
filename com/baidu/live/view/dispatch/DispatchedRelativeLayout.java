@@ -7,40 +7,40 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DispatchedRelativeLayout extends RelativeLayout {
-    private boolean aBv;
-    private boolean aBw;
-    private a aBx;
+    private boolean aFL;
+    private boolean aFM;
+    private a aFN;
 
     public DispatchedRelativeLayout(Context context) {
         super(context);
-        this.aBv = false;
-        this.aBw = false;
+        this.aFL = false;
+        this.aFM = false;
     }
 
     public DispatchedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aBv = false;
-        this.aBw = false;
+        this.aFL = false;
+        this.aFM = false;
     }
 
     public DispatchedRelativeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aBv = false;
-        this.aBw = false;
+        this.aFL = false;
+        this.aFM = false;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if (!this.aBv || !b.a(view, this.aBx)) {
+        if (!this.aFL || !b.a(view, this.aFN)) {
             super.addView(view, i, layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (this.aBw || !this.aBv || !b.b(view, this.aBx)) {
+        if (this.aFM || !this.aFL || !b.b(view, this.aFN)) {
             super.removeView(view);
         }
     }
@@ -48,59 +48,59 @@ public class DispatchedRelativeLayout extends RelativeLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (!this.aBw && this.aBv && this.aBx != null) {
-            this.aBx.ze();
+        if (!this.aFM && this.aFL && this.aFN != null) {
+            this.aFN.Bu();
         }
     }
 
     @Override // android.view.ViewGroup
     public int indexOfChild(View view) {
-        if (!this.aBw && this.aBv) {
-            if (this.aBx == null || !this.aBx.W(view)) {
+        if (!this.aFM && this.aFL) {
+            if (this.aFN == null || !this.aFN.W(view)) {
                 return super.indexOfChild(view);
             }
-            return this.aBx.indexOfChild(view);
+            return this.aFN.indexOfChild(view);
         }
         return super.indexOfChild(view);
     }
 
     public void setViewActionDispatched(boolean z) {
-        if (this.aBv != z) {
-            this.aBv = z;
+        if (this.aFL != z) {
+            this.aFL = z;
             if (z) {
-                zd();
+                Bt();
             }
         }
     }
 
-    public boolean zc() {
-        return this.aBv;
+    public boolean Bs() {
+        return this.aFL;
     }
 
-    private void zd() {
-        if (this.aBv && getChildCount() > 0 && this.aBx != null) {
+    private void Bt() {
+        if (this.aFL && getChildCount() > 0 && this.aFN != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (this.aBx.W(childAt)) {
+                if (this.aFN.W(childAt)) {
                     linkedList.add(childAt);
                 }
             }
-            this.aBw = true;
+            this.aFM = true;
             if (!linkedList.isEmpty()) {
                 Iterator it = linkedList.iterator();
                 while (it.hasNext()) {
                     View view = (View) it.next();
                     super.removeView(view);
-                    this.aBx.onViewAdded(view);
+                    this.aFN.onViewAdded(view);
                 }
             }
-            this.aBw = false;
+            this.aFM = false;
         }
     }
 
     public void setViewActionDispatchListener(a aVar) {
-        this.aBx = aVar;
-        zd();
+        this.aFN = aVar;
+        Bt();
     }
 }

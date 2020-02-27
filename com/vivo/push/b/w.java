@@ -1,8 +1,10 @@
 package com.vivo.push.b;
-/* loaded from: classes6.dex */
+
+import com.baidu.android.imsdk.IMConstants;
+/* loaded from: classes8.dex */
 public final class w extends com.vivo.push.y {
     public w() {
-        super(2014);
+        super(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL);
     }
 
     @Override // com.vivo.push.y

@@ -3,7 +3,7 @@ package com.baidu.swan.apps.media.chooser.b;
 import android.content.Context;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends Scroller {
     private static final Interpolator sInterpolator = new Interpolator() { // from class: com.baidu.swan.apps.media.chooser.b.a.1
         @Override // android.animation.TimeInterpolator
@@ -12,7 +12,7 @@ public class a extends Scroller {
             return (f2 * f2 * f2 * f2 * f2) + 1.0f;
         }
     };
-    private boolean byG;
+    private boolean bCN;
 
     public a(Context context) {
         this(context, sInterpolator);
@@ -22,13 +22,13 @@ public class a extends Scroller {
         super(context, interpolator);
     }
 
-    public void cM(boolean z) {
-        this.byG = z;
+    public void cT(boolean z) {
+        this.bCN = z;
     }
 
     @Override // android.widget.Scroller
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
-        if (this.byG) {
+        if (this.bCN) {
             super.startScroll(i, i2, i3, i4, 0);
         } else {
             super.startScroll(i, i2, i3, i4, i5);

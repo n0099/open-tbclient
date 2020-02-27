@@ -34,7 +34,6 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.SwipeBackLayout;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.BDLayoutInflateFactory;
 import com.baidu.live.tbadk.core.BDLayoutMode;
 import com.baidu.live.tbadk.core.ICheckPermissionCallback;
@@ -47,7 +46,6 @@ import com.baidu.live.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.core.view.BlueCircleProgressDialog;
-import com.baidu.live.tbadk.core.view.GuidPageView;
 import com.baidu.live.tbadk.core.view.KeyboardAdjust;
 import com.baidu.live.tbadk.loading.LoadingView;
 import com.baidu.live.tbadk.loading.NetRefreshView;
@@ -56,13 +54,14 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationFilter;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationItem;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationStat;
 import com.baidu.live.tbadk.util.BdListViewHelper;
+import com.baidu.live.u.a;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport<T>, IPageStayDuration {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
@@ -90,8 +89,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     private BdListDialog mListMenu = null;
     private final Handler mSafeHandler = new Handler();
     protected int mSkinType = 3;
-    private final GuidPageView mGuidPage = null;
-    private boolean mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
+    private boolean mUseStyleImmersiveSticky = true;
     protected boolean mIsLogin = false;
     private KeyboardAdjust mKeyboardAdjust = null;
     private boolean isAddSwipeBackLayout = true;
@@ -193,6 +191,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
             TbConfig.sdkInitCallback.initSdk();
         }
+        this.mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
             this.mSwipeBackLayout.attachToActivity(getPageContext().getPageActivity());
@@ -351,9 +350,6 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onDestroy() {
         getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.mGlobalLayoutListener);
         closeLoadingDialog();
-        if (this.mGuidPage != null) {
-            this.mGuidPage.recycleBitmap();
-        }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
         }
@@ -726,7 +722,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DelayRunnable implements Runnable {
         private View mView;
 
@@ -743,7 +739,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public abstract class LoadDataCallBack {
         public abstract void callback(Object... objArr);
 
@@ -1085,7 +1081,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class NetRefreshListener implements View.OnClickListener {
         private NetRefreshListener() {
         }

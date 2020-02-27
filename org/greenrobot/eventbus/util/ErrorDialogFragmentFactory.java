@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import org.greenrobot.eventbus.util.ErrorDialogFragments;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class ErrorDialogFragmentFactory<T> {
     protected final ErrorDialogConfig config;
 
@@ -51,7 +51,7 @@ public abstract class ErrorDialogFragmentFactory<T> {
         return this.config.resources.getString(this.config.getMessageIdForThrowable(throwableFailureEvent.throwable));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Support extends ErrorDialogFragmentFactory<Fragment> {
         public Support(ErrorDialogConfig errorDialogConfig) {
             super(errorDialogConfig);
@@ -69,7 +69,7 @@ public abstract class ErrorDialogFragmentFactory<T> {
     }
 
     @TargetApi(11)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Honeycomb extends ErrorDialogFragmentFactory<android.app.Fragment> {
         public Honeycomb(ErrorDialogConfig errorDialogConfig) {
             super(errorDialogConfig);

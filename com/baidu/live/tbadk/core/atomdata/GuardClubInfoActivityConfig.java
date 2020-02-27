@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.atomdata;
 
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GuardClubInfoActivityConfig extends IntentConfig {
     public static final String ANCHOR_ID = "anchor_id";
     public static final String FEED_ID = "feed_id";

@@ -3,14 +3,14 @@ package com.facebook.common.c;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b implements c {
-    public static final b lHL = new b();
-    private String lHM = "unknown";
-    private int lHN = 5;
+    public static final b lIs = new b();
+    private String lIt = "unknown";
+    private int lIu = 5;
 
-    public static b djw() {
-        return lHL;
+    public static b dkJ() {
+        return lIs;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.lHN <= i;
+        return this.lIu <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -37,7 +37,7 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void f(String str, String str2, Throwable th) {
+    public void w(String str, String str2, Throwable th) {
         b(5, str, str2, th);
     }
 
@@ -52,26 +52,26 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void fc(String str, String str2) {
+    public void wtf(String str, String str2) {
         p(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
-    public void g(String str, String str2, Throwable th) {
+    public void wtf(String str, String str2, Throwable th) {
         b(6, str, str2, th);
     }
 
     private void p(int i, String str, String str2) {
-        Log.println(i, OC(str), str2);
+        Log.println(i, OP(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, OC(str), g(str2, th));
+        Log.println(i, OP(str), g(str2, th));
     }
 
-    private String OC(String str) {
-        if (this.lHM != null) {
-            return this.lHM + ":" + str;
+    private String OP(String str) {
+        if (this.lIt != null) {
+            return this.lIt + ":" + str;
         }
         return str;
     }

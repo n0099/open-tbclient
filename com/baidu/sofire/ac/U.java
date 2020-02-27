@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class U extends Thread {
     public static final int FROM_DAILY_ALARM = 6;
     public static final int FROM_DEFAULT = 0;
@@ -104,7 +104,7 @@ public class U extends Thread {
     private static boolean sSetRetrmAlarm = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class UpgradeResult {
         int networkId;
         int resultId;

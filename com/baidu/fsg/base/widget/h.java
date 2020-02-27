@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.widget;
 
 import android.text.Editable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class h implements Runnable {
     final /* synthetic */ SafeKeyBoardPopupWindow a;
 

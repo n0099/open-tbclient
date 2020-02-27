@@ -13,13 +13,13 @@ import com.baidu.swan.apps.as.r;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.facade.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.d.b<i.a> {
-    private static int cbN = 0;
-    private TextView bWd;
-    private LoadingProgressBar cbK;
-    private TextView cbL;
-    private LinearLayout cbM;
+    private static int cfS = 0;
+    private TextView cah;
+    private LoadingProgressBar cfP;
+    private TextView cfQ;
+    private LinearLayout cfR;
     private RelativeLayout mRootView;
 
     @Override // android.app.Activity
@@ -30,15 +30,15 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
         setContentView(a.d.activity_loading);
         initViews();
         registerListener();
-        hi(cbN);
-        ahE();
+        hz(cfS);
+        ajS();
     }
 
-    private void ahE() {
+    private void ajS() {
         int safeGetIntExtra;
         Intent intent = getIntent();
         if (intent != null && (safeGetIntExtra = r.safeGetIntExtra(intent, "current", 0)) == 100) {
-            hi(safeGetIntExtra);
+            hz(safeGetIntExtra);
             ai.b(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -50,11 +50,11 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
 
     private void initViews() {
         this.mRootView = (RelativeLayout) findViewById(a.c.rl_root);
-        this.cbM = (LinearLayout) findViewById(a.c.ll_container);
-        this.cbK = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
-        this.bWd = (TextView) findViewById(a.c.tv_progress);
-        this.cbL = (TextView) findViewById(a.c.tv_hide);
-        this.cbL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
+        this.cfR = (LinearLayout) findViewById(a.c.ll_container);
+        this.cfP = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
+        this.cah = (TextView) findViewById(a.c.tv_progress);
+        this.cfQ = (TextView) findViewById(a.c.tv_hide);
+        this.cfQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoadingActivity.this.finish();
@@ -62,10 +62,10 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
         });
     }
 
-    void hi(int i) {
-        if (this.cbK != null && this.bWd != null && i > 0) {
-            this.cbK.setProgress(i);
-            this.bWd.setText(String.valueOf(i));
+    void hz(int i) {
+        if (this.cfP != null && this.cah != null && i > 0) {
+            this.cfP.setProgress(i);
+            this.cah.setText(String.valueOf(i));
         }
     }
 
@@ -76,17 +76,17 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
     }
 
     private void registerListener() {
-        d.aam().e(this);
+        d.acA().e(this);
     }
 
     private void unregisterListener() {
-        d.aam().f(this);
+        d.acA().f(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.as.d.b
     /* renamed from: a */
-    public void B(i.a aVar) {
+    public void D(i.a aVar) {
         String str = aVar.id;
         if (TextUtils.equals(str, "loading_hide")) {
             finish();
@@ -97,8 +97,8 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
                 @Override // java.lang.Runnable
                 public void run() {
                     int i = (int) ((j / j2) * 100.0d);
-                    int unused = LoadingActivity.cbN = i;
-                    LoadingActivity.this.hi(i);
+                    int unused = LoadingActivity.cfS = i;
+                    LoadingActivity.this.hz(i);
                 }
             });
         }

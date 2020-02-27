@@ -7,8 +7,8 @@ import java.util.List;
 public class d {
     private boolean mBuilt;
     private List<b> mComponents = new ArrayList();
-    private Configuration qn = new Configuration();
-    private a qq;
+    private Configuration qo = new Configuration();
+    private a qr;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,14 +17,14 @@ public class d {
         void onShown();
     }
 
-    public d J(int i) {
+    public d M(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.qn.mAlpha = i;
+        this.qo.mAlpha = i;
         return this;
     }
 
@@ -35,18 +35,18 @@ public class d {
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.qn.mTargetView = view;
+        this.qo.mTargetView = view;
         return this;
     }
 
-    public d K(int i) {
+    public d N(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.qn.mTargetViewId = i;
+        this.qo.mTargetViewId = i;
         return this;
     }
 
@@ -54,7 +54,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.qn.mAutoDismiss = z;
+        this.qo.mAutoDismiss = z;
         return this;
     }
 
@@ -62,7 +62,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.qn.mOverlayTarget = z;
+        this.qo.mOverlayTarget = z;
         return this;
     }
 
@@ -78,23 +78,23 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.qq = aVar;
+        this.qr = aVar;
         return this;
     }
 
     public d G(boolean z) {
-        this.qn.mOutsideTouchable = z;
+        this.qo.mOutsideTouchable = z;
         return this;
     }
 
     public c fI() {
         c cVar = new c();
         cVar.a((b[]) this.mComponents.toArray(new b[this.mComponents.size()]));
-        cVar.a(this.qn);
-        cVar.a(this.qq);
+        cVar.a(this.qo);
+        cVar.a(this.qr);
         this.mComponents = null;
-        this.qn = null;
-        this.qq = null;
+        this.qo = null;
+        this.qr = null;
         this.mBuilt = true;
         return cVar;
     }

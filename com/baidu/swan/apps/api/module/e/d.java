@@ -8,13 +8,13 @@ import com.baidu.swan.apps.api.a.c;
 import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.as.ai;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends com.baidu.swan.apps.api.a.c {
     public d(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b fa(String str) {
+    public com.baidu.swan.apps.api.b.b fp(String str) {
         if (DEBUG) {
             Log.d("Api-PageScrollTo", "page scroll to");
         }
@@ -30,14 +30,14 @@ public class d extends com.baidu.swan.apps.api.a.c {
                 ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.d.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        final com.baidu.swan.apps.adaptation.b.d Uo = com.baidu.swan.apps.y.f.UC().Uo();
-                        if (Uo != null) {
-                            ValueAnimator ofInt = ValueAnimator.ofInt(Uo.getWebViewScrollY(), d.a(Uo, af.dip2px(d.this.getContext(), optInt)));
+                        final com.baidu.swan.apps.adaptation.b.d WC = com.baidu.swan.apps.y.f.WQ().WC();
+                        if (WC != null) {
+                            ValueAnimator ofInt = ValueAnimator.ofInt(WC.getWebViewScrollY(), d.a(WC, af.dip2px(d.this.getContext(), optInt)));
                             ofInt.setDuration(optInt2);
                             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.api.module.e.d.1.1.1
                                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                                    Uo.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                                    WC.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                                 }
                             });
                             ofInt.start();
@@ -50,7 +50,7 @@ public class d extends com.baidu.swan.apps.api.a.c {
     }
 
     public static int a(@NonNull com.baidu.swan.apps.adaptation.b.d dVar, int i) {
-        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.y.f.UC().Up().second).intValue();
+        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.y.f.WQ().WD().second).intValue();
         if (contentHeight <= 0) {
             return 0;
         }

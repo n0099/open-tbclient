@@ -4,18 +4,18 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class a implements com.baidu.adp.lib.stats.b {
-    private static a cUy = null;
+    private static a cYA = null;
 
     private a() {
     }
 
-    public static synchronized a aDx() {
+    public static synchronized a aFH() {
         a aVar;
         synchronized (a.class) {
-            if (cUy == null) {
-                cUy = new a();
+            if (cYA == null) {
+                cYA = new a();
             }
-            aVar = cUy;
+            aVar = cYA;
         }
         return aVar;
     }

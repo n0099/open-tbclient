@@ -20,9 +20,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
-    private a cGd;
+    private a cKh;
     private final Context mContext;
     private final String TIEBA = TbConfig.getTempDirName();
     private int mMediaLoaderType = 0;
@@ -36,7 +36,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g awt() {
+    public g ayG() {
         this.mAlbumHashMap.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
@@ -78,7 +78,7 @@ public class f {
                     if (f.this.TIEBA.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.awo().getSortTime() - aVar.awo().getSortTime();
+                    long sortTime = aVar2.ayB().getSortTime() - aVar.ayB().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -150,7 +150,7 @@ public class f {
                 aVar.setAlbumId(string);
                 aVar.setName(string2);
                 aVar.addCount();
-                if (aVar.awo() == null) {
+                if (aVar.ayB() == null) {
                     aVar.a(imageFileInfo);
                 }
                 List<MediaFileInfo> fileList = aVar.getFileList();
@@ -230,19 +230,19 @@ public class f {
         }
         cancelLoadTask();
         this.mMediaLoaderType = i;
-        this.cGd = new a(eVar);
-        this.cGd.setPriority(3);
-        this.cGd.execute(new Object[0]);
+        this.cKh = new a(eVar);
+        this.cKh.setPriority(3);
+        this.cKh.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e cGf;
+        private final e cKj;
 
         public a(e eVar) {
-            this.cGf = eVar;
+            this.cKj = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -250,15 +250,15 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: m */
         public g doInBackground(Object... objArr) {
-            return f.this.awt();
+            return f.this.ayG();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.cGf != null) {
-                this.cGf.onPreLoad();
+            if (this.cKj != null) {
+                this.cKj.onPreLoad();
             }
         }
 
@@ -268,16 +268,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.cGf != null) {
-                this.cGf.a(gVar);
+            if (this.cKj != null) {
+                this.cKj.a(gVar);
             }
         }
     }
 
     public void cancelLoadTask() {
-        if (this.cGd != null) {
-            this.cGd.cancel();
-            this.cGd = null;
+        if (this.cKh != null) {
+            this.cKh.cancel();
+            this.cKh = null;
         }
     }
 }

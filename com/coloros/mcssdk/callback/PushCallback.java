@@ -2,7 +2,7 @@ package com.coloros.mcssdk.callback;
 
 import com.coloros.mcssdk.mode.SubscribeResult;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface PushCallback {
     void onGetAliases(int i, List<SubscribeResult> list);
 

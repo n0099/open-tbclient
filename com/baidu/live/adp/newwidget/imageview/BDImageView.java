@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.imageview.BdImage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BDImageView extends ImageView implements IRefresh {
     private static final int DEFAULT_BORDER_COLOR = 872415231;
     private static final int DEFAULT_BORDER_WIDTH = 1;

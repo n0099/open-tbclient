@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BioAlertDialog extends Dialog {
     private TextView dialogMsg;
     private TextView dialogTitle;

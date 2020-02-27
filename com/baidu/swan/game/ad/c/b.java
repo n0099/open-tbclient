@@ -1,76 +1,76 @@
 package com.baidu.swan.game.ad.c;
 
 import com.baidu.swan.apps.as.af;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private String cdA;
-    private String cdB;
-    private String cdC;
-    private int cdD;
-    private int cdE;
+    private String chD;
+    private String chE;
+    private String chF;
+    private int chG;
+    private int chH;
 
     private b(a aVar) {
-        this.cdB = aVar.cdB;
-        this.cdA = aVar.cdA;
-        this.cdD = aVar.cdD;
-        this.cdE = aVar.cdE;
-        this.cdC = aVar.cdC;
+        this.chE = aVar.chE;
+        this.chD = aVar.chD;
+        this.chG = aVar.chG;
+        this.chH = aVar.chH;
+        this.chF = aVar.chF;
     }
 
-    public int aif() {
-        return this.cdD;
+    public int akt() {
+        return this.chG;
     }
 
-    public int aig() {
-        return this.cdE;
+    public int aku() {
+        return this.chH;
     }
 
     public String getAppSid() {
-        return this.cdB;
+        return this.chE;
     }
 
-    public String aih() {
-        return this.cdA;
+    public String akv() {
+        return this.chD;
     }
 
-    public String aii() {
-        return this.cdC;
+    public String akw() {
+        return this.chF;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        private String cdA;
-        private String cdB;
-        private String cdC;
-        private int cdD;
-        private int cdE;
+        private String chD;
+        private String chE;
+        private String chF;
+        private int chG;
+        private int chH;
 
-        public a nz(String str) {
-            this.cdB = str;
+        public a nO(String str) {
+            this.chE = str;
             return this;
         }
 
-        public a nA(String str) {
-            this.cdA = str;
+        public a nP(String str) {
+            this.chD = str;
             return this;
         }
 
-        public a nB(String str) {
-            this.cdC = str;
+        public a nQ(String str) {
+            this.chF = str;
             return this;
         }
 
-        public a hn(int i) {
-            this.cdD = af.S(i);
+        public a hE(int i) {
+            this.chG = af.S(i);
             return this;
         }
 
-        public a ho(int i) {
-            this.cdE = af.S(i);
+        public a hF(int i) {
+            this.chH = af.S(i);
             return this;
         }
 
-        public b aij() {
+        public b akx() {
             return new b(this);
         }
     }

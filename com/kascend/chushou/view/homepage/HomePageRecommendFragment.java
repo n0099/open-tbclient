@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.kascend.chushou.a;
 import com.kascend.chushou.constants.ListItem;
 import com.kascend.chushou.constants.PannelItem;
@@ -25,7 +26,7 @@ import tv.chushou.zues.utils.g;
 import tv.chushou.zues.utils.h;
 import tv.chushou.zues.widget.adapterview.recyclerview.view.SwipRefreshRecyclerView;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HomePageRecommendFragment extends b implements View.OnClickListener {
     public static final int ENTERTAINMENT_RECOMMEND = 1;
     public static final int RECOMMEND = 0;
@@ -86,7 +87,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.view.homepage.HomePageRecommendFragment.1
             @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
             public int getSpanSize(int i) {
-                if (HomePageRecommendFragment.this.mRecyclerView.Op(i) || HomePageRecommendFragment.this.mRecyclerView.Oq(i)) {
+                if (HomePageRecommendFragment.this.mRecyclerView.Os(i) || HomePageRecommendFragment.this.mRecyclerView.Ot(i)) {
                     return 4;
                 }
                 return com.kascend.chushou.view.a.a.b.a(HomePageRecommendFragment.this.mAdapter.getItemViewType(i - HomePageRecommendFragment.this.mRecyclerView.getHeaderViewCount()), 4);
@@ -185,7 +186,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onDestroyView() {
-        tv.chushou.zues.a.a.cq(this);
+        tv.chushou.zues.a.a.cr(this);
         this.mPresenter.a();
         super.onDestroyView();
     }
@@ -205,14 +206,14 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         switch (i) {
             case 1:
                 if (!this.mLoadedSuc) {
-                    this.mEmptyView.MX(1);
+                    this.mEmptyView.Na(1);
                     this.mRecyclerView.setVisibility(8);
                     return;
                 }
                 return;
             case 2:
                 this.mLoadedSuc = true;
-                this.mEmptyView.MX(2);
+                this.mEmptyView.Na(2);
                 this.mRecyclerView.completeRefresh();
                 this.mRecyclerView.setVisibility(0);
                 return;
@@ -221,7 +222,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
             case 6:
                 this.mLoadedSuc = false;
                 this.mRecyclerView.completeRefresh();
-                this.mEmptyView.MX(i);
+                this.mEmptyView.Na(i);
                 this.mRecyclerView.setVisibility(8);
                 return;
             case 5:
@@ -276,9 +277,9 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     public void subscribeResult(boolean z, String str, ListItem listItem) {
         if (z) {
-            int bE = this.mAdapter.bE(listItem);
-            if (bE != -1) {
-                this.mAdapter.notifyItemChanged(bE, "subscribe");
+            int bG = this.mAdapter.bG(listItem);
+            if (bG != -1) {
+                this.mAdapter.notifyItemChanged(bG, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
                 return;
             }
             return;

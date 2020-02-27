@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.message;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IEncode<T> {
     T encodeInBackGround();
 }

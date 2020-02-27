@@ -1,5 +1,5 @@
 package com.facebook.cache.disk;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface g {
-    f diO();
+    f dkb();
 }

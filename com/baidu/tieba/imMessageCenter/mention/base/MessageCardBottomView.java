@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MessageCardBottomView extends LinearLayout {
-    private TextView dcY;
+    private TextView dhd;
     private String fName;
-    private ViewGroup hOF;
-    private ImageView hOG;
-    private TextView hOH;
+    private ViewGroup hQD;
+    private ImageView hQE;
+    private TextView hQF;
 
     public MessageCardBottomView(Context context) {
         super(context);
@@ -33,10 +33,10 @@ public class MessageCardBottomView extends LinearLayout {
 
     private void initUI(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
-        this.dcY = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-        this.hOF = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-        this.hOG = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-        this.hOH = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+        this.dhd = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
+        this.hQD = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
+        this.hQE = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
+        this.hQF = (TextView) inflate.findViewById(R.id.message_bottom_reply);
     }
 
     public void setData(String str, boolean z) {
@@ -45,23 +45,23 @@ public class MessageCardBottomView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.hOF.setVisibility(z ? 0 : 8);
+        this.hQD.setVisibility(z ? 0 : 8);
         if (aq.isEmpty(str)) {
-            this.dcY.setVisibility(8);
+            this.dhd.setVisibility(8);
             return;
         }
         this.fName = str;
-        this.dcY.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-        this.dcY.setVisibility(0);
+        this.dhd.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+        this.dhd.setVisibility(0);
     }
 
     public void onChangeSkinType() {
-        am.setViewTextColor(this.dcY, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.hOH, (int) R.drawable.selector_comment_and_prise_item_text_color);
-        SvgManager.aEp().a(this.hOG, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+        am.setViewTextColor(this.dhd, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.hQF, (int) R.drawable.selector_comment_and_prise_item_text_color);
+        SvgManager.aGA().a(this.hQE, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
     }
 
     public View getReplyContainer() {
-        return this.hOF;
+        return this.hQD;
     }
 }

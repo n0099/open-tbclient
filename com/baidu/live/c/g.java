@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends IntentConfig {
     public g(Context context, String str, String str2, String str3, String str4, int i, String str5, String str6, boolean z, int i2, int i3, int i4, boolean z2, int i5, String str7, String str8, boolean z3, int i6) {
         super(context);
@@ -30,19 +30,19 @@ public class g extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void al(boolean z) {
+    public void ao(boolean z) {
         getIntent().putExtra("is_new_user", z);
     }
 
-    public void ba(int i) {
+    public void bh(int i) {
         getIntent().putExtra("guard_club_join_amount", i);
     }
 
-    public void am(boolean z) {
+    public void ap(boolean z) {
         getIntent().putExtra("is_redpkg_unable", z);
     }
 
-    public void an(boolean z) {
+    public void aq(boolean z) {
         getIntent().putExtra("throne_enabled", z);
     }
 }

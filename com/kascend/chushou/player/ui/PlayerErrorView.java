@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.kascend.chushou.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PlayerErrorView extends RelativeLayout {
     private Context a;
 

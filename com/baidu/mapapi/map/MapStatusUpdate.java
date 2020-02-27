@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class MapStatusUpdate {
     private static final String p = MapStatusUpdate.class.getSimpleName();
     int a;
@@ -81,7 +81,7 @@ public final class MapStatusUpdate {
                 }
                 GeoPoint ll2mc = CoordUtil.ll2mc(this.d.southwest);
                 GeoPoint ll2mc2 = CoordUtil.ll2mc(this.d.northeast);
-                float a = eVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.a.j.right - mapStatus.a.j.left, mapStatus.a.j.bottom - mapStatus.a.j.top);
+                float a = eVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.a.j.right - mapStatus.a.j.left, mapStatus.a.j.bottom - mapStatus.a.j.f993top);
                 return new MapStatus(mapStatus.rotate, this.d.getCenter(), mapStatus.overlook, a, mapStatus.targetScreen, null);
             case 4:
                 return new MapStatus(mapStatus.rotate, this.c, mapStatus.overlook, this.g, mapStatus.targetScreen, null);

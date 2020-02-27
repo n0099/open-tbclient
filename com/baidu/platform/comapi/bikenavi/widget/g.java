@@ -7,7 +7,7 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
     private Activity a;
     private com.baidu.platform.comapi.bikenavi.c.b b;

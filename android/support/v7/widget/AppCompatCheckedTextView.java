@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.CheckedTextView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AppCompatCheckedTextView extends CheckedTextView {
     private static final int[] TINT_ATTRS = {16843016};
     private final AppCompatTextHelper mTextHelper;

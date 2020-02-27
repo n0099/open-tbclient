@@ -8,12 +8,12 @@ import android.widget.TextView;
 import com.kascend.chushou.a;
 import com.kascend.chushou.view.base.BaseActivity;
 import tv.chushou.zues.utils.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class H5Activity extends BaseActivity {
     public static int d = 0;
     public String b;
     private String f;
-    private a neV;
+    private a nfy;
     public boolean a = true;
     public boolean c = false;
 
@@ -27,9 +27,9 @@ public class H5Activity extends BaseActivity {
         h5Options.c = this.c;
         h5Options.b = this.a;
         h5Options.a = this.b;
-        this.neV = a.a(h5Options);
+        this.nfy = a.a(h5Options);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.fl_fragment, this.neV);
+        beginTransaction.add(a.f.fl_fragment, this.nfy);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -43,9 +43,9 @@ public class H5Activity extends BaseActivity {
         super.onNewIntent(intent);
         e.i(this.v, "onNewIntent");
         a(intent);
-        if (this.neV != null) {
-            this.neV.a(this.a);
-            this.neV.a(this.b);
+        if (this.nfy != null) {
+            this.nfy.a(this.a);
+            this.nfy.a(this.b);
         }
     }
 
@@ -70,8 +70,8 @@ public class H5Activity extends BaseActivity {
 
     @Override // android.support.v7.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.neV != null && this.neV.a()) {
-            this.neV.a(i, keyEvent);
+        if (i == 4 && this.nfy != null && this.nfy.a()) {
+            this.nfy.a(i, keyEvent);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -82,8 +82,8 @@ public class H5Activity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         e.d(this.v, "onActivityResult");
         super.onActivityResult(i, i2, intent);
-        if (this.neV != null) {
-            this.neV.onActivityResult(i, i2, intent);
+        if (this.nfy != null) {
+            this.nfy.onActivityResult(i, i2, intent);
         }
     }
 
@@ -93,6 +93,6 @@ public class H5Activity extends BaseActivity {
         if (this.b != null && this.b.contains("bizCode")) {
             d--;
         }
-        this.neV = null;
+        this.nfy = null;
     }
 }

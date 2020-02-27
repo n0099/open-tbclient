@@ -8,9 +8,9 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ala.frsgamelive.c.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamelist.b.a, c.a> {
-    private com.baidu.tieba.ala.d exk;
+    private com.baidu.tieba.ala.d eBu;
     private String labelName;
     private TbPageContext<?> mPageContext;
 
@@ -23,7 +23,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: S */
+    /* renamed from: T */
     public c.a b(ViewGroup viewGroup) {
         com.baidu.tieba.ala.frsgamelive.c.c cVar = new com.baidu.tieba.ala.frsgamelive.c.c(this.mPageContext);
         cVar.setLabelName(this.labelName);
@@ -34,24 +34,24 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.gamelist.b.a aVar, c.a aVar2) {
-        aVar2.eyE.a(aVar);
-        aVar2.eyE.c(this.exk);
+        aVar2.eCL.a(aVar);
+        aVar2.eCL.c(this.eBu);
         String str = "";
-        if (!StringUtils.isNull(aVar.ezw.aAq().appId)) {
-            str = aVar.ezw.aAq().appId;
+        if (!StringUtils.isNull(aVar.eDD.aCF().appId)) {
+            str = aVar.eDD.aCF().appId;
         }
-        com.baidu.tieba.ala.c.aZz().c(new an("c12115").s("obj_id", aVar.ezw.aAq().live_id).cp(TiebaInitialize.Params.OBJ_PARAM3, str));
-        if (aVar.ezx != null) {
+        com.baidu.tieba.ala.c.bbO().d(new an("c12115").s("obj_id", aVar.eDD.aCF().live_id).cy(TiebaInitialize.Params.OBJ_PARAM3, str));
+        if (aVar.eDE != null) {
             String str2 = "";
-            if (!StringUtils.isNull(aVar.ezx.aAq().appId)) {
-                str2 = aVar.ezx.aAq().appId;
+            if (!StringUtils.isNull(aVar.eDE.aCF().appId)) {
+                str2 = aVar.eDE.aCF().appId;
             }
-            com.baidu.tieba.ala.c.aZz().c(new an("c12115").s("obj_id", aVar.ezx.aAq().live_id).cp(TiebaInitialize.Params.OBJ_PARAM3, str2));
+            com.baidu.tieba.ala.c.bbO().d(new an("c12115").s("obj_id", aVar.eDE.aCF().live_id).cy(TiebaInitialize.Params.OBJ_PARAM3, str2));
         }
         return aVar2.getView();
     }
 
     public void a(com.baidu.tieba.ala.d dVar) {
-        this.exk = dVar;
+        this.eBu = dVar;
     }
 }

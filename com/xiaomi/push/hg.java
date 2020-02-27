@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public enum hg {
     Registration(1),
     UnRegistration(2),
@@ -41,10 +41,10 @@ public enum hg {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f456a;
+    private final int f453a;
 
     hg(int i) {
-        this.f456a = i;
+        this.f453a = i;
     }
 
     public static hg a(int i) {
@@ -129,6 +129,6 @@ public enum hg {
     }
 
     public int a() {
-        return this.f456a;
+        return this.f453a;
     }
 }

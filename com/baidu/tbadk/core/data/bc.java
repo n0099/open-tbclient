@@ -24,7 +24,7 @@ public class bc {
         return this.uid;
     }
 
-    public String azk() {
+    public String aBA() {
         return this.uname;
     }
 
@@ -32,7 +32,7 @@ public class bc {
         return this.portrait;
     }
 
-    public String azl() {
+    public String aBB() {
         return this.institute;
     }
 

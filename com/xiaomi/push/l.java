@@ -4,20 +4,20 @@ import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class l {
     private static int a = 0;
     private static int b = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, o> f801a = null;
+    private static Map<String, o> f798a = null;
 
     public static synchronized int a() {
         int i;
         boolean z = false;
         synchronized (l.class) {
             if (a == 0) {
-                if (!TextUtils.isEmpty(m476a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m476a("ro.miui.ui.version.name"))) {
+                if (!TextUtils.isEmpty(m481a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m481a("ro.miui.ui.version.name"))) {
                     z = true;
                 }
                 a = z ? 1 : 2;
@@ -34,17 +34,17 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m475a() {
+    public static synchronized String m480a() {
         String str;
         synchronized (l.class) {
             int a2 = t.a();
-            str = (!m478a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
+            str = (!m483a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
         }
         return str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m476a(String str) {
+    public static String m481a(String str) {
         String str2;
         try {
             try {
@@ -60,58 +60,58 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m477a() {
-        if (f801a != null) {
+    private static void m482a() {
+        if (f798a != null) {
             return;
         }
-        f801a = new HashMap();
-        f801a.put("CN", o.China);
-        f801a.put("FI", o.Europe);
-        f801a.put("SE", o.Europe);
-        f801a.put("NO", o.Europe);
-        f801a.put("FO", o.Europe);
-        f801a.put("EE", o.Europe);
-        f801a.put("LV", o.Europe);
-        f801a.put("LT", o.Europe);
-        f801a.put("BY", o.Europe);
-        f801a.put("MD", o.Europe);
-        f801a.put("UA", o.Europe);
-        f801a.put("PL", o.Europe);
-        f801a.put("CZ", o.Europe);
-        f801a.put("SK", o.Europe);
-        f801a.put("HU", o.Europe);
-        f801a.put("DE", o.Europe);
-        f801a.put("AT", o.Europe);
-        f801a.put("CH", o.Europe);
-        f801a.put("LI", o.Europe);
-        f801a.put("GB", o.Europe);
-        f801a.put("IE", o.Europe);
-        f801a.put("NL", o.Europe);
-        f801a.put("BE", o.Europe);
-        f801a.put("LU", o.Europe);
-        f801a.put("FR", o.Europe);
-        f801a.put("RO", o.Europe);
-        f801a.put("BG", o.Europe);
-        f801a.put("RS", o.Europe);
-        f801a.put("MK", o.Europe);
-        f801a.put("AL", o.Europe);
-        f801a.put("GR", o.Europe);
-        f801a.put("SI", o.Europe);
-        f801a.put("HR", o.Europe);
-        f801a.put("IT", o.Europe);
-        f801a.put("SM", o.Europe);
-        f801a.put("MT", o.Europe);
-        f801a.put("ES", o.Europe);
-        f801a.put("PT", o.Europe);
-        f801a.put("AD", o.Europe);
-        f801a.put("CY", o.Europe);
-        f801a.put("DK", o.Europe);
-        f801a.put("RU", o.Russia);
-        f801a.put("IN", o.India);
+        f798a = new HashMap();
+        f798a.put("CN", o.China);
+        f798a.put("FI", o.Europe);
+        f798a.put("SE", o.Europe);
+        f798a.put("NO", o.Europe);
+        f798a.put("FO", o.Europe);
+        f798a.put("EE", o.Europe);
+        f798a.put("LV", o.Europe);
+        f798a.put("LT", o.Europe);
+        f798a.put("BY", o.Europe);
+        f798a.put("MD", o.Europe);
+        f798a.put("UA", o.Europe);
+        f798a.put("PL", o.Europe);
+        f798a.put("CZ", o.Europe);
+        f798a.put("SK", o.Europe);
+        f798a.put("HU", o.Europe);
+        f798a.put("DE", o.Europe);
+        f798a.put("AT", o.Europe);
+        f798a.put("CH", o.Europe);
+        f798a.put("LI", o.Europe);
+        f798a.put("GB", o.Europe);
+        f798a.put("IE", o.Europe);
+        f798a.put("NL", o.Europe);
+        f798a.put("BE", o.Europe);
+        f798a.put("LU", o.Europe);
+        f798a.put("FR", o.Europe);
+        f798a.put("RO", o.Europe);
+        f798a.put("BG", o.Europe);
+        f798a.put("RS", o.Europe);
+        f798a.put("MK", o.Europe);
+        f798a.put("AL", o.Europe);
+        f798a.put("GR", o.Europe);
+        f798a.put("SI", o.Europe);
+        f798a.put("HR", o.Europe);
+        f798a.put("IT", o.Europe);
+        f798a.put("SM", o.Europe);
+        f798a.put("MT", o.Europe);
+        f798a.put("ES", o.Europe);
+        f798a.put("PT", o.Europe);
+        f798a.put("AD", o.Europe);
+        f798a.put("CY", o.Europe);
+        f798a.put("DK", o.Europe);
+        f798a.put("RU", o.Russia);
+        f798a.put("IN", o.India);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m478a() {
+    public static synchronized boolean m483a() {
         boolean z;
         synchronized (l.class) {
             z = a() == 1;
@@ -120,8 +120,8 @@ public class l {
     }
 
     private static o b(String str) {
-        m477a();
-        return f801a.get(str.toUpperCase());
+        m482a();
+        return f798a.get(str.toUpperCase());
     }
 
     public static String b() {
@@ -154,18 +154,18 @@ public class l {
             a2 = s.a("persist.sys.country", "");
         }
         if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("get region from system, region = " + a2);
+            com.xiaomi.channel.commonutils.logger.b.m47a("get region from system, region = " + a2);
         }
         if (TextUtils.isEmpty(a2)) {
             String country = Locale.getDefault().getCountry();
-            com.xiaomi.channel.commonutils.logger.b.m42a("locale.default.country = " + country);
+            com.xiaomi.channel.commonutils.logger.b.m47a("locale.default.country = " + country);
             return country;
         }
         return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static synchronized boolean m479b() {
+    public static synchronized boolean m484b() {
         boolean z;
         synchronized (l.class) {
             z = a() == 2;

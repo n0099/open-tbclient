@@ -6,112 +6,112 @@ import io.reactivex.internal.schedulers.k;
 import io.reactivex.v;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    static final v nAv = io.reactivex.e.a.i(new h());
-    static final v nAw = io.reactivex.e.a.f(new b());
-    static final v nAx = io.reactivex.e.a.g(new c());
-    static final v nAy = k.dIu();
-    static final v nAz = io.reactivex.e.a.h(new f());
+    static final v nAX = io.reactivex.e.a.i(new h());
+    static final v nAY = io.reactivex.e.a.f(new b());
+    static final v nAZ = io.reactivex.e.a.g(new c());
+    static final v nBa = k.dJB();
+    static final v nBb = io.reactivex.e.a.h(new f());
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: io.reactivex.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0752a {
-        static final v nvn = new io.reactivex.internal.schedulers.a();
+    /* loaded from: classes7.dex */
+    public static final class C0760a {
+        static final v nvP = new io.reactivex.internal.schedulers.a();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class d {
-        static final v nvn = new io.reactivex.internal.schedulers.d();
+        static final v nvP = new io.reactivex.internal.schedulers.d();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class e {
-        static final v nvn = new io.reactivex.internal.schedulers.e();
+        static final v nvP = new io.reactivex.internal.schedulers.e();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class g {
-        static final v nvn = new j();
+        static final v nvP = new j();
     }
 
-    public static v dIC() {
-        return io.reactivex.e.a.f(nAw);
+    public static v dJJ() {
+        return io.reactivex.e.a.f(nAY);
     }
 
-    public static v dID() {
-        return io.reactivex.e.a.g(nAx);
+    public static v dJK() {
+        return io.reactivex.e.a.g(nAZ);
     }
 
-    public static v dIE() {
-        return nAy;
+    public static v dJL() {
+        return nBa;
     }
 
-    public static v dIF() {
-        return io.reactivex.e.a.h(nAz);
+    public static v dJM() {
+        return io.reactivex.e.a.h(nBb);
     }
 
-    public static v dIG() {
-        return io.reactivex.e.a.i(nAv);
+    public static v dJN() {
+        return io.reactivex.e.a.i(nAX);
     }
 
     public static v a(Executor executor) {
         return new ExecutorScheduler(executor);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class c implements Callable<v> {
         c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dIa */
+        /* renamed from: dJh */
         public v call() throws Exception {
-            return d.nvn;
+            return d.nvP;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class f implements Callable<v> {
         f() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dIa */
+        /* renamed from: dJh */
         public v call() throws Exception {
-            return e.nvn;
+            return e.nvP;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class h implements Callable<v> {
         h() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dIa */
+        /* renamed from: dJh */
         public v call() throws Exception {
-            return g.nvn;
+            return g.nvP;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class b implements Callable<v> {
         b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dIa */
+        /* renamed from: dJh */
         public v call() throws Exception {
-            return C0752a.nvn;
+            return C0760a.nvP;
         }
     }
 }

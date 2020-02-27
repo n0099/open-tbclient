@@ -12,7 +12,7 @@ import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class XfordView extends ImageView {
     private Bitmap a;
     private Paint b;

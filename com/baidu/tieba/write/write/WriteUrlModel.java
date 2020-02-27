@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class WriteUrlModel extends NewWriteModel {
     public WriteUrlModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -23,19 +23,19 @@ public class WriteUrlModel extends NewWriteModel {
     }
 
     public void e(String str, String str2, String str3, String str4, String str5, String str6) {
-        WriteData cGo = cGo();
-        if (cGo != null) {
+        WriteData cHS = cHS();
+        if (cHS != null) {
             cancelLoadData();
-            cGo.setTitle(str);
-            cGo.setIsNoTitle(StringUtils.isNull(str));
-            cGo.setContent(str2);
-            cGo.setLinkUrl(str3);
-            cGo.setLinkUrlCode(str4);
-            cGo.setIsLinkThread(true);
-            cGo.setPostLatLng(true);
-            cGo.setLat(str5);
-            cGo.setLng(str6);
-            cKM();
+            cHS.setTitle(str);
+            cHS.setIsNoTitle(StringUtils.isNull(str));
+            cHS.setContent(str2);
+            cHS.setLinkUrl(str3);
+            cHS.setLinkUrlCode(str4);
+            cHS.setIsLinkThread(true);
+            cHS.setPostLatLng(true);
+            cHS.setLat(str5);
+            cHS.setLng(str6);
+            cMh();
         }
     }
 }

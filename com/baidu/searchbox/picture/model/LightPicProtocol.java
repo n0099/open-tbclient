@@ -1,5 +1,5 @@
 package com.baidu.searchbox.picture.model;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LightPicProtocol {
     public static final String CMD_FLOW = "165";
     public static final String DATA = "data";

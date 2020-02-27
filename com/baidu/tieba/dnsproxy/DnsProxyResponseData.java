@@ -3,7 +3,7 @@ package com.baidu.tieba.dnsproxy;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DnsProxyResponseData extends OrmObject {
     private List<HashMap<String, List<DnsProxyIpData>>> data;
     private String errmsg;
@@ -21,7 +21,7 @@ public class DnsProxyResponseData extends OrmObject {
         return this.errmsg;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class DnsProxyIpData extends OrmObject {
         private String ip;
 

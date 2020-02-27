@@ -1,6 +1,6 @@
 package com.google.zxing.oned.rss;
 
-import com.baidu.location.BDLocation;
+import com.alibaba.fastjson.asm.Opcodes;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
@@ -14,13 +14,13 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class RSS14Reader extends AbstractRSSReader {
     private final List<Pair> possibleLeftPairs = new ArrayList();
     private final List<Pair> possibleRightPairs = new ArrayList();
-    private static final int[] OUTSIDE_EVEN_TOTAL_SUBSET = {1, 10, 34, 70, 126};
+    private static final int[] OUTSIDE_EVEN_TOTAL_SUBSET = {1, 10, 34, 70, Opcodes.IAND};
     private static final int[] INSIDE_ODD_TOTAL_SUBSET = {4, 20, 48, 81};
-    private static final int[] OUTSIDE_GSUM = {0, BDLocation.TypeNetWorkLocation, 961, 2015, 2715};
+    private static final int[] OUTSIDE_GSUM = {0, 161, 961, 2015, 2715};
     private static final int[] INSIDE_GSUM = {0, 336, 1036, 1516};
     private static final int[] OUTSIDE_ODD_WIDEST = {8, 6, 4, 3, 1};
     private static final int[] INSIDE_ODD_WIDEST = {2, 4, 6, 8};

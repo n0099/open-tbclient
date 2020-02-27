@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.utils.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.sapi2.callback.a.a {
     final /* synthetic */ Context a;
     final /* synthetic */ b b;

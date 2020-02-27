@@ -11,7 +11,7 @@ import com.baidu.searchbox.ugc.provider.listener.OnVideoShareListener;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IPublisherManagerInterface {
     void deleteDraft(String str);
 

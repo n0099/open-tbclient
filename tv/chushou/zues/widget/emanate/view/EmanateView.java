@@ -21,8 +21,9 @@ import android.widget.RelativeLayout;
 import java.util.Random;
 import tv.chushou.zues.b;
 import tv.chushou.zues.utils.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EmanateView extends RelativeLayout {
+    private RelativeLayout.LayoutParams eOx;
     private Context mContext;
     private Drawable mDrawable;
     private int mHeight;
@@ -32,10 +33,9 @@ public class EmanateView extends RelativeLayout {
     private int mWidth;
     private float mX;
     private float mY;
-    private Interpolator[] nWV;
-    private RelativeLayout.LayoutParams nWW;
-    private int nWX;
-    private int nWY;
+    private Interpolator[] nXK;
+    private int nXL;
+    private int nXM;
 
     public EmanateView(Context context) {
         this(context, null);
@@ -54,17 +54,17 @@ public class EmanateView extends RelativeLayout {
         AccelerateInterpolator accelerateInterpolator = new AccelerateInterpolator();
         DecelerateInterpolator decelerateInterpolator = new DecelerateInterpolator();
         setDrawable(null);
-        this.nWV = new Interpolator[4];
-        this.nWV[0] = linearInterpolator;
-        this.nWV[1] = accelerateInterpolator;
-        this.nWV[2] = decelerateInterpolator;
-        this.nWV[3] = accelerateDecelerateInterpolator;
+        this.nXK = new Interpolator[4];
+        this.nXK[0] = linearInterpolator;
+        this.nXK[1] = accelerateInterpolator;
+        this.nXK[2] = decelerateInterpolator;
+        this.nXK[3] = accelerateDecelerateInterpolator;
     }
 
     public void setEmanateStartLoc(int i, int i2) {
         this.mX = i;
         this.mY = i2;
-        dPq();
+        dQD();
     }
 
     private void getScreenSize() {
@@ -73,7 +73,7 @@ public class EmanateView extends RelativeLayout {
         this.mScreenHeight = windowManager.getDefaultDisplay().getHeight();
     }
 
-    protected void dPq() {
+    protected void dQD() {
         getScreenSize();
         this.mX = this.mWidth - (this.mScreenWidth - this.mX);
         this.mY = this.mHeight - (this.mScreenHeight - this.mY);
@@ -85,9 +85,9 @@ public class EmanateView extends RelativeLayout {
         } else {
             this.mDrawable = getResources().getDrawable(b.d.zues_default_gift_color);
         }
-        this.nWX = this.mDrawable.getIntrinsicHeight();
-        this.nWY = this.mDrawable.getIntrinsicWidth();
-        this.nWW = new RelativeLayout.LayoutParams(this.nWY, this.nWX);
+        this.nXL = this.mDrawable.getIntrinsicHeight();
+        this.nXM = this.mDrawable.getIntrinsicWidth();
+        this.eOx = new RelativeLayout.LayoutParams(this.nXM, this.nXL);
     }
 
     public void setDrawable(Drawable drawable, int i, int i2) {
@@ -96,9 +96,9 @@ public class EmanateView extends RelativeLayout {
         } else {
             this.mDrawable = getResources().getDrawable(b.d.zues_default_gift_color);
         }
-        this.nWX = (int) tv.chushou.zues.utils.a.a(0, i2, getContext());
-        this.nWY = (int) tv.chushou.zues.utils.a.a(0, i, getContext());
-        this.nWW = new RelativeLayout.LayoutParams(this.nWY, this.nWX);
+        this.nXL = (int) tv.chushou.zues.utils.a.a(0, i2, getContext());
+        this.nXM = (int) tv.chushou.zues.utils.a.a(0, i, getContext());
+        this.eOx = new RelativeLayout.LayoutParams(this.nXM, this.nXL);
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -108,14 +108,14 @@ public class EmanateView extends RelativeLayout {
         this.mHeight = getMeasuredHeight();
     }
 
-    public void dPr() {
+    public void dQE() {
         ImageView imageView = new ImageView(getContext());
         imageView.setImageDrawable(this.mDrawable);
         if (this.mX == 0.0f || this.mY == 0.0f) {
-            this.nWW.addRule(14, -1);
-            this.nWW.addRule(12, -1);
+            this.eOx.addRule(14, -1);
+            this.eOx.addRule(12, -1);
         }
-        imageView.setLayoutParams(this.nWW);
+        imageView.setLayoutParams(this.eOx);
         tv.chushou.zues.toolkit.d.b.setX(imageView, this.mX);
         tv.chushou.zues.toolkit.d.b.setY(imageView, this.mY);
         addView(imageView);
@@ -126,17 +126,17 @@ public class EmanateView extends RelativeLayout {
     }
 
     private Animator O(View view) {
-        AnimatorSet dF = dF(view);
-        ValueAnimator dG = dG(view);
+        AnimatorSet dH = dH(view);
+        ValueAnimator dI = dI(view);
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playSequentially(dF);
-        animatorSet.playSequentially(dF, dG);
-        animatorSet.setInterpolator(this.nWV[this.mRandom.nextInt(4)]);
+        animatorSet.playSequentially(dH);
+        animatorSet.playSequentially(dH, dI);
+        animatorSet.setInterpolator(this.nXK[this.mRandom.nextInt(4)]);
         animatorSet.setTarget(view);
         return animatorSet;
     }
 
-    private AnimatorSet dF(View view) {
+    private AnimatorSet dH(View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 0.2f, 1.0f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, "scaleX", 0.2f, 1.0f);
         ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view, "scaleY", 0.2f, 1.0f);
@@ -148,15 +148,15 @@ public class EmanateView extends RelativeLayout {
         return animatorSet;
     }
 
-    private ValueAnimator dG(View view) {
-        ValueAnimator ofObject = ValueAnimator.ofObject(new tv.chushou.zues.widget.emanate.a.a(Or(2), Or(1)), new PointF(this.mX, this.mY), new PointF(this.mRandom.nextInt(getWidth()), 0.0f));
+    private ValueAnimator dI(View view) {
+        ValueAnimator ofObject = ValueAnimator.ofObject(new tv.chushou.zues.widget.emanate.a.a(Ou(2), Ou(1)), new PointF(this.mX, this.mY), new PointF(this.mRandom.nextInt(getWidth()), 0.0f));
         ofObject.addUpdateListener(new b(view));
         ofObject.setTarget(view);
         ofObject.setDuration(3000L);
         return ofObject;
     }
 
-    private PointF Or(int i) {
+    private PointF Ou(int i) {
         PointF pointF = new PointF();
         pointF.x = this.mRandom.nextInt(this.mWidth - 100);
         pointF.y = this.mRandom.nextInt(this.mHeight - 100) / i;
@@ -164,44 +164,44 @@ public class EmanateView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
-        private View nWZ;
+        private View nXN;
 
         public b(View view) {
-            this.nWZ = view;
+            this.nXN = view;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             PointF pointF = (PointF) valueAnimator.getAnimatedValue();
-            tv.chushou.zues.toolkit.d.b.setX(this.nWZ, pointF.x);
-            tv.chushou.zues.toolkit.d.b.setY(this.nWZ, pointF.y);
-            tv.chushou.zues.toolkit.d.b.setAlpha(this.nWZ, 1.0f - valueAnimator.getAnimatedFraction());
+            tv.chushou.zues.toolkit.d.b.setX(this.nXN, pointF.x);
+            tv.chushou.zues.toolkit.d.b.setY(this.nXN, pointF.y);
+            tv.chushou.zues.toolkit.d.b.setAlpha(this.nXN, 1.0f - valueAnimator.getAnimatedFraction());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private class a extends AnimatorListenerAdapter {
-        private View nWZ;
+        private View nXN;
 
         public a(View view) {
-            this.nWZ = view;
+            this.nXN = view;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             super.onAnimationEnd(animator);
-            EmanateView.this.removeView(this.nWZ);
+            EmanateView.this.removeView(this.nXN);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.nWV = null;
+        this.nXK = null;
         this.mContext = null;
-        this.nWW = null;
+        this.eOx = null;
         if (this.mDrawable != null) {
             this.mDrawable.setCallback(null);
             this.mDrawable = null;

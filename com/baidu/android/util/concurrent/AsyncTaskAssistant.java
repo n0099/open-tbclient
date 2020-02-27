@@ -12,7 +12,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class AsyncTaskAssistant {
     private static final boolean DEBUG = false;
     private static final int KEEP_ALIVE_SECONDS = 30;
@@ -37,7 +37,7 @@ public final class AsyncTaskAssistant {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Task {
         String name;
         Runnable runnable;
@@ -47,7 +47,7 @@ public final class AsyncTaskAssistant {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class WorkerAsyncTask extends AsyncTask<Task, Object, Object> {
         private WorkerAsyncTask() {
         }

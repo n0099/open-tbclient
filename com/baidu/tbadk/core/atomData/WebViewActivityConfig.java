@@ -26,6 +26,10 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_TITLE = "tag_title";
     public static final String TAG_URL = "tag_url";
 
+    public WebViewActivityConfig(Context context) {
+        super(context);
+    }
+
     public WebViewActivityConfig(Context context, String str, String str2, boolean z) {
         super(context);
         getIntent().putExtra("tag_title", str);

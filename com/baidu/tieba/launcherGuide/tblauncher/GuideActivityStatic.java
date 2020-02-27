@@ -7,7 +7,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class GuideActivityStatic {
     GuideActivityStatic() {
     }

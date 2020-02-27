@@ -13,7 +13,7 @@ import com.baidu.searchbox.suspensionball.SuspensionBallUbc;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SpeedStatData {
     private static final String TAG = "SpeedStatData";
 

@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.util;
 
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class l {
     public byte[] data;
     private int limit;
@@ -26,10 +26,10 @@ public final class l {
     }
 
     public void reset(int i) {
-        G(capacity() < i ? new byte[i] : this.data, i);
+        I(capacity() < i ? new byte[i] : this.data, i);
     }
 
-    public void G(byte[] bArr, int i) {
+    public void I(byte[] bArr, int i) {
         this.data = bArr;
         this.limit = i;
         this.position = 0;
@@ -40,11 +40,11 @@ public final class l {
         this.limit = 0;
     }
 
-    public int dyh() {
+    public int dzr() {
         return this.limit - this.position;
     }
 
-    public int dyi() {
+    public int dzs() {
         return this.limit;
     }
 
@@ -74,16 +74,16 @@ public final class l {
     }
 
     public void e(k kVar, int i) {
-        C(kVar.data, 0, i);
+        G(kVar.data, 0, i);
         kVar.setPosition(0);
     }
 
-    public void C(byte[] bArr, int i, int i2) {
+    public void G(byte[] bArr, int i, int i2) {
         System.arraycopy(this.data, this.position, bArr, i, i2);
         this.position += i2;
     }
 
-    public char dyj() {
+    public char dzt() {
         return (char) (((this.data[this.position] & 255) << 8) | (this.data[this.position + 1] & 255));
     }
 
@@ -104,7 +104,7 @@ public final class l {
         return ((bArr[i] & 255) << 8) | (bArr2[i2] & 255);
     }
 
-    public int dyk() {
+    public int dzu() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -124,7 +124,7 @@ public final class l {
         return (short) (((bArr[i] & 255) << 8) | (bArr2[i2] & 255));
     }
 
-    public int dyl() {
+    public int dzv() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -138,7 +138,7 @@ public final class l {
         return i3 | (bArr3[i4] & 255);
     }
 
-    public int dym() {
+    public int dzw() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -170,7 +170,7 @@ public final class l {
         return j2 | (bArr4[i4] & 255);
     }
 
-    public long dyn() {
+    public long dzx() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -206,7 +206,7 @@ public final class l {
         return i5 | (bArr4[i6] & 255);
     }
 
-    public int dyo() {
+    public int dzy() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -258,7 +258,7 @@ public final class l {
         return j6 | (bArr8[i8] & 255);
     }
 
-    public long dyp() {
+    public long dzz() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -292,7 +292,7 @@ public final class l {
         return j6 | ((bArr8[i8] & 255) << 56);
     }
 
-    public int dyq() {
+    public int dzA() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -304,11 +304,11 @@ public final class l {
         return i3;
     }
 
-    public int dyr() {
+    public int dzB() {
         return (readUnsignedByte() << 21) | (readUnsignedByte() << 14) | (readUnsignedByte() << 7) | readUnsignedByte();
     }
 
-    public int dys() {
+    public int dzC() {
         int readInt = readInt();
         if (readInt < 0) {
             throw new IllegalStateException("Top bit not zero: " + readInt);
@@ -316,15 +316,15 @@ public final class l {
         return readInt;
     }
 
-    public int dyt() {
-        int dyo = dyo();
-        if (dyo < 0) {
-            throw new IllegalStateException("Top bit not zero: " + dyo);
+    public int dzD() {
+        int dzy = dzy();
+        if (dzy < 0) {
+            throw new IllegalStateException("Top bit not zero: " + dzy);
         }
-        return dyo;
+        return dzy;
     }
 
-    public long dyu() {
+    public long dzE() {
         long readLong = readLong();
         if (readLong < 0) {
             throw new IllegalStateException("Top bit not zero: " + readLong);
@@ -336,7 +336,7 @@ public final class l {
         return Double.longBitsToDouble(readLong());
     }
 
-    public String LP(int i) {
+    public String LU(int i) {
         return a(i, Charset.forName("UTF-8"));
     }
 
@@ -346,7 +346,7 @@ public final class l {
         return str;
     }
 
-    public String LQ(int i) {
+    public String LV(int i) {
         if (i == 0) {
             return "";
         }
@@ -356,8 +356,8 @@ public final class l {
         return str;
     }
 
-    public String dyv() {
-        if (dyh() == 0) {
+    public String dzF() {
+        if (dzr() == 0) {
             return null;
         }
         int i = this.position;
@@ -373,11 +373,11 @@ public final class l {
     }
 
     public String readLine() {
-        if (dyh() == 0) {
+        if (dzr() == 0) {
             return null;
         }
         int i = this.position;
-        while (i < this.limit && !v.LT(this.data[i])) {
+        while (i < this.limit && !v.LY(this.data[i])) {
             i++;
         }
         if (i - this.position >= 3 && this.data[this.position] == -17 && this.data[this.position + 1] == -69 && this.data[this.position + 2] == -65) {
@@ -400,7 +400,7 @@ public final class l {
         return str;
     }
 
-    public long dyw() {
+    public long dzG() {
         byte b;
         int i = 0;
         long j = this.data[this.position];

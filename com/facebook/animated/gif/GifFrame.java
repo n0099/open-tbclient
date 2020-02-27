@@ -5,7 +5,7 @@ import com.facebook.common.internal.d;
 import com.facebook.imagepipeline.animated.base.c;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class GifFrame implements c {
     @d
     private long mNativeContext;
@@ -82,7 +82,7 @@ public class GifFrame implements c {
         return nativeGetYOffset();
     }
 
-    public int diB() {
+    public int djO() {
         return nativeGetDisposalMode();
     }
 }

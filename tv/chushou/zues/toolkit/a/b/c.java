@@ -5,22 +5,22 @@ import android.support.v4.util.ArrayMap;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c<T> {
-    private final Map<String, WeakReference<T>> nVM;
+    private final Map<String, WeakReference<T>> nWB;
 
     public c() {
-        this.nVM = new ArrayMap(4);
+        this.nWB = new ArrayMap(4);
     }
 
     public c(int i) {
-        this.nVM = new ArrayMap(i <= 0 ? 4 : i);
+        this.nWB = new ArrayMap(i <= 0 ? 4 : i);
     }
 
     public void put(String str, T t) {
         if (!h.isEmpty(str) && t != null) {
             synchronized (this) {
-                this.nVM.put(str, new WeakReference<>(t));
+                this.nWB.put(str, new WeakReference<>(t));
             }
         }
     }
@@ -32,11 +32,11 @@ public class c<T> {
             return null;
         }
         synchronized (this) {
-            WeakReference<T> weakReference = this.nVM.get(str);
+            WeakReference<T> weakReference = this.nWB.get(str);
             if (weakReference != null) {
                 t = weakReference.get();
                 if (t == null) {
-                    this.nVM.remove(str);
+                    this.nWB.remove(str);
                 }
             } else {
                 t = null;
@@ -47,7 +47,7 @@ public class c<T> {
 
     public void clear() {
         synchronized (this) {
-            this.nVM.clear();
+            this.nWB.clear();
         }
     }
 }

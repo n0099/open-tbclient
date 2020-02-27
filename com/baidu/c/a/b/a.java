@@ -3,39 +3,39 @@ package com.baidu.c.a.b;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a implements b {
-    private static volatile a Rq = null;
-    private b Rr;
+    private static volatile a SY = null;
+    private b SZ;
 
-    public static a nP() {
-        if (Rq == null) {
+    public static a oy() {
+        if (SY == null) {
             synchronized (a.class) {
-                if (Rq == null) {
-                    Rq = new a();
+                if (SY == null) {
+                    SY = new a();
                 }
             }
         }
-        return Rq;
+        return SY;
     }
 
     public void b(b bVar) {
-        this.Rr = bVar;
+        this.SZ = bVar;
     }
 
     @Override // com.baidu.c.a.b.b
     public View O(Context context, String str) {
-        if (this.Rr == null || str == null || TextUtils.isEmpty(str)) {
+        if (this.SZ == null || str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.Rr.O(context, str);
+        return this.SZ.O(context, str);
     }
 
     @Override // com.baidu.c.a.b.b
     public boolean a(String str, View view, com.baidu.c.a.a.a aVar, boolean z) {
-        if (this.Rr == null || view == null || aVar == null) {
+        if (this.SZ == null || view == null || aVar == null) {
             return false;
         }
-        return this.Rr.a(str, view, aVar, z);
+        return this.SZ.a(str, view, aVar, z);
     }
 }

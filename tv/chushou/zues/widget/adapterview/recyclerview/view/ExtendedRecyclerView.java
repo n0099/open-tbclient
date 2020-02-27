@@ -9,10 +9,10 @@ import android.view.View;
 import tv.chushou.zues.widget.adapterview.a;
 import tv.chushou.zues.widget.adapterview.c;
 import tv.chushou.zues.widget.adapterview.recyclerview.a.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ExtendedRecyclerView extends RecyclerView {
-    protected View fEi;
-    protected b nWB;
+    protected View fGF;
+    protected b nXq;
 
     public ExtendedRecyclerView(Context context) {
         super(context);
@@ -29,77 +29,77 @@ public class ExtendedRecyclerView extends RecyclerView {
     @Override // android.support.v7.widget.RecyclerView
     public void setAdapter(RecyclerView.Adapter adapter) {
         if (adapter instanceof b) {
-            this.nWB = (b) adapter;
-            super.setAdapter(this.nWB);
-        } else if (this.nWB == null) {
-            this.nWB = new b(adapter);
-            super.setAdapter(this.nWB);
+            this.nXq = (b) adapter;
+            super.setAdapter(this.nXq);
+        } else if (this.nXq == null) {
+            this.nXq = new b(adapter);
+            super.setAdapter(this.nXq);
         } else {
-            this.nWB.setAdapter(adapter);
+            this.nXq.setAdapter(adapter);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView
     public b getAdapter() {
-        return this.nWB;
+        return this.nXq;
     }
 
-    public boolean Op(int i) {
-        return this.nWB != null && this.nWB.Om(i);
+    public boolean Os(int i) {
+        return this.nXq != null && this.nXq.Op(i);
     }
 
     public int getHeaderViewCount() {
-        if (this.nWB == null) {
+        if (this.nXq == null) {
             return 0;
         }
-        return this.nWB.getHeaderViewsCount();
+        return this.nXq.getHeaderViewsCount();
     }
 
-    public boolean dE(View view) {
-        return this.nWB != null && this.nWB.dD(view);
+    public boolean dG(View view) {
+        return this.nXq != null && this.nXq.dF(view);
     }
 
-    public boolean Oq(int i) {
-        return this.nWB != null && this.nWB.On(i);
+    public boolean Ot(int i) {
+        return this.nXq != null && this.nXq.Oq(i);
     }
 
     public void addFooterView(@NonNull View view, int i) {
-        if (this.nWB == null) {
+        if (this.nXq == null) {
             throw new IllegalStateException("should call setAdapter() first");
         }
-        this.nWB.addFooterView(view, i);
+        this.nXq.addFooterView(view, i);
     }
 
-    public void dC(View view) {
-        if (view != null && this.nWB != null) {
-            this.nWB.dC(view);
+    public void dE(View view) {
+        if (view != null && this.nXq != null) {
+            this.nXq.dE(view);
         }
     }
 
     public int getFooterViewCount() {
-        if (this.nWB == null) {
+        if (this.nXq == null) {
             return 0;
         }
-        return this.nWB.getFooterViewsCount();
+        return this.nXq.getFooterViewsCount();
     }
 
     public void setEmptyView(@NonNull View view) {
-        this.fEi = view;
-        if (this.nWB == null) {
+        this.fGF = view;
+        if (this.nXq == null) {
             throw new IllegalArgumentException("should call setAdapter() first");
         }
-        this.nWB.a(new a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.ExtendedRecyclerView.1
+        this.nXq.a(new a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.ExtendedRecyclerView.1
             @Override // tv.chushou.zues.widget.adapterview.a
-            public void xd(boolean z) {
-                if (ExtendedRecyclerView.this.fEi != null) {
+            public void xg(boolean z) {
+                if (ExtendedRecyclerView.this.fGF != null) {
                     if (z) {
                         ExtendedRecyclerView.this.setVisibility(8);
-                        ExtendedRecyclerView.this.fEi.setVisibility(0);
+                        ExtendedRecyclerView.this.fGF.setVisibility(0);
                         return;
                     }
                     ExtendedRecyclerView.this.setVisibility(0);
-                    ExtendedRecyclerView.this.fEi.setVisibility(8);
+                    ExtendedRecyclerView.this.fGF.setVisibility(8);
                 }
             }
         });
@@ -107,13 +107,13 @@ public class ExtendedRecyclerView extends RecyclerView {
 
     @Nullable
     public View getEmptyView() {
-        return this.fEi;
+        return this.fGF;
     }
 
     public void setLoadMoreProvider(c cVar) {
-        if (this.nWB == null) {
+        if (this.nXq == null) {
             throw new IllegalArgumentException("should call setAdapter() first");
         }
-        this.nWB.setLoadMoreProvider(cVar);
+        this.nXq.setLoadMoreProvider(cVar);
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.mario.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class f {
-    private long aGo;
-    private int aGn = 100;
-    private long aGp = 0;
-    private boolean aGq = false;
+    private long aKu;
+    private int aKt = 100;
+    private long mStartTimeMs = 0;
+    private boolean aKv = false;
 
     public f(long j) {
-        this.aGo = 0L;
-        this.aGo = j;
+        this.aKu = 0L;
+        this.aKu = j;
     }
 }

@@ -5,26 +5,26 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private a eoG;
-    private a eoH;
+    private a esQ;
+    private a esR;
 
     public f(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.eoG = new a(getTbPageContext());
-        this.eoH = new a(getTbPageContext());
+        this.esQ = new a(getTbPageContext());
+        this.esR = new a(getTbPageContext());
         ViewGroup viewGroup2 = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup2.addView(this.eoG.getView());
+        viewGroup2.addView(this.esQ.getView());
         viewGroup2.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
-        viewGroup2.addView(this.eoH.getView());
+        viewGroup2.addView(this.esR.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.eoG.onChangeSkinType(tbPageContext, i);
-        this.eoH.onChangeSkinType(tbPageContext, i);
+        this.esQ.onChangeSkinType(tbPageContext, i);
+        this.esR.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -36,21 +36,21 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.eoG.a(eVar.ehD);
-            this.eoH.a(eVar.ehE);
+            this.esQ.a(eVar.elI);
+            this.esR.a(eVar.elJ);
         }
     }
 
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, String str) {
         if (eVar != null) {
-            this.eoG.a(eVar.ehD, str);
-            this.eoH.a(eVar.ehE, str);
+            this.esQ.a(eVar.elI, str);
+            this.esR.a(eVar.elJ, str);
         }
     }
 
     public void c(com.baidu.tieba.ala.alasquare.subtablist.c.h hVar) {
-        this.eoG.b(hVar);
-        this.eoH.b(hVar);
+        this.esQ.b(hVar);
+        this.esR.b(hVar);
     }
 
     @Override // android.view.View.OnClickListener

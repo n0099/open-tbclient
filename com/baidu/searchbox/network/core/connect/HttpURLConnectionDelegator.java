@@ -4,7 +4,7 @@ import com.baidu.searchbox.network.core.RequestClient;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class HttpURLConnectionDelegator implements IHttpDelegator {
     @Override // com.baidu.searchbox.network.core.connect.IHttpDelegator
     public HttpURLConnection openHttpURLConnection(URL url) throws IOException {

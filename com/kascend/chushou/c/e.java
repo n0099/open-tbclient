@@ -6,7 +6,6 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
-import com.baidu.minivideo.effect.core.entity.AEffect;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.TbConfig;
@@ -51,40 +50,40 @@ import tv.chushou.zues.toolkit.richtext.RichText;
 import tv.chushou.zues.toolkit.richtext.RichTextPlus;
 import tv.chushou.zues.utils.h;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
-    /* JADX WARN: Removed duplicated region for block: B:104:0x057d  */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x059a  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x05b5  */
-    /* JADX WARN: Removed duplicated region for block: B:120:0x05d1  */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x05ed  */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x0607  */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x0621  */
-    /* JADX WARN: Removed duplicated region for block: B:141:0x063f  */
-    /* JADX WARN: Removed duplicated region for block: B:146:0x0679  */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x0695  */
-    /* JADX WARN: Removed duplicated region for block: B:156:0x06af  */
-    /* JADX WARN: Removed duplicated region for block: B:161:0x06c9  */
-    /* JADX WARN: Removed duplicated region for block: B:165:0x06d5  */
-    /* JADX WARN: Removed duplicated region for block: B:167:0x06e0  */
-    /* JADX WARN: Removed duplicated region for block: B:170:0x06f0  */
-    /* JADX WARN: Removed duplicated region for block: B:173:0x06ff  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x04cb A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x04d8  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x04ea  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x04fc  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0508  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0513  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0523  */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x052d  */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0539  */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x0544  */
-    /* JADX WARN: Removed duplicated region for block: B:96:0x0554  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0560  */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x057c  */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x0588  */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x05a5  */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x05c2  */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x05dd  */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x05f9  */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0615  */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x062f  */
+    /* JADX WARN: Removed duplicated region for block: B:140:0x0649  */
+    /* JADX WARN: Removed duplicated region for block: B:146:0x0667  */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x06a1  */
+    /* JADX WARN: Removed duplicated region for block: B:156:0x06bd  */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x06d7  */
+    /* JADX WARN: Removed duplicated region for block: B:166:0x06f1  */
+    /* JADX WARN: Removed duplicated region for block: B:170:0x06fd  */
+    /* JADX WARN: Removed duplicated region for block: B:172:0x0708  */
+    /* JADX WARN: Removed duplicated region for block: B:175:0x0718  */
+    /* JADX WARN: Removed duplicated region for block: B:178:0x0727  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x04f3 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0500  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0512  */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x0524  */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x0530  */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x053b  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x054b  */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x0555  */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x0561  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x056c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ParserRet p(JSONObject jSONObject, String str) {
+    public static ParserRet r(JSONObject jSONObject, String str) {
         Exception exc;
         ArrayList arrayList;
         String str2;
@@ -206,350 +205,358 @@ public class e {
                                             arrayList18 = arrayList26;
                                             arrayList19 = arrayList27;
                                         } else {
-                                            ChatInfo chatInfo = new ChatInfo();
-                                            chatInfo.mID = optJSONObject.optString("id");
-                                            chatInfo.mRoomID = optJSONObject.optString("roomId");
-                                            chatInfo.mContent = optJSONObject.optString("content");
-                                            chatInfo.mType = optJSONObject.optString("type");
-                                            if (optJSONObject.has("user")) {
-                                                JSONObject jSONObject3 = optJSONObject.getJSONObject("user");
-                                                chatInfo.mUserID = jSONObject3.optString("uid");
-                                                chatInfo.mUserNickname = jSONObject3.optString("nickname");
-                                                chatInfo.mHeadIcon = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                                                chatInfo.mGender = jSONObject3.optString("gender");
-                                            }
-                                            chatInfo.mPrivilegeInfo.mRole = optJSONObject.optString("isManager");
-                                            if (optJSONObject.has("medalList")) {
-                                                JSONArray jSONArray2 = optJSONObject.getJSONArray("medalList");
-                                                if (chatInfo.mPrivilegeInfo.mMedals == null) {
-                                                    chatInfo.mPrivilegeInfo.mMedals = new ArrayList<>();
+                                            JSONObject optJSONObject2 = optJSONObject.optJSONObject("metaInfo");
+                                            if (optJSONObject2 == null || a(optJSONObject2.optJSONArray("includexappkey"), optJSONObject2.optJSONArray("excludexappkey"))) {
+                                                ChatInfo chatInfo = new ChatInfo();
+                                                chatInfo.mID = optJSONObject.optString("id");
+                                                chatInfo.mRoomID = optJSONObject.optString("roomId");
+                                                chatInfo.mContent = optJSONObject.optString("content");
+                                                chatInfo.mType = optJSONObject.optString("type");
+                                                if (optJSONObject.has("user")) {
+                                                    JSONObject jSONObject3 = optJSONObject.getJSONObject("user");
+                                                    chatInfo.mUserID = jSONObject3.optString("uid");
+                                                    chatInfo.mUserNickname = jSONObject3.optString("nickname");
+                                                    chatInfo.mHeadIcon = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                                                    chatInfo.mGender = jSONObject3.optString("gender");
                                                 }
-                                                for (int i4 = 0; i4 < jSONArray2.length(); i4++) {
-                                                    chatInfo.mPrivilegeInfo.mMedals.add(jSONArray2.getJSONObject(i4).getString("url"));
+                                                chatInfo.mPrivilegeInfo.mRole = optJSONObject.optString("isManager");
+                                                if (optJSONObject.has("medalList")) {
+                                                    JSONArray jSONArray2 = optJSONObject.getJSONArray("medalList");
+                                                    if (chatInfo.mPrivilegeInfo.mMedals == null) {
+                                                        chatInfo.mPrivilegeInfo.mMedals = new ArrayList<>();
+                                                    }
+                                                    for (int i4 = 0; i4 < jSONArray2.length(); i4++) {
+                                                        chatInfo.mPrivilegeInfo.mMedals.add(jSONArray2.getJSONObject(i4).getString("url"));
+                                                    }
                                                 }
-                                            }
-                                            if (optJSONObject.has("metaInfo")) {
-                                                JSONObject jSONObject4 = optJSONObject.getJSONObject("metaInfo");
-                                                chatInfo.mFilter = jSONObject4.optBoolean(FilterImageAction.ACTION_NAME);
-                                                chatInfo.mAnimationPluginId = jSONObject4.optInt("animationPluginId", 1);
-                                                chatInfo.giftType = jSONObject4.optInt("giftType", 1);
-                                                if (chatInfo.giftType == 2) {
+                                                if (optJSONObject.has("metaInfo")) {
+                                                    JSONObject jSONObject4 = optJSONObject.getJSONObject("metaInfo");
+                                                    chatInfo.mFilter = jSONObject4.optBoolean(FilterImageAction.ACTION_NAME);
+                                                    chatInfo.mAnimationPluginId = jSONObject4.optInt("animationPluginId", 1);
+                                                    chatInfo.giftType = jSONObject4.optInt("giftType", 1);
+                                                    if (chatInfo.giftType == 2) {
+                                                        arrayList18 = arrayList26;
+                                                        arrayList19 = arrayList27;
+                                                    } else {
+                                                        chatInfo.giftDisplayWidth = jSONObject4.optInt("giftDisplayWidth", 0);
+                                                        chatInfo.giftDisplayHeight = jSONObject4.optInt("giftDisplayHeight");
+                                                        if (jSONObject4.has("displayPosition")) {
+                                                            chatInfo.mDisplayPosition = new ArrayList();
+                                                            JSONArray optJSONArray = jSONObject4.optJSONArray("displayPosition");
+                                                            for (int i5 = 0; i5 < optJSONArray.length(); i5++) {
+                                                                chatInfo.mDisplayPosition.add(optJSONArray.optString(i5));
+                                                            }
+                                                        }
+                                                        chatInfo.mPrivilegeInfo.mShowAvatar = jSONObject4.optBoolean("showAvatar");
+                                                        chatInfo.mPrivilegeInfo.mAvatarFrame = jSONObject4.optString("avatarFrame");
+                                                        chatInfo.mGift.mRepeatedBg = jSONObject4.optString("ucombo_bg");
+                                                        if (jSONObject4.has("nav")) {
+                                                            chatInfo.mItem = a.dx(jSONObject4.optJSONObject("nav"));
+                                                        }
+                                                        if (jSONObject4.has("gift")) {
+                                                            JSONObject jSONObject5 = jSONObject4.getJSONObject("gift");
+                                                            chatInfo.mGift.mDesc = jSONObject5.optString("desc");
+                                                            chatInfo.mGift.icon = jSONObject5.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+                                                            chatInfo.mGift.point = jSONObject5.optInt(Config.EVENT_HEAT_POINT);
+                                                            chatInfo.mGift.name = jSONObject5.optString("name");
+                                                            chatInfo.mGift.id = jSONObject5.optInt("id");
+                                                        }
+                                                        chatInfo.mAnimType = jSONObject4.optInt("animation");
+                                                        chatInfo.mAnimSubType = jSONObject4.optInt("animationSubType");
+                                                        chatInfo.mAnimationType = jSONObject4.optInt("animationType");
+                                                        chatInfo.mRoomComboCount = jSONObject4.optInt("rcombo", -1);
+                                                        chatInfo.mUserComboCount = jSONObject4.optInt("ucombo", 1);
+                                                        chatInfo.mAnimationPriority = jSONObject4.optInt("animationPriority", 0);
+                                                        chatInfo.mAnimationStage = jSONObject4.optInt("animationStage", 1);
+                                                        chatInfo.mAnimationDisplayText = jSONObject4.optString("animationDisplayText");
+                                                        chatInfo.isBatchGift = jSONObject4.optBoolean("isBatchGift");
+                                                        if (jSONObject4.has("coolNickname")) {
+                                                            JSONObject jSONObject6 = jSONObject4.getJSONObject("coolNickname");
+                                                            chatInfo.mCoolNickname = new RichTextPlus();
+                                                            chatInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SS(jSONObject6.optString("nickname"));
+                                                            chatInfo.mCoolNickname.mFontColors = (ArrayList) a(jSONObject6.optJSONArray("colors"));
+                                                            if (!h.isEmpty(chatInfo.mCoolNickname.mNicknameRichText)) {
+                                                                chatInfo.mCoolNickname.mNickName = "";
+                                                                StringBuilder sb = new StringBuilder();
+                                                                sb.append(chatInfo.mCoolNickname.mNickName);
+                                                                Iterator<RichText> it = chatInfo.mCoolNickname.mNicknameRichText.iterator();
+                                                                while (it.hasNext()) {
+                                                                    sb.append(it.next().mContent);
+                                                                }
+                                                                chatInfo.mCoolNickname.mNickName = sb.toString();
+                                                            }
+                                                        }
+                                                        if (jSONObject4.has("coolContent")) {
+                                                            JSONObject jSONObject7 = jSONObject4.getJSONObject("coolContent");
+                                                            chatInfo.mCoolContent = new RichTextPlus();
+                                                            chatInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SS(jSONObject7.optString("content"));
+                                                            chatInfo.mCoolContent.mFontColors = (ArrayList) a(jSONObject7.optJSONArray("colors"));
+                                                            if (!h.isEmpty(chatInfo.mCoolContent.mContentRichText)) {
+                                                                chatInfo.mCoolContent.mContent = "";
+                                                                StringBuilder sb2 = new StringBuilder();
+                                                                sb2.append(chatInfo.mCoolContent.mContent);
+                                                                Iterator<RichText> it2 = chatInfo.mCoolContent.mContentRichText.iterator();
+                                                                while (it2.hasNext()) {
+                                                                    sb2.append(it2.next().mContent);
+                                                                }
+                                                                chatInfo.mCoolContent.mContent = sb2.toString();
+                                                            }
+                                                        }
+                                                        if (jSONObject4.has("coolMessage")) {
+                                                            JSONObject jSONObject8 = jSONObject4.getJSONObject("coolMessage");
+                                                            chatInfo.mCoolMessage = new RichTextPlus();
+                                                            chatInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SS(jSONObject8.optString("content"));
+                                                            chatInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SS(jSONObject8.optString("nickname"));
+                                                            chatInfo.mCoolMessage.mBgImage = jSONObject8.optString("bgImage");
+                                                            if (!h.isEmpty(chatInfo.mCoolMessage.mNicknameRichText)) {
+                                                                chatInfo.mCoolMessage.mNickName = "";
+                                                                StringBuilder sb3 = new StringBuilder();
+                                                                sb3.append(chatInfo.mCoolMessage.mNickName);
+                                                                Iterator<RichText> it3 = chatInfo.mCoolMessage.mNicknameRichText.iterator();
+                                                                while (it3.hasNext()) {
+                                                                    sb3.append(it3.next().mContent);
+                                                                }
+                                                                chatInfo.mCoolMessage.mNickName = sb3.toString();
+                                                            }
+                                                            if (!h.isEmpty(chatInfo.mCoolMessage.mContentRichText)) {
+                                                                chatInfo.mCoolMessage.mContent = "";
+                                                                StringBuilder sb4 = new StringBuilder();
+                                                                sb4.append(chatInfo.mCoolMessage.mContent);
+                                                                Iterator<RichText> it4 = chatInfo.mCoolMessage.mContentRichText.iterator();
+                                                                while (it4.hasNext()) {
+                                                                    sb4.append(it4.next().mContent);
+                                                                }
+                                                                chatInfo.mCoolMessage.mContent = sb4.toString();
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                chatInfo.mCreatedTime = optJSONObject.optLong("createdTime");
+                                                chatInfo.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SS(chatInfo.mContent);
+                                                if (chatInfo.mContentRichText != null && chatInfo.mContentRichText.size() > 0) {
+                                                    chatInfo.mContent = "";
+                                                    StringBuilder sb5 = new StringBuilder();
+                                                    sb5.append(chatInfo.mContent);
+                                                    Iterator<RichText> it5 = chatInfo.mContentRichText.iterator();
+                                                    while (it5.hasNext()) {
+                                                        sb5.append(it5.next().mContent);
+                                                    }
+                                                    chatInfo.mContent = sb5.toString();
+                                                }
+                                                chatInfo.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SS(chatInfo.mUserNickname);
+                                                if (chatInfo.mNicknameRichText != null && chatInfo.mNicknameRichText.size() > 0) {
+                                                    chatInfo.mPrivilegeInfo.mRichNickname = chatInfo.mNicknameRichText;
+                                                    chatInfo.mUserNickname = "";
+                                                    StringBuilder sb6 = new StringBuilder();
+                                                    sb6.append(chatInfo.mUserNickname);
+                                                    Iterator<RichText> it6 = chatInfo.mNicknameRichText.iterator();
+                                                    while (it6.hasNext()) {
+                                                        sb6.append(it6.next().mContent);
+                                                    }
+                                                    chatInfo.mUserNickname = sb6.toString();
+                                                }
+                                                if (!"2".equals(chatInfo.mType) || h.isEmpty(chatInfo.mDisplayPosition) || chatInfo.mDisplayPosition.contains("2") || chatInfo.mDisplayPosition.contains("3")) {
+                                                    arrayList25.add(chatInfo);
+                                                }
+                                                if (chatInfo.mAnimType > 0) {
+                                                    ArrayList arrayList28 = arrayList27 == null ? new ArrayList() : arrayList27;
+                                                    try {
+                                                        chatInfo.mJsonData = optJSONObject;
+                                                        arrayList28.add(chatInfo);
+                                                        arrayList27 = arrayList28;
+                                                    } catch (Exception e) {
+                                                        karaokeBean = null;
+                                                        arrayList2 = arrayList28;
+                                                        bVar = null;
+                                                        arrayList3 = arrayList25;
+                                                        exc = e;
+                                                        z = false;
+                                                        autoBang = null;
+                                                        arrayList7 = arrayList22;
+                                                        j = optLong2;
+                                                        bangInfo = null;
+                                                        str2 = optString;
+                                                        onlineVip = null;
+                                                        arrayList = arrayList26;
+                                                        roomChatBackground = null;
+                                                        cycleLiveRoomInfo = null;
+                                                        i = i2;
+                                                        cVar = null;
+                                                        arrayList6 = null;
+                                                        obj = null;
+                                                        arrayList5 = null;
+                                                        arrayList4 = null;
+                                                        micStatus = null;
+                                                        str3 = str5;
+                                                        tv.chushou.zues.utils.e.e("Parser_Player", "error " + exc.toString());
+                                                        parserRet = new ParserRet();
+                                                        parserRet.mBreakpoint = str2;
+                                                        parserRet.mData = arrayList3;
+                                                        parserRet.mData1 = Long.valueOf(j);
+                                                        if (arrayList2 == null) {
+                                                        }
+                                                        parserRet.mData2 = new SparseArray();
+                                                        if (arrayList2 != null) {
+                                                            parserRet.mData2.put(1, arrayList2);
+                                                        }
+                                                        if (arrayList != null) {
+                                                            parserRet.mData2.put(2, arrayList);
+                                                        }
+                                                        if (bangInfo == null) {
+                                                        }
+                                                        if (parserRet.mData3 == null) {
+                                                        }
+                                                        if (bangInfo != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList7)) {
+                                                        }
+                                                        if (micStatus == null) {
+                                                        }
+                                                        if (parserRet.mData3 == null) {
+                                                        }
+                                                        if (micStatus != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList4)) {
+                                                        }
+                                                        if (obj != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList6)) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList23)) {
+                                                        }
+                                                        if (roomChatBackground != null) {
+                                                        }
+                                                        if (onlineVip != null) {
+                                                        }
+                                                        if (cVar != null) {
+                                                        }
+                                                        if (autoBang != null) {
+                                                        }
+                                                        if (karaokeBean != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList24)) {
+                                                        }
+                                                        if (0 != 0) {
+                                                        }
+                                                        if (bVar != null) {
+                                                        }
+                                                        if (cycleLiveRoomInfo != null) {
+                                                        }
+                                                        if (micStatus == null) {
+                                                        }
+                                                        if (parserRet.mData3 == null) {
+                                                        }
+                                                        if (micStatus != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList4)) {
+                                                        }
+                                                        if (parserRet.mData3 == null) {
+                                                        }
+                                                        parserRet.mData3.put(19, Boolean.valueOf(z));
+                                                        parserRet.mRc = i;
+                                                        parserRet.mMessage = str3;
+                                                        return parserRet;
+                                                    }
+                                                }
+                                                if ("2".equals(chatInfo.mType) && (h.isEmpty(chatInfo.mDisplayPosition) || chatInfo.mDisplayPosition.contains("1"))) {
+                                                    arrayList18 = arrayList26 == null ? new ArrayList() : arrayList26;
+                                                    try {
+                                                        arrayList18.add(chatInfo);
+                                                        arrayList19 = arrayList27;
+                                                    } catch (Exception e2) {
+                                                        arrayList2 = arrayList27;
+                                                        arrayList3 = arrayList25;
+                                                        karaokeBean = null;
+                                                        exc = e2;
+                                                        bVar = null;
+                                                        cycleLiveRoomInfo = null;
+                                                        cVar = null;
+                                                        arrayList6 = null;
+                                                        obj = null;
+                                                        arrayList5 = null;
+                                                        arrayList4 = null;
+                                                        micStatus = null;
+                                                        str3 = str5;
+                                                        bangInfo = null;
+                                                        str2 = optString;
+                                                        onlineVip = null;
+                                                        arrayList = arrayList18;
+                                                        roomChatBackground = null;
+                                                        z = false;
+                                                        i = i2;
+                                                        autoBang = null;
+                                                        arrayList7 = arrayList22;
+                                                        j = optLong2;
+                                                        tv.chushou.zues.utils.e.e("Parser_Player", "error " + exc.toString());
+                                                        parserRet = new ParserRet();
+                                                        parserRet.mBreakpoint = str2;
+                                                        parserRet.mData = arrayList3;
+                                                        parserRet.mData1 = Long.valueOf(j);
+                                                        if (arrayList2 == null) {
+                                                        }
+                                                        parserRet.mData2 = new SparseArray();
+                                                        if (arrayList2 != null) {
+                                                        }
+                                                        if (arrayList != null) {
+                                                        }
+                                                        if (bangInfo == null) {
+                                                        }
+                                                        if (parserRet.mData3 == null) {
+                                                        }
+                                                        if (bangInfo != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList7)) {
+                                                        }
+                                                        if (micStatus == null) {
+                                                        }
+                                                        if (parserRet.mData3 == null) {
+                                                        }
+                                                        if (micStatus != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList4)) {
+                                                        }
+                                                        if (obj != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList6)) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList23)) {
+                                                        }
+                                                        if (roomChatBackground != null) {
+                                                        }
+                                                        if (onlineVip != null) {
+                                                        }
+                                                        if (cVar != null) {
+                                                        }
+                                                        if (autoBang != null) {
+                                                        }
+                                                        if (karaokeBean != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList24)) {
+                                                        }
+                                                        if (0 != 0) {
+                                                        }
+                                                        if (bVar != null) {
+                                                        }
+                                                        if (cycleLiveRoomInfo != null) {
+                                                        }
+                                                        if (micStatus == null) {
+                                                        }
+                                                        if (parserRet.mData3 == null) {
+                                                        }
+                                                        if (micStatus != null) {
+                                                        }
+                                                        if (!h.isEmpty(arrayList4)) {
+                                                        }
+                                                        if (parserRet.mData3 == null) {
+                                                        }
+                                                        parserRet.mData3.put(19, Boolean.valueOf(z));
+                                                        parserRet.mRc = i;
+                                                        parserRet.mMessage = str3;
+                                                        return parserRet;
+                                                    }
+                                                } else {
                                                     arrayList18 = arrayList26;
                                                     arrayList19 = arrayList27;
-                                                } else {
-                                                    chatInfo.giftDisplayWidth = jSONObject4.optInt("giftDisplayWidth", 0);
-                                                    chatInfo.giftDisplayHeight = jSONObject4.optInt("giftDisplayHeight");
-                                                    if (jSONObject4.has("displayPosition")) {
-                                                        chatInfo.mDisplayPosition = new ArrayList();
-                                                        JSONArray optJSONArray = jSONObject4.optJSONArray("displayPosition");
-                                                        for (int i5 = 0; i5 < optJSONArray.length(); i5++) {
-                                                            chatInfo.mDisplayPosition.add(optJSONArray.optString(i5));
-                                                        }
-                                                    }
-                                                    chatInfo.mPrivilegeInfo.mShowAvatar = jSONObject4.optBoolean("showAvatar");
-                                                    chatInfo.mPrivilegeInfo.mAvatarFrame = jSONObject4.optString("avatarFrame");
-                                                    chatInfo.mGift.mRepeatedBg = jSONObject4.optString("ucombo_bg");
-                                                    if (jSONObject4.has("nav")) {
-                                                        chatInfo.mItem = a.dx(jSONObject4.optJSONObject("nav"));
-                                                    }
-                                                    if (jSONObject4.has("gift")) {
-                                                        JSONObject jSONObject5 = jSONObject4.getJSONObject("gift");
-                                                        chatInfo.mGift.mDesc = jSONObject5.optString("desc");
-                                                        chatInfo.mGift.icon = jSONObject5.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                                                        chatInfo.mGift.point = jSONObject5.optInt(Config.EVENT_HEAT_POINT);
-                                                        chatInfo.mGift.name = jSONObject5.optString("name");
-                                                        chatInfo.mGift.id = jSONObject5.optInt("id");
-                                                    }
-                                                    chatInfo.mAnimType = jSONObject4.optInt("animation");
-                                                    chatInfo.mAnimSubType = jSONObject4.optInt("animationSubType");
-                                                    chatInfo.mAnimationType = jSONObject4.optInt("animationType");
-                                                    chatInfo.mRoomComboCount = jSONObject4.optInt("rcombo", -1);
-                                                    chatInfo.mUserComboCount = jSONObject4.optInt("ucombo", 1);
-                                                    chatInfo.mAnimationPriority = jSONObject4.optInt("animationPriority", 0);
-                                                    chatInfo.mAnimationStage = jSONObject4.optInt("animationStage", 1);
-                                                    chatInfo.mAnimationDisplayText = jSONObject4.optString("animationDisplayText");
-                                                    chatInfo.isBatchGift = jSONObject4.optBoolean("isBatchGift");
-                                                    if (jSONObject4.has("coolNickname")) {
-                                                        JSONObject jSONObject6 = jSONObject4.getJSONObject("coolNickname");
-                                                        chatInfo.mCoolNickname = new RichTextPlus();
-                                                        chatInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SH(jSONObject6.optString("nickname"));
-                                                        chatInfo.mCoolNickname.mFontColors = (ArrayList) a(jSONObject6.optJSONArray("colors"));
-                                                        if (!h.isEmpty(chatInfo.mCoolNickname.mNicknameRichText)) {
-                                                            chatInfo.mCoolNickname.mNickName = "";
-                                                            StringBuilder sb = new StringBuilder();
-                                                            sb.append(chatInfo.mCoolNickname.mNickName);
-                                                            Iterator<RichText> it = chatInfo.mCoolNickname.mNicknameRichText.iterator();
-                                                            while (it.hasNext()) {
-                                                                sb.append(it.next().mContent);
-                                                            }
-                                                            chatInfo.mCoolNickname.mNickName = sb.toString();
-                                                        }
-                                                    }
-                                                    if (jSONObject4.has("coolContent")) {
-                                                        JSONObject jSONObject7 = jSONObject4.getJSONObject("coolContent");
-                                                        chatInfo.mCoolContent = new RichTextPlus();
-                                                        chatInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SH(jSONObject7.optString("content"));
-                                                        chatInfo.mCoolContent.mFontColors = (ArrayList) a(jSONObject7.optJSONArray("colors"));
-                                                        if (!h.isEmpty(chatInfo.mCoolContent.mContentRichText)) {
-                                                            chatInfo.mCoolContent.mContent = "";
-                                                            StringBuilder sb2 = new StringBuilder();
-                                                            sb2.append(chatInfo.mCoolContent.mContent);
-                                                            Iterator<RichText> it2 = chatInfo.mCoolContent.mContentRichText.iterator();
-                                                            while (it2.hasNext()) {
-                                                                sb2.append(it2.next().mContent);
-                                                            }
-                                                            chatInfo.mCoolContent.mContent = sb2.toString();
-                                                        }
-                                                    }
-                                                    if (jSONObject4.has("coolMessage")) {
-                                                        JSONObject jSONObject8 = jSONObject4.getJSONObject("coolMessage");
-                                                        chatInfo.mCoolMessage = new RichTextPlus();
-                                                        chatInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SH(jSONObject8.optString("content"));
-                                                        chatInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SH(jSONObject8.optString("nickname"));
-                                                        chatInfo.mCoolMessage.mBgImage = jSONObject8.optString("bgImage");
-                                                        if (!h.isEmpty(chatInfo.mCoolMessage.mNicknameRichText)) {
-                                                            chatInfo.mCoolMessage.mNickName = "";
-                                                            StringBuilder sb3 = new StringBuilder();
-                                                            sb3.append(chatInfo.mCoolMessage.mNickName);
-                                                            Iterator<RichText> it3 = chatInfo.mCoolMessage.mNicknameRichText.iterator();
-                                                            while (it3.hasNext()) {
-                                                                sb3.append(it3.next().mContent);
-                                                            }
-                                                            chatInfo.mCoolMessage.mNickName = sb3.toString();
-                                                        }
-                                                        if (!h.isEmpty(chatInfo.mCoolMessage.mContentRichText)) {
-                                                            chatInfo.mCoolMessage.mContent = "";
-                                                            StringBuilder sb4 = new StringBuilder();
-                                                            sb4.append(chatInfo.mCoolMessage.mContent);
-                                                            Iterator<RichText> it4 = chatInfo.mCoolMessage.mContentRichText.iterator();
-                                                            while (it4.hasNext()) {
-                                                                sb4.append(it4.next().mContent);
-                                                            }
-                                                            chatInfo.mCoolMessage.mContent = sb4.toString();
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            chatInfo.mCreatedTime = optJSONObject.optLong("createdTime");
-                                            chatInfo.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SH(chatInfo.mContent);
-                                            if (chatInfo.mContentRichText != null && chatInfo.mContentRichText.size() > 0) {
-                                                chatInfo.mContent = "";
-                                                StringBuilder sb5 = new StringBuilder();
-                                                sb5.append(chatInfo.mContent);
-                                                Iterator<RichText> it5 = chatInfo.mContentRichText.iterator();
-                                                while (it5.hasNext()) {
-                                                    sb5.append(it5.next().mContent);
-                                                }
-                                                chatInfo.mContent = sb5.toString();
-                                            }
-                                            chatInfo.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SH(chatInfo.mUserNickname);
-                                            if (chatInfo.mNicknameRichText != null && chatInfo.mNicknameRichText.size() > 0) {
-                                                chatInfo.mPrivilegeInfo.mRichNickname = chatInfo.mNicknameRichText;
-                                                chatInfo.mUserNickname = "";
-                                                StringBuilder sb6 = new StringBuilder();
-                                                sb6.append(chatInfo.mUserNickname);
-                                                Iterator<RichText> it6 = chatInfo.mNicknameRichText.iterator();
-                                                while (it6.hasNext()) {
-                                                    sb6.append(it6.next().mContent);
-                                                }
-                                                chatInfo.mUserNickname = sb6.toString();
-                                            }
-                                            if (!"2".equals(chatInfo.mType) || h.isEmpty(chatInfo.mDisplayPosition) || chatInfo.mDisplayPosition.contains("2") || chatInfo.mDisplayPosition.contains("3")) {
-                                                arrayList25.add(chatInfo);
-                                            }
-                                            if (chatInfo.mAnimType > 0) {
-                                                ArrayList arrayList28 = arrayList27 == null ? new ArrayList() : arrayList27;
-                                                try {
-                                                    chatInfo.mJsonData = optJSONObject;
-                                                    arrayList28.add(chatInfo);
-                                                    arrayList27 = arrayList28;
-                                                } catch (Exception e) {
-                                                    karaokeBean = null;
-                                                    arrayList2 = arrayList28;
-                                                    bVar = null;
-                                                    arrayList3 = arrayList25;
-                                                    exc = e;
-                                                    z = false;
-                                                    autoBang = null;
-                                                    arrayList7 = arrayList22;
-                                                    j = optLong2;
-                                                    bangInfo = null;
-                                                    str2 = optString;
-                                                    onlineVip = null;
-                                                    arrayList = arrayList26;
-                                                    roomChatBackground = null;
-                                                    cycleLiveRoomInfo = null;
-                                                    i = i2;
-                                                    cVar = null;
-                                                    arrayList6 = null;
-                                                    obj = null;
-                                                    arrayList5 = null;
-                                                    arrayList4 = null;
-                                                    micStatus = null;
-                                                    str3 = str5;
-                                                    tv.chushou.zues.utils.e.e("Parser_Player", "error " + exc.toString());
-                                                    parserRet = new ParserRet();
-                                                    parserRet.mBreakpoint = str2;
-                                                    parserRet.mData = arrayList3;
-                                                    parserRet.mData1 = Long.valueOf(j);
-                                                    if (arrayList2 == null) {
-                                                    }
-                                                    parserRet.mData2 = new SparseArray();
-                                                    if (arrayList2 != null) {
-                                                    }
-                                                    if (arrayList != null) {
-                                                    }
-                                                    if (bangInfo == null) {
-                                                    }
-                                                    if (parserRet.mData3 == null) {
-                                                    }
-                                                    if (bangInfo != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList7)) {
-                                                    }
-                                                    if (micStatus == null) {
-                                                    }
-                                                    if (parserRet.mData3 == null) {
-                                                    }
-                                                    if (micStatus != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList4)) {
-                                                    }
-                                                    if (obj != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList6)) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList23)) {
-                                                    }
-                                                    if (roomChatBackground != null) {
-                                                    }
-                                                    if (onlineVip != null) {
-                                                    }
-                                                    if (cVar != null) {
-                                                    }
-                                                    if (autoBang != null) {
-                                                    }
-                                                    if (karaokeBean != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList24)) {
-                                                    }
-                                                    if (0 != 0) {
-                                                    }
-                                                    if (bVar != null) {
-                                                    }
-                                                    if (cycleLiveRoomInfo != null) {
-                                                    }
-                                                    if (micStatus == null) {
-                                                    }
-                                                    if (parserRet.mData3 == null) {
-                                                    }
-                                                    if (micStatus != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList4)) {
-                                                    }
-                                                    if (parserRet.mData3 == null) {
-                                                    }
-                                                    parserRet.mData3.put(19, Boolean.valueOf(z));
-                                                    parserRet.mRc = i;
-                                                    parserRet.mMessage = str3;
-                                                    return parserRet;
-                                                }
-                                            }
-                                            if ("2".equals(chatInfo.mType) && (h.isEmpty(chatInfo.mDisplayPosition) || chatInfo.mDisplayPosition.contains("1"))) {
-                                                arrayList18 = arrayList26 == null ? new ArrayList() : arrayList26;
-                                                try {
-                                                    arrayList18.add(chatInfo);
-                                                    arrayList19 = arrayList27;
-                                                } catch (Exception e2) {
-                                                    arrayList2 = arrayList27;
-                                                    arrayList3 = arrayList25;
-                                                    karaokeBean = null;
-                                                    exc = e2;
-                                                    bVar = null;
-                                                    cycleLiveRoomInfo = null;
-                                                    cVar = null;
-                                                    arrayList6 = null;
-                                                    obj = null;
-                                                    arrayList5 = null;
-                                                    arrayList4 = null;
-                                                    micStatus = null;
-                                                    str3 = str5;
-                                                    bangInfo = null;
-                                                    str2 = optString;
-                                                    onlineVip = null;
-                                                    arrayList = arrayList18;
-                                                    roomChatBackground = null;
-                                                    z = false;
-                                                    i = i2;
-                                                    autoBang = null;
-                                                    arrayList7 = arrayList22;
-                                                    j = optLong2;
-                                                    tv.chushou.zues.utils.e.e("Parser_Player", "error " + exc.toString());
-                                                    parserRet = new ParserRet();
-                                                    parserRet.mBreakpoint = str2;
-                                                    parserRet.mData = arrayList3;
-                                                    parserRet.mData1 = Long.valueOf(j);
-                                                    if (arrayList2 == null) {
-                                                    }
-                                                    parserRet.mData2 = new SparseArray();
-                                                    if (arrayList2 != null) {
-                                                    }
-                                                    if (arrayList != null) {
-                                                    }
-                                                    if (bangInfo == null) {
-                                                    }
-                                                    if (parserRet.mData3 == null) {
-                                                    }
-                                                    if (bangInfo != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList7)) {
-                                                    }
-                                                    if (micStatus == null) {
-                                                    }
-                                                    if (parserRet.mData3 == null) {
-                                                    }
-                                                    if (micStatus != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList4)) {
-                                                    }
-                                                    if (obj != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList6)) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList23)) {
-                                                    }
-                                                    if (roomChatBackground != null) {
-                                                    }
-                                                    if (onlineVip != null) {
-                                                    }
-                                                    if (cVar != null) {
-                                                    }
-                                                    if (autoBang != null) {
-                                                    }
-                                                    if (karaokeBean != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList24)) {
-                                                    }
-                                                    if (0 != 0) {
-                                                    }
-                                                    if (bVar != null) {
-                                                    }
-                                                    if (cycleLiveRoomInfo != null) {
-                                                    }
-                                                    if (micStatus == null) {
-                                                    }
-                                                    if (parserRet.mData3 == null) {
-                                                    }
-                                                    if (micStatus != null) {
-                                                    }
-                                                    if (!h.isEmpty(arrayList4)) {
-                                                    }
-                                                    if (parserRet.mData3 == null) {
-                                                    }
-                                                    parserRet.mData3.put(19, Boolean.valueOf(z));
-                                                    parserRet.mRc = i;
-                                                    parserRet.mMessage = str3;
-                                                    return parserRet;
                                                 }
                                             } else {
                                                 arrayList18 = arrayList26;
@@ -626,8 +633,8 @@ public class e {
                                     int i6 = 0;
                                     while (i6 < length2) {
                                         try {
-                                            JSONObject optJSONObject2 = jSONArray3.optJSONObject(i6);
-                                            if (optJSONObject2 == null) {
+                                            JSONObject optJSONObject3 = jSONArray3.optJSONObject(i6);
+                                            if (optJSONObject3 == null) {
                                                 onlineVip5 = onlineVip6;
                                                 z3 = z2;
                                                 cycleLiveRoomInfo3 = cycleLiveRoomInfo2;
@@ -643,11 +650,11 @@ public class e {
                                                 micStatus3 = micStatus4;
                                                 roomChatBackground4 = roomChatBackground6;
                                                 bangInfo4 = bangInfo5;
-                                            } else {
-                                                if (optJSONObject2.has("onlineVipCount")) {
+                                            } else if (a(optJSONObject3.optJSONArray("includexappkey"), optJSONObject3.optJSONArray("excludexappkey"))) {
+                                                if (optJSONObject3.has("onlineVipCount")) {
                                                     onlineVip4 = onlineVip6 == null ? new OnlineVip() : onlineVip6;
                                                     try {
-                                                        onlineVip4.mCount = h.parseInt(optJSONObject2.optString("onlineVipCount"));
+                                                        onlineVip4.mCount = h.parseInt(optJSONObject3.optString("onlineVipCount"));
                                                     } catch (Exception e4) {
                                                         micStatus = micStatus4;
                                                         onlineVip = onlineVip4;
@@ -743,30 +750,30 @@ public class e {
                                                 } else {
                                                     onlineVip4 = onlineVip6;
                                                 }
-                                                if (optJSONObject2.has("onlineVipList")) {
+                                                if (optJSONObject3.has("onlineVipList")) {
                                                     if (onlineVip4 == null) {
                                                         onlineVip4 = new OnlineVip();
                                                     }
                                                     if (onlineVip4.mOnlineVipItems == null) {
                                                         onlineVip4.mOnlineVipItems = new ArrayList();
                                                     }
-                                                    JSONArray optJSONArray2 = optJSONObject2.optJSONArray("onlineVipList");
+                                                    JSONArray optJSONArray2 = optJSONObject3.optJSONArray("onlineVipList");
                                                     for (int i7 = 0; i7 < optJSONArray2.length(); i7++) {
-                                                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i7);
+                                                        JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i7);
                                                         OnlineVipItem onlineVipItem = new OnlineVipItem();
-                                                        onlineVipItem.mUid = optJSONObject3.optString("uid");
-                                                        onlineVipItem.mAvatar = optJSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                                                        onlineVipItem.mScore = optJSONObject3.optString("score");
+                                                        onlineVipItem.mUid = optJSONObject4.optString("uid");
+                                                        onlineVipItem.mAvatar = optJSONObject4.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                                                        onlineVipItem.mScore = optJSONObject4.optString("score");
                                                         onlineVip4.mOnlineVipItems.add(onlineVipItem);
                                                     }
                                                 }
-                                                int optInt = optJSONObject2.optInt("type");
+                                                int optInt = optJSONObject3.optInt("type");
                                                 if (optInt == 10001) {
-                                                    if (optJSONObject2.has("coverChatBackground")) {
+                                                    if (optJSONObject3.has("coverChatBackground")) {
                                                         roomChatBackground5 = new RoomChatBackground();
                                                         try {
-                                                            roomChatBackground5.mCoverChatBackground = optJSONObject2.optBoolean("coverChatBackground");
-                                                            roomChatBackground5.mChatBackground = optJSONObject2.optString("chatBackground");
+                                                            roomChatBackground5.mCoverChatBackground = optJSONObject3.optBoolean("coverChatBackground");
+                                                            roomChatBackground5.mChatBackground = optJSONObject3.optString("chatBackground");
                                                         } catch (Exception e5) {
                                                             str3 = str5;
                                                             onlineVip = onlineVip4;
@@ -801,10 +808,8 @@ public class e {
                                                             }
                                                             parserRet.mData2 = new SparseArray();
                                                             if (arrayList2 != null) {
-                                                                parserRet.mData2.put(1, arrayList2);
                                                             }
                                                             if (arrayList != null) {
-                                                                parserRet.mData2.put(2, arrayList);
                                                             }
                                                             if (bangInfo == null) {
                                                             }
@@ -866,15 +871,15 @@ public class e {
                                                     }
                                                     bangInfo4 = new BangInfo();
                                                     try {
-                                                        bangInfo4.mOnlineCount = optJSONObject2.optString("onlineCount");
-                                                        bangInfo4.mReceivePoint = optJSONObject2.optString("receivePoint");
-                                                        bangInfo4.mSubscriberCount = optJSONObject2.optString("subscriberCount");
-                                                        bangInfo4.mCurPoint = optJSONObject2.optLong("currentPoint");
-                                                        bangInfo4.mStartPoint = optJSONObject2.optLong("startPoint");
-                                                        bangInfo4.mEndPoint = optJSONObject2.optLong("endPoint");
-                                                        bangInfo4.mLevel = optJSONObject2.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
-                                                        bangInfo4.mRoomH5Data = optJSONObject2.optString("h5Data");
-                                                        String optString2 = optJSONObject2.optString("karaokeInfoMap");
+                                                        bangInfo4.mOnlineCount = optJSONObject3.optString("onlineCount");
+                                                        bangInfo4.mReceivePoint = optJSONObject3.optString("receivePoint");
+                                                        bangInfo4.mSubscriberCount = optJSONObject3.optString("subscriberCount");
+                                                        bangInfo4.mCurPoint = optJSONObject3.optLong("currentPoint");
+                                                        bangInfo4.mStartPoint = optJSONObject3.optLong("startPoint");
+                                                        bangInfo4.mEndPoint = optJSONObject3.optLong("endPoint");
+                                                        bangInfo4.mLevel = optJSONObject3.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+                                                        bangInfo4.mRoomH5Data = optJSONObject3.optString("h5Data");
+                                                        String optString2 = optJSONObject3.optString("karaokeInfoMap");
                                                         if (TextUtils.isEmpty(optString2)) {
                                                             karaokeBean4 = karaokeBean2;
                                                         } else {
@@ -1074,52 +1079,52 @@ public class e {
                                                 } else if (optInt == 10005) {
                                                     micStatus = new MicStatus();
                                                     try {
-                                                        micStatus.onlineCount = optJSONObject2.optInt("micOnlineCount");
-                                                        micStatus.onMic = optJSONObject2.optBoolean("onMic");
-                                                        micStatus.name = optJSONObject2.optString("micName");
-                                                        micStatus.capacity = optJSONObject2.optInt("micCapacity");
-                                                        micStatus.micRoomId = optJSONObject2.optString("micRoomId");
-                                                        micStatus.micCanApply = optJSONObject2.optBoolean("micCanApply");
-                                                        micStatus.micGameActionType = optJSONObject2.optInt("micGameActionType");
-                                                        micStatus.micType = optJSONObject2.optInt("micType");
-                                                        micStatus.isOngoing = optJSONObject2.optInt("isOngoing", 0);
-                                                        micStatus.displayInteraction = optJSONObject2.optInt("displayInteraction", 0);
-                                                        if (optJSONObject2.has("micMembers")) {
-                                                            JSONArray jSONArray4 = optJSONObject2.getJSONArray("micMembers");
+                                                        micStatus.onlineCount = optJSONObject3.optInt("micOnlineCount");
+                                                        micStatus.onMic = optJSONObject3.optBoolean("onMic");
+                                                        micStatus.name = optJSONObject3.optString("micName");
+                                                        micStatus.capacity = optJSONObject3.optInt("micCapacity");
+                                                        micStatus.micRoomId = optJSONObject3.optString("micRoomId");
+                                                        micStatus.micCanApply = optJSONObject3.optBoolean("micCanApply");
+                                                        micStatus.micGameActionType = optJSONObject3.optInt("micGameActionType");
+                                                        micStatus.micType = optJSONObject3.optInt("micType");
+                                                        micStatus.isOngoing = optJSONObject3.optInt("isOngoing", 0);
+                                                        micStatus.displayInteraction = optJSONObject3.optInt("displayInteraction", 0);
+                                                        if (optJSONObject3.has("micMembers")) {
+                                                            JSONArray jSONArray4 = optJSONObject3.getJSONArray("micMembers");
                                                             int length3 = jSONArray4.length();
                                                             if (length3 > 0) {
                                                                 arrayList32 = new ArrayList();
                                                             }
                                                             for (int i8 = 0; i8 < length3; i8++) {
-                                                                JSONObject optJSONObject4 = jSONArray4.optJSONObject(i8);
+                                                                JSONObject optJSONObject5 = jSONArray4.optJSONObject(i8);
                                                                 FanItem fanItem = new FanItem();
-                                                                fanItem.mUserId = optJSONObject4.optString("uid", "");
-                                                                fanItem.mNickname = optJSONObject4.optString("nickname", "");
-                                                                fanItem.mAvatar = optJSONObject4.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, "");
-                                                                fanItem.mGender = optJSONObject4.optString("gender", "");
-                                                                fanItem.mSignature = optJSONObject4.optString(SocialOperation.GAME_SIGNATURE, "");
-                                                                if (optJSONObject4.has(MetaBox.TYPE)) {
-                                                                    fanItem.mFansIcon = optJSONObject4.optJSONObject(MetaBox.TYPE).optString("medalIcon");
+                                                                fanItem.mUserId = optJSONObject5.optString("uid", "");
+                                                                fanItem.mNickname = optJSONObject5.optString("nickname", "");
+                                                                fanItem.mAvatar = optJSONObject5.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, "");
+                                                                fanItem.mGender = optJSONObject5.optString("gender", "");
+                                                                fanItem.mSignature = optJSONObject5.optString(SocialOperation.GAME_SIGNATURE, "");
+                                                                if (optJSONObject5.has(MetaBox.TYPE)) {
+                                                                    fanItem.mFansIcon = optJSONObject5.optJSONObject(MetaBox.TYPE).optString("medalIcon");
                                                                 }
                                                                 arrayList32.add(fanItem);
                                                             }
                                                         }
-                                                        if (optJSONObject2.has("micMembersInfo")) {
-                                                            JSONArray jSONArray5 = optJSONObject2.getJSONArray("micMembersInfo");
+                                                        if (optJSONObject3.has("micMembersInfo")) {
+                                                            JSONArray jSONArray5 = optJSONObject3.getJSONArray("micMembersInfo");
                                                             int length4 = jSONArray5.length();
                                                             ArrayList arrayList37 = length4 > 0 ? new ArrayList() : arrayList31;
                                                             for (int i9 = 0; i9 < length4; i9++) {
                                                                 try {
-                                                                    JSONObject optJSONObject5 = jSONArray5.optJSONObject(i9);
+                                                                    JSONObject optJSONObject6 = jSONArray5.optJSONObject(i9);
                                                                     MicMemberInfo micMemberInfo = new MicMemberInfo();
-                                                                    micMemberInfo.uid = optJSONObject5.optString("uid");
-                                                                    micMemberInfo.avatar = optJSONObject5.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                                                                    micMemberInfo.gender = optJSONObject5.optString("gender");
-                                                                    micMemberInfo.nickname = optJSONObject5.optString("nickname");
-                                                                    micMemberInfo.contributePoint = optJSONObject5.optLong("contributePoint");
-                                                                    micMemberInfo.contributeRank = optJSONObject5.optInt("contributeRank");
-                                                                    micMemberInfo.order = optJSONObject5.optInt(AEffect.AE_ANIM_ORDER);
-                                                                    micMemberInfo.micStatus = optJSONObject5.optInt("micStatus");
+                                                                    micMemberInfo.uid = optJSONObject6.optString("uid");
+                                                                    micMemberInfo.avatar = optJSONObject6.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                                                                    micMemberInfo.gender = optJSONObject6.optString("gender");
+                                                                    micMemberInfo.nickname = optJSONObject6.optString("nickname");
+                                                                    micMemberInfo.contributePoint = optJSONObject6.optLong("contributePoint");
+                                                                    micMemberInfo.contributeRank = optJSONObject6.optInt("contributeRank");
+                                                                    micMemberInfo.order = optJSONObject6.optInt("order");
+                                                                    micMemberInfo.micStatus = optJSONObject6.optInt("micStatus");
                                                                     arrayList37.add(micMemberInfo);
                                                                 } catch (Exception e8) {
                                                                     arrayList4 = arrayList32;
@@ -1271,9 +1276,9 @@ public class e {
                                                         cVar = cVar5;
                                                     }
                                                 } else if (optInt == 10006) {
-                                                    int optInt2 = optJSONObject2.optInt("style", -1);
+                                                    int optInt2 = optJSONObject3.optInt("style", -1);
                                                     if (optInt2 == 1) {
-                                                        com.kascend.chushou.player.ui.h5.c.a dJ = dJ(optJSONObject2);
+                                                        com.kascend.chushou.player.ui.h5.c.a dJ = dJ(optJSONObject3);
                                                         if (arrayList29 == null) {
                                                             arrayList29 = new ArrayList();
                                                         }
@@ -1283,7 +1288,7 @@ public class e {
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else if (optInt2 == 2) {
-                                                        com.kascend.chushou.player.ui.h5.c.e dH = dH(optJSONObject2);
+                                                        com.kascend.chushou.player.ui.h5.c.e dH = dH(optJSONObject3);
                                                         if (arrayList30 == null) {
                                                             arrayList30 = new ArrayList();
                                                         }
@@ -1293,19 +1298,19 @@ public class e {
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else if (optInt2 == 3) {
-                                                        arrayList23.add(dI(optJSONObject2));
+                                                        arrayList23.add(dI(optJSONObject3));
                                                         cVar4 = cVar2;
                                                         bVar3 = bVar2;
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else if (optInt2 == 5) {
-                                                        cVar4 = dI(optJSONObject2);
+                                                        cVar4 = dI(optJSONObject3);
                                                         bVar3 = bVar2;
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else if (optInt2 == 7) {
                                                         cVar4 = cVar2;
-                                                        bVar3 = dK(optJSONObject2);
+                                                        bVar3 = dK(optJSONObject3);
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else {
@@ -1330,9 +1335,9 @@ public class e {
                                                 } else if (optInt == 10008) {
                                                     AutoBang autoBang5 = new AutoBang();
                                                     try {
-                                                        autoBang5.bangTime = optJSONObject2.optLong("bangTime");
+                                                        autoBang5.bangTime = optJSONObject3.optLong("bangTime");
                                                         autoBang5.currentTime = optLong;
-                                                        autoBang5.isDone = optJSONObject2.optBoolean("isDone", false);
+                                                        autoBang5.isDone = optJSONObject3.optBoolean("isDone", false);
                                                         cVar3 = cVar2;
                                                         onlineVip5 = onlineVip4;
                                                         bVar3 = bVar2;
@@ -1459,8 +1464,8 @@ public class e {
                                                     roomChatBackground4 = roomChatBackground6;
                                                     bangInfo4 = bangInfo5;
                                                 } else if (optInt == 10011) {
-                                                    if (optJSONObject2.optInt("style", -1) == 3) {
-                                                        arrayList23.add(dI(optJSONObject2));
+                                                    if (optJSONObject3.optInt("style", -1) == 3) {
+                                                        arrayList23.add(dI(optJSONObject3));
                                                     }
                                                     z3 = z2;
                                                     onlineVip5 = onlineVip4;
@@ -1495,52 +1500,52 @@ public class e {
                                                         roomChatBackground4 = roomChatBackground6;
                                                         bangInfo4 = bangInfo5;
                                                     } else {
-                                                        int optInt3 = optJSONObject2.optInt("action");
+                                                        int optInt3 = optJSONObject3.optInt("action");
                                                         tv.chushou.zues.utils.e.d("guohe", "Parser_Player.parseGetChat(): type = " + optInt + ", action = " + optInt3);
                                                         PkNotifyInfo pkNotifyInfo = null;
                                                         switch (optInt3) {
                                                             case 2:
                                                                 PkNotifyInfo pkNotifyInfo2 = new PkNotifyInfo();
-                                                                pkNotifyInfo2.mPkId = optJSONObject2.optString("pkId");
+                                                                pkNotifyInfo2.mPkId = optJSONObject3.optString("pkId");
                                                                 pkNotifyInfo2.mAction = 2;
                                                                 arrayList24.add(pkNotifyInfo2);
                                                                 break;
                                                             case 3:
-                                                                JSONObject optJSONObject6 = optJSONObject2.optJSONObject("PKInfo");
-                                                                if (optJSONObject6 != null) {
-                                                                    pkNotifyInfo = dF(optJSONObject6);
+                                                                JSONObject optJSONObject7 = optJSONObject3.optJSONObject("PKInfo");
+                                                                if (optJSONObject7 != null) {
+                                                                    pkNotifyInfo = dF(optJSONObject7);
                                                                     pkNotifyInfo.mAction = 3;
                                                                 }
                                                                 arrayList24.add(pkNotifyInfo);
                                                                 break;
                                                             case 4:
                                                                 PkNotifyInfo pkNotifyInfo3 = new PkNotifyInfo();
-                                                                pkNotifyInfo3.mPkId = optJSONObject2.optString("pkId");
-                                                                pkNotifyInfo3.mMaxFreeDuration = optJSONObject2.optLong("maxFreeDuration");
+                                                                pkNotifyInfo3.mPkId = optJSONObject3.optString("pkId");
+                                                                pkNotifyInfo3.mMaxFreeDuration = optJSONObject3.optLong("maxFreeDuration");
                                                                 pkNotifyInfo3.mAction = 4;
                                                                 arrayList24.add(pkNotifyInfo3);
                                                                 break;
                                                             case 5:
                                                                 PkNotifyInfo pkNotifyInfo4 = new PkNotifyInfo();
-                                                                pkNotifyInfo4.mPkId = optJSONObject2.optString("pkId");
-                                                                pkNotifyInfo4.mvpUid = optJSONObject2.optString("mvpUid");
-                                                                pkNotifyInfo4.mvpAvatar = optJSONObject2.optString("mvpAvatar");
-                                                                pkNotifyInfo4.mvpNickname = optJSONObject2.optString("mvpNickname");
-                                                                pkNotifyInfo4.mResult = optJSONObject2.optString("result");
+                                                                pkNotifyInfo4.mPkId = optJSONObject3.optString("pkId");
+                                                                pkNotifyInfo4.mvpUid = optJSONObject3.optString("mvpUid");
+                                                                pkNotifyInfo4.mvpAvatar = optJSONObject3.optString("mvpAvatar");
+                                                                pkNotifyInfo4.mvpNickname = optJSONObject3.optString("mvpNickname");
+                                                                pkNotifyInfo4.mResult = optJSONObject3.optString("result");
                                                                 pkNotifyInfo4.mAction = 5;
                                                                 arrayList24.add(pkNotifyInfo4);
                                                                 break;
                                                             case 6:
                                                                 PkNotifyInfo pkNotifyInfo5 = new PkNotifyInfo();
-                                                                pkNotifyInfo5.mPkId = optJSONObject2.optString("pkId");
-                                                                pkNotifyInfo5.mPkRoomId = optJSONObject2.optString("pkRoomId");
-                                                                pkNotifyInfo5.mPkUid = optJSONObject2.optString("pkUid");
-                                                                pkNotifyInfo5.mPkUserNickname = optJSONObject2.optString("pkUserNickname");
-                                                                pkNotifyInfo5.mPkUserAvatar = optJSONObject2.optString("pkUserAvatar");
-                                                                pkNotifyInfo5.mMaxPKDuration = optJSONObject2.optLong("maxPKDuration");
-                                                                pkNotifyInfo5.mMaxFreeDuration = optJSONObject2.optLong("maxFreeDuration");
-                                                                pkNotifyInfo5.maxPrepareDuration = optJSONObject2.optLong("maxPrepareDuration");
-                                                                pkNotifyInfo5.liveStyle = optJSONObject2.optInt("pkStyle");
+                                                                pkNotifyInfo5.mPkId = optJSONObject3.optString("pkId");
+                                                                pkNotifyInfo5.mPkRoomId = optJSONObject3.optString("pkRoomId");
+                                                                pkNotifyInfo5.mPkUid = optJSONObject3.optString("pkUid");
+                                                                pkNotifyInfo5.mPkUserNickname = optJSONObject3.optString("pkUserNickname");
+                                                                pkNotifyInfo5.mPkUserAvatar = optJSONObject3.optString("pkUserAvatar");
+                                                                pkNotifyInfo5.mMaxPKDuration = optJSONObject3.optLong("maxPKDuration");
+                                                                pkNotifyInfo5.mMaxFreeDuration = optJSONObject3.optLong("maxFreeDuration");
+                                                                pkNotifyInfo5.maxPrepareDuration = optJSONObject3.optLong("maxPrepareDuration");
+                                                                pkNotifyInfo5.liveStyle = optJSONObject3.optInt("pkStyle");
                                                                 pkNotifyInfo5.mAction = 6;
                                                                 if (optInt == 10012) {
                                                                     pkNotifyInfo5.mMode = 1;
@@ -1552,38 +1557,38 @@ public class e {
                                                             case 7:
                                                                 PkNotifyInfo pkNotifyInfo6 = new PkNotifyInfo();
                                                                 pkNotifyInfo6.mAction = 7;
-                                                                pkNotifyInfo6.mPkId = optJSONObject2.optString("pkId");
-                                                                pkNotifyInfo6.mPkRoomId = optJSONObject2.optString("pkRoomId");
-                                                                pkNotifyInfo6.mPkUid = optJSONObject2.optString("pkUid");
-                                                                pkNotifyInfo6.mPkUserNickname = optJSONObject2.optString("pkUserNickname");
-                                                                pkNotifyInfo6.mPkUserAvatar = optJSONObject2.optString("pkUserAvatar");
-                                                                pkNotifyInfo6.mMaxPKDuration = optJSONObject2.optLong("maxPKDuration");
-                                                                pkNotifyInfo6.destinyInfo = dE(optJSONObject2.optJSONObject("destinyInfo"));
+                                                                pkNotifyInfo6.mPkId = optJSONObject3.optString("pkId");
+                                                                pkNotifyInfo6.mPkRoomId = optJSONObject3.optString("pkRoomId");
+                                                                pkNotifyInfo6.mPkUid = optJSONObject3.optString("pkUid");
+                                                                pkNotifyInfo6.mPkUserNickname = optJSONObject3.optString("pkUserNickname");
+                                                                pkNotifyInfo6.mPkUserAvatar = optJSONObject3.optString("pkUserAvatar");
+                                                                pkNotifyInfo6.mMaxPKDuration = optJSONObject3.optLong("maxPKDuration");
+                                                                pkNotifyInfo6.destinyInfo = dE(optJSONObject3.optJSONObject("destinyInfo"));
                                                                 arrayList24.add(pkNotifyInfo6);
                                                                 break;
                                                             case 8:
                                                                 PkNotifyInfo pkNotifyInfo7 = new PkNotifyInfo();
-                                                                pkNotifyInfo7.mPkId = optJSONObject2.optString("pkId");
+                                                                pkNotifyInfo7.mPkId = optJSONObject3.optString("pkId");
                                                                 pkNotifyInfo7.mAction = 8;
                                                                 pkNotifyInfo7.mPkUpdateInfo = new PkUpdateInfo();
-                                                                JSONArray optJSONArray3 = optJSONObject2.optJSONArray("specialMoment");
+                                                                JSONArray optJSONArray3 = optJSONObject3.optJSONArray("specialMoment");
                                                                 if (optJSONArray3 != null) {
                                                                     if (pkNotifyInfo7.mPkUpdateInfo.specialMomentList == null) {
                                                                         pkNotifyInfo7.mPkUpdateInfo.specialMomentList = new ArrayList();
                                                                     }
                                                                     for (int i10 = 0; i10 < optJSONArray3.length(); i10++) {
-                                                                        JSONObject optJSONObject7 = optJSONArray3.optJSONObject(i10);
-                                                                        if (optJSONObject7 != null) {
+                                                                        JSONObject optJSONObject8 = optJSONArray3.optJSONObject(i10);
+                                                                        if (optJSONObject8 != null) {
                                                                             PkUpdateInfo.SpecialMoment specialMoment = new PkUpdateInfo.SpecialMoment();
-                                                                            specialMoment.type = optJSONObject7.optInt("type");
+                                                                            specialMoment.type = optJSONObject8.optInt("type");
                                                                             if (specialMoment.type == 1) {
-                                                                                specialMoment.roomId = optJSONObject7.optString("roomId");
-                                                                                specialMoment.addition = optJSONObject7.optString("addition");
+                                                                                specialMoment.roomId = optJSONObject8.optString("roomId");
+                                                                                specialMoment.addition = optJSONObject8.optString("addition");
                                                                             } else if (specialMoment.type == 2 || specialMoment.type == 3 || specialMoment.type == 4) {
-                                                                                specialMoment.endTime = optJSONObject7.optLong("endTime");
-                                                                                specialMoment.remainDuration = optJSONObject7.optLong("remainDuration");
-                                                                                specialMoment.maxDuration = optJSONObject7.optLong("maxDuration");
-                                                                                specialMoment.addition = optJSONObject7.optString("addition");
+                                                                                specialMoment.endTime = optJSONObject8.optLong("endTime");
+                                                                                specialMoment.remainDuration = optJSONObject8.optLong("remainDuration");
+                                                                                specialMoment.maxDuration = optJSONObject8.optLong("maxDuration");
+                                                                                specialMoment.addition = optJSONObject8.optString("addition");
                                                                             }
                                                                             pkNotifyInfo7.mPkUpdateInfo.specialMomentList.add(specialMoment);
                                                                         }
@@ -1611,11 +1616,11 @@ public class e {
                                                 } else if (optInt == 10014) {
                                                     CycleLiveRoomInfo cycleLiveRoomInfo4 = new CycleLiveRoomInfo();
                                                     try {
-                                                        cycleLiveRoomInfo4.uid = optJSONObject2.optString("uid");
-                                                        cycleLiveRoomInfo4.nickname = optJSONObject2.optString("nickname");
-                                                        cycleLiveRoomInfo4.remainTime = optJSONObject2.optLong("remainTime");
-                                                        cycleLiveRoomInfo4.avatar = optJSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                                                        cycleLiveRoomInfo4.roomId = optJSONObject2.optString("roomId");
+                                                        cycleLiveRoomInfo4.uid = optJSONObject3.optString("uid");
+                                                        cycleLiveRoomInfo4.nickname = optJSONObject3.optString("nickname");
+                                                        cycleLiveRoomInfo4.remainTime = optJSONObject3.optLong("remainTime");
+                                                        cycleLiveRoomInfo4.avatar = optJSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                                                        cycleLiveRoomInfo4.roomId = optJSONObject3.optString("roomId");
                                                         karaokeBean3 = karaokeBean2;
                                                         onlineVip5 = onlineVip4;
                                                         autoBang3 = autoBang2;
@@ -1772,6 +1777,22 @@ public class e {
                                                     roomChatBackground4 = roomChatBackground6;
                                                     bangInfo4 = bangInfo5;
                                                 }
+                                            } else {
+                                                onlineVip5 = onlineVip6;
+                                                z3 = z2;
+                                                cycleLiveRoomInfo3 = cycleLiveRoomInfo2;
+                                                karaokeBean3 = karaokeBean2;
+                                                autoBang3 = autoBang2;
+                                                cVar3 = cVar2;
+                                                bVar3 = bVar2;
+                                                arrayList14 = arrayList29;
+                                                arrayList15 = arrayList30;
+                                                obj3 = obj4;
+                                                arrayList16 = arrayList31;
+                                                arrayList17 = arrayList32;
+                                                micStatus3 = micStatus4;
+                                                roomChatBackground4 = roomChatBackground6;
+                                                bangInfo4 = bangInfo5;
                                             }
                                             i6++;
                                             bangInfo5 = bangInfo4;
@@ -1834,28 +1855,28 @@ public class e {
                                         while (true) {
                                             int i12 = i11;
                                             if (i12 < length5) {
-                                                JSONObject optJSONObject8 = jSONArray6.optJSONObject(i12);
-                                                if (optJSONObject8.getInt("type") == 10002) {
+                                                JSONObject optJSONObject9 = jSONArray6.optJSONObject(i12);
+                                                if (optJSONObject9.getInt("type") == 10002) {
                                                     com.kascend.chushou.player.ui.h5.c.a aVar = new com.kascend.chushou.player.ui.h5.c.a();
                                                     aVar.h = 1;
-                                                    aVar.i = optJSONObject8.optInt("showClose", 0);
-                                                    aVar.j = optJSONObject8.optInt("closeType", 0);
-                                                    aVar.b = optJSONObject8.optString("targetKey", "");
-                                                    aVar.l = optJSONObject8.optInt("priority", 0);
-                                                    aVar.k = optJSONObject8.optString("maskColor", "");
-                                                    aVar.a = optJSONObject8.optInt("duration", 0);
-                                                    aVar.p = optJSONObject8.optString("id", "");
-                                                    JSONObject optJSONObject9 = optJSONObject8.optJSONObject("landscape");
-                                                    if (optJSONObject9 != null) {
-                                                        aVar.o = optJSONObject9.optString("url", "");
-                                                        aVar.nbX = dG(optJSONObject9);
-                                                        aVar.a = optJSONObject9.optInt("duration", 0);
-                                                    }
-                                                    JSONObject optJSONObject10 = optJSONObject8.optJSONObject("portrait");
+                                                    aVar.i = optJSONObject9.optInt("showClose", 0);
+                                                    aVar.j = optJSONObject9.optInt("closeType", 0);
+                                                    aVar.b = optJSONObject9.optString("targetKey", "");
+                                                    aVar.l = optJSONObject9.optInt("priority", 0);
+                                                    aVar.k = optJSONObject9.optString("maskColor", "");
+                                                    aVar.a = optJSONObject9.optInt("duration", 0);
+                                                    aVar.p = optJSONObject9.optString("id", "");
+                                                    JSONObject optJSONObject10 = optJSONObject9.optJSONObject("landscape");
                                                     if (optJSONObject10 != null) {
                                                         aVar.o = optJSONObject10.optString("url", "");
-                                                        aVar.nbY = dG(optJSONObject10);
+                                                        aVar.ncA = dG(optJSONObject10);
                                                         aVar.a = optJSONObject10.optInt("duration", 0);
+                                                    }
+                                                    JSONObject optJSONObject11 = optJSONObject9.optJSONObject("portrait");
+                                                    if (optJSONObject11 != null) {
+                                                        aVar.o = optJSONObject11.optString("url", "");
+                                                        aVar.ncB = dG(optJSONObject11);
+                                                        aVar.a = optJSONObject11.optInt("duration", 0);
                                                     }
                                                     if (arrayList11 == null) {
                                                         arrayList11 = new ArrayList();
@@ -2280,7 +2301,7 @@ public class e {
                         }
                     }
                     if (jSONObject2.has("richNickname")) {
-                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.SH(jSONObject2.getString("richNickname"));
+                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.SS(jSONObject2.getString("richNickname"));
                     }
                     JSONArray optJSONArray = jSONObject2.optJSONArray("emojiPrivileges");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -2442,7 +2463,7 @@ public class e {
                         privilegeInfo.mMedals = arrayList2;
                     }
                     if (jSONObject2.has("richNickname")) {
-                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.SH(jSONObject2.getString("richNickname"));
+                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.SS(jSONObject2.getString("richNickname"));
                     }
                     JSONArray optJSONArray = jSONObject2.optJSONArray("emojiPrivileges");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -2489,19 +2510,19 @@ public class e {
         if (jSONObject.has("coolPrivileges") && (optJSONObject = jSONObject.optJSONObject("coolPrivileges")) != null) {
             if (optJSONObject.has("coolNickname") && (optJSONObject4 = optJSONObject.optJSONObject("coolNickname")) != null) {
                 privilegeInfo.mCoolNickname = new RichTextPlus();
-                privilegeInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SH(optJSONObject4.optString("nickname"));
+                privilegeInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SS(optJSONObject4.optString("nickname"));
                 privilegeInfo.mCoolNickname.mFontColors = (ArrayList) a(optJSONObject4.optJSONArray("colors"));
             }
             if (optJSONObject.has("coolContent") && (optJSONObject3 = optJSONObject.optJSONObject("coolContent")) != null) {
                 privilegeInfo.mCoolContent = new RichTextPlus();
-                privilegeInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SH(optJSONObject3.optString("content"));
+                privilegeInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SS(optJSONObject3.optString("content"));
                 privilegeInfo.mCoolContent.mFontColors = (ArrayList) a(optJSONObject3.optJSONArray("colors"));
             }
             if (optJSONObject.has("coolMessage") && (optJSONObject2 = optJSONObject.optJSONObject("coolMessage")) != null) {
                 privilegeInfo.mCoolMessage = new RichTextPlus();
-                privilegeInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SH(optJSONObject2.optString("nickname"));
+                privilegeInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.SS(optJSONObject2.optString("nickname"));
                 privilegeInfo.mCoolMessage.mBgImage = optJSONObject2.optString("bgImage");
-                privilegeInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SH(optJSONObject2.optString("content"));
+                privilegeInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SS(optJSONObject2.optString("content"));
             }
         }
     }
@@ -2990,11 +3011,11 @@ public class e {
         dVar.q = jSONObject.optString("displayType", "94");
         JSONObject optJSONObject = jSONObject.optJSONObject("landscape");
         if (optJSONObject != null) {
-            dVar.nbX = dG(optJSONObject);
+            dVar.ncA = dG(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("portrait");
         if (optJSONObject2 != null) {
-            dVar.nbY = dG(optJSONObject2);
+            dVar.ncB = dG(optJSONObject2);
         }
         dVar.o = jSONObject.optString("url", "");
     }
@@ -3010,7 +3031,7 @@ public class e {
     private static com.kascend.chushou.player.ui.h5.c.e dH(JSONObject jSONObject) {
         com.kascend.chushou.player.ui.h5.c.e eVar = new com.kascend.chushou.player.ui.h5.c.e();
         a(jSONObject, eVar);
-        eVar.QK(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ""));
+        eVar.QX(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ""));
         return eVar;
     }
 
@@ -3075,5 +3096,42 @@ public class e {
         parserRet.mData = aVar;
         parserRet.mData1 = Long.valueOf(j);
         return parserRet;
+    }
+
+    private static boolean a(JSONArray jSONArray, JSONArray jSONArray2) {
+        String str;
+        String str2 = null;
+        boolean z = false;
+        if (jSONArray == null && jSONArray2 == null) {
+            return true;
+        }
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dPT().S(tv.chushou.basis.d.a.b.b.class);
+        if (bVar != null) {
+            str = bVar.getAppKey();
+            str2 = bVar.dEd();
+        } else {
+            str = null;
+        }
+        if (jSONArray != null && jSONArray.length() > 0) {
+            HashSet hashSet = new HashSet();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                String optString = jSONArray.optString(i);
+                if (!h.isEmpty(optString)) {
+                    hashSet.add(optString);
+                }
+            }
+            return (hashSet.contains(str) || hashSet.contains(str2)) ? true : true;
+        } else if (jSONArray2 == null || jSONArray2.length() <= 0) {
+            return true;
+        } else {
+            HashSet hashSet2 = new HashSet();
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                String optString2 = jSONArray2.optString(i2);
+                if (!h.isEmpty(optString2)) {
+                    hashSet2.add(optString2);
+                }
+            }
+            return (hashSet2.contains(str) || hashSet2.contains(str2)) ? false : true;
+        }
     }
 }

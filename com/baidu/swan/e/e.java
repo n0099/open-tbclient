@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
     public static boolean k(com.baidu.swan.a.a.c cVar) {
         if (cVar == null || TextUtils.isEmpty(cVar.filePath)) {
@@ -31,11 +31,11 @@ public class e {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return ca(str, str2) == null;
+        return cj(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=4] */
-    private static Exception ca(String str, String str2) {
+    private static Exception cj(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -57,7 +57,7 @@ public class e {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !qT(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !ri(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -157,7 +157,7 @@ public class e {
         }
     }
 
-    private static boolean qT(String str) {
+    private static boolean ri(String str) {
         return str.contains("../");
     }
 

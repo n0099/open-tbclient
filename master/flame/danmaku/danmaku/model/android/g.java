@@ -1,10 +1,10 @@
 package master.flame.danmaku.danmaku.model.android;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class g implements master.flame.danmaku.danmaku.model.a.d<e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.a.d
-    /* renamed from: dLq */
-    public e dLr() {
+    /* renamed from: dMD */
+    public e dME() {
         return null;
     }
 

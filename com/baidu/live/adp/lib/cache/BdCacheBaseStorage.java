@@ -1,8 +1,7 @@
 package com.baidu.live.adp.lib.cache;
 
 import com.baidu.live.adp.lib.cache.BdKVCache;
-import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BdCacheBaseStorage<T> implements BdCacheStorage<T> {
     protected final BdCacheEvictPolicy cachePolicy;
     protected final boolean prefixNameSpaceToKey;
@@ -31,23 +30,17 @@ public abstract class BdCacheBaseStorage<T> implements BdCacheStorage<T> {
         String buildUniqueKey = buildUniqueKey(str, str2);
         BdCacheItem<T> byUniqueKey = getByUniqueKey(buildUniqueKey);
         if (byUniqueKey == null) {
-            if (BdLog.isDebugMode()) {
-            }
             return null;
-        } else if (byUniqueKey.timeToExpire < System.currentTimeMillis()) {
-            removeExpiredItem(buildUniqueKey);
-            if (BdLog.isDebugMode()) {
-            }
-            return null;
-        } else {
-            if (this.cachePolicy.shouldUpdateLastHitTime()) {
-                byUniqueKey.lastHitTime = System.currentTimeMillis();
-                insertOrUpdate(byUniqueKey);
-            }
-            if (BdLog.isDebugMode()) {
-            }
-            return byUniqueKey;
         }
+        if (byUniqueKey.timeToExpire < System.currentTimeMillis()) {
+            removeExpiredItem(buildUniqueKey);
+            return null;
+        }
+        if (this.cachePolicy.shouldUpdateLastHitTime()) {
+            byUniqueKey.lastHitTime = System.currentTimeMillis();
+            insertOrUpdate(byUniqueKey);
+        }
+        return byUniqueKey;
     }
 
     @Override // com.baidu.live.adp.lib.cache.BdCacheStorage

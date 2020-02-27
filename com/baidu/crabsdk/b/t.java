@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class t {
-    private static com.baidu.crabsdk.c.b<List> Qx = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String Qy = "";
-    private static String Qf = "";
-    private static int Qz = 0;
-    private static int QB = 0;
+    private static com.baidu.crabsdk.c.b<List> Se = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static String Sf = "";
+    private static String RI = "";
+    private static int Sg = 0;
+    private static int Sh = 0;
 
     private static WebView I(View view) {
         if (view instanceof ViewGroup) {
@@ -25,7 +25,7 @@ public final class t {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, Qz, QB)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, Sg, Sh)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
@@ -42,10 +42,10 @@ public final class t {
     }
 
     public static String P() {
-        return Qx.size() > 0 ? new JSONArray((Collection) Qx).toString() : "";
+        return Se.size() > 0 ? new JSONArray((Collection) Se).toString() : "";
     }
 
-    public static boolean nC() {
+    public static boolean ol() {
         return P().length() > 0;
     }
 
@@ -59,19 +59,19 @@ public final class t {
         if (activity == null) {
             return;
         }
-        if (Qz == 0 || QB == 0) {
+        if (Sg == 0 || Sh == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            QB = displayMetrics.heightPixels;
-            Qz = displayMetrics.widthPixels;
+            Sh = displayMetrics.heightPixels;
+            Sg = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
                 String name = activity.getClass().getName();
-                if (!name.equals(Qf)) {
+                if (!name.equals(RI)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
-                    Qf = name;
-                    Qx.clear();
+                    RI = name;
+                    Se.clear();
                 }
                 if (activity != null) {
                     try {
@@ -80,17 +80,17 @@ public final class t {
                             I = I(decorView);
                             if (I == null) {
                                 String url = I.getUrl();
-                                if (url.equals(Qy)) {
+                                if (url.equals(Sf)) {
                                     return;
                                 }
                                 com.baidu.crabsdk.c.a.v("-------- !tempUrl.equals(mUrl) --------");
-                                Qy = url;
+                                Sf = url;
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 arrayList.add(I.getTitle());
-                                arrayList.add(Qy);
-                                com.baidu.crabsdk.c.a.v("title:" + I.getTitle() + "; url:" + Qy);
-                                Qx.add(arrayList);
+                                arrayList.add(Sf);
+                                com.baidu.crabsdk.c.a.v("title:" + I.getTitle() + "; url:" + Sf);
+                                Se.add(arrayList);
                                 com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + P());
                                 return;
                             }

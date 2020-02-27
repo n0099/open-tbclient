@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     private String mKey;
     private long mPaId;

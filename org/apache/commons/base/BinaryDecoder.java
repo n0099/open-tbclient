@@ -1,5 +1,5 @@
 package org.apache.commons.base;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface BinaryDecoder extends Decoder {
     byte[] decode(byte[] bArr) throws DecoderException;
 }

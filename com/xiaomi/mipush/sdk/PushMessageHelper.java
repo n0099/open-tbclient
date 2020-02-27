@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.xiaomi.push.ht;
 import com.xiaomi.push.ij;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushMessageHelper {
     public static final String ERROR_MESSAGE = "error_message";
     public static final String ERROR_TYPE = "error_type";
@@ -36,7 +36,7 @@ public class PushMessageHelper {
 
     public static MiPushMessage generateMessage(ij ijVar, ht htVar, boolean z) {
         MiPushMessage miPushMessage = new MiPushMessage();
-        miPushMessage.setMessageId(ijVar.m431a());
+        miPushMessage.setMessageId(ijVar.m436a());
         if (!TextUtils.isEmpty(ijVar.d())) {
             miPushMessage.setMessageType(1);
             miPushMessage.setAlias(ijVar.d());
@@ -55,17 +55,17 @@ public class PushMessageHelper {
         }
         if (htVar != null) {
             if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                miPushMessage.setMessageId(htVar.m361a());
+                miPushMessage.setMessageId(htVar.m366a());
             }
             if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                miPushMessage.setTopic(htVar.m366b());
+                miPushMessage.setTopic(htVar.m371b());
             }
             miPushMessage.setDescription(htVar.d());
-            miPushMessage.setTitle(htVar.m369c());
+            miPushMessage.setTitle(htVar.m374c());
             miPushMessage.setNotifyType(htVar.a());
             miPushMessage.setNotifyId(htVar.c());
             miPushMessage.setPassThrough(htVar.b());
-            miPushMessage.setExtra(htVar.m362a());
+            miPushMessage.setExtra(htVar.m367a());
         }
         miPushMessage.setNotified(z);
         return miPushMessage;

@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.wnplatform.o;
 
 import android.media.MediaPlayer;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
     private static i a;
     private MediaPlayer b = null;

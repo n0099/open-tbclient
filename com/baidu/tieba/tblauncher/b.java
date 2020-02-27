@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b implements com.baidu.tbadk.core.e.a {
-    private a klN;
+    private a kmJ;
 
     @Override // com.baidu.tbadk.core.e.a
     public void b(Context context, int i, boolean z) {
@@ -21,7 +21,7 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void dI(Context context) {
+    public void dM(Context context) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
             v(context, 1);
@@ -36,24 +36,24 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> aDi() {
+    public Class<?> aFs() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String aDj() {
+    public String aFt() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.klN != null) {
-            return this.klN.getCurrentTabType();
+        if (this.kmJ != null) {
+            return this.kmJ.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.klN = aVar;
+        this.kmJ = aVar;
     }
 }

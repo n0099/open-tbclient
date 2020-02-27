@@ -9,6 +9,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Looper;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.ListenerManager;
+import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.imsdk.IMService;
 import com.baidu.live.adp.lib.cache.BdKVCache;
@@ -34,17 +36,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Random;
-/* loaded from: classes2.dex */
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+/* loaded from: classes3.dex */
 public final class Utility {
+    private static final String ALGORITHM_NAME = "AES";
     private static final String API_KEY = "BD_IM_API_KEY";
     private static final String APPID = "BD_IM_APPID";
     private static final String TAG = "Utility";
+    private static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";
     private static String mDeviceId = null;
     private static int mDisableRestapi = 0;
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }
@@ -72,7 +78,7 @@ public final class Utility {
         try {
             cls = Class.forName("com.baidu.searchbox.interfere.NetworkInterfereHelper");
         } catch (Exception e) {
-            LogUtils.e(TAG, "getPeakDelayTime :", e);
+            LogUtils.e(TAG, "Utility.getPeakDelayTime java.lang.ClassNotFoundException: com.baidu.searchbox.interfere.NetworkInterfereHelper");
         }
         if (((Boolean) cls.getMethod("isPeakTime", new Class[0]).invoke(null, new Object[0])).booleanValue()) {
             i = ((Integer) cls.getMethod("getDelayTime", new Class[0]).invoke(null, new Object[0])).intValue();
@@ -199,6 +205,10 @@ public final class Utility {
         return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(str, i).commit();
     }
 
+    public static void writeBooleanData(Context context, String str, boolean z) {
+        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putBoolean(str, z).apply();
+    }
+
     public static void writeUid(Context context, String str) {
         writeStringData(context, Constants.KEY_PASSPORT_UID, str);
     }
@@ -267,20 +277,16 @@ public final class Utility {
         return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getInt(str, i);
     }
 
+    public static boolean readBooleanData(Context context, String str, boolean z) {
+        return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getBoolean(str, z);
+    }
+
     public static long getLastSyncPushTime(Context context) {
         return readLongData(context, Constants.KEY_SYNC_PUSH_TIME, 0L);
     }
 
     public static void setLastSyncPushTime(Context context, long j) {
         writeLongData(context, Constants.KEY_SYNC_PUSH_TIME, j);
-    }
-
-    public static void setLastUpdateNickNameTime(Context context, long j) {
-        writeLongData(context, Constants.KEY_USER_NICKNAME_UPDATE_TIME, j);
-    }
-
-    public static long getLastUpdateNickNameTime(Context context) {
-        return readLongData(context, Constants.KEY_USER_NICKNAME_UPDATE_TIME, 0L);
     }
 
     public static long getUK(Context context) {
@@ -315,8 +321,21 @@ public final class Utility {
         return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getBoolean(Constants.KEY_ISINITIALTIVEDISCONNECT, false);
     }
 
-    public static void setInitiativeDisconnect(Context context, boolean z) {
-        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putBoolean(Constants.KEY_ISINITIALTIVEDISCONNECT, z).commit();
+    public static void setInitiativeDisconnect(final Context context, final boolean z) {
+        try {
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.utils.Utility.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putBoolean(Constants.KEY_ISINITIALTIVEDISCONNECT, z).commit();
+                    }
+                });
+            } else {
+                context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putBoolean(Constants.KEY_ISINITIALTIVEDISCONNECT, z).commit();
+            }
+        } catch (Throwable th) {
+            LogUtils.e(TAG, th.getMessage());
+        }
     }
 
     public static void startIMService(Context context) {
@@ -337,6 +356,15 @@ public final class Utility {
     public static Intent creatMethodIntent(Context context, int i) {
         Intent intent = new Intent(context, IMService.class);
         intent.putExtra("method", i);
+        intent.putExtra(Constants.EXTRA_SERVICE, 2);
+        intent.setPackage(context.getPackageName());
+        return intent;
+    }
+
+    public static Intent createMcastMethodIntent(Context context, int i) {
+        Intent intent = new Intent(context, IMService.class);
+        intent.putExtra("method", i);
+        intent.putExtra(Constants.EXTRA_SERVICE, 3);
         intent.setPackage(context.getPackageName());
         return intent;
     }
@@ -421,38 +449,6 @@ public final class Utility {
         }
     }
 
-    public static void getUserProfileByBuid(String str, int i, Context context, long j) {
-        Intent creatMethodIntent = creatMethodIntent(context, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID);
-        creatMethodIntent.putExtra("buid", j);
-        creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
-        if (!TextUtils.isEmpty(str)) {
-            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
-        }
-        try {
-            context.startService(creatMethodIntent);
-        } catch (Exception e) {
-            ListenerManager.getInstance().removeListener(str);
-            LogUtils.e(TAG, "Exception ", e);
-        }
-    }
-
-    public static void getUserProfile(String str, int i, Context context, long j) {
-        if (!AccountManager.isCuidLogin(context)) {
-            Intent creatMethodIntent = creatMethodIntent(context, 70);
-            creatMethodIntent.putExtra("uid", j);
-            creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
-            if (!TextUtils.isEmpty(str)) {
-                creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
-            }
-            try {
-                context.startService(creatMethodIntent);
-            } catch (Exception e) {
-                ListenerManager.getInstance().removeListener(str);
-                LogUtils.e(TAG, "Exception ", e);
-            }
-        }
-    }
-
     public static void getGroupProfile(String str, Context context, long j) {
         Intent creatMethodIntent = creatMethodIntent(context, 61);
         creatMethodIntent.putExtra("group_id", j);
@@ -488,19 +484,6 @@ public final class Utility {
     public static boolean isNetConnected(Context context) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
-    }
-
-    public static String getDbDir() {
-        if (Environment.getExternalStorageState().equals("mounted")) {
-            String str = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + IMConstants.IM_DB_DIR;
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-                return str;
-            }
-            return str;
-        }
-        return "";
     }
 
     public static void sync(Context context, List<Long> list, List<Long> list2, DeleteItem deleteItem) {
@@ -576,8 +559,8 @@ public final class Utility {
         ConversationManagerImpl.getInstance(context).clear();
     }
 
-    public static long getRandDelay() {
-        return (new Random().nextInt(10800) * 1000) + 32400000;
+    public static long getPaSyncDelay() {
+        return 172800000L;
     }
 
     public static boolean isNeedSync(Context context, String str) {
@@ -622,9 +605,15 @@ public final class Utility {
         return readIntData(context, Constants.KEY_ACCOUNT_PRIVATE, 0);
     }
 
-    public static long sumCacheSize() {
+    public static long sumCacheSize(Context context) {
+        File file;
         if (Environment.getExternalStorageState().equals("mounted")) {
-            return sumFolderSize(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu/implugin"));
+            if (isAndroidQAndAbove()) {
+                file = context.getExternalFilesDir("imcache");
+            } else {
+                file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu/implugin");
+            }
+            return sumFolderSize(file);
         }
         return 0L;
     }
@@ -650,9 +639,15 @@ public final class Utility {
         return j;
     }
 
-    public static void clearFileCache() {
+    public static void clearFileCache(Context context) {
+        String str;
         if (Environment.getExternalStorageState().equals("mounted")) {
-            deleteFolderFile(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu/implugin", false);
+            if (isAndroidQAndAbove()) {
+                str = context.getExternalFilesDir("imcache").getAbsolutePath();
+            } else {
+                str = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu/implugin";
+            }
+            deleteFolderFile(str, false);
         }
     }
 
@@ -741,5 +736,107 @@ public final class Utility {
 
     public static String getCuidAccessToken(Context context) {
         return readStringData(context, Constants.KEY_CUID_GENERATE_TOKEN, "");
+    }
+
+    public static void writeLoginFlag(final Context context, final String str, final String str2) {
+        if (isUploadIMTrack(context)) {
+            try {
+                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                    TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.utils.Utility.2
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (Utility.writeStringData(context, Constants.KEY_LOGIN_FLAG, System.currentTimeMillis() + ":" + str)) {
+                                Utility.writeStringData(context, Constants.KEY_LOGIN_FLAG_EXT, str2);
+                            }
+                        }
+                    });
+                } else if (writeStringData(context, Constants.KEY_LOGIN_FLAG, System.currentTimeMillis() + ":" + str)) {
+                    writeStringData(context, Constants.KEY_LOGIN_FLAG_EXT, str2);
+                }
+            } catch (Throwable th) {
+                LogUtils.e(TAG, th.getMessage());
+            }
+        }
+    }
+
+    public static String[] getLoginFlag(Context context) {
+        return readStringData(context, Constants.KEY_LOGIN_FLAG, "0:1Y").split(":");
+    }
+
+    public static String getLoginFlagExt(Context context) {
+        return readStringData(context, Constants.KEY_LOGIN_FLAG_EXT, "");
+    }
+
+    public static long getLoginCallTime(Context context) {
+        return readLongData(context, Constants.KEY_LOGIN_CALL_TIME, 0L);
+    }
+
+    public static void writeLoginCallTime(Context context) {
+        writeLongData(context, Constants.KEY_LOGIN_CALL_TIME, System.currentTimeMillis());
+    }
+
+    public static int getLoginOpenType(Context context) {
+        return readIntData(context, Constants.KEY_LOGIN_OPEN_TYPE, -1);
+    }
+
+    public static void writeLoginOpenType(Context context, int i) {
+        writeIntData(context, Constants.KEY_LOGIN_OPEN_TYPE, i);
+    }
+
+    public static byte[] decrypt(String str, String str2, byte[] bArr) throws Exception {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || bArr == null) {
+            return null;
+        }
+        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+        return cipher.doFinal(bArr);
+    }
+
+    public static String transBDUK(String str) {
+        try {
+            byte[] decode = android.util.Base64.decode(str, 9);
+            if (decode != null) {
+                return new String(decrypt("2011121211143000", "AFD311832EDEEAEF", decode));
+            }
+        } catch (Exception e) {
+            LogUtils.e(TAG, "transBDUK AES java exception");
+        }
+        return "";
+    }
+
+    public static String transBDUID(String str) {
+        try {
+            byte[] encrypt = encrypt("2011121211143000", "AFD311832EDEEAEF", str.getBytes());
+            if (encrypt != null) {
+                return android.util.Base64.encodeToString(encrypt, 11);
+            }
+        } catch (Exception e) {
+            LogUtils.e(TAG, "AES java exception");
+        }
+        return "";
+    }
+
+    public static byte[] encrypt(String str, String str2, byte[] bArr) throws Exception {
+        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
+        return cipher.doFinal(bArr);
+    }
+
+    public static boolean isIp(String str) {
+        return (str == null || str.isEmpty() || !str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$")) ? false : true;
+    }
+
+    public static int getLoginRole(Context context) {
+        return readIntData(context, Constants.KEY_LOGIN_ROLE, 0);
+    }
+
+    public static void writeLoginRole(Context context, int i) {
+        writeIntData(context, Constants.KEY_LOGIN_ROLE, i);
+    }
+
+    public static boolean isAndroidQAndAbove() {
+        return Build.VERSION.SDK_INT >= 29;
     }
 }

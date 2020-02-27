@@ -1,171 +1,78 @@
 package com.baidu.adp.lib.stats.upload;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
-import com.baidu.webkit.internal.ETAG;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashMap;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.base.e;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class c {
-    public static String a(com.baidu.adp.lib.stats.base.a aVar, com.baidu.adp.lib.stats.c cVar) {
-        if (aVar.gW() != null && (aVar.gW().equals(BdStatsConstant.FILE_OMP) || aVar.gW().equals(BdStatsConstant.FILE_MON))) {
-            return a(cVar);
-        }
-        return a(true, cVar);
-    }
-
-    public static HashMap<String, Object> a(com.baidu.adp.lib.stats.c cVar, boolean z) {
-        HashMap<String, Object> hashMap = new HashMap<>();
-        a(hashMap, "_client_type", "2");
-        a(hashMap, "_client_version", cVar.mAppVersion);
-        a(hashMap, "_phone_imei", cVar.sD);
-        a(hashMap, "_client_id", cVar.sA);
-        a(hashMap, "subapp_type", cVar.sE);
-        a(hashMap, "from", cVar.mChannel);
-        a(hashMap, "net_type", cVar.sH);
-        a(hashMap, "cuid", cVar.mCuid);
-        a(hashMap, "model", cVar.sF);
-        if (TextUtils.isEmpty(cVar.mUid)) {
-            cVar.mUid = "0";
-        }
-        a(hashMap, "uid", cVar.mUid);
-        a(hashMap, "un", cVar.sG);
-        a(hashMap, "BDUSS", cVar.mBduss);
-        if (z) {
-            a(hashMap, "find_bug", "2");
-        } else {
-            a(hashMap, "find_bug", "0");
-        }
-        return hashMap;
-    }
-
-    private static void a(HashMap<String, Object> hashMap, String str, String str2) {
-        if (hashMap != null && str != null && str2 != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    private static String a(com.baidu.adp.lib.stats.c cVar) {
-        if (cVar == null) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        try {
-            sb.append("product");
-            sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.sx, "utf-8"));
-            sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append(BdStatsConstant.StatsKey.SUB_SYSTEM);
-            sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.sy, "utf-8"));
-            sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append("version");
-            sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.mAppVersion, "utf-8"));
-            sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append("os");
-            sb.append(ETAG.EQUAL);
-            sb.append(PraiseDataPassUtil.KEY_FROM_OS);
-            sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append(BdStatsConstant.StatsKey.OS_VERSION);
-            sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.sI, "utf-8"));
-            if (!TextUtils.isEmpty(cVar.mChannel)) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append("from");
-                sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.mChannel, "utf-8"));
+public class c {
+    public static BdUploadingLogInfo d(com.baidu.adp.lib.stats.base.a aVar) {
+        ArrayList arrayList;
+        ArrayList<com.baidu.adp.lib.stats.base.d> e = e(aVar);
+        BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.hn(), aVar.ho());
+        if (e != null && e.size() > 0) {
+            if (e.size() > 1) {
+                Collections.sort(e, new e());
             }
-            if (!TextUtils.isEmpty(cVar.sz)) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append(BdStatsConstant.StatsKey.CURRENT_CHANNEL);
-                sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.sz, "utf-8"));
-            }
-            sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append("phone");
-            sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.sF, "utf-8"));
-            if (!TextUtils.isEmpty(cVar.mUid)) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append("uid");
-                sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.mUid, "utf-8"));
-            }
-            if (!TextUtils.isEmpty(cVar.sA)) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append("client_id");
-                sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.sA, "utf-8"));
-            }
-            if (!TextUtils.isEmpty(cVar.sD)) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append("imei");
-                sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.sD, "utf-8"));
-            }
-            if (!TextUtils.isEmpty(cVar.sG)) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append(BdStatsConstant.StatsKey.UNAME);
-                sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.sG, "utf-8"));
-            }
-            if (!TextUtils.isEmpty(cVar.mCuid)) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append("cuid");
-                sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.mCuid, "utf-8"));
-            }
-            sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append("net");
-            sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.mNetType, "utf-8"));
-        } catch (UnsupportedEncodingException e) {
-            BdLog.e(e);
-        }
-        return sb.toString();
-    }
-
-    private static void a(StringBuilder sb, String str, String str2, boolean z) {
-        if (sb != null && !TextUtils.isEmpty(str)) {
-            try {
-                String str3 = TextUtils.isEmpty(str2) ? "" : str2;
-                StringBuilder append = sb.append(ETAG.ITEM_SEPARATOR).append(str).append(ETAG.EQUAL);
-                if (z) {
-                    str3 = URLEncoder.encode(str3, "utf-8");
+            ArrayList arrayList2 = new ArrayList();
+            int size = e.size();
+            int i = 0;
+            long j = 0;
+            while (i < size) {
+                com.baidu.adp.lib.stats.base.d dVar = e.get(i);
+                j += dVar.mFileSize;
+                arrayList2.add(dVar);
+                if (j >= 20480) {
+                    bdUploadingLogInfo.add(arrayList2);
+                    arrayList = new ArrayList();
+                    j = 0;
+                } else {
+                    arrayList = arrayList2;
                 }
-                append.append(str3);
-            } catch (Exception e) {
-                BdLog.e(e);
+                i++;
+                arrayList2 = arrayList;
+            }
+            if (arrayList2.size() > 0) {
+                bdUploadingLogInfo.add(arrayList2);
             }
         }
+        return bdUploadingLogInfo;
     }
 
-    private static String a(boolean z, com.baidu.adp.lib.stats.c cVar) {
-        if (cVar == null) {
-            return null;
+    private static ArrayList<com.baidu.adp.lib.stats.base.d> e(com.baidu.adp.lib.stats.base.a aVar) {
+        ArrayList arrayList = new ArrayList();
+        File[] R = com.baidu.adp.lib.stats.base.c.R(aVar.hn());
+        if (R != null) {
+            for (File file : R) {
+                if (file.isFile()) {
+                    String name = file.getName();
+                    if (!TextUtils.isEmpty(name) && name.startsWith(aVar.hp()) && name.contains("Uploading")) {
+                        arrayList.add(new com.baidu.adp.lib.stats.base.d(name, file.length(), file.lastModified()));
+                    }
+                }
+            }
         }
-        StringBuilder sb = new StringBuilder();
-        sb.append("_client_type=2");
-        a(sb, "_client_version", cVar.mAppVersion, z);
-        a(sb, "_phone_imei", cVar.sD, z);
-        a(sb, "_client_id", cVar.sA, z);
-        a(sb, "subapp_type", cVar.sE, z);
-        a(sb, BdStatsConstant.StatsKey.OS_VERSION, cVar.sI, z);
-        a(sb, "from", cVar.mChannel, z);
-        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.sz, z);
-        a(sb, "net_type", cVar.sH, z);
-        a(sb, "cuid", cVar.mCuid, z);
-        a(sb, "model", cVar.sF, z);
-        if (TextUtils.isEmpty(cVar.mUid)) {
-            a(sb, "uid", "0", z);
-        } else {
-            a(sb, "uid", cVar.mUid, z);
+        long currentTimeMillis = System.currentTimeMillis();
+        ArrayList<com.baidu.adp.lib.stats.base.d> arrayList2 = new ArrayList<>();
+        ArrayList arrayList3 = new ArrayList();
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            com.baidu.adp.lib.stats.base.d dVar = (com.baidu.adp.lib.stats.base.d) it.next();
+            if (dVar != null) {
+                long j = dVar.tC;
+                if (j != 0 && j + 604800000 < currentTimeMillis) {
+                    arrayList3.add(dVar.mFileName);
+                } else {
+                    arrayList2.add(dVar);
+                }
+            }
         }
-        a(sb, "un", cVar.sG, z);
-        return sb.toString();
+        if (arrayList3.size() > 0) {
+            com.baidu.adp.lib.stats.base.c.a(arrayList3, aVar.hn());
+        }
+        return arrayList2;
     }
 }

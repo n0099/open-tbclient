@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class IMUserBaseHttpRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
@@ -24,7 +24,8 @@ public abstract class IMUserBaseHttpRequest extends BaseHttpRequest {
         return getHostUrl() + "rest/2.0/im/user_setting";
     }
 
-    private String getHostUrl() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String getHostUrl() {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
                 return Constants.URL_HTTP_ONLINE;

@@ -5,48 +5,48 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class b {
-    protected g gIx;
-    protected a gIy;
-    protected boolean gIz;
-    protected boolean gue;
+    protected g gKw;
+    protected a gKx;
+    protected boolean gKy;
+    protected boolean gwf;
     protected Intent mIntent;
     protected int mState = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onStateChanged(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bIl();
+    public abstract void bJN();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bIm();
+    public abstract void bJO();
 
     public b(g gVar, Intent intent) {
-        this.gIz = true;
-        this.gue = false;
-        this.gIx = gVar;
+        this.gKy = true;
+        this.gwf = false;
+        this.gKw = gVar;
         this.mIntent = intent;
-        e Bv = d.bIr().Bv(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.gIz = Bv.bIt();
-        this.gue = Bv.bIs();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gIx.gIO.getLayoutParams();
+        e BL = d.bJT().BL(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.gKy = BL.bJV();
+        this.gwf = BL.bJU();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gKw.gKN.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.topMargin = this.gue ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds152) : l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds121);
-            this.gIx.gIO.setLayoutParams(layoutParams);
+            layoutParams.topMargin = this.gwf ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds152) : l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds121);
+            this.gKw.gKN.setLayoutParams(layoutParams);
         }
-        this.gIx.gIN.setVisibility(this.gIz ? 0 : 4);
-        if (Bv.bIu()) {
-            this.gIx.gIN.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.gIx.gIO.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+        this.gKw.gKM.setVisibility(this.gKy ? 0 : 4);
+        if (BL.bJW()) {
+            this.gKw.gKM.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.gKw.gKN.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
     public void a(a aVar) {
-        this.gIy = aVar;
+        this.gKx = aVar;
     }
 
     public int getState() {

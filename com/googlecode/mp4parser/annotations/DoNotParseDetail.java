@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 @Inherited
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface DoNotParseDetail {
 }

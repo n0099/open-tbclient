@@ -3,9 +3,9 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ab extends a {
-    private DashPathEffect bcM;
+    private DashPathEffect bhb;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -20,14 +20,14 @@ public class ab extends a {
         }
         int S = jSONArray.length() > 1 ? com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(1)) : 0;
         if (fArr != null && S >= 0) {
-            this.bcM = new DashPathEffect(fArr, S);
+            this.bhb = new DashPathEffect(fArr, S);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.bcM != null) {
-            bVar.mStrokePaint.setPathEffect(this.bcM);
+        if (this.bhb != null) {
+            bVar.mStrokePaint.setPathEffect(this.bhb);
         }
     }
 }

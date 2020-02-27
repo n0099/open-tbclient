@@ -10,36 +10,36 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableUsing<T, D> extends q<T> {
     final g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> nvN;
-    final h<? super D, ? extends t<? extends T>> nwK;
+    final Callable<? extends D> nwp;
+    final h<? super D, ? extends t<? extends T>> nxm;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         try {
-            D call = this.nvN.call();
+            D call = this.nwp.call();
             try {
-                ((t) io.reactivex.internal.functions.a.h(this.nwK.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(uVar, call, this.disposer, this.eager));
+                ((t) io.reactivex.internal.functions.a.h(this.nxm.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(uVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 try {
                     this.disposer.accept(call);
                     EmptyDisposable.error(th, uVar);
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.I(th2);
+                    io.reactivex.exceptions.a.H(th2);
                     EmptyDisposable.error(new CompositeException(th, th2), uVar);
                 }
             }
         } catch (Throwable th3) {
-            io.reactivex.exceptions.a.I(th3);
+            io.reactivex.exceptions.a.H(th3);
             EmptyDisposable.error(th3, uVar);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class UsingObserver<T, D> extends AtomicBoolean implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 5904473792286235046L;
         final u<? super T> actual;
@@ -76,7 +76,7 @@ public final class ObservableUsing<T, D> extends q<T> {
                     try {
                         this.disposer.accept((D) this.resource);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.I(th2);
+                        io.reactivex.exceptions.a.H(th2);
                         th = new CompositeException(th, th2);
                     }
                 }
@@ -97,7 +97,7 @@ public final class ObservableUsing<T, D> extends q<T> {
                     try {
                         this.disposer.accept((D) this.resource);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.I(th);
+                        io.reactivex.exceptions.a.H(th);
                         this.actual.onError(th);
                         return;
                     }
@@ -128,7 +128,7 @@ public final class ObservableUsing<T, D> extends q<T> {
                 try {
                     this.disposer.accept((D) this.resource);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.exceptions.a.H(th);
                     io.reactivex.e.a.onError(th);
                 }
             }

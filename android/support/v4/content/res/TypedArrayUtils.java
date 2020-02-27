@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import org.xmlpull.v1.XmlPullParser;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TypedArrayUtils {
     private static final String NAMESPACE = "http://schemas.android.com/apk/res/android";
 

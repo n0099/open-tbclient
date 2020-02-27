@@ -14,23 +14,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class x {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String bXc = "cookieMap";
-    public static String bXd = "ptokenDomains";
-    public static String bXe = "bdussDomains";
+    public static String cbg = "cookieMap";
+    public static String cbh = "ptokenDomains";
+    public static String cbi = "bdussDomains";
 
-    public static void dc(Context context) {
-        dd(context);
+    public static void dg(Context context) {
+        dh(context);
     }
 
-    public static void dd(Context context) {
+    public static void dh(Context context) {
         if (context != null) {
-            String cO = a.cO(context);
-            String cV = a.cV(context);
-            b(context, cO, afB());
-            c(context, cV, afB());
+            String cS = a.cS(context);
+            String cZ = a.cZ(context);
+            b(context, cS, ahP());
+            c(context, cZ, ahP());
         }
     }
 
@@ -49,19 +49,19 @@ public class x {
             } else {
                 buildBDUSSCookie = buildBDUSSCookie(str2, str);
             }
-            n("http://www." + str2, buildBDUSSCookie, false);
+            o("http://www." + str2, buildBDUSSCookie, false);
         }
     }
 
     private static String buildBDUSSCookie(String str, String str2) {
-        return J(str, "BDUSS", str2);
+        return K(str, "BDUSS", str2);
     }
 
     private static String buildPtokenCookie(String str, String str2) {
-        return J(str, "PTOKEN", str2);
+        return K(str, "PTOKEN", str2);
     }
 
-    private static String J(String str, String str2, String str3) {
+    private static String K(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
@@ -89,18 +89,18 @@ public class x {
             } else {
                 buildPtokenCookie = buildPtokenCookie(str2, str);
             }
-            n("http://www." + str2, buildPtokenCookie, false);
+            o("http://www." + str2, buildPtokenCookie, false);
         }
     }
 
-    private static void n(String str, String str2, boolean z) {
+    private static void o(String str, String str2, boolean z) {
         CookieManager.getInstance().setCookie(str, str2);
         if (z) {
             CookieSyncManager.getInstance().sync();
         }
     }
 
-    private static List<String> afB() {
+    private static List<String> ahP() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

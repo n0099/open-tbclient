@@ -6,7 +6,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbClipImageView extends TbImageView {
     private static Method setLayerTypeMethod;
     private boolean canClipPath;

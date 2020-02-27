@@ -2,56 +2,56 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.lib.cache.l;
 import com.baidu.live.adp.lib.cache.BdKVCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i {
-    private static i iDL;
-    private com.baidu.adp.lib.cache.l<byte[]> iDM = null;
-    private com.baidu.adp.lib.cache.l<byte[]> iDN = null;
+    private static i iFs;
+    private com.baidu.adp.lib.cache.l<byte[]> iFt = null;
+    private com.baidu.adp.lib.cache.l<byte[]> iFu = null;
 
-    public static synchronized i ckK() {
+    public static synchronized i cmf() {
         i iVar;
         synchronized (i.class) {
-            if (iDL == null) {
-                iDL = new i();
+            if (iFs == null) {
+                iFs = new i();
             }
-            iVar = iDL;
+            iVar = iFs;
         }
         return iVar;
     }
 
     private i() {
-        asH();
+        auV();
     }
 
-    private void asH() {
-        if (this.iDM == null) {
-            this.iDM = com.baidu.tbadk.core.c.a.aCo().sz("tb.pb_mark");
+    private void auV() {
+        if (this.iFt == null) {
+            this.iFt = com.baidu.tbadk.core.c.a.aEz().sP("tb.pb_mark");
         }
-        if (this.iDN == null) {
-            this.iDN = com.baidu.tbadk.core.c.a.aCo().sz("tb.pb_normal");
+        if (this.iFu == null) {
+            this.iFu = com.baidu.tbadk.core.c.a.aEz().sP("tb.pb_normal");
         }
     }
 
     public void ar(String str, boolean z) {
         if (z) {
-            if (this.iDM != null && str != null) {
-                this.iDM.asyncSet(str, new byte[0], 0L);
+            if (this.iFt != null && str != null) {
+                this.iFt.asyncSet(str, new byte[0], 0L);
             }
-        } else if (this.iDN != null && str != null) {
-            this.iDN.asyncSet(str, new byte[0], 0L);
+        } else if (this.iFu != null && str != null) {
+            this.iFu.asyncSet(str, new byte[0], 0L);
         }
     }
 
     public byte[] as(String str, boolean z) {
         l.b<byte[]> ad;
         if (z) {
-            if (this.iDM != null && str != null) {
-                ad = this.iDM.ad(str);
+            if (this.iFt != null && str != null) {
+                ad = this.iFt.ad(str);
             }
             ad = null;
         } else {
-            if (this.iDN != null && str != null) {
-                ad = this.iDN.ad(str);
+            if (this.iFu != null && str != null) {
+                ad = this.iFu.ad(str);
             }
             ad = null;
         }
@@ -63,19 +63,19 @@ public class i {
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
-            asH();
+            auV();
             if (z) {
-                this.iDM.set(str, bArr, 604800000L);
+                this.iFt.set(str, bArr, 604800000L);
             } else {
-                this.iDN.set(str, bArr, 86400000L);
+                this.iFu.set(str, bArr, 86400000L);
             }
         }
     }
 
     public void n(String str, byte[] bArr) {
         if (bArr != null && str != null) {
-            asH();
-            this.iDM.set(str, bArr, BdKVCache.MILLS_30Days);
+            auV();
+            this.iFt.set(str, bArr, BdKVCache.MILLS_30Days);
         }
     }
 }

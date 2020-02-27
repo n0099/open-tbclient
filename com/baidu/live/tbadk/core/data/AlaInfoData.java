@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaInfoData implements Serializable {
     public static final int LIVE_STATUS_LIVE_ON = 1;
     public static final int LIVE_STATUS_RECORD = 3;

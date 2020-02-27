@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static String a(Context context, String str) {
         return context.getSharedPreferences("pst", 0).getString(str, "");

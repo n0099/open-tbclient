@@ -3,7 +3,8 @@ package kotlin.sequences;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class SequencesKt__SequencesKt$generateSequence$1 extends Lambda implements kotlin.jvm.a.b<T, T> {
     final /* synthetic */ kotlin.jvm.a.a $nextFunction;
 

@@ -39,7 +39,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VectorDrawableCompat extends VectorDrawableCommon {
     private static final boolean DBG_VECTOR_DRAWABLE = false;
     static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
@@ -635,7 +635,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(24)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class VectorDrawableDelegateState extends Drawable.ConstantState {
         private final Drawable.ConstantState mDelegateState;
 
@@ -676,7 +676,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class VectorDrawableCompatState extends Drawable.ConstantState {
         boolean mAutoMirrored;
         boolean mCacheDirty;
@@ -782,7 +782,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class VPathRenderer {
         private static final Matrix IDENTITY_MATRIX = new Matrix();
         float mBaseHeight;
@@ -973,7 +973,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class VGroup {
         int mChangingConfigurations;
         final ArrayList<Object> mChildren;
@@ -1178,7 +1178,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class VPath {
         int mChangingConfigurations;
         protected PathParser.PathDataNode[] mNodes;
@@ -1251,7 +1251,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class VClipPath extends VPath {
         public VClipPath() {
         }
@@ -1286,7 +1286,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class VFullPath extends VPath {
         private static final int FILL_TYPE_WINDING = 0;
         float mFillAlpha;

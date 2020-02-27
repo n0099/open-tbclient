@@ -2,7 +2,7 @@ package com.baidu.sapi2.httpwrap;
 
 import android.os.Looper;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HttpHandlerWrap {
     protected boolean executCallbackInChildThread;
 

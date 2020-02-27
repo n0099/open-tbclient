@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mapapi.search.core.PoiDetailInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiDetailSearchResult> CREATOR = new b();
     private List<PoiDetailInfo> a;

@@ -7,15 +7,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public View cqd;
-    public SimpleDraweeView cqe;
-    public TextView cqf;
+    public View cue;
+    public SimpleDraweeView cuf;
+    public TextView cug;
 
     public b(Context context) {
-        this.cqd = LayoutInflater.from(context).inflate(a.g.swangame_recommend_button, (ViewGroup) null);
-        this.cqe = (SimpleDraweeView) this.cqd.findViewById(a.f.swangame_recommend_button_icon);
-        this.cqf = (TextView) this.cqd.findViewById(a.f.swangame_recommend_button_name);
+        this.cue = LayoutInflater.from(context).inflate(a.g.swangame_recommend_button, (ViewGroup) null);
+        this.cuf = (SimpleDraweeView) this.cue.findViewById(a.f.swangame_recommend_button_icon);
+        this.cug = (TextView) this.cue.findViewById(a.f.swangame_recommend_button_name);
     }
 }

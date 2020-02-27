@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     protected int connectionTimeout;
     protected CookieManager cookieManager;

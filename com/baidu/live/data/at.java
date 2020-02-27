@@ -1,8 +1,5 @@
 package com.baidu.live.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class at {
-    public int abA;
-    public int abB;
-    public int aby;
-    public int abz;
+    public int decodeMode;
 }

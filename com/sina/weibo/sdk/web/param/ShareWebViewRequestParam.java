@@ -25,7 +25,7 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     public static final String SHARE_URL = "https://service.weibo.com/share/mobilesdk.php";
     private static final String UPLOAD_PIC_URL = "https://service.weibo.com/share/mobilesdk_uppic.php";

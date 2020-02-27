@@ -9,7 +9,7 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.searchbox.account.contants.LoginConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i extends DynamicPwdLoginCallback {
     final /* synthetic */ SmsLoginView a;
 

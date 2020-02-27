@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface je extends Serializable {
     jc a(jm jmVar);
 }

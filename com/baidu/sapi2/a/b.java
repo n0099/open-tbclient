@@ -14,7 +14,7 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.sapi2.utils.Log;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static final String a = "b";
     private static final String b = "pass_channel_id";

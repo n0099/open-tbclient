@@ -1,7 +1,7 @@
 package com.baidu.lbsapi;
 
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class a implements LBSAuthManagerListener {
     final /* synthetic */ MKGeneralListener a;
     final /* synthetic */ BMapManager b;

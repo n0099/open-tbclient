@@ -9,13 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class j<E> extends h {
-    final l cyJ;
-    private p cyN;
-    private boolean cyO;
-    private boolean cyP;
-    private com.baidu.swan.support.v4.b.f<String, o> cyY;
+    final l cCH;
+    private p cCL;
+    private boolean cCM;
+    private boolean cCN;
+    private com.baidu.swan.support.v4.b.f<String, o> cCW;
     private final Activity mActivity;
     final Context mContext;
     private final Handler mHandler;
@@ -27,7 +27,7 @@ public abstract class j<E> extends h {
     }
 
     j(Activity activity, Context context, Handler handler, int i) {
-        this.cyJ = new l();
+        this.cCH = new l();
         this.mActivity = activity;
         this.mContext = context;
         this.mHandler = handler;
@@ -86,16 +86,16 @@ public abstract class j<E> extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l aso() {
-        return this.cyJ;
+    public l auC() {
+        return this.cCH;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void qr(String str) {
+    public void qG(String str) {
         p pVar;
-        if (this.cyY != null && (pVar = (p) this.cyY.get(str)) != null && !pVar.mRetaining) {
+        if (this.cCW != null && (pVar = (p) this.cCW.get(str)) != null && !pVar.mRetaining) {
             pVar.doDestroy();
-            this.cyY.remove(str);
+            this.cCW.remove(str);
         }
     }
 
@@ -105,65 +105,65 @@ public abstract class j<E> extends h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderStart() {
-        if (!this.cyO) {
-            this.cyO = true;
-            if (this.cyN != null) {
-                this.cyN.ass();
-            } else if (!this.cyP) {
-                this.cyN = d("(root)", this.cyO, false);
-                if (this.cyN != null && !this.cyN.mStarted) {
-                    this.cyN.ass();
+        if (!this.cCM) {
+            this.cCM = true;
+            if (this.cCL != null) {
+                this.cCL.auG();
+            } else if (!this.cCN) {
+                this.cCL = d("(root)", this.cCM, false);
+                if (this.cCL != null && !this.cCL.mStarted) {
+                    this.cCL.auG();
                 }
             }
-            this.cyP = true;
+            this.cCN = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderStop(boolean z) {
-        if (this.cyN != null && this.cyO) {
-            this.cyO = false;
+        if (this.cCL != null && this.cCM) {
+            this.cCM = false;
             if (z) {
-                this.cyN.ast();
+                this.cCL.auH();
             } else {
-                this.cyN.doStop();
+                this.cCL.doStop();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderDestroy() {
-        if (this.cyN != null) {
-            this.cyN.doDestroy();
+        if (this.cCL != null) {
+            this.cCL.doDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reportLoaderStart() {
-        if (this.cyY != null) {
-            int size = this.cyY.size();
+        if (this.cCW != null) {
+            int size = this.cCW.size();
             p[] pVarArr = new p[size];
             for (int i = size - 1; i >= 0; i--) {
-                pVarArr[i] = (p) this.cyY.valueAt(i);
+                pVarArr[i] = (p) this.cCW.valueAt(i);
             }
             for (int i2 = 0; i2 < size; i2++) {
                 p pVar = pVarArr[i2];
-                pVar.asu();
-                pVar.asw();
+                pVar.auI();
+                pVar.auK();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p d(String str, boolean z, boolean z2) {
-        if (this.cyY == null) {
-            this.cyY = new com.baidu.swan.support.v4.b.f<>();
+        if (this.cCW == null) {
+            this.cCW = new com.baidu.swan.support.v4.b.f<>();
         }
-        p pVar = (p) this.cyY.get(str);
+        p pVar = (p) this.cCW.get(str);
         if (pVar == null) {
             if (z2) {
                 p pVar2 = new p(str, this, z);
-                this.cyY.put(str, pVar2);
+                this.cCW.put(str, pVar2);
                 return pVar2;
             }
             return pVar;
@@ -173,13 +173,13 @@ public abstract class j<E> extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.swan.support.v4.b.f<String, o> asn() {
+    public com.baidu.swan.support.v4.b.f<String, o> auB() {
         boolean z;
-        if (this.cyY != null) {
-            int size = this.cyY.size();
+        if (this.cCW != null) {
+            int size = this.cCW.size();
             p[] pVarArr = new p[size];
             for (int i = size - 1; i >= 0; i--) {
-                pVarArr[i] = (p) this.cyY.valueAt(i);
+                pVarArr[i] = (p) this.cCW.valueAt(i);
             }
             z = false;
             for (int i2 = 0; i2 < size; i2++) {
@@ -188,34 +188,34 @@ public abstract class j<E> extends h {
                     z = true;
                 } else {
                     pVar.doDestroy();
-                    this.cyY.remove(pVar.mWho);
+                    this.cCW.remove(pVar.mWho);
                 }
             }
         } else {
             z = false;
         }
         if (z) {
-            return this.cyY;
+            return this.cCW;
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.cyY = fVar;
+        this.cCW = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         printWriter.print(str);
         printWriter.print("mLoadersStarted=");
-        printWriter.println(this.cyO);
-        if (this.cyN != null) {
+        printWriter.println(this.cCM);
+        if (this.cCL != null) {
             printWriter.print(str);
             printWriter.print("Loader Manager ");
-            printWriter.print(Integer.toHexString(System.identityHashCode(this.cyN)));
+            printWriter.print(Integer.toHexString(System.identityHashCode(this.cCL)));
             printWriter.println(":");
-            this.cyN.dump(str + "  ", fileDescriptor, printWriter, strArr);
+            this.cCL.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }
 }

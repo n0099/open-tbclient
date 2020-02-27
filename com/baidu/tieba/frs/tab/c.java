@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.tab;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface c {
-    void bIj();
+    void bJL();
 }

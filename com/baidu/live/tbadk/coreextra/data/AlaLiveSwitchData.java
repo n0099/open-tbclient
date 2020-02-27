@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveSwitchData extends BaseData {
     public static final String SWITCH_DEFAULT_VALUE = "0";
     public static int isHotLive;

@@ -19,37 +19,37 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.lib.voice.f, m {
-    private FrameLayout Fq;
-    private ImageView Fr;
-    private RecordingAnimView Fs;
-    private TextView Ft;
-    private TextView Fu;
-    private EditorTools Fv;
-    private int Fw;
-    private boolean Fx;
-    private com.baidu.tbadk.core.dialog.a Fy;
+    private FrameLayout FJ;
+    private ImageView FK;
+    private RecordingAnimView FL;
+    private TextView FM;
+    private TextView FN;
+    private EditorTools FO;
+    private int FP;
+    private boolean FQ;
+    private com.baidu.tbadk.core.dialog.a FR;
     private VoiceData.VoiceModel mModel;
     private com.baidu.tbadk.core.util.b.a mPermissionJudgePolicy;
 
     public NewVoiceRecordButton(Context context) {
         super(context);
-        this.Fw = 0;
+        this.FP = 0;
         initView();
     }
 
     private void initView() {
         inflate(getContext(), R.layout.layou_new_record_button, this);
-        this.Fq = (FrameLayout) findViewById(R.id.layout_record_button);
-        this.Fr = (ImageView) findViewById(R.id.iv_record_init);
-        this.Fs = (RecordingAnimView) findViewById(R.id.record_anim_view);
-        this.Fs.setCertainColumnCount(8);
-        this.Fs.setColumnColor(R.color.cp_cont_g);
-        this.Fs.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.ds4));
-        this.Ft = (TextView) findViewById(R.id.tv_duration);
-        this.Fu = (TextView) findViewById(R.id.tv_tip);
-        this.Fq.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.1
+        this.FJ = (FrameLayout) findViewById(R.id.layout_record_button);
+        this.FK = (ImageView) findViewById(R.id.iv_record_init);
+        this.FL = (RecordingAnimView) findViewById(R.id.record_anim_view);
+        this.FL.setCertainColumnCount(8);
+        this.FL.setColumnColor(R.color.cp_cont_g);
+        this.FL.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.ds4));
+        this.FM = (TextView) findViewById(R.id.tv_duration);
+        this.FN = (TextView) findViewById(R.id.tv_tip);
+        this.FJ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
@@ -64,7 +64,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                             NewVoiceRecordButton.this.stopRecord();
                             return true;
                         }
-                        NewVoiceRecordButton.this.lw();
+                        NewVoiceRecordButton.this.lL();
                         return true;
                     default:
                         return true;
@@ -78,10 +78,10 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lw() {
-        if (this.Fy == null) {
-            this.Fy = new com.baidu.tbadk.core.dialog.a(i.ab(getContext()).getPageActivity());
-            this.Fy.sC(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
+    public void lL() {
+        if (this.FR == null) {
+            this.FR = new com.baidu.tbadk.core.dialog.a(i.ab(getContext()).getPageActivity());
+            this.FR.sS(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -94,7 +94,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                 }
             }).b(i.ab(getContext()));
         }
-        this.Fy.aCp();
+        this.FR.aEA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -114,24 +114,24 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
             com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.getVoiceFilePath(this.mModel.voiceId));
         }
         com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
-        if (recorderManager != null && recorderManager.lz()) {
-            this.Fx = recorderManager.a(this, -1);
-            this.Ft.setVisibility(0);
+        if (recorderManager != null && recorderManager.lO()) {
+            this.FQ = recorderManager.a(this, -1);
+            this.FM.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stopRecord() {
-        this.Fr.setVisibility(0);
-        this.Fs.lD();
-        this.Fs.setVisibility(4);
-        this.Fu.setText(getResources().getText(R.string.voice_record_press_to_record));
-        this.Ft.setVisibility(4);
+        this.FK.setVisibility(0);
+        this.FL.lS();
+        this.FL.setVisibility(4);
+        this.FN.setText(getResources().getText(R.string.voice_record_press_to_record));
+        this.FM.setVisibility(4);
         com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
-        if (this.Fx && recorderManager != null) {
+        if (this.FQ && recorderManager != null) {
             recorderManager.stopRecord();
         }
-        this.Fx = false;
+        this.FQ = false;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -144,7 +144,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                 case 52:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
                         this.mModel = (VoiceData.VoiceModel) aVar.data;
-                        this.Fu.setText(getResources().getText(R.string.voice_restart));
+                        this.FN.setText(getResources().getText(R.string.voice_restart));
                         return;
                     }
                     reset();
@@ -157,18 +157,18 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
 
     private void reset() {
         this.mModel = null;
-        this.Fu.setText(getResources().getText(R.string.voice_record_press_to_record));
-        this.Ft.setText("");
-        this.Ft.setVisibility(4);
+        this.FN.setText(getResources().getText(R.string.voice_record_press_to_record));
+        this.FM.setText("");
+        this.FM.setVisibility(4);
     }
 
     @Override // com.baidu.adp.lib.voice.f
     public void onStartedRecorder(boolean z) {
         if (z) {
-            this.Fr.setVisibility(4);
-            this.Fs.setVisibility(0);
-            this.Fs.start();
-            this.Fu.setText(getResources().getText(R.string.voice_record_release_to_stop));
+            this.FK.setVisibility(4);
+            this.FL.setVisibility(0);
+            this.FL.start();
+            this.FN.setText(getResources().getText(R.string.voice_record_release_to_stop));
         }
     }
 
@@ -178,14 +178,14 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowErr(int i, String str) {
-        this.Ft.setVisibility(0);
-        this.Ft.setText(str);
+        this.FM.setVisibility(0);
+        this.FM.setText(str);
         postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.4
             @Override // java.lang.Runnable
             public void run() {
-                if (NewVoiceRecordButton.this.Ft != null && !NewVoiceRecordButton.this.Fx) {
-                    NewVoiceRecordButton.this.Ft.setVisibility(4);
-                    NewVoiceRecordButton.this.Ft.setText("");
+                if (NewVoiceRecordButton.this.FM != null && !NewVoiceRecordButton.this.FQ) {
+                    NewVoiceRecordButton.this.FM.setVisibility(4);
+                    NewVoiceRecordButton.this.FM.setText("");
                 }
             }
         }, 2000L);
@@ -199,7 +199,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
             this.mModel.isLocal = true;
             this.mModel.voiceId = str;
             this.mModel.voice_status = 1;
-            this.Fu.setText(getResources().getText(R.string.voice_restart));
+            this.FN.setText(getResources().getText(R.string.voice_restart));
             b(new com.baidu.tbadk.editortools.a(10, -1, this.mModel));
         }
     }
@@ -210,7 +210,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowRecordTime(int i) {
-        this.Ft.setText(VoiceManager.formatVoiceTime(i));
+        this.FM.setText(VoiceManager.formatVoiceTime(i));
     }
 
     @Override // com.baidu.adp.lib.voice.f
@@ -219,24 +219,24 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
 
     @Override // com.baidu.tbadk.editortools.m
     public void setEditorTools(EditorTools editorTools) {
-        this.Fv = editorTools;
+        this.FO = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Fv != null) {
-            this.Fv.b(aVar);
+        if (this.FO != null) {
+            this.FO.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public void setToolId(int i) {
-        this.Fw = i;
+        this.FP = i;
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public int getToolId() {
-        return this.Fw;
+        return this.FP;
     }
 
     @Override // com.baidu.tbadk.editortools.m
@@ -255,10 +255,10 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
 
     @Override // com.baidu.tbadk.editortools.m
     public void onChangeSkinType(int i) {
-        am.setViewTextColor(this.Fu, (int) R.color.cp_cont_f);
-        am.setViewTextColor(this.Ft, (int) R.color.common_color_10140);
-        am.setBackgroundResource(this.Fr, R.drawable.ic_post_record);
-        this.Fs.onChangeSkinType(i);
+        am.setViewTextColor(this.FN, (int) R.color.cp_cont_f);
+        am.setViewTextColor(this.FM, (int) R.color.common_color_10140);
+        am.setBackgroundResource(this.FK, R.drawable.ic_post_record);
+        this.FL.onChangeSkinType(i);
     }
 
     public com.baidu.tieba.tbadkCore.voice.a getRecorderManager() {

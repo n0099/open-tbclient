@@ -1,9 +1,10 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public abstract class ap implements Iterator<Short> {
-    public abstract short dJd();
+    public abstract short dKk();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +13,8 @@ public abstract class ap implements Iterator<Short> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dJc */
+    /* renamed from: dKj */
     public final Short next() {
-        return Short.valueOf(dJd());
+        return Short.valueOf(dKk());
     }
 }

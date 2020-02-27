@@ -1,13 +1,13 @@
 package com.google.android.exoplayer2.text;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface e {
-    long Lf(int i);
+    long Lk(int i);
 
-    int dwy();
+    int dxI();
 
-    int gy(long j);
+    int gw(long j);
 
-    List<b> gz(long j);
+    List<b> gx(long j);
 }

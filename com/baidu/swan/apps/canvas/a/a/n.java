@@ -5,7 +5,7 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class n extends a {
     private String mText;
     private int mX;
@@ -30,8 +30,8 @@ public class n extends a {
     public void a(b bVar, Canvas canvas) {
         float f;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.bce;
-            int i = bVar.bcj;
+            TextPaint textPaint = bVar.bgt;
+            int i = bVar.bgy;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
             float f2 = fontMetrics.top + this.mY;
             float f3 = fontMetrics.ascent + this.mY;

@@ -6,11 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
+import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.imsdk.IMService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Heartbeat {
-    public static int ALARM_TIMEOUT = 120000;
+    public static int ALARM_TIMEOUT = 60000;
     public static final int HEARTBEAT_TYPE_NORMAL = 0;
     public static final int HEARTBEAT_TYPE_NO_ALAMRMANAGER = 1;
     private static Heartbeat mInstance;
@@ -19,7 +20,7 @@ public class Heartbeat {
     private HeartbeatOpearation mOperator;
 
     private Heartbeat(Context context, Handler handler) {
-        ALARM_TIMEOUT = 120000;
+        ALARM_TIMEOUT = 60000;
         this.mHandler = handler;
         this.mContext = context;
         switch (IMConfigInternal.getInstance().getIMConfig(context).getHeartBeatType()) {
@@ -54,17 +55,22 @@ public class Heartbeat {
         this.mOperator.cancelHearbeat();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class BoxHeartbeat implements HeartbeatOpearation {
         private Runnable startIMServiceTask = new Runnable() { // from class: com.baidu.android.imsdk.internal.Heartbeat.BoxHeartbeat.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    Intent intent = new Intent(Heartbeat.this.mContext, IMService.class);
-                    intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                    intent.setPackage(Heartbeat.this.mContext.getPackageName());
-                    Heartbeat.this.mContext.startService(intent);
-                    Heartbeat.this.mHandler.postDelayed(BoxHeartbeat.this.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
+                    TaskManager.getInstance(Heartbeat.this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.internal.Heartbeat.BoxHeartbeat.1.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Intent intent = new Intent(Heartbeat.this.mContext, IMService.class);
+                            intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
+                            intent.setPackage(Heartbeat.this.mContext.getPackageName());
+                            Heartbeat.this.mContext.startService(intent);
+                            Heartbeat.this.mHandler.postDelayed(BoxHeartbeat.this.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
+                        }
+                    });
                 } catch (Exception e) {
                     if (e instanceof SecurityException) {
                         LogUtils.e("BoxHeartbeat", "box SecurityException!!", e);
@@ -96,7 +102,7 @@ public class Heartbeat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class NormalHeartbeat implements HeartbeatOpearation {
         public NormalHeartbeat() {
         }

@@ -36,7 +36,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import pl.droidsonroids.gif.transforms.CornerRadiusTransform;
 import pl.droidsonroids.gif.transforms.Transform;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GifDrawable extends Drawable implements Animatable, MediaController.MediaPlayerControl {
     final Bitmap mBuffer;
     private final Rect mDstRect;

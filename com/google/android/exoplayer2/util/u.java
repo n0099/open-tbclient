@@ -2,13 +2,13 @@ package com.google.android.exoplayer2.util;
 
 import android.net.Uri;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class u {
-    public static Uri fk(String str, String str2) {
-        return Uri.parse(fl(str, str2));
+    public static Uri fs(String str, String str2) {
+        return Uri.parse(ft(str, str2));
     }
 
-    public static String fl(String str, String str2) {
+    public static String ft(String str, String str2) {
         StringBuilder sb = new StringBuilder();
         if (str == null) {
             str = "";
@@ -16,34 +16,34 @@ public final class u {
         if (str2 == null) {
             str2 = "";
         }
-        int[] Qk = Qk(str2);
-        if (Qk[0] != -1) {
+        int[] Qx = Qx(str2);
+        if (Qx[0] != -1) {
             sb.append(str2);
-            a(sb, Qk[1], Qk[2]);
+            a(sb, Qx[1], Qx[2]);
             return sb.toString();
         }
-        int[] Qk2 = Qk(str);
-        if (Qk[3] == 0) {
-            return sb.append((CharSequence) str, 0, Qk2[3]).append(str2).toString();
+        int[] Qx2 = Qx(str);
+        if (Qx[3] == 0) {
+            return sb.append((CharSequence) str, 0, Qx2[3]).append(str2).toString();
         }
-        if (Qk[2] == 0) {
-            return sb.append((CharSequence) str, 0, Qk2[2]).append(str2).toString();
+        if (Qx[2] == 0) {
+            return sb.append((CharSequence) str, 0, Qx2[2]).append(str2).toString();
         }
-        if (Qk[1] != 0) {
-            int i = Qk2[0] + 1;
+        if (Qx[1] != 0) {
+            int i = Qx2[0] + 1;
             sb.append((CharSequence) str, 0, i).append(str2);
-            return a(sb, Qk[1] + i, i + Qk[2]);
-        } else if (str2.charAt(Qk[1]) == '/') {
-            sb.append((CharSequence) str, 0, Qk2[1]).append(str2);
-            return a(sb, Qk2[1], Qk[2] + Qk2[1]);
-        } else if (Qk2[0] + 2 < Qk2[1] && Qk2[1] == Qk2[2]) {
-            sb.append((CharSequence) str, 0, Qk2[1]).append('/').append(str2);
-            return a(sb, Qk2[1], Qk[2] + Qk2[1] + 1);
+            return a(sb, Qx[1] + i, i + Qx[2]);
+        } else if (str2.charAt(Qx[1]) == '/') {
+            sb.append((CharSequence) str, 0, Qx2[1]).append(str2);
+            return a(sb, Qx2[1], Qx[2] + Qx2[1]);
+        } else if (Qx2[0] + 2 < Qx2[1] && Qx2[1] == Qx2[2]) {
+            sb.append((CharSequence) str, 0, Qx2[1]).append('/').append(str2);
+            return a(sb, Qx2[1], Qx[2] + Qx2[1] + 1);
         } else {
-            int lastIndexOf = str.lastIndexOf(47, Qk2[2] - 1);
-            int i2 = lastIndexOf == -1 ? Qk2[1] : lastIndexOf + 1;
+            int lastIndexOf = str.lastIndexOf(47, Qx2[2] - 1);
+            int i2 = lastIndexOf == -1 ? Qx2[1] : lastIndexOf + 1;
             sb.append((CharSequence) str, 0, i2).append(str2);
-            return a(sb, Qk2[1], i2 + Qk[2]);
+            return a(sb, Qx2[1], i2 + Qx[2]);
         }
     }
 
@@ -84,7 +84,7 @@ public final class u {
         return sb.toString();
     }
 
-    private static int[] Qk(String str) {
+    private static int[] Qx(String str) {
         int i;
         int[] iArr = new int[4];
         if (TextUtils.isEmpty(str)) {

@@ -18,14 +18,14 @@ import com.baidu.live.tbadk.scheme.SchemeCallback;
 import com.baidu.live.tbadk.scheme.SchemeUtils;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends com.baidu.live.view.web.a {
-    private SchemeCallback aCp;
+    private SchemeCallback aGw;
     private Context context;
 
     public i(Context context, SchemeCallback schemeCallback) {
         this.context = context;
-        this.aCp = schemeCallback;
+        this.aGw = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -34,7 +34,7 @@ public class i extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void dV(String str) {
+    public void ek(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl WkBridgeJsInterface params = " + str);
         if (str != null && str.contains("rmb_baiducloud://")) {
             if (this.context instanceof Activity) {
@@ -54,24 +54,24 @@ public class i extends com.baidu.live.view.web.a {
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, faceRecognitionActivityConfig));
             }
-        } else if (this.aCp == null) {
+        } else if (this.aGw == null) {
             SchemeUtils.openScheme(str);
         } else {
-            SchemeUtils.openScheme(str, this.aCp);
+            SchemeUtils.openScheme(str, this.aGw);
         }
     }
 
     @Override // com.baidu.live.view.web.a
-    public void d(String str, String str2, boolean z) {
+    public void e(String str, String str2, boolean z) {
         PackageManager packageManager;
         if (!TextUtils.isEmpty(str)) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             List<ResolveInfo> queryIntentActivities = (this.context == null || (packageManager = this.context.getPackageManager()) == null) ? null : packageManager.queryIntentActivities(intent, 0);
             boolean z2 = (queryIntentActivities == null || queryIntentActivities.isEmpty()) ? false : true;
-            if (this.aCp != null) {
-                this.aCp.doJsCallback(z2 ? 1 : 0, "", null, str2);
+            if (this.aGw != null) {
+                this.aGw.doJsCallback(z2 ? 1 : 0, "", null, str2);
             }
-            if (z && z2) {
+            if (z && z2 && this.context != null) {
                 intent.addFlags(268435456);
                 this.context.startActivity(intent);
             }

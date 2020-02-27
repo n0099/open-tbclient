@@ -17,64 +17,63 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.personPolymeric.b.a {
-    private BdUniqueId Mm;
-    private TbPageContext cRe;
-    private boolean ejJ;
-    private BaseFragmentActivity gpB;
-    private com.baidu.tieba.personPolymeric.c.a jmN;
-    private PersonPolymericModel jmz;
-    private f jnf;
-    private p jng;
-    private e jnh;
-    private PersonPostModel jni;
-    private a jnj;
-    PersonPostModel.b jnk;
+    private BdUniqueId MO;
+    private TbPageContext cVg;
+    private boolean enT;
+    private BaseFragmentActivity grC;
+    private com.baidu.tieba.personPolymeric.c.a jnG;
+    private f jnY;
+    private p jnZ;
+    private PersonPolymericModel jns;
+    private e joa;
+    private PersonPostModel job;
+    private a joc;
+    PersonPostModel.b jod;
     private List<com.baidu.tieba.person.data.e> mList;
     private int mSex;
     private int mSkinType;
     private long mUserId;
     private View mView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
     }
 
     public j(BaseFragment baseFragment, f fVar, BdUniqueId bdUniqueId, long j, boolean z) {
         super(z);
-        this.ejJ = true;
+        this.enT = true;
         this.mSex = 1;
         this.mSkinType = 3;
-        this.jnj = new a() { // from class: com.baidu.tieba.personPolymeric.b.j.1
+        this.joc = new a() { // from class: com.baidu.tieba.personPolymeric.b.j.1
         };
-        this.jnk = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.b.j.2
+        this.jod = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.b.j.2
             @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.b
             public void a(PersonPostModel personPostModel, boolean z2) {
-                j.this.jng.bIj();
+                j.this.jnZ.bJL();
                 if (personPostModel != null) {
-                    l.showToast(j.this.cRe.getContext(), personPostModel.getErrorString());
+                    l.showToast(j.this.cVg.getContext(), personPostModel.getErrorString());
                 } else {
-                    l.showToast(j.this.cRe.getContext(), j.this.cRe.getString(R.string.data_load_error));
+                    l.showToast(j.this.cVg.getContext(), j.this.cVg.getString(R.string.data_load_error));
                 }
                 if (z2) {
-                    j.this.jng.aO(null);
-                    j.this.jnh.bbc();
+                    j.this.joa.bdr();
                 }
             }
         };
-        this.gpB = baseFragment.getBaseFragmentActivity();
-        this.cRe = this.gpB.getPageContext();
+        this.grC = baseFragment.getBaseFragmentActivity();
+        this.cVg = this.grC.getPageContext();
         this.mUserId = j;
-        this.jnf = fVar;
-        this.Mm = bdUniqueId;
+        this.jnY = fVar;
+        this.MO = bdUniqueId;
         this.mView = fVar.mRootView;
-        this.jni = new PersonPostModel(this.cRe, bdUniqueId, null, this.mIsHost, PersonPostModel.FROM_PERSON_POLYMERIC);
-        this.jng = new p(baseFragment, fVar, bdUniqueId, z, this.mUserId);
-        this.jng.a(this);
+        this.job = new PersonPostModel(this.cVg, bdUniqueId, null, this.mIsHost, PersonPostModel.FROM_PERSON_POLYMERIC);
+        this.jnZ = new p(baseFragment, fVar, bdUniqueId, z, this.mUserId);
+        this.jnZ.a(this);
         resetData();
-        this.jmz = this.jnf.cvu();
-        this.jnh = this.jnf.cvv();
+        this.jns = this.jnY.cwN();
+        this.joa = this.jnY.cwO();
         this.mList = new ArrayList(2);
         this.mList.add(new com.baidu.tieba.person.data.e());
         this.mList.add(new com.baidu.tieba.person.data.e());
@@ -82,89 +81,82 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
 
     @Override // com.baidu.tieba.model.a
     public void refreshData() {
-        if (this.jnf != null) {
-            this.jnf.refreshData();
+        if (this.jnY != null) {
+            this.jnY.refreshData();
         }
     }
 
     @Override // com.baidu.tieba.model.a
     public void loadData() {
-        if (this.jnf != null) {
-            this.jnf.loadData();
+        if (this.jnY != null) {
+            this.jnY.loadData();
         }
     }
 
     @Override // com.baidu.tieba.model.a
     public void resetData() {
-        this.jni.resetThreadPn();
-        if (this.jmz != null) {
-            this.jmz.resetData();
+        this.job.resetThreadPn();
+        if (this.jns != null) {
+            this.jns.resetData();
         }
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
         boolean z;
-        this.jmN = aVar;
-        this.jng.bIj();
-        this.gpB.hideLoadingView(this.mView);
+        this.jnG = aVar;
+        this.jnZ.bJL();
+        this.grC.hideLoadingView(this.mView);
         if (aVar == null) {
-            this.jnh.an(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
-            this.jnh.bbc();
-            this.jnh.zR(8);
+            this.joa.an(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+            this.joa.bdr();
+            this.joa.zY(8);
             return;
         }
-        this.jnh.baf();
-        if (aVar.bBu() != null && aVar.getUserData() != null && aVar.getUserData().getBaijiahaoInfo() != null && ((aVar.bBu().getHide_stat() == 1 && aVar.bBu().getBlock_stat() == 1) || (aVar.bBu().getHide_stat() == 1 && aVar.bBu().getBlock_stat() == 2))) {
-            this.jnh.rl(this.mIsHost);
-            this.jnh.zR(8);
+        this.joa.bcv();
+        if (aVar.bCW() != null && aVar.getUserData() != null && aVar.getUserData().isBaijiahaoUser() && ((aVar.bCW().getHide_stat() == 1 && aVar.bCW().getBlock_stat() == 1) || (aVar.bCW().getHide_stat() == 1 && aVar.bCW().getBlock_stat() == 2))) {
+            this.joa.rp(this.mIsHost);
+            this.joa.zY(8);
             return;
         }
-        this.jnh.zR(0);
-        aVar.cvH();
-        if (aVar.bOU() != null) {
-            z = aVar.bOU().size() >= 20;
+        this.joa.zY(0);
+        aVar.cxa();
+        if (aVar.bQv() != null) {
+            z = aVar.bQv().size() >= 20;
         } else {
             z = false;
         }
         if (aVar.getUserData() != null) {
             this.mSex = aVar.getUserData().getSex();
         }
-        this.ejJ = false;
+        this.enT = false;
         if (this.mIsHost && aVar.getUserData() != null) {
             aVar.getUserData().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
-            com.baidu.tbadk.getUserInfo.b.aNl().a(aVar.getUserData());
+            com.baidu.tbadk.getUserInfo.b.aPH().a(aVar.getUserData());
         }
         com.baidu.tieba.person.data.e eVar = this.mList.get(0);
-        eVar.aN(aVar.bOU());
-        eVar.rb(z);
-        this.jng.a(aVar, z, a(aVar));
+        eVar.aN(aVar.bQv());
+        eVar.rf(z);
+        this.jnZ.a(aVar, z, a(aVar));
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.jng != null) {
-                this.jng.onChangeSkinType(i);
+            if (this.jnZ != null) {
+                this.jnZ.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
     }
 
-    public boolean onBackPressed() {
-        if (this.jng != null) {
-            return this.jng.onBackPressed();
-        }
-        return false;
-    }
-
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.Mm);
-        if (this.jng != null) {
-            this.jng.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.MO);
+        if (this.jnZ != null) {
+            this.jnZ.onDestory();
         }
     }
 
-    public void lg(boolean z) {
-        if (z && this.ejJ) {
+    public void onPrimary(boolean z) {
+        if (z && this.enT) {
             loadData();
         }
     }
@@ -172,36 +164,32 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     public void onResume() {
         if (TbadkCoreApplication.isLogin() && !this.mIsHost && this.mUserId == TbadkCoreApplication.getCurrentAccountId()) {
             this.mIsHost = true;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.cRe.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
-            this.gpB.finish();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.cVg.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+            this.grC.finish();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public void GD(String str) {
+    public void GR(String str) {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public void GE(String str) {
+    public void GS(String str) {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public void cvm() {
-        if (this.jng != null) {
-            this.jng.cvm();
+    public void cwF() {
+        if (this.jnZ != null) {
+            this.jnZ.cwF();
         }
-    }
-
-    public void rp(boolean z) {
-        this.jng.rp(z);
     }
 
     public void a(com.baidu.tieba.view.e eVar) {
-        this.jng.setOnViewResponseListener(eVar);
+        this.jnZ.setOnViewResponseListener(eVar);
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public p cvn() {
-        return this.jng;
+    public p cwG() {
+        return this.jnZ;
     }
 }

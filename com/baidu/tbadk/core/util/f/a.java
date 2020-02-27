@@ -5,21 +5,21 @@ import android.view.View;
 import com.baidu.tbadk.core.util.f.a.b;
 /* loaded from: classes.dex */
 public class a {
-    public static com.baidu.tbadk.core.util.f.b.a aEL() {
-        return com.baidu.tbadk.core.util.f.b.a.aEW();
+    public static com.baidu.tbadk.core.util.f.b.a aGX() {
+        return com.baidu.tbadk.core.util.f.b.a.aHi();
     }
 
-    public static b aEM() {
-        return b.aEN();
+    public static b aGY() {
+        return b.aGZ();
     }
 
     public static void c(View view, int i, int i2) {
         if (view != null) {
-            b.aEN().kr(1).kl(i).kn(i2).aQ(view);
+            b.aGZ().kI(1).kC(i).kE(i2).aQ(view);
         }
     }
 
     public static b c(Drawable drawable, Drawable drawable2) {
-        return b.aEN().kr(1).f(drawable).g(drawable2);
+        return b.aGZ().kI(1).f(drawable).g(drawable2);
     }
 }

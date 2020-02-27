@@ -26,7 +26,7 @@ import javax.crypto.ShortBufferException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.conscrypt.NativeRef;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class OpenSSLCipher extends CipherSpi {
     private int blockSize;
     byte[] encodedKey;
@@ -35,7 +35,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
     Mode mode;
     private Padding padding;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     enum Mode {
         NONE,
         CBC,
@@ -66,7 +66,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
     abstract int updateInternal(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) throws ShortBufferException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum Padding {
         NOPADDING,
         PKCS5PADDING,
@@ -342,7 +342,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
         return this.encrypting;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class EVP_CIPHER extends OpenSSLCipher {
         boolean calledUpdate;
         private final NativeRef.EVP_CIPHER_CTX cipherCtx;
@@ -455,7 +455,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
             this.calledUpdate = false;
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static abstract class AES_BASE extends EVP_CIPHER {
             private static final int AES_BLOCK_SIZE = 16;
 
@@ -502,26 +502,26 @@ public abstract class OpenSSLCipher extends CipherSpi {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class AES extends AES_BASE {
             AES(Mode mode, Padding padding) {
                 super(mode, padding);
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class CBC extends AES {
                 public CBC(Padding padding) {
                     super(Mode.CBC, padding);
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class NoPadding extends CBC {
                     public NoPadding() {
                         super(Padding.NOPADDING);
                     }
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class PKCS5Padding extends CBC {
                     public PKCS5Padding() {
                         super(Padding.PKCS5PADDING);
@@ -529,27 +529,27 @@ public abstract class OpenSSLCipher extends CipherSpi {
                 }
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class CTR extends AES {
                 public CTR() {
                     super(Mode.CTR, Padding.NOPADDING);
                 }
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class ECB extends AES {
                 public ECB(Padding padding) {
                     super(Mode.ECB, padding);
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class NoPadding extends ECB {
                     public NoPadding() {
                         super(Padding.NOPADDING);
                     }
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class PKCS5Padding extends ECB {
                     public PKCS5Padding() {
                         super(Padding.PKCS5PADDING);
@@ -570,26 +570,26 @@ public abstract class OpenSSLCipher extends CipherSpi {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class AES_128 extends AES_BASE {
             AES_128(Mode mode, Padding padding) {
                 super(mode, padding);
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class CBC extends AES_128 {
                 public CBC(Padding padding) {
                     super(Mode.CBC, padding);
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class NoPadding extends CBC {
                     public NoPadding() {
                         super(Padding.NOPADDING);
                     }
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class PKCS5Padding extends CBC {
                     public PKCS5Padding() {
                         super(Padding.PKCS5PADDING);
@@ -597,27 +597,27 @@ public abstract class OpenSSLCipher extends CipherSpi {
                 }
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class CTR extends AES_128 {
                 public CTR() {
                     super(Mode.CTR, Padding.NOPADDING);
                 }
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class ECB extends AES_128 {
                 public ECB(Padding padding) {
                     super(Mode.ECB, padding);
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class NoPadding extends ECB {
                     public NoPadding() {
                         super(Padding.NOPADDING);
                     }
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class PKCS5Padding extends ECB {
                     public PKCS5Padding() {
                         super(Padding.PKCS5PADDING);
@@ -633,26 +633,26 @@ public abstract class OpenSSLCipher extends CipherSpi {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class AES_256 extends AES_BASE {
             AES_256(Mode mode, Padding padding) {
                 super(mode, padding);
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class CBC extends AES_256 {
                 public CBC(Padding padding) {
                     super(Mode.CBC, padding);
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class NoPadding extends CBC {
                     public NoPadding() {
                         super(Padding.NOPADDING);
                     }
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class PKCS5Padding extends CBC {
                     public PKCS5Padding() {
                         super(Padding.PKCS5PADDING);
@@ -660,27 +660,27 @@ public abstract class OpenSSLCipher extends CipherSpi {
                 }
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class CTR extends AES_256 {
                 public CTR() {
                     super(Mode.CTR, Padding.NOPADDING);
                 }
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class ECB extends AES_256 {
                 public ECB(Padding padding) {
                     super(Mode.ECB, padding);
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class NoPadding extends ECB {
                     public NoPadding() {
                         super(Padding.NOPADDING);
                     }
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class PKCS5Padding extends ECB {
                     public PKCS5Padding() {
                         super(Padding.PKCS5PADDING);
@@ -696,7 +696,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class DESEDE extends EVP_CIPHER {
             private static final int DES_BLOCK_SIZE = 8;
 
@@ -704,20 +704,20 @@ public abstract class OpenSSLCipher extends CipherSpi {
                 super(mode, padding);
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class CBC extends DESEDE {
                 public CBC(Padding padding) {
                     super(Mode.CBC, padding);
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class NoPadding extends CBC {
                     public NoPadding() {
                         super(Padding.NOPADDING);
                     }
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class PKCS5Padding extends CBC {
                     public PKCS5Padding() {
                         super(Padding.PKCS5PADDING);
@@ -772,7 +772,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class ARC4 extends EVP_CIPHER {
             public ARC4() {
                 super(Mode.ECB, Padding.NOPADDING);
@@ -818,7 +818,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class EVP_AEAD extends OpenSSLCipher {
         private static final int DEFAULT_TAG_SIZE_BITS = 128;
         private static int lastGlobalMessageSize = 32;
@@ -1030,7 +1030,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
             this.aad = bArr2;
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static abstract class AES extends EVP_AEAD {
             private static final int AES_BLOCK_SIZE = 16;
 
@@ -1059,7 +1059,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
                 return 16;
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes7.dex */
             public static class GCM extends AES {
                 public GCM() {
                     super(Mode.GCM);
@@ -1120,7 +1120,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
                     return isEncrypting() ? this.bufCount + i + this.tagLengthInBytes : Math.max(0, (this.bufCount + i) - this.tagLengthInBytes);
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class AES_128 extends GCM {
                     @Override // org.conscrypt.OpenSSLCipher.EVP_AEAD.AES, org.conscrypt.OpenSSLCipher
                     void checkSupportedKeySize(int i) throws InvalidKeyException {
@@ -1130,7 +1130,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
                     }
                 }
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes7.dex */
                 public static class AES_256 extends GCM {
                     @Override // org.conscrypt.OpenSSLCipher.EVP_AEAD.AES, org.conscrypt.OpenSSLCipher
                     void checkSupportedKeySize(int i) throws InvalidKeyException {
@@ -1142,7 +1142,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class ChaCha20 extends EVP_AEAD {
             public ChaCha20() {
                 super(Mode.POLY1305);

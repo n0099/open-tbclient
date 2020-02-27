@@ -5,9 +5,9 @@ import io.reactivex.k;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class MaybeAmb<T> extends k<T> {
-    private final Iterable<? extends o<? extends T>> nvQ;
+    private final Iterable<? extends o<? extends T>> nws;
     private final o<? extends T>[] sources;
 
     @Override // io.reactivex.k
@@ -18,7 +18,7 @@ public final class MaybeAmb<T> extends k<T> {
             o<? extends T>[] oVarArr2 = new o[8];
             try {
                 int i = 0;
-                for (o<? extends T> oVar : this.nvQ) {
+                for (o<? extends T> oVar : this.nws) {
                     if (oVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), mVar);
                         return;
@@ -35,7 +35,7 @@ public final class MaybeAmb<T> extends k<T> {
                 length = i;
                 oVarArr = oVarArr2;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 EmptyDisposable.error(th, mVar);
                 return;
             }
@@ -61,7 +61,7 @@ public final class MaybeAmb<T> extends k<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class AmbMaybeObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -7044685185359438206L;
         final m<? super T> actual;

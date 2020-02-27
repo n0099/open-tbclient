@@ -22,7 +22,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, final CrossPushMessage crossPushMessage, final String str, final byte[] bArr, final byte[] bArr2) {

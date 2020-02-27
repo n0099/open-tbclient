@@ -1,21 +1,21 @@
 package com.xiaomi.push;
 
 import android.os.AsyncTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class ck extends AsyncTask<String, Integer, Integer> {
     ch a;
 
     /* renamed from: a  reason: collision with other field name */
-    co f195a;
+    co f192a;
 
     /* renamed from: a  reason: collision with other field name */
-    String f196a;
+    String f193a;
     String b;
 
     public ck(co coVar, String str, String str2, ch chVar) {
-        this.f196a = str;
+        this.f193a = str;
         this.b = str2;
-        this.f195a = coVar;
+        this.f192a = coVar;
         this.a = chVar;
     }
 
@@ -24,7 +24,7 @@ class ck extends AsyncTask<String, Integer, Integer> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public Integer doInBackground(String... strArr) {
-        return Integer.valueOf(cl.a(this.f196a, this.b, this.a));
+        return Integer.valueOf(cl.a(this.f193a, this.b, this.a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,16 +33,16 @@ class ck extends AsyncTask<String, Integer, Integer> {
     /* renamed from: a */
     public void onPostExecute(Integer num) {
         super.onPostExecute(num);
-        if (this.f195a != null) {
-            this.f195a.a(num, this.a);
+        if (this.f192a != null) {
+            this.f192a.a(num, this.a);
         }
     }
 
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        if (this.f195a != null) {
-            this.f195a.a(1, this.a);
+        if (this.f192a != null) {
+            this.f192a.a(1, this.a);
         }
     }
 }

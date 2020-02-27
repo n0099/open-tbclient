@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ActionJsonData {
     public static final int STATUS_DEFAULT = -1;
     public static final int STATUS_OK = 0;
@@ -26,19 +26,19 @@ public class ActionJsonData {
     private int mStatus = -1;
     private int mVersion = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class Link {
         public Notification mNotification;
         public SignIn mSignIn;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class Notification {
         public String mCommand;
         public String mText;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class SignIn {
         public String mCommand;
     }

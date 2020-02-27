@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class MsgMultiImageTextViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgMultiImageTextView> {
     public MsgMultiImageTextViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -27,20 +27,20 @@ public class MsgMultiImageTextViewItemAdapter extends com.baidu.tieba.im.chat.e<
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgMultiImageTextView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgMultiImageTextView bQJ = aVar.bQJ();
-        bQJ.setOnItemViewLongClickListener(this.hqp);
-        bQJ.setPosition(i);
-        bQJ.dL(this.eeX);
-        bQJ.dK(chatMessage.getCacheData().getLastMsgTime());
-        bQJ.a(this.mPageContext, chatMessage, viewGroup);
+        MsgMultiImageTextView bSk = aVar.bSk();
+        bSk.setOnItemViewLongClickListener(this.hso);
+        bSk.setPosition(i);
+        bSk.dL(this.eja);
+        bSk.dK(chatMessage.getCacheData().getLastMsgTime());
+        bSk.a(this.mPageContext, chatMessage, viewGroup);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        com.baidu.tieba.im.b.a.bWB().a(chatMessage, this.mPageContext.getPageActivity());
+        com.baidu.tieba.im.b.a.bYc().a(chatMessage, this.mPageContext.getPageActivity());
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class a extends e.a<MsgMultiImageTextView> {
         public a(View view, MsgMultiImageTextView msgMultiImageTextView) {
             super(view, msgMultiImageTextView);

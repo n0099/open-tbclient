@@ -11,7 +11,7 @@ import com.google.zxing.pdf417.encoder.PDF417;
 import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class PDF417Writer implements Writer {
     static final int DEFAULT_ERROR_CORRECTION_LEVEL = 2;
     static final int WHITE_SPACE = 30;

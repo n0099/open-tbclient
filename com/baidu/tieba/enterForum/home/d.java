@@ -11,22 +11,22 @@ import com.baidu.tieba.enterForum.data.f;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d implements com.baidu.tieba.c.a {
-    private EnterForumModel fSE;
-    private a.InterfaceC0481a fTB;
-    private final EnterForumModel.b fSS = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.d.1
+    private EnterForumModel fUY;
+    private a.InterfaceC0489a fVT;
+    private final EnterForumModel.b fVm = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.d.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
-            if (d.this.fTB != null) {
-                if (aVar == null || !aVar.isOk || aVar.fUf == null || aVar.fUf.bwb() == null) {
-                    d.this.fTB.a(null, false, 1, 0);
+            if (d.this.fVT != null) {
+                if (aVar == null || !aVar.isOk || aVar.fWx == null || aVar.fWx.bxF() == null) {
+                    d.this.fVT.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<f> bwu = aVar.fUf.bwb().bwu();
-                if (v.getCount(bwu) > 0) {
-                    Iterator<f> it = bwu.iterator();
+                ArrayList<f> bxX = aVar.fWx.bxF().bxX();
+                if (v.getCount(bxX) > 0) {
+                    Iterator<f> it = bxX.iterator();
                     while (it.hasNext()) {
                         f next = it.next();
                         if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.getName())) {
@@ -34,40 +34,40 @@ public class d implements com.baidu.tieba.c.a {
                         }
                     }
                 }
-                d.this.fTB.a(arrayList, true, 1, 0);
+                d.this.fVT.a(arrayList, true, 1, 0);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a fTC = new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.enterForum.home.d.2
+    private com.baidu.adp.framework.listener.a fVU = new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.enterForum.home.d.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.fSE.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.fUY.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    d.this.fSE.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    d.this.fUY.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    d.this.fSE.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    d.this.fUY.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     };
 
     public d() {
-        this.fSE = null;
-        this.fSE = new EnterForumModel(null);
-        this.fSE.a(this.fSS);
-        MessageManager.getInstance().registerListener(this.fTC);
+        this.fUY = null;
+        this.fUY = new EnterForumModel(null);
+        this.fUY.a(this.fVm);
+        MessageManager.getInstance().registerListener(this.fVU);
     }
 
     @Override // com.baidu.tieba.c.a
-    public void buz() {
-        if (this.fTB != null && this.fSE != null) {
-            this.fSE.kE(true);
+    public void bwd() {
+        if (this.fVT != null && this.fUY != null) {
+            this.fUY.kG(true);
         }
     }
 
     @Override // com.baidu.tieba.c.a
-    public void a(a.InterfaceC0481a interfaceC0481a) {
-        this.fTB = interfaceC0481a;
+    public void a(a.InterfaceC0489a interfaceC0489a) {
+        this.fVT = interfaceC0489a;
     }
 }

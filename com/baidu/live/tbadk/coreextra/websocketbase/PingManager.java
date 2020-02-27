@@ -3,25 +3,18 @@ package com.baidu.live.tbadk.coreextra.websocketbase;
 import android.os.Handler;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.message.BackgroundSwitchMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PingManager extends Handler {
     private static final int MIN_INTERVAL = 180000;
     private static final String MODULE_NAME = "PingManager";
     private static final int PING = 1;
-    private static PingManager sInstance = null;
+    private static PingManager sInstance = new PingManager();
     private long mLastPingTime = 0;
     private int mForegroundInterval = MIN_INTERVAL;
     private int mBackgroundInterval = 900000;
     private int mCurrentInterval = this.mBackgroundInterval;
 
     public static PingManager getInstance() {
-        if (sInstance == null) {
-            synchronized (PingManager.class) {
-                if (sInstance == null) {
-                    sInstance = new PingManager();
-                }
-            }
-        }
         return sInstance;
     }
 

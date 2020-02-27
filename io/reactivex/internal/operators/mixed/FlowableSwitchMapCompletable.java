@@ -13,20 +13,20 @@ import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
     final h<? super T, ? extends e> mapper;
-    final g<T> nvP;
+    final g<T> nwr;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        this.nvP.a((j) new SwitchMapCompletableObserver(cVar, this.mapper, this.delayErrors));
+        this.nwr.a((j) new SwitchMapCompletableObserver(cVar, this.mapper, this.delayErrors));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SwitchMapCompletableObserver<T> implements b, j<T> {
-        static final SwitchMapInnerObserver nxh = new SwitchMapInnerObserver(null);
+        static final SwitchMapInnerObserver nxJ = new SwitchMapInnerObserver(null);
         final boolean delayErrors;
         volatile boolean done;
         final c downstream;
@@ -58,7 +58,7 @@ public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
                 SwitchMapInnerObserver switchMapInnerObserver2 = new SwitchMapInnerObserver(this);
                 do {
                     switchMapInnerObserver = this.inner.get();
-                    if (switchMapInnerObserver == nxh) {
+                    if (switchMapInnerObserver == nxJ) {
                         return;
                     }
                 } while (!this.inner.compareAndSet(switchMapInnerObserver, switchMapInnerObserver2));
@@ -67,7 +67,7 @@ public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
                 }
                 eVar.a(switchMapInnerObserver2);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.upstream.cancel();
                 onError(th);
             }
@@ -105,8 +105,8 @@ public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
         }
 
         void disposeInner() {
-            SwitchMapInnerObserver andSet = this.inner.getAndSet(nxh);
-            if (andSet != null && andSet != nxh) {
+            SwitchMapInnerObserver andSet = this.inner.getAndSet(nxJ);
+            if (andSet != null && andSet != nxJ) {
                 andSet.dispose();
             }
         }
@@ -119,7 +119,7 @@ public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.inner.get() == nxh;
+            return this.inner.get() == nxJ;
         }
 
         void a(SwitchMapInnerObserver switchMapInnerObserver, Throwable th) {
@@ -154,7 +154,7 @@ public final class FlowableSwitchMapCompletable<T> extends io.reactivex.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class SwitchMapInnerObserver extends AtomicReference<b> implements c {
             private static final long serialVersionUID = -8003404460084760287L;
             final SwitchMapCompletableObserver<?> parent;

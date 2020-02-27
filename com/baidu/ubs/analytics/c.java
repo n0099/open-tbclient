@@ -2,14 +2,14 @@ package com.baidu.ubs.analytics;
 
 import android.content.Context;
 import com.baidu.ubs.analytics.d.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class c {
     private long e;
-    private boolean kUW;
-    private long kUX;
-    private long kUY;
-    private boolean kUZ;
-    private int kVa;
+    private boolean kVC;
+    private long kVD;
+    private long kVE;
+    private boolean kVF;
+    private int kVG;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -18,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.kUW = aVar.kUW;
-        this.e = aVar.kVb;
-        this.kUX = aVar.kUX;
-        this.kUZ = aVar.kUZ;
-        this.kUY = aVar.kUY;
-        this.kVa = aVar.kVa;
+        this.kVC = aVar.kVC;
+        this.e = aVar.kVH;
+        this.kVD = aVar.kVD;
+        this.kVF = aVar.kVF;
+        this.kVE = aVar.kVE;
+        this.kVG = aVar.kVG;
     }
 
     public final Context b() {
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.kUW;
+        return this.kVC;
     }
 
     public final long d() {
@@ -39,70 +39,70 @@ public final class c {
     }
 
     public final long e() {
-        return this.kUX;
+        return this.kVD;
     }
 
     public final long f() {
-        return this.kUY;
+        return this.kVE;
     }
 
     public final boolean g() {
-        return this.kUZ;
+        return this.kVF;
     }
 
     public final int h() {
-        return this.kVa;
+        return this.kVG;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         private Context mContext;
-        private boolean kUW = true;
-        private long kVb = 30000;
-        private long kUX = 60000;
-        private long kUY = 10000;
-        private boolean kUZ = false;
-        private int kVa = 1000;
+        private boolean kVC = true;
+        private long kVH = 30000;
+        private long kVD = 60000;
+        private long kVE = 10000;
+        private boolean kVF = false;
+        private int kVG = 1000;
 
-        public a fM(Context context) {
+        public a fL(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a tU(boolean z) {
-            this.kUW = z;
+        public a tY(boolean z) {
+            this.kVC = z;
             return this;
         }
 
-        public a eL(long j) {
-            this.kVb = 1000 * j;
+        public a eJ(long j) {
+            this.kVH = 1000 * j;
             return this;
         }
 
-        public a Ev(int i) {
-            this.kUX = i * 60 * 1000;
+        public a EA(int i) {
+            this.kVD = i * 60 * 1000;
             return this;
         }
 
-        public a eM(long j) {
-            this.kUY = 1000 * j;
+        public a eK(long j) {
+            this.kVE = 1000 * j;
             return this;
         }
 
-        public a tV(boolean z) {
-            this.kUZ = z;
+        public a tZ(boolean z) {
+            this.kVF = z;
             return this;
         }
 
-        public a Ew(int i) {
+        public a EB(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.kVa = i2 < 1000 ? i2 : 1000;
+            this.kVG = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c cVX() {
+        public c cXl() {
             if (this.mContext == null) {
-                j.Lf("Context must be not empty!");
+                j.Ls("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

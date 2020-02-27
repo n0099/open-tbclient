@@ -12,7 +12,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ViewDragHelper {
     private static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -65,7 +65,7 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static abstract class Callback {
         public abstract boolean isPageTranslucent();
 
@@ -224,15 +224,15 @@ public class ViewDragHelper {
 
     private boolean forceSettleCapturedViewAt(int i, int i2, int i3, int i4) {
         int left = this.mCapturedView.getLeft();
-        int top = this.mCapturedView.getTop();
+        int top2 = this.mCapturedView.getTop();
         int i5 = i - left;
-        int i6 = i2 - top;
+        int i6 = i2 - top2;
         if (i5 == 0 && i6 == 0) {
             this.mScroller.abortAnimation();
             setDragState(0);
             return false;
         }
-        this.mScroller.startScroll(left, top, i5, i6, computeSettleDuration(this.mCapturedView, i5, i6, i3, i4));
+        this.mScroller.startScroll(left, top2, i5, i6, computeSettleDuration(this.mCapturedView, i5, i6, i3, i4));
         setDragState(2);
         return true;
     }
@@ -302,15 +302,15 @@ public class ViewDragHelper {
             int currX = this.mScroller.getCurrX();
             int currY = this.mScroller.getCurrY();
             int left = currX - this.mCapturedView.getLeft();
-            int top = currY - this.mCapturedView.getTop();
+            int top2 = currY - this.mCapturedView.getTop();
             if (left != 0) {
                 this.mCapturedView.offsetLeftAndRight(left);
             }
-            if (top != 0) {
-                this.mCapturedView.offsetTopAndBottom(top);
+            if (top2 != 0) {
+                this.mCapturedView.offsetTopAndBottom(top2);
             }
-            if (left != 0 || top != 0) {
-                this.mCallback.onViewPositionChanged(this.mCapturedView, currX, currY, left, top);
+            if (left != 0 || top2 != 0) {
+                this.mCallback.onViewPositionChanged(this.mCapturedView, currX, currY, left, top2);
             }
             if (computeScrollOffset && currX == this.mScroller.getFinalX() && currY == this.mScroller.getFinalY()) {
                 this.mScroller.abortAnimation();
@@ -514,8 +514,8 @@ public class ViewDragHelper {
                     if (z) {
                         int left = findTopChildUnder3.getLeft();
                         int clampViewPositionHorizontal = this.mCallback.clampViewPositionHorizontal(findTopChildUnder3, ((int) f) + left, (int) f);
-                        int top = findTopChildUnder3.getTop();
-                        int clampViewPositionVertical = this.mCallback.clampViewPositionVertical(findTopChildUnder3, ((int) f2) + top, (int) f2);
+                        int top2 = findTopChildUnder3.getTop();
+                        int clampViewPositionVertical = this.mCallback.clampViewPositionVertical(findTopChildUnder3, ((int) f2) + top2, (int) f2);
                         int viewHorizontalDragRange = this.mCallback.getViewHorizontalDragRange(findTopChildUnder3);
                         int viewVerticalDragRange = this.mCallback.getViewVerticalDragRange(findTopChildUnder3);
                         if (viewHorizontalDragRange != 0) {
@@ -523,7 +523,7 @@ public class ViewDragHelper {
                             }
                         }
                         if (viewVerticalDragRange != 0) {
-                            if (viewVerticalDragRange > 0 && clampViewPositionVertical == top) {
+                            if (viewVerticalDragRange > 0 && clampViewPositionVertical == top2) {
                             }
                         }
                         saveLastMotion(motionEvent);
@@ -780,7 +780,7 @@ public class ViewDragHelper {
         int i5;
         int i6;
         int left = this.mCapturedView.getLeft();
-        int top = this.mCapturedView.getTop();
+        int top2 = this.mCapturedView.getTop();
         if (i3 != 0) {
             i5 = this.mCallback.clampViewPositionHorizontal(this.mCapturedView, i, i3);
             if (this.mCallback.isPageTranslucent()) {
@@ -791,13 +791,13 @@ public class ViewDragHelper {
         }
         if (i4 != 0) {
             i6 = this.mCallback.clampViewPositionVertical(this.mCapturedView, i2, i4);
-            this.mCapturedView.offsetTopAndBottom(i6 - top);
+            this.mCapturedView.offsetTopAndBottom(i6 - top2);
         } else {
             i6 = i2;
         }
         if (i3 != 0 || i4 != 0) {
             int i7 = i5 - left;
-            int i8 = i6 - top;
+            int i8 = i6 - top2;
             if (this.mCallback.isPageTranslucent()) {
                 this.mCallback.onViewPositionChanged(this.mCapturedView, i5, i6, i7, i8);
             }

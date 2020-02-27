@@ -2,13 +2,13 @@ package com.baidu.swan.apps.media.chooser.b;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
     public String callback;
     public int sourceType = 3;
-    public boolean byQ = true;
-    public String byR = "back";
-    public int byS = 60;
+    public boolean bCX = true;
+    public String bCY = "back";
+    public int bCZ = 60;
 
     public static f an(JSONObject jSONObject) {
         f fVar = new f();
@@ -45,13 +45,13 @@ public class f {
                 }
                 fVar.sourceType = i;
             }
-            fVar.byQ = jSONObject.optBoolean("compressed", true);
+            fVar.bCX = jSONObject.optBoolean("compressed", true);
             int optInt = jSONObject.optInt("maxDuration", 60);
             if (optInt > 60) {
                 optInt = 60;
             }
-            fVar.byS = optInt;
-            fVar.byR = jSONObject.optString("camera");
+            fVar.bCZ = optInt;
+            fVar.bCY = jSONObject.optString("camera");
             fVar.callback = jSONObject.optString("cb");
         }
         return fVar;

@@ -1,7 +1,7 @@
 package com.baidu.pano.platform.a.a;
 
 import com.baidu.pano.platform.a.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.pano.platform.a.n<byte[]> {
     private final q.b<byte[]> a;
 

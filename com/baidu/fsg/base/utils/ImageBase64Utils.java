@@ -8,13 +8,13 @@ import android.util.Base64;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageBase64Utils {
     private static final String a = "ImageBase64Utils";
     private static int b = 70;
     private static ImageBase64Utils c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
@@ -116,7 +116,7 @@ public class ImageBase64Utils {
         new ImageBase64AsyncTask(imageBase64Listener, str, i).execute("");
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
         private ImageBase64Listener b;
         private String c;

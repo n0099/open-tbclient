@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.liveroom;
 import android.os.Bundle;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.BaseActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveFloatWindowActivity extends BaseActivity<AlaLiveFloatWindowActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity

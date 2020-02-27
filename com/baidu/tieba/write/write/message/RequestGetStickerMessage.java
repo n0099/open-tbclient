@@ -6,24 +6,24 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class RequestGetStickerMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f983common;
+    private CommonReq f1030common;
 
     public RequestGetStickerMessage() {
         super(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST);
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f983common = commonReq;
+        this.f1030common = commonReq;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f957common = this.f983common;
+        builder.f954common = this.f1030common;
         if (z) {
             t.a(builder, true);
         }

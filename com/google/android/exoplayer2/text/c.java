@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.text;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class c extends com.google.android.exoplayer2.a.g<h, i, SubtitleDecoderException> implements f {
     private final String name;
 
@@ -11,26 +11,26 @@ public abstract class c extends com.google.android.exoplayer2.a.g<h, i, Subtitle
     public c(String str) {
         super(new h[2], new i[2]);
         this.name = str;
-        Jl(1024);
+        Jq(1024);
     }
 
     @Override // com.google.android.exoplayer2.text.f
-    public void gx(long j) {
+    public void gv(long j) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a.g
-    /* renamed from: dww */
-    public final h dty() {
+    /* renamed from: dxG */
+    public final h duJ() {
         return new h();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a.g
-    /* renamed from: dwx */
-    public final i dtz() {
+    /* renamed from: dxH */
+    public final i duK() {
         return new d(this);
     }
 
@@ -47,8 +47,8 @@ public abstract class c extends com.google.android.exoplayer2.a.g<h, i, Subtitle
     public final SubtitleDecoderException a(h hVar, i iVar, boolean z) {
         try {
             ByteBuffer byteBuffer = hVar.data;
-            iVar.a(hVar.mcV, b(byteBuffer.array(), byteBuffer.limit(), z), hVar.subsampleOffsetUs);
-            iVar.aI(Integer.MIN_VALUE);
+            iVar.a(hVar.mdB, b(byteBuffer.array(), byteBuffer.limit(), z), hVar.subsampleOffsetUs);
+            iVar.aL(Integer.MIN_VALUE);
             return null;
         } catch (SubtitleDecoderException e) {
             return e;

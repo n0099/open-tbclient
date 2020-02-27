@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.statistic;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bQN = 0;
+    private static int bUS = 0;
 
-    public static void ga(int i) {
-        bQN = i;
+    public static void gr(int i) {
+        bUS = i;
     }
 }

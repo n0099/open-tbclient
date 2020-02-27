@@ -7,15 +7,15 @@ import android.view.ViewGroup;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tieba.b.a.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a<T extends com.baidu.live.tieba.b.a.a> implements View.OnClickListener {
     public int currentPageType;
     protected b mCallback;
     public Context mContext;
     private String mFrom;
     protected c<T> mListenner;
-    public int mSkinType;
-    private BdUniqueId mTag;
+    public int mSkinType = 3;
+    private BdUniqueId mTag = null;
     public TbPageContext<?> mTbPageContext;
     private View mView;
 
@@ -26,19 +26,15 @@ public abstract class a<T extends com.baidu.live.tieba.b.a.a> implements View.On
     public abstract void onChangeSkinType(TbPageContext<?> tbPageContext, int i);
 
     public a(TbPageContext<?> tbPageContext) {
-        this.mSkinType = 3;
-        this.mTag = null;
         this.mTbPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
+        this.mView = LayoutInflater.from(this.mContext).inflate(getLayout(), (ViewGroup) null, false);
     }
 
     public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        this.mSkinType = 3;
-        this.mTag = null;
         this.mTbPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.mView = LayoutInflater.from(getContext()).inflate(getLayout(), viewGroup, false);
+        this.mView = LayoutInflater.from(this.mContext).inflate(getLayout(), viewGroup, false);
     }
 
     public BdUniqueId getTag() {

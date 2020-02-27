@@ -9,7 +9,7 @@ import android.util.TypedValue;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import tv.chushou.zues.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Rotate3dAnimation extends Animation {
     public static final int ROLL_BY_X = 0;
     public static final int ROLL_BY_Y = 1;
@@ -26,7 +26,7 @@ public class Rotate3dAnimation extends Animation {
     private float mToDegrees;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public int type;
         public float value;

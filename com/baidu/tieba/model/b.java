@@ -18,9 +18,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0365a interfaceC0365a) {
+    public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0375a interfaceC0375a) {
         com.baidu.tbadk.core.a.d dVar = new com.baidu.tbadk.core.a.d();
-        final a aVar = new a(str, str2, str3, interfaceC0365a, false);
+        final a aVar = new a(str, str2, str3, interfaceC0375a, false);
         if (com.baidu.tbadk.core.a.d.isVerification() && StringUtils.isNull(str4)) {
             dVar.a(str2, new d.a() { // from class: com.baidu.tieba.model.b.1
                 @Override // com.baidu.tbadk.core.a.d.a
@@ -31,8 +31,8 @@ public class b {
 
                 @Override // com.baidu.tbadk.core.a.d.a
                 public void onFailed() {
-                    if (interfaceC0365a != null) {
-                        interfaceC0365a.onFailure(str, 1, null);
+                    if (interfaceC0375a != null) {
+                        interfaceC0375a.onFailure(str, 1, null);
                     }
                 }
             });
@@ -47,32 +47,32 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Integer, AccountData> {
-        private final String inu;
-        private final a.InterfaceC0365a inv;
-        private final boolean inw;
+        private final String ipu;
+        private final a.InterfaceC0375a ipv;
+        private final boolean ipw;
         private final String mName;
         private volatile x mNetwork = null;
         private final String mPtoken;
         private String mStoken;
 
-        public a(String str, String str2, String str3, a.InterfaceC0365a interfaceC0365a, boolean z) {
+        public a(String str, String str2, String str3, a.InterfaceC0375a interfaceC0375a, boolean z) {
             this.mName = str;
-            this.inu = str2;
+            this.ipu = str2;
             this.mPtoken = str3;
-            this.inw = z;
-            this.inv = interfaceC0365a == null ? new a.InterfaceC0365a() { // from class: com.baidu.tieba.model.b.a.1
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0365a
+            this.ipw = z;
+            this.ipv = interfaceC0375a == null ? new a.InterfaceC0375a() { // from class: com.baidu.tieba.model.b.a.1
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0375a
                 public void onBeforeLogin(String str4) {
                 }
 
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0365a
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0375a
                 public void a(AccountData accountData) {
                 }
 
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0365a
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0375a
                 public void onFailure(String str4, int i, String str5) {
                 }
-            } : interfaceC0365a;
+            } : interfaceC0375a;
             setPriority(3);
         }
 
@@ -83,14 +83,14 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.inv.onBeforeLogin(this.mName);
+            this.ipv.onBeforeLogin(this.mName);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Removed duplicated region for block: B:45:0x01e6  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: I */
+        /* renamed from: J */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -101,24 +101,24 @@ public class b {
             JSONObject jSONObject;
             a.b a;
             this.mNetwork = new x(TbConfig.LOGIN_FULL_ADDRESS);
-            this.mNetwork.aDU().aEu().mIsUseCurrentBDUSS = false;
-            this.mNetwork.addPostData("bdusstoken", this.inu + "|" + this.mPtoken);
+            this.mNetwork.aGe().aGF().mIsUseCurrentBDUSS = false;
+            this.mNetwork.addPostData("bdusstoken", this.ipu + "|" + this.mPtoken);
             if (!StringUtils.isNull(this.mStoken)) {
                 this.mNetwork.addPostData("stoken", this.mStoken);
             }
             this.mNetwork.addPostData(SharedPrefConfig.CHANNEL_ID, TbadkCoreApplication.getInst().getPushChannelId());
             this.mNetwork.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.mNetwork.aDU().aEu().mNeedBackgroundLogin = false;
+            this.mNetwork.aGe().aGF().mNeedBackgroundLogin = false;
             String postNetData = this.mNetwork.postNetData();
-            if (this.mNetwork.aDU().aEv().isRequestSuccess() && postNetData != null) {
+            if (this.mNetwork.aGe().aGG().isRequestSuccess() && postNetData != null) {
                 ah ahVar = new ah();
                 ahVar.parserJson(postNetData);
                 AccountData accountData2 = new AccountData();
                 accountData2.setAccount(ahVar.getUser().getUserName());
                 accountData2.setPassword("");
                 accountData2.setID(ahVar.getUser().getUserId());
-                String str = this.inu;
-                if (this.inw && (a = d.a(com.baidu.tbadk.core.a.a.axz().sa(str))) != null) {
+                String str = this.ipu;
+                if (this.ipw && (a = d.a(com.baidu.tbadk.core.a.a.azN().sq(str))) != null) {
                     str = a.mBduss + "|" + a.mPtoken;
                 }
                 accountData2.setBDUSS(str);
@@ -136,14 +136,14 @@ public class b {
                 accountData = null;
             }
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
-            xVar.aDU().aEu().mNeedBackgroundLogin = false;
-            xVar.aDU().aEu().mIsUseCurrentBDUSS = false;
+            xVar.aGe().aGF().mNeedBackgroundLogin = false;
+            xVar.aGe().aGF().mIsUseCurrentBDUSS = false;
             if (accountData != null) {
                 xVar.addPostData("BDUSS", accountData.getBDUSS());
                 xVar.addPostData("stoken", com.baidu.tbadk.core.a.d.c(accountData));
             }
             String postNetData2 = xVar.postNetData();
-            if (!xVar.aDU().aEv().isRequestSuccess() || postNetData2 == null) {
+            if (!xVar.aGe().aGG().isRequestSuccess() || postNetData2 == null) {
                 i = 0;
             } else {
                 try {
@@ -187,10 +187,10 @@ public class b {
         public void onPostExecute(AccountData accountData) {
             int i = 0;
             super.onPostExecute(accountData);
-            ReloginManager.aDk().fC(false);
+            ReloginManager.aFu().fJ(false);
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "cslogin_result", this.mNetwork.getServerErrorCode(), this.mNetwork.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
-                this.inv.a(accountData);
+                this.ipv.a(accountData);
                 return;
             }
             String str = null;
@@ -201,7 +201,7 @@ public class b {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.data_load_error);
             }
-            this.inv.onFailure(this.mName, i, str);
+            this.ipv.onFailure(this.mName, i, str);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

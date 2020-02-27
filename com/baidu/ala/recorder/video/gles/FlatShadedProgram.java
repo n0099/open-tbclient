@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 import android.util.Log;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlatShadedProgram {
     private static final String FRAGMENT_SHADER = "precision mediump float;uniform vec4 uColor;void main() {    gl_FragColor = uColor;}";
     private static final String TAG = "Grafika";

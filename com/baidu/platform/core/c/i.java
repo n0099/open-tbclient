@@ -6,7 +6,7 @@ import com.baidu.mapapi.search.poi.PoiBoundSearchOption;
 import com.baidu.mapapi.search.poi.PoiCitySearchOption;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i extends com.baidu.platform.base.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PoiBoundSearchOption poiBoundSearchOption) {

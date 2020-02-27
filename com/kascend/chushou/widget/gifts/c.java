@@ -6,7 +6,7 @@ import com.kascend.chushou.constants.ParserRet;
 import java.util.List;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c extends com.kascend.chushou.view.base.c<f> {
     private String d;
     private String c = "";
@@ -27,7 +27,7 @@ public class c extends com.kascend.chushou.view.base.c<f> {
         if (z) {
             this.c = "";
         }
-        com.kascend.chushou.c.c.dAI().b(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.c.1
+        com.kascend.chushou.c.c.dBO().b(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.c.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (c.this.b() && z) {

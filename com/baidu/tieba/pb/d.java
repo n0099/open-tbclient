@@ -1,30 +1,51 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.view.m;
-import com.baidu.tieba.R;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class d {
-    private static String ixG;
+    private long forumId;
+    private long izC;
+    private BdUniqueId mPageId;
+    private int source;
+    private long threadId;
 
-    public static SpannableStringBuilder ba(Context context, String str) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) str);
-        int length = spannableStringBuilder.length();
-        Drawable drawable = context.getResources().getDrawable(R.drawable.icon_nichenghuodong);
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        spannableStringBuilder.append((CharSequence) "tag");
-        spannableStringBuilder.setSpan(new m(drawable), length, spannableStringBuilder.length(), 33);
-        return spannableStringBuilder;
+    public void er(long j) {
+        this.izC = j;
     }
 
-    public static String cix() {
-        if (TextUtils.isEmpty(ixG)) {
-            ixG = com.baidu.tbadk.core.sharedPref.b.aDr().getString("nick_name_activity_link", "");
-        }
-        return ixG;
+    public void setForumId(long j) {
+        this.forumId = j;
+    }
+
+    public void r(BdUniqueId bdUniqueId) {
+        this.mPageId = bdUniqueId;
+    }
+
+    public void yw(int i) {
+        this.source = i;
+    }
+
+    public void setThreadId(long j) {
+        this.threadId = j;
+    }
+
+    public BdUniqueId ckc() {
+        return this.mPageId;
+    }
+
+    public int ckd() {
+        return this.source;
+    }
+
+    public long cke() {
+        return this.izC;
+    }
+
+    public long getForumId() {
+        return this.forumId;
+    }
+
+    public long getThreadId() {
+        return this.threadId;
     }
 }

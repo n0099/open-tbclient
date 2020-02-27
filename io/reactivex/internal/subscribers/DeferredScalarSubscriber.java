@@ -5,7 +5,7 @@ import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubscription<R> implements j<T> {
     private static final long serialVersionUID = 2984505488220891551L;
     protected boolean hasValue;

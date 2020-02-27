@@ -18,11 +18,11 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AppActivity extends Activity {
-    private AppActivityImp aKx = new AppActivityImp();
+    private AppActivityImp aOB = new AppActivityImp();
     public static String activityName = null;
-    private static ActionBarColorTheme aKy = ActionBarColorTheme.ACTION_BAR_WHITE_THEME;
+    private static ActionBarColorTheme aOC = ActionBarColorTheme.ACTION_BAR_WHITE_THEME;
 
     public static void setActivityName(String str) {
         activityName = str;
@@ -44,7 +44,7 @@ public class AppActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class ActionBarColorTheme {
         private int a;
         private int b;
@@ -111,12 +111,12 @@ public class AppActivity extends Activity {
     }
 
     public static ActionBarColorTheme getActionBarColorTheme() {
-        return aKy;
+        return aOC;
     }
 
     public static void setActionBarColorTheme(ActionBarColorTheme actionBarColorTheme) {
         if (actionBarColorTheme != null) {
-            aKy = new ActionBarColorTheme(actionBarColorTheme);
+            aOC = new ActionBarColorTheme(actionBarColorTheme);
         }
     }
 
@@ -126,7 +126,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (this.aKx.dispatchKeyEvent(keyEvent)) {
+        if (this.aOB.dispatchKeyEvent(keyEvent)) {
             return true;
         }
         return super.dispatchKeyEvent(keyEvent);
@@ -134,7 +134,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.aKx.dispatchTouchEvent(motionEvent)) {
+        if (this.aOB.dispatchTouchEvent(motionEvent)) {
             return true;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -142,7 +142,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        if (this.aKx.dispatchTrackballEvent(motionEvent)) {
+        if (this.aOB.dispatchTrackballEvent(motionEvent)) {
             return true;
         }
         return super.dispatchTrackballEvent(motionEvent);
@@ -150,37 +150,37 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        this.aKx.onActivityResult(i, i2, intent);
+        this.aOB.onActivityResult(i, i2, intent);
         super.onActivityResult(i, i2, intent);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
     protected void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        this.aKx.onApplyThemeResource(theme, i, z);
+        this.aOB.onApplyThemeResource(theme, i, z);
         super.onApplyThemeResource(theme, i, z);
     }
 
     @Override // android.app.Activity
     protected void onChildTitleChanged(Activity activity, CharSequence charSequence) {
-        this.aKx.onChildTitleChanged(activity, charSequence);
+        this.aOB.onChildTitleChanged(activity, charSequence);
         super.onChildTitleChanged(activity, charSequence);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        this.aKx.onConfigurationChanged(configuration);
+        this.aOB.onConfigurationChanged(configuration);
         super.onConfigurationChanged(configuration);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onContentChanged() {
-        this.aKx.onContentChanged();
+        this.aOB.onContentChanged();
         super.onContentChanged();
     }
 
     @Override // android.app.Activity
     public boolean onContextItemSelected(MenuItem menuItem) {
-        if (this.aKx.onContextItemSelected(menuItem)) {
+        if (this.aOB.onContextItemSelected(menuItem)) {
             return true;
         }
         return super.onContextItemSelected(menuItem);
@@ -188,7 +188,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     public void onContextMenuClosed(Menu menu) {
-        this.aKx.onContextMenuClosed(menu);
+        this.aOB.onContextMenuClosed(menu);
         super.onContextMenuClosed(menu);
     }
 
@@ -196,9 +196,9 @@ public class AppActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            this.aKx.setActivity(this);
-            this.aKx.invokeRemoteStatic("setActionBarColor", Integer.valueOf(aKy.a), Integer.valueOf(aKy.b), Integer.valueOf(aKy.c), Integer.valueOf(aKy.d));
-            this.aKx.onCreate(bundle);
+            this.aOB.setActivity(this);
+            this.aOB.invokeRemoteStatic("setActionBarColor", Integer.valueOf(aOC.a), Integer.valueOf(aOC.b), Integer.valueOf(aOC.c), Integer.valueOf(aOC.d));
+            this.aOB.onCreate(bundle);
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().e(e);
         }
@@ -207,24 +207,24 @@ public class AppActivity extends Activity {
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
     public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
         super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
-        this.aKx.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        this.aOB.onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
     @Override // android.app.Activity
     public CharSequence onCreateDescription() {
-        CharSequence onCreateDescription = this.aKx.onCreateDescription();
+        CharSequence onCreateDescription = this.aOB.onCreateDescription();
         return onCreateDescription != null ? onCreateDescription : super.onCreateDescription();
     }
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        Dialog onCreateDialog = this.aKx.onCreateDialog(i);
+        Dialog onCreateDialog = this.aOB.onCreateDialog(i);
         return onCreateDialog != null ? onCreateDialog : super.onCreateDialog(i);
     }
 
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (this.aKx.onCreateOptionsMenu(menu)) {
+        if (this.aOB.onCreateOptionsMenu(menu)) {
             return true;
         }
         return super.onCreateOptionsMenu(menu);
@@ -232,7 +232,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        if (this.aKx.onCreatePanelMenu(i, menu)) {
+        if (this.aOB.onCreatePanelMenu(i, menu)) {
             return true;
         }
         return super.onCreatePanelMenu(i, menu);
@@ -240,13 +240,13 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public View onCreatePanelView(int i) {
-        View onCreatePanelView = this.aKx.onCreatePanelView(i);
+        View onCreatePanelView = this.aOB.onCreatePanelView(i);
         return onCreatePanelView != null ? onCreatePanelView : super.onCreatePanelView(i);
     }
 
     @Override // android.app.Activity
     public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
-        if (this.aKx.onCreateThumbnail(bitmap, canvas)) {
+        if (this.aOB.onCreateThumbnail(bitmap, canvas)) {
             return true;
         }
         return super.onCreateThumbnail(bitmap, canvas);
@@ -254,19 +254,19 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        View onCreateView = this.aKx.onCreateView(str, context, attributeSet);
+        View onCreateView = this.aOB.onCreateView(str, context, attributeSet);
         return onCreateView != null ? onCreateView : super.onCreateView(str, context, attributeSet);
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        this.aKx.onDestroy();
+        this.aOB.onDestroy();
         super.onDestroy();
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.aKx.onKeyDown(i, keyEvent)) {
+        if (this.aOB.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -274,7 +274,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        if (this.aKx.onKeyMultiple(i, i2, keyEvent)) {
+        if (this.aOB.onKeyMultiple(i, i2, keyEvent)) {
             return true;
         }
         return super.onKeyMultiple(i, i2, keyEvent);
@@ -282,7 +282,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        if (this.aKx.onKeyUp(i, keyEvent)) {
+        if (this.aOB.onKeyUp(i, keyEvent)) {
             return true;
         }
         return super.onKeyUp(i, keyEvent);
@@ -290,13 +290,13 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
-        this.aKx.onLowMemory();
+        this.aOB.onLowMemory();
         super.onLowMemory();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        if (this.aKx.onMenuItemSelected(i, menuItem)) {
+        if (this.aOB.onMenuItemSelected(i, menuItem)) {
             return true;
         }
         return super.onMenuItemSelected(i, menuItem);
@@ -304,7 +304,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onMenuOpened(int i, Menu menu) {
-        if (this.aKx.onMenuOpened(i, menu)) {
+        if (this.aOB.onMenuOpened(i, menu)) {
             return true;
         }
         return super.onMenuOpened(i, menu);
@@ -312,13 +312,13 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
-        this.aKx.onNewIntent(intent);
+        this.aOB.onNewIntent(intent);
         super.onNewIntent(intent);
     }
 
     @Override // android.app.Activity
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        if (this.aKx.onOptionsItemSelected(menuItem)) {
+        if (this.aOB.onOptionsItemSelected(menuItem)) {
             return true;
         }
         return super.onOptionsItemSelected(menuItem);
@@ -326,43 +326,43 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     public void onOptionsMenuClosed(Menu menu) {
-        this.aKx.onOptionsMenuClosed(menu);
+        this.aOB.onOptionsMenuClosed(menu);
         super.onOptionsMenuClosed(menu);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
-        this.aKx.onPanelClosed(i, menu);
+        this.aOB.onPanelClosed(i, menu);
         super.onPanelClosed(i, menu);
     }
 
     @Override // android.app.Activity
     protected void onPause() {
-        this.aKx.onPause();
+        this.aOB.onPause();
         super.onPause();
     }
 
     @Override // android.app.Activity
     protected void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        this.aKx.onPostCreate(bundle);
+        this.aOB.onPostCreate(bundle);
     }
 
     @Override // android.app.Activity
     protected void onPostResume() {
         super.onPostResume();
-        this.aKx.onPostResume();
+        this.aOB.onPostResume();
     }
 
     @Override // android.app.Activity
     protected void onPrepareDialog(int i, Dialog dialog) {
         super.onPrepareDialog(i, dialog);
-        this.aKx.onPrepareDialog(i, dialog);
+        this.aOB.onPrepareDialog(i, dialog);
     }
 
     @Override // android.app.Activity
     public boolean onPrepareOptionsMenu(Menu menu) {
-        if (this.aKx.onPrepareOptionsMenu(menu)) {
+        if (this.aOB.onPrepareOptionsMenu(menu)) {
             return true;
         }
         return super.onPrepareOptionsMenu(menu);
@@ -370,7 +370,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onPreparePanel(int i, View view, Menu menu) {
-        if (this.aKx.onPreparePanel(i, view, menu)) {
+        if (this.aOB.onPreparePanel(i, view, menu)) {
             return true;
         }
         return super.onPreparePanel(i, view, menu);
@@ -379,36 +379,36 @@ public class AppActivity extends Activity {
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        this.aKx.onRestart();
+        this.aOB.onRestart();
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.aKx.onRestoreInstanceState(bundle);
+        this.aOB.onRestoreInstanceState(bundle);
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.aKx.onResume();
+        this.aOB.onResume();
     }
 
     @Override // android.app.Activity
     public Object onRetainNonConfigurationInstance() {
-        Object onRetainNonConfigurationInstance = this.aKx.onRetainNonConfigurationInstance();
+        Object onRetainNonConfigurationInstance = this.aOB.onRetainNonConfigurationInstance();
         return onRetainNonConfigurationInstance != null ? onRetainNonConfigurationInstance : super.onRetainNonConfigurationInstance();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.aKx.onSaveInstanceState(bundle);
+        this.aOB.onSaveInstanceState(bundle);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onSearchRequested() {
-        if (this.aKx.onSearchRequested()) {
+        if (this.aOB.onSearchRequested()) {
             return true;
         }
         return super.onSearchRequested();
@@ -417,24 +417,24 @@ public class AppActivity extends Activity {
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.aKx.onStart();
+        this.aOB.onStart();
     }
 
     @Override // android.app.Activity
     protected void onStop() {
-        this.aKx.onStop();
+        this.aOB.onStop();
         super.onStop();
     }
 
     @Override // android.app.Activity
     protected void onTitleChanged(CharSequence charSequence, int i) {
         super.onTitleChanged(charSequence, i);
-        this.aKx.onTitleChanged(charSequence, i);
+        this.aOB.onTitleChanged(charSequence, i);
     }
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aKx.onTouchEvent(motionEvent)) {
+        if (this.aOB.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -442,7 +442,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        if (this.aKx.onTrackballEvent(motionEvent)) {
+        if (this.aOB.onTrackballEvent(motionEvent)) {
             return true;
         }
         return super.onTrackballEvent(motionEvent);
@@ -451,24 +451,24 @@ public class AppActivity extends Activity {
     @Override // android.app.Activity
     public void onUserInteraction() {
         super.onUserInteraction();
-        this.aKx.onUserInteraction();
+        this.aOB.onUserInteraction();
     }
 
     @Override // android.app.Activity
     protected void onUserLeaveHint() {
         super.onUserLeaveHint();
-        this.aKx.onUserLeaveHint();
+        this.aOB.onUserLeaveHint();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         super.onWindowAttributesChanged(layoutParams);
-        this.aKx.onWindowAttributesChanged(layoutParams);
+        this.aOB.onWindowAttributesChanged(layoutParams);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        this.aKx.onWindowFocusChanged(z);
+        this.aOB.onWindowFocusChanged(z);
     }
 }

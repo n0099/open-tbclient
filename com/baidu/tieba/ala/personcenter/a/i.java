@@ -11,16 +11,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.c.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
-    private com.baidu.tieba.ala.personcenter.d.a frf;
+    private com.baidu.tieba.ala.personcenter.d.a ftI;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext tbPageContext, com.baidu.tieba.ala.personcenter.d.a aVar) {
-        super(tbPageContext.getPageActivity(), k.frP);
+        super(tbPageContext.getPageActivity(), k.fur);
         this.mPageContext = tbPageContext;
-        this.frf = aVar;
+        this.ftI = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,37 +35,37 @@ public class i extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bue() == null) {
+        if (aVar.bvI() == null) {
             return null;
         }
-        a(kVar, aVar.bue());
-        aVar.bue().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
+        a(kVar, aVar.bvI());
+        aVar.bvI().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 i.this.a(kVar);
             }
         });
-        return aVar.bue().getView();
+        return aVar.bvI().getView();
     }
 
     private void a(k kVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.b personCenterData = kVar.getPersonCenterData();
-        if (personCenterData != null && personCenterData.bqB() != null) {
-            aVar.qJ(0);
+        if (personCenterData != null && personCenterData.bsf() != null) {
+            aVar.qQ(0);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_real_authen));
-            AlaUserInfoData bqB = personCenterData.bqB();
-            if (bqB.certify_status == 0) {
-                aVar.zr(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
-                aVar.qK(0);
-            } else if (1 == bqB.certify_status) {
-                aVar.zr(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
-                aVar.qK(4);
-            } else if (2 == bqB.certify_status) {
-                aVar.zr(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
-                aVar.qK(4);
-            } else if (3 == bqB.certify_status) {
-                aVar.zr(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
-                aVar.qK(0);
+            AlaUserInfoData bsf = personCenterData.bsf();
+            if (bsf.certify_status == 0) {
+                aVar.zI(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+                aVar.qR(0);
+            } else if (1 == bsf.certify_status) {
+                aVar.zI(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+                aVar.qR(4);
+            } else if (2 == bsf.certify_status) {
+                aVar.zI(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+                aVar.qR(4);
+            } else if (3 == bsf.certify_status) {
+                aVar.zI(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
+                aVar.qR(0);
             }
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -73,12 +73,12 @@ public class i extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(k kVar) {
-        if (kVar != null && kVar.getPersonCenterData() != null && kVar.getPersonCenterData().bqB() != null) {
-            AlaUserInfoData bqB = kVar.getPersonCenterData().bqB();
-            if (1 != bqB.certify_status && 2 != bqB.certify_status) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterRealAuthenConfig(this.mContext, bqB.user_id, bqB.certify_status + "")));
-                if (this.frf != null) {
-                    this.frf.qF(1);
+        if (kVar != null && kVar.getPersonCenterData() != null && kVar.getPersonCenterData().bsf() != null) {
+            AlaUserInfoData bsf = kVar.getPersonCenterData().bsf();
+            if (1 != bsf.certify_status && 2 != bsf.certify_status) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterRealAuthenConfig(this.mContext, bsf.user_id, bsf.certify_status + "")));
+                if (this.ftI != null) {
+                    this.ftI.qM(1);
                 }
             }
         }

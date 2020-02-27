@@ -14,7 +14,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static boolean a(String str, String str2, h hVar) {
         int length;
@@ -35,7 +35,7 @@ public class a {
                         arrayList.add(optString);
                     }
                 }
-                return com.baidu.swan.apps.aj.a.b.g(new URI(str2).getHost(), arrayList);
+                return com.baidu.swan.apps.aj.a.b.f(new URI(str2).getHost(), arrayList);
             }
             return false;
         } catch (URISyntaxException | JSONException e) {
@@ -64,9 +64,9 @@ public class a {
 
     private static String c(String str, long j, String str2) {
         String str3 = "";
-        e aap = e.aap();
-        if (aap != null) {
-            str3 = com.baidu.swan.apps.e.a.fT(aap.getAppKey());
+        e acD = e.acD();
+        if (acD != null) {
+            str3 = com.baidu.swan.apps.e.a.gi(acD.getAppKey());
         }
         String[] strArr = {str3, str, String.valueOf(j), str2};
         Arrays.sort(strArr);

@@ -11,7 +11,7 @@ import com.baidu.searchbox.network.core.Callback;
 import com.baidu.searchbox.network.core.RequestClient;
 import com.baidu.searchbox.network.core.Response;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class RequestCall implements Cancelable {
     private RequestClient client;
     private Handler deliver;

@@ -1,5 +1,5 @@
 package com.nineoldandroids.animation;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class IntEvaluator implements TypeEvaluator<Integer> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.nineoldandroids.animation.TypeEvaluator

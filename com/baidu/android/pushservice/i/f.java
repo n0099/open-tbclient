@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.i;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
     byte[] a = new byte[8];
     private DataOutputStream b;

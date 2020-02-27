@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Handler;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MessageCenter {
     public static void registMessage(int i, Handler handler) {
         com.baidu.mapsdkplatform.comjni.engine.a.a(i, handler);

@@ -16,8 +16,7 @@ public class AlaJumpStatStatic {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.a.b(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) { // from class: com.baidu.tieba.ala.AlaJumpStatStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.f
-            /* renamed from: d */
-            public CustomMessage<?> b(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 Object data;
                 if (customMessage != null && customMessageTask == null && (data = customMessage.getData()) != null) {
                     AlaJumpStatStatic.e(data, data.getClass().getSimpleName());
@@ -28,8 +27,7 @@ public class AlaJumpStatStatic {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.a.b(CmdConfigCustom.START_GO_ACTION) { // from class: com.baidu.tieba.ala.AlaJumpStatStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.f
-            /* renamed from: d */
-            public CustomMessage<?> b(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 Object data;
                 if (customMessage != null && (data = customMessage.getData()) != null) {
                     String simpleName = data.getClass().getSimpleName();
@@ -47,7 +45,7 @@ public class AlaJumpStatStatic {
         com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.append("workflow", "ala_jump_fail");
         statsItem.append("config", str);
-        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - n.aOY().aOX()));
+        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - n.aRo().aRn()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
             statsItem.append("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra("live_from_type"));

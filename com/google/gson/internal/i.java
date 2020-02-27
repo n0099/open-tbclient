@@ -10,14 +10,14 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class i {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.dzL();
+            aVar.dAR();
             z = false;
-            return n.mMk.read(aVar);
+            return n.mMN.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,17 +33,17 @@ public final class i {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        n.mMk.write(bVar, jsonElement);
+        n.mMN.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
         return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private static final class a extends Writer {
         private final Appendable appendable;
-        private final C0681a mKv = new C0681a();
+        private final C0689a mKZ = new C0689a();
 
         a(Appendable appendable) {
             this.appendable = appendable;
@@ -51,8 +51,8 @@ public final class i {
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.mKv.chars = cArr;
-            this.appendable.append(this.mKv, i, i + i2);
+            this.mKZ.chars = cArr;
+            this.appendable.append(this.mKZ, i, i + i2);
         }
 
         @Override // java.io.Writer
@@ -69,11 +69,11 @@ public final class i {
         }
 
         /* renamed from: com.google.gson.internal.i$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        static class C0681a implements CharSequence {
+        /* loaded from: classes7.dex */
+        static class C0689a implements CharSequence {
             char[] chars;
 
-            C0681a() {
+            C0689a() {
             }
 
             @Override // java.lang.CharSequence

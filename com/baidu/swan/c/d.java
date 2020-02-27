@@ -3,15 +3,15 @@ package com.baidu.swan.c;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static String cBI = b.atN().getString("openstat_switch", "1");
+    private static String cFG = b.awb().getString("openstat_switch", "1");
 
-    public static boolean atP() {
-        return TextUtils.equals(cBI, "1");
+    public static boolean awd() {
+        return TextUtils.equals(cFG, "1");
     }
 
-    public static boolean qQ(String str) {
+    public static boolean rf(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

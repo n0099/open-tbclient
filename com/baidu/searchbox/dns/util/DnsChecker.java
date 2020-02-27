@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns.util;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DnsChecker {
     public static native boolean isIPv4Reachable();
 

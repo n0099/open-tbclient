@@ -16,18 +16,18 @@ import com.baidu.swan.apps.w.b.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class d implements k {
-    k.a ebZ;
-    private CustomMessageListener eca = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    k.a egc;
+    private CustomMessageListener egd = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.ebZ != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.egc != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.ebZ.ST();
+                    d.this.egc.Vh();
                 } else {
-                    d.this.ebZ.SU();
+                    d.this.egc.Vi();
                 }
             }
         }
@@ -35,13 +35,13 @@ public class d implements k {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.eca);
+        MessageManager.getInstance().registerListener(this.egd);
     }
 
     @Override // com.baidu.swan.apps.w.b.k
     public void a(Context context, JSONObject jSONObject, final k.a aVar) {
         if (context instanceof Activity) {
-            this.ebZ = aVar;
+            this.egc = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -66,9 +66,9 @@ public class d implements k {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.ST();
+                            aVar.Vh();
                         } else {
-                            aVar.SU();
+                            aVar.Vi();
                         }
                     }
                 }

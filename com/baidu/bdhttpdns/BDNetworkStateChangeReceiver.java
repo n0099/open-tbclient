@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
@@ -28,7 +29,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
         @Override // java.util.concurrent.Callable
         public Object call() {
-            InetSocketAddress inetSocketAddress = new InetSocketAddress("2001:4860:4860::8888", 443);
+            InetSocketAddress inetSocketAddress = new InetSocketAddress("2001:4860:4860::8888", (int) Constants.SOCKET_PORT_SSL);
             try {
                 new DatagramSocket().connect(new InetSocketAddress("180.76.76.76", 80));
             } catch (SocketException e) {
@@ -46,21 +47,21 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     private void a(Context context) {
         l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
-        i lU = i.lU();
-        lU.b();
+        i mj = i.mj();
+        mj.b();
         BDHttpDns ag = BDHttpDns.ag(context);
         refreshIpReachable();
-        ArrayList<String> b = ag.lL().b();
+        ArrayList<String> b = ag.ma().b();
         if (this.b) {
-            ag.lL().a();
-            ag.lM().a();
+            ag.ma().a();
+            ag.mb().a();
         }
         if (this.c) {
             if (isIPv6Only()) {
                 l.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
             } else if (b == null || b.isEmpty()) {
             } else {
-                lU.a(b, new k(context));
+                mj.a(b, new k(context));
             }
         }
     }

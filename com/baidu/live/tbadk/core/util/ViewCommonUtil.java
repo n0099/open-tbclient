@@ -6,7 +6,7 @@ import android.os.Build;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ViewCommonUtil {
     public static Rect getVisibilityRegion(Activity activity) {
         Rect rect = new Rect();

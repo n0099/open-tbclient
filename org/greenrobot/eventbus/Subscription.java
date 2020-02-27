@@ -1,5 +1,5 @@
 package org.greenrobot.eventbus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class Subscription {
     volatile boolean active = true;
     final Object subscriber;

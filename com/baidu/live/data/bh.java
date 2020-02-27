@@ -1,6 +1,5 @@
 package com.baidu.live.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bh {
-    public Object extra;
-    public String tabName;
+    public String aeK;
 }

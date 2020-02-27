@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, n {
-    protected ad JC;
-    private Boolean JD = false;
-    private com.baidu.tieba.card.z<T> JE;
-    public a JF;
+    protected ad JX;
+    private Boolean JY = false;
+    private com.baidu.tieba.card.z<T> JZ;
+    public a Ka;
     protected Context mContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(com.baidu.tbadk.core.data.a aVar);
     }
@@ -27,32 +27,32 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
     }
 
     public void a(ad adVar) {
-        this.JC = adVar;
+        this.JX = adVar;
     }
 
-    public void aH(int i) {
+    public void aK(int i) {
     }
 
-    public void aI(int i) {
+    public void aL(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void mD() {
+    public void mS() {
     }
 
-    public com.baidu.tieba.card.z<T> mE() {
-        return this.JE;
+    public com.baidu.tieba.card.z<T> mT() {
+        return this.JZ;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.z<T> zVar) {
-        this.JE = zVar;
+        this.JZ = zVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.JC.a(i, bVar);
+        this.JX.a(i, bVar);
     }
 
-    public void aJ(int i) {
+    public void aM(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -68,11 +68,11 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
         }
     }
 
-    public Boolean mF() {
-        return this.JD;
+    public Boolean mU() {
+        return this.JY;
     }
 
     public void b(Boolean bool) {
-        this.JD = bool;
+        this.JY = bool;
     }
 }

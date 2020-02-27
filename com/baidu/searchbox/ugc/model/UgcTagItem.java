@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.model;
 import com.baidu.searchbox.NoProGuard;
 import com.google.gson.a.c;
 import java.io.Serializable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UgcTagItem implements NoProGuard, Serializable {
     @c("post_id")
     public String postId;

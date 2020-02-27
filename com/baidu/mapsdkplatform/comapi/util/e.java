@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class e {
     private static volatile e a = null;
     private boolean b = false;

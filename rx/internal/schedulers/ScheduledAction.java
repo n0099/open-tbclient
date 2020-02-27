@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorNotImplementedException;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, k {
     private static final long serialVersionUID = -3962399486978279857L;
     final rx.functions.a action;
@@ -74,30 +74,30 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         this.cancel.add(new Remover2(this, iVar));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     final class a implements k {
-        private final Future<?> nRe;
+        private final Future<?> nRT;
 
         a(Future<?> future) {
-            this.nRe = future;
+            this.nRT = future;
         }
 
         @Override // rx.k
         public void unsubscribe() {
             if (ScheduledAction.this.get() != Thread.currentThread()) {
-                this.nRe.cancel(true);
+                this.nRT.cancel(true);
             } else {
-                this.nRe.cancel(false);
+                this.nRT.cancel(false);
             }
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.nRe.isCancelled();
+            return this.nRT.isCancelled();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class Remover extends AtomicBoolean implements k {
         private static final long serialVersionUID = 247232374289553518L;
         final rx.subscriptions.b parent;
@@ -121,7 +121,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class Remover2 extends AtomicBoolean implements k {
         private static final long serialVersionUID = 247232374289553518L;
         final rx.internal.util.i parent;

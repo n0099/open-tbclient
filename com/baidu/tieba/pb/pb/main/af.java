@@ -4,32 +4,49 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.at;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
-public class af extends m<com.baidu.tieba.pb.data.j, com.baidu.tieba.pb.pb.a.c> {
+import com.baidu.tieba.pb.pb.main.ag;
+/* loaded from: classes9.dex */
+public class af extends l<at, ag> {
+    private com.baidu.tieba.pb.data.e iEG;
+    private ag.a iMF;
+
     /* JADX INFO: Access modifiers changed from: protected */
     public af(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
+        this.iMF = new ag.a() { // from class: com.baidu.tieba.pb.pb.main.af.1
+            @Override // com.baidu.tieba.pb.pb.main.ag.a
+            public void a(at atVar) {
+                if (atVar != null) {
+                    com.baidu.tieba.pb.c.a.a(af.this.iEG, atVar, atVar.locate, 6);
+                }
+            }
+        };
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bI */
-    public com.baidu.tieba.pb.pb.a.c b(ViewGroup viewGroup) {
-        return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.mContext);
+    /* renamed from: bJ */
+    public ag b(ViewGroup viewGroup) {
+        return new ag(this.iDW.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.iMF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, com.baidu.tieba.pb.pb.a.c cVar) {
-        super.a(i, view, viewGroup, (ViewGroup) jVar, (com.baidu.tieba.pb.data.j) cVar);
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        cVar.mTextView.setText(jVar.iAH);
-        com.baidu.tbadk.core.util.am.setImageResource(cVar.mImageView, R.drawable.new_pic_emotion_06);
-        com.baidu.tbadk.core.util.am.setViewTextColor(cVar.mTextView, (int) R.color.cp_cont_d);
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, at atVar, ag agVar) {
+        super.a(i, view, viewGroup, (ViewGroup) atVar, (at) agVar);
+        if (atVar != null) {
+            atVar.locate = i + 1;
+            com.baidu.tieba.pb.c.a.a(this.iDW.getUniqueId(), this.iEG, atVar, atVar.locate, 6);
+            agVar.b(atVar);
+        }
         return view;
+    }
+
+    public void setData(com.baidu.tieba.pb.data.e eVar) {
+        this.iEG = eVar;
     }
 }

@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class h {
     private static final Set<Integer> WORK_DAY = new HashSet();
     private static final Set<Integer> WEEKEND_DAY = new HashSet();

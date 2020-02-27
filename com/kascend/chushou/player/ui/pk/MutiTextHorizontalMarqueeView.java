@@ -3,7 +3,7 @@ package com.kascend.chushou.player.ui.pk;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MutiTextHorizontalMarqueeView extends HorizontalMarqueeView {
     private int u;
     private int v;

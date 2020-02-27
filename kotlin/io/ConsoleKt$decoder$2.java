@@ -3,7 +3,8 @@ package kotlin.io;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class ConsoleKt$decoder$2 extends Lambda implements kotlin.jvm.a.a<CharsetDecoder> {
     public static final ConsoleKt$decoder$2 INSTANCE = new ConsoleKt$decoder$2();
 

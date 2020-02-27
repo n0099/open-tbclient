@@ -3,9 +3,9 @@ package com.airbnb.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class x implements aj<PointF> {
-    public static final x jV = new x();
+    public static final x jZ = new x();
 
     private x() {
     }

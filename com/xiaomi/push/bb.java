@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import com.xiaomi.push.ai;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class bb extends ai.a {
     private Context a;
 
@@ -16,7 +16,7 @@ public class bb extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo152a() {
+    public int mo157a() {
         return 100887;
     }
 

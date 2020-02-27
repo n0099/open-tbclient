@@ -7,59 +7,59 @@ import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private static volatile d dTx;
-    private ArrayList<Integer> dTt = new ArrayList<>();
-    private c dTu;
-    private a dTy;
-    private List<an> dTz;
+    private static volatile d dXC;
+    private a dXD;
+    private List<an> dXE;
+    private ArrayList<Integer> dXy = new ArrayList<>();
+    private c dXz;
 
-    public static d aVo() {
-        if (dTx == null) {
+    public static d aXD() {
+        if (dXC == null) {
             synchronized (c.class) {
-                if (dTx == null) {
-                    dTx = new d();
+                if (dXC == null) {
+                    dXC = new d();
                 }
             }
         }
-        return dTx;
+        return dXC;
     }
 
     private d() {
-        this.dTt.add(1);
-        this.dTt.add(2);
-        this.dTu = new c();
-        this.dTy = new a(this.dTu, this.dTt);
-        nQ(com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        this.dXy.add(1);
+        this.dXy.add(2);
+        this.dXz = new c();
+        this.dXD = new a(this.dXz, this.dXy);
+        oh(com.baidu.tbadk.core.sharedPref.b.aFB().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
-    public int ak(String str, int i) {
-        if (this.dTy == null) {
+    public int ai(String str, int i) {
+        if (this.dXD == null) {
             return 0;
         }
-        return this.dTy.ak(str, i);
+        return this.dXD.ai(str, i);
     }
 
-    public void wt(String str) {
-        if (this.dTy != null) {
-            this.dTy.ws(str);
+    public void wN(String str) {
+        if (this.dXD != null) {
+            this.dXD.wM(str);
         }
     }
 
-    public void c(an anVar) {
+    public void d(an anVar) {
         if (anVar != null) {
-            if (this.dTz == null) {
-                this.dTz = new ArrayList();
+            if (this.dXE == null) {
+                this.dXE = new ArrayList();
             }
-            this.dTz.add(anVar);
+            this.dXE.add(anVar);
         }
     }
 
-    public void cm(String str, String str2) {
-        if (!v.isEmpty(this.dTz) && this.dTu != null && this.dTu.aVm()) {
+    public void cv(String str, String str2) {
+        if (!v.isEmpty(this.dXE) && this.dXz != null && this.dXz.aXB()) {
             int i = -1;
-            for (an anVar : this.dTz) {
+            for (an anVar : this.dXE) {
                 if (anVar != null) {
                     if (anVar.getPosition() == 0) {
                         a(str, str2, anVar);
@@ -70,12 +70,12 @@ public class d {
                     i = i;
                 }
             }
-            this.dTz.clear();
+            this.dXE.clear();
         }
     }
 
     public void a(String str, String str2, an anVar) {
-        if (anVar != null && this.dTu != null && this.dTu.aVm()) {
+        if (anVar != null && this.dXz != null && this.dXz.aXB()) {
             HashMap hashMap = new HashMap();
             List<Object> params = anVar.getParams();
             if (params != null) {
@@ -99,20 +99,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (aq.isEmpty(str) || this.dTu == null || !this.dTu.aVm()) {
-            com.baidu.ubs.analytics.a.KV(str);
+        if (aq.isEmpty(str) || this.dXz == null || !this.dXz.aXB()) {
+            com.baidu.ubs.analytics.a.Li(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (aq.isEmpty(str) || this.dTu == null || !this.dTu.aVm()) {
-            com.baidu.ubs.analytics.a.KW(str);
+        if (aq.isEmpty(str) || this.dXz == null || !this.dXz.aXB()) {
+            com.baidu.ubs.analytics.a.Lj(str);
         }
     }
 
-    public void nQ(int i) {
-        if (this.dTu != null) {
-            this.dTu.nQ(i);
+    public void oh(int i) {
+        if (this.dXz != null) {
+            this.dXz.oh(i);
         }
     }
 }

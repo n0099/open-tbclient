@@ -2,7 +2,7 @@ package com.baidu.mapapi.synchronization;
 
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.synchronization.SyncCoordinateConverter;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class RoleOptions {
     private static final String a = RoleOptions.class.getSimpleName();
     private String b;

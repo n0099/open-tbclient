@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdNetWorkError {
     public static final int FILE_NOT_FOUND = -100;
     public static final int NETWORK_CANCEL = -14;

@@ -1,29 +1,29 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ae {
-    public long ZQ;
-    public int ZR;
-    public long createTime;
-    public String eventDesc;
-    public int eventType;
-    public long id;
-    public long liveId;
-    public long sendTime;
-    public long updateTime;
+    public AlaLiveInfoData abJ;
+    public ac abK;
+    public AlaLiveUserInfoData abx;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.id = jSONObject.optLong("id");
-            this.eventType = jSONObject.optInt("event_type");
-            this.ZQ = jSONObject.optLong("sender_uid");
-            this.liveId = jSONObject.optLong("live_id");
-            this.eventDesc = jSONObject.optString("event_desc");
-            this.createTime = jSONObject.optLong("create_time");
-            this.updateTime = jSONObject.optLong("update_time");
-            this.sendTime = jSONObject.optLong("send_time");
-            this.ZR = jSONObject.optInt("send_flag");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.abx = new AlaLiveUserInfoData();
+                this.abx.parserJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
+            if (optJSONObject2 != null) {
+                this.abJ = new AlaLiveInfoData();
+                this.abJ.parserJson(optJSONObject2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank_info");
+            if (optJSONObject3 != null) {
+                this.abK = new ac();
+                this.abK.parserJson(optJSONObject3);
+            }
         }
     }
 }

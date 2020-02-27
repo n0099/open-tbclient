@@ -23,7 +23,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     private Long mAppid;
     private long mBeginid;

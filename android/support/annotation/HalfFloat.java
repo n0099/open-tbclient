@@ -6,6 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.PARAMETER, ElementType.METHOD, ElementType.LOCAL_VARIABLE, ElementType.FIELD})
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface HalfFloat {
 }

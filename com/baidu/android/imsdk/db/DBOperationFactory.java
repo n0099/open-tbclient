@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DBOperationFactory {
     private static final String TAG = "DBOperationFactory";
     private static String sUid = null;
@@ -25,7 +25,7 @@ public class DBOperationFactory {
         if (!sDbOperatioContainer.containsKey(str)) {
             synchronized (sDbOperatioContainer) {
                 LogUtils.e(TAG, "dbname : " + str);
-                if (!sDbOperatioContainer.containsKey(str) && (dBOperation = new DBOperation(context, new DBConnection(context, str, 41))) != null) {
+                if (!sDbOperatioContainer.containsKey(str) && (dBOperation = new DBOperation(context, new DBConnection(context, str, 43))) != null) {
                     DBGroupTableManager dBGroupTableManager = new DBGroupTableManager();
                     dBGroupTableManager.init(dBOperation);
                     dBOperation.setTag(DBGroupTableManager.KEY, dBGroupTableManager);

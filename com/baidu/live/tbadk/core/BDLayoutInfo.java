@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDLayoutInfo {
     private StringBuffer TAG = new StringBuffer();
     private int backgroundResID;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.picture.model;
 
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LightPictureUgcModel extends LightPicProtocol {
     public String bjhCmd;
     public String bjhIcon;

@@ -1,31 +1,30 @@
 package com.baidu.tieba.ala.guardclub.model;
 
-import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes2.dex */
+import com.baidu.live.utils.q;
+import com.baidu.mobstat.Config;
+/* loaded from: classes3.dex */
 public class f extends HttpMessage {
-    private int eCS;
-    private c ezN;
+    private int pn;
+    private int ps;
 
     public f() {
-        super(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
+        super(1021139);
+        this.ps = 20;
+        this.pn = 1;
     }
 
-    public void pg(int i) {
-        this.eCS = i;
+    public void setPs(int i) {
+        this.ps = i;
     }
 
-    public void a(c cVar) {
-        this.ezN = cVar;
-    }
-
-    public c bdf() {
-        return this.ezN;
+    public void setPn(int i) {
+        this.pn = i;
     }
 
     public void setParams() {
-        addParam("scene_from", com.baidu.live.utils.q.yN());
-        addParam("guard_club_id", this.eCS);
-        addParam("client_type", 2);
+        addParam("scene_from", q.sI());
+        addParam("ps", this.ps);
+        addParam(Config.PACKAGE_NAME, this.pn);
     }
 }

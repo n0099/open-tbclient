@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.util;
 
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static void checkArgument(boolean z) {
         if (!z) {
@@ -15,7 +15,7 @@ public final class a {
         }
     }
 
-    public static int ai(int i, int i2, int i3) {
+    public static int aj(int i, int i2, int i3) {
         if (i < i2 || i >= i3) {
             throw new IndexOutOfBoundsException();
         }

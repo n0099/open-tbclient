@@ -6,21 +6,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class b {
     public static void a(com.baidu.tbadk.coreExtra.data.e eVar) {
         if (eVar != null) {
-            if (eVar.dhT != 0) {
-                com.baidu.tbadk.core.sharedPref.b.aDr().putString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, eVar.dhT + "");
+            if (eVar.dlZ != 0) {
+                com.baidu.tbadk.core.sharedPref.b.aFB().putString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, eVar.dlZ + "");
             }
-            if (eVar.dhS != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
-                com.baidu.tbadk.core.sharedPref.b.aDr().putString(SharedPrefConfig.APP_ENTRANCE_PREFIX + TbadkCoreApplication.getCurrentAccount(), eVar.dhS + "");
+            if (eVar.dlY != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+                com.baidu.tbadk.core.sharedPref.b.aFB().putString(SharedPrefConfig.APP_ENTRANCE_PREFIX + TbadkCoreApplication.getCurrentAccount(), eVar.dlY + "");
             }
         }
     }
 
-    public int aSX() {
+    public int aVo() {
         String string;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
-            string = com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, "");
+            string = com.baidu.tbadk.core.sharedPref.b.aFB().getString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, "");
         } else {
-            string = com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.APP_ENTRANCE_PREFIX + TbadkCoreApplication.getCurrentAccount(), "");
+            string = com.baidu.tbadk.core.sharedPref.b.aFB().getString(SharedPrefConfig.APP_ENTRANCE_PREFIX + TbadkCoreApplication.getCurrentAccount(), "");
         }
         int i = com.baidu.adp.lib.f.b.toInt(string, 0);
         if (i != 1 && i == 2) {

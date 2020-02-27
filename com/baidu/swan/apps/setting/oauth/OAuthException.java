@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.setting.oauth;
 
 import android.annotation.TargetApi;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class OAuthException extends RuntimeException {
     public final int mErrorCode;
 

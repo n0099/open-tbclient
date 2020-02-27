@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
     private ArrayList<m> threadList;
@@ -63,11 +63,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bj bjVar = new bj();
                             bjVar.setUserMap(this.userMap);
                             bjVar.a(list2.get(i3));
-                            bjVar.aAT();
-                            bjVar.cPY = isBrandForum;
-                            if (!TextUtils.isEmpty(bjVar.aBf())) {
+                            bjVar.aDh();
+                            bjVar.cUa = isBrandForum;
+                            if (!TextUtils.isEmpty(bjVar.aDs())) {
                                 ae aeVar = new ae();
-                                aeVar.sg(bjVar.aBf());
+                                aeVar.sx(bjVar.aDs());
                                 this.threadList.add(aeVar);
                             } else {
                                 this.threadList.add(bjVar);

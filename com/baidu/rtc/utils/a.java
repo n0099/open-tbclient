@@ -3,7 +3,7 @@ package com.baidu.rtc.utils;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private ByteArrayOutputStream baos = new ByteArrayOutputStream();
     private static final String TAG = a.class.getSimpleName();

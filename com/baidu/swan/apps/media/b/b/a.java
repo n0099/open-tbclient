@@ -2,7 +2,7 @@ package com.baidu.swan.apps.media.b.b;
 
 import android.telephony.PhoneStateListener;
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends PhoneStateListener {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -11,21 +11,21 @@ public class a extends PhoneStateListener {
         super.onCallStateChanged(i, str);
         switch (i) {
             case 0:
-                com.baidu.swan.apps.media.b.c.a.VD().VF();
+                com.baidu.swan.apps.media.b.c.a.XR().XT();
                 if (DEBUG) {
                     Log.i("PhoneStateListener", "挂断");
                     return;
                 }
                 return;
             case 1:
-                com.baidu.swan.apps.media.b.c.a.VD().VE();
+                com.baidu.swan.apps.media.b.c.a.XR().XS();
                 if (DEBUG) {
                     Log.i("PhoneStateListener", "响铃:" + str);
                     return;
                 }
                 return;
             case 2:
-                com.baidu.swan.apps.media.b.c.a.VD().VE();
+                com.baidu.swan.apps.media.b.c.a.XR().XS();
                 if (DEBUG) {
                     Log.i("PhoneStateListener", "接听");
                     return;

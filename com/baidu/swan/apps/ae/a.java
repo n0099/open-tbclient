@@ -11,28 +11,28 @@ import com.baidu.swan.apps.core.d.h;
 import com.baidu.swan.apps.res.widget.b.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    public static volatile a bCT;
+    public static volatile a bGZ;
     public String appId;
-    public String bCR;
-    public String bCS;
-    public com.baidu.j.a.a bCU;
+    public String bGX;
+    public String bGY;
+    public com.baidu.j.a.a bHa;
 
     private a() {
     }
 
-    public static a Xe() {
-        if (bCT == null) {
+    public static a Zs() {
+        if (bGZ == null) {
             synchronized (a.class) {
-                if (bCT == null) {
-                    bCT = new a();
+                if (bGZ == null) {
+                    bGZ = new a();
                 }
             }
         }
-        return bCT;
+        return bGZ;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -41,11 +41,11 @@ public class a {
             com.baidu.swan.apps.console.c.i(TAG, "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.j.b.BV().aQ(context)) {
+        } else if (!com.baidu.j.b.Er().aU(context)) {
             d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).showToast();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
-        } else if (!h.b("wxPay", com.baidu.swan.apps.model.b.aO(a, a))) {
+        } else if (!h.b("wxPay", com.baidu.swan.apps.model.b.aX(a, a))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
@@ -76,7 +76,7 @@ public class a {
         }
     }
 
-    public static int fn(int i) {
+    public static int fD(int i) {
         switch (i) {
             case -2:
                 return 2;

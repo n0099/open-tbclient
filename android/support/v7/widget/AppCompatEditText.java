@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.EditText;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AppCompatEditText extends EditText implements TintableBackgroundView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
     private final AppCompatTextHelper mTextHelper;

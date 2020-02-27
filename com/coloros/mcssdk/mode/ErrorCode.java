@@ -1,5 +1,5 @@
 package com.coloros.mcssdk.mode;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ErrorCode {
     public static final int APP_CALL_LIMITED = 13;
     public static final int ERROR = -2;

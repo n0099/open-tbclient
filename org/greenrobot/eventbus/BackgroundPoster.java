@@ -1,7 +1,7 @@
 package org.greenrobot.eventbus;
 
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class BackgroundPoster implements Runnable {
     private final EventBus eventBus;
     private volatile boolean executorRunning;

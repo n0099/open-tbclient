@@ -1,5 +1,5 @@
 package com.baidu.minivideo.effect.core;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 class g {
     public static final float[] a = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
     public static final float[] b = {1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};

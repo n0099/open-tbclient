@@ -1,12 +1,12 @@
 package com.baidu.tieba.tbadvert.a;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class b {
-    public int cOH;
+    public int cSJ;
     public long endTime;
     public int id;
-    public String kjI;
+    public String kkE;
     public String linkUrl;
     public long showTime = 3000;
     public int showType;
@@ -20,17 +20,17 @@ public class b {
             this.startTime = jSONObject.optLong("start_time", 0L);
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt("show_type", 0);
-            this.cOH = jSONObject.optInt("show_status", 0);
-            this.kjI = jSONObject.optString("resource_url");
+            this.cSJ = jSONObject.optInt("show_status", 0);
+            this.kkE = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean cKZ() {
+    public boolean cMu() {
         return this.showType == 1;
     }
 
-    public boolean aWR() {
+    public boolean aZg() {
         return this.showType == 3 || this.showType == 4;
     }
 

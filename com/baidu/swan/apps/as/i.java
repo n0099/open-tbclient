@@ -4,12 +4,12 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.apps.as.ac;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
-    public static File aes() {
+    public static File agG() {
         List<ac.a> storageList = ac.getStorageList();
         if (storageList == null || storageList.size() <= 0) {
             return null;

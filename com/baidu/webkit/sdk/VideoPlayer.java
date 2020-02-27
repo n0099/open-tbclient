@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.widget.FrameLayout;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class VideoPlayer {
     public static final int DATA_ID_ATTRIBUTE_ID = 8;
     public static final int DATA_ID_COOKIE = 3;
@@ -42,7 +42,7 @@ public abstract class VideoPlayer {
     protected Context mContext;
     protected VideoPlayerListener mListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface VideoPlayerListener {
         void onEnded();
 

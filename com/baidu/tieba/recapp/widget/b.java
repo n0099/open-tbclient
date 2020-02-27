@@ -1,10 +1,10 @@
 package com.baidu.tieba.recapp.widget;
 
 import com.baidu.adp.newwidget.ImageView.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class b extends d {
-    public float jMY;
-    public float jMZ;
-    public float jNa;
-    public float jNb;
+    public float jNY;
+    public float jNZ;
+    public float jOa;
+    public float jOb;
 }

@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk.a;
 import android.text.TextUtils;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class d implements Runnable {
     final /* synthetic */ com.baidu.webkit.logsdk.upload.a a;
     final /* synthetic */ long b;

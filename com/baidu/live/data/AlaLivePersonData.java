@@ -4,13 +4,16 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLivePersonData implements Serializable {
     public AlaAvtsConfigInfo mAvtsConfigInfo;
     public AlaAvtsData mAvtsData;
     public AlaPersonChallengeData mChallengeData;
+    public AlaAvtsConfigInfo mChatAvtsConfigInfo;
+    public AlaAvtsData mChatAvtsData;
+    public long mChatId;
     public AlaLiveInfoData mLiveInfo;
-    public j mLiveSdkInfo;
+    public k mLiveSdkInfo;
     public AlaLocationData mLocationData;
     public AlaPersonPkData mPkData;
     public AlaRelationData mRelationData;
@@ -60,8 +63,22 @@ public class AlaLivePersonData implements Serializable {
             }
             JSONObject jSONObject2 = (JSONObject) jSONObject.opt(CashierData.SDK);
             if (jSONObject2 != null) {
-                this.mLiveSdkInfo = new j();
+                this.mLiveSdkInfo = new k();
                 this.mLiveSdkInfo.parseJson(jSONObject2);
+            }
+            JSONObject optJSONObject9 = jSONObject.optJSONObject("chat_info");
+            if (optJSONObject9 != null) {
+                this.mChatId = optJSONObject9.optLong("chat_id", 0L);
+                JSONObject optJSONObject10 = optJSONObject9.optJSONObject("avts_info");
+                if (optJSONObject10 != null) {
+                    this.mChatAvtsData = new AlaAvtsData();
+                    this.mChatAvtsData.parserJson(optJSONObject10);
+                }
+                JSONObject optJSONObject11 = optJSONObject9.optJSONObject("avts_conf");
+                if (optJSONObject11 != null) {
+                    this.mChatAvtsConfigInfo = new AlaAvtsConfigInfo();
+                    this.mChatAvtsConfigInfo.parserJson(optJSONObject11);
+                }
             }
         }
     }
@@ -95,6 +112,13 @@ public class AlaLivePersonData implements Serializable {
             }
             if (this.mLiveSdkInfo != null) {
                 jSONObject.put(CashierData.SDK, this.mLiveSdkInfo.toJsonObject());
+            }
+            if (this.mChatId != 0 && this.mChatAvtsData != null && this.mChatAvtsConfigInfo != null) {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("chat_id", this.mChatId);
+                jSONObject2.put("avts_info", this.mChatAvtsData.toJsonObject());
+                jSONObject2.put("avts_conf", this.mChatAvtsConfigInfo.toJsonObject());
+                jSONObject.put("chat_info", jSONObject2);
             }
         } catch (JSONException e) {
             e.printStackTrace();

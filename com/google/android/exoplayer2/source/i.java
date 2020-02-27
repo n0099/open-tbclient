@@ -6,21 +6,21 @@ import com.google.android.exoplayer2.source.h;
 import com.google.android.exoplayer2.source.l;
 import com.google.android.exoplayer2.upstream.e;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i implements h.c, l {
-    private final Handler lXR;
-    private final int mqJ;
-    private final a mqK;
-    private final String mqN;
-    private l.a mqw;
-    private final e.a mrr;
-    private final com.google.android.exoplayer2.extractor.h mrs;
-    private final int mrt;
-    private long mru;
-    private boolean mrv;
+    private final Handler lYx;
+    private final e.a mrX;
+    private final com.google.android.exoplayer2.extractor.h mrY;
+    private final int mrZ;
+    private l.a mrc;
+    private final int mrp;
+    private final a mrq;
+    private final String mrt;
+    private long msa;
+    private boolean msb;
     private final Uri uri;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(IOException iOException);
     }
@@ -35,29 +35,29 @@ public final class i implements h.c, l {
 
     public i(Uri uri, e.a aVar, com.google.android.exoplayer2.extractor.h hVar, int i, Handler handler, a aVar2, String str, int i2) {
         this.uri = uri;
-        this.mrr = aVar;
-        this.mrs = hVar;
-        this.mqJ = i;
-        this.lXR = handler;
-        this.mqK = aVar2;
-        this.mqN = str;
-        this.mrt = i2;
+        this.mrX = aVar;
+        this.mrY = hVar;
+        this.mrp = i;
+        this.lYx = handler;
+        this.mrq = aVar2;
+        this.mrt = str;
+        this.mrZ = i2;
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void a(com.google.android.exoplayer2.g gVar, boolean z, l.a aVar) {
-        this.mqw = aVar;
-        o(-9223372036854775807L, false);
+        this.mrc = aVar;
+        q(-9223372036854775807L, false);
     }
 
     @Override // com.google.android.exoplayer2.source.l
-    public void dva() throws IOException {
+    public void dwk() throws IOException {
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public k a(l.b bVar, com.google.android.exoplayer2.upstream.b bVar2) {
         com.google.android.exoplayer2.util.a.checkArgument(bVar.periodIndex == 0);
-        return new h(this.uri, this.mrr.dxJ(), this.mrs.dtG(), this.mqJ, this.lXR, this.mqK, this, bVar2, this.mqN, this.mrt);
+        return new h(this.uri, this.mrX.dyT(), this.mrY.duR(), this.mrp, this.lYx, this.mrq, this, bVar2, this.mrt, this.mrZ);
     }
 
     @Override // com.google.android.exoplayer2.source.l
@@ -67,22 +67,22 @@ public final class i implements h.c, l {
 
     @Override // com.google.android.exoplayer2.source.l
     public void releaseSource() {
-        this.mqw = null;
+        this.mrc = null;
     }
 
     @Override // com.google.android.exoplayer2.source.h.c
-    public void n(long j, boolean z) {
+    public void p(long j, boolean z) {
         if (j == -9223372036854775807L) {
-            j = this.mru;
+            j = this.msa;
         }
-        if (this.mru != j || this.mrv != z) {
-            o(j, z);
+        if (this.msa != j || this.msb != z) {
+            q(j, z);
         }
     }
 
-    private void o(long j, boolean z) {
-        this.mru = j;
-        this.mrv = z;
-        this.mqw.a(this, new s(this.mru, this.mrv), null);
+    private void q(long j, boolean z) {
+        this.msa = j;
+        this.msb = z;
+        this.mrc.a(this, new s(this.msa, this.msb), null);
     }
 }

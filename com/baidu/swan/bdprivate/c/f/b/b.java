@@ -1,7 +1,7 @@
 package com.baidu.swan.bdprivate.c.f.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public String bZr;
+    public String cdx;
     public double latitude;
     public double longitude;
 }

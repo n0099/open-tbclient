@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a {
 
     /* renamed from: com.baidu.tieba.im.chat.photolive.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0520a {
-        public long htD;
-        public String htE;
+    /* loaded from: classes13.dex */
+    public static class C0527a {
+        public long hvC;
+        public String hvD;
         public String portrait = null;
         public String userId = null;
         public String userName = null;
@@ -22,31 +22,31 @@ public class a {
         public String forumName = null;
         public long postId = 0;
         public int msgType = 0;
-        public int htF = 0;
+        public int hvE = 0;
     }
 
-    public static C0520a Ch(String str) {
+    public static C0527a Cx(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C0520a c0520a = new C0520a();
+        C0527a c0527a = new C0527a();
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0520a.portrait = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
-                c0520a.userId = optJSONObject.optString("user_id");
-                c0520a.userName = optJSONObject.optString("nick_name");
-                c0520a.htD = optJSONObject.optLong("caller_time");
-                c0520a.htE = optJSONObject.optString("caller_content");
-                c0520a.threadId = optJSONObject.optLong("thread_id");
-                c0520a.threadTitle = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-                c0520a.forumName = optJSONObject.optString("forum_name");
-                c0520a.postId = optJSONObject.optLong("post_id");
-                c0520a.msgType = optJSONObject.optInt("msg_type");
-                c0520a.htF = optJSONObject.optInt("remind_count");
+                c0527a.portrait = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
+                c0527a.userId = optJSONObject.optString("user_id");
+                c0527a.userName = optJSONObject.optString("nick_name");
+                c0527a.hvC = optJSONObject.optLong("caller_time");
+                c0527a.hvD = optJSONObject.optString("caller_content");
+                c0527a.threadId = optJSONObject.optLong("thread_id");
+                c0527a.threadTitle = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+                c0527a.forumName = optJSONObject.optString("forum_name");
+                c0527a.postId = optJSONObject.optLong("post_id");
+                c0527a.msgType = optJSONObject.optInt("msg_type");
+                c0527a.hvE = optJSONObject.optInt("remind_count");
             }
-            return c0520a;
+            return c0527a;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

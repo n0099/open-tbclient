@@ -9,7 +9,7 @@ import com.baidu.sapi2.result.CheckUserFaceIdResult;
 import com.baidu.sapi2.share.face.FaceLoginService;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class t extends HttpHandlerWrap {
     final /* synthetic */ SapiCallback a;
     final /* synthetic */ CheckUserFaceIdResult b;

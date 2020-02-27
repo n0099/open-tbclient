@@ -23,13 +23,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.scale.ScalableType;
 import com.baidu.tieba.video.editvideo.scale.ScalableVideoView;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CoverSeekBar extends FrameLayout {
     private int MAX_IMAGE_SIZE;
-    private LinearLayout.LayoutParams cuk;
+    private LinearLayout.LayoutParams cyk;
     private Handler handler;
-    private ScalableVideoView kxp;
-    private a kxq;
+    private ScalableVideoView kyk;
+    private a kyl;
     private float mDownX;
     private float mDownY;
     private int mImageHeight;
@@ -38,7 +38,7 @@ public class CoverSeekBar extends FrameLayout {
     private Thread mThread;
     private float mTouchSlop;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onProgress(int i);
 
@@ -73,28 +73,28 @@ public class CoverSeekBar extends FrameLayout {
         this.mTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         this.mImageWidth = l.getEquipmentWidth(getContext()) / 10;
         this.mImageHeight = l.getDimens(getContext(), R.dimen.ds112);
-        this.cuk = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageHeight);
+        this.cyk = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageHeight);
         this.mImagesContainer = (LinearLayout) findViewById(R.id.images_container);
-        this.kxp = (ScalableVideoView) findViewById(R.id.cover_select_image);
-        this.kxp.setLayoutParams(new FrameLayout.LayoutParams(this.mImageWidth, this.mImageHeight));
+        this.kyk = (ScalableVideoView) findViewById(R.id.cover_select_image);
+        this.kyk.setLayoutParams(new FrameLayout.LayoutParams(this.mImageWidth, this.mImageHeight));
     }
 
     public void setData(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.kxp.setDataSource(str);
-                this.kxp.setScalableType(ScalableType.CENTER_CROP);
-                this.kxp.c(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.1
+                this.kyk.setDataSource(str);
+                this.kyk.setScalableType(ScalableType.CENTER_CROP);
+                this.kyk.b(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         mediaPlayer.setVolume(0.0f, 0.0f);
                         if (Build.VERSION.SDK_INT >= 17) {
-                            CoverSeekBar.this.kxp.start();
+                            CoverSeekBar.this.kyk.start();
                             mediaPlayer.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.1.1
                                 @Override // android.media.MediaPlayer.OnInfoListener
                                 public boolean onInfo(MediaPlayer mediaPlayer2, int i, int i2) {
                                     if (i == 3) {
-                                        CoverSeekBar.this.kxp.pause();
+                                        CoverSeekBar.this.kyk.pause();
                                         return true;
                                     }
                                     return true;
@@ -102,11 +102,11 @@ public class CoverSeekBar extends FrameLayout {
                             });
                             return;
                         }
-                        CoverSeekBar.this.kxp.seekTo(0);
+                        CoverSeekBar.this.kyk.seekTo(0);
                     }
                 });
-                JS(str);
-                JR(str);
+                Kf(str);
+                Ke(str);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -114,10 +114,10 @@ public class CoverSeekBar extends FrameLayout {
     }
 
     public int getCurrentPosition() {
-        if (this.kxp == null) {
+        if (this.kyk == null) {
             return 0;
         }
-        return this.kxp.getCurrentPosition();
+        return this.kyk.getCurrentPosition();
     }
 
     public void setImage(int i, Bitmap bitmap) {
@@ -128,7 +128,7 @@ public class CoverSeekBar extends FrameLayout {
         }
     }
 
-    private void JR(final String str) {
+    private void Ke(final String str) {
         this.mThread = new Thread(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.3
             @Override // java.lang.Runnable
             public void run() {
@@ -153,7 +153,7 @@ public class CoverSeekBar extends FrameLayout {
         this.mThread.start();
     }
 
-    public void JS(String str) {
+    public void Kf(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 boolean z = this.mImagesContainer.getChildCount() > 0;
@@ -173,7 +173,7 @@ public class CoverSeekBar extends FrameLayout {
                         }
                         am.setImageResource(imageView2, R.drawable.bg_seekbar);
                         imageView2.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                        this.mImagesContainer.addView(imageView2, this.cuk);
+                        this.mImagesContainer.addView(imageView2, this.cyk);
                     }
                 }
                 mediaMetadataRetriever.release();
@@ -184,25 +184,25 @@ public class CoverSeekBar extends FrameLayout {
     }
 
     public void setProgressImage(int i, int i2) {
-        this.kxp.seekTo(i2);
+        this.kyk.seekTo(i2);
         int width = (int) (((i / 1000.0f) * getWidth()) - this.mImageWidth);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.kxp.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.kyk.getLayoutParams();
         if (width <= 0) {
             width = 0;
         } else if (width >= getWidth() - this.mImageWidth) {
             width = getWidth() - this.mImageWidth;
         }
         layoutParams.setMargins(width, 0, 0, 0);
-        this.kxp.setLayoutParams(layoutParams);
+        this.kyk.setLayoutParams(layoutParams);
     }
 
     public void seekTo(int i) {
-        this.kxp.seekTo(i);
+        this.kyk.seekTo(i);
     }
 
     public void release() {
-        if (this.kxp != null) {
-            this.kxp.release();
+        if (this.kyk != null) {
+            this.kyk.release();
         }
         if (this.mThread != null) {
             this.mThread.interrupt();
@@ -215,16 +215,16 @@ public class CoverSeekBar extends FrameLayout {
             case 0:
                 this.mDownX = motionEvent.getX();
                 this.mDownY = motionEvent.getY();
-                if (this.kxq != null) {
-                    this.kxq.onStartTrackingTouch();
+                if (this.kyl != null) {
+                    this.kyl.onStartTrackingTouch();
                     trackTouchEvent(motionEvent);
                     return true;
                 }
                 return true;
             case 1:
-                if (this.kxq != null) {
+                if (this.kyl != null) {
                     trackTouchEvent(motionEvent);
-                    this.kxq.onStopTrackingTouch();
+                    this.kyl.onStopTrackingTouch();
                     return true;
                 }
                 return true;
@@ -254,8 +254,8 @@ public class CoverSeekBar extends FrameLayout {
         float f = (paddingLeft * 1000.0f) + 0.0f;
         float f2 = f >= 0.0f ? f : 0.0f;
         float f3 = f2 <= 1000.0f ? f2 : 1000.0f;
-        if (this.kxq != null) {
-            this.kxq.onProgress((int) f3);
+        if (this.kyl != null) {
+            this.kyl.onProgress((int) f3);
         }
     }
 
@@ -264,6 +264,6 @@ public class CoverSeekBar extends FrameLayout {
     }
 
     public void setOnProgressChanged(a aVar) {
-        this.kxq = aVar;
+        this.kyl = aVar;
     }
 }

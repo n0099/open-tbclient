@@ -4,19 +4,19 @@ import android.content.Context;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.swan.apps.console.debugger.b.d;
 import com.baidu.swan.apps.console.v8inspector.a.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private InterfaceC0228a bgG;
-    private b bgH;
+    private InterfaceC0238a bkS;
+    private b bkT;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.console.v8inspector.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0228a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0238a {
         void onConnected();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void start();
     }
@@ -29,17 +29,17 @@ public class a {
         ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.apps.console.debugger.b.Jj()) {
-                    a.this.bgH = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.bgG);
-                } else if (com.baidu.swan.apps.console.debugger.b.Jk()) {
-                    a.this.bgH = new com.baidu.swan.apps.console.v8inspector.a.b(d.JH(), a.this.bgG);
+                if (com.baidu.swan.apps.console.debugger.b.Ly()) {
+                    a.this.bkT = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.bkS);
+                } else if (com.baidu.swan.apps.console.debugger.b.Lz()) {
+                    a.this.bkT = new com.baidu.swan.apps.console.v8inspector.a.b(d.LW(), a.this.bkS);
                 }
-                a.this.bgH.start();
+                a.this.bkT.start();
             }
         }, "V8Inspector");
     }
 
-    public void a(InterfaceC0228a interfaceC0228a) {
-        this.bgG = interfaceC0228a;
+    public void a(InterfaceC0238a interfaceC0238a) {
+        this.bkS = interfaceC0238a;
     }
 }

@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableFromArray<T> extends io.reactivex.g<T> {
     final T[] array;
 
@@ -16,7 +16,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static abstract class BaseArraySubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         final T[] array;
@@ -74,7 +74,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ArraySubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final org.a.c<? super T> actual;
@@ -150,7 +150,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ArrayConditionalSubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super T> actual;

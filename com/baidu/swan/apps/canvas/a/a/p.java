@@ -2,7 +2,7 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class p extends a {
     private int mX = Integer.MAX_VALUE;
     private int mY = Integer.MAX_VALUE;

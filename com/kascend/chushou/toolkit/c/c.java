@@ -3,9 +3,9 @@ package com.kascend.chushou.toolkit.c;
 import android.app.Application;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c implements tv.chushou.basis.d.a.a.a {
-    private final tv.chushou.basis.c.a ned = new tv.chushou.basis.c.b();
+    private final tv.chushou.basis.c.a neH = new tv.chushou.basis.c.b();
 
     @Override // tv.chushou.basis.d.a
     public void init(Application application) {
@@ -13,17 +13,17 @@ public class c implements tv.chushou.basis.d.a.a.a {
 
     @Override // tv.chushou.basis.d.a.a.a
     public Object remove(String str) {
-        return this.ned.remove(str);
+        return this.neH.remove(str);
     }
 
     @Override // tv.chushou.basis.d.a.a.a
     public void putString(@NonNull String str, String str2) {
-        this.ned.putString(str, str2);
+        this.neH.putString(str, str2);
     }
 
     @Override // tv.chushou.basis.d.a.a.a
     @Nullable
     public String getString(@NonNull String str, String str2) {
-        return this.ned.getString(str, str2);
+        return this.neH.getString(str, str2);
     }
 }

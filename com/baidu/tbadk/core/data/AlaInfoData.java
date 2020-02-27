@@ -24,6 +24,7 @@ public class AlaInfoData implements Serializable {
     public long group_id;
     public boolean haveRedpkg;
     public String hls_url;
+    public boolean isChushou;
     public e label;
     public String label_name;
     public boolean liveStageForceTop;
@@ -36,10 +37,13 @@ public class AlaInfoData implements Serializable {
     public String media_pic;
     public String media_subtitle;
     public String media_url;
+    public String routeType;
     public String rtmp_url;
     public int screen_direction;
     public String session_id;
     public AlaShareInfoData share_info;
+    public String thirdLiveType;
+    public String thirdRoomId;
     public long thread_id;
     public AlaUserInfoData user_info;
 
@@ -104,6 +108,10 @@ public class AlaInfoData implements Serializable {
                 this.liveStagePicUrl = jSONObject.optString("frs_toplive_pic");
                 this.liveStageForceTop = jSONObject.optInt("frs_toplive_force", 0) == 1;
                 this.haveRedpkg = "1".equals(jSONObject.optString("red_packet", ""));
+                this.isChushou = "1".equals(jSONObject.optString("live_from", ""));
+                this.thirdLiveType = jSONObject.optString("third_live_type");
+                this.thirdRoomId = jSONObject.optString("third_room_id", "");
+                this.routeType = jSONObject.optString("router_type", "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -154,6 +162,10 @@ public class AlaInfoData implements Serializable {
                 this.frsLiveStageType = alaLiveInfo.frs_toplive_type.intValue();
                 this.liveStagePicUrl = alaLiveInfo.frs_toplive_pic;
                 this.liveStageForceTop = alaLiveInfo.frs_toplive_force.intValue() == 1;
+                this.isChushou = alaLiveInfo.live_from.intValue() == 1;
+                this.thirdLiveType = alaLiveInfo.third_live_type;
+                this.thirdRoomId = alaLiveInfo.third_room_id;
+                this.routeType = alaLiveInfo.router_type;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

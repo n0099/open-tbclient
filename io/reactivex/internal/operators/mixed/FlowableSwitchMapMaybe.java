@@ -15,18 +15,18 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSwitchMapMaybe<T, R> extends g<R> {
     final boolean delayErrors;
     final h<? super T, ? extends o<? extends R>> mapper;
-    final g<T> nvP;
+    final g<T> nwr;
 
     @Override // io.reactivex.g
     protected void a(c<? super R> cVar) {
-        this.nvP.a((j) new SwitchMapMaybeSubscriber(cVar, this.mapper, this.delayErrors));
+        this.nwr.a((j) new SwitchMapMaybeSubscriber(cVar, this.mapper, this.delayErrors));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SwitchMapMaybeSubscriber<T, R> extends AtomicInteger implements j<T>, d {
         static final SwitchMapMaybeObserver<Object> INNER_DISPOSED = new SwitchMapMaybeObserver<>(null);
         private static final long serialVersionUID = -5402190102429853762L;
@@ -76,7 +76,7 @@ public final class FlowableSwitchMapMaybe<T, R> extends g<R> {
                 } while (!this.inner.compareAndSet(switchMapMaybeObserver, switchMapMaybeObserver3));
                 oVar.a(switchMapMaybeObserver3);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.upstream.cancel();
                 this.inner.getAndSet(INNER_DISPOSED);
                 onError(th);
@@ -185,7 +185,7 @@ public final class FlowableSwitchMapMaybe<T, R> extends g<R> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class SwitchMapMaybeObserver<R> extends AtomicReference<io.reactivex.disposables.b> implements m<R> {
             private static final long serialVersionUID = 8042919737683345351L;
             volatile R item;

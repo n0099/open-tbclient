@@ -14,7 +14,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class e extends ab {
     public e(j jVar) {
         super(jVar, "/swan/publishThread");

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Process;
 import android.support.annotation.NonNull;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static final int getColor(Context context, int i) {
         return Build.VERSION.SDK_INT >= 23 ? b.getColor(context, i) : context.getResources().getColor(i);

@@ -4,7 +4,8 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class SequencesKt__SequencesKt$flatten$1 extends Lambda implements kotlin.jvm.a.b<c<? extends T>, Iterator<? extends T>> {
     public static final SequencesKt__SequencesKt$flatten$1 INSTANCE = new SequencesKt__SequencesKt$flatten$1();
 

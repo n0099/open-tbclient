@@ -1,5 +1,5 @@
 package com.kascend.chushou.b.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static int a = 1;
     public static int b = 2;

@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdAsyncTaskExecutor implements Executor {
     private static final int CORE_POOL_SIZE = 7;
     private static final int KEEP_ALIVE = 30;
@@ -29,7 +29,7 @@ public class BdAsyncTaskExecutor implements Executor {
     private static final int TASK_RUN_NEXT_ID = 2;
     private Handler mHandler;
     private HandlerThread sHandlerThread;
-    private static BdAsyncTaskExecutor sInstance = null;
+    private static volatile BdAsyncTaskExecutor sInstance = null;
     private static final ThreadFactory sThreadFactory = new ThreadFactory() { // from class: com.baidu.live.adp.lib.asynctask.BdAsyncTaskExecutor.1
         private final AtomicInteger mCount = new AtomicInteger(1);
 
@@ -66,8 +66,6 @@ public class BdAsyncTaskExecutor implements Executor {
                     }
                 } else if (message.what == 2 && message.obj != null && (message.obj instanceof BdAsyncTaskRunnable)) {
                     BdAsyncTaskExecutor.this.scheduleNext((BdAsyncTaskRunnable) message.obj);
-                    if (BdBaseApplication.getInst().isDebugMode()) {
-                    }
                 }
             }
         };
@@ -100,7 +98,7 @@ public class BdAsyncTaskExecutor implements Executor {
     public synchronized void execute(Runnable runnable) {
         if (runnable instanceof BdAsyncTaskFuture) {
             BdAsyncTaskRunnable bdAsyncTaskRunnable = new BdAsyncTaskRunnable((BdAsyncTaskFuture) runnable) { // from class: com.baidu.live.adp.lib.asynctask.BdAsyncTaskExecutor.3
-                /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [166=4] */
+                /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [163=4] */
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -130,8 +128,6 @@ public class BdAsyncTaskExecutor implements Executor {
             } else {
                 insertTask(bdAsyncTaskRunnable);
                 scheduleNext(null);
-                if (BdBaseApplication.getInst().isDebugMode()) {
-                }
             }
         }
     }
@@ -461,7 +457,7 @@ public class BdAsyncTaskExecutor implements Executor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class BdAsyncTaskRunnable implements Runnable {
         private BdAsyncTaskFuture<?> mBdAsyncTaskFuture;
 

@@ -8,29 +8,29 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.pb.pb.main.PbModel;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e extends w {
-    private PbModel iCx;
-    private d iXM = new d();
-    private int iXN = 0;
+    private PbModel iEg;
+    private d iZn = new d();
+    private int iZo = 0;
 
     public void init(Intent intent) {
-        this.iXM.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.iXM.qP(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.iZn.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.iZn.qU(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void g(PbModel pbModel) {
-        this.iCx = pbModel;
+        this.iEg = pbModel;
     }
 
-    public void b(com.baidu.tieba.pb.data.f fVar, int i) {
+    public void b(com.baidu.tieba.pb.data.e eVar, int i) {
         boolean z = true;
-        if (i >= this.iXN) {
-            this.iXN = i;
-            this.iXM.G(fVar);
-            if (fVar != null) {
-                d dVar = this.iXM;
-                if (fVar.getIsNewUrl() != 1 && !fVar.cjs()) {
+        if (i >= this.iZo) {
+            this.iZo = i;
+            this.iZn.I(eVar);
+            if (eVar != null) {
+                d dVar = this.iZn;
+                if (eVar.getIsNewUrl() != 1 && !eVar.ckQ()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,115 +38,115 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.f crJ() {
-        return this.iXM.crJ();
+    public com.baidu.tieba.pb.data.e ctc() {
+        return this.iZn.ctc();
     }
 
     public boolean isFromCDN() {
-        return this.iXM.isFromCDN();
+        return this.iZn.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.f crK() {
-        return this.iXM.crK();
+    public com.baidu.tieba.pb.data.e ctd() {
+        return this.iZn.ctd();
     }
 
-    public void c(com.baidu.tieba.pb.data.f fVar, int i) {
+    public void c(com.baidu.tieba.pb.data.e eVar, int i) {
         if (i == 3) {
-            this.iXM.setData(fVar);
+            this.iZn.setData(eVar);
         }
     }
 
-    public p<bj> crL() {
-        return this.iXM.crL();
+    public p<bj> cte() {
+        return this.iZn.cte();
     }
 
-    public Rect crM() {
-        if (this.iXM.crM() == null || this.iXM.crM().isEmpty()) {
+    public Rect ctf() {
+        if (this.iZn.ctf() == null || this.iZn.ctf().isEmpty()) {
             return null;
         }
-        return this.iXM.crM();
+        return this.iZn.ctf();
     }
 
-    public void qS(boolean z) {
-        if (this.iXM.crQ().getValue() != null) {
-            com.baidu.tieba.pb.data.f aD = this.iCx.aD(this.iXM.crQ().getValue());
-            if (aD != null) {
-                this.iXM.crO().addLast(this.iXM.crK());
-                this.iXM.setData(aD);
-                this.iXM.aL(!v.isEmpty(aD.cjr()) ? aD.cjr().get(0) : null);
-                this.iXM.aK(this.iXM.crO().getLast() != null ? this.iXM.crO().getLast().ciS() : null);
-                this.iCx.yS(z ? 21 : 22);
-                this.iCx.h(aD);
-                this.iXM.setIsLoading(true);
+    public void qX(boolean z) {
+        if (this.iZn.ctj().getValue() != null) {
+            com.baidu.tieba.pb.data.e aG = this.iEg.aG(this.iZn.ctj().getValue());
+            if (aG != null) {
+                this.iZn.cth().addLast(this.iZn.ctd());
+                this.iZn.setData(aG);
+                this.iZn.aO(!v.isEmpty(aG.ckP()) ? aG.ckP().get(0) : null);
+                this.iZn.aN(this.iZn.cth().getLast() != null ? this.iZn.cth().getLast().cks() : null);
+                this.iEg.yY(z ? 21 : 22);
+                this.iEg.h(aG);
+                this.iZn.setIsLoading(true);
             }
         }
     }
 
-    public void aM(bj bjVar) {
-        com.baidu.tieba.pb.data.f aD;
-        if (bjVar != null && (aD = this.iCx.aD(bjVar)) != null) {
-            this.iXM.crO().addLast(this.iXM.crK());
-            this.iXM.setData(aD);
-            this.iXM.aL(!v.isEmpty(aD.cjr()) ? aD.cjr().get(0) : null);
-            this.iXM.aK(this.iXM.crO().getLast() != null ? this.iXM.crO().getLast().ciS() : null);
-            this.iCx.yS(20);
-            this.iCx.h(aD);
-            this.iXM.setIsLoading(true);
+    public void aP(bj bjVar) {
+        com.baidu.tieba.pb.data.e aG;
+        if (bjVar != null && (aG = this.iEg.aG(bjVar)) != null) {
+            this.iZn.cth().addLast(this.iZn.ctd());
+            this.iZn.setData(aG);
+            this.iZn.aO(!v.isEmpty(aG.ckP()) ? aG.ckP().get(0) : null);
+            this.iZn.aN(this.iZn.cth().getLast() != null ? this.iZn.cth().getLast().cks() : null);
+            this.iEg.yY(20);
+            this.iEg.h(aG);
+            this.iZn.setIsLoading(true);
         }
     }
 
-    public void crV() {
-        com.baidu.tieba.pb.data.f pollLast = this.iXM.crO().pollLast();
+    public void cto() {
+        com.baidu.tieba.pb.data.e pollLast = this.iZn.cth().pollLast();
         if (pollLast != null) {
-            this.iXM.setData(pollLast);
-            this.iXM.aL(!v.isEmpty(pollLast.cjr()) ? pollLast.cjr().get(0) : null);
-            this.iXM.aK(this.iXM.crO().peekLast() != null ? this.iXM.crO().peekLast().ciS() : null);
-            this.iCx.h(pollLast);
-            this.iXM.setIsLoading(true);
+            this.iZn.setData(pollLast);
+            this.iZn.aO(!v.isEmpty(pollLast.ckP()) ? pollLast.ckP().get(0) : null);
+            this.iZn.aN(this.iZn.cth().peekLast() != null ? this.iZn.cth().peekLast().cks() : null);
+            this.iEg.h(pollLast);
+            this.iZn.setIsLoading(true);
         }
     }
 
-    public p<bj> crP() {
-        return this.iXM.crP();
+    public p<bj> cti() {
+        return this.iZn.cti();
     }
 
-    public p<bj> crQ() {
-        return this.iXM.crQ();
+    public p<bj> ctj() {
+        return this.iZn.ctj();
     }
 
-    public p<Boolean> crR() {
-        return this.iXM.crR();
+    public p<Boolean> ctk() {
+        return this.iZn.ctk();
     }
 
-    public void qQ(boolean z) {
-        this.iXM.qQ(z);
+    public void qV(boolean z) {
+        this.iZn.qV(z);
     }
 
-    public p<Boolean> crS() {
-        return this.iXM.crS();
+    public p<Boolean> ctl() {
+        return this.iZn.ctl();
     }
 
-    public void qR(boolean z) {
-        this.iXM.qR(z);
+    public void qW(boolean z) {
+        this.iZn.qW(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.iXM.setIsLoading(z);
+        this.iZn.setIsLoading(z);
     }
 
-    public p<Boolean> crT() {
-        return this.iXM.crT();
+    public p<Boolean> ctm() {
+        return this.iZn.ctm();
     }
 
-    public boolean crN() {
-        return this.iXM.crN();
+    public boolean ctg() {
+        return this.iZn.ctg();
     }
 
     public void setCurrentTab(int i) {
-        this.iXM.setCurrentTab(i);
+        this.iZn.setCurrentTab(i);
     }
 
-    public p<Integer> crU() {
-        return this.iXM.crU();
+    public p<Integer> ctn() {
+        return this.iZn.ctn();
     }
 }

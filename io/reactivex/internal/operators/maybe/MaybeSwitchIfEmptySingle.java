@@ -7,7 +7,7 @@ import io.reactivex.o;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class MaybeSwitchIfEmptySingle<T> extends w<T> {
     final aa<? extends T> other;
     final o<T> source;
@@ -17,7 +17,7 @@ public final class MaybeSwitchIfEmptySingle<T> extends w<T> {
         this.source.a(new SwitchIfEmptyMaybeObserver(yVar, this.other));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SwitchIfEmptyMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4603919676453758899L;
         final y<? super T> actual;
@@ -63,7 +63,7 @@ public final class MaybeSwitchIfEmptySingle<T> extends w<T> {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static final class a<T> implements y<T> {
             final y<? super T> actual;
             final AtomicReference<io.reactivex.disposables.b> parent;

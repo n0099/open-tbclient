@@ -1,13 +1,12 @@
 package com.baidu.android.imsdk.pubaccount;
 
 import android.content.Context;
-import com.baidu.android.imsdk.chatuser.IStatusListener;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PaManager extends BaseManager {
     public static void init(Context context) {
         if (!isNullContext(context)) {
@@ -131,28 +130,6 @@ public class PaManager extends BaseManager {
             return;
         }
         PaManagerImpl.getInstance(context).isSubscribed(j, iIsSubscribedListener);
-    }
-
-    public static void setDisturb(Context context, long j, int i, IStatusListener iStatusListener) {
-        if (isNullContext(context)) {
-            if (iStatusListener != null) {
-                iStatusListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, 0, j);
-                return;
-            }
-            return;
-        }
-        PaManagerImpl.getInstance(context).setDisturb(context, j, i, iStatusListener);
-    }
-
-    public static void setMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
-        if (isNullContext(context)) {
-            if (iStatusListener != null) {
-                iStatusListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, 0, j);
-                return;
-            }
-            return;
-        }
-        PaManagerImpl.getInstance(context).setMarkTop(context, j, i, iStatusListener);
     }
 
     public static void syncAllPainfo(Context context) {

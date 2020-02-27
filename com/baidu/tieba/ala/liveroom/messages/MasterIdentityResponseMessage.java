@@ -2,18 +2,18 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int fdL;
-    private String fdM;
-    private int fdN;
-    private int fdO;
-    private String fdP;
+    private int fgV;
+    private String fgW;
+    private int fgX;
+    private int fgY;
+    private String fgZ;
 
     public MasterIdentityResponseMessage() {
         super(1021131);
-        this.fdN = 0;
-        this.fdO = 0;
+        this.fgX = 0;
+        this.fgY = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.fdL = jSONObject.optInt("anchor_identity");
-                this.fdM = jSONObject.optString("anchor_proportion");
-                this.fdN = jSONObject.optInt("anchor_identity_status");
-                this.fdO = jSONObject.optInt("anchor_proportion_status");
-                this.fdP = jSONObject.optString("anchor_text");
+                this.fgV = jSONObject.optInt("anchor_identity");
+                this.fgW = jSONObject.optString("anchor_proportion");
+                this.fgX = jSONObject.optInt("anchor_identity_status");
+                this.fgY = jSONObject.optInt("anchor_proportion_status");
+                this.fgZ = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int bnw() {
-        return this.fdN;
+    public int bpg() {
+        return this.fgX;
     }
 
-    public int bnx() {
-        return this.fdO;
+    public int bph() {
+        return this.fgY;
     }
 
-    public String bny() {
-        return this.fdP;
+    public String bpi() {
+        return this.fgZ;
     }
 }

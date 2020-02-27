@@ -1,5 +1,5 @@
 package com.kascend.chushou.widget.cswebview;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e implements d {
     @Override // com.kascend.chushou.widget.cswebview.d
     public void a(Object obj) {

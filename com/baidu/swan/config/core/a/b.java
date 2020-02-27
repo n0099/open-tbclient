@@ -2,7 +2,7 @@ package com.baidu.swan.config.core.a;
 
 import com.baidu.swan.config.core.ConfigNode;
 import com.baidu.swan.config.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static c a(ConfigNode configNode) {
         Class<? extends c> paramsProvider;

@@ -1,5 +1,6 @@
 package com.qiniu.android.http;
 
+import com.baidu.android.imsdk.IMConstants;
 import com.qiniu.android.collect.Config;
 import com.qiniu.android.collect.UploadInfoCollector;
 import com.qiniu.android.storage.UpToken;
@@ -7,52 +8,52 @@ import com.qiniu.android.utils.StringUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ResponseInfo {
     public final long duration;
     public final String error;
     public final String host;
     public final String ip;
-    public final long nmG;
-    public final String nmP;
-    public final String nmQ;
-    public final long nmR;
-    public final UpToken nmS;
-    public final JSONObject nmT;
+    public final long nnh;
+    public final String nnq;
+    public final String nnr;
+    public final long nns;
+    public final UpToken nnt;
+    public final JSONObject nnu;
     public final String path;
     public final int port;
     public final String reqId;
     public final int statusCode;
-    public final String id = UserAgent.dEM().id;
+    public final String id = UserAgent.dFT().id;
     public final long timeStamp = System.currentTimeMillis() / 1000;
 
     private ResponseInfo(JSONObject jSONObject, int i, String str, String str2, String str3, String str4, String str5, String str6, int i2, long j, long j2, String str7, UpToken upToken, long j3) {
-        this.nmT = jSONObject;
+        this.nnu = jSONObject;
         this.statusCode = i;
         this.reqId = str;
-        this.nmP = str2;
-        this.nmQ = str3;
+        this.nnq = str2;
+        this.nnr = str3;
         this.host = str4;
         this.path = str5;
         this.duration = j;
         this.error = str7;
         this.ip = str6;
         this.port = i2;
-        this.nmR = j2;
-        this.nmS = upToken;
-        this.nmG = j3;
+        this.nns = j2;
+        this.nnt = upToken;
+        this.nnh = j3;
     }
 
     public static ResponseInfo a(JSONObject jSONObject, final int i, final String str, String str2, String str3, final String str4, final String str5, String str6, final int i2, final long j, final long j2, String str7, UpToken upToken, final long j3) {
         String str8 = (str6 + "").split(":")[0];
         final String substring = str8.substring(Math.max(0, str8.indexOf("/") + 1));
         ResponseInfo responseInfo = new ResponseInfo(jSONObject, i, str, str2, str3, str4, str5, substring, i2, j, j2, str7, upToken, j3);
-        if (Config.nlR || upToken != null) {
+        if (Config.nms || upToken != null) {
             final String str9 = responseInfo.timeStamp + "";
             UploadInfoCollector.a(upToken, new UploadInfoCollector.RecordMsg() { // from class: com.qiniu.android.http.ResponseInfo.1
                 @Override // com.qiniu.android.collect.UploadInfoCollector.RecordMsg
-                public String dEE() {
-                    return StringUtils.b(new String[]{i + "", str, str4, substring, i2 + "", j + "", str9, j2 + "", ResponseInfo.Rb(str5), j3 + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
+                public String dFL() {
+                    return StringUtils.b(new String[]{i + "", str, str4, substring, i2 + "", j + "", str9, j2 + "", ResponseInfo.Rm(str5), j3 + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             });
         }
@@ -60,12 +61,12 @@ public final class ResponseInfo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String Rb(String str) {
+    public static String Rm(String str) {
         if (str == null || !str.startsWith("/")) {
             return "";
         }
         if ("/".equals(str)) {
-            return "form";
+            return IMConstants.SERVICE_TYPE_FORM;
         }
         int indexOf = str.indexOf(47, 1);
         if (indexOf < 1) {
@@ -125,7 +126,7 @@ public final class ResponseInfo {
         return a(null, -4, "", "", "", "", "", "", 80, 0L, 0L, str, upToken, 0L);
     }
 
-    public static ResponseInfo Rc(String str) {
+    public static ResponseInfo Rn(String str) {
         return a(null, -5, "", "", "", "", "", "", 80, 0L, 0L, str, null, 0L);
     }
 
@@ -137,7 +138,7 @@ public final class ResponseInfo {
         return a(null, i, "", "", "", "", "", "", 80, 0L, 0L, "Network error during preQuery", upToken, 0L);
     }
 
-    public static boolean Nl(int i) {
+    public static boolean No(int i) {
         return i == -1 || i == -1003 || i == -1004 || i == -1001 || i == -1005;
     }
 
@@ -145,35 +146,35 @@ public final class ResponseInfo {
         return this.statusCode == -2;
     }
 
-    public boolean dEF() {
-        return this.statusCode == 200 && this.error == null && (dEL() || this.nmT != null);
+    public boolean dFM() {
+        return this.statusCode == 200 && this.error == null && (dFS() || this.nnu != null);
     }
 
-    public boolean dEG() {
+    public boolean dFN() {
         return this.statusCode == -1 || this.statusCode == -1003 || this.statusCode == -1004 || this.statusCode == -1001 || this.statusCode == -1005;
     }
 
-    public boolean dEH() {
+    public boolean dFO() {
         return (this.statusCode >= 500 && this.statusCode < 600 && this.statusCode != 579) || this.statusCode == 996;
     }
 
-    public boolean dEI() {
-        return dEG() || dEH();
+    public boolean dFP() {
+        return dFN() || dFO();
     }
 
-    public boolean dEJ() {
-        return !isCancelled() && (dEI() || this.statusCode == 406 || ((this.statusCode == 200 && this.error != null) || (dEK() && !this.nmS.dEU())));
+    public boolean dFQ() {
+        return !isCancelled() && (dFP() || this.statusCode == 406 || ((this.statusCode == 200 && this.error != null) || (dFR() && !this.nnt.dGb())));
     }
 
-    public boolean dEK() {
-        return this.statusCode < 500 && this.statusCode >= 200 && !dEL() && this.nmT == null;
+    public boolean dFR() {
+        return this.statusCode < 500 && this.statusCode >= 200 && !dFS() && this.nnu == null;
     }
 
     public String toString() {
-        return String.format(Locale.ENGLISH, "{ver:%s,ResponseInfo:%s,status:%d, reqId:%s, xlog:%s, xvia:%s, host:%s, path:%s, ip:%s, port:%d, duration:%d s, time:%d, sent:%d,error:%s}", "7.3.13", this.id, Integer.valueOf(this.statusCode), this.reqId, this.nmP, this.nmQ, this.host, this.path, this.ip, Integer.valueOf(this.port), Long.valueOf(this.duration), Long.valueOf(this.timeStamp), Long.valueOf(this.nmR), this.error);
+        return String.format(Locale.ENGLISH, "{ver:%s,ResponseInfo:%s,status:%d, reqId:%s, xlog:%s, xvia:%s, host:%s, path:%s, ip:%s, port:%d, duration:%d s, time:%d, sent:%d,error:%s}", "7.3.13", this.id, Integer.valueOf(this.statusCode), this.reqId, this.nnq, this.nnr, this.host, this.path, this.ip, Integer.valueOf(this.port), Long.valueOf(this.duration), Long.valueOf(this.timeStamp), Long.valueOf(this.nns), this.error);
     }
 
-    public boolean dEL() {
+    public boolean dFS() {
         return this.reqId != null;
     }
 }

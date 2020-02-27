@@ -1,4 +1,5 @@
 package kotlin.sequences;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 class g extends f {
 }

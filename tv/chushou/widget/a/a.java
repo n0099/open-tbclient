@@ -3,9 +3,9 @@ package tv.chushou.widget.a;
 import android.app.Activity;
 import android.content.Context;
 import tv.chushou.widget.a.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static void q(Context context, boolean z) {
+    public static void p(Context context, boolean z) {
         if (context instanceof Activity) {
             Activity activity = (Activity) context;
             if (z) {

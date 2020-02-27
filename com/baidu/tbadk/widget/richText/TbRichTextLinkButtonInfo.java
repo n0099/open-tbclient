@@ -13,8 +13,4 @@ public class TbRichTextLinkButtonInfo extends OrmObject {
             this.link = pbContent.link;
         }
     }
-
-    public String getLink() {
-        return this.link;
-    }
 }

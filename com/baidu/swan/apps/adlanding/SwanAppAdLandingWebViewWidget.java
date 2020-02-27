@@ -4,21 +4,21 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.browser.sailor.ISailorDownloadListener;
 import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppAdLandingWebViewWidget extends SwanAppSimpleH5Widget {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public SwanAppAdLandingWebViewWidget(Context context) {
         super(context);
-        this.bhR.setDownloadListener(new DownloadListener());
+        this.bmd.setDownloadListener(new DownloadListener());
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String Gz() {
+    public String IO() {
         return "ai_apps_ad_landing";
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     class DownloadListener implements ISailorDownloadListener {
         DownloadListener() {
         }
@@ -37,7 +37,7 @@ public class SwanAppAdLandingWebViewWidget extends SwanAppSimpleH5Widget {
             aVar.contentDisposition = str3;
             aVar.mimeType = str4;
             aVar.contentLength = j;
-            com.baidu.swan.apps.w.a.RQ().h(SwanAppAdLandingWebViewWidget.this.mContext, aVar.GQ());
+            com.baidu.swan.apps.w.a.Ue().h(SwanAppAdLandingWebViewWidget.this.mContext, aVar.Jf());
         }
 
         @Override // com.baidu.browser.sailor.ISailorDownloadListener

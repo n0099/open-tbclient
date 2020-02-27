@@ -13,7 +13,7 @@ import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.platform.comjni.jninative.vibrate.IVibrateListener;
 import com.baidu.platform.comjni.jninative.vibrate.VibrateHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu.platform.comapi.wnplatform.c.a, com.baidu.platform.comapi.wnplatform.h.a, com.baidu.platform.comapi.wnplatform.h.b, IVibrateListener {
     private Activity c;
     private IWRouteGuidanceListener a = null;

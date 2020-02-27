@@ -4,7 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdGPSHelper {
     Context mContext;
 

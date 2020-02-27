@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.log.defimpl;
 
 import com.baidu.live.tbadk.log.ICommonLogger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DefaultCommonLogger implements ICommonLogger {
     @Override // com.baidu.live.tbadk.log.ICommonLogger
     public void doTestLog() {

@@ -204,6 +204,7 @@ public class TbConfig {
     public static final String GET_SUGGEST_LOCATION_BY_NAME = "c/s/getSuggestionByAddrName";
     public static final String GET_SYNC_ADDRESS = "c/s/sync";
     public static final String GET_TASK_SCORE = "c/c/encourage/member/addTaskScores";
+    public static final String GET_TRACK_CONFIG = "c/s/trackConfig";
     public static final String GET_T_CODE_INFO = "c/e/packet/getTcodeInfo";
     public static final String GET_USER_BOOKMARK_LIST = "c/e/tbread/getUserBookMarkList";
     public static final String GET_USER_BOOK_HISTORY = "c/e/tbread/getUserBookHistory";
@@ -435,6 +436,7 @@ public class TbConfig {
     public static final String TMP_SHARE_DIR_NAME = "share";
     public static final String TMP_VOI_DIR_NAME = "voice";
     public static final String TOP_THEME_LIST_PAGE = "c/e/theme/getSkinByCategory";
+    public static final String TRACK_LOG_UPLOAD_URL = "c/s/trackLog";
     public static final int TYPE_DAILY_BUILD = 1;
     public static final int TYPE_GRAY_BUILD = 2;
     public static final int TYPE_RELEASE_BUILD = 3;
@@ -746,7 +748,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.aNs().setPhotoMaxNum(i);
+            c.aPO().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -998,7 +1000,6 @@ public class TbConfig {
             sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_BIGDAY_INFO));
             sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_RN_SYNC));
             sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID));
-            sInterruptCMDs.add(1003182);
             sInterruptCMDs.add(1002600);
             sInterruptCMDs.add(1003067);
             sInterruptCMDs.add(1003344);

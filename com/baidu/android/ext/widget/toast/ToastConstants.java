@@ -1,5 +1,5 @@
 package com.baidu.android.ext.widget.toast;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ToastConstants {
     public static final int CLICKABLE_TOAST_SHOW_LONG_TIME = 5;
     public static final int CLICKABLE_TOAST_SHOW_TIME = 3;

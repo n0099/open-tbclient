@@ -10,9 +10,8 @@ public class a implements b<ShareEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mutiprocess.b
     public boolean a(ShareEvent shareEvent) {
-        int i;
-        if (TbadkCoreApplication.getInst().isMainProcess(true) && (i = shareEvent.status) == 1) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, Integer.valueOf(i)));
+        if (TbadkCoreApplication.getInst().isMainProcess(true) && shareEvent.status == 1) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
             String str = shareEvent.tid;
             if (TextUtils.isEmpty(str)) {
                 return false;

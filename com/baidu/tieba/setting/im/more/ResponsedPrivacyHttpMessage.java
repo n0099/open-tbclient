@@ -27,28 +27,28 @@ public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
             }
             if (getPrivateInfoResIdl.data != null) {
                 if (getPrivateInfoResIdl.data.like != null) {
-                    this.privacyData.Bk(getPrivateInfoResIdl.data.like.intValue());
+                    this.privacyData.Bt(getPrivateInfoResIdl.data.like.intValue());
                 }
                 if (getPrivateInfoResIdl.data.group != null) {
-                    this.privacyData.Bm(getPrivateInfoResIdl.data.group.intValue());
+                    this.privacyData.Bv(getPrivateInfoResIdl.data.group.intValue());
                 }
                 if (getPrivateInfoResIdl.data.post != null) {
-                    this.privacyData.Bj(getPrivateInfoResIdl.data.post.intValue());
+                    this.privacyData.Bs(getPrivateInfoResIdl.data.post.intValue());
                 }
                 if (getPrivateInfoResIdl.data.location != null) {
-                    this.privacyData.Bn(getPrivateInfoResIdl.data.location.intValue());
+                    this.privacyData.Bw(getPrivateInfoResIdl.data.location.intValue());
                 }
                 if (getPrivateInfoResIdl.data.user != null) {
                     this.privacyData.b(getPrivateInfoResIdl.data.user);
                 }
                 if (getPrivateInfoResIdl.data.live != null) {
-                    this.privacyData.Bl(getPrivateInfoResIdl.data.live.intValue());
+                    this.privacyData.Bu(getPrivateInfoResIdl.data.live.intValue());
                 }
                 if (getPrivateInfoResIdl.data.forum_num != null) {
-                    this.privacyData.Bo(getPrivateInfoResIdl.data.forum_num.intValue());
+                    this.privacyData.Bx(getPrivateInfoResIdl.data.forum_num.intValue());
                 }
                 if (getPrivateInfoResIdl.data.reply != null) {
-                    this.privacyData.Bp(getPrivateInfoResIdl.data.reply.intValue());
+                    this.privacyData.By(getPrivateInfoResIdl.data.reply.intValue());
                 }
             }
         }

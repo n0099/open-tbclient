@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.live_tab.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private BdTypeRecyclerView Bs;
-    private List<com.baidu.adp.widget.ListView.a> apl;
-    private d ehi;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b ehj;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a ehk;
+    private BdTypeRecyclerView BK;
+    private List<com.baidu.adp.widget.ListView.a> asE;
+    private d elm;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b eln;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a elo;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -21,29 +21,29 @@ public class a {
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.Bs = bdTypeRecyclerView;
+        this.BK = bdTypeRecyclerView;
         this.tabType = i;
-        vi();
+        wM();
     }
 
-    private void vi() {
-        this.apl = new ArrayList();
-        this.ehi = new d(this.mPageContext, this.tabType);
-        this.ehj = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.ehk = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.apl.add(this.ehi);
-        this.apl.add(this.ehj);
-        this.apl.add(this.ehk);
-        this.Bs.addAdapters(this.apl);
+    private void wM() {
+        this.asE = new ArrayList();
+        this.elm = new d(this.mPageContext, this.tabType);
+        this.eln = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.elo = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.asE.add(this.elm);
+        this.asE.add(this.eln);
+        this.asE.add(this.elo);
+        this.BK.addAdapters(this.asE);
     }
 
     public void setData(List<m> list) {
-        this.Bs.setData(list);
+        this.BK.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Bs != null) {
-            this.Bs.getListAdapter().notifyDataSetChanged();
+        if (this.BK != null) {
+            this.BK.getListAdapter().notifyDataSetChanged();
         }
     }
 }

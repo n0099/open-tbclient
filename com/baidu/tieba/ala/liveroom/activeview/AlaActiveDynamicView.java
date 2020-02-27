@@ -15,41 +15,41 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.data.ak;
-import com.baidu.live.data.e;
-import com.baidu.live.r.a;
-import com.baidu.live.s.d;
+import com.baidu.live.data.al;
+import com.baidu.live.data.f;
 import com.baidu.live.tbadk.widget.TbImageView;
+import com.baidu.live.u.a;
 import com.baidu.live.utils.j;
+import com.baidu.live.v.d;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaActiveDynamicView extends RelativeLayout implements c {
-    private long bDL;
-    private ProgressBar eLA;
-    private ForegroundColorSpan eLB;
-    private ForegroundColorSpan eLC;
-    private int eLD;
-    private a eLm;
-    private e eLn;
-    private TbImageView eLo;
-    private ViewGroup eLp;
-    private View eLq;
-    private TextView eLr;
-    private TextView eLs;
-    private TextView eLt;
-    private TextView eLu;
-    private ViewGroup eLv;
-    private View eLw;
-    private TextView eLx;
-    private TextView eLy;
-    private TextView eLz;
+    private ProgressBar ePA;
+    private ForegroundColorSpan ePB;
+    private ForegroundColorSpan ePC;
+    private int ePD;
+    private a ePm;
+    private f ePn;
+    private TbImageView ePo;
+    private ViewGroup ePp;
+    private View ePq;
+    private TextView ePr;
+    private TextView ePs;
+    private TextView ePt;
+    private TextView ePu;
+    private ViewGroup ePv;
+    private View ePw;
+    private TextView ePx;
+    private TextView ePy;
+    private TextView ePz;
+    private long mEndTime;
     private int mStyle;
     private int mTextColor;
     private CountDownTimer mTimer;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void b(e eVar);
+        void b(f fVar);
     }
 
     public AlaActiveDynamicView(Context context) {
@@ -63,103 +63,103 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
     }
 
     public void setCallback(a aVar) {
-        this.eLm = aVar;
+        this.ePm = aVar;
     }
 
-    public e getActivityInfo() {
-        return this.eLn;
+    public f getActivityInfo() {
+        return this.ePn;
     }
 
-    public void setActivityInfo(e eVar) {
-        this.eLn = eVar;
+    public void setActivityInfo(f fVar) {
+        this.ePn = fVar;
     }
 
-    public void oG(int i) {
-        if (this.eLp != null && this.eLv != null && i != this.mStyle) {
+    public void oX(int i) {
+        if (this.ePp != null && this.ePv != null && i != this.mStyle) {
             this.mStyle = i;
             switch (i) {
                 case 1:
-                    if (this.eLp.getVisibility() != 0) {
-                        this.eLp.setVisibility(0);
+                    if (this.ePp.getVisibility() != 0) {
+                        this.ePp.setVisibility(0);
                     }
-                    if (this.eLv.getVisibility() != 8) {
-                        this.eLv.setVisibility(8);
+                    if (this.ePv.getVisibility() != 8) {
+                        this.ePv.setVisibility(8);
                     }
-                    bbD();
+                    bdS();
                     return;
                 case 2:
-                    if (this.eLp.getVisibility() != 8) {
-                        this.eLp.setVisibility(8);
+                    if (this.ePp.getVisibility() != 8) {
+                        this.ePp.setVisibility(8);
                     }
-                    if (this.eLv.getVisibility() != 0) {
-                        this.eLv.setVisibility(0);
+                    if (this.ePv.getVisibility() != 0) {
+                        this.ePv.setVisibility(0);
                         return;
                     }
                     return;
                 default:
-                    bbD();
+                    bdS();
                     return;
             }
         }
     }
 
-    public void setData(String str, ak akVar) {
-        a(akVar);
-        this.eLo.startLoad(str, 10, false);
-        this.eLr.setText(akVar.text);
-        this.eLr.setTextColor(this.mTextColor);
-        this.eLs.setText(akVar.point);
-        this.eLs.setTextColor(this.eLD);
-        setLayoutBg(akVar);
-        setValues(akVar);
-        bfF();
+    public void setData(String str, al alVar) {
+        a(alVar);
+        this.ePo.startLoad(str, 10, false);
+        this.ePr.setText(alVar.text);
+        this.ePr.setTextColor(this.mTextColor);
+        this.ePs.setText(alVar.point);
+        this.ePs.setTextColor(this.ePD);
+        setLayoutBg(alVar);
+        setValues(alVar);
+        bhO();
     }
 
     public void setTimer(String str) {
-        this.eLx.setText(str);
-        if (this.eLp.getVisibility() != 8) {
-            this.eLp.setVisibility(8);
+        this.ePx.setText(str);
+        if (this.ePp.getVisibility() != 8) {
+            this.ePp.setVisibility(8);
         }
-        if (this.eLv.getVisibility() != 0) {
-            this.eLv.setVisibility(0);
+        if (this.ePv.getVisibility() != 0) {
+            this.ePv.setVisibility(0);
         }
     }
 
     public void u(final long j, long j2) {
-        if (j2 != this.bDL) {
-            bbD();
-            this.bDL = j2;
-            d.wY().E(j);
+        if (j2 != this.mEndTime) {
+            bdS();
+            this.mEndTime = j2;
+            d.zq().I(j);
             this.mTimer = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveDynamicView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j3) {
-                    AlaActiveDynamicView.this.at(j.I(j3), (int) ((1.0f - ((((float) j3) * 1.0f) / ((float) j))) * 100.0f));
-                    d.wY().E(j3);
+                    AlaActiveDynamicView.this.ar(j.M(j3), (int) ((1.0f - ((((float) j3) * 1.0f) / ((float) j))) * 100.0f));
+                    d.zq().I(j3);
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    AlaActiveDynamicView.this.oG(1);
+                    AlaActiveDynamicView.this.oX(1);
                 }
             };
             this.mTimer.start();
         }
     }
 
-    private void bbD() {
-        this.bDL = 0L;
+    private void bdS() {
+        this.mEndTime = 0L;
         if (this.mTimer != null) {
             this.mTimer.cancel();
             this.mTimer = null;
         }
-        d.wY().xa();
+        d.zq().zs();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void at(String str, int i) {
-        if (this.eLz != null && this.eLA != null) {
-            this.eLz.setText(str);
-            this.eLA.setProgress(i);
+    public void ar(String str, int i) {
+        if (this.ePz != null && this.ePA != null) {
+            this.ePz.setText(str);
+            this.ePA.setProgress(i);
         }
     }
 
@@ -173,43 +173,43 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        bbD();
-        this.eLm = null;
+        bdS();
+        this.ePm = null;
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_active_dynamic, (ViewGroup) this, true);
-        this.eLo = (TbImageView) findViewById(a.g.iv_bg);
-        this.eLp = (ViewGroup) findViewById(a.g.layout_data);
-        this.eLq = findViewById(a.g.divider_data);
-        this.eLr = (TextView) findViewById(a.g.tv_data_title);
-        this.eLs = (TextView) findViewById(a.g.tv_data_point);
-        this.eLt = (TextView) findViewById(a.g.tv_data_a);
-        this.eLu = (TextView) findViewById(a.g.tv_data_b);
-        this.eLv = (ViewGroup) findViewById(a.g.layout_timer);
-        this.eLw = findViewById(a.g.divider_timer);
-        this.eLx = (TextView) findViewById(a.g.tv_timer_title);
-        this.eLy = (TextView) findViewById(a.g.tv_timer_tip);
-        this.eLz = (TextView) findViewById(a.g.tv_timer_num);
-        this.eLA = (ProgressBar) findViewById(a.g.pb_timer);
+        this.ePo = (TbImageView) findViewById(a.g.iv_bg);
+        this.ePp = (ViewGroup) findViewById(a.g.layout_data);
+        this.ePq = findViewById(a.g.divider_data);
+        this.ePr = (TextView) findViewById(a.g.tv_data_title);
+        this.ePs = (TextView) findViewById(a.g.tv_data_point);
+        this.ePt = (TextView) findViewById(a.g.tv_data_a);
+        this.ePu = (TextView) findViewById(a.g.tv_data_b);
+        this.ePv = (ViewGroup) findViewById(a.g.layout_timer);
+        this.ePw = findViewById(a.g.divider_timer);
+        this.ePx = (TextView) findViewById(a.g.tv_timer_title);
+        this.ePy = (TextView) findViewById(a.g.tv_timer_tip);
+        this.ePz = (TextView) findViewById(a.g.tv_timer_num);
+        this.ePA = (ProgressBar) findViewById(a.g.pb_timer);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveDynamicView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaActiveDynamicView.this.eLm != null) {
-                    AlaActiveDynamicView.this.eLm.b(AlaActiveDynamicView.this.eLn);
+                if (AlaActiveDynamicView.this.ePm != null) {
+                    AlaActiveDynamicView.this.ePm.b(AlaActiveDynamicView.this.ePn);
                 }
             }
         });
     }
 
-    private void a(ak akVar) {
+    private void a(al alVar) {
         boolean z;
         boolean z2 = true;
-        if (TextUtils.isEmpty(akVar.aaC)) {
+        if (TextUtils.isEmpty(alVar.acA)) {
             z = false;
         } else {
             try {
-                this.mTextColor = Color.parseColor(akVar.aaC);
+                this.mTextColor = Color.parseColor(alVar.acA);
                 z = true;
             } catch (Exception e) {
                 z = false;
@@ -218,29 +218,29 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         if (!z) {
             this.mTextColor = getResources().getColor(a.d.sdk_active_normal);
         }
-        if (TextUtils.isEmpty(akVar.aaD)) {
+        if (TextUtils.isEmpty(alVar.acB)) {
             z2 = false;
         } else {
             try {
-                this.eLD = Color.parseColor(akVar.aaD);
+                this.ePD = Color.parseColor(alVar.acB);
             } catch (Exception e2) {
                 z2 = false;
             }
         }
         if (!z2) {
-            this.eLD = getResources().getColor(a.d.sdk_active_highlight);
+            this.ePD = getResources().getColor(a.d.sdk_active_highlight);
         }
-        this.eLB = new ForegroundColorSpan(this.mTextColor);
-        this.eLC = new ForegroundColorSpan(this.eLD);
+        this.ePB = new ForegroundColorSpan(this.mTextColor);
+        this.ePC = new ForegroundColorSpan(this.ePD);
     }
 
-    private void setLayoutBg(ak akVar) {
+    private void setLayoutBg(al alVar) {
         int i;
         boolean z;
         int parseColor;
         int parseColor2;
         int i2 = 0;
-        String str = akVar.aaE;
+        String str = alVar.acC;
         if (TextUtils.isEmpty(str)) {
             i = 0;
             z = false;
@@ -256,7 +256,7 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         }
         if (z) {
             int i3 = -1;
-            String str2 = akVar.aaF;
+            String str2 = alVar.acD;
             if (!TextUtils.isEmpty(str2)) {
                 try {
                     i3 = Integer.parseInt(str2);
@@ -276,35 +276,35 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds8));
         gradientDrawable.setColor(parseColor);
-        this.eLp.setBackgroundDrawable(gradientDrawable);
-        this.eLv.setBackgroundDrawable(gradientDrawable);
-        this.eLq.setBackgroundColor(parseColor2);
-        this.eLw.setBackgroundColor(parseColor2);
+        this.ePp.setBackgroundDrawable(gradientDrawable);
+        this.ePv.setBackgroundDrawable(gradientDrawable);
+        this.ePq.setBackgroundColor(parseColor2);
+        this.ePw.setBackgroundColor(parseColor2);
     }
 
-    private void setValues(ak akVar) {
-        List<ak.a> list = akVar.aaB;
+    private void setValues(al alVar) {
+        List<al.a> list = alVar.acz;
         if (list != null) {
-            ak.a aVar = list.get(0);
+            al.a aVar = list.get(0);
             if (aVar != null) {
                 SpannableString spannableString = new SpannableString(aVar.text + "：" + aVar.value);
-                spannableString.setSpan(this.eLB, 0, aVar.text.length() + 1, 18);
-                spannableString.setSpan(this.eLC, aVar.text.length() + 1, spannableString.length(), 18);
-                this.eLt.setText(spannableString);
+                spannableString.setSpan(this.ePB, 0, aVar.text.length() + 1, 18);
+                spannableString.setSpan(this.ePC, aVar.text.length() + 1, spannableString.length(), 18);
+                this.ePt.setText(spannableString);
             }
-            ak.a aVar2 = list.get(1);
+            al.a aVar2 = list.get(1);
             if (aVar2 != null) {
                 SpannableString spannableString2 = new SpannableString(aVar2.text + "：" + aVar2.value);
-                spannableString2.setSpan(this.eLB, 0, aVar2.text.length() + 1, 18);
-                spannableString2.setSpan(this.eLC, aVar2.text.length() + 1, spannableString2.length(), 18);
-                this.eLu.setText(spannableString2);
+                spannableString2.setSpan(this.ePB, 0, aVar2.text.length() + 1, 18);
+                spannableString2.setSpan(this.ePC, aVar2.text.length() + 1, spannableString2.length(), 18);
+                this.ePu.setText(spannableString2);
             }
         }
     }
 
-    private void bfF() {
-        this.eLx.setTextColor(this.eLD);
-        this.eLy.setTextColor(this.mTextColor);
-        this.eLz.setTextColor(this.mTextColor);
+    private void bhO() {
+        this.ePx.setTextColor(this.ePD);
+        this.ePy.setTextColor(this.mTextColor);
+        this.ePz.setTextColor(this.mTextColor);
     }
 }

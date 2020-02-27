@@ -7,9 +7,9 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.swan.bdprivate.invoice.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
-    protected InvoiceInfoItemView[] bZH;
+    protected InvoiceInfoItemView[] cdN;
 
     public InvoiceBaseInfoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -17,30 +17,30 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.bZH != null && textWatcher != null) {
-            for (int i = 0; i < this.bZH.length; i++) {
-                this.bZH[i].setTextChangedListener(textWatcher);
+        if (this.cdN != null && textWatcher != null) {
+            for (int i = 0; i < this.cdN.length; i++) {
+                this.cdN[i].setTextChangedListener(textWatcher);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TextWatcher textWatcher) {
-        if (this.bZH != null && textWatcher != null) {
-            for (int i = 0; i < this.bZH.length; i++) {
-                this.bZH[i].a(textWatcher);
+        if (this.cdN != null && textWatcher != null) {
+            for (int i = 0; i < this.cdN.length; i++) {
+                this.cdN[i].a(textWatcher);
             }
         }
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.e
-    public boolean ago() {
+    public boolean aiC() {
         InvoiceInfoItemView[] invoiceInfoItemViewArr;
-        if (this.bZH == null || this.bZH.length == 0) {
+        if (this.cdN == null || this.cdN.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.bZH) {
-            if (invoiceInfoItemView.agu() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.cdN) {
+            if (invoiceInfoItemView.aiI() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return false;
             }
         }
@@ -48,11 +48,11 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.e
-    public boolean agp() {
-        if (this.bZH == null || this.bZH.length == 0) {
+    public boolean aiD() {
+        if (this.cdN == null || this.cdN.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.bZH) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.cdN) {
             if (!TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return true;
             }

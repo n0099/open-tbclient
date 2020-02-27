@@ -4,25 +4,25 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CallbackHandler bvy;
-    public JSONObject bxh;
+    public JSONObject bBp;
+    private CallbackHandler bzH;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.bvy = callbackHandler;
-        this.bxh = jSONObject;
+        this.bzH = callbackHandler;
+        this.bBp = jSONObject;
     }
 
-    public void iN(String str) {
+    public void jc(String str) {
         d(str, null);
     }
 
     public void d(String str, JSONObject jSONObject) {
-        if (this.bxh != null && this.bvy != null) {
+        if (this.bBp != null && this.bzH != null) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            this.bvy.handleSchemeDispatchCallback(this.bxh.optString(str), wrapCallbackParams.toString());
+            this.bzH.handleSchemeDispatchCallback(this.bBp.optString(str), wrapCallbackParams.toString());
             if (DEBUG) {
                 Log.d("AudioRTCEventCallback", "AudioRTC callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }

@@ -1,19 +1,19 @@
 package com.google.android.exoplayer2.extractor.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class i {
     private int bitOffset;
     private int byteOffset;
     private final byte[] data;
-    private final int mlh;
+    private final int mlN;
 
     public i(byte[] bArr) {
         this.data = bArr;
-        this.mlh = bArr.length;
+        this.mlN = bArr.length;
     }
 
-    public boolean dua() {
+    public boolean dvl() {
         boolean z = (((this.data[this.byteOffset] & 255) >> this.bitOffset) & 1) == 1;
-        JP(1);
+        JU(1);
         return z;
     }
 
@@ -28,11 +28,11 @@ final class i {
             i3++;
         }
         int i5 = i4 & ((-1) >>> (32 - i));
-        JP(i);
+        JU(i);
         return i5;
     }
 
-    public void JP(int i) {
+    public void JU(int i) {
         int i2 = i / 8;
         this.byteOffset += i2;
         this.bitOffset = (i - (i2 * 8)) + this.bitOffset;
@@ -40,14 +40,14 @@ final class i {
             this.byteOffset++;
             this.bitOffset -= 8;
         }
-        dub();
+        dvm();
     }
 
     public int getPosition() {
         return (this.byteOffset * 8) + this.bitOffset;
     }
 
-    private void dub() {
-        com.google.android.exoplayer2.util.a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mlh || (this.byteOffset == this.mlh && this.bitOffset == 0)));
+    private void dvm() {
+        com.google.android.exoplayer2.util.a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mlN || (this.byteOffset == this.mlN && this.bitOffset == 0)));
     }
 }

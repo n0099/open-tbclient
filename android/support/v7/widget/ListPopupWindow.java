@@ -29,7 +29,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ListPopupWindow implements ShowableListMenu {
     private static final boolean DEBUG = false;
     static final int EXPAND_LIST_TIMEOUT = 250;
@@ -733,7 +733,7 @@ public class ListPopupWindow implements ShowableListMenu {
         this.mOverlapAnchor = z;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class PopupDataSetObserver extends DataSetObserver {
         PopupDataSetObserver() {
         }
@@ -752,7 +752,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class ListSelectorHider implements Runnable {
         ListSelectorHider() {
         }
@@ -764,7 +764,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class ResizePopupRunnable implements Runnable {
         ResizePopupRunnable() {
         }
@@ -779,7 +779,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class PopupTouchInterceptor implements View.OnTouchListener {
         PopupTouchInterceptor() {
         }
@@ -802,7 +802,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class PopupScrollListener implements AbsListView.OnScrollListener {
         PopupScrollListener() {
         }

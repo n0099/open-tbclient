@@ -15,18 +15,18 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSwitchMapSingle<T, R> extends g<R> {
     final boolean delayErrors;
     final h<? super T, ? extends aa<? extends R>> mapper;
-    final g<T> nvP;
+    final g<T> nwr;
 
     @Override // io.reactivex.g
     protected void a(c<? super R> cVar) {
-        this.nvP.a((j) new SwitchMapSingleSubscriber(cVar, this.mapper, this.delayErrors));
+        this.nwr.a((j) new SwitchMapSingleSubscriber(cVar, this.mapper, this.delayErrors));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SwitchMapSingleSubscriber<T, R> extends AtomicInteger implements j<T>, d {
         static final SwitchMapSingleObserver<Object> INNER_DISPOSED = new SwitchMapSingleObserver<>(null);
         private static final long serialVersionUID = -5402190102429853762L;
@@ -76,7 +76,7 @@ public final class FlowableSwitchMapSingle<T, R> extends g<R> {
                 } while (!this.inner.compareAndSet(switchMapSingleObserver, switchMapSingleObserver3));
                 aaVar.a(switchMapSingleObserver3);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.upstream.cancel();
                 this.inner.getAndSet(INNER_DISPOSED);
                 onError(th);
@@ -179,7 +179,7 @@ public final class FlowableSwitchMapSingle<T, R> extends g<R> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class SwitchMapSingleObserver<R> extends AtomicReference<io.reactivex.disposables.b> implements y<R> {
             private static final long serialVersionUID = 8042919737683345351L;
             volatile R item;

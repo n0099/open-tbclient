@@ -9,7 +9,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class RequestBody {
     @Nullable
     public abstract MediaType contentType();

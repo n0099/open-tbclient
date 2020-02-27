@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FaceIDVerifyDTO extends FaceBaseDTO {
     public String bduss;
     public String livingUname;

@@ -1,22 +1,22 @@
 package com.baidu.live.im;
 
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface i {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void dB(String str);
+        void dM(String str);
 
-        boolean uO();
+        boolean ws();
 
-        void uP();
+        void wt();
 
-        void uQ();
+        void wu();
 
-        void uR();
+        void wv();
 
-        boolean uS();
+        boolean ww();
     }
 
     void a(a aVar);
@@ -31,9 +31,9 @@ public interface i {
 
     void setLogData(String str, String str2);
 
-    h uM();
+    void vW();
 
-    com.baidu.live.view.input.a uN();
+    h wq();
 
-    void us();
+    com.baidu.live.view.input.a wr();
 }

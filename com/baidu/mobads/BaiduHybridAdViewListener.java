@@ -1,5 +1,5 @@
 package com.baidu.mobads;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface BaiduHybridAdViewListener {
     void onAdClick(int i, String str);
 

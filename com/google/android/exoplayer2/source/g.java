@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.source;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class g implements p {
     @Override // com.google.android.exoplayer2.source.p
     public boolean isReady() {
@@ -9,7 +9,7 @@ public final class g implements p {
     }
 
     @Override // com.google.android.exoplayer2.source.p
-    public void duZ() throws IOException {
+    public void dwj() throws IOException {
     }
 
     @Override // com.google.android.exoplayer2.source.p
@@ -19,7 +19,7 @@ public final class g implements p {
     }
 
     @Override // com.google.android.exoplayer2.source.p
-    public int gg(long j) {
+    public int ge(long j) {
         return 0;
     }
 }

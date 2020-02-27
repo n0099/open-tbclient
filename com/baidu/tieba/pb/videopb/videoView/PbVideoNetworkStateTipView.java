@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
-    private TextView ebs;
+    private TextView efv;
 
     public PbVideoNetworkStateTipView(Context context) {
         super(context);
@@ -35,23 +35,23 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     }
 
     private void init() {
-        this.ebs = (TextView) findViewById(R.id.video_net_tip_duration);
+        this.efv = (TextView) findViewById(R.id.video_net_tip_duration);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
     public void setVideoDuration(int i) {
         if (i > 0) {
-            this.ebs.setText(String.format(getResources().getString(R.string.pb_video_duration), aq.stringForVideoTime(i * 1000)));
+            this.efv.setText(String.format(getResources().getString(R.string.pb_video_duration), aq.stringForVideoTime(i * 1000)));
         }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public boolean csE() {
+    public boolean ctZ() {
         return j.isMobileNet();
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public void af(boolean z, boolean z2) {
+    public void ah(boolean z, boolean z2) {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView, android.view.View.OnClickListener
@@ -60,8 +60,8 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
             if (view.getId() == R.id.free_flow) {
                 com.baidu.tbadk.browser.a.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             } else if (view.getId() == R.id.play) {
-                if (this.jxJ != null) {
-                    this.jxJ.onClick(view);
+                if (this.jyz != null) {
+                    this.jyz.onClick(view);
                 }
                 TiebaStatic.log("c12618");
             }

@@ -22,7 +22,7 @@ import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     static {
         if (Build.VERSION.SDK_INT <= 8) {

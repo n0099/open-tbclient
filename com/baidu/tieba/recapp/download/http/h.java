@@ -10,12 +10,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> rh = new HashMap();
-    protected LinkedList<BasicNameValuePair> ri = new LinkedList<>();
-    protected HashMap<String, byte[]> rj = new HashMap<>();
+    protected Map<String, String> ri = new HashMap();
+    protected LinkedList<BasicNameValuePair> rj = new LinkedList<>();
+    protected HashMap<String, byte[]> rk = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -30,13 +30,13 @@ public class h {
     }
 
     public boolean gb() {
-        return this.rj != null && this.rj.size() > 0;
+        return this.rk != null && this.rk.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.ri.size() == 0) {
+        if (this.rj.size() == 0) {
             if (eVar != null) {
-                eVar.qL = this.url.length();
+                eVar.qM = this.url.length();
             }
             return this.url;
         }
@@ -50,26 +50,26 @@ public class h {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ri.size()) {
+            if (i2 >= this.rj.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append(ETAG.ITEM_SEPARATOR);
             }
-            sb.append(this.ri.get(i2).getName());
+            sb.append(this.rj.get(i2).getName());
             sb.append(ETAG.EQUAL);
-            sb.append(k.getUrlEncode(this.ri.get(i2).getValue()));
+            sb.append(k.getUrlEncode(this.rj.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.qL = sb.length();
+            eVar.qM = sb.length();
         }
         return sb.toString();
     }
 
     public void f(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.rh != null) {
-            for (Map.Entry<String, String> entry : this.rh.entrySet()) {
+        if (httpURLConnection != null && this.ri != null) {
+            for (Map.Entry<String, String> entry : this.ri.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -82,8 +82,8 @@ public class h {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.ri != null) {
-                    Iterator<BasicNameValuePair> it = this.ri.iterator();
+                if (this.rj != null) {
+                    Iterator<BasicNameValuePair> it = this.rj.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -100,8 +100,8 @@ public class h {
                         }
                     }
                 }
-                if (this.rj != null) {
-                    for (Map.Entry<String, byte[]> entry : this.rj.entrySet()) {
+                if (this.rk != null) {
+                    for (Map.Entry<String, byte[]> entry : this.rk.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -121,7 +121,7 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.qL = i;
+            eVar.qM = i;
         }
     }
 
@@ -141,14 +141,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.qL = i;
+            eVar.qM = i;
         }
     }
 
     private StringBuilder gd() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.ri != null) {
-            Iterator<BasicNameValuePair> it = this.ri.iterator();
+        if (this.rj != null) {
+            Iterator<BasicNameValuePair> it = this.rj.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -171,19 +171,19 @@ public class h {
     }
 
     public String al(String str) {
-        if (this.rh != null) {
-            return this.rh.get(str);
+        if (this.ri != null) {
+            return this.ri.get(str);
         }
         return null;
     }
 
     public void addPostData(BasicNameValuePair basicNameValuePair) {
-        this.ri.add(basicNameValuePair);
+        this.rj.add(basicNameValuePair);
     }
 
-    public void l(String str, String str2) {
-        if (this.rh != null) {
-            this.rh.put(str, str2);
+    public void n(String str, String str2) {
+        if (this.ri != null) {
+            this.ri.put(str, str2);
         }
     }
 }

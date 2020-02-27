@@ -20,10 +20,10 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 import com.vivo.push.PushClientConstants;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView hJO;
-    private CustomMessageListener hJP;
+    private CustomMessageListener hLN;
+    private MessageRedDotView tipView;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -31,34 +31,30 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c aNx() {
+    public c createFragmentTabStructure() {
         c cVar = new c();
         cVar.frag = new MessageCenterFragment();
         cVar.type = 3;
         cVar.textResId = R.string.my_message;
-        if (TbSingleton.getInstance().isShowNewYearSkin()) {
-            cVar.animationResId = R.raw.lottie_use_message_cj_n;
-        } else {
-            cVar.animationResId = R.raw.lottie_tab_msg;
-        }
+        cVar.animationResId = R.raw.lottie_tab_msg;
         cVar.showIconType = c.SHOWBOTH;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator dW(Context context) {
-        this.dxc = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.hJO = new MessageRedDotView(context);
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
+        this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.dxy = this.dxc;
-        aVar.view = this.hJO;
+        aVar.dBB = this.mIndicator;
+        aVar.view = this.tipView;
         aVar.isRight = true;
-        this.dxc.b("msg", aVar);
-        this.hJO.setVisibility(4);
+        this.mIndicator.b("msg", aVar);
+        this.tipView.setVisibility(4);
         if (!TbSingleton.getInstance().isShowVivoBadge()) {
-            E(this.hJO.getContext(), 0);
+            E(this.tipView.getContext(), 0);
         }
-        return this.dxc;
+        return this.mIndicator;
     }
 
     static {
@@ -77,7 +73,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.hJP = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.hLN = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -93,33 +89,33 @@ public class ImMessageCenterDelegateStatic extends b {
                         } catch (Exception e) {
                             i = intValue;
                             z = false;
-                            ImMessageCenterDelegateStatic.this.q(z, i);
+                            ImMessageCenterDelegateStatic.this.r(z, i);
                         }
                     } catch (Exception e2) {
                         i = 0;
                     }
-                    ImMessageCenterDelegateStatic.this.q(z, i);
+                    ImMessageCenterDelegateStatic.this.r(z, i);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.hJP);
+        MessageManager.getInstance().registerListener(this.hLN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q(boolean z, int i) {
-        if (this.hJO != null) {
+    public void r(boolean z, int i) {
+        if (this.tipView != null) {
             if (z) {
-                this.hJO.refresh(i);
-                this.hJO.setVisibility(0);
+                this.tipView.refresh(i);
+                this.tipView.setVisibility(0);
                 if (TbSingleton.getInstance().isShowVivoBadge()) {
-                    E(this.hJO.getContext(), i);
+                    E(this.tipView.getContext(), i);
                     return;
                 }
                 return;
             }
-            this.hJO.setVisibility(8);
+            this.tipView.setVisibility(8);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                E(this.hJO.getContext(), 0);
+                E(this.tipView.getContext(), 0);
             }
         }
     }
@@ -137,6 +133,6 @@ public class ImMessageCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.hJP);
+        MessageManager.getInstance().unRegisterListener(this.hLN);
     }
 }

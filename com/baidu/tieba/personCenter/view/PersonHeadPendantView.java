@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PersonHeadPendantView extends HeadPendantView {
-    private View cqv;
+    private View cuy;
     private int mBorderWidth;
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
@@ -32,28 +32,28 @@ public class PersonHeadPendantView extends HeadPendantView {
     public void init() {
         super.init();
         this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.cqv = new View(getContext());
+        this.cuy = new View(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(14, -1);
         layoutParams.addRule(15, -1);
-        addView(this.cqv, 0, layoutParams);
+        addView(this.cuy, 0, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cqv.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cuy.getLayoutParams();
         int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.mBorderWidth;
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;
         layoutParams.bottomMargin = measuredWidth;
-        this.cqv.setLayoutParams(layoutParams);
+        this.cuy.setLayoutParams(layoutParams);
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
-        this.cqv.setBackgroundDrawable(drawable);
+        this.cuy.setBackgroundDrawable(drawable);
     }
 
     public void setBorderWidth(int i) {
@@ -62,6 +62,6 @@ public class PersonHeadPendantView extends HeadPendantView {
     }
 
     public void setBorderColor(int i) {
-        com.baidu.tbadk.core.util.f.a.aEM().kk(1).kl(i).aQ(this.cqv);
+        com.baidu.tbadk.core.util.f.a.aGY().kB(1).kC(i).aQ(this.cuy);
     }
 }

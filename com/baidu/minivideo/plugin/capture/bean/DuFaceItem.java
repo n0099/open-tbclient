@@ -7,7 +7,7 @@ import com.baidu.minivideo.plugin.capture.utils.FileUtils;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DuFaceItem extends FaceItem {
     private static final boolean ADJUST_ZIP = false;
     public int arType = 10;
@@ -29,7 +29,7 @@ public class DuFaceItem extends FaceItem {
         Exception e;
         try {
             FileUtils.unzipFile(new File(str), getFilePath());
-            z = a.ep(getFilePath());
+            z = a.eE(getFilePath());
             if (!z) {
             }
             if (!z) {

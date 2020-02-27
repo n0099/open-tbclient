@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.x.b.c;
 import java.io.Serializable;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanFavorItemData implements Serializable {
     private static final String SCHEME_AUTHORITY_SWAN_APP = "swan";
     private static final String SCHEME_AUTHORITY_SWAN_GAME = "swangame";
@@ -34,7 +34,7 @@ public class SwanFavorItemData implements Serializable {
     }
 
     public String getSchema(String str) {
-        return TextUtils.isEmpty(str) ? "" : c.g(getAppKey(), str, getAppFrameType());
+        return TextUtils.isEmpty(str) ? "" : c.f(getAppKey(), str, getAppFrameType());
     }
 
     public String getAppKey() {

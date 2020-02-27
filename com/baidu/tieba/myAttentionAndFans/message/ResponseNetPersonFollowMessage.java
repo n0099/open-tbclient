@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.av;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     private av data;
     private int mErrCode;
@@ -59,9 +59,9 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
             boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
             String str = new String(bArr);
-            l<String> sA = a.aCo().sA("tb.my_pages");
-            if (sA != null) {
-                sA.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
+            l<String> sQ = a.aEz().sQ("tb.my_pages");
+            if (sQ != null) {
+                sQ.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
             }
         }
     }

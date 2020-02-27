@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class c {
     public static void a(Context context) {
         b.a.a(context);

@@ -3,7 +3,7 @@ package com.baidu.sofire;
 import android.content.Context;
 import android.os.FileObserver;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends FileObserver {
     private String a;
     private String b;

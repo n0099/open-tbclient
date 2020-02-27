@@ -7,7 +7,7 @@ import android.content.Intent;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends BroadcastReceiver {
     protected final IXAdLogger a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private com.baidu.mobads.command.a b;

@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.AutoCompleteTextView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implements TintableBackgroundView {
     private static final int[] TINT_ATTRS = {16843126};
     private final AppCompatBackgroundHelper mBackgroundTintHelper;

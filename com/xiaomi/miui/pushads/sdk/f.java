@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.xiaomi.miui.pushads.sdk.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
     private static k.a a(int i) {
         switch (i) {
@@ -43,7 +43,7 @@ public class f {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m111a(Context context) {
+    public static boolean m116a(Context context) {
         k.a a = a(context);
         boolean z = k.a.NONE != a;
         if (a != k.a.Wifi) {

@@ -14,7 +14,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLSession;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ConscryptEngineSocket extends OpenSSLSocketImpl {
     private static final ByteBuffer EMPTY_BUFFER = ByteBuffer.allocate(0);
     private final ConscryptEngine engine;
@@ -426,7 +426,7 @@ public class ConscryptEngineSocket extends OpenSSLSocketImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class SSLOutputStream extends OutputStream {
         private OutputStream socketOutputStream;
         private final ByteBuffer target;
@@ -518,7 +518,7 @@ public class ConscryptEngineSocket extends OpenSSLSocketImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class SSLInputStream extends InputStream {
         private final ByteBuffer fromEngine;
         private final ByteBuffer fromSocket;
@@ -679,7 +679,7 @@ public class ConscryptEngineSocket extends OpenSSLSocketImpl {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.conscrypt.ConscryptEngineSocket$2  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus;
         static final /* synthetic */ int[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status = new int[SSLEngineResult.Status.values().length];

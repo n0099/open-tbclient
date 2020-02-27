@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareEntity {
     public String content;
     public String imageUrl;

@@ -19,7 +19,7 @@ import java.util.Comparator;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class s {
     private static String a;
     private static s b;

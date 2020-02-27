@@ -1,5 +1,5 @@
 package com.baidu.ala;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaConfig {
     public static final String ALA_FRS_NEGATIVE_URL = "c/f/video/sendFrsStageFeedBack";
     public static final String ALA_GAME_LIVE_LIST = "ala/sdk/external/externalLiveList";
@@ -12,7 +12,7 @@ public class AlaConfig {
     public static final String ALA_GET_NEW_SQUARE_SUB_LIVE_LIST = "c/f/video/liveTabliveSubTab";
     public static final String ALA_GET_PRIVILEGE_MARK_LIST = "ala/user/getUserMarkPage";
     public static final String ALA_GET_RECENT_HISTORY_LIST = "c/f/video/getRecentWatchRecord";
-    public static final String ALA_GET_TAB_LIVE_INFO = "c/f/video/tbLiveTab";
+    public static final String ALA_GET_TAB_LIVE_INFO = "c/f/video/getLiveTab";
     public static final String ALA_GET_USER_NOTIFY_URL = "ala/notify/getUserNotify";
     public static final String ALA_SHARE_URL = "http://tieba.baidu.com/ala/share";
     public static final String ALA_SPECIAL_LIVE_CONCERN_TAB = "c/f/video/liveBarSpecialUserlike";

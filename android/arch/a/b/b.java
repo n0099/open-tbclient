@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.WeakHashMap;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     private c<K, V> bw;
     private c<K, V> bx;
@@ -15,7 +15,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     private int mSize = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface f<K, V> {
         void c(@NonNull c<K, V> cVar);
     }
@@ -150,7 +150,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
         return sb.toString();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private static abstract class e<K, V> implements f<K, V>, Iterator<Map.Entry<K, V>> {
         c<K, V> bA;
         c<K, V> bF;
@@ -200,7 +200,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a<K, V> extends e<K, V> {
         a(c<K, V> cVar, c<K, V> cVar2) {
             super(cVar, cVar2);
@@ -218,7 +218,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     /* renamed from: android.arch.a.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private static class C0000b<K, V> extends e<K, V> {
         C0000b(c<K, V> cVar, c<K, V> cVar2) {
             super(cVar, cVar2);
@@ -236,7 +236,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class d implements f<K, V>, Iterator<Map.Entry<K, V>> {
         private c<K, V> bC;
         private boolean bD;
@@ -272,7 +272,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class c<K, V> implements Map.Entry<K, V> {
         c<K, V> bA;
         c<K, V> bB;

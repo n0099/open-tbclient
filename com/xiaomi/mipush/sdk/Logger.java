@@ -6,7 +6,7 @@ import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.push.dg;
 import com.xiaomi.push.dh;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Logger {
     private static boolean sDisablePushLog = false;
     private static LoggerInterface sUserLogger = null;

@@ -9,7 +9,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SingleFlatMapMaybe<T, R> extends k<R> {
     final h<? super T, ? extends o<? extends R>> mapper;
     final aa<? extends T> source;
@@ -19,7 +19,7 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
         this.source.a(new FlatMapSingleObserver(mVar, this.mapper));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class FlatMapSingleObserver<T, R> extends AtomicReference<b> implements b, y<T> {
         private static final long serialVersionUID = -5843758257109742742L;
         final m<? super R> actual;
@@ -55,7 +55,7 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
                     oVar.a(new a(this, this.actual));
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 onError(th);
             }
         }
@@ -66,7 +66,7 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class a<R> implements m<R> {
         final m<? super R> actual;
         final AtomicReference<b> parent;

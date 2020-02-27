@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private com.baidu.tbadk.coreExtra.view.c dhs;
+    private com.baidu.tbadk.coreExtra.view.c dly;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -28,7 +28,7 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    ba.aEt().b((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
+                    ba.aGE().b((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -52,23 +52,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    am.setViewTextColor(qVar.gju, R.color.cp_cont_d, 1);
-                    am.setViewTextColor(qVar.gjt, R.color.cp_cont_b, 1);
-                    am.setBackgroundResource(qVar.gjv, R.drawable.frs_member_manito_bg);
+                    am.setViewTextColor(qVar.glv, R.color.cp_cont_d, 1);
+                    am.setViewTextColor(qVar.glu, R.color.cp_cont_b, 1);
+                    am.setBackgroundResource(qVar.glw, R.drawable.frs_member_manito_bg);
                 }
-                int bAV = pVar.bAV();
-                if (bAV > 0) {
-                    qVar.gju.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bAV)));
-                    qVar.gjv.setTag(R.id.assist_apply_tip, pVar.bAW());
-                    qVar.gjv.setOnClickListener(this.mClickListener);
-                    qVar.gjv.setEnabled(true);
-                    qVar.gjv.setClickable(true);
+                int bCx = pVar.bCx();
+                if (bCx > 0) {
+                    qVar.glv.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bCx)));
+                    qVar.glw.setTag(R.id.assist_apply_tip, pVar.bCy());
+                    qVar.glw.setOnClickListener(this.mClickListener);
+                    qVar.glw.setEnabled(true);
+                    qVar.glw.setClickable(true);
                 } else {
-                    qVar.gju.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.gjv.setEnabled(false);
-                    qVar.gjv.setClickable(false);
+                    qVar.glv.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.glw.setEnabled(false);
+                    qVar.glw.setClickable(false);
                 }
-                qVar.gju.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.glv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -84,17 +84,17 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         } else {
             activity = ((TbPageContext) ab).getPageActivity();
         }
-        if (this.dhs == null) {
-            this.dhs = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.dly == null) {
+            this.dly = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.dhs.aKp();
-        this.dhs.setAccountData(accountData);
-        this.dhs.lG(1);
+        this.dly.aML();
+        this.dly.setAccountData(accountData);
+        this.dly.lY(1);
     }
 
     public void onDestroy() {
-        if (this.dhs != null) {
-            this.dhs.onDestroy();
+        if (this.dly != null) {
+            this.dly.onDestroy();
         }
     }
 }

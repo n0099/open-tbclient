@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WebViewDatabase {
     private static final WebViewDatabase mInstance = new WebViewDatabase();
     private static Context mContext = null;

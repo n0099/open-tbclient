@@ -1,15 +1,15 @@
 package com.xiaomi.push;
 
 import java.net.InetSocketAddress;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class cs {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f204a;
+    private String f201a;
 
     public cs(String str, int i) {
-        this.f204a = str;
+        this.f201a = str;
         this.a = i;
     }
 
@@ -31,9 +31,9 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m199a(String str, int i) {
+    public static InetSocketAddress m204a(String str, int i) {
         cs a = a(str, i);
-        return new InetSocketAddress(a.m200a(), a.a());
+        return new InetSocketAddress(a.m205a(), a.a());
     }
 
     public int a() {
@@ -41,11 +41,11 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m200a() {
-        return this.f204a;
+    public String m205a() {
+        return this.f201a;
     }
 
     public String toString() {
-        return this.a > 0 ? this.f204a + ":" + this.a : this.f204a;
+        return this.a > 0 ? this.f201a + ":" + this.a : this.f201a;
     }
 }

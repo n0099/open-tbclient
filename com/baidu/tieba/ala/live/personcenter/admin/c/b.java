@@ -11,23 +11,23 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.live.personcenter.admin.message.AlaAdminListResponseMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private a eGR;
-    private HttpMessageListener eGW;
+    private a eKL;
+    private HttpMessageListener eKQ;
     private List<com.baidu.tieba.ala.live.personcenter.admin.b.b> userList;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void af(int i, String str);
+        void ag(int i, String str);
 
-        void hX(boolean z);
+        void ie(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.userList = new ArrayList();
-        this.eGW = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.eKQ = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,25 +35,25 @@ public class b extends BdBaseModel {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     com.baidu.tieba.ala.live.personcenter.admin.message.a aVar = (com.baidu.tieba.ala.live.personcenter.admin.message.a) alaAdminListResponseMessage.getmOrginalMessage();
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.eGR != null) {
-                            b.this.eGR.af(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.eKL != null) {
+                            b.this.eKL.ag(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    com.baidu.tieba.ala.live.personcenter.admin.b.a bek = alaAdminListResponseMessage.bek();
-                    b.this.userList = bek.getUserList();
-                    if (b.this.eGR != null) {
-                        b.this.eGR.hX(false);
+                    com.baidu.tieba.ala.live.personcenter.admin.b.a bgu = alaAdminListResponseMessage.bgu();
+                    b.this.userList = bgu.getUserList();
+                    if (b.this.eKL != null) {
+                        b.this.eKL.ie(false);
                     }
                 }
             }
         };
-        rT();
-        registerListener(this.eGW);
+        te();
+        registerListener(this.eKQ);
     }
 
-    private void rT() {
+    private void te() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021078, TbConfig.SERVER_ADDRESS + "ala/perm/getAnchorAdmin");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -62,13 +62,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bel() {
+    public void bgv() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bel();
+        bgv();
         return true;
     }
 
@@ -83,13 +83,13 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eGR = aVar;
+        this.eKL = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         this.userList.remove(bVar);
-        if (this.eGR != null) {
-            this.eGR.hX(false);
+        if (this.eKL != null) {
+            this.eKL.ie(false);
         }
     }
 }

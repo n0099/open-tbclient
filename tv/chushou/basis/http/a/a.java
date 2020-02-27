@@ -11,7 +11,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import tv.chushou.basis.http.model.HttpParam;
 import tv.chushou.basis.http.model.RequestTag;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a implements Interceptor {
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) {
@@ -58,13 +58,13 @@ public class a implements Interceptor {
             for (String str : hashSet) {
                 newBuilder2.removeAllQueryParameters(str);
             }
-            for (Map.Entry<String, String> entry : httpParam.dOC()) {
+            for (Map.Entry<String, String> entry : httpParam.dPP()) {
                 newBuilder2.addQueryParameter(entry.getKey(), entry.getValue());
             }
             newBuilder.url(newBuilder2.build());
         } else {
             FormBody.Builder builder = new FormBody.Builder();
-            for (Map.Entry<String, String> entry2 : httpParam.dOC()) {
+            for (Map.Entry<String, String> entry2 : httpParam.dPP()) {
                 builder.add(entry2.getKey(), entry2.getValue());
             }
             newBuilder.post(builder.build());

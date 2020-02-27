@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h {
     private static Object c = new Object();
     private static h d = null;
@@ -24,7 +24,7 @@ public class h {
     private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends com.baidu.location.d.e {
         private String b = null;
         private String c = null;

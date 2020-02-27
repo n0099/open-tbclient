@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.wheelview3d.listener;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface OnItemSelectedListener {
     void onItemSelected(int i);
 }

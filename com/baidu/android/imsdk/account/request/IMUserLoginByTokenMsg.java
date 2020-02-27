@@ -14,13 +14,14 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.imsdk.IMService;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static int sRetrytimes = 0;
     private String cFrom;
@@ -31,7 +32,7 @@ public class IMUserLoginByTokenMsg extends Message {
     private boolean mIsInternalLogin;
     private long mLoginRequestTime;
     private String mToken;
-    private String TAG = "MessageHandler";
+    private String TAG = "IMUserLoginByTokenMsg";
     private long mTail = 0;
     private long mTimeout = 10;
 
@@ -65,10 +66,12 @@ public class IMUserLoginByTokenMsg extends Message {
             str = intent.getStringExtra(Constants.EXTRA_LOGIN_FROM);
         }
         String stringExtra = intent.hasExtra(Constants.EXTRA_LOGIN_CFROM) ? intent.getStringExtra(Constants.EXTRA_LOGIN_CFROM) : "";
-        if (TextUtils.isEmpty(token)) {
-            return null;
+        if (!TextUtils.isEmpty(token)) {
+            Utility.writeLoginFlag(context, "7Y", "new IMUserLoginByTokenMsg");
+            return new IMUserLoginByTokenMsg(context, token, booleanExtra, str, stringExtra);
         }
-        return new IMUserLoginByTokenMsg(context, token, booleanExtra, str, stringExtra);
+        Utility.writeLoginFlag(context, "7N", "IMUserLoginByTokenMsg return null");
+        return null;
     }
 
     public void setTimeout(long j) {
@@ -87,6 +90,7 @@ public class IMUserLoginByTokenMsg extends Message {
             jSONObject.put("version", 4);
             jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
+            jSONObject.put("app_open_type", AccountManagerImpl.getInstance(this.mContext).getAppOpenType());
             jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
             jSONObject.put("tail", this.mTail);
             jSONObject.put("timeout", this.mTimeout);
@@ -112,56 +116,74 @@ public class IMUserLoginByTokenMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        String optString;
+        int i2 = 0;
         LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i + " msg:" + str);
-        long currentTimeMillis = System.currentTimeMillis();
-        String str2 = "-1";
-        if (i == 0) {
-            sRetrytimes = 0;
-            LogUtils.d(this.TAG, "Logined");
-            String optString = jSONObject.optString("logid", "-1");
-            long optLong = jSONObject.optLong("uk", -1L);
-            long optLong2 = jSONObject.optJSONArray(Constants.KEY_TRIGGER_ID).optLong(0);
-            int optInt = jSONObject.optInt("authority", -1);
-            IMSDK.getInstance(this.mContext).setUk(optLong);
-            Utility.writeTriggerId(this.mContext, optLong2);
-            Utility.writeUK(this.mContext, optLong);
-            Utility.setCuidAuthority(this.mContext, optInt);
-            String optString2 = jSONObject.optString("cookie", "");
-            if (!TextUtils.isEmpty(optString2)) {
-                Utility.writeLoginCookie(this.mContext, optString2);
-            }
-            Utility.writeRestApiDisable(jSONObject.optInt("disable_restapi", 0));
-            Utility.setBdDnsEnable(this.mContext, jSONObject.optInt("bddns_enable", 1));
-            Utility.setConnType(this.mContext, jSONObject.optInt("conn_type", 0));
-            Utility.setUploadIMTrack(this.mContext, jSONObject.optInt("client_upload_log_switch", 1));
-            JSONArray optJSONArray = jSONObject.optJSONArray("log_switch");
-            if (optJSONArray != null) {
-                int i2 = 0;
-                while (true) {
-                    int i3 = i2;
-                    if (i3 < optJSONArray.length()) {
-                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
-                        if (jSONObject2 == null || jSONObject2.optInt("id", -1) != 501100) {
-                            i2 = i3 + 1;
-                        } else {
-                            Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt("switch", 0));
-                            break;
-                        }
-                    } else {
-                        break;
-                    }
+        if (i != 410) {
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = "-1";
+            if (i == 0) {
+                try {
+                    Utility.writeLoginFlag(this.mContext, "17Y", "Read LoginMsg response");
+                    sRetrytimes = 0;
+                    LogUtils.d(this.TAG, "Logined");
+                    optString = jSONObject.optString("logid", "-1");
+                } catch (Exception e) {
+                    e = e;
                 }
+                try {
+                    long optLong = jSONObject.optLong("uk", -1L);
+                    long optLong2 = jSONObject.optJSONArray(Constants.KEY_TRIGGER_ID).optLong(0);
+                    int optInt = jSONObject.optInt("authority", -1);
+                    IMSDK.getInstance(this.mContext).setUk(optLong);
+                    Utility.writeTriggerId(this.mContext, optLong2);
+                    Utility.writeUK(this.mContext, optLong);
+                    Utility.setCuidAuthority(this.mContext, optInt);
+                    String optString2 = jSONObject.optString("cookie", "");
+                    if (!TextUtils.isEmpty(optString2)) {
+                        Utility.writeLoginCookie(this.mContext, optString2);
+                    }
+                    Utility.writeLoginRole(this.mContext, jSONObject.optInt("role", 0));
+                    Utility.writeRestApiDisable(jSONObject.optInt("disable_restapi", 0));
+                    Utility.setBdDnsEnable(this.mContext, jSONObject.optInt("bddns_enable", 1));
+                    Utility.setConnType(this.mContext, jSONObject.optInt("conn_type", 0));
+                    Utility.setUploadIMTrack(this.mContext, jSONObject.optInt("client_upload_log_switch", 1));
+                    JSONArray optJSONArray = jSONObject.optJSONArray("log_switch");
+                    if (optJSONArray != null) {
+                        while (true) {
+                            if (i2 < optJSONArray.length()) {
+                                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                                if (jSONObject2 == null || jSONObject2.optInt("id", -1) != 501100) {
+                                    i2++;
+                                } else {
+                                    Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt("switch", 0));
+                                    break;
+                                }
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                    if (!IMService.isSmallFlow) {
+                        ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
+                    }
+                    str2 = optString;
+                } catch (Exception e2) {
+                    e = e2;
+                    str2 = optString;
+                    LogUtils.e(this.TAG, "handle login msg exception :", e);
+                    AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
+                    new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
+                }
+            } else if (110 == i || 7 == i || 23 == i) {
+                Utility.logout(this.mContext, null);
+                sRetrytimes = 0;
+            } else {
+                sRetrytimes++;
             }
-            ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
-            str2 = optString;
-        } else if (110 == i || 7 == i || 23 == i) {
-            Utility.logout(this.mContext, null);
-            sRetrytimes = 0;
-        } else {
-            sRetrytimes++;
+            AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
+            new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
         }
-        AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
-        new IMTrack.RequestBuilder(this.mContext).method("50").requestId(str2).requestTime(this.mLoginRequestTime).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
     }
 }

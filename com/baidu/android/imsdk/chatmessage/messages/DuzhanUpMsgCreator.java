@@ -3,12 +3,13 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DuzhanUpMsgCreator {
     private static final String TAG = "DuzhanUpMsgCreateor";
     private static int REQ_TYPE_BOX = 0;
     private static int REQ_TYPE_PA = 1;
     private static int REQ_TYPE_CLUE = 3;
+    private static int REQ_TYPE_LEMON = 4;
 
     public static int getReqType(int i) {
         if (i == 7) {
@@ -16,6 +17,9 @@ public class DuzhanUpMsgCreator {
         }
         if (i == 16) {
             return REQ_TYPE_CLUE;
+        }
+        if (i == 25) {
+            return REQ_TYPE_LEMON;
         }
         return REQ_TYPE_BOX;
     }

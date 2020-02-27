@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f<ViewGroup, Object> extends com.baidu.adp.widget.ListView.a {
     protected TbPageContext mPageContext;
 

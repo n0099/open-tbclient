@@ -2,7 +2,7 @@ package org.aspectj.a.b;
 
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e extends a implements org.aspectj.lang.reflect.c {
     Class returnType;
 
@@ -12,9 +12,9 @@ public class e extends a implements org.aspectj.lang.reflect.c {
         this.returnType = cls2;
     }
 
-    public Class dLM() {
+    public Class dMZ() {
         if (this.returnType == null) {
-            this.returnType = NP(6);
+            this.returnType = NS(6);
         }
         return this.returnType;
     }
@@ -22,18 +22,18 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.NR(dLN()));
-        if (hVar.nJp) {
-            stringBuffer.append(hVar.O(dLM()));
+        stringBuffer.append(hVar.NU(dNa()));
+        if (hVar.nKe) {
+            stringBuffer.append(hVar.N(dMZ()));
         }
-        if (hVar.nJp) {
+        if (hVar.nKe) {
             stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
         }
-        stringBuffer.append(hVar.k(dLO(), dLP()));
+        stringBuffer.append(hVar.k(dNb(), dNc()));
         stringBuffer.append(".");
         stringBuffer.append(getName());
-        hVar.b(stringBuffer, dLI());
-        hVar.c(stringBuffer, dLJ());
+        hVar.b(stringBuffer, dMV());
+        hVar.c(stringBuffer, dMW());
         return stringBuffer.toString();
     }
 }

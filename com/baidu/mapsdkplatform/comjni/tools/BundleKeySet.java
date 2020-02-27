@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comjni.tools;
 
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BundleKeySet {
     public String[] getBundleKeys(Bundle bundle) {
         if (bundle == null || bundle.isEmpty()) {

@@ -6,9 +6,11 @@ import android.support.annotation.Keep;
 import com.kascend.cstvsdk.bean.LoginParam;
 import com.kascend.cstvsdk.bean.LoginResp;
 import com.kascend.cstvsdk.bean.ShareParam;
+import kotlin.h;
 import tv.chushou.basis.d.a;
 @Keep
-/* loaded from: classes4.dex */
+@h
+/* loaded from: classes5.dex */
 public interface ThirdParty extends a {
     tv.chushou.common.player.a createPlayer();
 

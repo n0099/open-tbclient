@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g implements Runnable {
-    private final h ciS;
-    private AtomicBoolean cjH = new AtomicBoolean(false);
-    private List<g> cjI = Collections.synchronizedList(new ArrayList());
+    private final h cmW;
+    private AtomicBoolean cnL = new AtomicBoolean(false);
+    private List<g> cnM = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public g(h hVar, Runnable runnable, String str, String[] strArr) {
-        this.ciS = hVar;
+        this.cmW = hVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class g implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            alv();
+            anI();
         } finally {
-            this.ciS.c(this);
+            this.cmW.c(this);
         }
     }
 
-    public void alv() {
+    public void anI() {
         this.mRunnable.run();
     }
 
-    public void alw() {
+    public void anJ() {
         m.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class g implements Runnable {
         return this.mTag;
     }
 
-    public String[] alx() {
+    public String[] anK() {
         return this.mPaths;
     }
 
-    public boolean aly() {
-        return this.cjH.get();
+    public boolean anL() {
+        return this.cnL.get();
     }
 
-    public void alz() {
-        this.cjH.set(true);
+    public void anM() {
+        this.cnL.set(true);
     }
 
     public void a(g gVar) {
-        if (!this.cjI.contains(gVar)) {
-            this.cjI.add(gVar);
+        if (!this.cnM.contains(gVar)) {
+            this.cnM.add(gVar);
         }
     }
 
     public void b(g gVar) {
-        this.cjI.remove(gVar);
+        this.cnM.remove(gVar);
     }
 
-    public boolean alA() {
-        return this.cjI.isEmpty();
+    public boolean anN() {
+        return this.cnM.isEmpty();
     }
 }

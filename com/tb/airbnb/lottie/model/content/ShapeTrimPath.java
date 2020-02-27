@@ -1,15 +1,15 @@
 package com.tb.airbnb.lottie.model.content;
 
 import com.tb.airbnb.lottie.a.a.r;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
     private final String name;
-    private final Type npB;
-    private final com.tb.airbnb.lottie.model.a.b nqH;
-    private final com.tb.airbnb.lottie.model.a.b nqK;
-    private final com.tb.airbnb.lottie.model.a.b nqL;
+    private final Type nqd;
+    private final com.tb.airbnb.lottie.model.a.b nrj;
+    private final com.tb.airbnb.lottie.model.a.b nrm;
+    private final com.tb.airbnb.lottie.model.a.b nrn;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.npB = type;
-        this.nqK = bVar;
-        this.nqL = bVar2;
-        this.nqH = bVar3;
+        this.nqd = type;
+        this.nrm = bVar;
+        this.nrn = bVar2;
+        this.nrj = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dFw() {
-        return this.npB;
+    public Type dGD() {
+        return this.nqd;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dGo() {
-        return this.nqL;
+    public com.tb.airbnb.lottie.model.a.b dHv() {
+        return this.nrn;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dGp() {
-        return this.nqK;
+    public com.tb.airbnb.lottie.model.a.b dHw() {
+        return this.nrm;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dGk() {
-        return this.nqH;
+    public com.tb.airbnb.lottie.model.a.b dHr() {
+        return this.nrj;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.nqK + ", end: " + this.nqL + ", offset: " + this.nqH + "}";
+        return "Trim Path: {start: " + this.nrm + ", end: " + this.nrn + ", offset: " + this.nrj + "}";
     }
 }

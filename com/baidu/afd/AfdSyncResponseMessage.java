@@ -20,11 +20,11 @@ public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
                 return;
             } catch (ParseError e) {
                 e.printStackTrace();
-                this.adModel = a.E("", "1517888290046");
-                this.adModel.CZ = e;
+                this.adModel = a.H("", "1517888290046");
+                this.adModel.Ds = e;
                 return;
             }
         }
-        this.adModel = a.E("", "1517888290046");
+        this.adModel = a.H("", "1517888290046");
     }
 }

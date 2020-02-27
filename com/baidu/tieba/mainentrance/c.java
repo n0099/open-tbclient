@@ -1,7 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
 import tbclient.HotForum.HotTopicList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class c {
     private long mId;
     private String mName;

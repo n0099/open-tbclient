@@ -9,13 +9,13 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.http.Headers;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.j;
 import com.tencent.tauth.IRequestListener;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.CharConversionException;
 import java.io.EOFException;
@@ -93,12 +93,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HttpUtils {
     private HttpUtils() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -107,7 +107,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -544,12 +544,12 @@ public class HttpUtils {
                 keyStore.load(null, null);
                 a aVar = new a(keyStore);
                 aVar.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                schemeRegistry.register(new Scheme("https", aVar, 443));
+                schemeRegistry.register(new Scheme("https", aVar, Constants.SOCKET_PORT_SSL));
             } catch (Exception e) {
-                schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
+                schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), Constants.SOCKET_PORT_SSL));
             }
         } else {
-            schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
+            schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), Constants.SOCKET_PORT_SSL));
         }
         BasicHttpParams basicHttpParams = new BasicHttpParams();
         f a2 = context != null ? f.a(context, str) : null;
@@ -600,7 +600,7 @@ public class HttpUtils {
                             if (i == 0) {
                                 sb.append(URLEncoder.encode(stringArray[i]));
                             } else {
-                                sb.append(URLEncoder.encode(Constants.ACCEPT_TIME_SEPARATOR_SP + stringArray[i]));
+                                sb.append(URLEncoder.encode(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + stringArray[i]));
                             }
                         }
                     }
@@ -657,7 +657,7 @@ public class HttpUtils {
         return null;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public final String a;
         public final int b;
@@ -704,7 +704,7 @@ public class HttpUtils {
         return System.getProperty("http.proxyHost");
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends SSLSocketFactory {
         private final SSLContext a;
 
@@ -731,7 +731,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class b implements X509TrustManager {
         X509TrustManager a;
 

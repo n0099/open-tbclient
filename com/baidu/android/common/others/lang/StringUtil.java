@@ -22,7 +22,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class StringUtil implements IStringUtil {
     private static final String ARRAY_ELEMENT_SEPARATOR = ", ";
     private static final String ARRAY_END = "}";

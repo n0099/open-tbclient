@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.sofire.ac.Callback;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static void a(Context context, Intent intent) {
         int i = 0;

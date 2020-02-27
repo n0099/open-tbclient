@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.z.a.c;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class a<T extends com.baidu.swan.apps.z.a.c> {
     protected abstract boolean a(Context context, T t, com.baidu.swan.apps.z.b bVar, e eVar, JSONObject jSONObject);
 

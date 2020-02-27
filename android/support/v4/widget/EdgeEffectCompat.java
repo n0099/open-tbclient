@@ -6,7 +6,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.widget.EdgeEffect;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class EdgeEffectCompat {
     private static final EdgeEffectBaseImpl IMPL;
     private EdgeEffect mEdgeEffect;
@@ -19,7 +19,7 @@ public final class EdgeEffectCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class EdgeEffectBaseImpl {
         EdgeEffectBaseImpl() {
         }
@@ -30,7 +30,7 @@ public final class EdgeEffectCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class EdgeEffectApi21Impl extends EdgeEffectBaseImpl {
         EdgeEffectApi21Impl() {
         }

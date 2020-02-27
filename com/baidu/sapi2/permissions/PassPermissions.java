@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PassPermissions {
     private static PassPermissions a;
     private PermissionsDTO b;

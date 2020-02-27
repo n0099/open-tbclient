@@ -2,15 +2,15 @@ package com.baidu.swan.apps.res.ui.wheelview3d.d;
 
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class c extends TimerTask {
-    private final WheelView3d bJy;
+    private final WheelView3d bND;
     private int offset;
     private int realTotalOffset = Integer.MAX_VALUE;
     private int realOffset = 0;
 
     public c(WheelView3d wheelView3d, int i) {
-        this.bJy = wheelView3d;
+        this.bND = wheelView3d;
         this.offset = i;
     }
 
@@ -28,23 +28,23 @@ public final class c extends TimerTask {
             }
         }
         if (Math.abs(this.realTotalOffset) <= 1) {
-            this.bJy.cancelFuture();
-            this.bJy.getHandler().sendEmptyMessage(3000);
+            this.bND.cancelFuture();
+            this.bND.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.bJy.setTotalScrollY(this.bJy.getTotalScrollY() + this.realOffset);
-        if (!this.bJy.isLoop()) {
-            float itemHeight = this.bJy.getItemHeight();
-            float f = (-this.bJy.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.bJy.getItemsCount() - 1) - this.bJy.getInitPosition());
-            if (this.bJy.getTotalScrollY() <= f || this.bJy.getTotalScrollY() >= itemsCount) {
-                this.bJy.setTotalScrollY(this.bJy.getTotalScrollY() - this.realOffset);
-                this.bJy.cancelFuture();
-                this.bJy.getHandler().sendEmptyMessage(3000);
+        this.bND.setTotalScrollY(this.bND.getTotalScrollY() + this.realOffset);
+        if (!this.bND.isLoop()) {
+            float itemHeight = this.bND.getItemHeight();
+            float f = (-this.bND.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.bND.getItemsCount() - 1) - this.bND.getInitPosition());
+            if (this.bND.getTotalScrollY() <= f || this.bND.getTotalScrollY() >= itemsCount) {
+                this.bND.setTotalScrollY(this.bND.getTotalScrollY() - this.realOffset);
+                this.bND.cancelFuture();
+                this.bND.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.bJy.getHandler().sendEmptyMessage(1000);
+        this.bND.getHandler().sendEmptyMessage(1000);
         this.realTotalOffset -= this.realOffset;
     }
 }

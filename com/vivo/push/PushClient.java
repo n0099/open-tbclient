@@ -4,7 +4,7 @@ import android.content.Context;
 import com.vivo.push.util.VivoPushException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushClient {
     public static final String DEFAULT_REQUEST_ID = "1";
     private static final Object SLOCK = new Object();

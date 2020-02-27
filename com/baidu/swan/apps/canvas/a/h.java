@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class h extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -22,8 +22,8 @@ public class h extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject dL(int i) {
-        return super.dL(i);
+    public /* bridge */ /* synthetic */ JSONObject eb(int i) {
+        return super.eb(i);
     }
 
     public h(j jVar) {
@@ -33,37 +33,37 @@ public class h extends a {
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
         final String str;
-        com.baidu.swan.apps.core.d.d LY;
+        com.baidu.swan.apps.core.d.d Om;
         final com.baidu.swan.apps.canvas.b.f d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
-            unitedSchemeEntity.result = dL(201);
+            unitedSchemeEntity.result = eb(201);
             return false;
         }
-        String lJ = com.baidu.swan.apps.storage.b.lJ(eVar.id);
-        if (TextUtils.isEmpty(lJ)) {
+        String lY = com.baidu.swan.apps.storage.b.lY(eVar.id);
+        if (TextUtils.isEmpty(lY)) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
-            unitedSchemeEntity.result = dL(201);
+            unitedSchemeEntity.result = eb(201);
             return false;
         }
-        String str2 = lJ + File.separator + Calendar.getInstance().getTimeInMillis();
-        if (d.If()) {
+        String str2 = lY + File.separator + Calendar.getInstance().getTimeInMillis();
+        if (d.Ku()) {
             str = str2 + ".jpg";
         } else {
             str = str2 + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
         }
-        if (TextUtils.isEmpty(d.bdW) && (LY = com.baidu.swan.apps.y.f.UC().LY()) != null) {
-            d.bdW = LY.LJ();
+        if (TextUtils.isEmpty(d.bil) && (Om = com.baidu.swan.apps.y.f.WQ().Om()) != null) {
+            d.bil = Om.NX();
         }
-        if (TextUtils.isEmpty(d.bdW) || TextUtils.isEmpty(d.bdV)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.bdW + " ; canvas id = " + d.bdV);
-            unitedSchemeEntity.result = dL(201);
+        if (TextUtils.isEmpty(d.bil) || TextUtils.isEmpty(d.bik)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.bil + " ; canvas id = " + d.bik);
+            unitedSchemeEntity.result = eb(201);
             return false;
         }
         final CanvasView a = com.baidu.swan.apps.component.components.d.a.a.a(d);
         if (a == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
-            unitedSchemeEntity.result = dL(201);
+            unitedSchemeEntity.result = eb(201);
             return false;
         }
         m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.h.1
@@ -87,7 +87,7 @@ public class h extends a {
                         try {
                             str3 = new JSONObject(str4).optString("cb");
                             try {
-                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.bi(str, eVar.id) + "." + d.Ig());
+                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.br(str, eVar.id) + "." + d.Kv());
                             } catch (JSONException e2) {
                                 e = e2;
                                 e.printStackTrace();

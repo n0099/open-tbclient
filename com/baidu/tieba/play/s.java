@@ -9,83 +9,83 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.switchs.VCacheSwitch;
 /* loaded from: classes.dex */
 public class s {
-    private static i jvk = null;
-    private static boolean jvl = true;
-    private static boolean jvm = true;
+    private static i jwa = null;
+    private static boolean jwb = true;
+    private static boolean jwc = true;
 
-    private static i cxN() {
-        if (jvk == null) {
-            jvl = com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
+    private static i czh() {
+        if (jwa == null) {
+            jwb = com.baidu.tbadk.core.sharedPref.b.aFB().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
             if (runTask != null) {
-                jvk = (i) runTask.getData();
+                jwa = (i) runTask.getData();
             }
         }
-        return jvk;
+        return jwa;
     }
 
     public static String aw(String str, boolean z) {
         if (z) {
-            if (jvm && cxN() != null) {
-                return cxN().W(str, true);
+            if (jwc && czh() != null) {
+                return czh().W(str, true);
             }
             return str;
-        } else if (jvm && jvl && cxN() != null) {
-            return cxN().wk(str);
+        } else if (jwc && jwb && czh() != null) {
+            return czh().wE(str);
         } else {
             return str;
         }
     }
 
-    public static String wl(String str) {
-        if (cxN() != null) {
-            return cxN().wl(str);
+    public static String wF(String str) {
+        if (czh() != null) {
+            return czh().wF(str);
         }
         return null;
     }
 
     public static void d(Context context, String str, int i) {
-        if (cxN() != null) {
-            cxN().d(context, str, i);
+        if (czh() != null) {
+            czh().d(context, str, i);
         }
     }
 
     public static void aH(Context context, String str) {
-        if (cxN() != null) {
-            cxN().aH(context, str);
+        if (czh() != null) {
+            czh().aH(context, str);
         }
     }
 
     public static void aI(Context context, String str) {
-        if (jvm && jvl && cxN() != null) {
-            cxN().aI(context, str);
+        if (jwc && jwb && czh() != null) {
+            czh().aI(context, str);
         }
     }
 
-    public static void wm(String str) {
-        if (jvm && jvl && cxN() != null) {
-            cxN().wm(str);
+    public static void wG(String str) {
+        if (jwc && jwb && czh() != null) {
+            czh().wG(str);
         }
     }
 
     public static void clearCache(Context context) {
-        if (cxN() != null) {
-            cxN().clearCache(context);
+        if (czh() != null) {
+            czh().clearCache(context);
         }
     }
 
-    public static String wn(String str) {
-        if (cxN() != null) {
-            return cxN().wn(str);
+    public static String wH(String str) {
+        if (czh() != null) {
+            return czh().wH(str);
         }
         return null;
     }
 
-    public static void rM(boolean z) {
-        jvl = z;
+    public static void rP(boolean z) {
+        jwb = z;
     }
 
-    public static void cxO() {
-        jvm = SwitchManager.getInstance().findType(VCacheSwitch.CACHE_SWITCH) == 1;
+    public static void czi() {
+        jwc = SwitchManager.getInstance().findType(VCacheSwitch.CACHE_SWITCH) == 1;
     }
 }

@@ -1,11 +1,11 @@
 package com.google.android.exoplayer2.source.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
-    public c msM;
-    public boolean msN;
+    public c mts;
+    public boolean mtt;
 
     public void clear() {
-        this.msM = null;
-        this.msN = false;
+        this.mts = null;
+        this.mtt = false;
     }
 }

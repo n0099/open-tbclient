@@ -2,7 +2,7 @@ package com.baidu.searchbox.ugc.emoji.edittextrule;
 
 import android.text.Editable;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IEditTextPatternRule {
     void afterTextChanged(Editable editable);
 

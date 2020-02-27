@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean bBf;
+    private boolean bFl;
     private String mBaseUrl;
     private String mPage;
     private String mParams;
@@ -21,12 +21,12 @@ public final class c {
         return this.mParams;
     }
 
-    public String Uk() {
+    public String Wy() {
         return this.mBaseUrl;
     }
 
-    public void LW() {
-        this.bBf = false;
+    public void Ok() {
+        this.bFl = false;
     }
 
     public String toJSONString() {
@@ -35,7 +35,7 @@ public final class c {
             jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.bBf);
+            jSONObject.put("isFirstPage", this.bFl);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -44,7 +44,7 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c jh(String str) {
+    public static c jw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -54,7 +54,7 @@ public final class c {
             cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.bBf = jSONObject.optBoolean("isFirstPage");
+            cVar.bFl = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -65,32 +65,32 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        private c bjj = new c();
+        private c bnt = new c();
 
-        public a ji(String str) {
-            this.bjj.mPage = str;
+        public a jx(String str) {
+            this.bnt.mPage = str;
             return this;
         }
 
-        public a jj(String str) {
-            this.bjj.mParams = str;
+        public a jy(String str) {
+            this.bnt.mParams = str;
             return this;
         }
 
-        public a jk(String str) {
-            this.bjj.mBaseUrl = str;
+        public a jz(String str) {
+            this.bnt.mBaseUrl = str;
             return this;
         }
 
-        public a cT(boolean z) {
-            this.bjj.bBf = z;
+        public a da(boolean z) {
+            this.bnt.bFl = z;
             return this;
         }
 
-        public c Wf() {
-            return this.bjj;
+        public c Yt() {
+            return this.bnt;
         }
     }
 }

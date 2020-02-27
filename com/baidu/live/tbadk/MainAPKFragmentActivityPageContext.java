@@ -13,7 +13,7 @@ import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.BDLayoutMode;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
     BaseFragmentActivity activity;
 

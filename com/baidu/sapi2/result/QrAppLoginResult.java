@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class QrAppLoginResult extends SapiResult {
     public static final String ERROR_MSG_UNKNOWN = "登录失败";
     public static final int RESULT_CODE_BDUSS_EMPTY = 160102;

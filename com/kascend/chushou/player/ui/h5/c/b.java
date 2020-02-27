@@ -1,5 +1,5 @@
 package com.kascend.chushou.player.ui.h5.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b extends d {
     public String a;
     public long b;

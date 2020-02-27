@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f extends Observable implements IOAdDownloader, Runnable {
     protected Context a;
     protected URL b;

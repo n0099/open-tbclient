@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ShareService extends Service {
     private Context a;
     private LoginShareStrategy b;
@@ -33,7 +33,7 @@ public final class ShareService extends Service {
     private Handler e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends Binder {
         private a() {
         }

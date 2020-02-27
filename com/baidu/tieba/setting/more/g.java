@@ -16,435 +16,435 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
-    private RelativeLayout hpY;
+    private RelativeLayout hrX;
     public boolean isFront;
-    private MsgSettingItemView jSW;
-    private LinearLayout jSX;
-    private MsgSettingItemView jSY;
-    private MsgSettingItemView jSZ;
-    private MsgSettingItemView jTa;
-    private MsgSettingItemView jTb;
-    private MsgSettingItemView jTc;
-    private MsgSettingItemView jTd;
-    private MsgSettingItemView jTe;
-    private MsgSettingItemView jTf;
-    private MsgSettingItemView jTg;
-    private MsgSettingItemView jTh;
-    private MsgSettingItemView jTi;
-    private LinearLayout jTj;
-    private TextView jTk;
-    private MsgSettingItemView jTl;
-    private LinearLayout jTm;
-    private TextView jTn;
-    private LinearLayout jTo;
-    private LinearLayout jTp;
-    private LinearLayout jTq;
-    private TextView jTr;
-    private LinearLayout jTs;
-    private TextView jTt;
-    private MsgRemindActivity jTu;
-    private TbSettingTextTipView jTv;
+    private MsgSettingItemView jTR;
+    private LinearLayout jTS;
+    private MsgSettingItemView jTT;
+    private MsgSettingItemView jTU;
+    private MsgSettingItemView jTV;
+    private MsgSettingItemView jTW;
+    private MsgSettingItemView jTX;
+    private MsgSettingItemView jTY;
+    private MsgSettingItemView jTZ;
+    private MsgSettingItemView jUa;
+    private MsgSettingItemView jUb;
+    private MsgSettingItemView jUc;
+    private MsgSettingItemView jUd;
+    private LinearLayout jUe;
+    private TextView jUf;
+    private MsgSettingItemView jUg;
+    private LinearLayout jUh;
+    private TextView jUi;
+    private LinearLayout jUj;
+    private LinearLayout jUk;
+    private LinearLayout jUl;
+    private TextView jUm;
+    private LinearLayout jUn;
+    private TextView jUo;
+    private MsgRemindActivity jUp;
+    private TbSettingTextTipView jUq;
     private View mBack;
     private NavigationBar mNavigationBar;
 
     public g(MsgRemindActivity msgRemindActivity) {
         super(msgRemindActivity.getPageContext());
-        this.hpY = null;
+        this.hrX = null;
         this.mNavigationBar = null;
         this.isFront = true;
-        this.jTu = msgRemindActivity;
+        this.jUp = msgRemindActivity;
         msgRemindActivity.setContentView(R.layout.msg_remind_activity);
     }
 
     public void b(MsgRemindActivity msgRemindActivity) {
         c(msgRemindActivity);
-        cEO();
-        cER();
-        cEQ();
-        cEP();
-        cES();
+        cGp();
+        cGs();
+        cGr();
+        cGq();
+        cGt();
         d(msgRemindActivity);
-        cEJ();
+        cGk();
     }
 
     void c(MsgRemindActivity msgRemindActivity) {
-        this.hpY = (RelativeLayout) msgRemindActivity.findViewById(R.id.parent);
+        this.hrX = (RelativeLayout) msgRemindActivity.findViewById(R.id.parent);
         msgRemindActivity.findViewById(R.id.top_head_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         this.mNavigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.msg_remind));
         this.mNavigationBar.showBottomLine();
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.jTo = (LinearLayout) msgRemindActivity.findViewById(R.id.front_container);
-        this.jTp = (LinearLayout) msgRemindActivity.findViewById(R.id.back_container);
-        this.jSW = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.receive_message_swtich);
-        this.jSW.setText(R.string.receive_msg_text);
-        this.jSW.setLineVisibility(false);
-        this.jSX = (LinearLayout) msgRemindActivity.findViewById(R.id.receive_message_container);
-        this.jSY = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.reply_check_box);
-        this.jSY.setText(R.string.reply);
-        this.jSZ = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.zan_check_box);
-        this.jSZ.setVisibility(0);
-        this.jSZ.setText(R.string.action_praise_default);
-        this.jTa = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.at_me_check_box);
-        this.jTa.setText(R.string.mention_atme);
-        this.jTb = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.new_fans_swtich);
-        this.jTb.setText(R.string.new_fans);
-        this.jTc = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.chat_msg_swtich);
-        this.jTc.setText(R.string.chat_msg_text);
-        this.jTd = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.group_chat_swtich);
-        this.jTd.setLineVisibility(false);
-        this.jTd.setText(R.string.group_chat_text);
-        this.jTe = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.screen_lock_swtich);
-        this.jTe.setText(R.string.remind_screen_lock);
-        this.jTe.setLineVisibility(false);
-        this.jTf = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.tone_remind_swtich);
-        this.jTf.setText(R.string.remind_tone);
-        this.jTg = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.vibrate_remind_swtich);
-        this.jTg.setText(R.string.remind_vibrate);
-        this.jTh = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.light_remind_swtich);
-        this.jTh.setLineVisibility(true);
-        this.jTh.setText(R.string.remind_light);
-        this.jTi = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.sign_remind_swtich);
-        this.jTi.setText(R.string.sign_remind_outline);
-        this.jTj = (LinearLayout) msgRemindActivity.findViewById(R.id.sign_remind);
-        this.jTk = (TextView) msgRemindActivity.findViewById(R.id.sign_remind_time);
-        this.jTl = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.no_disturb_swtich);
-        this.jTl.setText(R.string.no_disturb_mode);
-        this.jTl.setLineVisibility(false);
-        this.jTm = (LinearLayout) msgRemindActivity.findViewById(R.id.no_disturb_mode_time_container);
-        this.jTn = (TextView) msgRemindActivity.findViewById(R.id.no_disturb_mode_time_value);
-        this.jTq = (LinearLayout) msgRemindActivity.findViewById(R.id.no_disturb_start_time);
-        this.jTr = (TextView) msgRemindActivity.findViewById(R.id.no_disturb_start_time_value);
-        this.jTs = (LinearLayout) msgRemindActivity.findViewById(R.id.no_disturb_end_time);
-        this.jTt = (TextView) msgRemindActivity.findViewById(R.id.no_disturb_end_time_value);
-        this.jTv = (TbSettingTextTipView) msgRemindActivity.findViewById(R.id.msg_receive_item_view);
+        this.jUj = (LinearLayout) msgRemindActivity.findViewById(R.id.front_container);
+        this.jUk = (LinearLayout) msgRemindActivity.findViewById(R.id.back_container);
+        this.jTR = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.receive_message_swtich);
+        this.jTR.setText(R.string.receive_msg_text);
+        this.jTR.setLineVisibility(false);
+        this.jTS = (LinearLayout) msgRemindActivity.findViewById(R.id.receive_message_container);
+        this.jTT = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.reply_check_box);
+        this.jTT.setText(R.string.reply);
+        this.jTU = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.zan_check_box);
+        this.jTU.setVisibility(0);
+        this.jTU.setText(R.string.action_praise_default);
+        this.jTV = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.at_me_check_box);
+        this.jTV.setText(R.string.mention_atme);
+        this.jTW = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.new_fans_swtich);
+        this.jTW.setText(R.string.new_fans);
+        this.jTX = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.chat_msg_swtich);
+        this.jTX.setText(R.string.chat_msg_text);
+        this.jTY = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.group_chat_swtich);
+        this.jTY.setLineVisibility(false);
+        this.jTY.setText(R.string.group_chat_text);
+        this.jTZ = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.screen_lock_swtich);
+        this.jTZ.setText(R.string.remind_screen_lock);
+        this.jTZ.setLineVisibility(false);
+        this.jUa = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.tone_remind_swtich);
+        this.jUa.setText(R.string.remind_tone);
+        this.jUb = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.vibrate_remind_swtich);
+        this.jUb.setText(R.string.remind_vibrate);
+        this.jUc = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.light_remind_swtich);
+        this.jUc.setLineVisibility(true);
+        this.jUc.setText(R.string.remind_light);
+        this.jUd = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.sign_remind_swtich);
+        this.jUd.setText(R.string.sign_remind_outline);
+        this.jUe = (LinearLayout) msgRemindActivity.findViewById(R.id.sign_remind);
+        this.jUf = (TextView) msgRemindActivity.findViewById(R.id.sign_remind_time);
+        this.jUg = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.no_disturb_swtich);
+        this.jUg.setText(R.string.no_disturb_mode);
+        this.jUg.setLineVisibility(false);
+        this.jUh = (LinearLayout) msgRemindActivity.findViewById(R.id.no_disturb_mode_time_container);
+        this.jUi = (TextView) msgRemindActivity.findViewById(R.id.no_disturb_mode_time_value);
+        this.jUl = (LinearLayout) msgRemindActivity.findViewById(R.id.no_disturb_start_time);
+        this.jUm = (TextView) msgRemindActivity.findViewById(R.id.no_disturb_start_time_value);
+        this.jUn = (LinearLayout) msgRemindActivity.findViewById(R.id.no_disturb_end_time);
+        this.jUo = (TextView) msgRemindActivity.findViewById(R.id.no_disturb_end_time_value);
+        this.jUq = (TbSettingTextTipView) msgRemindActivity.findViewById(R.id.msg_receive_item_view);
     }
 
-    private void cEJ() {
-        cEK();
-        cEL();
-        cEM();
-        cEN();
+    private void cGk() {
+        cGl();
+        cGm();
+        cGn();
+        cGo();
     }
 
-    private void cEK() {
+    private void cGl() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.jTl.setVisibility(8);
-            this.jTm.setVisibility(8);
-            this.jSW.setVisibility(8);
-            this.jSX.setVisibility(8);
-            this.jTi.setVisibility(8);
-            this.jTj.setVisibility(8);
-            this.jTf.setVisibility(8);
-            this.jTg.setVisibility(8);
-            this.jTh.setVisibility(8);
-            this.jTe.setVisibility(8);
+            this.jUg.setVisibility(8);
+            this.jUh.setVisibility(8);
+            this.jTR.setVisibility(8);
+            this.jTS.setVisibility(8);
+            this.jUd.setVisibility(8);
+            this.jUe.setVisibility(8);
+            this.jUa.setVisibility(8);
+            this.jUb.setVisibility(8);
+            this.jUc.setVisibility(8);
+            this.jTZ.setVisibility(8);
         }
     }
 
-    private void cEL() {
+    private void cGm() {
         if (!TbadkCoreApplication.getInst().isMIUIRom()) {
-            this.jTe.setLineVisibility(true);
+            this.jTZ.setLineVisibility(true);
         } else {
-            this.jTe.setLineVisibility(false);
+            this.jTZ.setLineVisibility(false);
         }
     }
 
-    private void cEM() {
+    private void cGn() {
         boolean appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
-        this.jTc.setLineVisibility(appResponseToIntentClass);
+        this.jTX.setLineVisibility(appResponseToIntentClass);
         if (appResponseToIntentClass) {
-            this.jTd.setVisibility(0);
+            this.jTY.setVisibility(0);
         } else {
-            this.jTd.setVisibility(8);
+            this.jTY.setVisibility(8);
         }
     }
 
-    private void cEN() {
+    private void cGo() {
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(ScreenLockActivityConfig.class)) {
-            this.jTe.setVisibility(0);
+            this.jTZ.setVisibility(0);
         } else {
-            this.jTe.setVisibility(8);
+            this.jTZ.setVisibility(8);
         }
     }
 
-    public View yh() {
+    public View Ay() {
         return this.mBack;
     }
 
-    private void cEO() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIS()) {
-            this.jSW.turnOnNoCallback();
-            this.jSX.setVisibility(0);
+    private void cGp() {
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLl()) {
+            this.jTR.turnOnNoCallback();
+            this.jTS.setVisibility(0);
         } else {
-            this.jSW.turnOffNoCallback();
-            this.jSX.setVisibility(8);
+            this.jTR.turnOffNoCallback();
+            this.jTS.setVisibility(8);
         }
-        this.jSY.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIX());
-        this.jSZ.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJh());
-        this.jTa.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIV());
-        this.jTb.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIW());
-        this.jTc.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIY());
-        this.jTd.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJg());
+        this.jTT.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLq());
+        this.jTU.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLA());
+        this.jTV.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLo());
+        this.jTW.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLp());
+        this.jTX.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLr());
+        this.jTY.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLz());
     }
 
-    private void cEP() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().isSignAlertOn()) {
-            this.jTi.turnOn();
-            this.jTj.setVisibility(0);
-            this.jTi.setLineVisibility(true);
-            cET();
+    private void cGq() {
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aLj().isSignAlertOn()) {
+            this.jUd.turnOn();
+            this.jUe.setVisibility(0);
+            this.jUd.setLineVisibility(true);
+            cGu();
             return;
         }
-        this.jTi.turnOff();
-        this.jTi.setLineVisibility(false);
-        this.jTj.setVisibility(8);
+        this.jUd.turnOff();
+        this.jUd.setLineVisibility(false);
+        this.jUe.setVisibility(8);
     }
 
-    private void cEQ() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIZ()) {
-            this.jTf.turnOnNoCallback();
+    private void cGr() {
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLs()) {
+            this.jUa.turnOnNoCallback();
         } else {
-            this.jTf.turnOffNoCallback();
+            this.jUa.turnOffNoCallback();
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJc()) {
-            this.jTg.turnOnNoCallback();
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLv()) {
+            this.jUb.turnOnNoCallback();
         } else {
-            this.jTg.turnOffNoCallback();
+            this.jUb.turnOffNoCallback();
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJa()) {
-            this.jTh.turnOnNoCallback();
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLt()) {
+            this.jUc.turnOnNoCallback();
         } else {
-            this.jTh.turnOffNoCallback();
-        }
-    }
-
-    private void cER() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJi()) {
-            this.jTe.turnOnNoCallback();
-        } else {
-            this.jTe.turnOffNoCallback();
+            this.jUc.turnOffNoCallback();
         }
     }
 
-    private void cES() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJb()) {
-            this.jTl.turnOnNoCallback();
-            this.jTm.setVisibility(0);
-            cEU();
+    private void cGs() {
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLB()) {
+            this.jTZ.turnOnNoCallback();
+        } else {
+            this.jTZ.turnOffNoCallback();
+        }
+    }
+
+    private void cGt() {
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLu()) {
+            this.jUg.turnOnNoCallback();
+            this.jUh.setVisibility(0);
+            cGv();
             return;
         }
-        this.jTl.turnOffNoCallback();
-        this.jTm.setVisibility(8);
+        this.jUg.turnOffNoCallback();
+        this.jUh.setVisibility(8);
     }
 
     private void d(MsgRemindActivity msgRemindActivity) {
         this.mBack.setOnClickListener(msgRemindActivity);
-        this.jSW.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jSY.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTa.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jSZ.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTb.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTc.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTd.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTe.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTf.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTg.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTh.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTi.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTj.setOnClickListener(msgRemindActivity);
-        this.jTl.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.jTm.setOnClickListener(msgRemindActivity);
-        this.jTq.setOnClickListener(msgRemindActivity);
-        this.jTs.setOnClickListener(msgRemindActivity);
-        this.jTv.setOnClickListener(msgRemindActivity);
+        this.jTR.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jTT.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jTV.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jTU.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jTW.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jTX.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jTY.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jTZ.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jUa.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jUb.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jUc.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jUd.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jUe.setOnClickListener(msgRemindActivity);
+        this.jUg.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.jUh.setOnClickListener(msgRemindActivity);
+        this.jUl.setOnClickListener(msgRemindActivity);
+        this.jUn.setOnClickListener(msgRemindActivity);
+        this.jUq.setOnClickListener(msgRemindActivity);
         this.mNavigationBar.getCenterText().setOnClickListener(msgRemindActivity);
     }
 
-    public void sn(boolean z) {
-        this.jTl.setLineVisibility(z);
+    public void sq(boolean z) {
+        this.jUg.setLineVisibility(z);
         if (z) {
-            this.jTm.setVisibility(0);
-            cEU();
-            am.setBackgroundResource(this.jTm, R.drawable.more_all);
+            this.jUh.setVisibility(0);
+            cGv();
+            am.setBackgroundResource(this.jUh, R.drawable.more_all);
             return;
         }
-        this.jTm.setVisibility(8);
+        this.jUh.setVisibility(8);
     }
 
-    public void so(boolean z) {
+    public void sr(boolean z) {
         if (z) {
-            this.jTj.setVisibility(0);
-            this.jTi.setLineVisibility(true);
-            am.setBackgroundResource(this.jTj, R.drawable.more_all);
+            this.jUe.setVisibility(0);
+            this.jUd.setLineVisibility(true);
+            am.setBackgroundResource(this.jUe, R.drawable.more_all);
             return;
         }
-        this.jTj.setVisibility(8);
-        this.jTi.setLineVisibility(false);
+        this.jUe.setVisibility(8);
+        this.jUd.setLineVisibility(false);
     }
 
-    public void sp(boolean z) {
+    public void ss(boolean z) {
         if (z) {
-            this.jSX.setVisibility(0);
+            this.jTS.setVisibility(0);
         } else {
-            this.jSX.setVisibility(8);
+            this.jTS.setVisibility(8);
         }
     }
 
-    public void cET() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().isSignAlertOn()) {
-            int signAlertHours = com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().getSignAlertHours();
-            int signAlertMins = com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().getSignAlertMins();
-            this.jTk.setText(this.jTu.getString(R.string.sign_remind_time, new Object[]{signAlertHours > 9 ? String.valueOf(signAlertHours) : "0" + signAlertHours, signAlertMins > 9 ? String.valueOf(signAlertMins) : "0" + signAlertMins}));
-            this.jTj.setVisibility(0);
-            if (!this.jTi.isOn()) {
-                this.jTi.turnOnNoCallback();
+    public void cGu() {
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aLj().isSignAlertOn()) {
+            int signAlertHours = com.baidu.tbadk.coreExtra.messageCenter.d.aLj().getSignAlertHours();
+            int signAlertMins = com.baidu.tbadk.coreExtra.messageCenter.d.aLj().getSignAlertMins();
+            this.jUf.setText(this.jUp.getString(R.string.sign_remind_time, new Object[]{signAlertHours > 9 ? String.valueOf(signAlertHours) : "0" + signAlertHours, signAlertMins > 9 ? String.valueOf(signAlertMins) : "0" + signAlertMins}));
+            this.jUe.setVisibility(0);
+            if (!this.jUd.isOn()) {
+                this.jUd.turnOnNoCallback();
                 return;
             }
             return;
         }
-        this.jTk.setText(R.string.close);
-        this.jTj.setVisibility(8);
-        if (this.jTi.isOn()) {
-            this.jTi.turnOffNoCallback();
+        this.jUf.setText(R.string.close);
+        this.jUe.setVisibility(8);
+        if (this.jUd.isOn()) {
+            this.jUd.turnOffNoCallback();
         }
     }
 
-    public void cEU() {
-        String aJd = com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJd();
-        String aJe = com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJe();
-        this.jTn.setText(aJd + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aJe);
-        this.jTr.setText(aJd);
-        this.jTt.setText(aJe);
+    public void cGv() {
+        String aLw = com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLw();
+        String aLx = com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLx();
+        this.jUi.setText(aLw + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aLx);
+        this.jUm.setText(aLw);
+        this.jUo.setText(aLx);
     }
 
-    public BdSwitchView cEV() {
-        return this.jTi.getSwitchView();
+    public BdSwitchView cGw() {
+        return this.jUd.getSwitchView();
     }
 
-    public BdSwitchView cEW() {
-        return this.jSW.getSwitchView();
+    public BdSwitchView cGx() {
+        return this.jTR.getSwitchView();
     }
 
-    public View cEX() {
-        return this.jTj;
+    public View cGy() {
+        return this.jUe;
     }
 
-    public BdSwitchView cEY() {
-        return this.jTl.getSwitchView();
+    public BdSwitchView cGz() {
+        return this.jUg.getSwitchView();
     }
 
-    public View cEZ() {
-        return this.jTm;
+    public View cGA() {
+        return this.jUh;
     }
 
-    public LinearLayout cFa() {
-        return this.jTq;
+    public LinearLayout cGB() {
+        return this.jUl;
     }
 
-    public LinearLayout cFb() {
-        return this.jTs;
+    public LinearLayout cGC() {
+        return this.jUn;
     }
 
-    public BdSwitchView cFc() {
-        return this.jTf.getSwitchView();
+    public BdSwitchView cGD() {
+        return this.jUa.getSwitchView();
     }
 
-    public BdSwitchView cFd() {
-        return this.jTg.getSwitchView();
+    public BdSwitchView cGE() {
+        return this.jUb.getSwitchView();
     }
 
-    public BdSwitchView cFe() {
-        return this.jTh.getSwitchView();
+    public BdSwitchView cGF() {
+        return this.jUc.getSwitchView();
     }
 
-    public BdSwitchView cFf() {
-        return this.jTe.getSwitchView();
+    public BdSwitchView cGG() {
+        return this.jTZ.getSwitchView();
     }
 
-    public BdSwitchView cFg() {
-        return this.jSY.getSwitchView();
+    public BdSwitchView cGH() {
+        return this.jTT.getSwitchView();
     }
 
-    public BdSwitchView cFh() {
-        return this.jSZ.getSwitchView();
+    public BdSwitchView cGI() {
+        return this.jTU.getSwitchView();
     }
 
-    public BdSwitchView cFi() {
-        return this.jTa.getSwitchView();
+    public BdSwitchView cGJ() {
+        return this.jTV.getSwitchView();
     }
 
-    public BdSwitchView cFj() {
-        return this.jTc.getSwitchView();
+    public BdSwitchView cGK() {
+        return this.jTX.getSwitchView();
     }
 
-    public BdSwitchView cFk() {
-        return this.jTd.getSwitchView();
+    public BdSwitchView cGL() {
+        return this.jTY.getSwitchView();
     }
 
-    public BdSwitchView cFl() {
-        return this.jTb.getSwitchView();
+    public BdSwitchView cGM() {
+        return this.jTW.getSwitchView();
     }
 
-    public TbSettingTextTipView cFm() {
-        return this.jTv;
+    public TbSettingTextTipView cGN() {
+        return this.jUq;
     }
 
-    public TextView cFn() {
+    public TextView cGO() {
         return this.mNavigationBar.getCenterText();
     }
 
-    public void cFo() {
-        this.jSY.setOnSwitchStateChangeListener(null);
-        this.jSY.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIX());
-        this.jSY.setOnSwitchStateChangeListener(this.jTu);
+    public void cGP() {
+        this.jTT.setOnSwitchStateChangeListener(null);
+        this.jTT.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLq());
+        this.jTT.setOnSwitchStateChangeListener(this.jUp);
     }
 
-    public void cFp() {
-        this.jSZ.setOnSwitchStateChangeListener(null);
-        this.jSZ.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJh());
-        this.jSZ.setOnSwitchStateChangeListener(this.jTu);
+    public void cGQ() {
+        this.jTU.setOnSwitchStateChangeListener(null);
+        this.jTU.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLA());
+        this.jTU.setOnSwitchStateChangeListener(this.jUp);
     }
 
-    public void cFq() {
-        this.jTa.setOnSwitchStateChangeListener(null);
-        this.jTa.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIV());
-        this.jTa.setOnSwitchStateChangeListener(this.jTu);
+    public void cGR() {
+        this.jTV.setOnSwitchStateChangeListener(null);
+        this.jTV.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLo());
+        this.jTV.setOnSwitchStateChangeListener(this.jUp);
     }
 
-    public void cFr() {
-        this.jTb.setOnSwitchStateChangeListener(null);
-        this.jTb.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIW());
-        this.jTb.setOnSwitchStateChangeListener(this.jTu);
+    public void cGS() {
+        this.jTW.setOnSwitchStateChangeListener(null);
+        this.jTW.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLp());
+        this.jTW.setOnSwitchStateChangeListener(this.jUp);
     }
 
-    public void cFs() {
-        this.jTc.setOnSwitchStateChangeListener(null);
-        this.jTc.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIY());
-        this.jTc.setOnSwitchStateChangeListener(this.jTu);
+    public void cGT() {
+        this.jTX.setOnSwitchStateChangeListener(null);
+        this.jTX.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLr());
+        this.jTX.setOnSwitchStateChangeListener(this.jUp);
     }
 
-    public void cFt() {
-        this.jTd.setOnSwitchStateChangeListener(null);
-        this.jTd.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJg());
-        this.jTd.setOnSwitchStateChangeListener(this.jTu);
+    public void cGU() {
+        this.jTY.setOnSwitchStateChangeListener(null);
+        this.jTY.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aLj().aLz());
+        this.jTY.setOnSwitchStateChangeListener(this.jUp);
     }
 
-    public void sq(boolean z) {
+    public void st(boolean z) {
         if (this.isFront != z) {
             this.isFront = z;
             if (z) {
-                this.mNavigationBar.setCenterTextTitle(this.jTu.getString(R.string.msg_remind));
-                this.jTo.setVisibility(0);
-                this.jTp.setVisibility(8);
+                this.mNavigationBar.setCenterTextTitle(this.jUp.getString(R.string.msg_remind));
+                this.jUj.setVisibility(0);
+                this.jUk.setVisibility(8);
                 return;
             }
-            this.mNavigationBar.setCenterTextTitle(this.jTu.getString(R.string.no_disturb_mode_time));
-            this.jTp.setVisibility(0);
-            this.jTo.setVisibility(8);
+            this.mNavigationBar.setCenterTextTitle(this.jUp.getString(R.string.no_disturb_mode_time));
+            this.jUk.setVisibility(0);
+            this.jUj.setVisibility(8);
         }
     }
 
@@ -463,34 +463,34 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
     /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.baidu.tieba.setting.more.MsgRemindActivity */
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
-        this.jTu.getLayoutMode().setNightMode(i == 1);
-        this.jTu.getLayoutMode().onModeChanged(this.hpY);
-        this.mNavigationBar.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jSW.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jSY.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jSZ.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTa.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTb.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTc.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTd.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTe.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTf.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTg.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTh.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTi.onChangeSkinType(this.jTu.getPageContext(), i);
-        this.jTl.onChangeSkinType(this.jTu.getPageContext(), i);
-        am.setBackgroundResource(this.jTm, R.drawable.more_all);
-        am.setBackgroundResource(this.jTq, R.drawable.more_all);
-        am.setBackgroundResource(this.jTs, R.drawable.more_all);
-        am.setBackgroundResource(this.jTj, R.drawable.more_all);
-        SvgManager.aEp().a((ImageView) this.jTm.findViewById(R.id.no_disturb_mode_time_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.aEp().a((ImageView) this.jTj.findViewById(R.id.sign_remind_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.aEp().a((ImageView) this.jTq.findViewById(R.id.no_disturb_start_time_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.aEp().a((ImageView) this.jTs.findViewById(R.id.no_disturb_end_time_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        this.jUp.getLayoutMode().setNightMode(i == 1);
+        this.jUp.getLayoutMode().onModeChanged(this.hrX);
+        this.mNavigationBar.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jTR.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jTT.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jTU.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jTV.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jTW.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jTX.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jTY.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jTZ.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jUa.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jUb.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jUc.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jUd.onChangeSkinType(this.jUp.getPageContext(), i);
+        this.jUg.onChangeSkinType(this.jUp.getPageContext(), i);
+        am.setBackgroundResource(this.jUh, R.drawable.more_all);
+        am.setBackgroundResource(this.jUl, R.drawable.more_all);
+        am.setBackgroundResource(this.jUn, R.drawable.more_all);
+        am.setBackgroundResource(this.jUe, R.drawable.more_all);
+        SvgManager.aGA().a((ImageView) this.jUh.findViewById(R.id.no_disturb_mode_time_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.aGA().a((ImageView) this.jUe.findViewById(R.id.sign_remind_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.aGA().a((ImageView) this.jUl.findViewById(R.id.no_disturb_start_time_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.aGA().a((ImageView) this.jUn.findViewById(R.id.no_disturb_end_time_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
     }
 
-    public void cFu() {
-        com.baidu.tbadk.coreExtra.messageCenter.f.aJl().a(this.jTu.getActivity(), this.hpY);
+    public void cGV() {
+        com.baidu.tbadk.coreExtra.messageCenter.f.aLE().a(this.jUp.getActivity(), this.hrX);
     }
 
     public void onDestroy() {

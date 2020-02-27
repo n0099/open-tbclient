@@ -5,17 +5,17 @@ import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.NoSuchElementException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSingle<T> extends a<T, T> {
     final T defaultValue;
     final boolean failOnEmpty;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nvP.a((j) new SingleElementSubscriber(cVar, this.defaultValue, this.failOnEmpty));
+        this.nwr.a((j) new SingleElementSubscriber(cVar, this.defaultValue, this.failOnEmpty));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SingleElementSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = -5526049321428043809L;
         final T defaultValue;

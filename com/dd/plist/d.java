@@ -1,24 +1,24 @@
 package com.dd.plist;
 
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends i {
-    private i[] lFT;
+    private i[] lGA;
 
     public d(int i) {
-        this.lFT = new i[i];
+        this.lGA = new i[i];
     }
 
     public d(i... iVarArr) {
-        this.lFT = iVarArr;
+        this.lGA = iVarArr;
     }
 
     public void j(int i, Object obj) {
-        this.lFT[i] = i.aM(obj);
+        this.lGA[i] = i.aO(obj);
     }
 
-    public i[] dim() {
-        return this.lFT;
+    public i[] djz() {
+        return this.lGA;
     }
 
     public boolean equals(Object obj) {
@@ -26,16 +26,16 @@ public class d extends i {
             return false;
         }
         if (obj.getClass().equals(d.class)) {
-            return Arrays.equals(((d) obj).dim(), this.lFT);
+            return Arrays.equals(((d) obj).djz(), this.lGA);
         }
-        i aM = i.aM(obj);
-        if (aM.getClass().equals(d.class)) {
-            return Arrays.equals(((d) aM).dim(), this.lFT);
+        i aO = i.aO(obj);
+        if (aO.getClass().equals(d.class)) {
+            return Arrays.equals(((d) aO).djz(), this.lGA);
         }
         return false;
     }
 
     public int hashCode() {
-        return Arrays.deepHashCode(this.lFT) + 623;
+        return Arrays.deepHashCode(this.lGA) + 623;
     }
 }

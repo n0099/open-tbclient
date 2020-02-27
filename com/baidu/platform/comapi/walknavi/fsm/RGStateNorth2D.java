@@ -7,7 +7,7 @@ import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.o.e;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RGStateNorth2D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
@@ -40,7 +40,7 @@ public class RGStateNorth2D extends RGState {
             MapStatus.Builder builder = new MapStatus.Builder(i);
             builder.rotate(0.0f);
             builder.overlook(0.0f);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.top + i.winRound.bottom) / 2) - ((int) 0)));
+            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f993top + i.winRound.bottom) / 2) - ((int) 0)));
             if (i.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }

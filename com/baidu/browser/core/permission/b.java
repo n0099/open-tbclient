@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static final String TAG = b.class.getSimpleName();
 
@@ -16,7 +16,7 @@ public class b {
             return com.baidu.k.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.k.a.BZ();
+            return !com.baidu.k.a.Ev();
         }
     }
 

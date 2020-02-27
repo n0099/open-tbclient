@@ -17,7 +17,7 @@ import com.baidu.live.adp.framework.task.SocketMessageTask;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RuleController {
     private final LinkedList<HttpRule> mHttpMessageRules = new LinkedList<>();
     private final LinkedList<SocketRule> mSocketMessageRules = new LinkedList<>();
@@ -45,6 +45,15 @@ public class RuleController {
     public void removeMessageRule(MessageRule<?, ?> messageRule) {
         if (messageRule != null) {
             BdUtilHelper.checkMainThread();
+            if (messageRule instanceof HttpRule) {
+                this.mHttpMessageRules.remove(messageRule);
+            } else if (messageRule instanceof SocketRule) {
+                this.mSocketMessageRules.remove(messageRule);
+            } else if (messageRule instanceof CustomRule) {
+                this.mCustomMessageRules.remove(messageRule);
+            } else {
+                BdLog.e("rule invalid");
+            }
         }
     }
 
@@ -66,6 +75,15 @@ public class RuleController {
     public void removeMessageRule(ResponsedMessageRule<?> responsedMessageRule) {
         if (responsedMessageRule != null) {
             BdUtilHelper.checkMainThread();
+            if (responsedMessageRule instanceof HttpResponsedRule) {
+                this.mHttpResponsedRules.remove(responsedMessageRule);
+            } else if (responsedMessageRule instanceof SocketResponsedRule) {
+                this.mSocketResponsedRules.remove(responsedMessageRule);
+            } else if (responsedMessageRule instanceof CustomResponsedRule) {
+                this.mCustomResponsedRules.remove(responsedMessageRule);
+            } else {
+                BdLog.e("rule invalid");
+            }
         }
     }
 

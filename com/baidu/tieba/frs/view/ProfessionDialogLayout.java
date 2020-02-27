@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ProfessionDialogLayout extends LinearLayout {
-    private View.OnClickListener gOW;
-    private View.OnClickListener gOX;
+    private View.OnClickListener gQW;
+    private View.OnClickListener gQX;
     private Context mContext;
 
     public ProfessionDialogLayout(Context context) {
@@ -49,27 +49,27 @@ public class ProfessionDialogLayout extends LinearLayout {
         tbImageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.gOX != null) {
-                    ProfessionDialogLayout.this.gOX.onClick(view);
+                if (ProfessionDialogLayout.this.gQX != null) {
+                    ProfessionDialogLayout.this.gQX.onClick(view);
                 }
             }
         });
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.gOW != null) {
-                    ProfessionDialogLayout.this.gOW.onClick(view);
+                if (ProfessionDialogLayout.this.gQW != null) {
+                    ProfessionDialogLayout.this.gQW.onClick(view);
                 }
             }
         });
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.gOW = onClickListener;
+        this.gQW = onClickListener;
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.gOX = onClickListener;
+        this.gQX = onClickListener;
     }
 
     private void setImageAttribute(TbImageView tbImageView) {

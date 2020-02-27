@@ -15,7 +15,7 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.livesdk.b;
 import com.baidu.tieba.sdk.a.f;
 import com.baidu.tieba.tbadkCore.w;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements IShareChannel, f {
     @Override // com.baidu.tieba.sdk.a.f
     public void a(Activity activity, ShareEntity shareEntity) {
@@ -53,7 +53,7 @@ public class a implements IShareChannel, f {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!xB(i)) {
+            if (!xH(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
@@ -67,7 +67,7 @@ public class a implements IShareChannel, f {
         }
     }
 
-    private boolean xB(int i) {
+    private boolean xH(int i) {
         boolean z = false;
         switch (i) {
             case 2:

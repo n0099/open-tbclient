@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import org.greenrobot.eventbus.EventBus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ErrorDialogManager {
     public static final String KEY_EVENT_TYPE_ON_CLOSE = "de.greenrobot.eventbus.errordialog.event_type_on_close";
     public static final String KEY_FINISH_AFTER_DIALOG = "de.greenrobot.eventbus.errordialog.finish_after_dialog";
@@ -21,7 +21,7 @@ public class ErrorDialogManager {
     protected static final String TAG_ERROR_DIALOG_MANAGER = "de.greenrobot.eventbus.error_dialog_manager";
     public static ErrorDialogFragmentFactory<?> factory;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class SupportManagerFragment extends Fragment {
         protected Bundle argumentsForErrorDialog;
         private EventBus eventBus;
@@ -85,7 +85,7 @@ public class ErrorDialogManager {
     }
 
     @TargetApi(11)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class HoneycombManagerFragment extends android.app.Fragment {
         protected Bundle argumentsForErrorDialog;
         private EventBus eventBus;

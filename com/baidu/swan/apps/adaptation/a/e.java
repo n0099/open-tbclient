@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface e {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void bN(boolean z);
+        void bV(boolean z);
 
         void j(Exception exc);
     }
@@ -18,11 +18,11 @@ public interface e {
 
     void a(com.baidu.swan.apps.a.c cVar);
 
-    boolean bl(Context context);
+    boolean bp(Context context);
 
-    String bm(Context context);
+    String bq(Context context);
 
-    String bn(@NonNull Context context);
+    String br(@NonNull Context context);
 
-    String bo(@NonNull Context context);
+    String bs(@NonNull Context context);
 }

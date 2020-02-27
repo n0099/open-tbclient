@@ -1,7 +1,7 @@
 package com.facebook.drawee.drawable;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface c {
     Drawable getDrawable();
 

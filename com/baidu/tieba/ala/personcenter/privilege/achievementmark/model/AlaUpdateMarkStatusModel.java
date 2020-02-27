@@ -12,42 +12,42 @@ import com.baidu.ala.AlaConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaUpdateMarkStatusResponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaUpdateMarkStatusModel extends BdBaseModel {
-    private HttpMessageListener ftA = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaUpdateMarkStatusModel.1
+    private a fwa;
+    private HttpMessageListener fwb = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaUpdateMarkStatusModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if ((httpResponsedMessage instanceof AlaUpdateMarkStatusResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && AlaUpdateMarkStatusModel.this.mBdUniqueId == httpResponsedMessage.getOrginalMessage().getTag() && AlaUpdateMarkStatusModel.this.ftz != null) {
+            if ((httpResponsedMessage instanceof AlaUpdateMarkStatusResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && AlaUpdateMarkStatusModel.this.mBdUniqueId == httpResponsedMessage.getOrginalMessage().getTag() && AlaUpdateMarkStatusModel.this.fwa != null) {
                 if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
-                    AlaUpdateMarkStatusModel.this.ftz.onResult(false, httpResponsedMessage.getErrorString());
+                    AlaUpdateMarkStatusModel.this.fwa.onResult(false, httpResponsedMessage.getErrorString());
                 } else {
-                    AlaUpdateMarkStatusModel.this.ftz.onResult(true, httpResponsedMessage.getErrorString());
+                    AlaUpdateMarkStatusModel.this.fwa.onResult(true, httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private a ftz;
     private BdUniqueId mBdUniqueId;
     private Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onResult(boolean z, String str);
     }
 
     public AlaUpdateMarkStatusModel(Context context) {
         this.mContext = context;
-        bpY();
+        brC();
         initListener();
         this.mBdUniqueId = BdUniqueId.gen();
     }
 
     public void a(a aVar) {
-        this.ftz = aVar;
+        this.fwa = aVar;
     }
 
-    public void p(boolean z, int i) {
+    public void q(boolean z, int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
         httpMessage.addParam("action", z ? 1 : 2);
         httpMessage.addParam("mark_id", i);
@@ -55,7 +55,7 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void bpY() {
+    private void brC() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_UPDATE_MARK_STATUS);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setResponsedClass(AlaUpdateMarkStatusResponsedMessage.class);
@@ -63,7 +63,7 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
     }
 
     private void initListener() {
-        MessageManager.getInstance().registerListener(this.ftA);
+        MessageManager.getInstance().registerListener(this.fwb);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -78,6 +78,6 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
-        MessageManager.getInstance().unRegisterListener(this.ftA);
+        MessageManager.getInstance().unRegisterListener(this.fwb);
     }
 }

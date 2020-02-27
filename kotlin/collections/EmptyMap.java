@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class EmptyMap implements Serializable, Map {
     public static final EmptyMap INSTANCE = new EmptyMap();
     private static final long serialVersionUID = 8246714829545688274L;

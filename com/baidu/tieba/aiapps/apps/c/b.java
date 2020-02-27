@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static volatile a dZu;
+    private static volatile a edy;
 
-    public static synchronized a aXw() {
+    public static synchronized a aZL() {
         a aVar;
         synchronized (b.class) {
-            if (dZu == null) {
-                dZu = new a();
+            if (edy == null) {
+                edy = new a();
             }
-            aVar = dZu;
+            aVar = edy;
         }
         return aVar;
     }

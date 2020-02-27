@@ -18,7 +18,7 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class HttpHeaders {
     private static final Pattern PARAMETER = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
     private static final String QUOTED_STRING = "\"([^\"]*)\"";

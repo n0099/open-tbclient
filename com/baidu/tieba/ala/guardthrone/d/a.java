@@ -8,43 +8,43 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.guardthrone.messages.AlaGuardThroneResponseMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0434a eFq;
-    private HttpMessageListener eFr;
+    private InterfaceC0445a eJk;
+    private HttpMessageListener eJl;
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0434a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0445a {
         void a(com.baidu.tieba.ala.guardthrone.b.a aVar);
 
         void onFail(int i, String str);
     }
 
-    public a(BdPageContext<?> bdPageContext, InterfaceC0434a interfaceC0434a) {
+    public a(BdPageContext<?> bdPageContext, InterfaceC0445a interfaceC0445a) {
         super(bdPageContext);
-        this.eFr = new HttpMessageListener(1021164) { // from class: com.baidu.tieba.ala.guardthrone.d.a.1
+        this.eJl = new HttpMessageListener(1021164) { // from class: com.baidu.tieba.ala.guardthrone.d.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021164 && (httpResponsedMessage instanceof AlaGuardThroneResponseMessage)) {
                     AlaGuardThroneResponseMessage alaGuardThroneResponseMessage = (AlaGuardThroneResponseMessage) httpResponsedMessage;
-                    if (a.this.eFq != null) {
+                    if (a.this.eJk != null) {
                         if (alaGuardThroneResponseMessage.getError() != 0 || !alaGuardThroneResponseMessage.isSuccess()) {
-                            a.this.eFq.onFail(alaGuardThroneResponseMessage.getError(), alaGuardThroneResponseMessage.getErrorString());
+                            a.this.eJk.onFail(alaGuardThroneResponseMessage.getError(), alaGuardThroneResponseMessage.getErrorString());
                         } else {
-                            a.this.eFq.a(alaGuardThroneResponseMessage.bdP());
+                            a.this.eJk.a(alaGuardThroneResponseMessage.bfZ());
                         }
                     }
                 }
             }
         };
-        this.eFq = interfaceC0434a;
-        rT();
-        registerListener(this.eFr);
+        this.eJk = interfaceC0445a;
+        te();
+        registerListener(this.eJl);
     }
 
-    private void rT() {
+    private void te() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021164, "https://tiebac.baidu.com/ala/guard/getGuardSeatInfo");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -53,7 +53,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cH(String str, String str2) {
+    public void cS(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(1021164);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam("anchor_id", str2);
@@ -71,7 +71,7 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eFr);
+        MessageManager.getInstance().unRegisterListener(this.eJl);
         MessageManager.getInstance().unRegisterTask(1021164);
     }
 }

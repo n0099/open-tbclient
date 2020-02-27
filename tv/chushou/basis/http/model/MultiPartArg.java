@@ -7,7 +7,7 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MultiPartArg {
     public static final MediaType DEFAULT_BYTEARRAY_MIME = MediaType.parse("application/octet-stream");
     private byte[] data;

@@ -1,7 +1,7 @@
 package com.baidu.mobads.a;
 
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static final boolean a = b.a.booleanValue();
     public static final int b;

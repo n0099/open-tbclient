@@ -4,21 +4,21 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
-    public int cMc;
-    public String cMd;
+    public int cQf;
+    public String cQg;
     public boolean hasMore;
     public int pageNum;
     public int type;
-    private ArrayList<a> cLX = new ArrayList<>();
-    private ArrayList<a> cLY = new ArrayList<>();
-    private d eHV = new d();
-    private int cMa = 0;
-    private int cMb = 0;
+    private ArrayList<a> cQa = new ArrayList<>();
+    private ArrayList<a> cQb = new ArrayList<>();
+    private d eLP = new d();
+    private int cQd = 0;
+    private int cQe = 0;
 
-    public ArrayList<a> ayU() {
-        return this.cLX;
+    public ArrayList<a> aBl() {
+        return this.cQa;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -31,7 +31,7 @@ public class e {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             a aVar = new a();
                             aVar.parserJson(optJSONArray.getJSONObject(i));
-                            this.cLX.add(aVar);
+                            this.cQa.add(aVar);
                         }
                     }
                     if (optJSONArray2 != null) {
@@ -39,20 +39,20 @@ public class e {
                             a aVar2 = new a();
                             aVar2.parserJson(optJSONArray2.getJSONObject(i2));
                             aVar2.mAttentionType = 1;
-                            this.cLY.add(aVar2);
+                            this.cQb.add(aVar2);
                         }
                     }
-                    this.eHV.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.eHV != null) {
-                        this.pageNum = this.eHV.ayP();
-                        this.cMc = this.eHV.ayN();
-                        this.hasMore = this.eHV.ayR() == 1;
+                    this.eLP.parserJson(jSONObject.optJSONObject("page"));
+                    if (this.eLP != null) {
+                        this.pageNum = this.eLP.aBg();
+                        this.cQf = this.eLP.aBe();
+                        this.hasMore = this.eLP.aBi() == 1;
                     }
-                    this.cMa = jSONObject.optInt("tafriendnum", 0);
-                    this.cMb = jSONObject.optInt("commonfriendnum", 0);
+                    this.cQd = jSONObject.optInt("tafriendnum", 0);
+                    this.cQe = jSONObject.optInt("commonfriendnum", 0);
                 }
                 this.type = jSONObject.optInt("type", 0);
-                this.cMd = jSONObject.optString("block_text");
+                this.cQg = jSONObject.optString("block_text");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

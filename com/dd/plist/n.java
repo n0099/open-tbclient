@@ -17,25 +17,25 @@ import org.w3c.dom.Text;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class n {
-    private static DocumentBuilderFactory lGc = null;
+    private static DocumentBuilderFactory lGJ = null;
 
-    private static synchronized void dio() {
+    private static synchronized void djB() {
         synchronized (n.class) {
-            lGc = DocumentBuilderFactory.newInstance();
-            lGc.setIgnoringComments(true);
-            lGc.setCoalescing(true);
+            lGJ = DocumentBuilderFactory.newInstance();
+            lGJ.setIgnoringComments(true);
+            lGJ.setCoalescing(true);
         }
     }
 
-    private static synchronized DocumentBuilder dip() throws ParserConfigurationException {
+    private static synchronized DocumentBuilder djC() throws ParserConfigurationException {
         DocumentBuilder newDocumentBuilder;
         synchronized (n.class) {
-            if (lGc == null) {
-                dio();
+            if (lGJ == null) {
+                djB();
             }
-            newDocumentBuilder = lGc.newDocumentBuilder();
+            newDocumentBuilder = lGJ.newDocumentBuilder();
             newDocumentBuilder.setEntityResolver(new EntityResolver() { // from class: com.dd.plist.n.1
                 @Override // org.xml.sax.EntityResolver
                 public InputSource resolveEntity(String str, String str2) {
@@ -49,12 +49,12 @@ public class n {
         return newDocumentBuilder;
     }
 
-    public static i Y(byte[] bArr) throws ParserConfigurationException, ParseException, SAXException, PropertyListFormatException, IOException {
+    public static i ad(byte[] bArr) throws ParserConfigurationException, ParseException, SAXException, PropertyListFormatException, IOException {
         return q(new ByteArrayInputStream(bArr));
     }
 
     public static i q(InputStream inputStream) throws ParserConfigurationException, IOException, SAXException, PropertyListFormatException, ParseException {
-        return a(dip().parse(inputStream));
+        return a(djC().parse(inputStream));
     }
 
     private static i a(Document document) throws PropertyListFormatException, IOException, ParseException {

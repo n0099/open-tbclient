@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static final String a = "SdkConfigOptions";
     public static final String b = "global-config";
@@ -95,7 +95,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         private static final String d = "name";
         private static final String e = "url";

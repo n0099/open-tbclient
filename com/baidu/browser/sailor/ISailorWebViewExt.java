@@ -8,7 +8,7 @@ import com.baidu.browser.sailor.lightapp.BdLightappKernelClient;
 import com.baidu.webkit.sdk.WebView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ISailorWebViewExt extends INoProGuard {
     boolean canGoToPreloadNextExt();
 

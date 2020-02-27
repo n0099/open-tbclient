@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface Connection extends Closeable {
     @Deprecated
     public static final int APACH_HTTP_TYPE = 0;

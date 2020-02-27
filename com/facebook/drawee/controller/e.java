@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class e<INFO> implements c<INFO> {
     private final List<c<? super INFO>> mListeners = new ArrayList(2);
 
@@ -22,7 +22,7 @@ public class e<INFO> implements c<INFO> {
         }
     }
 
-    public synchronized void dlb() {
+    public synchronized void dmo() {
         this.mListeners.clear();
     }
 

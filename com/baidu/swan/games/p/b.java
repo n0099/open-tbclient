@@ -1,8 +1,11 @@
 package com.baidu.swan.games.p;
-/* loaded from: classes10.dex */
+
+import kotlin.h;
+@h
+/* loaded from: classes11.dex */
 public final class b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [29=5] */
-    public static final Integer pb(String str) {
+    public static final Integer pq(String str) {
         if (str != null) {
             switch (str.hashCode()) {
                 case -1727084929:

@@ -5,8 +5,8 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
     private int mExecuteNum;
-    private BdUniqueId pI;
-    private BdAsyncTaskParallelType pJ;
+    private BdUniqueId pJ;
+    private BdAsyncTaskParallelType pK;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,26 +19,26 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.pI = null;
-        this.pJ = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.pJ = null;
+        this.pK = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.pJ = bdAsyncTaskParallelType;
-        this.pI = bdUniqueId;
+        this.pK = bdAsyncTaskParallelType;
+        this.pJ = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.pI = null;
-        this.pJ = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.pJ = null;
+        this.pK = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.pJ = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.pK = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
         this.mExecuteNum = i;
-        this.pI = bdUniqueId;
+        this.pJ = bdUniqueId;
     }
 
     public int getExecuteNum() {
@@ -46,13 +46,13 @@ public class BdAsyncTaskParallel {
     }
 
     public int getTag() {
-        if (this.pI == null) {
+        if (this.pJ == null) {
             return 0;
         }
-        return this.pI.getId();
+        return this.pJ.getId();
     }
 
     public BdAsyncTaskParallelType fu() {
-        return this.pJ;
+        return this.pK;
     }
 }

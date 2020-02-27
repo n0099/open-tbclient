@@ -44,7 +44,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener, Camera.PreviewCallback, IFaceUnityOperator, ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
     private static final String EFFECT_NONE = "none";
@@ -112,7 +112,6 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
     private float[] mPreviewVertex;
     private RecorderHandler mRecorderHandler;
     private volatile boolean mRequestEncoderReset;
-    private int mRotate;
     private byte[] mSendBuffer;
     private AlaCameraRecorder.SurfaceHolder mSurfaceHolder;
     private boolean mVideoModelFit;
@@ -147,7 +146,6 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
         this.mWindowSurfaceWidth = 0;
         this.mWindowSurfaceHeight = 0;
         this.mIsCreateFuObj = false;
-        this.mRotate = 0;
         this.mBeautyLevel = 3;
         this.mActivityReference = null;
         this.mCameraId = 1;
@@ -176,7 +174,6 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
         AlaLiveUtilHelper.getTextureMatrix(this.mMirrorIdentityMatrix90, 90.0f, false);
         this.mPreviewVertex = new float[8];
         this.mVideoModelFit = false;
-        initResource();
         this.mHandlerThread = new HandlerThread("ala_live_recorder_fu");
         this.mHandlerThread.start();
         this.mDataThreadHandler = new Handler(this.mHandlerThread.getLooper());
@@ -385,15 +382,6 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
                 this.mEncoderRestCount++;
             }
             if (this.mEncoder != null) {
-                if (this.mWindowSurfaceWidth > this.mWindowSurfaceHeight) {
-                    if (this.mIsMirror) {
-                        this.mEncoder.drawFrame(this.mOffscreenTexture, this.mMirrorIdentityMatrix90, j);
-                        return;
-                    } else {
-                        this.mEncoder.drawFrame(this.mOffscreenTexture, this.mIdentityMatrix90, j);
-                        return;
-                    }
-                }
                 this.mEncoder.drawFrame(this.mOffscreenTexture, fArr, j);
             }
         } else if (eglSurfaceBase != null) {
@@ -423,6 +411,7 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public boolean onCameraOpened(Camera camera, int i, int i2) {
+        initResource();
         this.mCamera = camera;
         if (this.mActivityReference.get() == null) {
             return false;
@@ -434,8 +423,6 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
         this.mCameraPreviewHeight = previewSize.height;
         this.mEncodeWidth = this.mCameraPreviewWidth;
         this.mEncodeHeight = this.mCameraPreviewHeight;
-        this.mRotate = CameraUtils.getCameraDisplayOrientation(this.mActivityReference.get(), null, i);
-        this.mRotate += 180;
         if (this.mCameraTexture == null) {
             fuInitWithoutGLContext();
             setupSurface(this.mSurfaceHolder);
@@ -640,7 +627,7 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
             this.mEglCore.makeNothingCurrent();
         }
         if (this.mFullScreen != null) {
-            this.mFullScreen.release(false);
+            this.mFullScreen.release(true);
             this.mFullScreen = null;
         }
         if (this.mCameraTexture != null) {
@@ -651,25 +638,27 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void surfaceChanged(int i, int i2) {
-        if (Math.abs(this.mWindowSurfaceHeight - i2) >= 10 || Math.abs(this.mWindowSurfaceWidth - i) >= 10) {
-            if (this.mWindowSurfaceHeight > this.mWindowSurfaceWidth && i2 > i && this.mWindowSurfaceWidth > 0) {
-                this.mWindowSurfaceHeight = i2;
-                this.mWindowSurfaceWidth = i;
-                updateGeometry();
-            } else if (this.mWindowSurfaceWidth > this.mWindowSurfaceHeight && i > i2 && this.mWindowSurfaceHeight > 0) {
-                this.mWindowSurfaceHeight = i2;
-                this.mWindowSurfaceWidth = i;
-                updateGeometry();
-            } else {
-                this.mWindowSurfaceWidth = i;
-                this.mWindowSurfaceHeight = i2;
-                resetTextures();
-                setupSurface(this.mSurfaceHolder);
-                if (this.mConfig != null) {
-                    if (this.mConfig.getEncoderType() == 1) {
-                        resetTextureEncoder();
-                    } else {
-                        resetImageReader(true);
+        if (this.mEglCore != null) {
+            if (Math.abs(this.mWindowSurfaceHeight - i2) >= 10 || Math.abs(this.mWindowSurfaceWidth - i) >= 10) {
+                if (this.mWindowSurfaceHeight > this.mWindowSurfaceWidth && i2 > i && this.mWindowSurfaceWidth > 0) {
+                    this.mWindowSurfaceHeight = i2;
+                    this.mWindowSurfaceWidth = i;
+                    updateGeometry();
+                } else if (this.mWindowSurfaceWidth > this.mWindowSurfaceHeight && i > i2 && this.mWindowSurfaceHeight > 0) {
+                    this.mWindowSurfaceHeight = i2;
+                    this.mWindowSurfaceWidth = i;
+                    updateGeometry();
+                } else {
+                    this.mWindowSurfaceWidth = i;
+                    this.mWindowSurfaceHeight = i2;
+                    resetTextures();
+                    setupSurface(this.mSurfaceHolder);
+                    if (this.mConfig != null) {
+                        if (this.mConfig.getEncoderType() == 1) {
+                            resetTextureEncoder();
+                        } else {
+                            resetImageReader(true);
+                        }
                     }
                 }
             }
@@ -730,26 +719,7 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
             this.mRecorderHandler = null;
         }
         GlUtil.checkGlError("releaseGl start");
-        if (this.mWindowSurface != null) {
-            this.mWindowSurface.release();
-            this.mWindowSurface = null;
-        }
-        if (this.mEncoder != null) {
-            this.mEncoder.release();
-            this.mEncoder = null;
-        }
-        if (this.mCodecWindowSurface != null) {
-            this.mCodecWindowSurface.release();
-            this.mCodecWindowSurface = null;
-        }
-        if (this.mFullScreen != null) {
-            this.mFullScreen.release(false);
-            this.mFullScreen = null;
-        }
-        if (this.mCameraTexture != null) {
-            this.mCameraTexture.release();
-            this.mCameraTexture = null;
-        }
+        resetTextures();
         if (this.mEffectItem != 0) {
             faceunity.fuDestroyItem(this.mEffectItem);
         }
@@ -788,12 +758,14 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void initResource() {
-        try {
-            this.mEglCore = new EglCore(null, 1);
-        } catch (Exception e) {
-            BdStatisticsManager.getInstance().newDebug("AlaLiveRecorder", 0L, null, BdStatsConstant.StatsType.ERROR, "new EglCore error (FUCameraOperator):" + e.getLocalizedMessage());
-            if (this.mRecorderHandler != null) {
-                this.mRecorderHandler.sendError(3, "new EglCore() -> EGL14.eglCreateContext --" + e.getMessage());
+        if (this.mEglCore == null) {
+            try {
+                this.mEglCore = new EglCore(null, 1);
+            } catch (Exception e) {
+                BdStatisticsManager.getInstance().newDebug("AlaLiveRecorder", 0L, null, BdStatsConstant.StatsType.ERROR, "new EglCore error (FUCameraOperator):" + e.getLocalizedMessage());
+                if (this.mRecorderHandler != null) {
+                    this.mRecorderHandler.sendError(3, "new EglCore() -> EGL14.eglCreateContext --" + e.getMessage());
+                }
             }
         }
     }
@@ -1076,7 +1048,7 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
     }
 
     public static boolean isValid() {
-        return AlaLiveUtilHelper.loadPluginLibrary("nama");
+        return AlaLiveUtilHelper.loadPluginLibrary("nama") && AlaLiveUtilHelper.isClassValid("com.faceunity.wrapper.faceunity");
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator

@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends f {
-    private List<a> cxZ;
+    private List<a> cBX;
 
     public b(Collection<String> collection) {
         super(-1);
@@ -21,17 +21,17 @@ public class b extends f {
                 collection.clear();
                 collection.addAll(linkedHashSet);
             }
-            Map<String, PMSAppInfo> arh = com.baidu.swan.pms.database.a.arf().arh();
-            Map<String, com.baidu.swan.pms.model.f> arg = com.baidu.swan.pms.database.a.arf().arg();
+            Map<String, PMSAppInfo> atv = com.baidu.swan.pms.database.a.att().atv();
+            Map<String, com.baidu.swan.pms.model.f> atu = com.baidu.swan.pms.database.a.att().atu();
             ArrayList arrayList = new ArrayList();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar = new a(str);
-                    a(arh, arg, aVar);
+                    a(atv, atu, aVar);
                     arrayList.add(aVar);
                 }
             }
-            this.cxZ = arrayList;
+            this.cBX = arrayList;
         }
     }
 
@@ -42,51 +42,51 @@ public class b extends f {
                 aVar.setCategory(pMSAppInfo.appCategory);
             }
             if (!map2.containsKey(aVar.getBundleId())) {
-                aVar.ir(0);
+                aVar.iI(0);
             } else {
-                aVar.ir(pMSAppInfo.versionCode);
+                aVar.iI(pMSAppInfo.versionCode);
             }
-            aVar.bg(pMSAppInfo.appSign);
+            aVar.bk(pMSAppInfo.appSign);
         }
     }
 
-    public List<a> arT() {
-        return this.cxZ;
+    public List<a> auh() {
+        return this.cBX;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        private String cya;
+        private String cBY;
         private int mCategory = -1;
-        private int cyb = 0;
-        private long cyc = 0;
+        private int cBZ = 0;
+        private long cCa = 0;
 
         public a(String str) {
-            this.cya = str;
+            this.cBY = str;
         }
 
         public String getBundleId() {
-            return this.cya;
+            return this.cBY;
         }
 
-        public int arU() {
-            return this.cyb;
+        public int aui() {
+            return this.cBZ;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long arV() {
-            return this.cyc;
+        public long auj() {
+            return this.cCa;
         }
 
-        void ir(int i) {
-            this.cyb = i;
+        void iI(int i) {
+            this.cBZ = i;
         }
 
-        void bg(long j) {
-            this.cyc = j;
+        void bk(long j) {
+            this.cCa = j;
         }
 
         void setCategory(int i) {
@@ -94,7 +94,7 @@ public class b extends f {
         }
 
         public int hashCode() {
-            return Objects.hash(this.cya, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.cBY, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -103,7 +103,7 @@ public class b extends f {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.cya) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.cBY) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

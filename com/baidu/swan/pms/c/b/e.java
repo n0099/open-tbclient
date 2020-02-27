@@ -3,7 +3,7 @@ package com.baidu.swan.pms.c.b;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.c.d.f;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     public e(g gVar, f fVar) {
         super(gVar, fVar);
@@ -21,18 +21,18 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a P(com.baidu.swan.pms.c.c.e eVar) {
-        this.cxn.MW();
-        com.baidu.swan.pms.e.a.j(this.cxo.getCategory(), eVar.maxAge);
+    public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.e eVar) {
+        this.cBl.Pk();
+        com.baidu.swan.pms.e.a.j(this.cBm.getCategory(), eVar.maxAge);
         com.baidu.swan.pms.f.e eVar2 = new com.baidu.swan.pms.f.e();
-        a(eVar.cxV, eVar2);
-        a(eVar.cxX, eVar2);
-        if (eVar2.asd() == 0) {
-            this.cxn.MS();
+        a(eVar.cBT, eVar2);
+        a(eVar.cBV, eVar2);
+        if (eVar2.aur() == 0) {
+            this.cBl.Pg();
             return null;
         }
-        this.cxn.a(eVar2);
-        com.baidu.swan.pms.c.a.a.a(eVar, this.cxn);
+        this.cBl.a(eVar2);
+        com.baidu.swan.pms.c.a.a.a(eVar, this.cBl);
         return null;
     }
 
@@ -40,18 +40,18 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
-    public boolean O(com.baidu.swan.pms.c.c.e eVar) {
+    public boolean Q(com.baidu.swan.pms.c.c.e eVar) {
         if (eVar == null) {
             return false;
         }
-        if (eVar.cxV == null || eVar.cxV.NE()) {
-            return eVar.cxX == null || eVar.cxX.NE();
+        if (eVar.cBT == null || eVar.cBT.PS()) {
+            return eVar.cBV == null || eVar.cBV.PS();
         }
         return false;
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String agV() {
+    protected String ajj() {
         return "updatecore";
     }
 }

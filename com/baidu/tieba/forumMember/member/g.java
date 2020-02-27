@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.j, h> {
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -23,8 +23,8 @@ public class g extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.j, h> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.j jVar, h hVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (com.baidu.tieba.frs.j) hVar);
-        hVar.sk(jVar.getHeight());
-        hVar.setBackground(jVar.bCa());
+        hVar.sq(jVar.getHeight());
+        hVar.setBackground(jVar.bDD());
         return view;
     }
 }

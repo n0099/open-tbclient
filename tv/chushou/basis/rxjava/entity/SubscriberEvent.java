@@ -6,7 +6,7 @@ import io.reactivex.subjects.b;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import tv.chushou.basis.rxjava.thread.EventThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SubscriberEvent extends Event {
     private final int hashCode;
     private final Method method;
@@ -44,7 +44,7 @@ public class SubscriberEvent extends Event {
     }
 
     private void initObservable() {
-        this.subject = PublishSubject.dII();
+        this.subject = PublishSubject.dJP();
         this.subject.d(EventThread.getScheduler(this.thread)).b(new g() { // from class: tv.chushou.basis.rxjava.entity.SubscriberEvent.1
             @Override // io.reactivex.c.g
             public void accept(Object obj) {

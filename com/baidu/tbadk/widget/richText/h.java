@@ -20,19 +20,19 @@ public interface h {
 
     void aG(Context context, String str);
 
-    int aSg();
+    com.baidu.adp.lib.d.b<GifView> aUA();
 
-    com.baidu.adp.lib.d.b<ImageView> aSh();
+    com.baidu.adp.lib.d.b<View> aUB();
 
-    com.baidu.adp.lib.d.b<TextView> aSi();
+    com.baidu.adp.lib.d.b<LinearLayout> aUC();
 
-    com.baidu.adp.lib.d.b<GifView> aSj();
+    com.baidu.adp.lib.d.b<RelativeLayout> aUD();
 
-    com.baidu.adp.lib.d.b<View> aSk();
+    int aUx();
 
-    com.baidu.adp.lib.d.b<LinearLayout> aSl();
+    com.baidu.adp.lib.d.b<ImageView> aUy();
 
-    com.baidu.adp.lib.d.b<RelativeLayout> aSm();
+    com.baidu.adp.lib.d.b<TextView> aUz();
 
     void d(Context context, String str, boolean z);
 

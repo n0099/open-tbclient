@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CertificatePriorityComparator implements Comparator<X509Certificate> {
     private static final Integer PRIORITY_MD5 = 6;
     private static final Integer PRIORITY_SHA1 = 5;

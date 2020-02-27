@@ -2,13 +2,13 @@ package com.baidu.tieba.video.record;
 
 import android.media.AudioRecord;
 import com.baidu.ala.player.StreamConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public static boolean cPB() {
-        return cPC() != -2;
+    public static boolean cQU() {
+        return cQV() != -2;
     }
 
-    private static int cPC() {
+    private static int cQV() {
         AudioRecord audioRecord;
         int minBufferSize = AudioRecord.getMinBufferSize(StreamConfig.Audio.AUDIO_FREQUENCY, 16, 2);
         short[] sArr = new short[minBufferSize];

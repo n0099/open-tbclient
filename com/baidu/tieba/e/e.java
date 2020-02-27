@@ -2,21 +2,21 @@ package com.baidu.tieba.e;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fNP = BdUniqueId.gen();
-    private FeatureCardHot fNQ;
+    public static final BdUniqueId fQk = BdUniqueId.gen();
+    private FeatureCardHot fQl;
 
     public void a(FeatureCardHot featureCardHot) {
-        this.fNQ = featureCardHot;
+        this.fQl = featureCardHot;
     }
 
-    public FeatureCardHot buX() {
-        return this.fNQ;
+    public FeatureCardHot bwB() {
+        return this.fQl;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fNP;
+        return fQk;
     }
 }

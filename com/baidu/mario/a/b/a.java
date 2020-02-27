@@ -7,24 +7,24 @@ import android.view.Surface;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long aGF = 0;
+    private long aKK = 0;
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void AU() {
-        super.AU();
+    public /* bridge */ /* synthetic */ long CK() {
+        return super.CK();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void AV() {
-        super.AV();
+    public /* bridge */ /* synthetic */ void Dk() {
+        super.Dk();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long Au() {
-        return super.Au();
+    public /* bridge */ /* synthetic */ void Dl() {
+        super.Dl();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -38,8 +38,8 @@ public class a extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void bA(boolean z) {
-        super.bA(z);
+    public /* bridge */ /* synthetic */ void bI(boolean z) {
+        super.bI(z);
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -55,58 +55,58 @@ public class a extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.aGI = eVar;
+            this.aKN = eVar;
             MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.Bf());
+            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.Dv());
             mediaFormat.setInteger("aac-profile", 2);
-            mediaFormat.setInteger("sample-rate", dVar.Bi());
-            mediaFormat.setInteger("channel-count", dVar.Bg());
-            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.Bh());
-            mediaFormat.setInteger("max-input-size", dVar.Bj());
+            mediaFormat.setInteger("sample-rate", dVar.Dy());
+            mediaFormat.setInteger("channel-count", dVar.Dw());
+            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.Dx());
+            mediaFormat.setInteger("max-input-size", dVar.Dz());
             try {
-                this.mEncoder = MediaCodec.createEncoderByType(dVar.Bf());
+                this.mEncoder = MediaCodec.createEncoderByType(dVar.Dv());
                 this.mEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-                if (!dVar.AZ()) {
-                    this.aGK = true;
+                if (!dVar.Dp()) {
+                    this.aKP = true;
                 } else {
-                    this.aGK = false;
+                    this.aKP = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.aGJ == null) {
-                this.aGJ.bu(z);
+            if (this.aKO == null) {
+                this.aKO.bC(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.aGJ == null) {
+        if (this.aKO == null) {
         }
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void AT() {
-        if (this.aGL == 0) {
-            this.aGL = this.mBufferInfo.presentationTimeUs;
+    protected void Dj() {
+        if (this.aKQ == 0) {
+            this.aKQ = this.mBufferInfo.presentationTimeUs;
         }
-        this.mBufferInfo.presentationTimeUs -= this.aGL;
-        if (this.mBufferInfo.presentationTimeUs < this.aGF) {
+        this.mBufferInfo.presentationTimeUs -= this.aKQ;
+        if (this.mBufferInfo.presentationTimeUs < this.aKK) {
             MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-            long j = this.aGF + 10000;
-            this.aGF = j;
+            long j = this.aKK + 10000;
+            this.aKK = j;
             bufferInfo.presentationTimeUs = j;
         }
-        if (this.mBufferInfo.presentationTimeUs > aGM + 500000) {
-            if (aGM > this.aGF) {
-                this.mBufferInfo.presentationTimeUs = aGM + 5000;
+        if (this.mBufferInfo.presentationTimeUs > aKR + 500000) {
+            if (aKR > this.aKK) {
+                this.mBufferInfo.presentationTimeUs = aKR + 5000;
             } else {
-                this.mBufferInfo.presentationTimeUs = this.aGF + 5000;
+                this.mBufferInfo.presentationTimeUs = this.aKK + 5000;
             }
         }
-        if (aGM > this.mBufferInfo.presentationTimeUs + 500000) {
-            aGN = 1200;
+        if (aKR > this.mBufferInfo.presentationTimeUs + 500000) {
+            aKS = 1200;
         }
-        this.aGF = this.mBufferInfo.presentationTimeUs;
+        this.aKK = this.mBufferInfo.presentationTimeUs;
     }
 }

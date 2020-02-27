@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine.util;
 import com.baidu.fsg.face.base.b.c;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DeviceInfo {
     private static final FileFilter CPU_FILTER = new FileFilter() { // from class: com.baidu.searchbox.v8engine.util.DeviceInfo.1
         @Override // java.io.FileFilter

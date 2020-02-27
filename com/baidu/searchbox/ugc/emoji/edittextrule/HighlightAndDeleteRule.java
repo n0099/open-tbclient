@@ -9,7 +9,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ugc.R;
 import com.baidu.searchbox.ugc.emoji.edittextrule.BasePatternRule;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class HighlightAndDeleteRule extends BasePatternRule {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = "HighlightAndDeleteRule";

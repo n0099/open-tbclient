@@ -5,7 +5,7 @@ import android.animation.AnimatorSet;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class b {
     protected ViewGroup a;
     protected View b;
@@ -25,7 +25,7 @@ public abstract class b {
 
     public abstract void c(boolean z, int i, int i2, int i3, int i4);
 
-    public abstract int eg(int i, int i2);
+    public abstract int ej(int i, int i2);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ViewGroup viewGroup, View view, View view2, int i, int i2) {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public SharedPreferences.Editor a;
     private SharedPreferences b;

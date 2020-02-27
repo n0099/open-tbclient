@@ -6,40 +6,40 @@ import android.support.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
-    private final List<String> hA;
+    private final List<String> hE;
     @Nullable
-    private f npX;
+    private f nqz;
 
     public e(String... strArr) {
-        this.hA = Arrays.asList(strArr);
+        this.hE = Arrays.asList(strArr);
     }
 
     private e(e eVar) {
-        this.hA = new ArrayList(eVar.hA);
-        this.npX = eVar.npX;
+        this.hE = new ArrayList(eVar.hE);
+        this.nqz = eVar.nqz;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e Rm(String str) {
+    public e Rx(String str) {
         e eVar = new e(this);
-        eVar.hA.add(str);
+        eVar.hE.add(str);
         return eVar;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.npX = fVar;
+        eVar.nqz = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f dFE() {
-        return this.npX;
+    public f dGL() {
+        return this.nqz;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -47,10 +47,10 @@ public class e {
         if (P(str)) {
             return true;
         }
-        if (i >= this.hA.size()) {
+        if (i >= this.hE.size()) {
             return false;
         }
-        return this.hA.get(i).equals(str) || this.hA.get(i).equals("**") || this.hA.get(i).equals("*");
+        return this.hE.get(i).equals(str) || this.hE.get(i).equals("**") || this.hE.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -58,29 +58,29 @@ public class e {
         if (P(str)) {
             return 0;
         }
-        if (this.hA.get(i).equals("**")) {
-            return (i != this.hA.size() + (-1) && this.hA.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.hE.get(i).equals("**")) {
+            return (i != this.hE.size() + (-1) && this.hE.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean e(String str, int i) {
-        if (i >= this.hA.size()) {
+        if (i >= this.hE.size()) {
             return false;
         }
-        boolean z = i == this.hA.size() + (-1);
-        String str2 = this.hA.get(i);
+        boolean z = i == this.hE.size() + (-1);
+        String str2 = this.hE.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.hA.size() + (-2) && ck())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.hE.size() + (-2) && cl())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.hA.get(i + 1).equals(str)) {
-            return i == this.hA.size() + (-2) || (i == this.hA.size() + (-3) && ck());
+        if (!z && this.hE.get(i + 1).equals(str)) {
+            return i == this.hE.size() + (-2) || (i == this.hE.size() + (-3) && cl());
         } else if (z) {
             return true;
         } else {
-            if (i + 1 >= this.hA.size() - 1) {
-                return this.hA.get(i + 1).equals(str);
+            if (i + 1 >= this.hE.size() - 1) {
+                return this.hE.get(i + 1).equals(str);
             }
             return false;
         }
@@ -91,18 +91,18 @@ public class e {
         if (str.equals("__container")) {
             return true;
         }
-        return i < this.hA.size() + (-1) || this.hA.get(i).equals("**");
+        return i < this.hE.size() + (-1) || this.hE.get(i).equals("**");
     }
 
     private boolean P(String str) {
         return str.equals("__container");
     }
 
-    private boolean ck() {
-        return this.hA.get(this.hA.size() - 1).equals("**");
+    private boolean cl() {
+        return this.hE.get(this.hE.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.hA + ",resolved=" + (this.npX != null) + '}';
+        return "KeyPath{keys=" + this.hE + ",resolved=" + (this.nqz != null) + '}';
     }
 }

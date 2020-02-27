@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a implements com.google.android.exoplayer2.metadata.a {
-    public static final int mlJ = v.Qr("ID3");
-    private final InterfaceC0670a mpM;
+    public static final int mmp = v.QE("ID3");
+    private final InterfaceC0678a mqs;
 
     /* renamed from: com.google.android.exoplayer2.metadata.id3.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0670a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0678a {
         boolean h(int i, int i2, int i3, int i4, int i5);
     }
 
@@ -27,17 +27,17 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
         this(null);
     }
 
-    public a(InterfaceC0670a interfaceC0670a) {
-        this.mpM = interfaceC0670a;
+    public a(InterfaceC0678a interfaceC0678a) {
+        this.mqs = interfaceC0678a;
     }
 
     @Override // com.google.android.exoplayer2.metadata.a
     public Metadata a(c cVar) {
         ByteBuffer byteBuffer = cVar.data;
-        return x(byteBuffer.array(), byteBuffer.limit());
+        return z(byteBuffer.array(), byteBuffer.limit());
     }
 
-    public Metadata x(byte[] bArr, int i) {
+    public Metadata z(byte[] bArr, int i) {
         boolean z;
         ArrayList arrayList = new ArrayList();
         l lVar = new l(bArr, i);
@@ -46,22 +46,22 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
             return null;
         }
         int position = lVar.getPosition();
-        int i2 = P.lFP == 2 ? 6 : 10;
-        int i3 = P.mpO;
-        if (P.mpN) {
-            i3 = q(lVar, P.mpO);
+        int i2 = P.lGw == 2 ? 6 : 10;
+        int i3 = P.mqu;
+        if (P.mqt) {
+            i3 = q(lVar, P.mqu);
         }
         lVar.setLimit(i3 + position);
-        if (a(lVar, P.lFP, i2, false)) {
+        if (a(lVar, P.lGw, i2, false)) {
             z = false;
-        } else if (P.lFP != 4 || !a(lVar, 4, i2, true)) {
-            Log.w("Id3Decoder", "Failed to validate ID3 tag with majorVersion=" + P.lFP);
+        } else if (P.lGw != 4 || !a(lVar, 4, i2, true)) {
+            Log.w("Id3Decoder", "Failed to validate ID3 tag with majorVersion=" + P.lGw);
             return null;
         } else {
             z = true;
         }
-        while (lVar.dyh() >= i2) {
-            Id3Frame a = a(P.lFP, lVar, z, i2, this.mpM);
+        while (lVar.dzr() >= i2) {
+            Id3Frame a = a(P.lGw, lVar, z, i2, this.mqs);
             if (a != null) {
                 arrayList.add(a);
             }
@@ -71,42 +71,42 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
 
     private static b P(l lVar) {
         int i;
-        if (lVar.dyh() < 10) {
+        if (lVar.dzr() < 10) {
             Log.w("Id3Decoder", "Data too short to be an ID3 tag");
             return null;
         }
-        int dyl = lVar.dyl();
-        if (dyl != mlJ) {
-            Log.w("Id3Decoder", "Unexpected first three bytes of ID3 tag header: " + dyl);
+        int dzv = lVar.dzv();
+        if (dzv != mmp) {
+            Log.w("Id3Decoder", "Unexpected first three bytes of ID3 tag header: " + dzv);
             return null;
         }
         int readUnsignedByte = lVar.readUnsignedByte();
         lVar.skipBytes(1);
         int readUnsignedByte2 = lVar.readUnsignedByte();
-        int dyr = lVar.dyr();
+        int dzB = lVar.dzB();
         if (readUnsignedByte == 2) {
             if ((readUnsignedByte2 & 64) != 0) {
                 Log.w("Id3Decoder", "Skipped ID3 tag with majorVersion=2 and undefined compression scheme");
                 return null;
             }
-            i = dyr;
+            i = dzB;
         } else if (readUnsignedByte == 3) {
             if ((readUnsignedByte2 & 64) != 0) {
                 int readInt = lVar.readInt();
                 lVar.skipBytes(readInt);
-                dyr -= readInt + 4;
+                dzB -= readInt + 4;
             }
-            i = dyr;
+            i = dzB;
         } else if (readUnsignedByte == 4) {
             if ((readUnsignedByte2 & 64) != 0) {
-                int dyr2 = lVar.dyr();
-                lVar.skipBytes(dyr2 - 4);
-                dyr -= dyr2;
+                int dzB2 = lVar.dzB();
+                lVar.skipBytes(dzB2 - 4);
+                dzB -= dzB2;
             }
             if ((readUnsignedByte2 & 16) != 0) {
-                dyr -= 10;
+                dzB -= 10;
             }
-            i = dyr;
+            i = dzB;
         } else {
             Log.w("Id3Decoder", "Skipped ID3 tag with unsupported majorVersion=" + readUnsignedByte);
             return null;
@@ -117,34 +117,34 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [259=6] */
     private static boolean a(l lVar, int i, int i2, boolean z) {
         int i3;
-        int dyl;
-        long dyl2;
+        int dzv;
+        long dzv2;
         long j;
         boolean z2;
         boolean z3;
         int position = lVar.getPosition();
-        while (lVar.dyh() >= i2) {
+        while (lVar.dzr() >= i2) {
             try {
                 if (i >= 3) {
                     int readInt = lVar.readInt();
                     long readUnsignedInt = lVar.readUnsignedInt();
                     i3 = lVar.readUnsignedShort();
-                    dyl = readInt;
-                    dyl2 = readUnsignedInt;
+                    dzv = readInt;
+                    dzv2 = readUnsignedInt;
                 } else {
                     i3 = 0;
-                    dyl = lVar.dyl();
-                    dyl2 = lVar.dyl();
+                    dzv = lVar.dzv();
+                    dzv2 = lVar.dzv();
                 }
-                if (dyl == 0 && dyl2 == 0 && i3 == 0) {
+                if (dzv == 0 && dzv2 == 0 && i3 == 0) {
                     return true;
                 }
                 if (i != 4 || z) {
-                    j = dyl2;
-                } else if ((8421504 & dyl2) != 0) {
+                    j = dzv2;
+                } else if ((8421504 & dzv2) != 0) {
                     return false;
                 } else {
-                    j = (((dyl2 >> 24) & 255) << 21) | (255 & dyl2) | (((dyl2 >> 8) & 255) << 7) | (((dyl2 >> 16) & 255) << 14);
+                    j = (((dzv2 >> 24) & 255) << 21) | (255 & dzv2) | (((dzv2 >> 8) & 255) << 7) | (((dzv2 >> 16) & 255) << 14);
                 }
                 if (i == 4) {
                     boolean z4 = (i3 & 64) != 0;
@@ -166,7 +166,7 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
                 }
                 if (j < i4) {
                     return false;
-                } else if (lVar.dyh() < j) {
+                } else if (lVar.dzr() < j) {
                     return false;
                 } else {
                     lVar.skipBytes((int) j);
@@ -179,34 +179,34 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, CONST]}, finally: {[INVOKE] complete} */
-    private static Id3Frame a(int i, l lVar, boolean z, int i2, InterfaceC0670a interfaceC0670a) {
-        int dyl;
+    private static Id3Frame a(int i, l lVar, boolean z, int i2, InterfaceC0678a interfaceC0678a) {
+        int dzv;
         Id3Frame c;
         int readUnsignedByte = lVar.readUnsignedByte();
         int readUnsignedByte2 = lVar.readUnsignedByte();
         int readUnsignedByte3 = lVar.readUnsignedByte();
         int readUnsignedByte4 = i >= 3 ? lVar.readUnsignedByte() : 0;
         if (i == 4) {
-            dyl = lVar.dys();
+            dzv = lVar.dzC();
             if (!z) {
-                dyl = (dyl & 255) | (((dyl >> 8) & 255) << 7) | (((dyl >> 16) & 255) << 14) | (((dyl >> 24) & 255) << 21);
+                dzv = (dzv & 255) | (((dzv >> 8) & 255) << 7) | (((dzv >> 16) & 255) << 14) | (((dzv >> 24) & 255) << 21);
             }
         } else if (i == 3) {
-            dyl = lVar.dys();
+            dzv = lVar.dzC();
         } else {
-            dyl = lVar.dyl();
+            dzv = lVar.dzv();
         }
         int readUnsignedShort = i >= 3 ? lVar.readUnsignedShort() : 0;
-        if (readUnsignedByte == 0 && readUnsignedByte2 == 0 && readUnsignedByte3 == 0 && readUnsignedByte4 == 0 && dyl == 0 && readUnsignedShort == 0) {
-            lVar.setPosition(lVar.dyi());
+        if (readUnsignedByte == 0 && readUnsignedByte2 == 0 && readUnsignedByte3 == 0 && readUnsignedByte4 == 0 && dzv == 0 && readUnsignedShort == 0) {
+            lVar.setPosition(lVar.dzs());
             return null;
         }
-        int position = lVar.getPosition() + dyl;
-        if (position > lVar.dyi()) {
+        int position = lVar.getPosition() + dzv;
+        if (position > lVar.dzs()) {
             Log.w("Id3Decoder", "Frame size exceeds remaining tag data");
-            lVar.setPosition(lVar.dyi());
+            lVar.setPosition(lVar.dzs());
             return null;
-        } else if (interfaceC0670a != null && !interfaceC0670a.h(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4)) {
+        } else if (interfaceC0678a != null && !interfaceC0678a.h(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4)) {
             lVar.setPosition(position);
             return null;
         } else {
@@ -235,42 +235,42 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
                 return null;
             }
             if (z6) {
-                dyl--;
+                dzv--;
                 lVar.skipBytes(1);
             }
             if (z5) {
-                dyl -= 4;
+                dzv -= 4;
                 lVar.skipBytes(4);
             }
             if (z4) {
-                dyl = q(lVar, dyl);
+                dzv = q(lVar, dzv);
             }
             try {
                 if (readUnsignedByte == 84 && readUnsignedByte2 == 88 && readUnsignedByte3 == 88 && (i == 2 || readUnsignedByte4 == 88)) {
-                    c = l(lVar, dyl);
+                    c = l(lVar, dzv);
                 } else if (readUnsignedByte == 84) {
-                    c = a(lVar, dyl, i(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
+                    c = a(lVar, dzv, i(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
                 } else if (readUnsignedByte == 87 && readUnsignedByte2 == 88 && readUnsignedByte3 == 88 && (i == 2 || readUnsignedByte4 == 88)) {
-                    c = m(lVar, dyl);
+                    c = m(lVar, dzv);
                 } else if (readUnsignedByte == 87) {
-                    c = b(lVar, dyl, i(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
+                    c = b(lVar, dzv, i(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
                 } else if (readUnsignedByte == 80 && readUnsignedByte2 == 82 && readUnsignedByte3 == 73 && readUnsignedByte4 == 86) {
-                    c = n(lVar, dyl);
+                    c = n(lVar, dzv);
                 } else if (readUnsignedByte == 71 && readUnsignedByte2 == 69 && readUnsignedByte3 == 79 && (readUnsignedByte4 == 66 || i == 2)) {
-                    c = o(lVar, dyl);
+                    c = o(lVar, dzv);
                 } else if (i != 2 ? !(readUnsignedByte != 65 || readUnsignedByte2 != 80 || readUnsignedByte3 != 73 || readUnsignedByte4 != 67) : !(readUnsignedByte != 80 || readUnsignedByte2 != 73 || readUnsignedByte3 != 67)) {
-                    c = e(lVar, dyl, i);
+                    c = e(lVar, dzv, i);
                 } else if (readUnsignedByte == 67 && readUnsignedByte2 == 79 && readUnsignedByte3 == 77 && (readUnsignedByte4 == 77 || i == 2)) {
-                    c = p(lVar, dyl);
+                    c = p(lVar, dzv);
                 } else if (readUnsignedByte == 67 && readUnsignedByte2 == 72 && readUnsignedByte3 == 65 && readUnsignedByte4 == 80) {
-                    c = a(lVar, dyl, i, z, i2, interfaceC0670a);
+                    c = a(lVar, dzv, i, z, i2, interfaceC0678a);
                 } else if (readUnsignedByte == 67 && readUnsignedByte2 == 84 && readUnsignedByte3 == 79 && readUnsignedByte4 == 67) {
-                    c = b(lVar, dyl, i, z, i2, interfaceC0670a);
+                    c = b(lVar, dzv, i, z, i2, interfaceC0678a);
                 } else {
-                    c = c(lVar, dyl, i(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
+                    c = c(lVar, dzv, i(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
                 }
                 if (c == null) {
-                    Log.w("Id3Decoder", "Failed to decode frame: id=" + i(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4) + ", frameSize=" + dyl);
+                    Log.w("Id3Decoder", "Failed to decode frame: id=" + i(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4) + ", frameSize=" + dzv);
                 }
                 return c;
             } catch (UnsupportedEncodingException e) {
@@ -288,14 +288,14 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
             return null;
         }
         int readUnsignedByte = lVar.readUnsignedByte();
-        String Kj = Kj(readUnsignedByte);
+        String Ko = Ko(readUnsignedByte);
         byte[] bArr = new byte[i - 1];
-        lVar.C(bArr, 0, i - 1);
-        int u = u(bArr, 0, readUnsignedByte);
-        String str2 = new String(bArr, 0, u, Kj);
-        int Kk = u + Kk(readUnsignedByte);
-        if (Kk < bArr.length) {
-            str = new String(bArr, Kk, u(bArr, Kk, readUnsignedByte) - Kk, Kj);
+        lVar.G(bArr, 0, i - 1);
+        int y = y(bArr, 0, readUnsignedByte);
+        String str2 = new String(bArr, 0, y, Ko);
+        int Kp = y + Kp(readUnsignedByte);
+        if (Kp < bArr.length) {
+            str = new String(bArr, Kp, y(bArr, Kp, readUnsignedByte) - Kp, Ko);
         } else {
             str = "";
         }
@@ -307,10 +307,10 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
             return null;
         }
         int readUnsignedByte = lVar.readUnsignedByte();
-        String Kj = Kj(readUnsignedByte);
+        String Ko = Ko(readUnsignedByte);
         byte[] bArr = new byte[i - 1];
-        lVar.C(bArr, 0, i - 1);
-        return new TextInformationFrame(str, null, new String(bArr, 0, u(bArr, 0, readUnsignedByte), Kj));
+        lVar.G(bArr, 0, i - 1);
+        return new TextInformationFrame(str, null, new String(bArr, 0, y(bArr, 0, readUnsignedByte), Ko));
     }
 
     private static UrlLinkFrame m(l lVar, int i) throws UnsupportedEncodingException {
@@ -319,14 +319,14 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
             return null;
         }
         int readUnsignedByte = lVar.readUnsignedByte();
-        String Kj = Kj(readUnsignedByte);
+        String Ko = Ko(readUnsignedByte);
         byte[] bArr = new byte[i - 1];
-        lVar.C(bArr, 0, i - 1);
-        int u = u(bArr, 0, readUnsignedByte);
-        String str2 = new String(bArr, 0, u, Kj);
-        int Kk = u + Kk(readUnsignedByte);
-        if (Kk < bArr.length) {
-            str = new String(bArr, Kk, y(bArr, Kk) - Kk, "ISO-8859-1");
+        lVar.G(bArr, 0, i - 1);
+        int y = y(bArr, 0, readUnsignedByte);
+        String str2 = new String(bArr, 0, y, Ko);
+        int Kp = y + Kp(readUnsignedByte);
+        if (Kp < bArr.length) {
+            str = new String(bArr, Kp, A(bArr, Kp) - Kp, "ISO-8859-1");
         } else {
             str = "";
         }
@@ -335,54 +335,54 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
 
     private static UrlLinkFrame b(l lVar, int i, String str) throws UnsupportedEncodingException {
         byte[] bArr = new byte[i];
-        lVar.C(bArr, 0, i);
-        return new UrlLinkFrame(str, null, new String(bArr, 0, y(bArr, 0), "ISO-8859-1"));
+        lVar.G(bArr, 0, i);
+        return new UrlLinkFrame(str, null, new String(bArr, 0, A(bArr, 0), "ISO-8859-1"));
     }
 
     private static PrivFrame n(l lVar, int i) throws UnsupportedEncodingException {
         byte[] bArr = new byte[i];
-        lVar.C(bArr, 0, i);
-        int y = y(bArr, 0);
-        return new PrivFrame(new String(bArr, 0, y, "ISO-8859-1"), v(bArr, y + 1, bArr.length));
+        lVar.G(bArr, 0, i);
+        int A = A(bArr, 0);
+        return new PrivFrame(new String(bArr, 0, A, "ISO-8859-1"), z(bArr, A + 1, bArr.length));
     }
 
     private static GeobFrame o(l lVar, int i) throws UnsupportedEncodingException {
         int readUnsignedByte = lVar.readUnsignedByte();
-        String Kj = Kj(readUnsignedByte);
+        String Ko = Ko(readUnsignedByte);
         byte[] bArr = new byte[i - 1];
-        lVar.C(bArr, 0, i - 1);
-        int y = y(bArr, 0);
-        String str = new String(bArr, 0, y, "ISO-8859-1");
-        int i2 = y + 1;
-        int u = u(bArr, i2, readUnsignedByte);
-        String str2 = new String(bArr, i2, u - i2, Kj);
-        int Kk = Kk(readUnsignedByte) + u;
-        int u2 = u(bArr, Kk, readUnsignedByte);
-        return new GeobFrame(str, str2, new String(bArr, Kk, u2 - Kk, Kj), v(bArr, Kk(readUnsignedByte) + u2, bArr.length));
+        lVar.G(bArr, 0, i - 1);
+        int A = A(bArr, 0);
+        String str = new String(bArr, 0, A, "ISO-8859-1");
+        int i2 = A + 1;
+        int y = y(bArr, i2, readUnsignedByte);
+        String str2 = new String(bArr, i2, y - i2, Ko);
+        int Kp = Kp(readUnsignedByte) + y;
+        int y2 = y(bArr, Kp, readUnsignedByte);
+        return new GeobFrame(str, str2, new String(bArr, Kp, y2 - Kp, Ko), z(bArr, Kp(readUnsignedByte) + y2, bArr.length));
     }
 
     private static ApicFrame e(l lVar, int i, int i2) throws UnsupportedEncodingException {
-        String Qo;
+        String QB;
         int i3 = 2;
         int readUnsignedByte = lVar.readUnsignedByte();
-        String Kj = Kj(readUnsignedByte);
+        String Ko = Ko(readUnsignedByte);
         byte[] bArr = new byte[i - 1];
-        lVar.C(bArr, 0, i - 1);
+        lVar.G(bArr, 0, i - 1);
         if (i2 == 2) {
-            Qo = "image/" + v.Qo(new String(bArr, 0, 3, "ISO-8859-1"));
-            if (Qo.equals("image/jpg")) {
-                Qo = MimeType.Image.JPEG;
+            QB = "image/" + v.QB(new String(bArr, 0, 3, "ISO-8859-1"));
+            if (QB.equals("image/jpg")) {
+                QB = MimeType.Image.JPEG;
             }
         } else {
-            i3 = y(bArr, 0);
-            Qo = v.Qo(new String(bArr, 0, i3, "ISO-8859-1"));
-            if (Qo.indexOf(47) == -1) {
-                Qo = "image/" + Qo;
+            i3 = A(bArr, 0);
+            QB = v.QB(new String(bArr, 0, i3, "ISO-8859-1"));
+            if (QB.indexOf(47) == -1) {
+                QB = "image/" + QB;
             }
         }
         int i4 = i3 + 2;
-        int u = u(bArr, i4, readUnsignedByte);
-        return new ApicFrame(Qo, new String(bArr, i4, u - i4, Kj), bArr[i3 + 1] & 255, v(bArr, Kk(readUnsignedByte) + u, bArr.length));
+        int y = y(bArr, i4, readUnsignedByte);
+        return new ApicFrame(QB, new String(bArr, i4, y - i4, Ko), bArr[i3 + 1] & 255, z(bArr, Kp(readUnsignedByte) + y, bArr.length));
     }
 
     private static CommentFrame p(l lVar, int i) throws UnsupportedEncodingException {
@@ -391,28 +391,28 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
             return null;
         }
         int readUnsignedByte = lVar.readUnsignedByte();
-        String Kj = Kj(readUnsignedByte);
+        String Ko = Ko(readUnsignedByte);
         byte[] bArr = new byte[3];
-        lVar.C(bArr, 0, 3);
+        lVar.G(bArr, 0, 3);
         String str2 = new String(bArr, 0, 3);
         byte[] bArr2 = new byte[i - 4];
-        lVar.C(bArr2, 0, i - 4);
-        int u = u(bArr2, 0, readUnsignedByte);
-        String str3 = new String(bArr2, 0, u, Kj);
-        int Kk = u + Kk(readUnsignedByte);
-        if (Kk < bArr2.length) {
-            str = new String(bArr2, Kk, u(bArr2, Kk, readUnsignedByte) - Kk, Kj);
+        lVar.G(bArr2, 0, i - 4);
+        int y = y(bArr2, 0, readUnsignedByte);
+        String str3 = new String(bArr2, 0, y, Ko);
+        int Kp = y + Kp(readUnsignedByte);
+        if (Kp < bArr2.length) {
+            str = new String(bArr2, Kp, y(bArr2, Kp, readUnsignedByte) - Kp, Ko);
         } else {
             str = "";
         }
         return new CommentFrame(str2, str3, str);
     }
 
-    private static ChapterFrame a(l lVar, int i, int i2, boolean z, int i3, InterfaceC0670a interfaceC0670a) throws UnsupportedEncodingException {
+    private static ChapterFrame a(l lVar, int i, int i2, boolean z, int i3, InterfaceC0678a interfaceC0678a) throws UnsupportedEncodingException {
         int position = lVar.getPosition();
-        int y = y(lVar.data, position);
-        String str = new String(lVar.data, position, y - position, "ISO-8859-1");
-        lVar.setPosition(y + 1);
+        int A = A(lVar.data, position);
+        String str = new String(lVar.data, position, A - position, "ISO-8859-1");
+        lVar.setPosition(A + 1);
         int readInt = lVar.readInt();
         int readInt2 = lVar.readInt();
         long readUnsignedInt = lVar.readUnsignedInt();
@@ -426,7 +426,7 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
         ArrayList arrayList = new ArrayList();
         int i4 = position + i;
         while (lVar.getPosition() < i4) {
-            Id3Frame a = a(i2, lVar, z, i3, interfaceC0670a);
+            Id3Frame a = a(i2, lVar, z, i3, interfaceC0678a);
             if (a != null) {
                 arrayList.add(a);
             }
@@ -436,11 +436,11 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
         return new ChapterFrame(str, readInt, readInt2, readUnsignedInt, readUnsignedInt2, id3FrameArr);
     }
 
-    private static ChapterTocFrame b(l lVar, int i, int i2, boolean z, int i3, InterfaceC0670a interfaceC0670a) throws UnsupportedEncodingException {
+    private static ChapterTocFrame b(l lVar, int i, int i2, boolean z, int i3, InterfaceC0678a interfaceC0678a) throws UnsupportedEncodingException {
         int position = lVar.getPosition();
-        int y = y(lVar.data, position);
-        String str = new String(lVar.data, position, y - position, "ISO-8859-1");
-        lVar.setPosition(y + 1);
+        int A = A(lVar.data, position);
+        String str = new String(lVar.data, position, A - position, "ISO-8859-1");
+        lVar.setPosition(A + 1);
         int readUnsignedByte = lVar.readUnsignedByte();
         boolean z2 = (readUnsignedByte & 2) != 0;
         boolean z3 = (readUnsignedByte & 1) != 0;
@@ -448,14 +448,14 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
         String[] strArr = new String[readUnsignedByte2];
         for (int i4 = 0; i4 < readUnsignedByte2; i4++) {
             int position2 = lVar.getPosition();
-            int y2 = y(lVar.data, position2);
-            strArr[i4] = new String(lVar.data, position2, y2 - position2, "ISO-8859-1");
-            lVar.setPosition(y2 + 1);
+            int A2 = A(lVar.data, position2);
+            strArr[i4] = new String(lVar.data, position2, A2 - position2, "ISO-8859-1");
+            lVar.setPosition(A2 + 1);
         }
         ArrayList arrayList = new ArrayList();
         int i5 = position + i;
         while (lVar.getPosition() < i5) {
-            Id3Frame a = a(i2, lVar, z, i3, interfaceC0670a);
+            Id3Frame a = a(i2, lVar, z, i3, interfaceC0678a);
             if (a != null) {
                 arrayList.add(a);
             }
@@ -467,7 +467,7 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
 
     private static BinaryFrame c(l lVar, int i, String str) {
         byte[] bArr = new byte[i];
-        lVar.C(bArr, 0, i);
+        lVar.G(bArr, 0, i);
         return new BinaryFrame(str, bArr);
     }
 
@@ -483,7 +483,7 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
         return i2;
     }
 
-    private static String Kj(int i) {
+    private static String Ko(int i) {
         switch (i) {
             case 0:
                 return "ISO-8859-1";
@@ -502,22 +502,22 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
         return i == 2 ? String.format(Locale.US, "%c%c%c", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)) : String.format(Locale.US, "%c%c%c%c", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
     }
 
-    private static int u(byte[] bArr, int i, int i2) {
-        int y = y(bArr, i);
+    private static int y(byte[] bArr, int i, int i2) {
+        int A = A(bArr, i);
         if (i2 != 0 && i2 != 3) {
-            while (y < bArr.length - 1) {
-                if (y % 2 != 0 || bArr[y + 1] != 0) {
-                    y = y(bArr, y + 1);
+            while (A < bArr.length - 1) {
+                if (A % 2 != 0 || bArr[A + 1] != 0) {
+                    A = A(bArr, A + 1);
                 } else {
-                    return y;
+                    return A;
                 }
             }
             return bArr.length;
         }
-        return y;
+        return A;
     }
 
-    private static int y(byte[] bArr, int i) {
+    private static int A(byte[] bArr, int i) {
         while (i < bArr.length) {
             if (bArr[i] != 0) {
                 i++;
@@ -528,25 +528,25 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
         return bArr.length;
     }
 
-    private static int Kk(int i) {
+    private static int Kp(int i) {
         return (i == 0 || i == 3) ? 1 : 2;
     }
 
-    private static byte[] v(byte[] bArr, int i, int i2) {
+    private static byte[] z(byte[] bArr, int i, int i2) {
         return i2 <= i ? new byte[0] : Arrays.copyOfRange(bArr, i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
-        private final int lFP;
-        private final boolean mpN;
-        private final int mpO;
+        private final int lGw;
+        private final boolean mqt;
+        private final int mqu;
 
         public b(int i, boolean z, int i2) {
-            this.lFP = i;
-            this.mpN = z;
-            this.mpO = i2;
+            this.lGw = i;
+            this.mqt = z;
+            this.mqu = i2;
         }
     }
 }

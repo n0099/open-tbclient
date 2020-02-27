@@ -13,16 +13,16 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m<T> {
-    public static Executor fk = Executors.newCachedThreadPool();
+    public static Executor fs = Executors.newCachedThreadPool();
     @Nullable
-    private Thread fn;
-    private final Set<i<T>> fo;
-    private final Set<i<Throwable>> fq;
-    private final FutureTask<l<T>> fs;
+    private Thread ft;
+    private final Set<i<T>> fu;
+    private final Set<i<Throwable>> fv;
+    private final FutureTask<l<T>> fw;
     @Nullable
-    private volatile l<T> ft;
+    private volatile l<T> fz;
     private final Handler handler;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -32,11 +32,11 @@ public class m<T> {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     m(Callable<l<T>> callable, boolean z) {
-        this.fo = new LinkedHashSet(1);
-        this.fq = new LinkedHashSet(1);
+        this.fu = new LinkedHashSet(1);
+        this.fv = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.ft = null;
-        this.fs = new FutureTask<>(callable);
+        this.fz = null;
+        this.fw = new FutureTask<>(callable);
         if (z) {
             try {
                 a(callable.call());
@@ -46,59 +46,59 @@ public class m<T> {
                 return;
             }
         }
-        fk.execute(this.fs);
-        bz();
+        fs.execute(this.fw);
+        bA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable l<T> lVar) {
-        if (this.ft != null) {
+        if (this.fz != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.ft = lVar;
-        by();
+        this.fz = lVar;
+        bz();
     }
 
     public synchronized m<T> a(i<T> iVar) {
-        if (this.ft != null && this.ft.getValue() != null) {
-            iVar.onResult(this.ft.getValue());
+        if (this.fz != null && this.fz.getValue() != null) {
+            iVar.onResult(this.fz.getValue());
         }
-        this.fo.add(iVar);
-        bz();
+        this.fu.add(iVar);
+        bA();
         return this;
     }
 
     public synchronized m<T> b(i<T> iVar) {
-        this.fo.remove(iVar);
-        bA();
+        this.fu.remove(iVar);
+        bB();
         return this;
     }
 
     public synchronized m<T> c(i<Throwable> iVar) {
-        if (this.ft != null && this.ft.bx() != null) {
-            iVar.onResult(this.ft.bx());
+        if (this.fz != null && this.fz.by() != null) {
+            iVar.onResult(this.fz.by());
         }
-        this.fq.add(iVar);
-        bz();
-        return this;
-    }
-
-    public synchronized m<T> d(i<Throwable> iVar) {
-        this.fq.remove(iVar);
+        this.fv.add(iVar);
         bA();
         return this;
     }
 
-    private void by() {
+    public synchronized m<T> d(i<Throwable> iVar) {
+        this.fv.remove(iVar);
+        bB();
+        return this;
+    }
+
+    private void bz() {
         this.handler.post(new Runnable() { // from class: com.airbnb.lottie.m.1
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.ft != null && !m.this.fs.isCancelled()) {
-                    l lVar = m.this.ft;
+                if (m.this.fz != null && !m.this.fw.isCancelled()) {
+                    l lVar = m.this.fz;
                     if (lVar.getValue() != null) {
                         m.this.m(lVar.getValue());
                     } else {
-                        m.this.h(lVar.bx());
+                        m.this.g(lVar.by());
                     }
                 }
             }
@@ -107,14 +107,14 @@ public class m<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(T t) {
-        for (i iVar : new ArrayList(this.fo)) {
+        for (i iVar : new ArrayList(this.fu)) {
             iVar.onResult(t);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h(Throwable th) {
-        ArrayList<i> arrayList = new ArrayList(this.fq);
+    public void g(Throwable th) {
+        ArrayList<i> arrayList = new ArrayList(this.fv);
         if (arrayList.isEmpty()) {
             Log.w("LOTTIE", "Lottie encountered an error but no failure listener was added.", th);
             return;
@@ -124,41 +124,41 @@ public class m<T> {
         }
     }
 
-    private synchronized void bz() {
-        if (!bB() && this.ft == null) {
-            this.fn = new Thread("LottieTaskObserver") { // from class: com.airbnb.lottie.m.2
-                private boolean fv = false;
+    private synchronized void bA() {
+        if (!bC() && this.fz == null) {
+            this.ft = new Thread("LottieTaskObserver") { // from class: com.airbnb.lottie.m.2
+                private boolean fB = false;
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    while (!isInterrupted() && !this.fv) {
-                        if (m.this.fs.isDone()) {
+                    while (!isInterrupted() && !this.fB) {
+                        if (m.this.fw.isDone()) {
                             try {
-                                m.this.a((l) m.this.fs.get());
+                                m.this.a((l) m.this.fw.get());
                             } catch (InterruptedException | ExecutionException e) {
                                 m.this.a(new l(e));
                             }
-                            this.fv = true;
-                            m.this.bA();
+                            this.fB = true;
+                            m.this.bB();
                         }
                     }
                 }
             };
-            this.fn.start();
+            this.ft.start();
             d.debug("Starting TaskObserver thread");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void bA() {
-        if (bB() && (this.fo.isEmpty() || this.ft != null)) {
-            this.fn.interrupt();
-            this.fn = null;
+    public synchronized void bB() {
+        if (bC() && (this.fu.isEmpty() || this.fz != null)) {
+            this.ft.interrupt();
+            this.ft = null;
             d.debug("Stopping TaskObserver thread");
         }
     }
 
-    private boolean bB() {
-        return this.fn != null && this.fn.isAlive();
+    private boolean bC() {
+        return this.ft != null && this.ft.isAlive();
     }
 }

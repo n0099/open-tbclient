@@ -12,29 +12,29 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
-    private static final HashMap<String, String> cfT = new HashMap<>();
+    private static final HashMap<String, String> cjX = new HashMap<>();
 
     static {
-        cfT.put("494433", ".mp3");
-        cfT.put("524946", ".wav");
+        cjX.put("494433", ".mp3");
+        cjX.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.bwp = gVar.bwp;
-        dVar.bwx = gVar.autoplay;
-        dVar.bwy = gVar.loop;
+        dVar.bAy = gVar.bAy;
+        dVar.bAG = gVar.autoplay;
+        dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.cfQ = gVar.startTime;
-        dVar.bwz = gVar.obeyMuteSwitch;
+        dVar.cjU = gVar.startTime;
+        dVar.bAH = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.bwu = aje().toString();
+        dVar.bAD = als().toString();
         return dVar;
     }
 
-    public static JSONObject aje() {
+    public static JSONObject als() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -56,32 +56,32 @@ public class f {
         return jSONObject;
     }
 
-    public static boolean ab(float f) {
+    public static boolean aa(float f) {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String nW(String str) throws MalformedURLException {
+    public static String om(String str) throws MalformedURLException {
         int lastIndexOf = str.lastIndexOf(46);
         String str2 = "";
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf, str.length());
         }
-        return "/" + com.baidu.swan.apps.runtime.e.aar() + "/" + String.valueOf(str.hashCode() + str2);
+        return "/" + com.baidu.swan.apps.runtime.e.acF() + "/" + String.valueOf(str.hashCode() + str2);
     }
 
-    public static String ajf() {
-        String ajh = ajh();
-        if (!isExternalStorageWritable() || TextUtils.isEmpty(ajh)) {
+    public static String alt() {
+        String alv = alv();
+        if (!isExternalStorageWritable() || TextUtils.isEmpty(alv)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return ajh;
+        return alv;
     }
 
-    public static String ajg() {
+    public static String alu() {
         return File.separator + "bdata" + File.separator;
     }
 
-    private static String ajh() {
+    private static String alv() {
         String str = l.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -95,7 +95,7 @@ public class f {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 
-    public static String w(byte[] bArr) {
+    public static String B(byte[] bArr) {
         if (bArr == null || 3 > bArr.length) {
             return "";
         }
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return cfT.get(bytesToHexString(bArr2));
+        return cjX.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

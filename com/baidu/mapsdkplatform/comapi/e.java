@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e extends BroadcastReceiver {
     public static final String a = e.class.getSimpleName();
 

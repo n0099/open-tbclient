@@ -6,14 +6,14 @@ import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    static final AbstractC0007a dF;
+    static final AbstractC0007a dG;
 
     /* renamed from: com.a.a.a.a.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static abstract class AbstractC0007a {
-        protected static final Throwable[] dG = new Throwable[0];
+        protected static final Throwable[] dH = new Throwable[0];
 
         AbstractC0007a() {
         }
@@ -23,14 +23,14 @@ public final class a {
         public abstract void a(Throwable th, PrintWriter printWriter);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static final class b {
         private final ConcurrentHashMap<C0008a, List<Throwable>> a = new ConcurrentHashMap<>(16, 0.75f, 10);
-        private final ReferenceQueue<Throwable> dH = new ReferenceQueue<>();
+        private final ReferenceQueue<Throwable> dI = new ReferenceQueue<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.a.a.a.a.a.a.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes11.dex */
         public static final class C0008a extends WeakReference<Throwable> {
             private final int a;
 
@@ -62,18 +62,18 @@ public final class a {
         }
 
         public final List<Throwable> f(Throwable th) {
-            Reference<? extends Throwable> poll = this.dH.poll();
+            Reference<? extends Throwable> poll = this.dI.poll();
             while (poll != null) {
                 this.a.remove(poll);
-                poll = this.dH.poll();
+                poll = this.dI.poll();
             }
             return this.a.get(new C0008a(th));
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static final class c extends AbstractC0007a {
-        private final b dI = new b();
+        private final b dJ = new b();
 
         c() {
         }
@@ -81,7 +81,7 @@ public final class a {
         @Override // com.a.a.a.a.a.a.a.AbstractC0007a
         public final void a(Throwable th) {
             th.printStackTrace();
-            List<Throwable> f = this.dI.f(th);
+            List<Throwable> f = this.dJ.f(th);
             if (f == null) {
                 return;
             }
@@ -96,7 +96,7 @@ public final class a {
         @Override // com.a.a.a.a.a.a.a.AbstractC0007a
         public final void a(Throwable th, PrintWriter printWriter) {
             th.printStackTrace(printWriter);
-            List<Throwable> f = this.dI.f(th);
+            List<Throwable> f = this.dJ.f(th);
             if (f == null) {
                 return;
             }
@@ -109,7 +109,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static final class d extends AbstractC0007a {
         d() {
         }
@@ -125,7 +125,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static final class e extends AbstractC0007a {
         e() {
         }
@@ -155,7 +155,7 @@ public final class a {
             th.printStackTrace(System.err);
             dVar = new d();
         }
-        dF = dVar;
+        dG = dVar;
     }
 
     private static Integer a() {
@@ -169,10 +169,10 @@ public final class a {
     }
 
     public static void a(Throwable th) {
-        dF.a(th);
+        dG.a(th);
     }
 
     public static void a(Throwable th, PrintWriter printWriter) {
-        dF.a(th, printWriter);
+        dG.a(th, printWriter);
     }
 }

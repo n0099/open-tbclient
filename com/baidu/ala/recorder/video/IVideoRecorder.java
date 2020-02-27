@@ -2,10 +2,10 @@ package com.baidu.ala.recorder.video;
 
 import android.view.View;
 import com.baidu.ala.recorder.RecorderCallback;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IVideoRecorder {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IVideoDataCallBack {
         void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j);
 

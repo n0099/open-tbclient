@@ -1,11 +1,11 @@
 package com.baidu.live.gift;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends HttpMessage {
-    public String aeQ;
-    public long aeR;
-    public String aeS;
+    public String agX;
+    public long agY;
+    public String agZ;
     public String giftId;
     public String giftName;
     public String liveId;

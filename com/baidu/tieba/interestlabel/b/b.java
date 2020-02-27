@@ -6,22 +6,22 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private List<a> hSr;
-    private List<Integer> hSs;
-    private List<a> hSv;
+    private List<a> hUp;
+    private List<Integer> hUq;
+    private List<a> hUt;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.isEmpty(dataRes.sex_taglist)) {
-                this.hSv = new ArrayList();
-                r(this.hSv, dataRes.sex_taglist);
+                this.hUt = new ArrayList();
+                r(this.hUt, dataRes.sex_taglist);
             }
             if (!v.isEmpty(dataRes.taglist)) {
-                this.hSr = new ArrayList();
-                this.hSs = new ArrayList();
-                r(this.hSr, dataRes.taglist);
+                this.hUp = new ArrayList();
+                this.hUq = new ArrayList();
+                r(this.hUp, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.hSs != null && aVar.isFollow) {
-                        this.hSs.add(Integer.valueOf(aVar.labelId));
+                    if (this.hUq != null && aVar.isFollow) {
+                        this.hUq.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> bZu() {
-        return this.hSv;
+    public List<a> caV() {
+        return this.hUt;
     }
 
-    public List<a> bZv() {
-        return this.hSr;
+    public List<a> caW() {
+        return this.hUp;
     }
 
-    public List<Integer> bZw() {
-        return this.hSs;
+    public List<Integer> caX() {
+        return this.hUq;
     }
 }

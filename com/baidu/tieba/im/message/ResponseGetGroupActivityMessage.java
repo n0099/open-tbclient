@@ -7,7 +7,7 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.squareup.wire.Wire;
 import protobuf.QueryGroupActivity.DataRes;
 import protobuf.QueryGroupActivity.QueryGroupActivityResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
     private static final String CACHE_KEY_PREFIX = "group_activity";
     private GroupActivityData activityData;
@@ -52,7 +52,7 @@ public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
             if (TbadkApplication.getCurrentAccountObj() != null) {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aCo().sz("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + getActivityData().getActivityId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aEz().sP("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + getActivityData().getActivityId(), bArr);
         }
     }
 }

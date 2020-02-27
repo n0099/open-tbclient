@@ -2,12 +2,12 @@ package com.baidu.minivideo.effect.core.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AEffectParams implements Parcelable {
     public static final Parcelable.Creator<AEffectParams> CREATOR = new Parcelable.Creator<AEffectParams>() { // from class: com.baidu.minivideo.effect.core.entity.AEffectParams.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: da */
+        /* renamed from: dq */
         public AEffectParams[] newArray(int i) {
             return new AEffectParams[i];
         }

@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LoadingBar extends TextView {
     private static final int MAX_PROGRESS = 100;
     private Handler mHander;
@@ -77,8 +77,8 @@ public class LoadingBar extends TextView {
 
     private Rect getRect() {
         int left = getLeft();
-        int top = getTop();
-        return new Rect(0, 0, (getLeft() + (((getRight() - getLeft()) * this.mProgress) / 100)) - left, getBottom() - top);
+        int top2 = getTop();
+        return new Rect(0, 0, (getLeft() + (((getRight() - getLeft()) * this.mProgress) / 100)) - left, getBottom() - top2);
     }
 
     public void drawProgress(int i) {

@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class NativeLibraryLoader {
     private static final String DELETE_LIB_PROPERTY_NAME = "org.conscrypt.native.deleteLibAfterLoading";
     private static final boolean DELETE_NATIVE_LIB_AFTER_LOADING;
@@ -63,7 +63,7 @@ public final class NativeLibraryLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class LoadResult {
         final boolean absolute;
         final Throwable error;

@@ -7,47 +7,47 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class d {
-    private static d lOT;
-    private int lOU;
+    private static d lPA;
+    private int lPB;
     @Nullable
-    private List<c.a> lOV;
-    private final c.a lOW = new a();
+    private List<c.a> lPC;
+    private final c.a lPD = new a();
 
     private d() {
-        dmo();
+        dnB();
     }
 
-    public void eY(@Nullable List<c.a> list) {
-        this.lOV = list;
-        dmo();
+    public void eT(@Nullable List<c.a> list) {
+        this.lPC = list;
+        dnB();
     }
 
     public c t(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.lOU];
-        int a = a(this.lOU, inputStream, bArr);
-        c p = this.lOW.p(bArr, a);
-        if (p == null || p == c.lOR) {
-            if (this.lOV != null) {
-                for (c.a aVar : this.lOV) {
-                    c p2 = aVar.p(bArr, a);
-                    if (p2 != null && p2 != c.lOR) {
-                        return p2;
+        byte[] bArr = new byte[this.lPB];
+        int a = a(this.lPB, inputStream, bArr);
+        c r = this.lPD.r(bArr, a);
+        if (r == null || r == c.lPy) {
+            if (this.lPC != null) {
+                for (c.a aVar : this.lPC) {
+                    c r2 = aVar.r(bArr, a);
+                    if (r2 != null && r2 != c.lPy) {
+                        return r2;
                     }
                 }
             }
-            return c.lOR;
+            return c.lPy;
         }
-        return p;
+        return r;
     }
 
-    private void dmo() {
-        this.lOU = this.lOW.getHeaderSize();
-        if (this.lOV != null) {
-            for (c.a aVar : this.lOV) {
-                this.lOU = Math.max(this.lOU, aVar.getHeaderSize());
+    private void dnB() {
+        this.lPB = this.lPD.getHeaderSize();
+        if (this.lPC != null) {
+            for (c.a aVar : this.lPC) {
+                this.lPB = Math.max(this.lPB, aVar.getHeaderSize());
             }
         }
     }
@@ -67,26 +67,26 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dmp() {
+    public static synchronized d dnC() {
         d dVar;
         synchronized (d.class) {
-            if (lOT == null) {
-                lOT = new d();
+            if (lPA == null) {
+                lPA = new d();
             }
-            dVar = lOT;
+            dVar = lPA;
         }
         return dVar;
     }
 
     public static c u(InputStream inputStream) throws IOException {
-        return dmp().t(inputStream);
+        return dnC().t(inputStream);
     }
 
     public static c v(InputStream inputStream) {
         try {
             return u(inputStream);
         } catch (IOException e) {
-            throw l.u(e);
+            throw l.t(e);
         }
     }
 }

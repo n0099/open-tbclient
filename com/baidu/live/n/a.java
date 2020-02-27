@@ -1,20 +1,14 @@
 package com.baidu.live.n;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.l;
-/* loaded from: classes2.dex */
-public interface a {
-    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+import com.baidu.live.adp.framework.message.HttpMessage;
+/* loaded from: classes3.dex */
+public class a extends HttpMessage {
+    private int mType;
 
-    void b(ViewGroup.LayoutParams layoutParams);
-
-    void bN(int i);
-
-    boolean h(l lVar);
-
-    void release();
-
-    void setCanVisible(boolean z);
-
-    void tz();
+    public a(int i) {
+        super(1021031);
+        this.mType = 1;
+        this.mType = i;
+        addParam("block_type", i);
+    }
 }

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.GroupInfo;
 import protobuf.UpdateGroup.UpdateGroupReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class RequestUpdateGroupMessage extends TbSocketMessage {
     private long groupId;
     public int type;

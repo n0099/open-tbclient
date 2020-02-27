@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends ab {
     public e(j jVar) {
         super(jVar, "/swanAPI/getStoken");
@@ -44,11 +44,11 @@ public class e extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            eVar.aaz().b(context, "mapp_i_get_stoken", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.e.1
+            eVar.acN().b(context, "mapp_i_get_stoken", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void B(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void D(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     e.this.a(hVar, context, callbackHandler, optString2, optString);
                 }
             });
@@ -61,14 +61,14 @@ public class e extends ab {
     public void a(com.baidu.swan.apps.setting.oauth.h<b.d> hVar, Context context, final CallbackHandler callbackHandler, final String str, final String str2) {
         if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, str);
-        } else if (TextUtils.isEmpty(com.baidu.swan.bdprivate.a.a.cO(context))) {
+        } else if (TextUtils.isEmpty(com.baidu.swan.bdprivate.a.a.cS(context))) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bduss is invalid").toString());
         } else {
             com.baidu.swan.bdprivate.a.a.a(context, new com.baidu.swan.apps.as.d.b<Bundle>() { // from class: com.baidu.swan.bdprivate.c.a.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: z */
-                public void B(Bundle bundle) {
+                public void D(Bundle bundle) {
                     JSONObject wrapCallbackParams;
                     if (bundle != null && !TextUtils.isEmpty(bundle.getString(str2))) {
                         String string = bundle.getString(str2);

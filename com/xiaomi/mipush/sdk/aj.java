@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.eu;
 import com.xiaomi.push.service.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class aj extends ag.a {
     final /* synthetic */ Context a;
 
@@ -17,6 +17,6 @@ public final class aj extends ag.a {
 
     @Override // com.xiaomi.push.service.ag.a
     protected void a() {
-        eu.m256a(this.a);
+        eu.m261a(this.a);
     }
 }

@@ -2,7 +2,8 @@ package kotlin;
 
 import java.io.Serializable;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public final class Pair<A, B> implements Serializable {
     private final A first;
     private final B second;

@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import tbclient.GetHistoryForum.GetHistoryForumResIdl;
 import tbclient.HistoryForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessage {
     private LinkedList<VisitedForumData> mForumData;
 

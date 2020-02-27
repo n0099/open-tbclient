@@ -12,11 +12,11 @@ import com.baidu.swan.apps.adaptation.b.d;
 import com.baidu.swan.apps.adaptation.b.f;
 import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.as.r;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private d aWL;
-    private boolean aWM = true;
+    private d baW;
+    private boolean baX = true;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
     private String mUrl;
@@ -24,10 +24,10 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        V(a.C0187a.aiapps_hold, a.C0187a.aiapps_slide_out_to_right);
+        V(a.C0197a.aiapps_hold, a.C0197a.aiapps_slide_out_to_right);
         super.onCreate(bundle);
         setContentView(a.g.swanapp_scope_detail_activity);
-        af.V(this);
+        af.W(this);
         C(getIntent());
         initView();
         initWebView();
@@ -67,19 +67,19 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
     private void initWebView() {
         if (!TextUtils.isEmpty(this.mUrl)) {
-            f bx = new com.baidu.swan.apps.adaptation.b.a.b().bx(this);
-            bx.a(new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.SwanAppScopeDetailActivity.2
+            f bB = new com.baidu.swan.apps.adaptation.b.a.b().bB(this);
+            bB.a(new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.SwanAppScopeDetailActivity.2
                 @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-                public void dY(String str) {
-                    super.dY(str);
-                    if (SwanAppScopeDetailActivity.this.aWM) {
+                public void en(String str) {
+                    super.en(str);
+                    if (SwanAppScopeDetailActivity.this.baX) {
                         SwanAppScopeDetailActivity.this.setTitle(str);
                     }
                 }
             });
-            this.aWL = bx.Gy();
-            bx.loadUrl(this.mUrl);
-            bx.a((FrameLayout) findViewById(a.f.webview_container), this.aWL.covertToView());
+            this.baW = bB.IN();
+            bB.loadUrl(this.mUrl);
+            bB.a((FrameLayout) findViewById(a.f.webview_container), this.baW.covertToView());
         }
     }
 
@@ -106,9 +106,9 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aWL != null) {
-            this.aWL.destroy();
-            this.aWL = null;
+        if (this.baW != null) {
+            this.baW.destroy();
+            this.baW = null;
         }
         this.mUrl = null;
     }

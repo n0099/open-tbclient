@@ -1,11 +1,12 @@
 package com.baidu.webkit.net;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.webkit.internal.INoProGuard;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WebAddress implements INoProGuard {
     private static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";
     static final int MATCH_GROUP_AUTHORITY = 2;
@@ -65,7 +66,7 @@ public class WebAddress implements INoProGuard {
             this.mScheme = "https";
         } else if (this.mPort == -1) {
             if (this.mScheme.equals("https")) {
-                this.mPort = 443;
+                this.mPort = Constants.SOCKET_PORT_SSL;
             } else {
                 this.mPort = 80;
             }

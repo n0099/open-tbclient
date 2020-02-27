@@ -15,7 +15,7 @@ import com.kascend.chushou.widget.guide.PaoGuideView;
 import com.kascend.chushou.widget.menu.PlayShowH5View;
 import com.kascend.chushou.widget.showplayer.PlayShowRecommendView;
 import tv.chushou.zues.widget.viewpager.KasVerticalViewPager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoVerticalViewPager extends KasVerticalViewPager {
     private boolean a;
     private int b;

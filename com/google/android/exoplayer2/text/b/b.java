@@ -14,53 +14,53 @@ import com.google.android.exoplayer2.util.v;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class b {
+    private static final byte[] mAf = {0, 7, 8, 15};
+    private static final byte[] mAg = {0, 119, -120, -1};
+    private static final byte[] mAh = {0, 17, 34, 51, 68, 85, 102, 119, -120, -103, -86, -69, -52, -35, -18, -1};
     private Bitmap bitmap;
-    private final Canvas lEO;
-    private final Paint mzC = new Paint();
-    private final Paint mzD;
-    private final C0678b mzE;
-    private final a mzF;
-    private final h mzG;
-    private static final byte[] mzz = {0, 7, 8, 15};
-    private static final byte[] mzA = {0, 119, -120, -1};
-    private static final byte[] mzB = {0, 17, 34, 51, 68, 85, 102, 119, -120, -103, -86, -69, -52, -35, -18, -1};
+    private final Canvas lFv;
+    private final Paint mAi = new Paint();
+    private final Paint mAj;
+    private final C0686b mAl;
+    private final a mAm;
+    private final h mAn;
 
     public b(int i, int i2) {
-        this.mzC.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.mzC.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
-        this.mzC.setPathEffect(null);
-        this.mzD = new Paint();
-        this.mzD.setStyle(Paint.Style.FILL);
-        this.mzD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
-        this.mzD.setPathEffect(null);
-        this.lEO = new Canvas();
-        this.mzE = new C0678b(719, 575, 0, 719, 0, 575);
-        this.mzF = new a(0, dwV(), dwW(), dwX());
-        this.mzG = new h(i, i2);
+        this.mAi.setStyle(Paint.Style.FILL_AND_STROKE);
+        this.mAi.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+        this.mAi.setPathEffect(null);
+        this.mAj = new Paint();
+        this.mAj.setStyle(Paint.Style.FILL);
+        this.mAj.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+        this.mAj.setPathEffect(null);
+        this.lFv = new Canvas();
+        this.mAl = new C0686b(719, 575, 0, 719, 0, 575);
+        this.mAm = new a(0, dyf(), dyg(), dyh());
+        this.mAn = new h(i, i2);
     }
 
     public void reset() {
-        this.mzG.reset();
+        this.mAn.reset();
     }
 
-    public List<com.google.android.exoplayer2.text.b> A(byte[] bArr, int i) {
+    public List<com.google.android.exoplayer2.text.b> C(byte[] bArr, int i) {
         int i2;
         k kVar = new k(bArr, i);
-        while (kVar.dyd() >= 48 && kVar.readBits(8) == 15) {
-            a(kVar, this.mzG);
+        while (kVar.dzn() >= 48 && kVar.readBits(8) == 15) {
+            a(kVar, this.mAn);
         }
-        if (this.mzG.mAp == null) {
+        if (this.mAn.mAV == null) {
             return Collections.emptyList();
         }
-        C0678b c0678b = this.mzG.mAo != null ? this.mzG.mAo : this.mzE;
-        if (this.bitmap == null || c0678b.width + 1 != this.bitmap.getWidth() || c0678b.height + 1 != this.bitmap.getHeight()) {
-            this.bitmap = Bitmap.createBitmap(c0678b.width + 1, c0678b.height + 1, Bitmap.Config.ARGB_8888);
-            this.lEO.setBitmap(this.bitmap);
+        C0686b c0686b = this.mAn.mAU != null ? this.mAn.mAU : this.mAl;
+        if (this.bitmap == null || c0686b.width + 1 != this.bitmap.getWidth() || c0686b.height + 1 != this.bitmap.getHeight()) {
+            this.bitmap = Bitmap.createBitmap(c0686b.width + 1, c0686b.height + 1, Bitmap.Config.ARGB_8888);
+            this.lFv.setBitmap(this.bitmap);
         }
         ArrayList arrayList = new ArrayList();
-        SparseArray<e> sparseArray = this.mzG.mAp.mzS;
+        SparseArray<e> sparseArray = this.mAn.mAV.mAz;
         int i3 = 0;
         while (true) {
             int i4 = i3;
@@ -68,13 +68,13 @@ final class b {
                 return arrayList;
             }
             e valueAt = sparseArray.valueAt(i4);
-            f fVar = this.mzG.mzS.get(sparseArray.keyAt(i4));
-            int i5 = valueAt.mzT + c0678b.mzK;
-            int i6 = valueAt.mzU + c0678b.mzM;
-            this.lEO.clipRect(i5, i6, Math.min(fVar.width + i5, c0678b.mzL), Math.min(fVar.height + i6, c0678b.mzN), Region.Op.REPLACE);
-            a aVar = this.mzG.mAj.get(fVar.mzX);
-            a aVar2 = (aVar == null && (aVar = this.mzG.mAm.get(fVar.mzX)) == null) ? this.mzF : aVar;
-            SparseArray<g> sparseArray2 = fVar.mAb;
+            f fVar = this.mAn.mAz.get(sparseArray.keyAt(i4));
+            int i5 = valueAt.mAA + c0686b.mAr;
+            int i6 = valueAt.mAB + c0686b.mAt;
+            this.lFv.clipRect(i5, i6, Math.min(fVar.width + i5, c0686b.mAs), Math.min(fVar.height + i6, c0686b.mAu), Region.Op.REPLACE);
+            a aVar = this.mAn.mAQ.get(fVar.mAE);
+            a aVar2 = (aVar == null && (aVar = this.mAn.mAS.get(fVar.mAE)) == null) ? this.mAm : aVar;
+            SparseArray<g> sparseArray2 = fVar.mAI;
             int i7 = 0;
             while (true) {
                 int i8 = i7;
@@ -83,28 +83,28 @@ final class b {
                 }
                 int keyAt = sparseArray2.keyAt(i8);
                 g valueAt2 = sparseArray2.valueAt(i8);
-                c cVar = this.mzG.mAl.get(keyAt);
+                c cVar = this.mAn.mAR.get(keyAt);
                 if (cVar == null) {
-                    cVar = this.mzG.mAn.get(keyAt);
+                    cVar = this.mAn.mAT.get(keyAt);
                 }
                 if (cVar != null) {
-                    a(cVar, aVar2, fVar.depth, valueAt2.mAd + i5, valueAt2.mAe + i6, cVar.mzO ? null : this.mzC, this.lEO);
+                    a(cVar, aVar2, fVar.depth, valueAt2.mAK + i5, valueAt2.mAL + i6, cVar.mAv ? null : this.mAi, this.lFv);
                 }
                 i7 = i8 + 1;
             }
-            if (fVar.mzV) {
+            if (fVar.mAC) {
                 if (fVar.depth == 3) {
-                    i2 = aVar2.mzJ[fVar.mzY];
+                    i2 = aVar2.mAq[fVar.mAF];
                 } else if (fVar.depth == 2) {
-                    i2 = aVar2.mzI[fVar.mzZ];
+                    i2 = aVar2.mAp[fVar.mAG];
                 } else {
-                    i2 = aVar2.mzH[fVar.mAa];
+                    i2 = aVar2.mAo[fVar.mAH];
                 }
-                this.mzD.setColor(i2);
-                this.lEO.drawRect(i5, i6, fVar.width + i5, fVar.height + i6, this.mzD);
+                this.mAj.setColor(i2);
+                this.lFv.drawRect(i5, i6, fVar.width + i5, fVar.height + i6, this.mAj);
             }
-            arrayList.add(new com.google.android.exoplayer2.text.b(Bitmap.createBitmap(this.bitmap, i5, i6, fVar.width, fVar.height), i5 / c0678b.width, 0, i6 / c0678b.height, 0, fVar.width / c0678b.width, fVar.height / c0678b.height));
-            this.lEO.drawColor(0, PorterDuff.Mode.CLEAR);
+            arrayList.add(new com.google.android.exoplayer2.text.b(Bitmap.createBitmap(this.bitmap, i5, i6, fVar.width, fVar.height), i5 / c0686b.width, 0, i6 / c0686b.height, 0, fVar.width / c0686b.width, fVar.height / c0686b.height));
+            this.lFv.drawColor(0, PorterDuff.Mode.CLEAR);
             i3 = i4 + 1;
         }
     }
@@ -113,83 +113,83 @@ final class b {
         int readBits = kVar.readBits(8);
         int readBits2 = kVar.readBits(16);
         int readBits3 = kVar.readBits(16);
-        int dye = kVar.dye() + readBits3;
-        if (readBits3 * 8 > kVar.dyd()) {
+        int dzo = kVar.dzo() + readBits3;
+        if (readBits3 * 8 > kVar.dzn()) {
             Log.w("DvbParser", "Data field length exceeds limit");
-            kVar.JP(kVar.dyd());
+            kVar.JU(kVar.dzn());
             return;
         }
         switch (readBits) {
             case 16:
-                if (readBits2 == hVar.mAh) {
-                    d dVar = hVar.mAp;
+                if (readBits2 == hVar.mAO) {
+                    d dVar = hVar.mAV;
                     d b = b(kVar, readBits3);
                     if (b.state != 0) {
-                        hVar.mAp = b;
-                        hVar.mzS.clear();
-                        hVar.mAj.clear();
-                        hVar.mAl.clear();
+                        hVar.mAV = b;
+                        hVar.mAz.clear();
+                        hVar.mAQ.clear();
+                        hVar.mAR.clear();
                         break;
                     } else if (dVar != null && dVar.version != b.version) {
-                        hVar.mAp = b;
+                        hVar.mAV = b;
                         break;
                     }
                 }
                 break;
             case 17:
-                d dVar2 = hVar.mAp;
-                if (readBits2 == hVar.mAh && dVar2 != null) {
+                d dVar2 = hVar.mAV;
+                if (readBits2 == hVar.mAO && dVar2 != null) {
                     f c2 = c(kVar, readBits3);
                     if (dVar2.state == 0) {
-                        c2.a(hVar.mzS.get(c2.id));
+                        c2.a(hVar.mAz.get(c2.id));
                     }
-                    hVar.mzS.put(c2.id, c2);
+                    hVar.mAz.put(c2.id, c2);
                     break;
                 }
                 break;
             case 18:
-                if (readBits2 == hVar.mAh) {
+                if (readBits2 == hVar.mAO) {
                     a d2 = d(kVar, readBits3);
-                    hVar.mAj.put(d2.id, d2);
+                    hVar.mAQ.put(d2.id, d2);
                     break;
-                } else if (readBits2 == hVar.mAi) {
+                } else if (readBits2 == hVar.mAP) {
                     a d3 = d(kVar, readBits3);
-                    hVar.mAm.put(d3.id, d3);
+                    hVar.mAS.put(d3.id, d3);
                     break;
                 }
                 break;
             case 19:
-                if (readBits2 == hVar.mAh) {
+                if (readBits2 == hVar.mAO) {
                     c i = i(kVar);
-                    hVar.mAl.put(i.id, i);
+                    hVar.mAR.put(i.id, i);
                     break;
-                } else if (readBits2 == hVar.mAi) {
+                } else if (readBits2 == hVar.mAP) {
                     c i2 = i(kVar);
-                    hVar.mAn.put(i2.id, i2);
+                    hVar.mAT.put(i2.id, i2);
                     break;
                 }
                 break;
             case 20:
-                if (readBits2 == hVar.mAh) {
-                    hVar.mAo = h(kVar);
+                if (readBits2 == hVar.mAO) {
+                    hVar.mAU = h(kVar);
                     break;
                 }
                 break;
         }
-        kVar.skipBytes(dye - kVar.dye());
+        kVar.skipBytes(dzo - kVar.dzo());
     }
 
-    private static C0678b h(k kVar) {
+    private static C0686b h(k kVar) {
         int i;
         int i2;
         int i3;
         int i4 = 0;
-        kVar.JP(4);
-        boolean dua = kVar.dua();
-        kVar.JP(3);
+        kVar.JU(4);
+        boolean dvl = kVar.dvl();
+        kVar.JU(3);
         int readBits = kVar.readBits(16);
         int readBits2 = kVar.readBits(16);
-        if (dua) {
+        if (dvl) {
             i3 = kVar.readBits(16);
             i2 = kVar.readBits(16);
             i4 = kVar.readBits(16);
@@ -199,19 +199,19 @@ final class b {
             i2 = readBits;
             i3 = 0;
         }
-        return new C0678b(readBits, readBits2, i3, i2, i4, i);
+        return new C0686b(readBits, readBits2, i3, i2, i4, i);
     }
 
     private static d b(k kVar, int i) {
         int readBits = kVar.readBits(8);
         int readBits2 = kVar.readBits(4);
         int readBits3 = kVar.readBits(2);
-        kVar.JP(2);
+        kVar.JU(2);
         int i2 = i - 2;
         SparseArray sparseArray = new SparseArray();
         while (i2 > 0) {
             int readBits4 = kVar.readBits(8);
-            kVar.JP(8);
+            kVar.JU(8);
             i2 -= 6;
             sparseArray.put(readBits4, new e(kVar.readBits(16), kVar.readBits(16)));
         }
@@ -220,19 +220,19 @@ final class b {
 
     private static f c(k kVar, int i) {
         int readBits = kVar.readBits(8);
-        kVar.JP(4);
-        boolean dua = kVar.dua();
-        kVar.JP(3);
+        kVar.JU(4);
+        boolean dvl = kVar.dvl();
+        kVar.JU(3);
         int readBits2 = kVar.readBits(16);
         int readBits3 = kVar.readBits(16);
         int readBits4 = kVar.readBits(3);
         int readBits5 = kVar.readBits(3);
-        kVar.JP(2);
+        kVar.JU(2);
         int readBits6 = kVar.readBits(8);
         int readBits7 = kVar.readBits(8);
         int readBits8 = kVar.readBits(4);
         int readBits9 = kVar.readBits(2);
-        kVar.JP(2);
+        kVar.JU(2);
         int i2 = i - 10;
         SparseArray sparseArray = new SparseArray();
         while (i2 > 0) {
@@ -240,7 +240,7 @@ final class b {
             int readBits11 = kVar.readBits(2);
             int readBits12 = kVar.readBits(2);
             int readBits13 = kVar.readBits(12);
-            kVar.JP(4);
+            kVar.JU(4);
             int readBits14 = kVar.readBits(12);
             int i3 = i2 - 6;
             int i4 = 0;
@@ -253,7 +253,7 @@ final class b {
             i2 = i3;
             sparseArray.put(readBits10, new g(readBits11, readBits12, readBits13, readBits14, i4, i5));
         }
-        return new f(readBits, dua, readBits2, readBits3, readBits4, readBits5, readBits6, readBits7, readBits8, readBits9, sparseArray);
+        return new f(readBits, dvl, readBits2, readBits3, readBits4, readBits5, readBits6, readBits7, readBits8, readBits9, sparseArray);
     }
 
     private static a d(k kVar, int i) {
@@ -263,19 +263,19 @@ final class b {
         int readBits3;
         int readBits4;
         int readBits5 = kVar.readBits(8);
-        kVar.JP(8);
+        kVar.JU(8);
         int i2 = i - 2;
-        int[] dwV = dwV();
-        int[] dwW = dwW();
-        int[] dwX = dwX();
+        int[] dyf = dyf();
+        int[] dyg = dyg();
+        int[] dyh = dyh();
         while (i2 > 0) {
             int readBits6 = kVar.readBits(8);
             int readBits7 = kVar.readBits(8);
             int i3 = i2 - 2;
             if ((readBits7 & 128) != 0) {
-                iArr = dwV;
+                iArr = dyf;
             } else {
-                iArr = (readBits7 & 64) != 0 ? dwW : dwX;
+                iArr = (readBits7 & 64) != 0 ? dyg : dyh;
             }
             if ((readBits7 & 1) != 0) {
                 readBits = kVar.readBits(8);
@@ -295,48 +295,48 @@ final class b {
                 readBits3 = 0;
                 readBits4 = 255;
             }
-            iArr[readBits6] = L((byte) (255 - (readBits4 & 255)), v.al((int) (readBits + (1.402d * (readBits2 - 128))), 0, 255), v.al((int) ((readBits - (0.34414d * (readBits3 - 128))) - (0.71414d * (readBits2 - 128))), 0, 255), v.al((int) (readBits + (1.772d * (readBits3 - 128))), 0, 255));
+            iArr[readBits6] = L((byte) (255 - (readBits4 & 255)), v.am((int) (readBits + (1.402d * (readBits2 - 128))), 0, 255), v.am((int) ((readBits - (0.34414d * (readBits3 - 128))) - (0.71414d * (readBits2 - 128))), 0, 255), v.am((int) (readBits + (1.772d * (readBits3 - 128))), 0, 255));
         }
-        return new a(readBits5, dwV, dwW, dwX);
+        return new a(readBits5, dyf, dyg, dyh);
     }
 
     private static c i(k kVar) {
         byte[] bArr;
         byte[] bArr2 = null;
         int readBits = kVar.readBits(16);
-        kVar.JP(4);
+        kVar.JU(4);
         int readBits2 = kVar.readBits(2);
-        boolean dua = kVar.dua();
-        kVar.JP(1);
+        boolean dvl = kVar.dvl();
+        kVar.JU(1);
         if (readBits2 == 1) {
-            kVar.JP(kVar.readBits(8) * 16);
+            kVar.JU(kVar.readBits(8) * 16);
             bArr = null;
         } else if (readBits2 == 0) {
             int readBits3 = kVar.readBits(16);
             int readBits4 = kVar.readBits(16);
             if (readBits3 > 0) {
                 bArr = new byte[readBits3];
-                kVar.C(bArr, 0, readBits3);
+                kVar.G(bArr, 0, readBits3);
             } else {
                 bArr = null;
             }
             if (readBits4 > 0) {
                 bArr2 = new byte[readBits4];
-                kVar.C(bArr2, 0, readBits4);
+                kVar.G(bArr2, 0, readBits4);
             } else {
                 bArr2 = bArr;
             }
         } else {
             bArr = null;
         }
-        return new c(readBits, dua, bArr, bArr2);
+        return new c(readBits, dvl, bArr, bArr2);
     }
 
-    private static int[] dwV() {
+    private static int[] dyf() {
         return new int[]{0, -1, ViewCompat.MEASURED_STATE_MASK, -8421505};
     }
 
-    private static int[] dwW() {
+    private static int[] dyg() {
         int[] iArr = new int[16];
         iArr[0] = 0;
         for (int i = 1; i < iArr.length; i++) {
@@ -349,7 +349,7 @@ final class b {
         return iArr;
     }
 
-    private static int[] dwX() {
+    private static int[] dyh() {
         int[] iArr = new int[256];
         iArr[0] = 0;
         for (int i = 0; i < iArr.length; i++) {
@@ -382,14 +382,14 @@ final class b {
     private static void a(c cVar, a aVar, int i, int i2, int i3, Paint paint, Canvas canvas) {
         int[] iArr;
         if (i == 3) {
-            iArr = aVar.mzJ;
+            iArr = aVar.mAq;
         } else if (i == 2) {
-            iArr = aVar.mzI;
+            iArr = aVar.mAp;
         } else {
-            iArr = aVar.mzH;
+            iArr = aVar.mAo;
         }
-        a(cVar.mzP, iArr, i, i2, i3, paint, canvas);
-        a(cVar.mzQ, iArr, i, i2, i3 + 1, paint, canvas);
+        a(cVar.mAw, iArr, i, i2, i3, paint, canvas);
+        a(cVar.mAx, iArr, i, i2, i3 + 1, paint, canvas);
     }
 
     private static void a(byte[] bArr, int[] iArr, int i, int i2, int i3, Paint paint, Canvas canvas) {
@@ -402,29 +402,29 @@ final class b {
         byte[] bArr7 = null;
         int i4 = i3;
         int i5 = i2;
-        while (kVar.dyd() != 0) {
+        while (kVar.dzn() != 0) {
             switch (kVar.readBits(8)) {
                 case 16:
                     if (i == 3) {
-                        bArr5 = bArr7 == null ? mzA : bArr7;
+                        bArr5 = bArr7 == null ? mAg : bArr7;
                     } else if (i == 2) {
-                        bArr5 = bArr6 == null ? mzz : bArr6;
+                        bArr5 = bArr6 == null ? mAf : bArr6;
                     } else {
                         bArr5 = null;
                     }
                     i5 = a(kVar, iArr, bArr5, i5, i4, paint, canvas);
-                    kVar.dyg();
+                    kVar.dzq();
                     bArr2 = bArr7;
                     bArr3 = bArr6;
                     break;
                 case 17:
                     if (i == 3) {
-                        bArr4 = 0 == 0 ? mzB : null;
+                        bArr4 = 0 == 0 ? mAh : null;
                     } else {
                         bArr4 = null;
                     }
                     i5 = b(kVar, iArr, bArr4, i5, i4, paint, canvas);
-                    kVar.dyg();
+                    kVar.dzq();
                     bArr2 = bArr7;
                     bArr3 = bArr6;
                     break;
@@ -472,11 +472,11 @@ final class b {
                 readBits = 1;
                 z = z2;
                 readBits2 = readBits3;
-            } else if (kVar.dua()) {
+            } else if (kVar.dvl()) {
                 readBits = kVar.readBits(3) + 3;
                 z = z2;
                 readBits2 = kVar.readBits(2);
-            } else if (!kVar.dua()) {
+            } else if (!kVar.dvl()) {
                 switch (kVar.readBits(2)) {
                     case 0:
                         readBits = 0;
@@ -535,7 +535,7 @@ final class b {
                 readBits = 1;
                 z = z2;
                 readBits2 = readBits3;
-            } else if (!kVar.dua()) {
+            } else if (!kVar.dvl()) {
                 int readBits4 = kVar.readBits(3);
                 if (readBits4 == 0) {
                     readBits = 0;
@@ -546,7 +546,7 @@ final class b {
                     z = z2;
                     readBits2 = 0;
                 }
-            } else if (!kVar.dua()) {
+            } else if (!kVar.dvl()) {
                 readBits = kVar.readBits(2) + 4;
                 z = z2;
                 readBits2 = kVar.readBits(4);
@@ -605,7 +605,7 @@ final class b {
                 readBits = 1;
                 z = z2;
                 readBits2 = readBits3;
-            } else if (!kVar.dua()) {
+            } else if (!kVar.dvl()) {
                 int readBits4 = kVar.readBits(7);
                 if (readBits4 == 0) {
                     readBits = 0;
@@ -645,171 +645,171 @@ final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class h {
-        public final int mAh;
-        public final int mAi;
-        public C0678b mAo;
-        public d mAp;
-        public final SparseArray<f> mzS = new SparseArray<>();
-        public final SparseArray<a> mAj = new SparseArray<>();
-        public final SparseArray<c> mAl = new SparseArray<>();
-        public final SparseArray<a> mAm = new SparseArray<>();
-        public final SparseArray<c> mAn = new SparseArray<>();
+        public final int mAO;
+        public final int mAP;
+        public C0686b mAU;
+        public d mAV;
+        public final SparseArray<f> mAz = new SparseArray<>();
+        public final SparseArray<a> mAQ = new SparseArray<>();
+        public final SparseArray<c> mAR = new SparseArray<>();
+        public final SparseArray<a> mAS = new SparseArray<>();
+        public final SparseArray<c> mAT = new SparseArray<>();
 
         public h(int i, int i2) {
-            this.mAh = i;
-            this.mAi = i2;
+            this.mAO = i;
+            this.mAP = i2;
         }
 
         public void reset() {
-            this.mzS.clear();
-            this.mAj.clear();
-            this.mAl.clear();
-            this.mAm.clear();
-            this.mAn.clear();
-            this.mAo = null;
-            this.mAp = null;
+            this.mAz.clear();
+            this.mAQ.clear();
+            this.mAR.clear();
+            this.mAS.clear();
+            this.mAT.clear();
+            this.mAU = null;
+            this.mAV = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.android.exoplayer2.text.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0678b {
+    /* loaded from: classes6.dex */
+    public static final class C0686b {
         public final int height;
-        public final int mzK;
-        public final int mzL;
-        public final int mzM;
-        public final int mzN;
+        public final int mAr;
+        public final int mAs;
+        public final int mAt;
+        public final int mAu;
         public final int width;
 
-        public C0678b(int i, int i2, int i3, int i4, int i5, int i6) {
+        public C0686b(int i, int i2, int i3, int i4, int i5, int i6) {
             this.width = i;
             this.height = i2;
-            this.mzK = i3;
-            this.mzL = i4;
-            this.mzM = i5;
-            this.mzN = i6;
+            this.mAr = i3;
+            this.mAs = i4;
+            this.mAt = i5;
+            this.mAu = i6;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class d {
-        public final int mzR;
-        public final SparseArray<e> mzS;
+        public final int mAy;
+        public final SparseArray<e> mAz;
         public final int state;
         public final int version;
 
         public d(int i, int i2, int i3, SparseArray<e> sparseArray) {
-            this.mzR = i;
+            this.mAy = i;
             this.version = i2;
             this.state = i3;
-            this.mzS = sparseArray;
+            this.mAz = sparseArray;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class e {
-        public final int mzT;
-        public final int mzU;
+        public final int mAA;
+        public final int mAB;
 
         public e(int i, int i2) {
-            this.mzT = i;
-            this.mzU = i2;
+            this.mAA = i;
+            this.mAB = i2;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class f {
         public final int depth;
         public final int height;
         public final int id;
-        public final int mAa;
-        public final SparseArray<g> mAb;
-        public final boolean mzV;
-        public final int mzW;
-        public final int mzX;
-        public final int mzY;
-        public final int mzZ;
+        public final boolean mAC;
+        public final int mAD;
+        public final int mAE;
+        public final int mAF;
+        public final int mAG;
+        public final int mAH;
+        public final SparseArray<g> mAI;
         public final int width;
 
         public f(int i, boolean z, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, SparseArray<g> sparseArray) {
             this.id = i;
-            this.mzV = z;
+            this.mAC = z;
             this.width = i2;
             this.height = i3;
-            this.mzW = i4;
+            this.mAD = i4;
             this.depth = i5;
-            this.mzX = i6;
-            this.mzY = i7;
-            this.mzZ = i8;
-            this.mAa = i9;
-            this.mAb = sparseArray;
+            this.mAE = i6;
+            this.mAF = i7;
+            this.mAG = i8;
+            this.mAH = i9;
+            this.mAI = sparseArray;
         }
 
         public void a(f fVar) {
             if (fVar != null) {
-                SparseArray<g> sparseArray = fVar.mAb;
+                SparseArray<g> sparseArray = fVar.mAI;
                 for (int i = 0; i < sparseArray.size(); i++) {
-                    this.mAb.put(sparseArray.keyAt(i), sparseArray.valueAt(i));
+                    this.mAI.put(sparseArray.keyAt(i), sparseArray.valueAt(i));
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class g {
-        public final int mAc;
-        public final int mAd;
-        public final int mAe;
-        public final int mAf;
-        public final int mAg;
+        public final int mAJ;
+        public final int mAK;
+        public final int mAL;
+        public final int mAM;
+        public final int mAN;
         public final int type;
 
         public g(int i, int i2, int i3, int i4, int i5, int i6) {
             this.type = i;
-            this.mAc = i2;
-            this.mAd = i3;
-            this.mAe = i4;
-            this.mAf = i5;
-            this.mAg = i6;
+            this.mAJ = i2;
+            this.mAK = i3;
+            this.mAL = i4;
+            this.mAM = i5;
+            this.mAN = i6;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public final int id;
-        public final int[] mzH;
-        public final int[] mzI;
-        public final int[] mzJ;
+        public final int[] mAo;
+        public final int[] mAp;
+        public final int[] mAq;
 
         public a(int i, int[] iArr, int[] iArr2, int[] iArr3) {
             this.id = i;
-            this.mzH = iArr;
-            this.mzI = iArr2;
-            this.mzJ = iArr3;
+            this.mAo = iArr;
+            this.mAp = iArr2;
+            this.mAq = iArr3;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class c {
         public final int id;
-        public final boolean mzO;
-        public final byte[] mzP;
-        public final byte[] mzQ;
+        public final boolean mAv;
+        public final byte[] mAw;
+        public final byte[] mAx;
 
         public c(int i, boolean z, byte[] bArr, byte[] bArr2) {
             this.id = i;
-            this.mzO = z;
-            this.mzP = bArr;
-            this.mzQ = bArr2;
+            this.mAv = z;
+            this.mAw = bArr;
+            this.mAx = bArr2;
         }
     }
 }

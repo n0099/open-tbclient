@@ -16,23 +16,23 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
-    private LinearLayout fFF;
-    private TextView fFG;
-    private LinearLayout fFH;
-    private d fFI;
-    private e fFJ;
-    private e fFK;
-    private com.baidu.tieba.e.a fFL;
-    private com.baidu.tieba.e.b fFM;
-    private com.baidu.tieba.e.b fFN;
-    private View fFO;
-    private View fFP;
-    private a fFQ;
+    private LinearLayout fIc;
+    private TextView fId;
+    private LinearLayout fIe;
+    private d fIf;
+    private e fIg;
+    private e fIh;
+    private com.baidu.tieba.e.a fIi;
+    private com.baidu.tieba.e.b fIj;
+    private com.baidu.tieba.e.b fIk;
+    private View fIl;
+    private View fIm;
+    private a fIn;
     private String mForumId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void b(View view, com.baidu.tieba.card.data.b bVar);
     }
@@ -44,62 +44,62 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     }
 
     private void init(View view) {
-        this.fFF = (LinearLayout) view.findViewById(R.id.card_frs_game_head_line_layout);
-        this.fFG = (TextView) view.findViewById(R.id.frs_game_head_line_title);
-        this.fFH = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
-        this.fFO = view.findViewById(R.id.divider_line_1);
-        this.fFP = view.findViewById(R.id.divider_line_2);
+        this.fIc = (LinearLayout) view.findViewById(R.id.card_frs_game_head_line_layout);
+        this.fId = (TextView) view.findViewById(R.id.frs_game_head_line_title);
+        this.fIe = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
+        this.fIl = view.findViewById(R.id.divider_line_1);
+        this.fIm = view.findViewById(R.id.divider_line_2);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
-        if (this.fFI == null) {
-            this.fFI = new d(this.mTbPageContext, null, null);
+        if (this.fIf == null) {
+            this.fIf = new d(this.mTbPageContext, null, null);
         }
-        this.fFI.v(0, 0, 0, 0);
-        this.fFI.rf(8);
-        this.fFI.rg(8);
-        if (this.fFI.getView().getParent() != null) {
-            ((ViewGroup) this.fFI.getView().getParent()).removeView(this.fFI.getView());
+        this.fIf.v(0, 0, 0, 0);
+        this.fIf.rm(8);
+        this.fIf.rn(8);
+        if (this.fIf.getView().getParent() != null) {
+            ((ViewGroup) this.fIf.getView().getParent()).removeView(this.fIf.getView());
         }
-        this.fFI.getView().setOnClickListener(this);
-        this.fFI.getView().setVisibility(8);
-        this.fFH.addView(this.fFI.getView());
-        if (this.fFJ == null) {
-            this.fFJ = new e(this.mTbPageContext);
+        this.fIf.getView().setOnClickListener(this);
+        this.fIf.getView().setVisibility(8);
+        this.fIe.addView(this.fIf.getView());
+        if (this.fIg == null) {
+            this.fIg = new e(this.mTbPageContext);
         }
-        this.fFJ.rg(8);
-        this.fFJ.w(0, dimensionPixelSize, 0, 0);
-        if (this.fFJ.getView().getParent() != null) {
-            ((ViewGroup) this.fFJ.getView().getParent()).removeView(this.fFJ.getView());
+        this.fIg.rn(8);
+        this.fIg.w(0, dimensionPixelSize, 0, 0);
+        if (this.fIg.getView().getParent() != null) {
+            ((ViewGroup) this.fIg.getView().getParent()).removeView(this.fIg.getView());
         }
-        this.fFJ.getView().setOnClickListener(this);
-        this.fFJ.getView().setVisibility(8);
-        this.fFH.addView(this.fFJ.getView());
-        if (this.fFK == null) {
-            this.fFK = new e(this.mTbPageContext);
+        this.fIg.getView().setOnClickListener(this);
+        this.fIg.getView().setVisibility(8);
+        this.fIe.addView(this.fIg.getView());
+        if (this.fIh == null) {
+            this.fIh = new e(this.mTbPageContext);
         }
-        this.fFK.rg(8);
-        this.fFK.w(0, dimensionPixelSize, 0, 0);
-        if (this.fFK.getView().getParent() != null) {
-            ((ViewGroup) this.fFK.getView().getParent()).removeView(this.fFK.getView());
+        this.fIh.rn(8);
+        this.fIh.w(0, dimensionPixelSize, 0, 0);
+        if (this.fIh.getView().getParent() != null) {
+            ((ViewGroup) this.fIh.getView().getParent()).removeView(this.fIh.getView());
         }
-        this.fFK.getView().setOnClickListener(this);
-        this.fFK.getView().setVisibility(8);
-        this.fFH.addView(this.fFK.getView());
+        this.fIh.getView().setOnClickListener(this);
+        this.fIh.getView().setVisibility(8);
+        this.fIe.addView(this.fIh.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundResource(getView(), R.color.cp_bg_line_d);
-        am.setViewTextColor(this.fFG, R.color.cp_cont_f, 1);
-        am.setBackgroundResource(this.fFO, R.color.cp_bg_line_e);
-        am.setBackgroundResource(this.fFP, R.color.cp_bg_line_e);
-        if (this.fFI != null) {
-            this.fFI.onChangeSkinType(tbPageContext, i);
+        am.setViewTextColor(this.fId, R.color.cp_cont_f, 1);
+        am.setBackgroundResource(this.fIl, R.color.cp_bg_line_e);
+        am.setBackgroundResource(this.fIm, R.color.cp_bg_line_e);
+        if (this.fIf != null) {
+            this.fIf.onChangeSkinType(tbPageContext, i);
         }
-        if (this.fFJ != null) {
-            this.fFJ.onChangeSkinType(tbPageContext, i);
+        if (this.fIg != null) {
+            this.fIg.onChangeSkinType(tbPageContext, i);
         }
-        if (this.fFK != null) {
-            this.fFK.onChangeSkinType(tbPageContext, i);
+        if (this.fIh != null) {
+            this.fIh.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -111,69 +111,69 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.d dVar) {
-        if (dVar != null && dVar.buW() != null) {
-            if (!TextUtils.isEmpty(dVar.buW().title)) {
-                this.fFG.setText(dVar.buW().title);
+        if (dVar != null && dVar.bwA() != null) {
+            if (!TextUtils.isEmpty(dVar.bwA().title)) {
+                this.fId.setText(dVar.bwA().title);
             }
-            List<bj> list = dVar.buW().sub_nodes;
+            List<bj> list = dVar.bwA().sub_nodes;
             if (com.baidu.tbadk.core.util.v.getCount(list) >= 1) {
-                this.fFL = new com.baidu.tieba.e.a();
-                this.fFL.setData(list.get(0));
-                this.fFI.getView().setVisibility(0);
-                this.fFI.a(this.fFL);
+                this.fIi = new com.baidu.tieba.e.a();
+                this.fIi.setData(list.get(0));
+                this.fIf.getView().setVisibility(0);
+                this.fIf.a(this.fIi);
             }
             if (com.baidu.tbadk.core.util.v.getCount(list) >= 2) {
-                this.fFM = new com.baidu.tieba.e.b();
-                this.fFM.setData(list.get(1));
-                this.fFJ.getView().setVisibility(0);
-                this.fFJ.a(this.fFM);
-                this.fFJ.rh(8);
+                this.fIj = new com.baidu.tieba.e.b();
+                this.fIj.setData(list.get(1));
+                this.fIg.getView().setVisibility(0);
+                this.fIg.a(this.fIj);
+                this.fIg.ro(8);
             }
             if (com.baidu.tbadk.core.util.v.getCount(list) >= 3) {
-                this.fFN = new com.baidu.tieba.e.b();
-                this.fFN.setData(list.get(2));
-                this.fFK.getView().setVisibility(0);
-                this.fFK.a(this.fFN);
-                this.fFK.rh(8);
+                this.fIk = new com.baidu.tieba.e.b();
+                this.fIk.setData(list.get(2));
+                this.fIh.getView().setVisibility(0);
+                this.fIh.a(this.fIk);
+                this.fIh.ro(8);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new an("c13047").Z("obj_locate", 6).cp("fid", this.mForumId));
-        if (view == this.fFI.getView()) {
-            if (this.fFL != null) {
-                if (this.fFQ != null) {
-                    this.fFQ.b(view, this.fFL);
+        TiebaStatic.log(new an("c13047").X("obj_locate", 6).cy("fid", this.mForumId));
+        if (view == this.fIf.getView()) {
+            if (this.fIi != null) {
+                if (this.fIn != null) {
+                    this.fIn.b(view, this.fIi);
                 }
-                V(this.fFL.axQ());
+                W(this.fIi.aAe());
             }
-        } else if (view == this.fFJ.getView()) {
-            if (this.fFM != null) {
-                if (this.fFQ != null) {
-                    this.fFQ.b(view, this.fFM);
+        } else if (view == this.fIg.getView()) {
+            if (this.fIj != null) {
+                if (this.fIn != null) {
+                    this.fIn.b(view, this.fIj);
                 }
-                V(this.fFM.axQ());
+                W(this.fIj.aAe());
             }
-        } else if (view == this.fFK.getView() && this.fFN != null) {
-            if (this.fFQ != null) {
-                this.fFQ.b(view, this.fFN);
+        } else if (view == this.fIh.getView() && this.fIk != null) {
+            if (this.fIn != null) {
+                this.fIn.b(view, this.fIk);
             }
-            V(this.fFN.axQ());
+            W(this.fIk.aAe());
         }
     }
 
-    private void V(bj bjVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(getTbPageContext().getPageActivity()).createFromThreadCfg(bjVar, null, l.azJ(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+    private void W(bj bjVar) {
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(getTbPageContext().getPageActivity()).createFromThreadCfg(bjVar, null, l.aBY(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
         createFromThreadCfg.setForumId(String.valueOf(bjVar.getFid()));
-        createFromThreadCfg.setForumName(bjVar.aAc());
+        createFromThreadCfg.setForumName(bjVar.aCr());
         createFromThreadCfg.setStartFrom(0);
-        l.zC(bjVar.getTid());
+        l.zS(bjVar.getTid());
         getTbPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
     }
 
     public void a(a aVar) {
-        this.fFQ = aVar;
+        this.fIn = aVar;
     }
 }

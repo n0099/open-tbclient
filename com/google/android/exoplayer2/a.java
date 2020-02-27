@@ -3,28 +3,28 @@ package com.google.android.exoplayer2;
 import android.support.annotation.Nullable;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a implements s, t {
     private int index;
-    private final int lXq;
-    private u lXr;
-    private com.google.android.exoplayer2.source.p lXs;
-    private long lXt;
-    private boolean lXu = true;
-    private boolean lXv;
+    private final int lXW;
+    private u lXX;
+    private com.google.android.exoplayer2.source.p lXY;
+    private long lXZ;
+    private boolean lYa = true;
+    private boolean lYb;
     private int state;
 
     public a(int i) {
-        this.lXq = i;
+        this.lXW = i;
     }
 
     @Override // com.google.android.exoplayer2.s, com.google.android.exoplayer2.t
     public final int getTrackType() {
-        return this.lXq;
+        return this.lXW;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final t drs() {
+    public final t dsE() {
         return this;
     }
 
@@ -34,7 +34,7 @@ public abstract class a implements s, t {
     }
 
     @Override // com.google.android.exoplayer2.s
-    public com.google.android.exoplayer2.util.h drt() {
+    public com.google.android.exoplayer2.util.h dsF() {
         return null;
     }
 
@@ -46,11 +46,11 @@ public abstract class a implements s, t {
     @Override // com.google.android.exoplayer2.s
     public final void a(u uVar, Format[] formatArr, com.google.android.exoplayer2.source.p pVar, long j, boolean z, long j2) throws ExoPlaybackException {
         com.google.android.exoplayer2.util.a.checkState(this.state == 0);
-        this.lXr = uVar;
+        this.lXX = uVar;
         this.state = 1;
-        vt(z);
+        vx(z);
         a(formatArr, pVar, j2);
-        j(j, z);
+        l(j, z);
     }
 
     @Override // com.google.android.exoplayer2.s
@@ -62,43 +62,43 @@ public abstract class a implements s, t {
 
     @Override // com.google.android.exoplayer2.s
     public final void a(Format[] formatArr, com.google.android.exoplayer2.source.p pVar, long j) throws ExoPlaybackException {
-        com.google.android.exoplayer2.util.a.checkState(!this.lXv);
-        this.lXs = pVar;
-        this.lXu = false;
-        this.lXt = j;
+        com.google.android.exoplayer2.util.a.checkState(!this.lYb);
+        this.lXY = pVar;
+        this.lYa = false;
+        this.lXZ = j;
         a(formatArr, j);
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final com.google.android.exoplayer2.source.p dru() {
-        return this.lXs;
+    public final com.google.android.exoplayer2.source.p dsG() {
+        return this.lXY;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final boolean drv() {
-        return this.lXu;
+    public final boolean dsH() {
+        return this.lYa;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final void drw() {
-        this.lXv = true;
+    public final void dsI() {
+        this.lYb = true;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final boolean drx() {
-        return this.lXv;
+    public final boolean dsJ() {
+        return this.lYb;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final void dry() throws IOException {
-        this.lXs.duZ();
+    public final void dsK() throws IOException {
+        this.lXY.dwj();
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final void fn(long j) throws ExoPlaybackException {
-        this.lXv = false;
-        this.lXu = false;
-        j(j, false);
+    public final void fl(long j) throws ExoPlaybackException {
+        this.lYb = false;
+        this.lYa = false;
+        l(j, false);
     }
 
     @Override // com.google.android.exoplayer2.s
@@ -112,13 +112,13 @@ public abstract class a implements s, t {
     public final void disable() {
         com.google.android.exoplayer2.util.a.checkState(this.state == 1);
         this.state = 0;
-        this.lXs = null;
-        this.lXv = false;
-        drA();
+        this.lXY = null;
+        this.lYb = false;
+        dsM();
     }
 
     @Override // com.google.android.exoplayer2.t
-    public int drz() throws ExoPlaybackException {
+    public int dsL() throws ExoPlaybackException {
         return 0;
     }
 
@@ -126,14 +126,14 @@ public abstract class a implements s, t {
     public void k(int i, Object obj) throws ExoPlaybackException {
     }
 
-    protected void vt(boolean z) throws ExoPlaybackException {
+    protected void vx(boolean z) throws ExoPlaybackException {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Format[] formatArr, long j) throws ExoPlaybackException {
     }
 
-    protected void j(long j, boolean z) throws ExoPlaybackException {
+    protected void l(long j, boolean z) throws ExoPlaybackException {
     }
 
     protected void onStarted() throws ExoPlaybackException {
@@ -142,12 +142,12 @@ public abstract class a implements s, t {
     protected void onStopped() throws ExoPlaybackException {
     }
 
-    protected void drA() {
+    protected void dsM() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final u drB() {
-        return this.lXr;
+    public final u dsN() {
+        return this.lXX;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -157,30 +157,30 @@ public abstract class a implements s, t {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final int a(m mVar, com.google.android.exoplayer2.a.e eVar, boolean z) {
-        int b = this.lXs.b(mVar, eVar, z);
+        int b = this.lXY.b(mVar, eVar, z);
         if (b == -4) {
-            if (eVar.dth()) {
-                this.lXu = true;
-                return this.lXv ? -4 : -3;
+            if (eVar.dus()) {
+                this.lYa = true;
+                return this.lYb ? -4 : -3;
             }
-            eVar.mcV += this.lXt;
+            eVar.mdB += this.lXZ;
         } else if (b == -5) {
-            Format format = mVar.lYQ;
+            Format format = mVar.lZw;
             if (format.subsampleOffsetUs != Format.OFFSET_SAMPLE_RELATIVE) {
-                mVar.lYQ = format.fz(format.subsampleOffsetUs + this.lXt);
+                mVar.lZw = format.fx(format.subsampleOffsetUs + this.lXZ);
             }
         }
         return b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int fo(long j) {
-        return this.lXs.gg(j - this.lXt);
+    public int fm(long j) {
+        return this.lXY.ge(j - this.lXZ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean cRS() {
-        return this.lXu ? this.lXv : this.lXs.isReady();
+    public final boolean cTn() {
+        return this.lYa ? this.lYb : this.lXY.isReady();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

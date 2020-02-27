@@ -1,7 +1,8 @@
 package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class Regex$findAll$1 extends Lambda implements kotlin.jvm.a.a<i> {
     final /* synthetic */ CharSequence $input;
     final /* synthetic */ int $startIndex;

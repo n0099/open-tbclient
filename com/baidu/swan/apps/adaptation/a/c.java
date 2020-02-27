@@ -5,10 +5,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.api.module.a.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c {
     @NonNull
-    com.baidu.swan.apps.setting.oauth.a.d F(Activity activity);
+    com.baidu.swan.apps.setting.oauth.a.d G(Activity activity);
 
     @NonNull
     com.baidu.swan.apps.setting.oauth.a.a a(Activity activity, boolean z, String str, String str2);

@@ -3,7 +3,7 @@ package com.baidu.swan.pms.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PMSAppInfo implements Parcelable {
     public static final Parcelable.Creator<PMSAppInfo> CREATOR = new Parcelable.Creator<PMSAppInfo>() { // from class: com.baidu.swan.pms.model.PMSAppInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public class PMSAppInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: in */
+        /* renamed from: iE */
         public PMSAppInfo[] newArray(int i) {
             return new PMSAppInfo[i];
         }
@@ -151,20 +151,20 @@ public class PMSAppInfo implements Parcelable {
         return this.orientation;
     }
 
-    public boolean arr() {
+    public boolean atF() {
         return this.pendingErrCode != 0;
     }
 
-    public boolean agK() {
+    public boolean aiY() {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.cwZ;
+            this.appId = fVar.cAX;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.cxj;
+            this.type = fVar.cBh;
             this.pkgSize = fVar.size;
         }
     }
@@ -174,7 +174,7 @@ public class PMSAppInfo implements Parcelable {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.cxj;
+            this.type = gVar.cBh;
             this.pkgSize = gVar.size;
         }
     }
@@ -190,14 +190,14 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void ars() {
+    public void atG() {
         if (this.maxAge <= 0) {
             this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean NE() {
+    public boolean PS() {
         return !TextUtils.isEmpty(this.appKey) && this.appSign > 0;
     }
 }

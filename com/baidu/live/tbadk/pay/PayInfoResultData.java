@@ -5,7 +5,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PayInfoResultData extends BaseData implements Serializable {
     private static final long serialVersionUID = -3890790632004634138L;
     private String errmsg;

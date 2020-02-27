@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends f {
-    private String cya;
-    private int cyb;
-    private long cyc;
-    private String cyd;
-    private String cye;
-    private int cyf;
+    private String cBY;
+    private int cBZ;
+    private long cCa;
+    private String cCb;
+    private String cCc;
+    private int cCd;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.cyb = -1;
-        this.cyc = -1L;
-        this.cyf = -1;
-        this.cya = str;
+        this.cBZ = -1;
+        this.cCa = -1L;
+        this.cCd = -1;
+        this.cBY = str;
     }
 
-    public c is(int i) {
-        this.cyf = i;
+    public c iJ(int i) {
+        this.cCd = i;
         return this;
     }
 
-    public int arW() {
-        return this.cyf;
+    public int auk() {
+        return this.cCd;
     }
 
-    public c qh(String str) {
-        this.cyd = str;
+    public c qw(String str) {
+        this.cCb = str;
         return this;
     }
 
-    public c it(int i) {
-        this.cyb = i;
+    public c iK(int i) {
+        this.cBZ = i;
         return this;
     }
 
-    public c bh(long j) {
-        this.cyc = j;
+    public c bl(long j) {
+        this.cCa = j;
         return this;
     }
 
-    public c qi(String str) {
-        this.cye = str;
+    public c qx(String str) {
+        this.cCc = str;
         return this;
     }
 
-    public c qj(String str) {
+    public c qy(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.cya;
+        return this.cBY;
     }
 
-    public int arU() {
-        return this.cyb;
+    public int aui() {
+        return this.cBZ;
     }
 
-    public long arV() {
-        return this.cyc;
+    public long auj() {
+        return this.cCa;
     }
 
-    public String arX() {
-        return this.cyd;
+    public String aul() {
+        return this.cCb;
     }
 
-    public String arY() {
-        return this.cye;
+    public String aum() {
+        return this.cCc;
     }
 
     public String getPath() {

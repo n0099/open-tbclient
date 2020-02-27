@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import java.io.FileDescriptor;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface b {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
-        void fd(String str, String str2);
+        void fl(String str, String str2);
     }
 
     void a(com.facebook.common.g.a aVar);

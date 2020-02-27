@@ -351,11 +351,11 @@ public class m {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean sS(String str) {
+    public static boolean ti(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean sT(String str) {
+    public static boolean tj(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -700,7 +700,7 @@ public class m {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1092=4, 1093=4, 1095=4, 1096=4, 1097=4, 1101=4, 1102=4, 1104=4, 1105=4, 1106=4] */
-    public static boolean t(java.lang.String r8, java.lang.String r9, boolean r10) {
+    public static boolean u(java.lang.String r8, java.lang.String r9, boolean r10) {
         /*
             r0 = 0
             r3 = 0
@@ -933,7 +933,7 @@ public class m {
             r1 = move-exception
             goto La0
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.m.t(java.lang.String, java.lang.String, boolean):boolean");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.m.u(java.lang.String, java.lang.String, boolean):boolean");
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -1312,8 +1312,8 @@ public class m {
         }
     }
 
-    public static boolean co(String str, String str2) {
-        return t(str, str2, false);
+    public static boolean cx(String str, String str2) {
+        return u(str, str2, false);
     }
 
     public static InputStream GetStreamFromFile(String str) {
@@ -1765,7 +1765,7 @@ public class m {
                 str2 = ".gif";
             }
             if (com.baidu.adp.lib.util.l.isDataWebpFormat(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.d.hs().Bitmap2Bytes(decodeByteArray, 100);
+                bArr = com.baidu.adp.lib.util.d.hG().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
             String nameMd5FromUrl = as.getNameMd5FromUrl(str);
@@ -1878,7 +1878,7 @@ public class m {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String sU(String str) {
+    public static String tk(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1886,7 +1886,7 @@ public class m {
         return parse.getLastPathSegment();
     }
 
-    public static String sV(String str) {
+    public static String tl(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1894,18 +1894,18 @@ public class m {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void sW(@NonNull String str) {
+    public static void tm(@NonNull String str) {
         if (str != null) {
-            C(new File(CACHE_DIR + "/" + str));
+            E(new File(CACHE_DIR + "/" + str));
         }
     }
 
-    private static void C(File file) {
+    private static void E(File file) {
         File[] listFiles;
         if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    C(file2);
+                    E(file2);
                     file2.delete();
                 } else {
                     file2.delete();

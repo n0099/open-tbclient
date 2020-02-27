@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Scroller;
 import com.baidu.live.adp.widget.scrollview.BdOnAnimationOverListener;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdPaddingAnimation4ListView {
     private boolean isReadyToStart;
     int mDuration;
@@ -40,7 +40,7 @@ public class BdPaddingAnimation4ListView {
         this.mOverListener = bdOnAnimationOverListener;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class FlingRunnable implements Runnable {
         private int mLastFlingY;
         private Scroller mScroller;

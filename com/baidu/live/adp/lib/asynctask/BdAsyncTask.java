@@ -13,7 +13,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BdAsyncTask<Params, Progress, Result> {
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
@@ -58,7 +58,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BdAsyncTaskStatus {
         PENDING,
         RUNNING,
@@ -244,7 +244,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class InternalHandler extends Handler {
         public InternalHandler(Looper looper) {
             super(looper);
@@ -267,7 +267,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class WorkerRunnable<Params, Result> implements Callable<Result> {
         Params[] mParams;
 
@@ -276,7 +276,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BdAsyncTaskResult<Data> {
         final Data[] mData;
         final BdAsyncTask mTask;

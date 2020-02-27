@@ -6,7 +6,7 @@ import io.reactivex.disposables.b;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CompletableDoFinally extends a {
     final io.reactivex.c.a onFinally;
     final e source;
@@ -16,7 +16,7 @@ public final class CompletableDoFinally extends a {
         this.source.a(new DoFinallyObserver(cVar, this.onFinally));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class DoFinallyObserver extends AtomicInteger implements c, b {
         private static final long serialVersionUID = 4109457741734051389L;
         final c actual;
@@ -64,7 +64,7 @@ public final class CompletableDoFinally extends a {
                 try {
                     this.onFinally.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.exceptions.a.H(th);
                     io.reactivex.e.a.onError(th);
                 }
             }

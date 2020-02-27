@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static boolean a = false;
     public static String b = "";

@@ -27,7 +27,7 @@ import com.baidu.searchbox.widget.SlideHelper;
 import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
 import java.lang.reflect.Field;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BaseFragment extends Fragment implements NightModeChangeListener {
     private static final boolean DEBUG_BASE = LibAppFrameworkConfig.GLOBAL_DEBUG;
     private static final int FIRST_CHILD_INDEX = 0;

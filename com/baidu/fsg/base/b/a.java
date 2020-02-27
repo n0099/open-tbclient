@@ -15,7 +15,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static final long a = 1000;
     private static final long e = Long.MAX_VALUE;
@@ -31,7 +31,7 @@ public final class a {
     private long m = Long.MAX_VALUE;
     private Timer n = new Timer();
     private BlockingQueue<Runnable> o = new LinkedBlockingQueue(10);
-    private C0061a p = new C0061a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
+    private C0067a p = new C0067a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
     private b q = new b(this, null);
     private final HashMap<String, ArrayList<c>> j = new HashMap<>();
 
@@ -240,9 +240,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0061a extends ThreadPoolExecutor {
-        public C0061a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+    /* loaded from: classes4.dex */
+    public class C0067a extends ThreadPoolExecutor {
+        public C0067a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
             super(i, i2, j, timeUnit, blockingQueue, threadFactory);
         }
 
@@ -254,7 +254,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Executor {
         final LinkedList<Runnable> a;
         Runnable b;
@@ -289,7 +289,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c {
         public String a;
         public Runnable b;

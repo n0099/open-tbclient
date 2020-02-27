@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.webkit.net.BdNetEngine;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = ConnectManager.class.getSimpleName();

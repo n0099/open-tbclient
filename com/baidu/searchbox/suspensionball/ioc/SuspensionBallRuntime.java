@@ -3,17 +3,17 @@ package com.baidu.searchbox.suspensionball.ioc;
 import com.baidu.tieba.publisher.a.g;
 import com.baidu.tieba.publisher.a.i;
 import com.baidu.tieba.publisher.a.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SuspensionBallRuntime {
     public static ISuspensionBallDispatcher getDispatcher() {
-        return i.czB();
+        return i.cAW();
     }
 
     public static ISuspensionBallShield getShieldImpl() {
-        return k.czC();
+        return k.cAX();
     }
 
     public static ISuspensionBallDataInit getDataInitImpl() {
-        return g.czA();
+        return g.cAV();
     }
 }

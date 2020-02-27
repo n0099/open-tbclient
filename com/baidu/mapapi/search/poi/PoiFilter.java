@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class PoiFilter implements Parcelable {
     private String a;
     private String b;
@@ -16,7 +16,7 @@ public final class PoiFilter implements Parcelable {
     private static Map<SortName, String> f = new HashMap();
     public static final Parcelable.Creator<PoiFilter> CREATOR = new c();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         private String a;
         private String b;
@@ -97,17 +97,17 @@ public final class PoiFilter implements Parcelable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum IndustryType {
         HOTEL,
         CATER,
         LIFE
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface SortName {
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public enum CaterSortName implements SortName {
             DEFAULT,
             CATER_PRICE,
@@ -117,7 +117,7 @@ public final class PoiFilter implements Parcelable {
             CATER_SERVICE_RATING
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public enum HotelSortName implements SortName {
             DEFAULT,
             HOTEL_PRICE,
@@ -127,7 +127,7 @@ public final class PoiFilter implements Parcelable {
             HOTEL_HEALTH_SCORE
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public enum LifeSortName implements SortName {
             DEFAULT,
             PRICE,

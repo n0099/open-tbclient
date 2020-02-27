@@ -11,7 +11,7 @@ import com.facebook.common.references.a;
 import com.facebook.drawee.a.a.c;
 import com.facebook.imagepipeline.e.b;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AdImageVIew extends AppCompatImageView {
     public AdImageVIew(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class AdImageVIew extends AppCompatImageView {
     }
 
     public void setImageUrl(String str) {
-        c.dkl().e(ImageRequestBuilder.X(Uri.parse(str)).dro(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
+        c.dly().e(ImageRequestBuilder.Y(Uri.parse(str)).dsA(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
             @Override // com.facebook.imagepipeline.e.b
             protected void onNewResultImpl(@Nullable Bitmap bitmap) {
                 if (bitmap != null) {
@@ -37,6 +37,6 @@ public class AdImageVIew extends AppCompatImageView {
             @Override // com.facebook.datasource.a
             protected void onFailureImpl(com.facebook.datasource.b<a<com.facebook.imagepipeline.g.c>> bVar) {
             }
-        }, i.djq());
+        }, i.dkD());
     }
 }

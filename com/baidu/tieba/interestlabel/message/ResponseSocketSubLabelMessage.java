@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.SubTagList.SubTagListResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ResponseSocketSubLabelMessage extends SocketResponsedMessage {
     public ResponseSocketSubLabelMessage() {
         super(CmdConfigSocket.CMD_SUB_INTEREST_LABEL_LIST);

@@ -14,7 +14,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends ab {
     public d(j jVar) {
         super(jVar, "/swanAPI/showLoading");
@@ -26,7 +26,7 @@ public class d extends ab {
         if (DEBUG) {
             Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (eVar != null && eVar.Ho()) {
+        if (eVar != null && eVar.JD()) {
             if (DEBUG) {
                 Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
             }
@@ -51,35 +51,35 @@ public class d extends ab {
                 return false;
             }
             boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-            com.baidu.swan.apps.core.d.e El = ((SwanAppActivity) context).El();
-            if (El == null) {
+            com.baidu.swan.apps.core.d.e GA = ((SwanAppActivity) context).GA();
+            if (GA == null) {
                 com.baidu.swan.apps.console.c.e("showLoading", "none fragment");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
                 return false;
             }
-            com.baidu.swan.apps.core.d.b LX = El.LX();
-            if (!(LX instanceof a.InterfaceC0273a)) {
+            com.baidu.swan.apps.core.d.b Ol = GA.Ol();
+            if (!(Ol instanceof a.InterfaceC0283a)) {
                 com.baidu.swan.apps.console.c.e("showLoading", "fragment not support");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
                 return false;
             }
-            com.baidu.swan.apps.res.widget.floatlayer.a Eg = ((a.InterfaceC0273a) LX).Eg();
-            if (Eg == null) {
+            com.baidu.swan.apps.res.widget.floatlayer.a Gv = ((a.InterfaceC0283a) Ol).Gv();
+            if (Gv == null) {
                 com.baidu.swan.apps.console.c.e("showLoading", "can't get floatLayer");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
                 return false;
             }
-            View view = Eg.getView();
+            View view = Gv.getView();
             if (view instanceof LoadingView) {
                 loadingView = (LoadingView) view;
             } else {
                 loadingView = new LoadingView(context);
-                Eg.ap(loadingView);
+                Gv.ap(loadingView);
             }
             if (!TextUtils.isEmpty(optString)) {
                 loadingView.setMsg(optString);
             }
-            Eg.setMask(optBoolean);
+            Gv.setMask(optBoolean);
             com.baidu.swan.apps.console.c.i("showLoading", "show loading success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;

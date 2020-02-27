@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.tbadk.core.data.BaseGroupData;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UpdateGroupInfoData extends BaseGroupData {
     private static final long serialVersionUID = 5616188082014345808L;
 }

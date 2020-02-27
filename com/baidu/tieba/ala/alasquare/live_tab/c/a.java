@@ -1,23 +1,33 @@
 package com.baidu.tieba.ala.alasquare.live_tab.c;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.ala.alasquare.live_tab.b.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
+    private boolean cUp;
+    private String ema;
+    private String emb;
     private boolean hasMore = false;
-    private List<String> ekl = new ArrayList();
-    private List<SdkLiveInfoData> ekm = new ArrayList();
-    private List<m> ekn = new ArrayList();
+    private List<String> eow = new ArrayList();
+    private List<SdkLiveInfoData> eox = new ArrayList();
+    private List<m> eoy = new ArrayList();
 
-    public a(List<SdkLiveInfoData> list, boolean z) {
-        j(list, z);
+    public a(List<SdkLiveInfoData> list, boolean z, String str, String str2) {
+        this.cUp = false;
+        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            this.cUp = true;
+        }
+        this.ema = str;
+        this.emb = str2;
+        k(list, z);
     }
 
-    public boolean j(List<SdkLiveInfoData> list, boolean z) {
+    public boolean k(List<SdkLiveInfoData> list, boolean z) {
         if (list == null) {
             return false;
         }
@@ -34,18 +44,18 @@ public class a {
         for (SdkLiveInfoData sdkLiveInfoData : list) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.roomId;
-                if (!this.ekl.contains(str)) {
+                if (!this.eow.contains(str)) {
                     arrayList.add(sdkLiveInfoData);
-                    this.ekl.add(str);
+                    this.eow.add(str);
                 }
             }
         }
         if (v.isEmpty(arrayList)) {
             return false;
         }
-        this.ekm.addAll(arrayList);
-        this.ekn = bj(this.ekm);
-        return !v.isEmpty(this.ekn);
+        this.eox.addAll(arrayList);
+        this.eoy = bj(this.eox);
+        return !v.isEmpty(this.eoy);
     }
 
     private ArrayList<m> bj(List<SdkLiveInfoData> list) {
@@ -54,17 +64,25 @@ public class a {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.efB = list.get(i);
+            aVar.ejF = list.get(i);
             aVar.isLeft = true;
-            eVar.ehD = aVar;
+            aVar.cUp = this.cUp;
+            aVar.fid = this.ema;
+            aVar.fname = this.emb;
+            aVar.position = i + 1;
+            eVar.elI = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.efB = list.get(i + 1);
-                eVar.ehE = aVar2;
+                aVar2.ejF = list.get(i + 1);
+                aVar2.cUp = this.cUp;
+                aVar2.fid = this.ema;
+                aVar2.fname = this.emb;
+                aVar2.position = i + 2;
+                eVar.elJ = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.efC = true;
+                aVar.ejG = true;
             }
             arrayList.add(eVar);
         }
@@ -77,22 +95,22 @@ public class a {
 
     public List<m> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!v.isEmpty(this.ekn)) {
-            arrayList.addAll(this.ekn);
+        if (!v.isEmpty(this.eoy)) {
+            arrayList.addAll(this.eoy);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.ekl != null) {
-            this.ekl.clear();
+        if (this.eow != null) {
+            this.eow.clear();
         }
-        if (this.ekm != null) {
-            this.ekm.clear();
+        if (this.eox != null) {
+            this.eox.clear();
         }
-        if (this.ekn != null) {
-            this.ekn.clear();
+        if (this.eoy != null) {
+            this.eoy.clear();
         }
     }
 }

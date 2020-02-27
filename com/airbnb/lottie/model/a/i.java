@@ -1,18 +1,18 @@
 package com.airbnb.lottie.model.a;
 
 import android.graphics.PointF;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i implements m<PointF, PointF> {
-    private final b hE;
-    private final b hF;
+    private final b hI;
+    private final b hJ;
 
     public i(b bVar, b bVar2) {
-        this.hE = bVar;
-        this.hF = bVar2;
+        this.hI = bVar;
+        this.hJ = bVar2;
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<PointF, PointF> cm() {
-        return new com.airbnb.lottie.a.b.m(this.hE.cm(), this.hF.cm());
+    public com.airbnb.lottie.a.b.a<PointF, PointF> cn() {
+        return new com.airbnb.lottie.a.b.m(this.hI.cn(), this.hJ.cn());
     }
 }

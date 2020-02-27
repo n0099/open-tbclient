@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupLocation.DataReq;
 import protobuf.QueryGroupLocation.QueryGroupLocationReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RequestQueryGroupLocMessage extends TbSocketMessage {
     private long groupId;
     private String lat;

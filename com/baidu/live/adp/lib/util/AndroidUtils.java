@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AndroidUtils {
     public static int getStatusBarHeight(Context context) {
         int identifier;

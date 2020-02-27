@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class TextUtilsCompat {
     private static final String ARAB_SCRIPT_SUBTAG = "Arab";
     private static final String HEBR_SCRIPT_SUBTAG = "Hebr";

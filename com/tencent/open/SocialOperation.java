@@ -15,7 +15,7 @@ import com.tencent.open.a.f;
 import com.tencent.open.b.d;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SocialOperation extends BaseApi {
     public static final String GAME_FRIEND_ADD_MESSAGE = "add_msg";
     public static final String GAME_FRIEND_LABEL = "friend_label";

@@ -6,23 +6,23 @@ public final class a {
 
     /* renamed from: com.google.android.exoplayer2.ui.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0680a {
-        public static final int exo_edit_mode_background_color = 2131559994;
+    public static final class C0688a {
+        public static final int exo_edit_mode_background_color = 2131559995;
     }
 
     /* loaded from: classes.dex */
     public static final class b {
-        public static final int exo_controls_fastforward = 2130839946;
-        public static final int exo_controls_next = 2130839947;
-        public static final int exo_controls_pause = 2130839948;
-        public static final int exo_controls_play = 2130839949;
-        public static final int exo_controls_previous = 2130839950;
-        public static final int exo_controls_repeat_all = 2130839951;
-        public static final int exo_controls_repeat_off = 2130839952;
-        public static final int exo_controls_repeat_one = 2130839953;
-        public static final int exo_controls_rewind = 2130839954;
-        public static final int exo_controls_shuffle = 2130839955;
-        public static final int exo_edit_mode_logo = 2130839956;
+        public static final int exo_controls_fastforward = 2130839950;
+        public static final int exo_controls_next = 2130839951;
+        public static final int exo_controls_pause = 2130839952;
+        public static final int exo_controls_play = 2130839953;
+        public static final int exo_controls_previous = 2130839954;
+        public static final int exo_controls_repeat_all = 2130839955;
+        public static final int exo_controls_repeat_off = 2130839956;
+        public static final int exo_controls_repeat_one = 2130839957;
+        public static final int exo_controls_rewind = 2130839958;
+        public static final int exo_controls_shuffle = 2130839959;
+        public static final int exo_edit_mode_logo = 2130839960;
     }
 
     /* loaded from: classes.dex */
@@ -56,8 +56,8 @@ public final class a {
 
     /* loaded from: classes.dex */
     public static final class d {
-        public static final int exo_playback_control_view = 2130903858;
-        public static final int exo_simple_player_view = 2130903859;
+        public static final int exo_playback_control_view = 2130903860;
+        public static final int exo_simple_player_view = 2130903861;
     }
 
     /* loaded from: classes.dex */

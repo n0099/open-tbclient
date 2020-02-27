@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.alasquare.recent_history.b;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public List<b> ema;
+    public List<b> eqo;
     public boolean hasMore;
 }

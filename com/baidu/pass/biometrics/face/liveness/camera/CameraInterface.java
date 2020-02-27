@@ -12,7 +12,7 @@ import com.baidu.pass.biometrics.base.utils.PassBioDisplayUtil;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CameraInterface {
     public static final int CAMERA_TYPE_LIVENESS = 3;
     public static final int DEFAULT_PREVIEW_HEIGHT = 480;
@@ -279,7 +279,7 @@ public class CameraInterface {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class CameraSize {
         public int height;
         public int width;

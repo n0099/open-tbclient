@@ -18,35 +18,35 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 abstract class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    protected abstract String NC();
+    protected abstract String PQ();
 
     protected abstract boolean a(c cVar);
 
-    protected abstract String ha(String str);
+    protected abstract String hp(String str);
 
-    public HashMap<String, c> ND() {
+    public HashMap<String, c> PR() {
         JSONArray optJSONArray;
-        String NC = NC();
-        if (TextUtils.isEmpty(NC) || (optJSONArray = s.parseString(NC).optJSONArray("list")) == null) {
+        String PQ = PQ();
+        if (TextUtils.isEmpty(PQ) || (optJSONArray = s.parseString(PQ).optJSONArray("list")) == null) {
             return null;
         }
         HashMap<String, c> hashMap = new HashMap<>();
         for (int i = 0; i < optJSONArray.length(); i++) {
             c ah = ah(optJSONArray.optJSONObject(i));
             if (ah != null) {
-                hashMap.put(ah.cwZ, ah);
+                hashMap.put(ah.cAX, ah);
             }
         }
         return hashMap;
     }
 
     public void a(final c cVar, final d dVar) {
-        final HybridUbcFlow jA = com.baidu.swan.apps.performance.f.jA("startup");
-        jA.f(new UbcFlowEvent("loadPresetApp-start").cZ(true));
+        final HybridUbcFlow jP = com.baidu.swan.apps.performance.f.jP("startup");
+        jP.f(new UbcFlowEvent("loadPresetApp-start").dg(true));
         if (dVar != null) {
             if (cVar == null) {
                 dVar.onFailed(0);
@@ -55,49 +55,49 @@ abstract class b {
             m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.core.i.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    jA.f(new UbcFlowEvent("loadPresetApp#run-start").cZ(true));
-                    String ha = b.this.ha(cVar.cwZ);
-                    if (TextUtils.isEmpty(ha)) {
+                    jP.f(new UbcFlowEvent("loadPresetApp#run-start").dg(true));
+                    String hp = b.this.hp(cVar.cAX);
+                    if (TextUtils.isEmpty(hp)) {
                         dVar.onFailed(0);
                         return;
                     }
-                    JSONObject parseString = s.parseString(ha);
-                    jA.f(new UbcFlowEvent("loadPresetApp#run-appInfoJson").cZ(true));
+                    JSONObject parseString = s.parseString(hp);
+                    jP.f(new UbcFlowEvent("loadPresetApp#run-appInfoJson").dg(true));
                     PMSAppInfo a = b.this.a(cVar, parseString);
                     if (a == null) {
                         dVar.onFailed(1);
                         return;
                     }
-                    jA.f(new UbcFlowEvent("loadPresetApp#run-PMSAppInfo").cZ(true));
+                    jP.f(new UbcFlowEvent("loadPresetApp#run-PMSAppInfo").dg(true));
                     dVar.e(a);
                     long currentTimeMillis = System.currentTimeMillis();
                     boolean a2 = b.this.a(cVar);
                     if (b.DEBUG) {
                         Log.d("PresetController", "签名+解压 耗时：" + (System.currentTimeMillis() - currentTimeMillis));
                     }
-                    jA.f(new UbcFlowEvent("loadPresetApp#run-doUnzipBundle").cZ(true));
+                    jP.f(new UbcFlowEvent("loadPresetApp#run-doUnzipBundle").dg(true));
                     if (a2) {
-                        a.setOrientation(b.this.c(cVar.category, cVar.cwZ, cVar.versionCode));
-                        com.baidu.swan.pms.database.a.arf().a(cVar, a);
-                        jA.f(new UbcFlowEvent("loadPresetApp#run-bulkInsert").cZ(true));
+                        a.setOrientation(b.this.c(cVar.category, cVar.cAX, cVar.versionCode));
+                        com.baidu.swan.pms.database.a.att().a(cVar, a);
+                        jP.f(new UbcFlowEvent("loadPresetApp#run-bulkInsert").dg(true));
                         dVar.f(a);
                     } else {
                         dVar.onFailed(2);
                     }
-                    jA.f(new UbcFlowEvent("loadPresetApp#run-return").cZ(true));
+                    jP.f(new UbcFlowEvent("loadPresetApp#run-return").dg(true));
                 }
             }, "加载小程序预置包");
-            jA.f(new UbcFlowEvent("loadPresetApp-return").cZ(true));
+            jP.f(new UbcFlowEvent("loadPresetApp-return").dg(true));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int c(int i, String str, int i2) {
-        com.baidu.swan.games.s.a.a A;
-        if (i != 1 || (A = com.baidu.swan.apps.core.pms.d.a.A(str, i2)) == null) {
+        com.baidu.swan.games.s.a.a y;
+        if (i != 1 || (y = com.baidu.swan.apps.core.pms.d.a.y(str, i2)) == null) {
             return 0;
         }
-        return A.cnb;
+        return y.cre;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -114,9 +114,9 @@ abstract class b {
     private c ah(JSONObject jSONObject) {
         c cVar;
         if (jSONObject != null && (cVar = (c) com.baidu.swan.pms.f.d.a(jSONObject, new c())) != null) {
-            cVar.cxj = jSONObject.optInt("pkg_type");
-            cVar.bmR = jSONObject.optString("bundle_name");
-            if (cVar.NE()) {
+            cVar.cBh = jSONObject.optInt("pkg_type");
+            cVar.bra = jSONObject.optString("bundle_name");
+            if (cVar.PS()) {
                 return cVar;
             }
             return null;
@@ -127,10 +127,10 @@ abstract class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public File d(int i, String str, int i2) {
         if (i == 0) {
-            return e.d.aB(str, String.valueOf(i2));
+            return e.d.aL(str, String.valueOf(i2));
         }
         if (i == 1) {
-            return a.c.aB(str, String.valueOf(i2));
+            return a.c.aL(str, String.valueOf(i2));
         }
         return null;
     }

@@ -2,20 +2,20 @@ package com.baidu.swan.apps.core.h;
 
 import com.baidu.swan.apps.b;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bmL;
-    private Map<String, Object> bmM;
+    private static volatile a bqU;
+    private Map<String, Object> bqV;
 
-    private void NB() {
-        this.bmM = null;
-        bmL = null;
+    private void PP() {
+        this.bqV = null;
+        bqU = null;
     }
 
     public static void release() {
-        if (bmL != null) {
-            bmL.NB();
+        if (bqU != null) {
+            bqU.PP();
         }
     }
 }

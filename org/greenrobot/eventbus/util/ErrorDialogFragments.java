@@ -8,7 +8,7 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ErrorDialogFragments {
     public static int ERROR_DIALOG_ICON = 0;
     public static Class<?> EVENT_TYPE_ON_CLICK;
@@ -38,7 +38,7 @@ public class ErrorDialogFragments {
     }
 
     @TargetApi(11)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Honeycomb extends DialogFragment implements DialogInterface.OnClickListener {
         @Override // android.app.DialogFragment
         public Dialog onCreateDialog(Bundle bundle) {
@@ -51,7 +51,7 @@ public class ErrorDialogFragments {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Support extends android.support.v4.app.DialogFragment implements DialogInterface.OnClickListener {
         @Override // android.support.v4.app.DialogFragment
         public Dialog onCreateDialog(Bundle bundle) {

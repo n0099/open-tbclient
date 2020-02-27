@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.TextView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, c> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@Nullable Context context, @NonNull c cVar) {
@@ -16,8 +16,8 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: bH */
-    public TextView bj(@NonNull Context context) {
+    /* renamed from: bL */
+    public TextView bn(@NonNull Context context) {
         return new TextView(context);
     }
 

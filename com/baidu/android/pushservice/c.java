@@ -7,7 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static String a = "NotificationBuilderManager";
     private static String b = "notification_builder_storage";

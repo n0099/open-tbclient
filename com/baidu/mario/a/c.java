@@ -1,5 +1,5 @@
 package com.baidu.mario.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void onError(int i);
 
@@ -9,5 +9,5 @@ public interface c {
 
     void onStart();
 
-    void p(int i, String str);
+    void q(int i, String str);
 }

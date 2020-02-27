@@ -1,10 +1,12 @@
 package com.vivo.push.b;
-/* loaded from: classes6.dex */
+
+import com.baidu.android.imsdk.IMConstants;
+/* loaded from: classes8.dex */
 public final class x extends com.vivo.push.y {
     private int a;
 
     public x() {
-        super(2011);
+        super(IMConstants.IM_MSG_TYPE_SHIELD);
         this.a = 0;
     }
 

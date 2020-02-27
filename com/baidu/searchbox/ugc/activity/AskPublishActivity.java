@@ -55,7 +55,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AskPublishActivity extends PublishBaseActivity<BasePublishPresenter> implements EmojiconEditText.TextNumbersChangedListener, PhotoChooseView.StartAlbumListener {
     private static final int ASK_SOURCE_TYPE = 3;
     private static final int MAX_PIC_COUNT = 3;
@@ -754,7 +754,7 @@ public class AskPublishActivity extends PublishBaseActivity<BasePublishPresenter
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class DraftOnPositiveClickListener implements DialogInterface.OnClickListener {
         private SaveDraftTask mSaveDraftTask;
         private UgcSchemeModel mUgcSchemeModel;
@@ -780,7 +780,7 @@ public class AskPublishActivity extends PublishBaseActivity<BasePublishPresenter
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class DraftOnNegativeClickListener implements DialogInterface.OnClickListener {
         private String mDraftKey;
         private UgcSchemeModel mUgcSchemeModel;
@@ -806,7 +806,7 @@ public class AskPublishActivity extends PublishBaseActivity<BasePublishPresenter
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class SaveDraftTask implements Runnable {
         String content;
         String title;

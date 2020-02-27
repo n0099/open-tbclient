@@ -9,7 +9,7 @@ import android.widget.PopupWindow;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends PopupWindow {
     public f(Context context) {
         super(context);
@@ -44,17 +44,17 @@ public class f extends PopupWindow {
             f("mLastHeight", Integer.valueOf(i4));
             setHeight(i4);
         }
-        Object dU = dU("mContentView");
-        View view = dU instanceof View ? (View) dU : null;
+        Object ej = ej("mContentView");
+        View view = ej instanceof View ? (View) ej : null;
         if (isShowing() && view != null) {
-            Object dU2 = dU("mDecorView");
-            View view2 = dU2 instanceof View ? (View) dU2 : null;
+            Object ej2 = ej("mDecorView");
+            View view2 = ej2 instanceof View ? (View) ej2 : null;
             if (view2 != null) {
                 WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) view2.getLayoutParams();
-                Object dU3 = dU("mWidthMode");
-                int intValue = dU3 != null ? ((Integer) dU3).intValue() : 0;
-                Object dU4 = dU("mLastWidth");
-                int intValue2 = dU4 != null ? ((Integer) dU4).intValue() : 0;
+                Object ej3 = ej("mWidthMode");
+                int intValue = ej3 != null ? ((Integer) ej3).intValue() : 0;
+                Object ej4 = ej("mLastWidth");
+                int intValue2 = ej4 != null ? ((Integer) ej4).intValue() : 0;
                 if (intValue >= 0) {
                     intValue = intValue2;
                 }
@@ -63,10 +63,10 @@ public class f extends PopupWindow {
                     f("mLastWidth", Integer.valueOf(intValue));
                     z = true;
                 }
-                Object dU5 = dU("mHeightMode");
-                int intValue3 = dU5 != null ? ((Integer) dU5).intValue() : 0;
-                Object dU6 = dU("mLastHeight");
-                int intValue4 = dU6 != null ? ((Integer) dU6).intValue() : 0;
+                Object ej5 = ej("mHeightMode");
+                int intValue3 = ej5 != null ? ((Integer) ej5).intValue() : 0;
+                Object ej6 = ej("mLastHeight");
+                int intValue4 = ej6 != null ? ((Integer) ej6).intValue() : 0;
                 if (intValue3 >= 0) {
                     intValue3 = intValue4;
                 }
@@ -98,8 +98,8 @@ public class f extends PopupWindow {
                 }
                 if (z2) {
                     c("setLayoutDirectionFromAnchor", null, null);
-                    Object dU7 = dU("mWindowManager");
-                    WindowManager windowManager = dU7 instanceof WindowManager ? (WindowManager) dU7 : null;
+                    Object ej7 = ej("mWindowManager");
+                    WindowManager windowManager = ej7 instanceof WindowManager ? (WindowManager) ej7 : null;
                     if (windowManager != null) {
                         windowManager.updateViewLayout(view2, layoutParams);
                     }
@@ -108,7 +108,7 @@ public class f extends PopupWindow {
         }
     }
 
-    private Object dU(String str) {
+    private Object ej(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

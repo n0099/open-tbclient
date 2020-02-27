@@ -1,7 +1,7 @@
 package com.google.zxing;
 
 import com.google.zxing.common.detector.MathUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ResultPoint {
     private final float x;
     private final float y;

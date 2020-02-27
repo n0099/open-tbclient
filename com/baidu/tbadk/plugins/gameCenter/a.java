@@ -5,24 +5,24 @@ import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
 /* loaded from: classes.dex */
 public class a {
-    private static Service dBE;
-    private static BroadcastReceiver dBF;
-    private static BroadcastReceiver dBG;
-    private static ContentProvider dBw;
+    private static Service dFF;
+    private static BroadcastReceiver dFG;
+    private static BroadcastReceiver dFH;
+    private static ContentProvider dFx;
 
-    public static Service aPn() {
-        return dBE;
+    public static Service aRD() {
+        return dFF;
     }
 
-    public static ContentProvider aPk() {
-        return dBw;
+    public static ContentProvider aRA() {
+        return dFx;
     }
 
-    public static BroadcastReceiver aPo() {
-        return dBF;
+    public static BroadcastReceiver aRE() {
+        return dFG;
     }
 
-    public static BroadcastReceiver aPp() {
-        return dBG;
+    public static BroadcastReceiver aRF() {
+        return dFH;
     }
 }

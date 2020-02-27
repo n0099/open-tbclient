@@ -3,26 +3,26 @@ package com.baidu.tieba.frs.mc;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.al;
 import com.baidu.tieba.frs.vc.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class j {
-    protected final FrsFragment gEE;
-    protected final m gFT;
-    protected final al gFU;
-    protected final c gFV;
-    protected final com.baidu.tieba.frs.vc.h gmA;
-    protected final com.baidu.tieba.frs.l gmj;
-    protected final FrsModelController gmz;
+    protected final FrsFragment gGD;
+    protected final m gHS;
+    protected final al gHT;
+    protected final c gHU;
+    protected final FrsModelController goA;
+    protected final com.baidu.tieba.frs.vc.h goB;
+    protected final com.baidu.tieba.frs.l gok;
 
     public j(FrsFragment frsFragment) {
         if (frsFragment == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.gEE = frsFragment;
-        this.gmA = this.gEE.bCh();
-        this.gmj = this.gEE.bCk();
-        this.gFT = this.gEE.bCi();
-        this.gmz = this.gEE.bCf();
-        this.gFU = this.gEE.bCj();
-        this.gFV = this.gEE.bCg();
+        this.gGD = frsFragment;
+        this.goB = this.gGD.bDK();
+        this.gok = this.gGD.bDN();
+        this.gHS = this.gGD.bDL();
+        this.goA = this.gGD.bDI();
+        this.gHT = this.gGD.bDM();
+        this.gHU = this.gGD.bDJ();
     }
 }

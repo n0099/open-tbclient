@@ -3,6 +3,7 @@ package com.baidu.mapapi.bikenavi;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.mapapi.bikenavi.adapter.IBEngineInitListener;
 import com.baidu.mapapi.bikenavi.adapter.IBNaviStatusListener;
 import com.baidu.mapapi.bikenavi.adapter.IBRouteGuidanceListener;
@@ -19,7 +20,7 @@ import com.baidu.mapsdkplatform.comapi.NativeLoader;
 import com.baidu.mapsdkplatform.comapi.map.VersionInfo;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BikeNavigateHelper {
     private static BikeNavigateHelper d;
     boolean a;
@@ -60,9 +61,9 @@ public class BikeNavigateHelper {
             BNavigatorWrapper.getWNavigator().c(1);
             b.a().a(bikeNaviLaunchParam.getStartPt());
             b.a().b(bikeNaviLaunchParam.getEndPt());
-            create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), 131);
+            create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
             create.c(0);
-            create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{131});
+            create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
             this.c.a(create, iBRoutePlanListener);
         }
     }

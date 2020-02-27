@@ -1,19 +1,19 @@
 package com.baidu.swan.apps.database;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public String appId;
     public String appKey;
     public String bearInfo;
-    public String boO;
-    public String boP;
-    public int boQ;
-    public String boR;
-    public String boS;
-    public String boT;
-    public long boU;
-    public int boV;
-    public String boW;
-    public boolean boX;
+    public String bsX;
+    public String bsY;
+    public int bsZ;
+    public String bta;
+    public String btb;
+    public String btc;
+    public long btd;
+    public int bte;
+    public String btf;
+    public boolean btg;
     public int category;
     public long createTime;
     public String description;
@@ -33,7 +33,7 @@ public class a {
     public int type;
     public String version;
 
-    public String OK() {
-        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.boO + "', minSwanVersion='" + this.boP + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.boQ + ", targetSwanVersion='" + this.boT + "', mAppZipSize=" + this.boU + ", mPendingApsErrcode=" + this.boV + ", category=" + this.category + ", versionCode='" + this.boW + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.boX + ", payProtected=" + this.payProtected + '}';
+    public String QY() {
+        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.bsX + "', minSwanVersion='" + this.bsY + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.bsZ + ", targetSwanVersion='" + this.btc + "', mAppZipSize=" + this.btd + ", mPendingApsErrcode=" + this.bte + ", category=" + this.category + ", versionCode='" + this.btf + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.btg + ", payProtected=" + this.payProtected + '}';
     }
 }

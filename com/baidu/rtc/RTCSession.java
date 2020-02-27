@@ -19,7 +19,7 @@ import com.baidu.rtc.utils.d;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RTCSession {
     private static final int NETWORK_UNAVAILABLE = 0;
     private static final int NETWORK_WWAN = 2;
@@ -65,8 +65,8 @@ public class RTCSession {
         @Override // com.baidu.rtc.ndk.AlaNDKRecorderAdapter.OnNDKCallback
         public void onRemoteUserOnLine(int i, long j, int i2) {
             RTCSession.this.mNdkPlayer.startPlayerNative(String.format("rtc://%s:%d?room_id=%d&line_index=%d&user_id=%d", RTCSession.this.mRtcConfig.hostName, Integer.valueOf(RTCSession.this.mRtcConfig.hostPort), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)), RTCSession.this.mPlayMediaIndex, RTCSession.this.getNetworkState(), RTCSession.this.mBaseInfo.toJsonString(), RTCSession.this.mRtcConfig.enableAudio, RTCSession.this.mRtcConfig.enableVideo);
-            if (RTCSession.this.mVideoDevices.Dr() != null) {
-                RTCSession.this.mVideoDevices.Dr().Dt();
+            if (RTCSession.this.mVideoDevices.FN() != null) {
+                RTCSession.this.mVideoDevices.FN().FP();
             }
             if (RTCSession.this.mRtcHandler != null) {
                 RTCSession.this.mRtcHandler.onRemoteUserOnLine(i, i2);
@@ -103,8 +103,8 @@ public class RTCSession {
         this.mNDKAdapter.setNDKCallback(this.mRecorderCallback);
         this.mNdkPlayer = new AlaNDKPlayerAdapter();
         this.mNdkPlayer.setNDKCallback(this.mPlayerCallback);
-        if (!NetworkManager.Dv().Dw()) {
-            NetworkManager.Dv().init((Application) context.getApplicationContext());
+        if (!NetworkManager.FR().FS()) {
+            NetworkManager.FR().init((Application) context.getApplicationContext());
         }
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.RTCSession.4
             @Override // java.lang.Runnable
@@ -151,7 +151,7 @@ public class RTCSession {
                 startAudioRecord();
                 startAudioPlayer();
                 this.mVideoDevices.a(this.mRtcConfig);
-                NetworkManager.Dv().a(this.mNetworkChangeListener);
+                NetworkManager.FR().a(this.mNetworkChangeListener);
                 this.mHasStart = true;
                 this.mIsStop = false;
                 return 0;
@@ -169,7 +169,7 @@ public class RTCSession {
         if (stopNativeObject() != 0) {
             Log.e(TAG, "stopNativeObject failed");
         }
-        NetworkManager.Dv().b(this.mNetworkChangeListener);
+        NetworkManager.FR().b(this.mNetworkChangeListener);
         this.mIsStop = true;
         if (this.mHasStart && this.mRtcHandler != null && this.mRtcConfig != null) {
             this.mRtcHandler.onStop(this.mRtcConfig.roomId, this.mRtcConfig.lineId);
@@ -183,7 +183,7 @@ public class RTCSession {
     }
 
     public View getPlayerView() {
-        return this.mVideoDevices.Dr();
+        return this.mVideoDevices.FN();
     }
 
     public void destroy() {
@@ -297,7 +297,7 @@ public class RTCSession {
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.RTCSession.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!RTCSession.this.mAudioDevices.P(d.OUTPUT_SAMPLE_RATE, 4)) {
+                if (!RTCSession.this.mAudioDevices.Q(d.OUTPUT_SAMPLE_RATE, 4)) {
                     Log.e(RTCSession.TAG, "initAudioPlayer failed");
                     RTCSession.this.mAudioDevices.stopAudioPlayer();
                 } else if (!d.useOpenSLES()) {
@@ -334,7 +334,7 @@ public class RTCSession {
         this.mRecordService.submit(new Runnable() { // from class: com.baidu.rtc.RTCSession.8
             @Override // java.lang.Runnable
             public void run() {
-                if (!RTCSession.this.mAudioDevices.Q(d.OUTPUT_SAMPLE_RATE, 16)) {
+                if (!RTCSession.this.mAudioDevices.R(d.OUTPUT_SAMPLE_RATE, 16)) {
                     Log.e(RTCSession.TAG, "initAudioRecord failed");
                     RTCSession.this.mAudioDevices.stopAudioRecord();
                 } else if (!d.useOpenSLES()) {
@@ -366,7 +366,7 @@ public class RTCSession {
         c.getAppVersion(this.mContext);
         this.mBaseInfo.mStreamType = AlaLiveBaseInfo.STREAM_TYPE_SEND;
         this.mBaseInfo.mUid = "" + this.mRtcConfig.userId;
-        this.mBaseInfo.mNetWork = NetworkManager.Dv().Dx().toString();
+        this.mBaseInfo.mNetWork = NetworkManager.FR().FT().toString();
         this.mBaseInfo.mCuid = this.mRtcConfig.cuid;
     }
 
@@ -408,12 +408,12 @@ public class RTCSession {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getNetworkState() {
-        int Dy = NetworkManager.Dv().Dy();
-        if (Dy <= 0) {
+        int FU = NetworkManager.FR().FU();
+        if (FU <= 0) {
             return 0;
         }
-        if (Dy < 2) {
-            return Dy;
+        if (FU < 2) {
+            return FU;
         }
         return 2;
     }

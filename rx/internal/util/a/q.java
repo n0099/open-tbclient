@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.nBk;
+        E[] eArr = this.nBM;
         long j = this.producerIndex;
-        long hv = hv(j);
-        if (b(eArr, hv) != null) {
+        long ht = ht(j);
+        if (b(eArr, ht) != null) {
             return false;
         }
-        b(eArr, hv, e);
+        b(eArr, ht, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long hv = hv(j);
-        E[] eArr = this.nBk;
-        E b = b(eArr, hv);
+        long ht = ht(j);
+        E[] eArr = this.nBM;
+        E b = b(eArr, ht);
         if (b == null) {
             return null;
         }
-        b(eArr, hv, null);
+        b(eArr, ht, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return hw(hv(this.consumerIndex));
+        return hu(ht(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dIn = dIn();
+        long dJu = dJu();
         while (true) {
-            long dIm = dIm();
-            long dIn2 = dIn();
-            if (dIn == dIn2) {
-                return (int) (dIm - dIn2);
+            long dJt = dJt();
+            long dJu2 = dJu();
+            if (dJu == dJu2) {
+                return (int) (dJt - dJu2);
             }
-            dIn = dIn2;
+            dJu = dJu2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dIm() == dIn();
+        return dJt() == dJu();
     }
 
     private void soProducerIndex(long j) {
-        ae.nSd.a(this, nRX, j);
+        ae.nSR.a(this, nSL, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.nSd.a(this, nRW, j);
+        ae.nSR.a(this, nSK, j);
     }
 
-    private long dIm() {
-        return ae.nSd.d(this, nRX);
+    private long dJt() {
+        return ae.nSR.d(this, nSL);
     }
 
-    private long dIn() {
-        return ae.nSd.d(this, nRW);
+    private long dJu() {
+        return ae.nSR.d(this, nSK);
     }
 }

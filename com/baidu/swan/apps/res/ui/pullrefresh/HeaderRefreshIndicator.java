@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    private boolean bHA;
-    public boolean bHy;
-    private int bHz;
+    public boolean bLD;
+    private int bLE;
+    private boolean bLF;
 
     public HeaderRefreshIndicator(Context context) {
         this(context, null);
@@ -17,27 +17,27 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bHy = false;
-        this.bHz = -1;
-        this.bHA = false;
+        this.bLD = false;
+        this.bLE = -1;
+        this.bLF = false;
     }
 
-    public void CI() {
-        if (!this.bHy) {
-            this.bHy = true;
-            this.bHA = com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState();
-            Zy();
+    public void Fe() {
+        if (!this.bLD) {
+            this.bLD = true;
+            this.bLF = com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState();
+            abM();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(af.dip2px(getContext(), 5.0f));
             initCornerRadius(0);
         }
     }
 
-    public void Zx() {
-        boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState();
-        if (this.bHA != nightModeSwitcherState) {
-            Zy();
-            this.bHA = nightModeSwitcherState;
+    public void abL() {
+        boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState();
+        if (this.bLF != nightModeSwitcherState) {
+            abM();
+            this.bLF = nightModeSwitcherState;
         }
     }
 
@@ -49,10 +49,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Zx();
+        abL();
     }
 
-    public void Zy() {
+    public void abM() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
         initDrawable(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, af.dip2px(getContext(), 11.0f), af.dip2px(getContext(), 11.0f));

@@ -3,25 +3,25 @@ package com.xiaomi.push;
 import android.content.Context;
 import com.xiaomi.push.bw;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class bp implements Runnable {
     private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    private WeakReference<Context> f161a;
+    private WeakReference<Context> f158a;
 
     public bp(String str, WeakReference<Context> weakReference) {
         this.a = str;
-        this.f161a = weakReference;
+        this.f158a = weakReference;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        if (this.f161a == null || (context = this.f161a.get()) == null) {
+        if (this.f158a == null || (context = this.f158a.get()) == null) {
             return;
         }
-        if (cc.a(this.a) <= bo.f159a) {
+        if (cc.a(this.a) <= bo.f156a) {
             com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
             return;
         }

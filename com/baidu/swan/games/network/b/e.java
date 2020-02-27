@@ -5,65 +5,65 @@ import android.util.Log;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cms;
+    private a cqu;
     private final Object mLock = new Object();
-    private boolean cmq = true;
-    private List<b> cmr = new ArrayList(3);
+    private boolean cqs = true;
+    private List<b> cqt = new ArrayList(3);
 
     public e(@NonNull a aVar) {
-        this.cms = aVar;
+        this.cqu = aVar;
     }
 
-    public void amF() {
+    public void aoS() {
         synchronized (this.mLock) {
-            this.cmq = false;
-            amG();
+            this.cqs = false;
+            aoT();
         }
     }
 
     public void onSuccess(Object obj) {
         synchronized (this.mLock) {
-            if (this.cmq) {
+            if (this.cqs) {
                 f(1, obj);
             } else {
-                this.cms.a(new b(1, obj));
+                this.cqu.a(new b(1, obj));
             }
         }
     }
 
-    public void h(String str, int i, String str2) {
+    public void i(String str, int i, String str2) {
         synchronized (this.mLock) {
             com.baidu.swan.games.network.c.b bVar = new com.baidu.swan.games.network.c.b();
             bVar.errMsg = str2;
             bVar.statusCode = i;
             bVar.url = str;
-            if (this.cmq) {
+            if (this.cqs) {
                 f(2, bVar);
             } else {
-                this.cms.a(new b(2, bVar));
+                this.cqu.a(new b(2, bVar));
             }
         }
     }
 
     public boolean b(JSEvent jSEvent) {
         synchronized (this.mLock) {
-            if (this.cmq) {
+            if (this.cqs) {
                 f(3, jSEvent);
             } else {
-                this.cms.a(new b(3, jSEvent));
+                this.cqu.a(new b(3, jSEvent));
             }
         }
         return true;
     }
 
-    private void amG() {
-        for (b bVar : this.cmr) {
-            this.cms.a(bVar);
+    private void aoT() {
+        for (b bVar : this.cqt) {
+            this.cqu.a(bVar);
         }
-        this.cmr.clear();
+        this.cqt.clear();
     }
 
     private void f(int i, Object obj) {
@@ -71,7 +71,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanGameResponseCache", "addToCacheList type:" + i);
             }
-            this.cmr.add(new b(i, obj));
+            this.cqt.add(new b(i, obj));
         }
     }
 }

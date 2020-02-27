@@ -1,5 +1,5 @@
 package com.baidu.swan.game.ad.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface d {
-    void ahQ();
+    void ake();
 }

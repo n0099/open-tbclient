@@ -6,26 +6,26 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class TopTipAnimationView extends TextView {
-    private Animation aBq;
-    private TranslateAnimation aBr;
-    private Runnable aBs;
-    private a aBt;
+    private Animation aFG;
+    private TranslateAnimation aFH;
+    private Runnable aFI;
+    private a aFJ;
     private int mDuration;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void zb();
+        void Br();
     }
 
     public TopTipAnimationView(Context context) {
         super(context);
         this.mDuration = 3000;
-        this.aBs = new Runnable() { // from class: com.baidu.live.view.TopTipAnimationView.1
+        this.aFI = new Runnable() { // from class: com.baidu.live.view.TopTipAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopTipAnimationView.this.hideTip();
@@ -37,7 +37,7 @@ public class TopTipAnimationView extends TextView {
     public TopTipAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDuration = 3000;
-        this.aBs = new Runnable() { // from class: com.baidu.live.view.TopTipAnimationView.1
+        this.aFI = new Runnable() { // from class: com.baidu.live.view.TopTipAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopTipAnimationView.this.hideTip();
@@ -49,7 +49,7 @@ public class TopTipAnimationView extends TextView {
     public TopTipAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDuration = 3000;
-        this.aBs = new Runnable() { // from class: com.baidu.live.view.TopTipAnimationView.1
+        this.aFI = new Runnable() { // from class: com.baidu.live.view.TopTipAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopTipAnimationView.this.hideTip();
@@ -72,10 +72,10 @@ public class TopTipAnimationView extends TextView {
         }
         int dimensionPixelOffset3 = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds34);
         setPadding(i2, dimensionPixelOffset3, dimensionPixelOffset2, dimensionPixelOffset3);
-        this.aBr = new TranslateAnimation(0.0f, 0.0f, 0 - i, 0.0f);
-        this.aBq = new TranslateAnimation(0.0f, 0.0f, 0.0f, 0 - i);
+        this.aFH = new TranslateAnimation(0.0f, 0.0f, 0 - i, 0.0f);
+        this.aFG = new TranslateAnimation(0.0f, 0.0f, 0.0f, 0 - i);
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds28));
-        this.aBq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.view.TopTipAnimationView.2
+        this.aFG.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.view.TopTipAnimationView.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -87,8 +87,8 @@ public class TopTipAnimationView extends TextView {
                 if (viewGroup != null) {
                     viewGroup.removeView(TopTipAnimationView.this);
                 }
-                if (TopTipAnimationView.this.aBt != null) {
-                    TopTipAnimationView.this.aBt.zb();
+                if (TopTipAnimationView.this.aFJ != null) {
+                    TopTipAnimationView.this.aFJ.Br();
                 }
             }
 
@@ -96,15 +96,15 @@ public class TopTipAnimationView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.aBr.setDuration(400L);
-        this.aBr.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.view.TopTipAnimationView.3
+        this.aFH.setDuration(400L);
+        this.aFH.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.view.TopTipAnimationView.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                TopTipAnimationView.this.postDelayed(TopTipAnimationView.this.aBs, TopTipAnimationView.this.mDuration);
+                TopTipAnimationView.this.postDelayed(TopTipAnimationView.this.aFI, TopTipAnimationView.this.mDuration);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -115,9 +115,9 @@ public class TopTipAnimationView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        removeCallbacks(this.aBs);
+        removeCallbacks(this.aFI);
         if (this != null && getParent() != null) {
-            startAnimation(this.aBq);
+            startAnimation(this.aFG);
         }
     }
 
@@ -128,10 +128,10 @@ public class TopTipAnimationView extends TextView {
     }
 
     public void onDestroy() {
-        removeCallbacks(this.aBs);
+        removeCallbacks(this.aFI);
     }
 
     public void setOnTipCompletedCallback(a aVar) {
-        this.aBt = aVar;
+        this.aFJ = aVar;
     }
 }

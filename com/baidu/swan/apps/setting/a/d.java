@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends ab {
     public d(j jVar) {
         super(jVar, "/swanAPI/getSetting");

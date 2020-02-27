@@ -1,11 +1,11 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class u {
-    public static final u lZd = new u(0);
-    public final int lZe;
+    public static final u lZJ = new u(0);
+    public final int lZK;
 
     public u(int i) {
-        this.lZe = i;
+        this.lZK = i;
     }
 
     public boolean equals(Object obj) {
@@ -15,10 +15,10 @@ public final class u {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.lZe == ((u) obj).lZe;
+        return this.lZK == ((u) obj).lZK;
     }
 
     public int hashCode() {
-        return this.lZe;
+        return this.lZK;
     }
 }

@@ -26,33 +26,32 @@ import java.util.List;
 import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d implements p.a<c> {
-    private static final Pattern mwt = Pattern.compile("AVERAGE-BANDWIDTH=(\\d+)\\b");
-    private static final Pattern mwu = Pattern.compile("[^-]BANDWIDTH=(\\d+)\\b");
-    private static final Pattern mwv = Pattern.compile("CODECS=\"(.+?)\"");
-    private static final Pattern mww = Pattern.compile("RESOLUTION=(\\d+x\\d+)");
-    private static final Pattern mwx = Pattern.compile("FRAME-RATE=([\\d\\.]+)\\b");
-    private static final Pattern mwy = Pattern.compile("#EXT-X-TARGETDURATION:(\\d+)\\b");
-    private static final Pattern mwz = Pattern.compile("#EXT-X-VERSION:(\\d+)\\b");
-    private static final Pattern mwA = Pattern.compile("#EXT-X-PLAYLIST-TYPE:(.+)\\b");
-    private static final Pattern mwB = Pattern.compile("#EXT-X-MEDIA-SEQUENCE:(\\d+)\\b");
-    private static final Pattern mwC = Pattern.compile("#EXTINF:([\\d\\.]+)\\b");
-    private static final Pattern mwD = Pattern.compile("TIME-OFFSET=(-?[\\d\\.]+)\\b");
-    private static final Pattern mwE = Pattern.compile("#EXT-X-BYTERANGE:(\\d+(?:@\\d+)?)\\b");
-    private static final Pattern mwF = Pattern.compile("BYTERANGE=\"(\\d+(?:@\\d+)?)\\b\"");
-    private static final Pattern mwG = Pattern.compile("METHOD=(NONE|AES-128|SAMPLE-AES)");
-    private static final Pattern mwH = Pattern.compile("KEYFORMAT=\"(.+?)\"");
-    private static final Pattern mwI = Pattern.compile("URI=\"(.+?)\"");
-    private static final Pattern mwJ = Pattern.compile("IV=([^,.*]+)");
-    private static final Pattern mwK = Pattern.compile("TYPE=(AUDIO|VIDEO|SUBTITLES|CLOSED-CAPTIONS)");
-    private static final Pattern mwL = Pattern.compile("LANGUAGE=\"(.+?)\"");
-    private static final Pattern mwM = Pattern.compile("NAME=\"(.+?)\"");
-    private static final Pattern mwN = Pattern.compile("INSTREAM-ID=\"((?:CC|SERVICE)\\d+)\"");
-    private static final Pattern mwO = PB("AUTOSELECT");
-    private static final Pattern mwP = PB("DEFAULT");
-    private static final Pattern mwQ = PB("FORCED");
+    private static final Pattern mwZ = Pattern.compile("AVERAGE-BANDWIDTH=(\\d+)\\b");
+    private static final Pattern mxa = Pattern.compile("[^-]BANDWIDTH=(\\d+)\\b");
+    private static final Pattern mxb = Pattern.compile("CODECS=\"(.+?)\"");
+    private static final Pattern mxc = Pattern.compile("RESOLUTION=(\\d+x\\d+)");
+    private static final Pattern mxd = Pattern.compile("FRAME-RATE=([\\d\\.]+)\\b");
+    private static final Pattern mxe = Pattern.compile("#EXT-X-TARGETDURATION:(\\d+)\\b");
+    private static final Pattern mxf = Pattern.compile("#EXT-X-VERSION:(\\d+)\\b");
+    private static final Pattern mxg = Pattern.compile("#EXT-X-PLAYLIST-TYPE:(.+)\\b");
+    private static final Pattern mxh = Pattern.compile("#EXT-X-MEDIA-SEQUENCE:(\\d+)\\b");
+    private static final Pattern mxi = Pattern.compile("#EXTINF:([\\d\\.]+)\\b");
+    private static final Pattern mxj = Pattern.compile("TIME-OFFSET=(-?[\\d\\.]+)\\b");
+    private static final Pattern mxk = Pattern.compile("#EXT-X-BYTERANGE:(\\d+(?:@\\d+)?)\\b");
+    private static final Pattern mxl = Pattern.compile("BYTERANGE=\"(\\d+(?:@\\d+)?)\\b\"");
+    private static final Pattern mxm = Pattern.compile("METHOD=(NONE|AES-128|SAMPLE-AES)");
+    private static final Pattern mxn = Pattern.compile("KEYFORMAT=\"(.+?)\"");
+    private static final Pattern mxo = Pattern.compile("URI=\"(.+?)\"");
+    private static final Pattern mxp = Pattern.compile("IV=([^,.*]+)");
+    private static final Pattern mxq = Pattern.compile("TYPE=(AUDIO|VIDEO|SUBTITLES|CLOSED-CAPTIONS)");
+    private static final Pattern mxr = Pattern.compile("LANGUAGE=\"(.+?)\"");
+    private static final Pattern mxs = Pattern.compile("NAME=\"(.+?)\"");
+    private static final Pattern mxt = Pattern.compile("INSTREAM-ID=\"((?:CC|SERVICE)\\d+)\"");
+    private static final Pattern mxu = PO("AUTOSELECT");
+    private static final Pattern mxv = PO("DEFAULT");
+    private static final Pattern mxw = PO("FORCED");
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [156=4] */
     /* JADX DEBUG: Method merged with bridge method */
@@ -111,11 +110,11 @@ public final class d implements p.a<c> {
             }
             i = bufferedReader.read();
         }
-        return v.LT(a(bufferedReader, false, i));
+        return v.LY(a(bufferedReader, false, i));
     }
 
     private static int a(BufferedReader bufferedReader, boolean z, int i) throws IOException {
-        while (i != -1 && Character.isWhitespace(i) && (z || !v.LT(i))) {
+        while (i != -1 && Character.isWhitespace(i) && (z || !v.LY(i))) {
             i = bufferedReader.read();
         }
         return i;
@@ -142,11 +141,11 @@ public final class d implements p.a<c> {
                 arrayList5.add(next);
             }
             if (next.startsWith("#EXT-X-MEDIA")) {
-                int PA = PA(next);
-                String c = c(next, mwI);
-                String d = d(next, mwM);
-                String c2 = c(next, mwL);
-                String d2 = d(next, mwK);
+                int PN = PN(next);
+                String c = c(next, mxo);
+                String d = d(next, mxs);
+                String c2 = c(next, mxr);
+                String d2 = d(next, mxq);
                 char c3 = 65535;
                 switch (d2.hashCode()) {
                     case -959297733:
@@ -170,9 +169,9 @@ public final class d implements p.a<c> {
                 }
                 switch (c3) {
                     case 0:
-                        Format a2 = Format.a(d, "application/x-mpegURL", (String) null, (String) null, -1, -1, -1, (List<byte[]>) null, PA, c2);
+                        Format a2 = Format.a(d, "application/x-mpegURL", (String) null, (String) null, -1, -1, -1, (List<byte[]>) null, PN, c2);
                         if (c != null) {
-                            arrayList3.add(new a.C0673a(c, a2));
+                            arrayList3.add(new a.C0681a(c, a2));
                             arrayList = arrayList6;
                             format = format2;
                             break;
@@ -182,12 +181,12 @@ public final class d implements p.a<c> {
                             break;
                         }
                     case 1:
-                        arrayList4.add(new a.C0673a(c, Format.b(d, "application/x-mpegURL", "text/vtt", null, -1, PA, c2)));
+                        arrayList4.add(new a.C0681a(c, Format.d(d, "application/x-mpegURL", "text/vtt", null, -1, PN, c2)));
                         arrayList = arrayList6;
                         format = format2;
                         break;
                     case 2:
-                        String d3 = d(next, mwN);
+                        String d3 = d(next, mxt);
                         if (d3.startsWith("CC")) {
                             str2 = "application/cea-608";
                             parseInt = Integer.parseInt(d3.substring(2));
@@ -196,7 +195,7 @@ public final class d implements p.a<c> {
                             parseInt = Integer.parseInt(d3.substring(7));
                         }
                         ArrayList arrayList7 = arrayList6 == null ? new ArrayList() : arrayList6;
-                        arrayList7.add(Format.a(d, (String) null, str2, (String) null, -1, PA, c2, parseInt));
+                        arrayList7.add(Format.a(d, (String) null, str2, (String) null, -1, PN, c2, parseInt));
                         arrayList = arrayList7;
                         format = format2;
                         break;
@@ -209,13 +208,13 @@ public final class d implements p.a<c> {
                 format2 = format;
             } else if (next.startsWith("#EXT-X-STREAM-INF")) {
                 boolean contains = z | next.contains("CLOSED-CAPTIONS=NONE");
-                int a3 = a(next, mwu);
-                String c4 = c(next, mwt);
+                int a3 = a(next, mxa);
+                String c4 = c(next, mwZ);
                 if (c4 != null) {
                     a3 = Integer.parseInt(c4);
                 }
-                String c5 = c(next, mwv);
-                String c6 = c(next, mww);
+                String c5 = c(next, mxb);
+                String c6 = c(next, mxc);
                 if (c6 != null) {
                     String[] split = c6.split(Config.EVENT_HEAT_X);
                     int parseInt2 = Integer.parseInt(split[0]);
@@ -231,13 +230,13 @@ public final class d implements p.a<c> {
                     i2 = -1;
                 }
                 float f = -1.0f;
-                String c7 = c(next, mwx);
+                String c7 = c(next, mxd);
                 if (c7 != null) {
                     f = Float.parseFloat(c7);
                 }
                 String next2 = aVar.next();
                 if (hashSet.add(next2)) {
-                    arrayList2.add(new a.C0673a(next2, Format.a(Integer.toString(arrayList2.size()), "application/x-mpegURL", (String) null, c5, a3, i, i2, f, (List<byte[]>) null, 0)));
+                    arrayList2.add(new a.C0681a(next2, Format.a(Integer.toString(arrayList2.size()), "application/x-mpegURL", (String) null, c5, a3, i, i2, f, (List<byte[]>) null, 0)));
                 }
                 z = contains;
             }
@@ -245,8 +244,8 @@ public final class d implements p.a<c> {
         return new com.google.android.exoplayer2.source.hls.playlist.a(str, arrayList5, arrayList2, arrayList3, arrayList4, format2, z ? Collections.emptyList() : arrayList6);
     }
 
-    private static int PA(String str) {
-        return (a(str, mwP, false) ? 1 : 0) | (a(str, mwQ, false) ? 2 : 0) | (a(str, mwO, false) ? 4 : 0);
+    private static int PN(String str) {
+        return (a(str, mxv, false) ? 1 : 0) | (a(str, mxw, false) ? 2 : 0) | (a(str, mxu, false) ? 4 : 0);
     }
 
     private static b b(a aVar, String str) throws IOException {
@@ -280,7 +279,7 @@ public final class d implements p.a<c> {
                 arrayList2.add(next);
             }
             if (next.startsWith("#EXT-X-PLAYLIST-TYPE")) {
-                String d = d(next, mwA);
+                String d = d(next, mxg);
                 if ("VOD".equals(d)) {
                     i = 1;
                 } else {
@@ -288,10 +287,10 @@ public final class d implements p.a<c> {
                 }
                 i3 = i;
             } else if (next.startsWith("#EXT-X-START")) {
-                j4 = (long) (b(next, mwD) * 1000000.0d);
+                j4 = (long) (b(next, mxj) * 1000000.0d);
             } else if (next.startsWith("#EXT-X-MAP")) {
-                String d2 = d(next, mwI);
-                String c = c(next, mwF);
+                String d2 = d(next, mxo);
+                String c = c(next, mxl);
                 if (c != null) {
                     String[] split = c.split("@");
                     j2 = Long.parseLong(split[0]);
@@ -304,37 +303,37 @@ public final class d implements p.a<c> {
                 j7 = 0;
                 aVar2 = aVar3;
             } else if (next.startsWith("#EXT-X-TARGETDURATION")) {
-                j3 = a(next, mwy) * TimeUtils.NANOS_PER_MS;
+                j3 = a(next, mxe) * TimeUtils.NANOS_PER_MS;
             } else if (next.startsWith("#EXT-X-MEDIA-SEQUENCE")) {
-                int a2 = a(next, mwB);
+                int a2 = a(next, mxh);
                 i7 = a2;
                 i2 = a2;
             } else if (next.startsWith("#EXT-X-VERSION")) {
-                i6 = a(next, mwz);
+                i6 = a(next, mxf);
             } else if (next.startsWith("#EXTINF")) {
-                j5 = (long) (b(next, mwC) * 1000000.0d);
+                j5 = (long) (b(next, mxi) * 1000000.0d);
             } else if (next.startsWith("#EXT-X-KEY")) {
-                String d3 = d(next, mwG);
-                String c2 = c(next, mwH);
+                String d3 = d(next, mxm);
+                String c2 = c(next, mxn);
                 String str4 = null;
                 String str5 = null;
                 if (!"NONE".equals(d3)) {
-                    str5 = c(next, mwJ);
-                    if (HTTP.IDENTITY_CODING.equals(c2) || c2 == null) {
+                    str5 = c(next, mxp);
+                    if ("identity".equals(c2) || c2 == null) {
                         if ("AES-128".equals(d3)) {
-                            str4 = d(next, mwI);
+                            str4 = d(next, mxo);
                         }
                     } else {
-                        DrmInitData.SchemeData fj = fj(next, c2);
-                        if (fj != null) {
-                            drmInitData = new DrmInitData("SAMPLE-AES-CENC".equals(d3) ? "cenc" : "cbcs", fj);
+                        DrmInitData.SchemeData fr = fr(next, c2);
+                        if (fr != null) {
+                            drmInitData = new DrmInitData("SAMPLE-AES-CENC".equals(d3) ? "cenc" : "cbcs", fr);
                         }
                     }
                 }
                 str3 = str5;
                 str2 = str4;
             } else if (next.startsWith("#EXT-X-BYTERANGE")) {
-                String[] split2 = d(next, mwE).split("@");
+                String[] split2 = d(next, mxk).split("@");
                 j2 = Long.parseLong(split2[0]);
                 j7 = split2.length > 1 ? Long.parseLong(split2[1]) : j7;
             } else if (next.startsWith("#EXT-X-DISCONTINUITY-SEQUENCE")) {
@@ -344,7 +343,7 @@ public final class d implements p.a<c> {
                 i4++;
             } else if (next.startsWith("#EXT-X-PROGRAM-DATE-TIME")) {
                 if (j6 == 0) {
-                    j6 = com.google.android.exoplayer2.b.fq(v.Qq(next.substring(next.indexOf(58) + 1))) - j;
+                    j6 = com.google.android.exoplayer2.b.fo(v.QD(next.substring(next.indexOf(58) + 1))) - j;
                 }
             } else if (!next.startsWith("#")) {
                 if (str2 == null) {
@@ -370,13 +369,13 @@ public final class d implements p.a<c> {
         return new b(i3, str, arrayList2, j4, j6, z, i5, i2, i6, j3, z2, z3, j6 != 0, drmInitData, aVar2, arrayList);
     }
 
-    private static DrmInitData.SchemeData fj(String str, String str2) throws ParserException {
+    private static DrmInitData.SchemeData fr(String str, String str2) throws ParserException {
         if ("urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed".equals(str2)) {
-            String d = d(str, mwI);
-            return new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lXA, MimeType.Video.MP4, Base64.decode(d.substring(d.indexOf(44)), 0));
+            String d = d(str, mxo);
+            return new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lYg, MimeType.Video.MP4, Base64.decode(d.substring(d.indexOf(44)), 0));
         } else if ("com.widevine".equals(str2)) {
             try {
-                return new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lXA, "hls", str.getBytes("UTF-8"));
+                return new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lYg, "hls", str.getBytes("UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 throw new ParserException(e);
             }
@@ -417,46 +416,46 @@ public final class d implements p.a<c> {
         return z;
     }
 
-    private static Pattern PB(String str) {
+    private static Pattern PO(String str) {
         return Pattern.compile(str + "=(NO|YES)");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        private final BufferedReader mwR;
-        private final Queue<String> mwS;
-        private String mwT;
+        private final BufferedReader mxx;
+        private final Queue<String> mxy;
+        private String mxz;
 
         public a(Queue<String> queue, BufferedReader bufferedReader) {
-            this.mwS = queue;
-            this.mwR = bufferedReader;
+            this.mxy = queue;
+            this.mxx = bufferedReader;
         }
 
         public boolean hasNext() throws IOException {
-            if (this.mwT != null) {
+            if (this.mxz != null) {
                 return true;
             }
-            if (!this.mwS.isEmpty()) {
-                this.mwT = this.mwS.poll();
+            if (!this.mxy.isEmpty()) {
+                this.mxz = this.mxy.poll();
                 return true;
             }
             do {
-                String readLine = this.mwR.readLine();
-                this.mwT = readLine;
+                String readLine = this.mxx.readLine();
+                this.mxz = readLine;
                 if (readLine != null) {
-                    this.mwT = this.mwT.trim();
+                    this.mxz = this.mxz.trim();
                 } else {
                     return false;
                 }
-            } while (this.mwT.isEmpty());
+            } while (this.mxz.isEmpty());
             return true;
         }
 
         public String next() throws IOException {
             if (hasNext()) {
-                String str = this.mwT;
-                this.mwT = null;
+                String str = this.mxz;
+                this.mxz = null;
                 return str;
             }
             return null;

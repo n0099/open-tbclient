@@ -14,7 +14,7 @@ import tv.chushou.basis.rxjava.entity.EventType;
 import tv.chushou.basis.rxjava.entity.ProducerEvent;
 import tv.chushou.basis.rxjava.entity.SubscriberEvent;
 import tv.chushou.basis.rxjava.thread.EventThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AnnotatedFinder {
     private static final ConcurrentMap<Class<?>, Map<EventType, SourceMethod>> PRODUCERS_CACHE = new ConcurrentHashMap();
     private static final ConcurrentMap<Class<?>, Map<EventType, Set<SourceMethod>>> SUBSCRIBERS_CACHE = new ConcurrentHashMap();
@@ -149,7 +149,7 @@ public final class AnnotatedFinder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SourceMethod {
         private Method method;
         private EventThread thread;

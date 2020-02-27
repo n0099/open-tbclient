@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GroupAddressEditActivityConfig extends IntentConfig {
     public static final String INTENT_GROUP_ADDRESS_ISHIDDEN = "HiddenAddress";
     public static final String INTENT_GROUP_ADRESS_LIST = "GroupAdressList";

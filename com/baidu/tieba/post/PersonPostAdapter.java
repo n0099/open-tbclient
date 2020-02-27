@@ -4,39 +4,39 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
-    private int[] ezc;
-    private PersonThreadFragment jzb;
-    private PersonReplyFragment jzc;
+    private int[] eDj;
+    private PersonThreadFragment jzR;
+    private PersonReplyFragment jzS;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.cyA());
-        this.jzc = new PersonReplyFragment();
-        this.jzc.setArguments(bundle);
-        this.jzc.a(personPostActivity);
-        this.jzb = new PersonThreadFragment();
-        this.jzb.setArguments(bundle);
-        this.jzb.a((d) personPostActivity);
-        this.jzb.a((b) personPostActivity);
-        this.ezc = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.czV());
+        this.jzS = new PersonReplyFragment();
+        this.jzS.setArguments(bundle);
+        this.jzS.a(personPostActivity);
+        this.jzR = new PersonThreadFragment();
+        this.jzR.setArguments(bundle);
+        this.jzR.a((d) personPostActivity);
+        this.jzR.a((b) personPostActivity);
+        this.eDj = new int[]{0, 1};
     }
 
-    public PersonThreadFragment cyB() {
-        return this.jzb;
+    public PersonThreadFragment czW() {
+        return this.jzR;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.jzb;
+                return this.jzR;
             case 1:
-                return this.jzc;
+                return this.jzS;
             default:
                 return null;
         }
@@ -47,7 +47,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int wJ(int i) {
-        return this.ezc[i];
+    public int wP(int i) {
+        return this.eDj[i];
     }
 }

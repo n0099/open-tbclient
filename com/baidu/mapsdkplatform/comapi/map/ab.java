@@ -6,7 +6,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ab {
     private static final String t = ab.class.getSimpleName();
     public double m;
@@ -29,7 +29,7 @@ public class ab {
     public a k = new a();
     public boolean l = false;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public long a = 0;
         public long b = 0;
@@ -73,14 +73,14 @@ public class ab {
         bundle.putDouble("centerptx", this.d);
         bundle.putDouble("centerpty", this.e);
         bundle.putInt("left", this.j.left);
-        bundle.putInt(HorizontalTranslateLayout.RIGHT, this.j.right);
-        bundle.putInt(VerticalTranslateLayout.TOP, this.j.top);
+        bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, this.j.right);
+        bundle.putInt(VerticalTranslateLayout.TOP, this.j.f993top);
         bundle.putInt(VerticalTranslateLayout.BOTTOM, this.j.bottom);
         if (this.f >= 0 && this.g >= 0 && this.f <= this.j.right && this.g <= this.j.bottom && this.j.right > 0 && this.j.bottom > 0) {
             int i = this.f - ((this.j.right - this.j.left) / 2);
             int i2 = this.g;
             this.h = i;
-            this.i = -(i2 - ((this.j.bottom - this.j.top) / 2));
+            this.i = -(i2 - ((this.j.bottom - this.j.f993top) / 2));
             bundle.putLong("xoffset", this.h);
             bundle.putLong("yoffset", this.i);
         }
@@ -110,15 +110,15 @@ public class ab {
         this.d = bundle.getDouble("centerptx");
         this.e = bundle.getDouble("centerpty");
         this.j.left = bundle.getInt("left");
-        this.j.right = bundle.getInt(HorizontalTranslateLayout.RIGHT);
-        this.j.top = bundle.getInt(VerticalTranslateLayout.TOP);
+        this.j.right = bundle.getInt(HorizontalTranslateLayout.DIRECTION_RIGHT);
+        this.j.f993top = bundle.getInt(VerticalTranslateLayout.TOP);
         this.j.bottom = bundle.getInt(VerticalTranslateLayout.BOTTOM);
         this.h = bundle.getLong("xoffset");
         this.i = bundle.getLong("yoffset");
         if (this.j.right != 0 && this.j.bottom != 0) {
             int i = (int) (-this.i);
             this.f = ((this.j.right - this.j.left) / 2) + ((int) this.h);
-            this.g = i + ((this.j.bottom - this.j.top) / 2);
+            this.g = i + ((this.j.bottom - this.j.f993top) / 2);
         }
         this.k.a = bundle.getLong("gleft");
         this.k.b = bundle.getLong("gright");

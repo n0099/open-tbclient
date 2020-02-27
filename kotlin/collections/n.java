@@ -1,9 +1,10 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public abstract class n implements Iterator<Character> {
-    public abstract char dIT();
+    public abstract char dKa();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +13,8 @@ public abstract class n implements Iterator<Character> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dIS */
+    /* renamed from: dJZ */
     public final Character next() {
-        return Character.valueOf(dIT());
+        return Character.valueOf(dKa());
     }
 }

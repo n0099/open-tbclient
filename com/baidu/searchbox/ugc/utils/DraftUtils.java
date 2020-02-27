@@ -8,7 +8,7 @@ import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DraftUtils {
     public static String generateSPKey(String... strArr) {
         StringBuilder sb = new StringBuilder();

@@ -3,7 +3,7 @@ package com.kascend.chushou.constants;
 import java.util.ArrayList;
 import java.util.List;
 import tv.chushou.a.a.a.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FriendItem {
     public String mGloriouslyUidMedal;
     public boolean mIsChcedked;

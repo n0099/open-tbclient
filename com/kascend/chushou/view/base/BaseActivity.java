@@ -3,7 +3,6 @@ package com.kascend.chushou.view.base;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,29 +11,13 @@ import android.widget.TextView;
 import com.kascend.chushou.a;
 import com.kascend.cstvsdk.CSTVSdk;
 import com.kascend.cstvsdk.interfaces.ThirdParty;
-import com.kascend.cstvsdk.utils.ReflectHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseActivity extends AppCompatActivity {
     protected Context w;
     protected ProgressDialog x;
     protected TextView y;
     protected final String v = getClass().getSimpleName();
     protected final io.reactivex.disposables.a z = new io.reactivex.disposables.a();
-
-    @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
-    protected void attachBaseContext(Context context) {
-        try {
-            ReflectHelper.K(context.getClass()).QQ("mResources").i(context, tv.chushou.widget.a.c.getResources());
-        } catch (ReflectHelper.ReflectedException e) {
-        }
-        super.attachBaseContext(context);
-    }
-
-    @Override // android.support.v7.app.AppCompatActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        Resources resources = tv.chushou.widget.a.c.getResources();
-        return resources != null ? resources : super.getResources();
-    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -43,7 +26,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(bundle);
         CSTVSdk.INSTANCE.check();
         this.w = this;
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dOG().T(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dPT().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onEnterLiveRoom(this);
         }
@@ -63,7 +46,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected int y() {
-        return tv.chushou.zues.utils.systemBar.b.aA(this);
+        return tv.chushou.zues.utils.systemBar.b.aB(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,8 +68,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             this.x.dismiss();
         }
         this.x = null;
-        com.kascend.chushou.d.d.mOv.a();
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dOG().T(ThirdParty.class);
+        com.kascend.chushou.d.d.mOX.a();
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dPT().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onExitLiveRoom(this);
         }

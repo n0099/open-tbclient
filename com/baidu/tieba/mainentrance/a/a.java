@@ -4,11 +4,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import java.lang.reflect.Field;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static Map<String, String> ief;
+    private static Map<String, String> igc;
 
-    public static void Ea(String str) {
+    public static void Eq(String str) {
         try {
             ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
         } catch (Exception e) {
@@ -16,16 +16,16 @@ public class a {
         }
     }
 
-    public static Map<String, String> ccL() {
-        if (ief == null) {
+    public static Map<String, String> cep() {
+        if (igc == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
                 declaredField.setAccessible(true);
-                ief = (Map) declaredField.get(null);
+                igc = (Map) declaredField.get(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return ief;
+        return igc;
     }
 }

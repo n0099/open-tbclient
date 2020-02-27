@@ -1,17 +1,9 @@
 package com.baidu.live.m;
 
-import android.view.View;
-/* loaded from: classes2.dex */
+import com.baidu.live.data.PersonUserData;
+/* loaded from: classes3.dex */
 public interface c {
-    void destory();
+    void a(PersonUserData personUserData);
 
-    View wI();
-
-    b wJ();
-
-    b wK();
-
-    void wL();
-
-    void wM();
+    void p(int i, String str);
 }

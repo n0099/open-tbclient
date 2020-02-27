@@ -23,39 +23,39 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopic
 import com.baidu.tieba.homepage.topic.topictab.message.ResponseHttpGetTopicListMessage;
 import com.baidu.tieba.homepage.topic.topictab.message.ResponseSocketGetTopicListMessage;
 import com.baidu.tieba.tbadkCore.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TopicStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(TopicDetailActivityConfig.class, TopicDetailActivity.class);
-        bNI();
-        bNJ();
-        bNK();
-        bNL();
-        bNM();
+        bPk();
+        bPl();
+        bPm();
+        bPn();
+        bPo();
     }
 
-    private static void bNI() {
+    private static void bPk() {
         a.a(309628, ResponseSocketGetTopicListMessage.class, false, false);
         a.a(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
     }
 
-    private static void bNJ() {
+    private static void bPl() {
         a.a(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
         a.a(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
     }
 
-    private static void bNK() {
+    private static void bPm() {
         a.a(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
         a.a(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
     }
 
-    private static void bNL() {
+    private static void bPn() {
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
-    private static void bNM() {
-        ba.aEt().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
+    private static void bPo() {
+        ba.aGE().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {

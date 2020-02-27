@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMPaAcceptPushMsg extends Message {
     private boolean mAcceptPush;
     private Context mContext;
@@ -57,7 +57,7 @@ public class IMPaAcceptPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         if (i == 0) {
             try {
                 PaInfoDBManager.getInstance(context).acceptPaPush(this.mPaId, this.mAcceptPush);

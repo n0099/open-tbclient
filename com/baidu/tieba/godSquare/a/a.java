@@ -6,31 +6,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.divider.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
-    private BdTypeListView efW;
-    private d gSR;
-    private c gSS;
-    private b gST;
+    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
+    private BdTypeListView eka;
+    private d gUR;
+    private c gUS;
+    private b gUT;
 
-    public List<com.baidu.adp.widget.ListView.a> ban() {
-        return this.apl;
+    public List<com.baidu.adp.widget.ListView.a> bcC() {
+        return this.asE;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.efW = bdTypeListView;
-        this.gSR = new d(tbPageContext);
-        this.gSS = new c(tbPageContext);
-        this.gST = new b(tbPageContext);
-        this.apl.add(this.gSR);
-        this.apl.add(this.gSS);
-        this.apl.add(this.gST);
+        this.eka = bdTypeListView;
+        this.gUR = new d(tbPageContext);
+        this.gUS = new c(tbPageContext);
+        this.gUT = new b(tbPageContext);
+        this.asE.add(this.gUR);
+        this.asE.add(this.gUS);
+        this.asE.add(this.gUT);
     }
 
     public void notifyDataSetChanged() {
-        if (this.efW != null && (this.efW.getAdapter() instanceof e)) {
-            this.efW.getAdapter().notifyDataSetChanged();
+        if (this.eka != null && (this.eka.getAdapter() instanceof e)) {
+            this.eka.getAdapter().notifyDataSetChanged();
         }
     }
 }

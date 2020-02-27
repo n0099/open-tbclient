@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class TransitionUtils {
     private static final int MAX_IMAGE_SIZE = 1048576;
 
@@ -69,7 +69,7 @@ class TransitionUtils {
         return animator2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class MatrixEvaluator implements TypeEvaluator<Matrix> {
         final float[] mTempStartValues = new float[9];
         final float[] mTempEndValues = new float[9];

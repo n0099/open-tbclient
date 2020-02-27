@@ -1,5 +1,6 @@
 package org.conscrypt;
 
+import com.baidu.android.common.security.RSAUtil;
 import java.io.InputStream;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -14,7 +15,7 @@ import java.security.spec.X509EncodedKeySpec;
 import org.conscrypt.NativeRef;
 import org.conscrypt.OpenSSLX509CertificateFactory;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class OpenSSLKey {
     private final NativeRef.EVP_PKEY ctx;
     private final boolean wrapped;
@@ -102,7 +103,7 @@ public final class OpenSSLKey {
         if (privateKey instanceof OpenSSLKeyHolder) {
             return ((OpenSSLKeyHolder) privateKey).getOpenSSLKey();
         }
-        if ("RSA".equals(privateKey.getAlgorithm())) {
+        if (RSAUtil.ALGORITHM_RSA.equals(privateKey.getAlgorithm())) {
             return Platform.wrapRsaKey(privateKey);
         }
         return null;
@@ -122,7 +123,7 @@ public final class OpenSSLKey {
 
     private static OpenSSLKey wrapJCAPrivateKeyForTLSStackOnly(PrivateKey privateKey, PublicKey publicKey) throws InvalidKeyException {
         String algorithm = privateKey.getAlgorithm();
-        if ("RSA".equals(algorithm)) {
+        if (RSAUtil.ALGORITHM_RSA.equals(algorithm)) {
             return OpenSSLRSAPrivateKey.wrapJCAPrivateKeyForTLSStackOnly(privateKey, publicKey);
         }
         if ("EC".equals(algorithm)) {

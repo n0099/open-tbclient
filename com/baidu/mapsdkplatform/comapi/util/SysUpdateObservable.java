@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.util;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SysUpdateObservable {
     private static volatile SysUpdateObservable a;
     private List<SysUpdateObserver> b;

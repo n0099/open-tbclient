@@ -3,10 +3,10 @@ package com.baidu.live.gift.http;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GiftPackageConsumeHttpResponsedMessage extends JsonHttpResponsedMessage {
-    public String alG;
-    public int alH;
+    public String anS;
+    public int anT;
 
     public GiftPackageConsumeHttpResponsedMessage() {
         super(1021151);
@@ -18,8 +18,8 @@ public class GiftPackageConsumeHttpResponsedMessage extends JsonHttpResponsedMes
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.alG = optJSONObject.optString(LegoListActivityConfig.ITEM_ID);
-                this.alH = optJSONObject.optInt("balance");
+                this.anS = optJSONObject.optString(LegoListActivityConfig.ITEM_ID);
+                this.anT = optJSONObject.optInt("balance");
             }
         }
     }

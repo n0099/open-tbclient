@@ -1,6 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
@@ -14,7 +15,7 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -255,9 +256,9 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.threadImgUrl = jSONObject.optString("thread_img_url");
                 this.isNew = jSONObject.optInt("unread") == 1;
                 this.isBjh = jSONObject.optInt(ImageViewerConfig.IS_BJH) == 1;
-                if (jSONObject.optJSONObject("baijiahao") != null) {
+                if (jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME) != null) {
                     this.mBaijiahao = new BaijiahaoData();
-                    this.mBaijiahao.parseJson(jSONObject.optJSONObject("baijiahao"));
+                    this.mBaijiahao.parseJson(jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME));
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);

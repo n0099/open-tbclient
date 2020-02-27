@@ -1,8 +1,8 @@
 package kotlin.jvm.internal;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class t {
-    private static final u nBN;
-    private static final kotlin.reflect.c[] nBO;
+    private static final u nCp;
+    private static final kotlin.reflect.c[] nCq;
 
     static {
         u uVar;
@@ -20,51 +20,51 @@ public class t {
         if (uVar == null) {
             uVar = new u();
         }
-        nBN = uVar;
-        nBO = new kotlin.reflect.c[0];
+        nCp = uVar;
+        nCq = new kotlin.reflect.c[0];
     }
 
     public static kotlin.reflect.d j(Class cls, String str) {
-        return nBN.j(cls, str);
+        return nCp.j(cls, str);
     }
 
-    public static kotlin.reflect.c N(Class cls) {
-        return nBN.N(cls);
+    public static kotlin.reflect.c M(Class cls) {
+        return nCp.M(cls);
     }
 
     public static String a(Lambda lambda) {
-        return nBN.a(lambda);
+        return nCp.a(lambda);
     }
 
     public static String a(p pVar) {
-        return nBN.a(pVar);
+        return nCp.a(pVar);
     }
 
     public static kotlin.reflect.e a(FunctionReference functionReference) {
-        return nBN.a(functionReference);
+        return nCp.a(functionReference);
     }
 
     public static kotlin.reflect.k a(PropertyReference0 propertyReference0) {
-        return nBN.a(propertyReference0);
+        return nCp.a(propertyReference0);
     }
 
     public static kotlin.reflect.g a(MutablePropertyReference0 mutablePropertyReference0) {
-        return nBN.a(mutablePropertyReference0);
+        return nCp.a(mutablePropertyReference0);
     }
 
     public static kotlin.reflect.l a(PropertyReference1 propertyReference1) {
-        return nBN.a(propertyReference1);
+        return nCp.a(propertyReference1);
     }
 
     public static kotlin.reflect.h a(MutablePropertyReference1 mutablePropertyReference1) {
-        return nBN.a(mutablePropertyReference1);
+        return nCp.a(mutablePropertyReference1);
     }
 
     public static kotlin.reflect.m a(PropertyReference2 propertyReference2) {
-        return nBN.a(propertyReference2);
+        return nCp.a(propertyReference2);
     }
 
     public static kotlin.reflect.i a(MutablePropertyReference2 mutablePropertyReference2) {
-        return nBN.a(mutablePropertyReference2);
+        return nCp.a(mutablePropertyReference2);
     }
 }

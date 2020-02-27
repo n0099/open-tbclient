@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.report;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class ReportConfig {
     public static final String LOG_KEY_PUBLISH_DEBUG = "perf_publish_debug";
     public static final String LOG_KEY_PUBLISH_ERROR = "perf_publish_error";

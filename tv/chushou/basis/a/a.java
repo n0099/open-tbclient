@@ -2,9 +2,9 @@ package tv.chushou.basis.a;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static ClassLoader nTO = b.class.getClassLoader();
+    public static ClassLoader nUC = b.class.getClassLoader();
 
     @TargetApi(11)
     public static void e(Context context, String str, long j) {

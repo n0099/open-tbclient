@@ -3,14 +3,13 @@ package com.baidu.live.tbadk.core.util;
 import android.content.Context;
 import com.baidu.down.utils.Constants;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.location.BDLocation;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LocalViewSize {
     private static LocalViewSize sInstance = null;
     private Context mContext = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ImageSize implements Serializable {
         public int height;
         public int width;
@@ -79,7 +78,7 @@ public class LocalViewSize {
             imageSize2.width = (imageSize2.height * i2) / i;
             if (imageSize2.width == 0) {
                 imageSize2.height = 324;
-                imageSize2.width = BDLocation.TypeServerDecryptError;
+                imageSize2.width = 162;
             }
         } else {
             imageSize2.width = imageSize.width;

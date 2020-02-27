@@ -1,5 +1,5 @@
 package org.conscrypt;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 abstract class PeerInfoProvider {
     private static final PeerInfoProvider NULL_PEER_INFO_PROVIDER = new PeerInfoProvider() { // from class: org.conscrypt.PeerInfoProvider.1
         @Override // org.conscrypt.PeerInfoProvider

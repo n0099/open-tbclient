@@ -24,7 +24,7 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/navigateToProgram");
@@ -40,8 +40,8 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            String aar = e.aar();
-            if (TextUtils.isEmpty(aar) || TextUtils.isEmpty(aar.trim())) {
+            String acF = e.acF();
+            if (TextUtils.isEmpty(acF) || TextUtils.isEmpty(acF.trim())) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
@@ -56,12 +56,12 @@ public class a extends ab {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            Request g = g(aar, optParamsAsJo);
+            Request g = g(acF, optParamsAsJo);
             if (g == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            eVar.aaB().a(g, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
+            eVar.acP().a(g, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
@@ -76,11 +76,11 @@ public class a extends ab {
                         } else {
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
-                                Uri lf = a.this.lf(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
-                                if (lf == null) {
+                                Uri lu = a.this.lu(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
+                                if (lu == null) {
                                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
                                 } else {
-                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, lf, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
+                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, lu, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                                 }
                             } else {
                                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
@@ -105,7 +105,7 @@ public class a extends ab {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("app_key", str);
-                jSONObject2.put("srcAppPage", aYN());
+                jSONObject2.put("srcAppPage", bbc());
                 jSONObject2.put("params", jSONObject);
                 request = new Request.Builder().url("https://spapi.baidu.com/ma/navigate").post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
                 if (DEBUG) {
@@ -121,18 +121,18 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Uri lf(String str) {
+    public Uri lu(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return Uri.parse(str);
     }
 
-    private String aYN() {
-        com.baidu.swan.apps.core.d.e El = f.UC().El();
-        if (El == null || El.LY() == null) {
+    private String bbc() {
+        com.baidu.swan.apps.core.d.e GA = f.WQ().GA();
+        if (GA == null || GA.Om() == null) {
             return "";
         }
-        return El.LY().LM().getPage() + "?" + El.LY().LM().getParams();
+        return GA.Om().Oa().getPage() + "?" + GA.Om().Oa().getParams();
     }
 }

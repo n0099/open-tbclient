@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RealTimeVideoMsg extends RealTimeMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<RealTimeVideoMsg> CREATOR = new Parcelable.Creator<RealTimeVideoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.RealTimeVideoMsg.1
         /* JADX DEBUG: Method merged with bridge method */

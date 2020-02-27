@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface f {
     com.facebook.cache.disk.h a(com.facebook.cache.disk.b bVar);
 }

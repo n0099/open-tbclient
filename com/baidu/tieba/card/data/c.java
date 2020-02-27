@@ -11,70 +11,70 @@ import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.an;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
-    public bj cNb;
-    private String fJT;
-    private int fJU;
-    private String fJV;
-    private String fJW;
-    public int fJY;
+    public bj cRe;
+    private String fMq;
+    private int fMr;
+    private String fMs;
+    private String fMt;
+    public int fMv;
     private String mExtra;
     private String mSource;
     public String tid;
     public int objType = 1;
     public SparseArray<String> feedBackReasonMap = null;
-    private Integer fJX = 0;
-    public int cNc = 0;
-    public int cNd = 0;
+    private Integer fMu = 0;
+    public int cRf = 0;
+    public int cRg = 0;
 
     public void setWeight(String str) {
-        this.fJT = str;
+        this.fMq = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void rm(int i) {
-        this.fJU = i;
+    public void rt(int i) {
+        this.fMr = i;
     }
 
-    public void zE(String str) {
-        this.fJV = str;
+    public void zU(String str) {
+        this.fMs = str;
     }
 
-    public int btK() {
-        return this.fJU;
+    public int bvo() {
+        return this.fMr;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String axT() {
-        return this.mSource + "#" + this.fJU + "#" + this.fJV;
+    public String aAh() {
+        return this.mSource + "#" + this.fMr + "#" + this.fMs;
     }
 
     public String getWeight() {
-        return this.fJT;
+        return this.fMq;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String btL() {
-        return this.fJV;
+    public String bvp() {
+        return this.fMs;
     }
 
-    public String btM() {
-        return this.fJW;
+    public String bvq() {
+        return this.fMt;
     }
 
-    public void zF(String str) {
-        this.fJW = str;
+    public void zV(String str) {
+        this.fMt = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bj axQ() {
+    public bj aAe() {
         return null;
     }
 
@@ -90,68 +90,68 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.mExtra;
     }
 
-    public Integer btN() {
-        return this.fJX;
+    public Integer bvr() {
+        return this.fMu;
     }
 
     public void j(Integer num) {
-        this.fJX = num;
+        this.fMu = num;
     }
 
-    public an zG(String str) {
+    public an zW(String str) {
         return af(str, false);
     }
 
     public an af(String str, boolean z) {
-        bj axQ = axQ();
-        if (axQ == null || str.length() == 0) {
+        bj aAe = aAe();
+        if (aAe == null || str.length() == 0) {
             return null;
         }
-        an cp = new an(str).cp("fid", String.valueOf(axQ.getFid())).cp("tid", String.valueOf(axQ.getTid())).cp("obj_id", getExtra()).cp("obj_param1", getWeight()).Z(TiebaInitialize.Params.OBJ_PARAM2, 1).cp("obj_source", getSource()).Z("obj_locate", btK()).cp("uid", TbadkCoreApplication.getCurrentAccount()).cp(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.btr());
+        an cy = new an(str).cy("fid", String.valueOf(aAe.getFid())).cy("tid", String.valueOf(aAe.getTid())).cy("obj_id", getExtra()).cy("obj_param1", getWeight()).X(TiebaInitialize.Params.OBJ_PARAM2, 1).cy("obj_source", getSource()).X("obj_locate", bvo()).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.buV());
         if (!z) {
-            cp.Z("obj_type", btO());
+            cy.X("obj_type", bvs());
         } else {
-            if (axQ.cPL > 0) {
-                cp.Z("midpageflag", 1);
+            if (aAe.cTN > 0) {
+                cy.X("midpageflag", 1);
             } else {
-                cp.Z("midpageflag", 0);
+                cy.X("midpageflag", 0);
             }
-            cp.cp(TiebaInitialize.Params.AB_TAG, btL());
-            cp.Z("is_vertical", btN().intValue());
+            cy.cy(TiebaInitialize.Params.AB_TAG, bvp());
+            cy.X("is_vertical", bvr().intValue());
         }
-        if (axQ.aBx() != null && axQ.aBx().cJB() != null && axQ.aBx().cJB().aRz() != null && axQ.aBx().cJB().aRz().size() > 0) {
-            cp.Z(TiebaInitialize.Params.OBJ_TO, axQ.aBx().kfY ? 2 : 1);
+        if (aAe.aDK() != null && aAe.aDK().cLa() != null && aAe.aDK().cLa().aTQ() != null && aAe.aDK().cLa().aTQ().size() > 0) {
+            cy.X(TiebaInitialize.Params.OBJ_TO, aAe.aDK().kgZ ? 2 : 1);
         }
-        return cp;
+        return cy;
     }
 
-    public an az(String str, int i) {
-        bj axQ = axQ();
-        if (axQ == null) {
+    public an ax(String str, int i) {
+        bj aAe = aAe();
+        if (aAe == null) {
             return null;
         }
-        an cp = new an(str).cp("fid", String.valueOf(axQ.getFid())).cp("tid", String.valueOf(axQ.getTid())).Z(TiebaInitialize.Params.OBJ_PARAM2, 1).cp("obj_param1", getWeight()).cp("obj_source", getSource()).Z("obj_locate", btK()).cp("obj_name", btL()).cp("uid", TbadkCoreApplication.getCurrentAccount()).cp(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.btr());
+        an cy = new an(str).cy("fid", String.valueOf(aAe.getFid())).cy("tid", String.valueOf(aAe.getTid())).X(TiebaInitialize.Params.OBJ_PARAM2, 1).cy("obj_param1", getWeight()).cy("obj_source", getSource()).X("obj_locate", bvo()).cy("obj_name", bvp()).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.buV());
         if (i == 0) {
-            cp.Z("obj_type", btO());
+            cy.X("obj_type", bvs());
         } else {
-            cp.Z("obj_type", i);
+            cy.X("obj_type", i);
         }
-        cp.cp("obj_id", getExtra());
-        return cp;
+        cy.cy("obj_id", getExtra());
+        return cy;
     }
 
-    private int btO() {
+    private int bvs() {
         int i;
         int i2 = 0;
-        bj axQ = axQ();
-        if (axQ == null) {
+        bj aAe = aAe();
+        if (aAe == null) {
             return 0;
         }
-        ArrayList<MediaData> aAh = axQ.aAh();
-        if (aAh == null) {
+        ArrayList<MediaData> aCw = aAe.aCw();
+        if (aCw == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = aAh.iterator();
+            Iterator<MediaData> it = aCw.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -169,34 +169,34 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bj axQ = axQ();
-        if (axQ != null) {
-            return axQ.getImages();
+        bj aAe = aAe();
+        if (aAe != null) {
+            return aAe.getImages();
         }
         return null;
     }
 
-    public void rn(int i) {
-        this.fJY = i;
+    public void ru(int i) {
+        this.fMv = i;
     }
 
-    public boolean btP() {
-        return this.fJY == 1;
+    public boolean bvt() {
+        return this.fMv == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public al axS() {
-        if (axQ() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
+    public al aAg() {
+        if (aAe() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
             return null;
         }
         al alVar = new al();
-        alVar.setTid(axQ().getTid());
-        alVar.setFid(axQ().getFid());
+        alVar.setTid(aAe().getTid());
+        alVar.setFid(aAe().getFid());
         alVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        alVar.weight = this.fJT;
+        alVar.weight = this.fMq;
         alVar.source = this.mSource;
         alVar.extra = this.mExtra;
-        alVar.threadType = axQ().threadType;
+        alVar.threadType = aAe().threadType;
         return alVar;
     }
 }

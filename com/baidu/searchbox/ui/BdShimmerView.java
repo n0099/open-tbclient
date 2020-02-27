@@ -10,7 +10,7 @@ import com.baidu.android.util.media.PreloadUIResUtil;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.skin.callback.NightModeChangeListener;
 import com.baidu.searchbox.ui.ShimmerFrameLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements LoadingViewHolder<BdShimmerView> {
     public static final int BLACK_LOADING = 0;
     public static final int WHITE_LOADING = 1;

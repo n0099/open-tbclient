@@ -2,9 +2,9 @@ package com.baidu.android.imsdk.upload.action;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
 import com.baidu.android.imsdk.upload.action.logpb.BIMLogPb;
-import com.baidu.android.imsdk.utils.LogUtils;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import java.io.IOException;
@@ -26,7 +26,7 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMPushUploadManager {
     private static final long PING_INTERVAL_MS = 1000;
     private static final int TIME_OUT_S = 30;
@@ -71,9 +71,9 @@ public class IMPushUploadManager {
                         i = Integer.valueOf(parseResponse[0]).intValue();
                         str3 = parseResponse[1];
                     }
-                    LogUtils.d(IMPushUploadConstants.TAG, "onResponse response = " + i + " body = " + str3 + ", logId :" + str2);
+                    Log.d(IMPushUploadConstants.TAG, "onResponse response = " + i + " body = " + str3 + ", logId :" + str2);
                 } catch (IOException e) {
-                    LogUtils.e(IMPushUploadConstants.TAG, "onResponse exception ", e);
+                    Log.e(IMPushUploadConstants.TAG, "onResponse exception ", e);
                 } finally {
                     iMPushUploadResponseListener.uploadResponse(i, str3);
                 }
@@ -111,15 +111,15 @@ public class IMPushUploadManager {
                 this.mOkHttpClient.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
                 this.mOkHttpClient = this.mOkHttpClient.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
             }
-            LogUtils.d(IMPushUploadConstants.TAG, "parseResponse errorCode :" + parseFrom.getErrorCode() + ", errorMsg ：" + parseFrom.getErrorMsg());
+            Log.d(IMPushUploadConstants.TAG, "parseResponse errorCode :" + parseFrom.getErrorCode() + ", errorMsg ：" + parseFrom.getErrorMsg());
             return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
         } catch (InvalidProtocolBufferException e) {
-            LogUtils.e(IMPushUploadConstants.TAG, "parseResponse has exception ", e);
+            Log.e(IMPushUploadConstants.TAG, "parseResponse has exception ", e);
             return new String[]{String.valueOf(-1), "parseResponse exception"};
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public GzipRequestInterceptor() {
         }
@@ -156,7 +156,7 @@ public class IMPushUploadManager {
                         requestBody.writeTo(buffer);
                         buffer.close();
                     } catch (IOException e) {
-                        LogUtils.e(IMPushUploadConstants.TAG, "RequestBody gzip exception ", e);
+                        Log.e(IMPushUploadConstants.TAG, "RequestBody gzip exception ", e);
                     }
                 }
             };

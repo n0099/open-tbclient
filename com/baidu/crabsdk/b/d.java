@@ -10,17 +10,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> PZ = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float Qa = 0.0f;
-    private static float Qb = 0.0f;
-    private static float Qc = 0.0f;
-    private static float Qe = 0.0f;
-    private static String Qf = "";
-    private static long Qg = 0;
-    private static long Qh = 0;
-    private static Rect Qi = null;
+    private static com.baidu.crabsdk.c.b<List> RD = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float RE = 0.0f;
+    private static float RF = 0.0f;
+    private static float RG = 0.0f;
+    private static float RH = 0.0f;
+    private static String RI = "";
+    private static long RJ = 0;
+    private static long RK = 0;
+    private static Rect RL = null;
 
     private static List<View> H(View view) {
         ArrayList arrayList = new ArrayList();
@@ -29,19 +29,19 @@ public final class d {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) Qa;
-                    int i3 = (int) Qb;
-                    if (Qi == null) {
-                        Qi = new Rect();
+                    int i2 = (int) RE;
+                    int i3 = (int) RF;
+                    if (RL == null) {
+                        RL = new Rect();
                     }
-                    childAt.getDrawingRect(Qi);
+                    childAt.getDrawingRect(RL);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    Qi.left = iArr[0];
-                    Qi.top = iArr[1];
-                    Qi.right += iArr[0];
-                    Qi.bottom = iArr[1] + Qi.bottom;
-                    if (Qi.contains(i2, i3)) {
+                    RL.left = iArr[0];
+                    RL.top = iArr[1];
+                    RL.right += iArr[0];
+                    RL.bottom = iArr[1] + RL.bottom;
+                    if (RL.contains(i2, i3)) {
                         arrayList.add(childAt);
                         arrayList.addAll(H(childAt));
                     }
@@ -68,51 +68,51 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + Qa + ", " + Qb + ")");
+                arrayList.add("(" + RE + ", " + RF + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + Qa + ", " + Qb + ")");
+                arrayList.add("(" + RE + ", " + RF + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + Qa + ", " + Qb + ")");
+                arrayList.add("(" + RE + ", " + RF + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + Qa + ", " + Qb + ") to:(" + Qc + ", " + Qe + ")");
+                arrayList.add("from:(" + RE + ", " + RF + ") to:(" + RG + ", " + RH + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + Qa + ", " + Qb + ") to:(" + Qc + ", " + Qe + ")");
+                arrayList.add("from:(" + RE + ", " + RF + ") to:(" + RG + ", " + RH + ")");
                 break;
         }
-        arrayList.add(Qf);
-        PZ.add(arrayList);
+        arrayList.add(RI);
+        RD.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        Qf = activity.getClass().getName();
+        RI = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                Qa = motionEvent.getX();
-                Qb = motionEvent.getY();
-                Qg = System.currentTimeMillis();
+                RE = motionEvent.getX();
+                RF = motionEvent.getY();
+                RJ = System.currentTimeMillis();
                 return;
             case 1:
-                Qc = motionEvent.getX();
-                Qe = motionEvent.getY();
-                Qh = System.currentTimeMillis();
-                if (Math.abs(Qe - Qb) > 30.0f) {
+                RG = motionEvent.getX();
+                RH = motionEvent.getY();
+                RK = System.currentTimeMillis();
+                if (Math.abs(RH - RF) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(Qc - Qa) > 30.0f && Math.abs(Qe - Qb) < 30.0f) {
+                } else if (Math.abs(RG - RE) > 30.0f && Math.abs(RH - RF) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (Qh - Qg > 300) {
+                } else if (RK - RJ > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -127,9 +127,9 @@ public final class d {
 
     public static String t() {
         StringBuilder sb = new StringBuilder();
-        int size = PZ.size();
+        int size = RD.size();
         for (int i = 0; i < size; i++) {
-            List list = PZ.get(i);
+            List list = RD.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

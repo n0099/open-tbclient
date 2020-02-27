@@ -17,30 +17,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class dh implements LoggerInterface {
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f242a;
+    private Context f239a;
     private String b;
     private String c = "";
 
     /* renamed from: a  reason: collision with other field name */
-    private static final SimpleDateFormat f240a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+    private static final SimpleDateFormat f237a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
     private static al a = new al(true);
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f239a = "/MiPushLog";
+    public static String f236a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private static List<Pair<String, Throwable>> f241a = Collections.synchronizedList(new ArrayList());
+    private static List<Pair<String, Throwable>> f238a = Collections.synchronizedList(new ArrayList());
 
     public dh(Context context) {
-        this.f242a = context;
+        this.f239a = context;
         if (context.getApplicationContext() != null) {
-            this.f242a = context.getApplicationContext();
+            this.f239a = context.getApplicationContext();
         }
-        this.b = this.f242a.getPackageName();
+        this.b = this.f239a.getPackageName();
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:109:0x021e */
@@ -59,7 +59,7 @@ public class dh implements LoggerInterface {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m216a() {
+    public void m221a() {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
         BufferedWriter bufferedWriter;
@@ -74,10 +74,10 @@ public class dh implements LoggerInterface {
         FileLock fileLock3 = null;
         BufferedWriter bufferedWriter3 = null;
         try {
-            if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f242a.getExternalFilesDir(null)) != null) {
+            if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f239a.getExternalFilesDir(null)) != null) {
                 this.c = externalFilesDir.getAbsolutePath() + "";
             }
-            File file = new File(this.c + f239a);
+            File file = new File(this.c + f236a);
             if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
                 Log.w(this.b, "Create mipushlog directory fail.");
                 if (0 != 0) {
@@ -114,9 +114,9 @@ public class dh implements LoggerInterface {
                 fileLock = randomAccessFile.getChannel().lock();
                 try {
                     BufferedWriter bufferedWriter4 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                    while (!f241a.isEmpty()) {
+                    while (!f238a.isEmpty()) {
                         try {
-                            Pair<String, Throwable> remove = f241a.remove(0);
+                            Pair<String, Throwable> remove = f238a.remove(0);
                             String str = (String) remove.first;
                             if (remove.second != null) {
                                 str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
@@ -270,7 +270,7 @@ public class dh implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void log(String str, Throwable th) {
-        f241a.add(new Pair<>(String.format("%1$s %2$s %3$s ", f240a.format(new Date()), this.b, str), th));
+        f238a.add(new Pair<>(String.format("%1$s %2$s %3$s ", f237a.format(new Date()), this.b, str), th));
         a.a(new di(this));
     }
 

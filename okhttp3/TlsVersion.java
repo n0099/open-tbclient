@@ -3,7 +3,7 @@ package okhttp3;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum TlsVersion {
     TLS_1_3("TLSv1.3"),
     TLS_1_2("TLSv1.2"),

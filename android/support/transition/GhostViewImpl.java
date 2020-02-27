@@ -5,10 +5,10 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewGroup;
 @RequiresApi(14)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 interface GhostViewImpl {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface Creator {
         GhostViewImpl addGhost(View view, ViewGroup viewGroup, Matrix matrix);
 

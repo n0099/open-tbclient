@@ -2,11 +2,11 @@ package com.baidu.live.tbadk.message.http;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.ErrorData;
+import com.baidu.live.u.a;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     public JsonHttpResponsedMessage(int i) {
         super(i);

@@ -4,16 +4,16 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableConcatWithCompletable<T> extends a<T, T> {
     final io.reactivex.e other;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nvP.a((j) new ConcatWithSubscriber(cVar, this.other));
+        this.nwr.a((j) new ConcatWithSubscriber(cVar, this.other));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ConcatWithSubscriber<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, j<T>, org.a.d {
         private static final long serialVersionUID = -7346385463600070225L;
         final org.a.c<? super T> actual;

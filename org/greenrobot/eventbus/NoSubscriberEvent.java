@@ -1,5 +1,5 @@
 package org.greenrobot.eventbus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class NoSubscriberEvent {
     public final EventBus eventBus;
     public final Object originalEvent;

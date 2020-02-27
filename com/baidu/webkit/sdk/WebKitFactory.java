@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class WebKitFactory {
     private static final String ARCH_ARM = "armv";
     private static final int ARCH_ARM_INT = 7;
@@ -79,7 +79,7 @@ public final class WebKitFactory {
     private static String sDataDirectorySuffix = null;
     private static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class DelayedInitTask extends Thread {
         private boolean mResult;
 
@@ -188,7 +188,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -197,14 +197,14 @@ public final class WebKitFactory {
         void onForceInitZeusStart();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum SwitchState {
         Invalid,
         On,
         Off
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;

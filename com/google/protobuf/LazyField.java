@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LazyField {
     private ByteString bytes;
     private final MessageLite defaultInstance;
@@ -83,7 +83,7 @@ public class LazyField {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class LazyEntry<K> implements Map.Entry<K, Object> {
         private Map.Entry<K, LazyField> entry;
 
@@ -118,7 +118,7 @@ public class LazyField {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     static class LazyIterator<K> implements Iterator<Map.Entry<K, Object>> {
         private Iterator<Map.Entry<K, Object>> iterator;
 

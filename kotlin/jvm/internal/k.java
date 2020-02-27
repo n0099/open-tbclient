@@ -2,25 +2,26 @@ package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
 import kotlin.collections.ap;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class k extends ap {
     private int index;
-    private final short[] nBJ;
+    private final short[] nCl;
 
     public k(short[] sArr) {
         q.j(sArr, "array");
-        this.nBJ = sArr;
+        this.nCl = sArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.nBJ.length;
+        return this.index < this.nCl.length;
     }
 
     @Override // kotlin.collections.ap
-    public short dJd() {
+    public short dKk() {
         try {
-            short[] sArr = this.nBJ;
+            short[] sArr = this.nCl;
             int i = this.index;
             this.index = i + 1;
             return sArr[i];

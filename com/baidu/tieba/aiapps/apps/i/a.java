@@ -15,7 +15,7 @@ import com.baidu.swan.apps.as.c;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a implements f {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 

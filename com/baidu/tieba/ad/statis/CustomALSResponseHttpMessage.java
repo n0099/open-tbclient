@@ -1,7 +1,7 @@
 package com.baidu.tieba.ad.statis;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CustomALSResponseHttpMessage extends HttpResponsedMessage {
     public CustomALSResponseHttpMessage(int i) {
         super(i);

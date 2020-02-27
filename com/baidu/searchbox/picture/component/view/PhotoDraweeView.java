@@ -14,7 +14,7 @@ import com.baidu.searchbox.picture.component.listener.OnScaleDragGestureListener
 import com.baidu.searchbox.picture.component.listener.OnViewTapListener;
 import com.facebook.drawee.generic.a;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PhotoDraweeView extends SimpleDraweeView implements IAttacher {
     private Attacher mAttacher;
 

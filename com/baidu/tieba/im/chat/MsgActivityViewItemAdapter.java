@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     public MsgActivityViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -17,13 +17,13 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgActivityView bQJ = aVar.bQJ();
-        bQJ.setPosition(i);
-        bQJ.setData(chatMessage);
-        bQJ.a(this.hqo);
-        bQJ.setOnItemViewLongClickListener(this.hqp);
-        bQJ.dL(this.eeX);
-        bQJ.dK(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView bSk = aVar.bSk();
+        bSk.setPosition(i);
+        bSk.setData(chatMessage);
+        bSk.a(this.hsn);
+        bSk.setOnItemViewLongClickListener(this.hso);
+        bSk.dL(this.eja);
+        bSk.dK(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -39,7 +39,7 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class a extends e.a<MsgActivityView> {
         public a(View view, MsgActivityView msgActivityView) {
             super(view, msgActivityView);

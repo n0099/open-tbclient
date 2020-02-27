@@ -41,10 +41,10 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MessageManager {
     private static final String MODULE_NAME = "msgmgr";
-    private static MessageManager sInstance = null;
+    private static volatile MessageManager sInstance = null;
     private RuleController mController;
     private CustomManager mCustomManager;
     private HttpManager mHttpManager;

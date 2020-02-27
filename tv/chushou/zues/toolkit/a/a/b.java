@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class b implements Closeable {
     private byte[] buf;
     private final Charset charset;

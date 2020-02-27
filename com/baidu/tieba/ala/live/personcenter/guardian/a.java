@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseData {
     public String appId;
-    public int eIA;
-    public String eIB;
-    public String eIC;
-    public String eID;
-    public String eIx;
-    public String eIy;
-    public int eIz;
+    public String eMr;
+    public String eMs;
+    public int eMt;
+    public int eMu;
+    public String eMv;
+    public String eMw;
+    public String eMx;
     public int fansCount;
     public int followCount;
     public int followStatus;
@@ -27,8 +27,8 @@ public class a extends BaseData {
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        this.eIx = jSONObject.optString("benefit_userid");
-        this.eIy = jSONObject.optString("pay_userid");
+        this.eMr = jSONObject.optString("benefit_userid");
+        this.eMs = jSONObject.optString("pay_userid");
         this.userName = jSONObject.optString("user_name");
         this.nickName = jSONObject.optString("user_nickname");
         this.userStatus = jSONObject.optInt("user_status");
@@ -37,16 +37,16 @@ public class a extends BaseData {
         if (StringUtils.isNull(this.portrait)) {
             this.portrait = jSONObject.optString("portrait");
         }
-        this.eIz = jSONObject.optInt("enter_live");
-        this.eIA = jSONObject.optInt("ancher_live");
-        this.eIB = jSONObject.optString("level_exp");
-        this.eIC = jSONObject.optString("charm_count");
+        this.eMt = jSONObject.optInt("enter_live");
+        this.eMu = jSONObject.optInt("ancher_live");
+        this.eMv = jSONObject.optString("level_exp");
+        this.eMw = jSONObject.optString("charm_count");
         this.isOfficial = jSONObject.optInt("is_official");
         this.levelId = jSONObject.optInt("level_id");
         this.followStatus = jSONObject.optInt("follow_status");
         this.followCount = jSONObject.optInt("follow_count");
         this.fansCount = jSONObject.optInt("fans_count");
-        this.eID = jSONObject.optString("total_price");
+        this.eMx = jSONObject.optString("total_price");
         this.appId = jSONObject.optString("third_app_id");
     }
 

@@ -1,5 +1,5 @@
 package tv.chushou.widget.ninepatch;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChunkNotSerializedException extends RuntimeException {
     public ChunkNotSerializedException() {
     }

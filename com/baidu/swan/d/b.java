@@ -3,7 +3,7 @@ package com.baidu.swan.d;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static String c(JSONObject jSONObject, String str, String str2) {
         return jSONObject == null ? str2 : jSONObject.optString(str, str2);

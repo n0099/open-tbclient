@@ -1,5 +1,5 @@
 package com.baidu.searchbox.picture.component.listener;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface OnBitmapLoadActionListener {
     public static final String FAILURE = "failure";
     public static final String RELEASE = "release";

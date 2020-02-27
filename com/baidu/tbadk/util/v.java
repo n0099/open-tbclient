@@ -8,17 +8,17 @@ import java.util.Properties;
 /* loaded from: classes.dex */
 public final class v {
     public static boolean isEMUI() {
-        return z("ro.build.version.emui", "ro.build.hw_emui_api_level");
+        return D("ro.build.version.emui", "ro.build.hw_emui_api_level");
     }
 
-    private static boolean z(String... strArr) {
+    private static boolean D(String... strArr) {
         if (strArr == null || strArr.length == 0) {
             return false;
         }
         try {
-            a aPR = a.aPR();
+            a aSi = a.aSi();
             for (String str : strArr) {
-                if (aPR.vB(str) != null) {
+                if (aSi.vV(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class v {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a dCD;
-        private final Properties dCE = new Properties();
+        private static a dGH;
+        private final Properties dGI = new Properties();
 
         private a() throws IOException {
-            this.dCE.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.dGI.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a aPR() throws IOException {
-            if (dCD == null) {
+        public static a aSi() throws IOException {
+            if (dGH == null) {
                 synchronized (a.class) {
-                    if (dCD == null) {
-                        dCD = new a();
+                    if (dGH == null) {
+                        dGH = new a();
                     }
                 }
             }
-            return dCD;
+            return dGH;
         }
 
-        public String vB(String str) {
-            return this.dCE.getProperty(str);
+        public String vV(String str) {
+            return this.dGI.getProperty(str);
         }
     }
 }

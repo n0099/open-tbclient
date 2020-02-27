@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMTrackDatabase {
     private static final String DB_NAME = "im_track.db";
     private static final int DB_VERSION = 1;
@@ -33,7 +33,7 @@ public class IMTrackDatabase {
     public static final Object myLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum AckEnum {
         ackId,
         type,
@@ -46,7 +46,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ConnectionEnum {
         connectionId,
         startTime,
@@ -61,7 +61,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum CrashEnum {
         crashId,
         exception,
@@ -73,7 +73,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum DbEnum {
         dbId,
         tableName,
@@ -90,7 +90,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum MsgEnum {
         msgId,
         msgCount,
@@ -105,7 +105,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum RequestEnum {
         id,
         method,
@@ -120,7 +120,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum UiEnum {
         uiId,
         category,
@@ -326,6 +326,34 @@ public class IMTrackDatabase {
         }
     }
 
+    public long getCrashCount() {
+        long j;
+        Cursor cursor = null;
+        synchronized (myLock) {
+            j = 0;
+            SQLiteDatabase db = getDb(this.context);
+            if (db != null) {
+                try {
+                    cursor = db.rawQuery("select count(*) from crash", null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        j = cursor.getInt(0);
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    db.close();
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    db.close();
+                }
+            }
+        }
+        return j;
+    }
+
     public void insertDb(Db db) {
         synchronized (myLock) {
             SQLiteDatabase db2 = getDb(this.context);
@@ -351,7 +379,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [249=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [277=4] */
     /* JADX WARN: Removed duplicated region for block: B:32:0x00fe A[Catch: all -> 0x00f6, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x000c, B:8:0x000e, B:24:0x00ef, B:25:0x00f2, B:20:0x00e3, B:18:0x00dd, B:19:0x00e0, B:32:0x00fe, B:33:0x0101, B:34:0x0104), top: B:42:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -446,7 +474,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [311=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [339=4] */
     public List<Connection> getConnections() {
         ArrayList arrayList;
         Cursor cursor;
@@ -508,6 +536,34 @@ public class IMTrackDatabase {
         }
     }
 
+    public long getConnectionCount() {
+        long j;
+        Cursor cursor = null;
+        synchronized (myLock) {
+            j = 0;
+            SQLiteDatabase db = getDb(this.context);
+            if (db != null) {
+                try {
+                    cursor = db.rawQuery("select count(*) from connection", null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        j = cursor.getInt(0);
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    db.close();
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    db.close();
+                }
+            }
+        }
+        return j;
+    }
+
     public void insertRequest(Request request) {
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
@@ -531,7 +587,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [372=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [427=4] */
     public List<Request> getRequests() {
         ArrayList arrayList;
         Cursor cursor;
@@ -593,6 +649,34 @@ public class IMTrackDatabase {
         }
     }
 
+    public long getRequestCount() {
+        long j;
+        Cursor cursor = null;
+        synchronized (myLock) {
+            j = 0;
+            SQLiteDatabase db = getDb(this.context);
+            if (db != null) {
+                try {
+                    cursor = db.rawQuery("select count(*) from request", null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        j = cursor.getInt(0);
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    db.close();
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    db.close();
+                }
+            }
+        }
+        return j;
+    }
+
     public void insertAck(Ack ack) {
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
@@ -614,7 +698,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [431=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=4] */
     public List<Ack> getAcks() {
         ArrayList arrayList;
         Cursor cursor;
@@ -697,7 +781,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [493=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [574=4] */
     public List<Msg> getMsgs() {
         ArrayList arrayList;
         Cursor cursor;
@@ -810,8 +894,23 @@ public class IMTrackDatabase {
         }
     }
 
+    public void clearCrashTable() {
+        synchronized (myLock) {
+            SQLiteDatabase db = getDb(this.context);
+            if (db != null) {
+                try {
+                    db.delete("crash", null, null);
+                    db.close();
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack clearCrashTable Exception: " + e);
+                    db.close();
+                }
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private Context context;
         private static final String SQL_TABLE_CREATE_UI = "CREATE TABLE ui (" + UiEnum.uiId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + UiEnum.category.name() + " TEXT, " + UiEnum.page.name() + " TEXT, " + UiEnum.startTime.name() + " LONG, " + UiEnum.endTime.name() + " LONG, " + UiEnum.duration.name() + " LONG, " + UiEnum.ext.name() + " TEXT, " + UiEnum.aliasId.name() + " LONG NOT NULL );";

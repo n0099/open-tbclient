@@ -10,57 +10,64 @@ import android.widget.LinearLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.data.RedPacketCharmInfo;
-import com.baidu.live.data.as;
-import com.baidu.live.data.l;
-import com.baidu.live.r.a;
+import com.baidu.live.data.au;
+import com.baidu.live.data.m;
+import com.baidu.live.u.a;
 import com.baidu.live.utils.j;
-/* loaded from: classes2.dex */
-public class d implements com.baidu.live.n.a {
-    private l aiW;
-    private ViewGroup erT;
-    private ViewGroup.LayoutParams erU;
-    private ViewGroup erV;
-    private RedPacketCharmView erW;
-    private RedPacketCharmInfo erX;
-    private CountDownTimer erY;
-    private boolean erZ;
+/* loaded from: classes3.dex */
+public class d implements com.baidu.live.q.a {
+    private m ald;
+    private ViewGroup ewd;
+    private ViewGroup.LayoutParams ewe;
+    private ViewGroup ewf;
+    private RedPacketCharmView ewg;
+    private RedPacketCharmInfo ewh;
+    private CountDownTimer ewi;
+    private boolean ewj;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
     }
 
-    @Override // com.baidu.live.n.a
+    @Override // com.baidu.live.q.a
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         reset(true);
-        this.erT = viewGroup;
-        this.erU = layoutParams;
-        bbB();
+        this.ewd = viewGroup;
+        this.ewe = layoutParams;
+        bdQ();
     }
 
-    @Override // com.baidu.live.n.a
-    public boolean h(l lVar) {
+    @Override // com.baidu.live.q.a
+    public boolean m(m mVar) {
         int i;
-        if (lVar == null || lVar.mLiveInfo == null) {
+        if (mVar == null || mVar.mLiveInfo == null) {
+            if (this.ewf != null) {
+                this.ewf.setVisibility(8);
+                return false;
+            }
             return false;
         }
-        this.aiW = lVar;
-        RedPacketCharmInfo redPacketCharmInfo = lVar.mLiveInfo.redpacketCharmInfo;
+        this.ald = mVar;
+        RedPacketCharmInfo redPacketCharmInfo = mVar.mLiveInfo.redpacketCharmInfo;
         if (!a(redPacketCharmInfo)) {
             reset(false);
+            if (this.ewf != null) {
+                this.ewf.setVisibility(8);
+                return false;
+            }
             return false;
         }
-        if (this.erV == null || this.erT.indexOfChild(this.erV) < 0) {
-            bbB();
-            this.erV.setVisibility(this.erZ ? 0 : 8);
+        if (this.ewf == null || this.ewd.indexOfChild(this.ewf) < 0) {
+            bdQ();
         }
-        if (this.erW == null || (this.erV != null && this.erV.indexOfChild(this.erW) < 0)) {
-            this.erW = new RedPacketCharmView(this.erV.getContext());
-            this.erV.addView(this.erW, new FrameLayout.LayoutParams(-2, -2));
-            this.erW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.1
+        if (this.ewg == null || (this.ewf != null && this.ewf.indexOfChild(this.ewg) < 0)) {
+            this.ewg = new RedPacketCharmView(this.ewf.getContext());
+            this.ewf.addView(this.ewg, new FrameLayout.LayoutParams(-2, -2));
+            this.ewg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.bbC();
+                    d.this.bdR();
                 }
             });
         }
@@ -73,79 +80,80 @@ public class d implements com.baidu.live.n.a {
         } else {
             i = 0;
         }
-        oF(i);
-        this.erW.setAvatar(redPacketCharmInfo.senderAvatar);
+        oW(i);
+        this.ewg.setAvatar(redPacketCharmInfo.senderAvatar);
         switch (redPacketCharmInfo.status) {
             case 2:
                 if (j > 60) {
-                    this.erW.oG(1);
+                    this.ewg.oX(1);
                 } else {
-                    this.erW.oG(2);
+                    this.ewg.oX(2);
                 }
                 if (b(redPacketCharmInfo)) {
-                    this.erW.setCountDownTimer(String.valueOf(j), j.I(j * 1000));
-                    cB(j * 1000);
+                    this.ewg.setCountDownTimer(String.valueOf(j), j.M(1000 * j));
+                    cE(j * 1000);
                     break;
                 }
                 break;
             case 3:
-                bbD();
-                this.erW.oG(3);
+                bdS();
+                this.ewg.oX(3);
                 break;
             default:
-                this.erW.oG(1);
+                this.ewg.oX(1);
                 break;
         }
-        this.erX = redPacketCharmInfo;
+        this.ewh = redPacketCharmInfo;
+        this.ewf.setVisibility(this.ewj ? 0 : 8);
         return true;
     }
 
-    @Override // com.baidu.live.n.a
+    @Override // com.baidu.live.q.a
     public void setCanVisible(boolean z) {
-        this.erZ = z;
-        if (this.erV != null) {
-            this.erV.setVisibility(z ? 0 : 8);
+        this.ewj = z;
+        if (this.ewf != null) {
+            this.ewf.setVisibility(z ? 0 : 8);
         }
     }
 
-    @Override // com.baidu.live.n.a
-    public void bN(int i) {
+    @Override // com.baidu.live.q.a
+    public void bW(int i) {
         LinearLayout.LayoutParams layoutParams;
         int dimensionPixelOffset;
-        if (this.erV != null && (this.erV.getLayoutParams() instanceof LinearLayout.LayoutParams) && (layoutParams = (LinearLayout.LayoutParams) this.erV.getLayoutParams()) != null) {
+        if (this.ewf != null && (this.ewf.getLayoutParams() instanceof LinearLayout.LayoutParams) && (layoutParams = (LinearLayout.LayoutParams) this.ewf.getLayoutParams()) != null) {
             if (i == 2) {
                 dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds10);
             } else {
                 dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
             }
             layoutParams.topMargin = dimensionPixelOffset;
-            this.erV.setLayoutParams(layoutParams);
+            this.ewf.setLayoutParams(layoutParams);
         }
     }
 
-    @Override // com.baidu.live.n.a
+    @Override // com.baidu.live.q.a
     public void b(ViewGroup.LayoutParams layoutParams) {
-        this.erU = layoutParams;
-        if (this.erV != null) {
-            this.erV.setLayoutParams(layoutParams);
+        this.ewe = layoutParams;
+        if (this.ewf != null) {
+            this.ewf.setLayoutParams(layoutParams);
         }
     }
 
-    @Override // com.baidu.live.n.a
-    public void tz() {
+    @Override // com.baidu.live.q.a
+    public void sL() {
         reset(true);
     }
 
-    @Override // com.baidu.live.n.a
+    @Override // com.baidu.live.q.a
     public void release() {
-        tz();
+        sL();
     }
 
-    private void bbB() {
-        this.erV = new FrameLayout(this.erT.getContext());
-        this.erV.setBackgroundColor(0);
-        this.erV.setTag(a.g.sdk_pvl_layout_priority_tag_key, 3);
-        this.erT.addView(this.erV, this.erU);
+    private void bdQ() {
+        this.ewf = new FrameLayout(this.ewd.getContext());
+        this.ewf.setBackgroundColor(0);
+        this.ewf.setTag(a.g.sdk_pvl_layout_priority_tag_key, 3);
+        this.ewd.addView(this.ewf, this.ewe);
     }
 
     private boolean a(RedPacketCharmInfo redPacketCharmInfo) {
@@ -153,30 +161,30 @@ public class d implements com.baidu.live.n.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbC() {
-        if (this.aiW != null && this.erX != null) {
-            as asVar = new as();
-            asVar.abw = this.erX.id;
-            asVar.liveId = String.valueOf(this.aiW.mLiveInfo.live_id);
-            asVar.abx = String.valueOf(this.aiW.Wf.userId);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, asVar));
+    public void bdR() {
+        if (this.ald != null && this.ewh != null) {
+            au auVar = new au();
+            auVar.adB = this.ewh.id;
+            auVar.liveId = String.valueOf(this.ald.mLiveInfo.live_id);
+            auVar.adC = String.valueOf(this.ald.XQ.userId);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, auVar));
         }
     }
 
     private boolean b(RedPacketCharmInfo redPacketCharmInfo) {
-        return this.erX == null || TextUtils.isEmpty(this.erX.id) || !this.erX.id.equals(redPacketCharmInfo.id) || this.erX.status != redPacketCharmInfo.status || this.erX.startTime <= 0 || this.erX.startTime != redPacketCharmInfo.startTime;
+        return this.ewh == null || TextUtils.isEmpty(this.ewh.id) || !this.ewh.id.equals(redPacketCharmInfo.id) || this.ewh.status != redPacketCharmInfo.status || this.ewh.startTime <= 0 || this.ewh.startTime != redPacketCharmInfo.startTime;
     }
 
-    private void cB(long j) {
-        bbD();
-        this.erY = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.charm.d.2
+    private void cE(long j) {
+        bdS();
+        this.ewi = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.charm.d.2
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
-                if (d.this.erW != null) {
+                if (d.this.ewg != null) {
                     long round = Math.round(j2 / 1000.0d);
-                    d.this.erW.setCountDownTimer(String.valueOf(round), j.I(1000 * round));
+                    d.this.ewg.setCountDownTimer(String.valueOf(round), j.M(1000 * round));
                     if (round <= 60) {
-                        d.this.erW.oG(2);
+                        d.this.ewg.oX(2);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913133, Long.valueOf(round)));
                 }
@@ -185,59 +193,59 @@ public class d implements com.baidu.live.n.a {
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 int i;
-                if (d.this.erW != null) {
-                    d.this.erW.oG(3);
-                    if (d.this.erX != null) {
+                if (d.this.ewg != null) {
+                    d.this.ewg.oX(3);
+                    if (d.this.ewh != null) {
                         d dVar = d.this;
-                        if (d.this.erX.count > 1) {
-                            i = d.this.erX.count - 1;
+                        if (d.this.ewh.count > 1) {
+                            i = d.this.ewh.count - 1;
                         } else {
                             i = 0;
                         }
-                        dVar.oF(i);
+                        dVar.oW(i);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913133, 0L));
                 }
             }
         };
-        this.erY.start();
+        this.ewi.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oF(int i) {
-        if (this.erW != null) {
+    public void oW(int i) {
+        if (this.ewg != null) {
             String str = "";
             if (i > 99) {
                 str = "99+";
             } else if (i >= 1) {
                 str = String.valueOf(i);
             }
-            this.erW.setBadge(TextUtils.isEmpty(str) ? false : true, str);
+            this.ewg.setBadge(TextUtils.isEmpty(str) ? false : true, str);
         }
     }
 
-    private void bbD() {
-        if (this.erY != null) {
-            this.erY.cancel();
+    private void bdS() {
+        if (this.ewi != null) {
+            this.ewi.cancel();
         }
     }
 
     private void reset(boolean z) {
-        this.erZ = true;
-        this.erX = null;
-        bbD();
-        hL(z);
+        this.ewj = true;
+        this.ewh = null;
+        bdS();
+        hS(z);
     }
 
-    private void hL(boolean z) {
-        if (this.erW != null) {
-            this.erW.release();
-            if (this.erW.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.erW.getParent()).removeView(this.erW);
+    private void hS(boolean z) {
+        if (this.ewg != null) {
+            this.ewg.release();
+            if (this.ewg.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.ewg.getParent()).removeView(this.ewg);
             }
         }
-        if (z && this.erV != null && (this.erV.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.erV.getParent()).removeView(this.erV);
+        if (z && this.ewf != null && (this.ewf.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.ewf.getParent()).removeView(this.ewf);
         }
     }
 }

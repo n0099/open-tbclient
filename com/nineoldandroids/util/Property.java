@@ -1,5 +1,5 @@
 package com.nineoldandroids.util;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class Property<T, V> {
     private final String mName;
     private final Class<V> mType;

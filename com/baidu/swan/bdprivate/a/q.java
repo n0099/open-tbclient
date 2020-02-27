@@ -1,7 +1,7 @@
 package com.baidu.swan.bdprivate.a;
 
 import android.app.Activity;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class q extends com.baidu.swan.apps.setting.oauth.a.d {
     public q(Activity activity) {
         super(activity);

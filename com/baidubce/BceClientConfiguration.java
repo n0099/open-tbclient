@@ -5,7 +5,6 @@ import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.JoinerUtils;
 import java.net.InetAddress;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class BceClientConfiguration {
     public static final int DEFAULT_CONNECTION_TIMEOUT_IN_MILLIS = 30000;
@@ -35,7 +34,7 @@ public class BceClientConfiguration {
     private long uploadSegmentPart;
     private String userAgent;
     public static Region DEFAULT_REGION = Region.CN_N1;
-    public static String DEFAULT_ACCPET_ENCODING = HTTP.IDENTITY_CODING;
+    public static String DEFAULT_ACCPET_ENCODING = "identity";
     public static Protocol DEFAULT_PROTOCOL = Protocol.HTTP;
     public static long DEFAULT_KEEPALIVE_DURATION = 30;
 

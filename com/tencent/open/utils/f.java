@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
     private static Map<String, f> a = Collections.synchronizedMap(new HashMap());
     private static String b = null;

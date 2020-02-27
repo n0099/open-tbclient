@@ -11,13 +11,13 @@ import java.net.Socket;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a dTj;
+    private static a dXo;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean dTk = false;
+    private boolean dXp = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
@@ -27,7 +27,7 @@ public class a {
             r3 = e;
          */
         /* JADX WARN: Code restructure failed: missing block: B:63:0x021d, code lost:
-            com.baidu.tieba.VideoCacheClient.d.aK(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
+            com.baidu.tieba.VideoCacheClient.d.z(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
          */
         /* JADX WARN: Code restructure failed: missing block: B:64:0x023c, code lost:
             if (r15.exists() != false) goto L79;
@@ -54,7 +54,7 @@ public class a {
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:87:0x028d, code lost:
-            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cp("errormsg", "预加载文件失败").cp(com.baidu.live.adp.lib.stats.BdStatsConstant.StatsType.ERROR, r3.getMessage()).cp("url", r14));
+            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cy("errormsg", "预加载文件失败").cy(com.baidu.live.adp.lib.stats.BdStatsConstant.StatsType.ERROR, r3.getMessage()).cy("url", r14));
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:88:0x02b7, code lost:
@@ -106,7 +106,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.dTk) {
+            while (!a.this.dXp) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -114,14 +114,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.dTk) {
-                    String aVa = a.this.aVa();
-                    if (aVa != null && !aVa.isEmpty()) {
-                        File file = new File(c.dSZ + b.wi(aVa) + "/header_downloaded");
+                if (!a.this.dXp) {
+                    String aXq = a.this.aXq();
+                    if (aXq != null && !aXq.isEmpty()) {
+                        File file = new File(c.dXe + b.wC(aXq) + "/header_downloaded");
                         if (file.exists()) {
-                            d.aK(a.TAG, "header exists " + aVa);
+                            d.z(a.TAG, "header exists " + aXq);
                         } else {
-                            d.aK(a.TAG, "client preload start: " + aVa);
+                            d.z(a.TAG, "client preload start: " + aXq);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -140,8 +140,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aVa);
-                                    int port = b.aVb().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aXq);
+                                    int port = b.aXr().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -198,7 +198,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.aK(a.TAG, "client preload check1: " + aVa);
+                                            d.z(a.TAG, "client preload check1: " + aXq);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -250,7 +250,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.aK(a.TAG, "client preload end: " + aVa);
+                            d.z(a.TAG, "client preload end: " + aXq);
                         }
                     }
                 } else {
@@ -293,23 +293,23 @@ public class a {
         this.mThread.start();
     }
 
-    public static a aUZ() {
-        if (dTj == null) {
+    public static a aXp() {
+        if (dXo == null) {
             synchronized (a.class) {
-                if (dTj == null) {
-                    dTj = new a();
+                if (dXo == null) {
+                    dXo = new a();
                 }
             }
         }
-        return dTj;
+        return dXo;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aVa() {
+    public synchronized String aXq() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void wj(String str) {
+    public synchronized void wD(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

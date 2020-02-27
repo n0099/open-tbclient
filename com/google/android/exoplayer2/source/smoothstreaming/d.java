@@ -20,26 +20,26 @@ import com.google.android.exoplayer2.upstream.p;
 import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d implements l, Loader.a<p<com.google.android.exoplayer2.source.smoothstreaming.manifest.a>> {
-    private final int mqJ;
-    private final ArrayList<c> mqv;
-    private l.a mqw;
-    private final b.a msS;
-    private final Uri mtE;
-    private long mtF;
-    private o mtk;
-    private final e.a mtu;
-    private final long mtv;
-    private final p.a<? extends com.google.android.exoplayer2.source.smoothstreaming.manifest.a> mtw;
-    private com.google.android.exoplayer2.source.smoothstreaming.manifest.a mxq;
-    private final b.a mxs;
-    private e mxt;
-    private Loader mxu;
-    private Handler mxv;
+    private final ArrayList<c> mrb;
+    private l.a mrc;
+    private final int mrp;
+    private o mtR;
+    private final b.a mtz;
+    private final e.a mub;
+    private final long muc;
+    private final p.a<? extends com.google.android.exoplayer2.source.smoothstreaming.manifest.a> mud;
+    private final Uri muk;
+    private long mul;
+    private com.google.android.exoplayer2.source.smoothstreaming.manifest.a mxW;
+    private final b.a mxY;
+    private e mxZ;
+    private Loader mya;
+    private Handler myb;
 
     static {
-        com.google.android.exoplayer2.l.OY("goog.exo.smoothstreaming");
+        com.google.android.exoplayer2.l.Pl("goog.exo.smoothstreaming");
     }
 
     public d(Uri uri, e.a aVar, b.a aVar2, Handler handler, com.google.android.exoplayer2.source.b bVar) {
@@ -55,70 +55,70 @@ public final class d implements l, Loader.a<p<com.google.android.exoplayer2.sour
     }
 
     private d(com.google.android.exoplayer2.source.smoothstreaming.manifest.a aVar, Uri uri, e.a aVar2, p.a<? extends com.google.android.exoplayer2.source.smoothstreaming.manifest.a> aVar3, b.a aVar4, int i, long j, Handler handler, com.google.android.exoplayer2.source.b bVar) {
-        com.google.android.exoplayer2.util.a.checkState(aVar == null || !aVar.mxc);
-        this.mxq = aVar;
+        com.google.android.exoplayer2.util.a.checkState(aVar == null || !aVar.mxI);
+        this.mxW = aVar;
         if (uri == null) {
             uri = null;
-        } else if (!v.Qo(uri.getLastPathSegment()).matches("manifest(\\(.+\\))?")) {
+        } else if (!v.QB(uri.getLastPathSegment()).matches("manifest(\\(.+\\))?")) {
             uri = Uri.withAppendedPath(uri, "Manifest");
         }
-        this.mtE = uri;
-        this.mtu = aVar2;
-        this.mtw = aVar3;
-        this.mxs = aVar4;
-        this.mqJ = i;
-        this.mtv = j;
-        this.msS = new b.a(handler, bVar);
-        this.mqv = new ArrayList<>();
+        this.muk = uri;
+        this.mub = aVar2;
+        this.mud = aVar3;
+        this.mxY = aVar4;
+        this.mrp = i;
+        this.muc = j;
+        this.mtz = new b.a(handler, bVar);
+        this.mrb = new ArrayList<>();
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void a(g gVar, boolean z, l.a aVar) {
-        this.mqw = aVar;
-        if (this.mxq != null) {
-            this.mtk = new o.a();
-            dwu();
+        this.mrc = aVar;
+        if (this.mxW != null) {
+            this.mtR = new o.a();
+            dxE();
             return;
         }
-        this.mxt = this.mtu.dxJ();
-        this.mxu = new Loader("Loader:Manifest");
-        this.mtk = this.mxu;
-        this.mxv = new Handler();
-        dvI();
+        this.mxZ = this.mub.dyT();
+        this.mya = new Loader("Loader:Manifest");
+        this.mtR = this.mya;
+        this.myb = new Handler();
+        dwS();
     }
 
     @Override // com.google.android.exoplayer2.source.l
-    public void dva() throws IOException {
-        this.mtk.duZ();
+    public void dwk() throws IOException {
+        this.mtR.dwj();
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public k a(l.b bVar, com.google.android.exoplayer2.upstream.b bVar2) {
         com.google.android.exoplayer2.util.a.checkArgument(bVar.periodIndex == 0);
-        c cVar = new c(this.mxq, this.mxs, this.mqJ, this.msS, this.mtk, bVar2);
-        this.mqv.add(cVar);
+        c cVar = new c(this.mxW, this.mxY, this.mrp, this.mtz, this.mtR, bVar2);
+        this.mrb.add(cVar);
         return cVar;
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void e(k kVar) {
         ((c) kVar).release();
-        this.mqv.remove(kVar);
+        this.mrb.remove(kVar);
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void releaseSource() {
-        this.mqw = null;
-        this.mxq = null;
-        this.mxt = null;
-        this.mtF = 0L;
-        if (this.mxu != null) {
-            this.mxu.release();
-            this.mxu = null;
+        this.mrc = null;
+        this.mxW = null;
+        this.mxZ = null;
+        this.mul = 0L;
+        if (this.mya != null) {
+            this.mya.release();
+            this.mya = null;
         }
-        if (this.mxv != null) {
-            this.mxv.removeCallbacksAndMessages(null);
-            this.mxv = null;
+        if (this.myb != null) {
+            this.myb.removeCallbacksAndMessages(null);
+            this.myb = null;
         }
     }
 
@@ -126,17 +126,17 @@ public final class d implements l, Loader.a<p<com.google.android.exoplayer2.sour
     @Override // com.google.android.exoplayer2.upstream.Loader.a
     /* renamed from: d */
     public void a(p<com.google.android.exoplayer2.source.smoothstreaming.manifest.a> pVar, long j, long j2) {
-        this.msS.a(pVar.dataSpec, pVar.type, j, j2, pVar.dvz());
-        this.mxq = pVar.getResult();
-        this.mtF = j - j2;
-        dwu();
-        dvJ();
+        this.mtz.a(pVar.dataSpec, pVar.type, j, j2, pVar.dwJ());
+        this.mxW = pVar.getResult();
+        this.mul = j - j2;
+        dxE();
+        dwT();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.a
     public void a(p<com.google.android.exoplayer2.source.smoothstreaming.manifest.a> pVar, long j, long j2, boolean z) {
-        this.msS.a(pVar.dataSpec, pVar.type, j, j2, pVar.dvz());
+        this.mtz.a(pVar.dataSpec, pVar.type, j, j2, pVar.dwJ());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -144,63 +144,63 @@ public final class d implements l, Loader.a<p<com.google.android.exoplayer2.sour
     /* renamed from: c */
     public int a(p<com.google.android.exoplayer2.source.smoothstreaming.manifest.a> pVar, long j, long j2, IOException iOException) {
         boolean z = iOException instanceof ParserException;
-        this.msS.a(pVar.dataSpec, pVar.type, j, j2, pVar.dvz(), iOException, z);
+        this.mtz.a(pVar.dataSpec, pVar.type, j, j2, pVar.dwJ(), iOException, z);
         return z ? 3 : 0;
     }
 
-    private void dwu() {
+    private void dxE() {
         a.b[] bVarArr;
         s sVar;
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.mqv.size()) {
+            if (i2 >= this.mrb.size()) {
                 break;
             }
-            this.mqv.get(i2).a(this.mxq);
+            this.mrb.get(i2).a(this.mxW);
             i = i2 + 1;
         }
         long j = Format.OFFSET_SAMPLE_RELATIVE;
         long j2 = Long.MIN_VALUE;
-        for (a.b bVar : this.mxq.mxz) {
-            if (bVar.mtd > 0) {
-                j = Math.min(j, bVar.Lc(0));
-                j2 = Math.max(j2, bVar.Lc(bVar.mtd - 1) + bVar.Ld(bVar.mtd - 1));
+        for (a.b bVar : this.mxW.myf) {
+            if (bVar.mtK > 0) {
+                j = Math.min(j, bVar.Lh(0));
+                j2 = Math.max(j2, bVar.Lh(bVar.mtK - 1) + bVar.Li(bVar.mtK - 1));
             }
         }
         if (j == Format.OFFSET_SAMPLE_RELATIVE) {
-            sVar = new s(this.mxq.mxc ? -9223372036854775807L : 0L, 0L, 0L, 0L, true, this.mxq.mxc);
-        } else if (this.mxq.mxc) {
-            if (this.mxq.mxA != -9223372036854775807L && this.mxq.mxA > 0) {
-                j = Math.max(j, j2 - this.mxq.mxA);
+            sVar = new s(this.mxW.mxI ? -9223372036854775807L : 0L, 0L, 0L, 0L, true, this.mxW.mxI);
+        } else if (this.mxW.mxI) {
+            if (this.mxW.myg != -9223372036854775807L && this.mxW.myg > 0) {
+                j = Math.max(j, j2 - this.mxW.myg);
             }
             long j3 = j2 - j;
-            long fq = j3 - com.google.android.exoplayer2.b.fq(this.mtv);
-            if (fq < 5000000) {
-                fq = Math.min(5000000L, j3 / 2);
+            long fo = j3 - com.google.android.exoplayer2.b.fo(this.muc);
+            if (fo < 5000000) {
+                fo = Math.min(5000000L, j3 / 2);
             }
-            sVar = new s(-9223372036854775807L, j3, j, fq, true, true);
+            sVar = new s(-9223372036854775807L, j3, j, fo, true, true);
         } else {
-            long j4 = this.mxq.lYV != -9223372036854775807L ? this.mxq.lYV : j2 - j;
+            long j4 = this.mxW.lZB != -9223372036854775807L ? this.mxW.lZB : j2 - j;
             sVar = new s(j + j4, j4, j, 0L, true, false);
         }
-        this.mqw.a(this, sVar, this.mxq);
+        this.mrc.a(this, sVar, this.mxW);
     }
 
-    private void dvJ() {
-        if (this.mxq.mxc) {
-            this.mxv.postDelayed(new Runnable() { // from class: com.google.android.exoplayer2.source.smoothstreaming.d.1
+    private void dwT() {
+        if (this.mxW.mxI) {
+            this.myb.postDelayed(new Runnable() { // from class: com.google.android.exoplayer2.source.smoothstreaming.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.dvI();
+                    d.this.dwS();
                 }
-            }, Math.max(0L, (this.mtF + 5000) - SystemClock.elapsedRealtime()));
+            }, Math.max(0L, (this.mul + 5000) - SystemClock.elapsedRealtime()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvI() {
-        p pVar = new p(this.mxt, this.mtE, 4, this.mtw);
-        this.msS.a(pVar.dataSpec, pVar.type, this.mxu.a(pVar, this, this.mqJ));
+    public void dwS() {
+        p pVar = new p(this.mxZ, this.muk, 4, this.mud);
+        this.mtz.a(pVar.dataSpec, pVar.type, this.mya.a(pVar, this, this.mrp));
     }
 }

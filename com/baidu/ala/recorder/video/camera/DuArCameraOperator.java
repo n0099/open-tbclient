@@ -51,7 +51,7 @@ import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListener, Camera.PreviewCallback, IFaceUnityOperator, ICameraOperator {
     public static final boolean DEBUG = false;
     private static final int DEFAULT_ROTATE = 0;
@@ -61,9 +61,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
     private static final int MIN_SURFACE_CHANGE = 10;
     private static final int PREVIEW_BUFFER_COUNT = 3;
     private static final String TAG = "AlaLiveRecorder_AR";
-    private static String mEffectFileName = "none";
     private boolean hasProcessFirstFrame;
-    boolean isSetup;
     private ARProcessor mARProcessor;
     private WeakReference<Activity> mActivityReference;
     private Camera mCamera;
@@ -81,8 +79,6 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
     private FullFrameRectFU mFullScreen;
     private FullFrameRect mFullScreen2D;
     private FullFrameRectFU mFullScreenSticker;
-    private HandlerThread mGLHandlerThread;
-    private Handler mGLThreadHandler;
     private HandlerThread mHandlerThread;
     private float[] mIdentityMatrix;
     private ImageReader mImageReader;
@@ -95,6 +91,8 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
     private AlaCameraRecorder.SurfaceHolder mSurfaceHolder;
     private boolean mVideoModelFit;
     private WindowSurface mWindowSurface;
+    private static String mEffectFileName = "none";
+    private static boolean isSetupConfig = false;
     private String mFilterName = FILTER_DEFAULT;
     private boolean isNeedEffectItem = true;
     private int mDropFrames = 0;
@@ -121,6 +119,15 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
     private volatile boolean mRequestEncoderReset = false;
     private int mEncoderRestCount = 0;
     private boolean isEncode = true;
+    private HashMap<String, Object> mBeautyParams = new HashMap<>();
+    boolean isSetup = false;
+    private int mSetFilterNum = 10;
+
+    static /* synthetic */ int access$510(DuArCameraOperator duArCameraOperator) {
+        int i = duArCameraOperator.mSetFilterNum;
+        duArCameraOperator.mSetFilterNum = i - 1;
+        return i;
+    }
 
     public DuArCameraOperator(Activity activity, Camera camera, AlaCameraRecorder.SurfaceHolder surfaceHolder, ICameraStatusHandler iCameraStatusHandler, IVideoRecorder.IVideoDataCallBack iVideoDataCallBack, RecorderHandler recorderHandler) {
         this.mActivityReference = null;
@@ -141,16 +148,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
                 DuArCameraOperator.this.d("mRecorderHandler ------");
             }
         });
-        initAr();
-        this.mGLHandlerThread = new HandlerThread("ala_live_recorder_ar");
-        this.mGLHandlerThread.start();
-        this.mGLThreadHandler = new Handler(this.mGLHandlerThread.getLooper());
-        this.mGLThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.2
-            @Override // java.lang.Runnable
-            public void run() {
-                DuArCameraOperator.this.initResource();
-            }
-        });
+        initARConfig();
         AlaLiveUtilHelper.getTextureMatrix(this.mMirrorIdentityMatrix, 0.0f, false);
         this.mHandlerThread = new HandlerThread("ala_live_recorder_fu");
         this.mHandlerThread.start();
@@ -278,6 +276,8 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
         if (this.mActivityReference.get() == null) {
             return false;
         }
+        initResource();
+        initARProcessor();
         this.mCameraId = i;
         this.mDropFrames = 0;
         Camera.Size previewSize = this.mCamera.getParameters().getPreviewSize();
@@ -289,15 +289,13 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
         this.mRotate = CameraUtils.getCameraDisplayOrientation(this.mActivityReference.get(), null, i);
         this.mRotate += 180;
         if (this.mCameraTexture == null) {
-            this.mGLThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    DuArCameraOperator.this.setupSurface(DuArCameraOperator.this.mSurfaceHolder);
-                    if (DuArCameraOperator.this.mARProcessor != null) {
-                        DuArCameraOperator.this.mARProcessor.onResume();
-                    }
-                }
-            });
+            setupSurface(this.mSurfaceHolder);
+            if (this.mARProcessor != null) {
+                this.mARProcessor.onResume();
+            }
+            if (this.mCameraTexture != null) {
+                openCamera();
+            }
             if (this.mConfig.getEncoderType() == 1) {
                 resetTextureEncoder();
             } else {
@@ -319,8 +317,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setupSurface(AlaCameraRecorder.SurfaceHolder surfaceHolder) {
+    private void setupSurface(AlaCameraRecorder.SurfaceHolder surfaceHolder) {
         d("setupSurface");
         if (surfaceHolder != null) {
             Surface surface = surfaceHolder.getSurface();
@@ -366,8 +363,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
         prepareFramebuffer(this.mCameraPreviewHeight, this.mCameraPreviewWidth);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean openCamera() {
+    private boolean openCamera() {
         try {
             if (this.mCameraTexture != null) {
                 this.mCamera.stopPreview();
@@ -378,7 +374,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
                 }
                 this.mCamera.setPreviewTexture(this.mCameraTexture);
                 this.mCamera.startPreview();
-                this.mRecorderHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.4
+                this.mRecorderHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.2
                     @Override // java.lang.Runnable
                     public void run() {
                         if (DuArCameraOperator.this.mARProcessor != null) {
@@ -447,43 +443,50 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
         GlUtil.checkGlError("prepareFramebuffer done");
     }
 
-    private void initAr() {
-        try {
+    private void initARConfig() {
+        if (!isSetupConfig) {
+            isSetupConfig = true;
             DuArConfig instance = DuArConfig.instance();
             b.a(this.mActivityReference.get().getApplicationContext(), instance.appId, instance.apiKey, instance.secretKey, new c(instance.getDuArSourcePath()));
-            if (b.By() != null) {
-                b.By();
+            if (b.DO() != null) {
+                b.DO();
                 FILTER_DEFAULT = c.getFilterYuanTuPath();
             }
-            this.hasProcessFirstFrame = false;
-            this.mARProcessor = new ARProcessor(this.mActivityReference.get().getApplicationContext(), new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.5
-                @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-                public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-                    DuArCameraOperator.this.d(" ar->onFrameAvailable surfaceTexture = " + surfaceTexture);
-                    if (DuArCameraOperator.this.mGLThreadHandler != null) {
-                        DuArCameraOperator.this.mGLThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.5.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                DuArCameraOperator.this.frameAvailable();
+        }
+    }
+
+    private void initARProcessor() {
+        try {
+            if (this.mARProcessor == null) {
+                this.hasProcessFirstFrame = false;
+                this.mSetFilterNum = 10;
+                this.mARProcessor = new ARProcessor(this.mActivityReference.get().getApplicationContext(), new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.3
+                    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+                    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+                        DuArCameraOperator.this.d(" ar->onFrameAvailable surfaceTexture = " + surfaceTexture);
+                        DuArCameraOperator.this.frameAvailable();
+                        if (DuArCameraOperator.this.mARProcessor != null && DuArCameraOperator.this.mSetFilterNum > 0) {
+                            if (!TextUtils.isEmpty(DuArCameraOperator.this.mFilterName)) {
+                                DuArCameraOperator.this.d("ar->isFirstFrame:" + DuArCameraOperator.this.mFilterName);
+                                DuArCameraOperator.this.mARProcessor.setFilterSelected(DuArCameraOperator.this.mFilterName);
                             }
-                        });
+                            if (!DuArCameraOperator.this.mBeautyParams.isEmpty()) {
+                                DuArCameraOperator.this.mARProcessor.setBeautyParams(DuArCameraOperator.this.mBeautyParams);
+                            }
+                            DuArCameraOperator.this.hasProcessFirstFrame = true;
+                            DuArCameraOperator.access$510(DuArCameraOperator.this);
+                        }
                     }
-                    if (DuArCameraOperator.this.mARProcessor != null && !DuArCameraOperator.this.hasProcessFirstFrame && !TextUtils.isEmpty(DuArCameraOperator.this.mFilterName)) {
-                        DuArCameraOperator.this.d("ar->isFirstFrame:" + DuArCameraOperator.this.mFilterName);
-                        DuArCameraOperator.this.mARProcessor.setFilterSelected(DuArCameraOperator.this.mFilterName);
-                        DuArCameraOperator.this.hasProcessFirstFrame = true;
+                });
+                this.mARProcessor.setCallback(new ARProcessor.CallbackAdapter() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.4
+                    @Override // com.baidu.ala.dumixar.ARProcessor.CallbackAdapter
+                    public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
+                        DuArCameraOperator.this.d("onSetup: " + z);
+                        DuArCameraOperator.this.isSetup = z;
                     }
-                }
-            });
-            this.mARProcessor.setCallback(new ARProcessor.CallbackAdapter() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.6
-                @Override // com.baidu.ala.dumixar.ARProcessor.CallbackAdapter
-                public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-                    DuArCameraOperator.this.d("onSetup: " + z);
-                    DuArCameraOperator.this.isSetup = z;
-                    DuArCameraOperator.this.openCamera();
-                }
-            });
-            this.mARProcessor.onSurfaceChanged(null, this.mCameraPreviewWidth, this.mCameraPreviewHeight);
+                });
+                this.mARProcessor.onSurfaceChanged(null, this.mCameraPreviewWidth, this.mCameraPreviewHeight);
+            }
         } catch (Exception e) {
         }
     }
@@ -540,8 +543,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void resetTextures() {
+    private void resetTextures() {
         d("resetTextures");
         if (this.mWindowSurface != null) {
             this.mWindowSurface.release();
@@ -560,15 +562,21 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
             this.mEglCore.makeNothingCurrent();
         }
         if (this.mFullScreen != null) {
-            this.mFullScreen.release(false);
+            this.mFullScreen.release(true);
             this.mFullScreen = null;
+        }
+        if (this.mFullScreenSticker != null) {
+            this.mFullScreenSticker.release(true);
+            this.mFullScreenSticker = null;
         }
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void surfaceChanged(int i, int i2) {
         d("surfaceChanged");
-        if (Math.abs(this.mWindowSurfaceHeight - i2) >= 10 || Math.abs(this.mWindowSurfaceWidth - i) >= 10) {
+        if (this.mEglCore == null) {
+            BdLog.e("surfaceChanged, mEglCore = null ?");
+        } else if (Math.abs(this.mWindowSurfaceHeight - i2) >= 10 || Math.abs(this.mWindowSurfaceWidth - i) >= 10) {
             if (this.mWindowSurfaceHeight > this.mWindowSurfaceWidth && i2 > i && this.mWindowSurfaceWidth > 0) {
                 this.mWindowSurfaceHeight = i2;
                 this.mWindowSurfaceWidth = i;
@@ -580,21 +588,11 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
             } else {
                 this.mWindowSurfaceWidth = i;
                 this.mWindowSurfaceHeight = i2;
-                this.mGLThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.7
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        DuArCameraOperator.this.resetTextures();
-                        DuArCameraOperator.this.setupSurface(DuArCameraOperator.this.mSurfaceHolder);
-                    }
-                });
+                resetTextures();
+                setupSurface(this.mSurfaceHolder);
                 if (this.mConfig != null) {
                     if (this.mConfig.getEncoderType() == 1) {
-                        this.mGLThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.8
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                DuArCameraOperator.this.resetTextureEncoder();
-                            }
-                        });
+                        resetTextureEncoder();
                     } else {
                         resetImageReader(true);
                     }
@@ -653,80 +651,88 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void release() {
         d("release");
-        if (this.mARProcessor != null) {
-            this.mARProcessor.onDestroy();
-            this.mARProcessor = null;
-        }
-        this.hasProcessFirstFrame = false;
-        if (this.mRecorderHandler != null) {
-            this.mRecorderHandler.removeCallbacksAndMessages(null);
-            this.mRecorderHandler = null;
-        }
-        GlUtil.checkGlError("releaseGl start");
-        if (this.mWindowSurface != null) {
-            this.mWindowSurface.release();
-            this.mWindowSurface = null;
-        }
-        if (this.mEncoder != null) {
-            this.mGLThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.9
+        try {
+            CameraExecutor.getInst().postMainRunable(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (DuArCameraOperator.this.mEncoder != null) {
-                        DuArCameraOperator.this.mEncoder.release();
-                        DuArCameraOperator.this.mEncoder = null;
+                    if (DuArCameraOperator.this.mARProcessor != null) {
+                        DuArCameraOperator.this.mARProcessor.onPause();
+                        DuArCameraOperator.this.mARProcessor.onDestroy();
+                        DuArCameraOperator.this.mARProcessor = null;
                     }
                 }
             });
-        }
-        if (this.mCodecWindowSurface != null) {
-            this.mCodecWindowSurface.release();
-            this.mCodecWindowSurface = null;
-        }
-        if (this.mFullScreen != null) {
-            this.mFullScreen.release(false);
-            this.mFullScreen = null;
-        }
-        if (this.mCameraTexture != null) {
-            this.mCameraTexture.release();
-            this.mCameraTexture = null;
-        }
-        this.isNeedEffectItem = true;
-        this.isGiftEffectNeedRefresh = true;
-        GlUtil.checkGlError("releaseGl done");
-        if (this.mEglCore != null) {
-            this.mEglCore.release();
-            this.mEglCore = null;
-        }
-        if (this.mGLThreadHandler != null && this.mGLThreadHandler.getLooper() != null) {
-            if (Build.VERSION.SDK_INT >= 18) {
-                this.mGLThreadHandler.getLooper().quitSafely();
-            } else {
-                this.mGLThreadHandler.getLooper().quit();
+            this.hasProcessFirstFrame = false;
+            if (this.mRecorderHandler != null) {
+                this.mRecorderHandler.removeCallbacksAndMessages(null);
+                this.mRecorderHandler = null;
             }
+            GlUtil.checkGlError("releaseGl start");
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
-        this.mGLThreadHandler = null;
-        this.mGLHandlerThread = null;
-        resetImageReader(false);
-        if (this.mHandlerThread != null && this.mHandlerThread.getLooper() != null) {
-            if (Build.VERSION.SDK_INT >= 18) {
-                this.mHandlerThread.getLooper().quitSafely();
-            } else {
-                this.mHandlerThread.getLooper().quit();
+        try {
+            if (this.mWindowSurface != null) {
+                this.mWindowSurface.release();
+                this.mWindowSurface = null;
             }
+            if (this.mEncoder != null && this.mEncoder != null) {
+                this.mEncoder.release();
+                this.mEncoder = null;
+            }
+            if (this.mCodecWindowSurface != null) {
+                this.mCodecWindowSurface.release();
+                this.mCodecWindowSurface = null;
+            }
+            if (this.mFullScreen != null) {
+                this.mFullScreen.release(true);
+                this.mFullScreen = null;
+            }
+            if (this.mFullScreenSticker != null) {
+                this.mFullScreenSticker.release(true);
+                this.mFullScreenSticker = null;
+            }
+            if (this.mFullScreen2D != null) {
+                this.mFullScreen2D.release(true);
+                this.mFullScreen2D = null;
+            }
+            if (this.mCameraTexture != null) {
+                this.mCameraTexture.release();
+                this.mCameraTexture = null;
+            }
+            this.isNeedEffectItem = true;
+            this.isGiftEffectNeedRefresh = true;
+            if (this.mEglCore != null) {
+                this.mEglCore.release();
+                this.mEglCore = null;
+            }
+            resetImageReader(false);
+            if (this.mHandlerThread != null && this.mHandlerThread.getLooper() != null) {
+                if (Build.VERSION.SDK_INT >= 18) {
+                    this.mHandlerThread.getLooper().quitSafely();
+                } else {
+                    this.mHandlerThread.getLooper().quit();
+                }
+            }
+            this.mHandlerThread = null;
+            this.mDataThreadHandler = null;
+            GlUtil.checkGlError("releaseGl done");
+        } catch (Throwable th2) {
+            th2.printStackTrace();
         }
-        this.mHandlerThread = null;
-        this.mDataThreadHandler = null;
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void initResource() {
         d("initResource");
-        try {
-            this.mEglCore = new EglCore(null, 1);
-        } catch (Exception e) {
-            BdStatisticsManager.getInstance().newDebug("AlaLiveRecorder", 0L, null, BdStatsConstant.StatsType.ERROR, "new EglCore error (FUCameraOperator):" + e.getLocalizedMessage());
-            if (this.mRecorderHandler != null) {
-                this.mRecorderHandler.sendError(3, "new EglCore() -> EGL14.eglCreateContext --" + e.getMessage());
+        if (this.mEglCore == null) {
+            try {
+                this.mEglCore = new EglCore(null, 1);
+            } catch (Exception e) {
+                BdStatisticsManager.getInstance().newDebug("AlaLiveRecorder", 0L, null, BdStatsConstant.StatsType.ERROR, "new EglCore error (FUCameraOperator):" + e.getLocalizedMessage());
+                if (this.mRecorderHandler != null) {
+                    this.mRecorderHandler.sendError(3, "new EglCore() -> EGL14.eglCreateContext --" + e.getMessage());
+                }
             }
         }
     }
@@ -746,7 +752,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
     private void resetImageReader(final boolean z) {
         d("resetImageReader");
         if (this.mDataThreadHandler != null) {
-            this.mDataThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.10
+            this.mDataThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.6
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -768,10 +774,9 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void resetTextureEncoder() {
+    private void resetTextureEncoder() {
         d("resetTextureEncoder");
-        if (this.isEncode) {
+        if (this.isEncode && this.mEglCore != null) {
             this.mRequestEncoderReset = false;
             if (this.mEncoder != null) {
                 this.mEncoder.release();
@@ -787,7 +792,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
             encodeConfig.isLandscape = this.mConfig.isLandscape();
             encodeConfig.H264GOP = this.mConfig.getVideoGOP();
             encodeConfig.H264FPS = this.mConfig.getVideoFPS();
-            this.mEncoder.prepare(this.mEglCore.getEGLContext(), encodeConfig, new VideoEncoderCore.OutputCallback() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.11
+            this.mEncoder.prepare(this.mEglCore.getEGLContext(), encodeConfig, new VideoEncoderCore.OutputCallback() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.7
                 @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
                 public void onFormatChanged(MediaFormat mediaFormat) {
                 }
@@ -822,7 +827,7 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
         if (!this.isEncode && this.mImageReader == null && this.mCameraPreviewWidth != 0 && this.mCameraPreviewHeight != 0) {
             this.mImageReader = ImageReader.newInstance(this.mCameraPreviewHeight, this.mCameraPreviewWidth, 1, 1);
             try {
-                this.mImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.12
+                this.mImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.8
                     @Override // android.media.ImageReader.OnImageAvailableListener
                     public void onImageAvailable(ImageReader imageReader) {
                         if (DuArCameraOperator.this.mImageReader != null) {
@@ -991,10 +996,13 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
     }
 
     private void setBeautyParams(HashMap<String, Object> hashMap) {
-        this.mARProcessor.setBeautyParams(hashMap);
+        if (this.mARProcessor != null && this.hasProcessFirstFrame) {
+            this.mARProcessor.setBeautyParams(hashMap);
+        }
+        this.mBeautyParams.putAll(hashMap);
     }
 
-    public void onBeautyChanged(float f, HashMap<String, Object> hashMap) {
+    public void onBeautyParamsChanged(float f, HashMap<String, Object> hashMap) {
         HashMap<String, Object> hashMap2 = new HashMap<>();
         for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
             if (entry != null && entry.getKey() != null) {

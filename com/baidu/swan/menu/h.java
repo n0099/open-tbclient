@@ -9,235 +9,235 @@ import com.baidu.swan.menu.g;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b {
-    private j cuV;
-    private List<i> cuW;
-    private f cuZ;
-    private com.baidu.swan.menu.viewpager.b cva;
-    private View.OnKeyListener cvb;
-    private a cvc;
-    private b cvd;
+    private j cyT;
+    private List<i> cyU;
+    private f cyX;
+    private com.baidu.swan.menu.viewpager.b cyY;
+    private View.OnKeyListener cyZ;
+    private a cza;
+    private b czb;
     private Context mContext;
     private int mStyle;
-    private boolean cuT = false;
-    private int cuU = 0;
-    private List<i> cuX = new ArrayList();
-    private List<List<i>> cuY = new ArrayList();
-    private int cve = -1;
+    private boolean cyR = false;
+    private int cyS = 0;
+    private List<i> cyV = new ArrayList();
+    private List<List<i>> cyW = new ArrayList();
+    private int czc = -1;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(h hVar, boolean z);
     }
 
     public h(Context context, View view, int i, b bVar, @Nullable com.baidu.swan.menu.a aVar) {
-        this.cuW = new ArrayList();
+        this.cyU = new ArrayList();
         if (i >= 0) {
             this.mContext = context;
             this.mStyle = i;
-            this.cvd = bVar;
-            this.cuW = k.m25if(this.mStyle);
-            this.cvd.g(this.mStyle, this.cuW);
-            this.cvd.h(this.mStyle, this.cuW);
-            this.cuV = new j(this.mContext, view, aVar);
-            this.cuV.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
+            this.czb = bVar;
+            this.cyU = k.iw(this.mStyle);
+            this.czb.g(this.mStyle, this.cyU);
+            this.czb.h(this.mStyle, this.cyU);
+            this.cyT = new j(this.mContext, view, aVar);
+            this.cyT.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
                 @Override // com.baidu.swan.menu.PopupWindow.a
                 public void onDismiss() {
-                    if (h.this.cvc != null) {
-                        h.this.cvc.a(h.this, false);
+                    if (h.this.cza != null) {
+                        h.this.cza.a(h.this, false);
                     }
                 }
             });
         }
     }
 
-    private void aqy() {
-        this.cuY.clear();
-        int size = this.cuX.size();
+    private void asM() {
+        this.cyW.clear();
+        int size = this.cyV.size();
         if (size > 0 && size <= 5) {
-            this.cuY.add(this.cuX);
+            this.cyW.add(this.cyV);
         } else if (size > 5 && size <= 10) {
-            int i = this.cuT ? 5 : this.cve;
-            this.cuY.add(this.cuX.subList(0, i));
-            this.cuY.add(this.cuX.subList(i, size));
+            int i = this.cyR ? 5 : this.czc;
+            this.cyW.add(this.cyV.subList(0, i));
+            this.cyW.add(this.cyV.subList(i, size));
         } else if (size > 10) {
-            int ceil = this.cuT ? (int) Math.ceil(size / 2.0f) : this.cve;
-            this.cuY.add(this.cuX.subList(0, ceil));
-            this.cuY.add(this.cuX.subList(ceil, size));
+            int ceil = this.cyR ? (int) Math.ceil(size / 2.0f) : this.czc;
+            this.cyW.add(this.cyV.subList(0, ceil));
+            this.cyW.add(this.cyV.subList(ceil, size));
         }
     }
 
     public void show(boolean z) {
-        h(z, 0);
+        i(z, 0);
     }
 
-    public void h(boolean z, int i) {
+    public void i(boolean z, int i) {
         a(z, i, null, false);
     }
 
     public void a(boolean z, int i, View view, boolean z2) {
         if (isShowing()) {
-            eN(true);
+            eU(true);
             return;
         }
-        if (this.cvd != null) {
-            this.cvd.f(this.mStyle, this.cuW);
+        if (this.czb != null) {
+            this.czb.f(this.mStyle, this.cyU);
         }
-        i(z, i);
-        aqy();
-        this.cuV.b(this.cuY, view, z2, this.cuU);
-        if (this.cvc != null) {
-            this.cvc.a(this, true);
+        j(z, i);
+        asM();
+        this.cyT.b(this.cyW, view, z2, this.cyS);
+        if (this.cza != null) {
+            this.cza.a(this, true);
         }
     }
 
     public void a(f fVar) {
-        this.cuZ = fVar;
+        this.cyX = fVar;
     }
 
     public void a(com.baidu.swan.menu.viewpager.b bVar) {
-        this.cva = bVar;
+        this.cyY = bVar;
     }
 
     @Override // com.baidu.swan.menu.f
     public boolean a(View view, i iVar) {
         if (iVar.isEnable()) {
             if (e(iVar)) {
-                eN(true);
+                eU(true);
             }
-            if (this.cuZ == null) {
+            if (this.cyX == null) {
                 return false;
             }
-            return this.cuZ.a(view, iVar);
+            return this.cyX.a(view, iVar);
         }
         return true;
     }
 
     @Override // com.baidu.swan.menu.viewpager.b
     public boolean c(i iVar) {
-        if (e(iVar) && !this.cuT) {
-            eN(true);
+        if (e(iVar) && !this.cyR) {
+            eU(true);
         }
-        if (this.cva == null) {
+        if (this.cyY == null) {
             return false;
         }
-        return this.cva.c(iVar);
+        return this.cyY.c(iVar);
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (this.cvb != null) {
-            return this.cvb.onKey(view, i, keyEvent);
+        if (this.cyZ != null) {
+            return this.cyZ.onKey(view, i, keyEvent);
         }
         return false;
     }
 
-    public void eM(boolean z) {
-        a(ib(5), z);
-        aqy();
-        this.cuV.aqE();
-        aqx();
+    public void eT(boolean z) {
+        a(is(5), z);
+        asM();
+        this.cyT.asS();
+        asL();
     }
 
-    public void eN(boolean z) {
-        this.cuV.eP(z);
-        if (this.cvc != null) {
-            this.cvc.a(this, false);
+    public void eU(boolean z) {
+        this.cyT.eW(z);
+        if (this.cza != null) {
+            this.cza.a(this, false);
         }
     }
 
     public boolean isShowing() {
-        return this.cuV != null && this.cuV.isShowing();
+        return this.cyT != null && this.cyT.isShowing();
     }
 
-    public void aqx() {
-        if (this.cuV != null) {
-            this.cuV.aqx();
+    public void asL() {
+        if (this.cyT != null) {
+            this.cyT.asL();
         }
     }
 
     public void ap(int i, int i2) {
-        i ig;
+        i ix;
         int i3 = 0;
         boolean z = false;
-        for (i iVar : this.cuW) {
+        for (i iVar : this.cyU) {
             z = iVar.getItemId() == i ? true : z;
         }
-        if (!z && (ig = k.ig(i)) != null) {
-            int size = this.cuW.size();
+        if (!z && (ix = k.ix(i)) != null) {
+            int size = this.cyU.size();
             if (i2 > 0) {
                 i3 = i2 >= size ? size : i2;
             }
-            this.cuW.add(i3, ig);
+            this.cyU.add(i3, ix);
         }
     }
 
-    public void hY(int i) {
-        if (this.cuW != null) {
+    public void ip(int i) {
+        if (this.cyU != null) {
             int i2 = -1;
-            for (int i3 = 0; i3 < this.cuW.size(); i3++) {
-                if (this.cuW.get(i3).getItemId() == i) {
+            for (int i3 = 0; i3 < this.cyU.size(); i3++) {
+                if (this.cyU.get(i3).getItemId() == i) {
                     i2 = i3;
                 }
             }
             if (i2 > -1) {
-                this.cuW.remove(i2);
+                this.cyU.remove(i2);
             }
         }
     }
 
-    public void hZ(int i) {
-        this.cuV.hZ(i);
+    public void iq(int i) {
+        this.cyT.iq(i);
     }
 
     private boolean e(i iVar) {
         return true;
     }
 
-    public void eO(boolean z) {
-        this.cuT = z;
+    public void eV(boolean z) {
+        this.cyR = z;
     }
 
-    public void ia(int i) {
-        this.cuU = i;
+    public void ir(int i) {
+        this.cyS = i;
     }
 
-    private void i(boolean z, int i) {
-        if (this.cuW != null) {
-            this.cuX.clear();
-            ic(41);
-            i a2 = a(ib(38), i);
+    private void j(boolean z, int i) {
+        if (this.cyU != null) {
+            this.cyV.clear();
+            it(41);
+            i a2 = a(is(38), i);
             if (a2 != null && a2.isVisible()) {
-                this.cuX.add(a2);
+                this.cyV.add(a2);
             }
-            ic(48);
-            ic(45);
-            ic(4);
-            ic(101);
-            ic(9);
-            ic(39);
-            ic(42);
-            i ib = ib(35);
-            if (ib != null && ib.isVisible()) {
-                this.cuX.add(ib);
-                if (!this.cuT) {
-                    this.cve = this.cuX.size() - 1;
+            it(48);
+            it(45);
+            it(4);
+            it(101);
+            it(9);
+            it(39);
+            it(42);
+            i is = is(35);
+            if (is != null && is.isVisible()) {
+                this.cyV.add(is);
+                if (!this.cyR) {
+                    this.czc = this.cyV.size() - 1;
                 }
             }
-            ic(37);
-            ic(100);
-            i a3 = a(ib(5), z);
+            it(37);
+            it(100);
+            i a3 = a(is(5), z);
             if (a3 != null && a3.isVisible()) {
-                this.cuX.add(a3);
+                this.cyV.add(a3);
             }
-            ic(40);
-            ic(46);
-            ic(47);
-            i ib2 = ib(36);
-            if (ib2 != null && ib2.isVisible()) {
-                ib2.b(this);
-                this.cuX.add(ib2);
+            it(40);
+            it(46);
+            it(47);
+            i is2 = is(36);
+            if (is2 != null && is2.isVisible()) {
+                is2.b(this);
+                this.cyV.add(is2);
             }
         }
     }
@@ -265,11 +265,11 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         }
         if (i >= 0) {
             Long l = valueOf;
-            for (i iVar : this.cuX) {
+            for (i iVar : this.cyV) {
                 if (iVar.getItemId() == i) {
-                    l = Long.valueOf(l.longValue() + iVar.aqA());
-                    iVar.id(l.longValue() > 0 ? 1 : 0);
-                    iVar.bb(l.longValue());
+                    l = Long.valueOf(l.longValue() + iVar.asO());
+                    iVar.iu(l.longValue() > 0 ? 1 : 0);
+                    iVar.bf(l.longValue());
                 }
             }
         }
@@ -280,10 +280,10 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
             return null;
         }
         if (i == 2) {
-            iVar.ie(g.f.aiapp_menu_text_cancel_favorite);
+            iVar.iv(g.f.aiapp_menu_text_cancel_favorite);
             iVar.setIconResId(g.c.aiapp_menu_item_cancel_fav_selector);
         } else if (i == 1) {
-            iVar.ie(g.f.aiapp_menu_text_favorite);
+            iVar.iv(g.f.aiapp_menu_text_favorite);
             iVar.setIconResId(g.c.aiapp_menu_item_add_fav_selector);
         } else if (i == 0) {
             iVar = null;
@@ -295,33 +295,33 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         if (iVar == null) {
             return null;
         }
-        iVar.ie(z ? g.f.aiapp_menu_text_day_mode : g.f.aiapp_menu_text_night_mode);
+        iVar.iv(z ? g.f.aiapp_menu_text_day_mode : g.f.aiapp_menu_text_night_mode);
         iVar.setIconResId(z ? g.c.aiapp_menu_item_daymode : g.c.aiapp_menu_item_nightmode);
         return iVar;
     }
 
-    public i ib(int i) {
+    public i is(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.cuW.size()) {
+            if (i3 >= this.cyU.size()) {
                 return null;
             }
-            i iVar = this.cuW.get(i3);
+            i iVar = this.cyU.get(i3);
             if (iVar.getItemId() != i) {
                 i2 = i3 + 1;
             } else {
-                iVar.bb(0L);
+                iVar.bf(0L);
                 iVar.a(this);
                 return iVar;
             }
         }
     }
 
-    private void ic(int i) {
-        i ib = ib(i);
-        if (ib != null && ib.isVisible()) {
-            this.cuX.add(ib);
+    private void it(int i) {
+        i is = is(i);
+        if (is != null && is.isVisible()) {
+            this.cyV.add(is);
         }
     }
 }

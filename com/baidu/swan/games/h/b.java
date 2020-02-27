@@ -1,9 +1,9 @@
 package com.baidu.swan.games.h;
 
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public c ciN;
-    public String ciO;
-    public Map<String, Object> ciP;
+    public c cmR;
+    public String cmS;
+    public Map<String, Object> cmT;
 }

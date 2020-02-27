@@ -3,24 +3,24 @@ package com.baidu.tieba.person.more;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.z;
-import com.baidu.tieba.personCenter.data.g;
+import com.baidu.tieba.personCenter.c.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
-    private BdTypeListView efW;
-    private com.baidu.tieba.personCenter.a.c jfI;
+    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
+    private BdTypeListView eka;
+    private com.baidu.tieba.personCenter.a.c jgE;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, z<g> zVar) {
-        this.efW = bdTypeListView;
-        this.jfI = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jgK);
-        this.jfI.c(zVar);
-        this.apl.add(this.jfI);
-        this.efW.addAdapters(this.apl);
+        this.eka = bdTypeListView;
+        this.jgE = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jhD);
+        this.jgE.c(zVar);
+        this.asE.add(this.jgE);
+        this.eka.addAdapters(this.asE);
     }
 
     public void notifyDataSetChanged() {
-        this.jfI.notifyDataSetChanged();
+        this.jgE.notifyDataSetChanged();
     }
 }

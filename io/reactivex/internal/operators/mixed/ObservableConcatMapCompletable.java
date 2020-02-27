@@ -13,21 +13,21 @@ import io.reactivex.q;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
     final ErrorMode errorMode;
     final h<? super T, ? extends e> mapper;
-    final q<T> nxi;
+    final q<T> nxK;
     final int prefetch;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        if (!a.a(this.nxi, this.mapper, cVar)) {
-            this.nxi.subscribe(new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
+        if (!a.a(this.nxK, this.mapper, cVar)) {
+            this.nxK.subscribe(new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ConcatMapCompletableObserver<T> extends AtomicInteger implements b, u<T> {
         private static final long serialVersionUID = 3610901111000061034L;
         volatile boolean active;
@@ -190,7 +190,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
                                 eVar.a(this.inner);
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.I(th);
+                            io.reactivex.exceptions.a.H(th);
                             this.disposed = true;
                             this.queue.clear();
                             this.upstream.dispose();
@@ -208,7 +208,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class ConcatMapInnerObserver extends AtomicReference<b> implements c {
             private static final long serialVersionUID = 5638352172918776687L;
             final ConcatMapCompletableObserver<?> parent;

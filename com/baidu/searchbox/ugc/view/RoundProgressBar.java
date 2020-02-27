@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.ugc.R;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class RoundProgressBar extends View {
     public static final int FILL = 1;
     public static final int STROKE = 0;

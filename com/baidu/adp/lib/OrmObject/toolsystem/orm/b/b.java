@@ -7,20 +7,20 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    private Cursor pf;
-    private final Set<String> pg;
+    private final Set<String> keySet;
+    private Cursor pi;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.pf = cursor;
+        this.pi = cursor;
         this.values = null;
-        this.pg = new TreeSet();
+        this.keySet = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.pg.add(columnName);
+                    this.keySet.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.pg = new TreeSet();
+        this.keySet = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.pg;
+        return this.keySet;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -46,56 +46,56 @@ public class b implements c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Object Z(String str) {
+    public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.pf.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.pf.getColumnCount()) {
+        int columnIndex = this.pi.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.pi.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.pf.getShort(columnIndex));
+                valueOf = Short.valueOf(this.pi.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.pf.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.pi.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.pf.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.pi.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.pf.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.pi.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.pf.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.pi.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.pf.getString(columnIndex);
+                    string = this.pi.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.pf.getBlob(columnIndex);
+                        return this.pi.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;
@@ -152,15 +152,15 @@ public class b implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Object b(String str, Type type) {
-        Object Z = Z(str);
-        if (Z != null) {
+        Object object = getObject(str);
+        if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h r = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.r(Z);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h r = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.r(object);
             if (r != null) {
                 return r.g(cVar);
             }
-            return Z;
+            return object;
         }
-        return Z;
+        return object;
     }
 }

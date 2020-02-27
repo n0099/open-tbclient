@@ -28,7 +28,6 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.imageview.BdRoundedImageView;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -38,6 +37,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.live.tbadk.core.view.BdGridView;
 import com.baidu.live.tbadk.log.LogManager;
+import com.baidu.live.u.a;
 import com.baidu.tieba.live.tbean.adapter.BuyTBeanGridAdapter;
 import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.IconInfoData;
@@ -50,7 +50,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuyTBeanView extends BdBaseView {
     private Activity activity;
     private LinearLayout buyBeanCustomLayout;
@@ -79,7 +79,7 @@ public class BuyTBeanView extends BdBaseView {
     private TextView tvCustomSubmitHint;
     private TextView tvExchangeContent;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnPayClickListener {
         void onClick(IAdapterData iAdapterData, UserInfoData userInfoData);
     }

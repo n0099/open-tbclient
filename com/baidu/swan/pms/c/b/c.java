@@ -3,7 +3,7 @@ package com.baidu.swan.pms.c.b;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.c.d.f;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     public c(g gVar, f fVar) {
         super(gVar, fVar);
@@ -21,16 +21,16 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a P(com.baidu.swan.pms.c.c.c cVar) {
-        this.cxn.MW();
+    public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.c cVar) {
+        this.cBl.Pk();
         com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(cVar.cxY, eVar);
-        if (eVar.asd() == 0) {
-            this.cxn.MS();
+        a(cVar.cBW, eVar);
+        if (eVar.aur() == 0) {
+            this.cBl.Pg();
             return null;
         }
-        this.cxn.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(cVar, this.cxn);
+        this.cBl.a(eVar);
+        com.baidu.swan.pms.c.a.a.a(cVar, this.cBl);
         return null;
     }
 
@@ -38,15 +38,15 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
-    public boolean O(com.baidu.swan.pms.c.c.c cVar) {
+    public boolean Q(com.baidu.swan.pms.c.c.c cVar) {
         if (cVar == null) {
             return false;
         }
-        return cVar.cxY == null || cVar.cxY.NE();
+        return cVar.cBW == null || cVar.cBW.PS();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String agV() {
+    protected String ajj() {
         return "getplugin";
     }
 }

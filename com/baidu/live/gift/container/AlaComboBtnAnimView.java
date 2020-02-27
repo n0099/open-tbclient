@@ -16,30 +16,30 @@ import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.live.r.a;
+import com.baidu.live.u.a;
 import com.tb.airbnb.lottie.LottieAnimationView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaComboBtnAnimView extends FrameLayout {
-    private a agA;
-    private AlaRoundProgress agB;
-    private RelativeLayout ago;
-    private View agp;
-    private Animation agq;
-    private ScaleAnimation agr;
-    private LottieAnimationView ags;
-    private View agt;
-    private ObjectAnimator agu;
-    private ImageView agv;
-    private AnimatorSet agw;
-    private ObjectAnimator agx;
-    private long agy;
-    private boolean agz;
+    private ScaleAnimation aiA;
+    private LottieAnimationView aiB;
+    private View aiC;
+    private ObjectAnimator aiD;
+    private ImageView aiE;
+    private AnimatorSet aiF;
+    private ObjectAnimator aiG;
+    private long aiH;
+    private boolean aiI;
+    private a aiJ;
+    private AlaRoundProgress aiK;
+    private RelativeLayout aix;
+    private View aiy;
+    private Animation aiz;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void rY();
+        void tj();
     }
 
     public AlaComboBtnAnimView(Context context) {
@@ -58,120 +58,120 @@ public class AlaComboBtnAnimView extends FrameLayout {
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(a.h.ala_combo_btn_anim_view, this);
-        this.agt = findViewById(a.g.combo_container);
-        this.agB = (AlaRoundProgress) findViewById(a.g.ala_round_progress);
-        this.ago = (RelativeLayout) findViewById(a.g.combo_btn);
-        this.ago.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.live.gift.container.AlaComboBtnAnimView.1
+        this.aiC = findViewById(a.g.combo_container);
+        this.aiK = (AlaRoundProgress) findViewById(a.g.ala_round_progress);
+        this.aix = (RelativeLayout) findViewById(a.g.combo_btn);
+        this.aix.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.live.gift.container.AlaComboBtnAnimView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 return true;
             }
         });
-        this.agv = (ImageView) findViewById(a.g.combo_text_icon);
-        this.agp = findViewById(a.g.combo_bg);
-        this.agq = AnimationUtils.loadAnimation(this.mContext, a.C0086a.ala_gift_rotate_anim);
-        this.agq.setInterpolator(new LinearInterpolator());
-        this.agr = (ScaleAnimation) AnimationUtils.loadAnimation(this.mContext, a.C0086a.ala_gift_scale_anim);
-        this.ags = (LottieAnimationView) findViewById(a.g.lottie_balloon);
-        this.ags.setAnimation("ala_gift_combo_balloon.json");
-        this.ags.loop(false);
-        this.agB.setMax(100);
-        this.agB.setProgress(0);
-        this.agu = ObjectAnimator.ofInt(this.agB, "progress", 100).setDuration(3000L);
-        this.agu.setInterpolator(new LinearInterpolator());
-        this.agu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.gift.container.AlaComboBtnAnimView.2
+        this.aiE = (ImageView) findViewById(a.g.combo_text_icon);
+        this.aiy = findViewById(a.g.combo_bg);
+        this.aiz = AnimationUtils.loadAnimation(this.mContext, a.C0102a.ala_gift_rotate_anim);
+        this.aiz.setInterpolator(new LinearInterpolator());
+        this.aiA = (ScaleAnimation) AnimationUtils.loadAnimation(this.mContext, a.C0102a.ala_gift_scale_anim);
+        this.aiB = (LottieAnimationView) findViewById(a.g.lottie_balloon);
+        this.aiB.setAnimation("ala_gift_combo_balloon.json");
+        this.aiB.loop(false);
+        this.aiK.setMax(100);
+        this.aiK.setProgress(0);
+        this.aiD = ObjectAnimator.ofInt(this.aiK, "progress", 100).setDuration(3000L);
+        this.aiD.setInterpolator(new LinearInterpolator());
+        this.aiD.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.gift.container.AlaComboBtnAnimView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 ((Integer) valueAnimator.getAnimatedValue()).intValue();
             }
         });
-        this.agu.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.gift.container.AlaComboBtnAnimView.3
+        this.aiD.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.gift.container.AlaComboBtnAnimView.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 if (((Integer) ((ValueAnimator) animator).getAnimatedValue()).intValue() == 100) {
-                    AlaComboBtnAnimView.this.agt.setVisibility(8);
+                    AlaComboBtnAnimView.this.aiC.setVisibility(8);
                 }
-                if (AlaComboBtnAnimView.this.agA != null) {
-                    AlaComboBtnAnimView.this.agA.rY();
+                if (AlaComboBtnAnimView.this.aiJ != null) {
+                    AlaComboBtnAnimView.this.aiJ.tj();
                 }
             }
         });
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ago, "scaleX", 1.0f, 0.8f, 1.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aix, "scaleX", 1.0f, 0.8f, 1.0f);
         ofFloat.setRepeatCount(0);
         ofFloat.setDuration(1000L);
-        this.agx = ObjectAnimator.ofFloat(this.ago, "scaleY", 1.0f, 0.8f, 1.0f);
-        this.agx.setRepeatCount(0);
-        this.agx.setDuration(1000L);
-        this.agw = new AnimatorSet();
-        this.agw.play(ofFloat).with(this.agx);
-        this.agx.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.gift.container.AlaComboBtnAnimView.4
+        this.aiG = ObjectAnimator.ofFloat(this.aix, "scaleY", 1.0f, 0.8f, 1.0f);
+        this.aiG.setRepeatCount(0);
+        this.aiG.setDuration(1000L);
+        this.aiF = new AnimatorSet();
+        this.aiF.play(ofFloat).with(this.aiG);
+        this.aiG.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.gift.container.AlaComboBtnAnimView.4
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                if (!AlaComboBtnAnimView.this.agz) {
-                    AlaComboBtnAnimView.this.ago.startAnimation(AlaComboBtnAnimView.this.agr);
+                if (!AlaComboBtnAnimView.this.aiI) {
+                    AlaComboBtnAnimView.this.aix.startAnimation(AlaComboBtnAnimView.this.aiA);
                 }
             }
         });
     }
 
-    public void rU() {
-        this.agz = System.currentTimeMillis() - this.agy < 1010;
-        this.agy = System.currentTimeMillis();
-        this.agr.cancel();
-        if (this.agw.isRunning()) {
-            this.agw.cancel();
+    public void tf() {
+        this.aiI = System.currentTimeMillis() - this.aiH < 1010;
+        this.aiH = System.currentTimeMillis();
+        this.aiA.cancel();
+        if (this.aiF.isRunning()) {
+            this.aiF.cancel();
         }
-        this.agw.start();
-        this.ags.playAnimation();
-        this.agu.start();
+        this.aiF.start();
+        this.aiB.playAnimation();
+        this.aiD.start();
     }
 
-    public void rV() {
-        this.agt.setVisibility(0);
-        this.agp.startAnimation(this.agq);
-        this.ago.startAnimation(this.agr);
-        this.agu.start();
+    public void tg() {
+        this.aiC.setVisibility(0);
+        this.aiy.startAnimation(this.aiz);
+        this.aix.startAnimation(this.aiA);
+        this.aiD.start();
     }
 
     public void setComboClickListener(View.OnClickListener onClickListener) {
-        if (this.ago != null) {
-            this.ago.setOnClickListener(onClickListener);
+        if (this.aix != null) {
+            this.aix.setOnClickListener(onClickListener);
         }
     }
 
-    public void rW() {
-        this.agq.cancel();
-        this.agr.cancel();
-        if (this.agu.isRunning()) {
-            this.agu.cancel();
+    public void th() {
+        this.aiz.cancel();
+        this.aiA.cancel();
+        if (this.aiD.isRunning()) {
+            this.aiD.cancel();
         }
-        if (this.agw.isRunning()) {
-            this.agw.cancel();
+        if (this.aiF.isRunning()) {
+            this.aiF.cancel();
         }
-        if (this.ags.isAnimating()) {
-            this.ags.cancelAnimation();
+        if (this.aiB.isAnimating()) {
+            this.aiB.cancelAnimation();
         }
-        this.agt.setVisibility(8);
-        if (this.agA != null) {
-            this.agA.rY();
+        this.aiC.setVisibility(8);
+        if (this.aiJ != null) {
+            this.aiJ.tj();
         }
     }
 
     public void setComboListener(a aVar) {
-        this.agA = aVar;
+        this.aiJ = aVar;
     }
 
-    public boolean rX() {
-        return this.agt == null || this.agt.getVisibility() == 0;
+    public boolean ti() {
+        return this.aiC == null || this.aiC.getVisibility() == 0;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         try {
-            rW();
+            th();
         } catch (Exception e) {
         }
     }

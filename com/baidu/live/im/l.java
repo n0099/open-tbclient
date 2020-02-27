@@ -4,19 +4,20 @@ import android.content.Context;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.ILoginListener;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l implements ILoginListener {
-    private static l ape;
-    private boolean apc = false;
-    private a apd;
+    private static volatile l asx;
+    private boolean asv = false;
+    private a asw;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void n(int i, String str);
     }
@@ -24,15 +25,15 @@ public class l implements ILoginListener {
     private l() {
     }
 
-    public static l vc() {
-        if (ape == null) {
+    public static l wG() {
+        if (asx == null) {
             synchronized (l.class) {
-                if (ape == null) {
-                    ape = new l();
+                if (asx == null) {
+                    asx = new l();
                 }
             }
         }
-        return ape;
+        return asx;
     }
 
     public void init(Context context) {
@@ -42,18 +43,18 @@ public class l implements ILoginListener {
         String cuid = ExtraParamsManager.getInstance().buildParamsExtra().getCuid();
         BIMManager.enableDebugMode(true);
         if (TbConfig.IM_ENV_DEBUG) {
-            BIMManager.init(context, 10773430L, 1, cuid);
+            BIMManager.init(context, Constants.APPID_TIEBA, 1, cuid);
             i = 1;
         } else {
-            BIMManager.init(context, 10773430L, 0, cuid);
+            BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.apc = true;
+        this.asv = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.apd = aVar;
+        this.asw = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -68,25 +69,25 @@ public class l implements ILoginListener {
         LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
     }
 
-    public void aR(boolean z) {
-        if (this.apc) {
-            if (z && this.apd != null) {
-                a(this.apd);
+    public void aU(boolean z) {
+        if (this.asv) {
+            if (z && this.asw != null) {
+                a(this.asw);
             } else if (!z) {
                 a(null);
             }
         }
     }
 
-    public void vd() {
+    public void wH() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.apd != null) {
-            this.apd.n(i, str);
-            this.apd = null;
+        if (this.asw != null) {
+            this.asw.n(i, str);
+            this.asw = null;
         }
     }
 
@@ -99,6 +100,6 @@ public class l implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        vd();
+        wH();
     }
 }

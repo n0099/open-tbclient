@@ -14,7 +14,7 @@ import com.baidu.searchbox.ugc.utils.ResourceUtils;
 import com.baidu.searchbox.ugc.utils.UgcUiUtils;
 import com.baidu.searchbox.ugc.utils.UiBaseUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UploadPhotosDialog extends Dialog {
     private CancalProgressListener mListener;
     private ProgressBar mProgressBar;
@@ -22,7 +22,7 @@ public class UploadPhotosDialog extends Dialog {
     private TextView mUploadingWordTv;
     private WeakReference<Activity> mWeakRefContext;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface CancalProgressListener {
         void cancel();
     }

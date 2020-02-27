@@ -28,7 +28,7 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdSailor implements INoProGuard {
     public static final String LOG_TAG = BdSailor.class.getSimpleName();
     protected static BdSailor sInstance;
@@ -380,7 +380,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().Jb = this.mClient;
+        BdSailorPlatform.getStatic().Jx = this.mClient;
     }
 
     public void setSailorNetProbeInterface(ISailorNetProbeInterface iSailorNetProbeInterface) {

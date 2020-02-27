@@ -4,11 +4,11 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b extends g implements Runnable {
-    private boolean lLl;
-    float lLm;
-    private boolean lLn;
+    private boolean lLS;
+    float lLT;
+    private boolean lLU;
     private int mInterval;
 
     public b(Drawable drawable, int i) {
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.lLm = 0.0f;
-        this.lLn = false;
+        this.lLT = 0.0f;
+        this.lLU = false;
         this.mInterval = i;
-        this.lLl = z;
+        this.lLS = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.lLm;
-        if (!this.lLl) {
-            f = 360.0f - this.lLm;
+        float f = this.lLT;
+        if (!this.lLS) {
+            f = 360.0f - this.lLT;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        dld();
+        dmq();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.lLn = false;
-        this.lLm += dle();
+        this.lLU = false;
+        this.lLT += dmr();
         invalidateSelf();
     }
 
-    private void dld() {
-        if (!this.lLn) {
-            this.lLn = true;
+    private void dmq() {
+        if (!this.lLU) {
+            this.lLU = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int dle() {
+    private int dmr() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

@@ -4,36 +4,36 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r implements b, a.InterfaceC0010a {
-    private final com.airbnb.lottie.a.b.a<?, Float> gA;
-    private final com.airbnb.lottie.a.b.a<?, Float> gB;
-    private final ShapeTrimPath.Type gy;
-    private final com.airbnb.lottie.a.b.a<?, Float> gz;
+    private final ShapeTrimPath.Type gC;
+    private final com.airbnb.lottie.a.b.a<?, Float> gD;
+    private final com.airbnb.lottie.a.b.a<?, Float> gE;
+    private final com.airbnb.lottie.a.b.a<?, Float> gF;
     private final List<a.InterfaceC0010a> listeners = new ArrayList();
     private final String name;
 
     public r(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.gy = shapeTrimPath.bM();
-        this.gz = shapeTrimPath.db().cm();
-        this.gA = shapeTrimPath.da().cm();
-        this.gB = shapeTrimPath.cU().cm();
-        aVar.a(this.gz);
-        aVar.a(this.gA);
-        aVar.a(this.gB);
-        this.gz.b(this);
-        this.gA.b(this);
-        this.gB.b(this);
+        this.gC = shapeTrimPath.bN();
+        this.gD = shapeTrimPath.dc().cn();
+        this.gE = shapeTrimPath.db().cn();
+        this.gF = shapeTrimPath.cV().cn();
+        aVar.a(this.gD);
+        aVar.a(this.gE);
+        aVar.a(this.gF);
+        this.gD.b(this);
+        this.gE.b(this);
+        this.gF.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
-    public void bC() {
+    public void bD() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.listeners.size()) {
-                this.listeners.get(i2).bC();
+                this.listeners.get(i2).bD();
                 i = i2 + 1;
             } else {
                 return;
@@ -56,19 +56,19 @@ public class r implements b, a.InterfaceC0010a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type bM() {
-        return this.gy;
-    }
-
-    public com.airbnb.lottie.a.b.a<?, Float> bN() {
-        return this.gz;
+    public ShapeTrimPath.Type bN() {
+        return this.gC;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bO() {
-        return this.gA;
+        return this.gD;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bP() {
-        return this.gB;
+        return this.gE;
+    }
+
+    public com.airbnb.lottie.a.b.a<?, Float> bQ() {
+        return this.gF;
     }
 }

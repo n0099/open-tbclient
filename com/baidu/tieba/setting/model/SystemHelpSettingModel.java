@@ -17,40 +17,40 @@ import com.baidu.tbadk.core.util.m;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private a jQD;
-    private b jQE;
-    private BaseActivity.LoadDataCallBack jQF;
+    private BaseActivity.LoadDataCallBack jRA;
+    private a jRy;
+    private b jRz;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.jQD = null;
-        this.jQE = null;
+        this.jRy = null;
+        this.jRz = null;
         this.mContext = null;
-        this.jQF = null;
+        this.jRA = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void bsW() {
-        if (this.jQD == null) {
-            this.jQD = new a();
-            this.jQD.execute(new String[0]);
+    public void buA() {
+        if (this.jRy == null) {
+            this.jRy = new a();
+            this.jRy.execute(new String[0]);
         }
     }
 
-    public void cDG() {
+    public void cFh() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void cDH() {
-        if (this.jQE == null) {
-            this.jQE = new b();
-            this.jQE.execute(new String[0]);
+    public void cFi() {
+        if (this.jRz == null) {
+            this.jRz = new b();
+            this.jRz.execute(new String[0]);
         }
     }
 
@@ -59,7 +59,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         private a() {
         }
@@ -69,9 +69,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.jQD = null;
-            if (SystemHelpSettingModel.this.jQF != null) {
-                SystemHelpSettingModel.this.jQF.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.jRy = null;
+            if (SystemHelpSettingModel.this.jRA != null) {
+                SystemHelpSettingModel.this.jRA.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -80,11 +80,11 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().deleteDatabase();
-            com.baidu.tbadk.core.voice.a.b.aGs();
+            com.baidu.tbadk.core.voice.a.b.aIH();
             try {
-                m.sW("image");
-                m.sW(TbConfig.IMAGE_CACHE_DIR_NAME);
-                ap.aEn().aEo();
+                m.tm("image");
+                m.tm(TbConfig.IMAGE_CACHE_DIR_NAME);
+                ap.aGy().aGz();
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -94,7 +94,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class b extends BdAsyncTask<String, String, String> {
         private b() {
         }
@@ -120,9 +120,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.jQE = null;
-            if (SystemHelpSettingModel.this.jQF != null) {
-                SystemHelpSettingModel.this.jQF.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.jRz = null;
+            if (SystemHelpSettingModel.this.jRA != null) {
+                SystemHelpSettingModel.this.jRA.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -138,6 +138,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.jQF = loadDataCallBack;
+        this.jRA = loadDataCallBack;
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p {
     public static List<a> a(com.baidu.g.a.b.a.c cVar) {
         switch (JavaTypesHelper.toInt(cVar.type, 0)) {
@@ -37,8 +37,8 @@ public class p {
     }
 
     private static final List<a> b(com.baidu.g.a.b.a.c cVar) {
-        int i = cVar.aDN.aEa;
-        String str = cVar.aDN.aEb;
+        int i = cVar.aHU.aIh;
+        String str = cVar.aHU.aIi;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -61,7 +61,7 @@ public class p {
     }
 
     private static final List<a> c(com.baidu.g.a.b.a.c cVar) {
-        String str = cVar.aDO;
+        String str = cVar.aHV;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -84,7 +84,7 @@ public class p {
     }
 
     private static final List<a> d(com.baidu.g.a.b.a.c cVar) {
-        int i = cVar.aDN.feedback;
+        int i = cVar.aHU.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -105,8 +105,8 @@ public class p {
 
     private static final List<a> e(com.baidu.g.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.aDN != null) {
-            String str = cVar.aDN.aEc;
+        if (cVar != null && cVar.aHU != null) {
+            String str = cVar.aHU.aIj;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

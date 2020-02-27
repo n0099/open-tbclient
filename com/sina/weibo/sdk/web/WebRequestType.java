@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.web;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum WebRequestType {
     SHARE,
     AUTH,

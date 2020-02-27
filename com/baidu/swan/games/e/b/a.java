@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.webkit.ValueCallback;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.V8Engine;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private V8Engine mV8Engine;
 
@@ -12,7 +12,7 @@ public class a {
         this.mV8Engine = v8Engine;
     }
 
-    public void bw(String str, String str2) {
+    public void bF(String str, String str2) {
         this.mV8Engine.requireJSFile(str, str2);
     }
 

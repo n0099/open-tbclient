@@ -4,24 +4,24 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.data.Config;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class c {
     private Context context;
-    private a fpC;
-    private b fpD;
+    private a fsf;
+    private b fsg;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
     private int pn = 0;
     private int type;
     private String url;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void c(com.baidu.tieba.ala.person.a.d dVar);
 
@@ -39,8 +39,8 @@ public class c {
 
     public void g(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.fpC != null) {
-                this.fpC.onFail(this.context.getResources().getString(a.i.sdk_no_network));
+            if (this.fsf != null) {
+                this.fsf.onFail(this.context.getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
@@ -52,25 +52,25 @@ public class c {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.fpD = new b();
-        this.fpD.execute(str, str2);
+        this.fsg = new b();
+        this.fsg.execute(str, str2);
     }
 
     public void cancel() {
-        if (this.fpD != null && !this.fpD.isCancelled()) {
-            this.fpD.cancel();
+        if (this.fsg != null && !this.fsg.isCancelled()) {
+            this.fsg.cancel();
         }
-        if (this.fpC != null) {
-            this.fpC.onFail(null);
+        if (this.fsf != null) {
+            this.fsf.onFail(null);
         }
     }
 
     public void a(a aVar) {
-        this.fpC = aVar;
+        this.fsf = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<String, Void, Object> {
         private b() {
         }
@@ -98,12 +98,12 @@ public class c {
             netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
             String postNetData = netWork.postNetData();
             if (netWork.isRequestSuccess()) {
-                String az = com.baidu.tieba.ala.person.d.a.az(c.this.type, postNetData);
-                if (TextUtils.isEmpty(az)) {
+                String aA = com.baidu.tieba.ala.person.d.a.aA(c.this.type, postNetData);
+                if (TextUtils.isEmpty(aA)) {
                     return null;
                 }
                 com.baidu.tieba.ala.person.a.d dVar2 = new com.baidu.tieba.ala.person.a.d();
-                dVar2.parserJson(az);
+                dVar2.parserJson(aA);
                 c.this.hasMore = dVar2.has_more == 1;
                 if (c.this.type == 1) {
                     c.this.a(str, dVar2);
@@ -118,8 +118,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (c.this.fpC != null) {
-                c.this.fpC.c((com.baidu.tieba.ala.person.a.d) obj);
+            if (c.this.fsf != null) {
+                c.this.fsf.c((com.baidu.tieba.ala.person.a.d) obj);
             }
         }
     }
@@ -130,7 +130,7 @@ public class c {
             for (com.baidu.tieba.ala.person.a.b bVar : dVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    bVar.eHG = 1;
+                    bVar.eLA = 1;
                 }
             }
         }

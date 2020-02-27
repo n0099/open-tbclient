@@ -1,16 +1,14 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class o {
-    public String forum_top_list;
-    public final List<PostData> iAX = new ArrayList();
-    public final List<Long> iAY = new ArrayList();
-    private int count = 0;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bj;
+/* loaded from: classes9.dex */
+public class o implements com.baidu.adp.widget.ListView.m {
+    public static BdUniqueId TYPE = BdUniqueId.gen();
+    public bj cRe;
 
-    public int getCount() {
-        return this.count;
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

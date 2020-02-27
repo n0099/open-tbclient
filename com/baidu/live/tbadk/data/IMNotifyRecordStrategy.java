@@ -3,14 +3,14 @@ package com.baidu.live.tbadk.data;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMNotifyRecordStrategy {
+    public static final String NET_TYPENAME_2G = "2g";
+    public static final String NET_TYPENAME_3G = "3g";
+    public static final String NET_TYPENAME_4G = "4g";
+    public static final String NET_TYPENAME_WIFI = "wifi";
     private static IMNotifyRecordStrategy mInstance;
     public String isOn;
-    public final String NET_TYPENAME_2G = "2g";
-    public final String NET_TYPENAME_3G = "3g";
-    public final String NET_TYPENAME_4G = "4g";
-    public final String NET_TYPENAME_WIFI = "wifi";
     public HashMap<String, String> uploadFileFrequencyMap = new HashMap<>();
     public HashMap<String, String> uploadDataNumMap = new HashMap<>();
     public HashMap<String, String> mergeDataFrequencyMap = new HashMap<>();

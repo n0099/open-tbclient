@@ -1,5 +1,5 @@
 package master.flame.danmaku.danmaku.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class h extends i {
     public h(g gVar) {
         super(gVar);

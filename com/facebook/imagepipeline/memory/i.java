@@ -2,15 +2,15 @@ package com.facebook.imagepipeline.memory;
 
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class i {
-    private final com.facebook.common.references.c<byte[]> lHQ;
-    final a lTK;
+    private final com.facebook.common.references.c<byte[]> lIx;
+    final a lUr;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.lUh > 0);
-        this.lTK = new a(cVar, rVar, n.dpN());
-        this.lHQ = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.lUO > 0);
+        this.lUr = new a(cVar, rVar, n.dqZ());
+        this.lIx = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             public void release(byte[] bArr) {
@@ -19,24 +19,24 @@ public class i {
         };
     }
 
-    public com.facebook.common.references.a<byte[]> HW(int i) {
-        return com.facebook.common.references.a.a(this.lTK.get(i), this.lHQ);
+    public com.facebook.common.references.a<byte[]> Ib(int i) {
+        return com.facebook.common.references.a.a(this.lUr.get(i), this.lIx);
     }
 
     public void release(byte[] bArr) {
-        this.lTK.release(bArr);
+        this.lUr.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a extends j {
         public a(com.facebook.common.memory.c cVar, r rVar, s sVar) {
             super(cVar, rVar, sVar);
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        d<byte[]> Ip(int i) {
-            return new o(Im(i), this.lTs.lUh, 0);
+        d<byte[]> Iu(int i) {
+            return new o(Ir(i), this.lTZ.lUO, 0);
         }
     }
 }

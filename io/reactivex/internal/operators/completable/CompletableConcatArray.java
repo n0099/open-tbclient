@@ -6,7 +6,7 @@ import io.reactivex.disposables.b;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CompletableConcatArray extends a {
     final e[] sources;
 
@@ -17,7 +17,7 @@ public final class CompletableConcatArray extends a {
         concatInnerObserver.next();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ConcatInnerObserver extends AtomicInteger implements c {
         private static final long serialVersionUID = -7965400327305809232L;
         final c actual;

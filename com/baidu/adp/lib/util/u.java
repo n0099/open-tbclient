@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.util;
 
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.util.SecureHelper;
 import java.math.BigInteger;
@@ -22,7 +23,7 @@ public class u {
     private static final byte[] salt = {-92, Constants.GZIP_CAST_TYPE, -56, 52, -42, -107, -13, 19};
 
     public static PublicKey loadRSAPublicKey(byte[] bArr) throws Exception {
-        return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
+        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
     public static byte[] encryptWithRSA(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {

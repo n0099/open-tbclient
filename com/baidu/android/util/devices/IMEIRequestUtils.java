@@ -5,7 +5,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class IMEIRequestUtils {
     private IMEIRequestUtils() {
     }

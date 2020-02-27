@@ -7,7 +7,7 @@ import com.baidu.fsg.base.restnet.http.HttpDefines;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e implements com.baidu.fsg.base.restnet.rest.d {
     private final com.baidu.fsg.base.restnet.rest.c a;
     private String c;

@@ -3,21 +3,21 @@ package com.baidu.swan.games.h;
 import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
-    private HashMap<String, g> cjG = new HashMap<>();
+    private HashMap<String, g> cnK = new HashMap<>();
 
-    public ArrayList<g> t(String... strArr) {
+    public ArrayList<g> x(String... strArr) {
         ArrayList<g> arrayList = null;
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    for (String str2 : this.cjG.keySet()) {
+                    for (String str2 : this.cnK.keySet()) {
                         if (str2.startsWith(str) || str.startsWith(str2)) {
                             if (arrayList == null) {
                                 arrayList = new ArrayList<>();
                             }
-                            arrayList.add(this.cjG.get(str2));
+                            arrayList.add(this.cnK.get(str2));
                         }
                     }
                 }
@@ -30,7 +30,7 @@ public class f {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    this.cjG.put(str, gVar);
+                    this.cnK.put(str, gVar);
                 }
             }
         }
@@ -39,14 +39,14 @@ public class f {
     public void b(g gVar, String... strArr) {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.cjG.get(str) == gVar) {
-                    this.cjG.remove(str);
+                if (!TextUtils.isEmpty(str) && this.cnK.get(str) == gVar) {
+                    this.cnK.remove(str);
                 }
             }
         }
     }
 
-    public void alu() {
-        this.cjG.clear();
+    public void anH() {
+        this.cnK.clear();
     }
 }

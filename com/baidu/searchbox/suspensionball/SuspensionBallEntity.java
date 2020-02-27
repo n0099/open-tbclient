@@ -3,7 +3,7 @@ package com.baidu.searchbox.suspensionball;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class SuspensionBallEntity extends BaseEntity {
     private static final String KEY_CLICKTIMES = "clicktimes";
     private static final String KEY_CREATETIME = "createtime";

@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class BDAbstractLocationListener {
     public void onConnectHotSpotMessage(String str, int i) {
     }

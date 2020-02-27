@@ -1,5 +1,5 @@
 package com.baidu.live.adp.newwidget.imageview;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IRefresh {
     void refresh();
 }

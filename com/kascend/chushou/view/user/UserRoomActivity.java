@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.kascend.chushou.a;
 import com.kascend.chushou.view.base.BaseActivity;
 import tv.chushou.zues.widget.animation.AnimationImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UserRoomActivity extends BaseActivity {
     private View a;
     private View b;
@@ -17,9 +17,9 @@ public class UserRoomActivity extends BaseActivity {
     private TextView e;
     private String h;
     private String i;
-    private FrameLayout ndr;
-    private AnimationImageView nfv;
-    private b nfw;
+    private FrameLayout ndU;
+    private AnimationImageView nfY;
+    private b nfZ;
 
     @Override // com.kascend.chushou.view.base.BaseActivity, android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -31,10 +31,10 @@ public class UserRoomActivity extends BaseActivity {
     public void a() {
         setContentView(a.h.activity_my_room);
         this.a = findViewById(a.f.title_view);
-        this.ndr = (FrameLayout) findViewById(a.f.fragment_container);
+        this.ndU = (FrameLayout) findViewById(a.f.fragment_container);
         this.b = findViewById(a.f.rl_empty);
         this.c = (ImageView) findViewById(a.f.iv_empty);
-        this.nfv = (AnimationImageView) findViewById(a.f.iv_loading);
+        this.nfY = (AnimationImageView) findViewById(a.f.iv_loading);
         this.e = (TextView) findViewById(a.f.tv_empty);
     }
 
@@ -44,18 +44,18 @@ public class UserRoomActivity extends BaseActivity {
         this.h = intent.getStringExtra("uid");
         this.i = intent.getStringExtra("dataInfo");
         boolean booleanExtra = intent.getBooleanExtra("scrollto", false);
-        if (!tv.chushou.zues.utils.a.dPa()) {
+        if (!tv.chushou.zues.utils.a.dQn()) {
             a_(3);
             return;
         }
         a_(1);
-        this.nfw = b.b(this.h, null, booleanExtra, this.i);
-        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.nfw).commitAllowingStateLoss();
+        this.nfZ = b.b(this.h, null, booleanExtra, this.i);
+        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.nfZ).commitAllowingStateLoss();
     }
 
     @Override // com.kascend.chushou.view.base.BaseActivity
     protected int y() {
-        tv.chushou.zues.utils.systemBar.b.aF(this);
+        tv.chushou.zues.utils.systemBar.b.aG(this);
         return 1;
     }
 
@@ -64,9 +64,9 @@ public class UserRoomActivity extends BaseActivity {
         switch (i) {
             case 1:
                 this.a.setVisibility(0);
-                this.ndr.setVisibility(8);
+                this.ndU.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nfv.setVisibility(0);
+                this.nfY.setVisibility(0);
                 this.c.setVisibility(8);
                 this.e.setVisibility(8);
                 return;
@@ -75,18 +75,18 @@ public class UserRoomActivity extends BaseActivity {
                 return;
             case 3:
                 this.a.setVisibility(0);
-                this.ndr.setVisibility(8);
+                this.ndU.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nfv.setVisibility(8);
+                this.nfY.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_net_error);
                 this.e.setVisibility(8);
                 return;
             case 4:
                 this.a.setVisibility(0);
-                this.ndr.setVisibility(8);
+                this.ndU.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nfv.setVisibility(8);
+                this.nfY.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_unknown_error);
                 this.e.setVisibility(8);
@@ -97,6 +97,6 @@ public class UserRoomActivity extends BaseActivity {
     public void c() {
         this.a.setVisibility(8);
         this.b.setVisibility(8);
-        this.ndr.setVisibility(0);
+        this.ndU.setVisibility(0);
     }
 }

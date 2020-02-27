@@ -17,7 +17,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class NinePatchChunk implements Externalizable {
     public static final int DEFAULT_DENSITY = 160;
     public static final int NO_COLOR = 1;

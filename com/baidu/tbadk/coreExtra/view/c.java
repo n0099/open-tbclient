@@ -29,39 +29,39 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.coreExtra.data.j;
+import com.baidu.tbadk.coreExtra.data.k;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private View doA;
-    private View doB;
-    private a.InterfaceC0365a doD;
-    private Drawable dow;
-    private Drawable dox;
-    private TextView doy;
-    private View doz;
+    private Drawable dsE;
+    private Drawable dsF;
+    private TextView dsG;
+    private View dsH;
+    private View dsI;
+    private View dsJ;
+    private a.InterfaceC0375a dsL;
     private Activity mContext;
     private int size;
-    private View dod = null;
-    private Dialog doe = null;
-    private EditText dof = null;
-    private RadioGroup dog = null;
-    private RadioGroup doh = null;
-    private CompoundButton.OnCheckedChangeListener doi = null;
-    private RadioButton doj = null;
-    private RadioButton dok = null;
-    private RadioButton dol = null;
-    private TextView dom = null;
-    private b don = null;
-    private TextView doo = null;
-    private TextView dop = null;
-    private ProgressBar doq = null;
-    private TextView dor = null;
-    private AccountData dos = null;
-    private a dou = null;
-    private a dov = null;
-    private boolean doC = false;
+    private View dsl = null;
+    private Dialog dsm = null;
+    private EditText dsn = null;
+    private RadioGroup dso = null;
+    private RadioGroup dsp = null;
+    private CompoundButton.OnCheckedChangeListener dsq = null;
+    private RadioButton dsr = null;
+    private RadioButton dss = null;
+    private RadioButton dsu = null;
+    private TextView dsv = null;
+    private b dsw = null;
+    private TextView dsx = null;
+    private TextView dsy = null;
+    private ProgressBar dsz = null;
+    private TextView dsA = null;
+    private AccountData dsB = null;
+    private a dsC = null;
+    private a dsD = null;
+    private boolean dsK = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -70,128 +70,128 @@ public class c {
 
     public c(Activity activity) {
         this.mContext = null;
-        this.dow = null;
-        this.dox = null;
+        this.dsE = null;
+        this.dsF = null;
         this.size = 0;
         this.mContext = activity;
-        this.dow = am.getDrawable(R.drawable.icon_tips_names_s);
-        this.dox = am.getDrawable(R.drawable.icon_tips_names_n);
+        this.dsE = am.getDrawable(R.drawable.icon_tips_names_s);
+        this.dsF = am.getDrawable(R.drawable.icon_tips_names_n);
         this.size = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds26);
-        this.dow.setBounds(0, 0, this.size, this.size);
-        this.dox.setBounds(0, 0, this.size, this.size);
+        this.dsE.setBounds(0, 0, this.size, this.size);
+        this.dsF.setBounds(0, 0, this.size, this.size);
     }
 
-    public void a(a.InterfaceC0365a interfaceC0365a) {
-        this.doD = interfaceC0365a;
+    public void a(a.InterfaceC0375a interfaceC0375a) {
+        this.dsL = interfaceC0375a;
     }
 
     public void setAccountData(AccountData accountData) {
-        this.dos = accountData;
+        this.dsB = accountData;
     }
 
     public void a(a aVar) {
-        this.dou = aVar;
+        this.dsC = aVar;
     }
 
     public void b(a aVar) {
-        this.dov = aVar;
+        this.dsD = aVar;
     }
 
-    public void aKl() {
-        lG(0);
+    public void aMH() {
+        lY(0);
     }
 
-    public void lG(int i) {
-        if (this.doe == null) {
-            this.dod = LayoutInflater.from(this.mContext).inflate(R.layout.main_input_username, (ViewGroup) null);
-            this.doy = (TextView) this.dod.findViewById(R.id.tip_info);
-            this.doz = this.dod.findViewById(R.id.divider_under_account);
-            this.doA = this.dod.findViewById(R.id.divider_under_radiongroup);
-            this.doB = this.dod.findViewById(R.id.divider_with_yes_no_button);
-            this.dof = (EditText) this.dod.findViewById(R.id.account);
-            this.dof.setHint(this.mContext.getString(R.string.hint_tip_input_name));
-            this.dom = (TextView) this.dod.findViewById(R.id.back);
-            this.dom.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.c.1
+    public void lY(int i) {
+        if (this.dsm == null) {
+            this.dsl = LayoutInflater.from(this.mContext).inflate(R.layout.main_input_username, (ViewGroup) null);
+            this.dsG = (TextView) this.dsl.findViewById(R.id.tip_info);
+            this.dsH = this.dsl.findViewById(R.id.divider_under_account);
+            this.dsI = this.dsl.findViewById(R.id.divider_under_radiongroup);
+            this.dsJ = this.dsl.findViewById(R.id.divider_with_yes_no_button);
+            this.dsn = (EditText) this.dsl.findViewById(R.id.account);
+            this.dsn.setHint(this.mContext.getString(R.string.hint_tip_input_name));
+            this.dsv = (TextView) this.dsl.findViewById(R.id.back);
+            this.dsv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.aKp();
-                    c.this.aKn();
+                    c.this.aML();
+                    c.this.aMJ();
                 }
             });
-            this.dop = (TextView) this.dod.findViewById(R.id.confirm);
-            this.dop.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.c.2
+            this.dsy = (TextView) this.dsl.findViewById(R.id.confirm);
+            this.dsy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.aKm();
+                    c.this.aMI();
                 }
             });
-            this.doq = (ProgressBar) this.dod.findViewById(R.id.confirm_progress);
-            this.doo = (TextView) this.dod.findViewById(R.id.error_info);
-            this.dog = (RadioGroup) this.dod.findViewById(R.id.names_group1);
-            this.doh = (RadioGroup) this.dod.findViewById(R.id.names_group2);
-            this.doj = (RadioButton) this.dod.findViewById(R.id.name1);
-            this.dok = (RadioButton) this.dod.findViewById(R.id.name2);
-            this.dol = (RadioButton) this.dod.findViewById(R.id.name3);
-            this.doi = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tbadk.coreExtra.view.c.3
+            this.dsz = (ProgressBar) this.dsl.findViewById(R.id.confirm_progress);
+            this.dsx = (TextView) this.dsl.findViewById(R.id.error_info);
+            this.dso = (RadioGroup) this.dsl.findViewById(R.id.names_group1);
+            this.dsp = (RadioGroup) this.dsl.findViewById(R.id.names_group2);
+            this.dsr = (RadioButton) this.dsl.findViewById(R.id.name1);
+            this.dss = (RadioButton) this.dsl.findViewById(R.id.name2);
+            this.dsu = (RadioButton) this.dsl.findViewById(R.id.name3);
+            this.dsq = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tbadk.coreExtra.view.c.3
                 @Override // android.widget.CompoundButton.OnCheckedChangeListener
                 public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                     if (z) {
-                        if (compoundButton == c.this.doj) {
-                            c.this.doh.clearCheck();
-                            c.this.doj.setChecked(true);
-                            c.this.doj.setCompoundDrawables(c.this.dow, null, null, null);
-                            c.this.dok.setChecked(false);
-                            c.this.dok.setCompoundDrawables(c.this.dox, null, null, null);
-                            c.this.dol.setChecked(false);
-                            c.this.dol.setCompoundDrawables(c.this.dox, null, null, null);
-                        } else if (compoundButton == c.this.dok) {
-                            c.this.doh.clearCheck();
-                            c.this.doj.setChecked(false);
-                            c.this.doj.setCompoundDrawables(c.this.dox, null, null, null);
-                            c.this.dok.setChecked(true);
-                            c.this.dok.setCompoundDrawables(c.this.dow, null, null, null);
-                            c.this.dol.setChecked(false);
-                            c.this.dol.setCompoundDrawables(c.this.dox, null, null, null);
-                        } else if (compoundButton == c.this.dol) {
-                            c.this.dog.clearCheck();
-                            c.this.doj.setChecked(false);
-                            c.this.doj.setCompoundDrawables(c.this.dox, null, null, null);
-                            c.this.dok.setChecked(false);
-                            c.this.dok.setCompoundDrawables(c.this.dox, null, null, null);
-                            c.this.dol.setChecked(true);
-                            c.this.dol.setCompoundDrawables(c.this.dow, null, null, null);
+                        if (compoundButton == c.this.dsr) {
+                            c.this.dsp.clearCheck();
+                            c.this.dsr.setChecked(true);
+                            c.this.dsr.setCompoundDrawables(c.this.dsE, null, null, null);
+                            c.this.dss.setChecked(false);
+                            c.this.dss.setCompoundDrawables(c.this.dsF, null, null, null);
+                            c.this.dsu.setChecked(false);
+                            c.this.dsu.setCompoundDrawables(c.this.dsF, null, null, null);
+                        } else if (compoundButton == c.this.dss) {
+                            c.this.dsp.clearCheck();
+                            c.this.dsr.setChecked(false);
+                            c.this.dsr.setCompoundDrawables(c.this.dsF, null, null, null);
+                            c.this.dss.setChecked(true);
+                            c.this.dss.setCompoundDrawables(c.this.dsE, null, null, null);
+                            c.this.dsu.setChecked(false);
+                            c.this.dsu.setCompoundDrawables(c.this.dsF, null, null, null);
+                        } else if (compoundButton == c.this.dsu) {
+                            c.this.dso.clearCheck();
+                            c.this.dsr.setChecked(false);
+                            c.this.dsr.setCompoundDrawables(c.this.dsF, null, null, null);
+                            c.this.dss.setChecked(false);
+                            c.this.dss.setCompoundDrawables(c.this.dsF, null, null, null);
+                            c.this.dsu.setChecked(true);
+                            c.this.dsu.setCompoundDrawables(c.this.dsE, null, null, null);
                         }
-                        c.this.dof.setText(compoundButton.getText());
+                        c.this.dsn.setText(compoundButton.getText());
                     }
                 }
             };
-            this.doj.setOnCheckedChangeListener(this.doi);
-            this.dok.setOnCheckedChangeListener(this.doi);
-            this.dol.setOnCheckedChangeListener(this.doi);
-            this.dor = (TextView) this.dod.findViewById(R.id.phone_info);
-            aKo();
-            this.doe = new Dialog(this.mContext, R.style.input_username_dialog);
-            this.doe.setCanceledOnTouchOutside(false);
-            this.doe.setCancelable(false);
-            this.doe.setCanceledOnTouchOutside(false);
-            aKd();
+            this.dsr.setOnCheckedChangeListener(this.dsq);
+            this.dss.setOnCheckedChangeListener(this.dsq);
+            this.dsu.setOnCheckedChangeListener(this.dsq);
+            this.dsA = (TextView) this.dsl.findViewById(R.id.phone_info);
+            aMK();
+            this.dsm = new Dialog(this.mContext, R.style.input_username_dialog);
+            this.dsm.setCanceledOnTouchOutside(false);
+            this.dsm.setCancelable(false);
+            this.dsm.setCanceledOnTouchOutside(false);
+            aMz();
         }
         if (i == 1) {
-            this.dor.setText(R.string.tip_init_user_name);
+            this.dsA.setText(R.string.tip_init_user_name);
         } else {
-            this.dor.setText(R.string.bar_friend);
+            this.dsA.setText(R.string.bar_friend);
         }
-        if (!this.doe.isShowing()) {
-            this.dof.setText((CharSequence) null);
-            aKo();
-            um(null);
+        if (!this.dsm.isShowing()) {
+            this.dsn.setText((CharSequence) null);
+            aMK();
+            uD(null);
             if (!this.mContext.isFinishing()) {
-                this.doe.setContentView(this.dod);
-                g.showDialog(this.doe, this.mContext);
+                this.dsm.setContentView(this.dsl);
+                g.showDialog(this.dsm, this.mContext);
                 if (this.mContext instanceof BaseActivity) {
-                    ((BaseActivity) this.mContext).ShowSoftKeyPadDelay(this.dof, 150);
+                    ((BaseActivity) this.mContext).ShowSoftKeyPadDelay(this.dsn, 150);
                 } else {
-                    new Handler().postDelayed(new RunnableC0377c(this.dof), 150L);
+                    new Handler().postDelayed(new RunnableC0387c(this.dsn), 150L);
                 }
             }
         }
@@ -200,10 +200,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.coreExtra.view.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0377c implements Runnable {
+    public class RunnableC0387c implements Runnable {
         private View mView;
 
-        public RunnableC0377c(View view) {
+        public RunnableC0387c(View view) {
             this.mView = null;
             this.mView = view;
         }
@@ -223,21 +223,21 @@ public class c {
         }
     }
 
-    public void aKm() {
-        String obj = this.dof.getText().toString();
+    public void aMI() {
+        String obj = this.dsn.getText().toString();
         if (obj == null || obj.length() <= 0) {
-            um(this.mContext.getString(R.string.error_tip_name_cannot_empty));
+            uD(this.mContext.getString(R.string.error_tip_name_cannot_empty));
         } else if (UtilHelper.getFixedTextSize(obj) > 14) {
-            um(this.mContext.getString(R.string.input_alias_limit_length_tip));
+            uD(this.mContext.getString(R.string.input_alias_limit_length_tip));
         } else {
-            if (this.don != null) {
-                this.don.cancel();
+            if (this.dsw != null) {
+                this.dsw.cancel();
             }
-            if (!this.doC && this.dos != null) {
-                this.doq.setVisibility(0);
-                this.dop.setEnabled(false);
-                um(null);
-                aKo();
+            if (!this.dsK && this.dsB != null) {
+                this.dsz.setVisibility(0);
+                this.dsy.setEnabled(false);
+                uD(null);
+                aMK();
                 SapiAccountManager.getInstance().getAccountService().fillUsername(new FillUsernameCallback() { // from class: com.baidu.tbadk.coreExtra.view.c.4
                     @Override // com.baidu.sapi2.callback.FillUsernameCallback
                     public void onUserHaveUsername(FillUsernameResult fillUsernameResult) {
@@ -253,10 +253,10 @@ public class c {
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     /* renamed from: b */
                     public void onSuccess(FillUsernameResult fillUsernameResult) {
-                        c.this.aKp();
+                        c.this.aML();
                         l.showToast(c.this.mContext, (int) R.string.reset_success);
                         SapiAccount session = SapiAccountManager.getInstance().getSession();
-                        com.baidu.tbadk.core.a.a.axz().a(session.username, session.bduss, "", null, c.this.doD);
+                        com.baidu.tbadk.core.a.a.azN().a(session.username, session.bduss, "", null, c.this.dsL);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -264,129 +264,129 @@ public class c {
                     /* renamed from: c */
                     public void onFailure(FillUsernameResult fillUsernameResult) {
                         if (!StringUtils.isNull(fillUsernameResult.getResultMsg())) {
-                            c.this.um(fillUsernameResult.getResultMsg());
+                            c.this.uD(fillUsernameResult.getResultMsg());
                         }
                     }
 
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onStart() {
-                        c.this.doC = true;
+                        c.this.dsK = true;
                     }
 
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onFinish() {
-                        c.this.doq.setVisibility(8);
-                        c.this.dop.setEnabled(true);
-                        c.this.doC = false;
+                        c.this.dsz.setVisibility(8);
+                        c.this.dsy.setEnabled(true);
+                        c.this.dsK = false;
                     }
-                }, this.dos.getBDUSS(), obj);
+                }, this.dsB.getBDUSS(), obj);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKn() {
-        if (this.dov != null) {
-            this.dov.g(null);
+    public void aMJ() {
+        if (this.dsD != null) {
+            this.dsD.g(null);
         }
     }
 
-    public void B(ArrayList<String> arrayList) {
+    public void D(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            um(this.mContext.getString(R.string.suggest_no_name));
+            uD(this.mContext.getString(R.string.suggest_no_name));
             return;
         }
-        um(this.mContext.getString(R.string.suggest_some_names));
+        uD(this.mContext.getString(R.string.suggest_some_names));
         int size = arrayList.size();
-        this.dog.clearCheck();
-        this.doh.clearCheck();
-        this.dog.setVisibility(0);
-        this.doh.setVisibility(0);
+        this.dso.clearCheck();
+        this.dsp.clearCheck();
+        this.dso.setVisibility(0);
+        this.dsp.setVisibility(0);
         if (size > 0 && arrayList.get(0) != null) {
-            this.doj.setText(arrayList.get(0));
-            this.doj.setChecked(false);
-            this.doj.setCompoundDrawables(this.dox, null, null, null);
-            this.doj.setVisibility(0);
-            this.dog.setVisibility(0);
+            this.dsr.setText(arrayList.get(0));
+            this.dsr.setChecked(false);
+            this.dsr.setCompoundDrawables(this.dsF, null, null, null);
+            this.dsr.setVisibility(0);
+            this.dso.setVisibility(0);
         }
         if (size > 1 && arrayList.get(1) != null) {
-            this.dok.setText(arrayList.get(1));
-            this.dok.setChecked(false);
-            this.dok.setCompoundDrawables(this.dox, null, null, null);
-            this.dok.setVisibility(0);
+            this.dss.setText(arrayList.get(1));
+            this.dss.setChecked(false);
+            this.dss.setCompoundDrawables(this.dsF, null, null, null);
+            this.dss.setVisibility(0);
         }
         if (size > 2 && arrayList.get(2) != null) {
-            this.dol.setText(arrayList.get(2));
-            this.dol.setChecked(false);
-            this.dol.setCompoundDrawables(this.dox, null, null, null);
-            this.dol.setVisibility(0);
+            this.dsu.setText(arrayList.get(2));
+            this.dsu.setChecked(false);
+            this.dsu.setCompoundDrawables(this.dsF, null, null, null);
+            this.dsu.setVisibility(0);
         }
     }
 
     public void onDestroy() {
-        if (this.don != null) {
-            this.don.cancel();
-            this.don = null;
+        if (this.dsw != null) {
+            this.dsw.cancel();
+            this.dsw = null;
         }
-        aKp();
+        aML();
     }
 
-    public void aKo() {
-        this.dog.setVisibility(8);
-        this.dog.clearCheck();
-        this.doh.setVisibility(8);
-        this.doh.clearCheck();
-        this.doj.setVisibility(8);
-        this.dok.setVisibility(8);
-        this.dol.setVisibility(8);
-        this.doj.setChecked(false);
-        this.dok.setChecked(false);
-        this.dol.setChecked(false);
+    public void aMK() {
+        this.dso.setVisibility(8);
+        this.dso.clearCheck();
+        this.dsp.setVisibility(8);
+        this.dsp.clearCheck();
+        this.dsr.setVisibility(8);
+        this.dss.setVisibility(8);
+        this.dsu.setVisibility(8);
+        this.dsr.setChecked(false);
+        this.dss.setChecked(false);
+        this.dsu.setChecked(false);
     }
 
-    public void aKp() {
-        if (this.doe != null && this.doe.isShowing()) {
-            g.dismissDialog(this.doe, this.mContext);
+    public void aML() {
+        if (this.dsm != null && this.dsm.isShowing()) {
+            g.dismissDialog(this.dsm, this.mContext);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void um(String str) {
+    public void uD(String str) {
         if (str == null) {
-            this.doo.setVisibility(4);
-            this.doo.setText((CharSequence) null);
+            this.dsx.setVisibility(4);
+            this.dsx.setText((CharSequence) null);
             return;
         }
-        this.doo.setVisibility(0);
-        this.doo.setText(str);
+        this.dsx.setVisibility(0);
+        this.dsx.setText(str);
     }
 
-    private void aKd() {
-        am.setBackgroundResource(this.dod, R.drawable.dialog_background);
-        am.setViewTextColor(this.dor, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.doy, (int) R.color.cp_cont_f);
-        am.setViewTextColor(this.dof, (int) R.color.cp_cont_b);
-        am.setBackgroundResource(this.doz, R.drawable.bg_search_input);
-        am.setViewTextColor(this.doo, (int) R.color.cp_cont_h);
-        am.setViewTextColor(this.doj, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.dok, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.dol, (int) R.color.cp_cont_b);
-        am.setBackgroundColor(this.doA, R.color.cp_bg_line_c);
-        am.setBackgroundResource(this.dom, R.drawable.dialog_left_button_selector);
-        am.setViewTextColor(this.dom, (int) R.color.cp_link_tip_a);
-        am.setBackgroundColor(this.doB, R.color.cp_bg_line_c);
-        am.setBackgroundResource(this.dop, R.drawable.dialog_right_button_selector);
-        am.setViewTextColor(this.dop, (int) R.color.cp_link_tip_a);
-        this.dof.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        this.doj.setCompoundDrawables(this.dox, null, null, null);
-        this.dok.setCompoundDrawables(this.dox, null, null, null);
-        this.dol.setCompoundDrawables(this.dox, null, null, null);
+    private void aMz() {
+        am.setBackgroundResource(this.dsl, R.drawable.dialog_background);
+        am.setViewTextColor(this.dsA, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.dsG, (int) R.color.cp_cont_f);
+        am.setViewTextColor(this.dsn, (int) R.color.cp_cont_b);
+        am.setBackgroundResource(this.dsH, R.drawable.bg_search_input);
+        am.setViewTextColor(this.dsx, (int) R.color.cp_cont_h);
+        am.setViewTextColor(this.dsr, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.dss, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.dsu, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(this.dsI, R.color.cp_bg_line_c);
+        am.setBackgroundResource(this.dsv, R.drawable.dialog_left_button_selector);
+        am.setViewTextColor(this.dsv, (int) R.color.cp_link_tip_a);
+        am.setBackgroundColor(this.dsJ, R.color.cp_bg_line_c);
+        am.setBackgroundResource(this.dsy, R.drawable.dialog_right_button_selector);
+        am.setViewTextColor(this.dsy, (int) R.color.cp_link_tip_a);
+        this.dsn.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        this.dsr.setCompoundDrawables(this.dsF, null, null, null);
+        this.dss.setCompoundDrawables(this.dsF, null, null, null);
+        this.dsu.setCompoundDrawables(this.dsF, null, null, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class b extends BdAsyncTask<String, Integer, j> {
-        final /* synthetic */ c doE;
+    public class b extends BdAsyncTask<String, Integer, k> {
+        final /* synthetic */ c dsM;
         private String mAccount;
         private x mNetwork;
         private String mUrl;
@@ -394,51 +394,51 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.doE.don = null;
+            this.dsM.dsw = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: w */
-        public j doInBackground(String... strArr) {
+        /* renamed from: A */
+        public k doInBackground(String... strArr) {
             this.mNetwork = new x(this.mUrl);
             this.mNetwork.addPostData("un", this.mAccount);
             String postNetData = this.mNetwork.postNetData();
             if (!this.mNetwork.isNetSuccess() || this.mNetwork.getServerErrorCode() != 36) {
                 return null;
             }
-            j jVar = new j();
-            jVar.parserJson(postNetData);
-            return jVar;
+            k kVar = new k();
+            kVar.parserJson(postNetData);
+            return kVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(j jVar) {
-            super.onPostExecute(jVar);
-            this.doE.don = null;
+        public void onPostExecute(k kVar) {
+            super.onPostExecute(kVar);
+            this.dsM.dsw = null;
             if (!this.mNetwork.isNetSuccess()) {
-                this.doE.um(this.mNetwork.getErrorString());
+                this.dsM.uD(this.mNetwork.getErrorString());
             } else if (this.mNetwork.getServerErrorCode() == 0) {
-                this.doE.um(this.doE.mContext.getString(R.string.name_not_use));
+                this.dsM.uD(this.dsM.mContext.getString(R.string.name_not_use));
             } else if (this.mNetwork.getServerErrorCode() == 36) {
-                this.doE.um(this.mNetwork.getErrorString());
-                if (jVar != null) {
-                    this.doE.B(jVar.aGX());
+                this.dsM.uD(this.mNetwork.getErrorString());
+                if (kVar != null) {
+                    this.dsM.D(kVar.aJp());
                 }
             } else {
-                this.doE.um(this.mNetwork.getErrorString());
+                this.dsM.uD(this.mNetwork.getErrorString());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.doE.um(null);
-            this.doE.aKo();
+            this.dsM.uD(null);
+            this.dsM.aMK();
             super.onPreExecute();
         }
     }

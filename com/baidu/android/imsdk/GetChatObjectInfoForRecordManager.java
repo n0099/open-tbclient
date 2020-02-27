@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetChatObjectInfoForRecordManager {
     public static final int RETRYTIMES = 2;
     public static final int TYPE_BOX_PA = 1;
@@ -85,7 +85,7 @@ public class GetChatObjectInfoForRecordManager {
                 public void onError(int i, int i2, long j) {
                     LogUtils.i(GetChatObjectInfoForRecordManager.TAG, "testsession callback type ," + i + " ,category :" + i2 + ", contacterId" + j);
                     if (i2 == 0 && i == 10) {
-                        GetChatObjectInfoForRecordHandler.this.updateChatRecord(chatObject, Utility.createAnonyMousUserName(null), 0, "", 0, "", "", 0, 0, 0L);
+                        GetChatObjectInfoForRecordHandler.this.updateChatRecord(chatObject, Utility.createAnonyMousUserName(null), 0, "", 0, "", "", 0, 0, 0L, 0, 0L, "", "", "");
                         return;
                     }
                     int i3 = this.retryTimes + 1;

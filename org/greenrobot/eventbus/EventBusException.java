@@ -1,5 +1,5 @@
 package org.greenrobot.eventbus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class EventBusException extends RuntimeException {
     private static final long serialVersionUID = -2912559384646531479L;
 

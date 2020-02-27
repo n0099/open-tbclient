@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbUnReadMessage {
     private String groupMsgName;
     private String groupUpdatesEventContent;
@@ -41,7 +41,7 @@ public class TbUnReadMessage {
     private HashMap<String, String> privateGidName = new HashMap<>();
     private List<OfficialNotificationData> officialNotificationData = new ArrayList();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OfficialNotificationData {
         public String content;
         public String gName;

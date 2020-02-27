@@ -5,13 +5,13 @@ import android.support.annotation.RestrictTo;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.util.LruCache;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g {
-    private static final g npY = new g();
-    private final LruCache<String, com.tb.airbnb.lottie.d> hD = new LruCache<>(10485760);
+    private static final g nqA = new g();
+    private final LruCache<String, com.tb.airbnb.lottie.d> hH = new LruCache<>(10485760);
 
-    public static g dFF() {
-        return npY;
+    public static g dGM() {
+        return nqA;
     }
 
     @VisibleForTesting
@@ -19,16 +19,16 @@ public class g {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.d Rn(@Nullable String str) {
+    public com.tb.airbnb.lottie.d Ry(@Nullable String str) {
         if (str == null) {
             return null;
         }
-        return this.hD.get(str);
+        return this.hH.get(str);
     }
 
     public void a(@Nullable String str, com.tb.airbnb.lottie.d dVar) {
         if (str != null) {
-            this.hD.put(str, dVar);
+            this.hH.put(str, dVar);
         }
     }
 }

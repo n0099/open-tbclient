@@ -109,7 +109,7 @@ public class i {
         M m3 = m;
         while (i < size && m3 != null) {
             try {
-                m2 = linkedList.get(i).c(m3, t);
+                m2 = linkedList.get(i).rule(m3, t);
             } catch (Exception e) {
                 BdLog.e(e);
                 m2 = m3;

@@ -8,15 +8,15 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> nwD;
-    final org.a.b<? extends T> nwE;
+    final org.a.b<? extends T> nxf;
+    final org.a.b<? extends T> nxg;
     final int prefetch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void drain();
 
@@ -27,10 +27,10 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     public void a(org.a.c<? super Boolean> cVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(cVar, this.prefetch, this.comparer);
         cVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.nwD, this.nwE);
+        equalCoordinator.subscribe(this.nxf, this.nxg);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class EqualCoordinator<T> extends DeferredScalarSubscription<Boolean> implements a {
         private static final long serialVersionUID = -6178010334400373240L;
         final io.reactivex.c.d<? super T, ? super T> comparer;
@@ -96,7 +96,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                                 t = gVar.poll();
                                 this.v1 = t;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.I(th);
+                                io.reactivex.exceptions.a.H(th);
                                 cancelAndClear();
                                 this.error.addThrowable(th);
                                 this.actual.onError(this.error.terminate());
@@ -112,7 +112,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                                 t3 = gVar2.poll();
                                 this.v2 = t3;
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.I(th2);
+                                io.reactivex.exceptions.a.H(th2);
                                 cancelAndClear();
                                 this.error.addThrowable(th2);
                                 this.actual.onError(this.error.terminate());
@@ -130,7 +130,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                             return;
                         } else if (!z2 && !z4) {
                             try {
-                                if (!this.comparer.k(t2, t4)) {
+                                if (!this.comparer.j(t2, t4)) {
                                     cancelAndClear();
                                     complete(false);
                                     return;
@@ -140,7 +140,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                                 this.first.request();
                                 this.second.request();
                             } catch (Throwable th3) {
-                                io.reactivex.exceptions.a.I(th3);
+                                io.reactivex.exceptions.a.H(th3);
                                 cancelAndClear();
                                 this.error.addThrowable(th3);
                                 this.actual.onError(this.error.terminate());
@@ -179,7 +179,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class EqualSubscriber<T> extends AtomicReference<org.a.d> implements j<T> {
         private static final long serialVersionUID = 4804128302091633067L;
         volatile boolean done;

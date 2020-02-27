@@ -2,7 +2,7 @@ package tv.chushou.basis.http;
 
 import android.support.annotation.Keep;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HttpException extends RuntimeException {
     public static final int TYPE_CODE_ERROR = 3;
     public static final int TYPE_EXECUTE_ERROR = 2;

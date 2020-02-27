@@ -2,11 +2,11 @@ package io.reactivex.internal.observers;
 
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     protected final u<? super R> actual;
     protected boolean done;
-    protected io.reactivex.internal.a.b<T> nvG;
+    protected io.reactivex.internal.a.b<T> nwi;
     protected io.reactivex.disposables.b s;
     protected int sourceMode;
 
@@ -19,20 +19,20 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
             if (bVar instanceof io.reactivex.internal.a.b) {
-                this.nvG = (io.reactivex.internal.a.b) bVar;
+                this.nwi = (io.reactivex.internal.a.b) bVar;
             }
-            if (dId()) {
+            if (dJk()) {
                 this.actual.onSubscribe(this);
-                dIe();
+                dJl();
             }
         }
     }
 
-    protected boolean dId() {
+    protected boolean dJk() {
         return true;
     }
 
-    protected void dIe() {
+    protected void dJl() {
     }
 
     @Override // io.reactivex.u
@@ -46,8 +46,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void J(Throwable th) {
-        io.reactivex.exceptions.a.I(th);
+    public final void I(Throwable th) {
+        io.reactivex.exceptions.a.H(th);
         this.s.dispose();
         onError(th);
     }
@@ -61,8 +61,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Ns(int i) {
-        io.reactivex.internal.a.b<T> bVar = this.nvG;
+    public final int Nv(int i) {
+        io.reactivex.internal.a.b<T> bVar = this.nwi;
         if (bVar == null || (i & 4) != 0) {
             return 0;
         }
@@ -86,12 +86,12 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return this.nvG.isEmpty();
+        return this.nwi.isEmpty();
     }
 
     @Override // io.reactivex.internal.a.g
     public void clear() {
-        this.nvG.clear();
+        this.nwi.clear();
     }
 
     @Override // io.reactivex.internal.a.g

@@ -4,12 +4,12 @@ import com.xiaomi.push.gw;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.al;
 import java.util.Hashtable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ha {
     private static final int a = fb.PING_RTT.a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         static Hashtable<Integer, Long> a = new Hashtable<>();
     }
@@ -19,10 +19,10 @@ public class ha {
     }
 
     public static void a(int i) {
-        fc m320a = gy.m318a().m320a();
-        m320a.a(fb.CHANNEL_STATS_COUNTER.a());
-        m320a.c(i);
-        gy.m318a().a(m320a);
+        fc m325a = gy.m323a().m325a();
+        m325a.a(fb.CHANNEL_STATS_COUNTER.a());
+        m325a.c(i);
+        gy.m323a().a(m325a);
     }
 
     public static synchronized void a(int i, int i2) {
@@ -36,13 +36,13 @@ public class ha {
     }
 
     public static void a(int i, int i2, int i3, String str, int i4) {
-        fc m320a = gy.m318a().m320a();
-        m320a.a((byte) i);
-        m320a.a(i2);
-        m320a.b(i3);
-        m320a.b(str);
-        m320a.c(i4);
-        gy.m318a().a(m320a);
+        fc m325a = gy.m323a().m325a();
+        m325a.a((byte) i);
+        m325a.a(i2);
+        m325a.b(i3);
+        m325a.b(str);
+        m325a.c(i4);
+        gy.m323a().a(m325a);
     }
 
     public static synchronized void a(int i, int i2, String str, int i3) {
@@ -50,14 +50,14 @@ public class ha {
             long currentTimeMillis = System.currentTimeMillis();
             int i4 = (i << 24) | i2;
             if (a.a.containsKey(Integer.valueOf(i4))) {
-                fc m320a = gy.m318a().m320a();
-                m320a.a(i2);
-                m320a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
-                m320a.b(str);
+                fc m325a = gy.m323a().m325a();
+                m325a.a(i2);
+                m325a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
+                m325a.b(str);
                 if (i3 > -1) {
-                    m320a.c(i3);
+                    m325a.c(i3);
                 }
-                gy.m318a().a(m320a);
+                gy.m323a().a(m325a);
                 a.a.remove(Integer.valueOf(i2));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
@@ -70,20 +70,20 @@ public class ha {
     }
 
     public static void a(String str, int i, Exception exc) {
-        fc m320a = gy.m318a().m320a();
+        fc m325a = gy.m323a().m325a();
         if (i > 0) {
-            m320a.a(fb.GSLB_REQUEST_SUCCESS.a());
-            m320a.b(str);
-            m320a.b(i);
-            gy.m318a().a(m320a);
+            m325a.a(fb.GSLB_REQUEST_SUCCESS.a());
+            m325a.b(str);
+            m325a.b(i);
+            gy.m323a().a(m325a);
             return;
         }
         try {
             gw.a a2 = gw.a(exc);
-            m320a.a(a2.a.a());
-            m320a.c(a2.f439a);
-            m320a.b(str);
-            gy.m318a().a(m320a);
+            m325a.a(a2.a.a());
+            m325a.c(a2.f436a);
+            m325a.b(str);
+            gy.m323a().a(m325a);
         } catch (NullPointerException e) {
         }
     }
@@ -91,20 +91,20 @@ public class ha {
     public static void a(String str, Exception exc) {
         try {
             gw.a b = gw.b(exc);
-            fc m320a = gy.m318a().m320a();
-            m320a.a(b.a.a());
-            m320a.c(b.f439a);
-            m320a.b(str);
-            gy.m318a().a(m320a);
+            fc m325a = gy.m323a().m325a();
+            m325a.a(b.a.a());
+            m325a.c(b.f436a);
+            m325a.b(str);
+            gy.m323a().a(m325a);
         } catch (NullPointerException e) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m324a() {
-        fd m321a = gy.m318a().m321a();
-        if (m321a != null) {
-            return iq.a(m321a);
+    public static byte[] m329a() {
+        fd m326a = gy.m323a().m326a();
+        if (m326a != null) {
+            return iq.a(m326a);
         }
         return null;
     }
@@ -116,11 +116,11 @@ public class ha {
     public static void b(String str, Exception exc) {
         try {
             gw.a d = gw.d(exc);
-            fc m320a = gy.m318a().m320a();
-            m320a.a(d.a.a());
-            m320a.c(d.f439a);
-            m320a.b(str);
-            gy.m318a().a(m320a);
+            fc m325a = gy.m323a().m325a();
+            m325a.a(d.a.a());
+            m325a.c(d.f436a);
+            m325a.b(str);
+            gy.m323a().a(m325a);
         } catch (NullPointerException e) {
         }
     }

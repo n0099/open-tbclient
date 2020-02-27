@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class KasGridView extends GridView {
     public KasGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);

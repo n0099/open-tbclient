@@ -9,29 +9,29 @@ import io.reactivex.processors.UnicastProcessor;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableRepeatWhen<T> extends a<T, T> {
-    final h<? super io.reactivex.g<Object>, ? extends org.a.b<?>> nwy;
+    final h<? super io.reactivex.g<Object>, ? extends org.a.b<?>> nxa;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> dIA = UnicastProcessor.Nz(8).dIA();
+        io.reactivex.processors.a<T> dJH = UnicastProcessor.NC(8).dJH();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.nwy.apply(dIA), "handler returned a null Publisher");
-            WhenReceiver whenReceiver = new WhenReceiver(this.nvP);
-            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dIA, whenReceiver);
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.nxa.apply(dJH), "handler returned a null Publisher");
+            WhenReceiver whenReceiver = new WhenReceiver(this.nwr);
+            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dJH, whenReceiver);
             whenReceiver.subscriber = repeatWhenSubscriber;
             cVar.onSubscribe(repeatWhenSubscriber);
             bVar2.subscribe(whenReceiver);
             whenReceiver.onNext(0);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.I(th);
+            io.reactivex.exceptions.a.H(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WhenReceiver<T, U> extends AtomicInteger implements j<Object>, org.a.d {
         private static final long serialVersionUID = 2827772011130406689L;
         final org.a.b<T> source;
@@ -85,7 +85,7 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class WhenSourceSubscriber<T, U> extends SubscriptionArbiter implements j<T> {
         private static final long serialVersionUID = -5604623027276966720L;
         protected final org.a.c<? super T> actual;
@@ -129,7 +129,7 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class RepeatWhenSubscriber<T> extends WhenSourceSubscriber<T, Object> {
         private static final long serialVersionUID = -2680129890138081029L;
 

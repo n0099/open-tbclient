@@ -7,7 +7,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SingleFlatMap<T, R> extends w<R> {
     final h<? super T, ? extends aa<? extends R>> mapper;
     final aa<? extends T> source;
@@ -17,7 +17,7 @@ public final class SingleFlatMap<T, R> extends w<R> {
         this.source.a(new SingleFlatMapCallback(yVar, this.mapper));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SingleFlatMapCallback<T, R> extends AtomicReference<b> implements b, y<T> {
         private static final long serialVersionUID = 3258103020495908596L;
         final y<? super R> actual;
@@ -53,7 +53,7 @@ public final class SingleFlatMap<T, R> extends w<R> {
                     aaVar.a(new a(this, this.actual));
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.actual.onError(th);
             }
         }
@@ -63,7 +63,7 @@ public final class SingleFlatMap<T, R> extends w<R> {
             this.actual.onError(th);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static final class a<R> implements y<R> {
             final y<? super R> actual;
             final AtomicReference<b> parent;

@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.liveroom.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public int clarity;
-    public boolean eWM;
-    public boolean eWN;
-    public String eWO;
-    public boolean eWP;
-    public boolean eWQ;
-    public boolean eWR;
+    public boolean faB;
+    public boolean faC;
+    public String faD;
+    public boolean faE;
+    public boolean faF;
+    public boolean faG;
     public String forumId;
     public String forumName;
     public String gameId;

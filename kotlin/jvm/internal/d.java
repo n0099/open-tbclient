@@ -2,25 +2,26 @@ package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
 import kotlin.collections.z;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class d extends z {
     private int index;
-    private final double[] nBF;
+    private final double[] nCh;
 
     public d(double[] dArr) {
         q.j(dArr, "array");
-        this.nBF = dArr;
+        this.nCh = dArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.nBF.length;
+        return this.index < this.nCh.length;
     }
 
     @Override // kotlin.collections.z
     public double nextDouble() {
         try {
-            double[] dArr = this.nBF;
+            double[] dArr = this.nCh;
             int i = this.index;
             this.index = i + 1;
             return dArr[i];

@@ -1,7 +1,7 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.WebLoginResult;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class WebLoginCallback implements SapiCallback<WebLoginResult> {
     public abstract void onQrAppLogin();
 

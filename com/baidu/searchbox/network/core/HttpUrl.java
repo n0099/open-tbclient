@@ -2,6 +2,7 @@ package com.baidu.searchbox.network.core;
 
 import android.support.annotation.Nullable;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.searchbox.network.core.internal.Util;
 import java.net.MalformedURLException;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 import okio.Buffer;
 import org.apache.http.HttpHost;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class HttpUrl {
     static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     static final String FRAGMENT_ENCODE_SET = "";
@@ -120,7 +121,7 @@ public final class HttpUrl {
             return 80;
         }
         if (str.equals("https")) {
-            return 443;
+            return Constants.SOCKET_PORT_SSL;
         }
         return -1;
     }
@@ -359,7 +360,7 @@ public final class HttpUrl {
         return this.url;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class Builder {
         static final String INVALID_HOST = "Invalid URL host";
         @Nullable

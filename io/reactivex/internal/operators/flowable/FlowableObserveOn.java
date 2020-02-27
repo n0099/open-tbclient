@@ -8,7 +8,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableObserveOn<T> extends a<T, T> {
     final boolean delayError;
     final int prefetch;
@@ -23,15 +23,15 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c dHY = this.scheduler.dHY();
+        v.c dJf = this.scheduler.dJf();
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nvP.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, dHY, this.delayError, this.prefetch));
+            this.nwr.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, dJf, this.delayError, this.prefetch));
         } else {
-            this.nvP.a((j) new ObserveOnSubscriber(cVar, dHY, this.delayError, this.prefetch));
+            this.nwr.a((j) new ObserveOnSubscriber(cVar, dJf, this.delayError, this.prefetch));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static abstract class BaseObserveOnSubscriber<T> extends BasicIntQueueSubscription<T> implements j<T>, Runnable {
         private static final long serialVersionUID = -8241002408341274697L;
         volatile boolean cancelled;
@@ -187,7 +187,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ObserveOnSubscriber<T> extends BaseObserveOnSubscriber<T> implements j<T> {
         private static final long serialVersionUID = -4547113800637756442L;
         final org.a.c<? super T> actual;
@@ -247,7 +247,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.I(th);
+                        io.reactivex.exceptions.a.H(th);
                         this.s.cancel();
                         cVar.onError(th);
                         this.worker.dispose();
@@ -309,7 +309,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.I(th);
+                        io.reactivex.exceptions.a.H(th);
                         this.s.cancel();
                         gVar.clear();
                         cVar.onError(th);
@@ -373,7 +373,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ObserveOnConditionalSubscriber<T> extends BaseObserveOnSubscriber<T> {
         private static final long serialVersionUID = 644624475404284533L;
         final io.reactivex.internal.a.a<? super T> actual;
@@ -434,7 +434,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.I(th);
+                        io.reactivex.exceptions.a.H(th);
                         this.s.cancel();
                         aVar.onError(th);
                         this.worker.dispose();
@@ -493,7 +493,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.I(th);
+                        io.reactivex.exceptions.a.H(th);
                         this.s.cancel();
                         gVar.clear();
                         aVar.onError(th);

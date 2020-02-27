@@ -10,16 +10,16 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
+import com.baidu.live.u.a;
 import com.baidu.tieba.live.tbean.data.IconInfoData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuyTBeanGridAdapter extends BaseAdapter {
     private Context mContext;
     private List<IconInfoData> mIconInfoDatas = new ArrayList();
@@ -102,7 +102,7 @@ public class BuyTBeanGridAdapter extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class BeanHolder {
         TbImageView ivIcon;
         TextView tvBeanName;

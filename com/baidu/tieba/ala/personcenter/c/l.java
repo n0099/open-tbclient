@@ -1,16 +1,16 @@
 package com.baidu.tieba.ala.personcenter.c;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
-    public String frQ;
-    public String frR;
-    public String frS;
-    public String frT;
-    public String frU;
-    public String frV;
-    public String frW;
-    public String frX;
+    public String fus;
+    public String fut;
+    public String fuu;
+    public String fuv;
+    public String fuw;
+    public String fux;
+    public String fuy;
+    public String fuz;
     public String location;
     public String portrait;
     public String sex;
@@ -18,18 +18,18 @@ public class l {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.frQ = jSONObject.optString("user_id");
+            this.fus = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.sex = jSONObject.optString("sex");
-            this.frR = jSONObject.optString("description");
+            this.fut = jSONObject.optString("description");
             this.portrait = jSONObject.optString("portrait");
-            this.frS = jSONObject.optString("level_id");
+            this.fuu = jSONObject.optString("level_id");
             this.location = jSONObject.optString("location");
-            this.frT = jSONObject.optString("follow_status");
-            this.frV = jSONObject.optString("follow_count");
-            this.frU = jSONObject.optString("fans_count");
-            this.frW = jSONObject.optString("live_count");
-            this.frX = jSONObject.optString("record_count");
+            this.fuv = jSONObject.optString("follow_status");
+            this.fux = jSONObject.optString("follow_count");
+            this.fuw = jSONObject.optString("fans_count");
+            this.fuy = jSONObject.optString("live_count");
+            this.fuz = jSONObject.optString("record_count");
         }
     }
 }

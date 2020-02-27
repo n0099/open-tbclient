@@ -17,7 +17,7 @@ public class b extends j {
             return null;
         }
         if (socketResponsedMessage.getError() == 2260104) {
-            n.aPI();
+            n.aRZ();
             return socketResponsedMessage;
         }
         return socketResponsedMessage;

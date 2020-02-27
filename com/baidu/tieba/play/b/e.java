@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class e {
-    public static void Am(int i) {
+    public static void Aw(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
         } else {
             i2 = i == -200 ? 1 : 2;
         }
-        TiebaStatic.log(new an("c12493").Z("obj_type", i2));
+        TiebaStatic.log(new an("c12493").X("obj_type", i2));
     }
 
-    public static void An(int i) {
+    public static void Ax(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -40,25 +40,25 @@ public class e {
                 i3 = 4;
             }
         }
-        TiebaStatic.log(new an("c12029").Z("obj_type", i2).Z("obj_param1", j.isWifiNet() ? 0 : 1).Z(TiebaInitialize.Params.OBJ_PARAM2, i3));
+        TiebaStatic.log(new an("c12029").X("obj_type", i2).X("obj_param1", j.isWifiNet() ? 0 : 1).X(TiebaInitialize.Params.OBJ_PARAM2, i3));
     }
 
-    public static void GT(String str) {
-        TiebaStatic.log(new an("c12026").cp("tid", str));
+    public static void Hh(String str) {
+        TiebaStatic.log(new an("c12026").cy("tid", str));
     }
 
-    public static void Ao(int i) {
+    public static void Ay(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
         } else {
             i2 = i == -200 ? 1 : 2;
         }
-        TiebaStatic.log(new an("c12494").Z("obj_type", i2).Z("obj_param1", j.isWifiNet() ? 0 : 1));
+        TiebaStatic.log(new an("c12494").X("obj_type", i2).X("obj_param1", j.isWifiNet() ? 0 : 1));
     }
 
     public static void d(Uri uri, String str) {
-        TiebaStatic.log(new an("c12199").cp("obj_param1", uri == null ? "null" : uri.toString()).cp(TiebaInitialize.Params.OBJ_PARAM2, str).cp(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tbadk.core.util.d.getIp()));
+        TiebaStatic.log(new an("c12199").cy("obj_param1", uri == null ? "null" : uri.toString()).cy(TiebaInitialize.Params.OBJ_PARAM2, str).cy(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tbadk.core.util.d.getIp()));
         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
         Object[] objArr = new Object[6];
         objArr[0] = "url";
@@ -70,12 +70,12 @@ public class e {
         bdStatisticsManager.newDebug("videoplay", 0L, null, objArr);
     }
 
-    public static void W(int i, int i2, int i3) {
+    public static void X(int i, int i2, int i3) {
         if (i == -100) {
             if (i2 == -24399) {
-                TiebaStatic.log(new an("c12512").Z("obj_locate", 0));
+                TiebaStatic.log(new an("c12512").X("obj_locate", 0));
             } else if (i2 == -34399) {
-                TiebaStatic.log(new an("c12512").Z("obj_locate", 1));
+                TiebaStatic.log(new an("c12512").X("obj_locate", 1));
             } else {
                 switch (i2) {
                     case 1:
@@ -105,38 +105,38 @@ public class e {
                         i3 = 3;
                         break;
                 }
-                TiebaStatic.log(new an("c12508").Z("obj_locate", i2).Z("obj_source", i3));
+                TiebaStatic.log(new an("c12508").X("obj_locate", i2).X("obj_source", i3));
             }
         } else if (i == -200) {
             if (i2 == -24399) {
-                TiebaStatic.log(new an("c12512").Z("obj_locate", 0));
+                TiebaStatic.log(new an("c12512").X("obj_locate", 0));
             } else if (i2 == -34399) {
-                TiebaStatic.log(new an("c12512").Z("obj_locate", 1));
+                TiebaStatic.log(new an("c12512").X("obj_locate", 1));
             } else {
                 switch (i3) {
                     case -10028:
-                        TiebaStatic.log(new an("c12510").Z("obj_locate", 7));
+                        TiebaStatic.log(new an("c12510").X("obj_locate", 7));
                         return;
                     case -10027:
-                        TiebaStatic.log(new an("c12510").Z("obj_locate", 6));
+                        TiebaStatic.log(new an("c12510").X("obj_locate", 6));
                         return;
                     case -10026:
-                        TiebaStatic.log(new an("c12510").Z("obj_locate", 5));
+                        TiebaStatic.log(new an("c12510").X("obj_locate", 5));
                         return;
                     case -10025:
-                        TiebaStatic.log(new an("c12510").Z("obj_locate", 4));
+                        TiebaStatic.log(new an("c12510").X("obj_locate", 4));
                         return;
                     case -10024:
-                        TiebaStatic.log(new an("c12510").Z("obj_locate", 3));
+                        TiebaStatic.log(new an("c12510").X("obj_locate", 3));
                         return;
                     case -10023:
-                        TiebaStatic.log(new an("c12510").Z("obj_locate", 2));
+                        TiebaStatic.log(new an("c12510").X("obj_locate", 2));
                         return;
                     case -10022:
-                        TiebaStatic.log(new an("c12510").Z("obj_locate", 1));
+                        TiebaStatic.log(new an("c12510").X("obj_locate", 1));
                         return;
                     case -10021:
-                        TiebaStatic.log(new an("c12510").Z("obj_locate", 0));
+                        TiebaStatic.log(new an("c12510").X("obj_locate", 0));
                         return;
                     case -10020:
                     case -10019:
@@ -145,62 +145,62 @@ public class e {
                     default:
                         return;
                     case -10018:
-                        TiebaStatic.log(new an("c12509").Z("obj_locate", 8));
+                        TiebaStatic.log(new an("c12509").X("obj_locate", 8));
                         return;
                     case -10015:
-                        TiebaStatic.log(new an("c12509").Z("obj_locate", 5));
+                        TiebaStatic.log(new an("c12509").X("obj_locate", 5));
                         return;
                     case -10014:
-                        TiebaStatic.log(new an("c12509").Z("obj_locate", 4));
+                        TiebaStatic.log(new an("c12509").X("obj_locate", 4));
                         return;
                     case -10013:
-                        TiebaStatic.log(new an("c12509").Z("obj_locate", 3));
+                        TiebaStatic.log(new an("c12509").X("obj_locate", 3));
                         return;
                     case -10012:
-                        TiebaStatic.log(new an("c12509").Z("obj_locate", 2));
+                        TiebaStatic.log(new an("c12509").X("obj_locate", 2));
                         return;
                     case -10011:
-                        TiebaStatic.log(new an("c12509").Z("obj_locate", 1));
+                        TiebaStatic.log(new an("c12509").X("obj_locate", 1));
                         return;
                     case -10010:
-                        TiebaStatic.log(new an("c12509").Z("obj_locate", 0));
+                        TiebaStatic.log(new an("c12509").X("obj_locate", 0));
                         return;
                 }
             }
         }
     }
 
-    public static void cx(int i, int i2) {
+    public static void cy(int i, int i2) {
         switch (i2) {
             case -10040:
-                TiebaStatic.log(new an("c12511").Z("obj_locate", 6));
+                TiebaStatic.log(new an("c12511").X("obj_locate", 6));
                 return;
             case -10039:
-                TiebaStatic.log(new an("c12511").Z("obj_locate", 5));
+                TiebaStatic.log(new an("c12511").X("obj_locate", 5));
                 return;
             case -10038:
-                TiebaStatic.log(new an("c12511").Z("obj_locate", 4));
+                TiebaStatic.log(new an("c12511").X("obj_locate", 4));
                 return;
             case -10037:
-                TiebaStatic.log(new an("c12511").Z("obj_locate", 3));
+                TiebaStatic.log(new an("c12511").X("obj_locate", 3));
                 return;
             case -10035:
-                TiebaStatic.log(new an("c12511").Z("obj_locate", 2));
+                TiebaStatic.log(new an("c12511").X("obj_locate", 2));
                 return;
             case -10032:
-                TiebaStatic.log(new an("c12511").Z("obj_locate", 1));
+                TiebaStatic.log(new an("c12511").X("obj_locate", 1));
                 return;
             case -10031:
-                TiebaStatic.log(new an("c12511").Z("obj_locate", 0));
+                TiebaStatic.log(new an("c12511").X("obj_locate", 0));
                 return;
             case -10019:
-                TiebaStatic.log(new an("c12509").Z("obj_locate", 8));
+                TiebaStatic.log(new an("c12509").X("obj_locate", 8));
                 return;
             case -10017:
-                TiebaStatic.log(new an("c12509").Z("obj_locate", 7));
+                TiebaStatic.log(new an("c12509").X("obj_locate", 7));
                 return;
             case -10016:
-                TiebaStatic.log(new an("c12509").Z("obj_locate", 6));
+                TiebaStatic.log(new an("c12509").X("obj_locate", 6));
                 return;
             default:
                 return;

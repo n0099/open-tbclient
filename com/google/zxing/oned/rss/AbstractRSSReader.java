@@ -3,7 +3,7 @@ package com.google.zxing.oned.rss;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.oned.OneDReader;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractRSSReader extends OneDReader {
     private static final float MAX_AVG_VARIANCE = 0.2f;
     private static final float MAX_FINDER_PATTERN_RATIO = 0.89285713f;

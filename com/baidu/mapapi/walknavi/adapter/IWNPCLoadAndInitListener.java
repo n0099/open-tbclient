@@ -1,5 +1,5 @@
 package com.baidu.mapapi.walknavi.adapter;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IWNPCLoadAndInitListener {
     void onFail();
 

@@ -3,11 +3,10 @@ package com.facebook.d;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.util.Pair;
-import com.baidu.down.manage.DownloadConstants;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [75=8, 77=8, 78=8, 79=8] */
     @Nullable
@@ -22,8 +21,8 @@ public class e {
                     inputStream.read(bArr);
                     if (g(bArr, "WEBP")) {
                         inputStream.read(bArr);
-                        String ak = ak(bArr);
-                        if ("VP8 ".equals(ak)) {
+                        String ap = ap(bArr);
+                        if ("VP8 ".equals(ap)) {
                             pair = C(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -32,7 +31,7 @@ public class e {
                                     e.printStackTrace();
                                 }
                             }
-                        } else if ("VP8L".equals(ak)) {
+                        } else if ("VP8L".equals(ap)) {
                             pair = D(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -41,7 +40,7 @@ public class e {
                                     e2.printStackTrace();
                                 }
                             }
-                        } else if ("VP8X".equals(ak)) {
+                        } else if ("VP8X".equals(ap)) {
                             pair = E(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -104,7 +103,7 @@ public class e {
             return null;
         }
         int read = ((byte) inputStream.read()) & 255;
-        return new Pair<>(Integer.valueOf(((((byte) inputStream.read()) & 255) | ((read & 63) << 8)) + 1), Integer.valueOf(((((((byte) inputStream.read()) & 255) & 15) << 10) | ((((byte) inputStream.read()) & 255) << 2) | ((read & DownloadConstants.STATUS_RUNNING) >> 6)) + 1));
+        return new Pair<>(Integer.valueOf(((((byte) inputStream.read()) & 255) | ((read & 63) << 8)) + 1), Integer.valueOf(((((((byte) inputStream.read()) & 255) & 15) << 10) | ((((byte) inputStream.read()) & 255) << 2) | ((read & 192) >> 6)) + 1));
     }
 
     private static Pair<Integer, Integer> E(InputStream inputStream) throws IOException {
@@ -124,7 +123,7 @@ public class e {
         return true;
     }
 
-    private static String ak(byte[] bArr) {
+    private static String ap(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
             sb.append((char) b);

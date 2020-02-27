@@ -2,7 +2,7 @@ package io.reactivex.internal.subscribers;
 
 import io.reactivex.internal.a.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     protected final io.reactivex.internal.a.a<? super R> actual;
     protected boolean done;
@@ -21,18 +21,18 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dId()) {
+            if (dJk()) {
                 this.actual.onSubscribe(this);
-                dIe();
+                dJl();
             }
         }
     }
 
-    protected boolean dId() {
+    protected boolean dJk() {
         return true;
     }
 
-    protected void dIe() {
+    protected void dJl() {
     }
 
     @Override // org.a.c
@@ -46,8 +46,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void J(Throwable th) {
-        io.reactivex.exceptions.a.I(th);
+    public final void I(Throwable th) {
+        io.reactivex.exceptions.a.H(th);
         this.s.cancel();
         onError(th);
     }
@@ -61,7 +61,7 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Ns(int i) {
+    public final int Nv(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

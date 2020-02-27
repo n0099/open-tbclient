@@ -4,7 +4,7 @@ import com.kascend.chushou.constants.ParserRet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a implements d<ParserRet> {
     private final LinkedList<Integer> a = new LinkedList<>();
     private long b = 1;
@@ -12,7 +12,7 @@ public class a implements d<ParserRet> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kascend.chushou.widget.a.d
     /* renamed from: c */
-    public long bG(ParserRet parserRet) {
+    public long B(ParserRet parserRet) {
         boolean z;
         if (!d(parserRet)) {
             this.b = 1L;
@@ -39,7 +39,7 @@ public class a implements d<ParserRet> {
 
     @Override // com.kascend.chushou.widget.a.d
     public long a() {
-        return bG(null);
+        return B(null);
     }
 
     @Override // com.kascend.chushou.widget.a.d

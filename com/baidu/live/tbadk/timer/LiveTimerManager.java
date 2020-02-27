@@ -4,9 +4,9 @@ import android.os.Handler;
 import android.util.Log;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveTimerManager {
-    private static LiveTimerManager INSTANCE = null;
+    private static LiveTimerManager INSTANCE = new LiveTimerManager();
     private long currLiveId;
     private long now;
     private boolean isRunning = false;
@@ -16,13 +16,6 @@ public class LiveTimerManager {
     private Map<String, LiveTimerTask> unimpededLiveTimerTaskMap = new HashMap();
 
     public static LiveTimerManager getInstance() {
-        if (INSTANCE == null) {
-            synchronized (LiveTimerManager.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new LiveTimerManager();
-                }
-            }
-        }
         return INSTANCE;
     }
 

@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.ugc.model.UgcVoteInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VoteOptionsView extends LinearLayout implements View.OnClickListener {
     private static final int VOTE_ITEM_LEFT_MARGIN = 10;
     private static final String VOTE_OPTION_IS_CHECKED = "1";

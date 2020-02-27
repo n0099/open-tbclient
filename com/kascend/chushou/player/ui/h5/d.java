@@ -21,7 +21,7 @@ import com.kascend.chushou.widget.cswebview.CSWebView;
 import tv.chushou.basis.rxjava.annotation.Subscribe;
 import tv.chushou.zues.utils.e;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d extends RelativeLayout implements View.OnClickListener {
     public String a;
     public boolean b;
@@ -32,9 +32,9 @@ public class d extends RelativeLayout implements View.OnClickListener {
     private View g;
     private TextView h;
     private boolean j;
-    private CSWebView nbZ;
-    private com.kascend.chushou.widget.cswebview.a nca;
-    private com.kascend.chushou.widget.cswebview.d ncb;
+    private CSWebView ncC;
+    private com.kascend.chushou.widget.cswebview.a ncD;
+    private com.kascend.chushou.widget.cswebview.d ncE;
 
     public d(Context context, H5Options h5Options, com.kascend.chushou.widget.cswebview.a aVar) {
         super(context);
@@ -42,9 +42,9 @@ public class d extends RelativeLayout implements View.OnClickListener {
         this.c = context;
         this.a = h5Options.a;
         this.b = h5Options.b;
-        this.nca = aVar;
-        if (this.nca != null) {
-            this.ncb = aVar.dDo();
+        this.ncD = aVar;
+        if (this.ncD != null) {
+            this.ncE = aVar.dEv();
         }
         a();
     }
@@ -58,13 +58,13 @@ public class d extends RelativeLayout implements View.OnClickListener {
         this.f = (ImageView) inflate.findViewById(a.f.iv_empty);
         this.h = (TextView) inflate.findViewById(a.f.tv_refresh);
         this.h.setOnClickListener(this);
-        this.nbZ = (CSWebView) inflate.findViewById(a.f.web_view);
-        this.nbZ.setBackgroundColor(0);
-        if (this.nca == null) {
-            this.nca = new com.kascend.chushou.widget.cswebview.a();
+        this.ncC = (CSWebView) inflate.findViewById(a.f.web_view);
+        this.ncC.setBackgroundColor(0);
+        if (this.ncD == null) {
+            this.ncD = new com.kascend.chushou.widget.cswebview.a();
         }
-        this.nca.a(this.ncb);
-        CSWebView.a(this.nbZ, this.c, new com.kascend.chushou.widget.cswebview.c() { // from class: com.kascend.chushou.player.ui.h5.d.1
+        this.ncD.a(this.ncE);
+        CSWebView.a(this.ncC, this.c, new com.kascend.chushou.widget.cswebview.c() { // from class: com.kascend.chushou.player.ui.h5.d.1
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
@@ -80,7 +80,7 @@ public class d extends RelativeLayout implements View.OnClickListener {
                 if (!d.this.c()) {
                     d.this.j = false;
                     String str2 = (String) webView.getTag();
-                    if (!tv.chushou.zues.utils.a.dPa()) {
+                    if (!tv.chushou.zues.utils.a.dQn()) {
                         d.this.a(3);
                     } else if (str2 == null || !str2.equals(BdStatsConstant.StatsType.ERROR)) {
                         d.this.a(2);
@@ -104,9 +104,9 @@ public class d extends RelativeLayout implements View.OnClickListener {
                     webView.setTag(BdStatsConstant.StatsType.ERROR);
                 }
             }
-        }, this.nca);
-        this.nbZ.resumeTimers();
-        this.nbZ.onResume();
+        }, this.ncD);
+        this.ncC.resumeTimers();
+        this.ncC.onResume();
         b();
     }
 
@@ -115,8 +115,8 @@ public class d extends RelativeLayout implements View.OnClickListener {
         int id = view.getId();
         if (id == a.f.tv_refresh) {
             b();
-        } else if (id == a.f.iv_close && this.ncb != null) {
-            this.ncb.a((Object) null);
+        } else if (id == a.f.iv_close && this.ncE != null) {
+            this.ncE.a((Object) null);
         }
     }
 
@@ -128,12 +128,12 @@ public class d extends RelativeLayout implements View.OnClickListener {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        tv.chushou.zues.a.a.cq(this);
-        if (this.nbZ != null) {
-            this.nbZ.loadUrl("");
-            this.nbZ.removeAllViews();
-            this.nbZ.destroy();
-            this.nbZ = null;
+        tv.chushou.zues.a.a.cr(this);
+        if (this.ncC != null) {
+            this.ncC.loadUrl("");
+            this.ncC.removeAllViews();
+            this.ncC.destroy();
+            this.ncC = null;
         }
         super.onDetachedFromWindow();
     }
@@ -147,8 +147,8 @@ public class d extends RelativeLayout implements View.OnClickListener {
 
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.nbZ != null && this.b && this.nbZ.canGoBack()) {
-            this.nbZ.goBack();
+        if (i == 4 && this.ncC != null && this.b && this.ncC.canGoBack()) {
+            this.ncC.goBack();
             return true;
         }
         return false;
@@ -158,7 +158,7 @@ public class d extends RelativeLayout implements View.OnClickListener {
     public void a(int i) {
         switch (i) {
             case 1:
-                this.nbZ.setVisibility(8);
+                this.ncC.setVisibility(8);
                 this.d.setVisibility(0);
                 this.d.setBackgroundResource(a.c.transparent);
                 this.e.setVisibility(8);
@@ -166,13 +166,13 @@ public class d extends RelativeLayout implements View.OnClickListener {
                 return;
             case 2:
                 this.d.setVisibility(8);
-                this.nbZ.setVisibility(0);
+                this.ncC.setVisibility(0);
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.nbZ.setVisibility(8);
+                this.ncC.setVisibility(8);
                 this.d.setVisibility(0);
                 this.d.setBackgroundResource(a.e.powindow_circle_bg);
                 this.g.setVisibility(8);
@@ -191,14 +191,14 @@ public class d extends RelativeLayout implements View.OnClickListener {
     }
 
     private void b() {
-        if (this.nbZ != null) {
-            this.nbZ.setTag(null);
-            if (tv.chushou.zues.utils.a.dPa()) {
+        if (this.ncC != null) {
+            this.ncC.setTag(null);
+            if (tv.chushou.zues.utils.a.dQn()) {
                 if (this.a != null && this.a.length() > 0) {
-                    this.nbZ.loadUrl(this.a);
+                    this.ncC.loadUrl(this.a);
                     return;
                 } else {
-                    this.nbZ.loadUrl("");
+                    this.ncC.loadUrl("");
                     return;
                 }
             }

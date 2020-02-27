@@ -3,19 +3,19 @@ package com.baidu.swan.apps.adaptation;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.adaptation.a.g;
 import com.baidu.swan.bdprivate.a.t;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private g aWU;
+    private g bbf;
 
     @NonNull
-    public g EE() {
-        if (this.aWU == null) {
-            this.aWU = EF();
+    public g GT() {
+        if (this.bbf == null) {
+            this.bbf = GU();
         }
-        return this.aWU;
+        return this.bbf;
     }
 
-    public g EF() {
+    public g GU() {
         return new t();
     }
 }

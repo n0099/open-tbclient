@@ -5,19 +5,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.live.tbadk.share.single.ShareSingleManager;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class AlaLandscapeShareView extends LinearLayout implements View.OnClickListener {
-    private ShareEntity fgV;
-    private a fgW;
+    private ShareEntity fkb;
+    private a fkc;
     private TbPageContext mContext;
     private IShareChannel mShareChannel;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     interface a {
         void onClick(View view);
     }
@@ -25,8 +25,8 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
     public AlaLandscapeShareView(TbPageContext tbPageContext, ShareEntity shareEntity, a aVar) {
         super(tbPageContext.getPageActivity());
         this.mContext = tbPageContext;
-        this.fgV = shareEntity;
-        this.fgW = aVar;
+        this.fkb = shareEntity;
+        this.fkc = aVar;
         this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
         initView();
     }
@@ -51,20 +51,20 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
         }
         int id = view.getId();
         if (id == a.g.ala_sdk_weixin_container) {
-            this.fgV.shareType = 2;
-            this.mShareChannel.shareToWeixin(this.fgV, null);
+            this.fkb.shareType = 2;
+            this.mShareChannel.shareToWeixin(this.fkb, null);
         } else if (id == a.g.ala_sdk_timeline_container) {
-            this.fgV.shareType = 3;
-            this.mShareChannel.shareToWeixinCircle(this.fgV, null);
+            this.fkb.shareType = 3;
+            this.mShareChannel.shareToWeixinCircle(this.fkb, null);
         } else if (id == a.g.ala_sdk_qq_container) {
-            this.fgV.shareType = 4;
-            this.mShareChannel.shareToQQ(this.fgV, null);
+            this.fkb.shareType = 4;
+            this.mShareChannel.shareToQQ(this.fkb, null);
         } else if (id == a.g.ala_sdk_sina_container) {
-            this.fgV.shareType = 1;
-            this.mShareChannel.shareToSinaWeibo(this.fgV, null);
+            this.fkb.shareType = 1;
+            this.mShareChannel.shareToSinaWeibo(this.fkb, null);
         }
-        if (this.fgW != null) {
-            this.fgW.onClick(view);
+        if (this.fkc != null) {
+            this.fkc.onClick(view);
         }
     }
 }

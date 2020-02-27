@@ -4,17 +4,16 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.util.devices.IDevices;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DeviceUtils {
-    private static ARCH oaM = ARCH.Unknown;
+    private static ARCH obB = ARCH.Unknown;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum ARCH {
         Unknown,
         ARM,
@@ -33,7 +32,7 @@ public class DeviceUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized ARCH dPH() {
+    public static synchronized ARCH dQU() {
         RandomAccessFile randomAccessFile;
         int i;
         synchronized (DeviceUtils.class) {
@@ -48,16 +47,16 @@ public class DeviceUtils {
                             randomAccessFile.readFully(bArr);
                             switch (bArr[18] | (bArr[19] << 8)) {
                                 case 3:
-                                    oaM = ARCH.X86;
+                                    obB = ARCH.X86;
                                     break;
                                 case 8:
-                                    oaM = ARCH.MIPS;
+                                    obB = ARCH.MIPS;
                                     break;
                                 case 40:
-                                    oaM = ARCH.ARM;
+                                    obB = ARCH.ARM;
                                     break;
-                                case IDevices.EM_AARCH64 /* 183 */:
-                                    oaM = ARCH.ARM64;
+                                case 183:
+                                    obB = ARCH.ARM64;
                                     break;
                                 default:
                                     Log.e("NativeBitmapFactory", "libc.so is unknown arch: " + Integer.toHexString(i));
@@ -80,7 +79,7 @@ public class DeviceUtils {
                                     e3.printStackTrace();
                                 }
                             }
-                            return oaM;
+                            return obB;
                         } catch (IOException e4) {
                             e = e4;
                             e.printStackTrace();
@@ -91,7 +90,7 @@ public class DeviceUtils {
                                     e5.printStackTrace();
                                 }
                             }
-                            return oaM;
+                            return obB;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -119,7 +118,7 @@ public class DeviceUtils {
                 }
             }
         }
-        return oaM;
+        return obB;
     }
 
     public static String get_CPU_ABI() {
@@ -163,10 +162,10 @@ public class DeviceUtils {
     }
 
     public static boolean isRealARMArch() {
-        return (supportABI("armeabi-v7a") || supportABI("armeabi")) && ARCH.ARM.equals(dPH());
+        return (supportABI("armeabi-v7a") || supportABI("armeabi")) && ARCH.ARM.equals(dQU());
     }
 
     public static boolean isRealX86Arch() {
-        return supportABI("x86") || ARCH.X86.equals(dPH());
+        return supportABI("x86") || ARCH.X86.equals(dQU());
     }
 }

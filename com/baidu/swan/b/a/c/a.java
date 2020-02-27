@@ -13,11 +13,11 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.veloce.d;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean nR(String str) {
+    public static boolean oh(String str) {
         return F(str, false);
     }
 
@@ -129,7 +129,7 @@ public class a {
     private static boolean processFileUriIntent(Context context, File file, Intent intent) {
         if (Build.VERSION.SDK_INT >= 24) {
             try {
-                Uri uriForFile = FileProvider.getUriForFile(context, dq(context), file);
+                Uri uriForFile = FileProvider.getUriForFile(context, du(context), file);
                 if (uriForFile == null) {
                     return false;
                 }
@@ -153,7 +153,7 @@ public class a {
         return true;
     }
 
-    private static String dq(Context context) {
-        return d.auc() ? d.aud() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
+    private static String du(Context context) {
+        return d.awq() ? d.awr() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
     }
 }

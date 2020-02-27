@@ -9,7 +9,7 @@ import com.baidu.swan.apps.ao.c.a;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends b {
     public c(j jVar) {
         super(jVar, "/swanAPI/getBatteryInfoSync");
@@ -18,15 +18,15 @@ public class c extends b {
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (a(context, eVar, unitedSchemeEntity)) {
-            a.C0195a cu = com.baidu.swan.apps.ao.c.a.cu(context);
-            if (cu == null) {
+            a.C0205a cy = com.baidu.swan.apps.ao.c.a.cy(context);
+            if (cy == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;
             }
             if (DEBUG) {
-                Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + cu.level + " ; plugged: " + cu.bSz);
+                Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + cy.level + " ; plugged: " + cy.bWD);
             }
-            JSONObject a = a(cu);
+            JSONObject a = a(cy);
             if (a == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
                 if (DEBUG) {

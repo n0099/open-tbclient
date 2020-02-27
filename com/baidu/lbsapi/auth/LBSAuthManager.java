@@ -27,7 +27,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LBSAuthManager {
     public static final int CODE_AUTHENTICATE_SUCC = 0;
     public static final int CODE_AUTHENTICATING = 602;
@@ -77,7 +77,7 @@ public class LBSAuthManager {
             }
             if (jSONObject.has("current") && i == 602) {
                 if ((System.currentTimeMillis() - jSONObject.getLong("current")) / 1000 > 180.0d) {
-                    return CODE_UNAUTHENTICATE;
+                    return 601;
                 }
             }
             return i;

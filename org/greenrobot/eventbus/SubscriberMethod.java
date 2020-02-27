@@ -1,7 +1,7 @@
 package org.greenrobot.eventbus;
 
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SubscriberMethod {
     final Class<?> eventType;
     final Method method;

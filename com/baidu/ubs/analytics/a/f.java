@@ -4,41 +4,41 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class f {
-    private static f kVh;
-    private static SQLiteOpenHelper kVi;
-    private AtomicInteger kVj = new AtomicInteger();
-    private SQLiteDatabase kVk;
+    private static f kVN;
+    private static SQLiteOpenHelper kVO;
+    private AtomicInteger kVP = new AtomicInteger();
+    private SQLiteDatabase kVQ;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (kVh == null) {
-                kVh = new f();
-                kVi = new d(context);
+            if (kVN == null) {
+                kVN = new f();
+                kVO = new d(context);
             }
         }
     }
 
-    public static synchronized f cWa() {
+    public static synchronized f cXo() {
         f fVar;
         synchronized (f.class) {
-            if (kVh == null) {
-                b(com.baidu.ubs.analytics.d.cVY().getContext());
+            if (kVN == null) {
+                b(com.baidu.ubs.analytics.d.cXm().getContext());
             }
-            fVar = kVh;
+            fVar = kVN;
         }
         return fVar;
     }
 
-    public final synchronized SQLiteDatabase cWb() {
-        if (this.kVj.incrementAndGet() == 1) {
-            com.baidu.ubs.analytics.d.b.Le("***************新建立了 一个数据库的实例****************");
-            this.kVk = kVi.getWritableDatabase();
+    public final synchronized SQLiteDatabase cXp() {
+        if (this.kVP.incrementAndGet() == 1) {
+            com.baidu.ubs.analytics.d.b.Lr("***************新建立了 一个数据库的实例****************");
+            this.kVQ = kVO.getWritableDatabase();
         }
-        return this.kVk;
+        return this.kVQ;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.squareup.wire.Wire;
 import protobuf.AddGroup.AddGroupResIdl;
 import protobuf.GroupInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ResponseAddGroupMessage extends SocketResponsedMessage {
     private AddGroupInfoData groupInfo;
 

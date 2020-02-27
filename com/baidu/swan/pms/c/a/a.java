@@ -4,7 +4,7 @@ import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.c.c.c;
 import com.baidu.swan.pms.c.c.d;
 import com.baidu.swan.pms.c.c.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static void a(com.baidu.swan.pms.c.c.b bVar, g gVar) {
         com.baidu.swan.pms.c.a.a.a.a(bVar, gVar);

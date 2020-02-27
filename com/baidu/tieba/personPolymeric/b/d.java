@@ -2,7 +2,7 @@ package com.baidu.tieba.personPolymeric.b;
 
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.personPolymeric.constant.PersonStatus;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class d {
     protected boolean mIsHost;
 
@@ -26,7 +26,7 @@ public abstract class d {
                 return PersonStatus.HOST_DEFAULT;
             }
             return PersonStatus.GUEST_DEFAULT;
-        } else if (userData.getBaijiahaoInfo() != null) {
+        } else if (userData.isBaijiahaoUser()) {
             if (this.mIsHost) {
                 return PersonStatus.HOST_BJH;
             }

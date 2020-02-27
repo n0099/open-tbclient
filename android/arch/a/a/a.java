@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import java.util.concurrent.Executor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends c {
     private static volatile a br;
     @NonNull

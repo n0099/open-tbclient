@@ -1,7 +1,7 @@
 package com.facebook.fresco.animation.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface d {
-    int HO(int i);
+    int HT(int i);
 
     int getFrameCount();
 

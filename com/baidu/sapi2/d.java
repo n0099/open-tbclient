@@ -10,7 +10,7 @@ import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends GetTplStokenCallback {
     final /* synthetic */ String a;
     final /* synthetic */ Map b;

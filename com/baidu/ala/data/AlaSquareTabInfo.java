@@ -8,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaSquareTabInfo implements Parcelable {
     public static final Parcelable.Creator<AlaSquareTabInfo> CREATOR = new Parcelable.Creator<AlaSquareTabInfo>() { // from class: com.baidu.ala.data.AlaSquareTabInfo.1
         /* JADX DEBUG: Method merged with bridge method */

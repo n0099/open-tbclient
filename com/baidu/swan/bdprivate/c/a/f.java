@@ -19,19 +19,19 @@ import com.baidu.swan.bdprivate.a.z;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f extends ab {
-    private int bYN;
+    private int ccS;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void bf(JSONObject jSONObject);
     }
 
     public f(j jVar) {
         super(jVar, "/swanAPI/privateGetUserInfo");
-        this.bYN = -1;
+        this.ccS = -1;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -60,16 +60,16 @@ public class f extends ab {
     }
 
     private void a(Context context, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar, final String str) throws JSONException {
-        String cP = com.baidu.swan.bdprivate.a.a.cP(context);
-        if (TextUtils.isEmpty(com.baidu.swan.bdprivate.a.a.cO(context)) || TextUtils.isEmpty(cP)) {
+        String cT = com.baidu.swan.bdprivate.a.a.cT(context);
+        if (TextUtils.isEmpty(com.baidu.swan.bdprivate.a.a.cS(context)) || TextUtils.isEmpty(cT)) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(10003).toString());
             return;
         }
         final JSONObject jSONObject = new JSONObject();
-        z cY = com.baidu.swan.bdprivate.a.a.cY(context);
-        jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, cY.displayName);
-        jSONObject.put("portrait", cY.bXf);
-        if (this.bYN != -1) {
+        z dc = com.baidu.swan.bdprivate.a.a.dc(context);
+        jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, dc.displayName);
+        jSONObject.put("portrait", dc.aqo);
+        if (this.ccS != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
             a(new a() { // from class: com.baidu.swan.bdprivate.c.a.f.1
@@ -79,7 +79,7 @@ public class f extends ab {
                         f.this.a(callbackHandler, str, jSONObject);
                         return;
                     }
-                    f.this.bYN = f.this.be(jSONObject2);
+                    f.this.ccS = f.this.be(jSONObject2);
                     f.this.a(callbackHandler, str, jSONObject);
                 }
             });
@@ -88,9 +88,9 @@ public class f extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (this.bYN != -1) {
+        if (this.ccS != -1) {
             try {
-                jSONObject.put("gender", String.valueOf(this.bYN));
+                jSONObject.put("gender", String.valueOf(this.ccS));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -133,7 +133,7 @@ public class f extends ab {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.h.c.processCommonParams(com.baidu.swan.apps.h.a.IJ()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.w.a.Se().Gd())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.bdprivate.c.a.f.2
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.h.c.processCommonParams(com.baidu.swan.apps.h.a.KY()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.w.a.Us().Is())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.bdprivate.c.a.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str, int i) {

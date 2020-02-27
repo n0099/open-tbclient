@@ -19,16 +19,16 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
+    public static final String DIRECTION_LEFT = "left";
+    public static final String DIRECTION_RIGHT = "right";
     public static final String HORIZONTAL = "horizontal";
-    public static final String LEFT = "left";
     private static final int MSG_ANIMATE_LEFT = -100;
     private static final int MSG_ANIMATE_LEFT_OPEN = -104;
     private static final int MSG_ANIMATE_RIGHT = -101;
     private static final int MSG_ANIMATE_RIGHT_OPEN = -105;
-    public static final String RIGHT = "right";
     public static final int STATE_COLLAPSE_LEFT = 10000;
     public static final int STATE_COLLAPSE_RIGHT = 10001;
     public static final int STATE_EXPAND = 10004;
@@ -59,26 +59,26 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private final Tracker mTracker;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnHorizontalTrackListener {
         void onStartHorizontalTrack(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnLeftAnimationListener {
         void onLeftAnimationEnd();
 
         void onLeftAnimationStart();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     interface OnLeftTrackListener {
         void onLeftTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnOpenAnimationListener {
         void onOpenAnimationEnd();
 
@@ -86,20 +86,20 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnRightAnimationListener {
         void onRightAnimationEnd();
 
         void onRightAnimationStart();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     interface OnRightTrackListener {
         void onRightTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum TrackDirection {
         left,
         right,
@@ -136,7 +136,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             if (this.mLeftOffset != -1.0f && this.mRightOffset != -1.0f && HORIZONTAL.equals(string)) {
                 BdLog.d("HorizontalTranslateLayout@parseTrack horizontal");
                 this.mTrackDirection = TrackDirection.horizontal;
-            } else if (this.mRightOffset != -1.0f && RIGHT.equals(string)) {
+            } else if (this.mRightOffset != -1.0f && DIRECTION_RIGHT.equals(string)) {
                 BdLog.d("HorizontalTranslateLayout@parseTrack right");
                 this.mTrackDirection = TrackDirection.right;
             } else if (this.mLeftOffset != -1.0f && "left".equals(string)) {
@@ -154,7 +154,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 BdLog.d("HorizontalTranslateLayout@loadAttrs tap area " + str);
                 if ("left".equals(str) && this.mLeftOffset != -1.0f) {
                     this.mLeftTapBack = true;
-                } else if (RIGHT.equals(str) && this.mRightOffset != -1.0f) {
+                } else if (DIRECTION_RIGHT.equals(str) && this.mRightOffset != -1.0f) {
                     this.mRightTapBack = true;
                 } else {
                     BdLog.d("HorizontalTranslateLayout@loadAttrs tap_back_area value illegal");
@@ -344,7 +344,6 @@ public class HorizontalTranslateLayout extends FrameLayout {
         return i2 >= this.mLastDownY - this.mTouchThreshold && i2 <= this.mLastDownY + this.mTouchThreshold && (i < this.mLastDownX - this.mTouchThreshold || i > this.mLastDownX + this.mTouchThreshold) && this.mTracker.prepareTracking(i - this.mLastDownX);
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int x = (int) motionEvent.getX();
@@ -389,15 +388,15 @@ public class HorizontalTranslateLayout extends FrameLayout {
         BdLog.d("HorizontalTranslateLayoutright tap back frame = " + this.mRightFrameForTap);
         switch (action) {
             case 0:
-                if ((this.mPositionState != 10000 || !this.mLeftFrameForTap.contains(x, y)) && (this.mPositionState != 10001 || !this.mRightFrameForTap.contains(x, y))) {
-                    return false;
-                }
-                if (!this.mTracker.tracking) {
+                if ((this.mPositionState == 10000 && this.mLeftFrameForTap.contains(x, y)) || (this.mPositionState == 10001 && this.mRightFrameForTap.contains(x, y))) {
+                    if (this.mTracker.tracking) {
+                        return true;
+                    }
                     this.mLastMoveX = x;
                     this.mTracker.prepareTracking(x);
-                    break;
+                    return true;
                 }
-                break;
+                return false;
             case 1:
             case 3:
                 if (this.mTracker.tracking) {
@@ -407,17 +406,16 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 }
                 return true;
             case 2:
-                break;
+                if (this.mTracker.tracking) {
+                    this.mTracker.move(this.mLastMoveX - x);
+                    this.mLastMoveX = x;
+                    this.mTracker.velocityTracker.addMovement(motionEvent);
+                    return true;
+                }
+                return true;
             default:
                 return true;
         }
-        if (this.mTracker.tracking) {
-            this.mTracker.move(this.mLastMoveX - x);
-            this.mLastMoveX = x;
-            this.mTracker.velocityTracker.addMovement(motionEvent);
-            return true;
-        }
-        return true;
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -472,7 +470,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AnimationHandler extends Handler {
         private AnimationHandler() {
         }
@@ -503,7 +501,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Tracker {
         static final float MIN_VELOCITY = 500.0f;
         static final int VELOCITY_UNIT = 200;
@@ -644,7 +642,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Animator {
         static final String TAG = "Animator";
         static final int VELOCITY = 600;

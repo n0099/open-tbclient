@@ -6,7 +6,7 @@ import android.webkit.MimeTypeMap;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class RawDocumentFile extends DocumentFile {
     private File mFile;
 

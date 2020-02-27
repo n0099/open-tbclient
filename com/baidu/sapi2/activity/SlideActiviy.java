@@ -20,7 +20,7 @@ import com.baidu.searchbox.widget.SlideUtil;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SlideActiviy extends BaseActivity {
     public static final String ADDRESS_PAGE_NAME = "address";
     public static final String INVOICE_PAGE_NAME = "invoice";

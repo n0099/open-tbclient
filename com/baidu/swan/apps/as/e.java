@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class e {
     public static boolean exists(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {

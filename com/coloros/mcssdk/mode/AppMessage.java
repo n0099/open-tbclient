@@ -1,7 +1,7 @@
 package com.coloros.mcssdk.mode;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AppMessage extends Message {
     int balanceTime;
     String content;

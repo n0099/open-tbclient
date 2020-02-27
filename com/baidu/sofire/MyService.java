@@ -11,7 +11,7 @@ import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.i.u;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MyService extends Service {
     private static long b = 0;
     private volatile int a = 0;

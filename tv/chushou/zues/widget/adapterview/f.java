@@ -1,5 +1,5 @@
 package tv.chushou.zues.widget.adapterview;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface f {
     void onRefresh();
 }

@@ -11,12 +11,12 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class EditListBox extends AbstractFullBox {
     public static final String TYPE = "elst";
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_2 = null;
     private List<Entry> entries;
 
     static {
@@ -74,7 +74,7 @@ public class EditListBox extends AbstractFullBox {
         return "EditListBox{entries=" + this.entries + '}';
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Entry {
         EditListBox editListBox;
         private double mediaRate;

@@ -3,7 +3,7 @@ package com.baidu.tieba.sdk.verify;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.sapi2.views.SmsLoginView;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VerifyStatusResponseMessage extends JsonHttpResponsedMessage {
     private int verifyStatus;
 
@@ -19,7 +19,7 @@ public class VerifyStatusResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public boolean cDg() {
+    public boolean cEH() {
         return this.verifyStatus == 1;
     }
 }

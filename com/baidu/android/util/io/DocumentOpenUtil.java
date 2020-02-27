@@ -1,7 +1,7 @@
 package com.baidu.android.util.io;
 
 import android.text.TextUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DocumentOpenUtil {
     public static final String DOC = "doc";
     public static final String DOCUMENT_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";

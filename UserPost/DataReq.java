@@ -3,7 +3,7 @@ package UserPost;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.CommonReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_COOKIE = "";
     public static final String DEFAULT_EMAIL = "";
@@ -19,7 +19,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 27)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f958common;
+    public final CommonReq f955common;
     @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String cookie;
     @ProtoField(tag = 24, type = Message.Datatype.STRING)
@@ -242,7 +242,7 @@ public final class DataReq extends Message {
             } else {
                 this.pn = builder.pn;
             }
-            this.f958common = builder.f959common;
+            this.f955common = builder.f956common;
             if (builder.is_twzhibo == null) {
                 this.is_twzhibo = DEFAULT_IS_TWZHIBO;
             } else {
@@ -307,7 +307,7 @@ public final class DataReq extends Message {
         this.email = builder.email;
         this.cookie = builder.cookie;
         this.pn = builder.pn;
-        this.f958common = builder.f959common;
+        this.f955common = builder.f956common;
         this.is_twzhibo = builder.is_twzhibo;
         this.scr_w = builder.scr_w;
         this.scr_h = builder.scr_h;
@@ -317,13 +317,13 @@ public final class DataReq extends Message {
         this.last_thread_time = builder.last_thread_time;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer begin_time;
         public Integer check_login;
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f959common;
+        public CommonReq f956common;
         public String cookie;
         public String email;
         public Integer end_time;
@@ -388,7 +388,7 @@ public final class DataReq extends Message {
                 this.email = dataReq.email;
                 this.cookie = dataReq.cookie;
                 this.pn = dataReq.pn;
-                this.f959common = dataReq.f958common;
+                this.f956common = dataReq.f955common;
                 this.is_twzhibo = dataReq.is_twzhibo;
                 this.scr_w = dataReq.scr_w;
                 this.scr_h = dataReq.scr_h;

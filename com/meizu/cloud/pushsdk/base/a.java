@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.base;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static String a = "android.os.BuildExt";
 

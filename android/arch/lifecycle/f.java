@@ -2,7 +2,7 @@ package android.arch.lifecycle;
 
 import android.arch.lifecycle.Lifecycle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class f implements h {
     private final e bM;
 

@@ -1,12 +1,12 @@
 package com.kascend.chushou.widget.a;
 
 import com.kascend.chushou.constants.ParserRet;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c implements d<ParserRet> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kascend.chushou.widget.a.d
     /* renamed from: c */
-    public long bG(ParserRet parserRet) {
+    public long B(ParserRet parserRet) {
         return 1000L;
     }
 

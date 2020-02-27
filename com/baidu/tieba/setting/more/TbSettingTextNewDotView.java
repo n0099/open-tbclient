@@ -6,7 +6,7 @@ import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class TbSettingTextNewDotView extends TbSettingTextTipView {
     public TbSettingTextNewDotView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -17,11 +17,11 @@ public class TbSettingTextNewDotView extends TbSettingTextTipView {
     }
 
     public void refresh() {
-        if (PluginPackageManager.jd().jq()) {
-            this.dpc.setVisibility(0);
-            am.setBackgroundResource(this.dpc, R.drawable.icon_news_head_new);
+        if (PluginPackageManager.js().jF()) {
+            this.dtk.setVisibility(0);
+            am.setBackgroundResource(this.dtk, R.drawable.icon_news_head_new);
             return;
         }
-        this.dpc.setVisibility(4);
+        this.dtk.setVisibility(4);
     }
 }

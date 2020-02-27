@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b extends j {
     private final String[] a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
 

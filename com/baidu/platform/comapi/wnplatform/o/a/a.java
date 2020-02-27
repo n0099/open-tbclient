@@ -32,7 +32,7 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final String a = VersionInfo.getApiVersion();
     private static final String b = "BaiduBikeNavi_Resource_v" + a + ".jar";
@@ -157,9 +157,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.o.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0143a implements FilenameFilter {
-        C0143a() {
+    /* loaded from: classes8.dex */
+    public static class C0152a implements FilenameFilter {
+        C0152a() {
         }
 
         @Override // java.io.FilenameFilter
@@ -169,7 +169,7 @@ public class a {
     }
 
     private static void d() {
-        File[] listFiles = new File(d).listFiles(new C0143a());
+        File[] listFiles = new File(d).listFiles(new C0152a());
         if (listFiles != null && listFiles.length > 0) {
             for (File file : listFiles) {
                 file.delete();

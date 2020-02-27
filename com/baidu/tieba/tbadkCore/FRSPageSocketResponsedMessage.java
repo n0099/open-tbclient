@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, FrsPageResIdl> {
     private boolean hasNetworkError;
     private int mCategoryId;
@@ -75,7 +75,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
         int i2;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().ayj(), true) && !this.responseData.getBookInfo().ayj().equals("0") && this.responseData.getBookInfo().ayk() == 3 && (i2 = com.baidu.adp.lib.f.b.toInt(this.responseData.getBookInfo().ayj(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(i2))) != null) {
+        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().aAx(), true) && !this.responseData.getBookInfo().aAx().equals("0") && this.responseData.getBookInfo().aAy() == 3 && (i2 = com.baidu.adp.lib.f.b.toInt(this.responseData.getBookInfo().aAx(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(i2))) != null) {
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -85,11 +85,11 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            String e = d.cIv().e("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+            String e = d.cJZ().e("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                d.cIv().p(e, bArr);
+                d.cJZ().p(e, bArr);
             } else {
-                d.cIv().c(e, bArr, true);
+                d.cJZ().c(e, bArr, true);
             }
         }
     }

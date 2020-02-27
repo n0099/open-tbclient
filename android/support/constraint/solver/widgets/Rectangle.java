@@ -1,5 +1,5 @@
 package android.support.constraint.solver.widgets;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Rectangle {
     public int height;
     public int width;

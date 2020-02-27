@@ -8,16 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.maintab.TbFragmentTabIndicator;
 import com.baidu.live.tieba.view.TabTextView;
+import com.baidu.live.u.a;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public static final int TIP_POS_TYPE_CENTER = 0;
     public static final int TIP_POS_TYPE_TOP = 1;

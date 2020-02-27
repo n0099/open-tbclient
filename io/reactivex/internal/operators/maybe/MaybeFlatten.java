@@ -5,7 +5,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class MaybeFlatten<T, R> extends a<T, R> {
     final h<? super T, ? extends o<? extends R>> mapper;
 
@@ -14,7 +14,7 @@ public final class MaybeFlatten<T, R> extends a<T, R> {
         this.source.a(new FlatMapMaybeObserver(mVar, this.mapper));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class FlatMapMaybeObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4375739915521278546L;
         final m<? super R> actual;
@@ -53,7 +53,7 @@ public final class MaybeFlatten<T, R> extends a<T, R> {
                     oVar.a(new a());
                 }
             } catch (Exception e) {
-                io.reactivex.exceptions.a.I(e);
+                io.reactivex.exceptions.a.H(e);
                 this.actual.onError(e);
             }
         }
@@ -68,7 +68,7 @@ public final class MaybeFlatten<T, R> extends a<T, R> {
             this.actual.onComplete();
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         final class a implements m<R> {
             a() {
             }

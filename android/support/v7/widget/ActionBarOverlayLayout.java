@@ -26,7 +26,7 @@ import android.view.Window;
 import android.widget.OverScroller;
 import com.baidu.down.utils.Constants;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements NestedScrollingParent, DecorContentParent {
     static final int[] ATTRS = {R.attr.actionBarSize, 16842841};
     private static final String TAG = "ActionBarOverlayLayout";
@@ -59,7 +59,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     private Drawable mWindowContentOverlay;
     private int mWindowVisibility;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface ActionBarVisibilityCallback {
         void enableContentAnimations(boolean z);
 
@@ -619,7 +619,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         this.mDecorToolbar.dismissPopupMenus();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);

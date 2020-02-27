@@ -1,5 +1,6 @@
 package org.conscrypt;
 
+import com.baidu.android.common.security.RSAUtil;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.KeyFactorySpi;
@@ -15,7 +16,7 @@ import java.security.spec.RSAPrivateCrtKeySpec;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class OpenSSLRSAKeyFactory extends KeyFactorySpi {
     @Override // java.security.KeyFactorySpi
     protected PublicKey engineGeneratePublic(KeySpec keySpec) throws InvalidKeySpecException {
@@ -56,7 +57,7 @@ public final class OpenSSLRSAKeyFactory extends KeyFactorySpi {
         if (cls == null) {
             throw new InvalidKeySpecException("keySpec == null");
         }
-        if (!"RSA".equals(key.getAlgorithm())) {
+        if (!RSAUtil.ALGORITHM_RSA.equals(key.getAlgorithm())) {
             throw new InvalidKeySpecException("Key must be a RSA key");
         }
         if ((key instanceof RSAPublicKey) && RSAPublicKeySpec.class.isAssignableFrom(cls)) {

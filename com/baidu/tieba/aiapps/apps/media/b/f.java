@@ -27,173 +27,173 @@ import com.baidu.tieba.aiapps.apps.media.video.VideoContainerManager;
 import com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView;
 import com.baidu.tieba.play.o;
 import org.apache.http.HttpHost;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class f implements com.baidu.swan.apps.media.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean EA;
-    private String bwp;
-    private SwanVideoView eaa;
-    private com.baidu.tbadk.ala.d ead;
-    private d.a eae;
-    private o eag;
-    private Activity eai;
+    private boolean EV;
+    private String bAy;
+    private SwanVideoView eed;
+    private com.baidu.tbadk.ala.d eeg;
+    private d.a eeh;
+    private o eej;
+    private Activity eel;
     private boolean mDetached;
-    CustomMessageListener tB;
-    private VideoContainerManager dZZ = null;
-    private int eab = 0;
-    private a eac = a.aXE();
-    private com.baidu.tieba.aiapps.apps.media.b.a.a eaf = new com.baidu.tieba.aiapps.apps.media.b.a.a();
-    private volatile boolean eah = false;
-    private String eaj = "AiAppLiveErr";
+    CustomMessageListener tR;
+    private VideoContainerManager eec = null;
+    private int eee = 0;
+    private a eef = a.aZT();
+    private com.baidu.tieba.aiapps.apps.media.b.a.a eei = new com.baidu.tieba.aiapps.apps.media.b.a.a();
+    private volatile boolean eek = false;
+    private String eem = "AiAppLiveErr";
 
     public f(Context context, String str) {
-        this.bwp = str;
-        this.eai = (Activity) context;
-        if (!TextUtils.isEmpty(this.bwp)) {
+        this.bAy = str;
+        this.eel = (Activity) context;
+        if (!TextUtils.isEmpty(this.bAy)) {
             com.baidu.swan.apps.media.b.a(this);
         }
-        BdLog.d("AiAppsLivePlayer create: " + this.bwp);
+        BdLog.d("AiAppsLivePlayer create: " + this.bAy);
         initData();
-        MessageManager.getInstance().registerListener(this.tB);
-        this.eag = new o(this.eai);
-        this.eag.start();
-        this.eai.getWindow().addFlags(128);
+        MessageManager.getInstance().registerListener(this.tR);
+        this.eej = new o(this.eel);
+        this.eej.start();
+        this.eel.getWindow().addFlags(128);
     }
 
     private void initData() {
-        this.eae = new d.a() { // from class: com.baidu.tieba.aiapps.apps.media.b.f.1
+        this.eeh = new d.a() { // from class: com.baidu.tieba.aiapps.apps.media.b.f.1
             @Override // com.baidu.tbadk.ala.d.a
             public void onFirstFrame(int i, int i2, int i3) {
                 BdLog.d("onFirstFrame " + i2 + HanziToPinyin.Token.SEPARATOR + i3);
-                f.this.eaf.mVideoWidth = i2;
-                f.this.eaf.mVideoHeight = i3;
+                f.this.eei.mVideoWidth = i2;
+                f.this.eei.mVideoHeight = i3;
             }
 
             @Override // com.baidu.tbadk.ala.d.a
             public void a(int i, AlaLivePlayerData alaLivePlayerData) {
-                if (alaLivePlayerData != null && f.this.eaf != null) {
-                    if (alaLivePlayerData.fpsAvg != f.this.eaf.eal) {
+                if (alaLivePlayerData != null && f.this.eei != null) {
+                    if (alaLivePlayerData.fpsAvg != f.this.eei.eeo) {
                     }
-                    if (alaLivePlayerData.videoBitrate != f.this.eaf.aGT) {
+                    if (alaLivePlayerData.videoBitrate != f.this.eei.aKY) {
                     }
-                    if (alaLivePlayerData.audioBitrate != f.this.eaf.aGZ) {
+                    if (alaLivePlayerData.audioBitrate != f.this.eei.aLe) {
                     }
-                    f.this.eaf.eam = (int) alaLivePlayerData.bandWidth;
-                    f.this.eaf.eal = (int) alaLivePlayerData.fpsAvg;
-                    f.this.eaf.aGZ = (int) alaLivePlayerData.audioBitrate;
-                    f.this.eaf.aGT = (int) alaLivePlayerData.videoBitrate;
+                    f.this.eei.eep = (int) alaLivePlayerData.bandWidth;
+                    f.this.eei.eeo = (int) alaLivePlayerData.fpsAvg;
+                    f.this.eei.aLe = (int) alaLivePlayerData.audioBitrate;
+                    f.this.eei.aKY = (int) alaLivePlayerData.videoBitrate;
                 }
             }
         };
-        this.tB = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.aiapps.apps.media.b.f.2
+        this.tR = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.aiapps.apps.media.b.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    f.this.aXM();
+                    f.this.bab();
                 }
             }
         };
     }
 
-    public a aXG() {
-        return this.eac;
+    public a aZV() {
+        return this.eef;
     }
 
     public void a(a aVar) {
-        this.eac = aVar;
-        if (!this.eac.hidden && this.eac.bwx) {
+        this.eef = aVar;
+        if (!this.eef.hidden && this.eef.bAG) {
             start();
         }
     }
 
     public void start() {
-        if (this.eac != null) {
-            if (this.eac.hidden) {
-                BdLog.d("mPlayerId = " + this.bwp + "can not start(), hide = " + this.eac.hidden);
+        if (this.eef != null) {
+            if (this.eef.hidden) {
+                BdLog.d("mPlayerId = " + this.bAy + "can not start(), hide = " + this.eef.hidden);
                 return;
             }
-            BdLog.d(this.bwp + " start()");
-            if (this.eab == 0) {
-                this.eab = xj(this.eac.mSrc);
+            BdLog.d(this.bAy + " start()");
+            if (this.eee == 0) {
+                this.eee = xD(this.eef.mSrc);
             }
-            if (this.eab == 0) {
-                BdLog.e("unsupport  url type error src = " + this.eac.mSrc);
+            if (this.eee == 0) {
+                BdLog.e("unsupport  url type error src = " + this.eef.mSrc);
                 return;
             }
-            if (this.ead != null || this.eaa != null) {
-                aXH();
+            if (this.eeg != null || this.eed != null) {
+                aZW();
             }
-            aXI();
-            aXI().aXX();
-            aXJ();
-            c(this.eac);
-            c(this.eac.mSrc, "", "", false);
-            if (this.eab == 1) {
-                aXK();
-            } else if (this.eab == 2) {
-                aXL();
+            aZX();
+            aZX().bam();
+            aZY();
+            c(this.eef);
+            c(this.eef.mSrc, "", "", false);
+            if (this.eee == 1) {
+                aZZ();
+            } else if (this.eee == 2) {
+                baa();
             }
             this.mDetached = false;
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String UK() {
-        return this.bwp;
+    public String WY() {
+        return this.bAy;
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.eac.bdW;
+        return this.eef.bil;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object UM() {
+    public Object Xa() {
         return this;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void cJ(boolean z) {
+    public void cQ(boolean z) {
         BdLog.d("onForegroundChanged " + z);
         if (!z) {
-            aXH();
+            aZW();
         } else {
             start();
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void cK(boolean z) {
+    public void cR(boolean z) {
         BdLog.d("onAppForegroundChanged " + z);
     }
 
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         BdLog.d("onBackPressed ");
-        if (this.eac != null && this.dZZ != null && d(this.eai, this.dZZ.getVideoHolder())) {
-            if (this.eai.getRequestedOrientation() != 1) {
-                this.eag.xH();
+        if (this.eef != null && this.eec != null && d(this.eel, this.eec.getVideoHolder())) {
+            if (this.eel.getRequestedOrientation() != 1) {
+                this.eej.zY();
             }
-            e(this.eai, 0);
+            e(this.eel, 0);
             return true;
         }
         release();
         return false;
     }
 
-    public void aXH() {
-        if (this.ead != null) {
-            br(this.ead.awn());
-            this.ead.stop();
-            this.ead.destroy();
+    public void aZW() {
+        if (this.eeg != null) {
+            br(this.eeg.ayA());
+            this.eeg.stop();
+            this.eeg.destroy();
         }
-        this.ead = null;
-        if (this.eaa != null) {
-            this.eaa.stopPlayback();
-            br(this.eaa);
+        this.eeg = null;
+        if (this.eed != null) {
+            this.eed.stopPlayback();
+            br(this.eed);
         }
-        this.eaa = null;
+        this.eed = null;
     }
 
     @Override // com.baidu.swan.apps.media.a
@@ -203,65 +203,65 @@ public class f implements com.baidu.swan.apps.media.a {
     }
 
     public void release() {
-        BdLog.d(this.bwp + " release()");
-        this.eai.getWindow().clearFlags(128);
-        MessageManager.getInstance().unRegisterListener(this.tB);
+        BdLog.d(this.bAy + " release()");
+        this.eel.getWindow().clearFlags(128);
+        MessageManager.getInstance().unRegisterListener(this.tR);
         com.baidu.swan.apps.media.b.b(this);
-        this.eag.stop();
-        if (this.ead != null) {
-            br(this.ead.awn());
-            this.ead.stop();
-            this.ead.destroy();
-            this.ead = null;
+        this.eej.stop();
+        if (this.eeg != null) {
+            br(this.eeg.ayA());
+            this.eeg.stop();
+            this.eeg.destroy();
+            this.eeg = null;
         }
-        if (this.eaa != null) {
-            br(this.eaa);
-            this.eaa.stopPlayback();
-            this.eaa = null;
+        if (this.eed != null) {
+            br(this.eed);
+            this.eed.stopPlayback();
+            this.eed = null;
         }
-        if (this.dZZ != null) {
-            this.dZZ.Iq();
-            this.dZZ = null;
+        if (this.eec != null) {
+            this.eec.KF();
+            this.eec = null;
         }
     }
 
-    private VideoContainerManager aXI() {
-        if (this.dZZ == null && this.eac != null) {
-            this.dZZ = new VideoContainerManager(this.eai, this.eac);
+    private VideoContainerManager aZX() {
+        if (this.eec == null && this.eef != null) {
+            this.eec = new VideoContainerManager(this.eel, this.eef);
         }
-        return this.dZZ;
+        return this.eec;
     }
 
-    private void aXJ() {
-        cC(this.eac.dZP);
-        ob(this.eac.dZR);
-        oc(this.eac.dZS);
-        if (TextUtils.equals(this.eac.dZT, HorizontalTranslateLayout.HORIZONTAL)) {
+    private void aZY() {
+        cJ(this.eef.edS);
+        os(this.eef.edU);
+        ot(this.eef.edV);
+        if (TextUtils.equals(this.eef.edW, HorizontalTranslateLayout.HORIZONTAL)) {
             setVideoRotation(90);
         } else {
             setVideoRotation(0);
         }
-        if (TextUtils.equals(this.eac.bAd, "contain")) {
+        if (TextUtils.equals(this.eef.bEj, "contain")) {
             setVideoScalingMode(2);
         } else {
             setVideoScalingMode(0);
         }
     }
 
-    public void cC(boolean z) {
+    public void cJ(boolean z) {
         BdLog.d("mPlayerId + \" mute() isMuted: \" + isMuted");
-        if (this.ead != null) {
-            this.ead.setAudioMute(z);
+        if (this.eeg != null) {
+            this.eeg.setAudioMute(z);
         }
-        if (this.eaa != null) {
-            this.eaa.cC(z);
+        if (this.eed != null) {
+            this.eed.cJ(z);
         }
     }
 
-    public void ob(int i) {
+    public void os(int i) {
     }
 
-    public void oc(int i) {
+    public void ot(int i) {
     }
 
     public void setVideoRotation(int i) {
@@ -269,8 +269,8 @@ public class f implements com.baidu.swan.apps.media.a {
 
     public void setVideoScalingMode(int i) {
         BdLog.d("setVideoScalingMode scalingMode: " + i);
-        if (this.ead != null) {
-            this.ead.setRenderVideoModel(1, i != 2 ? 1 : 2);
+        if (this.eeg != null) {
+            this.eeg.setRenderVideoModel(1, i != 2 ? 1 : 2);
             BdLog.d("setVideoScalingMode " + i);
             return;
         }
@@ -292,35 +292,35 @@ public class f implements com.baidu.swan.apps.media.a {
             sb.append("x-hide-urls-from-log:true\r\n");
         }
         sb.toString();
-        if (this.eab == 2 && this.eaa != null) {
-            this.eaa.setVideoPath(str);
+        if (this.eee == 2 && this.eed != null) {
+            this.eed.setVideoPath(str);
         }
         return true;
     }
 
-    private boolean aXK() {
+    private boolean aZZ() {
         boolean z;
         int i;
         int i2;
         CustomResponsedMessage runTask;
-        if (this.ead == null && (runTask = MessageManager.getInstance().runTask(2921364, com.baidu.tbadk.ala.d.class, this.eai)) != null && runTask.getData() != null) {
-            this.ead = (com.baidu.tbadk.ala.d) runTask.getData();
-            this.ead.a(this.eae);
+        if (this.eeg == null && (runTask = MessageManager.getInstance().runTask(2921364, com.baidu.tbadk.ala.d.class, this.eel)) != null && runTask.getData() != null) {
+            this.eeg = (com.baidu.tbadk.ala.d) runTask.getData();
+            this.eeg.a(this.eeh);
         }
-        if (this.ead == null) {
+        if (this.eeg == null) {
             return false;
         }
-        if (this.ead.a(1, this.eac.mSrc, new LinearLayout.LayoutParams(-1, -1))) {
-            this.eah = true;
+        if (this.eeg.a(1, this.eef.mSrc, new LinearLayout.LayoutParams(-1, -1))) {
+            this.eek = true;
         }
-        FrameLayout videoHolder = this.dZZ.getVideoHolder();
+        FrameLayout videoHolder = this.eec.getVideoHolder();
         if (videoHolder != null) {
             int i3 = 0;
             while (true) {
                 if (i3 >= videoHolder.getChildCount()) {
                     z = false;
                     break;
-                } else if (videoHolder.getChildAt(i3) == this.ead.awn()) {
+                } else if (videoHolder.getChildAt(i3) == this.eeg.ayA()) {
                     z = true;
                     break;
                 } else {
@@ -328,16 +328,16 @@ public class f implements com.baidu.swan.apps.media.a {
                 }
             }
             if (!z) {
-                if (this.eac.bdZ != null) {
-                    i2 = this.eac.bdZ.getWidth();
-                    i = this.eac.bdZ.getHeight();
+                if (this.eef.bip != null) {
+                    i2 = this.eef.bip.getWidth();
+                    i = this.eef.bip.getHeight();
                 } else {
-                    BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), this.eaj, null, 1, "uid", TbadkCoreApplication.getCurrentAccount(), "mParams", this.eac.toString(), "position", this.eac.bdZ == null ? "null" : this.eac.bdZ.toString(), "appver", BdStatisticsManager.getInstance().getAppVersion());
+                    BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), this.eem, null, 1, "uid", TbadkCoreApplication.getCurrentAccount(), "mParams", this.eef.toString(), "position", this.eef.bip == null ? "null" : this.eef.bip.toString(), "appver", BdStatisticsManager.getInstance().getAppVersion());
                     i = 0;
                     i2 = 0;
                 }
-                videoHolder.addView(this.ead.awn(), new LinearLayout.LayoutParams(i2, i));
-                if (TextUtils.equals(this.eac.bAd, "contain")) {
+                videoHolder.addView(this.eeg.ayA(), new LinearLayout.LayoutParams(i2, i));
+                if (TextUtils.equals(this.eef.bEj, "contain")) {
                     setVideoScalingMode(2);
                 } else {
                     setVideoScalingMode(0);
@@ -347,29 +347,29 @@ public class f implements com.baidu.swan.apps.media.a {
         return true;
     }
 
-    private boolean aXL() {
+    private boolean baa() {
         boolean z;
         int i;
         int i2 = 0;
-        if (this.eab != 2) {
+        if (this.eee != 2) {
             return false;
         }
-        if (this.eaa == null) {
-            this.eaa = new SwanVideoView(this.eai);
+        if (this.eed == null) {
+            this.eed = new SwanVideoView(this.eel);
         }
-        if (this.eaa.getParent() == null) {
-            this.dZZ.getVideoHolder().addView(this.eaa);
+        if (this.eed.getParent() == null) {
+            this.eec.getVideoHolder().addView(this.eed);
         }
-        this.eaa.setVideoPath(this.eac.mSrc);
-        this.eaa.start();
-        this.eah = true;
-        if (this.dZZ.getVideoHolder() != null) {
+        this.eed.setVideoPath(this.eef.mSrc);
+        this.eed.start();
+        this.eek = true;
+        if (this.eec.getVideoHolder() != null) {
             int i3 = 0;
             while (true) {
-                if (i3 >= this.dZZ.getVideoHolder().getChildCount()) {
+                if (i3 >= this.eec.getVideoHolder().getChildCount()) {
                     z = false;
                     break;
-                } else if (this.dZZ.getVideoHolder().getChildAt(i3) == this.eaa) {
+                } else if (this.eec.getVideoHolder().getChildAt(i3) == this.eed) {
                     z = true;
                     break;
                 } else {
@@ -377,27 +377,27 @@ public class f implements com.baidu.swan.apps.media.a {
                 }
             }
             if (!z) {
-                if (this.eac.bdZ != null) {
-                    i = this.eac.bdZ.getWidth();
-                    i2 = this.eac.bdZ.getHeight();
+                if (this.eef.bip != null) {
+                    i = this.eef.bip.getWidth();
+                    i2 = this.eef.bip.getHeight();
                 } else {
-                    BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), this.eaj, null, 1, "uid", TbadkCoreApplication.getCurrentAccount(), "mParams", this.eac.toString(), "position", this.eac.bdZ == null ? "null" : this.eac.bdZ.toString(), "appver", BdStatisticsManager.getInstance().getAppVersion());
+                    BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), this.eem, null, 1, "uid", TbadkCoreApplication.getCurrentAccount(), "mParams", this.eef.toString(), "position", this.eef.bip == null ? "null" : this.eef.bip.toString(), "appver", BdStatisticsManager.getInstance().getAppVersion());
                     i = 0;
                 }
-                this.dZZ.getVideoHolder().addView(this.ead.awn(), new LinearLayout.LayoutParams(i, i2));
+                this.eec.getVideoHolder().addView(this.eeg.ayA(), new LinearLayout.LayoutParams(i, i2));
             }
         }
         return true;
     }
 
     private void b(a aVar) {
-        if (this.dZZ == null) {
-            this.dZZ = new VideoContainerManager(this.eai, aVar);
+        if (this.eec == null) {
+            this.eec = new VideoContainerManager(this.eel, aVar);
         }
-        if (this.EA) {
-            this.dZZ.aXZ().setHidden(aVar.hidden);
+        if (this.EV) {
+            this.eec.bao().setHidden(aVar.hidden);
         } else {
-            this.dZZ.j(aVar);
+            this.eec.j(aVar);
         }
     }
 
@@ -407,103 +407,103 @@ public class f implements com.baidu.swan.apps.media.a {
     }
 
     private boolean d(a aVar) {
-        if (this.eac == null) {
+        if (this.eef == null) {
             return false;
         }
-        return (this.eac.dZP == aVar.dZP && this.eac.dZR == aVar.dZR && this.eac.dZS == aVar.dZS && TextUtils.equals(this.eac.dZT, aVar.dZT) && TextUtils.equals(this.eac.bAd, aVar.bAd)) ? false : true;
+        return (this.eef.edS == aVar.edS && this.eef.edU == aVar.edU && this.eef.edV == aVar.edV && TextUtils.equals(this.eef.edW, aVar.edW) && TextUtils.equals(this.eef.bEj, aVar.bEj)) ? false : true;
     }
 
     public void e(@NonNull a aVar) {
         BdLog.d("updatePlayerConfig params: " + aVar.toString());
         if (d(aVar)) {
-            this.eac = aVar;
-            aXJ();
+            this.eef = aVar;
+            aZY();
         }
-        this.eac = aVar;
-        c(this.eac);
+        this.eef = aVar;
+        c(this.eef);
     }
 
     public boolean isPlaying() {
-        if (this.eab == 1 && this.ead != null) {
-            return this.eah;
+        if (this.eee == 1 && this.eeg != null) {
+            return this.eek;
         }
-        if (this.eab == 2 && this.eaa != null) {
-            return this.eaa.isPlaying();
+        if (this.eee == 2 && this.eed != null) {
+            return this.eed.isPlaying();
         }
         return false;
     }
 
     public void stop() {
-        if (this.ead != null) {
-            br(this.ead.awn());
-            this.ead.stop();
-            this.ead.destroy();
-            this.ead.a(null);
-            this.ead = null;
-            this.eah = false;
+        if (this.eeg != null) {
+            br(this.eeg.ayA());
+            this.eeg.stop();
+            this.eeg.destroy();
+            this.eeg.a(null);
+            this.eeg = null;
+            this.eek = false;
         }
-        if (this.eaa != null) {
-            br(this.eaa);
-            this.eaa.stopPlayback();
-            this.eaa = null;
-            this.eah = false;
+        if (this.eed != null) {
+            br(this.eed);
+            this.eed.stopPlayback();
+            this.eed = null;
+            this.eek = false;
         }
     }
 
-    public void e(boolean z, int i) {
+    public void f(boolean z, int i) {
         BdLog.d("setFullScreen  = " + z + " direction  = " + i);
-        this.EA = z;
-        int equipmentWidth = l.getEquipmentWidth(this.eai);
-        int equipmentHeight = l.getEquipmentHeight(this.eai);
+        this.EV = z;
+        int equipmentWidth = l.getEquipmentWidth(this.eel);
+        int equipmentHeight = l.getEquipmentHeight(this.eel);
         if (z) {
             if (i == 90 || i == -90) {
-                this.eag.xH();
+                this.eej.zY();
                 equipmentWidth = equipmentHeight;
                 equipmentHeight = equipmentWidth;
             }
-        } else if (this.eai.getRequestedOrientation() != 1) {
-            this.eag.xH();
+        } else if (this.eel.getRequestedOrientation() != 1) {
+            this.eej.zY();
         }
         if (z) {
-            a(this.eai, i, equipmentWidth, equipmentHeight);
+            a(this.eel, i, equipmentWidth, equipmentHeight);
         } else {
-            e(this.eai, i);
+            e(this.eel, i);
         }
     }
 
     private void a(Activity activity, int i, int i2, int i3) {
-        if (activity != null && this.dZZ != null) {
-            this.EA = true;
-            if (this.dZZ != null && this.dZZ.getVideoHolder().getParent() != null) {
-                br(this.dZZ.getVideoHolder());
+        if (activity != null && this.eec != null) {
+            this.EV = true;
+            if (this.eec != null && this.eec.getVideoHolder().getParent() != null) {
+                br(this.eec.getVideoHolder());
             }
             ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
             if (viewGroup != null) {
-                viewGroup.removeView(this.dZZ.aXZ());
-                viewGroup.addView(this.dZZ.aXZ());
+                viewGroup.removeView(this.eec.bao());
+                viewGroup.addView(this.eec.bao());
             }
-            this.dZZ.aXZ().setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.eec.bao().setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public void e(Activity activity, int i) {
-        if (activity == null || this.eac == null) {
+        if (activity == null || this.eef == null) {
             BdLog.d("updatePortraitEmbedScreen activity = null or mParams = null");
             return;
         }
-        this.EA = false;
-        if (this.dZZ.getVideoHolder().getParent() != null) {
-            br(this.dZZ.getVideoHolder());
+        this.EV = false;
+        if (this.eec.getVideoHolder().getParent() != null) {
+            br(this.eec.getVideoHolder());
         }
-        if (this.ead != null && this.ead.awn().getParent() != null) {
-            br(this.ead.awn());
+        if (this.eeg != null && this.eeg.ayA().getParent() != null) {
+            br(this.eeg.ayA());
         }
-        int width = this.eac.bdZ.getWidth();
-        int height = this.eac.bdZ.getHeight();
-        this.eac.bdZ.getLeft();
-        this.eac.bdZ.getTop();
-        this.dZZ.getVideoHolder().addView(this.ead.awn(), new LinearLayout.LayoutParams(width, height));
-        this.dZZ.Io();
+        int width = this.eef.bip.getWidth();
+        int height = this.eef.bip.getHeight();
+        this.eef.bip.getLeft();
+        this.eef.bip.getTop();
+        this.eec.getVideoHolder().addView(this.eeg.ayA(), new LinearLayout.LayoutParams(width, height));
+        this.eec.KD();
     }
 
     private static boolean d(Activity activity, View view) {
@@ -512,20 +512,20 @@ public class f implements com.baidu.swan.apps.media.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXM() {
-        String jSONString = this.eaf.toJSONString();
+    public void bab() {
+        String jSONString = this.eei.toJSONString();
         if (!TextUtils.isEmpty(jSONString)) {
-            BdLog.d(this.bwp + " dispatchNetStatusEvent statusData: " + jSONString);
-            c.aa(getSlaveId(), UK(), jSONString);
+            BdLog.d(this.bAy + " dispatchNetStatusEvent statusData: " + jSONString);
+            c.ab(getSlaveId(), WY(), jSONString);
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String UL() {
+    public String WZ() {
         return null;
     }
 
-    private static int xj(String str) {
+    private static int xD(String str) {
         Uri parse;
         if (str == null || str.length() < 5) {
             return 0;

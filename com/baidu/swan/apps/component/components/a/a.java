@@ -15,22 +15,22 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimationView, b> {
     @NonNull
-    private String beb;
+    private String bir;
 
     public a(@Nullable Context context, @NonNull b bVar, @NonNull String str) {
         super(context, bVar);
-        this.beb = str;
+        this.bir = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: bG */
-    public LottieAnimationView bj(@NonNull Context context) {
+    /* renamed from: bK */
+    public LottieAnimationView bn(@NonNull Context context) {
         return new LottieAnimationView(context);
     }
 
@@ -41,10 +41,10 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
     public void ac(@NonNull LottieAnimationView lottieAnimationView) {
         super.ac(lottieAnimationView);
         try {
-            b bVar = (b) Ir();
+            b bVar = (b) KG();
             lottieAnimationView.loop(bVar.loop);
             lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
-            lottieAnimationView.setAnimation(new JSONObject(this.beb));
+            lottieAnimationView.setAnimation(new JSONObject(this.bir));
             if (bVar.autoPlay) {
                 lottieAnimationView.playAnimation();
             }
@@ -52,7 +52,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
                 d(lottieAnimationView, bVar);
             }
         } catch (IllegalStateException | JSONException e) {
-            ai(this.beb, e.aar());
+            as(this.bir, e.acF());
         }
     }
 
@@ -81,7 +81,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
     }
 
     private void c(@NonNull LottieAnimationView lottieAnimationView, @NonNull b bVar) {
-        if (Iv()) {
+        if (KK()) {
             if (DEBUG) {
                 Log.d("Component-AnimationView", "renderAction");
             }
@@ -101,9 +101,9 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.bdW);
+            jSONObject.put("wvID", bVar.bil);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.bdV);
+            jSONObject2.putOpt("animationViewId", bVar.bik);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -117,7 +117,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                com.baidu.swan.apps.view.b.b.a.a(bVar.bdW, bVar.bdV, "animateview", "ended", jSONObject);
+                com.baidu.swan.apps.view.b.b.a.a(bVar.bil, bVar.bik, "animateview", "ended", jSONObject);
                 c.d("Component-AnimationView", "progress: " + lottieAnimationView.getProgress());
             }
 
@@ -132,7 +132,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         });
     }
 
-    public static void ai(String str, String str2) {
+    public static void as(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("json", str);
@@ -150,6 +150,6 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         if (DEBUG) {
             Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
         }
-        new a.C0287a(10009).lq(jSONObject2).lp(e.aar()).TW();
+        new a.C0297a(10009).lF(jSONObject2).lE(e.acF()).Wk();
     }
 }

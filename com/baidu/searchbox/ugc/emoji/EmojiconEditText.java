@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EmojiconEditText extends AppCompatEditText {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = "EmojiconEditText";
@@ -41,17 +41,17 @@ public class EmojiconEditText extends AppCompatEditText {
     private String mTextInClipboard;
     private TextSelectChangedListener selectedListener;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface OnDelKeyEventListener {
         void onDeleteClick();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface OnPasteKeyEventListener {
         void onPasteClick();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface TextNumbersChangedListener {
         void addChanged(int i);
 
@@ -60,7 +60,7 @@ public class EmojiconEditText extends AppCompatEditText {
         void reduceChanged(int i);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface TextSelectChangedListener {
         void selectChanged(int i, int i2);
     }
@@ -188,7 +188,7 @@ public class EmojiconEditText extends AppCompatEditText {
         return new ZanyInputConnection(onCreateInputConnection, true);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     private class ZanyInputConnection extends InputConnectionWrapper {
         public ZanyInputConnection(InputConnection inputConnection, boolean z) {
             super(inputConnection, z);
@@ -233,7 +233,7 @@ public class EmojiconEditText extends AppCompatEditText {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class EmojiconEditTextWatcher implements TextWatcher {
         private EmojiconEditTextWatcher() {
         }
@@ -309,7 +309,7 @@ public class EmojiconEditText extends AppCompatEditText {
         if (text != null && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(text).find()) {
             this.mTextInClipboard = text.toString();
             this.mClipboardManager.setText(HanziToPinyin.Token.SEPARATOR);
-            SpannableString a = a.DS().a(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), this.mTextInClipboard, this);
+            SpannableString a = a.Gh().a(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), this.mTextInClipboard, this);
             int selectionStart = getSelectionStart();
             final Editable editableText = getEditableText();
             editableText.insert(selectionStart, a);
@@ -329,7 +329,7 @@ public class EmojiconEditText extends AppCompatEditText {
     public void handleDraftEmojiDisplay() {
         Editable editableText = getEditableText();
         if (!TextUtils.isEmpty(editableText) && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
-            getEditableText().replace(0, editableText.length(), a.DS().a(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), editableText, this));
+            getEditableText().replace(0, editableText.length(), a.Gh().a(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), editableText, this));
         }
     }
 

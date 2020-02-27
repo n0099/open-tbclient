@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.xiaomi.push.dr;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BroadcastActionsReceiver extends BroadcastReceiver {
     private dr a;
 

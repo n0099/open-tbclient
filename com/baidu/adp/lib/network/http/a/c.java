@@ -2,33 +2,33 @@ package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
     private String exception;
-    private int qU;
-    private String rC;
-    private String rF;
-    private int rG;
-    private long rH;
-    private boolean rD = false;
+    private int qV;
+    private String rD;
+    private String rG;
+    private int rH;
+    private long rI;
     private boolean rE = false;
-    private int qK = 0;
+    private boolean rF = false;
+    private int qL = 0;
 
     public void J(boolean z) {
-        this.rD = z;
+        this.rE = z;
     }
 
     public boolean gj() {
-        return this.rE;
+        return this.rF;
     }
 
     public void K(boolean z) {
-        this.rE = z;
+        this.rF = z;
     }
 
     public void aq(String str) {
         this.exception = str;
     }
 
-    public void O(int i) {
-        this.qK = i;
+    public void R(int i) {
+        this.qL = i;
     }
 
     public void gk() {
@@ -36,34 +36,34 @@ public class c {
     }
 
     public void ar(String str) {
-        this.rF = str;
+        this.rG = str;
     }
 
     public String gl() {
-        return this.rF;
+        return this.rG;
     }
 
-    public void P(int i) {
-        this.rG = i;
+    public void S(int i) {
+        this.rH = i;
     }
 
     public void i(long j) {
-        this.rH = j;
+        this.rI = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.rD + "-statType_" + this.rG + "-dnsErr_" + this.exception + "-hasRetry_" + this.qK + "-cost_" + this.rH + "-ipIndex_" + this.qU + "-ipResult_" + this.rC;
+        return "isFromNet_" + this.rE + "-statType_" + this.rH + "-dnsErr_" + this.exception + "-hasRetry_" + this.qL + "-cost_" + this.rI + "-ipIndex_" + this.qV + "-ipResult_" + this.rD;
     }
 
     public String gm() {
-        return this.rC;
+        return this.rD;
     }
 
     public void as(String str) {
-        this.rC = str;
+        this.rD = str;
     }
 
-    public void L(int i) {
-        this.qU = i;
+    public void O(int i) {
+        this.qV = i;
     }
 }

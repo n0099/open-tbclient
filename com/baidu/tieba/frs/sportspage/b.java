@@ -13,24 +13,24 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import tbclient.SportScheduleInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private TbPageContext cRe;
-    private String dUk;
-    private TextView gHa;
-    private TbImageView gHb;
-    private TbImageView gHc;
-    private TextView gHd;
-    private TextView gHe;
-    private TextView gHf;
-    private TextView gHg;
-    private TextView gHh;
-    private final View.OnClickListener gon = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.b.1
+    private TbPageContext cVg;
+    private String dYo;
+    private TextView gIZ;
+    private TbImageView gJa;
+    private TbImageView gJb;
+    private TextView gJc;
+    private TextView gJd;
+    private TextView gJe;
+    private TextView gJf;
+    private TextView gJg;
+    private final View.OnClickListener gqo = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!aq.isEmpty(b.this.dUk)) {
-                ba.aEt().a(b.this.cRe, new String[]{b.this.dUk}, true);
-                TiebaStatic.log(new an("c13418").cp("fid", b.this.mForumId));
+            if (!aq.isEmpty(b.this.dYo)) {
+                ba.aGE().a(b.this.cVg, new String[]{b.this.dYo}, true);
+                TiebaStatic.log(new an("c13418").cy("fid", b.this.mForumId));
             }
         }
     };
@@ -39,33 +39,33 @@ public class b {
 
     public b(FrsSportsRecommendFragment frsSportsRecommendFragment, View view) {
         if (frsSportsRecommendFragment != null && view != null) {
-            this.cRe = frsSportsRecommendFragment.getPageContext();
+            this.cVg = frsSportsRecommendFragment.getPageContext();
             BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
             this.mRootView = view.findViewById(R.id.frs_sports_schedule_card_layout);
-            this.gHa = (TextView) view.findViewById(R.id.frs_sports_tab_view);
-            this.gHb = (TbImageView) view.findViewById(R.id.frs_sports_schedule_left_team_icon);
-            this.gHc = (TbImageView) view.findViewById(R.id.frs_sports_schedule_right_team_icon);
-            this.gHd = (TextView) view.findViewById(R.id.frs_sports_schedule_left_team_name);
-            this.gHe = (TextView) view.findViewById(R.id.frs_sports_schedule_right_team_name);
-            this.gHf = (TextView) view.findViewById(R.id.frs_sports_schedule_match_top);
-            this.gHg = (TextView) view.findViewById(R.id.frs_sports_schedule_match_middle);
-            this.gHh = (TextView) view.findViewById(R.id.frs_sports_schedule_match_bottom);
-            this.gHb.setPageId(uniqueId);
-            this.gHc.setPageId(uniqueId);
+            this.gIZ = (TextView) view.findViewById(R.id.frs_sports_tab_view);
+            this.gJa = (TbImageView) view.findViewById(R.id.frs_sports_schedule_left_team_icon);
+            this.gJb = (TbImageView) view.findViewById(R.id.frs_sports_schedule_right_team_icon);
+            this.gJc = (TextView) view.findViewById(R.id.frs_sports_schedule_left_team_name);
+            this.gJd = (TextView) view.findViewById(R.id.frs_sports_schedule_right_team_name);
+            this.gJe = (TextView) view.findViewById(R.id.frs_sports_schedule_match_top);
+            this.gJf = (TextView) view.findViewById(R.id.frs_sports_schedule_match_middle);
+            this.gJg = (TextView) view.findViewById(R.id.frs_sports_schedule_match_bottom);
+            this.gJa.setPageId(uniqueId);
+            this.gJb.setPageId(uniqueId);
         }
     }
 
     public void a(SportScheduleInfo sportScheduleInfo, String str) {
         if (sportScheduleInfo == null) {
             this.mRootView.setVisibility(8);
-            this.gHa.setVisibility(0);
-            this.gHa.setText(R.string.frs_sports_recommend_tab_txt);
+            this.gIZ.setVisibility(0);
+            this.gIZ.setText(R.string.frs_sports_recommend_tab_txt);
             return;
         }
         this.mRootView.setVisibility(0);
-        this.gHa.setVisibility(8);
-        this.gHb.startLoad(sportScheduleInfo.home_team_icon, 10, false);
-        this.gHc.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
+        this.gIZ.setVisibility(8);
+        this.gJa.startLoad(sportScheduleInfo.home_team_icon, 10, false);
+        this.gJb.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
         String str2 = sportScheduleInfo.home_team_name;
         if (aq.getChineseAndEnglishLength(str2) > 14) {
             str2 = aq.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
@@ -74,24 +74,24 @@ public class b {
         if (aq.getChineseAndEnglishLength(str3) > 14) {
             str3 = aq.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
         }
-        this.gHd.setText(str2);
-        this.gHe.setText(str3);
-        this.gHf.setText(sportScheduleInfo.match_top_info);
-        this.gHg.setText(sportScheduleInfo.match_middle_info);
-        this.gHh.setText(sportScheduleInfo.match_bottom_info);
-        this.dUk = sportScheduleInfo.msg_url;
+        this.gJc.setText(str2);
+        this.gJd.setText(str3);
+        this.gJe.setText(sportScheduleInfo.match_top_info);
+        this.gJf.setText(sportScheduleInfo.match_middle_info);
+        this.gJg.setText(sportScheduleInfo.match_bottom_info);
+        this.dYo = sportScheduleInfo.msg_url;
         this.mForumId = str;
-        this.mRootView.setOnClickListener(this.gon);
+        this.mRootView.setOnClickListener(this.gqo);
     }
 
     public void onChangeSkinType() {
         am.setBackgroundResource(this.mRootView, R.drawable.bg_sports_frs_schedule_card_shape);
-        am.setBackgroundResource(this.gHa, R.drawable.bg_sports_frs_schedule_card_shape);
-        am.setViewTextColor(this.gHa, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.gHd, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.gHe, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.gHf, (int) R.color.cp_cont_c);
-        am.setViewTextColor(this.gHg, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.gHh, (int) R.color.cp_cont_c);
+        am.setBackgroundResource(this.gIZ, R.drawable.bg_sports_frs_schedule_card_shape);
+        am.setViewTextColor(this.gIZ, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.gJc, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.gJd, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.gJe, (int) R.color.cp_cont_c);
+        am.setViewTextColor(this.gJf, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.gJg, (int) R.color.cp_cont_c);
     }
 }

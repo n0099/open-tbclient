@@ -1,8 +1,9 @@
 package kotlin.collections;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public class ai extends ah {
-    public static final int NB(int i) {
+    public static final int NE(int i) {
         if (i < 3) {
             return i + 1;
         }

@@ -4,7 +4,7 @@ import android.animation.ObjectAnimator;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ObjectAnimator a(BaseMenuView baseMenuView) {
@@ -39,6 +39,6 @@ public class c {
     }
 
     private static long c(BaseMenuView baseMenuView) {
-        return baseMenuView.aqv() ? 240L : 200L;
+        return baseMenuView.asJ() ? 240L : 200L;
     }
 }

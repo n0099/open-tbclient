@@ -11,53 +11,53 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class l<T> extends TypeAdapter<T> {
     private TypeAdapter<T> delegate;
     final Gson gson;
-    private final JsonSerializer<T> mLd;
-    private final JsonDeserializer<T> mLe;
-    private final com.google.gson.b.a<T> mLf;
-    private final TypeAdapterFactory mLg;
-    private final l<T>.a mLh = new a();
+    private final JsonSerializer<T> mLG;
+    private final JsonDeserializer<T> mLH;
+    private final com.google.gson.b.a<T> mLI;
+    private final TypeAdapterFactory mLJ;
+    private final l<T>.a mLK = new a();
 
     public l(JsonSerializer<T> jsonSerializer, JsonDeserializer<T> jsonDeserializer, Gson gson, com.google.gson.b.a<T> aVar, TypeAdapterFactory typeAdapterFactory) {
-        this.mLd = jsonSerializer;
-        this.mLe = jsonDeserializer;
+        this.mLG = jsonSerializer;
+        this.mLH = jsonDeserializer;
         this.gson = gson;
-        this.mLf = aVar;
-        this.mLg = typeAdapterFactory;
+        this.mLI = aVar;
+        this.mLJ = typeAdapterFactory;
     }
 
     @Override // com.google.gson.TypeAdapter
     public T read(com.google.gson.stream.a aVar) throws IOException {
-        if (this.mLe == null) {
-            return dzu().read(aVar);
+        if (this.mLH == null) {
+            return dAC().read(aVar);
         }
         JsonElement parse = com.google.gson.internal.i.parse(aVar);
         if (parse.isJsonNull()) {
             return null;
         }
-        return this.mLe.deserialize(parse, this.mLf.getType(), this.mLh);
+        return this.mLH.deserialize(parse, this.mLI.getType(), this.mLK);
     }
 
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, T t) throws IOException {
-        if (this.mLd == null) {
-            dzu().write(bVar, t);
+        if (this.mLG == null) {
+            dAC().write(bVar, t);
         } else if (t == null) {
-            bVar.dAa();
+            bVar.dBg();
         } else {
-            com.google.gson.internal.i.a(this.mLd.serialize(t, this.mLf.getType(), this.mLh), bVar);
+            com.google.gson.internal.i.a(this.mLG.serialize(t, this.mLI.getType(), this.mLK), bVar);
         }
     }
 
-    private TypeAdapter<T> dzu() {
+    private TypeAdapter<T> dAC() {
         TypeAdapter<T> typeAdapter = this.delegate;
         if (typeAdapter != null) {
             return typeAdapter;
         }
-        TypeAdapter<T> delegateAdapter = this.gson.getDelegateAdapter(this.mLg, this.mLf);
+        TypeAdapter<T> delegateAdapter = this.gson.getDelegateAdapter(this.mLJ, this.mLI);
         this.delegate = delegateAdapter;
         return delegateAdapter;
     }
@@ -71,39 +71,39 @@ public final class l<T> extends TypeAdapter<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class b implements TypeAdapterFactory {
-        private final JsonSerializer<?> mLd;
-        private final JsonDeserializer<?> mLe;
-        private final com.google.gson.b.a<?> mLj;
-        private final boolean mLk;
-        private final Class<?> mLl;
+        private final JsonSerializer<?> mLG;
+        private final JsonDeserializer<?> mLH;
+        private final com.google.gson.b.a<?> mLM;
+        private final boolean mLN;
+        private final Class<?> mLO;
 
         b(Object obj, com.google.gson.b.a<?> aVar, boolean z, Class<?> cls) {
-            this.mLd = obj instanceof JsonSerializer ? (JsonSerializer) obj : null;
-            this.mLe = obj instanceof JsonDeserializer ? (JsonDeserializer) obj : null;
-            com.google.gson.internal.a.checkArgument((this.mLd == null && this.mLe == null) ? false : true);
-            this.mLj = aVar;
-            this.mLk = z;
-            this.mLl = cls;
+            this.mLG = obj instanceof JsonSerializer ? (JsonSerializer) obj : null;
+            this.mLH = obj instanceof JsonDeserializer ? (JsonDeserializer) obj : null;
+            com.google.gson.internal.a.checkArgument((this.mLG == null && this.mLH == null) ? false : true);
+            this.mLM = aVar;
+            this.mLN = z;
+            this.mLO = cls;
         }
 
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             boolean isAssignableFrom;
-            if (this.mLj != null) {
-                isAssignableFrom = this.mLj.equals(aVar) || (this.mLk && this.mLj.getType() == aVar.getRawType());
+            if (this.mLM != null) {
+                isAssignableFrom = this.mLM.equals(aVar) || (this.mLN && this.mLM.getType() == aVar.getRawType());
             } else {
-                isAssignableFrom = this.mLl.isAssignableFrom(aVar.getRawType());
+                isAssignableFrom = this.mLO.isAssignableFrom(aVar.getRawType());
             }
             if (isAssignableFrom) {
-                return new l(this.mLd, this.mLe, gson, aVar, this);
+                return new l(this.mLG, this.mLH, gson, aVar, this);
             }
             return null;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private final class a implements JsonDeserializationContext, JsonSerializationContext {
         private a() {
         }

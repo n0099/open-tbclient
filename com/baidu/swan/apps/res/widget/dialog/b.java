@@ -13,7 +13,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends g {
     private int mBreakPoint;
     private FrameLayout mBtnContainer;
@@ -23,7 +23,7 @@ public class b extends g {
     private View mDivider;
     private ViewGroup mView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         void onItemClick(View view);
     }
@@ -39,12 +39,12 @@ public class b extends g {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         createView();
-        ZU().an(this.mView);
+        aci().an(this.mView);
     }
 
     private void createView() {
         this.mContext = getContext();
-        this.mView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, ZU().getCustomContentParent(), false);
+        this.mView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, aci().getCustomContentParent(), false);
         this.mContent = (FrameLayout) this.mView.findViewById(a.f.hv_content);
         this.mDivider = this.mView.findViewById(a.f.hv_divider);
         this.mBtnContainer = (FrameLayout) this.mView.findViewById(a.f.hv_btn_content);
@@ -114,9 +114,9 @@ public class b extends g {
         return view;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class d {
-        b bJB;
+        b bNG;
         LinearLayout button;
         TextView subText;
         TextView text;
@@ -126,7 +126,7 @@ public class b extends g {
                 this.text = (TextView) view.findViewById(a.f.hv_btn_text);
                 this.subText = (TextView) view.findViewById(a.f.hv_btn_subtext);
                 this.button = (LinearLayout) view;
-                this.bJB = bVar;
+                this.bNG = bVar;
             }
         }
 
@@ -148,9 +148,9 @@ public class b extends g {
                 this.button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.b.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        d.this.bJB.dismiss();
-                        if (aVar.bJA != null) {
-                            aVar.bJA.onItemClick(view);
+                        d.this.bNG.dismiss();
+                        if (aVar.bNF != null) {
+                            aVar.bNF.onItemClick(view);
                         }
                     }
                 });
@@ -159,23 +159,23 @@ public class b extends g {
     }
 
     /* renamed from: com.baidu.swan.apps.res.widget.dialog.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0272b extends g.a {
+    /* loaded from: classes11.dex */
+    public static class C0282b extends g.a {
         private List<a> list;
 
-        public C0272b(Context context) {
+        public C0282b(Context context) {
             super(context);
             this.list = new ArrayList();
-            dz(false);
-            dv(false);
+            dG(false);
+            dC(false);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g bT(Context context) {
+        protected g bX(Context context) {
             return new b(context);
         }
 
-        public C0272b a(a aVar) {
+        public C0282b a(a aVar) {
             if (aVar != null) {
                 this.list.add(aVar);
             }
@@ -183,16 +183,16 @@ public class b extends g {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        public g MM() {
-            b bVar = (b) super.MM();
+        public g Pa() {
+            b bVar = (b) super.Pa();
             bVar.setBtnItemList(this.list);
             return bVar;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public c bJA;
+        public c bNF;
         public CharSequence mSubText;
         public int mSubTextColorId = -1;
         public CharSequence mText;
@@ -202,7 +202,7 @@ public class b extends g {
             this.mTextColorId = -1;
             this.mText = charSequence;
             this.mTextColorId = i;
-            this.bJA = cVar;
+            this.bNF = cVar;
         }
     }
 }

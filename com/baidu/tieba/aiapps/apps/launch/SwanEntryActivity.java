@@ -6,20 +6,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.swan.apps.as.r;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class SwanEntryActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!r.checkActivityRefuseServiceAndFinish(this)) {
-            aXy();
+            aZN();
         }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        aXy();
+        aZN();
     }
 
     @Override // android.app.Activity
@@ -33,7 +33,7 @@ public class SwanEntryActivity extends Activity {
         });
     }
 
-    private void aXy() {
+    private void aZN() {
         String uri;
         Intent intent = getIntent();
         if (intent != null) {
@@ -44,7 +44,7 @@ public class SwanEntryActivity extends Activity {
                 uri = data == null ? null : data.toString();
             }
             if (!TextUtils.isEmpty(uri)) {
-                a.ni(uri);
+                a.nx(uri);
             }
         }
     }

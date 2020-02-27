@@ -20,28 +20,28 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppConfigData {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final HashMap<String, Integer> bLI = new HashMap<>();
-    public g bLA;
-    public c bLB;
-    public b.a bLC;
-    public b bLD;
-    public b bLE;
-    public List<com.baidu.swan.pms.model.h> bLF;
-    public String bLG;
+    private static final HashMap<String, Integer> bPN = new HashMap<>();
+    public a bPB;
+    public e bPC;
+    public f bPD;
+    public com.baidu.swan.apps.runtime.config.c bPE;
+    public g bPF;
+    public c bPG;
+    public b.a bPH;
+    public b bPI;
+    public b bPJ;
+    public List<com.baidu.swan.pms.model.h> bPK;
+    public String bPL;
     @NonNull
-    public Set<RequiredBackgroundModeItem> bLH = new HashSet(1);
-    public a bLw;
-    public e bLx;
-    public f bLy;
-    public com.baidu.swan.apps.runtime.config.c bLz;
+    public Set<RequiredBackgroundModeItem> bPM = new HashSet(1);
     public boolean mIsDebug;
 
     static {
-        bLI.put("light", -1);
-        bLI.put("dark", Integer.valueOf((int) ViewCompat.MEASURED_STATE_MASK));
+        bPN.put("light", -1);
+        bPN.put("dark", Integer.valueOf((int) ViewCompat.MEASURED_STATE_MASK));
     }
 
     private SwanAppConfigData() {
@@ -53,29 +53,29 @@ public class SwanAppConfigData {
             return null;
         }
         SwanAppConfigData swanAppConfigData = new SwanAppConfigData();
-        swanAppConfigData.bLG = str;
+        swanAppConfigData.bPL = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            swanAppConfigData.bLE = b.a(jSONObject, file);
-            swanAppConfigData.bLD = b.b(jSONObject, file);
+            swanAppConfigData.bPJ = b.a(jSONObject, file);
+            swanAppConfigData.bPI = b.b(jSONObject, file);
             JSONArray optJSONArray = jSONObject.optJSONArray("remote_debug_plugins");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                swanAppConfigData.bLF = com.baidu.swan.apps.ag.g.b.x(optJSONArray.toString(), false);
+                swanAppConfigData.bPK = com.baidu.swan.apps.ag.g.b.x(optJSONArray.toString(), false);
             }
             swanAppConfigData.mIsDebug = jSONObject.optBoolean("debug");
-            swanAppConfigData.bLw = a.az(jSONObject);
-            swanAppConfigData.bLx = e.e(jSONObject, file);
-            swanAppConfigData.bLy = f.a(jSONObject, swanAppConfigData.bLx);
-            swanAppConfigData.bLz = com.baidu.swan.apps.runtime.config.c.aH(jSONObject);
-            swanAppConfigData.bLA = g.aD(jSONObject);
-            swanAppConfigData.bLB = c.aB(jSONObject);
-            swanAppConfigData.bLC = b.a.ay(jSONObject);
+            swanAppConfigData.bPB = a.az(jSONObject);
+            swanAppConfigData.bPC = e.e(jSONObject, file);
+            swanAppConfigData.bPD = f.a(jSONObject, swanAppConfigData.bPC);
+            swanAppConfigData.bPE = com.baidu.swan.apps.runtime.config.c.aH(jSONObject);
+            swanAppConfigData.bPF = g.aD(jSONObject);
+            swanAppConfigData.bPG = c.aB(jSONObject);
+            swanAppConfigData.bPH = b.a.ay(jSONObject);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("requiredBackgroundModes");
             if (optJSONArray2 != null) {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     RequiredBackgroundModeItem find = RequiredBackgroundModeItem.find(optJSONArray2.optString(i));
                     if (find != null) {
-                        swanAppConfigData.bLH.add(find);
+                        swanAppConfigData.bPM.add(find);
                     }
                 }
             }
@@ -91,7 +91,7 @@ public class SwanAppConfigData {
     }
 
     private static void a(@NonNull SwanAppConfigData swanAppConfigData, @NonNull JSONObject jSONObject, @NonNull File file) {
-        File file2 = new File(file, com.baidu.swan.apps.w.a.Sr().getHostName() + "_app.json");
+        File file2 = new File(file, com.baidu.swan.apps.w.a.UF().getHostName() + "_app.json");
         if (file2.exists()) {
             String readFileData = com.baidu.swan.d.c.readFileData(file2);
             if (!TextUtils.isEmpty(readFileData)) {
@@ -99,15 +99,15 @@ public class SwanAppConfigData {
                     JSONObject jSONObject2 = new JSONObject(readFileData);
                     JSONObject optJSONObject = jSONObject2.optJSONObject("window");
                     if (optJSONObject != null && optJSONObject.length() > 0) {
-                        swanAppConfigData.bLz = com.baidu.swan.apps.runtime.config.c.aH(jSONObject2);
+                        swanAppConfigData.bPE = com.baidu.swan.apps.runtime.config.c.aH(jSONObject2);
                         jSONObject.put("window", optJSONObject);
                     }
                     JSONObject optJSONObject2 = jSONObject2.optJSONObject("tabBar");
                     if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                        swanAppConfigData.bLA = g.aD(jSONObject2);
+                        swanAppConfigData.bPF = g.aD(jSONObject2);
                         jSONObject.put("tabBar", optJSONObject2);
                     }
-                    swanAppConfigData.bLG = jSONObject.toString();
+                    swanAppConfigData.bPL = jSONObject.toString();
                 } catch (JSONException e2) {
                     if (DEBUG) {
                         e2.printStackTrace();
@@ -117,25 +117,25 @@ public class SwanAppConfigData {
         }
     }
 
-    public static int cy(String str) {
+    public static int cG(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
         try {
-            str = kJ(str);
+            str = kY(str);
             return Color.parseColor(str);
         } catch (Exception e2) {
             if (DEBUG) {
                 Log.d("SwanAppConfigData", "parseColor failed:" + Log.getStackTraceString(e2));
             }
-            if (bLI.containsKey(str)) {
-                return bLI.get(str).intValue();
+            if (bPN.containsKey(str)) {
+                return bPN.get(str).intValue();
             }
             return -1;
         }
     }
 
-    public static String kJ(String str) {
+    public static String kY(String str) {
         if (!TextUtils.isEmpty(str) && str.length() == 4 && str.charAt(0) == '#') {
             StringBuilder sb = new StringBuilder();
             sb.append(str.charAt(0));
@@ -148,86 +148,86 @@ public class SwanAppConfigData {
         return str;
     }
 
-    public String Um() {
-        return abb() ? this.bLw.mPages.get(0) : "";
+    public String WA() {
+        return adp() ? this.bPB.mPages.get(0) : "";
     }
 
-    public String kK(String str) {
-        if (this.bLx == null || this.bLx.bLR == null) {
+    public String kZ(String str) {
+        if (this.bPC == null || this.bPC.bPW == null) {
             return null;
         }
-        for (d dVar : this.bLx.bLR) {
-            if (TextUtils.equals(dVar.bLL, str)) {
-                return dVar.Um();
+        for (d dVar : this.bPC.bPW) {
+            if (TextUtils.equals(dVar.bPQ, str)) {
+                return dVar.WA();
             }
         }
         return null;
     }
 
-    public boolean abb() {
-        return (this.bLw == null || this.bLw.mPages == null || this.bLw.mPages.isEmpty()) ? false : true;
+    public boolean adp() {
+        return (this.bPB == null || this.bPB.mPages == null || this.bPB.mPages.isEmpty()) ? false : true;
     }
 
-    public boolean abc() {
-        return (this.bLx == null || this.bLx.bLR == null || this.bLx.bLT == null) ? false : true;
+    public boolean adq() {
+        return (this.bPC == null || this.bPC.bPW == null || this.bPC.bPY == null) ? false : true;
     }
 
-    private boolean abd() {
-        return (this.bLx == null || this.bLx.bLR == null || this.bLx.bLU == null) ? false : true;
+    private boolean adr() {
+        return (this.bPC == null || this.bPC.bPW == null || this.bPC.bPZ == null) ? false : true;
     }
 
-    public boolean kL(String str) {
-        return abc() && this.bLx.bLT.containsKey(str);
+    public boolean la(String str) {
+        return adq() && this.bPC.bPY.containsKey(str);
     }
 
-    public boolean kM(String str) {
-        return abd() && this.bLx.bLU.containsKey(str);
+    public boolean lb(String str) {
+        return adr() && this.bPC.bPZ.containsKey(str);
     }
 
-    public String kD(String str) {
+    public String kS(String str) {
         String delAllParamsFromUrl = ag.delAllParamsFromUrl(str);
-        if (TextUtils.isEmpty(delAllParamsFromUrl) || !kL(delAllParamsFromUrl)) {
+        if (TextUtils.isEmpty(delAllParamsFromUrl) || !la(delAllParamsFromUrl)) {
             return "main";
         }
-        if (!kM(delAllParamsFromUrl)) {
+        if (!lb(delAllParamsFromUrl)) {
             return "subNormal";
         }
         return "independent";
     }
 
-    public boolean abe() {
-        return this.bLA != null && this.bLA.abl();
+    public boolean ads() {
+        return this.bPF != null && this.bPF.adz();
     }
 
-    public boolean kN(String str) {
-        return (abb() && this.bLw.kP(str)) || (abc() && this.bLx.bLT.containsKey(str));
+    public boolean lc(String str) {
+        return (adp() && this.bPB.le(str)) || (adq() && this.bPC.bPY.containsKey(str));
     }
 
-    public boolean kO(String str) {
-        return this.bLA != null && this.bLA.kQ(str);
+    public boolean ld(String str) {
+        return this.bPF != null && this.bPF.lf(str);
     }
 
-    public List<com.baidu.swan.apps.ag.f.a> fV(int i) {
+    public List<com.baidu.swan.apps.ag.f.a> gl(int i) {
         List<d> list;
         List<d> list2;
         if (i == 3) {
             ArrayList arrayList = new ArrayList();
-            a(this.bLE, arrayList);
-            if (this.bLx != null && (list2 = this.bLx.bLR) != null) {
+            a(this.bPJ, arrayList);
+            if (this.bPC != null && (list2 = this.bPC.bPW) != null) {
                 for (d dVar : list2) {
                     if (dVar != null) {
-                        a(dVar.bLP, arrayList);
+                        a(dVar.bPU, arrayList);
                     }
                 }
             }
             return arrayList;
         } else if (i == 4) {
             ArrayList arrayList2 = new ArrayList();
-            a(this.bLD, arrayList2);
-            if (this.bLx != null && (list = this.bLx.bLR) != null) {
+            a(this.bPI, arrayList2);
+            if (this.bPC != null && (list = this.bPC.bPW) != null) {
                 for (d dVar2 : list) {
                     if (dVar2 != null) {
-                        a(dVar2.bLQ, arrayList2);
+                        a(dVar2.bPV, arrayList2);
                     }
                 }
             }
@@ -239,23 +239,23 @@ public class SwanAppConfigData {
 
     private void a(b bVar, List<com.baidu.swan.apps.ag.f.a> list) {
         List<com.baidu.swan.apps.ag.f.a> list2;
-        if (bVar != null && list != null && (list2 = bVar.bLJ) != null && list2.size() > 0) {
+        if (bVar != null && list != null && (list2 = bVar.bPO) != null && list2.size() > 0) {
             list.addAll(list2);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public ArrayList<String> mPages;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static a az(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return abf();
+                return adt();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("pages");
             if (optJSONArray == null) {
-                return abf();
+                return adt();
             }
             a aVar = new a();
             aVar.mPages = new ArrayList<>(optJSONArray.length());
@@ -265,11 +265,11 @@ public class SwanAppConfigData {
             return aVar;
         }
 
-        public boolean kP(String str) {
+        public boolean le(String str) {
             return this.mPages != null && this.mPages.contains(str);
         }
 
-        private static a abf() {
+        private static a adt() {
             if (SwanAppConfigData.DEBUG) {
                 Log.e("SwanAppConfigData", "PageConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
@@ -279,7 +279,7 @@ public class SwanAppConfigData {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum RequiredBackgroundModeItem {
         AUDIO("audio");
         
@@ -303,11 +303,11 @@ public class SwanAppConfigData {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class g {
-        public int bLW;
-        public int bLX;
-        public ArrayList<h> bLY;
+        public int bQb;
+        public int bQc;
+        public ArrayList<h> bQd;
         public int mBackgroundColor;
         public int mColor;
 
@@ -315,74 +315,74 @@ public class SwanAppConfigData {
         public static g aD(JSONObject jSONObject) {
             int length;
             if (jSONObject == null) {
-                return abm();
+                return adA();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("tabBar");
             if (optJSONObject == null) {
-                return abm();
+                return adA();
             }
             g gVar = new g();
-            gVar.mColor = SwanAppConfigData.cy(optJSONObject.optString("color", "#999999"));
-            gVar.bLW = SwanAppConfigData.cy(optJSONObject.optString("selectedColor", "black"));
-            gVar.bLX = SwanAppConfigData.cy(optJSONObject.optString("borderStyle", "black"));
-            gVar.mBackgroundColor = SwanAppConfigData.cy(optJSONObject.optString("backgroundColor", "white"));
+            gVar.mColor = SwanAppConfigData.cG(optJSONObject.optString("color", "#999999"));
+            gVar.bQb = SwanAppConfigData.cG(optJSONObject.optString("selectedColor", "black"));
+            gVar.bQc = SwanAppConfigData.cG(optJSONObject.optString("borderStyle", "black"));
+            gVar.mBackgroundColor = SwanAppConfigData.cG(optJSONObject.optString("backgroundColor", "white"));
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
                 int i = length <= 5 ? length : 5;
-                gVar.bLY = new ArrayList<>(i);
+                gVar.bQd = new ArrayList<>(i);
                 for (int i2 = 0; i2 < i; i2++) {
-                    gVar.bLY.add(h.aF(optJSONArray.optJSONObject(i2)));
+                    gVar.bQd.add(h.aF(optJSONArray.optJSONObject(i2)));
                 }
             }
             return gVar;
         }
 
-        public boolean abl() {
-            return this.bLY != null && this.bLY.size() >= 2;
+        public boolean adz() {
+            return this.bQd != null && this.bQd.size() >= 2;
         }
 
-        public boolean kQ(String str) {
-            if (this.bLY == null) {
+        public boolean lf(String str) {
+            if (this.bQd == null) {
                 return false;
             }
-            for (int i = 0; i < this.bLY.size(); i++) {
-                if (TextUtils.equals(this.bLY.get(i).bLZ, str)) {
+            for (int i = 0; i < this.bQd.size(); i++) {
+                if (TextUtils.equals(this.bQd.get(i).bQe, str)) {
                     return true;
                 }
             }
             return false;
         }
 
-        private static g abm() {
+        private static g adA() {
             if (SwanAppConfigData.DEBUG) {
                 Log.e("SwanAppConfigData", "TabBarConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             g gVar = new g();
-            gVar.bLY = new ArrayList<>();
+            gVar.bQd = new ArrayList<>();
             return gVar;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class c {
-        public boolean bLK;
+        public boolean bPP;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static c aB(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return abh();
+                return adv();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("setting");
             if (optJSONObject == null) {
-                return abh();
+                return adv();
             }
-            com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
+            com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
             String str = "";
-            if (aap != null) {
-                str = aap.id;
+            if (acD != null) {
+                str = acD.id;
             }
             c cVar = new c();
-            cVar.bLK = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
+            cVar.bPP = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("swan_conf");
             if (optJSONObject2 != null) {
                 com.baidu.swan.apps.aj.a.c.a(str, "", optJSONObject2.optJSONArray("web_view_domains"));
@@ -394,58 +394,58 @@ public class SwanAppConfigData {
             return cVar;
         }
 
-        public static boolean abg() {
-            SwanAppConfigData Ui = com.baidu.swan.apps.y.f.UC().Ui();
-            if (Ui == null) {
+        public static boolean adu() {
+            SwanAppConfigData Ww = com.baidu.swan.apps.y.f.WQ().Ww();
+            if (Ww == null) {
                 return true;
             }
-            c cVar = Ui.bLB;
-            com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
+            c cVar = Ww.bPG;
+            com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
             b.a aVar = null;
-            if (aap != null) {
-                aVar = aap.En();
+            if (acD != null) {
+                aVar = acD.GC();
             }
             boolean b = com.baidu.swan.apps.e.a.b(aVar);
-            boolean Jy = com.baidu.swan.apps.console.debugger.a.e.Jy();
-            boolean FE = com.baidu.swan.apps.core.a.FE();
-            boolean Yn = com.baidu.swan.apps.ah.a.a.Yn();
+            boolean LN = com.baidu.swan.apps.console.debugger.a.e.LN();
+            boolean HT = com.baidu.swan.apps.core.a.HT();
+            boolean aaB = com.baidu.swan.apps.ah.a.a.aaB();
             if (SwanAppConfigData.DEBUG) {
-                Log.d("SwanAppConfigData", "isDevelop: " + b + " isRemoteDebug: " + Jy + " isMobileDebug: " + FE + " urlCheck: " + cVar.bLK);
+                Log.d("SwanAppConfigData", "isDevelop: " + b + " isRemoteDebug: " + LN + " isMobileDebug: " + HT + " urlCheck: " + cVar.bPP);
             }
-            return (b || Jy || FE || Yn) && !cVar.bLK;
+            return (b || LN || HT || aaB) && !cVar.bPP;
         }
 
-        private static c abh() {
+        private static c adv() {
             if (SwanAppConfigData.DEBUG) {
                 Log.e("SwanAppConfigData", "SettingConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             c cVar = new c();
-            cVar.bLK = true;
+            cVar.bPP = true;
             return cVar;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class h {
-        public String bLZ;
-        public String bMa;
-        public String bMb;
+        public String bQe;
+        public String bQf;
+        public String bQg;
         public String mText;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static h aF(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return abn();
+                return adB();
             }
             h hVar = new h();
-            hVar.bLZ = jSONObject.optString("pagePath");
-            hVar.bMa = jSONObject.optString("iconPath");
-            hVar.bMb = jSONObject.optString("selectedIconPath");
+            hVar.bQe = jSONObject.optString("pagePath");
+            hVar.bQf = jSONObject.optString("iconPath");
+            hVar.bQg = jSONObject.optString("selectedIconPath");
             hVar.mText = jSONObject.optString("text");
             return hVar;
         }
 
-        private static h abn() {
+        private static h adB() {
             if (SwanAppConfigData.DEBUG) {
                 Log.e("SwanAppConfigData", "TabItem createNullObject() " + Log.getStackTraceString(new Exception()));
             }
@@ -453,80 +453,80 @@ public class SwanAppConfigData {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class e {
-        public List<d> bLR;
-        public HashMap<String, Boolean> bLS;
-        public HashMap<String, String> bLT;
-        public HashMap<String, String> bLU;
+        public List<d> bPW;
+        public HashMap<String, Boolean> bPX;
+        public HashMap<String, String> bPY;
+        public HashMap<String, String> bPZ;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static e e(JSONObject jSONObject, File file) {
             if (jSONObject == null) {
-                return abj();
+                return adx();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("subPackages");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return abj();
+                return adx();
             }
             e eVar = new e();
-            eVar.bLR = new ArrayList();
-            eVar.bLT = new HashMap<>();
-            eVar.bLS = new HashMap<>();
-            eVar.bLU = new HashMap<>();
+            eVar.bPW = new ArrayList();
+            eVar.bPY = new HashMap<>();
+            eVar.bPX = new HashMap<>();
+            eVar.bPZ = new HashMap<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    eVar.bLR.add(d.a(optJSONObject, eVar.bLT, eVar.bLU, file));
+                    eVar.bPW.add(d.a(optJSONObject, eVar.bPY, eVar.bPZ, file));
                 }
             }
             return eVar;
         }
 
-        private static e abj() {
+        private static e adx() {
             e eVar = new e();
-            eVar.bLR = new ArrayList();
-            eVar.bLT = new HashMap<>();
-            eVar.bLS = new HashMap<>();
-            eVar.bLU = new HashMap<>();
+            eVar.bPW = new ArrayList();
+            eVar.bPY = new HashMap<>();
+            eVar.bPX = new HashMap<>();
+            eVar.bPZ = new HashMap<>();
             return eVar;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class d {
-        private static final String bLO = File.separator;
-        public String bLL;
-        public List<String> bLM;
-        boolean bLN = false;
-        public b bLP;
-        public b bLQ;
+        private static final String bPT = File.separator;
+        public String bPQ;
+        public List<String> bPR;
+        boolean bPS = false;
+        public b bPU;
+        public b bPV;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static d a(JSONObject jSONObject, HashMap<String, String> hashMap, HashMap<String, String> hashMap2, File file) {
             String str;
             if (jSONObject == null || hashMap == null) {
-                return abi();
+                return adw();
             }
             d dVar = new d();
-            dVar.bLL = jSONObject.optString("root");
-            dVar.bLN = jSONObject.optBoolean("independent");
+            dVar.bPQ = jSONObject.optString("root");
+            dVar.bPS = jSONObject.optBoolean("independent");
             JSONArray optJSONArray = jSONObject.optJSONArray("pages");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
-                dVar.bLM = new ArrayList();
+                dVar.bPR = new ArrayList();
                 for (int i = 0; i < length; i++) {
                     String optString = optJSONArray.optString(i);
-                    dVar.bLM.add(optString);
-                    if (!TextUtils.isEmpty(dVar.bLL) && !TextUtils.isEmpty(optString)) {
-                        if (dVar.bLL.endsWith(bLO) || optString.startsWith(bLO)) {
-                            str = dVar.bLL + optString;
+                    dVar.bPR.add(optString);
+                    if (!TextUtils.isEmpty(dVar.bPQ) && !TextUtils.isEmpty(optString)) {
+                        if (dVar.bPQ.endsWith(bPT) || optString.startsWith(bPT)) {
+                            str = dVar.bPQ + optString;
                         } else {
-                            str = dVar.bLL + bLO + optString;
+                            str = dVar.bPQ + bPT + optString;
                         }
-                        hashMap.put(str, dVar.bLL);
-                        if (dVar.bLN) {
-                            hashMap2.put(str, dVar.bLL);
+                        hashMap.put(str, dVar.bPQ);
+                        if (dVar.bPS) {
+                            hashMap2.put(str, dVar.bPQ);
                         }
                     }
                 }
@@ -534,61 +534,61 @@ public class SwanAppConfigData {
             return dVar;
         }
 
-        private static d abi() {
+        private static d adw() {
             d dVar = new d();
-            dVar.bLM = new ArrayList();
+            dVar.bPR = new ArrayList();
             return dVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public String Um() {
-            if (TextUtils.isEmpty(this.bLL) || this.bLM == null || this.bLM.size() <= 0) {
+        public String WA() {
+            if (TextUtils.isEmpty(this.bPQ) || this.bPR == null || this.bPR.size() <= 0) {
                 return null;
             }
-            String str = this.bLM.get(0);
-            if (this.bLL.endsWith(bLO)) {
-                this.bLL = this.bLL.substring(0, this.bLL.length() - 1);
+            String str = this.bPR.get(0);
+            if (this.bPQ.endsWith(bPT)) {
+                this.bPQ = this.bPQ.substring(0, this.bPQ.length() - 1);
             }
-            if (str.startsWith(bLO)) {
+            if (str.startsWith(bPT)) {
                 str = str.substring(1);
             }
-            return this.bLL + bLO + str;
+            return this.bPQ + bPT + str;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class f {
-        public HashMap<String, String> bLV;
+        public HashMap<String, String> bQa;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static f a(JSONObject jSONObject, e eVar) {
-            if (jSONObject == null || eVar == null || eVar.bLR == null || eVar.bLR.size() <= 0) {
-                return abk();
+            if (jSONObject == null || eVar == null || eVar.bPW == null || eVar.bPW.size() <= 0) {
+                return ady();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
             if (optJSONObject == null) {
-                return abk();
+                return ady();
             }
             f fVar = new f();
-            fVar.bLV = new HashMap<>();
-            for (d dVar : eVar.bLR) {
-                if (dVar != null && !TextUtils.isEmpty(dVar.bLL)) {
-                    fVar.bLV.put(dVar.bLL, optJSONObject.optString(dVar.bLL));
+            fVar.bQa = new HashMap<>();
+            for (d dVar : eVar.bPW) {
+                if (dVar != null && !TextUtils.isEmpty(dVar.bPQ)) {
+                    fVar.bQa.put(dVar.bPQ, optJSONObject.optString(dVar.bPQ));
                 }
             }
             return fVar;
         }
 
-        private static f abk() {
+        private static f ady() {
             f fVar = new f();
-            fVar.bLV = new HashMap<>();
+            fVar.bQa = new HashMap<>();
             return fVar;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b {
-        public List<com.baidu.swan.apps.ag.f.a> bLJ;
+        public List<com.baidu.swan.apps.ag.f.a> bPO;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static b a(JSONObject jSONObject, File file) {
@@ -607,15 +607,15 @@ public class SwanAppConfigData {
             }
             Iterator<String> keys = optJSONObject.keys();
             b bVar = new b();
-            bVar.bLJ = new ArrayList();
+            bVar.bPO = new ArrayList();
             while (keys.hasNext()) {
                 String next = keys.next();
                 com.baidu.swan.apps.ag.f.a aVar = new com.baidu.swan.apps.ag.f.a(optJSONObject.optJSONObject(next), i);
-                aVar.bEE = next;
-                if (file != null && !TextUtils.isEmpty(aVar.bEH)) {
-                    aVar.bEH = new File(file, aVar.bEH).getAbsolutePath();
+                aVar.bIJ = next;
+                if (file != null && !TextUtils.isEmpty(aVar.bIM)) {
+                    aVar.bIM = new File(file, aVar.bIM).getAbsolutePath();
                 }
-                bVar.bLJ.add(aVar);
+                bVar.bPO.add(aVar);
             }
             return bVar;
         }

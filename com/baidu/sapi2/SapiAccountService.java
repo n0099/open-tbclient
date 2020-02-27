@@ -53,7 +53,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SapiAccountService implements com.baidu.sapi2.service.interfaces.a {
     private static final String a = "native";
     private SapiConfiguration b = SapiAccountManager.getInstance().getSapiConfiguration();

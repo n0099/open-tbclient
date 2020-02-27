@@ -21,10 +21,10 @@ import java.net.NetworkInterface;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int a;
         public int b;

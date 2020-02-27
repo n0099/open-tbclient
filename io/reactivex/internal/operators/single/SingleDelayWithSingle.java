@@ -7,7 +7,7 @@ import io.reactivex.internal.observers.c;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SingleDelayWithSingle<T, U> extends w<T> {
     final aa<U> other;
     final aa<T> source;
@@ -17,7 +17,7 @@ public final class SingleDelayWithSingle<T, U> extends w<T> {
         this.other.a(new OtherObserver(yVar, this.source));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class OtherObserver<T, U> extends AtomicReference<b> implements b, y<U> {
         private static final long serialVersionUID = -8565274649390031272L;
         final y<? super T> actual;

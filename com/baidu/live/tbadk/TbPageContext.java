@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.tbadk.core.BDLayoutMode;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface TbPageContext<T> extends BdPageContext<T> {
     BDLayoutMode getLayoutMode();
 

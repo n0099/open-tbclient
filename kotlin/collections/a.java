@@ -3,7 +3,8 @@ package kotlin.collections;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.Collection;
 import kotlin.TypeCastException;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public abstract class a<E> implements Collection<E> {
     @Override // java.util.Collection
     public boolean add(E e) {

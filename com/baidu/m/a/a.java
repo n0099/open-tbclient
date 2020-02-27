@@ -4,9 +4,8 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.rtc.RtcConfig;
 import org.apache.http.cookie.ClientCookie;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static RtcConfig m(Context context, JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -17,9 +16,9 @@ public class a {
             rtcConfig.hostPort = jSONObject.optInt(ClientCookie.PORT_ATTR);
             rtcConfig.userId = jSONObject.optInt(TbEnum.SystemMessage.KEY_USER_ID);
             rtcConfig.pushUrl = jSONObject.optString("pushUrl");
-            rtcConfig.identity = jSONObject.optInt(HTTP.IDENTITY_CODING);
+            rtcConfig.identity = jSONObject.optInt("identity");
             rtcConfig.devicePosition = jSONObject.optString("devicePosition");
-            rtcConfig.cuid = com.baidu.swan.apps.w.a.RL().bn(context);
+            rtcConfig.cuid = com.baidu.swan.apps.w.a.TZ().br(context);
             if (rtcConfig.lineId < 1 || rtcConfig.lineId > 9) {
                 return null;
             }

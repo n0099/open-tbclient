@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.j.a;
 import com.baidu.android.pushservice.j.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BaiduAppSSOJni {
     private static final String TAG = "BaiduAppSSOJni";
 

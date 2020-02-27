@@ -49,7 +49,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ForwardPublishActivity extends PublishBaseActivity implements EmojiconEditText.TextNumbersChangedListener {
     private static final int THOUSAND_WORDS = 1000;
     private String mDraftContent;
@@ -193,7 +193,7 @@ public class ForwardPublishActivity extends PublishBaseActivity implements Emoji
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class PositiveListener implements DialogInterface.OnClickListener {
         private String mInputStr;
         private WeakReference<Activity> mWeakReference;
@@ -217,7 +217,7 @@ public class ForwardPublishActivity extends PublishBaseActivity implements Emoji
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class NegativeListener implements DialogInterface.OnClickListener {
         private WeakReference<Activity> mWeakReference;
 

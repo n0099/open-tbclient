@@ -5,7 +5,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static String a(InputStream inputStream) {
         if (inputStream == null) {

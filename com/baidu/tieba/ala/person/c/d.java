@@ -7,54 +7,54 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class d extends BdBaseModel {
-    private a fpF;
-    private HttpMessageListener fpG;
+    private a fsi;
+    private HttpMessageListener fsj;
     private TbPageContext mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void bqk();
+        void brO();
 
         void onFail(String str);
     }
 
     public d(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fpG = new HttpMessageListener(1021030) { // from class: com.baidu.tieba.ala.person.c.d.1
+        this.fsj = new HttpMessageListener(1021030) { // from class: com.baidu.tieba.ala.person.c.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021030 && d.this.fpF != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021030 && d.this.fsi != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        d.this.fpF.onFail(httpResponsedMessage.getErrorString());
+                        d.this.fsi.onFail(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        d.this.fpF.bqk();
+                        d.this.fsi.brO();
                     } else {
-                        d.this.fpF.onFail(httpResponsedMessage.getErrorString());
+                        d.this.fsi.onFail(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.fpG.setSelfListener(true);
-        this.fpG.setTag(tbPageContext.getUniqueId());
-        registerListener(this.fpG);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021030, com.baidu.live.a.Tz);
+        this.fsj.setSelfListener(true);
+        this.fsj.setTag(tbPageContext.getUniqueId());
+        registerListener(this.fsj);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021030, com.baidu.live.a.Vg);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void zk(String str) {
+    public void zC(String str) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.fpF != null) {
-                this.fpF.onFail(this.mContext.getResources().getString(a.i.sdk_no_network));
+            if (this.fsi != null) {
+                this.fsi.onFail(this.mContext.getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
@@ -66,7 +66,7 @@ public class d extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fpF = aVar;
+        this.fsi = aVar;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -77,8 +77,8 @@ public class d extends BdBaseModel {
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         cancelMessage();
-        if (this.fpF != null) {
-            this.fpF.onFail(null);
+        if (this.fsi != null) {
+            this.fsi.onFail(null);
             return false;
         }
         return false;
@@ -86,8 +86,8 @@ public class d extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        if (this.fpF != null) {
-            this.fpF.onFail(null);
+        if (this.fsi != null) {
+            this.fsi.onFail(null);
         }
         MessageManager.getInstance().unRegisterTask(1021030);
     }

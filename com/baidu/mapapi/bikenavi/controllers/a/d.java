@@ -1,7 +1,7 @@
 package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBTTSPlayer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class d implements com.baidu.platform.comapi.wnplatform.m.c {
     @Override // com.baidu.platform.comapi.wnplatform.m.c
     public void a() {

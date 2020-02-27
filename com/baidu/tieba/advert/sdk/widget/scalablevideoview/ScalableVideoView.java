@@ -11,9 +11,9 @@ import android.view.Surface;
 import android.view.TextureView;
 import com.baidu.tieba.R;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected ScalableType dYS;
+    protected ScalableType ecW;
     protected MediaPlayer mMediaPlayer;
 
     public ScalableVideoView(Context context) {
@@ -27,15 +27,15 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.dYS = ScalableType.NONE;
+        this.ecW = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.scaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.dYS = ScalableType.values()[i2];
+            this.ecW = ScalableType.values()[i2];
         }
     }
 
-    private void aXd() {
+    private void aZs() {
         if (this.mMediaPlayer == null) {
             this.mMediaPlayer = new MediaPlayer();
             this.mMediaPlayer.setOnVideoSizeChangedListener(this);
@@ -52,12 +52,12 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        aXd();
+        aZs();
         this.mMediaPlayer.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri) throws Exception {
-        aXd();
+        aZs();
         this.mMediaPlayer.setDataSource(context, uri);
     }
 
@@ -87,11 +87,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.dYS = scalableType;
+        this.ecW = scalableType;
         ba(getVideoWidth(), getVideoHeight());
     }
 
-    public void b(MediaPlayer.OnPreparedListener onPreparedListener) throws IllegalStateException {
+    public void prepareAsync(MediaPlayer.OnPreparedListener onPreparedListener) throws IllegalStateException {
         this.mMediaPlayer.setOnPreparedListener(onPreparedListener);
         this.mMediaPlayer.prepareAsync();
     }
@@ -132,7 +132,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void ba(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.dYS)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.ecW)) != null) {
             setTransform(a);
         }
     }

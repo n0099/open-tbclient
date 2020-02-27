@@ -15,15 +15,15 @@ import com.xiaomi.push.hq;
 import com.xiaomi.push.iq;
 import com.xiaomi.push.ir;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class p {
     public static void a(Context context, Intent intent, Uri uri) {
         if (context == null) {
             return;
         }
-        ay.a(context).m69a();
-        if (ek.a(context.getApplicationContext()).m252a() == null) {
-            ek.a(context.getApplicationContext()).a(d.m80a(context.getApplicationContext()).m81a(), context.getPackageName(), com.xiaomi.push.service.ag.a(context.getApplicationContext()).a(hl.AwakeInfoUploadWaySwitch.a(), 0), new e());
+        ay.a(context).m74a();
+        if (ek.a(context.getApplicationContext()).m257a() == null) {
+            ek.a(context.getApplicationContext()).a(d.m85a(context.getApplicationContext()).m86a(), context.getPackageName(), com.xiaomi.push.service.ag.a(context.getApplicationContext()).a(hl.AwakeInfoUploadWaySwitch.a(), 0), new e());
             com.xiaomi.push.service.ag.a(context).a(new r(102, "awake online config", context));
         }
         if ((context instanceof Activity) && intent != null) {
@@ -50,7 +50,7 @@ public class p {
             com.xiaomi.channel.commonutils.logger.b.c("aw_ping: frquency need > 30s.");
         }
         boolean z = i >= 0 ? a : false;
-        if (!com.xiaomi.push.l.m478a()) {
+        if (!com.xiaomi.push.l.m483a()) {
             a(context, cif, z, i);
         } else if (z) {
             com.xiaomi.push.ai.a(context.getApplicationContext()).a((ai.a) new q(cif, context), i);
@@ -60,7 +60,7 @@ public class p {
     public static final <T extends ir<T, ?>> void a(Context context, T t, boolean z, int i) {
         byte[] a = iq.a(t);
         if (a == null) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("send message fail, because msgBytes is null.");
+            com.xiaomi.channel.commonutils.logger.b.m47a("send message fail, because msgBytes is null.");
             return;
         }
         Intent intent = new Intent();
@@ -69,21 +69,21 @@ public class p {
         intent.putExtra("extra_help_ping_frequency", i);
         intent.putExtra("mipush_payload", a);
         intent.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", true);
-        ay.a(context).m70a(intent);
+        ay.a(context).m75a(intent);
     }
 
     public static void a(Context context, String str) {
-        com.xiaomi.channel.commonutils.logger.b.m42a("aw_ping : send aw_ping cmd and content to push service from 3rd app");
+        com.xiaomi.channel.commonutils.logger.b.m47a("aw_ping : send aw_ping cmd and content to push service from 3rd app");
         HashMap hashMap = new HashMap();
         hashMap.put("awake_info", str);
         hashMap.put("event_type", String.valueOf(9999));
         hashMap.put("description", "ping message");
         Cif cif = new Cif();
-        cif.b(d.m80a(context).m81a());
+        cif.b(d.m85a(context).m86a());
         cif.d(context.getPackageName());
-        cif.c(hq.AwakeAppResponse.f493a);
+        cif.c(hq.AwakeAppResponse.f490a);
         cif.a(com.xiaomi.push.service.aj.a());
-        cif.f633a = hashMap;
+        cif.f630a = hashMap;
         a(context, cif);
     }
 
@@ -91,17 +91,17 @@ public class p {
         Cif cif = new Cif();
         cif.b(str);
         cif.a(new HashMap());
-        cif.m411a().put("extra_aw_app_online_cmd", String.valueOf(i));
-        cif.m411a().put("extra_help_aw_info", str2);
+        cif.m416a().put("extra_aw_app_online_cmd", String.valueOf(i));
+        cif.m416a().put("extra_help_aw_info", str2);
         cif.a(com.xiaomi.push.service.aj.a());
         byte[] a = iq.a(cif);
         if (a == null) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("send message fail, because msgBytes is null.");
+            com.xiaomi.channel.commonutils.logger.b.m47a("send message fail, because msgBytes is null.");
             return;
         }
         Intent intent = new Intent();
         intent.setAction("action_aw_app_logic");
         intent.putExtra("mipush_payload", a);
-        ay.a(context).m70a(intent);
+        ay.a(context).m75a(intent);
     }
 }

@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import tv.chushou.zues.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FlowLayout extends ViewGroup {
     private int mHorizontalSpacing;
     private int mVerticalSpacing;

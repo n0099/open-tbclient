@@ -1,61 +1,52 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
+import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.data.f;
 import com.baidu.live.tbadk.core.data.BaseData;
-import com.baidu.mobstat.Config;
 import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ak extends BaseData {
-    public List<a> aaB;
-    public String aaC;
-    public String aaD;
-    public String aaE;
-    public String aaF;
-    public String aaG;
-    public String point;
-    public String text;
+    public int acx;
+    public ArrayList<f> acy = new ArrayList<>();
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        int length;
+        f.a aVar;
+        JSONArray optJSONArray;
         if (jSONObject != null) {
-            this.text = jSONObject.optString("text");
-            this.point = jSONObject.optString(Config.EVENT_HEAT_POINT);
-            JSONArray optJSONArray = jSONObject.optJSONArray("data");
-            if (optJSONArray != null && (length = optJSONArray.length()) != 0) {
-                this.aaB = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    this.aaB.add(new a(optJSONArray.optJSONObject(i)));
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject != null) {
+                    this.acx = optJSONObject.optInt("interval");
                 }
-                this.aaC = jSONObject.optString("text_color");
-                if (!TextUtils.isEmpty(this.aaC) && this.aaC.charAt(0) != '#') {
-                    this.aaC = '#' + this.aaC;
+                if (this.acx <= 0) {
+                    this.acx = 5;
                 }
-                this.aaD = jSONObject.optString("value_color");
-                if (!TextUtils.isEmpty(this.aaD) && this.aaD.charAt(0) != '#') {
-                    this.aaD = '#' + this.aaD;
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
+                if (optJSONObject2 == null) {
+                    aVar = null;
+                } else {
+                    aVar = new f.a(optJSONObject2);
                 }
-                this.aaE = jSONObject.optString("background_color");
-                if (!TextUtils.isEmpty(this.aaE) && this.aaE.charAt(0) != '#') {
-                    this.aaE = '#' + this.aaE;
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("live_activity_new");
+                long optLong = jSONObject.optLong("time", 0L);
+                if (optJSONObject3 != null && (optJSONArray = optJSONObject3.optJSONArray("activity_info")) != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
+                        if (optJSONObject4 != null) {
+                            f fVar = new f();
+                            fVar.a(aVar);
+                            fVar.parseJson(optJSONObject4);
+                            fVar.serverTime = optLong;
+                            this.acy.add(fVar);
+                        }
+                    }
                 }
-                this.aaF = jSONObject.optString("transparency");
-                this.aaG = jSONObject.optString("timer_point_text");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class a {
-        public String text;
-        public String value;
-
-        a(JSONObject jSONObject) {
-            this.text = jSONObject.optString("text");
-            this.value = jSONObject.optString("value");
         }
     }
 }

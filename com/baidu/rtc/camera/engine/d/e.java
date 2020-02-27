@@ -4,132 +4,132 @@ import android.content.Context;
 import android.util.SparseArray;
 import android.widget.ImageView;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
-    private FloatBuffer aRJ;
-    private FloatBuffer aRK;
-    private int aRM;
-    private int aRN;
-    private com.baidu.rtc.camera.engine.a.b aSi;
-    private SparseArray<com.baidu.rtc.camera.filter.glfilter.a.a> aSo;
-    private FloatBuffer aSp;
-    private FloatBuffer aSq;
+    private com.baidu.rtc.camera.engine.a.b aWH;
+    private SparseArray<com.baidu.rtc.camera.filter.glfilter.a.a> aWN;
+    private FloatBuffer aWO;
+    private FloatBuffer aWP;
+    private FloatBuffer aWi;
+    private FloatBuffer aWj;
+    private int aWl;
+    private int aWm;
     private Context mContext;
     private ImageView.ScaleType mScaleType;
     private int mViewHeight;
     private int mViewWidth;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class a {
-        public static e aSr = new e();
+        public static e aWQ = new e();
     }
 
     private e() {
-        this.aSo = new SparseArray<>();
+        this.aWN = new SparseArray<>();
         this.mScaleType = ImageView.ScaleType.CENTER_CROP;
-        this.aSi = com.baidu.rtc.camera.engine.a.b.CP();
+        this.aWH = com.baidu.rtc.camera.engine.a.b.Fl();
     }
 
-    public static e CY() {
-        return a.aSr;
+    public static e Fu() {
+        return a.aWQ;
     }
 
     public void init(Context context) {
-        Db();
-        aW(context);
+        Fx();
+        ba(context);
         this.mContext = context;
     }
 
     public void release() {
-        Da();
-        CZ();
+        Fw();
+        Fv();
         this.mContext = null;
     }
 
-    private void CZ() {
+    private void Fv() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < 2) {
-                if (this.aSo.get(i2) != null) {
-                    this.aSo.get(i2).release();
+                if (this.aWN.get(i2) != null) {
+                    this.aWN.get(i2).release();
                 }
                 i = i2 + 1;
             } else {
-                this.aSo.clear();
+                this.aWN.clear();
                 return;
             }
         }
     }
 
-    private void Da() {
-        if (this.aRJ != null) {
-            this.aRJ.clear();
-            this.aRJ = null;
+    private void Fw() {
+        if (this.aWi != null) {
+            this.aWi.clear();
+            this.aWi = null;
         }
-        if (this.aRK != null) {
-            this.aRK.clear();
-            this.aRK = null;
+        if (this.aWj != null) {
+            this.aWj.clear();
+            this.aWj = null;
         }
-        if (this.aSp != null) {
-            this.aSp.clear();
-            this.aSp = null;
+        if (this.aWO != null) {
+            this.aWO.clear();
+            this.aWO = null;
         }
-        if (this.aSq != null) {
-            this.aSq.clear();
-            this.aSq = null;
+        if (this.aWP != null) {
+            this.aWP.clear();
+            this.aWP = null;
         }
     }
 
-    private void Db() {
-        Da();
-        this.aSp = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.aSP);
-        this.aSq = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.aSQ);
-        this.aRJ = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.aSP);
-        this.aRK = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.aSQ);
+    private void Fx() {
+        Fw();
+        this.aWO = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.aXo);
+        this.aWP = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.aXp);
+        this.aWi = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.aXo);
+        this.aWj = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.aXp);
     }
 
-    private void aW(Context context) {
-        CZ();
-        this.aSo.put(0, new com.baidu.rtc.camera.filter.glfilter.a.b(context));
-        this.aSo.put(1, new com.baidu.rtc.camera.filter.glfilter.a.a(context));
+    private void ba(Context context) {
+        Fv();
+        this.aWN.put(0, new com.baidu.rtc.camera.filter.glfilter.a.b(context));
+        this.aWN.put(1, new com.baidu.rtc.camera.filter.glfilter.a.a(context));
     }
 
     public int h(int i, float[] fArr) {
-        if (this.aSo.get(0) != null && this.aSo.get(1) != null) {
-            if (this.aSo.get(0) instanceof com.baidu.rtc.camera.filter.glfilter.a.b) {
-                ((com.baidu.rtc.camera.filter.glfilter.a.b) this.aSo.get(0)).h(fArr);
+        if (this.aWN.get(0) != null && this.aWN.get(1) != null) {
+            if (this.aWN.get(0) instanceof com.baidu.rtc.camera.filter.glfilter.a.b) {
+                ((com.baidu.rtc.camera.filter.glfilter.a.b) this.aWN.get(0)).h(fArr);
             }
-            int d = this.aSo.get(0).d(i, this.aRJ, this.aRK);
-            this.aSo.get(1).c(d, this.aSp, this.aSq);
+            int d = this.aWN.get(0).d(i, this.aWi, this.aWj);
+            this.aWN.get(1).c(d, this.aWO, this.aWP);
             return d;
         }
         return i;
     }
 
-    public void K(int i, int i2) {
-        this.aRM = i;
-        this.aRN = i2;
+    public void L(int i, int i2) {
+        this.aWl = i;
+        this.aWm = i2;
     }
 
-    public void L(int i, int i2) {
+    public void M(int i, int i2) {
         this.mViewWidth = i;
         this.mViewHeight = i2;
-        Dd();
-        Dc();
+        Fz();
+        Fy();
     }
 
-    private void Dc() {
+    private void Fy() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < 2) {
-                if (this.aSo.get(i2) != null) {
-                    this.aSo.get(i2).M(this.aRM, this.aRN);
+                if (this.aWN.get(i2) != null) {
+                    this.aWN.get(i2).N(this.aWl, this.aWm);
                     if (i2 < 1) {
-                        this.aSo.get(i2).O(this.aRM, this.aRN);
+                        this.aWN.get(i2).P(this.aWl, this.aWm);
                     }
-                    this.aSo.get(i2).N(this.mViewWidth, this.mViewHeight);
+                    this.aWN.get(i2).O(this.mViewWidth, this.mViewHeight);
                 }
                 i = i2 + 1;
             } else {
@@ -138,14 +138,14 @@ public final class e {
         }
     }
 
-    private void Dd() {
+    private void Fz() {
         float[] fArr = null;
         float[] fArr2 = null;
-        float[] fArr3 = com.baidu.rtc.camera.filter.glfilter.utils.b.aSQ;
-        float[] fArr4 = com.baidu.rtc.camera.filter.glfilter.utils.b.aSP;
-        float max = Math.max(this.mViewWidth / this.aRM, this.mViewHeight / this.aRN);
-        int round = Math.round(this.aRM * max);
-        int round2 = Math.round(max * this.aRN);
+        float[] fArr3 = com.baidu.rtc.camera.filter.glfilter.utils.b.aXp;
+        float[] fArr4 = com.baidu.rtc.camera.filter.glfilter.utils.b.aXo;
+        float max = Math.max(this.mViewWidth / this.aWl, this.mViewHeight / this.aWm);
+        int round = Math.round(this.aWl * max);
+        int round2 = Math.round(max * this.aWm);
         float f = round / this.mViewWidth;
         float f2 = round2 / this.mViewHeight;
         if (this.mScaleType == ImageView.ScaleType.CENTER_INSIDE) {
@@ -161,10 +161,10 @@ public final class e {
         if (fArr != null) {
             fArr3 = fArr;
         }
-        this.aSp.clear();
-        this.aSp.put(fArr4).position(0);
-        this.aSq.clear();
-        this.aSq.put(fArr3).position(0);
+        this.aWO.clear();
+        this.aWO.put(fArr4).position(0);
+        this.aWP.clear();
+        this.aWP.put(fArr3).position(0);
     }
 
     private float n(float f, float f2) {

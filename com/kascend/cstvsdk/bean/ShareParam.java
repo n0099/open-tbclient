@@ -1,10 +1,12 @@
 package com.kascend.cstvsdk.bean;
 
 import android.support.annotation.Keep;
+import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @Keep
-/* loaded from: classes4.dex */
+@h
+/* loaded from: classes5.dex */
 public final class ShareParam {
     public static final Companion Companion = new Companion(null);
     public static final int PLATFORM_OTHER = 100;
@@ -129,7 +131,8 @@ public final class ShareParam {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    @h
+    /* loaded from: classes5.dex */
     public static final class Companion {
         private Companion() {
         }

@@ -4,18 +4,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.live.u.a;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> cRO = new ArrayList<>();
-    private View.OnClickListener esH;
-    private View.OnClickListener esI;
-    private View.OnClickListener esJ;
+    private ArrayList<ALaCharmData> cVQ = new ArrayList<>();
+    private View.OnClickListener ewR;
+    private View.OnClickListener ewS;
+    private View.OnClickListener ewT;
     private int mFromType;
     private TbPageContext mPageContext;
     private int mSkinType;
@@ -27,48 +27,48 @@ public class a extends BaseAdapter {
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.esH = onClickListener;
+        this.ewR = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.esJ = onClickListener;
+        this.ewT = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.esI = onClickListener;
+        this.ewS = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.cRO.clear();
-            this.cRO.addAll(arrayList);
+            this.cVQ.clear();
+            this.cVQ.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
-    public void R(ArrayList<ALaCharmData> arrayList) {
+    public void T(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.cRO.addAll(arrayList);
+            this.cVQ.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cRO == null) {
+        if (this.cVQ == null) {
             return 0;
         }
-        return this.cRO.size();
+        return this.cVQ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oI */
+    /* renamed from: oZ */
     public ALaCharmData getItem(int i) {
-        if (this.cRO == null) {
+        if (this.cVQ == null) {
             return null;
         }
-        return this.cRO.get(i);
+        return this.cVQ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -89,9 +89,9 @@ public class a extends BaseAdapter {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
             d dVar2 = new d(inflate, this.mFromType);
-            dVar2.p(this.esJ);
-            dVar2.m(this.esH);
-            dVar2.q(this.esI);
+            dVar2.p(this.ewT);
+            dVar2.m(this.ewR);
+            dVar2.q(this.ewS);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -106,8 +106,8 @@ public class a extends BaseAdapter {
     }
 
     public void X(String str, boolean z) {
-        if (this.cRO != null && str != null) {
-            Iterator<ALaCharmData> it = this.cRO.iterator();
+        if (this.cVQ != null && str != null) {
+            Iterator<ALaCharmData> it = this.cVQ.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

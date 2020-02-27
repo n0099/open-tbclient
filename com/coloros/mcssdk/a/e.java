@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.coloros.mcssdk.PushManager;
 import com.coloros.mcssdk.mode.Message;
 import com.coloros.mcssdk.mode.SptDataMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class e extends c {
     @Override // com.coloros.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {

@@ -1,16 +1,16 @@
 package rx.subscriptions;
 
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
-    private static final a nTy = new a();
+    private static final a nUm = new a();
 
-    public static k dOm() {
-        return rx.subscriptions.a.dOg();
+    public static k dPz() {
+        return rx.subscriptions.a.dPt();
     }
 
-    public static k dOn() {
-        return nTy;
+    public static k dPA() {
+        return nUm;
     }
 
     public static k l(rx.functions.a aVar) {
@@ -18,7 +18,7 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements k {
         a() {
         }

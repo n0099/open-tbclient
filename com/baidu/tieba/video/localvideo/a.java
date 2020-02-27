@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> kyK = new ArrayList<>();
-    private boolean kyL = false;
+    private ArrayList<d> kzF = new ArrayList<>();
+    private boolean kzG = false;
     private Context mContext;
 
     public a(Context context) {
@@ -21,25 +21,25 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.kyL = true;
-        this.kyK.clear();
+        this.kzG = true;
+        this.kzF.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.kyK.addAll(list);
+            this.kzF.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void JT(String str) {
-        if (this.kyK != null && !TextUtils.isEmpty(str)) {
+    public void Kg(String str) {
+        if (this.kzF != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.kyK.size()) {
-                    d dVar = this.kyK.get(i2);
+                if (i2 < this.kzF.size()) {
+                    d dVar = this.kzF.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.kyK.remove(i2);
+                        this.kzF.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.isEmpty(this.kyK)) {
+        if (v.isEmpty(this.kzF)) {
             return 0;
         }
-        return this.kyK.size();
+        return this.kzF.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Dv */
+    /* renamed from: DB */
     public d getItem(int i) {
-        if (this.kyK == null || this.kyK.isEmpty() || i < 0 || i >= this.kyK.size()) {
+        if (this.kzF == null || this.kzF.isEmpty() || i < 0 || i >= this.kzF.size()) {
             return null;
         }
-        return this.kyK.get(i);
+        return this.kzF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -93,12 +93,12 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.kyK != null && this.kyK.size() > i) {
-            localVideoInfoView.a(this.kyK.get(i));
-        } else if (i == 0 && this.kyL) {
-            localVideoInfoView.tm(true);
+        if (this.kzF != null && this.kzF.size() > i) {
+            localVideoInfoView.a(this.kzF.get(i));
+        } else if (i == 0 && this.kzG) {
+            localVideoInfoView.tq(true);
         } else {
-            localVideoInfoView.tm(false);
+            localVideoInfoView.tq(false);
         }
         return view2;
     }

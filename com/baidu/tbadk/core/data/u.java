@@ -2,36 +2,36 @@ package com.baidu.tbadk.core.data;
 
 import java.util.ArrayList;
 import tbclient.FrsPage.ForumHeadlineImgInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class u {
-    private r cKE;
+    private r cOH;
     private long threadId;
-    private long cKz = 0;
-    private String cKA = "";
-    private long cKB = 0;
-    private String cKC = "";
+    private long cOC = 0;
+    private String cOD = "";
+    private long cOE = 0;
+    private String cOF = "";
     private String imgUrl = "";
-    private String cKD = "";
+    private String cOG = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
             this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.cKz = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.cKA = forumHeadlineImgInfo.thread_user_name;
-            this.cKB = forumHeadlineImgInfo.img_user_id.longValue();
-            this.cKC = forumHeadlineImgInfo.img_user_name;
+            this.cOC = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.cOD = forumHeadlineImgInfo.thread_user_name;
+            this.cOE = forumHeadlineImgInfo.img_user_id.longValue();
+            this.cOF = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.cKD = forumHeadlineImgInfo.headline_url;
-            this.cKE = new r();
+            this.cOG = forumHeadlineImgInfo.headline_url;
+            this.cOH = new r();
             ArrayList<t> arrayList = new ArrayList<>();
-            t tVar = new t(this.imgUrl == null ? "" : this.imgUrl, this.cKD == null ? "" : this.cKD, null);
-            tVar.fq(true);
+            t tVar = new t(this.imgUrl == null ? "" : this.imgUrl, this.cOG == null ? "" : this.cOG, null);
+            tVar.fx(true);
             arrayList.add(tVar);
-            this.cKE.t(arrayList);
+            this.cOH.v(arrayList);
         }
     }
 
-    public String ayq() {
+    public String aAE() {
         return this.imgUrl;
     }
 }

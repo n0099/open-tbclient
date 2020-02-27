@@ -18,33 +18,33 @@ import java.util.Locale;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private a() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0288a {
-        private static final a bRT = new a();
+    /* loaded from: classes11.dex */
+    public static class C0298a {
+        private static final a bVX = new a();
     }
 
-    public static a adc() {
-        return C0288a.bRT;
+    public static a afq() {
+        return C0298a.bVX;
     }
 
-    public static String gc(int i) {
+    public static String gt(int i) {
         return i == 1 ? "installed_game_swan_js_md5" : "installed_swan_js_md5";
     }
 
     public void c(long j, int i) {
         boolean z;
-        List<b> ge = ge(i);
-        if (ge.size() >= 10) {
-            ge.remove(0);
+        List<b> gv = gv(i);
+        if (gv.size() >= 10) {
+            gv.remove(0);
         }
-        Iterator<b> it = ge.iterator();
+        Iterator<b> it = gv.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -57,14 +57,14 @@ public class a {
             }
         }
         if (!z) {
-            ge.add(new b(Calendar.getInstance().getTimeInMillis(), j));
+            gv.add(new b(Calendar.getInstance().getTimeInMillis(), j));
             HashSet hashSet = new HashSet();
-            for (b bVar : ge) {
+            for (b bVar : gv) {
                 if (bVar != null) {
                     hashSet.add(bVar.toJson());
                 }
             }
-            h.adb().putStringSet(gf(i), hashSet);
+            h.afp().putStringSet(gw(i), hashSet);
         }
     }
 
@@ -80,23 +80,23 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.bRU).compareTo(String.valueOf(bVar2.bRU));
+                return String.valueOf(bVar.bVY).compareTo(String.valueOf(bVar2.bVY));
             }
         });
     }
 
-    public String gd(int i) {
+    public String gu(int i) {
         StringBuilder sb = new StringBuilder();
-        String string = h.adb().getString(gc(i), "");
+        String string = h.afp().getString(gt(i), "");
         if (!TextUtils.isEmpty(string)) {
             sb.append("md5: ").append(string).append("\n").append("\n");
         }
-        List<b> ge = ge(i);
-        int size = ge.size();
+        List<b> gv = gv(i);
+        int size = gv.size();
         int i2 = 0;
         boolean z = false;
         while (i2 < size) {
-            b bVar = ge.get(i2);
+            b bVar = gv.get(i2);
             if (bVar != null) {
                 z = true;
                 sb.append(bVar.toString());
@@ -108,35 +108,35 @@ public class a {
             z = z;
         }
         if (!z) {
-            sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.d.a.gp(i)).toString());
+            sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.d.a.gG(i)).toString());
         } else {
-            SwanCoreVersion Uf = f.UC().Uf();
-            b bVar2 = ge.get(size - 1);
-            if (bVar2 != null && Uf != null && Uf.swanCoreVersion > bVar2.swanCoreVersion) {
+            SwanCoreVersion Wt = f.WQ().Wt();
+            b bVar2 = gv.get(size - 1);
+            if (bVar2 != null && Wt != null && Wt.swanCoreVersion > bVar2.swanCoreVersion) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), Uf.swanCoreVersion).toString());
+                sb.append(new b(System.currentTimeMillis(), Wt.swanCoreVersion).toString());
             }
         }
         return sb.toString();
     }
 
-    private List<b> ge(int i) {
+    private List<b> gv(int i) {
         ArrayList arrayList = new ArrayList();
-        Set<String> stringSet = h.adb().getStringSet(gf(i), null);
+        Set<String> stringSet = h.afp().getStringSet(gw(i), null);
         if (stringSet == null || stringSet.size() == 0) {
             return arrayList;
         }
         for (String str : stringSet) {
-            b lZ = lZ(str);
-            if (lZ != null) {
-                arrayList.add(lZ);
+            b mo = mo(str);
+            if (mo != null) {
+                arrayList.add(mo);
             }
         }
         aa(arrayList);
         return arrayList;
     }
 
-    private b lZ(String str) {
+    private b mo(String str) {
         b bVar;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -153,13 +153,13 @@ public class a {
         return bVar;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b {
-        long bRU;
+        long bVY;
         long swanCoreVersion;
 
         b(long j, long j2) {
-            this.bRU = j;
+            this.bVY = j;
             this.swanCoreVersion = j2;
         }
 
@@ -168,13 +168,13 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.getDefault()).format(new Date(this.bRU));
+                str = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.getDefault()).format(new Date(this.bVY));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
             }
             try {
-                str2 = com.baidu.swan.apps.swancore.b.aB(this.swanCoreVersion);
+                str2 = com.baidu.swan.apps.swancore.b.aF(this.swanCoreVersion);
             } catch (Exception e3) {
                 e = e3;
                 if (com.baidu.swan.apps.b.DEBUG) {
@@ -188,7 +188,7 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.bRU);
+                jSONObject.put("time", this.bVY);
                 jSONObject.put("version", this.swanCoreVersion);
                 return jSONObject.toString();
             } catch (JSONException e) {
@@ -201,7 +201,7 @@ public class a {
         }
     }
 
-    private static String gf(int i) {
+    private static String gw(int i) {
         return i == 1 ? "aigames_core_ver_list_key" : "aiapps_core_ver_list_key";
     }
 }

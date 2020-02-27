@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class ParsedResult {
     private final ParsedResultType type;
 

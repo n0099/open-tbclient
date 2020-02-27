@@ -1,13 +1,13 @@
 package tv.chushou.zues.widget.kpswitch;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface a {
-    void DQ();
+    void Gf();
 
-    void DR();
+    void Gg();
 
-    boolean dPy();
+    boolean dQL();
 
-    boolean dPz();
+    boolean dQM();
 
     boolean isVisible();
 }

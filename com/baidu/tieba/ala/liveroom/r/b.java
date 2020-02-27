@@ -1,140 +1,97 @@
 package com.baidu.tieba.ala.liveroom.r;
 
-import android.content.Context;
-import android.net.Uri;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.ala.helper.AlaLiveDebugInfo;
-import com.baidu.ala.player.AlaLivePlayer;
-import com.baidu.ala.player.AlaLivePlayerCallback;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.live.liveroom.d.c;
-import com.baidu.live.tbadk.TbConfig;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.p.c;
+import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import java.util.ArrayList;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b implements com.baidu.live.liveroom.d.a {
-    private int fge = 1;
-    private int fgf = -1;
-    private AlaLivePlayer fgg;
-    private c fgh;
-    private Uri mUri;
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
+public class b extends com.baidu.tieba.ala.liveroom.a {
+    private int Yx;
+    private String alG;
+    private long ehK;
+    private c fjM;
+    private long fjN;
+    private String fjO;
+    private boolean mIsHost;
+    private String mPortrait;
+    public String otherParams;
 
-    public b(Context context) {
-        if (this.fgg == null) {
-            this.fgg = AlaLivePlayer.createLivePlayer(context);
+    public b(TbPageContext tbPageContext) {
+        super(tbPageContext);
+    }
+
+    public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
+        this.Yx = i;
+        this.fjN = j;
+        this.fjO = str;
+        this.mIsHost = z;
+        this.mPortrait = str2;
+        this.alG = str4;
+        this.ehK = j2;
+        this.otherParams = str3;
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.a
+    public void af(ViewGroup viewGroup) {
+        super.af(viewGroup);
+        if (this.fjM == null) {
+            com.baidu.live.p.a aVar = new com.baidu.live.p.a(getPageContext().getPageActivity(), this.Yx, this.fjN, this.mIsHost, this.mPortrait, this.otherParams, this.alG, this.ehK);
+            aVar.userName = this.fjO;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913036, c.class, aVar);
+            if (runTask != null && runTask.getData() != null) {
+                this.fjM = (c) runTask.getData();
+            }
+        }
+        if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
+            am(viewGroup);
         }
     }
 
-    @Override // com.baidu.live.liveroom.d.a
-    public void d(Context context, Uri uri) {
-        if (this.fgg == null) {
-            this.fgg = AlaLivePlayer.createLivePlayer(context);
-        }
-        this.mUri = uri;
-    }
-
-    @Override // com.baidu.live.liveroom.d.a
-    public void a(c cVar) {
-        this.fgh = cVar;
-        this.fgg.setPlayerCallback(new AlaLivePlayerCallback() { // from class: com.baidu.tieba.ala.liveroom.r.b.1
-            @Override // com.baidu.ala.player.AlaLivePlayerCallback
-            public void onStreamChanged(int i, int i2) {
-            }
-
-            @Override // com.baidu.ala.player.AlaLivePlayerCallback
-            public void onDebugInfo(int i, AlaLiveDebugInfo alaLiveDebugInfo) {
-            }
-
-            @Override // com.baidu.ala.player.AlaLivePlayerCallback
-            public void onBufferingEvent(int i, int i2, long j, int i3) {
-            }
-
-            @Override // com.baidu.ala.player.AlaLivePlayerCallback
-            public void onFrameDelay(int i, int i2, int i3) {
-            }
-
-            @Override // com.baidu.ala.player.AlaLivePlayerCallback
-            public void onFirstFrame(int i, int i2, int i3) {
-                if (b.this.fgh != null) {
-                    b.this.fgh.a(b.this, CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, 0);
-                }
-            }
-
-            @Override // com.baidu.ala.player.AlaLivePlayerCallback
-            public void onStreamStuck(int i, int i2, int i3) {
-            }
-
-            @Override // com.baidu.ala.player.AlaLivePlayerCallback
-            public void onFastOpen(int i, int i2) {
-            }
-        });
-    }
-
-    @Override // com.baidu.live.liveroom.d.a
-    public void setDecodeMode(int i) {
-    }
-
-    @Override // com.baidu.live.liveroom.d.a
-    public void b(int i, JSONObject jSONObject) {
-        if (this.fgf == -1) {
-            this.fgf = i;
-        }
-        if (this.fgg != null) {
-            this.fgg.setStartInfo(i, jSONObject.optString("LIVE_ID"), jSONObject.optString("SESSION_ID"), jSONObject.optString("CLIENT_IP"), jSONObject.optString("LEVEL"), jSONObject.optInt("SESSION_LINE"), TbConfig.getSubappType());
+    private void am(ViewGroup viewGroup) {
+        if (this.fjM != null && this.fjM.yZ() != null && viewGroup.indexOfChild(this.fjM.yZ()) < 0) {
+            this.fjM.yZ().setId(a.g.ala_liveroom_ranklist);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(1, a.g.guard_club_entry_id);
+            layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
+            layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds20);
+            layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds14);
+            viewGroup.addView(this.fjM.yZ(), layoutParams);
         }
     }
 
-    @Override // com.baidu.live.liveroom.d.a
-    public View getPlayerView() {
-        return this.fgg;
-    }
-
-    @Override // com.baidu.live.liveroom.d.a
-    public void bQ(int i) {
-    }
-
-    @Override // com.baidu.live.liveroom.d.a
-    public void b(Uri uri) {
-        this.mUri = uri;
-    }
-
-    @Override // com.baidu.live.liveroom.d.a
-    public void setVideoScalingMode(int i) {
-        this.fgg.setRenderVideoModel(this.fgf, 1);
-    }
-
-    @Override // com.baidu.live.liveroom.d.a
-    public void start() {
-        this.fgg.setStatConfigBeforeStart(TbadkCoreApplication.getInst().getApp().getFilesDir().getAbsolutePath() + "/live_sdk_log/", "http://c.tieba.baidu.com/ala/sys/mlog", com.baidu.live.s.a.wR().asq.XO);
-        if (this.fgf == -1) {
-            this.fgf = 1;
+    @Override // com.baidu.tieba.ala.liveroom.a
+    public void pK() {
+        super.pK();
+        if (this.fjM != null && this.fjM.yZ() != null && this.fjM.yZ().getParent() != null) {
+            ((ViewGroup) this.fjM.yZ().getParent()).removeView(this.fjM.yZ());
         }
-        AlaLivePlayer.AlaLivePlayerConf alaLivePlayerConf = new AlaLivePlayer.AlaLivePlayerConf();
-        alaLivePlayerConf.index = this.fgf;
-        alaLivePlayerConf.url = this.mUri.toString();
-        alaLivePlayerConf.param = new LinearLayout.LayoutParams(-1, -1);
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(alaLivePlayerConf);
-        this.fgg.start2(arrayList);
-        this.fge = 2;
-    }
-
-    @Override // com.baidu.live.liveroom.d.a
-    public void stop() {
-        if (this.fgg != null) {
-            this.fgg.stop();
-            this.fge = 4;
+        if (this.fjM != null) {
+            this.fjM.destory();
+            this.fjM = null;
         }
     }
 
-    @Override // com.baidu.live.liveroom.d.a
-    public void release() {
-        if (this.fgg != null) {
-            this.fgg.stop();
-            this.fgg.destroy();
-            this.fge = 4;
+    @Override // com.baidu.tieba.ala.liveroom.a
+    public void onDestroy() {
+        if (this.fjM != null) {
+            this.fjM.destory();
+            this.fjM = null;
+        }
+    }
+
+    public void bqk() {
+        if (this.fjM != null) {
+            this.fjM.zc();
+        }
+    }
+
+    public void bql() {
+        if (this.fjM != null) {
+            this.fjM.zd();
         }
     }
 }

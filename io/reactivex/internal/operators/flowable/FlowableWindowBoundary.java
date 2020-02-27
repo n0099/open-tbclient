@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableWindowBoundary<T, B> extends io.reactivex.internal.operators.flowable.a<T, io.reactivex.g<T>> {
     final int capacityHint;
     final org.a.b<B> other;
@@ -22,10 +22,10 @@ public final class FlowableWindowBoundary<T, B> extends io.reactivex.internal.op
         cVar.onSubscribe(windowBoundaryMainSubscriber);
         windowBoundaryMainSubscriber.innerNext();
         this.other.subscribe(windowBoundaryMainSubscriber.boundarySubscriber);
-        this.nvP.a((j) windowBoundaryMainSubscriber);
+        this.nwr.a((j) windowBoundaryMainSubscriber);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WindowBoundaryMainSubscriber<T, B> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         static final Object NEXT_WINDOW = new Object();
         private static final long serialVersionUID = 2233020065421370272L;
@@ -197,19 +197,19 @@ public final class FlowableWindowBoundary<T, B> extends io.reactivex.internal.op
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a<T, B> extends io.reactivex.subscribers.a<B> {
         boolean done;
-        final WindowBoundaryMainSubscriber<T, B> nwL;
+        final WindowBoundaryMainSubscriber<T, B> nxn;
 
         a(WindowBoundaryMainSubscriber<T, B> windowBoundaryMainSubscriber) {
-            this.nwL = windowBoundaryMainSubscriber;
+            this.nxn = windowBoundaryMainSubscriber;
         }
 
         @Override // org.a.c
         public void onNext(B b) {
             if (!this.done) {
-                this.nwL.innerNext();
+                this.nxn.innerNext();
             }
         }
 
@@ -220,14 +220,14 @@ public final class FlowableWindowBoundary<T, B> extends io.reactivex.internal.op
                 return;
             }
             this.done = true;
-            this.nwL.innerError(th);
+            this.nxn.innerError(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.nwL.innerComplete();
+                this.nxn.innerComplete();
             }
         }
     }

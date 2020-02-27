@@ -11,15 +11,17 @@ import com.baidu.tieba.play.g;
 public interface a extends MediaController.MediaPlayerControl {
     void a(TbVideoViewSet.a aVar);
 
-    void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
-
     void b(TbVideoViewSet.a aVar);
 
-    void cxr();
+    void cyK();
 
-    boolean cxs();
+    void cyL();
 
-    void cxv();
+    boolean cyM();
+
+    void cyP();
+
+    void e(long j, long j2, long j3);
 
     int getCurrentPositionSync();
 
@@ -46,13 +48,13 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void setOnPreparedListener(g.f fVar);
 
-    void setOnSeekCompleteListener(g.InterfaceC0582g interfaceC0582g);
+    void setOnSeekCompleteListener(g.InterfaceC0590g interfaceC0590g);
 
     void setOnSurfaceDestroyedListener(QuickVideoView.b bVar);
 
-    void setPageTypeForPerfStat(String str);
-
     void setTryUseViewInSet(boolean z);
+
+    void setVideoDuration(int i);
 
     void setVideoPath(String str, String str2);
 

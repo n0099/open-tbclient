@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static void o(Context context, String str, String str2) {
         if (context != null) {

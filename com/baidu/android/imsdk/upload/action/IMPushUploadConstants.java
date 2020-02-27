@@ -3,11 +3,9 @@ package com.baidu.android.imsdk.upload.action;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMPushUploadConstants {
     public static final String BIM_LOG_ID = "log-id";
     public static final int ERROR_CODE = -1;
@@ -15,7 +13,7 @@ public class IMPushUploadConstants {
     public static final String TAG = "BIMUploadUbc";
     public static final int VERSION = 1;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Service {
         public static final String BAIDU_APP = "baidu_app";
     }
@@ -36,11 +34,10 @@ public class IMPushUploadConstants {
                 }
                 sb.append(Integer.toHexString(i));
             }
-            LogUtils.d(TAG, "sign origin :" + str + ", md5: " + sb.toString());
+            Log.d(TAG, "sign origin :" + str + ", md5: " + sb.toString());
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            LogUtils.e(TAG, "md5 exception ", e);
-            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+            Log.e(TAG, "md5 exception ", e);
             return "";
         }
     }

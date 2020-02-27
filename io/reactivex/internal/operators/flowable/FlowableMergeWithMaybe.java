@@ -10,7 +10,7 @@ import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableMergeWithMaybe<T> extends a<T, T> {
     final o<? extends T> other;
 
@@ -18,11 +18,11 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
     protected void a(org.a.c<? super T> cVar) {
         MergeWithObserver mergeWithObserver = new MergeWithObserver(cVar);
         cVar.onSubscribe(mergeWithObserver);
-        this.nvP.a((j) mergeWithObserver);
+        this.nwr.a((j) mergeWithObserver);
         this.other.a(mergeWithObserver.otherObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class MergeWithObserver<T> extends AtomicInteger implements j<T>, org.a.d {
         static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
         static final int OTHER_STATE_HAS_VALUE = 1;
@@ -39,7 +39,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
         final OtherObserver<T> otherObserver = new OtherObserver<>(this);
         final AtomicThrowable error = new AtomicThrowable();
         final AtomicLong requested = new AtomicLong();
-        final int prefetch = io.reactivex.g.dHT();
+        final int prefetch = io.reactivex.g.dJa();
         final int limit = this.prefetch - (this.prefetch >> 2);
 
         MergeWithObserver(org.a.c<? super T> cVar) {
@@ -159,7 +159,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
         io.reactivex.internal.a.f<T> getOrCreateQueue() {
             io.reactivex.internal.a.f<T> fVar = this.queue;
             if (fVar == null) {
-                SpscArrayQueue spscArrayQueue = new SpscArrayQueue(io.reactivex.g.dHT());
+                SpscArrayQueue spscArrayQueue = new SpscArrayQueue(io.reactivex.g.dJa());
                 this.queue = spscArrayQueue;
                 return spscArrayQueue;
             }
@@ -249,7 +249,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
             } while (i != 0);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static final class OtherObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
             private static final long serialVersionUID = -2935427570954647017L;
             final MergeWithObserver<T> parent;

@@ -12,10 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.OnClickListener {
     private static int F = 135;
     private static int G = 90;
@@ -131,9 +132,9 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0130a(this.n, true).execute(new Integer[0]);
+            new AsyncTaskC0139a(this.n, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0130a(this.n, false).execute(new Integer[0]);
+            new AsyncTaskC0139a(this.n, false).execute(new Integer[0]);
         }
     }
 
@@ -277,13 +278,13 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class AsyncTaskC0130a extends AsyncTask<Integer, Integer, String> {
+    /* loaded from: classes8.dex */
+    public class AsyncTaskC0139a extends AsyncTask<Integer, Integer, String> {
         private ScrollView b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0130a(ScrollView scrollView, boolean z) {
+        public AsyncTaskC0139a(ScrollView scrollView, boolean z) {
             this.b = scrollView;
             this.c = z;
         }
@@ -293,7 +294,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(Integer... numArr) {
-            int i = 153;
+            int i = Opcodes.IFEQ;
             int i2 = 0;
             try {
                 if (this.c) {

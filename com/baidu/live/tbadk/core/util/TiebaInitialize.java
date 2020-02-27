@@ -23,7 +23,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TiebaInitialize {
     public static final String ALL_COST = "all_cost";
     public static final String CON_COST = "con_cost";
@@ -38,28 +38,28 @@ public class TiebaInitialize {
     private static int operateMsgUploadCount = 0;
     private static Object lock = new Object();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DQPay extends LogFields {
         public static final String TYPE_VALUE = "pay";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ErrorKey {
         public static final String OP_ALADIN_PORT_ERROR = "op_aladin_port_error";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FileKey {
         public static final String FILE_SD_SIZE = "sd_size";
         public static final String FILE_SD_STATE = "sd_state";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class IM extends LogFields {
         public static final String TYPE_VALUE = "im";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LogFields {
         public static final String ACTION = "action";
         public static final String CMD = "cmd";
@@ -83,16 +83,16 @@ public class TiebaInitialize {
         public static final String VERSON = "version";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NetApiName {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NetKey {
         public static final String NET_IMG = "img";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OpKey {
         public static final String OP_FORUM_ENTER = "op_forum_enter";
         public static final String OP_FRS_ENTER = "op_frs_enter";
@@ -104,7 +104,7 @@ public class TiebaInitialize {
         public static final String OP_VOICE = "op_voice";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Params {
         public static final String ABTEST = "abtest";
         public static final String AB_ACTION = "ab_action";

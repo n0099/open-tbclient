@@ -1,7 +1,8 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public abstract class ab implements Iterator<Float> {
     public abstract float nextFloat();
 
@@ -12,7 +13,7 @@ public abstract class ab implements Iterator<Float> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dIY */
+    /* renamed from: dKf */
     public final Float next() {
         return Float.valueOf(nextFloat());
     }

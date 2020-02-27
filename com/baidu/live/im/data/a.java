@@ -4,11 +4,11 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements IAdapterData {
-    private com.baidu.live.data.a apI;
-    private com.baidu.live.data.a aqe;
-    private List<Long> aqf;
+    private com.baidu.live.data.a atO;
+    private List<Long> atP;
+    private com.baidu.live.data.a ata;
     private b barrageCardInfo;
     private String barrageId;
     private int barrageType;
@@ -31,7 +31,7 @@ public abstract class a implements IAdapterData {
     private int progressValue = 0;
     private long statisticsTaskId = -1;
     private boolean mIsPushForOperateAccount = false;
-    private boolean aqg = false;
+    private boolean atQ = false;
     private boolean isGifLoadSuccess = true;
     private boolean isUploading = false;
 
@@ -115,20 +115,20 @@ public abstract class a implements IAdapterData {
         this.objContent = obj;
     }
 
-    public com.baidu.live.data.a vq() {
-        return this.apI;
+    public com.baidu.live.data.a xo() {
+        return this.ata;
     }
 
-    public void b(com.baidu.live.data.a aVar) {
-        this.apI = aVar;
+    public void d(com.baidu.live.data.a aVar) {
+        this.ata = aVar;
     }
 
-    public com.baidu.live.data.a vr() {
-        return this.aqe;
+    public com.baidu.live.data.a xp() {
+        return this.atO;
     }
 
-    public void c(com.baidu.live.data.a aVar) {
-        this.aqe = aVar;
+    public void e(com.baidu.live.data.a aVar) {
+        this.atO = aVar;
     }
 
     public int getMsgType() {
@@ -205,47 +205,47 @@ public abstract class a implements IAdapterData {
 
     public void l(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.aqf == null) {
-                this.aqf = new ArrayList();
+            if (this.atP == null) {
+                this.atP = new ArrayList();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 long optLong = jSONArray.optLong(i);
                 if (optLong > 0) {
-                    this.aqf.add(Long.valueOf(optLong));
+                    this.atP.add(Long.valueOf(optLong));
                 }
             }
         }
     }
 
-    public List<Long> vs() {
-        return this.aqf;
+    public List<Long> xq() {
+        return this.atP;
     }
 
-    public boolean vt() {
-        return this.aqg;
+    public boolean xr() {
+        return this.atQ;
     }
 
-    public void aT(boolean z) {
-        this.aqg = z;
+    public void aW(boolean z) {
+        this.atQ = z;
     }
 
-    public int vu() {
+    public int xs() {
         return this.barrageType;
     }
 
-    public void bK(int i) {
+    public void bX(int i) {
         this.barrageType = i;
     }
 
-    public String vv() {
+    public String xt() {
         return this.barrageId;
     }
 
-    public void dC(String str) {
+    public void dN(String str) {
         this.barrageId = str;
     }
 
-    public b vw() {
+    public b xu() {
         return this.barrageCardInfo;
     }
 
@@ -253,11 +253,11 @@ public abstract class a implements IAdapterData {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] vx() {
+    public String[] xv() {
         return this.imEffect;
     }
 
-    public void k(String[] strArr) {
+    public void l(String[] strArr) {
         this.imEffect = strArr;
     }
 }

@@ -127,17 +127,17 @@ public class DealIntentService extends BdBaseService {
             }
             if (i2 == 9) {
                 an anVar = new an("c13253");
-                anVar.cp("uid", TbadkCoreApplication.getCurrentAccount());
+                anVar.cy("uid", TbadkCoreApplication.getCurrentAccount());
                 TiebaStatic.log(anVar);
             }
-            an cp = new an(TbadkCoreStatisticKey.PUSH_CCLICK).cp(TiebaInitialize.Params.OBJ_TO, stringExtra).s("task_id", j).cp("app_version", TbConfig.getVersion());
+            an cy = new an(TbadkCoreStatisticKey.PUSH_CCLICK).cy(TiebaInitialize.Params.OBJ_TO, stringExtra).s("task_id", j).cy("app_version", TbConfig.getVersion());
             int i3 = this.intent.getExtras().getInt("is_live", -1);
             int i4 = this.intent.getExtras().getInt("is_live_lcs", -1);
             if (i3 >= 0) {
-                cp.Z("is_live", i3);
+                cy.X("is_live", i3);
             }
             if (i4 >= 0) {
-                cp.Z("is_live_lcs", i4);
+                cy.X("is_live_lcs", i4);
             }
             switch (this.intent.getExtras().getInt("KeyOfNotiId", -1)) {
                 case 16:
@@ -164,18 +164,18 @@ public class DealIntentService extends BdBaseService {
                     i = 1;
                     break;
             }
-            cp.Z("obj_source", i);
-            TiebaStatic.log(cp);
+            cy.X("obj_source", i);
+            TiebaStatic.log(cy);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                lB(i2);
+                lS(i2);
             }
             String string = this.intent.getExtras().getString("stat");
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
             }
-            if (com.baidu.adp.base.a.eG().currentActivity() != null) {
+            if (com.baidu.adp.base.a.eH().currentActivity() != null) {
                 if (5 == this.intent.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                    if (com.baidu.adp.base.a.eG().currentActivity().getClass().getName().equalsIgnoreCase(b.aDj())) {
+                    if (com.baidu.adp.base.a.eH().currentActivity().getClass().getName().equalsIgnoreCase(b.aFt())) {
                         this.intent.putExtra(DealIntentService.KEY_CLASS, 5);
                     } else {
                         this.intent.putExtra(DealIntentService.KEY_CLASS, 21);
@@ -189,7 +189,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", "start", 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                lA(i2);
+                lR(i2);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -213,7 +213,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void lA(int i) {
+        private void lR(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -229,7 +229,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void lB(int i) {
+        private void lS(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

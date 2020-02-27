@@ -15,7 +15,7 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
-    public d c(ArrayList<Integer> arrayList, String str, int i) {
+    public d d(ArrayList<Integer> arrayList, String str, int i) {
         d dVar = new d();
         try {
             RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");

@@ -19,14 +19,14 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.util.ViewHelper;
+import com.baidu.live.u.a;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdAlertDialog {
     public static final int DIALOG_SIZE_BIG = 1;
     public static final int DIALOG_SIZE_SMALL = 0;
@@ -64,7 +64,7 @@ public class BdAlertDialog {
     private boolean mCancelable = true;
     private boolean isAutoNight = true;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnClickListener {
         void onClick(BdAlertDialog bdAlertDialog);
     }
@@ -498,7 +498,7 @@ public class BdAlertDialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ButtonEvent implements View.OnClickListener {
         private final OnClickListener listener;
         private final BdAlertDialog mDialog;

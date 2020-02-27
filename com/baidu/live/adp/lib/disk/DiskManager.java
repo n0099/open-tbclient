@@ -4,17 +4,17 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTaskParallel;
 import com.baidu.live.adp.lib.disk.ops.DiskFileOperate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DiskManager {
+    private static final int DISK_TASK_MAX_NUM_ROM = 5;
+    private static final int DISK_TASK_MAX_NUM_SDCARD = 10;
     public static final int SUB_FOLDERS_NUM = 100;
     private BdAsyncTaskParallel mBdAsyncTaskParallelRom;
     private BdAsyncTaskParallel mBdAsyncTaskParallelSdCard;
     private DiskFileFactory mDiskFileFactory;
     private static BdUniqueId sSdCardTags = BdUniqueId.gen();
     private static BdUniqueId sRomTags = BdUniqueId.gen();
-    private static DiskManager sInstance = null;
-    private final int DISK_TASK_MAX_NUM_SDCARD = 10;
-    private final int DISK_TASK_MAX_NUM_ROM = 5;
+    private static volatile DiskManager sInstance = null;
 
     public static DiskManager getInstance() {
         if (sInstance == null) {

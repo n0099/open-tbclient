@@ -8,11 +8,11 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableRefCount<T> extends io.reactivex.g<T> {
     RefConnection connection;
     final int n;
-    final io.reactivex.b.a<T> nww;
+    final io.reactivex.b.a<T> nwY;
     final v scheduler;
     final long timeout;
     final TimeUnit unit;
@@ -38,9 +38,9 @@ public final class FlowableRefCount<T> extends io.reactivex.g<T> {
                 refConnection.connected = true;
             }
         }
-        this.nww.a((j) new RefCountSubscriber(cVar, this, refConnection));
+        this.nwY.a((j) new RefCountSubscriber(cVar, this, refConnection));
         if (z) {
-            this.nww.c(refConnection);
+            this.nwY.c(refConnection);
         }
     }
 
@@ -69,8 +69,8 @@ public final class FlowableRefCount<T> extends io.reactivex.g<T> {
                 if (refConnection.timer != null) {
                     refConnection.timer.dispose();
                 }
-                if (this.nww instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nww).dispose();
+                if (this.nwY instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nwY).dispose();
                 }
             }
         }
@@ -81,15 +81,15 @@ public final class FlowableRefCount<T> extends io.reactivex.g<T> {
             if (refConnection.subscriberCount == 0 && refConnection == this.connection) {
                 this.connection = null;
                 DisposableHelper.dispose(refConnection);
-                if (this.nww instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nww).dispose();
+                if (this.nwY instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nwY).dispose();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class RefConnection extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c.g<io.reactivex.disposables.b>, Runnable {
         private static final long serialVersionUID = -4552101107598366241L;
         boolean connected;
@@ -113,7 +113,7 @@ public final class FlowableRefCount<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class RefCountSubscriber<T> extends AtomicBoolean implements j<T>, org.a.d {
         private static final long serialVersionUID = -7419642935409022375L;
         final org.a.c<? super T> actual;

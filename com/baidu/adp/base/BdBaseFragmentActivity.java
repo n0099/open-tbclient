@@ -36,7 +36,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
         }
-        a.eG().pushActivity(getPageContext().getPageActivity());
+        a.eH().pushActivity(getPageContext().getPageActivity());
     }
 
     public void initUniqueId() {
@@ -153,7 +153,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         MessageManager.getInstance().removeMessage(this.mId);
         com.baidu.adp.lib.e.c.gr().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.eG().popActivity(getPageContext().getPageActivity());
+        a.eH().popActivity(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -226,7 +226,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.eI().getResources();
+        Resources resources = g.eJ().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

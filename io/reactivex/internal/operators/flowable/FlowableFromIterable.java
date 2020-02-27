@@ -5,16 +5,16 @@ import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
-    final Iterable<? extends T> nwm;
+    final Iterable<? extends T> nwO;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            a(cVar, this.nwm.iterator());
+            a(cVar, this.nwO.iterator());
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.I(th);
+            io.reactivex.exceptions.a.H(th);
             EmptySubscription.error(th, cVar);
         }
     }
@@ -29,12 +29,12 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                 cVar.onSubscribe(new IteratorSubscription(cVar, it));
             }
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.I(th);
+            io.reactivex.exceptions.a.H(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static abstract class BaseRangeSubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -95,7 +95,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class IteratorSubscription<T> extends BaseRangeSubscription<T> {
         private static final long serialVersionUID = -6022804456014692607L;
         final org.a.c<? super T> actual;
@@ -128,7 +128,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                     return;
                                 }
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.I(th);
+                                io.reactivex.exceptions.a.H(th);
                                 cVar.onError(th);
                                 return;
                             }
@@ -139,7 +139,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.I(th2);
+                    io.reactivex.exceptions.a.H(th2);
                     cVar.onError(th2);
                     return;
                 }
@@ -173,7 +173,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                         }
                                         j2++;
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.I(th);
+                                        io.reactivex.exceptions.a.H(th);
                                         cVar.onError(th);
                                         return;
                                     }
@@ -184,7 +184,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                 return;
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.I(th2);
+                            io.reactivex.exceptions.a.H(th2);
                             cVar.onError(th2);
                             return;
                         }
@@ -208,7 +208,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class IteratorConditionalSubscription<T> extends BaseRangeSubscription<T> {
         private static final long serialVersionUID = -6022804456014692607L;
         final io.reactivex.internal.a.a<? super T> actual;
@@ -241,7 +241,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                     return;
                                 }
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.I(th);
+                                io.reactivex.exceptions.a.H(th);
                                 aVar.onError(th);
                                 return;
                             }
@@ -252,7 +252,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.I(th2);
+                    io.reactivex.exceptions.a.H(th2);
                     aVar.onError(th2);
                     return;
                 }
@@ -287,7 +287,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                             j2++;
                                         }
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.I(th);
+                                        io.reactivex.exceptions.a.H(th);
                                         aVar.onError(th);
                                         return;
                                     }
@@ -298,7 +298,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                 return;
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.I(th2);
+                            io.reactivex.exceptions.a.H(th2);
                             aVar.onError(th2);
                             return;
                         }

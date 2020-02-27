@@ -18,18 +18,18 @@ import com.baidu.tieba.homepage.topic.topictab.message.ResponseHttpGetTopicListM
 import com.baidu.tieba.homepage.topic.topictab.message.ResponseSocketGetTopicListMessage;
 import com.baidu.tieba.message.RequestBlessMessage;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TopicModel extends BdBaseModel {
-    private a cDZ;
-    private a haU;
-    private com.baidu.tieba.homepage.topic.topictab.a hfK;
+    private a cHV;
+    private a hcU;
+    private com.baidu.tieba.homepage.topic.topictab.a hhK;
     private boolean mIsLoading;
     private List<m> mListData;
     private TbPageContext<?> mPageContext;
 
     public TopicModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.haU = new a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.1
+        this.hcU = new a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -51,7 +51,7 @@ public class TopicModel extends BdBaseModel {
                     long longValue = (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) ? ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue() : j;
                     if (longValue != 0 && TopicModel.this.mListData != null) {
                         for (m mVar : TopicModel.this.mListData) {
-                            if ((mVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (bVar = ((com.baidu.tieba.homepage.topic.topictab.b.a) mVar).hfw) != null && longValue == bVar.pkId) {
+                            if ((mVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (bVar = ((com.baidu.tieba.homepage.topic.topictab.b.a) mVar).hhw) != null && longValue == bVar.pkId) {
                                 bVar.userPkId = j2;
                                 return;
                             }
@@ -61,11 +61,11 @@ public class TopicModel extends BdBaseModel {
             }
         };
         this.mPageContext = tbPageContext;
-        this.cDZ = new a(CmdConfigHttp.CMD_TOPIC_LIST, 309628) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.2
+        this.cHV = new a(CmdConfigHttp.CMD_TOPIC_LIST, 309628) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 TopicModel.this.mIsLoading = false;
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicModel.this.hfK != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicModel.this.hhK != null) {
                     List<m> list = null;
                     if (responsedMessage instanceof ResponseHttpGetTopicListMessage) {
                         list = ((ResponseHttpGetTopicListMessage) responsedMessage).getTopicDataList();
@@ -74,29 +74,29 @@ public class TopicModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicListMessage) responsedMessage).getTopicDataList();
                     }
                     TopicModel.this.mListData = list;
-                    TopicModel.this.hfK.n(responsedMessage.getError(), list);
+                    TopicModel.this.hhK.n(responsedMessage.getError(), list);
                 }
             }
         };
     }
 
     public void setPresenter(com.baidu.tieba.homepage.topic.topictab.a aVar) {
-        this.hfK = aVar;
+        this.hhK = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.cDZ.setTag(bdUniqueId);
-        registerListener(this.cDZ);
-        this.haU.setTag(bdUniqueId);
-        registerListener(this.haU);
+        this.cHV.setTag(bdUniqueId);
+        registerListener(this.cHV);
+        this.hcU.setTag(bdUniqueId);
+        registerListener(this.hcU);
     }
 
-    public void bNY() {
+    public void bPA() {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.hfK != null) {
-                this.hfK.n(-1, null);
+            if (this.hhK != null) {
+                this.hhK.n(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();
@@ -121,8 +121,8 @@ public class TopicModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cDZ);
-        MessageManager.getInstance().unRegisterListener(this.haU);
+        MessageManager.getInstance().unRegisterListener(this.cHV);
+        MessageManager.getInstance().unRegisterListener(this.hcU);
         this.mIsLoading = false;
     }
 }

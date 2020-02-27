@@ -2,7 +2,7 @@ package com.baidu.mapapi.walknavi.adapter;
 
 import android.graphics.drawable.Drawable;
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IWRouteGuidanceListener {
     void onArriveDest();
 

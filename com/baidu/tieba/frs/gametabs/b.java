@@ -9,13 +9,13 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import com.baidu.adp.lib.f.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends WebChromeClient {
-    private com.baidu.adp.base.e cRA;
+    private com.baidu.adp.base.e cVC;
     private com.baidu.tieba.tbadkCore.e.c callback;
 
     public b(com.baidu.adp.base.e eVar) {
-        this.cRA = eVar;
+        this.cVC = eVar;
     }
 
     public void setOnJsPromptCallback(com.baidu.tieba.tbadkCore.e.c cVar) {
@@ -30,14 +30,14 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        FrameLayout frameLayout = new FrameLayout(this.cRA.getPageActivity());
+        FrameLayout frameLayout = new FrameLayout(this.cVC.getPageActivity());
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         return frameLayout;
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.cRA == null || !g.a(this.cRA)) {
+        if (this.cVC == null || !g.a(this.cVC)) {
             return true;
         }
         return super.onJsAlert(webView, str, str2, jsResult);
@@ -45,7 +45,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.cRA == null || !g.a(this.cRA)) {
+        if (this.cVC == null || !g.a(this.cVC)) {
             return true;
         }
         return super.onJsBeforeUnload(webView, str, str2, jsResult);
@@ -53,7 +53,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.cRA == null || !g.a(this.cRA)) {
+        if (this.cVC == null || !g.a(this.cVC)) {
             return true;
         }
         return super.onJsConfirm(webView, str, str2, jsResult);
@@ -61,7 +61,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.cRA != null && g.a(this.cRA)) {
+        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.cVC != null && g.a(this.cVC)) {
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
         return true;

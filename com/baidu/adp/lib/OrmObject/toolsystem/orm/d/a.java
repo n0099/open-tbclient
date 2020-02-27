@@ -12,16 +12,16 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class a {
     public static final List<Object> a(c cVar, int i) {
-        Class<?> fp = cVar.fp();
-        if (fp == List.class || fp == ArrayList.class) {
+        Class<?> fieldClass = cVar.getFieldClass();
+        if (fieldClass == List.class || fieldClass == ArrayList.class) {
             return new ArrayList(i);
         }
-        if (fp == LinkedList.class) {
+        if (fieldClass == LinkedList.class) {
             return new LinkedList();
         }
-        Object newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fp, i);
+        Object newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fieldClass, i);
         if (newOneIntParamsInstance == null) {
-            newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fp);
+            newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fieldClass);
         }
         if (!(newOneIntParamsInstance instanceof List)) {
             return null;
@@ -30,13 +30,13 @@ public class a {
     }
 
     public static final Set<Object> b(c cVar, int i) {
-        Class<?> fp = cVar.fp();
-        if (fp == Set.class) {
+        Class<?> fieldClass = cVar.getFieldClass();
+        if (fieldClass == Set.class) {
             return new HashSet();
         }
-        Object newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fp, i);
+        Object newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fieldClass, i);
         if (newOneIntParamsInstance == null) {
-            newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fp);
+            newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fieldClass);
         }
         if (!(newOneIntParamsInstance instanceof Set)) {
             return null;
@@ -45,13 +45,13 @@ public class a {
     }
 
     public static final Queue<Object> c(c cVar, int i) {
-        Class<?> fp = cVar.fp();
-        if (fp == Queue.class) {
+        Class<?> fieldClass = cVar.getFieldClass();
+        if (fieldClass == Queue.class) {
             return new LinkedList();
         }
-        Object newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fp, i);
+        Object newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fieldClass, i);
         if (newOneIntParamsInstance == null) {
-            newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fp);
+            newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fieldClass);
         }
         if (!(newOneIntParamsInstance instanceof Queue)) {
             return null;
@@ -60,26 +60,26 @@ public class a {
     }
 
     public static final Map<String, Object> d(c cVar, int i) {
-        Class<?> fp = cVar.fp();
-        Type[] fo = cVar.fo();
-        if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(fp, Map.class)) {
-            if (fo != null && fo.length >= 2 && fo[0] == String.class) {
-                if (fp == Map.class) {
+        Class<?> fieldClass = cVar.getFieldClass();
+        Type[] fp = cVar.fp();
+        if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(fieldClass, Map.class)) {
+            if (fp != null && fp.length >= 2 && fp[0] == String.class) {
+                if (fieldClass == Map.class) {
                     return new HashMap(i);
                 }
-                Object newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fp, i);
+                Object newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fieldClass, i);
                 if (newOneIntParamsInstance == null) {
-                    newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fp);
+                    newOneIntParamsInstance = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fieldClass);
                 }
                 if (newOneIntParamsInstance instanceof Map) {
                     return (Map) newOneIntParamsInstance;
                 }
-            } else if (fp == Map.class) {
+            } else if (fieldClass == Map.class) {
                 return new HashMap(i);
             } else {
-                Object newOneIntParamsInstance2 = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fp, i);
+                Object newOneIntParamsInstance2 = com.baidu.adp.lib.OrmObject.a.a.newOneIntParamsInstance(fieldClass, i);
                 if (newOneIntParamsInstance2 == null) {
-                    newOneIntParamsInstance2 = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fp);
+                    newOneIntParamsInstance2 = com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(fieldClass);
                 }
                 if (newOneIntParamsInstance2 instanceof Map) {
                     return (Map) newOneIntParamsInstance2;

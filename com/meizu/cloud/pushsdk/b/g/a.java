@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.DownloadConstants;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.EOFException;
 import java.io.IOException;
@@ -9,7 +8,7 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a implements b, c, Cloneable {
     private static final byte[] c = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     i a;
@@ -56,7 +55,7 @@ public final class a implements b, c, Cloneable {
         if (i < 128) {
             b(i);
         } else if (i < 2048) {
-            b((i >> 6) | DownloadConstants.STATUS_RUNNING);
+            b((i >> 6) | 192);
             b((i & 63) | 128);
         } else if (i < 65536) {
             if (i >= 55296 && i <= 57343) {
@@ -129,7 +128,7 @@ public final class a implements b, c, Cloneable {
                 c2.c += i5;
                 this.b += i5;
             } else if (charAt < 2048) {
-                b((charAt >> 6) | DownloadConstants.STATUS_RUNNING);
+                b((charAt >> 6) | 192);
                 b((charAt & '?') | 128);
                 i3 = i + 1;
             } else if (charAt < 55296 || charAt > 57343) {

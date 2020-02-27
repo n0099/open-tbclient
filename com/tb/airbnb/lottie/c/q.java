@@ -10,33 +10,33 @@ import android.view.animation.LinearInterpolator;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class q {
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
-    private static SparseArrayCompat<WeakReference<Interpolator>> jU;
+    private static SparseArrayCompat<WeakReference<Interpolator>> jY;
 
     q() {
     }
 
-    private static SparseArrayCompat<WeakReference<Interpolator>> dA() {
-        if (jU == null) {
-            jU = new SparseArrayCompat<>();
+    private static SparseArrayCompat<WeakReference<Interpolator>> dB() {
+        if (jY == null) {
+            jY = new SparseArrayCompat<>();
         }
-        return jU;
+        return jY;
     }
 
     @Nullable
-    private static WeakReference<Interpolator> l(int i) {
+    private static WeakReference<Interpolator> o(int i) {
         WeakReference<Interpolator> weakReference;
         synchronized (q.class) {
-            weakReference = dA().get(i);
+            weakReference = dB().get(i);
         }
         return weakReference;
     }
 
     private static void a(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            jU.put(i, weakReference);
+            jY.put(i, weakReference);
         }
     }
 
@@ -214,13 +214,13 @@ class q {
             pointF5.x = com.tb.airbnb.lottie.d.e.clamp(pointF5.x, -f, f);
             pointF5.y = com.tb.airbnb.lottie.d.e.clamp(pointF5.y, -100.0f, 100.0f);
             int c2 = com.tb.airbnb.lottie.d.f.c(pointF4.x, pointF4.y, pointF5.x, pointF5.y);
-            WeakReference<Interpolator> l = l(c2);
-            if (l == null) {
+            WeakReference<Interpolator> o = o(c2);
+            if (o == null) {
                 interpolator2 = null;
             } else {
-                interpolator2 = l.get();
+                interpolator2 = o.get();
             }
-            if (l == null || interpolator2 == null) {
+            if (o == null || interpolator2 == null) {
                 interpolator2 = PathInterpolatorCompat.create(pointF4.x / f, pointF4.y / f, pointF5.x / f, pointF5.y / f);
                 try {
                     a(c2, new WeakReference(interpolator2));
@@ -232,8 +232,8 @@ class q {
             interpolator = LINEAR_INTERPOLATOR;
         }
         com.tb.airbnb.lottie.e.a<T> aVar = new com.tb.airbnb.lottie.e.a<>(dVar, t2, t3, interpolator, f2, null);
-        aVar.ks = pointF6;
-        aVar.kt = pointF7;
+        aVar.kx = pointF6;
+        aVar.ky = pointF7;
         return aVar;
     }
 

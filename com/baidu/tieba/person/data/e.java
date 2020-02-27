@@ -2,16 +2,16 @@ package com.baidu.tieba.person.data;
 
 import com.baidu.adp.widget.ListView.m;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private ArrayList<m> cRO;
-    private boolean jfn = true;
+    private ArrayList<m> cVQ;
+    private boolean jgj = true;
 
     public void aN(ArrayList<m> arrayList) {
-        this.cRO = arrayList;
+        this.cVQ = arrayList;
     }
 
-    public void rb(boolean z) {
-        this.jfn = z;
+    public void rf(boolean z) {
+        this.jgj = z;
     }
 }

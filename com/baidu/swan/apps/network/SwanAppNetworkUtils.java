@@ -14,7 +14,7 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppNetworkUtils {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -141,7 +141,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType WJ() {
+    public static NetType YX() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {
@@ -198,7 +198,7 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum NetType {
         NONE(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED),
         WIFI("wifi"),

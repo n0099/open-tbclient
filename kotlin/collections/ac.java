@@ -1,5 +1,6 @@
 package kotlin.collections;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class ac<T> {
     private final int index;
     private final T value;

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GeneralGift implements Serializable {
     public static final int TYPE_DIALOG_H5 = 96;
     public static final int TYPE_GIFT = 1;

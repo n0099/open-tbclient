@@ -3,12 +3,12 @@ package com.baidu.minivideo.effect.core.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AEffectEntity implements Parcelable {
     public static final Parcelable.Creator<AEffectEntity> CREATOR = new Parcelable.Creator<AEffectEntity>() { // from class: com.baidu.minivideo.effect.core.entity.AEffectEntity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cY */
+        /* renamed from: do  reason: not valid java name */
         public AEffectEntity[] newArray(int i) {
             return new AEffectEntity[i];
         }

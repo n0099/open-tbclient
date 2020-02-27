@@ -3,33 +3,33 @@ package com.baidu.tieba.frs.videomiddlepage.a;
 import com.baidu.tbadk.core.sharedPref.b;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private int gML = -1;
-    private long gMM = -1;
-    private int gMI = b.aDr().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> gMJ = new HashSet();
-    private Set<String> gMK = new HashSet();
+    private int gOL = -1;
+    private long gOM = -1;
+    private int gOI = b.aFB().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> gOJ = new HashSet();
+    private Set<String> gOK = new HashSet();
 
     public void aF(int i, String str) {
-        this.gMK.add(str);
-        if (this.gML < 0 && this.gMI == this.gMK.size()) {
-            this.gML = i;
+        this.gOK.add(str);
+        if (this.gOL < 0 && this.gOI == this.gOK.size()) {
+            this.gOL = i;
         }
     }
 
-    public int bJX() {
-        return this.gML;
+    public int bLz() {
+        return this.gOL;
     }
 
     public void dy(long j) {
-        this.gMM = j;
+        this.gOM = j;
     }
 
-    public void bJY() {
-        int i = b.aDr().getInt("nani_key_download_show_rate", 2);
-        if (this.gMM > 0 && i != 1) {
-            b.aDr().putLong("key_horizontal_shown_time", this.gMM);
+    public void bLA() {
+        int i = b.aFB().getInt("nani_key_download_show_rate", 2);
+        if (this.gOM > 0 && i != 1) {
+            b.aFB().putLong("key_horizontal_shown_time", this.gOM);
         }
     }
 }

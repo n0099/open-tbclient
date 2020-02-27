@@ -7,38 +7,39 @@ import android.widget.TextView;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.r.a;
+import com.baidu.live.data.g;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaPersonCardActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.core.view.PbListView;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
+import com.baidu.live.u.a;
 import com.baidu.live.utils.i;
 import com.baidu.tieba.ala.charm.view.f;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private String apA;
-    private boolean apz;
-    private TextView dQC;
-    private ALaCharmCardActivity erF;
-    private CommonEmptyView erG;
-    private f erH;
-    private View erI;
-    private PbListView erJ;
-    private View.OnClickListener erK = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.b.1
+    private boolean asR;
+    private String asS;
+    private TextView dUI;
+    private ALaCharmCardActivity evP;
+    private CommonEmptyView evQ;
+    private f evR;
+    private View evS;
+    private PbListView evT;
+    private View.OnClickListener evU = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (b.this.erH != null) {
-                    b.this.a(b.this.erH.getItem(intValue));
+                if (b.this.evR != null) {
+                    b.this.a(b.this.evR.getItem(intValue));
                 }
             }
         }
     };
-    private View.OnClickListener erL = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.b.2
+    private View.OnClickListener evV = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ViewHelper.checkUpIsLogin(view.getContext());
@@ -51,60 +52,60 @@ public class b {
     private View mRootView;
 
     public b(ALaCharmCardActivity aLaCharmCardActivity, String str, String str2, boolean z, String str3) {
-        this.erF = aLaCharmCardActivity;
+        this.evP = aLaCharmCardActivity;
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.apz = z;
-        this.apA = str3;
-        this.mRootView = this.erF.getLayoutInflater().inflate(a.h.online_list_detail_layout, (ViewGroup) null);
+        this.asR = z;
+        this.asS = str3;
+        this.mRootView = this.evP.getLayoutInflater().inflate(a.h.online_list_detail_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.detail_list);
-        this.erG = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
-        this.erI = this.mRootView.findViewById(a.g.toLogin_layout);
-        this.erI.setOnClickListener(this.erL);
+        this.evQ = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
+        this.evS = this.mRootView.findViewById(a.g.toLogin_layout);
+        this.evS.setOnClickListener(this.evV);
         if (TbadkCoreApplication.isLogin()) {
-            this.erI.setVisibility(8);
+            this.evS.setVisibility(8);
         } else {
-            this.erI.setVisibility(0);
+            this.evS.setVisibility(0);
         }
-        this.erH = new f(aLaCharmCardActivity.getPageContext(), 1);
-        this.mListView.setAdapter((ListAdapter) this.erH);
-        this.mListView.setEmptyView(this.erG);
-        this.erH.n(this.erK);
-        this.dQC = (TextView) this.mRootView.findViewById(a.g.top_text);
-        if (this.erJ == null) {
-            this.erJ = new PbListView(this.erF);
-            this.erJ.setTextColor(this.erF.getResources().getColor(a.d.sdk_cp_cont_j));
-            this.erJ.setSkinType(0);
-            this.erJ.setContainerBackgroundColorResId(a.d.sdk_transparent);
-            this.erJ.createView();
+        this.evR = new f(aLaCharmCardActivity.getPageContext(), 1);
+        this.mListView.setAdapter((ListAdapter) this.evR);
+        this.mListView.setEmptyView(this.evQ);
+        this.evR.n(this.evU);
+        this.dUI = (TextView) this.mRootView.findViewById(a.g.top_text);
+        if (this.evT == null) {
+            this.evT = new PbListView(this.evP);
+            this.evT.setTextColor(this.evP.getResources().getColor(a.d.sdk_cp_cont_j));
+            this.evT.setSkinType(0);
+            this.evT.setContainerBackgroundColorResId(a.d.sdk_transparent);
+            this.evT.createView();
         }
     }
 
-    public void bp(List<com.baidu.live.data.f> list) {
-        this.erH.setData(list);
+    public void bp(List<g> list) {
+        this.evR.setData(list);
     }
 
-    public void ic(boolean z) {
+    public void ij(boolean z) {
         if (z) {
-            this.erG.reset();
-            this.erG.setTitle(a.i.online_empty_text);
-            this.erG.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
-            this.erG.setVisibility(0);
+            this.evQ.reset();
+            this.evQ.setTitle(a.i.online_empty_text);
+            this.evQ.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
+            this.evQ.setVisibility(0);
             return;
         }
-        this.erG.setVisibility(8);
+        this.evQ.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.live.data.f fVar) {
-        if (fVar != null && fVar.Wf != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.erF.getPageContext().getPageActivity(), fVar.Wf.userId + "", fVar.Wf.userName, fVar.Wf.portrait, fVar.Wf.sex, fVar.Wf.levelId, null, null, 0L, fVar.Wf.fansCount, fVar.Wf.fansCount, fVar.Wf.userStatus, this.mGroupId, this.mLiveId, this.apz, this.apA, null, fVar.Wf.userName, this.mOtherParams)));
+    public void a(g gVar) {
+        if (gVar != null && gVar.XQ != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.evP.getPageContext().getPageActivity(), gVar.XQ.userId + "", gVar.XQ.userName, gVar.XQ.portrait, gVar.XQ.sex, gVar.XQ.levelId, null, null, 0L, gVar.XQ.fansCount, gVar.XQ.fansCount, gVar.XQ.userStatus, this.mGroupId, this.mLiveId, this.asR, this.asS, null, gVar.XQ.userName, this.mOtherParams)));
         }
     }
 
-    public void cA(long j) {
-        if (this.dQC != null) {
-            this.dQC.setText(String.format(this.erF.getString(a.i.online_count), i.numFormatOverWanNaForAudienceNum(j)));
+    public void cD(long j) {
+        if (this.dUI != null) {
+            this.dUI.setText(String.format(this.evP.getString(a.i.online_count), i.numFormatOverWanNaForAudienceNum(j)));
         }
     }
 
@@ -113,19 +114,19 @@ public class b {
     }
 
     public void l(View.OnClickListener onClickListener) {
-        this.erG.reset();
-        this.erG.setTitle(a.i.sdk_net_fail_tip);
-        this.erG.setRefreshButton(a.i.sdk_net_refresh_btn_text, onClickListener);
-        this.erG.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.erG.setVisibility(0);
+        this.evQ.reset();
+        this.evQ.setTitle(a.i.sdk_net_fail_tip);
+        this.evQ.setRefreshButton(a.i.sdk_net_refresh_btn_text, onClickListener);
+        this.evQ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.evQ.setVisibility(0);
     }
 
-    public void baf() {
-        this.erG.setVisibility(8);
+    public void bcv() {
+        this.evQ.setVisibility(8);
     }
 
-    public void xB(String str) {
-        this.mListView.setNextPage(this.erJ);
-        this.erJ.endLoadDataWithNoMore(str);
+    public void xV(String str) {
+        this.mListView.setNextPage(this.evT);
+        this.evT.endLoadDataWithNoMore(str);
     }
 }

@@ -1,9 +1,7 @@
 package com.baidu.live.liveroom.c;
+/* loaded from: classes3.dex */
+public interface b {
+    void a(String str, int i, int i2, a aVar);
 
-import android.content.Context;
-import com.baidu.live.data.l;
-/* loaded from: classes2.dex */
-public class b {
-    public l arX;
-    public Context context;
+    boolean yp();
 }

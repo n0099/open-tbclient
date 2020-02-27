@@ -24,7 +24,7 @@ import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
 import com.baidu.tieba.frs.ac;
 import com.baidu.tieba.frs.ad;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaFrsLiveStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaFrsStoryLiveGatherActivityConfig.class, AlaFrsStoryLiveGatherActivity.class);
@@ -54,12 +54,12 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ad) {
                         ad adVar = (ad) data;
                         a aVar = new a(true);
-                        aVar.aNy().type = 2;
+                        aVar.getFragmentTabStructure().type = 2;
                         aVar.setForumId(adVar.getForumId());
                         aVar.setForumName(adVar.getForumName());
                         aVar.setForumGameLabel(adVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.ir(false);
+                        aVar.iy(false);
                         adVar.b(aVar);
                     }
                 }
@@ -74,13 +74,13 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ac) {
                         ac acVar = (ac) data;
                         a aVar = new a(true);
-                        aVar.aNy().type = 9;
+                        aVar.getFragmentTabStructure().type = 9;
                         aVar.setForumId(acVar.getForumId());
                         aVar.setForumName(acVar.getForumName());
                         aVar.setForumGameLabel(acVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.ir(true);
-                        if (acVar.sW(9)) {
+                        aVar.iy(true);
+                        if (acVar.tc(9)) {
                             acVar.b(aVar);
                         }
                     }
@@ -96,12 +96,12 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ad) {
                         ad adVar = (ad) data;
                         a aVar = new a(false);
-                        aVar.aNy().type = 1;
+                        aVar.getFragmentTabStructure().type = 1;
                         aVar.setForumId(adVar.getForumId());
                         aVar.setForumName(adVar.getForumName());
                         aVar.setForumGameLabel(adVar.getForumGameLabel());
                         aVar.setFromType(2);
-                        aVar.ir(false);
+                        aVar.iy(false);
                         adVar.b(aVar);
                     }
                 }
@@ -116,10 +116,10 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ad) {
                         ad adVar = (ad) data;
                         com.baidu.tieba.ala.gamefrslivetab.video.a aVar = new com.baidu.tieba.ala.gamefrslivetab.video.a();
-                        aVar.aNy().type = 3;
+                        aVar.getFragmentTabStructure().type = 3;
                         aVar.setForumId(adVar.getForumId());
                         aVar.setForumName(adVar.getForumName());
-                        aVar.is(false);
+                        aVar.iz(false);
                         adVar.b(aVar);
                     }
                 }
@@ -134,12 +134,12 @@ public class AlaFrsLiveStatic {
                     if (data instanceof ac) {
                         ac acVar = (ac) data;
                         com.baidu.tieba.ala.gamefrslivetab.video.a aVar = new com.baidu.tieba.ala.gamefrslivetab.video.a();
-                        aVar.aNy().type = 8;
-                        aVar.aNy().textResId = R.string.ala_video;
+                        aVar.getFragmentTabStructure().type = 8;
+                        aVar.getFragmentTabStructure().textResId = R.string.ala_video;
                         aVar.setForumId(acVar.getForumId());
                         aVar.setForumName(acVar.getForumName());
-                        aVar.is(true);
-                        if (acVar.sW(8)) {
+                        aVar.iz(true);
+                        if (acVar.tc(8)) {
                             acVar.b(aVar);
                         }
                     }

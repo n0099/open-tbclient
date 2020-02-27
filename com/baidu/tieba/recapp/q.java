@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.widget.CriusTbClipImageView;
 import tbclient.VideoInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class q implements com.baidu.c.a.b.c {
     @Override // com.baidu.c.a.b.c
     public View P(Context context, String str) {
@@ -45,11 +45,11 @@ public class q implements com.baidu.c.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.Ri > 0.0f) {
-                int y = y(aVar.Ri, f);
+            if (aVar.SQ > 0.0f) {
+                int y = y(aVar.SQ, f);
                 ((CriusTbClipImageView) view).setRadius(y, y, y, y);
             } else {
-                ((CriusTbClipImageView) view).setRadius(y(aVar.Rj, f), y(aVar.Rk, f), y(aVar.Rl, f), y(aVar.Rm, f));
+                ((CriusTbClipImageView) view).setRadius(y(aVar.SR, f), y(aVar.SS, f), y(aVar.ST, f), y(aVar.SU, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;
@@ -74,9 +74,9 @@ public class q implements com.baidu.c.a.b.c {
             return false;
         }
         if (str2.startsWith("file://") && str2.length() > 7) {
-            int identifier = com.baidu.adp.base.g.eI().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+            int identifier = com.baidu.adp.base.g.eJ().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
             if (!TextUtils.isEmpty(str3) && str3.startsWith("file://") && str3.length() > 7) {
-                int identifier2 = com.baidu.adp.base.g.eI().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+                int identifier2 = com.baidu.adp.base.g.eJ().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
                 if (identifier2 <= 0 || identifier <= 0) {
                     return true;
                 }

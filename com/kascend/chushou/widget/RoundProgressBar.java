@@ -10,7 +10,7 @@ import android.support.v4.internal.view.SupportMenu;
 import android.util.AttributeSet;
 import android.view.View;
 import com.kascend.chushou.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RoundProgressBar extends View {
     private Paint a;
     private int b;
@@ -22,7 +22,7 @@ public class RoundProgressBar extends View {
     private int h;
     private boolean i;
     private int j;
-    private final RectF ngB;
+    private final RectF nhe;
 
     public RoundProgressBar(Context context) {
         this(context, null);
@@ -34,7 +34,7 @@ public class RoundProgressBar extends View {
 
     public RoundProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ngB = new RectF();
+        this.nhe = new RectF();
         this.a = new Paint();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.RoundProgressBar);
         this.b = obtainStyledAttributes.getColor(a.k.RoundProgressBar_roundColor, SupportMenu.CATEGORY_MASK);
@@ -69,16 +69,16 @@ public class RoundProgressBar extends View {
         }
         this.a.setStrokeWidth(this.f);
         this.a.setColor(this.c);
-        this.ngB.set(width - i, width - i, width + i, width + i);
+        this.nhe.set(width - i, width - i, width + i, width + i);
         switch (this.j) {
             case 0:
                 this.a.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(this.ngB, 90.0f, (this.h * 360) / this.g, false, this.a);
+                canvas.drawArc(this.nhe, 90.0f, (this.h * 360) / this.g, false, this.a);
                 return;
             case 1:
                 this.a.setStyle(Paint.Style.FILL_AND_STROKE);
                 if (this.h != 0) {
-                    canvas.drawArc(this.ngB, 90.0f, (this.h * 360) / this.g, true, this.a);
+                    canvas.drawArc(this.nhe, 90.0f, (this.h * 360) / this.g, true, this.a);
                     return;
                 }
                 return;

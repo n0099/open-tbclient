@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.a.a.a.a.a.a.a;
-import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -30,7 +29,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoStatisticsUpload {
     private static final int BUFF_SIZE = 4096;
     public static final String CRASH_LOG = "crashlog";
@@ -39,7 +38,7 @@ public class VideoStatisticsUpload {
     private static String logFileName = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class MyRunner implements Runnable {
         String alias;
         String cuid;
@@ -150,7 +149,7 @@ public class VideoStatisticsUpload {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum UploadStatus {
         Success,
         CompressFailed,
@@ -379,7 +378,7 @@ public class VideoStatisticsUpload {
     }
 
     private static void searchVideoErrorLogFileAndUpload(Context context, String str) {
-        if (context == null || searchVideoErrorLogFileAndUpload(context, str, Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + BuildConfig.FLAVOR + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + context.getPackageName() + File.separator)) {
+        if (context == null || searchVideoErrorLogFileAndUpload(context, str, Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + context.getPackageName() + File.separator)) {
             return;
         }
         searchVideoErrorLogFileAndUpload(context, str, context.getFilesDir().getAbsolutePath() + File.separator + "video_statistic" + File.separator);

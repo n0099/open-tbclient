@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SingleFlatMapPublisher<T, R> extends g<R> {
     final h<? super T, ? extends b<? extends R>> mapper;
     final aa<T> source;
@@ -21,7 +21,7 @@ public final class SingleFlatMapPublisher<T, R> extends g<R> {
         this.source.a(new SingleFlatMapPublisherObserver(cVar, this.mapper));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SingleFlatMapPublisherObserver<S, T> extends AtomicLong implements j<T>, y<S>, d {
         private static final long serialVersionUID = 7759721921468635667L;
         final c<? super T> actual;
@@ -45,7 +45,7 @@ public final class SingleFlatMapPublisher<T, R> extends g<R> {
             try {
                 ((b) io.reactivex.internal.functions.a.h(this.mapper.apply(s), "the mapper returned a null Publisher")).subscribe(this);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.actual.onError(th);
             }
         }

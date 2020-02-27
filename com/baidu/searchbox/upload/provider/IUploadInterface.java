@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import com.baidu.searchbox.ugc.upload.HttpRequestTokenModule;
 import com.baidu.searchbox.upload.provider.listener.UploadImageListener;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IUploadInterface {
     public static final IUploadInterface EMPTY = new IUploadInterface() { // from class: com.baidu.searchbox.upload.provider.IUploadInterface.1
         @Override // com.baidu.searchbox.upload.provider.IUploadInterface
@@ -47,7 +47,7 @@ public interface IUploadInterface {
 
     void upLoadImage(List<String> list, UploadImageListener uploadImageListener);
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class Impl {
         private static IUploadInterface sUgcProvider = UploadProviderManager.getUploadProvider();
 

@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.c.f.d;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b implements a {
     private final String a = b.class.getSimpleName();
     private final HashMap<String, Object> b = new HashMap<>();

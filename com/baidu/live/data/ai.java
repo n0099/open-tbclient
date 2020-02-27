@@ -1,19 +1,11 @@
 package com.baidu.live.data;
+/* loaded from: classes3.dex */
+public interface ai {
+    String replaceFlvUrl(String str);
 
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class ai {
-    public JSONObject aax;
-    public JSONObject aay;
+    String replaceHslUrl(String str);
 
-    public ai(JSONObject jSONObject) {
-        parseData(jSONObject);
-    }
+    String replacePushUrl(String str);
 
-    private void parseData(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aax = jSONObject.optJSONObject("bubble_effect");
-            this.aay = jSONObject.optJSONObject("nickname_effect");
-        }
-    }
+    String replaceRtmpUrl(String str);
 }

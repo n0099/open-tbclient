@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import tbclient.LiveLabelInfo;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaSubListGameLiveHttpResponseMessage extends HttpResponsedMessage {
     private LinkedList<LiveLabelInfo> entryList;
     private boolean mHasMore;

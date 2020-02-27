@@ -4,9 +4,9 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public static String agW() {
+    public static String ajk() {
         if (Build.VERSION.SDK_INT < 21) {
             return Build.CPU_ABI;
         }

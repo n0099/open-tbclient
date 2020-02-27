@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends ab {
     public c(j jVar) {
         super(jVar, "/swanAPI/getPhoneNumber");
@@ -41,12 +41,12 @@ public class c extends ab {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: a */
-                    public void B(com.baidu.swan.apps.setting.b.a aVar) {
+                    public void D(com.baidu.swan.apps.setting.b.a aVar) {
                         com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                        if (!aVar.aco()) {
+                        if (!aVar.aeC()) {
                             com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, optString);
                         } else {
-                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.bPw, 0).toString());
+                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.bTB, 0).toString());
                         }
                     }
                 });

@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.g.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static int a = 0;
 

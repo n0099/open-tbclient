@@ -5,7 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.spswitch.view.SPSwitchRootLinearLayout;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class g {
     private static final boolean DEBUG = b.isDebug();
 
@@ -33,15 +33,15 @@ public class g {
         return (activity.getWindow().getAttributes().flags & 1024) != 0;
     }
 
-    public static boolean C(Activity activity) {
+    public static boolean D(Activity activity) {
         return (activity.getWindow().getAttributes().flags & 67108864) != 0;
     }
 
-    public static boolean D(Activity activity) {
+    public static boolean E(Activity activity) {
         return (activity.getWindow().getDecorView().getSystemUiVisibility() & 1024) != 0;
     }
 
-    public static boolean E(Activity activity) {
+    public static boolean F(Activity activity) {
         View ab = ab(activity.getWindow().getDecorView());
         if (ab == null) {
             if (DEBUG) {

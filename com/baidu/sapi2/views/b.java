@@ -3,7 +3,7 @@ package com.baidu.sapi2.views;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class b implements View.OnClickListener {
     final /* synthetic */ View.OnClickListener a;
     final /* synthetic */ CustomAlertDialog b;

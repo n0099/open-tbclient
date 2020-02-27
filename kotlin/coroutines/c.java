@@ -1,32 +1,37 @@
 package kotlin.coroutines;
 
+import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public interface c {
 
-    /* loaded from: classes5.dex */
+    @h
+    /* loaded from: classes7.dex */
     public interface b extends c {
-        InterfaceC0762c<?> dJe();
+        InterfaceC0770c<?> dKl();
 
         @Override // kotlin.coroutines.c
-        <E extends b> E get(InterfaceC0762c<E> interfaceC0762c);
+        <E extends b> E get(InterfaceC0770c<E> interfaceC0770c);
     }
 
+    @h
     /* renamed from: kotlin.coroutines.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0762c<E extends b> {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0770c<E extends b> {
     }
 
     <R> R fold(R r, m<? super R, ? super b, ? extends R> mVar);
 
-    <E extends b> E get(InterfaceC0762c<E> interfaceC0762c);
+    <E extends b> E get(InterfaceC0770c<E> interfaceC0770c);
 
-    c minusKey(InterfaceC0762c<?> interfaceC0762c);
+    c minusKey(InterfaceC0770c<?> interfaceC0770c);
 
     c plus(c cVar);
 
-    /* loaded from: classes5.dex */
+    @h
+    /* loaded from: classes7.dex */
     public static final class a {
         public static c a(c cVar, c cVar2) {
             q.j(cVar2, "context");

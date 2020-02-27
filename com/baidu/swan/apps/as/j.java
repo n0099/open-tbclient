@@ -4,20 +4,20 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class j {
-    private static String OX;
+    private static String QG;
 
-    public static String aet() {
-        if (TextUtils.isEmpty(OX)) {
+    public static String agH() {
+        if (TextUtils.isEmpty(QG)) {
             synchronized (j.class) {
-                OX = aeu();
+                QG = agI();
             }
         }
-        return OX;
+        return QG;
     }
 
-    private static String aeu() {
+    private static String agI() {
         String replace;
         String replace2;
         String replace3;

@@ -2,7 +2,8 @@ package kotlin.collections;
 
 import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class CollectionsKt___CollectionsKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<Iterator<? extends T>> {
     final /* synthetic */ Iterable $this_withIndex;
 

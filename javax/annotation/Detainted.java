@@ -9,6 +9,6 @@ import javax.annotation.meta.When;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Untainted(when = When.ALWAYS)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface Detainted {
 }

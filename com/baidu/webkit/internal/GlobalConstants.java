@@ -1,5 +1,5 @@
 package com.baidu.webkit.internal;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GlobalConstants implements INoProGuard {
     public static final String DEFAULT_VERSION = "9.0.0.0";
     public static final boolean EMMA_ENABLED = false;

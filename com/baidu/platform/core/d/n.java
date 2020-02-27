@@ -2,7 +2,7 @@ package com.baidu.platform.core.d;
 
 import com.baidu.mapapi.search.route.TransitRoutePlanOption;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class n extends com.baidu.platform.base.e {
     public n(TransitRoutePlanOption transitRoutePlanOption) {
         a(transitRoutePlanOption);

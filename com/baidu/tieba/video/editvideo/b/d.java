@@ -18,28 +18,28 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 @TargetApi(18)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class d extends Thread {
-    private b.a kvL;
-    private String kvM;
-    private e kvP;
-    private long kvU;
+    private b.a kwI;
+    private String kwJ;
+    private e kwM;
+    private long kwR;
     private Context mContext;
 
     public d(Context context, String str, e eVar, b.a aVar) {
         super("FilterAudioThread");
-        this.kvU = -1L;
+        this.kwR = -1L;
         this.mContext = context;
-        this.kvM = str;
-        this.kvP = eVar;
-        this.kvL = aVar;
+        this.kwJ = str;
+        this.kwM = eVar;
+        this.kwI = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            cOu();
-            if (cOw()) {
+            cPQ();
+            if (cPS()) {
                 com.baidu.adp.lib.f.e.gx().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.d.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -54,214 +54,285 @@ class d extends Thread {
     public void onPostExecute() {
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0170: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:98:0x016d */
-    /* JADX WARN: Not initialized variable reg: 3, insn: 0x016f: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:98:0x016d */
-    /* JADX WARN: Not initialized variable reg: 4, insn: 0x016e: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:98:0x016d */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0123 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:132:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0075  */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=4, 132=4, 133=4, 134=4, 136=4, 137=4, 140=4, 141=4, 107=4, 108=4, 110=4, 111=4, 114=4, 115=4, 119=4, 120=4, 121=4, 123=4, 124=4, 127=4] */
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x01d0: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:137:0x01cf */
+    /* JADX WARN: Removed duplicated region for block: B:145:0x0183 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x012f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x017a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x0127 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:179:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00d1  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void cOu() throws Exception {
-        MediaExtractor mediaExtractor;
-        MediaExtractor mediaExtractor2;
+    private void cPQ() throws Exception {
+        Throwable th;
         MediaCodec mediaCodec;
         MediaCodec mediaCodec2;
+        MediaExtractor mediaExtractor;
         MediaCodec mediaCodec3;
         MediaCodec mediaCodec4;
-        Throwable th;
-        Exception exc;
-        MediaCodec mediaCodec5;
-        MediaCodec mediaCodec6;
+        MediaExtractor mediaExtractor2;
         MediaExtractor mediaExtractor3;
-        MediaFormat trackFormat;
+        Exception exc;
+        Exception exc2;
+        Exception exc3;
+        Exception exc4;
+        int b;
+        Exception exc5;
+        Exception exc6;
         MediaCodecInfo selectCodec = selectCodec("audio/mp4a-latm");
+        if (selectCodec == null) {
+            return;
+        }
+        MediaCodec mediaCodec5 = null;
+        MediaCodec mediaCodec6 = null;
         try {
-            if (selectCodec != null) {
+            try {
+                mediaExtractor2 = cPR();
                 try {
-                    mediaExtractor3 = cOv();
-                    try {
-                        trackFormat = mediaExtractor3.getTrackFormat(b(mediaExtractor3));
-                        MediaFormat mediaFormat = new MediaFormat();
-                        mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");
-                        mediaFormat.setInteger("aac-profile", 5);
-                        mediaFormat.setInteger("max-input-size", 8192);
-                        setMediaFormatProperty(trackFormat, mediaFormat, "sample-rate", StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K);
-                        setMediaFormatProperty(trackFormat, mediaFormat, "channel-count", 1);
-                        setMediaFormatProperty(trackFormat, mediaFormat, IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
-                        mediaCodec5 = c(selectCodec, mediaFormat);
-                    } catch (Exception e) {
-                        e = e;
-                        mediaCodec5 = null;
-                        mediaCodec6 = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        mediaCodec4 = null;
-                        mediaExtractor2 = mediaExtractor3;
-                        mediaCodec2 = null;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    mediaCodec5 = null;
-                    mediaCodec6 = null;
-                    mediaExtractor3 = null;
-                } catch (Throwable th3) {
-                    th = th3;
+                    b = b(mediaExtractor2);
+                } catch (Exception e) {
+                    e = e;
+                    mediaCodec3 = null;
                     mediaCodec4 = null;
+                } catch (Throwable th2) {
+                    th = th2;
                     mediaCodec2 = null;
-                    mediaExtractor2 = null;
+                    mediaExtractor = mediaExtractor2;
+                    mediaCodec = null;
                 }
+            } catch (Throwable th3) {
+                mediaExtractor = mediaExtractor3;
+                mediaCodec = null;
+                th = th3;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            mediaCodec3 = null;
+            mediaCodec4 = null;
+            mediaExtractor2 = null;
+        } catch (Throwable th4) {
+            th = th4;
+            mediaCodec = null;
+            mediaCodec2 = null;
+            mediaExtractor = null;
+        }
+        if (b < 0 && this.kwI != null) {
+            this.kwI.cPH();
+            if (mediaExtractor2 != null) {
                 try {
-                    mediaCodec6 = g(trackFormat);
+                    mediaExtractor2.release();
+                } catch (Exception e3) {
+                    exc5 = 0 == 0 ? e3 : null;
+                    if (this.kwI != null) {
+                        this.kwI.onGenFilterVideoRecordError(231, com.baidu.tieba.k.a.q(e3));
+                    }
+                }
+            }
+            exc5 = null;
+            if (0 != 0) {
+                try {
+                    mediaCodec5.stop();
+                    mediaCodec5.release();
+                } catch (Exception e4) {
+                    if (exc5 == null) {
+                        exc5 = e4;
+                    }
+                    if (this.kwI != null) {
+                        this.kwI.onGenFilterVideoRecordError(232, com.baidu.tieba.k.a.q(e4));
+                    }
+                    exc6 = exc5;
+                }
+            }
+            exc6 = exc5;
+            if (0 != 0) {
+                try {
+                    mediaCodec6.stop();
+                    mediaCodec6.release();
+                    return;
+                } catch (Exception e5) {
+                    if (exc6 == null) {
+                    }
+                    if (this.kwI != null) {
+                        this.kwI.onGenFilterVideoRecordError(233, com.baidu.tieba.k.a.q(e5));
+                        return;
+                    }
+                    return;
+                }
+            }
+            return;
+        }
+        MediaFormat trackFormat = mediaExtractor2.getTrackFormat(b);
+        MediaFormat mediaFormat = new MediaFormat();
+        mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");
+        mediaFormat.setInteger("aac-profile", 5);
+        mediaFormat.setInteger("max-input-size", 8192);
+        setMediaFormatProperty(trackFormat, mediaFormat, "sample-rate", StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K);
+        setMediaFormatProperty(trackFormat, mediaFormat, "channel-count", 1);
+        setMediaFormatProperty(trackFormat, mediaFormat, IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
+        mediaCodec3 = c(selectCodec, mediaFormat);
+        try {
+            mediaCodec4 = g(trackFormat);
+            try {
+                b(mediaExtractor2, mediaCodec4, mediaCodec3);
+                if (mediaExtractor2 != null) {
                     try {
-                        b(mediaExtractor3, mediaCodec6, mediaCodec5);
-                        if (mediaExtractor3 != null) {
-                            try {
-                                mediaExtractor3.release();
-                            } catch (Exception e3) {
-                                r0 = 0 == 0 ? e3 : null;
-                                if (this.kvL != null) {
-                                    this.kvL.onGenFilterVideoRecordError(231, com.baidu.tieba.j.a.r(e3));
-                                }
-                            }
-                        }
-                        if (mediaCodec6 != null) {
-                            try {
-                                mediaCodec6.stop();
-                                mediaCodec6.release();
-                            } catch (Exception e4) {
-                                if (r0 == null) {
-                                    r0 = e4;
-                                }
-                                if (this.kvL != null) {
-                                    this.kvL.onGenFilterVideoRecordError(232, com.baidu.tieba.j.a.r(e4));
-                                }
-                            }
-                        }
-                        if (mediaCodec5 != null) {
-                            try {
-                                mediaCodec5.stop();
-                                mediaCodec5.release();
-                            } catch (Exception e5) {
-                                if (r0 == null) {
-                                    r0 = e5;
-                                }
-                                if (this.kvL != null) {
-                                    this.kvL.onGenFilterVideoRecordError(233, com.baidu.tieba.j.a.r(e5));
-                                }
-                            }
-                        }
+                        mediaExtractor2.release();
                     } catch (Exception e6) {
-                        e = e6;
-                        e.printStackTrace();
-                        if (this.kvL != null) {
-                            this.kvL.onGenFilterVideoRecordError(230, com.baidu.tieba.j.a.r(e));
+                        exc = 0 == 0 ? e6 : null;
+                        if (this.kwI != null) {
+                            this.kwI.onGenFilterVideoRecordError(231, com.baidu.tieba.k.a.q(e6));
                         }
-                        if (mediaExtractor3 != null) {
-                            try {
-                                mediaExtractor3.release();
-                            } catch (Exception e7) {
-                                r0 = 0 == 0 ? e7 : null;
-                                if (this.kvL != null) {
-                                    this.kvL.onGenFilterVideoRecordError(231, com.baidu.tieba.j.a.r(e7));
-                                }
-                            }
+                        exc4 = exc;
+                    }
+                }
+                exc4 = null;
+                if (mediaCodec4 != null) {
+                    try {
+                        mediaCodec4.stop();
+                        mediaCodec4.release();
+                    } catch (Exception e7) {
+                        if (exc4 == null) {
+                            exc4 = e7;
                         }
-                        if (mediaCodec6 != null) {
-                            try {
-                                mediaCodec6.stop();
-                                mediaCodec6.release();
-                            } catch (Exception e8) {
-                                if (r0 == null) {
-                                    r0 = e8;
-                                }
-                                if (this.kvL != null) {
-                                    this.kvL.onGenFilterVideoRecordError(232, com.baidu.tieba.j.a.r(e8));
-                                }
-                            }
-                        }
-                        if (mediaCodec5 != null) {
-                            try {
-                                mediaCodec5.stop();
-                                mediaCodec5.release();
-                            } catch (Exception e9) {
-                                if (r0 == null) {
-                                    r0 = e9;
-                                }
-                                if (this.kvL != null) {
-                                    this.kvL.onGenFilterVideoRecordError(233, com.baidu.tieba.j.a.r(e9));
-                                }
-                            }
-                        }
-                        if (r0 == null) {
+                        if (this.kwI != null) {
+                            this.kwI.onGenFilterVideoRecordError(232, com.baidu.tieba.k.a.q(e7));
                         }
                     }
-                } catch (Exception e10) {
-                    e = e10;
-                    mediaCodec6 = null;
-                } catch (Throwable th4) {
-                    mediaCodec4 = mediaCodec5;
-                    th = th4;
-                    mediaExtractor2 = mediaExtractor3;
-                    mediaCodec2 = null;
-                    if (mediaExtractor2 != null) {
-                        try {
-                            mediaExtractor2.release();
-                        } catch (Exception e11) {
-                            r0 = 0 == 0 ? e11 : null;
-                            if (this.kvL != null) {
-                                this.kvL.onGenFilterVideoRecordError(231, com.baidu.tieba.j.a.r(e11));
-                            }
+                }
+                if (mediaCodec3 != null) {
+                    try {
+                        mediaCodec3.stop();
+                        mediaCodec3.release();
+                    } catch (Exception e8) {
+                        if (exc4 == null) {
+                            exc4 = e8;
+                        }
+                        if (this.kwI != null) {
+                            this.kwI.onGenFilterVideoRecordError(233, com.baidu.tieba.k.a.q(e8));
                         }
                     }
+                }
+            } catch (Exception e9) {
+                e = e9;
+                e.printStackTrace();
+                if (this.kwI != null) {
+                    this.kwI.onGenFilterVideoRecordError(230, com.baidu.tieba.k.a.q(e));
+                }
+                if (mediaExtractor2 != null) {
+                    try {
+                        mediaExtractor2.release();
+                    } catch (Exception e10) {
+                        exc = 0 == 0 ? e10 : null;
+                        if (this.kwI != null) {
+                            this.kwI.onGenFilterVideoRecordError(231, com.baidu.tieba.k.a.q(e10));
+                        }
+                        exc4 = exc;
+                        if (mediaCodec4 != null) {
+                        }
+                        if (mediaCodec3 != null) {
+                        }
+                        if (exc4 != null) {
+                        }
+                    }
+                }
+                exc4 = null;
+                if (mediaCodec4 != null) {
+                    try {
+                        mediaCodec4.stop();
+                        mediaCodec4.release();
+                    } catch (Exception e11) {
+                        if (exc4 == null) {
+                            exc4 = e11;
+                        }
+                        if (this.kwI != null) {
+                            this.kwI.onGenFilterVideoRecordError(232, com.baidu.tieba.k.a.q(e11));
+                        }
+                    }
+                }
+                if (mediaCodec3 != null) {
+                    try {
+                        mediaCodec3.stop();
+                        mediaCodec3.release();
+                    } catch (Exception e12) {
+                        if (exc4 == null) {
+                            exc4 = e12;
+                        }
+                        if (this.kwI != null) {
+                            this.kwI.onGenFilterVideoRecordError(233, com.baidu.tieba.k.a.q(e12));
+                        }
+                    }
+                }
+                if (exc4 != null) {
+                }
+            }
+        } catch (Exception e13) {
+            e = e13;
+            mediaCodec4 = null;
+        } catch (Throwable th5) {
+            mediaCodec2 = null;
+            th = th5;
+            mediaExtractor = mediaExtractor2;
+            mediaCodec = mediaCodec3;
+            if (mediaExtractor != null) {
+                try {
+                    mediaExtractor.release();
+                } catch (Exception e14) {
+                    exc = 0 == 0 ? e14 : null;
+                    if (this.kwI != null) {
+                        this.kwI.onGenFilterVideoRecordError(231, com.baidu.tieba.k.a.q(e14));
+                    }
+                    exc2 = exc;
                     if (mediaCodec2 != null) {
                         try {
                             mediaCodec2.stop();
                             mediaCodec2.release();
-                        } catch (Exception e12) {
-                            if (r0 == null) {
-                                r0 = e12;
+                        } catch (Exception e15) {
+                            if (exc2 == null) {
+                                exc2 = e15;
                             }
-                            if (this.kvL != null) {
-                                this.kvL.onGenFilterVideoRecordError(232, com.baidu.tieba.j.a.r(e12));
+                            if (this.kwI != null) {
+                                this.kwI.onGenFilterVideoRecordError(232, com.baidu.tieba.k.a.q(e15));
                             }
-                            exc = r0;
-                            if (mediaCodec4 != null) {
-                                try {
-                                    mediaCodec4.stop();
-                                    mediaCodec4.release();
-                                } catch (Exception e13) {
-                                    if (exc == null) {
-                                    }
-                                    if (this.kvL != null) {
-                                        this.kvL.onGenFilterVideoRecordError(233, com.baidu.tieba.j.a.r(e13));
-                                    }
-                                }
+                            exc3 = exc2;
+                            if (mediaCodec != null) {
                             }
                             throw th;
                         }
                     }
-                    exc = r0;
-                    if (mediaCodec4 != null) {
+                    exc3 = exc2;
+                    if (mediaCodec != null) {
+                        try {
+                            mediaCodec.stop();
+                            mediaCodec.release();
+                        } catch (Exception e16) {
+                            if (exc3 == null) {
+                            }
+                            if (this.kwI != null) {
+                                this.kwI.onGenFilterVideoRecordError(233, com.baidu.tieba.k.a.q(e16));
+                            }
+                        }
                     }
                     throw th;
                 }
-                if (r0 == null) {
-                    throw r0;
-                }
             }
-        } catch (Throwable th5) {
-            mediaExtractor2 = mediaExtractor;
-            mediaCodec2 = mediaCodec;
-            mediaCodec4 = mediaCodec3;
-            th = th5;
+            exc2 = null;
+            if (mediaCodec2 != null) {
+            }
+            exc3 = exc2;
+            if (mediaCodec != null) {
+            }
+            throw th;
+        }
+        if (exc4 != null) {
+            throw exc4;
         }
     }
 
-    private MediaExtractor cOv() throws IOException {
+    private MediaExtractor cPR() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
-        mediaExtractor.setDataSource(this.kvM);
+        mediaExtractor.setDataSource(this.kwJ);
         return mediaExtractor;
     }
 
@@ -312,8 +383,8 @@ class d extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr2 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && cOw()) {
-            if (z7 || !((mediaFormat2 == null || this.kvP.isStarted()) && cOw())) {
+        while (!z4 && cPS()) {
+            if (z7 || !((mediaFormat2 == null || this.kwM.isStarted()) && cPS())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
@@ -331,7 +402,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.kvP.isStarted()) && cOw() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L)) != -1)) {
+            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.kwM.isStarted()) && cPS() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L)) != -1)) {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = mediaCodec.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
@@ -345,7 +416,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (i3 == -1 || !cOw()) {
+            if (i3 == -1 || !cPS()) {
                 i = i3;
                 z2 = z6;
             } else {
@@ -375,7 +446,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (z4 || !((mediaFormat2 == null || this.kvP.isStarted()) && cOw())) {
+            if (z4 || !((mediaFormat2 == null || this.kwM.isStarted()) && cPS())) {
                 mediaFormat = mediaFormat2;
                 byteBufferArr = byteBufferArr2;
             } else {
@@ -400,9 +471,9 @@ class d extends Thread {
                         mediaFormat = mediaFormat2;
                         byteBufferArr = byteBufferArr2;
                     } else {
-                        if (bufferInfo2.size != 0 && bufferInfo2.presentationTimeUs > this.kvU) {
-                            this.kvP.d(i4, byteBuffer3, bufferInfo2);
-                            this.kvU = bufferInfo2.presentationTimeUs;
+                        if (bufferInfo2.size != 0 && bufferInfo2.presentationTimeUs > this.kwR) {
+                            this.kwM.d(i4, byteBuffer3, bufferInfo2);
+                            this.kwR = bufferInfo2.presentationTimeUs;
                         }
                         boolean z8 = (bufferInfo2.flags & 4) != 0 ? true : z4;
                         mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer2, false);
@@ -416,17 +487,17 @@ class d extends Thread {
                 z3 = z5;
                 i2 = i4;
             } else {
-                aK("InnerAudioProcessor", "muxer: adding audio track.");
-                i2 = this.kvP.i(mediaFormat);
+                z("InnerAudioProcessor", "muxer: adding audio track.");
+                i2 = this.kwM.i(mediaFormat);
                 z3 = true;
             }
-            if (!this.kvP.isStarted() && z3) {
-                this.kvP.cOy();
-                if (!this.kvP.start()) {
-                    synchronized (this.kvP) {
-                        while (!this.kvP.isStarted()) {
+            if (!this.kwM.isStarted() && z3) {
+                this.kwM.cPU();
+                if (!this.kwM.start()) {
+                    synchronized (this.kwM) {
+                        while (!this.kwM.isStarted()) {
                             try {
-                                this.kvP.wait(100L);
+                                this.kwM.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -451,7 +522,7 @@ class d extends Thread {
         }
     }
 
-    private boolean cOw() {
+    private boolean cPS() {
         return !Thread.currentThread().isInterrupted();
     }
 
@@ -488,7 +559,7 @@ class d extends Thread {
         return null;
     }
 
-    private static void aK(String str, String str2) {
+    private static void z(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
             BdLog.i(str2);
         }

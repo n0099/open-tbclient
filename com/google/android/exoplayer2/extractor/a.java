@@ -1,44 +1,44 @@
 package com.google.android.exoplayer2.extractor;
 
 import com.google.android.exoplayer2.util.v;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a implements l {
-    private final long lYV;
+    private final long lZB;
     public final int length;
-    public final int[] mdj;
-    public final long[] mdk;
-    public final long[] mdl;
-    public final long[] mdm;
+    public final int[] mdP;
+    public final long[] mdQ;
+    public final long[] mdR;
+    public final long[] mdS;
 
     public a(int[] iArr, long[] jArr, long[] jArr2, long[] jArr3) {
-        this.mdj = iArr;
-        this.mdk = jArr;
-        this.mdl = jArr2;
-        this.mdm = jArr3;
+        this.mdP = iArr;
+        this.mdQ = jArr;
+        this.mdR = jArr2;
+        this.mdS = jArr3;
         this.length = iArr.length;
         if (this.length > 0) {
-            this.lYV = jArr2[this.length - 1] + jArr3[this.length - 1];
+            this.lZB = jArr2[this.length - 1] + jArr3[this.length - 1];
         } else {
-            this.lYV = 0L;
+            this.lZB = 0L;
         }
     }
 
-    public int fM(long j) {
-        return v.a(this.mdm, j, true, true);
+    public int fK(long j) {
+        return v.a(this.mdS, j, true, true);
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public boolean dtD() {
+    public boolean duO() {
         return true;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long dsq() {
-        return this.lYV;
+    public long getDurationUs() {
+        return this.lZB;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long fN(long j) {
-        return this.mdk[fM(j)];
+    public long fL(long j) {
+        return this.mdQ[fK(j)];
     }
 }

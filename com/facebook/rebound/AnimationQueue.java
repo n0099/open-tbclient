@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AnimationQueue {
     private boolean mRunning;
     private final Queue<Double> mPendingQueue = new LinkedList();
@@ -21,7 +21,7 @@ public class AnimationQueue {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface Callback {
         void onFrame(Double d);
     }

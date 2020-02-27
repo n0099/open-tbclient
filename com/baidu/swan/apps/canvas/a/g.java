@@ -5,7 +5,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -18,8 +18,8 @@ public class g extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject dL(int i) {
-        return super.dL(i);
+    public /* bridge */ /* synthetic */ JSONObject eb(int i) {
+        return super.eb(i);
     }
 
     public g(j jVar) {
@@ -30,20 +30,20 @@ public class g extends a {
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = dL(201);
+            unitedSchemeEntity.result = eb(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove action parse model is null");
             return false;
         }
         com.baidu.swan.apps.component.components.d.a aVar = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: fina a null component");
-            unitedSchemeEntity.result = dL(1001);
+            unitedSchemeEntity.result = eb(1001);
             return false;
         }
-        com.baidu.swan.apps.component.b.c Iq = aVar.Iq();
-        boolean isSuccess = Iq.isSuccess();
+        com.baidu.swan.apps.component.b.c KF = aVar.KF();
+        boolean isSuccess = KF.isSuccess();
         if (!isSuccess) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: " + Iq.msg);
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: " + KF.msg);
         }
         a(unitedSchemeEntity, callbackHandler, isSuccess);
         return isSuccess;

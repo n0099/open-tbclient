@@ -5,30 +5,30 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static com.baidu.swan.apps.extcore.b.b ex(int i) {
-        return i == 1 ? c.Pw() : a.Pt();
+    public static com.baidu.swan.apps.extcore.b.b eN(int i) {
+        return i == 1 ? c.RK() : a.RH();
     }
 
     public static void a(int i, @Nullable com.baidu.swan.apps.extcore.c.a aVar) {
-        ex(i).a(aVar);
+        eN(i).a(aVar);
     }
 
     public static <T extends com.baidu.swan.apps.extcore.model.a> boolean a(int i, T t) {
-        return ex(i).a((com.baidu.swan.apps.extcore.b.b) t);
+        return eN(i).a((com.baidu.swan.apps.extcore.b.b) t);
     }
 
-    public static ExtensionCore ey(int i) {
-        return ex(i).OB();
+    public static ExtensionCore eO(int i) {
+        return eN(i).QP();
     }
 
-    public static String ez(int i) {
-        ExtensionCore OB = ex(i).OB();
-        if (OB != null) {
-            String str = OB.extensionCoreVersionName;
+    public static String eP(int i) {
+        ExtensionCore QP = eN(i).QP();
+        if (QP != null) {
+            String str = QP.extensionCoreVersionName;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";

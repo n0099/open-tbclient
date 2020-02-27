@@ -1,19 +1,23 @@
 package com.baidu.tieba.ala.guardclub.model;
 
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class j {
-    public String eDg;
-    public String eDh;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.utils.q;
+/* loaded from: classes3.dex */
+public class j extends HttpMessage {
+    private String id;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.eDg = jSONObject.optString("privilege_img_url");
-                this.eDh = jSONObject.optString("privilege_text");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public j() {
+        super(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
+    }
+
+    public void yz(String str) {
+        this.id = str;
+    }
+
+    public void setParams() {
+        addParam("scene_from", q.sI());
+        addParam("guard_club_id", this.id);
+        addParam("client_type", 2);
     }
 }

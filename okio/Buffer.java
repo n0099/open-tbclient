@@ -1,7 +1,6 @@
 package okio;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.DownloadConstants;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.google.android.exoplayer2.Format;
 import java.io.Closeable;
@@ -21,7 +20,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Buffer implements Cloneable, ByteChannel, BufferedSink, BufferedSource {
     private static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     static final int REPLACEMENT_CHARACTER = 65533;
@@ -905,7 +904,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 writableSegment.limit += i5;
                 this.size += i5;
             } else if (charAt < 2048) {
-                writeByte((charAt >> 6) | DownloadConstants.STATUS_RUNNING);
+                writeByte((charAt >> 6) | 192);
                 writeByte((charAt & '?') | 128);
                 i3 = i + 1;
             } else if (charAt < 55296 || charAt > 57343) {
@@ -938,7 +937,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         if (i < 128) {
             writeByte(i);
         } else if (i < 2048) {
-            writeByte((i >> 6) | DownloadConstants.STATUS_RUNNING);
+            writeByte((i >> 6) | 192);
             writeByte((i & 63) | 128);
         } else if (i < 65536) {
             if (i >= 55296 && i <= 57343) {
@@ -1763,7 +1762,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return unsafeCursor;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class UnsafeCursor implements Closeable {
         public Buffer buffer;
         public byte[] data;

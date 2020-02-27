@@ -21,7 +21,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResourceManager {
     private static final String TAG = ResourceManager.class.getName();
     private static final String DRAWABLE_XXHDPI = "drawable-xxhdpi";

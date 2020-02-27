@@ -7,33 +7,33 @@ import android.media.MediaMuxer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class e {
-    private volatile boolean kvX;
-    private volatile boolean kvY;
+    private volatile boolean kwU;
+    private volatile boolean kwV;
     private final MediaMuxer mMediaMuxer;
-    private int kvW = 2;
+    private int kwT = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
         this.mMediaMuxer = new MediaMuxer(str, 0);
     }
 
-    public void cOx() {
-        this.kvX = true;
+    public void cPT() {
+        this.kwU = true;
     }
 
-    public void cOy() {
-        this.kvY = true;
+    public void cPU() {
+        this.kwV = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.kvY || !this.kvX) {
+        if (!this.kwV || !this.kwU) {
             z = false;
         } else {
-            if (this.kvW > 0 && this.kvY && this.kvX) {
+            if (this.kwT > 0 && this.kwV && this.kwU) {
                 this.mMediaMuxer.start();
                 this.mIsStarted = true;
                 notifyAll();
@@ -45,7 +45,7 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.kvW > 0) {
+        if (this.kwT > 0) {
             try {
                 this.mMediaMuxer.stop();
                 this.mMediaMuxer.release();

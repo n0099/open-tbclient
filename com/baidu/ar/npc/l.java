@@ -5,7 +5,7 @@ import android.os.Handler;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.ar.npc.BaiduArView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class l implements BaiduArView.a {
     final /* synthetic */ ArBridge.c a;
     final /* synthetic */ ArBridge b;

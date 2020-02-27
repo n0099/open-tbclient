@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLivePKPlayer {
     private static final int JNI_NOTIFY_MESSAGE_NO_VIDEO_FRAME = 2;
     private static final int JNI_NOTIFY_MESSAGE_RENDER_VIDEO_FRAME = 1;
@@ -97,19 +97,14 @@ public class AlaLivePKPlayer {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    try {
-                        if (this.mAudioManager != null) {
-                            this.mAudioManager.setMode(3);
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
+                    setAudioRoute();
                 }
             } else if (this.mNativePlayFlags == 0) {
                 this.mNDKAdapter.setWebRtcHandle(AudioProcessModule.sharedInstance().getContext());
                 if (AudioProcessModule.sharedInstance().createAudioPlayer(StreamConfig.OUTPUT_SAMPLE_RATE, 1, StreamConfig.OUTPUT_FRAMES_PER_BUFFER) != 0) {
                     BdLog.e("createAudioPlayer failed");
                 }
+                setAudioRoute();
                 this.mNativePlayFlags = 1;
             }
         } else if (this.mAudioPlayer == null) {
@@ -137,6 +132,18 @@ public class AlaLivePKPlayer {
             }
         });
         return 0;
+    }
+
+    private void setAudioRoute() {
+        try {
+            if (this.mAudioManager != null) {
+                boolean isWiredHeadsetOn = this.mAudioManager.isWiredHeadsetOn();
+                this.mAudioManager.setMode(3);
+                this.mAudioManager.setSpeakerphoneOn(!isWiredHeadsetOn);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public AlaLivePKVideoPlayer getVideoPlayer(int i) {
@@ -257,7 +264,7 @@ public class AlaLivePKPlayer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AlaLivePKVideoPlayer extends TextureView implements TextureView.SurfaceTextureListener {
         private int mIndex;
         private Surface mSurface;

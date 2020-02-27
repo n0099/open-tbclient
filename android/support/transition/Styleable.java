@@ -3,7 +3,7 @@ package android.support.transition;
 import android.annotation.SuppressLint;
 import android.support.annotation.StyleableRes;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class Styleable {
     @StyleableRes
     static final int[] TRANSITION_TARGET = {16842799, 16843740, 16843841, 16843842, 16843853, 16843854};
@@ -28,7 +28,7 @@ class Styleable {
     @StyleableRes
     static final int[] PATTERN_PATH_MOTION = {16843978};
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface ArcMotion {
         @StyleableRes
         public static final int MAXIMUM_ANGLE = 2;
@@ -38,13 +38,13 @@ class Styleable {
         public static final int MINIMUM_VERTICAL_ANGLE = 1;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface ChangeBounds {
         @StyleableRes
         public static final int RESIZE_CLIP = 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface ChangeTransform {
         @StyleableRes
         public static final int REPARENT = 0;
@@ -52,25 +52,25 @@ class Styleable {
         public static final int REPARENT_WITH_OVERLAY = 1;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface Fade {
         @StyleableRes
         public static final int FADING_MODE = 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface PatternPathMotion {
         @StyleableRes
         public static final int PATTERN_PATH_DATA = 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface Slide {
         @StyleableRes
         public static final int SLIDE_EDGE = 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface Transition {
         @StyleableRes
         public static final int DURATION = 1;
@@ -82,7 +82,7 @@ class Styleable {
         public static final int START_DELAY = 2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface TransitionManager {
         @StyleableRes
         public static final int FROM_SCENE = 0;
@@ -92,13 +92,13 @@ class Styleable {
         public static final int TRANSITION = 2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface TransitionSet {
         @StyleableRes
         public static final int TRANSITION_ORDERING = 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface TransitionTarget {
         @StyleableRes
         public static final int EXCLUDE_CLASS = 3;
@@ -114,7 +114,7 @@ class Styleable {
         public static final int TARGET_NAME = 4;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface VisibilityTransition {
         @StyleableRes
         public static final int TRANSITION_VISIBILITY_MODE = 0;

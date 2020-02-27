@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.Utils;
@@ -154,7 +153,7 @@ public class d {
     }
 
     private void b(Context context) {
-        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + BuildConfig.FLAVOR + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         String str2 = context != null ? context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer" : str;
         if (Utils.e() < 10485760) {
             str = str2;

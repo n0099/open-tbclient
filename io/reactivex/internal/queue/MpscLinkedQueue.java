@@ -2,10 +2,10 @@ package io.reactivex.internal.queue;
 
 import io.reactivex.internal.a.f;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class MpscLinkedQueue<T> implements f<T> {
-    private final AtomicReference<LinkedQueueNode<T>> nyf = new AtomicReference<>();
-    private final AtomicReference<LinkedQueueNode<T>> nyg = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> nyH = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> nyI = new AtomicReference<>();
 
     public MpscLinkedQueue() {
         LinkedQueueNode<T> linkedQueueNode = new LinkedQueueNode<>();
@@ -26,15 +26,15 @@ public final class MpscLinkedQueue<T> implements f<T> {
     @Override // io.reactivex.internal.a.f, io.reactivex.internal.a.g
     public T poll() {
         LinkedQueueNode<T> lvNext;
-        LinkedQueueNode<T> dIl = dIl();
-        LinkedQueueNode<T> lvNext2 = dIl.lvNext();
+        LinkedQueueNode<T> dJs = dJs();
+        LinkedQueueNode<T> lvNext2 = dJs.lvNext();
         if (lvNext2 != null) {
             T andNullValue = lvNext2.getAndNullValue();
             b(lvNext2);
             return andNullValue;
-        } else if (dIl != dIj()) {
+        } else if (dJs != dJq()) {
             do {
-                lvNext = dIl.lvNext();
+                lvNext = dJs.lvNext();
             } while (lvNext == null);
             T andNullValue2 = lvNext.getAndNullValue();
             b(lvNext);
@@ -50,33 +50,33 @@ public final class MpscLinkedQueue<T> implements f<T> {
         }
     }
 
-    LinkedQueueNode<T> dIj() {
-        return this.nyf.get();
+    LinkedQueueNode<T> dJq() {
+        return this.nyH.get();
     }
 
     LinkedQueueNode<T> a(LinkedQueueNode<T> linkedQueueNode) {
-        return this.nyf.getAndSet(linkedQueueNode);
+        return this.nyH.getAndSet(linkedQueueNode);
     }
 
-    LinkedQueueNode<T> dIk() {
-        return this.nyg.get();
+    LinkedQueueNode<T> dJr() {
+        return this.nyI.get();
     }
 
-    LinkedQueueNode<T> dIl() {
-        return this.nyg.get();
+    LinkedQueueNode<T> dJs() {
+        return this.nyI.get();
     }
 
     void b(LinkedQueueNode<T> linkedQueueNode) {
-        this.nyg.lazySet(linkedQueueNode);
+        this.nyI.lazySet(linkedQueueNode);
     }
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return dIk() == dIj();
+        return dJr() == dJq();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>> {
         private static final long serialVersionUID = 2404266111789071508L;
         private E value;

@@ -49,7 +49,6 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.browser.BrowserHelper;
@@ -59,6 +58,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.view.VerticalImageSpan;
 import com.baidu.live.tbadk.pagestayduration.IPageStayDuration;
+import com.baidu.live.u.a;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.webkit.internal.ETAG;
@@ -83,7 +83,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UtilHelper {
     private static final String NATIVE_PAY_FROM = "from_type";
     public static final int PROCESS_LIMIT_NONE = 0;
@@ -92,13 +92,13 @@ public class UtilHelper {
     private static final String[] sNativeAdPrefixes = {"http://m.baidu.com/baidu.php?url=", "https://m.baidu.com/baidu.php?url="};
     private static final String[] sNativeAdEncoded = {"http%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d", "https%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d"};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NativePage {
         public String id;
         public NativePageType type = NativePageType.NONE;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NativePageType {
         NONE,
         FRS,
@@ -701,7 +701,7 @@ public class UtilHelper {
     }
 
     public static boolean canUseStyleImmersiveSticky() {
-        if (Build.VERSION.SDK_INT >= 19 && TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
+        if (Build.VERSION.SDK_INT >= 19 && TbadkCoreApplication.getInst() != null && TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
             return TbadkCoreApplication.getInst().isImmersiveStickyCanUse();
         }
         return false;
@@ -1115,7 +1115,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1694=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1697=4] */
     public static String getSystemProperty(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
@@ -1349,15 +1349,18 @@ public class UtilHelper {
 
     public static int getRealScreenOrientation(Context context) {
         int i = 2;
+        if (context == null) {
+            return 1;
+        }
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(context);
         int i2 = context.getResources().getConfiguration().orientation;
         if (i2 == 2 || screenDimensions[0] <= screenDimensions[1]) {
             i = i2;
         }
-        if (i == 0) {
-            return 1;
+        if (i != 0) {
+            return i;
         }
-        return i;
+        return 1;
     }
 
     public static long getDayBetweenTime(long j, long j2) {

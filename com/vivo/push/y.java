@@ -3,7 +3,7 @@ package com.vivo.push;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class y {
     private int a;
     private String b;

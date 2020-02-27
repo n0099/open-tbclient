@@ -3,28 +3,28 @@ package com.baidu.swan.games.e;
 import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d ciz;
+    private static volatile d cmD;
     private final Lock mLock = new ReentrantLock();
     private ArrayList<j> mListeners = new ArrayList<>();
 
     private d() {
     }
 
-    public static d aln() {
-        if (ciz == null) {
+    public static d anA() {
+        if (cmD == null) {
             synchronized (d.class) {
-                if (ciz == null) {
-                    ciz = new d();
+                if (cmD == null) {
+                    cmD = new d();
                 }
             }
         }
-        return ciz;
+        return cmD;
     }
 
-    private Object[] alo() {
+    private Object[] anB() {
         Object[] objArr = null;
         try {
             this.mLock.lock();
@@ -39,9 +39,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void h(a aVar) {
-        Object[] alo = alo();
-        if (alo != null) {
-            for (Object obj : alo) {
+        Object[] anB = anB();
+        if (anB != null) {
+            for (Object obj : anB) {
                 ((j) obj).o(aVar);
             }
         }
@@ -49,9 +49,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void i(a aVar) {
-        Object[] alo = alo();
-        if (alo != null) {
-            for (Object obj : alo) {
+        Object[] anB = anB();
+        if (anB != null) {
+            for (Object obj : anB) {
                 ((j) obj).c(aVar);
             }
         }
@@ -59,9 +59,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void j(a aVar) {
-        Object[] alo = alo();
-        if (alo != null) {
-            for (Object obj : alo) {
+        Object[] anB = anB();
+        if (anB != null) {
+            for (Object obj : anB) {
                 ((j) obj).p(aVar);
             }
         }
@@ -69,9 +69,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(a aVar) {
-        Object[] alo = alo();
-        if (alo != null) {
-            for (Object obj : alo) {
+        Object[] anB = anB();
+        if (anB != null) {
+            for (Object obj : anB) {
                 ((j) obj).q(aVar);
             }
         }
@@ -79,9 +79,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void l(a aVar) {
-        Object[] alo = alo();
-        if (alo != null) {
-            for (Object obj : alo) {
+        Object[] anB = anB();
+        if (anB != null) {
+            for (Object obj : anB) {
                 ((j) obj).r(aVar);
             }
         }
@@ -89,9 +89,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void m(a aVar) {
-        Object[] alo = alo();
-        if (alo != null) {
-            for (Object obj : alo) {
+        Object[] anB = anB();
+        if (anB != null) {
+            for (Object obj : anB) {
                 ((j) obj).s(aVar);
             }
         }
@@ -99,9 +99,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void n(a aVar) {
-        Object[] alo = alo();
-        if (alo != null) {
-            for (Object obj : alo) {
+        Object[] anB = anB();
+        if (anB != null) {
+            for (Object obj : anB) {
                 ((j) obj).t(aVar);
             }
         }

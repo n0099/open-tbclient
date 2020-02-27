@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.sapi2.P;
 import com.baidu.sapi2.S;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class K implements P.a {
     final /* synthetic */ P a;
 
@@ -14,15 +14,15 @@ public class K implements P.a {
     }
 
     @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0163a c0163a, String str) {
-        this.a.a(c0163a.a, str);
+    public void a(S.a.C0172a c0172a, String str) {
+        this.a.a(c0172a.a, str);
     }
 
     @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0163a c0163a) {
+    public void a(S.a.C0172a c0172a) {
         Context context;
         P p = this.a;
         context = p.d;
-        p.a(context, c0163a);
+        p.a(context, c0172a);
     }
 }

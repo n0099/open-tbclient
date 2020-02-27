@@ -7,7 +7,7 @@ import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseBean {
     public static final String a = "/risk/init/stat";
     public static final int b = 1;

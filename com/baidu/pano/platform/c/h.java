@@ -1,7 +1,7 @@
 package com.baidu.pano.platform.c;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h {
     private static float a = 0.0f;
     private static float b = 0.0f;

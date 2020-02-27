@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class b {
     private static final String a = b.class.getSimpleName();
     private static final String b = "Set-Cookie";

@@ -5,7 +5,7 @@ import android.widget.MediaController;
 import android.widget.SeekBar;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.vr.player.framework.GLTextureView;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public interface IVrPlayView {
     void buffer();
 

@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.kascend.chushou.a;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImageSubscribeButton extends LinearLayout {
     private String a;
     private String b;
-    private FrescoThumbnailView naI;
+    private FrescoThumbnailView nbl;
 
     public ImageSubscribeButton(Context context) {
         this(context, null, 0);
@@ -24,7 +24,7 @@ public class ImageSubscribeButton extends LinearLayout {
     public ImageSubscribeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(a.h.widget_image_subscribe_button, (ViewGroup) this, true);
-        this.naI = (FrescoThumbnailView) findViewById(a.f.iv_image_subscribe_btn);
+        this.nbl = (FrescoThumbnailView) findViewById(a.f.iv_image_subscribe_btn);
     }
 
     public void a(String str, String str2) {
@@ -36,15 +36,15 @@ public class ImageSubscribeButton extends LinearLayout {
         if (i == 1) {
             setVisibility(0);
             setEnabled(false);
-            this.naI.bV(this.b, a.e.btn_follow_user_disabled);
+            this.nbl.bU(this.b, a.e.btn_follow_user_disabled);
         } else if (i == 2) {
             setVisibility(0);
             setEnabled(true);
-            this.naI.bV(this.b, a.e.btn_follow_user_disabled);
+            this.nbl.bU(this.b, a.e.btn_follow_user_disabled);
         } else if (i == 0) {
             setVisibility(0);
             setEnabled(true);
-            this.naI.bV(this.a, a.e.btn_follow_user_enabled);
+            this.nbl.bU(this.a, a.e.btn_follow_user_enabled);
         } else if (i == -1) {
             setVisibility(8);
         }

@@ -6,29 +6,29 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import dalvik.system.DexClassLoader;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private static c nTP;
+    private static c nUD;
     private Context mContext;
-    private final HashMap<String, d> nTQ = new HashMap<>();
-    private String nTR;
-    private String nTS;
+    private final HashMap<String, d> nUE = new HashMap<>();
+    private String nUF;
+    private String nUG;
 
     private c(Context context) {
-        this.nTR = null;
+        this.nUF = null;
         this.mContext = context.getApplicationContext();
-        this.nTR = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.nUF = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
-    public static c hb(Context context) {
-        if (nTP == null) {
+    public static c ha(Context context) {
+        if (nUD == null) {
             synchronized (c.class) {
-                if (nTP == null) {
-                    nTP = new c(context);
+                if (nUD == null) {
+                    nUD = new c(context);
                 }
             }
         }
-        return nTP;
+        return nUD;
     }
 
     public d aV(String str, boolean z) {
@@ -38,32 +38,32 @@ public class c {
         }
         d b = b(packageArchiveInfo, str);
         if (z) {
-            Sv(str);
+            SG(str);
             return b;
         }
         return b;
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.nTQ.get(packageInfo.packageName);
+        d dVar = this.nUE.get(packageInfo.packageName);
         if (dVar == null) {
-            d dVar2 = new d(Ss(str), a(St(str)), packageInfo);
-            this.nTQ.put(packageInfo.packageName, dVar2);
+            d dVar2 = new d(SD(str), a(SE(str)), packageInfo);
+            this.nUE.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
-    private DexClassLoader Ss(String str) {
-        this.nTS = dOr();
-        return new DexClassLoader(str, this.nTS, this.nTR, this.mContext.getClassLoader());
+    private DexClassLoader SD(String str) {
+        this.nUG = dPE();
+        return new DexClassLoader(str, this.nUG, this.nUF, this.mContext.getClassLoader());
     }
 
-    public String dOr() {
+    public String dPE() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
-    private AssetManager St(String str) {
+    private AssetManager SE(String str) {
         try {
             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
             assetManager.getClass().getMethod("addAssetPath", String.class).invoke(assetManager, str);
@@ -74,8 +74,8 @@ public class c {
         }
     }
 
-    public d Su(String str) {
-        return this.nTQ.get(str);
+    public d SF(String str) {
+        return this.nUE.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -83,7 +83,7 @@ public class c {
         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
     }
 
-    private void Sv(String str) {
-        e.dOt().y(this.mContext, str, this.nTR);
+    private void SG(String str) {
+        e.dPG().x(this.mContext, str, this.nUF);
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.mapapi.synchronization.DisplayOptions;
 import com.baidu.mapapi.synchronization.RoleOptions;
 import com.baidu.mapsdkplatform.comapi.synchronization.data.SyncResponseResult;
 import com.baidu.mapsdkplatform.comapi.synchronization.data.i;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
     private static final String a = f.class.getSimpleName();
     private static HandlerThread d;
@@ -18,7 +18,7 @@ public class f {
     private com.baidu.mapsdkplatform.comapi.synchronization.data.g f;
     private i g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private class a implements i {
         private a() {
         }
@@ -35,7 +35,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private static class b {
         private static final f a = new f();
     }

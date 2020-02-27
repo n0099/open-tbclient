@@ -37,7 +37,6 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.SwipeBackLayout;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.MainAPKFragmentActivityPageContext;
 import com.baidu.live.tbadk.TbConfig;
@@ -58,14 +57,16 @@ import com.baidu.live.tbadk.pagestayduration.IPageStayDuration;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationFilter;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationItem;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationStat;
+import com.baidu.live.u.a;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport<BaseFragmentActivity>, IPageStayDuration {
+    private static final int SHOW_SOFT_KEYBOARD_DELAY = 150;
     private static Class<? extends TbPageContext<BaseFragmentActivity>> mClazz4GetPageContext = MainAPKFragmentActivityPageContext.class;
     private List<Animatable> animatableList;
     private List<WeakReference<View>> animationList;
@@ -87,9 +88,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     private DialogInterface.OnCancelListener mDialogListener = null;
     protected int mSkinType = 3;
     protected boolean mIsLogin = false;
-    private final int SHOW_SOFT_KEYBOARD_DELAY = 150;
     private boolean isAddSwipeBackLayout = true;
-    private boolean mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
+    private boolean mUseStyleImmersiveSticky = true;
     private boolean mHideStatusImmersiveStyle = false;
     private KeyboardAdjust mKeyboardAdjust = null;
     private boolean mLayoutHasInit = false;
@@ -230,6 +230,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
             TbConfig.sdkInitCallback.initSdk();
         }
+        this.mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
             this.mSwipeBackLayout.attachToActivity(getPageContext().getPageActivity());
@@ -887,7 +888,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DelayRunnable implements Runnable {
         private View mView;
 

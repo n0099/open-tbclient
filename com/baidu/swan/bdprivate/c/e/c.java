@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.bdprivate.c.e.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends ab {
     public c(j jVar) {
         super(jVar, "/swanAPI/guidePushSetting");
@@ -44,23 +44,23 @@ public class c extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            boolean cJ = b.cJ(context);
+            boolean cN = b.cN(context);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("authorized", cJ);
+                jSONObject.put("authorized", cN);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
-            if (cJ) {
+            if (cN) {
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } else {
                 b.a(context, a(context, jSONObject, optString, callbackHandler));
             }
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("authorized", cJ);
+                jSONObject2.put("authorized", cN);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
                 return true;
             } catch (JSONException e2) {
@@ -78,7 +78,7 @@ public class c extends ab {
             @Override // com.baidu.swan.bdprivate.c.e.b.a
             public void onResult(boolean z) {
                 if (z) {
-                    b.df(context);
+                    b.dj(context);
                 }
                 try {
                     jSONObject.put("canceled", z);

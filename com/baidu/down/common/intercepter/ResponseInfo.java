@@ -3,7 +3,7 @@ package com.baidu.down.common.intercepter;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ResponseInfo {
     public String method;
     public Map<String, String> requestHeaders;

@@ -1,17 +1,17 @@
 package com.google.android.exoplayer2.source;
 
 import com.google.android.exoplayer2.x;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class s extends x {
-    private static final Object msp = new Object();
+    private static final Object msV = new Object();
     private final boolean isDynamic;
-    private final long lZG;
-    private final long lZH;
-    private final boolean lZI;
-    private final long msq;
-    private final long msr;
-    private final long mss;
-    private final long mst;
+    private final long man;
+    private final long mao;
+    private final boolean maq;
+    private final long msW;
+    private final long msX;
+    private final long msY;
+    private final long msZ;
 
     public s(long j, boolean z) {
         this(j, j, 0L, 0L, z, false);
@@ -22,49 +22,49 @@ public final class s extends x {
     }
 
     public s(long j, long j2, long j3, long j4, long j5, long j6, boolean z, boolean z2) {
-        this.lZG = j;
-        this.lZH = j2;
-        this.msq = j3;
-        this.msr = j4;
-        this.mss = j5;
-        this.mst = j6;
-        this.lZI = z;
+        this.man = j;
+        this.mao = j2;
+        this.msW = j3;
+        this.msX = j4;
+        this.msY = j5;
+        this.msZ = j6;
+        this.maq = z;
         this.isDynamic = z2;
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dsn() {
+    public int dtz() {
         return 1;
     }
 
     @Override // com.google.android.exoplayer2.x
     public x.b a(int i, x.b bVar, boolean z, long j) {
-        com.google.android.exoplayer2.util.a.ai(i, 0, 1);
-        Object obj = z ? msp : null;
-        long j2 = this.mst;
+        com.google.android.exoplayer2.util.a.aj(i, 0, 1);
+        Object obj = z ? msV : null;
+        long j2 = this.msZ;
         if (this.isDynamic) {
             j2 += j;
-            if (j2 > this.msr) {
+            if (j2 > this.msX) {
                 j2 = -9223372036854775807L;
             }
         }
-        return bVar.a(obj, this.lZG, this.lZH, this.lZI, this.isDynamic, j2, this.msr, 0, 0, this.mss);
+        return bVar.a(obj, this.man, this.mao, this.maq, this.isDynamic, j2, this.msX, 0, 0, this.msY);
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dso() {
+    public int dtA() {
         return 1;
     }
 
     @Override // com.google.android.exoplayer2.x
     public x.a a(int i, x.a aVar, boolean z) {
-        com.google.android.exoplayer2.util.a.ai(i, 0, 1);
-        Object obj = z ? msp : null;
-        return aVar.a(obj, obj, 0, this.msq, -this.mss);
+        com.google.android.exoplayer2.util.a.aj(i, 0, 1);
+        Object obj = z ? msV : null;
+        return aVar.a(obj, obj, 0, this.msW, -this.msY);
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int bu(Object obj) {
-        return msp.equals(obj) ? 0 : -1;
+    public int bw(Object obj) {
+        return msV.equals(obj) ? 0 : -1;
     }
 }

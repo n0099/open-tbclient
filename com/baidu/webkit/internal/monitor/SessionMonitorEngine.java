@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SessionMonitorEngine implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final String LOG_TAG = SessionMonitorEngine.class.getSimpleName();
@@ -39,14 +39,14 @@ public class SessionMonitorEngine implements INoProGuard {
     private a sFrameworkBehaviorProvider;
     private WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface IPrototype extends INoProGuard {
         void onWebkitPaused();
 
@@ -263,7 +263,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0640a(aVar, (byte) 0);
+            aVar.a = new a.C0648a(aVar, (byte) 0);
         }
         if (i == 9) {
             aVar.a.a();
@@ -406,7 +406,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0640a(aVar, (byte) 0);
+            aVar.a = new a.C0648a(aVar, (byte) 0);
         }
         if (aVar.a.c == -1) {
             aVar.a.a();

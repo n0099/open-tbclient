@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class MediaPlayerProxy implements IMediaPlayer {
     protected final IMediaPlayer mBackEndMediaPlayer;
     private IMediaPlayer.OnErrorListener mOnErrorListener;

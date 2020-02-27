@@ -21,7 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BottomNavigationItemView extends FrameLayout implements MenuView.ItemView {
     private static final int[] CHECKED_STATE_SET = {16842912};
     public static final int INVALID_ITEM_POSITION = -1;

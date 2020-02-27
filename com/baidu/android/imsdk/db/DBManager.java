@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.CmdQueueMsg;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DBManager extends DBBase {
     private static final String TAG = "DBManager";
     private static DBManager mInstance = null;
@@ -34,9 +34,6 @@ public class DBManager extends DBBase {
                 openDatabase.delete(TableDefine.DB_TABLE_USERINFO, null, null);
                 openDatabase.delete("groupinfo", null, null);
                 openDatabase.delete("groupmember", null, null);
-            }
-            if (openDatabase != null) {
-                closeDatabase();
             }
         }
     }
@@ -91,7 +88,7 @@ public class DBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CmdQueueMsgParse implements CursorParse {
         CmdQueueMsg msg = null;
 

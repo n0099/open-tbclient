@@ -5,33 +5,35 @@ import java.util.Iterator;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class j implements i {
-    private final Matcher nCA;
-    private final CharSequence nCr;
-    private final g nCz;
+    private final CharSequence nDk;
+    private final g nDs;
+    private final Matcher nDt;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.q.j(matcher, "matcher");
         kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        this.nCA = matcher;
-        this.nCr = charSequence;
-        this.nCz = new a();
+        this.nDt = matcher;
+        this.nDk = charSequence;
+        this.nDs = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult dJD() {
-        return this.nCA;
+    public final MatchResult dKQ() {
+        return this.nDt;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.c dJB() {
-        kotlin.b.c a2;
-        a2 = k.a(dJD());
+    public kotlin.b.h dKO() {
+        kotlin.b.h a2;
+        a2 = k.a(dKQ());
         return a2;
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class a extends kotlin.collections.a<f> implements h {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
@@ -51,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.dJD().groupCount() + 1;
+            return j.this.dKQ().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -64,11 +66,11 @@ public final class j implements i {
             return kotlin.sequences.e.c(kotlin.collections.o.h(kotlin.collections.o.k(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public f NF(int i) {
-            kotlin.b.c a;
-            a = k.a(j.this.dJD(), i);
-            if (a.dJv().intValue() >= 0) {
-                String group = j.this.dJD().group(i);
+        public f NI(int i) {
+            kotlin.b.h a;
+            a = k.a(j.this.dKQ(), i);
+            if (a.dKF().intValue() >= 0) {
+                String group = j.this.dKQ().group(i);
                 kotlin.jvm.internal.q.i(group, "matchResult.group(index)");
                 return new f(group, a);
             }
@@ -77,13 +79,13 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i dJC() {
+    public i dKP() {
         i a2;
-        int end = (dJD().end() == dJD().start() ? 1 : 0) + dJD().end();
-        if (end <= this.nCr.length()) {
-            Matcher matcher = this.nCA.pattern().matcher(this.nCr);
+        int end = (dKQ().end() == dKQ().start() ? 1 : 0) + dKQ().end();
+        if (end <= this.nDk.length()) {
+            Matcher matcher = this.nDt.pattern().matcher(this.nDk);
             kotlin.jvm.internal.q.i(matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.nCr);
+            a2 = k.a(matcher, end, this.nDk);
             return a2;
         }
         return null;

@@ -1,8 +1,8 @@
 package com.baidu.swan.facade.requred.webview;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void b(com.baidu.swan.apps.core.j.c cVar);
 
@@ -11,7 +11,7 @@ public final class b {
         boolean isNeedDownload();
     }
 
-    public static a ahG() {
+    public static a ajU() {
         return new com.baidu.swan.facade.requred.webview.a.a();
     }
 }

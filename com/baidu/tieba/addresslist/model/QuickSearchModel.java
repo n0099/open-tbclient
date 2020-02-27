@@ -7,29 +7,29 @@ import com.baidu.tieba.addresslist.QuickSearchActivity;
 import com.baidu.tieba.addresslist.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
-    private a dXZ;
+    private a ecd;
     private byte[] mLock;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
         this.mLock = new byte[0];
-        this.dXZ = a.aWm();
+        this.ecd = a.aYB();
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<com.baidu.tbadk.coreExtra.relationship.a> xb(String str) {
+    public List<com.baidu.tbadk.coreExtra.relationship.a> xv(String str) {
         synchronized (this.mLock) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.a> aWn = this.dXZ.aWn();
-            if (aWn == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> aYC = this.ecd.aYC();
+            if (aYC == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : aWn) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : aYC) {
                 String userName = aVar.getUserName();
                 String quanpin = aVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
@@ -38,7 +38,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                     arrayList.add(aVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : aWn) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : aYC) {
                 String userName2 = aVar2.getUserName();
                 String quanpin2 = aVar2.getQuanpin();
                 if (!arrayList.contains(aVar2)) {

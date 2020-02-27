@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
 import com.baidu.swan.apps.as.ai;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppGlobalJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_jsbridge";
     private static final String TAG = "SwanAppGlobalJsBridge";

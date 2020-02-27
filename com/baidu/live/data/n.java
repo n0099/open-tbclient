@@ -1,10 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes2.dex */
+
+import android.app.Activity;
+/* loaded from: classes3.dex */
 public class n {
-    public boolean WF;
-    public String groupId;
-    public String liveId;
-    public int tabType;
-    public String userId;
-    public String userName;
+    public m Yq;
+    public Activity activity;
 }

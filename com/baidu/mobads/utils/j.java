@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.io.File;
 import java.util.Arrays;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class j implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ i b;

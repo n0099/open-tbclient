@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.ui.animview.base.IAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class BaseLayoutStrategy implements ILayoutStrategy {
     private static final float ERUPTION_SIZE_DP = 313.0f;
     private static final float PRAISELEVEL_SIZE_DP = 170.0f;

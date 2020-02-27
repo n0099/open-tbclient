@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.n.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a {
-    public String bqi;
+    public String bus;
 
-    public abstract String hu(String str);
+    public abstract String hJ(String str);
 }

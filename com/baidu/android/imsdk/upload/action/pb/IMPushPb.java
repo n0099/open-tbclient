@@ -1,9 +1,7 @@
 package com.baidu.android.imsdk.upload.action.pb;
 
+import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.lbsapi.auth.LBSAuthManager;
-import com.baidu.location.BDLocation;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
@@ -15,83 +13,478 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class IMPushPb {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AckOrBuilder extends MessageLiteOrBuilder {
+        long getAliasId();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        long getTimestamp();
+
+        String getType();
+
+        ByteString getTypeBytes();
+
+        String getValue();
+
+        ByteString getValueBytes();
+
+        boolean hasAliasId();
+
+        boolean hasExt();
+
+        boolean hasTimestamp();
+
+        boolean hasType();
+
+        boolean hasValue();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ActionOrBuilder extends MessageLiteOrBuilder {
+        Ack getAck();
+
+        ActionType getActionType();
+
+        Connection getConnection();
+
+        Crash getCrash();
+
+        Db getDb();
+
+        Msg getMsg();
+
+        Request getRequest();
+
+        Ui getUi();
+
+        boolean hasAck();
+
+        boolean hasActionType();
+
+        boolean hasConnection();
+
+        boolean hasCrash();
+
+        boolean hasDb();
+
+        boolean hasMsg();
+
+        boolean hasRequest();
+
+        boolean hasUi();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AppInfoOrBuilder extends MessageLiteOrBuilder {
+        String getAppChannel();
+
+        ByteString getAppChannelBytes();
+
+        String getAppName();
+
+        ByteString getAppNameBytes();
+
+        String getAppVersion();
+
+        ByteString getAppVersionBytes();
+
+        boolean hasAppChannel();
+
+        boolean hasAppName();
+
+        boolean hasAppVersion();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CommonOrBuilder extends MessageLiteOrBuilder {
+        AppInfo getAppInfo();
+
+        DeviceID getDeviceId();
+
+        String getModuleName();
+
+        ByteString getModuleNameBytes();
+
+        NetInfo getNetInfo();
+
+        String getProductName();
+
+        ByteString getProductNameBytes();
+
+        TerminalInfo getTerminalInfo();
+
+        long getTimestamp();
+
+        long getUserTimestamp();
+
+        boolean hasAppInfo();
+
+        boolean hasDeviceId();
+
+        boolean hasModuleName();
+
+        boolean hasNetInfo();
+
+        boolean hasProductName();
+
+        boolean hasTerminalInfo();
+
+        boolean hasTimestamp();
+
+        boolean hasUserTimestamp();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ConnectionOrBuilder extends MessageLiteOrBuilder {
+        long getAliasId();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        String getReason();
+
+        ByteString getReasonBytes();
+
+        long getRetryCount();
+
+        long getRetryTime();
+
+        long getStartTime();
+
+        long getStopTime();
+
+        boolean hasAliasId();
+
+        boolean hasExt();
+
+        boolean hasReason();
+
+        boolean hasRetryCount();
+
+        boolean hasRetryTime();
+
+        boolean hasStartTime();
+
+        boolean hasStopTime();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CrashOrBuilder extends MessageLiteOrBuilder {
+        long getAliasId();
+
+        String getException();
+
+        ByteString getExceptionBytes();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        long getTimestamp();
+
+        boolean hasAliasId();
+
+        boolean hasException();
+
+        boolean hasExt();
+
+        boolean hasTimestamp();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface DbOrBuilder extends MessageLiteOrBuilder {
+        String getAction();
+
+        ByteString getActionBytes();
+
+        long getAliasId();
+
+        String getClassName();
+
+        ByteString getClassNameBytes();
+
+        long getDuration();
+
+        long getEndTime();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        String getMethod();
+
+        ByteString getMethodBytes();
+
+        long getStartTime();
+
+        String getTable();
+
+        ByteString getTableBytes();
+
+        boolean hasAction();
+
+        boolean hasAliasId();
+
+        boolean hasClassName();
+
+        boolean hasDuration();
+
+        boolean hasEndTime();
+
+        boolean hasExt();
+
+        boolean hasMethod();
+
+        boolean hasStartTime();
+
+        boolean hasTable();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface DeviceIDOrBuilder extends MessageLiteOrBuilder {
+        String getCuid();
+
+        ByteString getCuidBytes();
+
+        boolean hasCuid();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MetaDataOrBuilder extends MessageLiteOrBuilder {
+        int getLogModuleId();
+
+        String getLogName();
+
+        ByteString getLogNameBytes();
+
+        String getProductName();
+
+        ByteString getProductNameBytes();
+
+        boolean hasLogModuleId();
+
+        boolean hasLogName();
+
+        boolean hasProductName();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MsgOrBuilder extends MessageLiteOrBuilder {
+        long getAliasId();
+
+        long getDuration();
+
+        long getEndMsgid();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        long getMsgCount();
+
+        String getRoomId();
+
+        ByteString getRoomIdBytes();
+
+        long getStartMsgid();
+
+        boolean hasAliasId();
+
+        boolean hasDuration();
+
+        boolean hasEndMsgid();
+
+        boolean hasExt();
+
+        boolean hasMsgCount();
+
+        boolean hasRoomId();
+
+        boolean hasStartMsgid();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface NetInfoOrBuilder extends MessageLiteOrBuilder {
+        String getNetApn();
+
+        ByteString getNetApnBytes();
+
+        String getNetType();
+
+        ByteString getNetTypeBytes();
+
+        boolean hasNetApn();
+
+        boolean hasNetType();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
+        Action getActions(int i);
+
+        int getActionsCount();
+
+        List<Action> getActionsList();
+
+        Common getCommon();
+
+        MetaData getMetadata();
+
+        String getSdkName();
+
+        ByteString getSdkNameBytes();
+
+        long getSdkVersion();
+
+        boolean hasCommon();
+
+        boolean hasMetadata();
+
+        boolean hasSdkName();
+
+        boolean hasSdkVersion();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface RequestOrBuilder extends MessageLiteOrBuilder {
+        long getAliasId();
+
+        long getErrorCode();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        String getMethod();
+
+        ByteString getMethodBytes();
+
+        String getRequestId();
+
+        ByteString getRequestIdBytes();
+
+        long getResponseTime();
+
+        long getTimestamp();
+
+        boolean hasAliasId();
+
+        boolean hasErrorCode();
+
+        boolean hasExt();
+
+        boolean hasMethod();
+
+        boolean hasRequestId();
+
+        boolean hasResponseTime();
+
+        boolean hasTimestamp();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface TerminalInfoOrBuilder extends MessageLiteOrBuilder {
+        String getManufacturer();
+
+        ByteString getManufacturerBytes();
+
+        OSType getOs();
+
+        String getOsVersion();
+
+        ByteString getOsVersionBytes();
+
+        int getPpi();
+
+        int getResolutionH();
+
+        int getResolutionV();
+
+        String getTerminalType();
+
+        ByteString getTerminalTypeBytes();
+
+        boolean hasManufacturer();
+
+        boolean hasOs();
+
+        boolean hasOsVersion();
+
+        boolean hasPpi();
+
+        boolean hasResolutionH();
+
+        boolean hasResolutionV();
+
+        boolean hasTerminalType();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface UiOrBuilder extends MessageLiteOrBuilder {
+        long getAliasId();
+
+        String getCategory();
+
+        ByteString getCategoryBytes();
+
+        long getDuration();
+
+        long getEndTime();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        String getPage();
+
+        ByteString getPageBytes();
+
+        long getStartTime();
+
+        boolean hasAliasId();
+
+        boolean hasCategory();
+
+        boolean hasDuration();
+
+        boolean hasEndTime();
+
+        boolean hasExt();
+
+        boolean hasPage();
+
+        boolean hasStartTime();
     }
 
     private IMPushPb() {
     }
 
-    /* loaded from: classes2.dex */
+    public static void registerAllExtensions(ExtensionRegistryLite extensionRegistryLite) {
+    }
+
+    /* loaded from: classes3.dex */
     public enum OSType implements Internal.EnumLite {
         OS_TYPE_UNKNWON(0, 0),
         IOS(1, 1),
         ANDROID(2, 2),
         WINDOWSPHONE(3, 3);
         
+        public static final int ANDROID_VALUE = 2;
+        public static final int IOS_VALUE = 1;
+        public static final int OS_TYPE_UNKNWON_VALUE = 0;
+        public static final int WINDOWSPHONE_VALUE = 3;
         private static Internal.EnumLiteMap<OSType> internalValueMap = new Internal.EnumLiteMap<OSType>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.OSType.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
@@ -122,21 +515,32 @@ public final class IMPushPb {
             }
         }
 
+        public static Internal.EnumLiteMap<OSType> internalGetValueMap() {
+            return internalValueMap;
+        }
+
         OSType(int i, int i2) {
             this.value = i2;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ActionType implements Internal.EnumLite {
         UI(0, 101),
         CRASH(1, 201),
         DB(2, 301),
         CONNECTION(3, 401),
         REQUEST(4, 501),
-        ACK(5, LBSAuthManager.CODE_UNAUTHENTICATE),
-        MSG(6, CyberPlayerManager.MEDIA_INFO_BUFFERING_START);
+        ACK(5, 601),
+        MSG(6, 701);
         
+        public static final int ACK_VALUE = 601;
+        public static final int CONNECTION_VALUE = 401;
+        public static final int CRASH_VALUE = 201;
+        public static final int DB_VALUE = 301;
+        public static final int MSG_VALUE = 701;
+        public static final int REQUEST_VALUE = 501;
+        public static final int UI_VALUE = 101;
         private static Internal.EnumLiteMap<ActionType> internalValueMap = new Internal.EnumLiteMap<ActionType>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionType.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
@@ -164,13 +568,17 @@ public final class IMPushPb {
                     return CONNECTION;
                 case 501:
                     return REQUEST;
-                case LBSAuthManager.CODE_UNAUTHENTICATE /* 601 */:
+                case 601:
                     return ACK;
-                case CyberPlayerManager.MEDIA_INFO_BUFFERING_START /* 701 */:
+                case 701:
                     return MSG;
                 default:
                     return null;
             }
+        }
+
+        public static Internal.EnumLiteMap<ActionType> internalGetValueMap() {
+            return internalValueMap;
         }
 
         ActionType(int i, int i2) {
@@ -178,9 +586,10 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
-        public static Parser<DeviceID> PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
+        public static final int CUID_FIELD_NUMBER = 4;
+        public static final Parser<DeviceID> PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public DeviceID parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -203,6 +612,16 @@ public final class IMPushPb {
         private DeviceID(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static DeviceID getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public DeviceID getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private DeviceID(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -243,16 +662,6 @@ public final class IMPushPb {
             }
         }
 
-        public static DeviceID getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DeviceID getDefaultInstanceForType() {
-            return defaultInstance;
-        }
-
         static {
             defaultInstance.initFields();
         }
@@ -262,10 +671,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
         public boolean hasCuid() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
         public String getCuid() {
             Object obj = this.cuid;
             if (obj instanceof String) {
@@ -279,6 +690,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
         public ByteString getCuidBytes() {
             Object obj = this.cuid;
             if (obj instanceof String) {
@@ -325,17 +737,54 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static DeviceID parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static DeviceID parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static DeviceID parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static DeviceID parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static DeviceID parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static DeviceID parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static DeviceID parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static DeviceID parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static DeviceID parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static DeviceID parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
-        }
-
-        public static Builder newBuilder(DeviceID deviceID) {
-            return newBuilder().mergeFrom(deviceID);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -344,13 +793,17 @@ public final class IMPushPb {
             return newBuilder();
         }
 
+        public static Builder newBuilder(DeviceID deviceID) {
+            return newBuilder().mergeFrom(deviceID);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public Builder toBuilder() {
             return newBuilder(this);
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             private int bitField0;
             private Object cuid = "";
@@ -418,6 +871,11 @@ public final class IMPushPb {
                 return this;
             }
 
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return hasCuid();
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
@@ -456,15 +914,12 @@ public final class IMPushPb {
                 }
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return hasCuid();
-            }
-
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
             public boolean hasCuid() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
             public String getCuid() {
                 Object obj = this.cuid;
                 if (obj instanceof String) {
@@ -475,6 +930,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
             public ByteString getCuidBytes() {
                 Object obj = this.cuid;
                 if (obj instanceof String) {
@@ -493,19 +949,33 @@ public final class IMPushPb {
                 this.cuid = str;
                 return this;
             }
+
+            public Builder clearCuid() {
+                this.bitField0 &= -2;
+                this.cuid = DeviceID.getDefaultInstance().getCuid();
+                return this;
+            }
+
+            public Builder setCuidBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.cuid = byteString;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
-        public static Parser<TerminalInfo> PARSER = new AbstractParser<TerminalInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfo.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public TerminalInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new TerminalInfo(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final TerminalInfo defaultInstance = new TerminalInfo(true);
+        public static final int MANUFACTURER_FIELD_NUMBER = 3;
+        public static final int OS_FIELD_NUMBER = 1;
+        public static final int OS_VERSION_FIELD_NUMBER = 2;
+        public static final int PPI_FIELD_NUMBER = 7;
+        public static final int RESOLUTION_H_FIELD_NUMBER = 5;
+        public static final int RESOLUTION_V_FIELD_NUMBER = 6;
+        public static final int TERMINAL_TYPE_FIELD_NUMBER = 4;
         private static final long serialVersionUID = 0;
         private int bitField0;
         private Object manufacturer;
@@ -517,6 +987,25 @@ public final class IMPushPb {
         private int resolutionH;
         private int resolutionV;
         private Object terminalType;
+        public static final Parser<TerminalInfo> PARSER = new AbstractParser<TerminalInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfo.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public TerminalInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new TerminalInfo(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final TerminalInfo defaultInstance = new TerminalInfo(true);
+
+        private TerminalInfo(GeneratedMessageLite.Builder builder) {
+            super(builder);
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        private TerminalInfo(boolean z) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
 
         public static TerminalInfo getDefaultInstance() {
             return defaultInstance;
@@ -526,17 +1015,6 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public TerminalInfo getDefaultInstanceForType() {
             return defaultInstance;
-        }
-
-        private TerminalInfo(boolean z) {
-            this.memoizedIsInitialized = (byte) -1;
-            this.memoizedSerializedSize = -1;
-        }
-
-        private TerminalInfo(GeneratedMessageLite.Builder builder) {
-            super(builder);
-            this.memoizedIsInitialized = (byte) -1;
-            this.memoizedSerializedSize = -1;
         }
 
         private TerminalInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -613,18 +1091,22 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasOs() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public OSType getOs() {
             return this.os;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasOsVersion() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public String getOsVersion() {
             Object obj = this.osVersion;
             if (obj instanceof String) {
@@ -638,6 +1120,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public ByteString getOsVersionBytes() {
             Object obj = this.osVersion;
             if (obj instanceof String) {
@@ -648,10 +1131,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasManufacturer() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public String getManufacturer() {
             Object obj = this.manufacturer;
             if (obj instanceof String) {
@@ -665,6 +1150,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public ByteString getManufacturerBytes() {
             Object obj = this.manufacturer;
             if (obj instanceof String) {
@@ -675,10 +1161,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasTerminalType() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public String getTerminalType() {
             Object obj = this.terminalType;
             if (obj instanceof String) {
@@ -692,6 +1180,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public ByteString getTerminalTypeBytes() {
             Object obj = this.terminalType;
             if (obj instanceof String) {
@@ -702,26 +1191,32 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasResolutionH() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public int getResolutionH() {
             return this.resolutionH;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasResolutionV() {
             return (this.bitField0 & 32) == 32;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public int getResolutionV() {
             return this.resolutionV;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasPpi() {
             return (this.bitField0 & 64) == 64;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public int getPpi() {
             return this.ppi;
         }
@@ -800,13 +1295,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static TerminalInfo parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static TerminalInfo parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static TerminalInfo parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static TerminalInfo parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static TerminalInfo parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static TerminalInfo parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static TerminalInfo parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static TerminalInfo parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static TerminalInfo parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static TerminalInfo parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
 
         public static Builder newBuilder(TerminalInfo terminalInfo) {
@@ -819,13 +1361,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             private int bitField0;
             private int ppi;
@@ -926,11 +1462,6 @@ public final class IMPushPb {
                 return terminalInfo;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(TerminalInfo terminalInfo) {
@@ -961,6 +1492,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1001,10 +1537,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasOs() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public OSType getOs() {
                 return this.os;
             }
@@ -1018,10 +1556,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearOs() {
+                this.bitField0 &= -2;
+                this.os = OSType.OS_TYPE_UNKNWON;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasOsVersion() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public String getOsVersion() {
                 Object obj = this.osVersion;
                 if (obj instanceof String) {
@@ -1032,6 +1578,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public ByteString getOsVersionBytes() {
                 Object obj = this.osVersion;
                 if (obj instanceof String) {
@@ -1051,10 +1598,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearOsVersion() {
+                this.bitField0 &= -3;
+                this.osVersion = TerminalInfo.getDefaultInstance().getOsVersion();
+                return this;
+            }
+
+            public Builder setOsVersionBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.osVersion = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasManufacturer() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public String getManufacturer() {
                 Object obj = this.manufacturer;
                 if (obj instanceof String) {
@@ -1065,6 +1629,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public ByteString getManufacturerBytes() {
                 Object obj = this.manufacturer;
                 if (obj instanceof String) {
@@ -1084,10 +1649,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearManufacturer() {
+                this.bitField0 &= -5;
+                this.manufacturer = TerminalInfo.getDefaultInstance().getManufacturer();
+                return this;
+            }
+
+            public Builder setManufacturerBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 4;
+                this.manufacturer = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasTerminalType() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public String getTerminalType() {
                 Object obj = this.terminalType;
                 if (obj instanceof String) {
@@ -1098,6 +1680,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public ByteString getTerminalTypeBytes() {
                 Object obj = this.terminalType;
                 if (obj instanceof String) {
@@ -1117,10 +1700,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearTerminalType() {
+                this.bitField0 &= -9;
+                this.terminalType = TerminalInfo.getDefaultInstance().getTerminalType();
+                return this;
+            }
+
+            public Builder setTerminalTypeBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 8;
+                this.terminalType = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasResolutionH() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public int getResolutionH() {
                 return this.resolutionH;
             }
@@ -1131,10 +1731,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearResolutionH() {
+                this.bitField0 &= -17;
+                this.resolutionH = 0;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasResolutionV() {
                 return (this.bitField0 & 32) == 32;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public int getResolutionV() {
                 return this.resolutionV;
             }
@@ -1145,10 +1753,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearResolutionV() {
+                this.bitField0 &= -33;
+                this.resolutionV = 0;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasPpi() {
                 return (this.bitField0 & 64) == 64;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public int getPpi() {
                 return this.ppi;
             }
@@ -1158,12 +1774,21 @@ public final class IMPushPb {
                 this.ppi = i;
                 return this;
             }
+
+            public Builder clearPpi() {
+                this.bitField0 &= -65;
+                this.ppi = 0;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
-        public static Parser<AppInfo> PARSER = new AbstractParser<AppInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfo.1
+        public static final int APP_CHANNEL_FIELD_NUMBER = 3;
+        public static final int APP_NAME_FIELD_NUMBER = 1;
+        public static final int APP_VERSION_FIELD_NUMBER = 2;
+        public static final Parser<AppInfo> PARSER = new AbstractParser<AppInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public AppInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -1179,16 +1804,6 @@ public final class IMPushPb {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
 
-        public static AppInfo getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public AppInfo getDefaultInstanceForType() {
-            return defaultInstance;
-        }
-
         private AppInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
             this.memoizedIsInitialized = (byte) -1;
@@ -1198,6 +1813,16 @@ public final class IMPushPb {
         private AppInfo(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static AppInfo getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public AppInfo getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private AppInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -1255,10 +1880,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public boolean hasAppName() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public String getAppName() {
             Object obj = this.appName;
             if (obj instanceof String) {
@@ -1272,6 +1899,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public ByteString getAppNameBytes() {
             Object obj = this.appName;
             if (obj instanceof String) {
@@ -1282,10 +1910,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public boolean hasAppVersion() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public String getAppVersion() {
             Object obj = this.appVersion;
             if (obj instanceof String) {
@@ -1299,6 +1929,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public ByteString getAppVersionBytes() {
             Object obj = this.appVersion;
             if (obj instanceof String) {
@@ -1309,10 +1940,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public boolean hasAppChannel() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public String getAppChannel() {
             Object obj = this.appChannel;
             if (obj instanceof String) {
@@ -1326,6 +1959,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public ByteString getAppChannelBytes() {
             Object obj = this.appChannel;
             if (obj instanceof String) {
@@ -1382,13 +2016,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static AppInfo parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static AppInfo parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static AppInfo parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static AppInfo parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static AppInfo parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static AppInfo parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static AppInfo parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static AppInfo parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static AppInfo parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static AppInfo parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
 
         public static Builder newBuilder(AppInfo appInfo) {
@@ -1401,13 +2082,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             private int bitField0;
             private Object appName = "";
@@ -1480,11 +2155,6 @@ public final class IMPushPb {
                 return appInfo;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(AppInfo appInfo) {
@@ -1503,6 +2173,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1543,10 +2218,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public boolean hasAppName() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public String getAppName() {
                 Object obj = this.appName;
                 if (obj instanceof String) {
@@ -1557,6 +2234,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public ByteString getAppNameBytes() {
                 Object obj = this.appName;
                 if (obj instanceof String) {
@@ -1576,10 +2254,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearAppName() {
+                this.bitField0 &= -2;
+                this.appName = AppInfo.getDefaultInstance().getAppName();
+                return this;
+            }
+
+            public Builder setAppNameBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.appName = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public boolean hasAppVersion() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public String getAppVersion() {
                 Object obj = this.appVersion;
                 if (obj instanceof String) {
@@ -1590,6 +2285,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public ByteString getAppVersionBytes() {
                 Object obj = this.appVersion;
                 if (obj instanceof String) {
@@ -1609,10 +2305,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearAppVersion() {
+                this.bitField0 &= -3;
+                this.appVersion = AppInfo.getDefaultInstance().getAppVersion();
+                return this;
+            }
+
+            public Builder setAppVersionBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.appVersion = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public boolean hasAppChannel() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public String getAppChannel() {
                 Object obj = this.appChannel;
                 if (obj instanceof String) {
@@ -1623,6 +2336,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public ByteString getAppChannelBytes() {
                 Object obj = this.appChannel;
                 if (obj instanceof String) {
@@ -1641,12 +2355,29 @@ public final class IMPushPb {
                 this.appChannel = str;
                 return this;
             }
+
+            public Builder clearAppChannel() {
+                this.bitField0 &= -5;
+                this.appChannel = AppInfo.getDefaultInstance().getAppChannel();
+                return this;
+            }
+
+            public Builder setAppChannelBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 4;
+                this.appChannel = byteString;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
-        public static Parser<NetInfo> PARSER = new AbstractParser<NetInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfo.1
+        public static final int NET_APN_FIELD_NUMBER = 2;
+        public static final int NET_TYPE_FIELD_NUMBER = 1;
+        public static final Parser<NetInfo> PARSER = new AbstractParser<NetInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public NetInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -1661,16 +2392,6 @@ public final class IMPushPb {
         private Object netApn;
         private Object netType;
 
-        public static NetInfo getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public NetInfo getDefaultInstanceForType() {
-            return defaultInstance;
-        }
-
         private NetInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
             this.memoizedIsInitialized = (byte) -1;
@@ -1680,6 +2401,16 @@ public final class IMPushPb {
         private NetInfo(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static NetInfo getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public NetInfo getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private NetInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -1733,10 +2464,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public boolean hasNetType() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public String getNetType() {
             Object obj = this.netType;
             if (obj instanceof String) {
@@ -1750,6 +2483,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public ByteString getNetTypeBytes() {
             Object obj = this.netType;
             if (obj instanceof String) {
@@ -1760,10 +2494,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public boolean hasNetApn() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public String getNetApn() {
             Object obj = this.netApn;
             if (obj instanceof String) {
@@ -1777,6 +2513,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public ByteString getNetApnBytes() {
             Object obj = this.netApn;
             if (obj instanceof String) {
@@ -1826,17 +2563,54 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static NetInfo parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static NetInfo parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static NetInfo parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static NetInfo parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static NetInfo parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static NetInfo parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static NetInfo parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static NetInfo parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static NetInfo parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static NetInfo parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
-        }
-
-        public static Builder newBuilder(NetInfo netInfo) {
-            return newBuilder().mergeFrom(netInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1845,13 +2619,17 @@ public final class IMPushPb {
             return newBuilder();
         }
 
+        public static Builder newBuilder(NetInfo netInfo) {
+            return newBuilder().mergeFrom(netInfo);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public Builder toBuilder() {
             return newBuilder(this);
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             private int bitField0;
             private Object netType = "";
@@ -1917,11 +2695,6 @@ public final class IMPushPb {
                 return netInfo;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(NetInfo netInfo) {
@@ -1936,6 +2709,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1976,10 +2754,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public boolean hasNetType() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public String getNetType() {
                 Object obj = this.netType;
                 if (obj instanceof String) {
@@ -1990,6 +2770,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public ByteString getNetTypeBytes() {
                 Object obj = this.netType;
                 if (obj instanceof String) {
@@ -2009,10 +2790,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearNetType() {
+                this.bitField0 &= -2;
+                this.netType = NetInfo.getDefaultInstance().getNetType();
+                return this;
+            }
+
+            public Builder setNetTypeBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.netType = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public boolean hasNetApn() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public String getNetApn() {
                 Object obj = this.netApn;
                 if (obj instanceof String) {
@@ -2023,6 +2821,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public ByteString getNetApnBytes() {
                 Object obj = this.netApn;
                 if (obj instanceof String) {
@@ -2041,19 +2840,34 @@ public final class IMPushPb {
                 this.netApn = str;
                 return this;
             }
+
+            public Builder clearNetApn() {
+                this.bitField0 &= -3;
+                this.netApn = NetInfo.getDefaultInstance().getNetApn();
+                return this;
+            }
+
+            public Builder setNetApnBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.netApn = byteString;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
-        public static Parser<Common> PARSER = new AbstractParser<Common>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Common.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Common parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Common(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Common defaultInstance = new Common(true);
+        public static final int APP_INFO_FIELD_NUMBER = 21;
+        public static final int DEVICE_ID_FIELD_NUMBER = 7;
+        public static final int MODULE_NAME_FIELD_NUMBER = 2;
+        public static final int NET_INFO_FIELD_NUMBER = 22;
+        public static final int PRODUCT_NAME_FIELD_NUMBER = 1;
+        public static final int TERMINAL_INFO_FIELD_NUMBER = 20;
+        public static final int TIMESTAMP_FIELD_NUMBER = 10;
+        public static final int USER_TIMESTAMP_FIELD_NUMBER = 12;
         private static final long serialVersionUID = 0;
         private AppInfo appInfo;
         private int bitField0;
@@ -2066,16 +2880,14 @@ public final class IMPushPb {
         private TerminalInfo terminalInfo;
         private long timestamp;
         private long userTimestamp;
-
-        public static Common getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Common getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Common> PARSER = new AbstractParser<Common>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Common.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Common parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Common(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Common defaultInstance = new Common(true);
 
         private Common(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -2086,6 +2898,16 @@ public final class IMPushPb {
         private Common(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Common getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Common getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -2132,7 +2954,7 @@ public final class IMPushPb {
                                 this.userTimestamp = codedInputStream.readInt64();
                                 z = z2;
                                 break;
-                            case BDLocation.TypeServerDecryptError /* 162 */:
+                            case 162:
                                 TerminalInfo.Builder builder2 = (this.bitField0 & 32) == 32 ? this.terminalInfo.toBuilder() : null;
                                 this.terminalInfo = (TerminalInfo) codedInputStream.readMessage(TerminalInfo.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
@@ -2152,7 +2974,7 @@ public final class IMPushPb {
                                 this.bitField0 |= 64;
                                 z = z2;
                                 break;
-                            case 178:
+                            case Opcodes.GETSTATIC /* 178 */:
                                 NetInfo.Builder builder4 = (this.bitField0 & 128) == 128 ? this.netInfo.toBuilder() : null;
                                 this.netInfo = (NetInfo) codedInputStream.readMessage(NetInfo.PARSER, extensionRegistryLite);
                                 if (builder4 != null) {
@@ -2192,10 +3014,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasProductName() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public String getProductName() {
             Object obj = this.productName;
             if (obj instanceof String) {
@@ -2209,6 +3033,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public ByteString getProductNameBytes() {
             Object obj = this.productName;
             if (obj instanceof String) {
@@ -2219,10 +3044,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasModuleName() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public String getModuleName() {
             Object obj = this.moduleName;
             if (obj instanceof String) {
@@ -2236,6 +3063,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public ByteString getModuleNameBytes() {
             Object obj = this.moduleName;
             if (obj instanceof String) {
@@ -2246,50 +3074,62 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasDeviceId() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public DeviceID getDeviceId() {
             return this.deviceId;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasTimestamp() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public long getTimestamp() {
             return this.timestamp;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasUserTimestamp() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public long getUserTimestamp() {
             return this.userTimestamp;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasTerminalInfo() {
             return (this.bitField0 & 32) == 32;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public TerminalInfo getTerminalInfo() {
             return this.terminalInfo;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasAppInfo() {
             return (this.bitField0 & 64) == 64;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public AppInfo getAppInfo() {
             return this.appInfo;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasNetInfo() {
             return (this.bitField0 & 128) == 128;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public NetInfo getNetInfo() {
             return this.netInfo;
         }
@@ -2382,19 +3222,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Common parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Common parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Common parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Common parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Common parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Common parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Common parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Common parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Common parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Common parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+        }
+
+        public static Builder newBuilder() {
+            return Builder.create();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public Builder newBuilderForType() {
             return newBuilder();
-        }
-
-        public static Builder newBuilder() {
-            return Builder.create();
         }
 
         public static Builder newBuilder(Common common2) {
@@ -2407,7 +3288,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             private int bitField0;
             private long timestamp;
@@ -2515,14 +3396,6 @@ public final class IMPushPb {
                 return common2;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                if (hasTimestamp()) {
-                    return !hasDeviceId() || getDeviceId().isInitialized();
-                }
-                return false;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Common common2) {
@@ -2555,6 +3428,14 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                if (hasTimestamp()) {
+                    return !hasDeviceId() || getDeviceId().isInitialized();
+                }
+                return false;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2595,10 +3476,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasProductName() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public String getProductName() {
                 Object obj = this.productName;
                 if (obj instanceof String) {
@@ -2609,6 +3492,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public ByteString getProductNameBytes() {
                 Object obj = this.productName;
                 if (obj instanceof String) {
@@ -2619,10 +3503,36 @@ public final class IMPushPb {
                 return (ByteString) obj;
             }
 
+            public Builder setProductName(String str) {
+                if (str == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.productName = str;
+                return this;
+            }
+
+            public Builder clearProductName() {
+                this.bitField0 &= -2;
+                this.productName = Common.getDefaultInstance().getProductName();
+                return this;
+            }
+
+            public Builder setProductNameBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.productName = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasModuleName() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public String getModuleName() {
                 Object obj = this.moduleName;
                 if (obj instanceof String) {
@@ -2633,6 +3543,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public ByteString getModuleNameBytes() {
                 Object obj = this.moduleName;
                 if (obj instanceof String) {
@@ -2643,10 +3554,36 @@ public final class IMPushPb {
                 return (ByteString) obj;
             }
 
+            public Builder setModuleName(String str) {
+                if (str == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.moduleName = str;
+                return this;
+            }
+
+            public Builder clearModuleName() {
+                this.bitField0 &= -3;
+                this.moduleName = Common.getDefaultInstance().getModuleName();
+                return this;
+            }
+
+            public Builder setModuleNameBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.moduleName = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasDeviceId() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public DeviceID getDeviceId() {
                 return this.deviceId;
             }
@@ -2656,6 +3593,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.deviceId = deviceID;
+                this.bitField0 |= 4;
+                return this;
+            }
+
+            public Builder setDeviceId(DeviceID.Builder builder) {
+                this.deviceId = builder.build();
                 this.bitField0 |= 4;
                 return this;
             }
@@ -2670,10 +3613,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearDeviceId() {
+                this.deviceId = DeviceID.getDefaultInstance();
+                this.bitField0 &= -5;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasTimestamp() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public long getTimestamp() {
                 return this.timestamp;
             }
@@ -2684,10 +3635,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearTimestamp() {
+                this.bitField0 &= -9;
+                this.timestamp = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasUserTimestamp() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public long getUserTimestamp() {
                 return this.userTimestamp;
             }
@@ -2698,10 +3657,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearUserTimestamp() {
+                this.bitField0 &= -17;
+                this.userTimestamp = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasTerminalInfo() {
                 return (this.bitField0 & 32) == 32;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public TerminalInfo getTerminalInfo() {
                 return this.terminalInfo;
             }
@@ -2711,6 +3678,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.terminalInfo = terminalInfo;
+                this.bitField0 |= 32;
+                return this;
+            }
+
+            public Builder setTerminalInfo(TerminalInfo.Builder builder) {
+                this.terminalInfo = builder.build();
                 this.bitField0 |= 32;
                 return this;
             }
@@ -2725,10 +3698,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearTerminalInfo() {
+                this.terminalInfo = TerminalInfo.getDefaultInstance();
+                this.bitField0 &= -33;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasAppInfo() {
                 return (this.bitField0 & 64) == 64;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public AppInfo getAppInfo() {
                 return this.appInfo;
             }
@@ -2738,6 +3719,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.appInfo = appInfo;
+                this.bitField0 |= 64;
+                return this;
+            }
+
+            public Builder setAppInfo(AppInfo.Builder builder) {
+                this.appInfo = builder.build();
                 this.bitField0 |= 64;
                 return this;
             }
@@ -2752,10 +3739,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearAppInfo() {
+                this.appInfo = AppInfo.getDefaultInstance();
+                this.bitField0 &= -65;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasNetInfo() {
                 return (this.bitField0 & 128) == 128;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public NetInfo getNetInfo() {
                 return this.netInfo;
             }
@@ -2769,6 +3764,12 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder setNetInfo(NetInfo.Builder builder) {
+                this.netInfo = builder.build();
+                this.bitField0 |= 128;
+                return this;
+            }
+
             public Builder mergeNetInfo(NetInfo netInfo) {
                 if ((this.bitField0 & 128) == 128 && this.netInfo != NetInfo.getDefaultInstance()) {
                     this.netInfo = NetInfo.newBuilder(this.netInfo).mergeFrom(netInfo).buildPartial();
@@ -2778,12 +3779,34 @@ public final class IMPushPb {
                 this.bitField0 |= 128;
                 return this;
             }
+
+            public Builder clearNetInfo() {
+                this.netInfo = NetInfo.getDefaultInstance();
+                this.bitField0 &= -129;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
-        public static Parser<PushImClient> PARSER = new AbstractParser<PushImClient>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClient.1
+        public static final int ACTIONS_FIELD_NUMBER = 132;
+        public static final int COMMON_FIELD_NUMBER = 41;
+        public static final int METADATA_FIELD_NUMBER = 25;
+        public static final int SDK_NAME_FIELD_NUMBER = 130;
+        public static final int SDK_VERSION_FIELD_NUMBER = 131;
+        private static final long serialVersionUID = 0;
+        private List<Action> actions;
+        private int bitField0;
+
+        /* renamed from: common  reason: collision with root package name */
+        private Common f979common;
+        private byte memoizedIsInitialized;
+        private int memoizedSerializedSize;
+        private MetaData metadata;
+        private Object sdkName;
+        private long sdkVersion;
+        public static final Parser<PushImClient> PARSER = new AbstractParser<PushImClient>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClient.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public PushImClient parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -2791,27 +3814,6 @@ public final class IMPushPb {
             }
         };
         private static final PushImClient defaultInstance = new PushImClient(true);
-        private static final long serialVersionUID = 0;
-        private List<Action> actions;
-        private int bitField0;
-
-        /* renamed from: common  reason: collision with root package name */
-        private Common f965common;
-        private byte memoizedIsInitialized;
-        private int memoizedSerializedSize;
-        private MetaData metadata;
-        private Object sdkName;
-        private long sdkVersion;
-
-        public static PushImClient getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public PushImClient getDefaultInstanceForType() {
-            return defaultInstance;
-        }
 
         private PushImClient(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -2822,6 +3824,16 @@ public final class IMPushPb {
         private PushImClient(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static PushImClient getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public PushImClient getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.util.List<com.baidu.android.imsdk.upload.action.pb.IMPushPb$Action> */
@@ -2856,11 +3868,11 @@ public final class IMPushPb {
                                 z2 = z5;
                                 break;
                             case 330:
-                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f965common.toBuilder() : null;
-                                this.f965common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
+                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f979common.toBuilder() : null;
+                                this.f979common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
-                                    builder2.mergeFrom(this.f965common);
-                                    this.f965common = builder2.buildPartial();
+                                    builder2.mergeFrom(this.f979common);
+                                    this.f979common = builder2.buildPartial();
                                 }
                                 this.bitField0 |= 2;
                                 z3 = z4;
@@ -2943,26 +3955,32 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public boolean hasMetadata() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public MetaData getMetadata() {
             return this.metadata;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public boolean hasCommon() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Common getCommon() {
-            return this.f965common;
+            return this.f979common;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public boolean hasSdkName() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public String getSdkName() {
             Object obj = this.sdkName;
             if (obj instanceof String) {
@@ -2976,6 +3994,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public ByteString getSdkNameBytes() {
             Object obj = this.sdkName;
             if (obj instanceof String) {
@@ -2986,29 +4005,42 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public boolean hasSdkVersion() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public long getSdkVersion() {
             return this.sdkVersion;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public List<Action> getActionsList() {
             return this.actions;
         }
 
+        public List<? extends ActionOrBuilder> getActionsOrBuilderList() {
+            return this.actions;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public int getActionsCount() {
             return this.actions.size();
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Action getActions(int i) {
+            return this.actions.get(i);
+        }
+
+        public ActionOrBuilder getActionsOrBuilder(int i) {
             return this.actions.get(i);
         }
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.f965common = Common.getDefaultInstance();
+            this.f979common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -3038,19 +4070,19 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f965common);
+                codedOutputStream.writeMessage(41, this.f979common);
             }
             if ((this.bitField0 & 4) == 4) {
-                codedOutputStream.writeBytes(130, getSdkNameBytes());
+                codedOutputStream.writeBytes(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
             }
             if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeInt64(131, this.sdkVersion);
+                codedOutputStream.writeInt64(SDK_VERSION_FIELD_NUMBER, this.sdkVersion);
             }
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < this.actions.size()) {
-                    codedOutputStream.writeMessage(132, this.actions.get(i2));
+                    codedOutputStream.writeMessage(ACTIONS_FIELD_NUMBER, this.actions.get(i2));
                     i = i2 + 1;
                 } else {
                     return;
@@ -3065,20 +4097,20 @@ public final class IMPushPb {
             if (i2 == -1) {
                 int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
                 if ((this.bitField0 & 2) == 2) {
-                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f965common);
+                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f979common);
                 }
                 if ((this.bitField0 & 4) == 4) {
-                    computeMessageSize += CodedOutputStream.computeBytesSize(130, getSdkNameBytes());
+                    computeMessageSize += CodedOutputStream.computeBytesSize(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
                 }
                 if ((this.bitField0 & 8) == 8) {
-                    computeMessageSize += CodedOutputStream.computeInt64Size(131, this.sdkVersion);
+                    computeMessageSize += CodedOutputStream.computeInt64Size(SDK_VERSION_FIELD_NUMBER, this.sdkVersion);
                 }
                 while (true) {
                     i2 = computeMessageSize;
                     if (i >= this.actions.size()) {
                         break;
                     }
-                    computeMessageSize = CodedOutputStream.computeMessageSize(132, this.actions.get(i)) + i2;
+                    computeMessageSize = CodedOutputStream.computeMessageSize(ACTIONS_FIELD_NUMBER, this.actions.get(i)) + i2;
                     i++;
                 }
                 this.memoizedSerializedSize = i2;
@@ -3086,17 +4118,54 @@ public final class IMPushPb {
             return i2;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static PushImClient parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static PushImClient parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static PushImClient parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static PushImClient parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static PushImClient parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static PushImClient parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static PushImClient parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static PushImClient parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static PushImClient parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static PushImClient parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
-        }
-
-        public static Builder newBuilder(PushImClient pushImClient) {
-            return newBuilder().mergeFrom(pushImClient);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -3105,20 +4174,24 @@ public final class IMPushPb {
             return newBuilder();
         }
 
+        public static Builder newBuilder(PushImClient pushImClient) {
+            return newBuilder().mergeFrom(pushImClient);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public Builder toBuilder() {
             return newBuilder(this);
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             private int bitField0;
             private long sdkVersion;
             private MetaData metadata = MetaData.getDefaultInstance();
 
             /* renamed from: common  reason: collision with root package name */
-            private Common f966common = Common.getDefaultInstance();
+            private Common f980common = Common.getDefaultInstance();
             private Object sdkName = "";
             private List<Action> actions = Collections.emptyList();
 
@@ -3140,7 +4213,7 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.f966common = Common.getDefaultInstance();
+                this.f980common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 this.sdkName = "";
                 this.bitField0 &= -5;
@@ -3183,7 +4256,7 @@ public final class IMPushPb {
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                pushImClient.f965common = this.f966common;
+                pushImClient.f979common = this.f980common;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
@@ -3199,11 +4272,6 @@ public final class IMPushPb {
                 pushImClient.actions = this.actions;
                 pushImClient.bitField0 = i2;
                 return pushImClient;
-            }
-
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return hasCommon() && getCommon().isInitialized();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -3234,6 +4302,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return hasCommon() && getCommon().isInitialized();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -3274,12 +4347,29 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public boolean hasMetadata() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public MetaData getMetadata() {
                 return this.metadata;
+            }
+
+            public Builder setMetadata(MetaData metaData) {
+                if (metaData == null) {
+                    throw new NullPointerException();
+                }
+                this.metadata = metaData;
+                this.bitField0 |= 1;
+                return this;
+            }
+
+            public Builder setMetadata(MetaData.Builder builder) {
+                this.metadata = builder.build();
+                this.bitField0 |= 1;
+                return this;
             }
 
             public Builder mergeMetadata(MetaData metaData) {
@@ -3292,37 +4382,59 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearMetadata() {
+                this.metadata = MetaData.getDefaultInstance();
+                this.bitField0 &= -2;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public boolean hasCommon() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Common getCommon() {
-                return this.f966common;
+                return this.f980common;
             }
 
             public Builder setCommon(Common common2) {
                 if (common2 == null) {
                     throw new NullPointerException();
                 }
-                this.f966common = common2;
+                this.f980common = common2;
+                this.bitField0 |= 2;
+                return this;
+            }
+
+            public Builder setCommon(Common.Builder builder) {
+                this.f980common = builder.build();
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f966common != Common.getDefaultInstance()) {
-                    this.f966common = Common.newBuilder(this.f966common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0 & 2) == 2 && this.f980common != Common.getDefaultInstance()) {
+                    this.f980common = Common.newBuilder(this.f980common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f966common = common2;
+                    this.f980common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;
             }
 
+            public Builder clearCommon() {
+                this.f980common = Common.getDefaultInstance();
+                this.bitField0 &= -3;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public boolean hasSdkName() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public String getSdkName() {
                 Object obj = this.sdkName;
                 if (obj instanceof String) {
@@ -3333,6 +4445,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public ByteString getSdkNameBytes() {
                 Object obj = this.sdkName;
                 if (obj instanceof String) {
@@ -3352,10 +4465,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearSdkName() {
+                this.bitField0 &= -5;
+                this.sdkName = PushImClient.getDefaultInstance().getSdkName();
+                return this;
+            }
+
+            public Builder setSdkNameBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 4;
+                this.sdkName = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public boolean hasSdkVersion() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public long getSdkVersion() {
                 return this.sdkVersion;
             }
@@ -3366,6 +4496,12 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearSdkVersion() {
+                this.bitField0 &= -9;
+                this.sdkVersion = 0L;
+                return this;
+            }
+
             private void ensureActionsIsMutable() {
                 if ((this.bitField0 & 16) != 16) {
                     this.actions = new ArrayList(this.actions);
@@ -3373,16 +4509,64 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public List<Action> getActionsList() {
                 return Collections.unmodifiableList(this.actions);
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public int getActionsCount() {
                 return this.actions.size();
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Action getActions(int i) {
                 return this.actions.get(i);
+            }
+
+            public Builder setActions(int i, Action action) {
+                if (action == null) {
+                    throw new NullPointerException();
+                }
+                ensureActionsIsMutable();
+                this.actions.set(i, action);
+                return this;
+            }
+
+            public Builder setActions(int i, Action.Builder builder) {
+                ensureActionsIsMutable();
+                this.actions.set(i, builder.build());
+                return this;
+            }
+
+            public Builder addActions(Action action) {
+                if (action == null) {
+                    throw new NullPointerException();
+                }
+                ensureActionsIsMutable();
+                this.actions.add(action);
+                return this;
+            }
+
+            public Builder addActions(int i, Action action) {
+                if (action == null) {
+                    throw new NullPointerException();
+                }
+                ensureActionsIsMutable();
+                this.actions.add(i, action);
+                return this;
+            }
+
+            public Builder addActions(Action.Builder builder) {
+                ensureActionsIsMutable();
+                this.actions.add(builder.build());
+                return this;
+            }
+
+            public Builder addActions(int i, Action.Builder builder) {
+                ensureActionsIsMutable();
+                this.actions.add(i, builder.build());
+                return this;
             }
 
             public Builder addAllActions(Iterable<? extends Action> iterable) {
@@ -3390,19 +4574,31 @@ public final class IMPushPb {
                 GeneratedMessageLite.Builder.addAll(iterable, this.actions);
                 return this;
             }
+
+            public Builder clearActions() {
+                this.actions = Collections.emptyList();
+                this.bitField0 &= -17;
+                return this;
+            }
+
+            public Builder removeActions(int i) {
+                ensureActionsIsMutable();
+                this.actions.remove(i);
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
-        public static Parser<Action> PARSER = new AbstractParser<Action>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Action.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Action parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Action(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Action defaultInstance = new Action(true);
+        public static final int ACK_FIELD_NUMBER = 7;
+        public static final int ACTION_TYPE_FIELD_NUMBER = 1;
+        public static final int CONNECTION_FIELD_NUMBER = 5;
+        public static final int CRASH_FIELD_NUMBER = 3;
+        public static final int DB_FIELD_NUMBER = 4;
+        public static final int MSG_FIELD_NUMBER = 8;
+        public static final int REQUEST_FIELD_NUMBER = 6;
+        public static final int UI_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
         private Ack ack;
         private ActionType actionType;
@@ -3415,16 +4611,14 @@ public final class IMPushPb {
         private Msg msg;
         private Request request;
         private Ui ui;
-
-        public static Action getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Action getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Action> PARSER = new AbstractParser<Action>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Action.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Action parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Action(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Action defaultInstance = new Action(true);
 
         private Action(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -3435,6 +4629,16 @@ public final class IMPushPb {
         private Action(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Action getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Action getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Action(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -3569,66 +4773,82 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasActionType() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public ActionType getActionType() {
             return this.actionType;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasUi() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Ui getUi() {
             return this.ui;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasCrash() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Crash getCrash() {
             return this.crash;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasDb() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Db getDb() {
             return this.db;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasConnection() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Connection getConnection() {
             return this.connection;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasRequest() {
             return (this.bitField0 & 32) == 32;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Request getRequest() {
             return this.request;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasAck() {
             return (this.bitField0 & 64) == 64;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Ack getAck() {
             return this.ack;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasMsg() {
             return (this.bitField0 & 128) == 128;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Msg getMsg() {
             return this.msg;
         }
@@ -3714,17 +4934,54 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Action parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Action parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Action parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Action parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Action parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Action parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Action parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Action parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Action parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Action parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
-        }
-
-        public static Builder newBuilder(Action action) {
-            return newBuilder().mergeFrom(action);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -3733,13 +4990,17 @@ public final class IMPushPb {
             return newBuilder();
         }
 
+        public static Builder newBuilder(Action action) {
+            return newBuilder().mergeFrom(action);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public Builder toBuilder() {
             return newBuilder(this);
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             private int bitField0;
             private ActionType actionType = ActionType.UI;
@@ -3847,11 +5108,6 @@ public final class IMPushPb {
                 return action;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Action action) {
@@ -3882,6 +5138,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -3922,10 +5183,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasActionType() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public ActionType getActionType() {
                 return this.actionType;
             }
@@ -3939,10 +5202,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearActionType() {
+                this.bitField0 &= -2;
+                this.actionType = ActionType.UI;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasUi() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Ui getUi() {
                 return this.ui;
             }
@@ -3952,6 +5223,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.ui = ui;
+                this.bitField0 |= 2;
+                return this;
+            }
+
+            public Builder setUi(Ui.Builder builder) {
+                this.ui = builder.build();
                 this.bitField0 |= 2;
                 return this;
             }
@@ -3966,10 +5243,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearUi() {
+                this.ui = Ui.getDefaultInstance();
+                this.bitField0 &= -3;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasCrash() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Crash getCrash() {
                 return this.crash;
             }
@@ -3979,6 +5264,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.crash = crash;
+                this.bitField0 |= 4;
+                return this;
+            }
+
+            public Builder setCrash(Crash.Builder builder) {
+                this.crash = builder.build();
                 this.bitField0 |= 4;
                 return this;
             }
@@ -3993,10 +5284,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearCrash() {
+                this.crash = Crash.getDefaultInstance();
+                this.bitField0 &= -5;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasDb() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Db getDb() {
                 return this.db;
             }
@@ -4006,6 +5305,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.db = db;
+                this.bitField0 |= 8;
+                return this;
+            }
+
+            public Builder setDb(Db.Builder builder) {
+                this.db = builder.build();
                 this.bitField0 |= 8;
                 return this;
             }
@@ -4020,10 +5325,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearDb() {
+                this.db = Db.getDefaultInstance();
+                this.bitField0 &= -9;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasConnection() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Connection getConnection() {
                 return this.connection;
             }
@@ -4033,6 +5346,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.connection = connection;
+                this.bitField0 |= 16;
+                return this;
+            }
+
+            public Builder setConnection(Connection.Builder builder) {
+                this.connection = builder.build();
                 this.bitField0 |= 16;
                 return this;
             }
@@ -4047,10 +5366,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearConnection() {
+                this.connection = Connection.getDefaultInstance();
+                this.bitField0 &= -17;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasRequest() {
                 return (this.bitField0 & 32) == 32;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Request getRequest() {
                 return this.request;
             }
@@ -4060,6 +5387,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.request = request;
+                this.bitField0 |= 32;
+                return this;
+            }
+
+            public Builder setRequest(Request.Builder builder) {
+                this.request = builder.build();
                 this.bitField0 |= 32;
                 return this;
             }
@@ -4074,10 +5407,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearRequest() {
+                this.request = Request.getDefaultInstance();
+                this.bitField0 &= -33;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasAck() {
                 return (this.bitField0 & 64) == 64;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Ack getAck() {
                 return this.ack;
             }
@@ -4087,6 +5428,12 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.ack = ack;
+                this.bitField0 |= 64;
+                return this;
+            }
+
+            public Builder setAck(Ack.Builder builder) {
+                this.ack = builder.build();
                 this.bitField0 |= 64;
                 return this;
             }
@@ -4101,10 +5448,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearAck() {
+                this.ack = Ack.getDefaultInstance();
+                this.bitField0 &= -65;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasMsg() {
                 return (this.bitField0 & 128) == 128;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Msg getMsg() {
                 return this.msg;
             }
@@ -4118,6 +5473,12 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder setMsg(Msg.Builder builder) {
+                this.msg = builder.build();
+                this.bitField0 |= 128;
+                return this;
+            }
+
             public Builder mergeMsg(Msg msg) {
                 if ((this.bitField0 & 128) == 128 && this.msg != Msg.getDefaultInstance()) {
                     this.msg = Msg.newBuilder(this.msg).mergeFrom(msg).buildPartial();
@@ -4127,19 +5488,24 @@ public final class IMPushPb {
                 this.bitField0 |= 128;
                 return this;
             }
+
+            public Builder clearMsg() {
+                this.msg = Msg.getDefaultInstance();
+                this.bitField0 &= -129;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
-        public static Parser<Ui> PARSER = new AbstractParser<Ui>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ui.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Ui parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Ui(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Ui defaultInstance = new Ui(true);
+        public static final int ALIAS_ID_FIELD_NUMBER = 7;
+        public static final int CATEGORY_FIELD_NUMBER = 1;
+        public static final int DURATION_FIELD_NUMBER = 5;
+        public static final int END_TIME_FIELD_NUMBER = 4;
+        public static final int EXT_FIELD_NUMBER = 6;
+        public static final int PAGE_FIELD_NUMBER = 2;
+        public static final int START_TIME_FIELD_NUMBER = 3;
         private static final long serialVersionUID = 0;
         private long aliasId;
         private int bitField0;
@@ -4151,16 +5517,14 @@ public final class IMPushPb {
         private int memoizedSerializedSize;
         private Object page;
         private long startTime;
-
-        public static Ui getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Ui getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Ui> PARSER = new AbstractParser<Ui>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ui.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Ui parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Ui(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Ui defaultInstance = new Ui(true);
 
         private Ui(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -4171,6 +5535,16 @@ public final class IMPushPb {
         private Ui(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Ui getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Ui getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Ui(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -4244,10 +5618,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasCategory() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public String getCategory() {
             Object obj = this.category;
             if (obj instanceof String) {
@@ -4261,6 +5637,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public ByteString getCategoryBytes() {
             Object obj = this.category;
             if (obj instanceof String) {
@@ -4271,10 +5648,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasPage() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public String getPage() {
             Object obj = this.page;
             if (obj instanceof String) {
@@ -4288,6 +5667,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public ByteString getPageBytes() {
             Object obj = this.page;
             if (obj instanceof String) {
@@ -4298,34 +5678,42 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasStartTime() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public long getStartTime() {
             return this.startTime;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasEndTime() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public long getEndTime() {
             return this.endTime;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasDuration() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public long getDuration() {
             return this.duration;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasExt() {
             return (this.bitField0 & 32) == 32;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public String getExt() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -4339,6 +5727,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public ByteString getExtBytes() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -4349,10 +5738,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasAliasId() {
             return (this.bitField0 & 64) == 64;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public long getAliasId() {
             return this.aliasId;
         }
@@ -4431,17 +5822,54 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Ui parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Ui parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Ui parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Ui parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Ui parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Ui parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Ui parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Ui parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Ui parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Ui parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
-        }
-
-        public static Builder newBuilder(Ui ui) {
-            return newBuilder().mergeFrom(ui);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -4450,13 +5878,17 @@ public final class IMPushPb {
             return newBuilder();
         }
 
+        public static Builder newBuilder(Ui ui) {
+            return newBuilder().mergeFrom(ui);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public Builder toBuilder() {
             return newBuilder(this);
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -4557,11 +5989,6 @@ public final class IMPushPb {
                 return ui;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Ui ui) {
@@ -4592,6 +6019,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -4632,10 +6064,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasCategory() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public String getCategory() {
                 Object obj = this.category;
                 if (obj instanceof String) {
@@ -4646,6 +6080,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public ByteString getCategoryBytes() {
                 Object obj = this.category;
                 if (obj instanceof String) {
@@ -4665,10 +6100,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearCategory() {
+                this.bitField0 &= -2;
+                this.category = Ui.getDefaultInstance().getCategory();
+                return this;
+            }
+
+            public Builder setCategoryBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.category = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasPage() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public String getPage() {
                 Object obj = this.page;
                 if (obj instanceof String) {
@@ -4679,6 +6131,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public ByteString getPageBytes() {
                 Object obj = this.page;
                 if (obj instanceof String) {
@@ -4698,10 +6151,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearPage() {
+                this.bitField0 &= -3;
+                this.page = Ui.getDefaultInstance().getPage();
+                return this;
+            }
+
+            public Builder setPageBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.page = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasStartTime() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public long getStartTime() {
                 return this.startTime;
             }
@@ -4712,10 +6182,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearStartTime() {
+                this.bitField0 &= -5;
+                this.startTime = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasEndTime() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public long getEndTime() {
                 return this.endTime;
             }
@@ -4726,10 +6204,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearEndTime() {
+                this.bitField0 &= -9;
+                this.endTime = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasDuration() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public long getDuration() {
                 return this.duration;
             }
@@ -4740,10 +6226,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearDuration() {
+                this.bitField0 &= -17;
+                this.duration = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasExt() {
                 return (this.bitField0 & 32) == 32;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public String getExt() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -4754,6 +6248,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public ByteString getExtBytes() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -4773,10 +6268,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearExt() {
+                this.bitField0 &= -33;
+                this.ext = Ui.getDefaultInstance().getExt();
+                return this;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 32;
+                this.ext = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasAliasId() {
                 return (this.bitField0 & 64) == 64;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public long getAliasId() {
                 return this.aliasId;
             }
@@ -4786,19 +6298,21 @@ public final class IMPushPb {
                 this.aliasId = j;
                 return this;
             }
+
+            public Builder clearAliasId() {
+                this.bitField0 &= -65;
+                this.aliasId = 0L;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
-        public static Parser<Crash> PARSER = new AbstractParser<Crash>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Crash.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Crash parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Crash(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Crash defaultInstance = new Crash(true);
+        public static final int ALIAS_ID_FIELD_NUMBER = 4;
+        public static final int EXCEPTION_FIELD_NUMBER = 1;
+        public static final int EXT_FIELD_NUMBER = 3;
+        public static final int TIMESTAMP_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
         private long aliasId;
         private int bitField0;
@@ -4807,16 +6321,14 @@ public final class IMPushPb {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private long timestamp;
-
-        public static Crash getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Crash getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Crash> PARSER = new AbstractParser<Crash>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Crash.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Crash parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Crash(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Crash defaultInstance = new Crash(true);
 
         private Crash(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -4827,6 +6339,16 @@ public final class IMPushPb {
         private Crash(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Crash getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Crash getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Crash(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -4888,10 +6410,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public boolean hasException() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public String getException() {
             Object obj = this.exception;
             if (obj instanceof String) {
@@ -4905,6 +6429,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public ByteString getExceptionBytes() {
             Object obj = this.exception;
             if (obj instanceof String) {
@@ -4915,18 +6440,22 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public boolean hasTimestamp() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public long getTimestamp() {
             return this.timestamp;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public boolean hasExt() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public String getExt() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -4940,6 +6469,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public ByteString getExtBytes() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -4950,10 +6480,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public boolean hasAliasId() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public long getAliasId() {
             return this.aliasId;
         }
@@ -5011,13 +6543,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Crash parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Crash parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Crash parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Crash parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Crash parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Crash parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Crash parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Crash parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Crash parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Crash parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
 
         public static Builder newBuilder(Crash crash) {
@@ -5030,13 +6609,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -5116,11 +6689,6 @@ public final class IMPushPb {
                 return crash;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Crash crash) {
@@ -5141,6 +6709,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -5181,10 +6754,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public boolean hasException() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public String getException() {
                 Object obj = this.exception;
                 if (obj instanceof String) {
@@ -5195,6 +6770,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public ByteString getExceptionBytes() {
                 Object obj = this.exception;
                 if (obj instanceof String) {
@@ -5214,10 +6790,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearException() {
+                this.bitField0 &= -2;
+                this.exception = Crash.getDefaultInstance().getException();
+                return this;
+            }
+
+            public Builder setExceptionBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.exception = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public boolean hasTimestamp() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public long getTimestamp() {
                 return this.timestamp;
             }
@@ -5228,10 +6821,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearTimestamp() {
+                this.bitField0 &= -3;
+                this.timestamp = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public boolean hasExt() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public String getExt() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -5242,6 +6843,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public ByteString getExtBytes() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -5261,10 +6863,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearExt() {
+                this.bitField0 &= -5;
+                this.ext = Crash.getDefaultInstance().getExt();
+                return this;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 4;
+                this.ext = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public boolean hasAliasId() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public long getAliasId() {
                 return this.aliasId;
             }
@@ -5274,19 +6893,26 @@ public final class IMPushPb {
                 this.aliasId = j;
                 return this;
             }
+
+            public Builder clearAliasId() {
+                this.bitField0 &= -9;
+                this.aliasId = 0L;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
-        public static Parser<Db> PARSER = new AbstractParser<Db>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Db.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Db parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Db(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Db defaultInstance = new Db(true);
+        public static final int ACTION_FIELD_NUMBER = 4;
+        public static final int ALIAS_ID_FIELD_NUMBER = 9;
+        public static final int CLASS_NAME_FIELD_NUMBER = 2;
+        public static final int DURATION_FIELD_NUMBER = 7;
+        public static final int END_TIME_FIELD_NUMBER = 6;
+        public static final int EXT_FIELD_NUMBER = 8;
+        public static final int METHOD_FIELD_NUMBER = 3;
+        public static final int START_TIME_FIELD_NUMBER = 5;
+        public static final int TABLE_FIELD_NUMBER = 1;
         private static final long serialVersionUID = 0;
         private Object action;
         private long aliasId;
@@ -5300,16 +6926,14 @@ public final class IMPushPb {
         private Object method;
         private long startTime;
         private Object table;
-
-        public static Db getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Db getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Db> PARSER = new AbstractParser<Db>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Db.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Db parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Db(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Db defaultInstance = new Db(true);
 
         private Db(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -5320,6 +6944,16 @@ public final class IMPushPb {
         private Db(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Db getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Db getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Db(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -5401,10 +7035,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasTable() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getTable() {
             Object obj = this.table;
             if (obj instanceof String) {
@@ -5418,6 +7054,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getTableBytes() {
             Object obj = this.table;
             if (obj instanceof String) {
@@ -5428,10 +7065,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasClassName() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getClassName() {
             Object obj = this.className;
             if (obj instanceof String) {
@@ -5445,6 +7084,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getClassNameBytes() {
             Object obj = this.className;
             if (obj instanceof String) {
@@ -5455,10 +7095,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasMethod() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getMethod() {
             Object obj = this.method;
             if (obj instanceof String) {
@@ -5472,6 +7114,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getMethodBytes() {
             Object obj = this.method;
             if (obj instanceof String) {
@@ -5482,10 +7125,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasAction() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getAction() {
             Object obj = this.action;
             if (obj instanceof String) {
@@ -5499,6 +7144,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getActionBytes() {
             Object obj = this.action;
             if (obj instanceof String) {
@@ -5509,34 +7155,42 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasStartTime() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public long getStartTime() {
             return this.startTime;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasEndTime() {
             return (this.bitField0 & 32) == 32;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public long getEndTime() {
             return this.endTime;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasDuration() {
             return (this.bitField0 & 64) == 64;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public long getDuration() {
             return this.duration;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasExt() {
             return (this.bitField0 & 128) == 128;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getExt() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -5550,6 +7204,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getExtBytes() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -5560,10 +7215,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasAliasId() {
             return (this.bitField0 & 256) == 256;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public long getAliasId() {
             return this.aliasId;
         }
@@ -5656,13 +7313,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Db parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Db parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Db parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Db parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Db parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Db parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Db parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Db parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Db parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Db parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
 
         public static Builder newBuilder(Db db) {
@@ -5675,13 +7379,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -5796,11 +7494,6 @@ public final class IMPushPb {
                 return db;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Db db) {
@@ -5841,6 +7534,11 @@ public final class IMPushPb {
                 return this;
             }
 
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
@@ -5879,10 +7577,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasTable() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getTable() {
                 Object obj = this.table;
                 if (obj instanceof String) {
@@ -5893,6 +7593,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getTableBytes() {
                 Object obj = this.table;
                 if (obj instanceof String) {
@@ -5912,10 +7613,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearTable() {
+                this.bitField0 &= -2;
+                this.table = Db.getDefaultInstance().getTable();
+                return this;
+            }
+
+            public Builder setTableBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.table = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasClassName() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getClassName() {
                 Object obj = this.className;
                 if (obj instanceof String) {
@@ -5926,6 +7644,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getClassNameBytes() {
                 Object obj = this.className;
                 if (obj instanceof String) {
@@ -5945,10 +7664,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearClassName() {
+                this.bitField0 &= -3;
+                this.className = Db.getDefaultInstance().getClassName();
+                return this;
+            }
+
+            public Builder setClassNameBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.className = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasMethod() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getMethod() {
                 Object obj = this.method;
                 if (obj instanceof String) {
@@ -5959,6 +7695,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getMethodBytes() {
                 Object obj = this.method;
                 if (obj instanceof String) {
@@ -5978,10 +7715,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearMethod() {
+                this.bitField0 &= -5;
+                this.method = Db.getDefaultInstance().getMethod();
+                return this;
+            }
+
+            public Builder setMethodBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 4;
+                this.method = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasAction() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getAction() {
                 Object obj = this.action;
                 if (obj instanceof String) {
@@ -5992,6 +7746,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getActionBytes() {
                 Object obj = this.action;
                 if (obj instanceof String) {
@@ -6011,10 +7766,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearAction() {
+                this.bitField0 &= -9;
+                this.action = Db.getDefaultInstance().getAction();
+                return this;
+            }
+
+            public Builder setActionBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 8;
+                this.action = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasStartTime() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public long getStartTime() {
                 return this.startTime;
             }
@@ -6025,10 +7797,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearStartTime() {
+                this.bitField0 &= -17;
+                this.startTime = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasEndTime() {
                 return (this.bitField0 & 32) == 32;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public long getEndTime() {
                 return this.endTime;
             }
@@ -6039,10 +7819,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearEndTime() {
+                this.bitField0 &= -33;
+                this.endTime = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasDuration() {
                 return (this.bitField0 & 64) == 64;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public long getDuration() {
                 return this.duration;
             }
@@ -6053,10 +7841,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearDuration() {
+                this.bitField0 &= -65;
+                this.duration = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasExt() {
                 return (this.bitField0 & 128) == 128;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getExt() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -6067,6 +7863,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getExtBytes() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -6086,10 +7883,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearExt() {
+                this.bitField0 &= -129;
+                this.ext = Db.getDefaultInstance().getExt();
+                return this;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 128;
+                this.ext = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasAliasId() {
                 return (this.bitField0 & 256) == 256;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public long getAliasId() {
                 return this.aliasId;
             }
@@ -6099,19 +7913,24 @@ public final class IMPushPb {
                 this.aliasId = j;
                 return this;
             }
+
+            public Builder clearAliasId() {
+                this.bitField0 &= -257;
+                this.aliasId = 0L;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
-        public static Parser<Connection> PARSER = new AbstractParser<Connection>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Connection.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Connection parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Connection(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Connection defaultInstance = new Connection(true);
+        public static final int ALIAS_ID_FIELD_NUMBER = 7;
+        public static final int EXT_FIELD_NUMBER = 6;
+        public static final int REASON_FIELD_NUMBER = 3;
+        public static final int RETRY_COUNT_FIELD_NUMBER = 5;
+        public static final int RETRY_TIME_FIELD_NUMBER = 4;
+        public static final int START_TIME_FIELD_NUMBER = 1;
+        public static final int STOP_TIME_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
         private long aliasId;
         private int bitField0;
@@ -6123,16 +7942,14 @@ public final class IMPushPb {
         private long retryTime;
         private long startTime;
         private long stopTime;
-
-        public static Connection getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Connection getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Connection> PARSER = new AbstractParser<Connection>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Connection.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Connection parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Connection(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Connection defaultInstance = new Connection(true);
 
         private Connection(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -6143,6 +7960,16 @@ public final class IMPushPb {
         private Connection(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Connection getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Connection getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Connection(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -6216,26 +8043,32 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasStartTime() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getStartTime() {
             return this.startTime;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasStopTime() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getStopTime() {
             return this.stopTime;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasReason() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public String getReason() {
             Object obj = this.reason;
             if (obj instanceof String) {
@@ -6249,6 +8082,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public ByteString getReasonBytes() {
             Object obj = this.reason;
             if (obj instanceof String) {
@@ -6259,26 +8093,32 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasRetryTime() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getRetryTime() {
             return this.retryTime;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasRetryCount() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getRetryCount() {
             return this.retryCount;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasExt() {
             return (this.bitField0 & 32) == 32;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public String getExt() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -6292,6 +8132,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public ByteString getExtBytes() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -6302,10 +8143,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasAliasId() {
             return (this.bitField0 & 64) == 64;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getAliasId() {
             return this.aliasId;
         }
@@ -6384,13 +8227,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Connection parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Connection parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Connection parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Connection parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Connection parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Connection parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Connection parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Connection parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Connection parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Connection parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
 
         public static Builder newBuilder(Connection connection) {
@@ -6403,13 +8293,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -6510,11 +8394,6 @@ public final class IMPushPb {
                 return connection;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Connection connection) {
@@ -6544,6 +8423,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -6584,10 +8468,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasStartTime() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getStartTime() {
                 return this.startTime;
             }
@@ -6598,10 +8484,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearStartTime() {
+                this.bitField0 &= -2;
+                this.startTime = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasStopTime() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getStopTime() {
                 return this.stopTime;
             }
@@ -6612,10 +8506,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearStopTime() {
+                this.bitField0 &= -3;
+                this.stopTime = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasReason() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public String getReason() {
                 Object obj = this.reason;
                 if (obj instanceof String) {
@@ -6626,6 +8528,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public ByteString getReasonBytes() {
                 Object obj = this.reason;
                 if (obj instanceof String) {
@@ -6645,10 +8548,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearReason() {
+                this.bitField0 &= -5;
+                this.reason = Connection.getDefaultInstance().getReason();
+                return this;
+            }
+
+            public Builder setReasonBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 4;
+                this.reason = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasRetryTime() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getRetryTime() {
                 return this.retryTime;
             }
@@ -6659,10 +8579,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearRetryTime() {
+                this.bitField0 &= -9;
+                this.retryTime = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasRetryCount() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getRetryCount() {
                 return this.retryCount;
             }
@@ -6673,10 +8601,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearRetryCount() {
+                this.bitField0 &= -17;
+                this.retryCount = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasExt() {
                 return (this.bitField0 & 32) == 32;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public String getExt() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -6687,6 +8623,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public ByteString getExtBytes() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -6706,10 +8643,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearExt() {
+                this.bitField0 &= -33;
+                this.ext = Connection.getDefaultInstance().getExt();
+                return this;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 32;
+                this.ext = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasAliasId() {
                 return (this.bitField0 & 64) == 64;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getAliasId() {
                 return this.aliasId;
             }
@@ -6719,19 +8673,24 @@ public final class IMPushPb {
                 this.aliasId = j;
                 return this;
             }
+
+            public Builder clearAliasId() {
+                this.bitField0 &= -65;
+                this.aliasId = 0L;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
-        public static Parser<Request> PARSER = new AbstractParser<Request>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Request.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Request parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Request(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Request defaultInstance = new Request(true);
+        public static final int ALIAS_ID_FIELD_NUMBER = 7;
+        public static final int ERROR_CODE_FIELD_NUMBER = 5;
+        public static final int EXT_FIELD_NUMBER = 6;
+        public static final int METHOD_FIELD_NUMBER = 1;
+        public static final int REQUEST_ID_FIELD_NUMBER = 2;
+        public static final int RESPONSE_TIME_FIELD_NUMBER = 4;
+        public static final int TIMESTAMP_FIELD_NUMBER = 3;
         private static final long serialVersionUID = 0;
         private long aliasId;
         private int bitField0;
@@ -6743,16 +8702,14 @@ public final class IMPushPb {
         private Object requestId;
         private long responseTime;
         private long timestamp;
-
-        public static Request getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Request getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Request> PARSER = new AbstractParser<Request>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Request.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Request parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Request(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Request defaultInstance = new Request(true);
 
         private Request(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -6763,6 +8720,16 @@ public final class IMPushPb {
         private Request(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Request getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Request getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Request(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -6836,10 +8803,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasMethod() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public String getMethod() {
             Object obj = this.method;
             if (obj instanceof String) {
@@ -6853,6 +8822,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public ByteString getMethodBytes() {
             Object obj = this.method;
             if (obj instanceof String) {
@@ -6863,10 +8833,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasRequestId() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public String getRequestId() {
             Object obj = this.requestId;
             if (obj instanceof String) {
@@ -6880,6 +8852,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public ByteString getRequestIdBytes() {
             Object obj = this.requestId;
             if (obj instanceof String) {
@@ -6890,34 +8863,42 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasTimestamp() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public long getTimestamp() {
             return this.timestamp;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasResponseTime() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public long getResponseTime() {
             return this.responseTime;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasErrorCode() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public long getErrorCode() {
             return this.errorCode;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasExt() {
             return (this.bitField0 & 32) == 32;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public String getExt() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -6931,6 +8912,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public ByteString getExtBytes() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -6941,10 +8923,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasAliasId() {
             return (this.bitField0 & 64) == 64;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public long getAliasId() {
             return this.aliasId;
         }
@@ -7023,13 +9007,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Request parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Request parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Request parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Request parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Request parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Request parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Request parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Request parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Request parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Request parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
 
         public static Builder newBuilder(Request request) {
@@ -7042,13 +9073,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -7149,11 +9174,6 @@ public final class IMPushPb {
                 return request;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Request request) {
@@ -7184,6 +9204,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -7224,10 +9249,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasMethod() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public String getMethod() {
                 Object obj = this.method;
                 if (obj instanceof String) {
@@ -7238,6 +9265,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public ByteString getMethodBytes() {
                 Object obj = this.method;
                 if (obj instanceof String) {
@@ -7257,10 +9285,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearMethod() {
+                this.bitField0 &= -2;
+                this.method = Request.getDefaultInstance().getMethod();
+                return this;
+            }
+
+            public Builder setMethodBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.method = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasRequestId() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public String getRequestId() {
                 Object obj = this.requestId;
                 if (obj instanceof String) {
@@ -7271,6 +9316,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public ByteString getRequestIdBytes() {
                 Object obj = this.requestId;
                 if (obj instanceof String) {
@@ -7290,10 +9336,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearRequestId() {
+                this.bitField0 &= -3;
+                this.requestId = Request.getDefaultInstance().getRequestId();
+                return this;
+            }
+
+            public Builder setRequestIdBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.requestId = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasTimestamp() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public long getTimestamp() {
                 return this.timestamp;
             }
@@ -7304,10 +9367,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearTimestamp() {
+                this.bitField0 &= -5;
+                this.timestamp = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasResponseTime() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public long getResponseTime() {
                 return this.responseTime;
             }
@@ -7318,10 +9389,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearResponseTime() {
+                this.bitField0 &= -9;
+                this.responseTime = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasErrorCode() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public long getErrorCode() {
                 return this.errorCode;
             }
@@ -7332,10 +9411,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearErrorCode() {
+                this.bitField0 &= -17;
+                this.errorCode = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasExt() {
                 return (this.bitField0 & 32) == 32;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public String getExt() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -7346,6 +9433,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public ByteString getExtBytes() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -7365,10 +9453,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearExt() {
+                this.bitField0 &= -33;
+                this.ext = Request.getDefaultInstance().getExt();
+                return this;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 32;
+                this.ext = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasAliasId() {
                 return (this.bitField0 & 64) == 64;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public long getAliasId() {
                 return this.aliasId;
             }
@@ -7378,19 +9483,22 @@ public final class IMPushPb {
                 this.aliasId = j;
                 return this;
             }
+
+            public Builder clearAliasId() {
+                this.bitField0 &= -65;
+                this.aliasId = 0L;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
-        public static Parser<Ack> PARSER = new AbstractParser<Ack>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ack.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Ack parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Ack(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Ack defaultInstance = new Ack(true);
+        public static final int ALIAS_ID_FIELD_NUMBER = 5;
+        public static final int EXT_FIELD_NUMBER = 4;
+        public static final int TIMESTAMP_FIELD_NUMBER = 3;
+        public static final int TYPE_FIELD_NUMBER = 1;
+        public static final int VALUE_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
         private long aliasId;
         private int bitField0;
@@ -7400,16 +9508,14 @@ public final class IMPushPb {
         private long timestamp;
         private Object type;
         private Object value;
-
-        public static Ack getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Ack getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Ack> PARSER = new AbstractParser<Ack>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ack.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Ack parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Ack(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Ack defaultInstance = new Ack(true);
 
         private Ack(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -7420,6 +9526,16 @@ public final class IMPushPb {
         private Ack(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Ack getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Ack getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Ack(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -7485,10 +9601,12 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasType() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public String getType() {
             Object obj = this.type;
             if (obj instanceof String) {
@@ -7502,6 +9620,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public ByteString getTypeBytes() {
             Object obj = this.type;
             if (obj instanceof String) {
@@ -7512,10 +9631,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasValue() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public String getValue() {
             Object obj = this.value;
             if (obj instanceof String) {
@@ -7529,6 +9650,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public ByteString getValueBytes() {
             Object obj = this.value;
             if (obj instanceof String) {
@@ -7539,18 +9661,22 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasTimestamp() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public long getTimestamp() {
             return this.timestamp;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasExt() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public String getExt() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -7564,6 +9690,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public ByteString getExtBytes() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -7574,10 +9701,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasAliasId() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public long getAliasId() {
             return this.aliasId;
         }
@@ -7642,13 +9771,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Ack parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Ack parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Ack parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Ack parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Ack parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Ack parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Ack parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Ack parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Ack parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Ack parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
 
         public static Builder newBuilder(Ack ack) {
@@ -7661,13 +9837,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -7754,11 +9924,6 @@ public final class IMPushPb {
                 return ack;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Ack ack) {
@@ -7783,6 +9948,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -7823,10 +9993,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasType() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public String getType() {
                 Object obj = this.type;
                 if (obj instanceof String) {
@@ -7837,6 +10009,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public ByteString getTypeBytes() {
                 Object obj = this.type;
                 if (obj instanceof String) {
@@ -7856,10 +10029,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearType() {
+                this.bitField0 &= -2;
+                this.type = Ack.getDefaultInstance().getType();
+                return this;
+            }
+
+            public Builder setTypeBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 1;
+                this.type = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasValue() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public String getValue() {
                 Object obj = this.value;
                 if (obj instanceof String) {
@@ -7870,6 +10060,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public ByteString getValueBytes() {
                 Object obj = this.value;
                 if (obj instanceof String) {
@@ -7885,13 +10076,31 @@ public final class IMPushPb {
                     throw new NullPointerException();
                 }
                 this.bitField0 |= 2;
+                this.value = str;
                 return this;
             }
 
+            public Builder clearValue() {
+                this.bitField0 &= -3;
+                this.value = Ack.getDefaultInstance().getValue();
+                return this;
+            }
+
+            public Builder setValueBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.value = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasTimestamp() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public long getTimestamp() {
                 return this.timestamp;
             }
@@ -7902,10 +10111,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearTimestamp() {
+                this.bitField0 &= -5;
+                this.timestamp = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasExt() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public String getExt() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -7916,6 +10133,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public ByteString getExtBytes() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -7935,10 +10153,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearExt() {
+                this.bitField0 &= -9;
+                this.ext = Ack.getDefaultInstance().getExt();
+                return this;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 8;
+                this.ext = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasAliasId() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public long getAliasId() {
                 return this.aliasId;
             }
@@ -7948,19 +10183,24 @@ public final class IMPushPb {
                 this.aliasId = j;
                 return this;
             }
+
+            public Builder clearAliasId() {
+                this.bitField0 &= -17;
+                this.aliasId = 0L;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
-        public static Parser<Msg> PARSER = new AbstractParser<Msg>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Msg.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public Msg parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new Msg(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final Msg defaultInstance = new Msg(true);
+        public static final int ALIAS_ID_FIELD_NUMBER = 6;
+        public static final int DURATION_FIELD_NUMBER = 3;
+        public static final int END_MSGID_FIELD_NUMBER = 4;
+        public static final int EXT_FIELD_NUMBER = 5;
+        public static final int MSG_COUNT_FIELD_NUMBER = 1;
+        public static final int ROOM_ID_FIELD_NUMBER = 2;
+        public static final int START_MSGID_FIELD_NUMBER = 7;
         private static final long serialVersionUID = 0;
         private long aliasId;
         private int bitField0;
@@ -7972,16 +10212,14 @@ public final class IMPushPb {
         private long msgCount;
         private Object roomId;
         private long startMsgid;
-
-        public static Msg getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Msg getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<Msg> PARSER = new AbstractParser<Msg>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Msg.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public Msg parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new Msg(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final Msg defaultInstance = new Msg(true);
 
         private Msg(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -7992,6 +10230,16 @@ public final class IMPushPb {
         private Msg(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static Msg getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Msg getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private Msg(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -8065,18 +10313,22 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasMsgCount() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getMsgCount() {
             return this.msgCount;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasRoomId() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public String getRoomId() {
             Object obj = this.roomId;
             if (obj instanceof String) {
@@ -8090,6 +10342,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public ByteString getRoomIdBytes() {
             Object obj = this.roomId;
             if (obj instanceof String) {
@@ -8100,26 +10353,32 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasDuration() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getDuration() {
             return this.duration;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasEndMsgid() {
             return (this.bitField0 & 8) == 8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getEndMsgid() {
             return this.endMsgid;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasExt() {
             return (this.bitField0 & 16) == 16;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public String getExt() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -8133,6 +10392,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public ByteString getExtBytes() {
             Object obj = this.ext;
             if (obj instanceof String) {
@@ -8143,18 +10403,22 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasAliasId() {
             return (this.bitField0 & 32) == 32;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getAliasId() {
             return this.aliasId;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasStartMsgid() {
             return (this.bitField0 & 64) == 64;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getStartMsgid() {
             return this.startMsgid;
         }
@@ -8233,17 +10497,54 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static Msg parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Msg parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Msg parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Msg parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Msg parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Msg parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Msg parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Msg parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Msg parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Msg parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
-        }
-
-        public static Builder newBuilder(Msg msg) {
-            return newBuilder().mergeFrom(msg);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -8252,13 +10553,17 @@ public final class IMPushPb {
             return newBuilder();
         }
 
+        public static Builder newBuilder(Msg msg) {
+            return newBuilder().mergeFrom(msg);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public Builder toBuilder() {
             return newBuilder(this);
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -8359,11 +10664,6 @@ public final class IMPushPb {
                 return msg;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(Msg msg) {
@@ -8393,6 +10693,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -8433,10 +10738,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasMsgCount() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getMsgCount() {
                 return this.msgCount;
             }
@@ -8447,10 +10754,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearMsgCount() {
+                this.bitField0 &= -2;
+                this.msgCount = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasRoomId() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public String getRoomId() {
                 Object obj = this.roomId;
                 if (obj instanceof String) {
@@ -8461,6 +10776,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public ByteString getRoomIdBytes() {
                 Object obj = this.roomId;
                 if (obj instanceof String) {
@@ -8480,10 +10796,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearRoomId() {
+                this.bitField0 &= -3;
+                this.roomId = Msg.getDefaultInstance().getRoomId();
+                return this;
+            }
+
+            public Builder setRoomIdBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.roomId = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasDuration() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getDuration() {
                 return this.duration;
             }
@@ -8494,10 +10827,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearDuration() {
+                this.bitField0 &= -5;
+                this.duration = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasEndMsgid() {
                 return (this.bitField0 & 8) == 8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getEndMsgid() {
                 return this.endMsgid;
             }
@@ -8508,10 +10849,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearEndMsgid() {
+                this.bitField0 &= -9;
+                this.endMsgid = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasExt() {
                 return (this.bitField0 & 16) == 16;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public String getExt() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -8522,6 +10871,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public ByteString getExtBytes() {
                 Object obj = this.ext;
                 if (obj instanceof String) {
@@ -8541,10 +10891,27 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearExt() {
+                this.bitField0 &= -17;
+                this.ext = Msg.getDefaultInstance().getExt();
+                return this;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 16;
+                this.ext = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasAliasId() {
                 return (this.bitField0 & 32) == 32;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getAliasId() {
                 return this.aliasId;
             }
@@ -8555,10 +10922,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearAliasId() {
+                this.bitField0 &= -33;
+                this.aliasId = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasStartMsgid() {
                 return (this.bitField0 & 64) == 64;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getStartMsgid() {
                 return this.startMsgid;
             }
@@ -8568,19 +10943,20 @@ public final class IMPushPb {
                 this.startMsgid = j;
                 return this;
             }
+
+            public Builder clearStartMsgid() {
+                this.bitField0 &= -65;
+                this.startMsgid = 0L;
+                return this;
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
-        public static Parser<MetaData> PARSER = new AbstractParser<MetaData>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaData.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.Parser
-            public MetaData parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new MetaData(codedInputStream, extensionRegistryLite);
-            }
-        };
-        private static final MetaData defaultInstance = new MetaData(true);
+        public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
+        public static final int LOG_NAME_FIELD_NUMBER = 2;
+        public static final int PRODUCT_NAME_FIELD_NUMBER = 3;
         private static final long serialVersionUID = 0;
         private int bitField0;
         private int logModuleId;
@@ -8588,16 +10964,14 @@ public final class IMPushPb {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private Object productName;
-
-        public static MetaData getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public MetaData getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+        public static final Parser<MetaData> PARSER = new AbstractParser<MetaData>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaData.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public MetaData parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new MetaData(codedInputStream, extensionRegistryLite);
+            }
+        };
+        private static final MetaData defaultInstance = new MetaData(true);
 
         private MetaData(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -8608,6 +10982,16 @@ public final class IMPushPb {
         private MetaData(boolean z) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
+        }
+
+        public static MetaData getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public MetaData getDefaultInstanceForType() {
+            return defaultInstance;
         }
 
         private MetaData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -8665,18 +11049,22 @@ public final class IMPushPb {
             return PARSER;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public boolean hasLogModuleId() {
             return (this.bitField0 & 1) == 1;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public int getLogModuleId() {
             return this.logModuleId;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public boolean hasLogName() {
             return (this.bitField0 & 2) == 2;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public String getLogName() {
             Object obj = this.logName;
             if (obj instanceof String) {
@@ -8690,6 +11078,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public ByteString getLogNameBytes() {
             Object obj = this.logName;
             if (obj instanceof String) {
@@ -8700,10 +11089,12 @@ public final class IMPushPb {
             return (ByteString) obj;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public boolean hasProductName() {
             return (this.bitField0 & 4) == 4;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public String getProductName() {
             Object obj = this.productName;
             if (obj instanceof String) {
@@ -8717,6 +11108,7 @@ public final class IMPushPb {
             return stringUtf8;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public ByteString getProductNameBytes() {
             Object obj = this.productName;
             if (obj instanceof String) {
@@ -8773,13 +11165,60 @@ public final class IMPushPb {
             return i;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        protected Object writeReplace() throws ObjectStreamException {
+        public Object writeReplace() throws ObjectStreamException {
             return super.writeReplace();
+        }
+
+        public static MetaData parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static MetaData parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static MetaData parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static MetaData parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static MetaData parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static MetaData parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static MetaData parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static MetaData parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static MetaData parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static MetaData parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
         public static Builder newBuilder() {
             return Builder.create();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
 
         public static Builder newBuilder(MetaData metaData) {
@@ -8792,13 +11231,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             private int bitField0;
             private int logModuleId = 7399;
@@ -8871,11 +11304,6 @@ public final class IMPushPb {
                 return metaData;
             }
 
-            @Override // com.google.protobuf.MessageLiteOrBuilder
-            public final boolean isInitialized() {
-                return true;
-            }
-
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(MetaData metaData) {
@@ -8893,6 +11321,11 @@ public final class IMPushPb {
                     }
                 }
                 return this;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -8933,10 +11366,12 @@ public final class IMPushPb {
                 }
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public boolean hasLogModuleId() {
                 return (this.bitField0 & 1) == 1;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public int getLogModuleId() {
                 return this.logModuleId;
             }
@@ -8947,10 +11382,18 @@ public final class IMPushPb {
                 return this;
             }
 
+            public Builder clearLogModuleId() {
+                this.bitField0 &= -2;
+                this.logModuleId = 7399;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public boolean hasLogName() {
                 return (this.bitField0 & 2) == 2;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public String getLogName() {
                 Object obj = this.logName;
                 if (obj instanceof String) {
@@ -8961,6 +11404,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public ByteString getLogNameBytes() {
                 Object obj = this.logName;
                 if (obj instanceof String) {
@@ -8971,10 +11415,36 @@ public final class IMPushPb {
                 return (ByteString) obj;
             }
 
+            public Builder setLogName(String str) {
+                if (str == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.logName = str;
+                return this;
+            }
+
+            public Builder clearLogName() {
+                this.bitField0 &= -3;
+                this.logName = MetaData.getDefaultInstance().getLogName();
+                return this;
+            }
+
+            public Builder setLogNameBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 2;
+                this.logName = byteString;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public boolean hasProductName() {
                 return (this.bitField0 & 4) == 4;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public String getProductName() {
                 Object obj = this.productName;
                 if (obj instanceof String) {
@@ -8985,6 +11455,7 @@ public final class IMPushPb {
                 return stringUtf8;
             }
 
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public ByteString getProductNameBytes() {
                 Object obj = this.productName;
                 if (obj instanceof String) {
@@ -8993,6 +11464,30 @@ public final class IMPushPb {
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
+            }
+
+            public Builder setProductName(String str) {
+                if (str == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 4;
+                this.productName = str;
+                return this;
+            }
+
+            public Builder clearProductName() {
+                this.bitField0 &= -5;
+                this.productName = MetaData.getDefaultInstance().getProductName();
+                return this;
+            }
+
+            public Builder setProductNameBytes(ByteString byteString) {
+                if (byteString == null) {
+                    throw new NullPointerException();
+                }
+                this.bitField0 |= 4;
+                this.productName = byteString;
+                return this;
             }
         }
     }

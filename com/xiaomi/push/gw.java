@@ -1,16 +1,17 @@
 package com.xiaomi.push;
 
+import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.down.manage.DownloadConstants;
 import java.net.UnknownHostException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class gw {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     static class a {
         fb a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f439a;
+        String f436a;
 
         a() {
         }
@@ -18,7 +19,7 @@ final class gw {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a a(Exception exc) {
-        m316a(exc);
+        m321a(exc);
         boolean z = exc instanceof fx;
         Exception exc2 = exc;
         if (z) {
@@ -42,13 +43,13 @@ final class gw {
             aVar.a = fb.GSLB_TCP_ERR_OTHER;
         }
         if (aVar.a == fb.GSLB_TCP_ERR_OTHER) {
-            aVar.f439a = str;
+            aVar.f436a = str;
         }
         return aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m316a(Exception exc) {
+    private static void m321a(Exception exc) {
         if (exc == null) {
             throw new NullPointerException();
         }
@@ -57,7 +58,7 @@ final class gw {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a b(Exception exc) {
         Throwable cause;
-        m316a(exc);
+        m321a(exc);
         boolean z = exc instanceof fx;
         Exception exc2 = exc;
         if (z) {
@@ -83,14 +84,14 @@ final class gw {
             aVar.a = fb.CONN_XMPP_ERR;
         }
         if (aVar.a == fb.CONN_TCP_ERR_OTHER || aVar.a == fb.CONN_XMPP_ERR || aVar.a == fb.CONN_BOSH_ERR) {
-            aVar.f439a = str;
+            aVar.f436a = str;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a c(Exception exc) {
-        m316a(exc);
+        m321a(exc);
         boolean z = exc instanceof fx;
         Exception exc2 = exc;
         if (z) {
@@ -116,7 +117,7 @@ final class gw {
             case 110:
                 aVar.a = fb.BIND_TCP_BROKEN_PIPE;
                 break;
-            case 199:
+            case Opcodes.IFNONNULL /* 199 */:
                 aVar.a = fb.BIND_TCP_ERR;
                 break;
             case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
@@ -131,14 +132,14 @@ final class gw {
                 break;
         }
         if (aVar.a == fb.BIND_TCP_ERR || aVar.a == fb.BIND_XMPP_ERR || aVar.a == fb.BIND_BOSH_ERR) {
-            aVar.f439a = str;
+            aVar.f436a = str;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a d(Exception exc) {
-        m316a(exc);
+        m321a(exc);
         boolean z = exc instanceof fx;
         Exception exc2 = exc;
         if (z) {
@@ -161,7 +162,7 @@ final class gw {
             case 110:
                 aVar.a = fb.CHANNEL_TCP_BROKEN_PIPE;
                 break;
-            case 199:
+            case Opcodes.IFNONNULL /* 199 */:
                 aVar.a = fb.CHANNEL_TCP_ERR;
                 break;
             case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
@@ -176,7 +177,7 @@ final class gw {
                 break;
         }
         if (aVar.a == fb.CHANNEL_TCP_ERR || aVar.a == fb.CHANNEL_XMPPEXCEPTION || aVar.a == fb.CHANNEL_BOSH_EXCEPTION) {
-            aVar.f439a = str;
+            aVar.f436a = str;
         }
         return aVar;
     }

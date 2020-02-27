@@ -18,7 +18,7 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.h;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
-import com.baidu.tbadk.coreExtra.data.AuthVerifyData;
+import com.baidu.tbadk.coreExtra.data.i;
 import com.baidu.tieba.passaccount.a.b;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.webkit.internal.ETAG;
@@ -26,11 +26,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AuthActivity extends BaseActivity {
     private String authToken;
     private String bduss;
-    private SapiResult ivX = new SapiResult();
+    private SapiResult ixS = new SapiResult();
     private String tpl;
     private int type;
 
@@ -40,14 +40,14 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.chK();
+            PassManagerStatic.cjp();
             init();
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.ivX.setResultCode(-202);
-            this.ivX.setResultMsg("网络连接失败，请检查网络设置");
-            p(false, null);
+            this.ixS.setResultCode(-202);
+            this.ixS.setResultMsg("网络连接失败，请检查网络设置");
+            q(false, null);
         }
     }
 
@@ -60,22 +60,22 @@ public class AuthActivity extends BaseActivity {
             this.authToken = getIntent().getStringExtra("EXTRA_AUTH_TOKEN");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.authToken) || TextUtils.isEmpty(this.tpl)) {
-                this.ivX.setResultCode(-204);
-                this.ivX.setResultMsg("参数错误");
-                p(false, null);
+                this.ixS.setResultCode(-204);
+                this.ixS.setResultMsg("参数错误");
+                q(false, null);
             }
         } else if (this.type == 1 || this.type == 2) {
             this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.bduss)) {
-                this.ivX.setResultCode(-204);
-                this.ivX.setResultMsg("参数错误");
-                p(false, null);
+                this.ixS.setResultCode(-204);
+                this.ixS.setResultMsg("参数错误");
+                q(false, null);
             }
         } else {
-            this.ivX.setResultCode(-204);
-            this.ivX.setResultMsg("参数错误");
-            p(false, null);
+            this.ixS.setResultCode(-204);
+            this.ixS.setResultMsg("参数错误");
+            q(false, null);
         }
     }
 
@@ -83,7 +83,7 @@ public class AuthActivity extends BaseActivity {
         return new String(Base64.decode(str.getBytes(), 0));
     }
 
-    private String chv() {
+    private String cja() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
@@ -118,7 +118,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<PassNameValuePair> chw() {
+    private List<PassNameValuePair> cjb() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -155,7 +155,7 @@ public class AuthActivity extends BaseActivity {
                     if (str != null && str.contains("__wp-action=auth-widget")) {
                         String queryParameter = Uri.parse(str).getQueryParameter("authsid");
                         if (!TextUtils.isEmpty(queryParameter)) {
-                            AuthActivity.this.p(true, queryParameter);
+                            AuthActivity.this.q(true, queryParameter);
                         }
                     }
                 }
@@ -164,22 +164,22 @@ public class AuthActivity extends BaseActivity {
                 public void onPageFinished(WebView webView, String str) {
                 }
             });
-            this.sapiWebView.loadUrl(chv());
+            this.sapiWebView.loadUrl(cja());
         } else if (this.type == 1) {
             setTitleText(a.g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(getModifyPwdUrl(), chw());
+            this.sapiWebView.loadUrl(getModifyPwdUrl(), cjb());
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
-                    AuthActivity.this.p(true, null);
+                    AuthActivity.this.q(true, null);
                 }
             });
         } else if (this.type == 2) {
             setTitleText("绑定手机");
             this.sapiWebView.loadBindWidget(BindWidgetAction.BIND_MOBILE, this.bduss);
         } else {
-            p(false, null);
+            q(false, null);
         }
     }
 
@@ -196,9 +196,9 @@ public class AuthActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.ivX.setResultCode(-301);
-        this.ivX.setResultMsg("流程已结束");
-        p(false, null);
+        this.ixS.setResultCode(-301);
+        this.ixS.setResultMsg("流程已结束");
+        q(false, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -211,15 +211,15 @@ public class AuthActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p(boolean z, String str) {
+    public void q(boolean z, String str) {
         if (this.type == 0) {
-            b.chP().r(z, str);
+            b.cju().s(z, str);
         } else if (this.type == 1) {
-            b.chP().pg(z);
+            b.cju().pj(z);
         } else if (this.type == 2) {
-            b.chP().ph(z);
+            b.cju().pk(z);
         } else {
-            b.chP().a((AuthVerifyData.c) null);
+            b.cju().a((i.c) null);
         }
         finish();
     }

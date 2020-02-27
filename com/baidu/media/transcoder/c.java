@@ -1,10 +1,10 @@
 package com.baidu.media.transcoder;
 
 import com.baidu.media.transcoder.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class c implements a {
     private a.d a;
-    private a.InterfaceC0118a b;
+    private a.InterfaceC0126a b;
     private a.e c;
     private a.b d;
     private a.c e;
@@ -48,8 +48,8 @@ public abstract class c implements a {
         }
     }
 
-    public final void setOnCompletionListener(a.InterfaceC0118a interfaceC0118a) {
-        this.b = interfaceC0118a;
+    public final void setOnCompletionListener(a.InterfaceC0126a interfaceC0126a) {
+        this.b = interfaceC0126a;
     }
 
     public final void setOnErrorListener(a.b bVar) {

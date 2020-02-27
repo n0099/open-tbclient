@@ -2,7 +2,7 @@ package com.baidu.searchbox.suspensionwindow;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class FloatView {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void dismiss();

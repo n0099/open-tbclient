@@ -15,18 +15,18 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.download.DownloadData;
 import com.baidu.live.tbadk.download.FileDownloadCallBack;
 import com.baidu.live.tbadk.download.FileSerialDownLoader;
+import com.baidu.live.u.a;
 import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ApkManager {
     private final LinkedList<ApkData> mApkWaitingList;
     private Handler mHandler;
@@ -330,7 +330,7 @@ public class ApkManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private static class ApkMamnagerClassInstance {
         public static final ApkManager instance = new ApkManager();
 

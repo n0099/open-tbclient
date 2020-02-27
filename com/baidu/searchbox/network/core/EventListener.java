@@ -7,12 +7,12 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class EventListener {
     public static final EventListener NONE = new EventListener() { // from class: com.baidu.searchbox.network.core.EventListener.1
     };
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface Factory {
         EventListener create(Call call);
     }

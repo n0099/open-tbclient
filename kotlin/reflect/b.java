@@ -2,7 +2,8 @@ package kotlin.reflect;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public interface b<R> extends a {
     R call(Object... objArr);
 

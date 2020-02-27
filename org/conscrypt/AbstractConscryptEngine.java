@@ -6,7 +6,7 @@ import javax.net.ssl.SSLEngine;
 import javax.net.ssl.SSLEngineResult;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 abstract class AbstractConscryptEngine extends SSLEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract byte[] exportKeyingMaterial(String str, byte[] bArr, int i) throws SSLException;

@@ -9,7 +9,7 @@ import com.baidu.ala.gift.AlaDynamicGiftZip;
 import com.baidu.live.tbadk.log.LogConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaEnterEffectData implements m, Serializable {
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
     public static final int ALA_ENTER_EFFECT_HAS_DOWNLOAD = 101;

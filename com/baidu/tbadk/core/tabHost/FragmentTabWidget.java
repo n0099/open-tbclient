@@ -16,11 +16,11 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
-    private int cUq;
-    private a cUr;
-    private c cUs;
-    private boolean cUt;
-    private View cUu;
+    private int cYs;
+    private a cYt;
+    private c cYu;
+    private boolean cYv;
+    private View cYw;
     private boolean isAbsoluteDivide;
     private int left;
     private int mBackgroundColorResId;
@@ -59,7 +59,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.mCursorRect = new Rect();
         this.mButtomRectDviderRect = new Rect();
         this.mTopDviderRect = new Rect();
-        this.cUq = 0;
+        this.cYs = 0;
         this.mSelectedTabIndex = -1;
         this.mPaint = new Paint();
         this.mCursorWidth = 0;
@@ -67,7 +67,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.shouldDrawTopLine = false;
         this.tabItemNeedPadding = false;
         this.isAbsoluteDivide = false;
-        this.cUt = true;
+        this.cYv = true;
         init();
     }
 
@@ -76,7 +76,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.mCursorRect = new Rect();
         this.mButtomRectDviderRect = new Rect();
         this.mTopDviderRect = new Rect();
-        this.cUq = 0;
+        this.cYs = 0;
         this.mSelectedTabIndex = -1;
         this.mPaint = new Paint();
         this.mCursorWidth = 0;
@@ -84,7 +84,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.shouldDrawTopLine = false;
         this.tabItemNeedPadding = false;
         this.isAbsoluteDivide = false;
-        this.cUt = true;
+        this.cYv = true;
         init();
     }
 
@@ -128,8 +128,8 @@ public class FragmentTabWidget extends LinearLayout {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.cUs != null) {
-            this.cUs.onSizeChanged(i, i2, i3, i4);
+        if (this.cYu != null) {
+            this.cYu.onSizeChanged(i, i2, i3, i4);
         }
     }
 
@@ -151,13 +151,13 @@ public class FragmentTabWidget extends LinearLayout {
         c(view, z);
         super.addView(view, i);
         if (z) {
-            this.cUu = view;
+            this.cYw = view;
         }
         view.setOnClickListener(new b(getChildCount() - 1));
     }
 
     public View getWriteView() {
-        return this.cUu;
+        return this.cYw;
     }
 
     public void c(View view, boolean z) {
@@ -246,7 +246,7 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mBackgroundColorResId != 0 && this.cUq == 0) {
+        if (this.mBackgroundColorResId != 0 && this.cYs == 0) {
             am.setBackgroundColor(this, this.mBackgroundColorResId);
         }
         this.mCursorColor = am.getColor(R.color.cp_cont_b);
@@ -265,7 +265,7 @@ public class FragmentTabWidget extends LinearLayout {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         this.mPaint.setColor(this.mDividerColor);
-        if (this.cUt) {
+        if (this.cYv) {
             canvas.drawRect(this.mButtomRectDviderRect, this.mPaint);
         }
         if (this.shouldDrawTopLine) {
@@ -278,7 +278,7 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setShouldDrawDividerLine(boolean z) {
-        this.cUt = z;
+        this.cYv = z;
     }
 
     public void setShouldDrawIndicatorLine(boolean z) {
@@ -290,11 +290,11 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setTabSelectionListener(a aVar) {
-        this.cUr = aVar;
+        this.cYt = aVar;
     }
 
     public void setOnSizeChangedListener(c cVar) {
-        this.cUs = cVar;
+        this.cYu = cVar;
     }
 
     public void setDviderRectWidth(int i) {
@@ -310,7 +310,7 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setBackGroundStyle(int i) {
-        this.cUq = i;
+        this.cYs = i;
     }
 
     public void setAbsoluteWeight(boolean z) {
@@ -327,7 +327,7 @@ public class FragmentTabWidget extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FragmentTabWidget.this.cUr.onTabSelectionChanged(this.mTabIndex, true);
+            FragmentTabWidget.this.cYt.onTabSelectionChanged(this.mTabIndex, true);
         }
     }
 }

@@ -5,9 +5,10 @@ import java.io.IOException;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
-import kotlin.k;
-/* loaded from: classes5.dex */
-final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements m<File, IOException, k> {
+import kotlin.l;
+@kotlin.h
+/* loaded from: classes7.dex */
+final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements m<File, IOException, l> {
     final /* synthetic */ m $onError;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -19,9 +20,9 @@ final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements m<File,
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.m
-    public /* bridge */ /* synthetic */ k invoke(File file, IOException iOException) {
+    public /* bridge */ /* synthetic */ l invoke(File file, IOException iOException) {
         invoke2(file, iOException);
-        return k.nAY;
+        return l.nBA;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

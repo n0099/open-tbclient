@@ -9,18 +9,18 @@ import android.view.MotionEvent;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.baidu.live.r.a;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class AlaLiveGuardUpSlideView extends FrameLayout {
-    private ImageView dTY;
-    private AnimatorSet eYY;
-    private ObjectAnimator eYZ;
-    private ObjectAnimator eZa;
-    a eZb;
+    private ImageView dYd;
+    private AnimatorSet fcl;
+    private ObjectAnimator fcm;
+    private ObjectAnimator fcn;
+    a fco;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void jp(boolean z);
+        void jr(boolean z);
     }
 
     public AlaLiveGuardUpSlideView(Context context) {
@@ -46,39 +46,39 @@ public class AlaLiveGuardUpSlideView extends FrameLayout {
     private void b(Context context, boolean z, boolean z2) {
         setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha50));
         LayoutInflater.from(context).inflate(a.h.ala_liveroom_guard_upglide_layout, this);
-        this.dTY = (ImageView) findViewById(a.g.ala_liveroom_guard_image_hand);
+        this.dYd = (ImageView) findViewById(a.g.ala_liveroom_guard_image_hand);
     }
 
-    public void bkK() {
+    public void bmu() {
         setVisibility(0);
-        bkL();
+        bmv();
     }
 
-    private void bkL() {
+    private void bmv() {
         try {
-            if (this.eYY == null) {
-                this.eYY = new AnimatorSet();
-                this.eYY.setDuration(2200L);
-                this.eYZ = ObjectAnimator.ofFloat(this.dTY, "translationY", 0.0f, -126.0f, -200.0f, -200.0f, 0.0f, 0.0f, 65.0f, 110.0f, 110.0f, 0.0f, 0.0f);
-                this.eZa = ObjectAnimator.ofFloat(this.dTY, "alpha", 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
-                this.eYZ.setRepeatMode(1);
-                this.eYZ.setRepeatCount(-1);
-                this.eZa.setRepeatMode(1);
-                this.eZa.setRepeatCount(-1);
-                this.eYY.play(this.eYZ).with(this.eZa);
-                this.eYY.setInterpolator(new LinearInterpolator());
-                this.eYY.start();
+            if (this.fcl == null) {
+                this.fcl = new AnimatorSet();
+                this.fcl.setDuration(2200L);
+                this.fcm = ObjectAnimator.ofFloat(this.dYd, "translationY", 0.0f, -126.0f, -200.0f, -200.0f, 0.0f, 0.0f, 65.0f, 110.0f, 110.0f, 0.0f, 0.0f);
+                this.fcn = ObjectAnimator.ofFloat(this.dYd, "alpha", 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
+                this.fcm.setRepeatMode(1);
+                this.fcm.setRepeatCount(-1);
+                this.fcn.setRepeatMode(1);
+                this.fcn.setRepeatCount(-1);
+                this.fcl.play(this.fcm).with(this.fcn);
+                this.fcl.setInterpolator(new LinearInterpolator());
+                this.fcl.start();
             }
         } catch (OutOfMemoryError e) {
             System.gc();
-            if (this.eZb != null) {
-                this.eZb.jp(true);
+            if (this.fco != null) {
+                this.fco.jr(true);
             }
         }
     }
 
     public void setOnEndListener(a aVar) {
-        this.eZb = aVar;
+        this.fco = aVar;
     }
 
     @Override // android.view.View
@@ -86,16 +86,16 @@ public class AlaLiveGuardUpSlideView extends FrameLayout {
         if (getVisibility() == 8) {
             return super.onTouchEvent(motionEvent);
         }
-        if (motionEvent.getAction() == 0 && this.eZb != null) {
-            this.eZb.jp(false);
+        if (motionEvent.getAction() == 0 && this.fco != null) {
+            this.fco.jr(false);
         }
         return true;
     }
 
     public void onDestroy() {
-        if (this.eYY != null) {
-            this.eYY.cancel();
-            this.eYY = null;
+        if (this.fcl != null) {
+            this.fcl.cancel();
+            this.fcl = null;
         }
     }
 }

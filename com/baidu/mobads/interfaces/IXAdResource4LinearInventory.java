@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces;
 
 import android.graphics.Bitmap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IXAdResource4LinearInventory extends IXAdResource {
     Bitmap getFullScreenOff();
 

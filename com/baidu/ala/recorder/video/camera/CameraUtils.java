@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import tv.danmaku.ijk.media.player.IjkMediaFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CameraUtils {
     public static Camera.Size choosePreviewSize(Camera.Parameters parameters, int i, int i2) {
         List<Camera.Size> supportedPreviewSizes;

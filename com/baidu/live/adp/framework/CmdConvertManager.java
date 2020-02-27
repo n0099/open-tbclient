@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.base.BdBaseApplication;
 import java.lang.reflect.Field;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CmdConvertManager {
     private static volatile CmdConvertManager sInstance;
     private SparseArray<String> mCmdMap;

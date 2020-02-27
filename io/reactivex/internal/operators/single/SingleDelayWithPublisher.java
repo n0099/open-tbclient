@@ -11,7 +11,7 @@ import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SingleDelayWithPublisher<T, U> extends w<T> {
     final b<U> other;
     final aa<T> source;
@@ -21,7 +21,7 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
         this.other.subscribe(new OtherSubscriber(yVar, this.source));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class OtherSubscriber<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -8565274649390031272L;
         final y<? super T> actual;

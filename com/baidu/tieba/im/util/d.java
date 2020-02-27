@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.util;
 /* loaded from: classes.dex */
 public class d {
-    public static long B(long j) {
+    public static long F(long j) {
         return 1 + j;
     }
 

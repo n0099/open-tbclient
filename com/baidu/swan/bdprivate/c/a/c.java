@@ -11,7 +11,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends ab {
     public c(j jVar) {
         super(jVar, "/swanAPI/getBDUSS");
@@ -36,11 +36,11 @@ public class c extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            eVar.aaz().b(context, "mapp_i_get_bduss", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.c.1
+            eVar.acN().b(context, "mapp_i_get_bduss", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void B(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void D(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     c.this.a(hVar, context, callbackHandler, optString);
                 }
             });
@@ -56,10 +56,10 @@ public class c extends ab {
             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, str);
             return;
         }
-        String cO = com.baidu.swan.bdprivate.a.a.cO(context);
+        String cS = com.baidu.swan.bdprivate.a.a.cS(context);
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("bduss", cO);
+            jSONObject.put("bduss", cS);
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
         } catch (JSONException e) {
             if (DEBUG) {

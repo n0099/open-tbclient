@@ -8,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RoomSpaceData {
     public Achievement achievementMedalInfo;
     public List<AvatarBean> avatarList;
@@ -28,7 +28,7 @@ public class RoomSpaceData {
     public String liveType = "1";
     public List<String> hiddenList = new ArrayList();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class AvatarBean {
         public String avatar;
         public String id;
@@ -36,7 +36,7 @@ public class RoomSpaceData {
         public String uid;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LikedGameBean {
         public String icon;
         public String id;
@@ -44,7 +44,7 @@ public class RoomSpaceData {
         public String targetKey;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LiveGameBean {
         public boolean gameNameRequired;
         public String id;
@@ -52,7 +52,7 @@ public class RoomSpaceData {
         public String poster;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LiveStatus {
         public LiveGameBean game;
         public String liveSourceId;
@@ -66,18 +66,18 @@ public class RoomSpaceData {
         public int style;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LiveTag {
         public String name;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class MedalBean {
         public String introductionUrl;
         public String url;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class RoomBean {
         public String announcement;
         public UserBean creator;
@@ -91,7 +91,7 @@ public class RoomSpaceData {
         public long subscriberCount;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SkinBean {
         public String background;
         public String homeBackground;
@@ -100,7 +100,7 @@ public class RoomSpaceData {
         public String subscribedBtnBg;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class UserData {
         public String point;
         public String uid;

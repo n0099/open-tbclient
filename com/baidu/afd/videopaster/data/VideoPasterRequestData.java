@@ -20,7 +20,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VideoPasterRequestData extends HttpMessage {
     private static String _ANDROID_ID = "";
     private static final TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/ads");
@@ -29,19 +29,19 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam("pid", aVar.kD());
+        addParam("pid", aVar.kS());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.ks()));
+        addParam("flr", String.valueOf(aVar.kH()));
         addParam("sw", String.valueOf(aVar.width()));
         addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.ks()));
-        addParam("ft", aVar.kq());
+        addParam("fc", String.valueOf(aVar.kH()));
+        addParam("ft", aVar.kF());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
@@ -49,10 +49,10 @@ public class VideoPasterRequestData extends HttpMessage {
         if (aVar == null) {
             return null;
         }
-        if (aVar == null || aVar.kt() != null) {
-            if (aVar == null || !aVar.kt().isEmpty()) {
+        if (aVar == null || aVar.kI() != null) {
+            if (aVar == null || !aVar.kI().isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, String> entry : aVar.kt().entrySet()) {
+                for (Map.Entry<String, String> entry : aVar.kI().entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }
                 return jSONArray.toString();

@@ -2,25 +2,25 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class ac implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f37a;
+    final /* synthetic */ Intent f34a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(Context context, Intent intent) {
         this.a = context;
-        this.f37a = intent;
+        this.f34a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.a.startService(this.f37a);
+            this.a.startService(this.f34a);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m42a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m47a(e.getMessage());
         }
     }
 }

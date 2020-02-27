@@ -37,7 +37,7 @@ public class w {
         }
     }
 
-    public static boolean ar(Activity activity) {
+    public static boolean as(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }

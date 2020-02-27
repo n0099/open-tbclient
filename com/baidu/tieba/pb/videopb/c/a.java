@@ -3,9 +3,9 @@ package com.baidu.tieba.pb.videopb.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.b;
 import tbclient.Promotion;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a extends b {
-    public static final BdUniqueId iYL = BdUniqueId.gen();
+    public static final BdUniqueId jam = BdUniqueId.gen();
     private Long appear_time;
     private String image;
     private String link;
@@ -15,14 +15,14 @@ public class a extends b {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return iYL;
+        return jam;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String cso() {
+    public String ctH() {
         return this.sub_title;
     }
 
@@ -34,11 +34,11 @@ public class a extends b {
         return this.link;
     }
 
-    public String csp() {
+    public String ctI() {
         return this.link_text;
     }
 
-    public Long csq() {
+    public Long ctJ() {
         return this.appear_time;
     }
 

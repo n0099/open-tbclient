@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SDcardRemovedReceiver extends BroadcastReceiver {
     private static String a = "SDRev";
 

@@ -3,32 +3,32 @@ package com.baidu.tieba.video.cloudmusic.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CloudMusicData extends OrmObject {
     public List<MusicTagList> music_tag_list;
     public List<TagList> tag_list;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class TagList extends OrmObject {
         public int id;
         public String name;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class MusicTagList extends OrmObject implements Serializable {
         private static final long serialVersionUID = 1;
         public List<MusicList> music_list;
         public Page page;
         public int tag_id;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class Page extends OrmObject implements Serializable {
             private static final long serialVersionUID = 2;
             public int has_more;
             public int pn;
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class MusicList extends OrmObject implements Serializable {
             private static final long serialVersionUID = 3;
             public String author;

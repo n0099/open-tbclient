@@ -13,7 +13,7 @@ import com.baidu.swan.apps.w.b.k;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppUtilsJavaScriptInterface {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
@@ -98,14 +98,14 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.w.a.RH().a(context, parseString, new k.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.w.a.TV().a(context, parseString, new k.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.w.b.k.a
-            public void ST() {
+            public void Vh() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.w.b.k.a
-            public void SU() {
+            public void Vi() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -132,8 +132,8 @@ public class SwanAppUtilsJavaScriptInterface {
                     if (l.longValue() >= UBC_MIN_VERSION) {
                         String optString2 = jSONObject.optString("actionId");
                         String optString3 = jSONObject.optString("value");
-                        if (com.baidu.swan.ubc.s.atD() != null) {
-                            com.baidu.swan.ubc.s.atD().c(optString2, optString3, 0);
+                        if (com.baidu.swan.ubc.s.avR() != null) {
+                            com.baidu.swan.ubc.s.avR().c(optString2, optString3, 0);
                         }
                     }
                 } catch (NumberFormatException e) {

@@ -5,7 +5,7 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AES {
     private static final String DEFAULT_ALGORITHM = "AES";
     private static final String DEFAULT_ALGORITHM_MODE = "AES/CBC/NoPadding";

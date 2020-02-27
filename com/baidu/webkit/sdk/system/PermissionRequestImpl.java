@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.net.Uri;
 import com.baidu.webkit.sdk.PermissionRequest;
 @TargetApi(21)
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 final class PermissionRequestImpl extends PermissionRequest {
     private final android.webkit.PermissionRequest mRequest;
 

@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.searchbox.ugc.R;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PressAlphaLinearLayout extends LinearLayout {
     private static final float DEFAULT_ALPHA = 1.0f;
     private float mPressedAlpha;

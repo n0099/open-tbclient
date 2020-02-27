@@ -7,7 +7,7 @@ import android.support.v4.view.InputDeviceCompat;
 import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ShakeAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final float FACTOR_SHAKE = 0.6f;
@@ -29,7 +29,7 @@ public class ShakeAnimElement extends BaseAnimatedElement {
         if (lottie != null) {
             this.mLottieDrawable = new g();
             this.mLottieDrawable.setImageAssetDelegate(lottie.mImageAssetDelegate);
-            this.mLottieDrawable.b(lottie.mLottieComposition);
+            this.mLottieDrawable.a(lottie.mLottieComposition);
             this.mLottieDrawable.setCallback(this.mDrawableCallback);
             setScaleType(this.mLottieDrawable);
         }

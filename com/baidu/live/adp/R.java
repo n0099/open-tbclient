@@ -58,9 +58,9 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class color {
-        public static final int sdk_swipe_layout_night_bg = 0x7f0d09ca;
-        public static final int sdk_swipe_layout_normal_bg = 0x7f0d09cb;
-        public static final int sdk_transparent = 0x7f0d09d3;
+        public static final int sdk_swipe_layout_night_bg = 0x7f0d09cb;
+        public static final int sdk_swipe_layout_normal_bg = 0x7f0d09cc;
+        public static final int sdk_transparent = 0x7f0d09d4;
     }
 
     /* loaded from: classes2.dex */
@@ -70,63 +70,63 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class drawable {
-        public static final int sdk_bg_switch_close = 0x7f0218c3;
-        public static final int sdk_bg_switch_open = 0x7f0218c4;
-        public static final int sdk_btn_handle = 0x7f0218d6;
-        public static final int sdk_listview_pull_refresh01 = 0x7f02197a;
-        public static final int sdk_listview_pull_refresh02 = 0x7f02197b;
+        public static final int sdk_bg_switch_close = 0x7f0218cd;
+        public static final int sdk_bg_switch_open = 0x7f0218ce;
+        public static final int sdk_btn_handle = 0x7f0218e0;
+        public static final int sdk_listview_pull_refresh01 = 0x7f02197d;
+        public static final int sdk_listview_pull_refresh02 = 0x7f02197e;
     }
 
     /* loaded from: classes2.dex */
     public static final class id {
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f969common = 0x7f0f01b8;
-        public static final int pull_content = 0x7f0f1d68;
-        public static final int pull_image = 0x7f0f0af5;
-        public static final int pull_root = 0x7f0f1d66;
-        public static final int pull_text = 0x7f0f1d69;
-        public static final int pull_time = 0x7f0f1d6a;
+        public static final int f988common = 0x7f0f01b8;
+        public static final int pull_content = 0x7f0f1d3a;
+        public static final int pull_image = 0x7f0f0ae9;
+        public static final int pull_root = 0x7f0f1d38;
+        public static final int pull_text = 0x7f0f1d3b;
+        public static final int pull_time = 0x7f0f1d3c;
         public static final int shader = 0x7f0f01b9;
     }
 
     /* loaded from: classes2.dex */
     public static final class layout {
-        public static final int sdk_pull_view = 0x7f0306f0;
+        public static final int sdk_pull_view = 0x7f0306eb;
     }
 
     /* loaded from: classes2.dex */
     public static final class string {
-        public static final int sdk_Waiting = 0x7f081221;
-        public static final int sdk_adp_label_name = 0x7f081223;
-        public static final int sdk_adp_loading = 0x7f081224;
-        public static final int sdk_adp_pull_to_refresh = 0x7f081225;
-        public static final int sdk_adp_pull_view_date_tip = 0x7f081226;
-        public static final int sdk_adp_release_to_refresh = 0x7f081227;
-        public static final int sdk_dialog_cancel = 0x7f081248;
-        public static final int sdk_dialog_ok = 0x7f081249;
-        public static final int sdk_error_unkown_try_again = 0x7f081253;
-        public static final int sdk_im_error_codec = 0x7f081265;
-        public static final int sdk_im_error_default = 0x7f081266;
-        public static final int sdk_load_res_failed = 0x7f08128b;
-        public static final int sdk_location_all_offline = 0x7f08128f;
-        public static final int sdk_location_gps_offline = 0x7f081291;
-        public static final int sdk_location_net_offline = 0x7f081292;
-        public static final int sdk_location_out_time = 0x7f081293;
-        public static final int sdk_neterror = 0x7f08129a;
-        public static final int sdk_prompt = 0x7f0812fd;
-        public static final int sdk_send_error = 0x7f081314;
-        public static final int sdk_share_to = 0x7f08131a;
-        public static final int sdk_voice_err_other = 0x7f081365;
+        public static final int sdk_Waiting = 0x7f081235;
+        public static final int sdk_adp_label_name = 0x7f081237;
+        public static final int sdk_adp_loading = 0x7f081238;
+        public static final int sdk_adp_pull_to_refresh = 0x7f081239;
+        public static final int sdk_adp_pull_view_date_tip = 0x7f08123a;
+        public static final int sdk_adp_release_to_refresh = 0x7f08123b;
+        public static final int sdk_dialog_cancel = 0x7f08125c;
+        public static final int sdk_dialog_ok = 0x7f08125d;
+        public static final int sdk_error_unkown_try_again = 0x7f081267;
+        public static final int sdk_im_error_codec = 0x7f081279;
+        public static final int sdk_im_error_default = 0x7f08127a;
+        public static final int sdk_load_res_failed = 0x7f08129f;
+        public static final int sdk_location_all_offline = 0x7f0812a3;
+        public static final int sdk_location_gps_offline = 0x7f0812a5;
+        public static final int sdk_location_net_offline = 0x7f0812a6;
+        public static final int sdk_location_out_time = 0x7f0812a7;
+        public static final int sdk_neterror = 0x7f0812ae;
+        public static final int sdk_prompt = 0x7f081311;
+        public static final int sdk_send_error = 0x7f081328;
+        public static final int sdk_share_to = 0x7f08132e;
+        public static final int sdk_voice_err_other = 0x7f08137a;
     }
 
     /* loaded from: classes2.dex */
     public static final class style {
-        public static final int sdk_AppBaseTheme = 0x7f0a02c6;
-        public static final int sdk_AppTheme = 0x7f0a02c7;
-        public static final int sdk_DialogTheme = 0x7f0a02c9;
+        public static final int sdk_AppBaseTheme = 0x7f0a02c9;
+        public static final int sdk_AppTheme = 0x7f0a02ca;
+        public static final int sdk_DialogTheme = 0x7f0a02cc;
         public static final int sdk_swipeback_activity_style = 0x7f0a0082;
-        public static final int sdk_window_translucent = 0x7f0a02e1;
+        public static final int sdk_window_translucent = 0x7f0a02e2;
     }
 
     /* loaded from: classes2.dex */

@@ -2,15 +2,15 @@ package com.baidu.mobads;
 
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class f implements Runnable {
-    final /* synthetic */ e aKW;
-    final /* synthetic */ IOAdEvent aKm;
+    final /* synthetic */ IOAdEvent aOq;
+    final /* synthetic */ e aPa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, IOAdEvent iOAdEvent) {
-        this.aKW = eVar;
-        this.aKm = iOAdEvent;
+        this.aPa = eVar;
+        this.aOq = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -18,19 +18,19 @@ class f implements Runnable {
         BaiduHybridAdViewListener baiduHybridAdViewListener;
         BaiduHybridAdViewListener baiduHybridAdViewListener2;
         com.baidu.mobads.production.d.a aVar;
-        if (IXAdEvent.AD_LOADED.equals(this.aKm.getType())) {
-            aVar = this.aKW.aKV.aKB;
+        if (IXAdEvent.AD_LOADED.equals(this.aOq.getType())) {
+            aVar = this.aPa.aOZ.aOF;
             aVar.start();
-        } else if (IXAdEvent.AD_STARTED.equals(this.aKm.getType())) {
-            baiduHybridAdViewListener2 = this.aKW.aKV.aKA;
+        } else if (IXAdEvent.AD_STARTED.equals(this.aOq.getType())) {
+            baiduHybridAdViewListener2 = this.aPa.aOZ.aOE;
             baiduHybridAdViewListener2.onAdShow(0, null);
-        } else if (!IXAdEvent.AD_ERROR.equals(this.aKm.getType())) {
-            if ("AdUserClick".equals(this.aKm.getType())) {
-                baiduHybridAdViewListener = this.aKW.aKV.aKA;
+        } else if (!IXAdEvent.AD_ERROR.equals(this.aOq.getType())) {
+            if ("AdUserClick".equals(this.aOq.getType())) {
+                baiduHybridAdViewListener = this.aPa.aOZ.aOE;
                 baiduHybridAdViewListener.onAdClick(0, null);
                 return;
             }
-            if (IXAdEvent.AD_USER_CLOSE.equals(this.aKm.getType())) {
+            if (IXAdEvent.AD_USER_CLOSE.equals(this.aOq.getType())) {
             }
         }
     }

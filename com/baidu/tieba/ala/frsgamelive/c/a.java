@@ -7,10 +7,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.a> {
-    private TextView eyv;
-    private TextView eyw;
+    private TextView eCC;
+    private TextView eCD;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,16 +19,16 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
         this.mSkinType = 3;
         this.mTbPageContext = tbPageContext;
         View view = getView();
-        this.eyv = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
-        this.eyw = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
+        this.eCC = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
+        this.eCD = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setViewTextColor(this.eyv, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.eyw, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.eCC, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.eCD, (int) R.color.cp_cont_d);
             this.mSkinType = i;
         }
     }
@@ -49,13 +49,13 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     /* renamed from: com.baidu.tieba.ala.frsgamelive.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0421a extends v.a {
-        public a eyx;
+    /* loaded from: classes3.dex */
+    public static class C0432a extends v.a {
+        public a eCE;
 
-        public C0421a(a aVar) {
+        public C0432a(a aVar) {
             super(aVar.getView());
-            this.eyx = aVar;
+            this.eCE = aVar;
         }
     }
 }

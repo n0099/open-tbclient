@@ -17,23 +17,23 @@ import com.baidu.swan.game.ad.a.a;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.component.AdImageVIew;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private AdElementInfo ccj;
-    private LinearLayout cck;
-    private AdImageVIew ccl;
-    private AdImageVIew ccm;
-    private RelativeLayout ccn;
-    private RelativeLayout cco;
-    private RelativeLayout ccp;
-    private TextView ccq;
-    private TextView ccr;
-    private Button cct;
-    private boolean ccu;
-    private String ccv;
-    private a.c ccw;
-    private InterfaceC0316a ccx;
-    private View.OnClickListener ccy;
+    private a.c cgA;
+    private InterfaceC0326a cgB;
+    private View.OnClickListener cgC;
+    private AdElementInfo cgo;
+    private LinearLayout cgp;
+    private AdImageVIew cgq;
+    private AdImageVIew cgr;
+    private RelativeLayout cgs;
+    private RelativeLayout cgt;
+    private RelativeLayout cgu;
+    private TextView cgv;
+    private TextView cgw;
+    private Button cgx;
+    private boolean cgy;
+    private String cgz;
     private ImageView mCloseBtn;
     private int mContentHeight;
     private int mContentWidth;
@@ -42,9 +42,9 @@ public class a {
     private Runnable mHideRunnable;
 
     /* renamed from: com.baidu.swan.game.ad.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0316a {
-        void ahH();
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0326a {
+        void ajV();
     }
 
     public a(Context context, AdElementInfo adElementInfo, String str) {
@@ -54,18 +54,18 @@ public class a {
                 a.this.hide();
             }
         };
-        this.ccy = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.a.3
+        this.cgC = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.ccw != null) {
-                    a.this.ccw.kR();
+                if (a.this.cgA != null) {
+                    a.this.cgA.lg();
                 }
             }
         };
         this.mContext = context;
-        this.ccj = adElementInfo;
-        this.ccv = str;
-        this.ccu = com.baidu.swan.games.utils.c.anF().anG();
+        this.cgo = adElementInfo;
+        this.cgz = str;
+        this.cgy = com.baidu.swan.games.utils.c.apT().apU();
         initView();
     }
 
@@ -76,11 +76,11 @@ public class a {
                 a.this.hide();
             }
         };
-        this.ccy = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.a.3
+        this.cgC = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.ccw != null) {
-                    a.this.ccw.kR();
+                if (a.this.cgA != null) {
+                    a.this.cgA.lg();
                 }
             }
         };
@@ -88,63 +88,63 @@ public class a {
         initView();
     }
 
-    public void a(InterfaceC0316a interfaceC0316a) {
-        this.ccx = interfaceC0316a;
+    public void a(InterfaceC0326a interfaceC0326a) {
+        this.cgB = interfaceC0326a;
     }
 
     private void initView() {
         Resources resources = this.mContext.getResources();
         this.mConvertView = LayoutInflater.from(this.mContext).inflate(c.f.ng_game_banner_ad, (ViewGroup) null);
-        this.cck = (LinearLayout) this.mConvertView.findViewById(c.e.banner_view);
-        this.cco = (RelativeLayout) this.mConvertView.findViewById(c.e.banner_ad_left);
-        this.ccl = (AdImageVIew) this.mConvertView.findViewById(c.e.banner_w_pic);
-        if (this.ccj != null) {
-            this.ccl.setImageUrl(this.ccj.getPictureUrl());
+        this.cgp = (LinearLayout) this.mConvertView.findViewById(c.e.banner_view);
+        this.cgt = (RelativeLayout) this.mConvertView.findViewById(c.e.banner_ad_left);
+        this.cgq = (AdImageVIew) this.mConvertView.findViewById(c.e.banner_w_pic);
+        if (this.cgo != null) {
+            this.cgq.setImageUrl(this.cgo.getPictureUrl());
         }
-        this.ccm = (AdImageVIew) this.mConvertView.findViewById(c.e.ad_text);
-        this.ccm.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
-        this.ccn = (RelativeLayout) this.mConvertView.findViewById(c.e.banner_ad_right);
-        this.ccp = (RelativeLayout) this.mConvertView.findViewById(c.e.banner_right_bottom);
-        this.ccq = (TextView) this.mConvertView.findViewById(c.e.banner_title);
-        this.ccr = (TextView) this.mConvertView.findViewById(c.e.banner_app_name);
-        if (this.ccj != null) {
-            this.ccq.setText(this.ccj.getTitle());
-            this.ccr.setText(this.ccj.getAppName());
+        this.cgr = (AdImageVIew) this.mConvertView.findViewById(c.e.ad_text);
+        this.cgr.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
+        this.cgs = (RelativeLayout) this.mConvertView.findViewById(c.e.banner_ad_right);
+        this.cgu = (RelativeLayout) this.mConvertView.findViewById(c.e.banner_right_bottom);
+        this.cgv = (TextView) this.mConvertView.findViewById(c.e.banner_title);
+        this.cgw = (TextView) this.mConvertView.findViewById(c.e.banner_app_name);
+        if (this.cgo != null) {
+            this.cgv.setText(this.cgo.getTitle());
+            this.cgw.setText(this.cgo.getAppName());
         }
-        this.cct = (Button) this.mConvertView.findViewById(c.e.banner_ad_act);
-        this.cct.setVisibility(8);
-        if (this.ccj != null && this.ccj.getActionType() == 1) {
-            this.cct.setVisibility(0);
-            this.cct.setText(resources.getString(c.g.see_detail));
+        this.cgx = (Button) this.mConvertView.findViewById(c.e.banner_ad_act);
+        this.cgx.setVisibility(8);
+        if (this.cgo != null && this.cgo.getActionType() == 1) {
+            this.cgx.setVisibility(0);
+            this.cgx.setText(resources.getString(c.g.see_detail));
         }
-        if (this.ccj != null && this.ccj.getActionType() == 2) {
-            this.cct.setVisibility(0);
-            this.cct.setText(resources.getString(c.g.down_immediately));
+        if (this.cgo != null && this.cgo.getActionType() == 2) {
+            this.cgx.setVisibility(0);
+            this.cgx.setText(resources.getString(c.g.down_immediately));
         }
-        if (this.ccj == null) {
-            this.cco.setVisibility(8);
-            this.ccn.setVisibility(8);
+        if (this.cgo == null) {
+            this.cgt.setVisibility(8);
+            this.cgs.setVisibility(8);
             this.mConvertView.findViewById(c.e.no_ad_tips).setVisibility(0);
             return;
         }
-        this.cco.setVisibility(0);
-        this.ccn.setVisibility(0);
+        this.cgt.setVisibility(0);
+        this.cgs.setVisibility(0);
         this.mConvertView.findViewById(c.e.no_ad_tips).setVisibility(8);
-        this.cct.setOnClickListener(this.ccy);
-        this.cck.setOnClickListener(this.ccy);
+        this.cgx.setOnClickListener(this.cgC);
+        this.cgp.setOnClickListener(this.cgC);
         this.mConvertView.setVisibility(4);
-        if (this.ccu) {
+        if (this.cgy) {
             this.mCloseBtn = (ImageView) this.mConvertView.findViewById(c.e.close_ad_btn);
             this.mCloseBtn.setVisibility(0);
             this.mCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.game.ad.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     ai.k(a.this.mHideRunnable);
-                    com.baidu.swan.games.utils.c.anF().bN(a.this.ccv, "" + System.currentTimeMillis());
-                    if (a.this.ccx != null) {
-                        a.this.ccx.ahH();
+                    com.baidu.swan.games.utils.c.apT().bW(a.this.cgz, "" + System.currentTimeMillis());
+                    if (a.this.cgB != null) {
+                        a.this.cgB.ajV();
                     }
-                    com.baidu.swan.games.view.a.b.bO("banner", "close");
+                    com.baidu.swan.games.view.a.b.bX("banner", "close");
                 }
             });
         }
@@ -154,49 +154,49 @@ public class a {
         return this.mConvertView;
     }
 
-    public void hk(int i) {
+    public void hB(int i) {
         this.mContentWidth = af.S(i);
-        this.mContentHeight = (int) (this.mContentWidth / com.baidu.swan.game.ad.e.d.ceb);
+        this.mContentHeight = (int) (this.mContentWidth / com.baidu.swan.game.ad.e.d.cif);
         this.mConvertView.setLayoutParams(new RelativeLayout.LayoutParams(this.mContentWidth, this.mContentHeight));
-        this.cck.setLayoutParams(new RelativeLayout.LayoutParams(this.mContentWidth, this.mContentHeight));
-        int i2 = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cec);
-        this.cco.setLayoutParams(new LinearLayout.LayoutParams(i2, this.mContentHeight));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (i2 * com.baidu.swan.game.ad.e.d.cen), (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.ceo));
+        this.cgp.setLayoutParams(new RelativeLayout.LayoutParams(this.mContentWidth, this.mContentHeight));
+        int i2 = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cig);
+        this.cgt.setLayoutParams(new LinearLayout.LayoutParams(i2, this.mContentHeight));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (i2 * com.baidu.swan.game.ad.e.d.cir), (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cis));
         layoutParams.addRule(12);
         layoutParams.addRule(9);
         layoutParams.setMarginStart(0);
-        this.ccm.setLayoutParams(layoutParams);
+        this.cgr.setLayoutParams(layoutParams);
         int i3 = this.mContentWidth - i2;
-        this.ccn.setLayoutParams(new LinearLayout.LayoutParams(i3, this.mContentHeight));
-        int i4 = (int) (i3 * com.baidu.swan.game.ad.e.d.cei);
+        this.cgs.setLayoutParams(new LinearLayout.LayoutParams(i3, this.mContentHeight));
+        int i4 = (int) (i3 * com.baidu.swan.game.ad.e.d.cim);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams2.addRule(9);
-        layoutParams2.topMargin = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.ced);
+        layoutParams2.topMargin = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cih);
         layoutParams2.leftMargin = i4;
         layoutParams2.rightMargin = i4;
-        this.ccq.setLayoutParams(layoutParams2);
-        this.ccq.setTextSize(0, (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cef));
-        this.ccq.setLineSpacing((int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cee), 1.0f);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.ceh));
+        this.cgv.setLayoutParams(layoutParams2);
+        this.cgv.setTextSize(0, (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cij));
+        this.cgv.setLineSpacing((int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cii), 1.0f);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cil));
         layoutParams3.addRule(12);
-        layoutParams3.bottomMargin = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.ceg);
+        layoutParams3.bottomMargin = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cik);
         layoutParams3.leftMargin = i4;
         layoutParams3.rightMargin = i4;
-        this.ccp.setLayoutParams(layoutParams3);
-        int i5 = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cel);
-        int i6 = (int) (com.baidu.swan.game.ad.e.d.cem * i5);
-        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams((int) (i3 * com.baidu.swan.game.ad.e.d.cej), -1);
+        this.cgu.setLayoutParams(layoutParams3);
+        int i5 = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cip);
+        int i6 = (int) (com.baidu.swan.game.ad.e.d.ciq * i5);
+        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams((int) (i3 * com.baidu.swan.game.ad.e.d.cin), -1);
         layoutParams4.addRule(9);
-        this.ccr.setTextSize(0, i6);
+        this.cgw.setTextSize(0, i6);
         layoutParams4.addRule(15);
-        this.ccr.setLayoutParams(layoutParams4);
-        RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) (i3 * com.baidu.swan.game.ad.e.d.cek), i5);
+        this.cgw.setLayoutParams(layoutParams4);
+        RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) (i3 * com.baidu.swan.game.ad.e.d.cio), i5);
         layoutParams5.addRule(12);
         layoutParams5.addRule(11);
-        this.cct.setTextSize(0, i6);
-        this.cct.setLayoutParams(layoutParams5);
+        this.cgx.setTextSize(0, i6);
+        this.cgx.setLayoutParams(layoutParams5);
         if (this.mCloseBtn != null) {
-            int i7 = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cep);
+            int i7 = (int) (this.mContentHeight * com.baidu.swan.game.ad.e.d.cit);
             RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(i7, i7);
             layoutParams6.addRule(10);
             layoutParams6.addRule(11);
@@ -208,7 +208,7 @@ public class a {
         if (this.mConvertView != null && this.mConvertView.getVisibility() == 4) {
             this.mConvertView.setAnimation(AnimationUtils.loadAnimation(this.mContext, c.a.ng_game_ad_open));
             this.mConvertView.setVisibility(0);
-            ai.b(this.mHideRunnable, com.baidu.swan.games.utils.c.anF().anK());
+            ai.b(this.mHideRunnable, com.baidu.swan.games.utils.c.apT().apY());
         }
     }
 
@@ -220,6 +220,6 @@ public class a {
     }
 
     public void a(a.c cVar) {
-        this.ccw = cVar;
+        this.cgA = cVar;
     }
 }

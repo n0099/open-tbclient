@@ -1,7 +1,7 @@
 package com.baidu.live.adp.lib.cache;
 
 import com.baidu.live.adp.lib.cache.BdKVCache;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface BdCacheStorage<T> {
     void clearAndClose(String str);
 

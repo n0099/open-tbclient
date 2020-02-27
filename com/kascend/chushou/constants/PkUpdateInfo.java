@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PkUpdateInfo {
     public static final int TYPE_BIG_ADD = 4;
     public static final int TYPE_FIRSTBLOOD = 1;
@@ -15,7 +15,7 @@ public class PkUpdateInfo {
     public List<MyUserInfo> rewardList;
     public List<SpecialMoment> specialMomentList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SpecialMoment {
         public String addition;
         public long endTime;

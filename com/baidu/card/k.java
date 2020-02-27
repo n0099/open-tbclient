@@ -12,32 +12,32 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class k extends h {
-    private com.baidu.tbadk.core.data.a JH;
-    private ThreadGodReplyLayout JW;
-    private an JX;
+    private com.baidu.tbadk.core.data.a Kc;
+    private ThreadGodReplyLayout Ks;
+    private an Kt;
 
     public k(Context context) {
         super(context);
         setTopMargin(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26));
-        this.JW = new ThreadGodReplyLayout(context);
+        this.Ks = new ThreadGodReplyLayout(context);
         final View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.mE() != null) {
-                    k.this.mE().a(view, k.this.JH);
+                if (k.this.mT() != null) {
+                    k.this.mT().a(view, k.this.Kc);
                 }
             }
         };
-        this.JW.setAfterClickListener(onClickListener);
-        this.JW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.k.2
+        this.Ks.setAfterClickListener(onClickListener);
+        this.Ks.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(k.this.mContext).createNormalCfg(k.this.JH.axQ().getTid(), k.this.JH.axQ().aBx().getId() + "", 1, "other");
-                createNormalCfg.setStartFrom(k.this.JC.mQ());
+                PbActivityConfig createNormalCfg = new PbActivityConfig(k.this.mContext).createNormalCfg(k.this.Kc.aAe().getTid(), k.this.Kc.aAe().aDK().getId() + "", 1, "other");
+                createNormalCfg.setStartFrom(k.this.JX.ng());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                k.this.JC.b(new a.C0050a(1));
+                k.this.JX.b(new a.C0052a(1));
                 onClickListener.onClick(view);
             }
         });
@@ -46,48 +46,48 @@ public class k extends h {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.JW;
+        return this.Ks;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void mD() {
+    public void mS() {
         a(1, new a.b() { // from class: com.baidu.card.k.3
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0050a c0050a) {
-                com.baidu.tieba.card.l.a(k.this.JW.getGodReplyContent(), k.this.JH.axQ().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            public boolean a(a.C0052a c0052a) {
+                com.baidu.tieba.card.l.a(k.this.Ks.getGodReplyContent(), k.this.Kc.aAe().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 return false;
             }
         });
     }
 
     public void a(an anVar) {
-        this.JX = anVar;
+        this.Kt = anVar;
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.JW.onChangeSkinType();
+        this.Ks.onChangeSkinType();
     }
 
     public void setFromCDN(boolean z) {
-        this.JW.setFromCDN(z);
+        this.Ks.setFromCDN(z);
     }
 
     public void setForm(String str) {
-        this.JW.setFrom(str);
+        this.Ks.setFrom(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        this.JH = aVar;
-        PostData aBx = aVar.axQ().aBx();
-        if (this.JX != null && aBx != null && aBx.azX() != null && aBx.azX().getUserId() != null) {
-            this.JX.cp("tid", aVar.axQ().tid).cp("post_id", aBx.getId()).cp("uid", aBx.azX().getUserId());
-            com.baidu.tieba.card.r.btA().c(this.JX);
+        this.Kc = aVar;
+        PostData aDK = aVar.aAe().aDK();
+        if (this.Kt != null && aDK != null && aDK.aCm() != null && aDK.aCm().getUserId() != null) {
+            this.Kt.cy("tid", aVar.aAe().tid).cy("post_id", aDK.getId()).cy("uid", aDK.aCm().getUserId());
+            com.baidu.tieba.card.r.bve().d(this.Kt);
         }
-        this.JW.setData(aVar.axQ());
+        this.Ks.setData(aVar.aAe());
     }
 }

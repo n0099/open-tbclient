@@ -5,31 +5,31 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.Base64;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m implements Cloneable {
-    private String afo;
-    private int afp;
-    private int afq;
-    public Bitmap afr;
-    public g afs;
+    private String ahv;
+    private int ahw;
+    private int ahx;
+    public Bitmap ahy;
+    public g ahz;
     private int mGiftId;
 
-    public String rn() {
+    public String so() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_GIFT_ID, this.mGiftId);
-            if (!TextUtils.isEmpty(this.afo)) {
-                jSONObject.put("gift_img_url", Base64.encodeBytes(this.afo.getBytes()));
+            if (!TextUtils.isEmpty(this.ahv)) {
+                jSONObject.put("gift_img_url", Base64.encodeBytes(this.ahv.getBytes()));
             }
-            jSONObject.put("gift_index", this.afp);
-            jSONObject.put("gift_count", this.afq);
+            jSONObject.put("gift_index", this.ahw);
+            jSONObject.put("gift_count", this.ahx);
             return jSONObject.toString();
         } catch (Exception e) {
             return null;
         }
     }
 
-    public boolean cZ(String str) {
+    public boolean di(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -38,10 +38,10 @@ public class m implements Cloneable {
             this.mGiftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
             String optString = jSONObject.optString("gift_img_url");
             if (!TextUtils.isEmpty(optString)) {
-                this.afo = new String(Base64.decode(optString.getBytes()));
+                this.ahv = new String(Base64.decode(optString.getBytes()));
             }
-            this.afp = jSONObject.optInt("gift_index");
-            this.afq = jSONObject.optInt("gift_count");
+            this.ahw = jSONObject.optInt("gift_index");
+            this.ahx = jSONObject.optInt("gift_count");
             return true;
         } catch (Exception e) {
             return false;
@@ -50,7 +50,7 @@ public class m implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: rq */
+    /* renamed from: sr */
     public m clone() {
         try {
             return (m) super.clone();
@@ -68,19 +68,19 @@ public class m implements Cloneable {
         this.mGiftId = i;
     }
 
-    public String rr() {
-        return this.afo;
+    public String ss() {
+        return this.ahv;
     }
 
-    public void da(String str) {
-        this.afo = str;
+    public void dj(String str) {
+        this.ahv = str;
     }
 
-    public int rs() {
-        return this.afq;
+    public int st() {
+        return this.ahx;
     }
 
-    public void bl(int i) {
-        this.afq = i;
+    public void bs(int i) {
+        this.ahx = i;
     }
 }

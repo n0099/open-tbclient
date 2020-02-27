@@ -13,18 +13,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.d;
 import com.baidu.tieba.barselect.data.e;
 import com.baidu.tieba.barselect.data.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VoteStatusCard extends LinearLayout {
-    private e fBa;
-    private TextView fEr;
-    private VoteStatusView fEs;
-    private TextView fEt;
-    private TextView fEu;
-    private TextView fEv;
-    private TextView fEw;
-    private TextView fEx;
-    private TextView fEy;
-    private f fzH;
+    private f fCf;
+    private e fDy;
+    private TextView fGO;
+    private VoteStatusView fGP;
+    private TextView fGQ;
+    private TextView fGR;
+    private TextView fGS;
+    private TextView fGT;
+    private TextView fGU;
+    private TextView fGV;
     private Context mContext;
     private int status;
 
@@ -34,7 +34,7 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.status = d.fDL;
+        this.status = d.fGi;
         initUI();
     }
 
@@ -48,58 +48,58 @@ public class VoteStatusCard extends LinearLayout {
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds52);
         setPadding(dimens, dimens2, dimens, dimens2);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
-        nb();
+        ns();
     }
 
-    private void nb() {
-        this.fEr = (TextView) findViewById(R.id.bar_maneger_apply_title);
-        this.fEs = (VoteStatusView) findViewById(R.id.vote_status_view);
-        this.fEt = (TextView) findViewById(R.id.apply_title);
-        this.fEu = (TextView) findViewById(R.id.apply_start_time);
-        this.fEv = (TextView) findViewById(R.id.vote_title);
-        this.fEw = (TextView) findViewById(R.id.vote_start_time);
-        this.fEx = (TextView) findViewById(R.id.publicity_title);
-        this.fEy = (TextView) findViewById(R.id.publicity_start_time);
+    private void ns() {
+        this.fGO = (TextView) findViewById(R.id.bar_maneger_apply_title);
+        this.fGP = (VoteStatusView) findViewById(R.id.vote_status_view);
+        this.fGQ = (TextView) findViewById(R.id.apply_title);
+        this.fGR = (TextView) findViewById(R.id.apply_start_time);
+        this.fGS = (TextView) findViewById(R.id.vote_title);
+        this.fGT = (TextView) findViewById(R.id.vote_start_time);
+        this.fGU = (TextView) findViewById(R.id.publicity_title);
+        this.fGV = (TextView) findViewById(R.id.publicity_start_time);
     }
 
     public void setData(f fVar) {
-        this.fzH = fVar;
-        if (this.fzH == null || this.fzH.bsC() == null) {
+        this.fCf = fVar;
+        if (this.fCf == null || this.fCf.bug() == null) {
             setVisibility(8);
             return;
         }
-        this.fBa = this.fzH.bsC();
-        this.status = this.fBa.getStatus();
-        this.fEs.setStatus(this.status);
-        long bsx = this.fBa.bsx() * 1000;
-        this.fEu.setText(aq.bx(this.fBa.bsv() * 1000));
-        this.fEw.setText(aq.bw(this.fBa.bsy() * 1000));
-        this.fEy.setText(aq.bw(this.fBa.bsw() * 1000));
+        this.fDy = this.fCf.bug();
+        this.status = this.fDy.getStatus();
+        this.fGP.setStatus(this.status);
+        long bub = this.fDy.bub() * 1000;
+        this.fGR.setText(aq.bB(this.fDy.btZ() * 1000));
+        this.fGT.setText(aq.bA(this.fDy.buc() * 1000));
+        this.fGV.setText(aq.bA(this.fDy.bua() * 1000));
     }
 
-    public void oU(int i) {
+    public void pk(int i) {
         int color = am.getColor(i, R.color.cp_cont_b);
         int color2 = am.getColor(i, R.color.cp_cont_d);
-        if (this.fEt != null) {
-            this.fEt.setTextColor(color);
+        if (this.fGQ != null) {
+            this.fGQ.setTextColor(color);
         }
-        if (this.fEv != null) {
-            this.fEv.setTextColor(this.status > d.fDK ? color : color2);
+        if (this.fGS != null) {
+            this.fGS.setTextColor(this.status > d.fGh ? color : color2);
         }
-        if (this.fEx != null) {
-            TextView textView = this.fEx;
-            if (this.status <= d.fDL) {
+        if (this.fGU != null) {
+            TextView textView = this.fGU;
+            if (this.status <= d.fGi) {
                 color = color2;
             }
             textView.setTextColor(color);
         }
-        if (this.fEs != null) {
-            this.fEs.oU(i);
+        if (this.fGP != null) {
+            this.fGP.pk(i);
         }
-        am.setViewTextColor(this.fEr, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.fEu, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.fEw, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.fEy, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.fGO, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.fGR, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.fGT, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.fGV, R.color.cp_cont_d, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_shadow_and_radius, i);
     }
 }

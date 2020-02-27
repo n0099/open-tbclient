@@ -2,10 +2,12 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Constants {
+    public static final int ACK_MAX_SIZE = 20;
     public static final String ACTION_METHOD = "com.baidu.android.imsdk.action.METHOD";
     public static final String ACTION_SERVICE = "com.baidu.android.imsdk.action.IM_SERVICE";
     public static final String ACTION_START = "com.baidu.android.imsdk.action.SERVICE_START";
@@ -13,6 +15,8 @@ public final class Constants {
     public static final String API_KEY = "api_key";
     public static final long APPID_HAOKAN = 10660069;
     public static final long APPID_QUANMIN = 11564577;
+    public static final long APPID_TIEBA = 10773430;
+    public static final long APPID_YIMEI = 16595346;
     public static final String BIG_VERSION = "5";
     public static final int CHATSESSION_OPERATION_DELETE = 2;
     public static final int CHATSESSION_OPERATION_NONE = 3;
@@ -32,6 +36,7 @@ public final class Constants {
     public static final int DEFAULT_UPLOAD_INIT_VALUE = 0;
     public static final int DEFAULT_USER_SETTING_NOT_CONCERNED = 0;
     public static final String DEVICE_TYPE = "6";
+    public static final String ERROR_LOGIN_STATE_ERROR = "login state error!";
     public static final String ERROR_MSG_ACCOUNT_NOT_LOGIN = "Account not login! pls login first!";
     public static final String ERROR_MSG_CONNECT_SERVER_ERROR = "Connect server fail!";
     public static final String ERROR_MSG_HTTP_IOEXCEPTION_ERROR = "http ioexception!";
@@ -39,6 +44,7 @@ public final class Constants {
     public static final String ERROR_MSG_INTERNAL_DB_ERROR = "db operation error!";
     public static final String ERROR_MSG_JSON_PARSE_EXCEPTION = "parse json exception!";
     public static final String ERROR_MSG_NETWORK_ERROR = "Network error!";
+    public static final String ERROR_MSG_NOT_MEDIA_ROLE_ERROR = "not amedia role";
     public static final String ERROR_MSG_PARAMETER_ERROR = "Parameter error!";
     public static final String ERROR_MSG_SERVER_INTERNAL_ERROR = "Server error!";
     public static final String ERROR_MSG_SUCCESS = "Sucess!";
@@ -48,6 +54,7 @@ public final class Constants {
     public static final String EXTRA_BEGIN_MSGID = "msgid_begin";
     public static final String EXTRA_CANCEL_ALARM = "cancel_alarm";
     public static final String EXTRA_CAST_ID = "mcast_id";
+    public static final String EXTRA_CAST_IDS = "mcast_ids";
     public static final String EXTRA_CATEGORY = "category";
     public static final String EXTRA_CLEAR_AFTER_LOGOUT = "clear_after_logout";
     public static final String EXTRA_CLIENT_MAX_MSGID = "client_max_msgid";
@@ -63,11 +70,13 @@ public final class Constants {
     public static final String EXTRA_FRIEND_GROUP_NAME = "friend_group_name";
     public static final String EXTRA_GROUP_ID = "group_id";
     public static final String EXTRA_GROUP_MEMBERS = "group_members";
+    public static final String EXTRA_HEART_BEAT_ROOM = "mcastids";
     public static final String EXTRA_INTERNAL_LOGIN = "internal_login";
     public static final String EXTRA_JUMP_MSG = "jump_msg";
     public static final String EXTRA_LISTENER_ID = "listener_id";
     public static final String EXTRA_LOGIN_CFROM = "login_cfrom";
     public static final String EXTRA_LOGIN_FROM = "login_from";
+    public static final String EXTRA_LOGIN_ID = "login_id";
     public static final String EXTRA_METHOD = "method";
     public static final String EXTRA_MSG_COUNT = "count";
     public static final String EXTRA_MSG_ID = "msgid";
@@ -84,6 +93,7 @@ public final class Constants {
     public static final String EXTRA_ROOM_ID = "room_id";
     public static final String EXTRA_SAVE_TO_DB = "save_to_db";
     public static final String EXTRA_SEND_MSG = "send_msg";
+    public static final String EXTRA_SERVICE = "service_id";
     public static final String EXTRA_TARGET_USER = "target_user";
     public static final String EXTRA_TRIGGER_REASON = "trigger_reason";
     public static final String EXTRA_UID = "uid";
@@ -96,6 +106,7 @@ public final class Constants {
     public static final String IM_INIT_TRACK_UPLOAD = "com.baidu.imsdk.init.track.upload";
     public static final int IM_IP_LOCATION_EXSIT = 0;
     public static final int IM_IP_LOCATION_NOT_EXSIT = 1;
+    public static final int IM_SERVICE_ID = 2;
     public static final int IM_TRACK_DURATION_MS = 21600000;
     public static final String IM_TRACK_FAIL_COUNT = "com.baidu.imsdk.track.failcount";
     public static final String IM_TRACK_TIME = "com.baidu.imsdk.track";
@@ -116,8 +127,13 @@ public final class Constants {
     public static final String KEY_ENV = "key_env";
     public static final String KEY_ISINITIALTIVEDISCONNECT = "isinitial_disconnect";
     public static final String KEY_JUMP_TO_RECENT_MSG = "jump_to_recent_msg";
+    public static final String KEY_LOGIN_CALL_TIME = "login_call_time";
     public static final String KEY_LOGIN_COOKIE = "login_cookie";
     public static final String KEY_LOGIN_CUID = "login_cuid";
+    public static final String KEY_LOGIN_FLAG = "login_flag_state";
+    public static final String KEY_LOGIN_FLAG_EXT = "login_flag_ext";
+    public static final String KEY_LOGIN_OPEN_TYPE = "login_open_type";
+    public static final String KEY_LOGIN_ROLE = "login_role";
     public static final String KEY_LOGIN_TYPE = "login_type";
     public static final String KEY_MEMBER_UPDATE = "member_update";
     public static final String KEY_NOTIFY_PAID = "notify_paid";
@@ -131,10 +147,12 @@ public final class Constants {
     public static final String KEY_PUSH_USER_ID = "push_userId";
     public static final String KEY_SYNC_DAILOG_MAXMSGID = "sync_max_msgid";
     public static final String KEY_SYNC_FIRST_TIME = "sync first time";
+    public static final String KEY_SYNC_MSG_TAB_TIME = "sync_msg_tab_time";
     public static final String KEY_SYNC_PUSH_TIME = "login_sync_push_time";
     public static final String KEY_TRIGGER_ID = "trigger_id";
     public static final String KEY_UK = "uk";
-    public static final String KEY_USER_NICKNAME_UPDATE_TIME = "nick_update_time";
+    public static final String KEY_UPDATE_SWITCH_PA = "update_switch_pa";
+    public static final String KEY_UPDATE_SWITCH_USER = "update_switch_user";
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
@@ -148,6 +166,7 @@ public final class Constants {
     public static final int LOGIN_STATE_NOT_LOGIN = 0;
     public static final int LOGIN_VERSION = 4;
     public static final int MAX_CONFIG_MSGID_CACHE_SIZE = 1000;
+    public static final int MCAST_SERVICE_ID = 3;
     public static final int METHOD_ACK = 95;
     public static final int METHOD_GET_CONTACTER_INFO_FOR_SESSION = 1048577;
     public static final int METHOD_IM_ADD_FRIEND = 53;
@@ -191,14 +210,23 @@ public final class Constants {
     public static final int METHOD_IM_UNSCRIBE_PA = 101;
     public static final int METHOD_IM_USER_LOGIN_BY_TOKEN = 50;
     public static final int METHOD_IM_USER_LOGOUT = 52;
+    public static final int METHOD_MEDIA_NOTIFY = 226;
     public static final int METHOD_SEND_USER_MSG = 1048578;
     public static final int METHOD_SYNC_DIALOG = 94;
-    public static final String MIDDLE_VERSION = "3";
+    public static final String MIDDLE_VERSION = "6";
     public static final int MSG_NOTIFY = 1;
     public static final int MSG_NOT_NOTIFY = 0;
     public static final int NOT_CLEAR_AFTER_LOGOUT = 0;
     public static final int NOT_SAVE_TO_DB = 0;
     public static final long PAFLAG = 17592186044416L;
+    public static final String PAGE_BAIJIAHAO_NAME = "baijiahao";
+    public static final String PAGE_C2C_NAME = "C2C";
+    public static final String PAGE_FUWUXIAOXI_NAME = "fuwuxiaoxi";
+    public static final String PAGE_HUDONG_NAME = "hudongxiaoxi";
+    public static final String PAGE_QUNXIAOXI_NAME = "qunxiaoxi";
+    public static final String PAGE_SHANGXIONGHAO_NAME = "shangxionghao";
+    public static final String PAGE_SHOWBAIFUWUHAO_NAME = "shoubaifuwuhao";
+    public static final String PAGE_XIAOCHENGXUKEFU_NAME = "xiaochengxukefuxiaoxi";
     public static final int PA_ACCEPT_PUSH = 1;
     public static final int PA_CMD_MSG_SENDING = 2;
     public static final int PA_CMD_MSG_SEND_IDLE = 1;
@@ -209,10 +237,11 @@ public final class Constants {
     public static final int SAVE_TO_DB = 1;
     public static final String SETTING_DEBUG_MODE = "com.baidu.android.imsdk.Settings.debug_mode";
     public static final byte SHORT_PING_CMD_TYPE = 101;
-    public static final int SOCKET_PORT_SSL = 8443;
+    public static final int SOCKET_BACKUP_PORT_SSL = 8443;
     public static final int SYNC_FOR_INTERNAL_LOGIN = 1;
     public static final int SYNC_FOR_SERVER_NOTIFY = 2;
     public static final int SYNC_FOR_USER_LOGIN = 0;
+    public static final long SYNC_MSG_DELAY_TIME = 10800000;
     public static final int SYNC_USERS_PROFILE_DURATION_MS = 3600000;
     public static final String THREAD_PREFIX = "IM-";
     private static final int TPL_ZHIDA_OL = 6376141;
@@ -223,11 +252,10 @@ public final class Constants {
     public static final String URL_HTTP_ONLINE = "https://pim.baidu.com/";
     public static final String URL_HTTP_RD = "http://cp01-ocean-749.epc.baidu.com:8080/";
     private static final int URL_SOCKET_PORT_OL_BOX = 8100;
-    private static final int URL_SOCKET_PORT_OL_SSL = 8443;
     private static final int URL_SOCKET_PORT_QA = 8100;
     private static final int URL_SOCKET_PORT_RD = 8100;
     private static final int URL_SOCKET_PORT_TEST_BOX = 8100;
-    public static final int URL_SOCKET_SERVER_CONN_TIME_OUT = 30000;
+    public static final int URL_SOCKET_SERVER_CONN_TIME_OUT = 10000;
     private static final String URL_SOCKET_SERVER_OL_BOX = "pimc.baidu.com";
     private static final String URL_SOCKET_SERVER_OL_HQ = "pimc2.baidu.com";
     private static final String URL_SOCKET_SERVER_OL_SSL = "pimc.baidu.com";
@@ -238,10 +266,11 @@ public final class Constants {
     public static final int USER_SETTING_UK_NOT_CONCERNED = -2;
     public static final String ZHIDA_SP_PRE = "prefix_crm_zhida_";
     public static long SYNC_USERS_PROFILE_RANDTIME = new Random().nextInt(12) + 12;
+    public static final int SOCKET_PORT_SSL = 443;
+    public static int URL_SOCKET_PORT_OL_SSL = SOCKET_PORT_SSL;
     public static String URL_SOCKET_SERVER = "pimc.baidu.com";
     public static final int SOCKET_PORT_TCP = 8100;
     public static int URL_SOCKET_PORT = SOCKET_PORT_TCP;
-    public static int SOCKET_DEFAULT_POLICY = 2;
     public static final String[] mSdkPermissions = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
 
     public static boolean isDebugMode() {
@@ -249,6 +278,10 @@ public final class Constants {
     }
 
     public static int getEnv(Context context) {
+        if (context == null) {
+            LogUtils.e("Constants", "context is null!!!");
+            return 0;
+        }
         return Utility.readIntData(context, KEY_ENV, 0);
     }
 
@@ -258,43 +291,43 @@ public final class Constants {
             long appid = AccountManager.getAppid(context);
             switch (i) {
                 case 0:
-                    if (appid == APPID_HAOKAN || appid == APPID_QUANMIN) {
+                    if (dispatchToPimc2(appid)) {
                         URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
-                        URL_SOCKET_PORT = 8443;
-                        SOCKET_DEFAULT_POLICY = 2;
+                        URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
                         break;
                     } else {
                         URL_SOCKET_SERVER = "pimc.baidu.com";
-                        URL_SOCKET_PORT = 8443;
-                        SOCKET_DEFAULT_POLICY = 2;
+                        URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
                         break;
                     }
-                    break;
                 case 1:
                     URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
                     URL_SOCKET_PORT = SOCKET_PORT_TCP;
-                    SOCKET_DEFAULT_POLICY = 0;
                     break;
                 case 2:
                     URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
                     URL_SOCKET_PORT = SOCKET_PORT_TCP;
-                    SOCKET_DEFAULT_POLICY = 0;
                     break;
                 case 3:
-                    if (appid == APPID_HAOKAN || appid == APPID_QUANMIN) {
+                    if (dispatchToPimc2(appid)) {
                         URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
-                        URL_SOCKET_PORT = 8443;
-                        SOCKET_DEFAULT_POLICY = 2;
+                        URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
                         break;
                     } else {
                         URL_SOCKET_SERVER = URL_SOCKET_SERVER_TEST_BOX;
                         URL_SOCKET_PORT = SOCKET_PORT_TCP;
-                        SOCKET_DEFAULT_POLICY = 2;
                         break;
                     }
             }
         }
         return writeIntData;
+    }
+
+    private static boolean dispatchToPimc2(long j) {
+        if (j != APPID_HAOKAN && j != APPID_QUANMIN && j != APPID_YIMEI && j != APPID_TIEBA) {
+            return false;
+        }
+        return true;
     }
 
     public static int getTplZhida(Context context) {

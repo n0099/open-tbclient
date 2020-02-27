@@ -3,7 +3,7 @@ package android.support.constraint.solver;
 import android.support.constraint.solver.LinearSystem;
 import android.support.constraint.solver.SolverVariable;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ArrayRow implements LinearSystem.Row {
     private static final boolean DEBUG = false;
     private static final float epsilon = 0.001f;

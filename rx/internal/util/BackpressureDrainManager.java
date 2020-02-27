@@ -2,7 +2,7 @@ package rx.internal.util;
 
 import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BackpressureDrainManager extends AtomicLong implements rx.f {
     private static final long serialVersionUID = 2826241102729529449L;
     final a actual;
@@ -10,11 +10,11 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
     Throwable exception;
     volatile boolean terminated;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void V(Throwable th);
+        void U(Throwable th);
 
-        boolean cg(Object obj);
+        boolean ch(Object obj);
 
         Object peek();
 
@@ -193,13 +193,13 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
                                 if (z) {
                                     if (aVar.peek() == null) {
                                         i = 1;
-                                        aVar.V(this.exception);
+                                        aVar.U(this.exception);
                                         return;
                                     }
                                 }
                                 Object poll = aVar.poll();
                                 if (poll != null) {
-                                    if (!aVar.cg(poll)) {
+                                    if (!aVar.ch(poll)) {
                                         j2--;
                                         i2++;
                                     } else {

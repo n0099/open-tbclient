@@ -26,27 +26,27 @@ public class Static {
                 GroupNewsPojo p;
                 PluginNetConfigInfos parse;
                 int i = 0;
-                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.jG().jD().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.jV().jS().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
                     String content = p.getContent();
                     if (!TextUtils.isEmpty(content)) {
                         try {
                             JSONObject jSONObject = new JSONObject(content).getJSONObject(TbEnum.SystemMessage.KEY_USER_MSG);
                             if (jSONObject != null) {
                                 String string = jSONObject.getString("client_version");
-                                String jo = PluginPackageManager.jd().jo();
-                                if (!TextUtils.isEmpty(jo)) {
-                                    String[] split = jo.split("\\.");
+                                String jD = PluginPackageManager.js().jD();
+                                if (!TextUtils.isEmpty(jD)) {
+                                    String[] split = jD.split("\\.");
                                     if (split.length != 0 && split.length != 3) {
                                         String str = "";
                                         for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
                                             str = str + split[i2] + ".";
                                         }
-                                        jo = str.substring(0, str.length() - 1);
+                                        jD = str.substring(0, str.length() - 1);
                                     }
-                                    if (Util.D(string, jo) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
+                                    if (Util.G(string, jD) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                                         PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
-                                        PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.jd().getPluginConfig(pluginConfig.package_name);
-                                        d.jA().jB().addOrUpdateConfig(pluginConfig);
+                                        PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.js().getPluginConfig(pluginConfig.package_name);
+                                        d.jP().jQ().addOrUpdateConfig(pluginConfig);
                                         if (pluginConfig2 == null) {
                                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_MIS_UPDATE, pluginConfig));
                                             return;

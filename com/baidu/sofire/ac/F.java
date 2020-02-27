@@ -15,7 +15,7 @@ import com.baidu.sofire.i.d;
 import com.baidu.sofire.i.s;
 import com.baidu.sofire.jni.Asc;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class F implements FI {
     private static F instance;
     private static Asc sAsc;

@@ -9,7 +9,7 @@ import com.baidu.searchbox.suspensionball.anim.ClipAnimationHelper;
 import com.baidu.searchbox.widget.OnTranslucentListener;
 import com.baidu.searchbox.widget.SlideHelper;
 import com.baidu.searchbox.widget.SlideUtil;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class SuspensionBallHelper {
     private ClipAnimationHelper mClipAnimationHelper;
     private boolean mIsFinishFromSlide = false;

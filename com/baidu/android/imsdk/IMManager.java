@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.IMManagerImpl;
 import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class IMManager extends BaseManager implements NoProGuard {
     public static boolean enableDebugMode(Context context, boolean z) {
         if (isNullContext(context)) {

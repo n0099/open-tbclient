@@ -17,14 +17,14 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private final b<com.baidu.adp.widget.ImageView.a> cUw = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
+    private final b<com.baidu.adp.widget.ImageView.a> cYy = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.isValidNow()) {
-                a.this.aDw();
+                a.this.aFG();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -56,17 +56,17 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                sO(str2);
+                te(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                sO(str);
+                te(str);
             } else {
-                aDw();
+                aFG();
             }
         }
     }
 
-    private void sO(String str) {
-        c.gr().a(str, 10, this.cUw, getBdUniqueId());
+    private void te(String str) {
+        c.gr().a(str, 10, this.cYy, getBdUniqueId());
     }
 
     private BdUniqueId getBdUniqueId() {
@@ -78,7 +78,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDw() {
+    public void aFG() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.mBackgroundColorResId);
             am.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);

@@ -1,64 +1,53 @@
 package com.baidu.tieba.ala.liveroom.s;
 
+import android.graphics.Color;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.live.r.a;
+import android.widget.TextView;
+import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.browser.BrowserHelper;
-import com.baidu.tieba.ala.liveroom.i.g;
-/* loaded from: classes2.dex */
+import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class b {
-    private String dUk;
-    private View.OnClickListener dmY = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.s.b.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.dUk);
-        }
-    };
-    private ViewGroup erT;
-    protected c fgu;
-    protected TbPageContext mTbPageContext;
+    private TextView fjS;
+    private TbPageContext mContext;
+    private View mView;
 
-    public b(TbPageContext tbPageContext) {
-        this.mTbPageContext = tbPageContext;
+    public b(TbPageContext tbPageContext, AlaLiveUserInfoData alaLiveUserInfoData, View.OnClickListener onClickListener) {
+        this.mContext = tbPageContext;
+        a(this.mContext, alaLiveUserInfoData, onClickListener);
     }
 
-    private TbPageContext getPageContext() {
-        return this.mTbPageContext;
+    private void a(TbPageContext tbPageContext, AlaLiveUserInfoData alaLiveUserInfoData, View.OnClickListener onClickListener) {
+        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.h.guide_rename_view_layout, (ViewGroup) null);
+        this.fjS = (TextView) this.mView.findViewById(a.g.guide_rename_txt);
+        this.fjS.setText(a(alaLiveUserInfoData));
+        this.mView.setOnClickListener(onClickListener);
     }
 
-    protected boolean a(ViewGroup viewGroup, String str) {
-        if (viewGroup == null) {
-            return false;
+    public SpannableStringBuilder a(AlaLiveUserInfoData alaLiveUserInfoData) {
+        String str;
+        int length;
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (alaLiveUserInfoData != null && alaLiveUserInfoData.userName != null) {
+            if (alaLiveUserInfoData.userName.length() > 8) {
+                str = alaLiveUserInfoData.userName.substring(0, 7) + StringHelper.STRING_MORE;
+                length = str.length() + 3;
+            } else {
+                str = alaLiveUserInfoData.userName;
+                length = alaLiveUserInfoData.userName.length() + 3;
+            }
+            spannableStringBuilder.append((CharSequence) String.format(this.mContext.getString(a.i.guide_rename_str), str));
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#F7E51B")), 3, length, 34);
         }
-        this.dUk = str;
-        if (this.fgu == null) {
-            this.fgu = new c(getPageContext(), this.dmY);
-        }
-        if (this.erT != null && this.erT.indexOfChild(this.fgu.getView()) > 0) {
-            this.erT.removeView(this.fgu.getView());
-        }
-        this.erT = viewGroup;
-        this.fgu.getView().setId(a.g.privilege_manager_id);
-        this.fgu.getView().setVisibility(0);
-        return true;
+        return spannableStringBuilder;
     }
 
-    public void b(ViewGroup viewGroup, String str) {
-        if (a(viewGroup, str)) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(12);
-            layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds180), 0);
-            layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18);
-            viewGroup.addView(this.fgu.getView(), layoutParams);
-        }
-    }
-
-    public void bow() {
-        if (this.erT != null && this.erT.indexOfChild(this.fgu.getView()) > 0) {
-            this.erT.removeView(this.fgu.getView());
-            g.pR(2913128);
-        }
+    public View getView() {
+        return this.mView;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.common.lib_atlas_base;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.common.lib_atlas_base";
     public static final String BUILD_TYPE = "release";

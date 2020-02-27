@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.synchronization.SyncCoordinateConverter;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HistoryTraceData implements Parcelable {
     public static final Parcelable.Creator<HistoryTraceData> CREATOR = new a();
     private int a;
@@ -18,7 +18,7 @@ public class HistoryTraceData implements Parcelable {
     private List<HistoryTracePoint> h;
     private int i;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class HistoryTracePoint implements Parcelable {
         public static final Parcelable.Creator<HistoryTracePoint> CREATOR = new b();
         private LatLng a;

@@ -25,7 +25,7 @@ public class BdToast {
     private final TextView mTextView;
     private Toast mToast;
     private int mIconResId = -1;
-    private boolean cRf = false;
+    private boolean cVh = false;
     private int mGravity = 16;
     private int mDuration = 0;
     private int offsetX = 0;
@@ -64,16 +64,16 @@ public class BdToast {
 
     public BdToast v(int i, boolean z) {
         this.mIconResId = i;
-        this.cRf = z;
+        this.cVh = z;
         return this;
     }
 
-    public BdToast jN(int i) {
+    public BdToast ke(int i) {
         this.mGravity = i;
         return this;
     }
 
-    public BdToast jO(int i) {
+    public BdToast kf(int i) {
         this.mDuration = i;
         return this;
     }
@@ -86,13 +86,13 @@ public class BdToast {
         this.mTextView.setLineSpacing(0.0f, f);
     }
 
-    public BdToast aCt() {
+    public BdToast aEE() {
         this.mToast = new Toast(this.mContext);
         w.b(this.mToast);
         updateStaticToast();
         if (this.mIconResId != -1) {
-            if (this.cRf) {
-                SvgManager.aEp().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+            if (this.cVh) {
+                SvgManager.aGA().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             } else {
                 am.setImageResource(this.mIconView, this.mIconResId);
             }
@@ -110,12 +110,12 @@ public class BdToast {
         return this;
     }
 
-    public BdToast jP(int i) {
+    public BdToast kg(int i) {
         this.mToast = new Toast(this.mContext);
         updateStaticToast();
         if (this.mIconResId != -1) {
-            if (this.cRf) {
-                SvgManager.aEp().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+            if (this.cVh) {
+                SvgManager.aGA().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             } else {
                 am.setImageResource(this.mIconView, this.mIconResId);
             }
@@ -145,7 +145,7 @@ public class BdToast {
         }
     }
 
-    public BdToast aCu() {
+    public BdToast aEF() {
         this.mTextView.setText(this.mText);
         this.mToast.setGravity(this.mGravity, this.offsetX, this.offsetY);
         this.mToast.setDuration(this.mDuration);
@@ -154,30 +154,30 @@ public class BdToast {
     }
 
     public static BdToast b(Context context, CharSequence charSequence) {
-        return new BdToast(context).i(charSequence).aCt();
+        return new BdToast(context).i(charSequence).aEE();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).i(charSequence).jO(i).aCt();
+        return new BdToast(context).i(charSequence).kf(i).aEE();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).i(charSequence).jO(i).jP(i2);
+        return new BdToast(context).i(charSequence).kf(i).kg(i2);
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, boolean z) {
-        return new BdToast(context).i(charSequence).v(i, z).aCt();
+        return new BdToast(context).i(charSequence).v(i, z).aEE();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2, boolean z) {
-        return new BdToast(context).i(charSequence).v(i, z).jO(i2).aCt();
+        return new BdToast(context).i(charSequence).v(i, z).kf(i2).aEE();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).i(charSequence).v(sDefaultIconMap.get(defaultIcon).intValue(), true).aCt();
+        return new BdToast(context).i(charSequence).v(sDefaultIconMap.get(defaultIcon).intValue(), true).aEE();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).i(charSequence).v(sDefaultIconMap.get(defaultIcon).intValue(), true).jO(i).aCt();
+        return new BdToast(context).i(charSequence).v(sDefaultIconMap.get(defaultIcon).intValue(), true).kf(i).aEE();
     }
 }

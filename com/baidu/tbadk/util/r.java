@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.an;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class r {
-    public static final boolean aPO() {
+    public static final boolean aSf() {
         Message message;
         int i = 0;
         Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
@@ -48,7 +48,7 @@ public class r {
         return (obj == null || (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) == null || !(valueForField instanceof Intent) || (component = ((Intent) valueForField).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 
-    public static boolean ef(Context context) {
+    public static boolean ei(Context context) {
         for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(100)) {
             if ("com.baidu.tieba.LogoActivity".equals(runningTaskInfo.baseActivity.getClassName()) && "com.baidu.tieba.LogoActivity".equals(runningTaskInfo.topActivity.getClassName())) {
                 return true;
@@ -57,7 +57,7 @@ public class r {
         return false;
     }
 
-    public static final boolean gU(boolean z) {
+    public static final boolean hb(boolean z) {
         Message message;
         Object valueForField;
         Intent intent;
@@ -73,7 +73,7 @@ public class r {
                     try {
                         Class.forName(component.getClassName());
                     } catch (Throwable th) {
-                        TiebaStatic.log(new an("check_change_intent_tologo").cp("obj_param1", (i2 == 1) + "").cp(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
+                        TiebaStatic.log(new an("check_change_intent_tologo").cy("obj_param1", (i2 == 1) + "").cy(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
                         if (z && i2 == 1) {
                             intent.setClassName(TbadkCoreApplication.getInst(), "com.baidu.tieba.LogoActivity");
                             return false;

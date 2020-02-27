@@ -6,13 +6,13 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
-    private float gpV;
-    private float gpW;
-    private float gpX;
-    private float gpY;
-    private boolean gpZ;
+    private float grW;
+    private float grX;
+    private float grY;
+    private float grZ;
+    private boolean gsa;
     private float x;
     private float y;
 
@@ -30,16 +30,16 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.gpV = motionEvent.getRawX();
-                this.gpW = motionEvent.getRawY();
-                lv(true);
-                if (bEb()) {
-                    this.gpZ = false;
+                this.grW = motionEvent.getRawX();
+                this.grX = motionEvent.getRawY();
+                ly(true);
+                if (bFE()) {
+                    this.gsa = false;
                     break;
                 }
                 break;
             case 1:
-                lv(false);
+                ly(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -51,18 +51,18 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 1:
-                lv(false);
+                ly(false);
                 break;
             case 2:
-                this.gpX = this.x - this.gpV;
-                this.gpY = this.y - this.gpW;
-                if (this.gpX < 0.0f && Math.abs(this.gpX) > Math.abs(this.gpY) && bEb()) {
+                this.grY = this.x - this.grW;
+                this.grZ = this.y - this.grX;
+                if (this.grY < 0.0f && Math.abs(this.grY) > Math.abs(this.grZ) && bFE()) {
                     requestParentInterceptTouchEvent(false);
-                    if (this.gpZ) {
+                    if (this.gsa) {
                         return false;
                     }
-                    lw(true);
-                    this.gpZ = true;
+                    lz(true);
+                    this.gsa = true;
                     return false;
                 }
                 break;
@@ -70,44 +70,44 @@ public class FrsTabViewPager extends BdBaseViewPager {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void lv(boolean z) {
+    public void ly(boolean z) {
         a aVar = new a();
-        aVar.lx(bEb());
-        aVar.ly(z);
+        aVar.lA(bFE());
+        aVar.lB(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void bEa() {
-        lv(false);
+    public void bFD() {
+        ly(false);
     }
 
-    public void lw(boolean z) {
+    public void lz(boolean z) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
     }
 
-    private boolean bEb() {
+    private boolean bFE() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private boolean gqa;
-        private boolean gqb;
+        private boolean gsb;
+        private boolean gsc;
 
-        public boolean bEc() {
-            return this.gqa;
+        public boolean bFF() {
+            return this.gsb;
         }
 
-        public void lx(boolean z) {
-            this.gqa = z;
+        public void lA(boolean z) {
+            this.gsb = z;
         }
 
-        public boolean bEd() {
-            return this.gqb;
+        public boolean bFG() {
+            return this.gsc;
         }
 
-        public void ly(boolean z) {
-            this.gqb = z;
+        public void lB(boolean z) {
+            this.gsc = z;
         }
     }
 }

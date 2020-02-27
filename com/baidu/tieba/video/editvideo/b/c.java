@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static byte[] a(int i, int i2, Bitmap bitmap) {
         try {
@@ -92,7 +92,7 @@ public class c {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
-    public static Bitmap i(byte[] bArr, int i, int i2) {
+    public static Bitmap m(byte[] bArr, int i, int i2) {
         Throwable th;
         Bitmap bitmap;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -186,7 +186,7 @@ public class c {
         return true;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public int color;
         public int x;

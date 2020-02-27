@@ -9,15 +9,15 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String bAD;
+    protected String bEJ;
 
     public abstract boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
 
     public g(@NonNull String str) {
-        this.bAD = str;
+        this.bEJ = str;
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
@@ -36,7 +36,7 @@ public abstract class g {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.c.c a2 = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, a.GP());
+        com.baidu.swan.apps.media.c.c a2 = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, a.Je());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("video", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -47,10 +47,10 @@ public abstract class g {
 
     @Nullable
     protected com.baidu.swan.apps.media.c.a a(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        com.baidu.swan.apps.media.a A;
-        if (TextUtils.isEmpty(str3) || (A = com.baidu.swan.apps.media.b.A(str, str2, str3)) == null || !(A.UM() instanceof com.baidu.swan.apps.media.c.a)) {
+        com.baidu.swan.apps.media.a B;
+        if (TextUtils.isEmpty(str3) || (B = com.baidu.swan.apps.media.b.B(str, str2, str3)) == null || !(B.Xa() instanceof com.baidu.swan.apps.media.c.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.c.a) A.UM();
+        return (com.baidu.swan.apps.media.c.a) B.Xa();
     }
 }

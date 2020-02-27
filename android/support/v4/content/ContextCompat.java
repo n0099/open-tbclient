@@ -15,7 +15,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.util.TypedValue;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ContextCompat {
     private static final String TAG = "ContextCompat";
     private static final Object sLock = new Object();

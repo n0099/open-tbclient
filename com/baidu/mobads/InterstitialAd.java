@@ -8,13 +8,13 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class InterstitialAd {
     public static final String TAG = InterstitialAd.class.getSimpleName();
-    private AdSize aKK;
-    private com.baidu.mobads.production.f.a aKL;
-    private InterstitialAdListener aKM;
-    IOAdEventListener aKu;
+    private AdSize aOO;
+    private com.baidu.mobads.production.f.a aOP;
+    private InterstitialAdListener aOQ;
+    IOAdEventListener aOy;
     private final IXAdLogger d;
 
     public InterstitialAd(Context context, String str) {
@@ -23,54 +23,54 @@ public class InterstitialAd {
 
     public InterstitialAd(Context context, AdSize adSize, String str) {
         this.d = XAdSDKFoundationFacade.getInstance().getAdLogger();
-        this.aKM = new m(this);
-        this.aKu = new n(this);
+        this.aOQ = new m(this);
+        this.aOy = new n(this);
         XAdView xAdView = new XAdView(context);
         xAdView.setListener(new p(this));
-        this.aKK = adSize;
+        this.aOO = adSize;
         if (a()) {
-            this.aKL = new com.baidu.mobads.production.f.b(context, xAdView, true, str);
+            this.aOP = new com.baidu.mobads.production.f.b(context, xAdView, true, str);
         } else if (b()) {
-            this.aKL = new com.baidu.mobads.production.e.b(context, xAdView, true, adSize, str);
+            this.aOP = new com.baidu.mobads.production.e.b(context, xAdView, true, adSize, str);
         }
-        this.aKL.addEventListener(IXAdEvent.AD_LOADED, this.aKu);
-        this.aKL.addEventListener(IXAdEvent.AD_ERROR, this.aKu);
-        this.aKL.addEventListener(IXAdEvent.AD_STOPPED, this.aKu);
-        this.aKL.addEventListener(IXAdEvent.AD_USER_CLOSE, this.aKu);
-        this.aKL.addEventListener(IXAdEvent.AD_STARTED, this.aKu);
-        this.aKL.addEventListener("AdUserClick", this.aKu);
-        this.aKL.request();
+        this.aOP.addEventListener(IXAdEvent.AD_LOADED, this.aOy);
+        this.aOP.addEventListener(IXAdEvent.AD_ERROR, this.aOy);
+        this.aOP.addEventListener(IXAdEvent.AD_STOPPED, this.aOy);
+        this.aOP.addEventListener(IXAdEvent.AD_USER_CLOSE, this.aOy);
+        this.aOP.addEventListener(IXAdEvent.AD_STARTED, this.aOy);
+        this.aOP.addEventListener("AdUserClick", this.aOy);
+        this.aOP.request();
     }
 
     private boolean a() {
-        return this.aKK.getValue() <= AdSize.InterstitialOther.getValue() && this.aKK.getValue() >= AdSize.InterstitialGame.getValue();
+        return this.aOO.getValue() <= AdSize.InterstitialOther.getValue() && this.aOO.getValue() >= AdSize.InterstitialGame.getValue();
     }
 
     private boolean b() {
-        return this.aKK.getValue() >= AdSize.InterstitialForVideoBeforePlay.getValue() && this.aKK.getValue() <= AdSize.InterstitialForVideoPausePlay.getValue();
+        return this.aOO.getValue() >= AdSize.InterstitialForVideoBeforePlay.getValue() && this.aOO.getValue() <= AdSize.InterstitialForVideoPausePlay.getValue();
     }
 
     public boolean isAdReady() {
-        return this.aKL.v();
+        return this.aOP.v();
     }
 
     public void loadAd() {
-        this.aKL.q();
+        this.aOP.q();
     }
 
     public void loadAdForVideoApp(int i, int i2) {
-        this.aKL.a(i, i2);
+        this.aOP.a(i, i2);
     }
 
     public void setListener(InterstitialAdListener interstitialAdListener) {
         if (interstitialAdListener == null) {
             throw new IllegalArgumentException();
         }
-        this.aKM = interstitialAdListener;
+        this.aOQ = interstitialAdListener;
     }
 
     public void showAd(Activity activity) {
-        this.aKL.a(activity);
+        this.aOP.a(activity);
     }
 
     public static void setAppSid(Context context, String str) {
@@ -82,13 +82,13 @@ public class InterstitialAd {
     }
 
     public void destroy() {
-        this.aKL.p();
+        this.aOP.p();
     }
 
     public void showAdInParentForVideoApp(Activity activity, RelativeLayout relativeLayout) {
         if (activity == null || relativeLayout == null) {
             throw new IllegalArgumentException();
         }
-        this.aKL.a(activity, relativeLayout);
+        this.aOP.a(activity, relativeLayout);
     }
 }

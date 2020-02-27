@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.personcenter.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends com.baidu.tieba.card.data.b {
-    private b frC;
+    private b fue;
 
     public void a(b bVar) {
-        this.frC = bVar;
+        this.fue = bVar;
     }
 
     public b getPersonCenterData() {
-        return this.frC;
+        return this.fue;
     }
 }

@@ -10,10 +10,10 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class i {
     @Nullable
-    public static Uri QH(@Nullable String str) {
+    public static Uri QU(@Nullable String str) {
         if (str != null) {
             return Uri.parse(str);
         }
@@ -28,11 +28,11 @@ public final class i {
         return uri.getScheme();
     }
 
-    public static boolean aa(@Nullable Uri uri) {
+    public static boolean ab(@Nullable Uri uri) {
         return "file".equals(a(uri));
     }
 
-    public static boolean ab(@Nullable Uri uri) {
+    public static boolean ac(@Nullable Uri uri) {
         return "content".equals(a(uri));
     }
 
@@ -66,10 +66,10 @@ public final class i {
                 }
                 return null;
             }
-        } else if (ab(uri)) {
+        } else if (ac(uri)) {
             return a(context, uri, null, null);
         } else {
-            if (aa(uri)) {
+            if (ab(uri)) {
                 return uri.getPath();
             }
             return null;

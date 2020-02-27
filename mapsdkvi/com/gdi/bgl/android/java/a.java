@@ -1,7 +1,7 @@
 package mapsdkvi.com.gdi.bgl.android.java;
 
 import android.graphics.Typeface;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class a {
     Typeface a = null;
     int b = 0;

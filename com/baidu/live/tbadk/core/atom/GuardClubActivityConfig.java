@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.atom;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface GuardClubActivityConfig {
     public static final String ANCHOR_ID = "guard_club_anchor_id";
     public static final String FEED_ID = "guard_club_feed_id";

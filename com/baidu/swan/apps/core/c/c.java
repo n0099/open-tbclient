@@ -8,12 +8,12 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.adaptation.a.e;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void e(boolean z, String str);
+        void f(boolean z, String str);
     }
 
     public static void a(@NonNull e eVar, @NonNull final Context context, @NonNull final a aVar) {
@@ -22,23 +22,23 @@ public class c {
             public void j(Exception exc) {
                 com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
                 String message = exc.getMessage();
-                aVar.e(false, context.getString(a.h.aiapps_authenticate_fail) + (TextUtils.isEmpty(message) ? "" : "\n" + message));
+                aVar.f(false, context.getString(a.h.aiapps_authenticate_fail) + (TextUtils.isEmpty(message) ? "" : "\n" + message));
             }
 
             @Override // com.baidu.swan.apps.adaptation.a.e.a
-            public void bN(boolean z) {
+            public void bV(boolean z) {
                 if (!z) {
                     com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    aVar.e(false, context.getString(a.h.aiapps_authenticate_fail));
+                    aVar.f(false, context.getString(a.h.aiapps_authenticate_fail));
                     return;
                 }
                 com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "Authentication Success");
-                aVar.e(true, "");
+                aVar.f(true, "");
             }
         });
     }
 
     public static void aj(Context context, String str) {
-        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).ku(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).ZZ();
+        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).kJ(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).acn();
     }
 }

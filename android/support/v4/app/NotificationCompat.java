@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NotificationCompat {
     public static final int BADGE_ICON_LARGE = 2;
     public static final int BADGE_ICON_NONE = 0;
@@ -117,34 +117,34 @@ public class NotificationCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public @interface BadgeIconType {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface Extender {
         Builder extend(Builder builder);
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public @interface GroupAlertBehavior {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public @interface NotificationVisibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public @interface StreamType {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         private static final int MAX_CHARSEQUENCE_LENGTH = 5120;
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -569,7 +569,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Style {
         CharSequence mBigContentTitle;
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -809,7 +809,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class BigPictureStyle extends Style {
         private Bitmap mBigLargeIcon;
         private boolean mBigLargeIconSet;
@@ -859,7 +859,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class BigTextStyle extends Style {
         private CharSequence mBigText;
 
@@ -898,7 +898,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class MessagingStyle extends Style {
         public static final int MAXIMUM_RETAINED_MESSAGES = 25;
         CharSequence mConversationTitle;
@@ -1086,7 +1086,7 @@ public class NotificationCompat {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class Message {
             static final String KEY_DATA_MIME_TYPE = "type";
             static final String KEY_DATA_URI = "uri";
@@ -1204,7 +1204,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class InboxStyle extends Style {
         private ArrayList<CharSequence> mTexts = new ArrayList<>();
 
@@ -1247,7 +1247,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class DecoratedCustomViewStyle extends Style {
         private static final int MAX_ACTION_BUTTONS = 3;
 
@@ -1333,7 +1333,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Action {
         public PendingIntent actionIntent;
         public int icon;
@@ -1343,7 +1343,7 @@ public class NotificationCompat {
         private final RemoteInput[] mRemoteInputs;
         public CharSequence title;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public interface Extender {
             Builder extend(Builder builder);
         }
@@ -1391,7 +1391,7 @@ public class NotificationCompat {
             return this.mDataOnlyRemoteInputs;
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class Builder {
             private boolean mAllowGeneratedReplies;
             private final Bundle mExtras;
@@ -1465,7 +1465,7 @@ public class NotificationCompat {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class WearableExtender implements Extender {
             private static final int DEFAULT_FLAGS = 1;
             private static final String EXTRA_WEARABLE_EXTENSIONS = "android.wearable.EXTENSIONS";
@@ -1590,7 +1590,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class WearableExtender implements Extender {
         private static final int DEFAULT_CONTENT_ICON_GRAVITY = 8388613;
         private static final int DEFAULT_FLAGS = 1;
@@ -2010,7 +2010,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class CarExtender implements Extender {
         private static final String EXTRA_CAR_EXTENDER = "android.car.EXTENSIONS";
         private static final String EXTRA_COLOR = "app_color";
@@ -2158,7 +2158,7 @@ public class NotificationCompat {
             return this.mUnreadConversation;
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class UnreadConversation {
             private final long mLatestTimestamp;
             private final String[] mMessages;
@@ -2207,7 +2207,7 @@ public class NotificationCompat {
                 return this.mLatestTimestamp;
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes6.dex */
             public static class Builder {
                 private long mLatestTimestamp;
                 private final List<String> mMessages = new ArrayList();

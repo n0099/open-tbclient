@@ -3,17 +3,17 @@ package com.baidu.tieba.ala.liveroom.data;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveUserInfoData;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public AlaLiveUserInfoData Wf;
+    public AlaLiveUserInfoData XQ;
     public AlaLiveInfoData mLiveInfo;
 
     public void cE(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.Wf = new AlaLiveUserInfoData();
-                this.Wf.parserJson(optJSONObject);
+                this.XQ = new AlaLiveUserInfoData();
+                this.XQ.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
             if (optJSONObject2 != null) {

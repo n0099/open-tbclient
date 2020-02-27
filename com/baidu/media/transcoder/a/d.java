@@ -6,10 +6,10 @@ import android.opengl.EGLContext;
 import android.opengl.EGLDisplay;
 import android.opengl.EGLSurface;
 import android.view.Surface;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d implements SurfaceTexture.OnFrameAvailableListener {
-    private SurfaceTexture aIA;
-    private e aIB;
+    private SurfaceTexture aMF;
+    private e aMG;
     private Surface e;
     private boolean g;
     private EGLDisplay a = EGL14.EGL_NO_DISPLAY;
@@ -22,11 +22,11 @@ public class d implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     private void d() {
-        this.aIB = new e();
-        this.aIB.b();
-        this.aIA = new SurfaceTexture(this.aIB.a());
-        this.aIA.setOnFrameAvailableListener(this);
-        this.e = new Surface(this.aIA);
+        this.aMG = new e();
+        this.aMG.b();
+        this.aMF = new SurfaceTexture(this.aMG.a());
+        this.aMF.setOnFrameAvailableListener(this);
+        this.e = new Surface(this.aMF);
     }
 
     public Surface a() {
@@ -48,12 +48,12 @@ public class d implements SurfaceTexture.OnFrameAvailableListener {
             } while (this.g);
             throw new RuntimeException("Surface frame wait timed out");
         }
-        this.aIB.a("before updateTexImage");
-        this.aIA.updateTexImage();
+        this.aMG.a("before updateTexImage");
+        this.aMF.updateTexImage();
     }
 
     public void c() {
-        this.aIB.a(this.aIA);
+        this.aMG.a(this.aMF);
     }
 
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener

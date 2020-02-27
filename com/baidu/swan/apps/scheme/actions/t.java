@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class t extends ab {
     public t(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/performancePanel");
@@ -38,7 +38,7 @@ public class t extends ab {
                 if (DEBUG) {
                     Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
                 }
-                com.baidu.swan.apps.performance.b.d.XL().b(optString, optString2, optLong);
+                com.baidu.swan.apps.performance.b.d.ZZ().b(optString, optString2, optLong);
             }
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Bundle;
 import com.baidu.pano.platform.c.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends a {
     public String a;
     public boolean b;

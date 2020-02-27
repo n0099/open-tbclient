@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 import tv.chushou.basis.rxjava.thread.EventThread;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public @interface Produce {
     Tag[] tags() default {};
 

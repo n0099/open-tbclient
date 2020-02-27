@@ -3,21 +3,21 @@ package com.baidu.live.view.input;
 import android.view.View;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.view.input.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0098a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0104a {
         void j(String str, boolean z);
 
-        boolean uO();
+        boolean ws();
 
-        void uQ();
+        void wu();
 
-        void uR();
+        void wv();
 
-        boolean uS();
+        boolean ww();
     }
 
     void b(List<String> list, Map<String, Integer> map);
@@ -36,9 +36,9 @@ public interface a {
 
     void show();
 
-    boolean vQ();
+    boolean xP();
 
-    boolean vR();
+    boolean xQ();
 
-    void vS();
+    void xR();
 }

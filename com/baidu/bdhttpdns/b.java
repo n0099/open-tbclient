@@ -6,19 +6,19 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ BDHttpDns.a Hk;
-    final /* synthetic */ BDHttpDns Hl;
+    final /* synthetic */ BDHttpDns.a HE;
+    final /* synthetic */ BDHttpDns HF;
     final /* synthetic */ ArrayList b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BDHttpDns bDHttpDns, BDHttpDns.a aVar, ArrayList arrayList) {
-        this.Hl = bDHttpDns;
-        this.Hk = aVar;
+        this.HF = bDHttpDns;
+        this.HE = aVar;
         this.b = arrayList;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.Hk.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, null, this.b));
+        this.HE.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, null, this.b));
     }
 }

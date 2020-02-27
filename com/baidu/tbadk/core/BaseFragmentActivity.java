@@ -15,6 +15,7 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -55,6 +56,7 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.v;
@@ -69,72 +71,94 @@ import java.util.List;
 /* loaded from: classes.dex */
 public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements o, TbPageContextSupport, com.baidu.tbadk.m.a, com.baidu.tbadk.pageInfo.a {
     private static Class<? extends TbPageContext<BaseFragmentActivity>> mClazz4GetPageContext = MainAPKFragmentActivityPageContext.class;
+    private final int SHOW_SOFT_KEYBOARD_DELAY;
     private List<Animatable> animatableList;
     private List<WeakReference<View>> animationList;
     private List<Dialog> dialogList;
     private String fromPageName;
+    private boolean isAddSwipeBackLayout;
     protected long lastResumeTime;
     private View loadingRootView;
     private com.baidu.tbadk.k.g loadingView;
+    private int mAboveKeyboardHeight;
     private ViewGroup mActivityRootView;
     private com.baidu.tbadk.core.dialog.f mClickableTextToast;
+    private String mCurAccountId;
+    protected com.baidu.tbadk.core.util.b.a mCurrentPermissionJudgePolicy;
+    private boolean mHideStatusImmersiveStyle;
+    private com.baidu.tbadk.core.view.e mKeyboardAdjust;
+    private int mLastOrientation;
+    protected int mLastScreenHeight;
+    protected int mLastScreenWidth;
+    private boolean mLayoutHasInit;
     private c mLayoutMode;
+    private int mMaxHeight;
     private e mPermissionCallback;
+    private int mPreHeight;
     private ProgressBar mProgressBar;
     private com.baidu.tbadk.k.h mRefreshView;
     private SwipeBackLayout mSwipeBackLayout;
     private TbPageTag mTbPageTag;
+    private boolean mUseStyleImmersiveSticky;
     private b netRefreshListener;
+    private final CustomMessageListener nightResourcesChangeListener;
     private TbPageContext<BaseFragmentActivity> pageContext;
     private com.baidu.tbadk.m.d pageStayDurationItem;
     private List<PopupWindow> popupWindowList;
     private com.baidu.adp.lib.f.c resourcesWrapper;
+    private final CustomMessageListener skinTypeChangeListener;
     protected com.baidu.tbadk.core.view.a mWaitingDialog = null;
     private DialogInterface.OnCancelListener mDialogListener = null;
     protected int mSkinType = 3;
     protected boolean mIsLogin = false;
-    private final int SHOW_SOFT_KEYBOARD_DELAY = 150;
-    private boolean isAddSwipeBackLayout = true;
-    private boolean mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
-    private boolean mHideStatusImmersiveStyle = false;
-    private com.baidu.tbadk.core.view.e mKeyboardAdjust = null;
-    private boolean mLayoutHasInit = false;
-    private int mMaxHeight = 0;
-    private int mPreHeight = 0;
-    private int mAboveKeyboardHeight = 0;
-    protected com.baidu.tbadk.core.util.b.a mCurrentPermissionJudgePolicy = null;
-    protected int mLastScreenWidth = 0;
-    protected int mLastScreenHeight = 0;
-    private int mLastOrientation = 1;
-    private final CustomMessageListener nightResourcesChangeListener = new CustomMessageListener(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE) { // from class: com.baidu.tbadk.core.BaseFragmentActivity.4
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005017 && BaseFragmentActivity.this.mLayoutMode != null) {
-                BaseFragmentActivity.this.mLayoutMode.setPluginRes(null);
-                if (BaseFragmentActivity.this.mKeyboardAdjust != null) {
-                    BaseFragmentActivity.this.mKeyboardAdjust.onSkinTypeChanged(TbadkCoreApplication.getInst().getSkinType());
-                }
-                BaseFragmentActivity.this.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            }
-        }
-    };
-    private final CustomMessageListener skinTypeChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.BaseFragmentActivity.5
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean z = true;
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                BaseFragmentActivity.this.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                    z = false;
-                }
-                UtilHelper.changeStatusBarIconAndTextColor(z, BaseFragmentActivity.this);
-            }
-        }
-    };
 
     protected abstract void onChangeSkinType(int i);
+
+    public BaseFragmentActivity() {
+        this.mCurAccountId = TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount();
+        this.SHOW_SOFT_KEYBOARD_DELAY = 150;
+        this.isAddSwipeBackLayout = true;
+        this.mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
+        this.mHideStatusImmersiveStyle = false;
+        this.mKeyboardAdjust = null;
+        this.mLayoutHasInit = false;
+        this.mMaxHeight = 0;
+        this.mPreHeight = 0;
+        this.mAboveKeyboardHeight = 0;
+        this.mCurrentPermissionJudgePolicy = null;
+        this.mLastScreenWidth = 0;
+        this.mLastScreenHeight = 0;
+        this.mLastOrientation = 1;
+        this.nightResourcesChangeListener = new CustomMessageListener(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE) { // from class: com.baidu.tbadk.core.BaseFragmentActivity.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005017 && BaseFragmentActivity.this.mLayoutMode != null) {
+                    BaseFragmentActivity.this.mLayoutMode.setPluginRes(null);
+                    if (BaseFragmentActivity.this.mKeyboardAdjust != null) {
+                        BaseFragmentActivity.this.mKeyboardAdjust.onSkinTypeChanged(TbadkCoreApplication.getInst().getSkinType());
+                    }
+                    BaseFragmentActivity.this.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+                }
+            }
+        };
+        this.skinTypeChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.BaseFragmentActivity.5
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                boolean z = true;
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
+                    BaseFragmentActivity.this.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+                    if (BaseFragmentActivity.this.shouldChangeStatusBarIconAndTextColor()) {
+                        if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
+                            z = false;
+                        }
+                        UtilHelper.changeStatusBarIconAndTextColor(z, BaseFragmentActivity.this);
+                    }
+                }
+            }
+        };
+    }
 
     public static void setClazz4GetPageContext(Class<? extends TbPageContext<BaseFragmentActivity>> cls) {
         mClazz4GetPageContext = cls;
@@ -154,7 +178,15 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public com.baidu.tbadk.l.b getTbPageExtra() {
-        return new com.baidu.tbadk.l.b(getUniqueId(), getCurrentPageKey(), getIntent());
+        return new com.baidu.tbadk.l.b(getUniqueId(), getCurrentExtraPageKey(), getIntent());
+    }
+
+    private String getCurrentExtraPageKey() {
+        String currentPageKey = getCurrentPageKey();
+        if (TextUtils.isEmpty(currentPageKey)) {
+            return getClass().getSimpleName();
+        }
+        return currentPageKey;
     }
 
     public com.baidu.tbadk.l.a getTbFragmentExtra() {
@@ -319,7 +351,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = com.baidu.tbadk.core.view.e.ad(getPageContext().getPageActivity());
+            this.mKeyboardAdjust = com.baidu.tbadk.core.view.e.ae(getPageContext().getPageActivity());
         }
     }
 
@@ -356,14 +388,16 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        com.baidu.tieba.s.a.getInstance().onResume(this);
+        com.baidu.tieba.t.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
         ay.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
-        if (this.mIsLogin != isLogin) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount();
+        if (this.mIsLogin != isLogin || !aq.equals(currentAccount, this.mCurAccountId)) {
+            this.mCurAccountId = currentAccount;
             this.mIsLogin = isLogin;
             onUserChanged(this.mIsLogin);
         }
@@ -472,13 +506,13 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        com.baidu.tieba.s.a.getInstance().onPause(this);
+        com.baidu.tieba.t.a.getInstance().onPause(this);
         super.onPause();
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.m.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            com.baidu.tbadk.m.e.aOF().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.m.e.aQV().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -610,19 +644,19 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.a(getPageContext().getContext(), (CharSequence) str, i, false).aCu();
+        BdToast.a(getPageContext().getContext(), (CharSequence) str, i, false).aEF();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2, false).aCu();
+        BdToast.a(getPageContext().getContext(), str, i, i2, false).aEF();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).aCu();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).aEF();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).aCu();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).aEF();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityApi14, android.app.Activity, android.view.LayoutInflater.Factory
@@ -676,7 +710,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 this.loadingView = new com.baidu.tbadk.k.g(getPageContext().getPageActivity());
             } else {
                 this.loadingView = new com.baidu.tbadk.k.g(getPageContext().getPageActivity(), i);
-                this.loadingView.aNv();
+                this.loadingView.aPR();
             }
             this.loadingView.onChangeSkinType();
         }
@@ -905,6 +939,10 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
     }
 
+    protected boolean shouldChangeStatusBarIconAndTextColor() {
+        return true;
+    }
+
     public boolean isSwipeBackEnabled() {
         if (!TbadkCoreApplication.IS_SUPPORT_SWIPEBACK || this.mSwipeBackLayout == null) {
             return false;
@@ -1004,11 +1042,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 }
             } else {
                 this.mPermissionCallback = eVar;
-                if (!com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, false)) {
+                if (!com.baidu.tbadk.core.sharedPref.b.aFB().getBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, false)) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
-                    aVar.fA(false);
-                    aVar.jE(R.string.request_permission_default_title);
-                    aVar.jF(R.string.request_window_permission_default_text);
+                    aVar.fH(false);
+                    aVar.jV(R.string.request_permission_default_title);
+                    aVar.jW(R.string.request_window_permission_default_text);
                     aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.core.BaseFragmentActivity.7
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1033,8 +1071,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                             }
                         }
                     }).b(getPageContext());
-                    aVar.aCp();
-                    com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, true);
+                    aVar.aEA();
+                    com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, true);
                     return false;
                 } else if (this.mPermissionCallback != null) {
                     this.mPermissionCallback.onPermissionResult(false);
@@ -1062,7 +1100,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         q.a(motionEvent, getPageId(), getMissionTid());
-        com.baidu.tieba.s.a.getInstance().behaviorRecordEvent(motionEvent, this);
+        com.baidu.tieba.t.a.getInstance().behaviorRecordEvent(motionEvent, this);
         return super.dispatchTouchEvent(motionEvent);
     }
 
@@ -1156,11 +1194,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void registerResponsedEventListener(Class<? extends com.baidu.tbadk.mutiprocess.a> cls, com.baidu.tbadk.mutiprocess.h hVar) {
-        com.baidu.tbadk.mutiprocess.g.aNJ().a(cls, hVar, getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.aQd().a(cls, hVar, getUniqueId());
     }
 
     public void unRegisterResponsedEventListener() {
-        com.baidu.tbadk.mutiprocess.g.aNJ().k(getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.aQd().k(getUniqueId());
     }
 
     public boolean checkUpIsLogin() {

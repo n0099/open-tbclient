@@ -1,16 +1,16 @@
 package com.google.android.exoplayer2.text.a;
 
 import com.google.android.exoplayer2.text.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e extends i {
-    private final d mzx;
+    private final d mAd;
 
     public e(d dVar) {
-        this.mzx = dVar;
+        this.mAd = dVar;
     }
 
     @Override // com.google.android.exoplayer2.text.i
     public final void release() {
-        this.mzx.a(this);
+        this.mAd.a(this);
     }
 }

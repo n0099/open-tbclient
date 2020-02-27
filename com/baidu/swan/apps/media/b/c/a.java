@@ -20,104 +20,104 @@ import org.json.JSONObject;
 import rx.d;
 import rx.functions.f;
 import rx.schedulers.Schedulers;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bzE;
-    private String bzF;
-    private int bzG;
-    private com.baidu.swan.apps.media.b.b.b bzI;
-    private long bzJ;
-    private long bzK;
-    private com.baidu.swan.apps.media.b.b bzM;
-    private com.baidu.swan.apps.media.b.b.a bzN;
+    private static volatile a bDK;
+    private String bDL;
+    private int bDM;
+    private com.baidu.swan.apps.media.b.b.b bDO;
+    private long bDP;
+    private long bDQ;
+    private com.baidu.swan.apps.media.b.b bDS;
+    private com.baidu.swan.apps.media.b.b.a bDT;
     private String mAppId;
     private AudioRecord mAudioRecord;
     private Context mContext;
     private boolean mIsBackground;
     private TelephonyManager mTelephonyManager;
     private Timer mTimer;
-    private int bzH = -1;
-    private com.baidu.swan.apps.media.b.a bzL = new com.baidu.swan.apps.media.b.a();
-    private boolean bzO = false;
+    private int bDN = -1;
+    private com.baidu.swan.apps.media.b.a bDR = new com.baidu.swan.apps.media.b.a();
+    private boolean bDU = false;
 
     private a() {
     }
 
-    public static a VD() {
-        if (bzE == null) {
+    public static a XR() {
+        if (bDK == null) {
             synchronized (a.class) {
-                if (bzE == null) {
-                    bzE = new a();
+                if (bDK == null) {
+                    bDK = new a();
                 }
             }
         }
-        return bzE;
+        return bDK;
     }
 
     public void a(String str, com.baidu.swan.apps.media.b.a aVar, Context context, com.baidu.swan.apps.media.b.b bVar, String str2) {
         int i;
-        if (this.bzH != -1 && this.bzH != 3) {
+        if (this.bDN != -1 && this.bDN != 3) {
             c.e("recorder", "wrong state, can't init");
             return;
         }
-        this.bzL = aVar;
-        ja(str);
-        this.bzM = bVar;
-        this.bzG = AudioRecord.getMinBufferSize(aVar.sampleRate, aVar.bzp, 2);
-        if (this.bzG <= 0) {
-            VK();
+        this.bDR = aVar;
+        jp(str);
+        this.bDS = bVar;
+        this.bDM = AudioRecord.getMinBufferSize(aVar.sampleRate, aVar.channel, 2);
+        if (this.bDM <= 0) {
+            XY();
             c.e("recorder", "wrong buffer size");
-            VH();
+            XV();
             return;
         }
-        if (aVar.bzp == 1) {
+        if (aVar.channel == 1) {
             i = 16;
         } else {
             i = 12;
         }
-        this.mAudioRecord = new AudioRecord(aVar.bzq, aVar.sampleRate, i, 2, this.bzG);
-        this.bzH = 0;
+        this.mAudioRecord = new AudioRecord(aVar.bDw, aVar.sampleRate, i, 2, this.bDM);
+        this.bDN = 0;
         this.mContext = context;
         this.mAppId = str2;
-        VM();
+        Ya();
     }
 
-    private void ja(String str) {
+    private void jp(String str) {
         String str2;
-        if (TextUtils.equals(this.bzL.bzo, "mp3")) {
+        if (TextUtils.equals(this.bDR.bDv, "mp3")) {
             str2 = ".mp3";
-        } else if (TextUtils.equals(this.bzL.bzo, "pcm")) {
+        } else if (TextUtils.equals(this.bDR.bDv, "pcm")) {
             str2 = ".pcm";
         } else {
             str2 = ".aac";
         }
-        this.bzF = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
+        this.bDL = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
     }
 
-    public void cQ(boolean z) {
+    public void cX(boolean z) {
         if (this.mContext == null) {
-            VK();
+            XY();
             c.e("recorder", "start error, context is null");
-            VH();
+            XV();
         } else if (this.mIsBackground) {
-            x(2001, "error execute time");
+            z(2001, "error execute time");
             c.e("recorder", "start error, wrong execute time");
-            VH();
-        } else if (this.bzH == -1 || TextUtils.isEmpty(this.bzF)) {
-            VK();
+            XV();
+        } else if (this.bDN == -1 || TextUtils.isEmpty(this.bDL)) {
+            XY();
             c.e("recorder", "start error, wrong state");
-            VH();
+            XV();
         } else {
             if (z) {
                 String str = null;
-                if (this.bzH == 1) {
+                if (this.bDN == 1) {
                     str = "start fail: recorder is recording";
-                } else if (this.bzH != 0 && this.bzH != 3) {
+                } else if (this.bDN != 0 && this.bDN != 3) {
                     str = "start fail: recorder is paused";
                 }
                 if (str != null) {
-                    x(2003, str);
+                    z(2003, str);
                     c.e("recorder", str);
                     return;
                 }
@@ -128,50 +128,50 @@ public class a {
             try {
                 this.mAudioRecord.startRecording();
                 if (this.mAudioRecord.getRecordingState() != 3) {
-                    VK();
+                    XY();
                     c.e("recorder", "start error, no real permission");
-                    VH();
+                    XV();
                     return;
                 }
                 if (z) {
                     a(new com.baidu.swan.apps.media.b.b.b() { // from class: com.baidu.swan.apps.media.b.c.a.1
                         @Override // com.baidu.swan.apps.media.b.b.b
-                        public void HR() {
+                        public void Kg() {
                             if (a.DEBUG) {
                                 Log.d("AudioRecorderManager", "record --- timeOut");
                             }
                             c.i("recorder", "time out");
                             a.this.stopRecord();
-                            a.this.VH();
+                            a.this.XV();
                         }
                     });
-                    aM(com.baidu.swan.apps.media.b.b.bzs, "recorderStart");
+                    aV(com.baidu.swan.apps.media.b.b.bDy, "recorderStart");
                 } else {
-                    aM(com.baidu.swan.apps.media.b.b.bzu, "recorderResume");
+                    aV(com.baidu.swan.apps.media.b.b.bDA, "recorderResume");
                 }
-                d.ca("").d(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.3
+                d.cb("").d(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.3
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.f
-                    /* renamed from: jc */
+                    /* renamed from: jr */
                     public Boolean call(String str2) {
-                        return Boolean.valueOf(a.this.VG());
+                        return Boolean.valueOf(a.this.XU());
                     }
-                }).c(rx.a.b.a.dMO()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.2
+                }).c(rx.a.b.a.dOb()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.b
                     /* renamed from: e */
                     public void call(Boolean bool) {
                         if (!bool.booleanValue()) {
-                            a.this.VK();
+                            a.this.XY();
                             c.e("recorder", "record error");
-                            a.this.VH();
+                            a.this.XV();
                         }
                     }
                 });
             } catch (IllegalStateException e) {
-                VK();
+                XY();
                 c.e("recorder", "can't start", e);
-                VH();
+                XV();
             }
         }
     }
@@ -181,20 +181,20 @@ public class a {
             Log.d("AudioRecorderManager", "pause record");
         }
         if (this.mAudioRecord == null) {
-            VK();
+            XY();
             c.e("recorder", "none audio record");
-            VH();
+            XV();
             return;
         }
         try {
             this.mAudioRecord.stop();
-            this.bzH = 2;
-            Uy();
-            aM(com.baidu.swan.apps.media.b.b.bzt, "recorderPause");
+            this.bDN = 2;
+            WM();
+            aV(com.baidu.swan.apps.media.b.b.bDz, "recorderPause");
         } catch (IllegalStateException e) {
-            VK();
+            XY();
             c.e("recorder", "pause error", e);
-            VH();
+            XV();
         }
     }
 
@@ -202,8 +202,8 @@ public class a {
         if (DEBUG) {
             Log.d("AudioRecorderManager", "resume record");
         }
-        cQ(false);
-        Ux();
+        cX(false);
+        WL();
     }
 
     public void stopRecord() {
@@ -211,38 +211,38 @@ public class a {
             Log.d("AudioRecorderManager", "stop record");
         }
         if (this.mAudioRecord == null) {
-            VK();
+            XY();
             c.e("recorder", "none audioRecord");
-            VH();
+            XV();
             return;
         }
         try {
             this.mAudioRecord.stop();
             stopTimer();
-            this.bzH = 3;
-            VL();
-            VN();
+            this.bDN = 3;
+            XZ();
+            Yb();
         } catch (IllegalStateException e) {
-            VK();
+            XY();
             c.e("recorder", "stop error", e);
-            VH();
+            XV();
         }
     }
 
-    public void VE() {
-        if (this.bzH == 0 || this.bzH == 1) {
-            if (!this.bzO) {
-                this.bzO = true;
-                aM(com.baidu.swan.apps.media.b.b.bzx, "recorderInterruptionBegin");
+    public void XS() {
+        if (this.bDN == 0 || this.bDN == 1) {
+            if (!this.bDU) {
+                this.bDU = true;
+                aV(com.baidu.swan.apps.media.b.b.bDD, "recorderInterruptionBegin");
             }
             pauseRecord();
         }
     }
 
-    public void VF() {
-        if (this.bzO) {
-            this.bzO = false;
-            aM(com.baidu.swan.apps.media.b.b.bzy, "recorderInterruptionEnd");
+    public void XT() {
+        if (this.bDU) {
+            this.bDU = false;
+            aV(com.baidu.swan.apps.media.b.b.bDE, "recorderInterruptionEnd");
         }
     }
 
@@ -256,21 +256,21 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean VG() {
+    public boolean XU() {
         FileOutputStream fileOutputStream;
-        byte[] bArr = new byte[this.bzG];
-        String str = this.bzL.bzo;
-        int i = this.bzL.bzp;
-        ?? r4 = this.bzL.sampleRate;
-        com.baidu.swan.apps.media.b.d.a aVar = new com.baidu.swan.apps.media.b.d.a(str, i, r4, this.bzL.bitRate);
+        byte[] bArr = new byte[this.bDM];
+        String str = this.bDR.bDv;
+        int i = this.bDR.channel;
+        ?? r4 = this.bDR.sampleRate;
+        com.baidu.swan.apps.media.b.d.a aVar = new com.baidu.swan.apps.media.b.d.a(str, i, r4, this.bDR.bitRate);
         if (this.mAudioRecord == null) {
             return false;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                File file = new File(this.bzF);
-                if (this.bzH == 0) {
+                File file = new File(this.bDL);
+                if (this.bDN == 0) {
                     if (file.exists()) {
                         file.delete();
                     }
@@ -278,12 +278,12 @@ public class a {
                 }
                 fileOutputStream = new FileOutputStream(file, true);
                 try {
-                    this.bzH = 1;
-                    while (this.bzH == 1) {
-                        if (this.mAudioRecord.read(bArr, 0, this.bzG) >= 0) {
-                            byte[] t = TextUtils.equals(this.bzL.bzo, "pcm") ? bArr : aVar.t(bArr);
-                            if (t != null && t.length > 0) {
-                                fileOutputStream.write(t);
+                    this.bDN = 1;
+                    while (this.bDN == 1) {
+                        if (this.mAudioRecord.read(bArr, 0, this.bDM) >= 0) {
+                            byte[] y = TextUtils.equals(this.bDR.bDv, "pcm") ? bArr : aVar.y(bArr);
+                            if (y != null && y.length > 0) {
+                                fileOutputStream.write(y);
                             }
                         }
                     }
@@ -294,15 +294,15 @@ public class a {
                     fileOutputStream2 = fileOutputStream;
                     fileOutputStream = fileOutputStream2;
                     c.e("recorder", "save record error", e);
-                    if (this.bzH == 1) {
-                        this.bzH = 3;
+                    if (this.bDN == 1) {
+                        this.bDN = 3;
                     }
                     com.baidu.swan.d.c.closeSafely(fileOutputStream);
                     return false;
                 } catch (IllegalStateException e2) {
                     e = e2;
                     c.e("recorder", "save record error", e);
-                    if (this.bzH == 1) {
+                    if (this.bDN == 1) {
                     }
                     com.baidu.swan.d.c.closeSafely(fileOutputStream);
                     return false;
@@ -327,21 +327,21 @@ public class a {
 
     public void a(final com.baidu.swan.apps.media.b.b.b bVar) {
         if (DEBUG) {
-            Log.d("AudioRecorderManager", "start timer:" + this.bzL.bzn);
+            Log.d("AudioRecorderManager", "start timer:" + this.bDR.bDu);
         }
-        c.i("recorder", "start timer, totalTime:" + this.bzL.bzn);
-        this.bzI = bVar;
+        c.i("recorder", "start timer, totalTime:" + this.bDR.bDu);
+        this.bDO = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.media.b.c.a.4
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.HR();
+                    bVar.Kg();
                 }
                 a.this.stopTimer();
             }
-        }, this.bzL.bzn);
-        this.bzJ = System.currentTimeMillis();
+        }, this.bDR.bDu);
+        this.bDP = System.currentTimeMillis();
     }
 
     public void stopTimer() {
@@ -349,109 +349,109 @@ public class a {
             Log.d("AudioRecorderManager", "stop timer");
         }
         c.i("recorder", "stop timer");
-        this.bzI = null;
+        this.bDO = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
             this.mTimer = null;
         }
     }
 
-    public void Uy() {
+    public void WM() {
         if (DEBUG) {
-            Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.bzK);
+            Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.bDQ);
         }
-        c.i("recorder", "pause timer, lastTime:" + this.bzK);
+        c.i("recorder", "pause timer, lastTime:" + this.bDQ);
         if (this.mTimer != null) {
             this.mTimer.cancel();
             this.mTimer = null;
         }
-        this.bzK = this.bzL.bzn - (System.currentTimeMillis() - this.bzJ);
+        this.bDQ = this.bDR.bDu - (System.currentTimeMillis() - this.bDP);
     }
 
-    public void Ux() {
+    public void WL() {
         if (DEBUG) {
             Log.d("AudioRecorderManager", "resume timer");
         }
         c.i("recorder", "resume timer");
-        if (this.bzI != null) {
-            if (this.bzK <= 0) {
-                this.bzI.HR();
+        if (this.bDO != null) {
+            if (this.bDQ <= 0) {
+                this.bDO.Kg();
                 return;
             }
             this.mTimer = new Timer();
             this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.media.b.c.a.5
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
-                    if (a.this.bzI != null) {
-                        a.this.bzI.HR();
+                    if (a.this.bDO != null) {
+                        a.this.bDO.Kg();
                     }
                     a.this.stopTimer();
                 }
-            }, this.bzK);
-            this.bzJ = System.currentTimeMillis();
+            }, this.bDQ);
+            this.bDP = System.currentTimeMillis();
         }
     }
 
-    public void bT(boolean z) {
-        if (z && this.bzH == 1) {
+    public void cb(boolean z) {
+        if (z && this.bDN == 1) {
             pauseRecord();
         }
         this.mIsBackground = z;
     }
 
-    public static void cR(boolean z) {
-        if (bzE != null) {
-            bzE.bT(z);
+    public static void cY(boolean z) {
+        if (bDK != null) {
+            bDK.cb(z);
         }
     }
 
     public static void release() {
-        if (bzE != null) {
-            bzE.VH();
-            bzE.VN();
-            bzE.VF();
+        if (bDK != null) {
+            bDK.XV();
+            bDK.Yb();
+            bDK.XT();
         }
     }
 
     public static void releaseAll() {
         release();
-        bzE = null;
+        bDK = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VH() {
+    public void XV() {
         stopTimer();
         this.mContext = null;
-        this.bzH = -1;
+        this.bDN = -1;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
             this.mAudioRecord = null;
         }
     }
 
-    public com.baidu.swan.apps.media.b.a VI() {
-        return this.bzL;
+    public com.baidu.swan.apps.media.b.a XW() {
+        return this.bDR;
     }
 
-    public com.baidu.swan.apps.media.b.b VJ() {
-        return this.bzM;
+    public com.baidu.swan.apps.media.b.b XX() {
+        return this.bDS;
     }
 
-    public boolean jb(String str) {
+    public boolean jq(String str) {
         String str2 = null;
         if (TextUtils.equals(str, "/swanAPI/recorder/pause")) {
-            if (this.bzH != 1) {
+            if (this.bDN != 1) {
                 str2 = "pause fail: recorder is not recording";
             }
         } else if (TextUtils.equals(str, "/swanAPI/recorder/resume")) {
-            if (this.bzH != 2) {
+            if (this.bDN != 2) {
                 str2 = "resume fail: recorder is not paused";
             }
-        } else if (TextUtils.equals(str, "/swanAPI/recorder/stop") && this.bzH != 2 && this.bzH != 1) {
+        } else if (TextUtils.equals(str, "/swanAPI/recorder/stop") && this.bDN != 2 && this.bDN != 1) {
             str2 = "stop fail: recorder is not started";
         }
         if (str2 != null) {
-            x(2003, str2);
+            z(2003, str2);
             c.e("recorder", str2);
             return false;
         }
@@ -459,54 +459,54 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VK() {
-        x(2002, "error execute");
+    public void XY() {
+        z(2002, "error execute");
     }
 
-    private void x(int i, String str) {
-        if (this.bzM == null || TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.bzw)) {
+    private void z(int i, String str) {
+        if (this.bDS == null || TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.bDC)) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("errCode", i);
                 jSONObject.put("errMsg", str);
                 HashMap hashMap = new HashMap();
                 hashMap.put("data", jSONObject.toString());
-                com.baidu.swan.apps.y.f.UC().a(new com.baidu.swan.apps.n.a.b("recorderError", hashMap));
+                com.baidu.swan.apps.y.f.WQ().a(new com.baidu.swan.apps.n.a.b("recorderError", hashMap));
                 return;
             } catch (JSONException e) {
                 c.e("recorder", "json error", e);
-                VH();
+                XV();
                 return;
             }
         }
-        this.bzM.x(i, str);
+        this.bDS.z(i, str);
     }
 
-    private void aM(String str, String str2) {
+    private void aV(String str, String str2) {
         if (DEBUG) {
             Log.d("AudioRecorderManager", "dispatchCallback: " + str + HanziToPinyin.Token.SEPARATOR + str2);
         }
-        if (this.bzM != null && !TextUtils.isEmpty(str)) {
-            this.bzM.iN(str);
+        if (this.bDS != null && !TextUtils.isEmpty(str)) {
+            this.bDS.jc(str);
             return;
         }
-        com.baidu.swan.apps.y.f.UC().a(new com.baidu.swan.apps.n.a.b(str2));
+        com.baidu.swan.apps.y.f.WQ().a(new com.baidu.swan.apps.n.a.b(str2));
     }
 
-    private void VL() {
+    private void XZ() {
         long j;
         long j2 = -1;
-        String bi = com.baidu.swan.apps.storage.b.bi(this.bzF, this.mAppId);
-        if (TextUtils.isEmpty(this.bzF)) {
+        String br = com.baidu.swan.apps.storage.b.br(this.bDL, this.mAppId);
+        if (TextUtils.isEmpty(this.bDL)) {
             j = -1;
         } else {
-            j = com.baidu.swan.d.c.qU(this.bzF);
-            j2 = new File(this.bzF).length();
+            j = com.baidu.swan.d.c.rj(this.bDL);
+            j2 = new File(this.bDL).length();
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(bi)) {
-                jSONObject.put("tempFilePath", bi);
+            if (!TextUtils.isEmpty(br)) {
+                jSONObject.put("tempFilePath", br);
             }
             if (j >= 0) {
                 jSONObject.put("duration", j);
@@ -514,33 +514,33 @@ public class a {
             if (j2 >= 0) {
                 jSONObject.put("fileSize", j2);
             }
-            if (this.bzM != null && !TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.bzv)) {
-                this.bzM.d(com.baidu.swan.apps.media.b.b.bzv, jSONObject);
+            if (this.bDS != null && !TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.bDB)) {
+                this.bDS.d(com.baidu.swan.apps.media.b.b.bDB, jSONObject);
                 return;
             }
             HashMap hashMap = new HashMap();
             hashMap.put("data", jSONObject.toString());
-            com.baidu.swan.apps.y.f.UC().a(new com.baidu.swan.apps.n.a.b("recorderStop", hashMap));
+            com.baidu.swan.apps.y.f.WQ().a(new com.baidu.swan.apps.n.a.b("recorderStop", hashMap));
         } catch (JSONException e) {
-            VK();
+            XY();
             c.e("recorder", "json error", e);
-            VH();
+            XV();
         }
     }
 
-    private void VM() {
+    private void Ya() {
         if (this.mContext != null) {
             this.mTelephonyManager = (TelephonyManager) this.mContext.getSystemService("phone");
-            this.bzN = new com.baidu.swan.apps.media.b.b.a();
-            this.mTelephonyManager.listen(this.bzN, 32);
+            this.bDT = new com.baidu.swan.apps.media.b.b.a();
+            this.mTelephonyManager.listen(this.bDT, 32);
         }
     }
 
-    private void VN() {
-        if (this.mTelephonyManager != null && this.bzN != null) {
-            this.mTelephonyManager.listen(this.bzN, 0);
+    private void Yb() {
+        if (this.mTelephonyManager != null && this.bDT != null) {
+            this.mTelephonyManager.listen(this.bDT, 0);
             this.mTelephonyManager = null;
-            this.bzN = null;
+            this.bDT = null;
         }
     }
 }

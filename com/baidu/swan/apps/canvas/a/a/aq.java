@@ -2,7 +2,7 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class aq extends a {
     private int mX;
     private int mY;
@@ -17,8 +17,8 @@ public class aq extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.HZ() == 0) {
-            bVar.dM(canvas.save());
+        if (bVar.Ko() == 0) {
+            bVar.ec(canvas.save());
         }
         canvas.translate(this.mX, this.mY);
     }

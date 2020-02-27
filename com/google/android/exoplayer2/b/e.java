@@ -9,48 +9,48 @@ import com.google.android.exoplayer2.t;
 import com.google.android.exoplayer2.util.v;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class e extends h {
-    private a mCu;
-    private final SparseArray<Map<u, b>> mCs = new SparseArray<>();
-    private final SparseBooleanArray mCt = new SparseBooleanArray();
-    private int lZe = 0;
+    private a mDc;
+    private final SparseArray<Map<u, b>> mCZ = new SparseArray<>();
+    private final SparseBooleanArray mDa = new SparseBooleanArray();
+    private int lZK = 0;
 
     protected abstract f[] a(t[] tVarArr, u[] uVarArr, int[][][] iArr) throws ExoPlaybackException;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public final int length;
-        private final u mCA;
-        private final int[] mCw;
-        private final u[] mCx;
-        private final int[] mCy;
-        private final int[][][] mCz;
+        private final int[] mDd;
+        private final u[] mDe;
+        private final int[] mDf;
+        private final int[][][] mDg;
+        private final u mDh;
 
         a(int[] iArr, u[] uVarArr, int[] iArr2, int[][][] iArr3, u uVar) {
-            this.mCw = iArr;
-            this.mCx = uVarArr;
-            this.mCz = iArr3;
-            this.mCy = iArr2;
-            this.mCA = uVar;
+            this.mDd = iArr;
+            this.mDe = uVarArr;
+            this.mDg = iArr3;
+            this.mDf = iArr2;
+            this.mDh = uVar;
             this.length = uVarArr.length;
         }
 
-        public u LC(int i) {
-            return this.mCx[i];
+        public u LH(int i) {
+            return this.mDe[i];
         }
 
-        public int ah(int i, int i2, int i3) {
-            return this.mCz[i][i2][i3] & 7;
+        public int ai(int i, int i2, int i3) {
+            return this.mDg[i][i2][i3] & 7;
         }
 
         public int s(int i, int i2, boolean z) {
             int i3 = 0;
-            int i4 = this.mCx[i].KM(i2).length;
+            int i4 = this.mDe[i].KR(i2).length;
             int[] iArr = new int[i4];
             for (int i5 = 0; i5 < i4; i5++) {
-                int ah = ah(i, i2, i5);
-                if (ah == 4 || (z && ah == 3)) {
+                int ai = ai(i, i2, i5);
+                if (ai == 4 || (z && ai == 3)) {
                     iArr[i3] = i5;
                     i3++;
                 }
@@ -66,7 +66,7 @@ public abstract class e extends h {
             int i4 = 16;
             int i5 = 0;
             while (i3 < iArr.length) {
-                String str2 = this.mCx[i].KM(i2).KL(iArr[i3]).sampleMimeType;
+                String str2 = this.mDe[i].KR(i2).KQ(iArr[i3]).sampleMimeType;
                 int i6 = i5 + 1;
                 if (i5 == 0) {
                     z = z2;
@@ -75,37 +75,37 @@ public abstract class e extends h {
                     z = (!v.h(str, str2)) | z2;
                     str2 = str3;
                 }
-                i4 = Math.min(i4, this.mCz[i][i2][i3] & 24);
+                i4 = Math.min(i4, this.mDg[i][i2][i3] & 24);
                 i3++;
                 i5 = i6;
                 z2 = z;
                 str = str2;
             }
-            return z2 ? Math.min(i4, this.mCy[i]) : i4;
+            return z2 ? Math.min(i4, this.mDf[i]) : i4;
         }
 
-        public u dxo() {
-            return this.mCA;
+        public u dyy() {
+            return this.mDh;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
-        public final int[] mBW;
-        public final f.a mCB;
-        public final int mCC;
+        public final int[] mCD;
+        public final f.a mDi;
+        public final int mDj;
 
         public f a(u uVar) {
-            return this.mCB.b(uVar.KM(this.mCC), this.mBW);
+            return this.mDi.b(uVar.KR(this.mDj), this.mCD);
         }
     }
 
-    public final a dxn() {
-        return this.mCu;
+    public final a dyx() {
+        return this.mDc;
     }
 
     public final boolean a(int i, u uVar) {
-        Map<u, b> map = this.mCs.get(i);
+        Map<u, b> map = this.mCZ.get(i);
         return map != null && map.containsKey(uVar);
     }
 
@@ -120,11 +120,11 @@ public abstract class e extends h {
         }
         int[] a2 = a(tVarArr);
         for (int i2 = 0; i2 < uVar.length; i2++) {
-            com.google.android.exoplayer2.source.t KM = uVar.KM(i2);
-            int a3 = a(tVarArr, KM);
-            int[] a4 = a3 == tVarArr.length ? new int[KM.length] : a(tVarArr[a3], KM);
+            com.google.android.exoplayer2.source.t KR = uVar.KR(i2);
+            int a3 = a(tVarArr, KR);
+            int[] a4 = a3 == tVarArr.length ? new int[KR.length] : a(tVarArr[a3], KR);
             int i3 = iArr[a3];
-            tVarArr2[a3][i3] = KM;
+            tVarArr2[a3][i3] = KR;
             iArr2[a3][i3] = a4;
             iArr[a3] = iArr[a3] + 1;
         }
@@ -139,12 +139,12 @@ public abstract class e extends h {
         u uVar2 = new u((com.google.android.exoplayer2.source.t[]) Arrays.copyOf(tVarArr2[tVarArr.length], iArr[tVarArr.length]));
         f[] a5 = a(tVarArr, uVarArr, iArr2);
         for (int i6 = 0; i6 < tVarArr.length; i6++) {
-            if (this.mCt.get(i6)) {
+            if (this.mDa.get(i6)) {
                 a5[i6] = null;
             } else {
                 u uVar3 = uVarArr[i6];
                 if (a(i6, uVar3)) {
-                    b bVar = this.mCs.get(i6).get(uVar3);
+                    b bVar = this.mCZ.get(i6).get(uVar3);
                     a5[i6] = bVar == null ? null : bVar.a(uVar3);
                 }
             }
@@ -153,23 +153,23 @@ public abstract class e extends h {
         a aVar = new a(iArr3, uVarArr, a2, iArr2, uVar2);
         com.google.android.exoplayer2.u[] uVarArr2 = new com.google.android.exoplayer2.u[tVarArr.length];
         for (int i7 = 0; i7 < tVarArr.length; i7++) {
-            uVarArr2[i7] = a6[i7] ? com.google.android.exoplayer2.u.lZd : null;
+            uVarArr2[i7] = a6[i7] ? com.google.android.exoplayer2.u.lZJ : null;
         }
-        a(tVarArr, uVarArr, iArr2, uVarArr2, a5, this.lZe);
+        a(tVarArr, uVarArr, iArr2, uVarArr2, a5, this.lZK);
         return new i(uVar, a6, new g(a5), aVar, uVarArr2);
     }
 
     private boolean[] a(t[] tVarArr, f[] fVarArr) {
         boolean[] zArr = new boolean[fVarArr.length];
         for (int i = 0; i < zArr.length; i++) {
-            zArr[i] = !this.mCt.get(i) && (tVarArr[i].getTrackType() == 5 || fVarArr[i] != null);
+            zArr[i] = !this.mDa.get(i) && (tVarArr[i].getTrackType() == 5 || fVarArr[i] != null);
         }
         return zArr;
     }
 
     @Override // com.google.android.exoplayer2.b.h
-    public final void by(Object obj) {
-        this.mCu = (a) obj;
+    public final void bA(Object obj) {
+        this.mDc = (a) obj;
     }
 
     private static int a(t[] tVarArr, com.google.android.exoplayer2.source.t tVar) throws ExoPlaybackException {
@@ -181,7 +181,7 @@ public abstract class e extends h {
             t tVar2 = tVarArr[i4];
             int i5 = 0;
             while (i5 < tVar.length) {
-                int e = tVar2.e(tVar.KL(i5)) & 7;
+                int e = tVar2.e(tVar.KQ(i5)) & 7;
                 if (e <= i3) {
                     i = length;
                     i2 = i3;
@@ -202,7 +202,7 @@ public abstract class e extends h {
     private static int[] a(t tVar, com.google.android.exoplayer2.source.t tVar2) throws ExoPlaybackException {
         int[] iArr = new int[tVar2.length];
         for (int i = 0; i < tVar2.length; i++) {
-            iArr[i] = tVar.e(tVar2.KL(i));
+            iArr[i] = tVar.e(tVar2.KQ(i));
         }
         return iArr;
     }
@@ -210,7 +210,7 @@ public abstract class e extends h {
     private static int[] a(t[] tVarArr) throws ExoPlaybackException {
         int[] iArr = new int[tVarArr.length];
         for (int i = 0; i < iArr.length; i++) {
-            iArr[i] = tVarArr[i].drz();
+            iArr[i] = tVarArr[i].dsL();
         }
         return iArr;
     }
@@ -260,9 +260,9 @@ public abstract class e extends h {
         if (fVar == null) {
             return false;
         }
-        int a2 = uVar.a(fVar.dvT());
+        int a2 = uVar.a(fVar.dxd());
         for (int i = 0; i < fVar.length(); i++) {
-            if ((iArr[a2][fVar.LB(i)] & 32) != 32) {
+            if ((iArr[a2][fVar.LG(i)] & 32) != 32) {
                 return false;
             }
         }

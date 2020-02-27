@@ -9,7 +9,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.widget.AbsSeekBar;
 import com.kascend.chushou.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VerticalSeekBar extends AbsSeekBar {
     private String TAG;
     private int height;
@@ -17,7 +17,7 @@ public class VerticalSeekBar extends AbsSeekBar {
     private Drawable mThumb;
     private int width;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(VerticalSeekBar verticalSeekBar);
 

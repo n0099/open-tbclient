@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i extends ProviderDelegation {
     i() {
     }

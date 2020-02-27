@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.request;
 import com.baidu.searchbox.network.AbstractHttpManager;
 import com.baidu.searchbox.network.core.Request;
 import com.baidu.searchbox.network.core.RequestBody;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PostBodyRequest extends HttpCommonRequest<PostBodyRequestBuilder> {
     public PostBodyRequest(PostBodyRequestBuilder postBodyRequestBuilder) {
         super(postBodyRequestBuilder);
@@ -26,7 +26,7 @@ public class PostBodyRequest extends HttpCommonRequest<PostBodyRequestBuilder> {
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class PostBodyRequestBuilder extends HttpCommonRequestBuilder<PostBodyRequestBuilder> {
         public PostBodyRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

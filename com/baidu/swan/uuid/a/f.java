@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f implements b<String> {
     private Context mContext;
 
@@ -28,17 +28,17 @@ public class f implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aet */
+    /* renamed from: agH */
     public String get() {
-        return atX();
+        return awl();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean atT() {
+    public boolean awh() {
         return false;
     }
 
-    private String atX() {
+    private String awl() {
         byte[] bytes = getAndroidId().getBytes(StandardCharsets.UTF_8);
         byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
         return com.baidu.swan.uuid.b.b.toMd5(Build.VERSION.SDK_INT < 23 ? b(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes) : b(bytes2, bytes), true);
@@ -61,7 +61,7 @@ public class f implements b<String> {
     private String getAndroidId() {
         String string = Settings.Secure.getString(this.mContext.getContentResolver(), "android_id");
         if (TextUtils.isEmpty(string)) {
-            string = atY();
+            string = awm();
         }
         if (TextUtils.isEmpty(string)) {
             string = UUID.randomUUID().toString();
@@ -69,7 +69,7 @@ public class f implements b<String> {
         return string == null ? "" : string;
     }
 
-    private String atY() {
+    private String awm() {
         String str;
         try {
             str = (String) Build.class.getField("SERIAL").get(null);

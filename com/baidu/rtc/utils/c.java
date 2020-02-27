@@ -5,7 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public String mCuid;
     public String mNetWork;

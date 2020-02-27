@@ -38,7 +38,7 @@ import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.ui.animview.praise.resource.CoolPraiseIconResource;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CoolPraiseView extends LinearLayout {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final int REMOVE_VIEW_DELAY_TIME_MS = 200;
@@ -79,12 +79,12 @@ public class CoolPraiseView extends LinearLayout {
     private int mUnPraisedTextRes;
     private LinearLayout mWrapperLayout;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface ExtraTouchEventListener {
         void onTouchEvent(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface OnClickPraiseListener {
         void onClick(boolean z, int i);
     }
@@ -634,7 +634,7 @@ public class CoolPraiseView extends LinearLayout {
         return this;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class PraiseAnimState {
         public static final int ANIM_STATE_STARTED = 1;
         public static final int ANIM_STATE_STOPPED = 2;

@@ -9,58 +9,58 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextImageInfo extends OrmObject {
-    private String dKD;
-    private String dKE;
-    private boolean dKF;
-    private boolean dKG;
-    private String dKH;
-    private long dKI;
-    private boolean dKJ;
-    private boolean dKK;
-    private String dKL;
-    private String dKM;
+    private String dOI;
+    private String dOJ;
+    private boolean dOK;
+    private boolean dOL;
+    private String dOM;
+    private long dON;
+    private boolean dOO;
+    private boolean dOP;
+    private String dOQ;
+    private String dOR;
     private int mHeight;
     private String mSrc;
     private int mWidth;
 
     public TbRichTextImageInfo() {
         this.mSrc = null;
-        this.dKD = null;
-        this.dKE = null;
+        this.dOI = null;
+        this.dOJ = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.dKF = false;
-        this.dKG = false;
-        this.dKH = null;
-        this.dKI = 0L;
-        this.dKJ = false;
-        this.dKK = false;
-        this.dKM = null;
+        this.dOK = false;
+        this.dOL = false;
+        this.dOM = null;
+        this.dON = 0L;
+        this.dOO = false;
+        this.dOP = false;
+        this.dOR = null;
     }
 
     public TbRichTextImageInfo(PbContent pbContent) {
         this.mSrc = null;
-        this.dKD = null;
-        this.dKE = null;
+        this.dOI = null;
+        this.dOJ = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.dKF = false;
-        this.dKG = false;
-        this.dKH = null;
-        this.dKI = 0L;
-        this.dKJ = false;
-        this.dKK = false;
-        this.dKM = null;
+        this.dOK = false;
+        this.dOL = false;
+        this.dOM = null;
+        this.dON = 0L;
+        this.dOO = false;
+        this.dOP = false;
+        this.dOR = null;
         if (pbContent != null) {
             this.mSrc = pbContent.src;
-            this.dKD = pbContent.cdn_src;
-            if (this.dKD == null || this.dKD.length() == 0) {
-                this.dKD = this.mSrc;
+            this.dOI = pbContent.cdn_src;
+            if (this.dOI == null || this.dOI.length() == 0) {
+                this.dOI = this.mSrc;
             }
-            this.dKE = pbContent.big_cdn_src;
-            this.dKM = pbContent.big_src;
-            if (StringUtils.isNull(this.dKE)) {
-                this.dKE = this.dKM;
+            this.dOJ = pbContent.big_cdn_src;
+            this.dOR = pbContent.big_src;
+            if (StringUtils.isNull(this.dOJ)) {
+                this.dOJ = this.dOR;
             }
             String str = pbContent.bsize;
             if (str != null) {
@@ -78,37 +78,37 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.dKD != null && this.dKD.indexOf(".baidu.com") != -1) {
-                this.dKF = true;
+            if (this.dOI != null && this.dOI.indexOf(".baidu.com") != -1) {
+                this.dOK = true;
             }
-            this.dKH = pbContent.origin_src;
-            this.dKI = pbContent.origin_size.intValue();
-            this.dKJ = pbContent.show_original_btn.intValue() == 1;
-            this.dKK = pbContent.is_long_pic.intValue() == 1;
-            this.dKL = pbContent.cdn_src_active;
+            this.dOM = pbContent.origin_src;
+            this.dON = pbContent.origin_size.intValue();
+            this.dOO = pbContent.show_original_btn.intValue() == 1;
+            this.dOP = pbContent.is_long_pic.intValue() == 1;
+            this.dOQ = pbContent.cdn_src_active;
         }
     }
 
     public TbRichTextImageInfo(JSONObject jSONObject) {
         this.mSrc = null;
-        this.dKD = null;
-        this.dKE = null;
+        this.dOI = null;
+        this.dOJ = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.dKF = false;
-        this.dKG = false;
-        this.dKH = null;
-        this.dKI = 0L;
-        this.dKJ = false;
-        this.dKK = false;
-        this.dKM = null;
+        this.dOK = false;
+        this.dOL = false;
+        this.dOM = null;
+        this.dON = 0L;
+        this.dOO = false;
+        this.dOP = false;
+        this.dOR = null;
         if (jSONObject != null) {
             this.mSrc = jSONObject.optString(UserAccountActionItem.KEY_SRC);
-            this.dKD = jSONObject.optString("cdn_src", "");
-            if (this.dKD == null || this.dKD.length() == 0) {
-                this.dKD = this.mSrc;
+            this.dOI = jSONObject.optString("cdn_src", "");
+            if (this.dOI == null || this.dOI.length() == 0) {
+                this.dOI = this.mSrc;
             }
-            this.dKE = jSONObject.optString("big_cdn_src", null);
+            this.dOJ = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -122,14 +122,14 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.dKD != null && this.dKD.indexOf(".baidu.com") != -1) {
-                this.dKF = true;
+            if (this.dOI != null && this.dOI.indexOf(".baidu.com") != -1) {
+                this.dOK = true;
             }
         }
     }
 
-    public String aRQ() {
-        return this.dKE;
+    public String aUg() {
+        return this.dOJ;
     }
 
     public int getHeight() {
@@ -148,8 +148,8 @@ public class TbRichTextImageInfo extends OrmObject {
         this.mWidth = i;
     }
 
-    public boolean aRR() {
-        return this.dKF;
+    public boolean aUh() {
+        return this.dOK;
     }
 
     public String getSrc() {
@@ -160,43 +160,43 @@ public class TbRichTextImageInfo extends OrmObject {
         this.mSrc = str;
     }
 
-    public String aRS() {
-        return this.dKM;
+    public String aUi() {
+        return this.dOR;
     }
 
-    public String aRT() {
-        return this.dKD;
+    public String aUj() {
+        return this.dOI;
     }
 
-    public String aRU() {
-        return this.dKL;
+    public String aUk() {
+        return this.dOQ;
     }
 
-    public boolean aRV() {
-        return this.dKG;
+    public boolean aUl() {
+        return this.dOL;
     }
 
-    public String aRW() {
-        return this.dKH;
+    public String aUm() {
+        return this.dOM;
     }
 
-    public void vK(String str) {
-        this.dKH = str;
+    public void we(String str) {
+        this.dOM = str;
     }
 
     public long getOriginalSize() {
-        return this.dKI;
+        return this.dON;
     }
 
-    public boolean aRX() {
-        return this.dKJ;
+    public boolean aUn() {
+        return this.dOO;
     }
 
-    public boolean aRY() {
-        return this.dKK;
+    public boolean aUo() {
+        return this.dOP;
     }
 
-    public void hg(boolean z) {
-        this.dKK = z;
+    public void hn(boolean z) {
+        this.dOP = z;
     }
 }

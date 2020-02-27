@@ -11,10 +11,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.listview.BdIListPage;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class PbListView extends BdIListPage {
     private String endText;
     private int lineColor;
@@ -34,7 +34,7 @@ public class PbListView extends BdIListPage {
     private TextView mTextView;
     private LinearLayout mTopExtraView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum IconType {
         ICON_DOWN_WARD,
         ICON_UP_WARD

@@ -4,7 +4,7 @@ import android.support.constraint.solver.LinearSystem;
 import android.support.constraint.solver.widgets.ConstraintAnchor;
 import android.support.constraint.solver.widgets.ConstraintWidget;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ConstraintTableLayout extends ConstraintWidgetContainer {
     public static final int ALIGN_CENTER = 0;
     private static final int ALIGN_FULL = 3;
@@ -21,18 +21,20 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
     private LinearSystem system;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class HorizontalSlice {
         ConstraintWidget bottom;
         int padding;
-        ConstraintWidget top;
+
+        /* renamed from: top  reason: collision with root package name */
+        ConstraintWidget f960top;
 
         HorizontalSlice() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class VerticalSlice {
         int alignment = 1;
         ConstraintWidget left;
@@ -335,7 +337,7 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         float f2 = f;
         for (int i = 0; i < this.mNumRows; i++) {
             HorizontalSlice horizontalSlice = new HorizontalSlice();
-            horizontalSlice.top = constraintWidget;
+            horizontalSlice.f960top = constraintWidget;
             if (i < this.mNumRows - 1) {
                 Guideline guideline = new Guideline();
                 guideline.setOrientation(0);
@@ -364,7 +366,7 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
             VerticalSlice verticalSlice = this.mVerticalSlices.get(i3);
             ConstraintWidget constraintWidget2 = verticalSlice.left;
             ConstraintWidget constraintWidget3 = verticalSlice.right;
-            ConstraintWidget constraintWidget4 = horizontalSlice.top;
+            ConstraintWidget constraintWidget4 = horizontalSlice.f960top;
             ConstraintWidget constraintWidget5 = horizontalSlice.bottom;
             constraintWidget.getAnchor(ConstraintAnchor.Type.LEFT).connect(constraintWidget2.getAnchor(ConstraintAnchor.Type.LEFT), this.mPadding);
             if (constraintWidget3 instanceof Guideline) {

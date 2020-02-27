@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.spswitch.a;
 import com.baidu.spswitch.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
-    private com.baidu.spswitch.a.b aWk;
+    private com.baidu.spswitch.a.b baw;
     public static final String TAG = SPSwitchPanelLinearLayout.class.getSimpleName();
     public static final boolean DEBUG = com.baidu.spswitch.b.b.isDebug();
 
@@ -28,7 +28,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     }
 
     private void init() {
-        this.aWk = new com.baidu.spswitch.a.b(this);
+        this.baw = new com.baidu.spswitch.a.b(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -36,7 +36,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
         if (DEBUG) {
             Log.d(TAG, "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
         }
-        int[] S = this.aWk.S(i, i2);
+        int[] S = this.baw.S(i, i2);
         if (DEBUG) {
             Log.d(TAG, "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(S[1]));
         }
@@ -45,28 +45,28 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.aWk.dx(i)) {
+        if (!this.baw.dN(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // com.baidu.spswitch.a
-    public void DQ() {
+    public void Gf() {
         super.setVisibility(0);
     }
 
     @Override // com.baidu.spswitch.a
-    public void DR() {
-        this.aWk.DR();
+    public void Gg() {
+        this.baw.Gg();
     }
 
     @Override // com.baidu.spswitch.b
-    public void dv(int i) {
-        this.aWk.dy(i);
+    public void dL(int i) {
+        this.baw.dO(i);
     }
 
     @Override // com.baidu.spswitch.b
     public void onSoftInputShowing(boolean z) {
-        this.aWk.bH(z);
+        this.baw.bP(z);
     }
 }

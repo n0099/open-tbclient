@@ -6,28 +6,28 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.api.a.c {
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b HJ() {
+    public com.baidu.swan.apps.api.b.b JY() {
         if (DEBUG) {
             Log.d("Api-BrightnessApi", "handle");
         }
-        e aaq = e.aaq();
-        if (aaq == null) {
+        e acE = e.acE();
+        if (acE == null) {
             return new com.baidu.swan.apps.api.b.b(1001, "SwanApp is null");
         }
-        SwanAppActivity aal = aaq.aal();
-        if (aal == null) {
+        SwanAppActivity acz = acE.acz();
+        if (acz == null) {
             com.baidu.swan.apps.console.c.e("Api-BrightnessApi", "null activity");
             return new com.baidu.swan.apps.api.b.b(1001, "null activity");
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("value", com.baidu.swan.apps.ao.d.b.a.adx().R(aal));
+            jSONObject.put("value", com.baidu.swan.apps.ao.d.b.a.afL().S(acz));
             return new com.baidu.swan.apps.api.b.b(0, jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();

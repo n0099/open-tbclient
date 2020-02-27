@@ -1,17 +1,16 @@
 package com.kascend.chushou.c;
 
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.mobstat.Config;
 import com.coremedia.iso.boxes.MetaBox;
 import com.kascend.chushou.constants.MyUserInfo;
 import com.kascend.chushou.constants.ParserRet;
 import com.kascend.chushou.constants.RoomInfo;
-import com.kascend.chushou.d.h;
 import com.tencent.open.SocialOperation;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import tv.chushou.zues.utils.h;
+/* loaded from: classes5.dex */
 public class g {
     public static ParserRet dv(JSONObject jSONObject) {
         String str;
@@ -47,21 +46,9 @@ public class g {
                         myUserInfo2.mGloriouslyUidMedal = jSONObject2.optString("gloriouslyUidMedal");
                         myUserInfo2.mGloriouslyUidColor = jSONObject2.optString("gloriouslyUidColor");
                         myUserInfo2.mGloriouslyUid = jSONObject2.optString("gloriouslyUid");
-                        if (jSONObject2.has("rank")) {
-                            JSONObject jSONObject4 = jSONObject2.getJSONObject("rank");
-                            if (jSONObject4.has(Config.EVENT_HEAT_POINT)) {
-                                h.dAM().b(jSONObject4.getString(Config.EVENT_HEAT_POINT), null);
-                            }
-                            if (jSONObject4.has("noblePoint")) {
-                                h.dAM().a(jSONObject4.optString("noblePoint"));
-                            }
-                            if (jSONObject4.has("nobleState")) {
-                                h.dAM().a(jSONObject4.optInt("nobleState"));
-                            }
-                        }
                         if (jSONObject2.has(MetaBox.TYPE) && (optJSONObject = jSONObject2.optJSONObject(MetaBox.TYPE)) != null) {
                             JSONArray optJSONArray2 = optJSONObject.optJSONArray("avatarFrame");
-                            if (!tv.chushou.zues.utils.h.Z(optJSONArray2)) {
+                            if (!h.Z(optJSONArray2)) {
                                 myUserInfo2.mAvatarFrame = new ArrayList();
                                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                                     myUserInfo2.mAvatarFrame.add(optJSONArray2.optString(0));
@@ -71,18 +58,18 @@ public class g {
                         }
                     }
                     if (jSONObject3.has("verifyInfo")) {
-                        JSONObject jSONObject5 = jSONObject3.getJSONObject("verifyInfo");
-                        myUserInfo2.mVerifyBankCard = jSONObject5.optString("bankCard");
-                        myUserInfo2.mVerifyName = jSONObject5.optString("idCard");
-                        myUserInfo2.mVerifyPhone = jSONObject5.optString("phone");
-                        myUserInfo2.mVerifyEmail = jSONObject5.optString("emailAddress");
-                        myUserInfo2.mHasPassword = jSONObject5.optInt("hasPassword", 0);
+                        JSONObject jSONObject4 = jSONObject3.getJSONObject("verifyInfo");
+                        myUserInfo2.mVerifyBankCard = jSONObject4.optString("bankCard");
+                        myUserInfo2.mVerifyName = jSONObject4.optString("idCard");
+                        myUserInfo2.mVerifyPhone = jSONObject4.optString("phone");
+                        myUserInfo2.mVerifyEmail = jSONObject4.optString("emailAddress");
+                        myUserInfo2.mHasPassword = jSONObject4.optInt("hasPassword", 0);
                     }
                     if (jSONObject3.has("signTask")) {
-                        JSONObject jSONObject6 = jSONObject3.getJSONObject("signTask");
-                        myUserInfo2.mSignDesc = jSONObject6.optString("desc");
-                        myUserInfo2.misSignIn = jSONObject6.optBoolean("hasSigned") ? "true" : "false";
-                        myUserInfo2.mSignInDays = jSONObject6.optInt("continuousDays");
+                        JSONObject jSONObject5 = jSONObject3.getJSONObject("signTask");
+                        myUserInfo2.mSignDesc = jSONObject5.optString("desc");
+                        myUserInfo2.misSignIn = jSONObject5.optBoolean("hasSigned") ? "true" : "false";
+                        myUserInfo2.mSignInDays = jSONObject5.optInt("continuousDays");
                     }
                     if (jSONObject3.has("roomList") && (optJSONArray = jSONObject3.optJSONArray("roomList")) != null && optJSONArray.length() > 0) {
                         int length = optJSONArray.length();

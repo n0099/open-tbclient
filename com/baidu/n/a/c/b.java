@@ -1,19 +1,19 @@
 package com.baidu.n.a.c;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private String lCa;
-    private boolean lCb;
-    private boolean lCc;
+    private String lCH;
+    private boolean lCI;
+    private boolean lCJ;
 
     public b(String str, boolean z, boolean z2) {
-        this.lCa = str;
-        this.lCb = z;
-        this.lCc = z2;
+        this.lCH = str;
+        this.lCI = z;
+        this.lCJ = z2;
     }
 
-    private static int Ha(int i) {
+    private static int Hf(int i) {
         switch (i) {
             case 1:
                 return 6;
@@ -44,7 +44,7 @@ public class b {
                     i2--;
                 }
             }
-            int Ha = Ha(i2);
+            int Hf = Hf(i2);
             iArr[0] = (byte) ((sArr[0] >> 3) & 31);
             iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
             iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -53,15 +53,15 @@ public class b {
             iArr[5] = (byte) ((sArr[3] >> 2) & 31);
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
-            for (int i4 = 0; i4 < iArr.length - Ha; i4++) {
-                char charAt = this.lCa.charAt(iArr[i4]);
-                if (this.lCc) {
+            for (int i4 = 0; i4 < iArr.length - Hf; i4++) {
+                char charAt = this.lCH.charAt(iArr[i4]);
+                if (this.lCJ) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.lCb) {
-                for (int length = iArr.length - Ha; length < iArr.length; length++) {
+            if (this.lCI) {
+                for (int length = iArr.length - Hf; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }
             }

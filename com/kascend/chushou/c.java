@@ -1,7 +1,7 @@
 package com.kascend.chushou;
 
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static final boolean a;
 

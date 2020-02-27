@@ -9,45 +9,45 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c bYd;
-    private boolean bHy;
-    private List<d> bYa = new ArrayList();
-    private Map<d, List<d>> bYb = new HashMap();
-    private Map<d, List<d>> bYc = new HashMap();
+    private static volatile c cch;
+    private boolean bLD;
+    private List<d> cce = new ArrayList();
+    private Map<d, List<d>> ccf = new HashMap();
+    private Map<d, List<d>> ccg = new HashMap();
 
-    public static c afU() {
-        if (bYd == null) {
+    public static c aii() {
+        if (cch == null) {
             synchronized (c.class) {
-                if (bYd == null) {
-                    bYd = new c();
+                if (cch == null) {
+                    cch = new c();
                 }
             }
         }
-        return bYd;
+        return cch;
     }
 
     public void initData() {
-        B(afZ());
-        this.bHy = true;
+        B(ain());
+        this.bLD = true;
     }
 
-    public boolean afV() {
-        return this.bHy;
+    public boolean aij() {
+        return this.bLD;
     }
 
-    public List<d> afW() {
-        return this.bYa;
+    public List<d> aik() {
+        return this.cce;
     }
 
-    public Map<d, List<d>> afX() {
-        return this.bYb;
+    public Map<d, List<d>> ail() {
+        return this.ccf;
     }
 
-    public Map<d, List<d>> afY() {
-        return this.bYc;
+    public Map<d, List<d>> aim() {
+        return this.ccg;
     }
 
     private void B(JSONArray jSONArray) {
@@ -59,12 +59,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (bd = d.bd(optJSONObject)) != null) {
-                        this.bYa.add(bd);
-                        if (bd.agd()) {
-                            this.bYb.put(bd, bd.SW);
-                            for (d dVar : bd.SW) {
-                                if (dVar.agd()) {
-                                    this.bYc.put(dVar, dVar.SW);
+                        this.cce.add(bd);
+                        if (bd.air()) {
+                            this.ccf.put(bd, bd.UB);
+                            for (d dVar : bd.UB) {
+                                if (dVar.air()) {
+                                    this.ccg.put(dVar, dVar.UB);
                                 }
                             }
                         }
@@ -77,7 +77,7 @@ public class c {
         }
     }
 
-    private JSONArray afZ() {
+    private JSONArray ain() {
         JSONArray jSONArray;
         Exception e;
         InputStream open;

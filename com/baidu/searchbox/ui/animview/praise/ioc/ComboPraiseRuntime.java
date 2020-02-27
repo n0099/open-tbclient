@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.ioc;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ComboPraiseRuntime {
     public static IComboPraiseContext getContext() {
         return new IComboPraiseContext() { // from class: com.baidu.searchbox.ui.animview.praise.ioc.ComboPraiseRuntime.1

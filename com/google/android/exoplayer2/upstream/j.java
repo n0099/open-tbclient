@@ -6,97 +6,97 @@ import android.util.Log;
 import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j implements e {
     private final Context context;
-    private final e mFD;
-    private e mFE;
-    private e mFF;
-    private e mFG;
-    private e mFH;
-    private e mFI;
-    private final q<? super e> mFa;
-    private e mdo;
+    private final q<? super e> mFH;
+    private final e mGj;
+    private e mGk;
+    private e mGl;
+    private e mGm;
+    private e mGn;
+    private e mGo;
+    private e mdU;
 
     public j(Context context, q<? super e> qVar, e eVar) {
         this.context = context.getApplicationContext();
-        this.mFa = qVar;
-        this.mFD = (e) com.google.android.exoplayer2.util.a.checkNotNull(eVar);
+        this.mFH = qVar;
+        this.mGj = (e) com.google.android.exoplayer2.util.a.checkNotNull(eVar);
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public long a(g gVar) throws IOException {
-        com.google.android.exoplayer2.util.a.checkState(this.mdo == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mdU == null);
         String scheme = gVar.uri.getScheme();
         if (v.isLocalFileUri(gVar.uri)) {
             if (gVar.uri.getPath().startsWith("/android_asset/")) {
-                this.mdo = dxO();
+                this.mdU = dyY();
             } else {
-                this.mdo = dxN();
+                this.mdU = dyX();
             }
         } else if ("asset".equals(scheme)) {
-            this.mdo = dxO();
+            this.mdU = dyY();
         } else if ("content".equals(scheme)) {
-            this.mdo = dxP();
+            this.mdU = dyZ();
         } else if ("rtmp".equals(scheme)) {
-            this.mdo = dxQ();
+            this.mdU = dza();
         } else if ("data".equals(scheme)) {
-            this.mdo = dxR();
+            this.mdU = dzb();
         } else {
-            this.mdo = this.mFD;
+            this.mdU = this.mGj;
         }
-        return this.mdo.a(gVar);
+        return this.mdU.a(gVar);
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        return this.mdo.read(bArr, i, i2);
+        return this.mdU.read(bArr, i, i2);
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public Uri getUri() {
-        if (this.mdo == null) {
+        if (this.mdU == null) {
             return null;
         }
-        return this.mdo.getUri();
+        return this.mdU.getUri();
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public void close() throws IOException {
-        if (this.mdo != null) {
+        if (this.mdU != null) {
             try {
-                this.mdo.close();
+                this.mdU.close();
             } finally {
-                this.mdo = null;
+                this.mdU = null;
             }
         }
     }
 
-    private e dxN() {
-        if (this.mFE == null) {
-            this.mFE = new FileDataSource(this.mFa);
+    private e dyX() {
+        if (this.mGk == null) {
+            this.mGk = new FileDataSource(this.mFH);
         }
-        return this.mFE;
+        return this.mGk;
     }
 
-    private e dxO() {
-        if (this.mFF == null) {
-            this.mFF = new AssetDataSource(this.context, this.mFa);
+    private e dyY() {
+        if (this.mGl == null) {
+            this.mGl = new AssetDataSource(this.context, this.mFH);
         }
-        return this.mFF;
+        return this.mGl;
     }
 
-    private e dxP() {
-        if (this.mFG == null) {
-            this.mFG = new ContentDataSource(this.context, this.mFa);
+    private e dyZ() {
+        if (this.mGm == null) {
+            this.mGm = new ContentDataSource(this.context, this.mFH);
         }
-        return this.mFG;
+        return this.mGm;
     }
 
-    private e dxQ() {
-        if (this.mFH == null) {
+    private e dza() {
+        if (this.mGn == null) {
             try {
-                this.mFH = (e) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+                this.mGn = (e) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
             } catch (ClassNotFoundException e) {
                 Log.w("DefaultDataSource", "Attempting to play RTMP stream without depending on the RTMP extension");
             } catch (IllegalAccessException e2) {
@@ -108,17 +108,17 @@ public final class j implements e {
             } catch (InvocationTargetException e5) {
                 Log.e("DefaultDataSource", "Error instantiating RtmpDataSource", e5);
             }
-            if (this.mFH == null) {
-                this.mFH = this.mFD;
+            if (this.mGn == null) {
+                this.mGn = this.mGj;
             }
         }
-        return this.mFH;
+        return this.mGn;
     }
 
-    private e dxR() {
-        if (this.mFI == null) {
-            this.mFI = new d();
+    private e dzb() {
+        if (this.mGo == null) {
+            this.mGo = new d();
         }
-        return this.mFI;
+        return this.mGo;
     }
 }

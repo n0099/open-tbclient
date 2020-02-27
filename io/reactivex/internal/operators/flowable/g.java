@@ -4,7 +4,7 @@ import io.reactivex.c.h;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.ScalarSubscription;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g {
     public static <T, R> boolean a(org.a.b<T> bVar, org.a.c<? super R> cVar, h<? super T, ? extends org.a.b<? extends R>> hVar) {
         if (bVar instanceof Callable) {
@@ -25,7 +25,7 @@ public final class g {
                             }
                             cVar.onSubscribe(new ScalarSubscription(cVar, call));
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.I(th);
+                            io.reactivex.exceptions.a.H(th);
                             EmptySubscription.error(th, cVar);
                             return true;
                         }
@@ -34,12 +34,12 @@ public final class g {
                     }
                     return true;
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.I(th2);
+                    io.reactivex.exceptions.a.H(th2);
                     EmptySubscription.error(th2, cVar);
                     return true;
                 }
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.I(th3);
+                io.reactivex.exceptions.a.H(th3);
                 EmptySubscription.error(th3, cVar);
                 return true;
             }

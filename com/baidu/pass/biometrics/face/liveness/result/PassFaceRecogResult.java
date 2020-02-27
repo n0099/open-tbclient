@@ -8,7 +8,7 @@ import com.baidu.pass.biometrics.base.utils.ResUtils;
 import com.baidu.pass.biometrics.face.R;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PassFaceRecogResult extends PassBiometricResult {
     public static final int ERROR_CODE_CONTRAST_FAIL = -302;
     public static final int ERROR_CODE_FACE_SDK_INIT_FAIL = -303;

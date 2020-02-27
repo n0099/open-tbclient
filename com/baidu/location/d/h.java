@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h extends Thread {
     final /* synthetic */ String a;
     final /* synthetic */ e b;

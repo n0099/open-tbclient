@@ -11,36 +11,36 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.push.ce;
 import com.xiaomi.push.cf;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class k extends MiPushClient.MiPushClientCallback implements c {
     private static k a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f94a;
+    private int f91a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f95a;
+    private Context f92a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f96a;
+    private SharedPreferences f93a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Handler f97a;
+    private Handler f94a;
 
     /* renamed from: a  reason: collision with other field name */
-    private g f98a;
+    private g f95a;
 
     /* renamed from: a  reason: collision with other field name */
-    private cf f99a;
+    private cf f96a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f100a;
+    private String f97a;
     private int b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f101b;
+    private String f98b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum a {
         NONE,
         Wifi,
@@ -62,14 +62,14 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
     }
 
     private void a(String str, int i, String str2) {
-        new j(this.f95a, this.f96a, str, i, str2, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[0]);
+        new j(this.f92a, this.f93a, str, i, str2, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[0]);
     }
 
     private void a(String str, long j, int i) {
         this.b++;
         d.a("存入cache 的数量: " + this.b);
-        this.f98a.a(str, j, i);
-        this.f98a.a();
+        this.f95a.a(str, j, i);
+        this.f95a.a();
     }
 
     private void a(String str, String str2) {
@@ -87,12 +87,12 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
             case 1:
                 i = ceVar.c * 4;
                 a("冒泡上限: " + i);
-                i2 = this.f96a.getInt("bubblecount", 0);
+                i2 = this.f93a.getInt("bubblecount", 0);
                 break;
             case 2:
                 i = ceVar.c;
                 a("通知上限: " + i);
-                i2 = this.f96a.getInt("notifycount", 0);
+                i2 = this.f93a.getInt("notifycount", 0);
                 break;
             default:
                 i = 0;
@@ -110,20 +110,20 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
         int i2 = 0;
         synchronized (this) {
             if (i == 2) {
-                i2 = this.f96a.getInt("notifycount", 0);
+                i2 = this.f93a.getInt("notifycount", 0);
             } else if (i == 1) {
-                i2 = this.f96a.getInt("bubblecount", 0);
+                i2 = this.f93a.getInt("bubblecount", 0);
             }
         }
         return i2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m113a(int i) {
+    public synchronized void m118a(int i) {
         if (i == 2) {
-            this.f96a.edit().putInt("notifycount", this.f96a.getInt("notifycount", 0) + 1).commit();
+            this.f93a.edit().putInt("notifycount", this.f93a.getInt("notifycount", 0) + 1).commit();
         } else if (i == 1) {
-            this.f96a.edit().putInt("bubblecount", this.f96a.getInt("bubblecount", 0) + 1).commit();
+            this.f93a.edit().putInt("bubblecount", this.f93a.getInt("bubblecount", 0) + 1).commit();
         }
     }
 
@@ -134,25 +134,25 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
             return;
         }
         if (i == -1) {
-            a("广告下载失败: " + ceVar.f181a);
+            a("广告下载失败: " + ceVar.f178a);
             ceVar.d++;
             if (ceVar.d < 10) {
-                d.a("下载失败写入缓存 " + ceVar.h + "  " + ceVar.f183b + "  " + ceVar.d);
-                a(ceVar.h, ceVar.f183b, ceVar.d);
+                d.a("下载失败写入缓存 " + ceVar.h + "  " + ceVar.f180b + "  " + ceVar.d);
+                a(ceVar.h, ceVar.f180b, ceVar.d);
             } else {
                 d.a("下载失败次数超过 10 不写入缓存");
             }
         } else if (i == 0) {
             if (ceVar.c > 0) {
-                this.f94a++;
-                a().m113a(ceVar.a);
+                this.f91a++;
+                a().m118a(ceVar.a);
             }
-            a("广告下载成功: id: " + ceVar.f181a + " 类型: " + ceVar.a + " 成功次数: " + a().a(ceVar.a));
+            a("广告下载成功: id: " + ceVar.f178a + " 类型: " + ceVar.a + " 成功次数: " + a().a(ceVar.a));
         } else {
             Log.w("com.miui.ads", "广告无效或者超过限制 " + i);
             d.a("广告无效或者超过限制");
         }
-        if (this.f99a == null || i != 0) {
+        if (this.f96a == null || i != 0) {
             return;
         }
         if (!a(ceVar)) {
@@ -160,7 +160,7 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
             return;
         }
         a("===========给APP 发送广告信息");
-        this.f99a.a(ceVar);
+        this.f96a.a(ceVar);
     }
 
     @Override // com.xiaomi.mipush.sdk.MiPushClient.MiPushClientCallback
@@ -176,7 +176,7 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
         if (TextUtils.equals(MiPushClient.COMMAND_SET_ALIAS, str)) {
             boolean z2 = false;
             while (i < list.size()) {
-                if (TextUtils.equals(this.f100a, list.get(i))) {
+                if (TextUtils.equals(this.f97a, list.get(i))) {
                     z = true;
                     a("设置别名成功: ");
                 } else {
@@ -189,38 +189,38 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
                 return;
             }
             a("设置别名失败，重新设置: ");
-            this.f97a.sendEmptyMessage(2);
+            this.f94a.sendEmptyMessage(2);
         }
     }
 
     @Override // com.xiaomi.mipush.sdk.MiPushClient.MiPushClientCallback
     public void onInitializeResult(long j, String str, String str2) {
-        if (this.f99a != null) {
-            Message obtainMessage = this.f97a.obtainMessage();
+        if (this.f96a != null) {
+            Message obtainMessage = this.f94a.obtainMessage();
             obtainMessage.what = 4;
             obtainMessage.arg1 = (int) j;
             obtainMessage.obj = str2;
-            this.f97a.sendMessage(obtainMessage);
+            this.f94a.sendMessage(obtainMessage);
         }
         if (0 != j) {
             a("通道初始化失败， 已经通知了app，需要重新 open 通道");
             return;
         }
         a("通道进行初始化OK");
-        this.f97a.sendEmptyMessage(3);
-        this.f97a.sendEmptyMessage(5);
+        this.f94a.sendEmptyMessage(3);
+        this.f94a.sendEmptyMessage(5);
     }
 
     @Override // com.xiaomi.mipush.sdk.MiPushClient.MiPushClientCallback
     public void onReceiveMessage(String str, String str2, String str3, boolean z) {
         a("接受到消息 " + str + "##" + str3 + "##");
-        if (f.a(this.f100a)) {
+        if (f.a(this.f97a)) {
             a("没有有效alias，忽略消息 " + str + "##" + str3 + "##");
-        } else if (f.a(str2) || f.a(this.f100a) || TextUtils.equals(this.f100a, str2)) {
-            a(str, this.f101b);
+        } else if (f.a(str2) || f.a(this.f97a) || TextUtils.equals(this.f97a, str2)) {
+            a(str, this.f98b);
         } else {
             a("接受到不同alias 的消息，注销旧的 " + str + "##" + str3 + "##");
-            MiPushClient.unsetAlias(this.f95a, str2, getCategory());
+            MiPushClient.unsetAlias(this.f92a, str2, getCategory());
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.swan.apps.q;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d implements View.OnTouchListener {
     private View mTargetView;
 
@@ -11,10 +11,10 @@ public class d implements View.OnTouchListener {
         switch (motionEvent.getAction()) {
             case 0:
                 if (this.mTargetView == null) {
-                    view.setAlpha(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                    view.setAlpha(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState() ? 0.5f : 0.2f);
                     return false;
                 }
-                this.mTargetView.setAlpha(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                this.mTargetView.setAlpha(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState() ? 0.5f : 0.2f);
                 return false;
             case 1:
             default:

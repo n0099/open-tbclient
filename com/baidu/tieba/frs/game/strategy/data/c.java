@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.v;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
-    public int gxK;
-    public List<m> gxL;
+    public int gzK;
+    public List<m> gzL;
     public boolean hasMore;
     public String key;
     public int labelId;
     public int pn;
 
-    public int cl(List<m> list) {
+    public int ch(List<m> list) {
         boolean z;
         if (v.isEmpty(list)) {
             return 0;
         }
-        if (v.isEmpty(this.gxL)) {
-            this.gxL = new LinkedList();
-            this.gxL.addAll(list);
+        if (v.isEmpty(this.gzL)) {
+            this.gzL = new LinkedList();
+            this.gzL.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             m mVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.gxL.size()) {
+                if (i2 >= this.gzL.size()) {
                     z = false;
                     break;
                 }
-                m mVar2 = this.gxL.get(i2);
+                m mVar2 = this.gzL.get(i2);
                 if (mVar != null && (mVar instanceof b) && mVar2 != null && (mVar2 instanceof b)) {
-                    bj axQ = ((b) mVar).axQ();
-                    bj axQ2 = ((b) mVar2).axQ();
-                    if (axQ != null && axQ2 != null && axQ.getTid() != null && axQ2.getTid() != null && axQ.getTid().equals(axQ2.getTid())) {
+                    bj aAe = ((b) mVar).aAe();
+                    bj aAe2 = ((b) mVar2).aAe();
+                    if (aAe != null && aAe2 != null && aAe.getTid() != null && aAe2.getTid() != null && aAe.getTid().equals(aAe2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.addAll(this.gxL, 0, linkedList);
+            v.addAll(this.gzL, 0, linkedList);
         }
         return linkedList.size();
     }

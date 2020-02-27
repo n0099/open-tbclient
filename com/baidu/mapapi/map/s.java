@@ -10,7 +10,7 @@ import com.baidu.mapsdkplatform.comapi.map.ab;
 import com.baidu.mapsdkplatform.comapi.map.ac;
 import javax.microedition.khronos.opengles.GL10;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class s implements com.baidu.mapsdkplatform.comapi.map.l {
     final /* synthetic */ TextureMapView a;
 

@@ -10,7 +10,7 @@ import com.baidu.swan.apps.adaptation.a.l;
 import com.baidu.swan.apps.as.s;
 import com.baidu.swan.apps.setting.oauth.c;
 import com.vivo.push.PushClientConstants;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements l {
     @Override // com.baidu.swan.apps.adaptation.a.l
     public void a(Context context, String str, String str2, final com.baidu.swan.apps.b.a.b bVar) {
@@ -31,9 +31,9 @@ public class a implements l {
                         if (i == -1) {
                             bVar.L(s.parseString(intent2.getStringExtra("data")));
                         } else if (i == 0) {
-                            bVar.dH(1);
+                            bVar.dX(1);
                         } else {
-                            bVar.dH(0);
+                            bVar.dX(0);
                         }
                         return true;
                     }

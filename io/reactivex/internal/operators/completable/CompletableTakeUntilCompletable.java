@@ -7,9 +7,9 @@ import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CompletableTakeUntilCompletable extends a {
-    final a nvM;
+    final a nwo;
     final e other;
 
     @Override // io.reactivex.a
@@ -17,10 +17,10 @@ public final class CompletableTakeUntilCompletable extends a {
         TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(cVar);
         cVar.onSubscribe(takeUntilMainObserver);
         this.other.a(takeUntilMainObserver.other);
-        this.nvM.a(takeUntilMainObserver);
+        this.nwo.a(takeUntilMainObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class TakeUntilMainObserver extends AtomicReference<b> implements c, b {
         private static final long serialVersionUID = 3533011714830024923L;
         final c downstream;
@@ -83,7 +83,7 @@ public final class CompletableTakeUntilCompletable extends a {
             io.reactivex.e.a.onError(th);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static final class OtherObserver extends AtomicReference<b> implements c {
             private static final long serialVersionUID = 5176264485428790318L;
             final TakeUntilMainObserver parent;

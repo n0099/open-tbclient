@@ -9,7 +9,7 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 import javax.microedition.khronos.opengles.GL10;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class w implements com.baidu.mapsdkplatform.comapi.map.l {
     final /* synthetic */ WearMapView a;
 

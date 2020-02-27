@@ -14,7 +14,7 @@ import android.util.Xml;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class AppCompatColorStateListInflater {
     private static final int DEFAULT_COLOR = -65536;
 

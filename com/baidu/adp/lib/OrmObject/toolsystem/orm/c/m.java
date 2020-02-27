@@ -11,37 +11,37 @@ public class m implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Class<?> fp = cVar.fp();
-        if (fp == Byte.class || fp == Byte.TYPE) {
+        Class<?> fieldClass = cVar.getFieldClass();
+        if (fieldClass == Byte.class || fieldClass == Byte.TYPE) {
             return Byte.valueOf(this.value.byteValue());
         }
-        if (fp == Short.class || fp == Short.TYPE) {
+        if (fieldClass == Short.class || fieldClass == Short.TYPE) {
             return Short.valueOf(this.value.shortValue());
         }
-        if (fp == Integer.class || fp == Integer.TYPE) {
+        if (fieldClass == Integer.class || fieldClass == Integer.TYPE) {
             return Integer.valueOf(this.value.intValue());
         }
-        if (fp == Long.class || fp == Long.TYPE) {
+        if (fieldClass == Long.class || fieldClass == Long.TYPE) {
             return Long.valueOf(this.value.longValue());
         }
-        if (fp == Float.class || fp == Float.TYPE) {
+        if (fieldClass == Float.class || fieldClass == Float.TYPE) {
             return Float.valueOf(this.value.floatValue());
         }
-        if (fp == Double.class || fp == Double.TYPE) {
+        if (fieldClass == Double.class || fieldClass == Double.TYPE) {
             return Double.valueOf(this.value.doubleValue());
         }
-        if (fp == Character.class || fp == Character.TYPE) {
+        if (fieldClass == Character.class || fieldClass == Character.TYPE) {
             return Character.valueOf((char) this.value.intValue());
         }
-        if (fp == Boolean.class || fp == Boolean.TYPE) {
+        if (fieldClass == Boolean.class || fieldClass == Boolean.TYPE) {
             return Boolean.valueOf(this.value.byteValue() == 0);
-        } else if (fp == String.class) {
+        } else if (fieldClass == String.class) {
             return String.valueOf(this.value);
         } else {
-            if (fp == char[].class) {
+            if (fieldClass == char[].class) {
                 return String.valueOf(this.value).toCharArray();
             }
-            if (fp == byte[].class) {
+            if (fieldClass == byte[].class) {
                 try {
                     return com.baidu.adp.lib.util.c.decode(String.valueOf(this.value), 0);
                 } catch (IOException e) {

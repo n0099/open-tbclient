@@ -11,17 +11,17 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.message.AlaGetRedPacketInfoResponseMessage;
 import com.baidu.tieba.ala.message.AlaSnatchRedPacketResponseMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends BdBaseModel {
-    private a eeO;
-    private HttpMessageListener fmS;
-    private HttpMessageListener fmT;
+    private a eiR;
+    private HttpMessageListener fpw;
+    private HttpMessageListener fpx;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void ad(int i, String str);
-
         void ae(int i, String str);
+
+        void af(int i, String str);
 
         void b(com.baidu.tieba.ala.data.b bVar);
 
@@ -30,43 +30,43 @@ public class f extends BdBaseModel {
 
     public f(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.fmS = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.e.f.1
+        this.fpw = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.e.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021160 && (httpResponsedMessage instanceof AlaGetRedPacketInfoResponseMessage)) {
                     AlaGetRedPacketInfoResponseMessage alaGetRedPacketInfoResponseMessage = (AlaGetRedPacketInfoResponseMessage) httpResponsedMessage;
-                    if (f.this.eeO != null) {
+                    if (f.this.eiR != null) {
                         if (alaGetRedPacketInfoResponseMessage.getError() != 0 || !alaGetRedPacketInfoResponseMessage.isSuccess()) {
-                            f.this.eeO.ad(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
+                            f.this.eiR.ae(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
                         } else {
-                            f.this.eeO.b(alaGetRedPacketInfoResponseMessage.bpU());
+                            f.this.eiR.b(alaGetRedPacketInfoResponseMessage.bry());
                         }
                     }
                 }
             }
         };
-        this.fmT = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.e.f.2
+        this.fpx = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.e.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021161 && (httpResponsedMessage instanceof AlaSnatchRedPacketResponseMessage)) {
                     AlaSnatchRedPacketResponseMessage alaSnatchRedPacketResponseMessage = (AlaSnatchRedPacketResponseMessage) httpResponsedMessage;
-                    if (f.this.eeO != null) {
-                        com.baidu.tieba.ala.data.i bpW = alaSnatchRedPacketResponseMessage.bpW();
+                    if (f.this.eiR != null) {
+                        com.baidu.tieba.ala.data.i brA = alaSnatchRedPacketResponseMessage.brA();
                         if (alaSnatchRedPacketResponseMessage.getError() != 0 || !alaSnatchRedPacketResponseMessage.isSuccess()) {
-                            f.this.eeO.ae(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
+                            f.this.eiR.af(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
                         } else {
-                            f.this.eeO.b(bpW);
+                            f.this.eiR.b(brA);
                         }
                     }
                 }
             }
         };
-        this.eeO = aVar;
+        this.eiR = aVar;
         initTasks();
-        registerListener(this.fmS);
-        registerListener(this.fmT);
+        registerListener(this.fpw);
+        registerListener(this.fpx);
     }
 
     private void initTasks() {
@@ -113,8 +113,8 @@ public class f extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fmT);
-        MessageManager.getInstance().unRegisterListener(this.fmS);
+        MessageManager.getInstance().unRegisterListener(this.fpx);
+        MessageManager.getInstance().unRegisterListener(this.fpw);
         MessageManager.getInstance().unRegisterTask(1021161);
         MessageManager.getInstance().unRegisterTask(1021160);
     }

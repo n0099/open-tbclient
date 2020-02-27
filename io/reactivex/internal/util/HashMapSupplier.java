@@ -3,7 +3,7 @@ package io.reactivex.internal.util;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum HashMapSupplier implements Callable<Map<Object, Object>> {
     INSTANCE;
 

@@ -7,7 +7,7 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSkipUntil<T, U> extends a<T, T> {
     final org.a.b<U> other;
 
@@ -16,10 +16,10 @@ public final class FlowableSkipUntil<T, U> extends a<T, T> {
         SkipUntilMainSubscriber skipUntilMainSubscriber = new SkipUntilMainSubscriber(cVar);
         cVar.onSubscribe(skipUntilMainSubscriber);
         this.other.subscribe(skipUntilMainSubscriber.other);
-        this.nvP.a((j) skipUntilMainSubscriber);
+        this.nwr.a((j) skipUntilMainSubscriber);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SkipUntilMainSubscriber<T> extends AtomicInteger implements io.reactivex.internal.a.a<T>, org.a.d {
         private static final long serialVersionUID = -6270983465606289181L;
         final org.a.c<? super T> actual;
@@ -77,7 +77,7 @@ public final class FlowableSkipUntil<T, U> extends a<T, T> {
             SubscriptionHelper.cancel(this.other);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         final class OtherSubscriber extends AtomicReference<org.a.d> implements j<Object> {
             private static final long serialVersionUID = -5592042965931999169L;
 

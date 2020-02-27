@@ -18,25 +18,25 @@ import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import com.xiaomi.push.ir;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ar {
     /* JADX INFO: Access modifiers changed from: protected */
     public static <T extends ir<T, ?>> ic a(Context context, T t, hg hgVar) {
-        return a(context, t, hgVar, !hgVar.equals(hg.Registration), context.getPackageName(), d.m80a(context).m81a());
+        return a(context, t, hgVar, !hgVar.equals(hg.Registration), context.getPackageName(), d.m85a(context).m86a());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static <T extends ir<T, ?>> ic a(Context context, T t, hg hgVar, boolean z, String str, String str2) {
         byte[] a = iq.a(t);
         if (a == null) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("invoke convertThriftObjectToBytes method, return null.");
+            com.xiaomi.channel.commonutils.logger.b.m47a("invoke convertThriftObjectToBytes method, return null.");
             return null;
         }
         ic icVar = new ic();
         if (z) {
-            String d = d.m80a(context).d();
+            String d = d.m85a(context).d();
             if (TextUtils.isEmpty(d)) {
-                com.xiaomi.channel.commonutils.logger.b.m42a("regSecret is empty, return null");
+                com.xiaomi.channel.commonutils.logger.b.m47a("regSecret is empty, return null");
                 return null;
             }
             try {
@@ -46,8 +46,8 @@ public class ar {
             }
         }
         hv hvVar = new hv();
-        hvVar.f541a = 5L;
-        hvVar.f542a = "fakeid";
+        hvVar.f538a = 5L;
+        hvVar.f539a = "fakeid";
         icVar.a(hvVar);
         icVar.a(ByteBuffer.wrap(a));
         icVar.a(hgVar);
@@ -59,19 +59,19 @@ public class ar {
     }
 
     public static ir a(Context context, ic icVar) {
-        byte[] m402a;
-        if (icVar.m404b()) {
+        byte[] m407a;
+        if (icVar.m409b()) {
             try {
-                m402a = com.xiaomi.push.h.a(com.xiaomi.push.av.a(d.m80a(context).d()), icVar.m402a());
+                m407a = com.xiaomi.push.h.a(com.xiaomi.push.av.a(d.m85a(context).d()), icVar.m407a());
             } catch (Exception e) {
                 throw new v("the aes decrypt failed.", e);
             }
         } else {
-            m402a = icVar.m402a();
+            m407a = icVar.m407a();
         }
-        ir a = a(icVar.a(), icVar.f622b);
+        ir a = a(icVar.a(), icVar.f619b);
         if (a != null) {
-            iq.a(a, m402a);
+            iq.a(a, m407a);
         }
         return a;
     }

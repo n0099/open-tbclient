@@ -9,7 +9,7 @@ import android.text.TextPaint;
 import android.util.SparseArray;
 import com.baidu.mapapi.common.SysOSUtil;
 import java.nio.IntBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class EnvDrawText {
     private static final String a = EnvDrawText.class.getSimpleName();
     public static boolean bBmpChange = false;

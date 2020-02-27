@@ -5,20 +5,20 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ab extends h {
-    private com.baidu.tbadk.core.data.a JH;
-    private ThreadSmartAppLayout KO;
+    private com.baidu.tbadk.core.data.a Kc;
+    private ThreadSmartAppLayout Ll;
 
     public ab(Context context) {
         super(context);
         setTopMargin(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds21));
-        this.KO = new ThreadSmartAppLayout(context);
-        this.KO.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.ab.1
+        this.Ll = new ThreadSmartAppLayout(context);
+        this.Ll.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.ab.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ab.this.mE() != null) {
-                    ab.this.mE().a(view, ab.this.JH);
+                if (ab.this.mT() != null) {
+                    ab.this.mT().a(view, ab.this.Kc);
                 }
             }
         });
@@ -27,21 +27,21 @@ public class ab extends h {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.KO;
+        return this.Ll;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        this.JH = aVar;
-        this.KO.A(aVar);
+        this.Kc = aVar;
+        this.Ll.A(aVar);
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.KO != null) {
-            this.KO.onChangeSkinType();
+        if (this.Ll != null) {
+            this.Ll.onChangeSkinType();
         }
     }
 }

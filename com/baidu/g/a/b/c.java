@@ -1,5 +1,5 @@
 package com.baidu.g.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface c {
     void a(b bVar);
 
@@ -9,7 +9,7 @@ public interface c {
 
     void b(b bVar);
 
-    void ee(String str);
+    void et(String str);
 
     void quitLiveShow();
 

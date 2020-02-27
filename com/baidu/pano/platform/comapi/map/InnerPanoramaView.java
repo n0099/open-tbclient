@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class InnerPanoramaView extends BaseGLMapView {
     private HashMap<String, com.baidu.pano.platform.comapi.a.a> d;
     private PanoramaViewListener e;

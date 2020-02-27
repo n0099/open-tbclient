@@ -10,7 +10,7 @@ import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SchemaMsg extends NormalMsg {
     public static final Parcelable.Creator<SchemaMsg> CREATOR = new Parcelable.Creator<SchemaMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SchemaMsg.1
         /* JADX DEBUG: Method merged with bridge method */

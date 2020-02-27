@@ -1,6 +1,6 @@
 package com.kascend.chushou.widget.gifts;
 
 import android.support.v4.view.ViewPager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface e extends ViewPager.OnPageChangeListener {
 }

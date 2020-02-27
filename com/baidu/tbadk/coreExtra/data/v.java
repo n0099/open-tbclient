@@ -1,36 +1,29 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.google.android.exoplayer2.Format;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class v extends com.baidu.tbadk.core.data.k {
-    private long mStartTime = Format.OFFSET_SAMPLE_RELATIVE;
-    private long bDL = 0;
-    private String diC = null;
+public class v {
+    private long end_time;
+    private String link_url;
+    private long start_time;
 
-    @Override // com.baidu.tbadk.core.data.k
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.mStartTime = jSONObject.optLong("start_time", Format.OFFSET_SAMPLE_RELATIVE);
-                this.bDL = jSONObject.optLong("end_time", 0L);
-                this.diC = jSONObject.optString("dest_url", "");
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public String aJw() {
+        return this.link_url;
     }
 
     public long getStartTime() {
-        return this.mStartTime;
+        return this.start_time;
     }
 
     public long getEndTime() {
-        return this.bDL;
+        return this.end_time;
     }
 
-    public String aHf() {
-        return this.diC;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.link_url = jSONObject.optString("link_url", "");
+            this.start_time = jSONObject.optLong("start_time", 0L);
+            this.end_time = jSONObject.optLong("end_time", 0L);
+        }
     }
 }

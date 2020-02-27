@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/getPushSettingStateSync");
@@ -24,7 +24,7 @@ public class a extends ab {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("authorized", b.cJ(context));
+            jSONObject.put("authorized", b.cN(context));
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {

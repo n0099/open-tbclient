@@ -2,7 +2,7 @@ package com.baidu.ala.recorder.video.gles;
 
 import com.lemon.faceu.openglfilter.gpuimage.base.GPUImageFilter;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FullFrameRect {
     private GPUImageFilter mFilter;
 

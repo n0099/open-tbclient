@@ -11,7 +11,7 @@ import com.baidu.searchbox.account.params.LoginParams;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UgcLoginUtils {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = "UgcLoginUtils";

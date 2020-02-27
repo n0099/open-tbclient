@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessage {
     public long mCursor;
     public boolean mHasMore;

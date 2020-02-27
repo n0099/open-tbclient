@@ -12,12 +12,12 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.pool.BdCache;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.RegisterActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.u.a;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ViewHelper {
     private static final String ARROW = "skin_arrow";
     private static final String CHECK_BOX = "skin_check_box";
@@ -39,14 +39,14 @@ public class ViewHelper {
     private static BdCache<Integer, Integer> cachedSkinInViews = new BdCache<>(500);
     private static Context mAppContext = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ShareCallback {
         void finishProgressForSharing();
 
         void startProgressForSharing();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ViewCallback {
         boolean onViewFound(View view);
     }
@@ -212,8 +212,6 @@ public class ViewHelper {
     }
 
     public static void skipToLoginActivity(Context context) {
-        if (context != null) {
-        }
         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN));
     }

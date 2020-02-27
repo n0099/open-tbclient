@@ -373,7 +373,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (b.aIj().aII() != null && b.aIj().aII().contains(String.valueOf(this.userId)) && this.msgType == 1) {
+        if (b.aKC().aLb() != null && b.aKC().aLb().contains(String.valueOf(this.userId)) && this.msgType == 1) {
             return TYPE_MSG_TEXT_OFFICAL_NOTIFICATION;
         }
         if (this.msgType == 11) {

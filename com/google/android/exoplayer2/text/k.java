@@ -8,39 +8,39 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.m;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k extends com.google.android.exoplayer2.a implements Handler.Callback {
-    private final m moN;
-    private final Handler mpF;
-    private boolean mpn;
-    private boolean mpo;
-    private final j mye;
-    private final g myf;
-    private int myg;
-    private Format myh;
-    private f myi;
-    private h myj;
-    private i myk;
-    private i myl;
-    private int mym;
+    private boolean mpT;
+    private boolean mpU;
+    private final m mpt;
+    private final Handler mql;
+    private final j myK;
+    private final g myL;
+    private int myM;
+    private Format myN;
+    private f myO;
+    private h myP;
+    private i myQ;
+    private i myR;
+    private int myS;
 
     public k(j jVar, Looper looper) {
-        this(jVar, looper, g.myc);
+        this(jVar, looper, g.myI);
     }
 
     public k(j jVar, Looper looper, g gVar) {
         super(3);
-        this.mye = (j) com.google.android.exoplayer2.util.a.checkNotNull(jVar);
-        this.mpF = looper == null ? null : new Handler(looper, this);
-        this.myf = gVar;
-        this.moN = new m();
+        this.myK = (j) com.google.android.exoplayer2.util.a.checkNotNull(jVar);
+        this.mql = looper == null ? null : new Handler(looper, this);
+        this.myL = gVar;
+        this.mpt = new m();
     }
 
     @Override // com.google.android.exoplayer2.t
     public int e(Format format) {
-        if (this.myf.i(format)) {
+        if (this.myL.i(format)) {
             return a((com.google.android.exoplayer2.drm.a<?>) null, format.drmInitData) ? 4 : 2;
-        } else if (com.google.android.exoplayer2.util.i.Qc(format.sampleMimeType)) {
+        } else if (com.google.android.exoplayer2.util.i.Qp(format.sampleMimeType)) {
             return 1;
         } else {
             return 0;
@@ -50,100 +50,100 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a
     public void a(Format[] formatArr, long j) throws ExoPlaybackException {
-        this.myh = formatArr[0];
-        if (this.myi != null) {
-            this.myg = 1;
+        this.myN = formatArr[0];
+        if (this.myO != null) {
+            this.myM = 1;
         } else {
-            this.myi = this.myf.p(this.myh);
+            this.myO = this.myL.p(this.myN);
         }
     }
 
     @Override // com.google.android.exoplayer2.a
-    protected void j(long j, boolean z) {
-        dwC();
-        this.mpn = false;
-        this.mpo = false;
-        if (this.myg != 0) {
-            dwA();
+    protected void l(long j, boolean z) {
+        dxM();
+        this.mpT = false;
+        this.mpU = false;
+        if (this.myM != 0) {
+            dxK();
             return;
         }
-        Da();
-        this.myi.flush();
+        Fw();
+        this.myO.flush();
     }
 
     @Override // com.google.android.exoplayer2.s
-    public void N(long j, long j2) throws ExoPlaybackException {
+    public void M(long j, long j2) throws ExoPlaybackException {
         boolean z;
-        if (!this.mpo) {
-            if (this.myl == null) {
-                this.myi.gx(j);
+        if (!this.mpU) {
+            if (this.myR == null) {
+                this.myO.gv(j);
                 try {
-                    this.myl = this.myi.dtn();
+                    this.myR = this.myO.duy();
                 } catch (SubtitleDecoderException e) {
                     throw ExoPlaybackException.createForRenderer(e, getIndex());
                 }
             }
             if (getState() == 2) {
-                if (this.myk != null) {
-                    long dwB = dwB();
+                if (this.myQ != null) {
+                    long dxL = dxL();
                     z = false;
-                    while (dwB <= j) {
-                        this.mym++;
-                        dwB = dwB();
+                    while (dxL <= j) {
+                        this.myS++;
+                        dxL = dxL();
                         z = true;
                     }
                 } else {
                     z = false;
                 }
-                if (this.myl != null) {
-                    if (this.myl.dth()) {
-                        if (!z && dwB() == Format.OFFSET_SAMPLE_RELATIVE) {
-                            if (this.myg == 2) {
-                                dwA();
+                if (this.myR != null) {
+                    if (this.myR.dus()) {
+                        if (!z && dxL() == Format.OFFSET_SAMPLE_RELATIVE) {
+                            if (this.myM == 2) {
+                                dxK();
                             } else {
-                                Da();
-                                this.mpo = true;
+                                Fw();
+                                this.mpU = true;
                             }
                         }
-                    } else if (this.myl.mcV <= j) {
-                        if (this.myk != null) {
-                            this.myk.release();
+                    } else if (this.myR.mdB <= j) {
+                        if (this.myQ != null) {
+                            this.myQ.release();
                         }
-                        this.myk = this.myl;
-                        this.myl = null;
-                        this.mym = this.myk.gy(j);
+                        this.myQ = this.myR;
+                        this.myR = null;
+                        this.myS = this.myQ.gw(j);
                         z = true;
                     }
                 }
                 if (z) {
-                    fn(this.myk.gz(j));
+                    fi(this.myQ.gx(j));
                 }
-                if (this.myg != 2) {
-                    while (!this.mpn) {
+                if (this.myM != 2) {
+                    while (!this.mpT) {
                         try {
-                            if (this.myj == null) {
-                                this.myj = this.myi.dtm();
-                                if (this.myj == null) {
+                            if (this.myP == null) {
+                                this.myP = this.myO.dux();
+                                if (this.myP == null) {
                                     return;
                                 }
                             }
-                            if (this.myg == 1) {
-                                this.myj.setFlags(4);
-                                this.myi.bv(this.myj);
-                                this.myj = null;
-                                this.myg = 2;
+                            if (this.myM == 1) {
+                                this.myP.setFlags(4);
+                                this.myO.bx(this.myP);
+                                this.myP = null;
+                                this.myM = 2;
                                 return;
                             }
-                            int a = a(this.moN, (com.google.android.exoplayer2.a.e) this.myj, false);
+                            int a = a(this.mpt, (com.google.android.exoplayer2.a.e) this.myP, false);
                             if (a == -4) {
-                                if (this.myj.dth()) {
-                                    this.mpn = true;
+                                if (this.myP.dus()) {
+                                    this.mpT = true;
                                 } else {
-                                    this.myj.subsampleOffsetUs = this.moN.lYQ.subsampleOffsetUs;
-                                    this.myj.dts();
+                                    this.myP.subsampleOffsetUs = this.mpt.lZw.subsampleOffsetUs;
+                                    this.myP.duD();
                                 }
-                                this.myi.bv(this.myj);
-                                this.myj = null;
+                                this.myO.bx(this.myP);
+                                this.myP = null;
                             } else if (a == -3) {
                                 return;
                             }
@@ -157,15 +157,15 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     }
 
     @Override // com.google.android.exoplayer2.a
-    protected void drA() {
-        this.myh = null;
-        dwC();
-        dwz();
+    protected void dsM() {
+        this.myN = null;
+        dxM();
+        dxJ();
     }
 
     @Override // com.google.android.exoplayer2.s
-    public boolean atB() {
-        return this.mpo;
+    public boolean avP() {
+        return this.mpU;
     }
 
     @Override // com.google.android.exoplayer2.s
@@ -173,59 +173,59 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
         return true;
     }
 
-    private void Da() {
-        this.myj = null;
-        this.mym = -1;
-        if (this.myk != null) {
-            this.myk.release();
-            this.myk = null;
+    private void Fw() {
+        this.myP = null;
+        this.myS = -1;
+        if (this.myQ != null) {
+            this.myQ.release();
+            this.myQ = null;
         }
-        if (this.myl != null) {
-            this.myl.release();
-            this.myl = null;
+        if (this.myR != null) {
+            this.myR.release();
+            this.myR = null;
         }
     }
 
-    private void dwz() {
-        Da();
-        this.myi.release();
-        this.myi = null;
-        this.myg = 0;
+    private void dxJ() {
+        Fw();
+        this.myO.release();
+        this.myO = null;
+        this.myM = 0;
     }
 
-    private void dwA() {
-        dwz();
-        this.myi = this.myf.p(this.myh);
+    private void dxK() {
+        dxJ();
+        this.myO = this.myL.p(this.myN);
     }
 
-    private long dwB() {
-        return (this.mym == -1 || this.mym >= this.myk.dwy()) ? Format.OFFSET_SAMPLE_RELATIVE : this.myk.Lf(this.mym);
+    private long dxL() {
+        return (this.myS == -1 || this.myS >= this.myQ.dxI()) ? Format.OFFSET_SAMPLE_RELATIVE : this.myQ.Lk(this.myS);
     }
 
-    private void fn(List<b> list) {
-        if (this.mpF != null) {
-            this.mpF.obtainMessage(0, list).sendToTarget();
+    private void fi(List<b> list) {
+        if (this.mql != null) {
+            this.mql.obtainMessage(0, list).sendToTarget();
         } else {
-            fo(list);
+            fj(list);
         }
     }
 
-    private void dwC() {
-        fn(Collections.emptyList());
+    private void dxM() {
+        fi(Collections.emptyList());
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                fo((List) message.obj);
+                fj((List) message.obj);
                 return true;
             default:
                 throw new IllegalStateException();
         }
     }
 
-    private void fo(List<b> list) {
-        this.mye.fe(list);
+    private void fj(List<b> list) {
+        this.myK.eZ(list);
     }
 }

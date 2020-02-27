@@ -5,56 +5,56 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.live.r.a;
+import com.baidu.live.u.a;
 import com.baidu.tieba.ala.data.g;
 import com.baidu.tieba.ala.view.e;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private long edH;
-    private String edJ;
-    private boolean edK;
-    private ArrayList<g> efx;
+    private long ehK;
+    private String ehM;
+    private boolean ehN;
+    private ArrayList<g> ejA;
     private Context mContext;
 
     public b(Context context, String str, long j, boolean z) {
         this.mContext = context;
-        this.edJ = str;
-        this.edH = j;
-        this.edK = z;
+        this.ehM = str;
+        this.ehK = j;
+        this.ehN = z;
     }
 
     public void setData(ArrayList<g> arrayList) {
-        if (this.efx == null) {
-            this.efx = new ArrayList<>();
+        if (this.ejA == null) {
+            this.ejA = new ArrayList<>();
         } else {
-            this.efx.clear();
+            this.ejA.clear();
         }
         if (arrayList != null) {
-            this.efx.addAll(arrayList);
+            this.ejA.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.efx == null) {
+        if (this.ejA == null) {
             return 0;
         }
-        return this.efx.size();
+        return this.ejA.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.efx == null) {
+        if (this.ejA == null) {
             return null;
         }
-        return this.efx.get(i);
+        return this.ejA.get(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        return this.efx == null || this.efx.size() == 0;
+        return this.ejA == null || this.ejA.size() == 0;
     }
 
     @Override // android.widget.Adapter
@@ -68,14 +68,14 @@ public class b extends BaseAdapter {
         View view2;
         if (view == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_item_view, (ViewGroup) null);
-            e eVar2 = new e(this.mContext, view2, this.edJ, this.edH, this.edK);
+            e eVar2 = new e(this.mContext, view2, this.ehM, this.ehK, this.ehN);
             view2.setTag(eVar2);
             eVar = eVar2;
         } else {
             eVar = (e) view.getTag();
             view2 = view;
         }
-        eVar.a(this.efx.get(i), i);
+        eVar.a(this.ejA.get(i), i);
         return view2;
     }
 }

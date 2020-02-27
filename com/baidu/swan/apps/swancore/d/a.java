@@ -11,59 +11,59 @@ import java.io.File;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0289a bRX;
-    private static C0289a bRY;
+    private static C0299a bWb;
+    private static C0299a bWc;
 
-    public static void g(boolean z, int i) {
-        h.adb().putBoolean(go(i), z);
+    public static void h(boolean z, int i) {
+        h.afp().putBoolean(gF(i), z);
     }
 
-    public static boolean gn(int i) {
-        return h.adb().getBoolean(go(i), false) || !h(i, gp(i)).isAvailable();
+    public static boolean gE(int i) {
+        return h.afp().getBoolean(gF(i), false) || !h(i, gG(i)).isAvailable();
     }
 
-    private static String go(int i) {
+    private static String gF(int i) {
         return i == 1 ? "aigames_preset_update_key" : "aiapps_preset_update_key";
     }
 
-    public static long gp(int i) {
-        return h.adb().getLong(gt(i), 0L);
+    public static long gG(int i) {
+        return h.afp().getLong(gK(i), 0L);
     }
 
-    public static C0289a gq(int i) {
-        return i == 1 ? adl() : adm();
+    public static C0299a gH(int i) {
+        return i == 1 ? afz() : afA();
     }
 
-    private static C0289a adl() {
-        if (bRY == null) {
-            bRY = C0289a.c(gv(1), 1);
+    private static C0299a afz() {
+        if (bWc == null) {
+            bWc = C0299a.c(gM(1), 1);
         }
-        return bRY;
+        return bWc;
     }
 
-    private static C0289a adm() {
-        if (bRX == null) {
-            bRX = C0289a.c(gv(0), 0);
+    private static C0299a afA() {
+        if (bWb == null) {
+            bWb = C0299a.c(gM(0), 0);
         }
-        return bRX;
+        return bWb;
     }
 
-    public static synchronized void gr(int i) {
+    public static synchronized void gI(int i) {
         synchronized (a.class) {
             if (DEBUG) {
                 Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
             }
-            if (gn(i)) {
-                C0289a gq = gq(i);
-                long j = h.adb().getLong(gs(i), 0L);
-                long ma = com.baidu.swan.apps.swancore.b.ma(gq.bRZ);
+            if (gE(i)) {
+                C0299a gH = gH(i);
+                long j = h.afp().getLong(gJ(i), 0L);
+                long mp = com.baidu.swan.apps.swancore.b.mp(gH.bWd);
                 if (DEBUG) {
-                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + ma);
+                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + mp);
                 }
-                d(ma, i);
+                d(mp, i);
                 if (DEBUG) {
                     Log.d("PresetSwanCoreControl", "onPresetUpdate end.");
                 }
@@ -75,16 +75,16 @@ public final class a {
         if (DEBUG) {
             Log.d("PresetSwanCoreControl", "doPresetUpdate.");
         }
-        if (c.cb(gs(i), e(j, i).getPath())) {
+        if (c.ck(gJ(i), e(j, i).getPath())) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(Long.valueOf(j));
-            com.baidu.swan.apps.swancore.b.b(gu(i), arrayList);
-            h.adb().putLong(gt(i), j);
-            g(false, i);
+            com.baidu.swan.apps.swancore.b.b(gL(i), arrayList);
+            h.afp().putLong(gK(i), j);
+            h(false, i);
             if (DEBUG) {
-                String md5 = d.toMd5(new File(gs(i)), false);
+                String md5 = d.toMd5(new File(gJ(i)), false);
                 if (!TextUtils.isEmpty(md5)) {
-                    h.adb().putString(com.baidu.swan.apps.swancore.a.gc(i), md5);
+                    h.afp().putString(com.baidu.swan.apps.swancore.a.gt(i), md5);
                 }
             }
         } else if (DEBUG) {
@@ -100,27 +100,27 @@ public final class a {
         return swanCoreVersion;
     }
 
-    private static String gs(int i) {
+    private static String gJ(int i) {
         return i == 1 ? "aigames/game-core.zip" : "aiapps/swan-core.zip";
     }
 
-    private static String gt(int i) {
+    private static String gK(int i) {
         return i == 1 ? "aigames_cur_preset_ver_key" : "aiapps_cur_preset_ver_key";
     }
 
-    private static File gu(int i) {
-        return new File(com.baidu.swan.apps.swancore.b.gk(i), "preset");
+    private static File gL(int i) {
+        return new File(com.baidu.swan.apps.swancore.b.gB(i), "preset");
     }
 
     public static File e(long j, int i) {
-        return new File(gu(i), String.valueOf(j));
+        return new File(gL(i), String.valueOf(j));
     }
 
-    public static JSONObject gv(int i) {
+    public static JSONObject gM(int i) {
         if (DEBUG) {
             Log.d("PresetSwanCoreControl", "readPresetConfig start.");
         }
-        String readAssetData = c.readAssetData(AppRuntime.getAppContext(), gw(i));
+        String readAssetData = c.readAssetData(AppRuntime.getAppContext(), gN(i));
         if (TextUtils.isEmpty(readAssetData)) {
             if (DEBUG) {
                 throw new RuntimeException("empty preset json.");
@@ -141,24 +141,24 @@ public final class a {
         }
     }
 
-    private static String gw(int i) {
+    private static String gN(int i) {
         return i == 1 ? "aigames/game-config.json" : "aiapps/swan-config.json";
     }
 
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0289a {
-        public String bRZ;
+    /* loaded from: classes11.dex */
+    public static class C0299a {
+        public String bWd;
 
-        public static C0289a c(JSONObject jSONObject, int i) {
-            C0289a c0289a = new C0289a();
+        public static C0299a c(JSONObject jSONObject, int i) {
+            C0299a c0299a = new C0299a();
             if (jSONObject != null) {
-                c0289a.bRZ = jSONObject.optString(gf(i));
+                c0299a.bWd = jSONObject.optString(gw(i));
             }
-            return c0289a;
+            return c0299a;
         }
 
-        private static String gf(int i) {
+        private static String gw(int i) {
             return i == 1 ? "game-core-version" : "swan-core-version";
         }
     }

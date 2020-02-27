@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.request.IMUnBindPushRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -16,7 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BindStateManager {
     private static final int DefaultValue = -1;
     private static final String KEY_BIND_PUSH = "bindpush";
@@ -32,7 +33,7 @@ public class BindStateManager {
     private static SetUnBindRunable runable = new SetUnBindRunable();
     private static Object mTinerSync = new Object();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BindState {
         NOTBIND,
         BINDED,
@@ -113,7 +114,7 @@ public class BindStateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SetUnBindRunable implements Runnable {
         Context context = null;
 
@@ -131,7 +132,7 @@ public class BindStateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MyTimeTask extends TimerTask {
         Context context = null;
 
@@ -176,6 +177,10 @@ public class BindStateManager {
     }
 
     private static void syncPushInfo(Context context, String str, String str2, String str3) {
+        if (!LoginManager.getInstance(context).isIMLogined()) {
+            LogUtils.d(TAG, "syncPushInfo methodId :190 by intercept because unlogin ");
+            return;
+        }
         if (System.currentTimeMillis() - Utility.getLastSyncPushTime(context) > 86400000) {
             Intent creatMethodIntent = Utility.creatMethodIntent(context, 190);
             creatMethodIntent.putExtra("push_channel_id", str);

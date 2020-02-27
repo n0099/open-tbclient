@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.frsgamelive.mvc;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface d {
-    void oS(int i);
+    void pi(int i);
 }

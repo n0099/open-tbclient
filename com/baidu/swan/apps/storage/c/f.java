@@ -2,32 +2,32 @@ package com.baidu.swan.apps.storage.c;
 
 import android.os.Bundle;
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f extends d {
     @Override // com.baidu.swan.apps.storage.c.d
     protected Bundle a(c cVar) {
-        b lY = h.lY(cVar.bRO);
-        if (lY == null) {
+        b mn = h.mn(cVar.bVS);
+        if (mn == null) {
             if (DEBUG) {
                 throw new IllegalArgumentException("illegal sp.");
             }
             return Bundle.EMPTY;
         }
-        switch (cVar.bRP) {
+        switch (cVar.bVT) {
             case 1:
-                lY.putInt(cVar.bRQ, Integer.parseInt(cVar.bRR));
+                mn.putInt(cVar.bVU, Integer.parseInt(cVar.bVV));
                 break;
             case 2:
-                lY.putLong(cVar.bRQ, Long.parseLong(cVar.bRR));
+                mn.putLong(cVar.bVU, Long.parseLong(cVar.bVV));
                 break;
             case 3:
-                lY.putBoolean(cVar.bRQ, Boolean.parseBoolean(cVar.bRR));
+                mn.putBoolean(cVar.bVU, Boolean.parseBoolean(cVar.bVV));
                 break;
             case 4:
-                lY.putString(cVar.bRQ, cVar.bRR);
+                mn.putString(cVar.bVU, cVar.bVV);
                 break;
             case 5:
-                lY.putFloat(cVar.bRQ, Float.parseFloat(cVar.bRR));
+                mn.putFloat(cVar.bVU, Float.parseFloat(cVar.bVV));
                 break;
             default:
                 if (DEBUG) {

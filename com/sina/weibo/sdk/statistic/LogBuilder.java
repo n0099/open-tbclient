@@ -15,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LogBuilder {
     private static final String APPKEY = "WEIBO_APPKEY";
     private static final String CHANNEL = "WEIBO_CHANNEL";

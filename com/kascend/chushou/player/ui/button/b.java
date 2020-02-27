@@ -1,5 +1,5 @@
 package com.kascend.chushou.player.ui.button;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     public int a;
     public Object b;

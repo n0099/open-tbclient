@@ -1,5 +1,5 @@
 package com.baidu.ala.helper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaFrameTrack {
     private static final int ONE_SECONED_MS = 1000;
     private int mVideoFrameDur;

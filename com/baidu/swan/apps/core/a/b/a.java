@@ -4,44 +4,44 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.b;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static a bix;
-    private boolean biy = false;
-    private boolean biz = false;
+    private static a bmH;
+    private boolean bmI = false;
+    private boolean bmJ = false;
     private boolean mIsCanceled = false;
-    private boolean biA = false;
-    private boolean biB = false;
-    private int biC = 3000;
-    private HashMap<String, Long> biD = new HashMap<>();
-    private boolean biE = false;
+    private boolean bmK = false;
+    private boolean bmL = false;
+    private int bmM = 3000;
+    private HashMap<String, Long> bmN = new HashMap<>();
+    private boolean bmO = false;
 
-    public static a KO() {
-        if (bix == null) {
+    public static a Nd() {
+        if (bmH == null) {
             synchronized (a.class) {
-                if (bix == null) {
-                    bix = new a();
+                if (bmH == null) {
+                    bmH = new a();
                 }
             }
         }
-        return bix;
+        return bmH;
     }
 
     private a() {
     }
 
-    public boolean gA(String str) {
+    public boolean gP(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.biD == null || !this.biD.containsKey(str) || currentTimeMillis - this.biD.get(str).longValue() > 18000000) {
+        if (this.bmN == null || !this.bmN.containsKey(str) || currentTimeMillis - this.bmN.get(str).longValue() > 18000000) {
             if (DEBUG) {
-                if (this.biD == null || !this.biD.containsKey(str)) {
+                if (this.bmN == null || !this.bmN.containsKey(str)) {
                     Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 } else {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.biD.get(str) + " ，id = " + str);
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.bmN.get(str) + " ，id = " + str);
                 }
             }
             return false;
@@ -52,7 +52,7 @@ public final class a {
         return true;
     }
 
-    public boolean KP() {
-        return this.biz;
+    public boolean Ne() {
+        return this.bmJ;
     }
 }

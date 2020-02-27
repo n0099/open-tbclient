@@ -11,120 +11,120 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.r.b;
-import com.baidu.tieba.r.c;
+import com.baidu.tieba.s.c;
 import com.baidu.tieba.tbadvert.b.a;
 import com.baidu.tieba.tbadvert.view.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a implements com.baidu.tbadk.r.a {
-    private final com.baidu.tieba.tbadvert.view.a kjy;
-    private b kjz;
+    private final com.baidu.tieba.tbadvert.view.a kku;
+    private b kkv;
     private Context mContext;
     private final Handler mHandler = new Handler();
     private boolean isActive = true;
-    private a.InterfaceC0607a kjB = new a.InterfaceC0607a() { // from class: com.baidu.tieba.tbadvert.a.1
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0607a
+    private a.InterfaceC0615a kkx = new a.InterfaceC0615a() { // from class: com.baidu.tieba.tbadvert.a.1
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0615a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
             if (j.isNetWorkAvailable()) {
-                a.this.kjA.cLc();
-            } else if (a.this.kjz != null) {
-                a.this.kjz.aPs();
+                a.this.kkw.cMx();
+            } else if (a.this.kkv != null) {
+                a.this.kkv.aRI();
             }
             if (a.this.isActive) {
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadvert.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         if (j.isNetWorkAvailable() && j.isWifiNet()) {
-                            a.this.kjA.cLd();
+                            a.this.kkw.cMy();
                         }
                     }
                 }, 800L);
             } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
-                a.this.kjA.cLd();
+                a.this.kkw.cMy();
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0607a
-        public void cKW() {
-            if (a.this.isActive && a.this.kjz != null) {
-                a.this.kjz.aPs();
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0615a
+        public void cMr() {
+            if (a.this.isActive && a.this.kkv != null) {
+                a.this.kkv.aRI();
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0607a
-        public void az(Object obj) {
-            com.baidu.tieba.tbadvert.a.b cLb;
-            if (a.this.isActive && (cLb = a.this.kjA.cLb()) != null) {
-                an b = com.baidu.tieba.r.a.b("a064", "common_fill", true, 1);
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0615a
+        public void aB(Object obj) {
+            com.baidu.tieba.tbadvert.a.b cMw;
+            if (a.this.isActive && (cMw = a.this.kkw.cMw()) != null) {
+                an b = com.baidu.tieba.s.a.b("a064", "common_fill", true, 1);
                 if (i.ab(a.this.mContext) != null) {
-                    c.cIu().b(i.ab(a.this.mContext).getUniqueId(), b);
+                    c.cJY().b(i.ab(a.this.mContext).getUniqueId(), b);
                 }
-                a.this.kjy.e(obj, ((int) cLb.showTime) / 1000);
-                if (a.this.kjz != null) {
-                    a.this.kjz.g(String.valueOf(cLb.id), cLb.aWR(), cLb.isFullScreen());
+                a.this.kku.e(obj, ((int) cMw.showTime) / 1000);
+                if (a.this.kkv != null) {
+                    a.this.kkv.g(String.valueOf(cMw.id), cMw.aZg(), cMw.isFullScreen());
                 }
             }
         }
     };
-    private a.InterfaceC0608a kjC = new a.InterfaceC0608a() { // from class: com.baidu.tieba.tbadvert.a.2
-        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0608a
-        public void cKX() {
-            com.baidu.tieba.tbadvert.a.b cLb = a.this.kjA.cLb();
-            if (cLb != null) {
-                if (a.this.kjz != null) {
-                    a.this.kjz.V(String.valueOf(cLb.id), cLb.aWR());
+    private a.InterfaceC0616a kky = new a.InterfaceC0616a() { // from class: com.baidu.tieba.tbadvert.a.2
+        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0616a
+        public void cMs() {
+            com.baidu.tieba.tbadvert.a.b cMw = a.this.kkw.cMw();
+            if (cMw != null) {
+                if (a.this.kkv != null) {
+                    a.this.kkv.V(String.valueOf(cMw.id), cMw.aZg());
                 }
-                if (!TextUtils.isEmpty(cLb.linkUrl)) {
-                    if (!a.this.Ji(cLb.linkUrl)) {
-                        ba.aEt().a((TbPageContext) i.ab(a.this.mContext), new String[]{cLb.linkUrl}, true);
+                if (!TextUtils.isEmpty(cMw.linkUrl)) {
+                    if (!a.this.Jv(cMw.linkUrl)) {
+                        ba.aGE().a((TbPageContext) i.ab(a.this.mContext), new String[]{cMw.linkUrl}, true);
                         return;
                     }
-                    final String str = cLb.linkUrl;
+                    final String str = cMw.linkUrl;
                     e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadvert.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            ba.aEt().a((TbPageContext) i.ab(com.baidu.adp.base.a.eG().currentActivity()), new String[]{str}, true);
+                            ba.aGE().a((TbPageContext) i.ab(com.baidu.adp.base.a.eH().currentActivity()), new String[]{str}, true);
                         }
                     }, 500L);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0608a
-        public void cKY() {
-            if (a.this.kjz != null) {
-                a.this.kjz.awM();
+        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0616a
+        public void cMt() {
+            if (a.this.kkv != null) {
+                a.this.kkv.ayZ();
             }
         }
     };
-    private final com.baidu.tieba.tbadvert.b.a kjA = new com.baidu.tieba.tbadvert.b.a();
+    private final com.baidu.tieba.tbadvert.b.a kkw = new com.baidu.tieba.tbadvert.b.a();
 
     public a(Context context) {
         this.mContext = context;
-        this.kjA.a(this.kjB);
-        this.kjy = new com.baidu.tieba.tbadvert.view.a(context, this.kjC);
+        this.kkw.a(this.kkx);
+        this.kku = new com.baidu.tieba.tbadvert.view.a(context, this.kky);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Ji(String str) {
+    public boolean Jv(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return (str.contains("/swan/") || str.contains("/swangame/")) && !com.baidu.k.a.a.checkPermissionGranted(com.baidu.adp.base.a.eG().currentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        return (str.contains("/swan/") || str.contains("/swangame/")) && !com.baidu.k.a.a.checkPermissionGranted(com.baidu.adp.base.a.eH().currentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
     }
 
     @Override // com.baidu.tbadk.r.a
     public View getView() {
-        return this.kjy.getView();
+        return this.kku.getView();
     }
 
     @Override // com.baidu.tbadk.r.a
     public void a(b bVar) {
-        this.kjz = bVar;
+        this.kkv = bVar;
     }
 
     @Override // com.baidu.tbadk.r.a
-    public void aPr() {
-        this.kjA.cLa();
+    public void aRH() {
+        this.kkw.cMv();
     }
 
     @Override // com.baidu.tbadk.r.a

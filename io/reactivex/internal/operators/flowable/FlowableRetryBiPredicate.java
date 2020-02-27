@@ -4,7 +4,7 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableRetryBiPredicate<T> extends a<T, T> {
     final io.reactivex.c.d<? super Integer, ? super Throwable> predicate;
 
@@ -12,10 +12,10 @@ public final class FlowableRetryBiPredicate<T> extends a<T, T> {
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RetryBiSubscriber(cVar, this.predicate, subscriptionArbiter, this.nvP).subscribeNext();
+        new RetryBiSubscriber(cVar, this.predicate, subscriptionArbiter, this.nwr).subscribeNext();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class RetryBiSubscriber<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final org.a.c<? super T> actual;
@@ -49,13 +49,13 @@ public final class FlowableRetryBiPredicate<T> extends a<T, T> {
                 io.reactivex.c.d<? super Integer, ? super Throwable> dVar = this.predicate;
                 int i = this.retries + 1;
                 this.retries = i;
-                if (!dVar.k(Integer.valueOf(i), th)) {
+                if (!dVar.j(Integer.valueOf(i), th)) {
                     this.actual.onError(th);
                 } else {
                     subscribeNext();
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.I(th2);
+                io.reactivex.exceptions.a.H(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

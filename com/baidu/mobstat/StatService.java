@@ -18,14 +18,14 @@ import com.baidu.mobstat.av;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class StatService {
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
     private static boolean a = false;
     private static boolean b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }

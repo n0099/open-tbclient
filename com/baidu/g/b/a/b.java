@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.IConnectListener;
 import com.baidu.g.a.b.c;
 import com.baidu.g.a.b.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements d {
     private Context mContext;
 
@@ -36,7 +36,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.g.a.b.d
-    public void zs() {
+    public void BI() {
         BIMManager.tryConnection(this.mContext);
     }
 }

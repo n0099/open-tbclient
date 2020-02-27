@@ -11,12 +11,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.maintab.FragmentTabIndicator;
 import com.baidu.live.tbadk.maintab.TbFragmentTabIndicator;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class FragmentTabWidget extends LinearLayout {
     private static final int DEFAULT_PAINT_FLAGS = 6;
     private boolean isAbsoluteDivide;
@@ -44,12 +44,12 @@ public class FragmentTabWidget extends LinearLayout {
     private boolean tabItemNeedPadding;
     private int tabItemPaddingBottom;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnSizeChanged {
         void onSizeChanged(int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnTabSelectionChanged {
         void onTabSelectionChanged(int i, boolean z);
     }
@@ -291,7 +291,7 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TabClickListener implements View.OnClickListener {
         private final int mTabIndex;
 

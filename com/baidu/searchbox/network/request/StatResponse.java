@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.request;
 import com.baidu.searchbox.network.core.Response;
 import com.baidu.searchbox.network.core.ResponseBody;
 import com.baidu.searchbox.network.statistics.NetworkStatRecord;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class StatResponse {
     private Response realResponse;
     private NetworkStatRecord statRecord;

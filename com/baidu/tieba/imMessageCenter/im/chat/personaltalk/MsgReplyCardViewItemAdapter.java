@@ -8,7 +8,7 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgReplyCardView> {
     public MsgReplyCardViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -28,17 +28,17 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgReplyCardView bQJ = aVar.bQJ();
-        bQJ.a(this.mPageContext, chatMessage, viewGroup);
-        bQJ.a(this.hqo);
-        bQJ.setPosition(i);
+        MsgReplyCardView bSk = aVar.bSk();
+        bSk.a(this.mPageContext, chatMessage, viewGroup);
+        bSk.a(this.hsn);
+        bSk.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends e.a<MsgReplyCardView> {
         public a(View view, MsgReplyCardView msgReplyCardView) {
             super(view, msgReplyCardView);

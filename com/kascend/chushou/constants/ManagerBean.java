@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ManagerBean {
     public boolean mIsCreator = false;
     public ArrayList<BillBoardItem> mBillBoardItemList = new ArrayList<>();

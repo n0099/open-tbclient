@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.wnplatform;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     private int a;
     private int b;
@@ -9,13 +9,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0140a {
+    /* loaded from: classes8.dex */
+    public static class C0149a {
         static final a a = new a();
     }
 
     public static a a() {
-        return C0140a.a;
+        return C0149a.a;
     }
 
     private a() {

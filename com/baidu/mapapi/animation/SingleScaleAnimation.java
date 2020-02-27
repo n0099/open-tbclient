@@ -3,10 +3,10 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapsdkplatform.comapi.a.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SingleScaleAnimation extends Animation {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum ScaleType {
         SCALE_X,
         SCALE_Y

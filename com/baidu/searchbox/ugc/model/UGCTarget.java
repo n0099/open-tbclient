@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.a.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UGCTarget {
     @c("ext")
     public JsonObject extInfo;

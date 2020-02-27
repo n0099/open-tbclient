@@ -1,28 +1,47 @@
 package com.baidu.live.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends BaseData {
-    public AlaLiveInfoData mLiveInfo;
+    private long XU = 5000;
+    private List<g> XV;
+    private long mAudienceCount;
+
+    public long getCount() {
+        return this.mAudienceCount;
+    }
+
+    public long getInterval() {
+        return this.XU;
+    }
+
+    public List<g> getList() {
+        return this.XV;
+    }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.mLiveInfo = new AlaLiveInfoData();
-            JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
-            if (optJSONObject != null) {
-                this.mLiveInfo.parserJson(optJSONObject);
+            this.mAudienceCount = jSONObject.optLong("audience_count");
+            this.XU = jSONObject.optLong("interval", 5L);
+            if (this.XU < 5) {
+                this.XU = 5000L;
+            } else {
+                this.XU *= 1000;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("author");
-            if (optJSONObject2 != null) {
-                long optLong = optJSONObject2.optLong("id");
-                String optString = optJSONObject2.optString("name");
-                String optString2 = optJSONObject2.optString("name_show");
-                optJSONObject2.optString("portrait");
-                this.mLiveInfo.user_id = optLong;
-                this.mLiveInfo.user_name = optString;
-                this.mLiveInfo.user_nickname = optString2;
+            JSONArray optJSONArray = jSONObject.optJSONArray("initmacy_rank");
+            if (optJSONArray != null) {
+                this.XV = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    g gVar = new g();
+                    gVar.parserJson(optJSONObject);
+                    this.XV.add(gVar);
+                }
             }
         }
     }

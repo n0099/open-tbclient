@@ -8,7 +8,7 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.WebFillUProfileCallback;
 import com.baidu.sapi2.result.WebFillUProfileResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FillUProfileActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_SIMPLIFIED = "EXTRA_SIMPLIFIED";

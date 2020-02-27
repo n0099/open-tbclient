@@ -6,7 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 abstract class f extends Activity {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet);

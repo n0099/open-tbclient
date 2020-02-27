@@ -1,7 +1,7 @@
 package com.kascend.chushou.c;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface b {
     void a();
 

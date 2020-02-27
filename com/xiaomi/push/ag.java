@@ -14,7 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ag {
     private static final String a = Environment.getExternalStorageDirectory().getPath() + "/mipush/";
     private static final String b = a + "lcfp";
@@ -46,7 +46,7 @@ public class ag {
         try {
             try {
                 File file = new File(c);
-                y.m563a(file);
+                y.m568a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     e = randomAccessFile.getChannel().lock();
@@ -203,7 +203,7 @@ public class ag {
                 }
             } else {
                 r1 = str2;
-                if (!y.m563a(file)) {
+                if (!y.m568a(file)) {
                     return true;
                 }
             }

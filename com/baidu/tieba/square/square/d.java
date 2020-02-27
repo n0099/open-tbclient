@@ -1,16 +1,16 @@
 package com.baidu.tieba.square.square;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.tieba.square.data.a {
-    private e kbg;
+    private e kcf;
 
-    public e cIe() {
-        return this.kbg;
+    public e cJI() {
+        return this.kcf;
     }
 
     public void b(e eVar) {
-        this.kbg = eVar;
+        this.kcf = eVar;
         setErrorMsg(null);
     }
 

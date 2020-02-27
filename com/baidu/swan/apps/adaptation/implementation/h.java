@@ -3,10 +3,10 @@ package com.baidu.swan.apps.adaptation.implementation;
 import android.content.Context;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class h implements com.baidu.swan.apps.adaptation.a.k {
     @Override // com.baidu.swan.apps.adaptation.a.k
-    public void af(String str, String str2) {
+    public void ap(String str, String str2) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.k

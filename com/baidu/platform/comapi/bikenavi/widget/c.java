@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.bikenavi.widget;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c implements View.OnClickListener {
     final /* synthetic */ a a;
 

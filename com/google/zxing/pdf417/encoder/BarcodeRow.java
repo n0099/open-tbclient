@@ -1,5 +1,5 @@
 package com.google.zxing.pdf417.encoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class BarcodeRow {
     private int currentLocation = 0;
     private final byte[] row;

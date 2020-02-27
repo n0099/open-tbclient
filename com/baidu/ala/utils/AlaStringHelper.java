@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaStringHelper {
     public static String numFormatOverWanNaForAudienceNum(long j) {
         if (j > 99990000) {

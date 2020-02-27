@@ -1,7 +1,7 @@
 package com.baidu.ala.dumixar.gles;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Drawable2d {
     private static final int SIZEOF_FLOAT = 4;
     private int mCoordsPerVertex;
@@ -26,7 +26,7 @@ public class Drawable2d {
     private static final FloatBuffer FULL_RECTANGLE_TEX_BUF = GlUtil.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
     private static final FloatBuffer FULL_RECTANGLE_TEX_BUF2 = GlUtil.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,

@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface ThreadHandler {
     public static final ThreadHandler DEFAULT = new ThreadHandler() { // from class: tv.chushou.basis.rxjava.thread.ThreadHandler.1
         private Executor executor;

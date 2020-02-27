@@ -9,29 +9,29 @@ import com.baidu.swan.apps.core.a.a.a;
 import com.baidu.swan.apps.process.messaging.service.c;
 import com.baidu.swan.apps.process.messaging.service.e;
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static c bmy = new c();
-    private static d bmz = new d();
+    private static c bqH = new c();
+    private static d bqI = new d();
 
     /* renamed from: com.baidu.swan.apps.core.prefetch.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0243a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0253a {
         void a(com.baidu.swan.apps.process.messaging.service.c cVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void c(com.baidu.swan.apps.process.messaging.service.c cVar);
     }
 
     static com.baidu.swan.apps.process.messaging.service.c a(@NonNull PrefetchEvent prefetchEvent) {
-        return e.Ze().a((e) prefetchEvent.appId, (e.a<e>) bmy);
+        return e.abs().a((e) prefetchEvent.appId, (e.a<e>) bqH);
     }
 
     static com.baidu.swan.apps.process.messaging.service.c b(@NonNull PrefetchEvent prefetchEvent) {
-        return e.Ze().a((e) prefetchEvent.appId, (e.a<e>) bmz);
+        return e.abs().a((e) prefetchEvent.appId, (e.a<e>) bqI);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,17 +39,17 @@ public final class a {
         com.baidu.swan.apps.process.messaging.service.c b2 = b(prefetchEvent);
         if (b2 == null) {
             com.baidu.swan.apps.process.messaging.service.c a = a(prefetchEvent);
-            return (a == null || !a.YS()) ? e.Ze().Zh() : a;
+            return (a == null || !a.abg()) ? e.abs().abv() : a;
         }
         return b2;
     }
 
     public void a(@NonNull final PrefetchEvent prefetchEvent, @NonNull final b bVar) {
-        a(prefetchEvent, new InterfaceC0243a() { // from class: com.baidu.swan.apps.core.prefetch.a.1
-            @Override // com.baidu.swan.apps.core.prefetch.a.InterfaceC0243a
+        a(prefetchEvent, new InterfaceC0253a() { // from class: com.baidu.swan.apps.core.prefetch.a.1
+            @Override // com.baidu.swan.apps.core.prefetch.a.InterfaceC0253a
             public void a(com.baidu.swan.apps.process.messaging.service.c cVar) {
                 if (cVar != null) {
-                    if (!cVar.YT()) {
+                    if (!cVar.abh()) {
                         a.this.a(cVar, prefetchEvent, bVar);
                     } else {
                         bVar.c(cVar);
@@ -60,52 +60,52 @@ public final class a {
     }
 
     @Nullable
-    private void a(@NonNull final PrefetchEvent prefetchEvent, @NonNull final InterfaceC0243a interfaceC0243a) {
+    private void a(@NonNull final PrefetchEvent prefetchEvent, @NonNull final InterfaceC0253a interfaceC0253a) {
         com.baidu.swan.apps.process.messaging.service.c b2 = b(prefetchEvent);
         if (b2 != null) {
-            interfaceC0243a.a(b2);
+            interfaceC0253a.a(b2);
             return;
         }
         com.baidu.swan.apps.process.messaging.service.c a = a(prefetchEvent);
-        if (a != null && a.YS()) {
-            interfaceC0243a.a(a);
+        if (a != null && a.abg()) {
+            interfaceC0253a.a(a);
             return;
         }
-        com.baidu.swan.apps.process.messaging.service.c Zh = e.Ze().Zh();
-        if (Zh.YT()) {
+        com.baidu.swan.apps.process.messaging.service.c abv = e.abs().abv();
+        if (abv.abh()) {
             if (DEBUG) {
                 Log.e("PrefetchEnv", "prepareEnv isSwanAppLoaded.");
             }
-            interfaceC0243a.a(null);
-        } else if (Zh.YS()) {
+            interfaceC0253a.a(null);
+        } else if (abv.abg()) {
             if (DEBUG) {
                 Log.d("PrefetchEnv", "prepareEnv isPreloaded.");
             }
-            a(prefetchEvent, Zh, interfaceC0243a);
+            a(prefetchEvent, abv, interfaceC0253a);
         } else {
-            Zh.a(new c.a() { // from class: com.baidu.swan.apps.core.prefetch.a.2
+            abv.a(new c.a() { // from class: com.baidu.swan.apps.core.prefetch.a.2
                 @Override // com.baidu.swan.apps.process.messaging.service.c.a
                 public void b(com.baidu.swan.apps.process.messaging.service.c cVar) {
-                    a.this.a(prefetchEvent, cVar, interfaceC0243a);
+                    a.this.a(prefetchEvent, cVar, interfaceC0253a);
                 }
             });
             Bundle bundle = new Bundle();
             bundle.putString("bundle_key_preload_preload_scene", "8");
-            com.baidu.swan.apps.process.messaging.service.b.a(com.baidu.swan.apps.w.a.RG(), Zh, bundle);
+            com.baidu.swan.apps.process.messaging.service.b.a(com.baidu.swan.apps.w.a.TU(), abv, bundle);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(@NonNull PrefetchEvent prefetchEvent, @NonNull com.baidu.swan.apps.process.messaging.service.c cVar, @NonNull InterfaceC0243a interfaceC0243a) {
-        switch (com.baidu.swan.apps.core.prefetch.a.a.Nz()) {
+    public void a(@NonNull PrefetchEvent prefetchEvent, @NonNull com.baidu.swan.apps.process.messaging.service.c cVar, @NonNull InterfaceC0253a interfaceC0253a) {
+        switch (com.baidu.swan.apps.core.prefetch.a.a.PN()) {
             case 1:
-                if (cVar.bFv == null || TextUtils.equals(cVar.bFv.appId, prefetchEvent.appId)) {
-                    interfaceC0243a.a(cVar);
+                if (cVar.bJA == null || TextUtils.equals(cVar.bJA.appId, prefetchEvent.appId)) {
+                    interfaceC0253a.a(cVar);
                     return;
                 }
                 return;
             case 2:
-                interfaceC0243a.a(cVar);
+                interfaceC0253a.a(cVar);
                 return;
             default:
                 return;
@@ -114,8 +114,8 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull com.baidu.swan.apps.process.messaging.service.c cVar, @NonNull PrefetchEvent prefetchEvent, @NonNull b bVar) {
-        PMSAppInfo pZ = com.baidu.swan.pms.database.a.arf().pZ(prefetchEvent.appId);
-        if (pZ != null && !pZ.agK()) {
+        PMSAppInfo qo = com.baidu.swan.pms.database.a.att().qo(prefetchEvent.appId);
+        if (qo != null && !qo.aiY()) {
             bVar.c(cVar);
         } else {
             b(cVar, prefetchEvent, bVar);
@@ -123,26 +123,26 @@ public final class a {
     }
 
     private void b(@NonNull final com.baidu.swan.apps.process.messaging.service.c cVar, @NonNull PrefetchEvent prefetchEvent, @NonNull final b bVar) {
-        com.baidu.swan.apps.core.a.a.a.a(prefetchEvent.appId, 200, new a.InterfaceC0233a() { // from class: com.baidu.swan.apps.core.prefetch.a.3
-            @Override // com.baidu.swan.apps.core.a.a.a.InterfaceC0233a
-            public void KM() {
+        com.baidu.swan.apps.core.a.a.a.a(prefetchEvent.appId, 200, new a.InterfaceC0243a() { // from class: com.baidu.swan.apps.core.prefetch.a.3
+            @Override // com.baidu.swan.apps.core.a.a.a.InterfaceC0243a
+            public void Nb() {
                 if (a.DEBUG) {
                     Log.d("PrefetchEnv", "prepareBundle swanAppIdInvalid");
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.a.a.a.InterfaceC0233a
-            public void KN() {
+            @Override // com.baidu.swan.apps.core.a.a.a.InterfaceC0243a
+            public void Nc() {
                 if (a.DEBUG) {
-                    Log.d("PrefetchEnv", "prepareBundle success isPreloaded: " + cVar.YS());
+                    Log.d("PrefetchEnv", "prepareBundle success isPreloaded: " + cVar.abg());
                 }
-                if (cVar.YS()) {
+                if (cVar.abg()) {
                     bVar.c(cVar);
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.a.a.a.InterfaceC0233a
-            public void ea(int i) {
+            @Override // com.baidu.swan.apps.core.a.a.a.InterfaceC0243a
+            public void eq(int i) {
                 if (a.DEBUG) {
                     Log.d("PrefetchEnv", "prepareBundle failed: " + i);
                 }
@@ -151,7 +151,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class c implements e.a<String> {
         private c() {
         }
@@ -159,15 +159,15 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.process.messaging.service.e.a
         public boolean a(String str, com.baidu.swan.apps.process.messaging.service.c cVar) {
-            if (cVar.bFv == null) {
+            if (cVar.bJA == null) {
                 return false;
             }
-            return TextUtils.equals(str, cVar.bFv.appId);
+            return TextUtils.equals(str, cVar.bJA.appId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class d implements e.a<String> {
         private d() {
         }
@@ -175,7 +175,7 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.process.messaging.service.e.a
         public boolean a(String str, com.baidu.swan.apps.process.messaging.service.c cVar) {
-            return cVar.YT() && TextUtils.equals(str, cVar.mAppId);
+            return cVar.abh() && TextUtils.equals(str, cVar.mAppId);
         }
     }
 }

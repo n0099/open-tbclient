@@ -24,11 +24,11 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.t;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e extends BaseAdapter {
-    private TbPageContext<FrsMoreFeedForumsActivity> cRe;
-    private LikeModel dfN;
-    private List<FeedForumData> gxp;
+    private TbPageContext<FrsMoreFeedForumsActivity> cVg;
+    private LikeModel djT;
+    private List<FeedForumData> gzq;
     private int mSkinType;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.frsfeedforums.e.1
         @Override // android.view.View.OnClickListener
@@ -37,30 +37,30 @@ public class e extends BaseAdapter {
             b bVar = (b) view.getTag();
             if (bVar != null && (feedForumData = (FeedForumData) e.this.getItem(bVar.position)) != null) {
                 if (view.getId() == R.id.frs_feed_forum_attention) {
-                    if (((FrsMoreFeedForumsActivity) e.this.cRe.getOrignalPage()).checkUpIsLogin()) {
-                        e.this.dfN.et(feedForumData.getForumName(), feedForumData.getForumId());
+                    if (((FrsMoreFeedForumsActivity) e.this.cVg.getOrignalPage()).checkUpIsLogin()) {
+                        e.this.djT.eC(feedForumData.getForumName(), feedForumData.getForumId());
                         an anVar = new an("c10048");
-                        anVar.cp("fid", feedForumData.getForumId());
+                        anVar.cy("fid", feedForumData.getForumId());
                         if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                            anVar.cp("obj_source", TbadkCoreApplication.getInst().getTaskId());
+                            anVar.cy("obj_source", TbadkCoreApplication.getInst().getTaskId());
                         }
                         TiebaStatic.log(anVar);
                     }
                 } else if (view.getId() == R.id.frs_like_feed_forum_item) {
-                    e.this.cRe.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(e.this.cRe.getPageActivity()).createNormalCfg(feedForumData.getForumName(), "")));
-                    TiebaStatic.log(new an("c10050").cp("fid", feedForumData.getForumId()));
+                    e.this.cVg.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(e.this.cVg.getPageActivity()).createNormalCfg(feedForumData.getForumName(), "")));
+                    TiebaStatic.log(new an("c10050").cy("fid", feedForumData.getForumId()));
                 }
             }
         }
     };
-    private com.baidu.adp.base.d fSR = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.frsfeedforums.e.2
+    private com.baidu.adp.base.d fVl = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.frsfeedforums.e.2
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
-            if (AntiHelper.bc(e.this.dfN.getErrorCode(), e.this.dfN.getErrorString())) {
-                AntiHelper.bn(e.this.cRe.getPageActivity(), e.this.dfN.getErrorString());
+            if (AntiHelper.bb(e.this.djT.getErrorCode(), e.this.djT.getErrorString())) {
+                AntiHelper.bn(e.this.cVg.getPageActivity(), e.this.djT.getErrorString());
             } else if (obj == null) {
-                if (!StringUtils.isNull(e.this.dfN.getErrorString())) {
-                    l.showToast(TbadkCoreApplication.getInst(), e.this.dfN.getErrorString());
+                if (!StringUtils.isNull(e.this.djT.getErrorString())) {
+                    l.showToast(TbadkCoreApplication.getInst(), e.this.djT.getErrorString());
                 }
             } else {
                 t tVar = (t) obj;
@@ -71,27 +71,27 @@ public class e extends BaseAdapter {
     };
 
     public e(TbPageContext<FrsMoreFeedForumsActivity> tbPageContext) {
-        this.cRe = tbPageContext;
-        this.dfN = new LikeModel(tbPageContext);
-        this.dfN.setLoadDataCallBack(this.fSR);
+        this.cVg = tbPageContext;
+        this.djT = new LikeModel(tbPageContext);
+        this.djT.setLoadDataCallBack(this.fVl);
     }
 
     public void setData(List<FeedForumData> list) {
-        this.gxp = list;
+        this.gzq = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gxp != null) {
-            return this.gxp.size();
+        if (this.gzq != null) {
+            return this.gzq.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.gxp != null) {
-            return this.gxp.get(i);
+        if (this.gzq != null) {
+            return this.gzq.get(i);
         }
         return null;
     }
@@ -106,10 +106,10 @@ public class e extends BaseAdapter {
         b bVar;
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (view == null) {
-            view = LayoutInflater.from(this.cRe.getPageActivity()).inflate(R.layout.frs_more_feed_forum_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.cVg.getPageActivity()).inflate(R.layout.frs_more_feed_forum_item, (ViewGroup) null);
             b bVar2 = new b(view);
             view.setTag(bVar2);
-            bVar2.gxx.setTag(bVar2);
+            bVar2.gzy.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
@@ -119,18 +119,18 @@ public class e extends BaseAdapter {
             return null;
         }
         bVar.position = i;
-        bVar.dWx.setOnClickListener(this.mOnClickListener);
-        bVar.gxu.setPlaceHolder(1);
-        bVar.gxu.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        bVar.gxu.startLoad(feedForumData.getAvatar(), 15, false);
+        bVar.eaB.setOnClickListener(this.mOnClickListener);
+        bVar.gzv.setPlaceHolder(1);
+        bVar.gzv.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        bVar.gzv.startLoad(feedForumData.getAvatar(), 15, false);
         bVar.mTitle.setText(feedForumData.getForumName());
-        bVar.gxv.setText(String.format(this.cRe.getPageActivity().getString(R.string.attention_post_count), tj(feedForumData.getMemberCount()), tj(feedForumData.getPostNum())));
-        bVar.gxw.setText(feedForumData.getReason());
+        bVar.gzw.setText(String.format(this.cVg.getPageActivity().getString(R.string.attention_post_count), tp(feedForumData.getMemberCount()), tp(feedForumData.getPostNum())));
+        bVar.gzx.setText(feedForumData.getReason());
         if (feedForumData.getIsLike() == 0) {
-            bVar.gxx.setClickable(true);
-            bVar.gxx.setOnClickListener(this.mOnClickListener);
-            bVar.gxx.setEnabled(true);
-            bVar.gxx.fN(false);
+            bVar.gzy.setClickable(true);
+            bVar.gzy.setOnClickListener(this.mOnClickListener);
+            bVar.gzy.setEnabled(true);
+            bVar.gzy.fU(false);
         } else {
             a(bVar);
         }
@@ -139,26 +139,26 @@ public class e extends BaseAdapter {
     }
 
     private void b(b bVar) {
-        if (bVar.MH != this.mSkinType) {
-            am.setBackgroundResource(bVar.dWx, R.drawable.frs_like_feed_forum_item_bg);
+        if (bVar.Ni != this.mSkinType) {
+            am.setBackgroundResource(bVar.eaB, R.drawable.frs_like_feed_forum_item_bg);
             am.setViewTextColor(bVar.mTitle, R.color.cp_cont_b, 1);
-            am.setViewTextColor(bVar.gxv, R.color.cp_cont_c, 1);
-            am.setViewTextColor(bVar.gxw, R.color.cp_link_tip_d, 1);
+            am.setViewTextColor(bVar.gzw, R.color.cp_cont_c, 1);
+            am.setViewTextColor(bVar.gzx, R.color.cp_link_tip_d, 1);
             if (bVar.mDivider != null) {
                 am.setBackgroundColor(bVar.mDivider, R.color.cp_bg_line_c);
             }
-            bVar.MH = this.mSkinType;
+            bVar.Ni = this.mSkinType;
         }
     }
 
     private void a(b bVar) {
-        if (bVar != null && bVar.gxx != null) {
-            bVar.gxx.fN(true);
-            bVar.gxx.setEnabled(false);
+        if (bVar != null && bVar.gzy != null) {
+            bVar.gzy.fU(true);
+            bVar.gzy.setEnabled(false);
         }
     }
 
-    private String tj(int i) {
+    private String tp(int i) {
         if (i < 0) {
             return "0";
         }

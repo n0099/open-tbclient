@@ -3,6 +3,7 @@ package com.baidu.live.data;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.data.BaseData;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.Serializable;
@@ -11,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
@@ -25,6 +26,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public long charmCount;
     public int createTime;
     public String description;
+    public JSONObject extraUserInfo;
     public int fansCount;
     public int followCount;
     public String greatAnchorDescGrade;
@@ -148,6 +150,9 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
                 this.isBluediamondMember = jSONObject.optInt("is_bluediamond_member");
             }
             this.throneUid = jSONObject.optString("is_guard_seat");
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
+            }
         }
     }
 
@@ -209,9 +214,20 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
                 jSONObject.put("live_mark_info_new", jSONArray);
             }
             jSONObject.put("is_guard_seat", this.throneUid);
+            if (this.extraUserInfo != null) {
+                jSONObject.put(TbConfig.getSubappType() + "_info", this.extraUserInfo);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
+    }
+
+    public String getJsonString() {
+        JSONObject jsonObject = toJsonObject();
+        if (jsonObject != null) {
+            return jsonObject.toString();
+        }
+        return null;
     }
 }

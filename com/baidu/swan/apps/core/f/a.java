@@ -6,20 +6,20 @@ import com.baidu.searchbox.account.contants.LoginConstants;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.http.HttpHost;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> blo = new HashSet();
+    private static final Set<String> bpy = new HashSet();
 
     static {
-        blo.add("https");
-        blo.add(HttpHost.DEFAULT_SCHEME_NAME);
-        blo.add(LoginConstants.SMS_LOGIN);
-        blo.add("tel");
+        bpy.add("https");
+        bpy.add(HttpHost.DEFAULT_SCHEME_NAME);
+        bpy.add(LoginConstants.SMS_LOGIN);
+        bpy.add("tel");
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public void dY(String str) {
+    public void en(String str) {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
@@ -27,12 +27,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public boolean dZ(String str) {
+    public boolean eo(String str) {
         Uri parse;
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = blo.contains(parse.getScheme());
+        boolean contains = bpy.contains(parse.getScheme());
         if (DEBUG) {
             Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
         }
@@ -40,7 +40,7 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public void dX(String str) {
+    public void em(String str) {
     }
 
     @Override // com.baidu.swan.apps.core.f.d

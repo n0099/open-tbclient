@@ -1,8 +1,9 @@
 package kotlin.jvm.internal;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class r {
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Void dJo() {
+    public static final Void dKv() {
         throw new UnsupportedOperationException("Not supported for local property reference.");
     }
 }

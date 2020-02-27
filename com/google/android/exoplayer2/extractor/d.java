@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.extractor.m;
 import java.io.EOFException;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d implements m {
     @Override // com.google.android.exoplayer2.extractor.m
     public void h(Format format) {
@@ -12,14 +12,14 @@ public final class d implements m {
 
     @Override // com.google.android.exoplayer2.extractor.m
     public int a(f fVar, int i, boolean z) throws IOException, InterruptedException {
-        int Jp = fVar.Jp(i);
-        if (Jp == -1) {
+        int Ju = fVar.Ju(i);
+        if (Ju == -1) {
             if (z) {
                 return -1;
             }
             throw new EOFException();
         }
-        return Jp;
+        return Ju;
     }
 
     @Override // com.google.android.exoplayer2.extractor.m

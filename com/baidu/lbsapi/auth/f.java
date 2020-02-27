@@ -2,7 +2,7 @@ package com.baidu.lbsapi.auth;
 
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f implements Runnable {
     final /* synthetic */ e a;
 

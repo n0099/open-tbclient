@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivityConfig;
 import tbclient.BawuRoleInfoPub;
 import tbclient.MemberGroupInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l extends com.baidu.tieba.frs.h<m, n> {
     private View.OnClickListener mClickListener;
 
@@ -32,8 +32,8 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                 } else if (view.getId() == R.id.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.bAU() != null) {
-                        String[] split = !StringUtils.isNull(mVar.bAU().member_group_type) ? mVar.bAU().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                    if (mVar != null && mVar.bCw() != null) {
+                        String[] split = !StringUtils.isNull(mVar.bCw().member_group_type) ? mVar.bCw().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -61,18 +61,18 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.a(i, view, viewGroup, (ViewGroup) mVar, (m) nVar);
-        if (mVar != null && mVar.bAU() != null) {
-            MemberGroupInfo bAU = mVar.bAU();
-            if (bAU.member_group_list != null && bAU.member_group_list.size() > 0 && !StringUtils.isNull(bAU.member_group_type)) {
+        if (mVar != null && mVar.bCw() != null) {
+            MemberGroupInfo bCw = mVar.bCw();
+            if (bCw.member_group_list != null && bCw.member_group_list.size() > 0 && !StringUtils.isNull(bCw.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(bAU.member_group_type) ? bAU.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                String[] split = !StringUtils.isNull(bCw.member_group_type) ? bCw.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + bAU.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + bCw.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : bAU.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : bCw.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -80,13 +80,13 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                         i2++;
                     }
                 }
-                nVar.kT(this.mSkinType == 1);
-                am.setBackgroundColor(nVar.gjl, R.color.cp_bg_line_d);
+                nVar.kX(this.mSkinType == 1);
+                am.setBackgroundColor(nVar.glm, R.color.cp_bg_line_d);
                 am.setViewTextColor(nVar.mTitleView, R.color.cp_cont_b, 1);
-                am.setViewTextColor(nVar.gjh, R.color.cp_cont_f, 1);
-                am.setViewTextColor(nVar.gji, R.color.cp_cont_f, 1);
-                am.setViewTextColor(nVar.gjj, R.color.cp_cont_f, 1);
-                am.setViewTextColor(nVar.gjk, R.color.cp_cont_f, 1);
+                am.setViewTextColor(nVar.gli, R.color.cp_cont_f, 1);
+                am.setViewTextColor(nVar.glj, R.color.cp_cont_f, 1);
+                am.setViewTextColor(nVar.glk, R.color.cp_cont_f, 1);
+                am.setViewTextColor(nVar.gll, R.color.cp_cont_f, 1);
                 nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
             }
         }

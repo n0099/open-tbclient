@@ -3,7 +3,7 @@ package tv.chushou.zues.widget.adapterview.recyclerview.c;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static int e(RecyclerView.LayoutManager layoutManager) {
         if (layoutManager != null) {

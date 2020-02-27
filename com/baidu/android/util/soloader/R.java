@@ -1,10 +1,10 @@
 package com.baidu.android.util.soloader;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class R {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class string {
         public static final int activity_not_found = 0x7f08004e;
-        public static final int app_name = 0x7f0803f7;
+        public static final int app_name = 0x7f080400;
     }
 }

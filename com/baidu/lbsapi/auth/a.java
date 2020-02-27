@@ -2,7 +2,7 @@ package com.baidu.lbsapi.auth;
 
 import android.util.Log;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class a {
     public static boolean a = false;
     private static String b = "BaiduApiAuth";

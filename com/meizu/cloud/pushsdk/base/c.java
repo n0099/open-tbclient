@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static String a = "";
     private static String b = "";

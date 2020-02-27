@@ -6,27 +6,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    private StringBuilder Pc = new StringBuilder();
-    public ArrayList<String> Pe = new ArrayList<>();
+    private StringBuilder QL = new StringBuilder();
+    public ArrayList<String> QM = new ArrayList<>();
     private long W;
     private long X;
     private long Y;
     private long Z;
     public static int U = 2000;
     public static int V = 1;
-    static a Pf = null;
+    static a QN = null;
 
     private a() {
     }
 
     private String f() {
-        Iterator<String> it = this.Pe.iterator();
+        Iterator<String> it = this.QM.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.Pc.append(next);
+            this.QL.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -44,15 +44,15 @@ public final class a {
         return U * 0.6f;
     }
 
-    public static a nr() {
-        if (Pf == null) {
+    public static a nZ() {
+        if (QN == null) {
             synchronized (a.class) {
-                if (Pf == null) {
-                    Pf = new a();
+                if (QN == null) {
+                    QN = new a();
                 }
             }
         }
-        return Pf;
+        return QN;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
@@ -79,10 +79,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.Pc.toString());
+        hashMap.put("errorTrace", this.QL.toString());
         hashMap.put("errorLine", f);
         hashMap.put("errorOriLine", f);
-        this.Pc.setLength(0);
+        this.QL.setLength(0);
         return hashMap;
     }
 }

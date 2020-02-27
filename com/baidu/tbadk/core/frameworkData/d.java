@@ -17,9 +17,9 @@ public class d {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.f
             /* renamed from: d */
-            public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.d.c.aKU().isAPIAvailableNow(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.d.c.aKU().getLongConnectionFailedErrno());
+            public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.d.c.aNq().isAPIAvailableNow(socketMessage.getCmd())) {
+                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.d.c.aNq().getLongConnectionFailedErrno());
                     return null;
                 }
                 return socketMessage;
@@ -33,7 +33,7 @@ public class d {
             /* renamed from: d */
             public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage != null) {
-                    com.baidu.tbadk.coreExtra.d.c.aKU().onAPISuccessed(socketResponsedMessage.getCmd());
+                    com.baidu.tbadk.coreExtra.d.c.aNq().onAPISuccessed(socketResponsedMessage.getCmd());
                 }
                 return socketResponsedMessage;
             }
@@ -43,7 +43,7 @@ public class d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                    com.baidu.tbadk.coreExtra.d.c.aKU().onAPIFailed(((Integer) customResponsedMessage.getData()).intValue());
+                    com.baidu.tbadk.coreExtra.d.c.aNq().onAPIFailed(((Integer) customResponsedMessage.getData()).intValue());
                 }
             }
         };

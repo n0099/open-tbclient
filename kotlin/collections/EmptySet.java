@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class EmptySet implements Serializable, Set {
     public static final EmptySet INSTANCE = new EmptySet();
     private static final long serialVersionUID = 3406603774387020532L;
@@ -105,7 +106,7 @@ public final class EmptySet implements Serializable, Set {
 
     @Override // java.util.Set, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return aa.nBj;
+        return aa.nBL;
     }
 
     private final Object readResolve() {

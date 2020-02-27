@@ -5,29 +5,29 @@ import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.config.FontSizeConfig;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder iVw;
-    private int iVx;
+    private SpannableStringBuilder iWL;
+    private int iWM;
     private int textSize;
 
     public g() {
-        this.iVx = 0;
+        this.iWM = 0;
         this.textSize = -1;
-        this.iVw = new SpannableStringBuilder();
+        this.iWL = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.iVx = 0;
+        this.iWM = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.iVw = new SpannableStringBuilder();
+            this.iWL = new SpannableStringBuilder();
             if (excContent != null) {
-                this.iVw.append((CharSequence) excContent.text);
+                this.iWL.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.iVx = excContent.align.intValue();
+                this.iWM = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -43,7 +43,7 @@ public class g implements c {
 
     public void l(CharSequence charSequence) {
         if (charSequence != null) {
-            this.iVw.append(charSequence);
+            this.iWL.append(charSequence);
         }
     }
 
@@ -53,21 +53,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cqO() {
-        return this.iVw;
+    public CharSequence cse() {
+        return this.iWL;
     }
 
-    public int cqQ() {
-        return this.iVx;
+    public int csg() {
+        return this.iWM;
     }
 
-    public String cqR() {
+    public String csh() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cqP() {
-        return (this.iVx > 0 && this.iVx < 3) || !StringUtils.isNull(this.color);
+    public boolean csf() {
+        return (this.iWM > 0 && this.iWM < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

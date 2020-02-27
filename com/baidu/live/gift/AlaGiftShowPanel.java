@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaGiftShowPanel extends RelativeLayout {
-    private a aeT;
+    private a aha;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onConfigurationChanged(Configuration configuration);
     }
@@ -29,12 +29,12 @@ public class AlaGiftShowPanel extends RelativeLayout {
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.aeT != null) {
-            this.aeT.onConfigurationChanged(configuration);
+        if (this.aha != null) {
+            this.aha.onConfigurationChanged(configuration);
         }
     }
 
     public void setConfigurationChangedListener(a aVar) {
-        this.aeT = aVar;
+        this.aha = aVar;
     }
 }

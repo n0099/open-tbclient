@@ -22,14 +22,14 @@ import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class af {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final DisplayMetrics bUx = com.baidu.swan.apps.w.a.RG().getResources().getDisplayMetrics();
-    private static final float bUy = bUx.density;
+    private static final DisplayMetrics bYB = com.baidu.swan.apps.w.a.TU().getResources().getDisplayMetrics();
+    private static final float bYC = bYB.density;
     private static DisplayMetrics sDisplayMetrics;
 
-    public static int cE(Context context) {
+    public static int cI(Context context) {
         int i;
         boolean z;
         com.baidu.swan.apps.core.d.d dVar;
@@ -39,7 +39,7 @@ public class af {
         }
         int displayHeight = getDisplayHeight(context);
         int statusBarHeight = getStatusBarHeight();
-        int cF = cF(context);
+        int cJ = cJ(context);
         try {
             i = context.getResources().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
         } catch (Resources.NotFoundException e) {
@@ -48,16 +48,16 @@ public class af {
             }
             i = 0;
         }
-        com.baidu.swan.apps.core.d.e El = com.baidu.swan.apps.y.f.UC().El();
+        com.baidu.swan.apps.core.d.e GA = com.baidu.swan.apps.y.f.WQ().GA();
         com.baidu.swan.apps.core.d.d dVar2 = null;
-        if (El != null) {
-            com.baidu.swan.apps.core.d.b LX = El.LX();
-            if (!(LX instanceof com.baidu.swan.apps.core.d.d)) {
+        if (GA != null) {
+            com.baidu.swan.apps.core.d.b Ol = GA.Ol();
+            if (!(Ol instanceof com.baidu.swan.apps.core.d.d)) {
                 dVar = null;
             } else {
-                dVar = (com.baidu.swan.apps.core.d.d) LX;
+                dVar = (com.baidu.swan.apps.core.d.d) Ol;
             }
-            if (LX != null && LX.Lo()) {
+            if (Ol != null && Ol.NC()) {
                 try {
                     int dimensionPixelSize = context.getResources().getDimensionPixelSize(a.d.aiapps_action_bar_shadow_height);
                     if (dimensionPixelSize > 0) {
@@ -72,14 +72,14 @@ public class af {
             }
             dVar2 = dVar;
         }
-        if (dVar2 == null || !com.baidu.swan.apps.runtime.config.c.a(dVar2.Lt())) {
+        if (dVar2 == null || !com.baidu.swan.apps.runtime.config.c.a(dVar2.NH())) {
             z = false;
             z2 = false;
         } else {
-            com.baidu.swan.apps.view.a.b LO = dVar2.LO();
-            z = LO != null && LO.afg();
+            com.baidu.swan.apps.view.a.b Oc = dVar2.Oc();
+            z = Oc != null && Oc.ahu();
         }
-        int i2 = displayHeight - cF;
+        int i2 = displayHeight - cJ;
         if (!z) {
             i2 -= statusBarHeight;
         }
@@ -92,12 +92,12 @@ public class af {
         return 0;
     }
 
-    public static int cF(Context context) {
-        com.baidu.swan.apps.core.d.b LX;
+    public static int cJ(Context context) {
+        com.baidu.swan.apps.core.d.b Ol;
         int i;
         Resources.NotFoundException e;
-        com.baidu.swan.apps.core.d.e El = com.baidu.swan.apps.y.f.UC().El();
-        if (context == null || El == null || (LX = El.LX()) == null || !(LX instanceof com.baidu.swan.apps.core.d.d) || !((com.baidu.swan.apps.core.d.d) LX).Lf()) {
+        com.baidu.swan.apps.core.d.e GA = com.baidu.swan.apps.y.f.WQ().GA();
+        if (context == null || GA == null || (Ol = GA.Ol()) == null || !(Ol instanceof com.baidu.swan.apps.core.d.d) || !((com.baidu.swan.apps.core.d.d) Ol).Nu()) {
             return 0;
         }
         try {
@@ -141,40 +141,40 @@ public class af {
         }
     }
 
-    public static void V(Activity activity) {
+    public static void W(Activity activity) {
         if (activity != null && com.baidu.swan.apps.view.a.b.SUPPORT_IMMERSION) {
             new com.baidu.swan.apps.view.a.b(activity).c(-1, false, true);
         }
     }
 
-    public static void W(Activity activity) {
+    public static void X(Activity activity) {
         if (activity != null && com.baidu.swan.apps.view.a.b.SUPPORT_IMMERSION) {
             new com.baidu.swan.apps.view.a.b(activity).c(-1, true, false);
         }
     }
 
     @UiThread
-    public static Bitmap aeG() {
+    public static Bitmap agU() {
         return q(1.0f, 1.0f);
     }
 
     @UiThread
     public static Bitmap q(float f, float f2) {
-        com.baidu.swan.apps.y.f UC = com.baidu.swan.apps.y.f.UC();
-        AbsoluteLayout iE = UC.iE(UC.LJ());
-        if (iE == null || iE.getWidth() <= 0 || iE.getHeight() <= 0) {
+        com.baidu.swan.apps.y.f WQ = com.baidu.swan.apps.y.f.WQ();
+        AbsoluteLayout iT = WQ.iT(WQ.NX());
+        if (iT == null || iT.getWidth() <= 0 || iT.getHeight() <= 0) {
             return null;
         }
-        Bitmap createBitmap = Bitmap.createBitmap((int) (iE.getWidth() * f), (int) (iE.getHeight() * f2), Bitmap.Config.ARGB_4444);
+        Bitmap createBitmap = Bitmap.createBitmap((int) (iT.getWidth() * f), (int) (iT.getHeight() * f2), Bitmap.Config.ARGB_4444);
         createBitmap.eraseColor(-1);
-        iE.draw(new Canvas(createBitmap));
+        iT.draw(new Canvas(createBitmap));
         return createBitmap;
     }
 
-    public static Bitmap aeH() {
-        SwanAppActivity Un = com.baidu.swan.apps.y.f.UC().Un();
-        if (Un != null) {
-            View findViewById = Un.findViewById(16908290);
+    public static Bitmap agV() {
+        SwanAppActivity WB = com.baidu.swan.apps.y.f.WQ().WB();
+        if (WB != null) {
+            View findViewById = WB.findViewById(16908290);
             try {
                 findViewById.setDrawingCacheEnabled(true);
                 Bitmap createBitmap = Bitmap.createBitmap(findViewById.getDrawingCache());
@@ -190,7 +190,7 @@ public class af {
     }
 
     public static int getDisplayWidth(@Nullable Context context) {
-        initDisplayMetrics(com.baidu.swan.apps.w.a.RG());
+        initDisplayMetrics(com.baidu.swan.apps.w.a.TU());
         if (sDisplayMetrics != null) {
             return sDisplayMetrics.widthPixels;
         }
@@ -198,18 +198,18 @@ public class af {
     }
 
     public static int getDisplayHeight(Context context) {
-        initDisplayMetrics(com.baidu.swan.apps.w.a.RG());
+        initDisplayMetrics(com.baidu.swan.apps.w.a.TU());
         if (sDisplayMetrics != null) {
             return sDisplayMetrics.heightPixels;
         }
         return 0;
     }
 
-    public static int cG(Context context) {
-        return !cH(context) ? X((Activity) context) ? getDisplayHeight(context) : getDisplayWidth(context) : isScreenLand() ? getDisplayHeight(context) : getDisplayWidth(context);
+    public static int cK(Context context) {
+        return !cL(context) ? Y((Activity) context) ? getDisplayHeight(context) : getDisplayWidth(context) : isScreenLand() ? getDisplayHeight(context) : getDisplayWidth(context);
     }
 
-    private static boolean X(Activity activity) {
+    private static boolean Y(Activity activity) {
         if (activity == null) {
             return false;
         }
@@ -217,12 +217,12 @@ public class af {
         return defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3;
     }
 
-    public static boolean cH(Context context) {
+    public static boolean cL(Context context) {
         return Build.VERSION.SDK_INT >= 24 && (context instanceof Activity) && ((Activity) context).isInMultiWindowMode();
     }
 
     public static float getDensity(Context context) {
-        initDisplayMetrics(com.baidu.swan.apps.w.a.RG());
+        initDisplayMetrics(com.baidu.swan.apps.w.a.TU());
         if (sDisplayMetrics != null) {
             return sDisplayMetrics.density;
         }
@@ -230,7 +230,7 @@ public class af {
     }
 
     public static int getDensityDpi(Context context) {
-        initDisplayMetrics(com.baidu.swan.apps.w.a.RG());
+        initDisplayMetrics(com.baidu.swan.apps.w.a.TU());
         if (sDisplayMetrics != null) {
             return sDisplayMetrics.densityDpi;
         }
@@ -239,9 +239,9 @@ public class af {
 
     private static void initDisplayMetrics(Context context) {
         if (sDisplayMetrics == null) {
-            Application RG = com.baidu.swan.apps.w.a.RG();
-            if (RG != null) {
-                context = RG;
+            Application TU = com.baidu.swan.apps.w.a.TU();
+            if (TU != null) {
+                context = TU;
             }
             if (context != null) {
                 sDisplayMetrics = context.getResources().getDisplayMetrics();
@@ -250,15 +250,15 @@ public class af {
     }
 
     public static int S(float f) {
-        return dip2px(com.baidu.swan.apps.w.a.RG(), f);
+        return dip2px(com.baidu.swan.apps.w.a.TU(), f);
     }
 
     public static float T(float f) {
-        return getDensity(com.baidu.swan.apps.w.a.RG()) * f;
+        return getDensity(com.baidu.swan.apps.w.a.TU()) * f;
     }
 
     public static int U(float f) {
-        return px2dip(com.baidu.swan.apps.w.a.RG(), f);
+        return px2dip(com.baidu.swan.apps.w.a.TU(), f);
     }
 
     public static int dip2px(Context context, float f) {
@@ -270,7 +270,7 @@ public class af {
     }
 
     public static float px2dpFloat(float f) {
-        return f / getDensity(com.baidu.swan.apps.w.a.RG());
+        return f / getDensity(com.baidu.swan.apps.w.a.TU());
     }
 
     public static int getTextViewHeight(TextView textView) {
@@ -300,34 +300,34 @@ public class af {
 
     public static int getStatusBarHeight() {
         int i = 0;
-        int identifier = com.baidu.swan.apps.w.a.RG().getResources().getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS);
+        int identifier = com.baidu.swan.apps.w.a.TU().getResources().getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS);
         if (identifier > 0) {
             try {
-                i = com.baidu.swan.apps.w.a.RG().getResources().getDimensionPixelSize(identifier);
+                i = com.baidu.swan.apps.w.a.TU().getResources().getDimensionPixelSize(identifier);
             } catch (Exception e) {
             }
         }
         if (i == 0) {
-            return (int) (25.0f * bUy);
+            return (int) (25.0f * bYC);
         }
         return i;
     }
 
     public static int getNavigationBarHeight() {
-        boolean hasPermanentMenuKey = ViewConfiguration.get(com.baidu.swan.apps.w.a.RG()).hasPermanentMenuKey();
+        boolean hasPermanentMenuKey = ViewConfiguration.get(com.baidu.swan.apps.w.a.TU()).hasPermanentMenuKey();
         boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
         if (hasPermanentMenuKey || deviceHasKey) {
             return 0;
         }
-        Resources resources = com.baidu.swan.apps.w.a.RG().getResources();
+        Resources resources = com.baidu.swan.apps.w.a.TU().getResources();
         return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS));
     }
 
     public static boolean isScreenLand() {
-        return com.baidu.swan.apps.w.a.RG().getResources().getConfiguration().orientation == 2;
+        return com.baidu.swan.apps.w.a.TU().getResources().getConfiguration().orientation == 2;
     }
 
     public static int getActionBarHeight() {
-        return com.baidu.swan.apps.w.a.RG().getResources().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
+        return com.baidu.swan.apps.w.a.TU().getResources().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
     }
 }

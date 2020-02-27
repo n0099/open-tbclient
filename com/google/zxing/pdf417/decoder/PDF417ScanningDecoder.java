@@ -12,7 +12,7 @@ import com.google.zxing.pdf417.decoder.ec.ErrorCorrection;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Formatter;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class PDF417ScanningDecoder {
     private static final int CODEWORD_SKEW_SIZE = 2;
     private static final int MAX_EC_CODEWORDS = 512;

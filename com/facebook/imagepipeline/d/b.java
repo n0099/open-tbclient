@@ -3,12 +3,12 @@ package com.facebook.imagepipeline.d;
 import com.facebook.cache.disk.d;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b implements f {
-    private c lRi;
+    private c lRP;
 
     public b(c cVar) {
-        this.lRi = cVar;
+        this.lRP = cVar;
     }
 
     public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar) {
@@ -16,11 +16,11 @@ public class b implements f {
     }
 
     public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar, Executor executor) {
-        return new com.facebook.cache.disk.d(cVar, bVar.diU(), new d.b(bVar.diT(), bVar.diS(), bVar.diR()), bVar.diW(), bVar.diV(), bVar.diX(), bVar.getContext(), executor, bVar.diY());
+        return new com.facebook.cache.disk.d(cVar, bVar.dkh(), new d.b(bVar.dkg(), bVar.dkf(), bVar.dke()), bVar.dkj(), bVar.dki(), bVar.dkk(), bVar.getContext(), executor, bVar.dkl());
     }
 
     @Override // com.facebook.imagepipeline.d.f
     public com.facebook.cache.disk.h a(com.facebook.cache.disk.b bVar) {
-        return a(bVar, this.lRi.b(bVar));
+        return a(bVar, this.lRP.b(bVar));
     }
 }

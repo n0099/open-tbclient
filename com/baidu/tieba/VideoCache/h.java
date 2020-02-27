@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h {
-    private String cFL;
-    private String dSP;
-    private boolean dSQ;
-    private long dSR = -1;
-    private long dSS = -1;
-    private long dST = 0;
-    private long dSU = 0;
+    private String cJP;
+    private String dWU;
+    private boolean dWV;
+    private long dWW = -1;
+    private long dWX = -1;
+    private long dWY = 0;
+    private long dWZ = 0;
 
-    public String aUQ() {
-        return this.dSP;
+    public String aXg() {
+        return this.dWU;
     }
 
-    public void wd(String str) {
-        this.dSP = str;
+    public void wx(String str) {
+        this.dWU = str;
     }
 
     public String getOriginUrl() {
-        return this.cFL;
+        return this.cJP;
     }
 
-    public void we(String str) {
-        this.cFL = str;
+    public void wy(String str) {
+        this.cJP = str;
     }
 
-    public boolean aUR() {
-        return this.dSQ;
+    public boolean aXh() {
+        return this.dWV;
     }
 
-    public void hu(boolean z) {
-        this.dSQ = z;
+    public void hB(boolean z) {
+        this.dWV = z;
     }
 
-    public long aUS() {
-        return this.dSR;
+    public long aXi() {
+        return this.dWW;
     }
 
-    public void cj(long j) {
-        this.dSR = j;
+    public void cn(long j) {
+        this.dWW = j;
     }
 
-    public long aUT() {
-        return this.dSS;
+    public long aXj() {
+        return this.dWX;
     }
 
-    public void ck(long j) {
-        this.dSS = j;
+    public void co(long j) {
+        this.dWX = j;
     }
 
     public long getTotalLength() {
-        return this.dST;
+        return this.dWY;
     }
 
     public void setTotalLength(long j) {
-        this.dST = j;
+        this.dWY = j;
     }
 
-    public void cl(long j) {
-        this.dSU = j;
+    public void cp(long j) {
+        this.dWZ = j;
     }
 
-    public long aUU() {
-        return this.dSU;
+    public long aXk() {
+        return this.dWZ;
     }
 }

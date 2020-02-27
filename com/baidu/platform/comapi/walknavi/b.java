@@ -44,7 +44,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     public static int a = 0;
     public static int b = 1;
@@ -91,7 +91,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     private Handler z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         static final b a = new b(null);
     }
@@ -870,7 +870,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         Bundle m = a().D().m();
         int i = m.getInt("left");
         int i2 = m.getInt(VerticalTranslateLayout.BOTTOM);
-        int i3 = m.getInt(HorizontalTranslateLayout.RIGHT);
+        int i3 = m.getInt(HorizontalTranslateLayout.DIRECTION_RIGHT);
         int i4 = m.getInt(VerticalTranslateLayout.TOP);
         MapBound mapBound = new MapBound();
         mapBound.setPtLB(new Point(i, i2));
@@ -883,7 +883,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         Bundle f = a().D().f(i);
         int i2 = f.getInt("left");
         int i3 = f.getInt(VerticalTranslateLayout.BOTTOM);
-        int i4 = f.getInt(HorizontalTranslateLayout.RIGHT);
+        int i4 = f.getInt(HorizontalTranslateLayout.DIRECTION_RIGHT);
         int i5 = f.getInt(VerticalTranslateLayout.TOP);
         MapBound mapBound = new MapBound();
         mapBound.setPtLB(new Point(i2, i3));

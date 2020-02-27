@@ -16,7 +16,7 @@ public class c {
     public String sG;
     public String sH;
     public String sI;
-    public String sx;
-    public String sy;
+    public String sJ;
+    public String sK;
     public String sz;
 }

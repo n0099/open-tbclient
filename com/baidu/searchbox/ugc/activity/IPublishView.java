@@ -9,7 +9,7 @@ import com.baidu.searchbox.ugc.model.UgcTagDisplayModel;
 import com.baidu.searchbox.ugc.model.UgcTagItem;
 import com.baidu.searchbox.ugc.model.UgcVoteInfo;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IPublishView {
     Activity getContext();
 

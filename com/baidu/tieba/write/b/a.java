@@ -1,11 +1,11 @@
 package com.baidu.tieba.write.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a {
-    public String kNR;
-    public int kNS;
+    public String kOx;
+    public int kOy;
 
     public a(String str, int i) {
-        this.kNR = str;
-        this.kNS = i;
+        this.kOx = str;
+        this.kOy = i;
     }
 }

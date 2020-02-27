@@ -15,7 +15,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import java.text.DecimalFormat;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SpreadView extends View {
     private static final Interpolator ACCELERATE = new AccelerateInterpolator();
     private static final Interpolator DECELERATE = new DecelerateInterpolator();
@@ -34,7 +34,7 @@ public class SpreadView extends View {
     private int mStartLocationY;
     private int mState;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface OnStateChangeListener {
         void onStateChange(int i);
     }

@@ -1,12 +1,12 @@
 package com.caverock.androidsvg;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b {
-    static long lCv = 922337203685477580L;
-    private static final float[] lCw = {1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
-    private static final float[] lCx = {1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
+    static long lDc = 922337203685477580L;
+    private static final float[] lDd = {1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
+    private static final float[] lDe = {1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
     int pos;
 
-    public int dgZ() {
+    public int din() {
         return this.pos;
     }
 
@@ -57,13 +57,13 @@ public class b {
             } else if (charAt3 >= '1' && charAt3 <= '9') {
                 int i9 = i4 + i6;
                 while (i6 > 0) {
-                    if (j > lCv) {
+                    if (j > lDc) {
                         return Float.NaN;
                     }
                     j *= 10;
                     i6--;
                 }
-                if (j > lCv) {
+                if (j > lDc) {
                     return Float.NaN;
                 }
                 j = (j * 10) + (charAt3 - '0');
@@ -132,7 +132,7 @@ public class b {
                         int i10 = this.pos;
                         int i11 = 0;
                         while (this.pos < i2 && (charAt2 = str.charAt(this.pos)) >= '0' && charAt2 <= '9') {
-                            if (i11 > lCv) {
+                            if (i11 > lDc) {
                                 return Float.NaN;
                             }
                             i11 = (i11 * 10) + (charAt2 - '0');
@@ -152,13 +152,13 @@ public class b {
                         float f = (float) j;
                         if (j != 0) {
                             if (i3 > 0) {
-                                f *= lCw[i3];
+                                f *= lDd[i3];
                             } else if (i3 < 0) {
                                 if (i3 < -38) {
                                     f = (float) (f * 1.0E-20d);
                                     i3 += 20;
                                 }
-                                f *= lCx[-i3];
+                                f *= lDe[-i3];
                             }
                         }
                         return z3 ? -f : f;

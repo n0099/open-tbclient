@@ -6,24 +6,24 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends b {
     private static final String TAG = g.class.getSimpleName();
     private Surface mInputSurface;
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void AU() {
-        super.AU();
+    public /* bridge */ /* synthetic */ long CK() {
+        return super.CK();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void AV() {
-        super.AV();
+    public /* bridge */ /* synthetic */ void Dk() {
+        super.Dk();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long Au() {
-        return super.Au();
+    public /* bridge */ /* synthetic */ void Dl() {
+        super.Dl();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -37,8 +37,8 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void bA(boolean z) {
-        super.bA(z);
+    public /* bridge */ /* synthetic */ void bI(boolean z) {
+        super.bI(z);
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -54,28 +54,28 @@ public class g extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.aGI = eVar;
-            MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.Ba(), dVar.getVideoWidth(), dVar.getVideoHeight());
+            this.aKN = eVar;
+            MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.Dq(), dVar.getVideoWidth(), dVar.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
-            createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.Bb());
-            createVideoFormat.setInteger("frame-rate", dVar.Bc());
-            createVideoFormat.setInteger("i-frame-interval", dVar.Bd());
+            createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.Dr());
+            createVideoFormat.setInteger("frame-rate", dVar.Ds());
+            createVideoFormat.setInteger("i-frame-interval", dVar.Dt());
             try {
-                this.mEncoder = MediaCodec.createEncoderByType(dVar.Ba());
+                this.mEncoder = MediaCodec.createEncoderByType(dVar.Dq());
                 this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                 this.mInputSurface = this.mEncoder.createInputSurface();
-                this.aGK = true;
+                this.aKP = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.aGJ == null) {
-                this.aGJ.bu(z);
+            if (this.aKO == null) {
+                this.aKO.bC(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.aGJ == null) {
+        if (this.aKO == null) {
         }
     }
 
@@ -84,13 +84,13 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void AT() {
-        if (this.aGL == 0) {
-            this.aGL = this.mBufferInfo.presentationTimeUs;
-            aGM = 0L;
+    protected void Dj() {
+        if (this.aKQ == 0) {
+            this.aKQ = this.mBufferInfo.presentationTimeUs;
+            aKR = 0L;
         }
-        this.mBufferInfo.presentationTimeUs -= this.aGL;
-        aGM = this.mBufferInfo.presentationTimeUs;
-        com.baidu.mario.a.d.At().T(aGM / 1000);
+        this.mBufferInfo.presentationTimeUs -= this.aKQ;
+        aKR = this.mBufferInfo.presentationTimeUs;
+        com.baidu.mario.a.d.CJ().X(aKR / 1000);
     }
 }

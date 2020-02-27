@@ -1,8 +1,11 @@
 package kotlin.coroutines.intrinsics;
+
+import kotlin.h;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public class c extends b {
-    public static final Object dJg() {
+    public static final Object dKn() {
         return CoroutineSingletons.COROUTINE_SUSPENDED;
     }
 }

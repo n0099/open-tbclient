@@ -31,13 +31,13 @@ public class an {
         this.key = str;
     }
 
-    public an cp(String str, String str2) {
+    public an cy(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
     }
 
-    public an Z(String str, int i) {
+    public an X(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
@@ -61,22 +61,22 @@ public class an {
         }
     }
 
-    public boolean te(String str) {
+    public boolean tu(String str) {
         int indexOf;
         return !aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public an aEl() {
+    public an aGw() {
         an anVar = new an(getKey());
         anVar.aB(getParams());
         return anVar;
     }
 
-    public void aEm() {
+    public void aGx() {
         TiebaStatic.log(this);
     }
 
-    public static an tf(String str) {
+    public static an tv(String str) {
         return new an(str);
     }
 }

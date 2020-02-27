@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.metadata.id3;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.exoplayer2.util.v;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class TextInformationFrame extends Id3Frame {
     public static final Parcelable.Creator<TextInformationFrame> CREATOR = new Parcelable.Creator<TextInformationFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.TextInformationFrame.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public final class TextInformationFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Km */
+        /* renamed from: Kr */
         public TextInformationFrame[] newArray(int i) {
             return new TextInformationFrame[i];
         }

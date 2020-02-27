@@ -13,9 +13,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CoderManager {
-    private static CoderManager sInstance = null;
+    private static volatile CoderManager sInstance = null;
 
     public static CoderManager getInstance() {
         if (sInstance == null) {

@@ -20,9 +20,9 @@ import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g {
-    private TbImageView.c Nr = new TbImageView.c() { // from class: com.baidu.tieba.frs.e.g.2
+    private TbImageView.c NT = new TbImageView.c() { // from class: com.baidu.tieba.frs.e.g.2
         @Override // com.baidu.tbadk.widget.TbImageView.c
         public void a(TbImageView tbImageView, Canvas canvas) {
             if (tbImageView != null && tbImageView.getImageMatrix() != null) {
@@ -41,17 +41,17 @@ public class g {
         public void b(TbImageView tbImageView, Canvas canvas) {
         }
     };
-    public RelativeLayout esp;
-    public LinearGradientView gIJ;
-    public BarImageView gIK;
-    public TextView gIL;
-    public FrsHeaderBannerView gIM;
-    public View gIN;
-    public TbImageView gIO;
-    public TbImageView gIP;
-    public ImageView gIQ;
-    public ImageView gIR;
-    public ImageView gIS;
+    public RelativeLayout ewz;
+    public LinearGradientView gKI;
+    public BarImageView gKJ;
+    public TextView gKK;
+    public FrsHeaderBannerView gKL;
+    public View gKM;
+    public TbImageView gKN;
+    public TbImageView gKO;
+    public ImageView gKP;
+    public ImageView gKQ;
+    public ImageView gKR;
     private Context mContext;
     public View mRootView;
 
@@ -59,24 +59,24 @@ public class g {
         if (context != null) {
             this.mContext = context;
             this.mRootView = LayoutInflater.from(context).inflate(R.layout.frs_fake_view, (ViewGroup) null);
-            this.esp = (RelativeLayout) this.mRootView.findViewById(R.id.head_top_bg_container);
-            this.gIJ = (LinearGradientView) this.mRootView.findViewById(R.id.head_top_gradient_bg);
-            this.gIP = (TbImageView) this.mRootView.findViewById(R.id.head_top_bg_mask);
-            this.gIP.setDefaultBgResource(R.color.transparent);
-            this.gIP.setDefaultResource(R.drawable.pic_frs_head_default);
-            this.gIK = (BarImageView) this.mRootView.findViewById(R.id.frs_image);
-            this.gIL = (TextView) this.mRootView.findViewById(R.id.forum_name);
-            am.setViewTextColor(this.gIL, (int) R.color.cp_cont_a);
-            this.gIM = (FrsHeaderBannerView) this.mRootView.findViewById(R.id.frs_header_banner);
-            this.gIN = this.mRootView.findViewById(R.id.frs_topview);
-            this.gIO = (TbImageView) this.mRootView.findViewById(R.id.fake_content);
-            this.gIO.setAutoChangeStyle(false);
-            ((RelativeLayout.LayoutParams) this.gIO.getLayoutParams()).height = l.getEquipmentHeight(context) - l.getDimens(context, R.dimen.tbds108);
-            this.gIO.setOnDrawListener(this.Nr);
-            this.gIQ = (ImageView) this.mRootView.findViewById(R.id.fake_return_icon);
-            this.gIR = (ImageView) this.mRootView.findViewById(R.id.fake_more_icon);
-            this.gIS = (ImageView) this.mRootView.findViewById(R.id.fake_remind_icon);
-            this.gIQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.e.g.1
+            this.ewz = (RelativeLayout) this.mRootView.findViewById(R.id.head_top_bg_container);
+            this.gKI = (LinearGradientView) this.mRootView.findViewById(R.id.head_top_gradient_bg);
+            this.gKO = (TbImageView) this.mRootView.findViewById(R.id.head_top_bg_mask);
+            this.gKO.setDefaultBgResource(R.color.transparent);
+            this.gKO.setDefaultResource(R.drawable.pic_frs_head_default);
+            this.gKJ = (BarImageView) this.mRootView.findViewById(R.id.frs_image);
+            this.gKK = (TextView) this.mRootView.findViewById(R.id.forum_name);
+            am.setViewTextColor(this.gKK, (int) R.color.cp_cont_a);
+            this.gKL = (FrsHeaderBannerView) this.mRootView.findViewById(R.id.frs_header_banner);
+            this.gKM = this.mRootView.findViewById(R.id.frs_topview);
+            this.gKN = (TbImageView) this.mRootView.findViewById(R.id.fake_content);
+            this.gKN.setAutoChangeStyle(false);
+            ((RelativeLayout.LayoutParams) this.gKN.getLayoutParams()).height = l.getEquipmentHeight(context) - l.getDimens(context, R.dimen.tbds108);
+            this.gKN.setOnDrawListener(this.NT);
+            this.gKP = (ImageView) this.mRootView.findViewById(R.id.fake_return_icon);
+            this.gKQ = (ImageView) this.mRootView.findViewById(R.id.fake_more_icon);
+            this.gKR = (ImageView) this.mRootView.findViewById(R.id.fake_remind_icon);
+            this.gKP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.e.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (context instanceof Activity) {
@@ -84,18 +84,18 @@ public class g {
                     }
                 }
             });
-            this.gIK.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.gIK.setContentDescription(context.getResources().getString(R.string.bar_header));
-            this.gIK.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-            this.gIK.setShowOval(true);
-            this.gIK.setBorderColor(am.getColor(R.color.black_alpha15));
-            this.gIK.setStrokeColorResId(R.color.cp_bg_line_d);
+            this.gKJ.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.gKJ.setContentDescription(context.getResources().getString(R.string.bar_header));
+            this.gKJ.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+            this.gKJ.setShowOval(true);
+            this.gKJ.setBorderColor(am.getColor(R.color.black_alpha15));
+            this.gKJ.setStrokeColorResId(R.color.cp_bg_line_d);
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            am.setBackgroundResource(this.gIN, R.drawable.frs_fake_top_view);
-            am.setImageResource(this.gIQ, R.drawable.icon_topbar_return_white_n);
-            am.setImageResource(this.gIR, R.drawable.icon_topbar_more_white_n);
-            SvgManager.aEp().a(this.gIS, R.drawable.icon_pure_topbar_information44_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-            am.setImageResource(this.gIO, R.drawable.pic_frs_transition_placeholder);
+            am.setBackgroundResource(this.gKM, R.drawable.frs_fake_top_view);
+            am.setImageResource(this.gKP, R.drawable.icon_topbar_return_white_n);
+            am.setImageResource(this.gKQ, R.drawable.icon_topbar_more_white_n);
+            SvgManager.aGA().a(this.gKR, R.drawable.icon_pure_topbar_information44_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+            am.setImageResource(this.gKN, R.drawable.pic_frs_transition_placeholder);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -12,7 +13,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMMarkMsgReadedMsg extends Message {
     public static final String TAG = IMMarkMsgReadedMsg.class.getSimpleName();
     private long mCategory;
@@ -109,14 +110,15 @@ public class IMMarkMsgReadedMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         if (i == 0) {
             DBManager.getInstance(context).deleteCmdMsg(getUUID());
             setNeedReSend(false);
             return;
         }
-        if (i == 1004 || i == 1001) {
+        if (i == 1004 || i == 1001 || i == 4001) {
             setNeedReSend(false);
+            LoginManager.getInstance(context).triggleLogoutListener(i, str);
         } else if (this.mReSendCount >= 3) {
             setNeedReSend(false);
             DBManager.getInstance(context).deleteCmdMsg(getUUID());

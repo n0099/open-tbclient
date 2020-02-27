@@ -11,9 +11,9 @@ import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RoundAdapterLinearLayout extends AdapterLinearLayout {
-    private Shape cRS;
+    private Shape cVU;
     private Paint mPaint;
     private float mRadius;
     private RectF mRectF;
@@ -53,7 +53,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.cRS == null) {
+            if (this.cVU == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -63,10 +63,10 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr2, this.mRadius);
-                this.cRS = new RoundRectShape(fArr, rectF, fArr2);
+                this.cVU = new RoundRectShape(fArr, rectF, fArr2);
                 this.mRectF.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
             }
-            this.cRS.resize(getWidth(), getHeight());
+            this.cVU.resize(getWidth(), getHeight());
         }
     }
 
@@ -75,8 +75,8 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.cRS != null) {
-            this.cRS.draw(canvas, this.mPaint);
+        if (this.cVU != null) {
+            this.cVU.draw(canvas, this.mPaint);
         }
         canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mStrokePaint);
         canvas.restoreToCount(saveCount);

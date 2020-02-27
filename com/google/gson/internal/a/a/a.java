@@ -5,9 +5,9 @@ import java.text.ParsePosition;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static final TimeZone mMz = TimeZone.getTimeZone("UTC");
+    private static final TimeZone mNc = TimeZone.getTimeZone("UTC");
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x00cf  */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00d6  */
@@ -64,8 +64,8 @@ public class a {
                     }
                     if (a(str, i13, '.')) {
                         int i14 = i13 + 1;
-                        int bM = bM(str, i14 + 1);
-                        int min = Math.min(bM, i14 + 3);
+                        int bL = bL(str, i14 + 1);
+                        int min = Math.min(bL, i14 + 3);
                         int F7 = F(str, i14, min);
                         switch (min - i14) {
                             case 1:
@@ -77,7 +77,7 @@ public class a {
                         }
                         i4 = F4;
                         i2 = F6;
-                        i9 = bM;
+                        i9 = bL;
                         i3 = F5;
                         i = F7;
                     } else {
@@ -99,7 +99,7 @@ public class a {
             }
             char charAt2 = str.charAt(i9);
             if (charAt2 == 'Z') {
-                timeZone = mMz;
+                timeZone = mNc;
                 length = i9 + 1;
             } else if (charAt2 == '+' || charAt2 == '-') {
                 String substring = str.substring(i9);
@@ -108,7 +108,7 @@ public class a {
                 }
                 length = i9 + substring.length();
                 if ("+0000".equals(substring) || "+00:00".equals(substring)) {
-                    timeZone = mMz;
+                    timeZone = mNc;
                 } else {
                     String str2 = "GMT" + substring;
                     timeZone = TimeZone.getTimeZone(str2);
@@ -198,7 +198,7 @@ public class a {
         return -i4;
     }
 
-    private static int bM(String str, int i) {
+    private static int bL(String str, int i) {
         while (i < str.length()) {
             char charAt = str.charAt(i);
             if (charAt >= '0' && charAt <= '9') {

@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.officialAccountPush;
 import android.os.Parcel;
 import android.os.Parcelable;
 import tbclient.GetOfficialSwitch.OfficialList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class OfficialAccountPushInfo implements Parcelable {
     public static final Parcelable.Creator<OfficialAccountPushInfo> CREATOR = new Parcelable.Creator<OfficialAccountPushInfo>() { // from class: com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public class OfficialAccountPushInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BA */
+        /* renamed from: BJ */
         public OfficialAccountPushInfo[] newArray(int i) {
             return new OfficialAccountPushInfo[i];
         }

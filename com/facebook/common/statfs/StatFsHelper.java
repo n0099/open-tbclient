@@ -14,32 +14,32 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class StatFsHelper {
-    private static StatFsHelper lIe;
-    private static final long lIf = TimeUnit.MINUTES.toMillis(2);
-    private volatile File lIh;
-    private volatile File lIj;
+    private static StatFsHelper lIL;
+    private static final long lIM = TimeUnit.MINUTES.toMillis(2);
+    private volatile File lIO;
+    private volatile File lIQ;
     @GuardedBy("lock")
-    private long lIk;
-    private volatile StatFs lIg = null;
-    private volatile StatFs lIi = null;
+    private long lIR;
+    private volatile StatFs lIN = null;
+    private volatile StatFs lIP = null;
     private volatile boolean mInitialized = false;
     private final Lock lock = new ReentrantLock();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public enum StorageType {
         INTERNAL,
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper djK() {
+    public static synchronized StatFsHelper dkX() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (lIe == null) {
-                lIe = new StatFsHelper();
+            if (lIL == null) {
+                lIL = new StatFsHelper();
             }
-            statFsHelper = lIe;
+            statFsHelper = lIL;
         }
         return statFsHelper;
     }
@@ -52,9 +52,9 @@ public class StatFsHelper {
             this.lock.lock();
             try {
                 if (!this.mInitialized) {
-                    this.lIh = Environment.getDataDirectory();
-                    this.lIj = Environment.getExternalStorageDirectory();
-                    djM();
+                    this.lIO = Environment.getDataDirectory();
+                    this.lIQ = Environment.getExternalStorageDirectory();
+                    dkZ();
                     this.mInitialized = true;
                 }
             } finally {
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        djL();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.lIg : this.lIi;
+        dkY();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.lIN : this.lIP;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,11 +89,11 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void djL() {
+    private void dkY() {
         if (this.lock.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.lIk > lIf) {
-                    djM();
+                if (SystemClock.uptimeMillis() - this.lIR > lIM) {
+                    dkZ();
                 }
             } finally {
                 this.lock.unlock();
@@ -102,10 +102,10 @@ public class StatFsHelper {
     }
 
     @GuardedBy("lock")
-    private void djM() {
-        this.lIg = a(this.lIg, this.lIh);
-        this.lIi = a(this.lIi, this.lIj);
-        this.lIk = SystemClock.uptimeMillis();
+    private void dkZ() {
+        this.lIN = a(this.lIN, this.lIO);
+        this.lIP = a(this.lIP, this.lIQ);
+        this.lIR = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = OG(file.getAbsolutePath());
+                statFs = OT(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -122,11 +122,11 @@ public class StatFsHelper {
         } catch (IllegalArgumentException e) {
             return null;
         } catch (Throwable th) {
-            throw l.u(th);
+            throw l.t(th);
         }
     }
 
-    protected static StatFs OG(String str) {
+    protected static StatFs OT(String str) {
         return new StatFs(str);
     }
 }

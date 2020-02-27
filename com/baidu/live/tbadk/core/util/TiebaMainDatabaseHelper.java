@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.util;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.db.PhoneDatabaseHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TiebaMainDatabaseHelper extends PhoneDatabaseHelper {
     public static final int DATABASE_VERSION = 17;
     public static final String TABLE_NAME_LOCAL_GAME = "local_game";

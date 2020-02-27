@@ -18,12 +18,12 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class g extends ab implements a.InterfaceC0210a {
-    private Bitmap aZg;
-    private long aZh;
-    private long aZi;
-    private long aZj;
+/* loaded from: classes11.dex */
+public class g extends ab implements a.InterfaceC0220a {
+    private Bitmap bdq;
+    private long bdr;
+    private long bds;
+    private long bdt;
     private CallbackHandler mCallbackHandler;
     private String mCallbackKey;
 
@@ -34,7 +34,7 @@ public class g extends ab implements a.InterfaceC0210a {
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "call ShowFavoriteGuideAction pid=" + Process.myPid() + ", Thread=" + Thread.currentThread().getName());
-        if (!ai.aeS()) {
+        if (!ai.ahg()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support outside baiduboxapp");
             com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "not support outside baiduboxapp");
             return false;
@@ -46,21 +46,21 @@ public class g extends ab implements a.InterfaceC0210a {
             com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "params parse error");
             return false;
         }
-        m.aev().execute(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.b.g.1
+        m.agJ().execute(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.b.g.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.storage.c.b adb = h.adb();
+                com.baidu.swan.apps.storage.c.b afp = h.afp();
                 final ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(b.optString("type"));
                 final String string = context.getString(parse.defaultText);
                 g.this.mCallbackKey = b.optString("cb");
                 String str = eVar.id;
                 String str2 = "favorite_guide_count_" + str;
-                if (com.baidu.swan.apps.database.favorite.a.hn(str)) {
+                if (com.baidu.swan.apps.database.favorite.a.hC(str)) {
                     com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "favorite already");
-                    h.adb().putString(str2, "-1");
+                    h.afp().putString(str2, "-1");
                     return;
                 }
-                String string2 = h.adb().getString(str2, "");
+                String string2 = h.afp().getString(str2, "");
                 if (TextUtils.equals("-1", string2)) {
                     com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "favorite at one time");
                     return;
@@ -73,17 +73,17 @@ public class g extends ab implements a.InterfaceC0210a {
                     j = Long.parseLong(split[1]);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                g.this.aZh = adb.getLong("swan_favorite_guide_duration", 3L);
-                g.this.aZi = adb.getLong("swan_favorite_guide_intervalDays", 3L);
-                g.this.aZj = adb.getLong("swan_favorite_guide_maxTimes", 3L);
-                com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "duration=" + g.this.aZh + ", mIntervalDays=" + g.this.aZi + ", mMaxTimes=" + g.this.aZj + " ,storageValue=" + string2);
-                if (i < g.this.aZj && currentTimeMillis - j > g.this.aZi * 86400000) {
-                    h.adb().putString(str2, (i + 1) + "#" + currentTimeMillis);
-                    g.this.aZg = ai.a((com.baidu.swan.apps.x.b.b) eVar.En(), "ShowFavoriteGuideAction", false);
+                g.this.bdr = afp.getLong("swan_favorite_guide_duration", 3L);
+                g.this.bds = afp.getLong("swan_favorite_guide_intervalDays", 3L);
+                g.this.bdt = afp.getLong("swan_favorite_guide_maxTimes", 3L);
+                com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "duration=" + g.this.bdr + ", mIntervalDays=" + g.this.bds + ", mMaxTimes=" + g.this.bdt + " ,storageValue=" + string2);
+                if (i < g.this.bdt && currentTimeMillis - j > g.this.bds * 86400000) {
+                    h.afp().putString(str2, (i + 1) + "#" + currentTimeMillis);
+                    g.this.bdq = ai.a((com.baidu.swan.apps.x.b.b) eVar.GC(), "ShowFavoriteGuideAction", false);
                     ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.b.g.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.swan.apps.api.module.favorite.a.Hq().a(g.this, (Activity) context, eVar, parse, string, g.this.aZg, g.this.aZh);
+                            com.baidu.swan.apps.api.module.favorite.a.JF().a(g.this, (Activity) context, eVar, parse, string, g.this.bdq, g.this.bdr);
                         }
                     });
                     return;
@@ -96,9 +96,9 @@ public class g extends ab implements a.InterfaceC0210a {
         return true;
     }
 
-    @Override // com.baidu.swan.apps.api.module.favorite.a.InterfaceC0210a
+    @Override // com.baidu.swan.apps.api.module.favorite.a.InterfaceC0220a
     @AnyThread
-    public void bS(boolean z) {
+    public void ca(boolean z) {
         if (this.mCallbackKey != null && this.mCallbackHandler != null) {
             JSONObject jSONObject = new JSONObject();
             try {

@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GradeInfo;
 import protobuf.GroupInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class DataRes extends Message {
     public static final List<GradeInfo> DEFAULT_GRADEINFOS = Collections.emptyList();
     public static final List<GradeInfo> DEFAULT_MEMBERGRADEINFOS = Collections.emptyList();
@@ -43,7 +43,7 @@ public final class DataRes extends Message {
         this.memberGradeInfos = immutableCopyOf(builder.memberGradeInfos);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public List<GradeInfo> gradeInfos;
         public GroupInfo groupInfo;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.video.record;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class StickerItem extends OrmObject {
     public static final int NO_STICKER_ID = -1;
     public String desc;

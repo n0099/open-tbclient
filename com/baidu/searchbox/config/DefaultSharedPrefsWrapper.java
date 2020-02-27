@@ -1,7 +1,7 @@
 package com.baidu.searchbox.config;
 
 import com.baidu.android.util.sp.SharedPrefsWrapper;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class DefaultSharedPrefsWrapper extends SharedPrefsWrapper {
     public static final String SP_FILE_DEFAULT = "default";
 
@@ -9,7 +9,7 @@ public final class DefaultSharedPrefsWrapper extends SharedPrefsWrapper {
         super("default");
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     private static class Holder {
         private static final DefaultSharedPrefsWrapper INSTANCE = new DefaultSharedPrefsWrapper();
 

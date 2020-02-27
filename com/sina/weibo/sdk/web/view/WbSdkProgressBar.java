@@ -10,7 +10,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WbSdkProgressBar extends View {
     private boolean addStart;
     private double growTime;

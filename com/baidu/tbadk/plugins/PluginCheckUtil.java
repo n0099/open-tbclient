@@ -28,26 +28,26 @@ public class PluginCheckUtil {
         Disabled
     }
 
-    public static boolean vs(String str) {
+    public static boolean vM(String str) {
         if (k.isEmpty(str)) {
             return false;
         }
         Status status = Status.UnInstalled;
-        if (PluginPackageManager.jd().bh(str)) {
+        if (PluginPackageManager.js().bj(str)) {
             status = Status.Downloading;
-        } else if (c.iv().aQ(str)) {
+        } else if (c.iK().aT(str)) {
             status = Status.Installing;
-        } else if (PluginPackageManager.jd().be(str)) {
+        } else if (PluginPackageManager.js().bg(str)) {
             status = Status.Disabled;
-        } else if (PluginPackageManager.jd().aY(str)) {
+        } else if (PluginPackageManager.js().ba(str)) {
             status = Status.Installed;
-        } else if (PluginPackageManager.jd().aZ(str) == null) {
+        } else if (PluginPackageManager.js().bb(str) == null) {
             status = Status.UnInstalled;
         }
         if (status == Status.UnInstalled) {
-            X(str, TbadkCoreApplication.getInst().getResources().getString(R.string.current_plugin_not_install), TbadkCoreApplication.getInst().getResources().getString(R.string.plugin_go_install));
+            Y(str, TbadkCoreApplication.getInst().getResources().getString(R.string.current_plugin_not_install), TbadkCoreApplication.getInst().getResources().getString(R.string.plugin_go_install));
         } else if (status == Status.Disabled) {
-            X(str, TbadkCoreApplication.getInst().getResources().getString(R.string.current_plugin_not_active), TbadkCoreApplication.getInst().getResources().getString(R.string.setup));
+            Y(str, TbadkCoreApplication.getInst().getResources().getString(R.string.current_plugin_not_active), TbadkCoreApplication.getInst().getResources().getString(R.string.setup));
         } else if (status == Status.Downloading) {
             l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.plugin_downloading));
         } else if (status == Status.Installing) {
@@ -58,11 +58,11 @@ public class PluginCheckUtil {
         return false;
     }
 
-    private static void X(final String str, String str2, String str3) {
+    private static void Y(final String str, String str2, String str3) {
         final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(currentActivity);
-            aVar.sC(str2);
+            aVar.sS(str2);
             if (TextUtils.isEmpty(str3)) {
                 aVar.b(R.string.know, new a.b() { // from class: com.baidu.tbadk.plugins.PluginCheckUtil.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -74,7 +74,7 @@ public class PluginCheckUtil {
                 aVar.a(str3, new a.b() { // from class: com.baidu.tbadk.plugins.PluginCheckUtil.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        if (PluginPackageManager.jd().getPluginConfig(str) != null) {
+                        if (PluginPackageManager.js().getPluginConfig(str) != null) {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(currentActivity, str)));
                         } else {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(currentActivity)));
@@ -90,7 +90,7 @@ public class PluginCheckUtil {
                 });
             }
             if (currentActivity instanceof TbPageContextSupport) {
-                aVar.b(((TbPageContextSupport) currentActivity).getPageContext()).aCp();
+                aVar.b(((TbPageContextSupport) currentActivity).getPageContext()).aEA();
             }
         }
     }

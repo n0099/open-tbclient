@@ -3,14 +3,14 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class t implements h {
-    private SparseArray<Object> pe;
+    private SparseArray<Object> ph;
 
     public t(SparseArray<Object> sparseArray) {
-        this.pe = sparseArray;
+        this.ph = sparseArray;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.pe, cVar);
+        return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.ph, cVar);
     }
 }

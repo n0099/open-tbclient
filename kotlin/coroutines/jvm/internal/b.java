@@ -1,4 +1,7 @@
 package kotlin.coroutines.jvm.internal;
-/* loaded from: classes5.dex */
+
+import kotlin.h;
+@h
+/* loaded from: classes7.dex */
 public interface b {
 }

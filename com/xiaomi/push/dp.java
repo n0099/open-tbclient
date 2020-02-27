@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class dp {
     private static void a(byte[] bArr) {
         if (bArr.length >= 2) {

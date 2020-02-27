@@ -2,7 +2,7 @@ package com.baidu.swan.games.u.a;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends d {
     public String key;
 

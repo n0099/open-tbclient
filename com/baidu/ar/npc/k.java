@@ -5,7 +5,7 @@ import android.util.Log;
 import android.view.OrientationEventListener;
 import com.baidu.ar.npc.ArBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class k extends OrientationEventListener {
     final /* synthetic */ ArBridge a;
 

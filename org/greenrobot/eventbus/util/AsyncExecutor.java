@@ -6,19 +6,19 @@ import java.lang.reflect.Constructor;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import org.greenrobot.eventbus.EventBus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AsyncExecutor {
     private final EventBus eventBus;
     private final Constructor<?> failureEventConstructor;
     private final Object scope;
     private final Executor threadPool;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface RunnableEx {
         void run() throws Exception;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         private EventBus eventBus;
         private Class<?> failureEventType;

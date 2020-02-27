@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int nn;
-    private a np;
+    private int ns;
+    private a nt;
 
-    public a eM() throws IOException {
+    public a eN() throws IOException {
         a aVar = new a();
-        aVar.nr = T("/proc/uid_stat/" + this.nn + "/tcp_rcv");
-        aVar.ns = T("/proc/uid_stat/" + this.nn + "/tcp_snd");
-        aVar.nq = d.c(aVar.nr + aVar.ns);
+        aVar.nv = U("/proc/uid_stat/" + this.ns + "/tcp_rcv");
+        aVar.nw = U("/proc/uid_stat/" + this.ns + "/tcp_snd");
+        aVar.nu = d.c(aVar.nv + aVar.nw);
         return aVar;
     }
 
-    public a eN() throws IOException {
-        a eM = eM();
-        this.np.nr = d.c(eM.nr - d.eL().nr);
-        this.np.ns = d.c(eM.ns - d.eL().ns);
-        this.np.nq = d.c(eM.nq - d.eL().nq);
-        return this.np;
+    public a eO() throws IOException {
+        a eN = eN();
+        this.nt.nv = d.c(eN.nv - d.eM().nv);
+        this.nt.nw = d.c(eN.nw - d.eM().nw);
+        this.nt.nu = d.c(eN.nu - d.eM().nu);
+        return this.nt;
     }
 
-    public double T(String str) {
+    public double U(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(eN());
+                d.a(eO());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!eJ()) {
+            if (!eK()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double nq = 0.0d;
-        double nr = 0.0d;
-        double ns = 0.0d;
+        double nu = 0.0d;
+        double nv = 0.0d;
+        double nw = 0.0d;
 
         public a() {
         }

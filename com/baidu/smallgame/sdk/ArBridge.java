@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ArBridge {
     private static final boolean DEBUG = false;
     private static final int INVALID_MESSAGE_ID = -1;
@@ -49,12 +49,12 @@ public class ArBridge {
     private HandlerThread mThread = new HandlerThread("msg_callback_thread");
 
     @NotProguard
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum TouchOrientation {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -63,19 +63,19 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         void g(Bitmap bitmap);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface d {
         void handleMessage(int i, int i2, HashMap<String, Object> hashMap);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface e {
-        void d(String str, int i, String str2);
+        void e(String str, int i, String str2);
     }
 
     public static native boolean libraryHasLoaded();
@@ -233,7 +233,7 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.cN(getScreenTextureId());
+            this.mGameRecorder.dd(getScreenTextureId());
         }
     }
 
@@ -289,7 +289,7 @@ public class ArBridge {
                 if (ArBridge.this.mMsgHandlers != null) {
                     Iterator it = ArBridge.this.mMsgHandlers.iterator();
                     while (it.hasNext()) {
-                        if (((a) it.next()).aUB == dVar) {
+                        if (((a) it.next()).aYN == dVar) {
                             it.remove();
                         }
                     }
@@ -305,7 +305,7 @@ public class ArBridge {
     public void updateVideoFrame(String str, int i, String str2) {
         Log.i(TAG, "updateVideoFrame:" + i + "     ;avideoPath:" + str2);
         if (this.mVideoCallback != null) {
-            this.mVideoCallback.d(str, i, str2);
+            this.mVideoCallback.e(str, i, str2);
         }
     }
 
@@ -318,14 +318,14 @@ public class ArBridge {
         for (a aVar : this.mMsgHandlers) {
             if (aVar.mMessageType == 0 || bVar.mMessageType == aVar.mMessageType) {
                 if (-1 == aVar.mMessageId || bVar.mResMessageID == aVar.mMessageId) {
-                    aVar.aUB.handleMessage(bVar.mMessageType, bVar.mMessageID, bVar.mData);
+                    aVar.aYN.handleMessage(bVar.mMessageType, bVar.mMessageID, bVar.mData);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b {
         public HashMap<String, Object> mData;
         public int mMessageID;
@@ -341,16 +341,16 @@ public class ArBridge {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public d aUB;
+        public d aYN;
         public int mMessageId;
         public int mMessageType;
 
         public a(int i, int i2, d dVar) {
             this.mMessageType = i;
             this.mMessageId = i2;
-            this.aUB = dVar;
+            this.aYN = dVar;
         }
     }
 

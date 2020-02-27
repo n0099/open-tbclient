@@ -3,29 +3,29 @@ package com.baidu.tieba.person.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d implements m {
-    public static final BdUniqueId jfg = BdUniqueId.gen();
-    public boolean eHK;
-    public String jfh;
-    public String jfi;
-    public String jfj;
-    public String jfk;
-    public int jfl;
-    public List<b> jfm;
+    public static final BdUniqueId jgc = BdUniqueId.gen();
+    public boolean eLE;
+    public String jgd;
+    public String jge;
+    public String jgf;
+    public String jgg;
+    public int jgh;
+    public List<b> jgi;
 
     public d(boolean z, a aVar) {
-        this.eHK = z;
-        this.jfi = aVar.icon;
-        this.jfh = aVar.title;
-        this.jfj = aVar.booktown;
-        this.jfk = aVar.tip;
-        this.jfm = aVar.jeZ;
-        this.jfl = aVar.jeY;
+        this.eLE = z;
+        this.jge = aVar.icon;
+        this.jgd = aVar.title;
+        this.jgf = aVar.booktown;
+        this.jgg = aVar.tip;
+        this.jgi = aVar.jfV;
+        this.jgh = aVar.jfU;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return jfg;
+        return jgc;
     }
 }

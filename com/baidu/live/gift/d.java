@@ -1,7 +1,7 @@
 package com.baidu.live.gift;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public int frame_count;
     public int frame_rate;

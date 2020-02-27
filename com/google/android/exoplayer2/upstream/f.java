@@ -3,34 +3,34 @@ package com.google.android.exoplayer2.upstream;
 import android.support.annotation.NonNull;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class f extends InputStream {
     private final g dataSpec;
-    private final e mdo;
+    private final e mdU;
     private long totalBytesRead;
-    private boolean mFb = false;
+    private boolean mFI = false;
     private boolean closed = false;
-    private final byte[] mFg = new byte[1];
+    private final byte[] mFM = new byte[1];
 
     public f(e eVar, g gVar) {
-        this.mdo = eVar;
+        this.mdU = eVar;
         this.dataSpec = gVar;
     }
 
-    public long dxK() {
+    public long dyU() {
         return this.totalBytesRead;
     }
 
     public void open() throws IOException {
-        dxL();
+        dyV();
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        if (read(this.mFg) == -1) {
+        if (read(this.mFM) == -1) {
             return -1;
         }
-        return this.mFg[0] & 255;
+        return this.mFM[0] & 255;
     }
 
     @Override // java.io.InputStream
@@ -41,8 +41,8 @@ public final class f extends InputStream {
     @Override // java.io.InputStream
     public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
         com.google.android.exoplayer2.util.a.checkState(!this.closed);
-        dxL();
-        int read = this.mdo.read(bArr, i, i2);
+        dyV();
+        int read = this.mdU.read(bArr, i, i2);
         if (read == -1) {
             return -1;
         }
@@ -53,15 +53,15 @@ public final class f extends InputStream {
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         if (!this.closed) {
-            this.mdo.close();
+            this.mdU.close();
             this.closed = true;
         }
     }
 
-    private void dxL() throws IOException {
-        if (!this.mFb) {
-            this.mdo.a(this.dataSpec);
-            this.mFb = true;
+    private void dyV() throws IOException {
+        if (!this.mFI) {
+            this.mdU.a(this.dataSpec);
+            this.mFI = true;
         }
     }
 }

@@ -5,11 +5,11 @@ import android.database.ContentObserver;
 import android.os.Handler;
 import android.provider.Settings;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends ContentObserver {
-    private a axa;
+    private a aBq;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onChange(boolean z);
     }
@@ -20,14 +20,14 @@ public class c extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        xK();
+        Ab();
     }
 
-    private void xK() {
+    private void Ab() {
         try {
             int i = Settings.System.getInt(TbadkCoreApplication.getInst().getContentResolver(), "accelerometer_rotation");
-            if (this.axa != null) {
-                this.axa.onChange(i == 1);
+            if (this.aBq != null) {
+                this.aBq.onChange(i == 1);
             }
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
@@ -35,7 +35,7 @@ public class c extends ContentObserver {
     }
 
     public void a(a aVar) {
-        this.axa = aVar;
-        xK();
+        this.aBq = aVar;
+        Ab();
     }
 }

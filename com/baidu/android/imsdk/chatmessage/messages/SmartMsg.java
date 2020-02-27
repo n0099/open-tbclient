@@ -10,7 +10,7 @@ import com.baidu.searchbox.picture.component.BaseBrowseView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmartMsg extends NormalMsg {
     public static final Parcelable.Creator<SmartMsg> CREATOR = new Parcelable.Creator<SmartMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,6 +39,8 @@ public class SmartMsg extends NormalMsg {
     private String mRemarkName;
     private String mShema;
     private String mTitle;
+    private long mTopicId;
+    private String mTopicName;
     private String mValuationTxt;
     private String mValuationUrl;
 
@@ -64,6 +66,24 @@ public class SmartMsg extends NormalMsg {
         }
         this.mValuationUrl = parcel.readString();
         this.mValuationTxt = parcel.readString();
+        this.mTopicId = parcel.readLong();
+        this.mTopicName = parcel.readString();
+    }
+
+    public long getTopicId() {
+        return this.mTopicId;
+    }
+
+    public void setTopicId(long j) {
+        this.mTopicId = j;
+    }
+
+    public String getTopicName() {
+        return this.mTopicName;
+    }
+
+    public void setTopicName(String str) {
+        this.mTopicName = str;
     }
 
     public String getDetail() {
@@ -129,6 +149,8 @@ public class SmartMsg extends NormalMsg {
         }
         parcel.writeString(this.mValuationUrl);
         parcel.writeString(this.mValuationTxt);
+        parcel.writeLong(this.mTopicId);
+        parcel.writeString(this.mTopicName);
     }
 
     public Commodity[] getCommodity() {
@@ -234,6 +256,8 @@ public class SmartMsg extends NormalMsg {
             }
             this.mValuationUrl = jSONObject.optString("operation_url");
             this.mValuationTxt = jSONObject.optString("operation_name");
+            this.mTopicId = jSONObject.optLong("topic_id");
+            this.mTopicName = jSONObject.optString("topic_name");
             return true;
         } catch (JSONException e) {
             LogUtils.e("SmartMsg", "parseJsonString JSONException", e);
@@ -241,7 +265,7 @@ public class SmartMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static final Parcelable.Creator<Commodity> CREATOR = new Parcelable.Creator<Commodity>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.Commodity.1
             /* JADX DEBUG: Method merged with bridge method */

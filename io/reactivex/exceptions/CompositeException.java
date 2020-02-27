@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CompositeException extends RuntimeException {
     private static final long serialVersionUID = 3026362227162912146L;
     private Throwable cause;
@@ -112,7 +112,7 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                aVar.bJ(sb.toString());
+                aVar.bK(sb.toString());
                 return;
             }
         }
@@ -130,44 +130,44 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a {
-        abstract void bJ(Object obj);
+        abstract void bK(Object obj);
 
         a() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class b extends a {
-        private final PrintStream nvq;
+        private final PrintStream nvS;
 
         b(PrintStream printStream) {
-            this.nvq = printStream;
+            this.nvS = printStream;
         }
 
         @Override // io.reactivex.exceptions.CompositeException.a
-        void bJ(Object obj) {
-            this.nvq.println(obj);
+        void bK(Object obj) {
+            this.nvS.println(obj);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class c extends a {
-        private final PrintWriter nvr;
+        private final PrintWriter nvT;
 
         c(PrintWriter printWriter) {
-            this.nvr = printWriter;
+            this.nvT = printWriter;
         }
 
         @Override // io.reactivex.exceptions.CompositeException.a
-        void bJ(Object obj) {
-            this.nvr.println(obj);
+        void bK(Object obj) {
+            this.nvT.println(obj);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class CompositeExceptionCausalChain extends RuntimeException {
         static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
         private static final long serialVersionUID = 3875212506787802066L;

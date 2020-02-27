@@ -10,22 +10,22 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class i extends com.baidu.tbadk.core.dialog.a {
-    private EditText jTV;
+    private EditText jUQ;
     private LinearLayout mContentView;
 
     public i(final Activity activity) {
         super(activity);
         this.mContentView = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_visit_preview_server, (ViewGroup) null);
         aO(this.mContentView);
-        this.jTV = (EditText) this.mContentView.findViewById(R.id.et_visit_preview_server_dialog_pub_env_value);
+        this.jUQ = (EditText) this.mContentView.findViewById(R.id.et_visit_preview_server_dialog_pub_env_value);
         a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.setting.more.i.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                if (!aq.isEmpty(i.this.jTV.getText().toString())) {
+                if (!aq.isEmpty(i.this.jUQ.getText().toString())) {
                     TbSingleton.getInstance().setVisitPreviewServer(true);
-                    TbSingleton.getInstance().setPubEnvValue(i.this.jTV.getText().toString());
+                    TbSingleton.getInstance().setPubEnvValue(i.this.jUQ.getText().toString());
                     l.showToast(activity, (int) R.string.change_success);
                 }
                 i.this.dismiss();

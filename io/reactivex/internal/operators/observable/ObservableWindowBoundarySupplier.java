@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.internal.operators.observable.a<T, q<T>> {
     final int capacityHint;
     final Callable<? extends t<B>> other;
@@ -21,7 +21,7 @@ public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.i
         this.source.subscribe(new WindowBoundaryMainObserver(uVar, this.capacityHint, this.other));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WindowBoundaryMainObserver<T, B> extends AtomicInteger implements io.reactivex.disposables.b, u<T>, Runnable {
         static final a<Object, Object> BOUNDARY_DISPOSED = new a<>(null);
         static final Object NEXT_WINDOW = new Object();
@@ -190,7 +190,7 @@ public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.i
                                         uVar.onNext(b);
                                     }
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.I(th);
+                                    io.reactivex.exceptions.a.H(th);
                                     atomicThrowable.addThrowable(th);
                                     this.done = true;
                                 }
@@ -211,13 +211,13 @@ public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.i
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a<T, B> extends io.reactivex.observers.a<B> {
         boolean done;
-        final WindowBoundaryMainObserver<T, B> nxL;
+        final WindowBoundaryMainObserver<T, B> nyn;
 
         a(WindowBoundaryMainObserver<T, B> windowBoundaryMainObserver) {
-            this.nxL = windowBoundaryMainObserver;
+            this.nyn = windowBoundaryMainObserver;
         }
 
         @Override // io.reactivex.u
@@ -225,7 +225,7 @@ public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.i
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.nxL.innerNext(this);
+                this.nyn.innerNext(this);
             }
         }
 
@@ -236,14 +236,14 @@ public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.i
                 return;
             }
             this.done = true;
-            this.nxL.innerError(th);
+            this.nyn.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.nxL.innerComplete();
+                this.nyn.innerComplete();
             }
         }
     }

@@ -5,26 +5,26 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.live.r.a;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class PriorityVerticalLinearLayout extends LinearLayout {
-    private int aAx;
+    private int aEN;
 
     public PriorityVerticalLinearLayout(Context context) {
         super(context);
-        this.aAx = -1;
+        this.aEN = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aAx = -1;
+        this.aEN = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aAx = -1;
+        this.aEN = -1;
         setOrientation(1);
     }
 
@@ -33,11 +33,19 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
         int V = V(view);
         if (V >= 0) {
             super.addView(view, V, layoutParams);
-            if (this.aAx >= 0) {
+            if (this.aEN >= 0) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view.getLayoutParams();
                 if (layoutParams2 != null) {
-                    layoutParams2.topMargin = this.aAx;
-                    layoutParams2.bottomMargin = 0;
+                    int i2 = -1;
+                    if (view.getTag(a.g.sdk_pvl_layout_priority_tag_key) instanceof Integer) {
+                        i2 = ((Integer) view.getTag(a.g.sdk_pvl_layout_priority_tag_key)).intValue();
+                    }
+                    if (i2 == 20) {
+                        layoutParams2.bottomMargin = 0;
+                    } else {
+                        layoutParams2.bottomMargin = this.aEN;
+                    }
+                    layoutParams2.topMargin = 0;
                 }
                 view.setLayoutParams(layoutParams2);
             }
@@ -45,7 +53,7 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.aAx = i;
+        this.aEN = i;
     }
 
     private int V(View view) {

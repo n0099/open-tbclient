@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.media.videoplayer;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class c {
     public static boolean bs(View view) {
         if (view != null && view.getParent() != null && (view.getParent() instanceof ViewGroup)) {

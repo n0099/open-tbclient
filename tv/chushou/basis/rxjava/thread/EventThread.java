@@ -2,7 +2,7 @@ package tv.chushou.basis.rxjava.thread;
 
 import io.reactivex.a.b.a;
 import io.reactivex.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum EventThread {
     MAIN_THREAD,
     NEW_THREAD,
@@ -16,23 +16,23 @@ public enum EventThread {
     public static v getScheduler(EventThread eventThread) {
         switch (eventThread) {
             case MAIN_THREAD:
-                return a.dHZ();
+                return a.dJg();
             case NEW_THREAD:
-                return io.reactivex.f.a.dIF();
+                return io.reactivex.f.a.dJM();
             case IO:
-                return io.reactivex.f.a.dID();
+                return io.reactivex.f.a.dJK();
             case COMPUTATION:
-                return io.reactivex.f.a.dIC();
+                return io.reactivex.f.a.dJJ();
             case TRAMPOLINE:
-                return io.reactivex.f.a.dIE();
+                return io.reactivex.f.a.dJL();
             case SINGLE:
-                return io.reactivex.f.a.dIG();
+                return io.reactivex.f.a.dJN();
             case EXECUTOR:
                 return io.reactivex.f.a.a(ThreadHandler.DEFAULT.getExecutor());
             case HANDLER:
                 return a.a(ThreadHandler.DEFAULT.getHandler().getLooper());
             default:
-                return a.dHZ();
+                return a.dJg();
         }
     }
 }

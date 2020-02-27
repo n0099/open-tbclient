@@ -3,38 +3,38 @@ package com.google.android.exoplayer2.extractor.b;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.google.android.exoplayer2.extractor.b.b;
 import com.google.android.exoplayer2.util.v;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class a implements b.a {
     private final int bitrate;
-    private final long lYV;
-    private final long mfS;
+    private final long lZB;
+    private final long mgy;
 
     public a(long j, int i, long j2) {
-        this.mfS = j;
+        this.mgy = j;
         this.bitrate = i;
-        this.lYV = j2 == -1 ? -9223372036854775807L : fP(j2);
+        this.lZB = j2 == -1 ? -9223372036854775807L : fN(j2);
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public boolean dtD() {
-        return this.lYV != -9223372036854775807L;
+    public boolean duO() {
+        return this.lZB != -9223372036854775807L;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long fN(long j) {
-        if (this.lYV == -9223372036854775807L) {
+    public long fL(long j) {
+        if (this.lZB == -9223372036854775807L) {
             return 0L;
         }
-        return this.mfS + ((v.g(j, 0L, this.lYV) * this.bitrate) / 8000000);
+        return this.mgy + ((v.h(j, 0L, this.lZB) * this.bitrate) / 8000000);
     }
 
     @Override // com.google.android.exoplayer2.extractor.b.b.a
-    public long fP(long j) {
-        return ((Math.max(0L, j - this.mfS) * TimeUtils.NANOS_PER_MS) * 8) / this.bitrate;
+    public long fN(long j) {
+        return ((Math.max(0L, j - this.mgy) * TimeUtils.NANOS_PER_MS) * 8) / this.bitrate;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long dsq() {
-        return this.lYV;
+    public long getDurationUs() {
+        return this.lZB;
     }
 }

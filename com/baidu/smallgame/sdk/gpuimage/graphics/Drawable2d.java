@@ -1,9 +1,9 @@
 package com.baidu.smallgame.sdk.gpuimage.graphics;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Drawable2d {
-    private Prefab aUT;
+    private Prefab aZf;
     private static final float[] TRIANGLE_COORDS = {0.0f, 0.57735026f, -0.5f, -0.28867513f, 0.5f, -0.28867513f};
     private static final float[] TRIANGLE_TEX_COORDS = {0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
     private static final FloatBuffer TRIANGLE_BUF = a.createFloatBuffer(TRIANGLE_COORDS);
@@ -13,15 +13,15 @@ public class Drawable2d {
     private static final FloatBuffer RECTANGLE_BUF = a.createFloatBuffer(RECTANGLE_COORDS);
     private static final FloatBuffer RECTANGLE_TEX_BUF = a.createFloatBuffer(RECTANGLE_TEX_COORDS);
     private static final float[] FULL_RECTANGLE_COORDS = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] aUP = {1.0f, -1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f};
+    private static final float[] aZb = {1.0f, -1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f};
     private static final float[] FULL_RECTANGLE_TEX_COORDS = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] aUQ = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+    private static final float[] aZc = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
     public static final FloatBuffer FULL_RECTANGLE_BUF = a.createFloatBuffer(FULL_RECTANGLE_COORDS);
-    public static final FloatBuffer aUR = a.createFloatBuffer(aUP);
+    public static final FloatBuffer aZd = a.createFloatBuffer(aZb);
     public static final FloatBuffer FULL_RECTANGLE_TEX_BUF = a.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
-    public static final FloatBuffer aUS = a.createFloatBuffer(aUQ);
+    public static final FloatBuffer aZe = a.createFloatBuffer(aZc);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,
@@ -30,6 +30,6 @@ public class Drawable2d {
     }
 
     public String toString() {
-        return this.aUT != null ? "[Drawable2d: " + this.aUT + "]" : "[Drawable2d: ...]";
+        return this.aZf != null ? "[Drawable2d: " + this.aZf + "]" : "[Drawable2d: ...]";
     }
 }

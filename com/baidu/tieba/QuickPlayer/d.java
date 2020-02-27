@@ -10,81 +10,81 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class d {
-    private static d dQJ;
-    private IQuickMediaPlayerService dQL;
-    private Set<b> dQN;
-    private Set<b> dQO;
-    private Set<b> dQP;
-    private boolean dQQ;
-    private a dQR;
+    private static d dUO;
+    private IQuickMediaPlayerService dUQ;
+    private Set<b> dUS;
+    private Set<b> dUT;
+    private Set<b> dUU;
+    private boolean dUV;
+    private a dUW;
     private Context mContext = TbadkCoreApplication.getInst();
-    private boolean dQK = false;
-    private boolean dQM = false;
+    private boolean dUP = false;
+    private boolean dUR = false;
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.QuickPlayer.d.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            d.this.dQK = true;
-            com.baidu.adp.lib.f.e.gx().removeCallbacks(d.this.dQS);
-            d.this.dQL = IQuickMediaPlayerService.Stub.asInterface(iBinder);
-            if (d.this.dQM) {
-                d.this.dQM = false;
-                d.this.aUi();
+            d.this.dUP = true;
+            com.baidu.adp.lib.f.e.gx().removeCallbacks(d.this.dUX);
+            d.this.dUQ = IQuickMediaPlayerService.Stub.asInterface(iBinder);
+            if (d.this.dUR) {
+                d.this.dUR = false;
+                d.this.aWy();
             }
-            if (d.this.dQR != null) {
-                d.this.dQR.a(d.this.dQL);
+            if (d.this.dUW != null) {
+                d.this.dUW.a(d.this.dUQ);
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            d.this.dQK = false;
-            d.this.dQM = true;
-            com.baidu.adp.lib.f.e.gx().postDelayed(d.this.dQS, 1000L);
+            d.this.dUP = false;
+            d.this.dUR = true;
+            com.baidu.adp.lib.f.e.gx().postDelayed(d.this.dUX, 1000L);
         }
     };
-    private Runnable dQS = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
+    private Runnable dUX = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.this.dQK) {
-                d.this.aUh();
-                com.baidu.adp.lib.f.e.gx().postDelayed(d.this.dQS, 1000L);
+            if (!d.this.dUP) {
+                d.this.aWx();
+                com.baidu.adp.lib.f.e.gx().postDelayed(d.this.dUX, 1000L);
             }
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a(IQuickMediaPlayerService iQuickMediaPlayerService);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface b {
-        void aUj();
+        void aWz();
     }
 
     private d() {
-        aUh();
-        com.baidu.adp.lib.f.e.gx().postDelayed(this.dQS, 1000L);
-        this.dQN = new HashSet();
-        this.dQO = new HashSet();
-        this.dQP = new HashSet();
+        aWx();
+        com.baidu.adp.lib.f.e.gx().postDelayed(this.dUX, 1000L);
+        this.dUS = new HashSet();
+        this.dUT = new HashSet();
+        this.dUU = new HashSet();
     }
 
-    public static d aUg() {
-        if (dQJ == null) {
+    public static d aWw() {
+        if (dUO == null) {
             synchronized (d.class) {
-                if (dQJ == null) {
-                    dQJ = new d();
+                if (dUO == null) {
+                    dUO = new d();
                 }
             }
         }
-        return dQJ;
+        return dUO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUh() {
+    public void aWx() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -93,50 +93,50 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUi() {
-        this.dQQ = true;
-        for (b bVar : this.dQN) {
+    public void aWy() {
+        this.dUV = true;
+        for (b bVar : this.dUS) {
             if (bVar != null) {
-                bVar.aUj();
+                bVar.aWz();
             }
         }
-        this.dQQ = false;
-        this.dQN.addAll(this.dQP);
-        this.dQP.clear();
-        this.dQN.removeAll(this.dQO);
-        this.dQO.clear();
+        this.dUV = false;
+        this.dUS.addAll(this.dUU);
+        this.dUU.clear();
+        this.dUS.removeAll(this.dUT);
+        this.dUT.clear();
     }
 
     public IQuickMediaPlayer createPlayer() {
-        if (this.dQK && this.dQL != null) {
+        if (this.dUP && this.dUQ != null) {
             try {
-                return this.dQL.createPlayer();
+                return this.dUQ.createPlayer();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
         } else {
-            com.baidu.adp.lib.f.e.gx().postDelayed(this.dQS, 1000L);
+            com.baidu.adp.lib.f.e.gx().postDelayed(this.dUX, 1000L);
         }
         return null;
     }
 
     public void a(a aVar) {
-        this.dQR = aVar;
+        this.dUW = aVar;
     }
 
     public void a(b bVar) {
-        if (this.dQQ) {
-            this.dQP.add(bVar);
+        if (this.dUV) {
+            this.dUU.add(bVar);
         } else {
-            this.dQN.add(bVar);
+            this.dUS.add(bVar);
         }
     }
 
     public void b(b bVar) {
-        if (this.dQQ) {
-            this.dQP.remove(bVar);
+        if (this.dUV) {
+            this.dUU.remove(bVar);
         } else {
-            this.dQN.remove(bVar);
+            this.dUS.remove(bVar);
         }
     }
 }

@@ -2,7 +2,8 @@ package kotlin.io;
 
 import java.io.File;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static final String b(File file, File file2, String str) {

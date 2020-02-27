@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils;
 
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class p implements Runnable {
     final /* synthetic */ HttpHashMapWrap a;
 

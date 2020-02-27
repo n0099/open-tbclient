@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes;
 
+import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.mobstat.Config;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -18,14 +19,14 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_5 = null;
     protected int algorithmId;
     List<CencSampleAuxiliaryDataFormat> entries;
     protected int ivSize;
@@ -42,7 +43,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "java.util.List", "entries", "", "void"), 96);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "java.lang.Object", Config.OS, "", "boolean"), 164);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "hashCode", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "int"), 191);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getEntrySizes", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), 199);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getEntrySizes", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), Opcodes.IFNONNULL);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

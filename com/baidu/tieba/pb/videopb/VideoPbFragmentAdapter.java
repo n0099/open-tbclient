@@ -10,33 +10,33 @@ import com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment;
 import com.baidu.tieba.pb.videopb.fragment.ReplyFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
-    private List<String> iXz;
+    private List<String> iYZ;
     private ArrayList<BaseFragment> mFragments;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.iXz == null) {
-            this.iXz = new ArrayList();
+        if (this.iYZ == null) {
+            this.iYZ = new ArrayList();
         }
-        this.iXz.clear();
-        this.iXz.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-        this.iXz.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.iYZ.clear();
+        this.iYZ.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+        this.iYZ.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
         }
         this.mFragments.clear();
-        this.mFragments.add(DetailInfoFragment.S(videoPbFragment));
-        this.mFragments.add(ReplyFragment.T(videoPbFragment));
+        this.mFragments.add(DetailInfoFragment.ab(videoPbFragment));
+        this.mFragments.add(ReplyFragment.ac(videoPbFragment));
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return zq(i);
+        return zw(i);
     }
 
-    public BaseFragment zq(int i) {
+    public BaseFragment zw(int i) {
         if (this.mFragments == null || i >= this.mFragments.size()) {
             return null;
         }
@@ -53,13 +53,25 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.iXz == null || i < 0 || i >= this.iXz.size()) {
+        if (this.iYZ == null || i < 0 || i >= this.iYZ.size()) {
             return null;
         }
-        return this.iXz.get(i);
+        return this.iYZ.get(i);
     }
 
-    public ArrayList<BaseFragment> crI() {
+    public ArrayList<BaseFragment> ctb() {
         return this.mFragments;
+    }
+
+    public void zx(int i) {
+        if (this.mFragments != null) {
+            int i2 = 0;
+            while (i2 < this.mFragments.size()) {
+                if (this.mFragments.get(i2) != null) {
+                    this.mFragments.get(i2).setPrimary(i2 == i);
+                }
+                i2++;
+            }
+        }
     }
 }

@@ -8,12 +8,12 @@ import com.xiaomi.push.be;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b implements IPerfProcessor {
     protected Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f21a;
+    private HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f18a;
 
     public b(Context context) {
         this.a = context;
@@ -55,7 +55,7 @@ public class b implements IPerfProcessor {
                 break;
             }
             str = b + i2;
-            if (be.m154a(this.a, str)) {
+            if (be.m159a(this.a, str)) {
                 break;
             }
             i = i2 + 1;
@@ -66,11 +66,11 @@ public class b implements IPerfProcessor {
     @Override // com.xiaomi.clientreport.processor.c
     public void a() {
         be.a(this.a, PerformerBox.TYPE, "perfUploading");
-        File[] m155a = be.m155a(this.a, "perfUploading");
-        if (m155a == null || m155a.length <= 0) {
+        File[] m160a = be.m160a(this.a, "perfUploading");
+        if (m160a == null || m160a.length <= 0) {
             return;
         }
-        for (File file : m155a) {
+        for (File file : m160a) {
             if (file != null) {
                 List<String> a = e.a(this.a, file.getAbsolutePath());
                 file.delete();
@@ -81,12 +81,12 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo47a(com.xiaomi.clientreport.data.a aVar) {
-        if ((aVar instanceof PerfClientReport) && this.f21a != null) {
+    public void mo52a(com.xiaomi.clientreport.data.a aVar) {
+        if ((aVar instanceof PerfClientReport) && this.f18a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) perfClientReport);
             String a2 = e.a(perfClientReport);
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f21a.get(a);
+            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f18a.get(a);
             HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = hashMap == null ? new HashMap<>() : hashMap;
             PerfClientReport perfClientReport2 = (PerfClientReport) hashMap2.get(a2);
             if (perfClientReport2 != null) {
@@ -94,7 +94,7 @@ public class b implements IPerfProcessor {
                 perfClientReport.perfLatencies += perfClientReport2.perfLatencies;
             }
             hashMap2.put(a2, perfClientReport);
-            this.f21a.put(a, hashMap2);
+            this.f18a.put(a, hashMap2);
         }
     }
 
@@ -112,12 +112,12 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     public void b() {
-        if (this.f21a == null) {
+        if (this.f18a == null) {
             return;
         }
-        if (this.f21a.size() > 0) {
-            for (String str : this.f21a.keySet()) {
-                HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f21a.get(str);
+        if (this.f18a.size() > 0) {
+            for (String str : this.f18a.keySet()) {
+                HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f18a.get(str);
                 if (hashMap != null && hashMap.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[hashMap.size()];
                     hashMap.values().toArray(aVarArr);
@@ -125,11 +125,11 @@ public class b implements IPerfProcessor {
                 }
             }
         }
-        this.f21a.clear();
+        this.f18a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IPerfProcessor
     public void setPerfMap(HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap) {
-        this.f21a = hashMap;
+        this.f18a = hashMap;
     }
 }

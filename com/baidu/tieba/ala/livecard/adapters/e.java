@@ -14,16 +14,16 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.g;
 import com.baidu.tieba.frs.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends h<bi, a> implements com.baidu.tieba.a.f, x {
-    private String Lg;
-    private com.baidu.tieba.ala.livecard.b.c eJg;
-    private z<bj> eJh;
+    private String LC;
+    private com.baidu.tieba.ala.livecard.b.c eNa;
+    private z<bj> eNb;
     private String mForumName;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.eJh = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.e.1
+        this.eNb = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
@@ -46,15 +46,15 @@ public class e extends h<bi, a> implements com.baidu.tieba.a.f, x {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ab */
+    /* renamed from: ad */
     public a b(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.eJg = new com.baidu.tieba.ala.livecard.b.c(this.mPageContext, this.mPageId);
-        this.eJg.setForumName(this.mForumName);
-        this.eJg.c(this.eJh);
-        return new a(this.eJg);
+        this.eNa = new com.baidu.tieba.ala.livecard.b.c(this.mPageContext, this.mPageId);
+        this.eNa.setForumName(this.mForumName);
+        this.eNa.c(this.eNb);
+        return new a(this.eNa);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,21 +63,21 @@ public class e extends h<bi, a> implements com.baidu.tieba.a.f, x {
     public View a(int i, View view, ViewGroup viewGroup, bi biVar, a aVar) {
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
         int i2 = 0;
-        if (this.glJ != null) {
-            i2 = this.glJ.getTopThreadSize();
+        if (this.gnK != null) {
+            i2 = this.gnK.getTopThreadSize();
         }
-        biVar.cNb.cLB = (biVar.position + 1) - i2;
-        customMessage.setData(biVar.cNb);
+        biVar.cRe.cPE = (biVar.position + 1) - i2;
+        customMessage.setData(biVar.cRe);
         this.mPageContext.sendMessage(customMessage);
         if (biVar != null) {
-            if (aVar.eJj instanceof com.baidu.tieba.a.e) {
-                aVar.eJj.setPage(this.Lg);
+            if (aVar.eNd instanceof com.baidu.tieba.a.e) {
+                aVar.eNd.setPage(this.LC);
             }
-            aVar.eJj.setForumName(this.mForumName);
-            g.a(aVar.eJj.beN(), this.glJ);
-            g.a(aVar.eJj.beO(), this.glJ);
-            aVar.eJj.a(biVar.cNb);
-            biVar.cNb.aBh();
+            aVar.eNd.setForumName(this.mForumName);
+            g.a(aVar.eNd.bgX(), this.gnK);
+            g.a(aVar.eNd.bgY(), this.gnK);
+            aVar.eNd.a(biVar.cRe);
+            biVar.cRe.aDu();
         }
         return aVar.getView();
     }
@@ -88,21 +88,21 @@ public class e extends h<bi, a> implements com.baidu.tieba.a.f, x {
     }
 
     @Override // com.baidu.tieba.card.x
-    public void po(int i) {
+    public void pz(int i) {
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wu(String str) {
-        this.Lg = str;
+    public void wO(String str) {
+        this.LC = str;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public com.baidu.tieba.ala.livecard.b.c eJj;
+        public com.baidu.tieba.ala.livecard.b.c eNd;
 
         public a(com.baidu.tieba.ala.livecard.b.c cVar) {
             super(cVar.getView());
-            this.eJj = cVar;
+            this.eNd = cVar;
         }
     }
 }

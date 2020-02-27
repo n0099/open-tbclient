@@ -12,7 +12,7 @@ import com.baidu.tbadk.util.w;
 import com.kascend.cstvsdk.CSTVSdk;
 import com.kascend.cstvsdk.SdkConfig;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChushouSdkInit {
     public static final void testInit(Application application) {
         SdkConfig sdkConfig = new SdkConfig();
@@ -56,9 +56,9 @@ public class ChushouSdkInit {
             hashMap.put("from", from);
         }
         hashMap.put("net_type", String.valueOf(j.netType()));
-        String aPS = w.aPS();
-        if (!TextUtils.isEmpty(aPS)) {
-            hashMap.put("oaid", aPS);
+        String aSj = w.aSj();
+        if (!TextUtils.isEmpty(aSj)) {
+            hashMap.put("oaid", aSj);
         }
         hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
         hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());

@@ -8,11 +8,11 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class AlaListEmptyView extends LinearLayout {
-    private ImageView azW;
-    private TextView azX;
+    private ImageView aEm;
+    private TextView aEn;
 
     public AlaListEmptyView(@NonNull Context context) {
         super(context);
@@ -31,31 +31,31 @@ public class AlaListEmptyView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.sdk_list_empty_view_layout, this);
-        this.azW = (ImageView) findViewById(a.g.ala_empty_view_img);
-        this.azX = (TextView) findViewById(a.g.ala_empty_view_text);
+        this.aEm = (ImageView) findViewById(a.g.ala_empty_view_img);
+        this.aEn = (TextView) findViewById(a.g.ala_empty_view_text);
     }
 
     public void setParams(int i, int i2) {
         if (i <= 0) {
-            this.azW.setVisibility(8);
+            this.aEm.setVisibility(8);
         } else {
-            this.azW.setVisibility(0);
-            this.azW.setImageResource(i);
+            this.aEm.setVisibility(0);
+            this.aEm.setImageResource(i);
         }
         if (i2 <= 0) {
-            this.azX.setVisibility(8);
+            this.aEn.setVisibility(8);
             return;
         }
-        this.azX.setVisibility(0);
-        this.azX.setText(i2);
+        this.aEn.setVisibility(0);
+        this.aEn.setText(i2);
     }
 
     public void setImageRes(int i) {
         if (i <= 0) {
-            this.azW.setVisibility(8);
+            this.aEm.setVisibility(8);
             return;
         }
-        this.azW.setVisibility(0);
-        this.azW.setImageResource(i);
+        this.aEm.setVisibility(0);
+        this.aEm.setImageResource(i);
     }
 }

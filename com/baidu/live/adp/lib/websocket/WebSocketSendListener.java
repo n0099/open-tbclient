@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.websocket;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface WebSocketSendListener {
     public static final int ERROR_GEN_DATA = 2;
     public static final int ERROR_SEND = 1;

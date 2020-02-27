@@ -19,7 +19,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class License {
     private static final int LICENSE_AG_ID = -1;
     private static final String LICENSE_DATA_DIR_NAME = "license";

@@ -26,26 +26,26 @@ import com.baidu.swan.bdprivate.a.l;
 import com.baidu.swan.bdprivate.a.y;
 import com.baidu.swan.bdprivate.a.z;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class c implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.aXo().a(context, bundle, aVar);
+        a.aZD().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.aXo().isLogin();
+        return a.aZD().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.aXo().getBduss();
+        return a.aZD().getBduss();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.aXo().getUid();
+        return a.aZD().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -63,16 +63,16 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public z da(Context context) {
+    public z de(Context context) {
         z zVar = new z();
-        zVar.displayName = a.aXo().getDisplayName();
-        zVar.bXf = a.aXo().aXq();
+        zVar.displayName = a.aZD().getDisplayName();
+        zVar.aqo = a.aZD().aZF();
         return zVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.aXo().a(cVar);
+        a.aZD().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -129,8 +129,8 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public String cX(Context context) {
-        return h.adb().getString("bd_box_ptoken", "");
+    public String db(Context context) {
+        return h.afp().getString("bd_box_ptoken", "");
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a

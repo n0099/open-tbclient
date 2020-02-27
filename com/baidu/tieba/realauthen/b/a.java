@@ -5,11 +5,11 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.u.a;
 import java.lang.reflect.Field;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a(EditText editText, InputFilter[] inputFilterArr) {
         if (editText != null) {

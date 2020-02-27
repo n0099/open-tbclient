@@ -7,45 +7,45 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     private static final String BAWU_LIST_REASON = TbConfig.SERVER_ADDRESS + Config.BAWU_LIST_REASON;
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0564b {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0571b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0564b interfaceC0564b) {
-        new a(str, str2, interfaceC0564b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0571b interfaceC0571b) {
+        new a(str, str2, interfaceC0571b).execute(new String[0]);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String iyc;
-        private String iyd;
-        private InterfaceC0564b iye;
+        private String izX;
+        private String izY;
+        private InterfaceC0571b izZ;
 
-        public a(String str, String str2, InterfaceC0564b interfaceC0564b) {
-            this.iyc = str;
-            this.iyd = str2;
-            this.iye = interfaceC0564b;
+        public a(String str, String str2, InterfaceC0571b interfaceC0571b) {
+            this.izX = str;
+            this.izY = str2;
+            this.izZ = interfaceC0571b;
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: L */
+        /* renamed from: M */
         public ForbidTplData doInBackground(String... strArr) {
             x xVar = new x(b.BAWU_LIST_REASON);
-            xVar.addPostData("forum_id", this.iyc);
-            xVar.addPostData("user_id", this.iyd);
+            xVar.addPostData("forum_id", this.izX);
+            xVar.addPostData("user_id", this.izY);
             String postNetData = xVar.postNetData();
-            if (xVar.aDU().aEv().isRequestSuccess()) {
+            if (xVar.aGe().aGG().isRequestSuccess()) {
                 try {
                     return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
                 } catch (Exception e) {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.iye != null) {
+            if (this.izZ != null) {
                 if (forbidTplData.error.errno == 0 && aq.isEmpty(forbidTplData.error.errMsg)) {
-                    this.iye.a(forbidTplData);
+                    this.izZ.a(forbidTplData);
                 } else {
-                    this.iye.b(forbidTplData);
+                    this.izZ.b(forbidTplData);
                 }
             }
         }

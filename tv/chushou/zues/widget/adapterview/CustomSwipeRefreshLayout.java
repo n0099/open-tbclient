@@ -3,13 +3,13 @@ package tv.chushou.zues.widget.adapterview;
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CustomSwipeRefreshLayout extends SwipeRefreshLayout {
-    private a nWh;
+    private a nWW;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        boolean dPi();
+        boolean dQv();
     }
 
     public CustomSwipeRefreshLayout(Context context) {
@@ -21,11 +21,11 @@ public class CustomSwipeRefreshLayout extends SwipeRefreshLayout {
     }
 
     public void setCanChildScrollUpCallback(a aVar) {
-        this.nWh = aVar;
+        this.nWW = aVar;
     }
 
     @Override // android.support.v4.widget.SwipeRefreshLayout
     public boolean canChildScrollUp() {
-        return this.nWh != null ? this.nWh.dPi() : super.canChildScrollUp();
+        return this.nWW != null ? this.nWW.dQv() : super.canChildScrollUp();
     }
 }

@@ -4,16 +4,16 @@ import android.util.SparseArray;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final SparseArray<Integer> dZU = new SparseArray<>(32);
-    private static final SparseArray<String> dZV = new SparseArray<>();
+    private static final SparseArray<Integer> edX = new SparseArray<>(32);
+    private static final SparseArray<String> edY = new SparseArray<>();
 
     static {
-        dZV.put(-2022, "MEDIA_ERR_NETWORK");
-        dZV.put(CyberPlayerManager.MEDIA_ERROR_OPEN_VIDEO_FAIL, "MEDIA_ERR_NETWORK");
-        dZV.put(3005, "MEDIA_ERR_NETWORK");
+        edY.put(-2022, "MEDIA_ERR_NETWORK");
+        edY.put(CyberPlayerManager.MEDIA_ERROR_OPEN_VIDEO_FAIL, "MEDIA_ERR_NETWORK");
+        edY.put(3005, "MEDIA_ERR_NETWORK");
     }
 
     private static JSONObject r(String str, Object obj) {
@@ -29,11 +29,11 @@ public final class b {
         return jSONObject;
     }
 
-    public static JSONObject nZ(int i) {
-        return r("errMsg", oa(i));
+    public static JSONObject oq(int i) {
+        return r("errMsg", or(i));
     }
 
-    private static String oa(int i) {
-        return dZV.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
+    private static String or(int i) {
+        return edY.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
     }
 }

@@ -5,14 +5,14 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.FrameLayout;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private ArrayList<a> coV = new ArrayList<>();
-    private FrameLayout coW;
-    private boolean coX;
+    private ArrayList<a> csW = new ArrayList<>();
+    private FrameLayout csX;
+    private boolean csY;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.coW = frameLayout;
+        this.csX = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar) {
@@ -22,7 +22,7 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.coW.addView(view, layoutParams);
+        this.csX.addView(view, layoutParams);
         return true;
     }
 
@@ -30,7 +30,7 @@ public class d {
         if (!ax(view)) {
             return false;
         }
-        this.coW.removeView(view);
+        this.csX.removeView(view);
         return true;
     }
 
@@ -41,84 +41,84 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.coW.updateViewLayout(view, layoutParams);
+        this.csX.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.coX;
+        return this.csY;
     }
 
-    public void eC(boolean z) {
-        this.coX = z;
+    public void eJ(boolean z) {
+        this.csY = z;
     }
 
     public boolean ax(View view) {
-        return view != null && view.getParent() == this.coW && this.coW.indexOfChild(view) >= 0;
+        return view != null && view.getParent() == this.csX && this.csX.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.coW.getContext();
+        return this.csX.getContext();
     }
 
-    public FrameLayout aoc() {
-        return this.coW;
+    public FrameLayout aqq() {
+        return this.csX;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (!this.coV.contains(aVar)) {
-                this.coV.add(aVar);
+            if (!this.csW.contains(aVar)) {
+                this.csW.add(aVar);
             }
         }
     }
 
     public synchronized void b(a aVar) {
         if (aVar != null) {
-            this.coV.remove(aVar);
+            this.csW.remove(aVar);
         }
     }
 
-    private synchronized a[] aod() {
+    private synchronized a[] aqr() {
         a[] aVarArr;
-        if (this.coV.isEmpty()) {
+        if (this.csW.isEmpty()) {
             aVarArr = null;
         } else {
-            aVarArr = new a[this.coV.size()];
-            this.coV.toArray(aVarArr);
+            aVarArr = new a[this.csW.size()];
+            this.csW.toArray(aVarArr);
         }
         return aVarArr;
     }
 
-    private synchronized void aoe() {
-        this.coV.clear();
+    private synchronized void aqs() {
+        this.csW.clear();
     }
 
-    public void aof() {
-        a[] aod = aod();
-        if (aod != null) {
-            for (a aVar : aod) {
-                aVar.aiy();
+    public void aqt() {
+        a[] aqr = aqr();
+        if (aqr != null) {
+            for (a aVar : aqr) {
+                aVar.akM();
             }
         }
     }
 
-    public void aog() {
-        a[] aod = aod();
-        if (aod != null) {
-            for (a aVar : aod) {
-                aVar.aiz();
+    public void aqu() {
+        a[] aqr = aqr();
+        if (aqr != null) {
+            for (a aVar : aqr) {
+                aVar.akN();
             }
         }
     }
 
-    public void aoh() {
-        a[] aod = aod();
-        if (aod != null) {
-            for (a aVar : aod) {
+    public void aqv() {
+        a[] aqr = aqr();
+        if (aqr != null) {
+            for (a aVar : aqr) {
                 aVar.onViewDestroy();
             }
         }
-        aoe();
+        aqs();
     }
 }

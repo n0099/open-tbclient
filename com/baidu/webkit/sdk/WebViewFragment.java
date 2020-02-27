@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WebViewFragment extends Fragment {
     private boolean mIsWebViewAvailable;
     private WebView mWebView;

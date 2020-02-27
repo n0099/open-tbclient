@@ -5,7 +5,7 @@ import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.push.bd;
 import java.util.concurrent.ExecutorService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b implements Runnable {
     final /* synthetic */ a a;
 
@@ -19,10 +19,10 @@ public class b implements Runnable {
         Context context;
         IEventProcessor iEventProcessor;
         ExecutorService executorService;
-        context = this.a.f12a;
-        iEventProcessor = this.a.f14a;
+        context = this.a.f9a;
+        iEventProcessor = this.a.f11a;
         bd bdVar = new bd(context, iEventProcessor);
-        executorService = this.a.f17a;
+        executorService = this.a.f14a;
         executorService.execute(bdVar);
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.fsg.base.router.RouterManager;
 import com.baidu.fsg.face.liveness.SapiLivenessRecogManager;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LivenessApplicationLogic extends BaseApplicationLogic {
     public static final String actionName_liveness_recognize = "startLivenessRecognize";
     public static final String providerName = "LivenessProvider";

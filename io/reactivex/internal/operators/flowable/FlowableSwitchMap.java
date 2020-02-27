@@ -10,7 +10,7 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSwitchMap<T, R> extends a<T, R> {
     final int bufferSize;
     final boolean delayErrors;
@@ -18,13 +18,13 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!g.a(this.nvP, cVar, this.mapper)) {
-            this.nvP.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
+        if (!g.a(this.nwr, cVar, this.mapper)) {
+            this.nwr.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SwitchMapSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
         static final SwitchMapInnerSubscriber<Object, Object> CANCELLED = new SwitchMapInnerSubscriber<>(null, -1, 1);
         private static final long serialVersionUID = -3491074160481096299L;
@@ -80,7 +80,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                     } while (!this.active.compareAndSet(switchMapInnerSubscriber, switchMapInnerSubscriber3));
                     bVar.subscribe(switchMapInnerSubscriber3);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.exceptions.a.H(th);
                     this.s.cancel();
                     onError(th);
                 }
@@ -219,7 +219,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                                     obj = gVar.poll();
                                     z2 = z3;
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.I(th);
+                                    io.reactivex.exceptions.a.H(th);
                                     switchMapInnerSubscriber.cancel();
                                     this.error.addThrowable(th);
                                     obj = null;
@@ -270,7 +270,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SwitchMapInnerSubscriber<T, R> extends AtomicReference<org.a.d> implements j<R> {
         private static final long serialVersionUID = 3837284832786408377L;
         final int bufferSize;

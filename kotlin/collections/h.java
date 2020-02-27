@@ -1,4 +1,5 @@
 package kotlin.collections;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 class h extends g {
 }

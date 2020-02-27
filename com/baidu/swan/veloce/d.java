@@ -11,69 +11,69 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.veloce.VeloceIpcResult;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static boolean cBR = false;
-    private static boolean cBS = false;
-    private static String cBT = "";
-    private static String cBU = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> cBV = new HashMap<>();
+    private static boolean cFP = false;
+    private static boolean cFQ = false;
+    private static String cFR = "";
+    private static String cFS = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> cFT = new HashMap<>();
 
-    public static boolean auc() {
-        if (ProcessUtils.isMainProcess() && cBS) {
-            return cBR;
+    public static boolean awq() {
+        if (ProcessUtils.isMainProcess() && cFQ) {
+            return cFP;
         }
         DelegateResult h = h("veloce_is_veloce", null);
         if (h != null && h.isOk()) {
-            cBS = true;
-            cBR = h.mResult.getBoolean("is_veloce", false);
+            cFQ = true;
+            cFP = h.mResult.getBoolean("is_veloce", false);
         }
-        return cBR;
+        return cFP;
     }
 
-    public static String aud() {
-        if (TextUtils.isEmpty(cBT)) {
-            aue();
+    public static String awr() {
+        if (TextUtils.isEmpty(cFR)) {
+            aws();
         }
-        return cBT;
+        return cFR;
     }
 
-    private static Bundle aue() {
+    private static Bundle aws() {
         DelegateResult h = h("veloce_get_host_info", null);
         if (h == null || !h.isOk()) {
             return null;
         }
         Bundle bundle = h.mResult;
-        cBT = bundle.getString("host_package");
-        cBU = bundle.getString("host_version");
+        cFR = bundle.getString("host_package");
+        cFS = bundle.getString("host_version");
         return bundle;
     }
 
-    private static Bundle iK(int i) {
+    private static Bundle jb(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("result_code", i);
         return bundle;
     }
 
     public static synchronized Bundle g(String str, Bundle bundle) {
-        Bundle iK;
+        Bundle jb;
         synchronized (d.class) {
             if (TextUtils.isEmpty(str)) {
-                iK = null;
+                jb = null;
             } else {
-                List<VeloceIpcResult.a> list = cBV.get(str);
+                List<VeloceIpcResult.a> list = cFT.get(str);
                 if (list == null) {
-                    iK = null;
+                    jb = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.g(0, bundle));
                     }
-                    cBV.remove(list);
-                    iK = iK(0);
+                    cFT.remove(list);
+                    jb = jb(0);
                 }
             }
         }
-        return iK;
+        return jb;
     }
 
     public static DelegateResult h(@NonNull String str, @Nullable Bundle bundle) {

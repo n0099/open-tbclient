@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o {
     public static final String a = "t_open_login";
     public static final String b = "t_view_init_done";

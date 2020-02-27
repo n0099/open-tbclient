@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f extends com.baidu.platform.base.d {
     private LatLng a(JSONObject jSONObject, String str) {
         JSONArray optJSONArray = jSONObject.optJSONArray(str);

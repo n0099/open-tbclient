@@ -4,14 +4,14 @@ import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableCount<T> extends a<T, Long> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super Long> cVar) {
-        this.nvP.a((j) new CountSubscriber(cVar));
+        this.nwr.a((j) new CountSubscriber(cVar));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class CountSubscriber extends DeferredScalarSubscription<Long> implements j<Object> {
         private static final long serialVersionUID = 4973004223787171406L;
         long count;

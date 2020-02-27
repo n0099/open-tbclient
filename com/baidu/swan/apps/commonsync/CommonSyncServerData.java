@@ -6,13 +6,13 @@ import com.google.gson.a.c;
 import java.io.Serializable;
 import java.util.List;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CommonSyncServerData implements Serializable {
     @c("items")
     public List<MetaItemInfo> metaItems;
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class MetaItemInfo {
         @c(MetaBox.TYPE)
         public MetaData metaData;
@@ -22,7 +22,7 @@ public class CommonSyncServerData implements Serializable {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class MetaData {
         @c("logo_url")
         public String logoUrl;
@@ -40,7 +40,7 @@ public class CommonSyncServerData implements Serializable {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class PlatConf {
         @c("h5")
         public PlatH5 platH5;
@@ -50,7 +50,7 @@ public class CommonSyncServerData implements Serializable {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class PlatH5 {
         @c("url")
         public String url;
@@ -60,7 +60,7 @@ public class CommonSyncServerData implements Serializable {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class OtherData {
         @c("app_key")
         public String appKey;

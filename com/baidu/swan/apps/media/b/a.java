@@ -5,26 +5,26 @@ import com.baidu.ala.player.StreamConfig;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String bzr;
-    public int bzn = 60000;
-    public String bzo = "aac";
-    public int bzp = 1;
+    public String bDx;
+    public int bDu = 60000;
+    public String bDv = "aac";
+    public int channel = 1;
     public int sampleRate = 8000;
     public int bitRate = 16000;
-    public int bzq = 1;
+    public int bDw = 1;
 
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.bzn = jSONObject.optInt("duration", 60000);
-            aVar.bzo = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
-            if (TextUtils.isEmpty(aVar.bzo)) {
-                aVar.bzo = "aac";
+            aVar.bDu = jSONObject.optInt("duration", 60000);
+            aVar.bDv = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
+            if (TextUtils.isEmpty(aVar.bDv)) {
+                aVar.bDv = "aac";
             }
-            aVar.bzp = jSONObject.optInt("numberOfChannels", 1);
+            aVar.channel = jSONObject.optInt("numberOfChannels", 1);
             aVar.sampleRate = jSONObject.optInt("sampleRate", 8000);
             aVar.bitRate = jSONObject.optInt("encodeBitRate");
             if (aVar.bitRate == 0) {
@@ -40,26 +40,26 @@ public class a {
                         break;
                 }
             }
-            aVar.bzq = iZ(jSONObject.optString("audioSource", "auto"));
-            aVar.bzr = jSONObject.optString("cb");
+            aVar.bDw = jo(jSONObject.optString("audioSource", "auto"));
+            aVar.bDx = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject VC() {
-        if (this.bzn > 600000 || this.bzn < 0) {
+    public JSONObject XQ() {
+        if (this.bDu > 600000 || this.bDu < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
-        if (this.bzp != 1 && this.bzp != 2) {
+        if (this.channel != 1 && this.channel != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.bzo, "aac") && !TextUtils.equals(this.bzo, "pcm")) {
+        if (!TextUtils.equals(this.bDv, "aac") && !TextUtils.equals(this.bDv, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
         if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.bzo, "pcm")) {
+        if (!TextUtils.equals(this.bDv, "pcm")) {
             boolean z = false;
             switch (this.sampleRate) {
                 case 8000:
@@ -85,18 +85,18 @@ public class a {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
             }
         }
-        if (this.bzq < 0) {
+        if (this.bDw < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
         }
         return null;
     }
 
     public String toString() {
-        return "recordTime : " + this.bzn + "; channel : " + this.bzp + "; audioFormat : " + this.bzo + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.bzr;
+        return "recordTime : " + this.bDu + "; channel : " + this.channel + "; audioFormat : " + this.bDv + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.bDx;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static int iZ(String str) {
+    private static int jo(String str) {
         char c;
         switch (str.hashCode()) {
             case -401509030:

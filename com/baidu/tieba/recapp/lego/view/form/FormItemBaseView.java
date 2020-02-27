@@ -11,34 +11,34 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.view.form.FormCardView;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public abstract class FormItemBaseView extends RelativeLayout implements FormCardView.a {
-    protected float bcC;
-    protected Drawable jJA;
-    protected Drawable jJB;
-    protected int jJC;
-    protected int jJD;
-    protected int jJE;
-    protected int jJF;
-    protected int jJG;
-    protected int jJH;
-    protected int jJI;
-    protected int jJJ;
-    protected float jJK;
-    protected float jJL;
-    protected int jJM;
-    protected int jJN;
-    protected int jJO;
-    protected int jJP;
-    protected View jJQ;
-    protected float jJx;
+    protected float bgR;
+    protected int jKA;
+    protected int jKB;
+    protected int jKC;
+    protected int jKD;
+    protected int jKE;
+    protected int jKF;
+    protected float jKG;
+    protected float jKH;
+    protected int jKI;
+    protected int jKJ;
+    protected int jKK;
+    protected int jKL;
+    protected View jKM;
+    protected float jKt;
+    protected Drawable jKw;
+    protected Drawable jKx;
+    protected int jKy;
+    protected int jKz;
     protected Activity mActivity;
     protected Context mContext;
     protected Resources mResources;
     protected String mTag;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public enum DrawableType {
         ERROR_FRAME,
         ORDINARY_FRAME
@@ -48,27 +48,27 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context);
         this.mContext = null;
         this.mResources = null;
-        this.jJA = null;
-        this.jJB = null;
-        this.jJC = 0;
-        this.jJD = 0;
-        this.jJE = 0;
-        this.jJF = 0;
-        this.jJG = 0;
-        this.jJH = 0;
-        this.jJI = 0;
-        this.jJJ = 0;
-        this.bcC = 0.0f;
-        this.jJK = 0.0f;
-        this.jJL = 0.0f;
-        this.jJM = 0;
-        this.jJN = 0;
-        this.jJO = 0;
-        this.jJP = 0;
-        this.jJQ = null;
+        this.jKw = null;
+        this.jKx = null;
+        this.jKy = 0;
+        this.jKz = 0;
+        this.jKA = 0;
+        this.jKB = 0;
+        this.jKC = 0;
+        this.jKD = 0;
+        this.jKE = 0;
+        this.jKF = 0;
+        this.bgR = 0.0f;
+        this.jKG = 0.0f;
+        this.jKH = 0.0f;
+        this.jKI = 0;
+        this.jKJ = 0;
+        this.jKK = 0;
+        this.jKL = 0;
+        this.jKM = null;
         this.mTag = "";
         this.mActivity = null;
-        this.jJx = 1.0f;
+        this.jKt = 1.0f;
         init(context);
     }
 
@@ -76,27 +76,27 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context, attributeSet);
         this.mContext = null;
         this.mResources = null;
-        this.jJA = null;
-        this.jJB = null;
-        this.jJC = 0;
-        this.jJD = 0;
-        this.jJE = 0;
-        this.jJF = 0;
-        this.jJG = 0;
-        this.jJH = 0;
-        this.jJI = 0;
-        this.jJJ = 0;
-        this.bcC = 0.0f;
-        this.jJK = 0.0f;
-        this.jJL = 0.0f;
-        this.jJM = 0;
-        this.jJN = 0;
-        this.jJO = 0;
-        this.jJP = 0;
-        this.jJQ = null;
+        this.jKw = null;
+        this.jKx = null;
+        this.jKy = 0;
+        this.jKz = 0;
+        this.jKA = 0;
+        this.jKB = 0;
+        this.jKC = 0;
+        this.jKD = 0;
+        this.jKE = 0;
+        this.jKF = 0;
+        this.bgR = 0.0f;
+        this.jKG = 0.0f;
+        this.jKH = 0.0f;
+        this.jKI = 0;
+        this.jKJ = 0;
+        this.jKK = 0;
+        this.jKL = 0;
+        this.jKM = null;
         this.mTag = "";
         this.mActivity = null;
-        this.jJx = 1.0f;
+        this.jKt = 1.0f;
         init(context);
     }
 
@@ -104,27 +104,27 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context, attributeSet, i);
         this.mContext = null;
         this.mResources = null;
-        this.jJA = null;
-        this.jJB = null;
-        this.jJC = 0;
-        this.jJD = 0;
-        this.jJE = 0;
-        this.jJF = 0;
-        this.jJG = 0;
-        this.jJH = 0;
-        this.jJI = 0;
-        this.jJJ = 0;
-        this.bcC = 0.0f;
-        this.jJK = 0.0f;
-        this.jJL = 0.0f;
-        this.jJM = 0;
-        this.jJN = 0;
-        this.jJO = 0;
-        this.jJP = 0;
-        this.jJQ = null;
+        this.jKw = null;
+        this.jKx = null;
+        this.jKy = 0;
+        this.jKz = 0;
+        this.jKA = 0;
+        this.jKB = 0;
+        this.jKC = 0;
+        this.jKD = 0;
+        this.jKE = 0;
+        this.jKF = 0;
+        this.bgR = 0.0f;
+        this.jKG = 0.0f;
+        this.jKH = 0.0f;
+        this.jKI = 0;
+        this.jKJ = 0;
+        this.jKK = 0;
+        this.jKL = 0;
+        this.jKM = null;
         this.mTag = "";
         this.mActivity = null;
-        this.jJx = 1.0f;
+        this.jKt = 1.0f;
         init(context);
     }
 
@@ -132,35 +132,35 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         this.mContext = context;
         this.mActivity = (Activity) this.mContext;
         this.mResources = context.getApplicationContext().getResources();
-        this.jJJ = this.mResources.getColor(R.color.form_font_color);
-        this.jJM = this.mResources.getColor(R.color.form_button_font_color);
-        this.jJO = this.mResources.getColor(R.color.form_button_grey_bg_color);
-        this.jJN = -1;
-        this.jJP = -1;
-        this.jJI = -1;
-        this.jJA = this.mResources.getDrawable(R.drawable.form_frame_white);
-        this.jJB = this.mResources.getDrawable(R.drawable.form_frame_red);
+        this.jKF = this.mResources.getColor(R.color.form_font_color);
+        this.jKI = this.mResources.getColor(R.color.form_button_font_color);
+        this.jKK = this.mResources.getColor(R.color.form_button_grey_bg_color);
+        this.jKJ = -1;
+        this.jKL = -1;
+        this.jKE = -1;
+        this.jKw = this.mResources.getDrawable(R.drawable.form_frame_white);
+        this.jKx = this.mResources.getDrawable(R.drawable.form_frame_red);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view, DrawableType drawableType) {
-        this.jJQ = view;
+        this.jKM = view;
         switch (drawableType) {
             case ERROR_FRAME:
-                this.jJQ.setBackgroundResource(R.drawable.form_frame_red);
+                this.jKM.setBackgroundResource(R.drawable.form_frame_red);
                 return;
             case ORDINARY_FRAME:
-                this.jJQ.setBackgroundResource(R.drawable.form_frame_white);
+                this.jKM.setBackgroundResource(R.drawable.form_frame_white);
                 return;
             default:
-                this.jJQ.setBackgroundDrawable(null);
+                this.jKM.setBackgroundDrawable(null);
                 return;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public View getFrameView() {
-        return this.jJQ;
+        return this.jKM;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -179,7 +179,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int cBI() {
+    public int cDe() {
         return -2;
     }
 
@@ -194,19 +194,19 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         return this.mTag;
     }
 
-    public void aK(float f) {
-        this.jJx = f;
+    public void aJ(float f) {
+        this.jKt = f;
         float dimension = this.mResources.getDimension(R.dimen.form_font_size28);
         float dimension2 = this.mResources.getDimension(R.dimen.form_font_size20);
         float dimension3 = this.mResources.getDimension(R.dimen.form_font_size36);
-        this.jJC = (int) (((int) this.mResources.getDimension(R.dimen.form_size20)) * this.jJx);
-        this.jJD = (int) (((int) this.mResources.getDimension(R.dimen.form_size40)) * this.jJx);
-        this.jJE = (int) (((int) this.mResources.getDimension(R.dimen.form_size50)) * this.jJx);
-        this.jJF = (int) (((int) this.mResources.getDimension(R.dimen.form_size80)) * this.jJx);
-        this.jJG = (int) (((int) this.mResources.getDimension(R.dimen.form_size90)) * this.jJx);
-        this.jJH = (int) (((int) this.mResources.getDimension(R.dimen.form_size240)) * this.jJx);
-        this.bcC = (int) (this.jJx * dimension);
-        this.jJK = (int) (this.jJx * dimension2);
-        this.jJL = (int) (this.jJx * dimension3);
+        this.jKy = (int) (((int) this.mResources.getDimension(R.dimen.form_size20)) * this.jKt);
+        this.jKz = (int) (((int) this.mResources.getDimension(R.dimen.form_size40)) * this.jKt);
+        this.jKA = (int) (((int) this.mResources.getDimension(R.dimen.form_size50)) * this.jKt);
+        this.jKB = (int) (((int) this.mResources.getDimension(R.dimen.form_size80)) * this.jKt);
+        this.jKC = (int) (((int) this.mResources.getDimension(R.dimen.form_size90)) * this.jKt);
+        this.jKD = (int) (((int) this.mResources.getDimension(R.dimen.form_size240)) * this.jKt);
+        this.bgR = (int) (this.jKt * dimension);
+        this.jKG = (int) (this.jKt * dimension2);
+        this.jKH = (int) (this.jKt * dimension3);
     }
 }

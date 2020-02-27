@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CommandPostData {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = "CommandPostData";
@@ -104,7 +104,7 @@ public class CommandPostData {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class SubPostDataKey {
         String dataKey;
         String versionKey;

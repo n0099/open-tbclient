@@ -2,10 +2,10 @@ package com.baidu.android.common.util;
 
 import android.content.Context;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes13.dex */
 public class CommonParam {
-    private static final boolean DEBUG = false;
-    private static final String TAG = CommonParam.class.getSimpleName();
+    private static final boolean a = false;
+    private static final String b = CommonParam.class.getSimpleName();
 
     @Deprecated
     public static String getCUID(Context context) {

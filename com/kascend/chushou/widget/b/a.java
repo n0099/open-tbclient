@@ -4,7 +4,7 @@ import android.graphics.Camera;
 import android.graphics.Matrix;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a extends Animation {
     private float a;
     private float b;
@@ -12,7 +12,7 @@ public class a extends Animation {
     private float d;
     private float e;
     private float f;
-    private Camera ngZ;
+    private Camera nhC;
 
     public a(float f, float f2, float f3, float f4, float f5, float f6) {
         this.a = f;
@@ -26,7 +26,7 @@ public class a extends Animation {
     @Override // android.view.animation.Animation
     public void initialize(int i, int i2, int i3, int i4) {
         super.initialize(i, i2, i3, i4);
-        this.ngZ = new Camera();
+        this.nhC = new Camera();
     }
 
     @Override // android.view.animation.Animation
@@ -35,10 +35,10 @@ public class a extends Animation {
         float f3 = this.c;
         float f4 = this.d;
         Matrix matrix = transformation.getMatrix();
-        this.ngZ.save();
-        this.ngZ.rotateY(f2);
-        this.ngZ.getMatrix(matrix);
-        this.ngZ.restore();
+        this.nhC.save();
+        this.nhC.rotateY(f2);
+        this.nhC.getMatrix(matrix);
+        this.nhC.restore();
         matrix.preTranslate(-f3, -f4);
         matrix.postTranslate(f3, f4);
     }

@@ -5,9 +5,10 @@ import java.util.Collection;
 import java.util.Iterator;
 import kotlin.collections.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public class t extends s {
-    public static final boolean E(String str, String str2, boolean z) {
+    public static final boolean F(String str, String str2, boolean z) {
         if (str == null) {
             return str2 == null;
         } else if (!z) {
@@ -37,10 +38,10 @@ public class t extends s {
         if ((i & 2) != 0) {
             z = false;
         }
-        return l.F(str, str2, z);
+        return l.G(str, str2, z);
     }
 
-    public static final boolean F(String str, String str2, boolean z) {
+    public static final boolean G(String str, String str2, boolean z) {
         kotlin.jvm.internal.q.j(str, "receiver$0");
         kotlin.jvm.internal.q.j(str2, "prefix");
         return !z ? str.startsWith(str2) : l.a(str, 0, str2, 0, str2.length(), z);
@@ -50,7 +51,7 @@ public class t extends s {
         boolean z;
         kotlin.jvm.internal.q.j(charSequence, "receiver$0");
         if (charSequence.length() != 0) {
-            kotlin.b.c s = l.s(charSequence);
+            kotlin.b.h s = l.s(charSequence);
             if (!(s instanceof Collection) || !((Collection) s).isEmpty()) {
                 Iterator<Integer> it = s.iterator();
                 while (true) {

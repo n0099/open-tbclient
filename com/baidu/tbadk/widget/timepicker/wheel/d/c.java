@@ -2,15 +2,15 @@ package com.baidu.tbadk.widget.timepicker.wheel.d;
 
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import java.util.TimerTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class c extends TimerTask {
-    private final WheelView dNR;
+    private final WheelView dRX;
     private int offset;
     private int realTotalOffset = Integer.MAX_VALUE;
     private int realOffset = 0;
 
     public c(WheelView wheelView, int i) {
-        this.dNR = wheelView;
+        this.dRX = wheelView;
         this.offset = i;
     }
 
@@ -28,23 +28,23 @@ public final class c extends TimerTask {
             }
         }
         if (Math.abs(this.realTotalOffset) <= 1) {
-            this.dNR.cancelFuture();
-            this.dNR.getHandler().sendEmptyMessage(3000);
+            this.dRX.cancelFuture();
+            this.dRX.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.dNR.setTotalScrollY(this.dNR.getTotalScrollY() + this.realOffset);
-        if (!this.dNR.isLoop()) {
-            float itemHeight = this.dNR.getItemHeight();
-            float f = (-this.dNR.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.dNR.getItemsCount() - 1) - this.dNR.getInitPosition());
-            if (this.dNR.getTotalScrollY() <= f || this.dNR.getTotalScrollY() >= itemsCount) {
-                this.dNR.setTotalScrollY(this.dNR.getTotalScrollY() - this.realOffset);
-                this.dNR.cancelFuture();
-                this.dNR.getHandler().sendEmptyMessage(3000);
+        this.dRX.setTotalScrollY(this.dRX.getTotalScrollY() + this.realOffset);
+        if (!this.dRX.isLoop()) {
+            float itemHeight = this.dRX.getItemHeight();
+            float f = (-this.dRX.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.dRX.getItemsCount() - 1) - this.dRX.getInitPosition());
+            if (this.dRX.getTotalScrollY() <= f || this.dRX.getTotalScrollY() >= itemsCount) {
+                this.dRX.setTotalScrollY(this.dRX.getTotalScrollY() - this.realOffset);
+                this.dRX.cancelFuture();
+                this.dRX.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.dNR.getHandler().sendEmptyMessage(1000);
+        this.dRX.getHandler().sendEmptyMessage(1000);
         this.realTotalOffset -= this.realOffset;
     }
 }

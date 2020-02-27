@@ -16,7 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdCloseHelper {
     public static void close(InputStream inputStream) {
         if (inputStream != null) {

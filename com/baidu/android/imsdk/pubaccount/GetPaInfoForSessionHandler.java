@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandler {
     private GetChatObjectInfoForRecordHandler mChatObjectHandler;
     int mNextTask;
@@ -72,6 +72,12 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
             case 25:
                 i2 = 25;
                 break;
+            case 26:
+                i2 = 26;
+                break;
+            case 27:
+                i2 = 27;
+                break;
             case 100:
                 i2 = 100;
                 break;
@@ -96,7 +102,7 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
             PaInfo paInfo = (PaInfo) obj;
             if (!TextUtils.isEmpty(paInfo.getNickName()) && paInfo.getPaId() > 0) {
                 chatObject.setPaid(paInfo.getPaId());
-                updateChatRecord(chatObject, paInfo.getNickName(), i, paInfo.getAvatar(), paInfo.getClassType(), paInfo.getClassTitle(), paInfo.getClassavatar(), paInfo.getClassshow(), paInfo.getMarkTop(), paInfo.getMarkTopTime());
+                updateChatRecord(chatObject, paInfo.getNickName(), i, paInfo.getAvatar(), paInfo.getClassType(), paInfo.getClassTitle(), paInfo.getClassavatar(), paInfo.getClassshow(), paInfo.getMarkTop(), paInfo.getMarkTopTime(), paInfo.getShield(), paInfo.getShieldTime(), paInfo.getVipId(), paInfo.getVPortrait(), paInfo.getIdentity());
             }
         }
     }

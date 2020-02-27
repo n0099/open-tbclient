@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b implements Runnable {
     final /* synthetic */ BdSailorPlatform a;
 
@@ -40,13 +40,13 @@ public final class b implements Runnable {
             }
             Log.d(EngineManager.LOG_TAG, "start check zeus update");
             this.a.getAppContext();
-            com.baidu.browser.sailor.webkit.update.a mr = com.baidu.browser.sailor.webkit.update.a.mr();
+            com.baidu.browser.sailor.webkit.update.a mG = com.baidu.browser.sailor.webkit.update.a.mG();
             Context appContext = this.a.getAppContext();
             if (com.baidu.browser.sailor.util.b.a(appContext)) {
-                a.C0047a c0047a = new a.C0047a(appContext, "https://mbrowser.baidu.com/api/update/kernel?version=");
+                a.C0049a c0049a = new a.C0049a(appContext, "https://mbrowser.baidu.com/api/update/kernel?version=");
                 BdNet bdNet = new BdNet(appContext);
-                bdNet.setEventListener(c0047a);
-                bdNet.start(c0047a, false);
+                bdNet.setEventListener(c0049a);
+                bdNet.start(c0049a, false);
             }
         }
     }

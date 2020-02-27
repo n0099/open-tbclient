@@ -1,12 +1,9 @@
 package com.baidu.live.m;
 
-import android.view.View;
-import android.widget.TextView;
-/* loaded from: classes2.dex */
-public interface b {
-    View getRankItemRootView();
-
-    TextView getRankLevelView();
-
-    TextView getRankNameView();
+import com.baidu.live.data.PersonUserData;
+/* loaded from: classes3.dex */
+public class b {
+    public PersonUserData axk;
+    public int errCode;
+    public String errMsg;
 }

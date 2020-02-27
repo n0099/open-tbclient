@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.util.HostResourceManager;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class CommonEmptyView extends FrameLayout {
     private LinearLayout mContentView;
     private ImageView mImgView;
@@ -20,7 +20,7 @@ public class CommonEmptyView extends FrameLayout {
     private TextView mSubTitleView;
     private TextView mTitleView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ImgType {
         NO_IMG,
         NO_NET,
@@ -31,7 +31,7 @@ public class CommonEmptyView extends FrameLayout {
         NO_FAN
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum StyleType {
         LIGHT,
         DARK
@@ -118,7 +118,7 @@ public class CommonEmptyView extends FrameLayout {
         }
     }
 
-    public void reset() {
+    public final void reset() {
         this.mImgView.setVisibility(8);
         this.mTitleView.setVisibility(8);
         this.mSubTitleView.setVisibility(8);

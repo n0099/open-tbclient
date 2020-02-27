@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.live.tbean.data.UserDefineTbeanWrapperData;
 import com.baidu.tieba.live.tbean.view.CustomViewHolder;
 import com.baidu.tieba.live.tbean.view.UserDefineTbeanItemView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UserDefinedTBeanAdapter extends AbsDelegateAdapter<UserDefineTbeanWrapperData, CustomViewHolder> {
     private boolean mIsFromAlaLiveRoom;
     private TbPageContext<?> mPageContext;

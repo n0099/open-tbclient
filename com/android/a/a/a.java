@@ -7,7 +7,7 @@ import android.os.Build;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static int releaseFixedOrientation(Activity activity) {
         int i;

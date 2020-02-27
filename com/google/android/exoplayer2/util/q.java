@@ -1,58 +1,58 @@
 package com.google.android.exoplayer2.util;
 
 import android.os.SystemClock;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class q implements h {
-    private boolean jcC;
-    private com.google.android.exoplayer2.q lYa = com.google.android.exoplayer2.q.lZb;
-    private long mHc;
-    private long mHd;
+    private boolean jdy;
+    private com.google.android.exoplayer2.q lYG = com.google.android.exoplayer2.q.lZH;
+    private long mHH;
+    private long mHI;
 
     public void start() {
-        if (!this.jcC) {
-            this.mHd = SystemClock.elapsedRealtime();
-            this.jcC = true;
+        if (!this.jdy) {
+            this.mHI = SystemClock.elapsedRealtime();
+            this.jdy = true;
         }
     }
 
     public void stop() {
-        if (this.jcC) {
-            gx(dsY());
-            this.jcC = false;
+        if (this.jdy) {
+            gv(duj());
+            this.jdy = false;
         }
     }
 
-    public void gx(long j) {
-        this.mHc = j;
-        if (this.jcC) {
-            this.mHd = SystemClock.elapsedRealtime();
+    public void gv(long j) {
+        this.mHH = j;
+        if (this.jdy) {
+            this.mHI = SystemClock.elapsedRealtime();
         }
     }
 
     @Override // com.google.android.exoplayer2.util.h
-    public long dsY() {
-        long j = this.mHc;
-        if (this.jcC) {
-            long elapsedRealtime = SystemClock.elapsedRealtime() - this.mHd;
-            if (this.lYa.speed == 1.0f) {
-                return j + com.google.android.exoplayer2.b.fq(elapsedRealtime);
+    public long duj() {
+        long j = this.mHH;
+        if (this.jdy) {
+            long elapsedRealtime = SystemClock.elapsedRealtime() - this.mHI;
+            if (this.lYG.speed == 1.0f) {
+                return j + com.google.android.exoplayer2.b.fo(elapsedRealtime);
             }
-            return j + this.lYa.fB(elapsedRealtime);
+            return j + this.lYG.fz(elapsedRealtime);
         }
         return j;
     }
 
     @Override // com.google.android.exoplayer2.util.h
     public com.google.android.exoplayer2.q d(com.google.android.exoplayer2.q qVar) {
-        if (this.jcC) {
-            gx(dsY());
+        if (this.jdy) {
+            gv(duj());
         }
-        this.lYa = qVar;
+        this.lYG = qVar;
         return qVar;
     }
 
     @Override // com.google.android.exoplayer2.util.h
-    public com.google.android.exoplayer2.q drH() {
-        return this.lYa;
+    public com.google.android.exoplayer2.q dsT() {
+        return this.lYG;
     }
 }

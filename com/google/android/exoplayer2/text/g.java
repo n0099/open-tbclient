@@ -1,9 +1,9 @@
 package com.google.android.exoplayer2.text;
 
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface g {
-    public static final g myc = new g() { // from class: com.google.android.exoplayer2.text.g.1
+    public static final g myI = new g() { // from class: com.google.android.exoplayer2.text.g.1
         @Override // com.google.android.exoplayer2.text.g
         public boolean i(Format format) {
             String str = format.sampleMimeType;

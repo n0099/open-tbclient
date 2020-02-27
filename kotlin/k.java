@@ -1,12 +1,9 @@
 package kotlin;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public final class k {
-    public static final k nAY = new k();
+    public static final k nBz = new k();
 
     private k() {
-    }
-
-    public String toString() {
-        return "kotlin.Unit";
     }
 }

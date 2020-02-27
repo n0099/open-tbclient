@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class b implements a.InterfaceC0054a {
+public class b implements a.InterfaceC0060a {
     private static ClassLoader k = null;
     private static b l = null;
     private volatile int g;
@@ -211,11 +211,11 @@ public class b implements a.InterfaceC0054a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0054a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0060a
     public void a(String str, long j) {
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0054a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0060a
     public void a(String str, long j, int i, String str2) {
         CyberLog.d("CyberCoreLoader", "srcUrl:" + str + " detail:" + str2);
         if (i != -1) {
@@ -225,7 +225,7 @@ public class b implements a.InterfaceC0054a {
         a(i, str2);
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0054a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0060a
     public void a(String str, long j, long j2) {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
         if (valueOf.longValue() - this.a > 500) {
@@ -236,7 +236,7 @@ public class b implements a.InterfaceC0054a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0054a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0060a
     public void a(String str, long j, ArrayList<String> arrayList) {
         this.i = arrayList;
         this.b++;

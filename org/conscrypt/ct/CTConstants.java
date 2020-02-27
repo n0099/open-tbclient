@@ -1,5 +1,5 @@
 package org.conscrypt.ct;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CTConstants {
     public static final int CERTIFICATE_LENGTH_BYTES = 3;
     public static final int EXTENSIONS_LENGTH_BYTES = 2;

@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -10,10 +11,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class cy {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends cx {
         public a() {
             super(1);
@@ -33,11 +34,11 @@ public abstract class cy {
     }
 
     static int a(int i, int i2) {
-        return (((i2 + 243) / 1448) * 132) + 1080 + i + i2;
+        return (((i2 + 243) / 1448) * IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER) + 1080 + i + i2;
     }
 
     static int a(int i, int i2, int i3) {
-        return (((i2 + 200) / 1448) * 132) + 1011 + i2 + i + i3;
+        return (((i2 + 200) / 1448) * IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER) + 1011 + i2 + i + i3;
     }
 
     private static int a(cx cxVar, String str, List<ar> list, String str2) {
@@ -86,7 +87,7 @@ public abstract class cy {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 cq cqVar = null;
-                if (z && (cqVar = cu.a().m202a(str)) != null) {
+                if (z && (cqVar = cu.a().m207a(str)) != null) {
                     arrayList = cqVar.a(str);
                 }
                 if (!arrayList.contains(str)) {
@@ -105,7 +106,7 @@ public abstract class cy {
                         }
                         e.printStackTrace();
                     }
-                    if (!cxVar.m211a(context, next, (List<ar>) arrayList2)) {
+                    if (!cxVar.m216a(context, next, (List<ar>) arrayList2)) {
                         return str2;
                     }
                     str2 = cxVar.a(context, next, (List<ar>) arrayList2);

@@ -1,12 +1,12 @@
 package com.baidu.ubs.analytics.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class f {
     private static boolean ak = true;
     private static boolean al = false;
     private static long am = 30000;
     private static boolean ap = false;
-    private static long kVw;
-    private static long kVx;
+    private static long kWc;
+    private static long kWd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
@@ -14,22 +14,22 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long cWj() {
+    public static long cXx() {
         return am;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long cWk() {
-        return kVw;
+    public static long cXy() {
+        return kWc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        kVw = j;
+        kWc = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cWl() {
+    public static boolean cXz() {
         return ak;
     }
 
@@ -44,10 +44,10 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(long j) {
-        kVx = j;
+        kWd = j;
     }
 
-    public static long cWm() {
-        return kVx;
+    public static long cXA() {
+        return kWd;
     }
 }

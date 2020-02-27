@@ -1,9 +1,11 @@
 package kotlin.coroutines.jvm.internal;
 
+import kotlin.h;
 import kotlin.jvm.internal.p;
 import kotlin.jvm.internal.q;
 import kotlin.jvm.internal.t;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public abstract class SuspendLambda extends ContinuationImpl implements p<Object> {
     private final int arity;
 

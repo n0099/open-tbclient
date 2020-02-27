@@ -25,7 +25,7 @@ public class MissionEntranceSwitch extends a {
 
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected int getDefaultType() {
-        return b.aDr().getInt("key_mission_entrance", 0);
+        return b.aFB().getInt("key_mission_entrance", 0);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

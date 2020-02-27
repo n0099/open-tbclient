@@ -1,5 +1,5 @@
 package com.baidu.idl.facesdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FaceInfo {
     public int face_id;
     public float[] headPose;

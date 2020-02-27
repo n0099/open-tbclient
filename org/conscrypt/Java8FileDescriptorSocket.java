@@ -8,7 +8,7 @@ import java.util.function.BiFunction;
 import javax.net.ssl.SSLEngine;
 import javax.net.ssl.SSLSocket;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Java8FileDescriptorSocket extends ConscryptFileDescriptorSocket {
     private BiFunction<SSLSocket, List<String>, String> selector;
 

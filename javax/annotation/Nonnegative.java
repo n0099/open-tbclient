@@ -9,11 +9,11 @@ import javax.annotation.meta.When;
 @TypeQualifier(applicableTo = Number.class)
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface Nonnegative {
     When when() default When.ALWAYS;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Checker implements TypeQualifierValidator<Nonnegative> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // javax.annotation.meta.TypeQualifierValidator

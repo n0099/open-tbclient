@@ -20,7 +20,7 @@ import com.baidu.mobads.utils.n;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.mobads.production.b {
     private b w;
     private BaiduNativeH5AdView x;

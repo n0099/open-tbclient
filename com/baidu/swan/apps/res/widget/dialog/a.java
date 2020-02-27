@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.res.widget.dialog;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private String action;
 

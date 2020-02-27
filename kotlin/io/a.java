@@ -1,7 +1,8 @@
 package kotlin.io;
 
 import java.io.Closeable;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class a {
     public static final void a(Closeable closeable, Throwable th) {
         if (closeable != null) {

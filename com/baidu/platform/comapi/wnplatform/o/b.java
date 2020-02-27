@@ -4,7 +4,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static GeoPoint a(double d, double d2) {
         LatLng a = a(new LatLng(d2, d), CoordinateType.WGS84);

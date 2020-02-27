@@ -11,67 +11,67 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
-    private BaseActivity dTQ;
-    private BdListView gGC;
-    private NavigationBar hsB;
-    private d hsC;
-    private View hsD;
+    private BaseActivity dXV;
+    private BdListView gIB;
+    private NavigationBar huA;
+    private d huB;
+    private View huC;
     private NoDataView mNoDataView;
     private View mRoot;
 
     public e(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.dTQ = baseActivity;
+        this.dXV = baseActivity;
         initView();
     }
 
     private void initView() {
-        this.mRoot = View.inflate(this.dTQ.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
-        this.dTQ.getPageContext().getPageActivity().setContentView(this.mRoot);
-        this.hsB = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        this.hsB.setTitleText(R.string.officical_bar_info_history);
-        this.hsB.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gGC = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
-        this.hsC = new d(this.dTQ, this.dTQ.getPageContext().getContext());
-        this.gGC.setAdapter((ListAdapter) this.hsC);
-        this.hsD = View.inflate(this.dTQ.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
-        this.gGC.addHeaderView(this.hsD);
-        this.gGC.addFooterView(this.hsD);
+        this.mRoot = View.inflate(this.dXV.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
+        this.dXV.getPageContext().getPageActivity().setContentView(this.mRoot);
+        this.huA = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
+        this.huA.setTitleText(R.string.officical_bar_info_history);
+        this.huA.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.gIB = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
+        this.huB = new d(this.dXV, this.dXV.getPageContext().getContext());
+        this.gIB.setAdapter((ListAdapter) this.huB);
+        this.huC = View.inflate(this.dXV.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
+        this.gIB.addHeaderView(this.huC);
+        this.gIB.addFooterView(this.huC);
     }
 
     public void setData(List<ResponseHistoryMessage.a> list) {
-        this.hsC.setData(list);
-        cP(list);
+        this.huB.setData(list);
+        cL(list);
     }
 
     public void onChangeSkinType(int i) {
-        this.dTQ.getLayoutMode().setNightMode(i == 1);
-        this.dTQ.getLayoutMode().onModeChanged(this.mRoot);
-        this.hsB.onChangeSkinType(this.dTQ.getPageContext(), i);
+        this.dXV.getLayoutMode().setNightMode(i == 1);
+        this.dXV.getLayoutMode().onModeChanged(this.mRoot);
+        this.huA.onChangeSkinType(this.dXV.getPageContext(), i);
     }
 
     public void c(BdListView.e eVar) {
-        this.gGC.setOnSrollToBottomListener(eVar);
+        this.gIB.setOnSrollToBottomListener(eVar);
     }
 
-    public boolean bQV() {
-        return this.hsC.getCount() != 0 && this.gGC.getLastVisiblePosition() - this.gGC.getHeaderViewsCount() < this.hsC.getCount() + (-1);
+    public boolean bSw() {
+        return this.huB.getCount() != 0 && this.gIB.getLastVisiblePosition() - this.gIB.getHeaderViewsCount() < this.huB.getCount() + (-1);
     }
 
-    public void cP(List<ResponseHistoryMessage.a> list) {
+    public void cL(List<ResponseHistoryMessage.a> list) {
         if (list != null && list.size() > 0 && this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
     }
 
-    public void cQ(List<ResponseHistoryMessage.a> list) {
+    public void cM(List<ResponseHistoryMessage.a> list) {
         if (list == null || list.size() == 0) {
             if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this.dTQ.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.kQ(R.string.no_data_text), null);
+                this.mNoDataView = NoDataViewFactory.a(this.dXV.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.lh(R.string.no_data_text), null);
             }
-            this.mNoDataView.onChangeSkinType(this.dTQ.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNoDataView.onChangeSkinType(this.dXV.getPageContext(), TbadkApplication.getInst().getSkinType());
             this.mNoDataView.setVisibility(0);
         }
     }

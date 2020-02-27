@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DialogRecordDBManager extends DBBase {
     public static final String TAG = DialogRecordDBManager.class.getSimpleName();
     private static DialogRecordDBManager mInstance;
@@ -45,10 +45,10 @@ public class DialogRecordDBManager extends DBBase {
         return delete;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [110=6, 111=5, 113=5, 114=5, 115=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:81:0x0016 */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0165  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x016a  */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [110=6, 111=5, 113=5, 114=5] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:83:0x0016 */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0159  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x015e  */
     /* JADX WARN: Type inference failed for: r2v14 */
     /* JADX WARN: Type inference failed for: r2v15 */
     /* JADX WARN: Type inference failed for: r2v16 */
@@ -87,7 +87,6 @@ public class DialogRecordDBManager extends DBBase {
                         }
                         if (openDatabase != null) {
                             openDatabase.endTransaction();
-                            closeDatabase();
                         }
                         r2 = -1;
                     } else {
@@ -111,7 +110,6 @@ public class DialogRecordDBManager extends DBBase {
                                     }
                                     if (openDatabase != null) {
                                         openDatabase.endTransaction();
-                                        closeDatabase();
                                     }
                                     r2 = j3;
                                     cursor5 = strArr;
@@ -156,7 +154,6 @@ public class DialogRecordDBManager extends DBBase {
                                             }
                                             if (sQLiteDatabase != null) {
                                                 sQLiteDatabase.endTransaction();
-                                                closeDatabase();
                                                 return j;
                                             }
                                             return j;
@@ -164,11 +161,8 @@ public class DialogRecordDBManager extends DBBase {
                                             th = th;
                                             cursor = cursor4;
                                             if (cursor != null) {
-                                                cursor.close();
                                             }
                                             if (sQLiteDatabase != null) {
-                                                sQLiteDatabase.endTransaction();
-                                                closeDatabase();
                                             }
                                             throw th;
                                         }
@@ -201,8 +195,10 @@ public class DialogRecordDBManager extends DBBase {
                                 cursor = cursor2;
                                 th = th4;
                                 if (cursor != null) {
+                                    cursor.close();
                                 }
                                 if (sQLiteDatabase != null) {
+                                    sQLiteDatabase.endTransaction();
                                 }
                                 throw th;
                             }
@@ -212,7 +208,6 @@ public class DialogRecordDBManager extends DBBase {
                         }
                         if (openDatabase != null) {
                             openDatabase.endTransaction();
-                            closeDatabase();
                             r2 = j2;
                             cursor5 = cursor2;
                         } else {
@@ -242,77 +237,51 @@ public class DialogRecordDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=5, 145=4, 147=4, 148=4] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0069  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x006e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [143=5, 144=4] */
     public long getMaxMsgid() {
-        SQLiteDatabase sQLiteDatabase;
         Cursor cursor = null;
         long j = -1;
         try {
             try {
-                sQLiteDatabase = openDatabase();
-                try {
-                    if (sQLiteDatabase == null) {
-                        LogUtils.e(TAG, "getWritableDb fail!");
-                        if (0 != 0) {
-                            cursor.close();
-                        }
-                        if (sQLiteDatabase != null) {
-                            closeDatabase();
-                        }
-                    } else {
-                        cursor = sQLiteDatabase.rawQuery("select max(localmsgid) from dialog_record", null);
-                        if (cursor != null) {
-                            try {
-                                j = cursor.moveToNext() ? cursor.getLong(0) : 0L;
-                            } catch (Exception e) {
-                                e = e;
-                                j = 0;
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                LogUtils.e(TAG, "maxMsgid:", e);
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                if (sQLiteDatabase != null) {
-                                    closeDatabase();
-                                }
-                                return j;
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "getWritableDb fail!");
+                    if (0 != 0) {
+                        cursor.close();
+                    }
+                } else {
+                    Cursor rawQuery = openDatabase.rawQuery("select max(localmsgid) from dialog_record", null);
+                    if (rawQuery != null) {
+                        try {
+                            j = rawQuery.moveToNext() ? rawQuery.getLong(0) : 0L;
+                        } catch (Exception e) {
+                            cursor = rawQuery;
+                            e = e;
+                            j = 0;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "maxMsgid:", e);
+                            if (cursor != null) {
+                                cursor.close();
                             }
-                        }
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        if (sQLiteDatabase != null) {
-                            closeDatabase();
+                            return j;
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor = rawQuery;
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            throw th;
                         }
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                    if (rawQuery != null) {
+                        rawQuery.close();
+                    }
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    cursor.close();
-                }
-                if (0 != 0) {
-                    closeDatabase();
-                }
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception e3) {
-            e = e3;
-            sQLiteDatabase = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (0 != 0) {
-            }
-            if (0 != 0) {
-            }
-            throw th;
+        } catch (Exception e2) {
+            e = e2;
         }
         return j;
     }
@@ -336,7 +305,7 @@ public class DialogRecordDBManager extends DBBase {
         return (DialogRecord) list.get(0);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Parse implements CursorParse {
         int count;
         List<DialogRecord> result = null;
@@ -377,157 +346,87 @@ public class DialogRecordDBManager extends DBBase {
         return (List) parse.getResult();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [248=5, 249=4, 251=4, 252=4] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0085  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [244=4, 245=4] */
     public int getUnCompleteItemCount() {
-        SQLiteDatabase sQLiteDatabase;
         Cursor cursor = null;
         int i = -1;
         try {
             try {
-                sQLiteDatabase = openDatabase();
-                try {
-                    if (sQLiteDatabase == null) {
-                        LogUtils.e(TAG, "getWritableDb fail!");
-                        if (0 != 0) {
-                            cursor.close();
-                        }
-                        if (sQLiteDatabase != null) {
-                            closeDatabase();
-                        }
-                    } else {
-                        cursor = sQLiteDatabase.rawQuery("select count(*) from dialog_record where localmsgid < dialogueMsgid", null);
-                        if (cursor != null) {
-                            try {
-                                i = cursor.moveToNext() ? cursor.getInt(0) : 0;
-                            } catch (Exception e) {
-                                i = 0;
-                                e = e;
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                LogUtils.e(TAG, "getUnCompleteItemCount:", e);
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                if (sQLiteDatabase != null) {
-                                    closeDatabase();
-                                }
-                                return i;
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "getWritableDb fail!");
+                } else {
+                    cursor = openDatabase.rawQuery("select count(*) from dialog_record where localmsgid < dialogueMsgid", null);
+                    if (cursor != null) {
+                        try {
+                            i = cursor.moveToNext() ? cursor.getInt(0) : 0;
+                        } catch (Exception e) {
+                            i = 0;
+                            e = e;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "getUnCompleteItemCount:", e);
+                            if (cursor != null) {
+                                cursor.close();
                             }
-                        }
-                        LogUtils.i(TAG, "getUnCompleteItemCount : " + i);
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        if (sQLiteDatabase != null) {
-                            closeDatabase();
+                            return i;
                         }
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                    LogUtils.i(TAG, "getUnCompleteItemCount : " + i);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                if (sQLiteDatabase != null) {
-                    closeDatabase();
-                }
-                throw th;
+            } catch (Exception e2) {
+                e = e2;
             }
-        } catch (Exception e3) {
-            e = e3;
-            sQLiteDatabase = null;
-        } catch (Throwable th2) {
-            th = th2;
-            sQLiteDatabase = null;
+            return i;
+        } finally {
             if (cursor != null) {
+                cursor.close();
             }
-            if (sQLiteDatabase != null) {
-            }
-            throw th;
         }
-        return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [283=5, 284=4, 286=4, 287=4] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0091  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0096  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [276=4, 277=4] */
     public int getUnCompleteItemCount(long j) {
-        SQLiteDatabase sQLiteDatabase;
         Cursor cursor = null;
         int i = -1;
         try {
             try {
-                sQLiteDatabase = openDatabase();
-                try {
-                    if (sQLiteDatabase == null) {
-                        LogUtils.e(TAG, "getWritableDb fail!");
-                        if (0 != 0) {
-                            cursor.close();
-                        }
-                        if (sQLiteDatabase != null) {
-                            closeDatabase();
-                        }
-                    } else {
-                        cursor = sQLiteDatabase.rawQuery("select count(*) from dialog_record where localmsgid < dialogueMsgid AND contacter = " + j, null);
-                        if (cursor != null) {
-                            try {
-                                i = cursor.moveToNext() ? cursor.getInt(0) : 0;
-                            } catch (Exception e) {
-                                i = 0;
-                                e = e;
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                LogUtils.e(TAG, "getUnCompleteItemCount:", e);
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                if (sQLiteDatabase != null) {
-                                    closeDatabase();
-                                }
-                                return i;
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "getWritableDb fail!");
+                } else {
+                    cursor = openDatabase.rawQuery("select count(*) from dialog_record where localmsgid < dialogueMsgid AND contacter = " + j, null);
+                    if (cursor != null) {
+                        try {
+                            i = cursor.moveToNext() ? cursor.getInt(0) : 0;
+                        } catch (Exception e) {
+                            i = 0;
+                            e = e;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "getUnCompleteItemCount:", e);
+                            if (cursor != null) {
+                                cursor.close();
                             }
-                        }
-                        LogUtils.i(TAG, "getUnCompleteItemCount : " + i);
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        if (sQLiteDatabase != null) {
-                            closeDatabase();
+                            return i;
                         }
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                    LogUtils.i(TAG, "getUnCompleteItemCount : " + i);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                if (sQLiteDatabase != null) {
-                    closeDatabase();
-                }
-                throw th;
+            } catch (Exception e2) {
+                e = e2;
             }
-        } catch (Exception e3) {
-            e = e3;
-            sQLiteDatabase = null;
-        } catch (Throwable th2) {
-            th = th2;
-            sQLiteDatabase = null;
+            return i;
+        } finally {
             if (cursor != null) {
+                cursor.close();
             }
-            if (sQLiteDatabase != null) {
-            }
-            throw th;
         }
-        return i;
     }
 }

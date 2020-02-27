@@ -6,12 +6,12 @@ import android.util.Log;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e implements a {
-    private Set<String> bpR;
+    private Set<String> bua;
 
     public e(@Nullable Set<String> set) {
-        this.bpR = set;
+        this.bua = set;
     }
 
     @Override // com.baidu.swan.apps.env.a.a
@@ -29,7 +29,7 @@ public class e implements a {
                         Log.d("IDiskCleanStrategy", "过滤「智能小程序」");
                     }
                     it.remove();
-                } else if (this.bpR != null && this.bpR.contains(next)) {
+                } else if (this.bua != null && this.bua.contains(next)) {
                     if (DEBUG) {
                         Log.d("IDiskCleanStrategy", "过滤指定id: " + next);
                     }

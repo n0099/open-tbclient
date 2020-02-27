@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.searchbox.ugc.album.R;
 import com.baidu.searchbox.ugc.utils.ResourceUtils;
 import com.baidu.searchbox.ugc.utils.UiBaseUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LoadingLayout extends LinearLayout {
     private ImageView mPromptImg;
     private TextView mPromptTv;

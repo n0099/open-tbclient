@@ -26,7 +26,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Cursor a(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         if (i == 1) {
-            return new c(b.a.Cw());
+            return new c(b.a.ES());
         }
         return null;
     }
@@ -53,9 +53,9 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
-    public void a(Uri uri, int i) {
+    public void b(Uri uri, int i) {
         if (i != 3) {
-            super.a(uri, i);
+            super.b(uri, i);
         }
     }
 
@@ -67,7 +67,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Bundle call(String str, String str2, Bundle bundle) {
         if ("_get_service_handler".equals(str)) {
-            return b.a.Cw();
+            return b.a.ES();
         }
         return null;
     }

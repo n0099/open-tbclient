@@ -1,15 +1,16 @@
 package kascend.core.utils;
 
+import com.baidu.android.common.security.RSAUtil;
 import java.io.ByteArrayOutputStream;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    public static byte[] h(byte[] bArr, String str) throws Exception {
+    public static byte[] decryptByPrivateKey(byte[] bArr, String str) throws Exception {
         byte[] doFinal;
-        PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(b.decode(str)));
+        PrivateKey generatePrivate = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(b.decode(str)));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, generatePrivate);
         int length = bArr.length;

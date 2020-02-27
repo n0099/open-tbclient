@@ -6,7 +6,7 @@ import io.reactivex.q;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableSequenceEqual<T> extends q<Boolean> {
     final int bufferSize;
     final d<? super T, ? super T> comparer;
@@ -20,7 +20,7 @@ public final class ObservableSequenceEqual<T> extends q<Boolean> {
         equalCoordinator.subscribe();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class EqualCoordinator<T> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -6178010334400373240L;
         final u<? super Boolean> actual;
@@ -122,7 +122,7 @@ public final class ObservableSequenceEqual<T> extends q<Boolean> {
                     } else {
                         if (!z3 && !z4) {
                             try {
-                                if (!this.comparer.k((T) this.v1, (T) this.v2)) {
+                                if (!this.comparer.j((T) this.v1, (T) this.v2)) {
                                     cancel(aVar2, aVar4);
                                     this.actual.onNext(false);
                                     this.actual.onComplete();
@@ -131,7 +131,7 @@ public final class ObservableSequenceEqual<T> extends q<Boolean> {
                                 this.v1 = null;
                                 this.v2 = null;
                             } catch (Throwable th3) {
-                                io.reactivex.exceptions.a.I(th3);
+                                io.reactivex.exceptions.a.H(th3);
                                 cancel(aVar2, aVar4);
                                 this.actual.onError(th3);
                                 return;
@@ -152,42 +152,42 @@ public final class ObservableSequenceEqual<T> extends q<Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a<T> implements u<T> {
         volatile boolean done;
         Throwable error;
         final int index;
-        final EqualCoordinator<T> nxC;
+        final EqualCoordinator<T> nye;
         final io.reactivex.internal.queue.a<T> queue;
 
         a(EqualCoordinator<T> equalCoordinator, int i, int i2) {
-            this.nxC = equalCoordinator;
+            this.nye = equalCoordinator;
             this.index = i;
             this.queue = new io.reactivex.internal.queue.a<>(i2);
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.nxC.setDisposable(bVar, this.index);
+            this.nye.setDisposable(bVar, this.index);
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
             this.queue.offer(t);
-            this.nxC.drain();
+            this.nye.drain();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
-            this.nxC.drain();
+            this.nye.drain();
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.done = true;
-            this.nxC.drain();
+            this.nye.drain();
         }
     }
 }

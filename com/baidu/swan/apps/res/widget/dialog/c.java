@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends Dialog {
     private boolean mImmersionEnabled;
 

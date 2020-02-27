@@ -9,9 +9,9 @@ import com.baidu.swan.game.ad.a.a;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private a.InterfaceC0317a cdv;
+    private a.InterfaceC0327a chy;
     private Context mContext;
 
     public a(Context context) {
@@ -46,14 +46,14 @@ public class a {
                 /* renamed from: a */
                 public void onSuccess(AdResponseInfo adResponseInfo, int i) {
                     if (adResponseInfo == null) {
-                        a.this.ny("200000");
+                        a.this.nN("200000");
                     } else if (adResponseInfo.getAdInstanceList().size() > 0) {
-                        final AdElementInfo aia = adResponseInfo.aia();
+                        final AdElementInfo ako = adResponseInfo.ako();
                         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.cdv != null) {
-                                    a.this.cdv.b(aia);
+                                if (a.this.chy != null) {
+                                    a.this.chy.b(ako);
                                 }
                             }
                         });
@@ -62,38 +62,38 @@ public class a {
                         if (errorCode.equals("0")) {
                             errorCode = "201000";
                         }
-                        a.this.ny(errorCode);
+                        a.this.nN(errorCode);
                     }
                 }
 
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
-                    a.this.ny("3010002");
+                    a.this.nN("3010002");
                 }
             };
             if (SwanAppNetworkUtils.isNetworkConnected(this.mContext)) {
-                String ail = dVar.ail();
+                String akz = dVar.akz();
                 if (bVar != null) {
-                    bVar.a(ail, responseCallback);
+                    bVar.a(akz, responseCallback);
                     return;
                 }
                 return;
             }
-            ny("3010003");
+            nN("3010003");
         }
     }
 
-    public void a(a.InterfaceC0317a interfaceC0317a) {
-        this.cdv = interfaceC0317a;
+    public void a(a.InterfaceC0327a interfaceC0327a) {
+        this.chy = interfaceC0327a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ny(final String str) {
+    public void nN(final String str) {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cdv != null) {
-                    a.this.cdv.nt(str);
+                if (a.this.chy != null) {
+                    a.this.chy.nI(str);
                 }
             }
         });

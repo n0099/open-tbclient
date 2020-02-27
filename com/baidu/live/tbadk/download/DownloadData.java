@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.download;
 
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
     public static final int FILE_DOWNLOAD_STATUS_DOWNLOADING = 1;

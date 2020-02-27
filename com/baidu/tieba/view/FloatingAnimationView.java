@@ -15,18 +15,18 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FloatingAnimationView extends FrameLayout {
-    private TbImageView ejQ;
-    private FrameAnimationView kHn;
-    private ImageView kHo;
-    private a kHp;
+    private TbImageView eoa;
+    private FrameAnimationView kIi;
+    private ImageView kIj;
+    private a kIk;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void buE();
+        void bwi();
 
-        void buF();
+        void bwj();
     }
 
     public FloatingAnimationView(@NonNull Context context) {
@@ -40,36 +40,36 @@ public class FloatingAnimationView extends FrameLayout {
 
     private void init() {
         Context context = getContext();
-        this.kHn = new FrameAnimationView(context);
-        this.kHn.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.kIi = new FrameAnimationView(context);
+        this.kIi.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds200), l.getDimens(context, R.dimen.tbds200));
         layoutParams.gravity = 17;
-        addView(this.kHn, layoutParams);
-        this.ejQ = new TbImageView(context);
-        this.ejQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.kIi, layoutParams);
+        this.eoa = new TbImageView(context);
+        this.eoa.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds62), l.getDimens(context, R.dimen.tbds62));
         layoutParams2.gravity = 53;
-        this.ejQ.setAutoChangeStyle(false);
-        addView(this.ejQ, layoutParams2);
-        this.kHo = new ImageView(context);
-        this.kHo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eoa.setAutoChangeStyle(false);
+        addView(this.eoa, layoutParams2);
+        this.kIj = new ImageView(context);
+        this.kIj.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 51;
         layoutParams3.topMargin = l.getDimens(context, R.dimen.tbds14);
-        addView(this.kHo, layoutParams3);
-        this.kHn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
+        addView(this.kIj, layoutParams3);
+        this.kIi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.kHp != null) {
-                    FloatingAnimationView.this.kHp.buE();
+                if (FloatingAnimationView.this.kIk != null) {
+                    FloatingAnimationView.this.kIk.bwi();
                 }
             }
         });
-        this.kHn.setOnDrawListener(new TbImageView.c() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
+        this.kIi.setOnDrawListener(new TbImageView.c() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
-                if (FloatingAnimationView.this.kHn.getBdImage() == null && !aq.isEmpty(FloatingAnimationView.this.kHn.getUrl())) {
-                    FloatingAnimationView.this.kHn.startLoad(FloatingAnimationView.this.kHn.getUrl(), 10, false);
+                if (FloatingAnimationView.this.kIi.getBdImage() == null && !aq.isEmpty(FloatingAnimationView.this.kIi.getUrl())) {
+                    FloatingAnimationView.this.kIi.startLoad(FloatingAnimationView.this.kIi.getUrl(), 10, false);
                 }
             }
 
@@ -77,11 +77,11 @@ public class FloatingAnimationView extends FrameLayout {
             public void b(TbImageView tbImageView, Canvas canvas) {
             }
         });
-        this.ejQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
+        this.eoa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.kHp != null) {
-                    FloatingAnimationView.this.kHp.buF();
+                if (FloatingAnimationView.this.kIk != null) {
+                    FloatingAnimationView.this.kIk.bwj();
                 }
             }
         });
@@ -90,56 +90,56 @@ public class FloatingAnimationView extends FrameLayout {
 
     public void setData(String str) {
         if (!aq.isEmpty(str)) {
-            this.kHn.setData(str);
+            this.kIi.setData(str);
         }
     }
 
     public void setData(List<String> list, int i) {
-        if (this.kHn != null) {
-            this.kHn.setData(list, i);
+        if (this.kIi != null) {
+            this.kIi.setData(list, i);
         }
     }
 
     public void playAnimation() {
-        if (this.kHn != null) {
-            this.kHn.setImageResource(R.drawable.transparent_bg);
-            this.kHn.playAnimation();
+        if (this.kIi != null) {
+            this.kIi.setImageResource(R.drawable.transparent_bg);
+            this.kIi.playAnimation();
         }
     }
 
     public void stopAnimation() {
-        if (this.kHn != null) {
-            this.kHn.setImageDrawable(null);
-            this.kHn.stopAnimation();
+        if (this.kIi != null) {
+            this.kIi.setImageDrawable(null);
+            this.kIi.stopAnimation();
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.kHn != null) {
-            this.kHn.setPageId(bdUniqueId);
+        if (this.kIi != null) {
+            this.kIi.setPageId(bdUniqueId);
         }
     }
 
     public void release() {
-        if (this.kHn != null) {
-            this.kHn.release();
+        if (this.kIi != null) {
+            this.kIi.release();
         }
     }
 
-    public void tx(boolean z) {
+    public void tB(boolean z) {
         if (z) {
-            this.kHo.setVisibility(0);
-            am.setImageResource(this.kHo, R.drawable.icon_front_worldcup_new_n);
+            this.kIj.setVisibility(0);
+            am.setImageResource(this.kIj, R.drawable.icon_front_worldcup_new_n);
             return;
         }
-        this.kHo.setVisibility(8);
+        this.kIj.setVisibility(8);
     }
 
     public void setCallback(a aVar) {
-        this.kHp = aVar;
+        this.kIk = aVar;
     }
 
     public void onChangeSkinType() {
-        am.setImageResource(this.ejQ, R.drawable.icon_live_close_n);
+        am.setImageResource(this.eoa, R.drawable.icon_live_close_n);
     }
 }

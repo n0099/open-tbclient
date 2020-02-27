@@ -13,16 +13,16 @@ import java.util.Iterator;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableFlattenIterable<T, R> extends a<T, R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final int prefetch;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
-        if (this.nvP instanceof Callable) {
+        if (this.nwr instanceof Callable) {
             try {
-                Object call = ((Callable) this.nvP).call();
+                Object call = ((Callable) this.nwr).call();
                 if (call == null) {
                     EmptySubscription.complete(cVar);
                     return;
@@ -31,20 +31,20 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                     FlowableFromIterable.a(cVar, this.mapper.apply(call).iterator());
                     return;
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.exceptions.a.H(th);
                     EmptySubscription.error(th, cVar);
                     return;
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.I(th2);
+                io.reactivex.exceptions.a.H(th2);
                 EmptySubscription.error(th2, cVar);
                 return;
             }
         }
-        this.nvP.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
+        this.nwr.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements j<T> {
         private static final long serialVersionUID = -3096000382929934955L;
         final org.a.c<? super R> actual;
@@ -196,7 +196,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                                         break;
                                                                     }
                                                                 } catch (Throwable th) {
-                                                                    io.reactivex.exceptions.a.I(th);
+                                                                    io.reactivex.exceptions.a.H(th);
                                                                     this.current = null;
                                                                     this.s.cancel();
                                                                     ExceptionHelper.addThrowable(this.error, th);
@@ -207,7 +207,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                                 return;
                                                             }
                                                         } catch (Throwable th2) {
-                                                            io.reactivex.exceptions.a.I(th2);
+                                                            io.reactivex.exceptions.a.H(th2);
                                                             this.current = null;
                                                             this.s.cancel();
                                                             ExceptionHelper.addThrowable(this.error, th2);
@@ -240,7 +240,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                             it2 = it;
                                         }
                                     } catch (Throwable th3) {
-                                        io.reactivex.exceptions.a.I(th3);
+                                        io.reactivex.exceptions.a.H(th3);
                                         this.s.cancel();
                                         ExceptionHelper.addThrowable(this.error, th3);
                                         cVar.onError(ExceptionHelper.terminate(this.error));
@@ -251,7 +251,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                 return;
                             }
                         } catch (Throwable th4) {
-                            io.reactivex.exceptions.a.I(th4);
+                            io.reactivex.exceptions.a.H(th4);
                             this.s.cancel();
                             ExceptionHelper.addThrowable(this.error, th4);
                             Throwable terminate = ExceptionHelper.terminate(this.error);

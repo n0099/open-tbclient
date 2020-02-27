@@ -23,7 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class JsonUtils {
     private static final boolean a = ApollonConstants.DEBUG & false;
 
@@ -47,7 +47,7 @@ public final class JsonUtils {
         return (T) Decoder.deserialize(new JSONObject(str), cls);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class Encoder {
         private Encoder() {
         }
@@ -172,7 +172,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class Decoder {
         private Decoder() {
         }
@@ -414,7 +414,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DataType {
         public static boolean isNull(Object obj) {
             if (obj instanceof JSONObject) {

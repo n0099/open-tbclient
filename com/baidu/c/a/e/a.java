@@ -1,19 +1,23 @@
 package com.baidu.c.a.e;
 
-import android.graphics.Color;
-/* loaded from: classes11.dex */
+import android.text.TextPaint;
+import android.text.TextUtils;
+/* loaded from: classes13.dex */
 public class a {
-    public static int cy(String str) {
-        if (str == null || str.length() == 0) {
-            return Integer.MAX_VALUE;
+    public static String a(String str, String str2, float f, TextPaint textPaint) {
+        if (TextUtils.isEmpty(str2)) {
+            str2 = "";
         }
-        try {
-            if (!str.startsWith("#")) {
-                str = "#" + str;
-            }
-            return Color.parseColor(str);
-        } catch (Throwable th) {
-            return Integer.MAX_VALUE;
+        if (TextUtils.isEmpty(str)) {
+            str = "";
         }
+        if (textPaint == null) {
+            textPaint = new TextPaint();
+        }
+        CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText("  " + str2), TextUtils.TruncateAt.END);
+        if (ellipsize != null) {
+            return ellipsize.toString() + "  " + str2;
+        }
+        return str2;
     }
 }

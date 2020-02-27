@@ -1,16 +1,21 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LogConfig {
     public static final String CONNECT_FAIL = "connectFail";
     public static final String CONNECT_SUCC = "connectSucc";
     public static final String DISCONNECT = "disconnect";
     public static final String EXIT_LIVE_IM = "joinLiveIm";
+    public static final String GIFT_IM_ENTER_LIST = "giftImEnterList";
+    public static final String GIFT_IM_RECEIVE = "giftImReceive";
+    public static final String GIFT_IM_SHOW = "giftImShow";
+    public static final String GIFT_IM_SHOW_FAIL = "giftImShowFail";
     public static final String JOIN_LIVE_FAIL_IM_NOT_LOGIN = "joinFailImNotLogin";
     public static final String JOIN_LIVE_GIFT = "joinLiveGift";
     public static final String JOIN_LIVE_GIFT_FAIL_OUT_LIMIT = "joinLiveMsgFailOutLimit";
     public static final String JOIN_LIVE_GIFT_FAIL_TO_REJOIN = "joinLiveGiftFailToRejoin";
     public static final String JOIN_LIVE_GIFT_SUCC = "joinLiveGift";
     public static final String JOIN_LIVE_MSG = "joinLiveMsg";
+    public static final String JOIN_LIVE_MSG_ENTER_IM_FAIL = "joinLiveMsgEnterImFail";
     public static final String JOIN_LIVE_MSG_FAIL_OUT_LIMIT = "joinLiveMsgFailOutLimit";
     public static final String JOIN_LIVE_MSG_FAIL_TO_REJOIN = "joinLiveMsgFailToRejoin";
     public static final String JOIN_LIVE_MSG_SUCC = "joinLiveMsg";
@@ -111,6 +116,7 @@ public class LogConfig {
     public static final String VALUE_FOLLOW_CANCEL = "follow_cancel";
     public static final String VALUE_GUARDIAN_BUTTON = "guardian_button";
     public static final String VALUE_GUARDIAN_RULES_TOOLTIP = "guardian_rules_tooltip";
+    public static final String VALUE_IM_GIFT = "gift_status";
     public static final String VALUE_IM_STATUS = "im_status";
     public static final String VALUE_INPUT_HI = "live_input_hi";
     public static final String VALUE_LEAVE_FOLLOW_GUIDE = "live_leave_follow_guide";

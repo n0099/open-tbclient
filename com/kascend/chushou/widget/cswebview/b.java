@@ -1,6 +1,6 @@
 package com.kascend.chushou.widget.cswebview;
 
 import android.webkit.WebChromeClient;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b extends WebChromeClient {
 }

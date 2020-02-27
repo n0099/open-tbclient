@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.coreextra.data;
 
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ListItemsRule {
     private static final int MAX_CACHE_DEFAULT = Integer.MAX_VALUE;
     private int FrsMaxCache;

@@ -20,10 +20,10 @@ import com.baidu.swan.apps.res.widget.a.a;
 import com.baidu.swan.apps.res.widget.a.b;
 import com.baidu.swan.bdprivate.b;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdContextMenuView extends FrameLayout implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a caW;
+    private a cfc;
     private Context mContext;
     public boolean mLayoutInCenter;
     private ListView mListView;
@@ -56,11 +56,11 @@ public class BdContextMenuView extends FrameLayout implements a.b {
             Log.d("BdContextMenuView", "layout menu view");
         }
         if (!this.mMenuLoaded) {
-            if (this.caW == null) {
-                this.caW = new a(this.mContext, list);
-                this.mListView.setAdapter((ListAdapter) this.caW);
+            if (this.cfc == null) {
+                this.cfc = new a(this.mContext, list);
+                this.mListView.setAdapter((ListAdapter) this.cfc);
             } else {
-                this.caW.setData(list);
+                this.cfc.setData(list);
             }
             this.mMenuLoaded = true;
         }
@@ -71,14 +71,14 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         setBackground(this.mContext.getResources().getDrawable(b.d.aiapps_context_menu_bg));
         this.mListView = new ListView(this.mContext);
         this.mListView.setCacheColorHint(0);
-        this.mListView.setDivider(getResources().getDrawable(b.C0308b.aiapps_context_menu_divider_color));
+        this.mListView.setDivider(getResources().getDrawable(b.C0318b.aiapps_context_menu_divider_color));
         this.mListView.setDividerHeight(1);
         this.mListView.setSelector(new ColorDrawable(0));
         addView(this.mListView, new FrameLayout.LayoutParams(-1, -1));
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.bdprivate.widget.BdContextMenuView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                BdContextMenuView.this.caW.onItemClicked(i);
+                BdContextMenuView.this.cfc.onItemClicked(i);
             }
         });
     }
@@ -87,18 +87,18 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         this.mLayoutInCenter = z;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private class a extends BaseAdapter {
         private Context mContext;
         private List<com.baidu.swan.apps.res.widget.a.b> mDataList;
 
         /* renamed from: com.baidu.swan.bdprivate.widget.BdContextMenuView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C0313a {
+        /* loaded from: classes11.dex */
+        public class C0323a {
             public ImageView mListIcon;
             public TextView mListName;
 
-            public C0313a() {
+            public C0323a() {
             }
         }
 
@@ -130,44 +130,44 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         @Override // android.widget.Adapter
         @SuppressLint({"InflateParams"})
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0313a c0313a;
+            C0323a c0323a;
             View view2;
             if (view == null) {
                 view2 = LayoutInflater.from(this.mContext).inflate(b.f.aiapps_menu_item_view, (ViewGroup) null);
-                C0313a c0313a2 = new C0313a();
-                c0313a2.mListIcon = (ImageView) view2.findViewById(b.e.item_icon);
-                c0313a2.mListName = (TextView) view2.findViewById(b.e.item_title);
-                c0313a2.mListName.setTextColor(this.mContext.getResources().getColor(b.C0308b.aiapps_context_menu_item_title_color));
+                C0323a c0323a2 = new C0323a();
+                c0323a2.mListIcon = (ImageView) view2.findViewById(b.e.item_icon);
+                c0323a2.mListName = (TextView) view2.findViewById(b.e.item_title);
+                c0323a2.mListName.setTextColor(this.mContext.getResources().getColor(b.C0318b.aiapps_context_menu_item_title_color));
                 setBackgroundSelector(view2, i);
-                view2.setTag(c0313a2);
-                c0313a = c0313a2;
+                view2.setTag(c0323a2);
+                c0323a = c0323a2;
             } else {
-                c0313a = (C0313a) view.getTag();
+                c0323a = (C0323a) view.getTag();
                 view2 = view;
             }
             com.baidu.swan.apps.res.widget.a.b bVar = this.mDataList.get(i);
-            c0313a.mListName.setText(bVar.getTitle());
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0313a.mListName.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0313a.mListIcon.getLayoutParams();
+            c0323a.mListName.setText(bVar.getTitle());
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0323a.mListName.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0323a.mListIcon.getLayoutParams();
             if (bVar.getIcon() != null) {
-                c0313a.mListIcon.setVisibility(0);
-                c0313a.mListIcon.setImageDrawable(bVar.getIcon());
+                c0323a.mListIcon.setVisibility(0);
+                c0323a.mListIcon.setImageDrawable(bVar.getIcon());
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(b.c.aiapps_context_menu_item_title_left_margin));
-                c0313a.mListName.setLayoutParams(layoutParams);
+                c0323a.mListName.setLayoutParams(layoutParams);
             } else {
-                c0313a.mListIcon.setVisibility(8);
+                c0323a.mListIcon.setVisibility(8);
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(b.c.aiapps_context_menu_item_icon_left_margin));
-                c0313a.mListName.setLayoutParams(layoutParams);
+                c0323a.mListName.setLayoutParams(layoutParams);
             }
             if (BdContextMenuView.this.mLayoutInCenter) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
                 if (bVar.getIcon() != null) {
                     layoutParams2.setMarginStart(0);
-                    c0313a.mListIcon.setLayoutParams(layoutParams2);
+                    c0323a.mListIcon.setLayoutParams(layoutParams2);
                 } else {
                     layoutParams.setMarginStart(0);
-                    c0313a.mListName.setLayoutParams(layoutParams);
+                    c0323a.mListName.setLayoutParams(layoutParams);
                 }
             }
             return view2;
@@ -175,9 +175,9 @@ public class BdContextMenuView extends FrameLayout implements a.b {
 
         public void onItemClicked(int i) {
             com.baidu.swan.apps.res.widget.a.b bVar = this.mDataList.get(i);
-            b.a aaf = bVar.aaf();
-            if (aaf != null) {
-                aaf.c(bVar);
+            b.a act = bVar.act();
+            if (act != null) {
+                act.c(bVar);
             }
         }
 

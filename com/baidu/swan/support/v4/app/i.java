@@ -12,24 +12,24 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i {
-    private final j<?> cyK;
+    private final j<?> cCI;
 
     public static final i a(j<?> jVar) {
         return new i(jVar);
     }
 
     private i(j<?> jVar) {
-        this.cyK = jVar;
+        this.cCI = jVar;
     }
 
-    public k asm() {
-        return this.cyK.aso();
+    public k auA() {
+        return this.cCI.auC();
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.cyK.cyJ.czb;
+        ArrayList<Fragment> arrayList = this.cCI.cCH.cCZ;
         if (arrayList == null) {
             return 0;
         }
@@ -37,129 +37,129 @@ public class i {
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.cyK.cyJ.czb == null) {
+        if (this.cCI.cCH.cCZ == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(getActiveFragmentsCount());
         }
-        list.addAll(this.cyK.cyJ.czb);
+        list.addAll(this.cCI.cCH.cCZ);
         return list;
     }
 
     public void f(Fragment fragment) {
-        this.cyK.cyJ.a(this.cyK, this.cyK, fragment);
+        this.cCI.cCH.a(this.cCI, this.cCI, fragment);
     }
 
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.cyK.cyJ.onCreateView(view, str, context, attributeSet);
+        return this.cCI.cCH.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {
-        this.cyK.cyJ.noteStateNotSaved();
+        this.cCI.cCH.noteStateNotSaved();
     }
 
     public Parcelable saveAllState() {
-        return this.cyK.cyJ.saveAllState();
+        return this.cCI.cCH.saveAllState();
     }
 
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.cyK.cyJ.restoreAllState(parcelable, list);
+        this.cCI.cCH.restoreAllState(parcelable, list);
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.cyK.cyJ.asq();
+        return this.cCI.cCH.auE();
     }
 
     public void dispatchCreate() {
-        this.cyK.cyJ.dispatchCreate();
+        this.cCI.cCH.dispatchCreate();
     }
 
     public void dispatchActivityCreated() {
-        this.cyK.cyJ.dispatchActivityCreated();
+        this.cCI.cCH.dispatchActivityCreated();
     }
 
     public void dispatchStart() {
-        this.cyK.cyJ.dispatchStart();
+        this.cCI.cCH.dispatchStart();
     }
 
     public void dispatchResume() {
-        this.cyK.cyJ.dispatchResume();
+        this.cCI.cCH.dispatchResume();
     }
 
     public void dispatchPause() {
-        this.cyK.cyJ.dispatchPause();
+        this.cCI.cCH.dispatchPause();
     }
 
     public void dispatchStop() {
-        this.cyK.cyJ.dispatchStop();
+        this.cCI.cCH.dispatchStop();
     }
 
     public void dispatchReallyStop() {
-        this.cyK.cyJ.dispatchReallyStop();
+        this.cCI.cCH.dispatchReallyStop();
     }
 
     public void dispatchDestroy() {
-        this.cyK.cyJ.dispatchDestroy();
+        this.cCI.cCH.dispatchDestroy();
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
-        this.cyK.cyJ.dispatchConfigurationChanged(configuration);
+        this.cCI.cCH.dispatchConfigurationChanged(configuration);
     }
 
     public void dispatchLowMemory() {
-        this.cyK.cyJ.dispatchLowMemory();
+        this.cCI.cCH.dispatchLowMemory();
     }
 
     public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        return this.cyK.cyJ.dispatchCreateOptionsMenu(menu, menuInflater);
+        return this.cCI.cCH.dispatchCreateOptionsMenu(menu, menuInflater);
     }
 
     public boolean dispatchPrepareOptionsMenu(Menu menu) {
-        return this.cyK.cyJ.dispatchPrepareOptionsMenu(menu);
+        return this.cCI.cCH.dispatchPrepareOptionsMenu(menu);
     }
 
     public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
-        return this.cyK.cyJ.dispatchOptionsItemSelected(menuItem);
+        return this.cCI.cCH.dispatchOptionsItemSelected(menuItem);
     }
 
     public boolean dispatchContextItemSelected(MenuItem menuItem) {
-        return this.cyK.cyJ.dispatchContextItemSelected(menuItem);
+        return this.cCI.cCH.dispatchContextItemSelected(menuItem);
     }
 
     public void dispatchOptionsMenuClosed(Menu menu) {
-        this.cyK.cyJ.dispatchOptionsMenuClosed(menu);
+        this.cCI.cCH.dispatchOptionsMenuClosed(menu);
     }
 
     public boolean execPendingActions() {
-        return this.cyK.cyJ.execPendingActions();
+        return this.cCI.cCH.execPendingActions();
     }
 
     public void doLoaderStart() {
-        this.cyK.doLoaderStart();
+        this.cCI.doLoaderStart();
     }
 
     public void doLoaderStop(boolean z) {
-        this.cyK.doLoaderStop(z);
+        this.cCI.doLoaderStop(z);
     }
 
     public void doLoaderDestroy() {
-        this.cyK.doLoaderDestroy();
+        this.cCI.doLoaderDestroy();
     }
 
     public void reportLoaderStart() {
-        this.cyK.reportLoaderStart();
+        this.cCI.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> asn() {
-        return this.cyK.asn();
+    public com.baidu.swan.support.v4.b.f<String, o> auB() {
+        return this.cCI.auB();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.cyK.a(fVar);
+        this.cCI.a(fVar);
     }
 
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.cyK.dumpLoaders(str, fileDescriptor, printWriter, strArr);
+        this.cCI.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

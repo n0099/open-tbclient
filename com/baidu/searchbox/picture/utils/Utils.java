@@ -11,7 +11,7 @@ import com.facebook.drawee.a.a.c;
 import com.facebook.imagepipeline.d.j;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class Utils {
     private Utils() {
     }
@@ -34,13 +34,13 @@ public final class Utils {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (c.dkl().O(Uri.parse(str))) {
+        if (c.dly().P(Uri.parse(str))) {
             return true;
         }
-        b<Boolean> P = c.dkl().P(Uri.parse(str));
-        if (P != null) {
-            z = P.djQ() && P.getResult() != null && P.getResult().booleanValue();
-            P.Mn();
+        b<Boolean> Q = c.dly().Q(Uri.parse(str));
+        if (Q != null) {
+            z = Q.dld() && Q.getResult() != null && Q.getResult().booleanValue();
+            Q.OB();
         } else {
             z = false;
         }
@@ -51,7 +51,7 @@ public final class Utils {
         if (TextUtils.isEmpty(str) || !inFrescoCache(str)) {
             return "";
         }
-        a d = j.doi().dop().d(com.facebook.imagepipeline.c.j.dmK().c(ImageRequestBuilder.X(Uri.parse(str)).dro(), context.getApplicationContext()));
+        a d = j.dpu().dpB().d(com.facebook.imagepipeline.c.j.dnX().c(ImageRequestBuilder.Y(Uri.parse(str)).dsA(), context.getApplicationContext()));
         if (d == null) {
             return "";
         }

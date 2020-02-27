@@ -13,11 +13,11 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
-    private long bud;
+    private long byn;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class a extends b<a> {
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.a.c
         public /* synthetic */ com.baidu.swan.apps.x.b.a.c B(Bundle bundle) {
@@ -25,60 +25,59 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e af(long j) {
-            return super.af(j);
+        public /* synthetic */ e aj(long j) {
+            return super.aj(j);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e eS(int i) {
-            return super.eS(i);
+        public /* synthetic */ e fi(int i) {
+            return super.fi(i);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e ie(String str) {
-            return super.ie(str);
+        public /* synthetic */ e iA(String str) {
+            return super.iA(str);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        /* renamed from: if */
-        public /* synthetic */ e mo23if(String str) {
-            return super.mo23if(str);
+        public /* synthetic */ e it(String str) {
+            return super.it(str);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e ig(String str) {
-            return super.ig(str);
+        public /* synthetic */ e iu(String str) {
+            return super.iu(str);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e ih(String str) {
-            return super.ih(str);
+        public /* synthetic */ e iv(String str) {
+            return super.iv(str);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e ii(String str) {
-            return super.ii(str);
+        public /* synthetic */ e iw(String str) {
+            return super.iw(str);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e ij(String str) {
-            return super.ij(str);
+        public /* synthetic */ e ix(String str) {
+            return super.ix(str);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e ik(String str) {
-            return super.ik(str);
+        public /* synthetic */ e iy(String str) {
+            return super.iy(str);
         }
 
         @Override // com.baidu.swan.apps.x.b.b, com.baidu.swan.apps.x.b.e
-        public /* synthetic */ e il(String str) {
-            return super.il(str);
+        public /* synthetic */ e iz(String str) {
+            return super.iz(str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.as.d.d
-        /* renamed from: To */
-        public a Tp() {
+        /* renamed from: VC */
+        public a VD() {
             return this;
         }
     }
@@ -92,13 +91,13 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     public SelfT H(Intent intent) {
         if (intent == null) {
-            return (SelfT) Tp();
+            return (SelfT) VD();
         }
         B(intent.getExtras());
         if (d.I(intent)) {
-            im("1250000000000000");
+            iB("1250000000000000");
         }
-        return (SelfT) Tp();
+        return (SelfT) VD();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,14 +105,14 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     /* renamed from: A */
     public SelfT B(Bundle bundle) {
         if (bundle == null) {
-            return (SelfT) Tp();
+            return (SelfT) VD();
         }
         com.baidu.swan.apps.console.debugger.b.n(bundle);
         super.B(bundle);
         if (TextUtils.isEmpty(bundle.getString("mPage"))) {
-            iu("mPage");
+            iJ("mPage");
         }
-        return (SelfT) Tp();
+        return (SelfT) VD();
     }
 
     @Override // com.baidu.swan.apps.x.b.a.c
@@ -127,18 +126,18 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return bundle;
     }
 
-    public static b Tc() {
+    public static b Vq() {
         a aVar = new a();
-        aVar.il("小程序测试");
-        aVar.ij("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
-        aVar.ag(Color.parseColor("#FF308EF0"));
-        aVar.im("1230000000000000");
-        aVar.ih("小程序简介");
-        aVar.ig("测试服务类目");
-        aVar.mo23if("测试主体信息");
-        aVar.ik("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
-        aVar.ie("1.0");
-        aVar.ii("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");
+        aVar.iA("小程序测试");
+        aVar.iy("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
+        aVar.ak(Color.parseColor("#FF308EF0"));
+        aVar.iB("1230000000000000");
+        aVar.iw("小程序简介");
+        aVar.iv("测试服务类目");
+        aVar.iu("测试主体信息");
+        aVar.iz("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
+        aVar.it("1.0");
+        aVar.ix("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");
         return aVar;
     }
 
@@ -154,16 +153,16 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         if (TextUtils.isEmpty(str) || swanAppConfigData == null) {
             return null;
         }
-        if (swanAppConfigData.kN(ag.delAllParamsFromUrl(str))) {
+        if (swanAppConfigData.lc(ag.delAllParamsFromUrl(str))) {
             return str;
         }
         return null;
     }
 
-    public JSONObject Td() {
-        String Tv = Tv();
-        if (Tv != null) {
-            String queryParameter = Uri.parse(Tv).getQueryParameter("_swaninfo");
+    public JSONObject Vr() {
+        String VJ = VJ();
+        if (VJ != null) {
+            String queryParameter = Uri.parse(VJ).getQueryParameter("_swaninfo");
             if (!TextUtils.isEmpty(queryParameter)) {
                 try {
                     return new JSONObject(queryParameter).optJSONObject("baidusearch");
@@ -177,170 +176,170 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return new JSONObject();
     }
 
-    public String OK() {
-        return "SwanAppLaunchInfo{mAppId='" + getAppId() + "', mAppKey='" + getAppKey() + "', mAppTitle='" + OL() + "', pmsAppInfo is null='" + TK() + "', launchFrom='" + Tt() + "', launchScheme='" + Tv() + "', page='" + getPage() + "', mErrorCode=" + Tf() + ", mErrorDetail='" + Tg() + "', mErrorMsg='" + Th() + "', mResumeDate='" + Ti() + "', maxSwanVersion='" + Tw() + "', minSwanVersion='" + Tx() + "', mVersion='" + getVersion() + "', mType=" + getType() + ", extraData=" + Ty() + ", isDebug=" + isDebug() + ", targetSwanVersion='" + TE() + "', swanCoreVersion=" + OA() + ", appFrameType=" + getAppFrameType() + ", consoleSwitch=" + TF() + ", orientation=" + getOrientation() + ", versionCode='" + getVersionCode() + "', launchFlags=" + TG() + ", swanAppStartTime=" + Tn() + ", extStartTimestamp=" + TH() + ", remoteDebug='" + TI() + "', extJSonObject=" + TL() + ", launchId=" + TM() + '}';
+    public String QY() {
+        return "SwanAppLaunchInfo{mAppId='" + getAppId() + "', mAppKey='" + getAppKey() + "', mAppTitle='" + QZ() + "', pmsAppInfo is null='" + VY() + "', launchFrom='" + VH() + "', launchScheme='" + VJ() + "', page='" + getPage() + "', mErrorCode=" + Vt() + ", mErrorDetail='" + Vu() + "', mErrorMsg='" + Vv() + "', mResumeDate='" + Vw() + "', maxSwanVersion='" + VK() + "', minSwanVersion='" + VL() + "', mVersion='" + getVersion() + "', mType=" + getType() + ", extraData=" + VM() + ", isDebug=" + isDebug() + ", targetSwanVersion='" + VS() + "', swanCoreVersion=" + QO() + ", appFrameType=" + getAppFrameType() + ", consoleSwitch=" + VT() + ", orientation=" + getOrientation() + ", versionCode='" + getVersionCode() + "', launchFlags=" + VU() + ", swanAppStartTime=" + VB() + ", extStartTimestamp=" + VV() + ", remoteDebug='" + VW() + "', extJSonObject=" + VZ() + ", launchId=" + Wa() + '}';
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public String OL() {
-        PMSAppInfo TJ = TJ();
-        return (TJ == null || TextUtils.isEmpty(TJ.appName)) ? super.OL() : TJ.appName;
+    public String QZ() {
+        PMSAppInfo VX = VX();
+        return (VX == null || TextUtils.isEmpty(VX.appName)) ? super.QZ() : VX.appName;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: hV */
-    public SelfT il(String str) {
-        PMSAppInfo TJ = TJ();
-        if (TJ != null) {
-            TJ.appName = str;
+    /* renamed from: il */
+    public SelfT iA(String str) {
+        PMSAppInfo VX = VX();
+        if (VX != null) {
+            VX.appName = str;
         }
-        return (SelfT) super.il(str);
+        return (SelfT) super.iA(str);
     }
 
     @Override // com.baidu.swan.apps.x.b.e
     public String getAppKey() {
-        PMSAppInfo TJ = TJ();
-        return (TJ == null || TextUtils.isEmpty(TJ.appKey)) ? super.getAppKey() : TJ.appKey;
+        PMSAppInfo VX = VX();
+        return (VX == null || TextUtils.isEmpty(VX.appKey)) ? super.getAppKey() : VX.appKey;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: hW */
-    public SelfT ik(String str) {
-        PMSAppInfo TJ = TJ();
-        if (TJ != null) {
-            TJ.appKey = str;
+    /* renamed from: im */
+    public SelfT iz(String str) {
+        PMSAppInfo VX = VX();
+        if (VX != null) {
+            VX.appKey = str;
         }
-        return (SelfT) super.ik(str);
+        return (SelfT) super.iz(str);
     }
 
     @Override // com.baidu.swan.apps.x.b.e
     public String getAppId() {
-        PMSAppInfo TJ = TJ();
-        return (TJ == null || TextUtils.isEmpty(TJ.appId)) ? super.getAppId() : TJ.appId;
+        PMSAppInfo VX = VX();
+        return (VX == null || TextUtils.isEmpty(VX.appId)) ? super.getAppId() : VX.appId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: hX */
-    public SelfT ij(String str) {
-        super.ij(str);
-        PMSAppInfo TJ = TJ();
-        if (TJ != null) {
-            TJ.appId = str;
-            return (SelfT) super.ij(str);
+    /* renamed from: in */
+    public SelfT iy(String str) {
+        super.iy(str);
+        PMSAppInfo VX = VX();
+        if (VX != null) {
+            VX.appId = str;
+            return (SelfT) super.iy(str);
         }
-        return (SelfT) Tp();
+        return (SelfT) VD();
     }
 
     @Override // com.baidu.swan.apps.x.b.e
     public String getIconUrl() {
-        PMSAppInfo TJ = TJ();
-        return (TJ == null || TextUtils.isEmpty(TJ.iconUrl)) ? super.getIconUrl() : TJ.iconUrl;
+        PMSAppInfo VX = VX();
+        return (VX == null || TextUtils.isEmpty(VX.iconUrl)) ? super.getIconUrl() : VX.iconUrl;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: hY */
-    public SelfT ii(String str) {
-        super.ii(str);
-        PMSAppInfo TJ = TJ();
-        if (TJ != null) {
-            TJ.iconUrl = str;
-            return (SelfT) super.ii(str);
+    /* renamed from: io */
+    public SelfT ix(String str) {
+        super.ix(str);
+        PMSAppInfo VX = VX();
+        if (VX != null) {
+            VX.iconUrl = str;
+            return (SelfT) super.ix(str);
         }
-        return (SelfT) Tp();
+        return (SelfT) VD();
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public String Te() {
-        PMSAppInfo TJ = TJ();
-        return TJ == null ? "" : TJ.description;
+    public String Vs() {
+        PMSAppInfo VX = VX();
+        return VX == null ? "" : VX.description;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: hZ */
-    public SelfT ih(String str) {
-        PMSAppInfo TJ = TJ();
-        if (TJ != null) {
-            TJ.description = str;
-            return (SelfT) super.ih(str);
+    /* renamed from: ip */
+    public SelfT iw(String str) {
+        PMSAppInfo VX = VX();
+        if (VX != null) {
+            VX.description = str;
+            return (SelfT) super.iw(str);
         }
-        return (SelfT) Tp();
+        return (SelfT) VD();
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public int Tf() {
-        PMSAppInfo TJ = TJ();
-        if (TJ == null) {
+    public int Vt() {
+        PMSAppInfo VX = VX();
+        if (VX == null) {
             return 0;
         }
-        return TJ.appStatus;
+        return VX.appStatus;
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public String Tg() {
-        PMSAppInfo TJ = TJ();
-        return TJ == null ? "" : TJ.statusDetail;
+    public String Vu() {
+        PMSAppInfo VX = VX();
+        return VX == null ? "" : VX.statusDetail;
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public String Th() {
-        PMSAppInfo TJ = TJ();
-        return TJ == null ? "" : TJ.statusDesc;
+    public String Vv() {
+        PMSAppInfo VX = VX();
+        return VX == null ? "" : VX.statusDesc;
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public String Ti() {
-        PMSAppInfo TJ = TJ();
-        return TJ == null ? "" : TJ.resumeDate;
+    public String Vw() {
+        PMSAppInfo VX = VX();
+        return VX == null ? "" : VX.resumeDate;
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public String Tj() {
-        PMSAppInfo TJ = TJ();
-        return TJ == null ? "" : TJ.serviceCategory;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: ia */
-    public SelfT ig(String str) {
-        PMSAppInfo TJ = TJ();
-        if (TJ != null) {
-            TJ.serviceCategory = str;
-            return (SelfT) super.ig(str);
-        }
-        return (SelfT) Tp();
-    }
-
-    @Override // com.baidu.swan.apps.x.b.e
-    public String Tk() {
-        PMSAppInfo TJ = TJ();
-        return TJ == null ? "" : TJ.subjectInfo;
+    public String Vx() {
+        PMSAppInfo VX = VX();
+        return VX == null ? "" : VX.serviceCategory;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: ib */
-    public SelfT mo23if(String str) {
-        PMSAppInfo TJ = TJ();
-        if (TJ != null) {
-            TJ.subjectInfo = str;
-            return (SelfT) super.mo23if(str);
+    /* renamed from: iq */
+    public SelfT iv(String str) {
+        PMSAppInfo VX = VX();
+        if (VX != null) {
+            VX.serviceCategory = str;
+            return (SelfT) super.iv(str);
         }
-        return (SelfT) Tp();
+        return (SelfT) VD();
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public SwanAppBearInfo Tl() {
-        PMSAppInfo TJ = TJ();
-        if (TJ == null) {
+    public String Vy() {
+        PMSAppInfo VX = VX();
+        return VX == null ? "" : VX.subjectInfo;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.swan.apps.x.b.e
+    /* renamed from: ir */
+    public SelfT iu(String str) {
+        PMSAppInfo VX = VX();
+        if (VX != null) {
+            VX.subjectInfo = str;
+            return (SelfT) super.iu(str);
+        }
+        return (SelfT) VD();
+    }
+
+    @Override // com.baidu.swan.apps.x.b.e
+    public SwanAppBearInfo Vz() {
+        PMSAppInfo VX = VX();
+        if (VX == null) {
             return null;
         }
-        String str = TJ.bearInfo;
+        String str = VX.bearInfo;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -349,84 +348,84 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     @Override // com.baidu.swan.apps.x.b.e
     public String getVersion() {
-        PMSAppInfo TJ = TJ();
-        return TJ == null ? "" : String.valueOf(TJ.versionCode);
+        PMSAppInfo VX = VX();
+        return VX == null ? "" : String.valueOf(VX.versionCode);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: ic */
-    public SelfT ie(String str) {
-        PMSAppInfo TJ = TJ();
-        if (!TextUtils.isEmpty(str) && TJ != null) {
+    /* renamed from: is */
+    public SelfT it(String str) {
+        PMSAppInfo VX = VX();
+        if (!TextUtils.isEmpty(str) && VX != null) {
             try {
-                TJ.versionCode = Integer.parseInt(str);
-                return (SelfT) super.ie(str);
+                VX.versionCode = Integer.parseInt(str);
+                return (SelfT) super.it(str);
             } catch (NumberFormatException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return (SelfT) Tp();
+        return (SelfT) VD();
     }
 
     @Override // com.baidu.swan.apps.x.b.e
     public String getVersionCode() {
-        PMSAppInfo TJ = TJ();
-        return TJ == null ? "" : TJ.versionName;
+        PMSAppInfo VX = VX();
+        return VX == null ? "" : VX.versionName;
     }
 
     @Override // com.baidu.swan.apps.x.b.e
     public int getType() {
-        PMSAppInfo TJ = TJ();
-        if (TJ == null) {
+        PMSAppInfo VX = VX();
+        if (VX == null) {
             return 0;
         }
-        return TJ.type;
+        return VX.type;
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public long Tm() {
-        PMSAppInfo TJ = TJ();
-        if (TJ == null) {
+    public long VA() {
+        PMSAppInfo VX = VX();
+        if (VX == null) {
             return 0L;
         }
-        return TJ.pkgSize;
+        return VX.pkgSize;
     }
 
     @Override // com.baidu.swan.apps.x.b.e
     public int getOrientation() {
-        PMSAppInfo TJ = TJ();
-        int orientation = TJ == null ? -1 : TJ.getOrientation();
+        PMSAppInfo VX = VX();
+        int orientation = VX == null ? -1 : VX.getOrientation();
         return -1 < orientation ? orientation : super.getOrientation();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: eR */
-    public SelfT eS(int i) {
-        PMSAppInfo TJ = TJ();
-        if (TJ != null) {
-            TJ.setOrientation(i);
-            return (SelfT) super.eS(i);
+    /* renamed from: fh */
+    public SelfT fi(int i) {
+        PMSAppInfo VX = VX();
+        if (VX != null) {
+            VX.setOrientation(i);
+            return (SelfT) super.fi(i);
         }
-        return (SelfT) Tp();
+        return (SelfT) VD();
     }
 
     @Override // com.baidu.swan.apps.x.b.e
-    public long Tn() {
-        return this.bud;
+    public long VB() {
+        return this.byn;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
-    /* renamed from: ae */
-    public SelfT af(long j) {
-        if (this.bud >= 1 || j <= 0) {
-            return (SelfT) Tp();
+    /* renamed from: ai */
+    public SelfT aj(long j) {
+        if (this.byn >= 1 || j <= 0) {
+            return (SelfT) VD();
         }
-        this.bud = j;
-        return (SelfT) super.af(j);
+        this.byn = j;
+        return (SelfT) super.aj(j);
     }
 }

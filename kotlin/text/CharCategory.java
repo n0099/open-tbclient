@@ -1,7 +1,8 @@
 package kotlin.text;
 
 import kotlin.jvm.internal.PropertyReference1Impl;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public enum CharCategory {
     UNASSIGNED(0, "Cn"),
     UPPERCASE_LETTER(1, "Lu"),
@@ -56,9 +57,10 @@ public enum CharCategory {
         return Character.getType(c) == this.value;
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class a {
-        static final /* synthetic */ kotlin.reflect.j[] clQ = {kotlin.jvm.internal.t.a(new PropertyReference1Impl(kotlin.jvm.internal.t.N(a.class), "categoryMap", "getCategoryMap()Ljava/util/Map;"))};
+        static final /* synthetic */ kotlin.reflect.j[] cpT = {kotlin.jvm.internal.t.a(new PropertyReference1Impl(kotlin.jvm.internal.t.M(a.class), "categoryMap", "getCategoryMap()Ljava/util/Map;"))};
 
         private a() {
         }

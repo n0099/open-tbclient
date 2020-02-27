@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LivePrepareListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public String fdI;
-    public String fdJ;
-    public List<String> fdK;
+    public String fgS;
+    public String fgT;
+    public List<String> fgU;
 
     public LivePrepareListHttpResponseMessage() {
         super(1021147);
@@ -22,15 +22,15 @@ public class LivePrepareListHttpResponseMessage extends JsonHttpResponsedMessage
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.fdI = optJSONObject.optString(LogConfig.LIVE_SHARE_HK_WEIBO);
-            this.fdJ = optJSONObject.optString("tencent");
+            this.fgS = optJSONObject.optString(LogConfig.LIVE_SHARE_HK_WEIBO);
+            this.fgT = optJSONObject.optString("tencent");
             JSONArray optJSONArray = optJSONObject.optJSONArray("title");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fdK = new ArrayList();
+                this.fgU = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     String optString = optJSONArray.optString(i2);
                     if (!TextUtils.isEmpty(optString)) {
-                        this.fdK.add(optString);
+                        this.fgU.add(optString);
                     }
                 }
             }

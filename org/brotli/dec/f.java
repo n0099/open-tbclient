@@ -1,7 +1,7 @@
 package org.brotli.dec;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class f {
-    private static int eB(int i, int i2) {
+    private static int eE(int i, int i2) {
         int i3 = 1 << (i2 - 1);
         while ((i & i3) != 0) {
             i3 >>= 1;
@@ -9,7 +9,7 @@ final class f {
         return i3 + ((i3 - 1) & i);
     }
 
-    private static void a(int[] iArr, int i, int i2, int i3, int i4) {
+    private static void b(int[] iArr, int i, int i2, int i3, int i4) {
         do {
             i3 -= i2;
             iArr[i + i3] = i4;
@@ -62,10 +62,10 @@ final class f {
             int i16 = i13;
             while (iArr4[i12] > 0) {
                 int i17 = i15 + 1;
-                a(iArr, i + i16, i14, i10, iArr3[i15] | (i12 << 16));
-                int eB = eB(i16, i12);
+                b(iArr, i + i16, i14, i10, iArr3[i15] | (i12 << 16));
+                int eE = eE(i16, i12);
                 iArr4[i12] = iArr4[i12] - 1;
-                i16 = eB;
+                i16 = eE;
                 i15 = i17;
             }
             i12++;
@@ -93,10 +93,10 @@ final class f {
                     iArr[i + i24] = ((d + i2) << 16) | ((i26 - i) - i24);
                 }
                 int i28 = i25 + 1;
-                a(iArr, i26 + (i27 >> i2), i19, i22, iArr3[i25] | ((i20 - i2) << 16));
-                int eB2 = eB(i27, i20);
+                b(iArr, i26 + (i27 >> i2), i19, i22, iArr3[i25] | ((i20 - i2) << 16));
+                int eE2 = eE(i27, i20);
                 iArr4[i20] = iArr4[i20] - 1;
-                i27 = eB2;
+                i27 = eE2;
                 i25 = i28;
             }
             i20++;

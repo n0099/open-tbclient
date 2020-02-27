@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class m implements IOAdEventListener {
     final /* synthetic */ double a;
     final /* synthetic */ l b;

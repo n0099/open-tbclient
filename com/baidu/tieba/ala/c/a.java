@@ -10,21 +10,21 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.live.u.a;
 import com.baidu.tieba.ala.data.k;
 import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private BdListView eFY;
-    private LinearLayout eFZ;
-    private LinearLayout eGa;
-    private com.baidu.tieba.ala.adapter.a eGb;
-    private AlaChallengeHistoryHeaderView eGc;
-    private TextView eGd;
+    private BdListView eJS;
+    private LinearLayout eJT;
+    private LinearLayout eJU;
+    private com.baidu.tieba.ala.adapter.a eJV;
+    private AlaChallengeHistoryHeaderView eJW;
+    private TextView eJX;
     private Activity mContext;
     private TbPageContext<BaseFragmentActivity> mTbPageContext;
     private View view;
@@ -37,41 +37,41 @@ public class a {
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.eFY = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.eFY.setVisibility(4);
-        this.eFZ = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.eGa = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.eGd = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.eGb = new com.baidu.tieba.ala.adapter.a(this.mContext);
-        this.eFY.setAdapter((ListAdapter) this.eGb);
-        this.eGc = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.eFY.setEmptyView(this.eFZ);
+        this.eJS = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.eJS.setVisibility(4);
+        this.eJT = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.eJU = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.eJX = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.eJV = new com.baidu.tieba.ala.adapter.a(this.mContext);
+        this.eJS.setAdapter((ListAdapter) this.eJV);
+        this.eJW = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.eJS.setEmptyView(this.eJT);
     }
 
     public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, k kVar) {
-        this.eFY.setVisibility(0);
+        this.eJS.setVisibility(0);
         if (!ListUtils.isEmpty(arrayList) && kVar != null) {
-            if (this.eGc.getParent() == null) {
-                if (this.eGc.getParent() != null) {
-                    ((ViewGroup) this.eGc.getParent()).removeView(this.eGc);
+            if (this.eJW.getParent() == null) {
+                if (this.eJW.getParent() != null) {
+                    ((ViewGroup) this.eJW.getParent()).removeView(this.eJW);
                 }
-                this.eFY.addHeaderView(this.eGc);
-                this.eGc.setData(kVar);
+                this.eJS.addHeaderView(this.eJW);
+                this.eJW.setData(kVar);
             }
-        } else if (this.eGc.getParent() != null) {
-            ((ViewGroup) this.eGc.getParent()).removeView(this.eGc);
+        } else if (this.eJW.getParent() != null) {
+            ((ViewGroup) this.eJW.getParent()).removeView(this.eJW);
         }
-        if (this.eGb != null && arrayList != null) {
-            this.eGb.setData(arrayList);
+        if (this.eJV != null && arrayList != null) {
+            this.eJV.setData(arrayList);
         }
     }
 
-    public void yh(String str) {
+    public void yD(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.eGb != null && this.eGb.getCount() <= 0) {
-                this.eFZ.setVisibility(8);
-                this.eGa.setVisibility(0);
-                this.eGd.setText(str);
+            if (this.eJV != null && this.eJV.getCount() <= 0) {
+                this.eJT.setVisibility(8);
+                this.eJU.setVisibility(0);
+                this.eJX.setText(str);
                 return;
             }
             BdUtilHelper.showToast(this.mContext, str, 1);

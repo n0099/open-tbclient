@@ -10,7 +10,7 @@ import com.coloros.mcssdk.mode.CommandMessage;
 import com.coloros.mcssdk.mode.Message;
 import com.coloros.mcssdk.mode.SptDataMessage;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushService extends Service implements MessageCallback {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

@@ -20,10 +20,10 @@ import com.kascend.chushou.player.ui.h5.redpacket.a;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
-public class e extends Fragment implements a.InterfaceC0692a, a.InterfaceC0695a, b.a, a.InterfaceC0697a, a.InterfaceC0698a {
+/* loaded from: classes5.dex */
+public class e extends Fragment implements a.InterfaceC0700a, a.InterfaceC0703a, b.a, a.InterfaceC0705a, a.InterfaceC0706a {
     public boolean H = false;
-    public tv.chushou.common.player.a mTO = null;
+    public tv.chushou.common.player.a mUs = null;
     public float J = 1.0f;
     protected boolean K = false;
 
@@ -173,7 +173,7 @@ public class e extends Fragment implements a.InterfaceC0692a, a.InterfaceC0695a,
     public void b(long j) {
     }
 
-    @Override // com.kascend.chushou.player.ui.h5.d.a.InterfaceC0697a
+    @Override // com.kascend.chushou.player.ui.h5.d.a.InterfaceC0705a
     public void b(com.kascend.chushou.player.ui.h5.c.a aVar) {
     }
 

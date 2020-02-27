@@ -3,20 +3,20 @@ package com.baidu.swan.mini.e;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.as.m;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onFailed(int i, String str);
 
         void onSuccess(String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
-        void pT(@NonNull String str);
+        void qi(@NonNull String str);
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -26,7 +26,7 @@ public class c {
     }
 
     @NonNull
-    public static String pY(@NonNull String str) {
+    public static String qn(@NonNull String str) {
         return str + File.separator + "mini";
     }
 
@@ -107,7 +107,7 @@ public class c {
                 L69:
                     com.baidu.swan.mini.e.c$b r0 = r2
                     java.lang.String r1 = ""
-                    r0.pT(r1)
+                    r0.qi(r1)
                 L71:
                     return
                 L72:
@@ -133,7 +133,7 @@ public class c {
                 La4:
                     com.baidu.swan.mini.e.c$b r1 = r2
                     java.lang.String r0 = r0.toString()
-                    r1.pT(r0)
+                    r1.qi(r0)
                     goto L71
                 Lae:
                     r4 = move-exception

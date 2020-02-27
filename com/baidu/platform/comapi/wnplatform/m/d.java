@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.wnplatform.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d {
     private static final String a = d.class.getSimpleName();
     private static d b;

@@ -17,7 +17,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ShimmerFrameLayout extends FrameLayout {
     private static final PorterDuffXfermode DST_IN_PORTER_DUFF_XFERMODE = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
     private static final String TAG = "ShimmerFrameLayout";
@@ -39,7 +39,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     private int mRepeatDelay;
     private int mRepeatMode;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public enum MaskAngle {
         CW_0,
         CW_90,
@@ -47,7 +47,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         CW_270
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public enum MaskShape {
         LINEAR,
         RADIAL,
@@ -55,7 +55,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class Mask {
         public static final int BLACK = 0;
         public static final int WHITE = 1;
@@ -102,7 +102,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class MaskTranslation {
         public int fromX;
         public int fromY;

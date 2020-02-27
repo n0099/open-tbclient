@@ -3,7 +3,7 @@ package com.baidu.live.adp.framework.message;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     private String contentEncoding;
     private String contentLength;

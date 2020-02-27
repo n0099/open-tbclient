@@ -4,23 +4,23 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import okio.BufferedSource;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c<T> extends e {
-    void E(T t);
-
-    void F(T t);
-
     void G(T t);
 
     void H(T t);
 
-    String I(T t);
+    void I(T t);
 
-    void W(T t);
+    void J(T t);
+
+    String K(T t);
+
+    void Y(T t);
 
     com.baidu.swan.pms.model.a a(T t, BufferedSource bufferedSource, File file, long j) throws IOException;
 
     void a(T t, com.baidu.swan.pms.model.a aVar);
 
-    Map<String, Object> arb();
+    Map<String, Object> atp();
 }

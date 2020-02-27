@@ -5,7 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class SchemeTimeCostMoniter {
     private static final boolean DEBUG = SchemeConfig.DEBUG;
     public static final int DEFAULT_THRESHOLD = 100;
@@ -44,7 +44,7 @@ public final class SchemeTimeCostMoniter {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class SchemeTimeCostMoniterHolder {
         private static final SchemeTimeCostMoniter sInstance = new SchemeTimeCostMoniter();
 

@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.i.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LoadingDialog extends Dialog implements com.baidu.sapi2.c {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Builder implements com.baidu.sapi2.c {
         private Context a;
         private String b;

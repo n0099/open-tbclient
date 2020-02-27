@@ -7,7 +7,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BioSensorManager {
     private Context context;
     private SensorEventListener listener;
@@ -18,7 +18,7 @@ public class BioSensorManager {
     private long lastSensorChangeTime = 0;
     private float curIllum = 2.1474836E9f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface SensorCallback {
         void onChange(float f);
     }

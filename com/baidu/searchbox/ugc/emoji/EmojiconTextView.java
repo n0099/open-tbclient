@@ -11,7 +11,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.ugc.R;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EmojiconTextView extends AppCompatTextView {
     private int mEmojiconSize;
 

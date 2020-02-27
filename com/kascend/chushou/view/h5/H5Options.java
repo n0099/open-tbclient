@@ -3,7 +3,7 @@ package com.kascend.chushou.view.h5;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class H5Options implements Parcelable {
     public static final Parcelable.Creator<H5Options> CREATOR = new Parcelable.Creator<H5Options>() { // from class: com.kascend.chushou.view.h5.H5Options.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public class H5Options implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: MV */
+        /* renamed from: MY */
         public H5Options[] newArray(int i) {
             return new H5Options[i];
         }

@@ -1,5 +1,5 @@
 package tv.chushou.basis.rxjava.entity;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EventType {
     private final Class<?> clazz;
     private final int hashCode;

@@ -13,7 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class RoundRectDrawable extends Drawable {
     private ColorStateList mBackground;
     private final RectF mBoundsF;

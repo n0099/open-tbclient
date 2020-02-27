@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InterActiveMsg extends NormalMsg {
     public static final Parcelable.Creator<InterActiveMsg> CREATOR = new Parcelable.Creator<InterActiveMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.InterActiveMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,22 +55,17 @@ public class InterActiveMsg extends NormalMsg {
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
-        Exception e;
-        JSONObject optJSONObject;
-        String optString;
         try {
-            optJSONObject = new JSONObject(getJsonContent()).optJSONObject("text");
-            optString = optJSONObject.optString("level2");
-        } catch (Exception e2) {
-            e = e2;
-        }
-        try {
+            JSONObject optJSONObject = new JSONObject(getJsonContent()).optJSONObject("text");
+            if (optJSONObject == null) {
+                return "";
+            }
+            String optString = optJSONObject.optString("level2");
             if (TextUtils.isEmpty(optString)) {
                 return optJSONObject.optString("level1");
             }
             return optString;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
             LogUtils.e(TAG, "getRecommendDescription JSONException", e);
             return "";
         }

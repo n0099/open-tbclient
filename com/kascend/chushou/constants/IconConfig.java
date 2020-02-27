@@ -2,7 +2,7 @@ package com.kascend.chushou.constants;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class IconConfig {
     public static final int TYPE_GUESS = 3;
     public static final int TYPE_PRIVILEGE = 5;
@@ -13,7 +13,7 @@ public class IconConfig {
     public Config bangConfig = new Config();
     public List<ConfigDetail> configs = new ArrayList();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Config {
         public int type;
         public boolean display = true;

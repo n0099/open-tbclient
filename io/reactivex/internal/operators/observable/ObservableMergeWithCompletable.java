@@ -7,7 +7,7 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableMergeWithCompletable<T> extends a<T, T> {
     final e other;
 
@@ -19,7 +19,7 @@ public final class ObservableMergeWithCompletable<T> extends a<T, T> {
         this.other.a(mergeWithObserver.otherObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class MergeWithObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -4592979584110982903L;
         final u<? super T> actual;
@@ -80,7 +80,7 @@ public final class ObservableMergeWithCompletable<T> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static final class OtherObserver extends AtomicReference<io.reactivex.disposables.b> implements c {
             private static final long serialVersionUID = -2935427570954647017L;
             final MergeWithObserver<?> parent;

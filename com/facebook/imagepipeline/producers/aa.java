@@ -4,7 +4,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class aa extends z {
     public aa(Executor executor, com.facebook.common.memory.g gVar) {
         super(executor, gVar);
@@ -12,11 +12,11 @@ public class aa extends z {
 
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
-        return f(new FileInputStream(imageRequest.drk().toString()), (int) imageRequest.drk().length());
+        return f(new FileInputStream(imageRequest.dsw().toString()), (int) imageRequest.dsw().length());
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dqt() {
+    protected String drF() {
         return "LocalFileFetchProducer";
     }
 }

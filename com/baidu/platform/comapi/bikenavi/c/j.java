@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.bikenavi.c;
 
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class j implements DialogInterface.OnCancelListener {
     final /* synthetic */ b a;
 

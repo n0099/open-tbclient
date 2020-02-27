@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 final class f {
-    private static volatile f Hp;
+    private static volatile f HJ;
 
     /* loaded from: classes.dex */
     interface a {
@@ -19,12 +19,12 @@ final class f {
 
     /* loaded from: classes.dex */
     private class b implements Runnable {
-        private a Hq;
+        private a HK;
         private String b;
 
         public b(String str, a aVar) {
             this.b = str;
-            this.Hq = aVar;
+            this.HK = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -38,7 +38,7 @@ final class f {
             } else {
                 arrayList = null;
             }
-            this.Hq.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
+            this.HK.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
         }
     }
 
@@ -85,15 +85,15 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static f lT() {
-        if (Hp == null) {
+    public static f mi() {
+        if (HJ == null) {
             synchronized (f.class) {
-                if (Hp == null) {
-                    Hp = new f();
+                if (HJ == null) {
+                    HJ = new f();
                 }
             }
         }
-        return Hp;
+        return HJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -101,11 +101,11 @@ final class f {
         if (str == null || str.isEmpty()) {
             return;
         }
-        m.lW().b().execute(new b(str, aVar));
+        m.ml().b().execute(new b(str, aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDHttpDnsResult bC(String str) {
+    public BDHttpDnsResult bE(String str) {
         ArrayList arrayList;
         ArrayList arrayList2 = null;
         Map<String, ArrayList> b2 = b(str);

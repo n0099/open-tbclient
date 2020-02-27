@@ -2,7 +2,7 @@ package android.support.design.widget;
 
 import android.support.v4.view.ViewCompat;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class ViewOffsetHelper {
     private int mLayoutLeft;
     private int mLayoutTop;

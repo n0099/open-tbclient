@@ -6,7 +6,7 @@ import android.net.Uri;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class ImageSource {
     static final String ASSET_SCHEME = "file:///android_asset/";
     static final String FILE_SCHEME = "file:///";

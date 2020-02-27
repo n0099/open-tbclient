@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IXAdProd {
     public static final String SLOT_DID_FINISH = "slot_did_finish";
     public static final String SLOT_DID_LOADED = "slot_did_loaded";

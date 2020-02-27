@@ -5,7 +5,7 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.WindowId;
 @RequiresApi(18)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class WindowIdApi18 implements WindowIdImpl {
     private final WindowId mWindowId;
 

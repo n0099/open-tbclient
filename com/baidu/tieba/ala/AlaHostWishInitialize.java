@@ -9,7 +9,7 @@ import com.baidu.live.c.j;
 import com.baidu.live.c.l;
 import com.baidu.live.c.r;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaHostWishInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.c.c.class, AlaChooseGiftActivity.class);
@@ -17,14 +17,14 @@ public class AlaHostWishInitialize {
         TbadkCoreApplication.getInst().RegisterIntent(j.class, AlaLiveAddWishActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(l.class, AlaLiveWishListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.c.d.class, AlaDeleteWishActivity.class);
-        aZf();
+        bbu();
     }
 
-    public static void aZf() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2913144, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaHostWishInitialize.1
+    public static void bbu() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2913149, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaHostWishInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.i.a> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913144, new com.baidu.tieba.ala.livewishlist.a(customMessage.getData()));
+                return new CustomResponsedMessage<>(2913149, new com.baidu.tieba.ala.livewishlist.a(customMessage.getData()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

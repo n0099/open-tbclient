@@ -1,5 +1,5 @@
 package com.kascend.chushou.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EmojiGiftDetail {
     public String creatorUid;
     public GeneralGift generalGift;

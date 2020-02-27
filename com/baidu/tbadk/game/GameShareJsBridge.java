@@ -2,7 +2,7 @@ package com.baidu.tbadk.game;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class GameShareJsBridge {
     private static GameShareJsBridge g_instance = null;
     private String mGameId;

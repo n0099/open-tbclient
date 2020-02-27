@@ -2,7 +2,7 @@ package com.baidu.live.c;
 
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p extends IntentConfig {
     public p(TbPageContext tbPageContext, String str, String str2) {
         super(tbPageContext.getPageActivity());

@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces;
 
 import android.location.Location;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IXAdManager {
     String getVersion();
 

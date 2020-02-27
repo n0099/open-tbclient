@@ -4,15 +4,15 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.upload.AsyncChatTask;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class DistributeVrVideoCard extends BaseLegoCardInfo {
     private final a videoInfo;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
-        public int aXT;
-        public String hWj;
-        public boolean hWl;
+        public String hYh;
+        public boolean hYj;
+        public int playCount;
         public int thumbHeight;
         public String thumbUrl;
         public int thumbWidth;
@@ -40,7 +40,7 @@ public class DistributeVrVideoCard extends BaseLegoCardInfo {
             boolean z = optJSONObject.optInt("show_progress", 1) == 1;
             if (optInt > 0 && !TextUtils.isEmpty(optString2)) {
                 this.videoInfo = new a();
-                this.videoInfo.hWj = optString;
+                this.videoInfo.hYh = optString;
                 this.videoInfo.videoUrl = optString2;
                 this.videoInfo.videoDuration = optInt;
                 this.videoInfo.videoWidth = optInt2;
@@ -49,8 +49,8 @@ public class DistributeVrVideoCard extends BaseLegoCardInfo {
                 this.videoInfo.thumbWidth = optInt4;
                 this.videoInfo.thumbHeight = optInt5;
                 this.videoInfo.videoLength = optInt6;
-                this.videoInfo.aXT = optInt7;
-                this.videoInfo.hWl = z;
+                this.videoInfo.playCount = optInt7;
+                this.videoInfo.hYj = z;
                 return;
             }
             this.videoInfo = null;

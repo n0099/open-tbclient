@@ -20,69 +20,69 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a>> {
     final int id;
-    private final u lXY;
-    private final int mqJ;
-    private final com.google.android.exoplayer2.upstream.b mqM;
-    private k.a mqn;
-    private final b.a msS;
-    private final a.InterfaceC0671a mti;
-    private final long mtj;
-    private final o mtk;
-    private final a[] mtl;
-    private com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a>[] mtm = KP(0);
-    private com.google.android.exoplayer2.source.e mtn = new com.google.android.exoplayer2.source.e(this.mtm);
-    private com.google.android.exoplayer2.source.dash.manifest.b mto;
+    private final u lYE;
+    private k.a mqT;
+    private final int mrp;
+    private final com.google.android.exoplayer2.upstream.b mrs;
+    private final a.InterfaceC0679a mtP;
+    private final long mtQ;
+    private final o mtR;
+    private final a[] mtS;
+    private com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a>[] mtT = KU(0);
+    private com.google.android.exoplayer2.source.e mtU = new com.google.android.exoplayer2.source.e(this.mtT);
+    private com.google.android.exoplayer2.source.dash.manifest.b mtV;
+    private final b.a mtz;
     private int periodIndex;
 
-    public b(int i, com.google.android.exoplayer2.source.dash.manifest.b bVar, int i2, a.InterfaceC0671a interfaceC0671a, int i3, b.a aVar, long j, o oVar, com.google.android.exoplayer2.upstream.b bVar2) {
+    public b(int i, com.google.android.exoplayer2.source.dash.manifest.b bVar, int i2, a.InterfaceC0679a interfaceC0679a, int i3, b.a aVar, long j, o oVar, com.google.android.exoplayer2.upstream.b bVar2) {
         this.id = i;
-        this.mto = bVar;
+        this.mtV = bVar;
         this.periodIndex = i2;
-        this.mti = interfaceC0671a;
-        this.mqJ = i3;
-        this.msS = aVar;
-        this.mtj = j;
-        this.mtk = oVar;
-        this.mqM = bVar2;
-        Pair<u, a[]> fh = fh(bVar.KU(i2).muu);
-        this.lXY = (u) fh.first;
-        this.mtl = (a[]) fh.second;
+        this.mtP = interfaceC0679a;
+        this.mrp = i3;
+        this.mtz = aVar;
+        this.mtQ = j;
+        this.mtR = oVar;
+        this.mrs = bVar2;
+        Pair<u, a[]> fc = fc(bVar.KZ(i2).mva);
+        this.lYE = (u) fc.first;
+        this.mtS = (a[]) fc.second;
     }
 
     public void a(com.google.android.exoplayer2.source.dash.manifest.b bVar, int i) {
-        this.mto = bVar;
+        this.mtV = bVar;
         this.periodIndex = i;
-        if (this.mtm != null) {
-            for (com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar : this.mtm) {
-                fVar.dvC().a(bVar, i);
+        if (this.mtT != null) {
+            for (com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar : this.mtT) {
+                fVar.dwM().a(bVar, i);
             }
-            this.mqn.a((k.a) this);
+            this.mqT.a((k.a) this);
         }
     }
 
     public void release() {
-        for (com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar : this.mtm) {
+        for (com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar : this.mtT) {
             fVar.release();
         }
     }
 
     @Override // com.google.android.exoplayer2.source.k
     public void a(k.a aVar, long j) {
-        this.mqn = aVar;
+        this.mqT = aVar;
         aVar.a((k) this);
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public void duS() throws IOException {
-        this.mtk.duZ();
+    public void dwc() throws IOException {
+        this.mtR.dwj();
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public u duT() {
-        return this.lXY;
+    public u dwd() {
+        return this.lYE;
     }
 
     @Override // com.google.android.exoplayer2.source.k
@@ -96,12 +96,12 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
                     fVar.release();
                     pVarArr[i] = null;
                 } else {
-                    hashMap.put(Integer.valueOf(this.lXY.a(fVarArr[i].dvT())), fVar);
+                    hashMap.put(Integer.valueOf(this.lYE.a(fVarArr[i].dxd())), fVar);
                 }
             }
             if (pVarArr[i] == null && fVarArr[i] != null) {
-                int a2 = this.lXY.a(fVarArr[i].dvT());
-                a aVar = this.mtl[a2];
+                int a2 = this.lYE.a(fVarArr[i].dxd());
+                a aVar = this.mtS[a2];
                 if (aVar.isPrimary) {
                     com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> a3 = a(aVar, fVarArr[i], j);
                     hashMap.put(Integer.valueOf(a2), a3);
@@ -116,60 +116,60 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
                 pVarArr[i2] = null;
             }
             if (fVarArr[i2] != null) {
-                a aVar2 = this.mtl[this.lXY.a(fVarArr[i2].dvT())];
+                a aVar2 = this.mtS[this.lYE.a(fVarArr[i2].dxd())];
                 if (!aVar2.isPrimary) {
-                    com.google.android.exoplayer2.source.a.f fVar2 = (com.google.android.exoplayer2.source.a.f) hashMap.get(Integer.valueOf(aVar2.mtq));
+                    com.google.android.exoplayer2.source.a.f fVar2 = (com.google.android.exoplayer2.source.a.f) hashMap.get(Integer.valueOf(aVar2.mtX));
                     p pVar = pVarArr[i2];
                     if (fVar2 == null) {
                         z = pVar instanceof g;
                     } else {
-                        z = (pVar instanceof f.a) && ((f.a) pVar).mta == fVar2;
+                        z = (pVar instanceof f.a) && ((f.a) pVar).mtH == fVar2;
                     }
                     if (!z) {
                         a(pVar);
-                        pVarArr[i2] = fVar2 == null ? new g() : fVar2.C(j, aVar2.lXq);
+                        pVarArr[i2] = fVar2 == null ? new g() : fVar2.C(j, aVar2.lXW);
                         zArr2[i2] = true;
                     }
                 }
             }
         }
-        this.mtm = KP(hashMap.size());
-        hashMap.values().toArray(this.mtm);
-        this.mtn = new com.google.android.exoplayer2.source.e(this.mtm);
+        this.mtT = KU(hashMap.size());
+        hashMap.values().toArray(this.mtT);
+        this.mtU = new com.google.android.exoplayer2.source.e(this.mtT);
         return j;
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public void gd(long j) {
-        for (com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar : this.mtm) {
-            fVar.go(j);
+    public void gb(long j) {
+        for (com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar : this.mtT) {
+            fVar.gm(j);
         }
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public boolean gf(long j) {
-        return this.mtn.gf(j);
+    public boolean gd(long j) {
+        return this.mtU.gd(j);
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public long duW() {
-        return this.mtn.duW();
+    public long dwg() {
+        return this.mtU.dwg();
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public long duU() {
+    public long dwe() {
         return -9223372036854775807L;
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public long duV() {
-        return this.mtn.duV();
+    public long dwf() {
+        return this.mtU.dwf();
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public long ge(long j) {
-        for (com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar : this.mtm) {
-            fVar.gp(j);
+    public long gc(long j) {
+        for (com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar : this.mtT) {
+            fVar.gn(j);
         }
         return j;
     }
@@ -178,23 +178,23 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
     @Override // com.google.android.exoplayer2.source.q.a
     /* renamed from: b */
     public void a(com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> fVar) {
-        this.mqn.a((k.a) this);
+        this.mqT.a((k.a) this);
     }
 
-    private static Pair<u, a[]> fh(List<com.google.android.exoplayer2.source.dash.manifest.a> list) {
+    private static Pair<u, a[]> fc(List<com.google.android.exoplayer2.source.dash.manifest.a> list) {
         int i;
         int i2;
-        int[][] fi = fi(list);
-        int length = fi.length;
+        int[][] fd = fd(list);
+        int length = fd.length;
         boolean[] zArr = new boolean[length];
         boolean[] zArr2 = new boolean[length];
         int i3 = length;
         for (int i4 = 0; i4 < length; i4++) {
-            if (a(list, fi[i4])) {
+            if (a(list, fd[i4])) {
                 zArr[i4] = true;
                 i3++;
             }
-            if (b(list, fi[i4])) {
+            if (b(list, fd[i4])) {
                 zArr2[i4] = true;
                 i3++;
             }
@@ -204,10 +204,10 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
         int i5 = 0;
         int i6 = 0;
         while (i6 < length) {
-            int[] iArr = fi[i6];
+            int[] iArr = fd[i6];
             ArrayList arrayList = new ArrayList();
             for (int i7 : iArr) {
-                arrayList.addAll(list.get(i7).mtY);
+                arrayList.addAll(list.get(i7).muE);
             }
             Format[] formatArr = new Format[arrayList.size()];
             int i8 = 0;
@@ -216,7 +216,7 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
                 if (i9 >= formatArr.length) {
                     break;
                 }
-                formatArr[i9] = ((com.google.android.exoplayer2.source.dash.manifest.g) arrayList.get(i9)).lYQ;
+                formatArr[i9] = ((com.google.android.exoplayer2.source.dash.manifest.g) arrayList.get(i9)).lZw;
                 i8 = i9 + 1;
             }
             com.google.android.exoplayer2.source.dash.manifest.a aVar = list.get(iArr[0]);
@@ -245,7 +245,7 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
         return Pair.create(new u(tVarArr), aVarArr);
     }
 
-    private static int[][] fi(List<com.google.android.exoplayer2.source.dash.manifest.a> list) {
+    private static int[][] fd(List<com.google.android.exoplayer2.source.dash.manifest.a> list) {
         int i;
         int size = list.size();
         SparseIntArray sparseIntArray = new SparseIntArray(size);
@@ -261,14 +261,14 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
                 i = i4;
             } else {
                 zArr[i3] = true;
-                com.google.android.exoplayer2.source.dash.manifest.d fj = fj(list.get(i3).mua);
-                if (fj == null) {
+                com.google.android.exoplayer2.source.dash.manifest.d fe = fe(list.get(i3).muG);
+                if (fe == null) {
                     i = i4 + 1;
                     int[] iArr2 = new int[1];
                     iArr2[0] = i3;
                     iArr[i4] = iArr2;
                 } else {
-                    String[] split = fj.value.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = fe.value.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     int[] iArr3 = new int[split.length + 1];
                     iArr3[0] = i3;
                     for (int i5 = 0; i5 < split.length; i5++) {
@@ -289,22 +289,22 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
     private com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a> a(a aVar, com.google.android.exoplayer2.b.f fVar, long j) {
         int i;
         int[] iArr = new int[2];
-        boolean z = aVar.mtr;
+        boolean z = aVar.mtY;
         if (!z) {
             i = 0;
         } else {
             i = 1;
             iArr[0] = 4;
         }
-        boolean z2 = aVar.mts;
+        boolean z2 = aVar.mtZ;
         if (z2) {
             iArr[i] = 3;
             i++;
         }
-        return new com.google.android.exoplayer2.source.a.f<>(aVar.lXq, i < iArr.length ? Arrays.copyOf(iArr, i) : iArr, this.mti.a(this.mtk, this.mto, this.periodIndex, aVar.mtp, fVar, aVar.lXq, this.mtj, z, z2), this, this.mqM, j, this.mqJ, this.msS);
+        return new com.google.android.exoplayer2.source.a.f<>(aVar.lXW, i < iArr.length ? Arrays.copyOf(iArr, i) : iArr, this.mtP.a(this.mtR, this.mtV, this.periodIndex, aVar.mtW, fVar, aVar.lXW, this.mtQ, z, z2), this, this.mrs, j, this.mrp, this.mtz);
     }
 
-    private static com.google.android.exoplayer2.source.dash.manifest.d fj(List<com.google.android.exoplayer2.source.dash.manifest.d> list) {
+    private static com.google.android.exoplayer2.source.dash.manifest.d fe(List<com.google.android.exoplayer2.source.dash.manifest.d> list) {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -323,9 +323,9 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
 
     private static boolean a(List<com.google.android.exoplayer2.source.dash.manifest.a> list, int[] iArr) {
         for (int i : iArr) {
-            List<com.google.android.exoplayer2.source.dash.manifest.g> list2 = list.get(i).mtY;
+            List<com.google.android.exoplayer2.source.dash.manifest.g> list2 = list.get(i).muE;
             for (int i2 = 0; i2 < list2.size(); i2++) {
-                if (!list2.get(i2).muy.isEmpty()) {
+                if (!list2.get(i2).mve.isEmpty()) {
                     return true;
                 }
             }
@@ -335,7 +335,7 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
 
     private static boolean b(List<com.google.android.exoplayer2.source.dash.manifest.a> list, int[] iArr) {
         for (int i : iArr) {
-            List<com.google.android.exoplayer2.source.dash.manifest.d> list2 = list.get(i).mtZ;
+            List<com.google.android.exoplayer2.source.dash.manifest.d> list2 = list.get(i).muF;
             for (int i2 = 0; i2 < list2.size(); i2++) {
                 if ("urn:scte:dash:cc:cea-608:2015".equals(list2.get(i2).schemeIdUri)) {
                     return true;
@@ -345,7 +345,7 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
         return false;
     }
 
-    private static com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a>[] KP(int i) {
+    private static com.google.android.exoplayer2.source.a.f<com.google.android.exoplayer2.source.dash.a>[] KU(int i) {
         return new com.google.android.exoplayer2.source.a.f[i];
     }
 
@@ -356,22 +356,22 @@ final class b implements k, q.a<com.google.android.exoplayer2.source.a.f<com.goo
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public final boolean isPrimary;
-        public final int lXq;
-        public final int[] mtp;
-        public final int mtq;
-        public final boolean mtr;
-        public final boolean mts;
+        public final int lXW;
+        public final int[] mtW;
+        public final int mtX;
+        public final boolean mtY;
+        public final boolean mtZ;
 
         public a(int i, int[] iArr, int i2, boolean z, boolean z2, boolean z3) {
-            this.lXq = i;
-            this.mtp = iArr;
-            this.mtq = i2;
+            this.lXW = i;
+            this.mtW = iArr;
+            this.mtX = i2;
             this.isPrimary = z;
-            this.mtr = z2;
-            this.mts = z3;
+            this.mtY = z2;
+            this.mtZ = z3;
         }
     }
 }

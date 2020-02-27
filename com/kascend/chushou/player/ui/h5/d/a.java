@@ -9,16 +9,16 @@ import io.reactivex.g;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     private Activity d;
-    private b nbP;
-    private c ncc;
-    private InterfaceC0697a ncd;
+    private c ncF;
+    private InterfaceC0705a ncG;
+    private b ncs;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0697a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0705a {
         void b(long j);
 
         void b(com.kascend.chushou.player.ui.h5.c.a aVar);
@@ -27,80 +27,80 @@ public class a {
     public a(Activity activity) {
         this.d = activity;
         try {
-            this.ncd = (InterfaceC0697a) activity;
+            this.ncG = (InterfaceC0705a) activity;
         } catch (Exception e) {
-            this.ncd = null;
+            this.ncG = null;
         }
     }
 
     public void a() {
         d();
-        this.ncc = null;
+        this.ncF = null;
     }
 
     public void b() {
         d();
         this.d = null;
-        this.ncd = null;
+        this.ncG = null;
     }
 
     public void a(c cVar) {
-        if (this.ncc != null && this.ncc.p != null && !this.ncc.p.equals(cVar.p)) {
-            c cVar2 = this.ncc;
+        if (this.ncF != null && this.ncF.p != null && !this.ncF.p.equals(cVar.p)) {
+            c cVar2 = this.ncF;
             a((com.kascend.chushou.player.ui.h5.c.a) null);
             a(cVar2, true);
         }
-        this.ncc = cVar;
+        this.ncF = cVar;
         e.d("VoteController", "投票开始计时，剩下时间：" + cVar.e);
         e();
     }
 
-    public c dCS() {
-        return this.ncc;
+    public c dDY() {
+        return this.ncF;
     }
 
-    public H5Positon MQ(int i) {
-        if (this.ncc == null) {
+    public H5Positon MT(int i) {
+        if (this.ncF == null) {
             return null;
         }
         if (i == 1) {
-            return this.ncc.nbX;
+            return this.ncF.ncA;
         }
-        return this.ncc.nbY;
+        return this.ncF.ncB;
     }
 
     private void d() {
-        if (this.nbP != null) {
-            this.nbP.dispose();
-            this.nbP = null;
+        if (this.ncs != null) {
+            this.ncs.dispose();
+            this.ncs = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.ncc != null) {
+        if (this.ncF != null) {
             d();
-            if (this.ncc.e == 0) {
-                a(this.ncc, false);
+            if (this.ncF.e == 0) {
+                a(this.ncF, false);
                 return;
             }
-            final long j = this.ncc.e;
-            this.nbP = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dID()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.h5.d.a.3
+            final long j = this.ncF.e;
+            this.ncs = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dJK()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.h5.d.a.3
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
                     e.d("VoteController", "投票计时结束");
                     a.this.a((com.kascend.chushou.player.ui.h5.c.a) null);
-                    a.this.a(a.this.ncc, false);
+                    a.this.a(a.this.ncF, false);
                 }
-            }).b(io.reactivex.a.b.a.dHZ()).a(io.reactivex.a.b.a.dHZ()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.h5.d.a.1
+            }).b(io.reactivex.a.b.a.dJg()).a(io.reactivex.a.b.a.dJg()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.h5.d.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
                 public void accept(Long l) throws Exception {
-                    a.this.ncc.e = j - l.longValue();
-                    e.d("VoteController", "投票计时：" + a.this.ncc.e);
-                    if (a.this.ncd != null) {
-                        a.this.ncd.b(a.this.ncc.e);
+                    a.this.ncF.e = j - l.longValue();
+                    e.d("VoteController", "投票计时：" + a.this.ncF.e);
+                    if (a.this.ncG != null) {
+                        a.this.ncG.b(a.this.ncF.e);
                     }
                 }
             }, new io.reactivex.c.g<Throwable>() { // from class: com.kascend.chushou.player.ui.h5.d.a.2
@@ -116,7 +116,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, final boolean z) {
-        com.kascend.chushou.c.c.dAI().d(cVar.f, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.ui.h5.d.a.4
+        com.kascend.chushou.c.c.dBO().d(cVar.f, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.ui.h5.d.a.4
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -136,8 +136,8 @@ public class a {
                         if (longValue <= 0) {
                             a.this.a(aVar);
                             return;
-                        } else if (a.this.ncc != null) {
-                            a.this.ncc.e = longValue;
+                        } else if (a.this.ncF != null) {
+                            a.this.ncF.e = longValue;
                             a.this.e();
                             return;
                         } else {
@@ -164,12 +164,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (this.ncd != null) {
+        if (this.ncG != null) {
             d();
             if (aVar != null) {
-                this.ncc = null;
-                this.ncd.b(0L);
-                this.ncd.b(aVar);
+                this.ncF = null;
+                this.ncG.b(0L);
+                this.ncG.b(aVar);
             }
         }
     }

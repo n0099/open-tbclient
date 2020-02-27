@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.h;
 import com.baidu.tieba.tbadkCore.x;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends h<x, c> {
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);

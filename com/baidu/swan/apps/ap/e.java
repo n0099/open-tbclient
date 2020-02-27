@@ -9,22 +9,22 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class e implements com.baidu.swan.apps.ap.b, d {
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private final Map<c<?>, Set<a>> bTM = new HashMap();
+    private final Map<c<?>, Set<a>> bXQ = new HashMap();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a extends com.baidu.swan.apps.as.d.b<Set<c<?>>> {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class b {
-        private static final e bTQ = new e();
+        private static final e bXU = new e();
     }
 
-    public static e adY() {
-        return b.bTQ;
+    public static e agm() {
+        return b.bXU;
     }
 
     public e f(com.baidu.swan.apps.ap.a aVar) {
@@ -38,10 +38,10 @@ public final class e implements com.baidu.swan.apps.ap.b, d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(c<?>... cVarArr) {
-        synchronized (this.bTM) {
+        synchronized (this.bXQ) {
             for (c<?> cVar : cVarArr) {
-                if (!this.bTM.containsKey(cVar)) {
-                    this.bTM.put(cVar, new HashSet());
+                if (!this.bXQ.containsKey(cVar)) {
+                    this.bXQ.put(cVar, new HashSet());
                 }
             }
         }
@@ -50,8 +50,8 @@ public final class e implements com.baidu.swan.apps.ap.b, d {
 
     public e a(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.bTM) {
-                HashSet keySet = k(cVarArr) ? this.bTM.keySet() : i.K(cVarArr);
+            synchronized (this.bXQ) {
+                HashSet keySet = k(cVarArr) ? this.bXQ.keySet() : i.K(cVarArr);
                 for (c<?> cVar : keySet) {
                     if (cVar != null) {
                         a(cVar).add(aVar);
@@ -64,10 +64,10 @@ public final class e implements com.baidu.swan.apps.ap.b, d {
     }
 
     private Set<a> a(@NonNull c<?> cVar) {
-        Set<a> set = this.bTM.get(cVar);
+        Set<a> set = this.bXQ.get(cVar);
         if (set == null) {
             HashSet hashSet = new HashSet();
-            this.bTM.put(cVar, hashSet);
+            this.bXQ.put(cVar, hashSet);
             return hashSet;
         }
         return set;
@@ -75,8 +75,8 @@ public final class e implements com.baidu.swan.apps.ap.b, d {
 
     public e b(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.bTM) {
-                for (c<?> cVar : k(cVarArr) ? this.bTM.keySet() : i.K(cVarArr)) {
+            synchronized (this.bXQ) {
+                for (c<?> cVar : k(cVarArr) ? this.bXQ.keySet() : i.K(cVarArr)) {
                     if (cVar != null) {
                         a(cVar).remove(aVar);
                     }
@@ -98,7 +98,7 @@ public final class e implements com.baidu.swan.apps.ap.b, d {
     protected e g(Set<c<?>> set) {
         if (!set.isEmpty()) {
             HashSet hashSet = new HashSet();
-            synchronized (this.bTM) {
+            synchronized (this.bXQ) {
                 for (c<?> cVar : set) {
                     hashSet.addAll(a(cVar));
                 }
@@ -113,7 +113,7 @@ public final class e implements com.baidu.swan.apps.ap.b, d {
             @Override // java.lang.Runnable
             public void run() {
                 for (a aVar : set) {
-                    aVar.B(set2);
+                    aVar.D(set2);
                 }
             }
         });

@@ -5,16 +5,16 @@ import master.flame.danmaku.danmaku.model.f;
 import master.flame.danmaku.danmaku.model.k;
 import master.flame.danmaku.danmaku.model.l;
 import master.flame.danmaku.danmaku.model.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface a {
 
     /* renamed from: master.flame.danmaku.danmaku.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0768a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0776a {
         void i(d dVar);
     }
 
-    void a(InterfaceC0768a interfaceC0768a);
+    void a(InterfaceC0776a interfaceC0776a);
 
     void a(k kVar);
 
@@ -22,118 +22,118 @@ public interface a {
 
     void clear();
 
-    void dLx();
+    void dMK();
 
     void release();
 
-    void wN(boolean z);
+    void wQ(boolean z);
 
-    void wO(boolean z);
+    void wR(boolean z);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public long beginTime;
         public long endTime;
-        public long evF;
-        public boolean nHB;
-        public int nHC;
-        public int nHD;
-        public d nHE;
-        public int nHF;
-        public int nHG;
-        public int nHH;
-        public int nHI;
-        public int nHJ;
-        public int nHK;
-        public int nHL;
-        public long nHM;
-        public boolean nHN;
-        public long nHO;
-        public long nHP;
-        private boolean nHR;
-        public f nDE = new f();
-        private l nHQ = new master.flame.danmaku.danmaku.model.android.d(4);
+        public long ezQ;
+        public int nIA;
+        public int nIB;
+        public long nIC;
+        public boolean nID;
+        public long nIE;
+        public long nIF;
+        private boolean nIH;
+        public boolean nIr;
+        public int nIs;
+        public int nIt;
+        public d nIu;
+        public int nIv;
+        public int nIw;
+        public int nIx;
+        public int nIy;
+        public int nIz;
+        public f nEw = new f();
+        private l nIG = new master.flame.danmaku.danmaku.model.android.d(4);
 
-        public int NK(int i) {
-            this.nHK += i;
-            return this.nHK;
+        public int NN(int i) {
+            this.nIA += i;
+            return this.nIA;
         }
 
-        public int ey(int i, int i2) {
+        public int eB(int i, int i2) {
             switch (i) {
                 case 1:
-                    this.nHF += i2;
-                    return this.nHF;
+                    this.nIv += i2;
+                    return this.nIv;
                 case 2:
                 case 3:
                 default:
                     return 0;
                 case 4:
-                    this.nHI += i2;
-                    return this.nHI;
+                    this.nIy += i2;
+                    return this.nIy;
                 case 5:
-                    this.nHH += i2;
-                    return this.nHH;
+                    this.nIx += i2;
+                    return this.nIx;
                 case 6:
-                    this.nHG += i2;
-                    return this.nHG;
+                    this.nIw += i2;
+                    return this.nIw;
                 case 7:
-                    this.nHJ += i2;
-                    return this.nHJ;
+                    this.nIz += i2;
+                    return this.nIz;
             }
         }
 
         public void reset() {
-            this.nHL = this.nHK;
-            this.nHK = 0;
-            this.nHJ = 0;
-            this.nHI = 0;
-            this.nHH = 0;
-            this.nHG = 0;
-            this.nHF = 0;
-            this.nHM = 0L;
+            this.nIB = this.nIA;
+            this.nIA = 0;
+            this.nIz = 0;
+            this.nIy = 0;
+            this.nIx = 0;
+            this.nIw = 0;
+            this.nIv = 0;
+            this.nIC = 0L;
             this.endTime = 0L;
             this.beginTime = 0L;
-            this.evF = 0L;
-            this.nHN = false;
+            this.ezQ = 0L;
+            this.nID = false;
             synchronized (this) {
-                this.nHQ.clear();
+                this.nIG.clear();
             }
         }
 
         public void b(b bVar) {
             if (bVar != null) {
-                this.nHL = bVar.nHL;
-                this.nHF = bVar.nHF;
-                this.nHG = bVar.nHG;
-                this.nHH = bVar.nHH;
-                this.nHI = bVar.nHI;
-                this.nHJ = bVar.nHJ;
-                this.nHK = bVar.nHK;
-                this.nHM = bVar.nHM;
+                this.nIB = bVar.nIB;
+                this.nIv = bVar.nIv;
+                this.nIw = bVar.nIw;
+                this.nIx = bVar.nIx;
+                this.nIy = bVar.nIy;
+                this.nIz = bVar.nIz;
+                this.nIA = bVar.nIA;
+                this.nIC = bVar.nIC;
                 this.beginTime = bVar.beginTime;
                 this.endTime = bVar.endTime;
-                this.nHN = bVar.nHN;
-                this.evF = bVar.evF;
-                this.nHO = bVar.nHO;
-                this.nHP = bVar.nHP;
+                this.nID = bVar.nID;
+                this.ezQ = bVar.ezQ;
+                this.nIE = bVar.nIE;
+                this.nIF = bVar.nIF;
             }
         }
 
         public void v(d dVar) {
-            if (!this.nHR) {
-                this.nHQ.k(dVar);
+            if (!this.nIH) {
+                this.nIG.k(dVar);
             }
         }
 
-        public l dLy() {
+        public l dML() {
             l lVar;
-            this.nHR = true;
+            this.nIH = true;
             synchronized (this) {
-                lVar = this.nHQ;
-                this.nHQ = new master.flame.danmaku.danmaku.model.android.d(4);
+                lVar = this.nIG;
+                this.nIG = new master.flame.danmaku.danmaku.model.android.d(4);
             }
-            this.nHR = false;
+            this.nIH = false;
             return lVar;
         }
     }

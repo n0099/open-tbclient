@@ -1,11 +1,11 @@
 package com.baidu.live.gift;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
-    private String VG;
-    private boolean VI;
-    private List<g> aev;
+    private String Xq;
+    private boolean Xs;
+    private List<g> agC;
     private int categoryId;
 
     public int getCategoryId() {
@@ -17,22 +17,22 @@ public class i {
     }
 
     public void setCategoryName(String str) {
-        this.VG = str;
+        this.Xq = str;
     }
 
-    public List<g> qX() {
-        return this.aev;
+    public List<g> rY() {
+        return this.agC;
     }
 
     public void r(List<g> list) {
-        this.aev = list;
+        this.agC = list;
     }
 
-    public boolean qY() {
-        return this.VI;
+    public boolean rZ() {
+        return this.Xs;
     }
 
-    public void at(boolean z) {
-        this.VI = z;
+    public void aw(boolean z) {
+        this.Xs = z;
     }
 }

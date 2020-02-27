@@ -5,26 +5,26 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext eyT;
-    private d eyU;
+    private TbPageContext eDa;
+    private d eDb;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eyT = tbPageContext;
+        this.eDa = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.eyU = new d(this.eyT);
-        ((ViewGroup) getView()).addView(this.eyU.getView());
+        this.eDb = new d(this.eDa);
+        ((ViewGroup) getView()).addView(this.eDb.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.eyU != null) {
-            this.eyU.onChangeSkinType(tbPageContext, i);
+        if (this.eDb != null) {
+            this.eDb.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.cNb != null && this.eyU != null) {
-            this.eyU.a(cVar.cNb);
+        if (cVar != null && cVar.cRe != null && this.eDb != null) {
+            this.eDb.a(cVar.cRe);
         }
     }
 
@@ -46,18 +46,18 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     public void c(com.baidu.tieba.ala.d dVar) {
-        if (this.eyU != null) {
-            this.eyU.d(dVar);
+        if (this.eDb != null) {
+            this.eDb.d(dVar);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public f eyV;
+        public f eDc;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.eyV = fVar;
+            this.eDc = fVar;
         }
     }
 }

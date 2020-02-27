@@ -1,5 +1,5 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class e {
     private String mId;
     private String mType;

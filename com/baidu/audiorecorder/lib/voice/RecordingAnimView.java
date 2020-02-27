@@ -12,17 +12,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RecordingAnimView extends View {
-    private int FJ;
-    private int FK;
-    private boolean FL;
-    private boolean FM;
-    private RectF[] FN;
-    private int[] FO;
-    private int FP;
-    private int FQ;
-    private final Runnable FR;
+    private int Gd;
+    private int Ge;
+    private boolean Gf;
+    private boolean Gg;
+    private RectF[] Gh;
+    private int[] Gi;
+    private int Gj;
+    private int Gk;
+    private final Runnable Gl;
     private int mCanvasHeight;
     private int mCanvasWidth;
     private Paint mPaint;
@@ -33,130 +33,130 @@ public class RecordingAnimView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.FJ = 0;
-        this.FK = 8;
-        this.FL = false;
-        this.FM = true;
-        this.FO = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.FP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
-        this.FR = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
+        this.Gd = 0;
+        this.Ge = 8;
+        this.Gf = false;
+        this.Gg = true;
+        this.Gi = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.Gj = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
+        this.Gl = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                RecordingAnimView.this.lA();
+                RecordingAnimView.this.lP();
             }
         };
-        lB();
-        lA();
+        lQ();
+        lP();
     }
 
     public RecordingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.FJ = 0;
-        this.FK = 8;
-        this.FL = false;
-        this.FM = true;
-        this.FO = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.FP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
-        this.FR = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
+        this.Gd = 0;
+        this.Ge = 8;
+        this.Gf = false;
+        this.Gg = true;
+        this.Gi = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.Gj = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
+        this.Gl = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                RecordingAnimView.this.lA();
+                RecordingAnimView.this.lP();
             }
         };
-        lB();
-        lA();
+        lQ();
+        lP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lA() {
-        if (this.FL) {
+    public void lP() {
+        if (this.Gf) {
             invalidate();
         }
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.FR);
-        if (!this.FM) {
-            com.baidu.adp.lib.f.e.gx().postDelayed(this.FR, 250L);
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.Gl);
+        if (!this.Gg) {
+            com.baidu.adp.lib.f.e.gx().postDelayed(this.Gl, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.FJ > 0) {
+        if (this.Gd > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.mCanvasWidth = this.FP * ((this.FJ * 2) - 1);
-            this.FK = this.FJ;
+            this.mCanvasWidth = this.Gj * ((this.Gd * 2) - 1);
+            this.Ge = this.Gd;
             i = View.MeasureSpec.makeMeasureSpec(this.mCanvasWidth, mode);
         }
         super.onMeasure(i, i2);
         this.mCanvasHeight = getMeasuredHeight();
         this.mCanvasWidth = getMeasuredWidth();
-        if (this.FJ <= 0) {
-            this.FK = (this.mCanvasWidth / this.FP) / 2;
+        if (this.Gd <= 0) {
+            this.Ge = (this.mCanvasWidth / this.Gj) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.FL) {
-            for (int i = 0; i < this.FK; i++) {
-                lC();
-                if (i < this.FN.length) {
-                    canvas.drawRoundRect(this.FN[i], 10.0f, 10.0f, this.mPaint);
+        if (this.Gf) {
+            for (int i = 0; i < this.Ge; i++) {
+                lR();
+                if (i < this.Gh.length) {
+                    canvas.drawRoundRect(this.Gh[i], 10.0f, 10.0f, this.mPaint);
                 }
             }
         }
     }
 
-    private void lB() {
-        this.FQ = aC(TbadkCoreApplication.getInst().getSkinType());
+    private void lQ() {
+        this.Gk = aF(TbadkCoreApplication.getInst().getSkinType());
         this.mPaint = new Paint();
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(am.getColor(this.FQ));
+        this.mPaint.setColor(am.getColor(this.Gk));
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.FQ = aC(i);
-            this.mPaint.setColor(am.getColor(this.FQ));
+            this.Gk = aF(i);
+            this.mPaint.setColor(am.getColor(this.Gk));
             invalidate();
             this.mSkinType = i;
         }
     }
 
-    public int aC(int i) {
+    public int aF(int i) {
         return i == 0 ? R.color.white_alpha100 : R.color.white_alpha70;
     }
 
-    private void lC() {
+    private void lR() {
         int nextInt;
-        if (this.FN == null || this.FN.length != this.FK) {
-            this.FN = new RectF[this.FK];
+        if (this.Gh == null || this.Gh.length != this.Ge) {
+            this.Gh = new RectF[this.Ge];
         }
-        for (int i = 0; i < this.FK; i++) {
-            int i2 = this.FP * i * 2;
-            if (this.FM) {
-                nextInt = (int) ((1.0d - (this.FO[i % 22] / 10.0d)) * this.mCanvasHeight);
+        for (int i = 0; i < this.Ge; i++) {
+            int i2 = this.Gj * i * 2;
+            if (this.Gg) {
+                nextInt = (int) ((1.0d - (this.Gi[i % 22] / 10.0d)) * this.mCanvasHeight);
             } else {
                 nextInt = this.mCanvasHeight > 0 ? this.random.nextInt(this.mCanvasHeight) : 0;
             }
-            int i3 = this.FP + i2;
+            int i3 = this.Gj + i2;
             int i4 = this.mCanvasHeight;
-            if (this.FN[i] == null) {
-                this.FN[i] = new RectF(i2, nextInt, i3, i4);
+            if (this.Gh[i] == null) {
+                this.Gh[i] = new RectF(i2, nextInt, i3, i4);
             } else {
-                this.FN[i].set(i2, nextInt, i3, i4);
+                this.Gh[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.FP = i;
+            this.Gj = i;
         }
     }
 
@@ -164,30 +164,30 @@ public class RecordingAnimView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(am.getColor(i));
         }
-        this.FQ = i;
+        this.Gk = i;
     }
 
     public void start() {
-        this.FL = true;
-        this.FM = false;
-        lA();
+        this.Gf = true;
+        this.Gg = false;
+        lP();
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.FJ = i;
+            this.Gd = i;
         }
     }
 
-    public void lD() {
-        this.FL = true;
-        this.FM = true;
-        lA();
+    public void lS() {
+        this.Gf = true;
+        this.Gg = true;
+        lP();
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.FR);
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.Gl);
     }
 }

@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.al;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class ao extends XMPushService.i {
     final /* synthetic */ al.b.c a;
 
@@ -20,8 +20,8 @@ class ao extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (al.a().a(this.a.f871a.g, this.a.f871a.f867b).f858a == null) {
-            al.b.this.f860a.a(this.a.f871a.g, this.a.f871a.f867b, 2, null, null);
+        if (al.a().a(this.a.f868a.g, this.a.f868a.f864b).f855a == null) {
+            al.b.this.f857a.a(this.a.f868a.g, this.a.f868a.f864b, 2, null, null);
         }
     }
 }

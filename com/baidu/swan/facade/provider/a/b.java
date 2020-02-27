@@ -2,6 +2,7 @@ package com.baidu.swan.facade.provider.a;
 
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.common.security.RSAUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -16,14 +17,14 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static byte[] a(byte[] bArr, String str, int i) {
-        PublicKey nk;
-        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (nk = nk(str)) == null) {
+        PublicKey nz;
+        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (nz = nz(str)) == null) {
             return null;
         }
-        return a(bArr, nk, i);
+        return a(bArr, nz, i);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0067 */
@@ -137,12 +138,12 @@ public class b {
         return bArr2;
     }
 
-    private static PublicKey nk(String str) {
+    private static PublicKey nz(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
             return null;

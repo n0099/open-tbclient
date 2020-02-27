@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.RestrictTo;
 import android.view.PointerIcon;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PointerIconCompat {
     public static final int TYPE_ALIAS = 1010;
     public static final int TYPE_ALL_SCROLL = 1013;

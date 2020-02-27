@@ -14,20 +14,20 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ParallelSortedJoin<T> extends g<T> {
     final Comparator<? super T> comparator;
-    final a<List<T>> nxR;
+    final a<List<T>> nyt;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.nxR.dIi(), this.comparator);
+        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.nyt.dJp(), this.comparator);
         cVar.onSubscribe(sortedJoinSubscription);
-        this.nxR.a(sortedJoinSubscription.subscribers);
+        this.nyt.a(sortedJoinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SortedJoinSubscription<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 3481980673745556697L;
         final c<? super T> actual;
@@ -218,7 +218,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
                                                 i3 = i4;
                                             }
                                         } catch (Throwable th2) {
-                                            io.reactivex.exceptions.a.I(th2);
+                                            io.reactivex.exceptions.a.H(th2);
                                             cancelAll();
                                             Arrays.fill(listArr, (Object) null);
                                             if (!this.error.compareAndSet(null, th2)) {
@@ -251,7 +251,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SortedJoinInnerSubscriber<T> extends AtomicReference<d> implements j<List<T>> {
         private static final long serialVersionUID = 6751017204873808094L;
         final int index;

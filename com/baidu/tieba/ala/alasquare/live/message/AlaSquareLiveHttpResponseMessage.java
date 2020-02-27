@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     private LinkedList<a> categoryList;
     private LinkedList<FunctionListInfo> functionList;

@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.pay;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IPayConfigCallBack {
     void onError(String str);
 

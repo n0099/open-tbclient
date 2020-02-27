@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.personcenter.c;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
-    private int frL;
+    private int fun;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.frL = jSONObject.optInt("video_count");
+                this.fun = jSONObject.optInt("video_count");
             } catch (Exception e) {
             }
         }

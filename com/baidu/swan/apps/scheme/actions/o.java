@@ -12,7 +12,7 @@ import com.baidu.swan.apps.as.ah;
 import com.baidu.swan.apps.as.ai;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class o extends ab {
     public o(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openApp");
@@ -34,11 +34,11 @@ public class o extends ab {
             Log.i("OpenAppAction", "params is " + b.toString());
         }
         final String optString2 = b.optString("open");
-        eVar.aaz().d("scope_open_app", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.acN().d("scope_open_app", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: c */
-            public void B(com.baidu.swan.apps.setting.oauth.e eVar2) {
+            public void D(com.baidu.swan.apps.setting.oauth.e eVar2) {
                 if (eVar2 == null || eVar2.forbidden) {
                     if (ab.DEBUG) {
                         Log.i("OpenAppAction", "no configuration of authority");
@@ -60,21 +60,21 @@ public class o extends ab {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.runtime.e.aap() == null && com.baidu.swan.apps.runtime.e.aap().En() == null) {
+        if (com.baidu.swan.apps.runtime.e.acD() == null && com.baidu.swan.apps.runtime.e.acD().GC() == null) {
             return false;
         }
-        String Tt = com.baidu.swan.apps.runtime.e.aap().En().Tt();
-        if (TextUtils.isEmpty(Tt)) {
-            Tt = "NA";
+        String VH = com.baidu.swan.apps.runtime.e.acD().GC().VH();
+        if (TextUtils.isEmpty(VH)) {
+            VH = "NA";
         }
-        JSONObject jSONObject = eVar.bPo;
+        JSONObject jSONObject = eVar.bTt;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray(FaceBaseDTO.KEY_BUSINESS_SCENE);
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         for (int i = 0; i < length; i++) {
-            if (Tt.equals(optJSONArray.optString(i))) {
+            if (VH.equals(optJSONArray.optString(i))) {
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class o extends ab {
             int optInt = optJSONObject.optInt("launch_count", -1);
             int optInt2 = optJSONObject.optInt("daily_duration", -1);
             if (optInt >= 0 || optInt2 >= 0) {
-                return ah.aeI() >= optInt || ah.aeJ() >= ((long) (optInt2 * 60000));
+                return ah.agW() >= optInt || ah.agX() >= ((long) (optInt2 * 60000));
             }
             return false;
         }

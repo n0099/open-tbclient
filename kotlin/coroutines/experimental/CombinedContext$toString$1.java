@@ -1,10 +1,12 @@
 package kotlin.coroutines.experimental;
 
 import kotlin.coroutines.experimental.d;
+import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 final class CombinedContext$toString$1 extends Lambda implements m<String, d.b, String> {
     public static final CombinedContext$toString$1 INSTANCE = new CombinedContext$toString$1();
 

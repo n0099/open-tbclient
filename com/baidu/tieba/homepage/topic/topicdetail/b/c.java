@@ -3,43 +3,43 @@ package com.baidu.tieba.homepage.topic.topicdetail.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bj;
 import tbclient.NewHottopic.TopicThread;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hee = BdUniqueId.gen();
-    public bj cNb;
-    public long hef;
-    public int heg;
-    public boolean heh;
+    public static final BdUniqueId hgf = BdUniqueId.gen();
+    public bj cRe;
+    public long hgg;
+    public int hgh;
+    public boolean hgi;
     public int source;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hee;
+        return hgf;
     }
 
     public void a(TopicThread topicThread) {
         if (topicThread != null) {
-            this.hef = topicThread.feed_id.longValue();
+            this.hgg = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.cNb = new bj();
-                this.cNb.a(topicThread.thread_info);
-                this.cNb.aAT();
+                this.cRe = new bj();
+                this.cRe.a(topicThread.thread_info);
+                this.cRe.aDh();
             }
-            this.heg = topicThread.user_agree.intValue();
+            this.hgh = topicThread.user_agree.intValue();
             this.source = topicThread.source.intValue();
         }
     }
 
     public void a(tbclient.NewTopicThread.TopicThread topicThread) {
         if (topicThread != null) {
-            this.hef = topicThread.feed_id.longValue();
+            this.hgg = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.cNb = new bj();
-                this.cNb.a(topicThread.thread_info);
-                this.cNb.aAT();
+                this.cRe = new bj();
+                this.cRe.a(topicThread.thread_info);
+                this.cRe.aDh();
             }
-            this.heg = Integer.parseInt(topicThread.user_agree);
+            this.hgh = Integer.parseInt(topicThread.user_agree);
             this.source = topicThread.source.intValue();
         }
     }

@@ -26,7 +26,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CrabSDK {
     public static final int ANR_CLOSE = 0;
     public static final int ANR_OBSERVER_LOGCAT = 1;
@@ -47,12 +47,12 @@ public class CrabSDK {
     }
 
     public static void disableBlockCatch() {
-        if (b.ns() == null) {
+        if (b.oa() == null) {
             com.baidu.crabsdk.c.a.w("Block Monitor has never been enabled!");
             return;
         }
-        b.ns().stop();
-        c.aq(R);
+        b.oa().stop();
+        c.as(R);
         c.stop();
     }
 
@@ -75,9 +75,9 @@ public class CrabSDK {
             return;
         }
         setUploadLimitOfBlockInOneday(i);
-        if (h.nN()) {
-            b.ao(R).start();
-            c.aq(R);
+        if (h.ow()) {
+            b.aq(R).start();
+            c.as(R);
             c.start();
         }
     }
@@ -88,7 +88,7 @@ public class CrabSDK {
     }
 
     public static HashMap<String, String> getUsersCustomKV() {
-        return s.nB();
+        return s.ok();
     }
 
     public static void init(Application application, String str) {
@@ -137,10 +137,10 @@ public class CrabSDK {
         boolean z;
         int myPid = Process.myPid();
         CURRENT_PID = myPid;
-        com.baidu.crabsdk.c.a.cb("CrabSDK.init from " + R.getPackageName() + " with pid " + myPid);
+        com.baidu.crabsdk.c.a.cj("CrabSDK.init from " + R.getPackageName() + " with pid " + myPid);
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) application.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() == 0) {
-            com.baidu.crabsdk.c.a.cb("getRunningAppProcesses error!!");
+            com.baidu.crabsdk.c.a.cj("getRunningAppProcesses error!!");
             return;
         }
         Iterator<ActivityManager.RunningAppProcessInfo> it = runningAppProcesses.iterator();
@@ -153,10 +153,10 @@ public class CrabSDK {
             if (next.pid == myPid) {
                 if (next.processName.equals(application.getPackageName())) {
                     S = true;
-                    com.baidu.crabsdk.c.a.cb("Main process " + next.processName + ".");
+                    com.baidu.crabsdk.c.a.cj("Main process " + next.processName + ".");
                 } else {
                     S = false;
-                    com.baidu.crabsdk.c.a.cb("Sub process " + next.processName + ".");
+                    com.baidu.crabsdk.c.a.cj("Sub process " + next.processName + ".");
                 }
                 CURRENT_PNAME = next.processName;
                 z = true;
@@ -165,7 +165,7 @@ public class CrabSDK {
         if (z) {
             initCrashSwitch(application);
             initCollector(application);
-            f.nH().e(application);
+            f.oq().e(application);
             initAnrCollector(application, str);
         }
     }
@@ -199,15 +199,15 @@ public class CrabSDK {
 
     public static void resumeAnrWatchThread(int i) {
         try {
-            Thread ny = com.baidu.crabsdk.b.c.ny();
-            if (ny == null) {
+            Thread oh = com.baidu.crabsdk.b.c.oh();
+            if (oh == null) {
                 initAnrCollector(R, a.d);
                 com.baidu.crabsdk.c.a.v("ANR watch thread is null, init anrCollector again");
             } else if (a.I == 0) {
                 a.I = i;
-                new Thread(ny).start();
+                new Thread(oh).start();
             } else {
-                com.baidu.crabsdk.c.a.cd("ANR watch thread is running");
+                com.baidu.crabsdk.c.a.cl("ANR watch thread is running");
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("resumeAnrWatchThread->Exception", e);
@@ -285,7 +285,7 @@ public class CrabSDK {
 
     public static void setLogcatLineCount(int i) {
         if (i > 1000) {
-            com.baidu.crabsdk.c.a.cd("强烈建议logcat最大行数小于1000！");
+            com.baidu.crabsdk.c.a.cl("强烈建议logcat最大行数小于1000！");
             a.h = 1000;
         } else {
             a.h = i;
@@ -344,7 +344,7 @@ public class CrabSDK {
     }
 
     public static void setUsersCustomKV(String str, String str2) {
-        s.nB().put(str, str2);
+        s.ok().put(str, str2);
     }
 
     public static void setUsersCustomKV(HashMap<String, String> hashMap) {
@@ -372,7 +372,7 @@ public class CrabSDK {
     }
 
     private static void uploadRecord(Application application) {
-        if (!h.nJ() || a.D) {
+        if (!h.os() || a.D) {
             return;
         }
         k.a(true, (Context) application);

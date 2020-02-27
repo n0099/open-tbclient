@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui.animview.praise.guide;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CurrentShowData {
     private int cycleCurrentcount;
     private int dayCurrentCount;

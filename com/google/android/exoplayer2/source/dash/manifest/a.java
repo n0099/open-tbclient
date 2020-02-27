@@ -2,12 +2,12 @@ package com.google.android.exoplayer2.source.dash.manifest;
 
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public final int id;
-    public final List<g> mtY;
-    public final List<d> mtZ;
-    public final List<d> mua;
+    public final List<g> muE;
+    public final List<d> muF;
+    public final List<d> muG;
     public final int type;
 
     public a(int i, int i2, List<g> list, List<d> list2, List<d> list3) {
@@ -15,18 +15,18 @@ public class a {
         List<d> unmodifiableList2;
         this.id = i;
         this.type = i2;
-        this.mtY = Collections.unmodifiableList(list);
+        this.muE = Collections.unmodifiableList(list);
         if (list2 == null) {
             unmodifiableList = Collections.emptyList();
         } else {
             unmodifiableList = Collections.unmodifiableList(list2);
         }
-        this.mtZ = unmodifiableList;
+        this.muF = unmodifiableList;
         if (list3 == null) {
             unmodifiableList2 = Collections.emptyList();
         } else {
             unmodifiableList2 = Collections.unmodifiableList(list3);
         }
-        this.mua = unmodifiableList2;
+        this.muG = unmodifiableList2;
     }
 }

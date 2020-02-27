@@ -2,11 +2,11 @@ package com.baidu.poly.b;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static ExecutorService aNx = Executors.newSingleThreadExecutor();
+    private static ExecutorService aRW = Executors.newSingleThreadExecutor();
 
     public static void e(Runnable runnable) {
-        aNx.submit(runnable);
+        aRW.submit(runnable);
     }
 }

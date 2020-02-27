@@ -1,5 +1,5 @@
 package com.baidu.searchbox.net.update.ioc;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UpdateRuntime {
     private static DefaultUpdateContext sDefaultUpdateContext = new DefaultUpdateContext();
 

@@ -2,49 +2,49 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class p implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gjn = BdUniqueId.gen();
-    private String gjq;
-    private String gjr;
-    private int gjo = -1;
-    private int gjp = -1;
-    private int gjs = -1;
+    public static final BdUniqueId glo = BdUniqueId.gen();
+    private String glr;
+    private String gls;
+    private int glp = -1;
+    private int glq = -1;
+    private int glt = -1;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gjn;
+        return glo;
     }
 
-    public void sm(int i) {
-        this.gjo = i;
+    public void ss(int i) {
+        this.glp = i;
     }
 
-    public void sn(int i) {
-        this.gjs = i;
+    public void st(int i) {
+        this.glt = i;
     }
 
-    public int bAV() {
-        return this.gjp;
+    public int bCx() {
+        return this.glq;
     }
 
-    public void so(int i) {
-        this.gjp = i;
+    public void su(int i) {
+        this.glq = i;
     }
 
-    public void AG(String str) {
-        this.gjq = str;
+    public void AW(String str) {
+        this.glr = str;
     }
 
-    public String bAW() {
-        return this.gjr;
+    public String bCy() {
+        return this.gls;
     }
 
-    public void AH(String str) {
-        this.gjr = str;
+    public void AX(String str) {
+        this.gls = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.gjq) || StringUtils.isNull(this.gjr) || this.gjo < 0 || this.gjp < 0;
+        return StringUtils.isNull(this.glr) || StringUtils.isNull(this.gls) || this.glp < 0 || this.glq < 0;
     }
 }

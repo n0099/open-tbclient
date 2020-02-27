@@ -59,7 +59,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
 import rx.functions.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class PublishBaseActivity<T extends BasePublishPresenter> extends BaseActivity implements View.OnClickListener, IPublishView {
     public static final int DURATION = 300;
     public TextView mAddDescription;

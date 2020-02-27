@@ -6,10 +6,10 @@ import android.util.Log;
 import java.io.File;
 import java.util.HashMap;
 import java.util.zip.ZipFile;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String coT = null;
+    private static String csU = null;
 
     public static boolean a(@NonNull Context context, @NonNull SoLoader soLoader) {
         boolean z = true;
@@ -27,7 +27,7 @@ public class e {
     private static boolean a(@NonNull SoLoader soLoader, @NonNull File file) {
         try {
             System.loadLibrary("v8.engine");
-            coT = file.getAbsolutePath();
+            csU = file.getAbsolutePath();
             return true;
         } catch (Throwable th) {
             soLoader.appendErrorLog("loadV8EngineSo: " + Log.getStackTraceString(th));
@@ -36,8 +36,8 @@ public class e {
     }
 
     private static boolean b(@NonNull Context context, @NonNull SoLoader soLoader) {
-        coT = null;
-        d.anT();
+        csU = null;
+        d.aqh();
         HashMap<String, String> a = a(context, soLoader, new String[]{"v8.engine", "zeusv8"});
         String str = a.get("v8.engine");
         String str2 = a.get("zeusv8");
@@ -98,10 +98,10 @@ public class e {
     }
 
     public static String getV8SoDependentFilePath() {
-        return coT;
+        return csU;
     }
 
-    public static String anZ() {
+    public static String aqn() {
         return "v8.engine";
     }
 }

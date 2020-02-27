@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.b.a;
 
 import com.baidu.tbadk.TbPageContext;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f {
     public static final d c(ExcContent excContent) {
         if (excContent == null || excContent.type == null || !excContent.type.equals(3L)) {

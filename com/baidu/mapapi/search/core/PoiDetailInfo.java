@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PoiDetailInfo implements Parcelable {
     public static final Parcelable.Creator<PoiDetailInfo> CREATOR = new f();
     private String address;

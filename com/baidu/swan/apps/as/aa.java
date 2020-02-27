@@ -2,7 +2,7 @@ package com.baidu.swan.apps.as;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class aa {
     public static String toHash(byte[] bArr, boolean z) {
         try {

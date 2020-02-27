@@ -8,10 +8,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GameVideoGridView extends BdGridView {
-    private Animation gZo;
-    private GridLayoutAnimationController gZp;
+    private Animation hbo;
+    private GridLayoutAnimationController hbp;
     private int mMaxHeight;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -33,15 +33,15 @@ public class GameVideoGridView extends BdGridView {
     }
 
     private void init() {
-        if (this.gZo == null) {
-            this.gZo = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.hbo == null) {
+            this.hbo = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.gZp == null) {
-            this.gZp = new GridLayoutAnimationController(this.gZo);
-            this.gZp.setColumnDelay(0.4f);
-            this.gZp.setRowDelay(0.2f);
-            this.gZp.setDirection(0);
-            this.gZp.setDirectionPriority(0);
+        if (this.hbp == null) {
+            this.hbp = new GridLayoutAnimationController(this.hbo);
+            this.hbp.setColumnDelay(0.4f);
+            this.hbp.setRowDelay(0.2f);
+            this.hbp.setDirection(0);
+            this.hbp.setDirectionPriority(0);
         }
     }
 
@@ -57,17 +57,17 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void bMI() {
-        if (this.gZp != null) {
-            setLayoutAnimation(this.gZp);
-            this.gZp.start();
+    public void bOk() {
+        if (this.hbp != null) {
+            setLayoutAnimation(this.hbp);
+            this.hbp.start();
             startLayoutAnimation();
         }
     }
 
     public void onDestroy() {
-        if (this.gZo != null) {
-            this.gZo.cancel();
+        if (this.hbo != null) {
+            this.hbo.cancel();
         }
     }
 }

@@ -1,263 +1,175 @@
 package com.baidu.tieba.l;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.os.Build;
-import android.util.Log;
-import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
-import com.baidu.tieba.l.c;
-import java.io.BufferedOutputStream;
-import java.io.Closeable;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.coreExtra.model.f;
+import com.baidu.tieba.k.e;
+import com.baidu.tieba.l.a;
+import com.baidu.tieba.play.QuickVideoView;
 import java.io.File;
-import java.io.FileFilter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipOutputStream;
-/* loaded from: classes.dex */
-final class b {
-    private static Method ioX;
+/* loaded from: classes10.dex */
+public class b implements e {
+    private String iqN;
+    private boolean iqO = false;
+    private boolean iqP = false;
+    private e.a iqQ;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
-        List<File> performExtractions;
-        Log.i("MultiDex", "MultiDexExtractor.load(" + applicationInfo.sourceDir + ", " + z + ")");
-        File file2 = new File(applicationInfo.sourceDir);
-        long zipCrc = getZipCrc(file2);
-        if (!z && !a(context, file2, zipCrc)) {
-            try {
-                performExtractions = a(context, file2, file);
-            } catch (IOException e) {
-                Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
-                if (context instanceof c.a) {
-                    ((c.a) context).getSplash().cfy();
+    public b(String str) {
+        this.iqN = str;
+    }
+
+    @Override // com.baidu.tieba.k.e
+    public void a(e.a aVar) {
+        this.iqQ = aVar;
+    }
+
+    @Override // com.baidu.tieba.k.e
+    public void cgv() {
+        if (f.aLX()) {
+            if (StringUtils.isNull(this.iqN) || !QuickVideoView.uy(this.iqN)) {
+                if (this.iqQ != null) {
+                    this.iqQ.yg(2);
+                    return;
                 }
-                performExtractions = performExtractions(file2, file);
-                b(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
+                return;
             }
-        } else {
-            Log.i("MultiDex", "Detected that extraction must be performed.");
-            if (context instanceof c.a) {
-                ((c.a) context).getSplash().cfy();
-            }
-            performExtractions = performExtractions(file2, file);
-            b(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
-        }
-        Log.i("MultiDex", "load found " + performExtractions.size() + " secondary dex files");
-        return performExtractions;
-    }
-
-    private static List<File> a(Context context, File file, File file2) throws IOException {
-        Log.i("MultiDex", "loading existing secondary dex files");
-        String str = file.getName() + ".classes";
-        int i = getMultiDexPreferences(context).getInt("dex.number", 1);
-        ArrayList arrayList = new ArrayList(i);
-        for (int i2 = 2; i2 <= i; i2++) {
-            File file3 = new File(file2, str + i2 + ".zip");
-            if (!file3.isFile()) {
-                throw new IOException("Missing extracted secondary dex file '" + file3.getPath() + "'");
-            }
-            arrayList.add(file3);
-            if (!L(file3)) {
-                Log.i("MultiDex", "Invalid zip file: " + file3);
-                throw new IOException("Invalid ZIP file.");
-            }
-        }
-        return arrayList;
-    }
-
-    private static boolean a(Context context, File file, long j) {
-        SharedPreferences multiDexPreferences = getMultiDexPreferences(context);
-        return (multiDexPreferences.getLong("timestamp", -1L) == getTimeStamp(file) && multiDexPreferences.getLong("crc", -1L) == j) ? false : true;
-    }
-
-    private static long getTimeStamp(File file) {
-        long lastModified = file.lastModified();
-        if (lastModified == -1) {
-            return lastModified - 1;
-        }
-        return lastModified;
-    }
-
-    private static long getZipCrc(File file) throws IOException {
-        long zipCrc = d.getZipCrc(file);
-        if (zipCrc == -1) {
-            return zipCrc - 1;
-        }
-        return zipCrc;
-    }
-
-    private static List<File> performExtractions(File file, File file2) throws IOException {
-        String str = file.getName() + ".classes";
-        prepareDexDir(file2, str);
-        ArrayList arrayList = new ArrayList();
-        ZipFile zipFile = new ZipFile(file);
-        try {
-            ZipEntry entry = zipFile.getEntry("classes2.dex");
-            int i = 2;
-            while (entry != null) {
-                File file3 = new File(file2, str + i + ".zip");
-                arrayList.add(file3);
-                Log.i("MultiDex", "Extraction is needed for file " + file3);
-                boolean z = false;
-                int i2 = 0;
-                while (i2 < 3 && !z) {
-                    int i3 = i2 + 1;
-                    extract(zipFile, entry, file3, str);
-                    boolean L = L(file3);
-                    Log.i("MultiDex", "Extraction " + (L ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
-                    if (!L) {
-                        file3.delete();
-                        if (file3.exists()) {
-                            Log.w("MultiDex", "Failed to delete corrupted secondary dex '" + file3.getPath() + "'");
-                            z = L;
-                            i2 = i3;
-                        }
+            a.a(this.iqN, new a.b() { // from class: com.baidu.tieba.l.b.1
+                @Override // com.baidu.tieba.l.a.b
+                public void m(Integer num) {
+                    if (num != null && num.intValue() == 1) {
+                        b.this.iqO = true;
+                        b.this.chc();
                     }
-                    z = L;
-                    i2 = i3;
+                    if (b.this.iqQ != null) {
+                        b.this.iqQ.yg(num.intValue());
+                    }
                 }
-                if (!z) {
-                    throw new IOException("Could not create zip file " + file3.getAbsolutePath() + " for secondary dex (" + i + ")");
-                }
-                int i4 = i + 1;
-                entry = zipFile.getEntry("classes" + i4 + ".dex");
-                i = i4;
-            }
-            return arrayList;
-        } finally {
-            try {
-                zipFile.close();
-            } catch (IOException e) {
-                Log.w("MultiDex", "Failed to close resource", e);
-            }
+            });
         }
     }
 
-    private static void b(Context context, long j, long j2, int i) {
-        SharedPreferences.Editor edit = getMultiDexPreferences(context).edit();
-        edit.putLong("timestamp", j);
-        edit.putLong("crc", j2);
-        edit.putInt("dex.number", i);
-        apply(edit);
-    }
-
-    private static SharedPreferences getMultiDexPreferences(Context context) {
-        return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
-    }
-
-    private static void prepareDexDir(File file, final String str) throws IOException {
-        mkdirChecked(file.getParentFile());
-        mkdirChecked(file);
-        File[] listFiles = file.listFiles(new FileFilter() { // from class: com.baidu.tieba.l.b.1
-            @Override // java.io.FileFilter
-            public boolean accept(File file2) {
-                return !file2.getName().startsWith(str);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void chc() {
+        if (f.aLX()) {
+            if (StringUtils.isNull(this.iqN) || !QuickVideoView.uy(this.iqN)) {
+                if (this.iqQ != null) {
+                    this.iqQ.onChange(false);
+                    return;
+                }
+                return;
             }
-        });
-        if (listFiles == null) {
-            Log.w("MultiDex", "Failed to list secondary dex dir content (" + file.getPath() + ").");
+            a.a(this.iqN, this.iqN + "_moov_head_suffix", new a.InterfaceC0545a() { // from class: com.baidu.tieba.l.b.2
+                @Override // com.baidu.tieba.l.a.InterfaceC0545a
+                public void oS(boolean z) {
+                    if (b.this.iqO && z) {
+                        b.this.iqP = true;
+                    }
+                    if (b.this.iqQ != null) {
+                        b.this.iqQ.onChange(z);
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // com.baidu.tieba.k.e
+    public void cgw() {
+        if (f.aLX()) {
+            if (StringUtils.isNull(this.iqN) || !new File(this.iqN).exists() || !new File(this.iqN + "_moov_head_suffix").exists() || !this.iqO || !this.iqP) {
+                if (this.iqQ != null) {
+                    this.iqQ.oP(false);
+                    return;
+                }
+                return;
+            }
+            new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.l.b.3
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                public Boolean doInBackground(String... strArr) {
+                    if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
+                        return Boolean.valueOf(b.dY(strArr[0] + "_moov_head_suffix", strArr[0]));
+                    }
+                    return false;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                public void onPostExecute(Boolean bool) {
+                    super.onPostExecute((AnonymousClass3) bool);
+                    if (b.this.iqQ != null) {
+                        b.this.iqQ.oP(bool.booleanValue());
+                    }
+                }
+            }.execute(this.iqN);
+        }
+    }
+
+    @Override // com.baidu.tieba.k.e
+    public void cgx() {
+        if (StringUtils.isNull(this.iqN) || !QuickVideoView.uy(this.iqN)) {
+            if (this.iqQ != null) {
+                this.iqQ.yg(2);
+                return;
+            }
             return;
         }
-        for (File file2 : listFiles) {
-            Log.i("MultiDex", "Trying to delete old file " + file2.getPath() + " of size " + file2.length());
-            if (!file2.delete()) {
-                Log.w("MultiDex", "Failed to delete old file " + file2.getPath());
-            } else {
-                Log.i("MultiDex", "Deleted old file " + file2.getPath());
+        new BdAsyncTask<String, c, Void>() { // from class: com.baidu.tieba.l.b.4
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Void doInBackground(String... strArr) {
+                if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
+                    String str = strArr[0];
+                    int Fj = a.Fj(str);
+                    publishProgress(new c(1, Fj));
+                    if (Fj == 1) {
+                        boolean dX = a.dX(str, str + "_moov_head_suffix");
+                        c[] cVarArr = new c[1];
+                        cVarArr[0] = new c(2, dX ? 1 : 0);
+                        publishProgress(cVarArr);
+                        if (dX) {
+                            boolean dY = b.dY(str + "_moov_head_suffix", str);
+                            c[] cVarArr2 = new c[1];
+                            cVarArr2[0] = new c(3, dY ? 1 : 0);
+                            publishProgress(cVarArr2);
+                        }
+                    }
+                }
+                return null;
             }
-        }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            /* renamed from: a */
+            public void onProgressUpdate(c... cVarArr) {
+                super.onProgressUpdate(cVarArr);
+                if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
+                    c cVar = cVarArr[0];
+                    if (cVar.type == 1) {
+                        if (b.this.iqQ != null) {
+                            b.this.iqQ.yg(cVar.value);
+                        }
+                    } else if (cVar.type == 2) {
+                        if (b.this.iqQ != null) {
+                            b.this.iqQ.onChange(cVar.value == 1);
+                        }
+                    } else if (cVar.type == 3 && b.this.iqQ != null) {
+                        b.this.iqQ.oP(cVar.value == 1);
+                    }
+                }
+            }
+        }.execute(this.iqN);
     }
 
-    private static void mkdirChecked(File file) throws IOException {
-        file.mkdir();
-        if (!file.isDirectory()) {
-            File parentFile = file.getParentFile();
-            if (parentFile == null) {
-                Log.e("MultiDex", "Failed to create dir " + file.getPath() + ". Parent file is null.");
-            } else {
-                Log.e("MultiDex", "Failed to create dir " + file.getPath() + ". parent file is a dir " + parentFile.isDirectory() + ", a file " + parentFile.isFile() + ", exists " + parentFile.exists() + ", readable " + parentFile.canRead() + ", writable " + parentFile.canWrite());
-            }
-            throw new IOException("Failed to create cache directory " + file.getPath());
+    /* JADX INFO: Access modifiers changed from: private */
+    public static boolean dY(String str, String str2) {
+        if (StringUtils.isNull(str) || StringUtils.isNull(str2) || TextUtils.equals(str, str2) || !new File(str).exists() || !new File(str2).exists()) {
+            return false;
         }
-    }
-
-    private static void extract(ZipFile zipFile, ZipEntry zipEntry, File file, String str) throws IOException, FileNotFoundException {
-        InputStream inputStream = zipFile.getInputStream(zipEntry);
-        File createTempFile = File.createTempFile(str, ".zip", file.getParentFile());
-        Log.i("MultiDex", "Extracting " + createTempFile.getPath());
-        try {
-            ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(createTempFile)));
-            ZipEntry zipEntry2 = new ZipEntry("classes.dex");
-            zipEntry2.setTime(zipEntry.getTime());
-            zipOutputStream.putNextEntry(zipEntry2);
-            byte[] bArr = new byte[16384];
-            for (int read = inputStream.read(bArr); read != -1; read = inputStream.read(bArr)) {
-                zipOutputStream.write(bArr, 0, read);
-            }
-            zipOutputStream.closeEntry();
-            zipOutputStream.close();
-            Log.i("MultiDex", "Renaming to " + file.getPath());
-            if (!createTempFile.renameTo(file)) {
-                throw new IOException("Failed to rename \"" + createTempFile.getAbsolutePath() + "\" to \"" + file.getAbsolutePath() + "\"");
-            }
-        } finally {
-            closeQuietly(inputStream);
-            createTempFile.delete();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean L(File file) {
-        try {
-            try {
-                new ZipFile(file).close();
-                return true;
-            } catch (IOException e) {
-                Log.w("MultiDex", "Failed to close zip file: " + file.getAbsolutePath());
-                return false;
-            }
-        } catch (ZipException e2) {
-            Log.w("MultiDex", "File " + file.getAbsolutePath() + " is not a valid zip file.", e2);
-        } catch (IOException e3) {
-            Log.w("MultiDex", "Got an IOException trying to open zip file: " + file.getAbsolutePath(), e3);
-        }
-    }
-
-    private static void closeQuietly(Closeable closeable) {
-        try {
-            closeable.close();
-        } catch (IOException e) {
-            Log.w("MultiDex", "Failed to close resource", e);
-        }
-    }
-
-    private static void apply(SharedPreferences.Editor editor) {
-        if (ioX != null) {
-            try {
-                ioX.invoke(editor, new Object[0]);
-                return;
-            } catch (IllegalAccessException e) {
-            } catch (InvocationTargetException e2) {
-            }
-        }
-        editor.commit();
-    }
-
-    static {
-        try {
-            ioX = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
-        } catch (NoSuchMethodException e) {
-            ioX = null;
-        }
+        return new File(str).renameTo(new File(str2));
     }
 }

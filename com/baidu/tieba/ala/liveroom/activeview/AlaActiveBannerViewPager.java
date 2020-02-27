@@ -6,24 +6,24 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaActiveBannerViewPager extends ViewPager {
-    private View.OnTouchListener dnp;
-    private boolean eLi;
+    private View.OnTouchListener drz;
+    private boolean ePi;
     private Handler mHandler;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
     private Runnable mRunnable;
 
     public AlaActiveBannerViewPager(Context context) {
         super(context);
-        this.eLi = false;
-        this.dnp = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
+        this.ePi = false;
+        this.drz = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaActiveBannerViewPager.this.eLi = true;
+                    AlaActiveBannerViewPager.this.ePi = true;
                 } else {
-                    AlaActiveBannerViewPager.this.eLi = false;
+                    AlaActiveBannerViewPager.this.ePi = false;
                 }
                 return false;
             }
@@ -40,16 +40,16 @@ public class AlaActiveBannerViewPager extends ViewPager {
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    AlaActiveBannerViewPager.this.eLi = true;
+                    AlaActiveBannerViewPager.this.ePi = true;
                 } else {
-                    AlaActiveBannerViewPager.this.eLi = false;
+                    AlaActiveBannerViewPager.this.ePi = false;
                 }
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.3
             @Override // java.lang.Runnable
             public void run() {
-                if (!AlaActiveBannerViewPager.this.eLi && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
+                if (!AlaActiveBannerViewPager.this.ePi && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
                     AlaActiveBannerViewPager.this.setCurrentItem(AlaActiveBannerViewPager.this.getCurrentItem() + 1, false);
                 }
                 AlaActiveBannerViewPager.this.mHandler.postDelayed(AlaActiveBannerViewPager.this.mRunnable, 10000L);
@@ -60,14 +60,14 @@ public class AlaActiveBannerViewPager extends ViewPager {
 
     public AlaActiveBannerViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eLi = false;
-        this.dnp = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
+        this.ePi = false;
+        this.drz = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaActiveBannerViewPager.this.eLi = true;
+                    AlaActiveBannerViewPager.this.ePi = true;
                 } else {
-                    AlaActiveBannerViewPager.this.eLi = false;
+                    AlaActiveBannerViewPager.this.ePi = false;
                 }
                 return false;
             }
@@ -84,16 +84,16 @@ public class AlaActiveBannerViewPager extends ViewPager {
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    AlaActiveBannerViewPager.this.eLi = true;
+                    AlaActiveBannerViewPager.this.ePi = true;
                 } else {
-                    AlaActiveBannerViewPager.this.eLi = false;
+                    AlaActiveBannerViewPager.this.ePi = false;
                 }
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.3
             @Override // java.lang.Runnable
             public void run() {
-                if (!AlaActiveBannerViewPager.this.eLi && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
+                if (!AlaActiveBannerViewPager.this.ePi && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
                     AlaActiveBannerViewPager.this.setCurrentItem(AlaActiveBannerViewPager.this.getCurrentItem() + 1, false);
                 }
                 AlaActiveBannerViewPager.this.mHandler.postDelayed(AlaActiveBannerViewPager.this.mRunnable, 10000L);
@@ -105,10 +105,10 @@ public class AlaActiveBannerViewPager extends ViewPager {
     private void init(Context context) {
         this.mHandler = new Handler();
         addOnPageChangeListener(this.mOnPageChangeListener);
-        setOnTouchListener(this.dnp);
+        setOnTouchListener(this.drz);
     }
 
-    public void bfD() {
+    public void bhM() {
         if (getAdapter().getCount() > 1) {
             setCurrentItem(1);
             this.mHandler.removeCallbacks(this.mRunnable);

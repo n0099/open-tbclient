@@ -1,9 +1,9 @@
 package com.baidu.live.adp.framework.settings;
 
 import com.baidu.live.adp.framework.MessageConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SocketTaskSetting extends TaskSetting {
-    private static SocketTaskSetting sInstance = null;
+    private static volatile SocketTaskSetting sInstance = null;
 
     public static SocketTaskSetting getInstance() {
         if (sInstance == null) {

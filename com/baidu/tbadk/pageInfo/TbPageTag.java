@@ -14,7 +14,7 @@ public class TbPageTag implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mt */
+        /* renamed from: mK */
         public TbPageTag[] newArray(int i) {
             return new TbPageTag[i];
         }

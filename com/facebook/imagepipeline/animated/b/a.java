@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.animated.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a {
     public void fixFrameDurations(int[] iArr) {
         for (int i = 0; i < iArr.length; i++) {
@@ -9,7 +9,7 @@ public class a {
         }
     }
 
-    public int m(int[] iArr) {
+    public int l(int[] iArr) {
         int i = 0;
         for (int i2 : iArr) {
             i += i2;
@@ -17,7 +17,7 @@ public class a {
         return i;
     }
 
-    public int[] n(int[] iArr) {
+    public int[] m(int[] iArr) {
         int[] iArr2 = new int[iArr.length];
         int i = 0;
         for (int i2 = 0; i2 < iArr.length; i2++) {

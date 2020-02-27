@@ -8,22 +8,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class b {
-    private List<b> SW;
-    public final boolean mAI;
-    public final e mAJ;
-    public final String mAK;
-    private final String[] mAL;
-    private final HashMap<String, Integer> mAM;
-    private final HashMap<String, Integer> mAN;
-    public final long msC;
-    public final long msD;
+    private List<b> UB;
+    public final boolean mBp;
+    public final e mBq;
+    public final String mBr;
+    private final String[] mBs;
+    private final HashMap<String, Integer> mBt;
+    private final HashMap<String, Integer> mBu;
+    public final long mti;
+    public final long mtj;
     public final String tag;
     public final String text;
 
-    public static b PL(String str) {
-        return new b(null, d.PM(str), -9223372036854775807L, -9223372036854775807L, null, null, "");
+    public static b PY(String str) {
+        return new b(null, d.PZ(str), -9223372036854775807L, -9223372036854775807L, null, null, "");
     }
 
     public static b a(String str, long j, long j2, e eVar, String[] strArr, String str2) {
@@ -33,42 +33,42 @@ final class b {
     private b(String str, String str2, long j, long j2, e eVar, String[] strArr, String str3) {
         this.tag = str;
         this.text = str2;
-        this.mAJ = eVar;
-        this.mAL = strArr;
-        this.mAI = str2 != null;
-        this.msC = j;
-        this.msD = j2;
-        this.mAK = (String) com.google.android.exoplayer2.util.a.checkNotNull(str3);
-        this.mAM = new HashMap<>();
-        this.mAN = new HashMap<>();
+        this.mBq = eVar;
+        this.mBs = strArr;
+        this.mBp = str2 != null;
+        this.mti = j;
+        this.mtj = j2;
+        this.mBr = (String) com.google.android.exoplayer2.util.a.checkNotNull(str3);
+        this.mBt = new HashMap<>();
+        this.mBu = new HashMap<>();
     }
 
-    public boolean gA(long j) {
-        return (this.msC == -9223372036854775807L && this.msD == -9223372036854775807L) || (this.msC <= j && this.msD == -9223372036854775807L) || ((this.msC == -9223372036854775807L && j < this.msD) || (this.msC <= j && j < this.msD));
+    public boolean gy(long j) {
+        return (this.mti == -9223372036854775807L && this.mtj == -9223372036854775807L) || (this.mti <= j && this.mtj == -9223372036854775807L) || ((this.mti == -9223372036854775807L && j < this.mtj) || (this.mti <= j && j < this.mtj));
     }
 
     public void a(b bVar) {
-        if (this.SW == null) {
-            this.SW = new ArrayList();
+        if (this.UB == null) {
+            this.UB = new ArrayList();
         }
-        this.SW.add(bVar);
+        this.UB.add(bVar);
     }
 
-    public b Ls(int i) {
-        if (this.SW == null) {
+    public b Lx(int i) {
+        if (this.UB == null) {
             throw new IndexOutOfBoundsException();
         }
-        return this.SW.get(i);
+        return this.UB.get(i);
     }
 
     public int getChildCount() {
-        if (this.SW == null) {
+        if (this.UB == null) {
             return 0;
         }
-        return this.SW.size();
+        return this.UB.size();
     }
 
-    public long[] dwY() {
+    public long[] dyi() {
         int i = 0;
         TreeSet<Long> treeSet = new TreeSet<>();
         a(treeSet, false);
@@ -88,61 +88,61 @@ final class b {
     private void a(TreeSet<Long> treeSet, boolean z) {
         boolean equals = "p".equals(this.tag);
         if (z || equals) {
-            if (this.msC != -9223372036854775807L) {
-                treeSet.add(Long.valueOf(this.msC));
+            if (this.mti != -9223372036854775807L) {
+                treeSet.add(Long.valueOf(this.mti));
             }
-            if (this.msD != -9223372036854775807L) {
-                treeSet.add(Long.valueOf(this.msD));
+            if (this.mtj != -9223372036854775807L) {
+                treeSet.add(Long.valueOf(this.mtj));
             }
         }
-        if (this.SW != null) {
-            for (int i = 0; i < this.SW.size(); i++) {
-                this.SW.get(i).a(treeSet, z || equals);
+        if (this.UB != null) {
+            for (int i = 0; i < this.UB.size(); i++) {
+                this.UB.get(i).a(treeSet, z || equals);
             }
         }
     }
 
     public List<com.google.android.exoplayer2.text.b> a(long j, Map<String, e> map, Map<String, c> map2) {
         TreeMap treeMap = new TreeMap();
-        a(j, false, this.mAK, (Map<String, SpannableStringBuilder>) treeMap);
+        a(j, false, this.mBr, (Map<String, SpannableStringBuilder>) treeMap);
         b(map, treeMap);
         ArrayList arrayList = new ArrayList();
         for (Map.Entry entry : treeMap.entrySet()) {
             c cVar = map2.get(entry.getKey());
-            arrayList.add(new com.google.android.exoplayer2.text.b(d((SpannableStringBuilder) entry.getValue()), null, cVar.mxT, cVar.mxU, cVar.mxV, cVar.mxW, Integer.MIN_VALUE, cVar.width));
+            arrayList.add(new com.google.android.exoplayer2.text.b(d((SpannableStringBuilder) entry.getValue()), null, cVar.myz, cVar.myA, cVar.myB, cVar.myC, Integer.MIN_VALUE, cVar.width));
         }
         return arrayList;
     }
 
     private void a(long j, boolean z, String str, Map<String, SpannableStringBuilder> map) {
-        this.mAM.clear();
-        this.mAN.clear();
-        String str2 = this.mAK;
+        this.mBt.clear();
+        this.mBu.clear();
+        String str2 = this.mBr;
         if ("".equals(str2)) {
             str2 = str;
         }
-        if (this.mAI && z) {
-            n(str2, map).append((CharSequence) this.text);
+        if (this.mBp && z) {
+            m(str2, map).append((CharSequence) this.text);
         } else if ("br".equals(this.tag) && z) {
-            n(str2, map).append('\n');
-        } else if (!"metadata".equals(this.tag) && gA(j)) {
+            m(str2, map).append('\n');
+        } else if (!"metadata".equals(this.tag) && gy(j)) {
             boolean equals = "p".equals(this.tag);
             for (Map.Entry<String, SpannableStringBuilder> entry : map.entrySet()) {
-                this.mAM.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
+                this.mBt.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
             }
             for (int i = 0; i < getChildCount(); i++) {
-                Ls(i).a(j, z || equals, str2, map);
+                Lx(i).a(j, z || equals, str2, map);
             }
             if (equals) {
-                d.e(n(str2, map));
+                d.e(m(str2, map));
             }
             for (Map.Entry<String, SpannableStringBuilder> entry2 : map.entrySet()) {
-                this.mAN.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
+                this.mBu.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
             }
         }
     }
 
-    private static SpannableStringBuilder n(String str, Map<String, SpannableStringBuilder> map) {
+    private static SpannableStringBuilder m(String str, Map<String, SpannableStringBuilder> map) {
         if (!map.containsKey(str)) {
             map.put(str, new SpannableStringBuilder());
         }
@@ -150,18 +150,18 @@ final class b {
     }
 
     private void b(Map<String, e> map, Map<String, SpannableStringBuilder> map2) {
-        for (Map.Entry<String, Integer> entry : this.mAN.entrySet()) {
+        for (Map.Entry<String, Integer> entry : this.mBu.entrySet()) {
             String key = entry.getKey();
-            a(map, map2.get(key), this.mAM.containsKey(key) ? this.mAM.get(key).intValue() : 0, entry.getValue().intValue());
+            a(map, map2.get(key), this.mBt.containsKey(key) ? this.mBt.get(key).intValue() : 0, entry.getValue().intValue());
             for (int i = 0; i < getChildCount(); i++) {
-                Ls(i).b(map, map2);
+                Lx(i).b(map, map2);
             }
         }
     }
 
     private void a(Map<String, e> map, SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         e a;
-        if (i != i2 && (a = d.a(this.mAJ, this.mAL, map)) != null) {
+        if (i != i2 && (a = d.a(this.mBq, this.mBs, map)) != null) {
             d.a(spannableStringBuilder, i, i2, a);
         }
     }

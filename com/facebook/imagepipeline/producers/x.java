@@ -13,14 +13,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
     private final ContentResolver mContentResolver;
-    private static final Class<?> lGr = x.class;
+    private static final Class<?> lGY = x.class;
     private static final String[] PROJECTION = {IMConstants.MSG_ROW_ID, "_data"};
-    private static final String[] lVo = {"_data"};
-    private static final Rect lVp = new Rect(0, 0, 512, 384);
-    private static final Rect lVq = new Rect(0, 0, 96, 96);
+    private static final String[] lVV = {"_data"};
+    private static final Rect lVW = new Rect(0, 0, 512, 384);
+    private static final Rect lVX = new Rect(0, 0, 96, 96);
 
     public x(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         super(executor, gVar);
@@ -29,14 +29,14 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
 
     @Override // com.facebook.imagepipeline.producers.aw
     public boolean a(com.facebook.imagepipeline.common.d dVar) {
-        return ax.a(lVp.width(), lVp.height(), dVar);
+        return ax.a(lVW.width(), lVW.height(), dVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.g.e a;
-        Uri drc = imageRequest.drc();
-        if (!com.facebook.common.util.d.D(drc) || (a = a(drc, imageRequest.dre())) == null) {
+        Uri dso = imageRequest.dso();
+        if (!com.facebook.common.util.d.E(dso) || (a = a(dso, imageRequest.dsq())) == null) {
             return null;
         }
         return a;
@@ -58,7 +58,7 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
             if (dVar == null || (a = a(dVar, query.getInt(query.getColumnIndex(IMConstants.MSG_ROW_ID)))) == null) {
                 return null;
             }
-            a.Ig(OS(string));
+            a.Il(Pf(string));
             return a;
         } finally {
             query.close();
@@ -73,7 +73,7 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
         int b = b(dVar);
         if (b != 0) {
             try {
-                cursor = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, b, lVo);
+                cursor = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, b, lVV);
                 if (cursor != null) {
                     try {
                         cursor.moveToFirst();
@@ -108,10 +108,10 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
     }
 
     private static int b(com.facebook.imagepipeline.common.d dVar) {
-        if (ax.a(lVq.width(), lVq.height(), dVar)) {
+        if (ax.a(lVX.width(), lVX.height(), dVar)) {
             return 3;
         }
-        if (ax.a(lVp.width(), lVp.height(), dVar)) {
+        if (ax.a(lVW.width(), lVW.height(), dVar)) {
             return 1;
         }
         return 0;
@@ -125,16 +125,16 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dqt() {
+    protected String drF() {
         return "LocalContentUriThumbnailFetchProducer";
     }
 
-    private static int OS(String str) {
+    private static int Pf(String str) {
         if (str != null) {
             try {
-                return com.facebook.d.b.IM(new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1));
+                return com.facebook.d.b.IR(new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1));
             } catch (IOException e) {
-                com.facebook.common.c.a.b(lGr, e, "Unable to retrieve thumbnail rotation for %s", str);
+                com.facebook.common.c.a.b(lGY, e, "Unable to retrieve thumbnail rotation for %s", str);
                 return 0;
             }
         }

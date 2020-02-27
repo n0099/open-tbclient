@@ -18,15 +18,15 @@ import com.baidu.tieba.share.ImplicitShareMessage;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ShareStatic {
     static {
-        cFL();
-        cFM();
-        cFN();
+        cHm();
+        cHn();
+        cHo();
     }
 
-    private static void cFL() {
+    private static void cHm() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -38,7 +38,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cFM() {
+    private static void cHn() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
@@ -84,7 +84,7 @@ public class ShareStatic {
                             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                             while (it.hasNext()) {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                bVar.a(bVar.cE(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), bVar.cGb(), (View.OnClickListener) ((Pair) next.second).second);
+                                bVar.a(bVar.cH(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), bVar.cHF(), (View.OnClickListener) ((Pair) next.second).second);
                             }
                         }
                         bVar.b(data.getFrom());
@@ -112,13 +112,13 @@ public class ShareStatic {
             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = shareDialogConfig.textViewList.iterator();
             while (it.hasNext()) {
                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                aVar.a(aVar.cE(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.cGb(), (View.OnClickListener) ((Pair) next.second).second);
+                aVar.a(aVar.cH(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.cHF(), (View.OnClickListener) ((Pair) next.second).second);
             }
         }
         aVar.show();
     }
 
-    private static void cFN() {
+    private static void cHo() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016567, new CustomMessageTask.CustomRunnable<ShareItem>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareItem> customMessage) {
@@ -139,10 +139,10 @@ public class ShareStatic {
     public static void d(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null) {
             com.baidu.tieba.transmitShare.c cVar = new com.baidu.tieba.transmitShare.c(shareDialogConfig.getContext());
-            cVar.tf(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
+            cVar.tj(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
             cVar.g(shareDialogConfig);
             cVar.setOnDismissListener(shareDialogConfig.onDismissListener);
-            if (shareDialogConfig.shareItem != null && shareDialogConfig.shareItem.dmf) {
+            if (shareDialogConfig.shareItem != null && shareDialogConfig.shareItem.dqo) {
                 cVar.b(shareDialogConfig.getFrom());
             }
             cVar.show();

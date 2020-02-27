@@ -3,7 +3,7 @@ package protobuf.LogStat;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class LogStatResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class LogStatResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static final class Builder extends Message.Builder<LogStatResIdl> {
         public DataRes data;
         public Error error;

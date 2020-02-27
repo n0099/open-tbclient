@@ -1,7 +1,7 @@
 package com.baidu.live.data;
 
 import com.baidu.live.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Cloneable {
     private String forumId;
     private String from;
@@ -50,7 +50,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: pC */
+    /* renamed from: qn */
     public b clone() {
         try {
             return (b) super.clone();
@@ -92,7 +92,7 @@ public class b implements Cloneable {
         this.mInLive = str;
     }
 
-    public BdUniqueId pD() {
+    public BdUniqueId qo() {
         return this.mPageId;
     }
 
@@ -112,7 +112,7 @@ public class b implements Cloneable {
         return this.isGod;
     }
 
-    public String pE() {
+    public String qp() {
         return this.metaKey;
     }
 }

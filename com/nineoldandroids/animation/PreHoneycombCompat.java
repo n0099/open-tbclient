@@ -6,7 +6,7 @@ import com.nineoldandroids.util.FloatProperty;
 import com.nineoldandroids.util.IntProperty;
 import com.nineoldandroids.util.Property;
 import com.nineoldandroids.view.animation.AnimatorProxy;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class PreHoneycombCompat {
     static Property<View, Float> ALPHA = new FloatProperty<View>("alpha") { // from class: com.nineoldandroids.animation.PreHoneycombCompat.1
         /* JADX DEBUG: Method merged with bridge method */

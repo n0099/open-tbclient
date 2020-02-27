@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.exoplayer2.util.v;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class GeobFrame extends Id3Frame {
     public static final Parcelable.Creator<GeobFrame> CREATOR = new Parcelable.Creator<GeobFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.GeobFrame.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public final class GeobFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ki */
+        /* renamed from: Kn */
         public GeobFrame[] newArray(int i) {
             return new GeobFrame[i];
         }

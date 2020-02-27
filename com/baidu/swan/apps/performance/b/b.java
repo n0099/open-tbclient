@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.performance.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements e {
     private long mStartTime = -1;
-    private long bDL = -1;
+    private long mEndTime = -1;
 
     @Override // com.baidu.swan.apps.performance.b.e
     public void setStart(long j) {
@@ -11,15 +11,15 @@ public class b implements e {
 
     @Override // com.baidu.swan.apps.performance.b.e
     public void setEnd(long j) {
-        this.bDL = j;
+        this.mEndTime = j;
     }
 
     @Override // com.baidu.swan.apps.performance.b.e
-    public long XK() {
-        if (this.mStartTime < 0 || this.bDL < 0) {
+    public long ZY() {
+        if (this.mStartTime < 0 || this.mEndTime < 0) {
             return -1L;
         }
-        return this.bDL - this.mStartTime;
+        return this.mEndTime - this.mStartTime;
     }
 
     @Override // com.baidu.swan.apps.performance.b.e

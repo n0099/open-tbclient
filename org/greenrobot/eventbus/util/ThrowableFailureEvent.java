@@ -1,5 +1,5 @@
 package org.greenrobot.eventbus.util;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ThrowableFailureEvent implements HasExecutionScope {
     private Object executionContext;
     protected final boolean suppressErrorUi;

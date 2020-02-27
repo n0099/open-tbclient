@@ -1,5 +1,6 @@
 package kotlin.reflect;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public interface e<R> extends kotlin.c<R>, b<R> {
     boolean isExternal();
 

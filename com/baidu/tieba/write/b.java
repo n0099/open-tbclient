@@ -9,72 +9,72 @@ import com.baidu.tieba.write.transmit.model.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.SimpleForum;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class b implements com.baidu.tieba.c.a {
-    private a.InterfaceC0481a fTB;
-    private com.baidu.tieba.write.transmit.model.a kKL;
-    private List<SimpleForum> kKM;
-    private boolean kKN;
+    private a.InterfaceC0489a fVT;
+    private com.baidu.tieba.write.transmit.model.a kLr;
+    private List<SimpleForum> kLs;
+    private boolean kLt;
     private int mPrivateThread;
-    private ArrayList<TransmitForumData> eei = new ArrayList<>();
-    private a.InterfaceC0626a kKO = new a.InterfaceC0626a() { // from class: com.baidu.tieba.write.b.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0626a
+    private ArrayList<TransmitForumData> eil = new ArrayList<>();
+    private a.InterfaceC0634a kLu = new a.InterfaceC0634a() { // from class: com.baidu.tieba.write.b.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0634a
         public void onError() {
-            b.this.cSL();
+            b.this.cTZ();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0626a
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0634a
         public void b(List<SimpleForum> list, int i) {
-            b.this.kKM = list;
+            b.this.kLs = list;
             b.this.mPrivateThread = i;
-            b.this.buK();
+            b.this.bwo();
         }
     };
 
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.kKL = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.kKL.a(this.kKO);
-        this.kKL.setRequestId(gen);
+        this.kLr = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.kLr.a(this.kLu);
+        this.kLr.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buK() {
-        this.eei.clear();
-        if (v.getCount(this.kKM) > 0) {
-            for (SimpleForum simpleForum : this.kKM) {
+    public void bwo() {
+        this.eil.clear();
+        if (v.getCount(this.kLs) > 0) {
+            for (SimpleForum simpleForum : this.kLs) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                    this.eei.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
+                    this.eil.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
                 }
             }
         }
-        if (this.fTB != null) {
-            this.fTB.a(this.eei, true, 2, this.mPrivateThread);
+        if (this.fVT != null) {
+            this.fVT.a(this.eil, true, 2, this.mPrivateThread);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSL() {
-        if (!this.kKN) {
-            if (this.fTB != null) {
-                this.fTB.a(null, false, 2, 0);
+    public void cTZ() {
+        if (!this.kLt) {
+            if (this.fVT != null) {
+                this.fVT.a(null, false, 2, 0);
             }
-            this.kKN = true;
+            this.kLt = true;
         }
     }
 
     @Override // com.baidu.tieba.c.a
-    public void buz() {
-        if (this.fTB != null && this.kKL != null) {
-            this.kKN = false;
-            this.kKL.setThreadTitle(null);
-            this.kKL.setThreadContent(null);
-            this.kKL.loadData();
+    public void bwd() {
+        if (this.fVT != null && this.kLr != null) {
+            this.kLt = false;
+            this.kLr.setThreadTitle(null);
+            this.kLr.setThreadContent(null);
+            this.kLr.loadData();
         }
     }
 
     @Override // com.baidu.tieba.c.a
-    public void a(a.InterfaceC0481a interfaceC0481a) {
-        this.fTB = interfaceC0481a;
+    public void a(a.InterfaceC0489a interfaceC0489a) {
+        this.fVT = interfaceC0489a;
     }
 }

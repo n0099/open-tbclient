@@ -4,90 +4,90 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class v {
-    private boolean cBE = false;
-    private JSONArray bGh = new JSONArray();
-    private SparseArray<Integer> cBA = new SparseArray<>();
-    private ArrayList<String> cBB = new ArrayList<>();
-    private long cBC = 0;
-    private long cBD = 0;
-    private String cAI = "0";
+    private boolean cFC = false;
+    private JSONArray bKm = new JSONArray();
+    private SparseArray<Integer> cFy = new SparseArray<>();
+    private ArrayList<String> cFz = new ArrayList<>();
+    private long cFA = 0;
+    private long cFB = 0;
+    private String cEG = "0";
 
     public final void cg(JSONObject jSONObject) {
-        this.bGh.put(jSONObject);
+        this.bKm.put(jSONObject);
     }
 
-    public final SparseArray<Integer> atG() {
-        return this.cBA;
+    public final SparseArray<Integer> avU() {
+        return this.cFy;
     }
 
     public final void at(int i, int i2) {
-        this.cBA.put(i, Integer.valueOf(i2));
+        this.cFy.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList atH() {
-        return this.cBB;
+    public final ArrayList avV() {
+        return this.cFz;
     }
 
-    public final void qO(String str) {
-        if (!this.cBB.contains(str)) {
-            this.cBB.add(str);
+    public final void rd(String str) {
+        if (!this.cFz.contains(str)) {
+            this.cFz.add(str);
         }
     }
 
     public final void q(long j, long j2) {
-        if ((j < this.cBC || this.cBC == 0) && j != 0) {
-            this.cBC = j;
+        if ((j < this.cFA || this.cFA == 0) && j != 0) {
+            this.cFA = j;
         }
-        if (j2 > this.cBD) {
-            this.cBD = j2;
+        if (j2 > this.cFB) {
+            this.cFB = j2;
         }
     }
 
-    public boolean iJ(int i) {
-        return this.bGh.toString().getBytes().length >= i;
+    public boolean ja(int i) {
+        return this.bKm.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.bGh.length() == 0;
+        return this.bKm.length() == 0;
     }
 
-    public JSONArray atI() {
-        return this.bGh;
+    public JSONArray avW() {
+        return this.bKm;
     }
 
     public void clearData() {
-        this.cBA.clear();
-        this.cBB.clear();
-        this.bGh = null;
+        this.cFy.clear();
+        this.cFz.clear();
+        this.bKm = null;
     }
 
-    public void qP(String str) {
-        this.cAI = str;
+    public void re(String str) {
+        this.cEG = str;
     }
 
-    public String atJ() {
-        return this.cAI;
+    public String avX() {
+        return this.cEG;
     }
 
-    public long atK() {
-        return this.cBC;
+    public long avY() {
+        return this.cFA;
     }
 
     public long getMaxTime() {
-        return this.cBD;
+        return this.cFB;
     }
 
-    public JSONArray atL() {
-        return this.bGh;
+    public JSONArray avZ() {
+        return this.bKm;
     }
 
-    public boolean atM() {
-        return this.cBE;
+    public boolean awa() {
+        return this.cFC;
     }
 
-    public void eZ(boolean z) {
-        this.cBE = z;
+    public void fg(boolean z) {
+        this.cFC = z;
     }
 }

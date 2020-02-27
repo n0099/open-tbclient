@@ -29,6 +29,8 @@ public interface c {
 
     int getErrorCode();
 
+    com.baidu.tieba.i.a getGoodsWindowInfo();
+
     AlaLiveInfoCoreData getLiveInfo();
 
     List<AlaLiveInfoCoreData> getLiveReplayInfo();

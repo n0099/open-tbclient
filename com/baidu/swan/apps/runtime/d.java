@@ -9,40 +9,40 @@ import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.apps.x.b.a.c;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class d extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static c bKH;
-    private static j bKI;
+    private static c bOM;
+    private static j bON;
     private static Handler sMainHandler;
-    private com.baidu.swan.apps.adaptation.a bKK;
-    public final com.baidu.swan.apps.x.b.a.c bKJ = new c.a();
-    private final Set<com.baidu.swan.apps.as.d.b<i.a>> bKL = new HashSet();
-    public int bKM = 0;
+    private com.baidu.swan.apps.adaptation.a bOP;
+    public final com.baidu.swan.apps.x.b.a.c bOO = new c.a();
+    private final Set<com.baidu.swan.apps.as.d.b<i.a>> bOQ = new HashSet();
+    public int bOR = 0;
 
-    public static d aam() {
-        if (bKI != null) {
-            return bKI;
+    public static d acA() {
+        if (bON != null) {
+            return bON;
         }
         synchronized (d.class) {
-            if (bKI != null) {
-                return bKI;
+            if (bON != null) {
+                return bON;
             } else if (SwanAppProcessInfo.current().isSwanAppProcess()) {
-                bKI = new j();
-                aan();
-                return bKI;
+                bON = new j();
+                acB();
+                return bON;
             } else {
-                if (bKH == null) {
-                    bKH = new c();
+                if (bOM == null) {
+                    bOM = new c();
                 }
-                return bKH;
+                return bOM;
             }
         }
     }
 
-    private static void aan() {
-        if (bKH != null) {
-            bKH = null;
+    private static void acB() {
+        if (bOM != null) {
+            bOM = null;
         }
     }
 
@@ -54,15 +54,15 @@ public abstract class d extends a {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.adaptation.a aao() {
-        if (this.bKK == null) {
-            this.bKK = new com.baidu.swan.apps.adaptation.a();
+    public com.baidu.swan.apps.adaptation.a acC() {
+        if (this.bOP == null) {
+            this.bOP = new com.baidu.swan.apps.adaptation.a();
         }
-        return this.bKK;
+        return this.bOP;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void kw(String str) {
+    public void kL(String str) {
         d(str, null);
     }
 
@@ -74,19 +74,19 @@ public abstract class d extends a {
     @Override // com.baidu.swan.apps.runtime.h
     public void d(final i.a aVar) {
         if (DEBUG) {
-            Log.i("SwanImpl", "dispatchEvent: " + aVar + " mEventCallbacks:" + this.bKL.size());
+            Log.i("SwanImpl", "dispatchEvent: " + aVar + " mEventCallbacks:" + this.bOQ.size());
         }
         if (aVar != null) {
-            synchronized (this.bKL) {
+            synchronized (this.bOQ) {
                 boolean z = Looper.getMainLooper() == Looper.myLooper();
-                for (final com.baidu.swan.apps.as.d.b<i.a> bVar : this.bKL) {
+                for (final com.baidu.swan.apps.as.d.b<i.a> bVar : this.bOQ) {
                     if (z && !aVar.getBoolean("event_flag_force_post", false)) {
-                        bVar.B(aVar);
+                        bVar.D(aVar);
                     } else {
                         getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                bVar.B(aVar);
+                                bVar.D(aVar);
                             }
                         });
                     }
@@ -98,8 +98,8 @@ public abstract class d extends a {
     @Override // com.baidu.swan.apps.runtime.h
     public void e(com.baidu.swan.apps.as.d.b<i.a> bVar) {
         if (bVar != null) {
-            synchronized (this.bKL) {
-                this.bKL.add(bVar);
+            synchronized (this.bOQ) {
+                this.bOQ.add(bVar);
             }
         }
     }
@@ -107,8 +107,8 @@ public abstract class d extends a {
     @Override // com.baidu.swan.apps.runtime.h
     public void f(com.baidu.swan.apps.as.d.b<i.a> bVar) {
         if (bVar != null) {
-            synchronized (this.bKL) {
-                this.bKL.remove(bVar);
+            synchronized (this.bOQ) {
+                this.bOQ.remove(bVar);
             }
         }
     }

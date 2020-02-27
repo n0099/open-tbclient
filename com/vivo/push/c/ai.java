@@ -5,11 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.mapapi.UIMsg;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class ai extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(com.vivo.push.y yVar) {
@@ -90,7 +91,7 @@ public final class ai extends com.vivo.push.v {
                         }
                     }
                     break;
-                case 2011:
+                case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
                     com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.a).isDebug(((com.vivo.push.b.x) yVar).d()));
                     break;
             }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.core.view.NavigationBar;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface ai {
-    NavigationBar bcw();
+    NavigationBar beJ();
 }

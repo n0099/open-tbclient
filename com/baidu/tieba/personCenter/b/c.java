@@ -5,33 +5,33 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private BdTypeListView efW;
-    private a jgk;
+    private BdTypeListView eka;
+    private a jhd;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.efW = bdTypeListView;
-        this.jgk = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.eka = bdTypeListView;
+        this.jhd = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void setData(List<m> list) {
-        this.efW.setData(list);
+        this.eka.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        this.jgk.onChangeSkinType();
+        this.jhd.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.jgk.onChangeSkinType();
+        this.jhd.onChangeSkinType();
     }
 
-    public void ctI() {
-        this.jgk.ctI();
+    public void cvb() {
+        this.jhd.cvb();
     }
 
-    public void ctJ() {
-        this.jgk.ctJ();
+    public void cvc() {
+        this.jhd.cvc();
     }
 }

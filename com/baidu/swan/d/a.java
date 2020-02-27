@@ -10,13 +10,13 @@ import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static String getOS() {
         return "Android";
     }
 
-    public static int atQ() {
+    public static int awe() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.widthPixels;
@@ -24,7 +24,7 @@ public class a {
         return 0;
     }
 
-    public static int atR() {
+    public static int awf() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.heightPixels;

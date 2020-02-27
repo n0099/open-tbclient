@@ -47,7 +47,6 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.GUIDTool;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbadkSettings;
 import com.baidu.live.tbadk.TiebaDatabase;
@@ -85,6 +84,7 @@ import com.baidu.live.tbadk.rule.TbParamsHttpRule;
 import com.baidu.live.tbadk.task.TbSocketMessageTask;
 import com.baidu.live.tbadk.util.DaemonServiceManager;
 import com.baidu.live.tbadk.util.NetworkChangedManager;
+import com.baidu.live.u.a;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
@@ -105,7 +105,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbadkCoreApplication extends BdBaseApplication implements BdActivityStack.OnAllActivityClosed {
     public static final String ACCOUNT_CHANGE_ACTION = "com.baidu.tieba.action.accountChange";
     private static final String ACTIVE_CLEAR_TAG = "active_clear";
@@ -460,8 +460,6 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
             MessageManager.getInstance().registerTask(customMessageTask);
             registerPhoneListener();
             System.currentTimeMillis();
-            if (this.mNeedUploadMultidexError) {
-            }
         }
     }
 
@@ -821,8 +819,6 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
                 i++;
             }
         }
-        if (BdLog.isDebugMode()) {
-        }
         return z;
     }
 
@@ -917,14 +913,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     public static void setCurrentAccountInUI(AccountData accountData, Context context) {
-        if (!isChangeAccount) {
-            if (accountData == null && mAccount != null) {
-                isChangeAccount = true;
-            } else if (mAccount == null && accountData != null) {
-                isChangeAccount = true;
-            } else if (mAccount != null && accountData != null && !TextUtils.equals(mAccount.getAccount(), accountData.getAccount())) {
-                isChangeAccount = true;
-            }
+        if (accountData == null && mAccount != null) {
+            isChangeAccount = true;
+        } else if (mAccount == null && accountData != null) {
+            isChangeAccount = true;
+        } else if (mAccount != null && accountData != null && !TextUtils.equals(mAccount.getAccount(), accountData.getAccount())) {
+            isChangeAccount = true;
+        } else {
+            isChangeAccount = false;
         }
         mAccount = accountData;
         if (isChangeAccount) {
@@ -1132,7 +1128,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0044  */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0066  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0064  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1150,8 +1146,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
                     e.printStackTrace();
                     inputStream = null;
                 }
-                if (inputStream != null) {
-                    z = BitmapFactory.decodeStream(inputStream) != null;
+                if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
+                    z = true;
                     if (z) {
                         i = 6;
                         this.mCapableOfWebp = false;
@@ -1247,7 +1243,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class MyPhoneStateListener extends PhoneStateListener {
         private MyPhoneStateListener() {
         }
@@ -1441,6 +1437,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
 
     public boolean isTieba() {
         return "tieba".equals(TbConfig.getSubappType());
+    }
+
+    public boolean isOther() {
+        return ("tieba".equals(TbConfig.getSubappType()) || APP_ID_QUANMIN.equals(TbConfig.getSubappType()) || APP_ID_HAOKAN.equals(TbConfig.getSubappType()) || APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType())) ? false : true;
     }
 
     public void onLowMemory() {

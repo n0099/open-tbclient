@@ -33,6 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.sina.weibo.sdk.constant.WBConstants;
@@ -57,7 +58,7 @@ import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AuthAgent extends BaseApi {
     public static final String SECURE_LIB_ARM64_FILE_NAME = "libwbsafeedit_64";
     public static final String SECURE_LIB_ARM_FILE_NAME = "libwbsafeedit";
@@ -106,7 +107,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c implements IUiListener {
         private final IUiListener b;
         private final boolean c;
@@ -318,7 +319,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements IUiListener {
         IUiListener a;
 
@@ -361,7 +362,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements IUiListener {
         IUiListener a;
         private final String c = "sendinstall";
@@ -396,7 +397,7 @@ public class AuthAgent extends BaseApi {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         private abstract class a implements View.OnClickListener {
             Dialog d;
 
@@ -544,7 +545,7 @@ public class AuthAgent extends BaseApi {
             Button button = new Button(context);
             button.setText("跳过");
             button.setBackgroundDrawable(a("buttonNegt.png", context));
-            button.setTextColor(Color.rgb(36, 97, 131));
+            button.setTextColor(Color.rgb(36, 97, (int) IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER));
             button.setTextSize(20.0f);
             button.setOnClickListener(onClickListener2);
             button.setId(4);

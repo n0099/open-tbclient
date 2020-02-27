@@ -14,14 +14,13 @@ import android.os.Messenger;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.location.a.c;
 import com.baidu.location.a.j;
 import com.baidu.location.a.k;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class LocationClient implements c.a {
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
     public static final int CONNECT_HOT_SPOT_TRUE = 1;
@@ -70,7 +69,7 @@ public final class LocationClient implements c.a {
     private final Messenger i = new Messenger(this.h);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends Handler {
         private final WeakReference<LocationClient> a;
 
@@ -166,7 +165,7 @@ public final class LocationClient implements c.a {
                     } catch (Exception e2) {
                         return;
                     }
-                case CyberPlayerManager.MEDIA_INFO_BUFFERING_START /* 701 */:
+                case 701:
                     locationClient.a((BDLocation) message.obj);
                     return;
                 case 703:
@@ -202,7 +201,7 @@ public final class LocationClient implements c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -645,7 +644,7 @@ public final class LocationClient implements c.a {
     @Override // com.baidu.location.a.c.a
     public void onReceiveLocation(BDLocation bDLocation) {
         if ((!this.E || this.D) && bDLocation != null) {
-            Message obtainMessage = this.h.obtainMessage(CyberPlayerManager.MEDIA_INFO_BUFFERING_START);
+            Message obtainMessage = this.h.obtainMessage(701);
             obtainMessage.obj = bDLocation;
             obtainMessage.sendToTarget();
         }

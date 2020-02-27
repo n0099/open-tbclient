@@ -1,6 +1,6 @@
 package com.xiaomi.push.service.module;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public enum PushChannelRegion {
     China,
     Global,

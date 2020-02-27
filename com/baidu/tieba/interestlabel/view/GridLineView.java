@@ -9,9 +9,9 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GridLineView extends BdGridView {
-    private int hSz;
+    private int hUx;
     private Paint mPaint;
 
     public GridLineView(Context context) {
@@ -34,7 +34,7 @@ public class GridLineView extends BdGridView {
         this.mPaint.setStyle(Paint.Style.STROKE);
         this.mPaint.setColor(am.getColor(R.color.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.hSz = l.getDimens(context, R.dimen.ds26);
+        this.hUx = l.getDimens(context, R.dimen.ds26);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,11 +49,11 @@ public class GridLineView extends BdGridView {
             int width = childAt.getWidth() * numColumns;
             int width2 = childAt.getWidth();
             int height = childAt.getHeight();
-            int top = childAt.getTop();
+            int top2 = childAt.getTop();
             for (int i2 = 1; i2 <= i; i2++) {
-                canvas.drawLine(0.0f, (height * i2) + top, width, (height * i2) + top, this.mPaint);
+                canvas.drawLine(0.0f, (height * i2) + top2, width, (height * i2) + top2, this.mPaint);
                 for (int i3 = 1; i3 < numColumns; i3++) {
-                    canvas.drawLine(width2 * i3, ((i2 - 1) * height) + top + this.hSz, width2 * i3, ((height * i2) + top) - this.hSz, this.mPaint);
+                    canvas.drawLine(width2 * i3, ((i2 - 1) * height) + top2 + this.hUx, width2 * i3, ((height * i2) + top2) - this.hUx, this.mPaint);
                 }
             }
         }

@@ -3,7 +3,7 @@ package io.reactivex.observers;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b<T> implements io.reactivex.disposables.b, u<T> {
     final u<? super T> actual;
     final boolean delayError;
@@ -86,7 +86,7 @@ public final class b<T> implements io.reactivex.disposables.b, u<T> {
                     if (this.delayError) {
                         aVar.add(error);
                     } else {
-                        aVar.bL(error);
+                        aVar.bM(error);
                     }
                     return;
                 }

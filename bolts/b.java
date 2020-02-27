@@ -6,12 +6,12 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class b {
-    private static final b cT = new b();
-    private final ExecutorService cU;
-    private final ScheduledExecutorService cV;
-    private final Executor cW;
+    private static final b cU = new b();
+    private final ExecutorService cV;
+    private final ScheduledExecutorService cW;
+    private final Executor cX;
 
     private static boolean aN() {
         String property = System.getProperty("java.runtime.name");
@@ -22,48 +22,48 @@ final class b {
     }
 
     private b() {
-        this.cU = !aN() ? Executors.newCachedThreadPool() : bolts.a.aL();
-        this.cV = Executors.newSingleThreadScheduledExecutor();
-        this.cW = new a();
+        this.cV = !aN() ? Executors.newCachedThreadPool() : bolts.a.aL();
+        this.cW = Executors.newSingleThreadScheduledExecutor();
+        this.cX = new a();
     }
 
     public static ExecutorService aO() {
-        return cT.cU;
+        return cU.cV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Executor aP() {
-        return cT.cW;
+        return cU.cX;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private static class a implements Executor {
-        private ThreadLocal<Integer> cX;
+        private ThreadLocal<Integer> cY;
 
         private a() {
-            this.cX = new ThreadLocal<>();
+            this.cY = new ThreadLocal<>();
         }
 
         private int aQ() {
-            Integer num = this.cX.get();
+            Integer num = this.cY.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.cX.set(Integer.valueOf(intValue));
+            this.cY.set(Integer.valueOf(intValue));
             return intValue;
         }
 
         private int aR() {
-            Integer num = this.cX.get();
+            Integer num = this.cY.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.cX.remove();
+                this.cY.remove();
             } else {
-                this.cX.set(Integer.valueOf(intValue));
+                this.cY.set(Integer.valueOf(intValue));
             }
             return intValue;
         }

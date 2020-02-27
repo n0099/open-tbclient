@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.CommitPusherCount.CommitPusherCountResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class ResponsePushCountMessage extends SocketResponsedMessage {
     private String groupId;
 

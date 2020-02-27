@@ -3,72 +3,72 @@ package rx.c;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private static final f nSF = new f();
-    static final b nSK = new b() { // from class: rx.c.f.1
+    private static final f nTt = new f();
+    static final b nTy = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> nSG = new AtomicReference<>();
-    private final AtomicReference<d> nSH = new AtomicReference<>();
-    private final AtomicReference<h> nSI = new AtomicReference<>();
-    private final AtomicReference<a> nSJ = new AtomicReference<>();
-    private final AtomicReference<g> nMF = new AtomicReference<>();
+    private final AtomicReference<b> nTu = new AtomicReference<>();
+    private final AtomicReference<d> nTv = new AtomicReference<>();
+    private final AtomicReference<h> nTw = new AtomicReference<>();
+    private final AtomicReference<a> nTx = new AtomicReference<>();
+    private final AtomicReference<g> nNu = new AtomicReference<>();
 
     @Deprecated
-    public static f dNJ() {
-        return nSF;
+    public static f dOW() {
+        return nTt;
     }
 
     f() {
     }
 
-    public b dNK() {
-        if (this.nSG.get() == null) {
+    public b dOX() {
+        if (this.nTu.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.nSG.compareAndSet(null, nSK);
+                this.nTu.compareAndSet(null, nTy);
             } else {
-                this.nSG.compareAndSet(null, (b) a);
+                this.nTu.compareAndSet(null, (b) a);
             }
         }
-        return this.nSG.get();
+        return this.nTu.get();
     }
 
-    public d dNL() {
-        if (this.nSH.get() == null) {
+    public d dOY() {
+        if (this.nTv.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.nSH.compareAndSet(null, e.dNI());
+                this.nTv.compareAndSet(null, e.dOV());
             } else {
-                this.nSH.compareAndSet(null, (d) a);
+                this.nTv.compareAndSet(null, (d) a);
             }
         }
-        return this.nSH.get();
+        return this.nTv.get();
     }
 
-    public h dNM() {
-        if (this.nSI.get() == null) {
+    public h dOZ() {
+        if (this.nTw.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.nSI.compareAndSet(null, i.dNW());
+                this.nTw.compareAndSet(null, i.dPj());
             } else {
-                this.nSI.compareAndSet(null, (h) a);
+                this.nTw.compareAndSet(null, (h) a);
             }
         }
-        return this.nSI.get();
+        return this.nTw.get();
     }
 
-    public a dNN() {
-        if (this.nSJ.get() == null) {
+    public a dPa() {
+        if (this.nTx.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.nSJ.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.nTx.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.nSJ.compareAndSet(null, (a) a);
+                this.nTx.compareAndSet(null, (a) a);
             }
         }
-        return this.nSJ.get();
+        return this.nTx.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g dNO() {
-        if (this.nMF.get() == null) {
+    public g dPb() {
+        if (this.nNu.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.nMF.compareAndSet(null, g.dNV());
+                this.nNu.compareAndSet(null, g.dPi());
             } else {
-                this.nMF.compareAndSet(null, (g) a);
+                this.nNu.compareAndSet(null, (g) a);
             }
         }
-        return this.nMF.get();
+        return this.nNu.get();
     }
 }

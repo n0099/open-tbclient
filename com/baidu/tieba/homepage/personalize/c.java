@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private static int gZW = 0;
-    private static int gZX = 0;
+    private static int hbW = 0;
+    private static int hbX = 0;
 
-    public static boolean ao(Activity activity) {
+    public static boolean ap(Activity activity) {
         if (activity != null) {
             try {
                 if (activity.isInMultiWindowMode()) {
@@ -25,18 +25,18 @@ public class c {
         if (bdTypeRecyclerView != null) {
             int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
             View childAt = bdTypeRecyclerView.getChildAt(0);
-            int top = childAt != null ? childAt.getTop() : 0;
-            gZW = firstVisiblePosition;
-            gZX = top;
+            int top2 = childAt != null ? childAt.getTop() : 0;
+            hbW = firstVisiblePosition;
+            hbX = top2;
         }
     }
 
     public static void e(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) && gZW <= bdTypeRecyclerView.getCount() - 1) {
+        if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) && hbW <= bdTypeRecyclerView.getCount() - 1) {
             bdTypeRecyclerView.requestFocusFromTouch();
-            ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(gZW, gZX);
-            gZW = 0;
-            gZX = 0;
+            ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(hbW, hbX);
+            hbW = 0;
+            hbX = 0;
         }
     }
 }

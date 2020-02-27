@@ -19,7 +19,7 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.aNs().vg(str);
+        return com.baidu.tbadk.imageManager.c.aPO().vx(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,10 +40,10 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             e eVar = new e();
             eVar.f(cVar);
-            aVar.rS = eVar;
+            aVar.rT = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
-        if (com.baidu.adp.lib.Disk.d.fj().c(cVar)) {
+        if (com.baidu.adp.lib.Disk.d.fk().c(cVar)) {
             int i3 = 2000;
             if (isWifiNet) {
                 i3 = 300;
@@ -75,21 +75,22 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         if (!StringUtils.isNull(str)) {
             com.baidu.tbadk.core.util.a.i iVar = new com.baidu.tbadk.core.util.a.i();
             if (aVar != null) {
-                aVar.rS = iVar;
+                aVar.rT = iVar;
             }
             byte[] T = iVar.T(str, false);
-            if ((T != null || iVar.fY().ro) && !iVar.cXp) {
+            boolean aGN = iVar.aGN();
+            if ((T != null || iVar.fY().rp) && aGN && !iVar.dbs) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(T);
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(false);
-                com.baidu.adp.lib.Disk.d.fj().c(cVar);
+                com.baidu.adp.lib.Disk.d.fk().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();
                     eVar.f(cVar);
-                    aVar.rS = eVar;
+                    aVar.rT = eVar;
                 }
             }
         }
@@ -98,14 +99,14 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
 
     @Override // com.baidu.adp.lib.e.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
-        if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
-            com.baidu.tbadk.imageManager.c.aNs().c(str, (com.baidu.adp.widget.ImageView.a) obj);
+        if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a) && ((com.baidu.adp.widget.ImageView.a) obj).isNeedCache()) {
+            com.baidu.tbadk.imageManager.c.aPO().c(str, (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
     @Override // com.baidu.adp.lib.e.e
     public BdAsyncTaskParallel gv() {
-        return j.aEI().gv();
+        return j.aGU().gv();
     }
 
     @Override // com.baidu.adp.lib.e.e
@@ -113,7 +114,7 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         return 1;
     }
 
-    public static boolean tu(String str) {
+    public static boolean tK(String str) {
         com.baidu.adp.lib.Disk.ops.c cVar;
         if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(com.baidu.adp.lib.e.c.gr().genCacheKey(str, 41)), DiskFileOperate.Action.INFO)) == null) {
             return false;

@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ResponseCode {
     public static final int ACCOUNT_NOT_LOGIN = 1000;
     public static final int APPID_NOT_ONLINE = 50013;
@@ -8,17 +8,20 @@ public interface ResponseCode {
     public static final int CRM_NOT_SET_ZHIDA = 1017;
     public static final int DB_OPETAION_ERROR = 1009;
     public static final int DEL_MSG_FAIL = 1006;
+    public static final int ERROR_LOGIN_STATE = 4001;
     public static final int FILE_NOT_FOUND = 1007;
     public static final int FRIEND_GROUP_UPDATED = 610;
     public static final int HTTP_IOEXCEPTION_ERROR = 1012;
     public static final int HTTP_RESPONS_ERROR = 1011;
     public static final int INTERNAL_ERROR = 1003;
     public static final int JSON_PARSE_EXCEPTION = 1010;
+    public static final int LCP_STATE_CONNECTING = 8010;
     public static final int MENU_EXPIRED = 54002;
     public static final int MENU_FORBIDED = 54003;
     public static final int MENU_ILLEGAL = 54001;
     public static final int MENU_NULL = 54000;
     public static final int NETWORK_UNREACHABLE = 1001;
+    public static final int NOT_MEDIA_ROLE_CODE = 2000;
     public static final int NO_MD5_ALGORITHM = 1021;
     public static final int PARAMETER_ERROR = 1005;
     public static final int PROTOCOL_EXP = 1023;
@@ -29,6 +32,7 @@ public interface ResponseCode {
     public static final int SUCCESS = 0;
     public static final int TFE_IMMGR_KVACCESS_NOT_EXIST = 603;
     public static final int TFE_IMMGR_PERMISSION_DENIED = 607;
+    public static final int TOKEN_ALREADY_LOGINED = 410;
     public static final int TOKEN_EXPIRED = 110;
     public static final int TOKEN_INVALID = 23;
     public static final int TRANSFER_FAIL = 1008;

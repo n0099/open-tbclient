@@ -2,29 +2,29 @@ package tv.chushou.zues.widget.kpswitch.b;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class b {
-    private static volatile SharedPreferences nYC;
+    private static volatile SharedPreferences nZq;
 
     b() {
     }
 
     public static boolean j(Context context, int i) {
-        return bd(context).edit().putInt("sp.key.keyboard.height", i).commit();
+        return bh(context).edit().putInt("sp.key.keyboard.height", i).commit();
     }
 
-    private static SharedPreferences bd(Context context) {
-        if (nYC == null) {
+    private static SharedPreferences bh(Context context) {
+        if (nZq == null) {
             synchronized (b.class) {
-                if (nYC == null) {
-                    nYC = context.getSharedPreferences("keyboard.common", 0);
+                if (nZq == null) {
+                    nZq = context.getSharedPreferences("keyboard.common", 0);
                 }
             }
         }
-        return nYC;
+        return nZq;
     }
 
     public static int k(Context context, int i) {
-        return bd(context).getInt("sp.key.keyboard.height", i);
+        return bh(context).getInt("sp.key.keyboard.height", i);
     }
 }

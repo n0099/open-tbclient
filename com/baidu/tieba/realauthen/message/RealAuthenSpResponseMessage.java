@@ -4,10 +4,10 @@ import android.util.Log;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RealAuthenSpResponseMessage extends JsonHttpResponsedMessage {
-    public String jDV;
-    public String jEl;
+    public String jEM;
+    public String jFc;
     public String sign;
 
     public RealAuthenSpResponseMessage() {
@@ -21,8 +21,8 @@ public class RealAuthenSpResponseMessage extends JsonHttpResponsedMessage {
             Log.i("FaceRecognition", "RealAuthenSp retJson:" + jSONObject.toString());
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.jDV = optJSONObject.optString(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID);
-                this.jEl = optJSONObject.optString("reqid");
+                this.jEM = optJSONObject.optString(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID);
+                this.jFc = optJSONObject.optString("reqid");
                 this.sign = optJSONObject.optString("sign");
             }
         }

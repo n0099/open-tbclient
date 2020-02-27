@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveUtilHelper {
     private static final String ALA_PLUGIN_NAME = "com.baidu.tieba.pluginAla";
     public static final int ALIVE_SDK_PLATFORM = 4;
@@ -163,7 +163,7 @@ public class AlaLiveUtilHelper {
         return ((float) j) / 1.0737418E9f;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     static class CpuFilter implements FileFilter {
         CpuFilter() {
         }
@@ -201,5 +201,14 @@ public class AlaLiveUtilHelper {
         float f7 = (f4 * min) / f2;
         float f8 = (min * f3) / f;
         return new float[]{-f8, -f7, f8, -f7, -f8, f7, f8, f7};
+    }
+
+    public static boolean isClassValid(String str) {
+        try {
+            Class.forName(str);
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
     }
 }

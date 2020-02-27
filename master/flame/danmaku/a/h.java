@@ -2,23 +2,23 @@ package master.flame.danmaku.a;
 
 import master.flame.danmaku.danmaku.b.a;
 import master.flame.danmaku.danmaku.model.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface h {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void dKb();
+        void dLo();
 
-        void dKc();
+        void dLp();
 
-        void dKd();
+        void dLq();
 
         void h(master.flame.danmaku.danmaku.model.d dVar);
 
         void i(master.flame.danmaku.danmaku.model.d dVar);
     }
 
-    void NH(int i);
+    void NK(int i);
 
     a.b a(master.flame.danmaku.danmaku.model.b bVar);
 
@@ -26,17 +26,17 @@ public interface h {
 
     void a(master.flame.danmaku.danmaku.model.d dVar);
 
-    void dKg();
+    void dLt();
 
-    void dKh();
+    void dLu();
 
-    void dKi();
+    void dLv();
 
-    l hk(long j);
+    l hi(long j);
 
-    void hl(long j);
+    void hj(long j);
 
-    void j(long j, long j2, long j3);
+    void m(long j, long j2, long j3);
 
     void prepare();
 
@@ -46,5 +46,5 @@ public interface h {
 
     void start();
 
-    void wD(boolean z);
+    void wG(boolean z);
 }

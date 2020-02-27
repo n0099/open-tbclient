@@ -47,7 +47,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(PostUrlSwitch.class);
         SwitchManager.getInstance().registerSwitch(VideoHttpDnsSwitch.class);
         SwitchManager.getInstance().registerSwitch(NickNameActivitySwitch.class);
-        SwitchManager.getInstance().registerSwitch(FansCallSwitch.class);
         SwitchManager.getInstance().registerSwitch(QuickWebViewSwitch.class);
         SwitchManager.getInstance().registerSwitch(PublishVideoThreadSwitch.class);
         SwitchManager.getInstance().registerSwitch(UrlNeedCuidSwitch.class);
@@ -92,5 +91,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterPersonAttentionEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterForumDetailEnableSwitch.class);
+        SwitchManager.getInstance().registerSwitch(FlutterMyTabEnableSwitch.class);
     }
 }

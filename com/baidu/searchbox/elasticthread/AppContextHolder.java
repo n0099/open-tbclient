@@ -1,7 +1,7 @@
 package com.baidu.searchbox.elasticthread;
 
 import android.content.Context;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AppContextHolder {
     private static Context sAppContext;
 

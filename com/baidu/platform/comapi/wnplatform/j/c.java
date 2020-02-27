@@ -11,7 +11,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c extends a implements SensorEventListener {
     public static int a = 0;
     private SensorManager f;

@@ -21,7 +21,7 @@ import java.nio.channels.FileChannel;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FlatPackageWriterImpl implements PackageWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;

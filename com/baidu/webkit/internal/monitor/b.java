@@ -2,7 +2,7 @@ package com.baidu.webkit.internal.monitor;
 
 import com.baidu.webkit.sdk.Log;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b {
     long a = -1;
     long b = -1;

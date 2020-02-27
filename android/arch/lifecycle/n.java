@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class n<T> {
     private static final Object NOT_SET = new Object();
     static final int START_VERSION = -1;
@@ -35,12 +35,12 @@ public abstract class n<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.arch.lifecycle.q<T> */
     /* JADX WARN: Multi-variable type inference failed */
     private void considerNotify(n<T>.c cVar) {
-        if (cVar.cs) {
+        if (cVar.ct) {
             if (!cVar.ay()) {
                 cVar.w(false);
-            } else if (cVar.ct < this.mVersion) {
-                cVar.ct = this.mVersion;
-                cVar.cq.onChanged(this.mData);
+            } else if (cVar.cu < this.mVersion) {
+                cVar.cu = this.mVersion;
+                cVar.cs.onChanged(this.mData);
             }
         }
     }
@@ -166,25 +166,25 @@ public abstract class n<T> {
         return this.mActiveCount > 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class b extends n<T>.c implements h {
         @NonNull
-        final j cp;
+        final j cq;
 
         b(@NonNull j jVar, q<T> qVar) {
             super(qVar);
-            this.cp = jVar;
+            this.cq = jVar;
         }
 
         @Override // android.arch.lifecycle.n.c
         boolean ay() {
-            return this.cp.getLifecycle().au().isAtLeast(Lifecycle.State.STARTED);
+            return this.cq.getLifecycle().au().isAtLeast(Lifecycle.State.STARTED);
         }
 
         @Override // android.arch.lifecycle.h
         public void a(j jVar, Lifecycle.Event event) {
-            if (this.cp.getLifecycle().au() == Lifecycle.State.DESTROYED) {
-                n.this.removeObserver(this.cq);
+            if (this.cq.getLifecycle().au() == Lifecycle.State.DESTROYED) {
+                n.this.removeObserver(this.cs);
             } else {
                 w(ay());
             }
@@ -192,26 +192,26 @@ public abstract class n<T> {
 
         @Override // android.arch.lifecycle.n.c
         boolean i(j jVar) {
-            return this.cp == jVar;
+            return this.cq == jVar;
         }
 
         @Override // android.arch.lifecycle.n.c
         void az() {
-            this.cp.getLifecycle().b(this);
+            this.cq.getLifecycle().b(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public abstract class c {
-        final q<T> cq;
-        boolean cs;
-        int ct = -1;
+        final q<T> cs;
+        boolean ct;
+        int cu = -1;
 
         abstract boolean ay();
 
         c(q<T> qVar) {
-            this.cq = qVar;
+            this.cs = qVar;
         }
 
         boolean i(j jVar) {
@@ -222,25 +222,25 @@ public abstract class n<T> {
         }
 
         void w(boolean z) {
-            if (z != this.cs) {
-                this.cs = z;
+            if (z != this.ct) {
+                this.ct = z;
                 boolean z2 = n.this.mActiveCount == 0;
                 n nVar = n.this;
-                nVar.mActiveCount = (this.cs ? 1 : -1) + nVar.mActiveCount;
-                if (z2 && this.cs) {
+                nVar.mActiveCount = (this.ct ? 1 : -1) + nVar.mActiveCount;
+                if (z2 && this.ct) {
                     n.this.onActive();
                 }
-                if (n.this.mActiveCount == 0 && !this.cs) {
+                if (n.this.mActiveCount == 0 && !this.ct) {
                     n.this.onInactive();
                 }
-                if (this.cs) {
+                if (this.ct) {
                     n.this.dispatchingValue(this);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class a extends n<T>.c {
         a(q<T> qVar) {
             super(qVar);

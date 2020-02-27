@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMPaSubscribedMsg extends Message {
     private Context mContext;
     private long mPaId;
@@ -55,7 +55,7 @@ public class IMPaSubscribedMsg extends Message {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(android.content.Context r8, org.json.JSONObject r9, int r10, java.lang.String r11) throws org.json.JSONException {
+    public void handleMessageResult(android.content.Context r8, org.json.JSONObject r9, int r10, java.lang.String r11) {
         /*
             r7 = this;
             r1 = 0

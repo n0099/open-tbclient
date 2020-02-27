@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.core.util;
 
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractImageProvider implements ImageProvider {
     @Override // com.baidu.live.tbadk.core.util.ImageProvider
     public boolean isSupportImageSize() {

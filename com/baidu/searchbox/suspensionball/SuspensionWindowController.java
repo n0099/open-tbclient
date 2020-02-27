@@ -11,7 +11,7 @@ import com.baidu.searchbox.skin.callback.NightModeChangeListener;
 import com.baidu.searchbox.suspensionwindow.SuspensionListener;
 import com.baidu.searchbox.suspensionwindow.SuspensionWindow;
 import com.baidu.ubc.Flow;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class SuspensionWindowController {
     private static Flow mFlow;
     private static long sClickTimeInterval = 1000;

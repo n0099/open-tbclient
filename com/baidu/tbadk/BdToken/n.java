@@ -12,9 +12,9 @@ import org.json.JSONObject;
 import tbclient.FloatStrategy;
 /* loaded from: classes.dex */
 public class n {
-    private boolean cEB;
-    private boolean cEC;
-    private boolean cED;
+    private boolean cIF;
+    private boolean cIG;
+    private boolean cIH;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -30,25 +30,25 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        private static final n cEE = new n();
+        private static final n cII = new n();
     }
 
-    public static n avI() {
-        return b.cEE;
+    public static n axV() {
+        return b.cII;
     }
 
     private n() {
-        this.cEB = false;
-        this.cEC = true;
-        this.cED = false;
+        this.cIF = false;
+        this.cIG = true;
+        this.cIH = false;
     }
 
     public void b(com.baidu.tbadk.BdToken.activeConfig.a aVar) {
         a aVar2;
-        if (aVar != null && aVar.avY() != null && aVar.avY().size() > 0) {
-            ArrayList<FloatStrategy> avY = aVar.avY();
+        if (aVar != null && aVar.ayl() != null && aVar.ayl().size() > 0) {
+            ArrayList<FloatStrategy> ayl = aVar.ayl();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            Iterator<FloatStrategy> it = avY.iterator();
+            Iterator<FloatStrategy> it = ayl.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     aVar2 = null;
@@ -69,7 +69,7 @@ public class n {
                 }
             }
             if (aVar2 == null) {
-                rn("");
+                rC("");
                 return;
             }
             try {
@@ -83,11 +83,11 @@ public class n {
                 jSONObject.put("toast", aVar2.toast);
                 String jSONObject2 = jSONObject.toString();
                 if (TextUtils.isEmpty(jSONObject2)) {
-                    rn("");
+                    rC("");
                     return;
                 }
-                if (!jSONObject2.equals(com.baidu.tbadk.core.sharedPref.b.aDr().getString("pref_key_strategy_json", null))) {
-                    rn(jSONObject2);
+                if (!jSONObject2.equals(com.baidu.tbadk.core.sharedPref.b.aFB().getString("pref_key_strategy_json", null))) {
+                    rC(jSONObject2);
                 }
                 a(aVar2, true);
             } catch (JSONException e) {
@@ -96,12 +96,12 @@ public class n {
         }
     }
 
-    public void fd(boolean z) {
-        this.cEB = z;
-        if (this.cEB && this.cEC) {
-            this.cEC = false;
-            if (!this.cED && c.avj().avl()) {
-                String string = com.baidu.tbadk.core.sharedPref.b.aDr().getString("pref_key_strategy_json", null);
+    public void fk(boolean z) {
+        this.cIF = z;
+        if (this.cIF && this.cIG) {
+            this.cIG = false;
+            if (!this.cIH && c.axx().axz()) {
+                String string = com.baidu.tbadk.core.sharedPref.b.aFB().getString("pref_key_strategy_json", null);
                 if (!TextUtils.isEmpty(string)) {
                     try {
                         JSONObject jSONObject = new JSONObject(string);
@@ -122,33 +122,33 @@ public class n {
         }
     }
 
-    private void rn(String str) {
-        com.baidu.tbadk.core.sharedPref.b.aDr().putString("pref_key_strategy_json", str);
-        com.baidu.tbadk.core.sharedPref.b.aDr().putInt("pref_key_float_tip_num", 0);
+    private void rC(String str) {
+        com.baidu.tbadk.core.sharedPref.b.aFB().putString("pref_key_strategy_json", str);
+        com.baidu.tbadk.core.sharedPref.b.aFB().putInt("pref_key_float_tip_num", 0);
     }
 
     private void a(a aVar, boolean z) {
         if (aVar != null) {
             try {
-                if (this.cEB) {
-                    boolean z2 = com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean("pref_key_task_first_open", true);
-                    int i = com.baidu.tbadk.core.sharedPref.b.aDr().getInt("pref_key_float_tip_num", 0);
-                    long j = com.baidu.tbadk.core.sharedPref.b.aDr().getLong("pref_key_new_task_complete_time", 0L);
+                if (this.cIF) {
+                    boolean z2 = com.baidu.tbadk.core.sharedPref.b.aFB().getBoolean("pref_key_task_first_open", true);
+                    int i = com.baidu.tbadk.core.sharedPref.b.aFB().getInt("pref_key_float_tip_num", 0);
+                    long j = com.baidu.tbadk.core.sharedPref.b.aFB().getLong("pref_key_new_task_complete_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (z2) {
                         if (a(aVar)) {
-                            this.cED = true;
-                            com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean("pref_key_task_first_open", false);
+                            this.cIH = true;
+                            com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean("pref_key_task_first_open", false);
                         }
                     } else if (a(aVar, currentTimeMillis / 1000, j / 1000)) {
                         if (z) {
                             if (a(aVar)) {
-                                this.cED = true;
-                                com.baidu.tbadk.core.sharedPref.b.aDr().putInt("pref_key_float_tip_num", 0);
+                                this.cIH = true;
+                                com.baidu.tbadk.core.sharedPref.b.aFB().putInt("pref_key_float_tip_num", 0);
                             }
                         } else if (i < aVar.show_num.intValue() && a(aVar)) {
-                            this.cED = true;
-                            com.baidu.tbadk.core.sharedPref.b.aDr().putInt("pref_key_float_tip_num", i + 1);
+                            this.cIH = true;
+                            com.baidu.tbadk.core.sharedPref.b.aFB().putInt("pref_key_float_tip_num", i + 1);
                         }
                     }
                 }
@@ -190,12 +190,12 @@ public class n {
 
     public void o(com.baidu.tbadk.BdToken.b bVar) {
         if (bVar != null && p(bVar)) {
-            com.baidu.tbadk.core.sharedPref.b.aDr().putLong("pref_key_new_task_complete_time", System.currentTimeMillis());
+            com.baidu.tbadk.core.sharedPref.b.aFB().putLong("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
-    public void avJ() {
-        com.baidu.tbadk.core.sharedPref.b.aDr().putLong("pref_key_new_task_complete_time", System.currentTimeMillis());
+    public void axW() {
+        com.baidu.tbadk.core.sharedPref.b.aFB().putLong("pref_key_new_task_complete_time", System.currentTimeMillis());
     }
 
     private boolean p(com.baidu.tbadk.BdToken.b bVar) {

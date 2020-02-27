@@ -8,10 +8,11 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.httpnet.HttpResponse;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttentionData> {
+    public boolean comeFromHost;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UpdateAttentionData {
         public static final int AUTO_OPEN_FALSE = 2;
         public static final int AUTO_OPEN_FIRSTTIME = 3;
@@ -79,6 +80,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
 
     public UpdateAttentionMessage(UpdateAttentionData updateAttentionData) {
         super(CmdConfigCustom.CMD_UPDATE_ATTENTION, updateAttentionData);
+        this.comeFromHost = false;
     }
 
     public boolean isSucc() {

@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.ar.npc.ArBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a implements Handler.Callback {
     final /* synthetic */ ArBridge a;
 

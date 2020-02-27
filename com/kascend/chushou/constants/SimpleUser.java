@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SimpleUser implements Parcelable, Serializable {
     public static final Parcelable.Creator<SimpleUser> CREATOR = new Parcelable.Creator<SimpleUser>() { // from class: com.kascend.chushou.constants.SimpleUser.1
         /* JADX DEBUG: Method merged with bridge method */

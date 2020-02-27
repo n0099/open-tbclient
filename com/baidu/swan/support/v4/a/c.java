@@ -2,10 +2,10 @@ package com.baidu.swan.support.v4.a;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c<D> {
-    b<D> czG;
-    a<D> czH;
+    b<D> cDE;
+    a<D> cDF;
     boolean mAbandoned;
     boolean mContentChanged;
     int mId;
@@ -13,47 +13,47 @@ public class c<D> {
     boolean mReset;
     boolean mStarted;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a<D> {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b<D> {
     }
 
     public void a(int i, b<D> bVar) {
-        if (this.czG != null) {
+        if (this.cDE != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.czG = bVar;
+        this.cDE = bVar;
         this.mId = i;
     }
 
     public void a(b<D> bVar) {
-        if (this.czG == null) {
+        if (this.cDE == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.czG != bVar) {
+        if (this.cDE != bVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.czG = null;
+        this.cDE = null;
     }
 
     public void a(a<D> aVar) {
-        if (this.czH != null) {
+        if (this.cDF != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.czH = aVar;
+        this.cDF = aVar;
     }
 
     public void b(a<D> aVar) {
-        if (this.czH == null) {
+        if (this.cDF == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.czH != aVar) {
+        if (this.cDF != aVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.czH = null;
+        this.cDF = null;
     }
 
     public final void startLoading() {
@@ -107,7 +107,7 @@ public class c<D> {
         printWriter.print("mId=");
         printWriter.print(this.mId);
         printWriter.print(" mListener=");
-        printWriter.println(this.czG);
+        printWriter.println(this.cDE);
         if (this.mStarted || this.mContentChanged || this.mProcessingChange) {
             printWriter.print(str);
             printWriter.print("mStarted=");

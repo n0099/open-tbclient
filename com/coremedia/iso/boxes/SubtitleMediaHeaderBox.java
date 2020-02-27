@@ -5,10 +5,10 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SubtitleMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "sthd";
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();

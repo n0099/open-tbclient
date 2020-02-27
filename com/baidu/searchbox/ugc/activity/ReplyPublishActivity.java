@@ -59,7 +59,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.functions.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ReplyPublishActivity extends PublishBaseActivity implements EmojiconEditText.TextNumbersChangedListener, PhotoChooseView.StartAlbumListener {
     private static final int INCREASE_PROGRESS_INTERVAL = 10;
     private static final int MAX_COUNT = 9;
@@ -376,10 +376,10 @@ public class ReplyPublishActivity extends PublishBaseActivity implements Emojico
     public void updateVideoCover() {
         String str = TextUtils.isEmpty(this.mVideoCover) ? this.mVideoPath : this.mVideoCover;
         if (!TextUtils.isEmpty(str)) {
-            ImageRequestBuilder X = ImageRequestBuilder.X(UgcUriUtils.getUri(str));
-            X.c(new d((int) (this.mVideoWidth / 2.0f), (int) (this.mVideoHeight / 2.0f)));
-            X.vs(true);
-            this.mVideoImg.setController(c.dkj().vd(true).be(X.dro()).c(this.mVideoImg.getController()).dla());
+            ImageRequestBuilder Y = ImageRequestBuilder.Y(UgcUriUtils.getUri(str));
+            Y.c(new d((int) (this.mVideoWidth / 2.0f), (int) (this.mVideoHeight / 2.0f)));
+            Y.vw(true);
+            this.mVideoImg.setController(c.dlw().vh(true).bg(Y.dsA()).c(this.mVideoImg.getController()).dmn());
         }
     }
 
@@ -687,7 +687,7 @@ public class ReplyPublishActivity extends PublishBaseActivity implements Emojico
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.searchbox.ugc.activity.ReplyPublishActivity$9  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class AnonymousClass9 implements Runnable {
         int progress = 0;
 
@@ -814,7 +814,7 @@ public class ReplyPublishActivity extends PublishBaseActivity implements Emojico
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class SaveDraftTask implements Runnable {
         String inputStr;
 

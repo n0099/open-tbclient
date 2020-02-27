@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
     final int bufferSize;
     final long size;
@@ -18,15 +18,15 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
     @Override // io.reactivex.g
     public void a(org.a.c<? super io.reactivex.g<T>> cVar) {
         if (this.skip == this.size) {
-            this.nvP.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
+            this.nwr.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
         } else if (this.skip > this.size) {
-            this.nvP.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.nwr.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
         } else {
-            this.nvP.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.nwr.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WindowExactSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = -2365647875069161133L;
         final org.a.c<? super io.reactivex.g<T>> actual;
@@ -97,7 +97,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                this.s.request(io.reactivex.internal.util.b.af(this.size, j));
+                this.s.request(io.reactivex.internal.util.b.ae(this.size, j));
             }
         }
 
@@ -116,7 +116,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WindowSkipSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = -8792836352386833856L;
         final org.a.c<? super io.reactivex.g<T>> actual;
@@ -196,10 +196,10 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.ae(io.reactivex.internal.util.b.af(this.size, j), io.reactivex.internal.util.b.af(this.skip - this.size, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.ad(io.reactivex.internal.util.b.ae(this.size, j), io.reactivex.internal.util.b.ae(this.skip - this.size, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.af(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.ae(this.skip, j));
             }
         }
 
@@ -218,7 +218,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class WindowOverlapSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = 2428527070996323976L;
         final org.a.c<? super io.reactivex.g<T>> actual;
@@ -385,9 +385,9 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.ae(this.size, io.reactivex.internal.util.b.af(this.skip, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.ad(this.size, io.reactivex.internal.util.b.ae(this.skip, j - 1)));
                 } else {
-                    this.s.request(io.reactivex.internal.util.b.af(this.skip, j));
+                    this.s.request(io.reactivex.internal.util.b.ae(this.skip, j));
                 }
                 drain();
             }

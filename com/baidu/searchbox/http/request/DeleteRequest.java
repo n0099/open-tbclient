@@ -3,7 +3,7 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
     public DeleteRequest(DeleteRequestBuilder deleteRequestBuilder) {
         super(deleteRequestBuilder);
@@ -26,7 +26,7 @@ public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
         return this.okRequestBuilder.delete(requestBody).build();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class DeleteRequestBuilder extends HttpCommonRequestBuilder<DeleteRequestBuilder> {
         public DeleteRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

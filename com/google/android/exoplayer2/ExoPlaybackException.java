@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ExoPlaybackException extends Exception {
     public static final int TYPE_RENDERER = 1;
     public static final int TYPE_SOURCE = 0;

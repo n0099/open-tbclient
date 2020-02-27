@@ -8,10 +8,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class c {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File RA() {
+    public static File TO() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_mini_zip");
         if (!file.exists()) {
             file.mkdirs();
@@ -32,7 +32,7 @@ class c {
                 }
             } catch (Throwable th) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.d("Mini-Pm-Download", com.baidu.swan.pms.d.aqZ().getProcessName() + ": path exception or no space left." + th.toString());
+                    Log.d("Mini-Pm-Download", com.baidu.swan.pms.d.atn().getProcessName() + ": path exception or no space left." + th.toString());
                 }
             }
         }

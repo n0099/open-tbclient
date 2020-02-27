@@ -1,8 +1,10 @@
 package com.baidu.live.view.dispatch;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
+    void Bu();
+
     boolean W(View view);
 
     int indexOfChild(View view);
@@ -10,6 +12,4 @@ public interface a {
     void onViewAdded(View view);
 
     void onViewRemoved(View view);
-
-    void ze();
 }

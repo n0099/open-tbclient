@@ -23,7 +23,7 @@ import com.baidu.tieba.square.forumlist.SquareForumListResHttpMsg;
 import com.baidu.tieba.square.forumlist.SquareForumListResSocketMsg;
 import com.baidu.tieba.square.square.f;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ForumRankActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(BarFolderFirstDirActivityConfig.class, com.baidu.tieba.square.square.a.class);
@@ -83,7 +83,7 @@ public class ForumRankActivityStatic {
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SQUARE_FORUM_LIST, SquareForumListResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003060, com.baidu.tieba.tbadkCore.a.a.bv("c/f/forumsquare/getForumsFromForumClass", CmdConfigSocket.CMD_SQUARE_FORUM_LIST));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003060, com.baidu.tieba.tbadkCore.a.a.bu("c/f/forumsquare/getForumsFromForumClass", CmdConfigSocket.CMD_SQUARE_FORUM_LIST));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -91,7 +91,7 @@ public class ForumRankActivityStatic {
         tbHttpMessageTask.setResponsedClass(SquareForumListResHttpMsg.class);
         tbHttpMessageTask.setIsImm(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        ba.aEt().a(new ba.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
+        ba.aGE().a(new ba.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -112,7 +112,7 @@ public class ForumRankActivityStatic {
                 return 3;
             }
         });
-        ba.aEt().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new ba.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
+        ba.aGE().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new ba.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
             @Override // com.baidu.tbadk.core.util.ba.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {

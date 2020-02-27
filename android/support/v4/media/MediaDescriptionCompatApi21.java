@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.support.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class MediaDescriptionCompatApi21 {
     public static String getMediaId(Object obj) {
         return ((MediaDescription) obj).getMediaId();
@@ -45,7 +45,7 @@ class MediaDescriptionCompatApi21 {
         return MediaDescription.CREATOR.createFromParcel(parcel);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class Builder {
         public static Object newInstance() {
             return new MediaDescription.Builder();

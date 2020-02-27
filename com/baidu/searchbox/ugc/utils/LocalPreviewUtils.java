@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Calendar;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LocalPreviewUtils {
     public static final int MIN_CLICK_DELAY_TIME = 1000;
     public static long lastClickTime = 0;

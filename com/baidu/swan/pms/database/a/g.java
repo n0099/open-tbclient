@@ -5,7 +5,7 @@ import android.database.Cursor;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends b<com.baidu.swan.pms.model.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -32,7 +32,7 @@ public class g extends b<com.baidu.swan.pms.model.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: k */
-    public ContentValues X(com.baidu.swan.pms.model.g gVar) {
+    public ContentValues Z(com.baidu.swan.pms.model.g gVar) {
         ContentValues e = super.e(gVar);
         e.put("independent", Integer.valueOf(gVar.independent ? 1 : 0));
         e.put("sub_pkg_name", gVar.pkgName);

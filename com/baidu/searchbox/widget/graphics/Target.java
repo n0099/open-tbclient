@@ -2,7 +2,7 @@ package com.baidu.searchbox.widget.graphics;
 
 import android.support.annotation.FloatRange;
 import com.baidu.mapapi.map.WeightedLatLng;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class Target {
     public static final Target DARK_MUTED;
     public static final Target DARK_VIBRANT;
@@ -180,7 +180,7 @@ public final class Target {
         target.mSaturationTargets[2] = 0.4f;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class Builder {
         private final Target mTarget;
 

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.exception.InterceptException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class StatisticInterception implements IRequestIntercept {
     @Override // com.sina.weibo.sdk.network.IRequestIntercept
     public boolean needIntercept(IRequestParam iRequestParam, Bundle bundle) {

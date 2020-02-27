@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.swan.ubc.s;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements ISchemeIoc {
     @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
     public boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
     private CameraInterface cameraInterface;
     SurfaceHolder mSurfaceHolder;

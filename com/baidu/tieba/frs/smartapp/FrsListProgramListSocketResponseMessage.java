@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.SmartAppList.SmartAppListResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsListProgramListSocketResponseMessage extends SocketResponsedMessage {
     public boolean hasMore;
     public ArrayList<b> smart_app_list;

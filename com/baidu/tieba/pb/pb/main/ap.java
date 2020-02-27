@@ -1,106 +1,131 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.Layout;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import android.widget.EditText;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.Random;
-/* loaded from: classes7.dex */
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+/* loaded from: classes9.dex */
 public class ap {
-    private static TextView dCN;
-    private static final int[] iMl = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
+    private EditText hgP;
+    private PostWriteCallBackData iJz;
+    private com.baidu.tieba.write.c iPU = new com.baidu.tieba.write.c();
+    private com.baidu.tieba.write.c iPV;
+    private EditText iPW;
 
-    public static Intent aS(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
-        }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra(DealIntentService.KEY_CLASS, 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        intent.putExtra("key_start_from", 5);
-        return intent;
+    public ap() {
+        this.iPU.DZ(R.color.cp_cont_a);
+        this.iPU.Ea(R.color.cp_cont_h_alpha85);
+        this.iPV = new com.baidu.tieba.write.c();
+        this.iPV.DZ(R.color.cp_cont_a);
+        this.iPV.Ea(R.color.cp_cont_h_alpha85);
     }
 
-    public static boolean o(PostData postData) {
-        if (postData == null || postData.cJI() == null) {
-            return false;
-        }
-        com.baidu.tieba.tbadkCore.data.i cJI = postData.cJI();
-        if (cJI.keZ) {
-            int cJg = cJI.cJg();
-            return cJg == 2 || cJg == 1 || cJg == 3;
-        }
-        return false;
-    }
-
-    public static int cnI() {
-        return iMl[new Random().nextInt(iMl.length)];
-    }
-
-    public static String FM(String str) {
-        return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
-    }
-
-    public static SpannableString aE(bj bjVar) {
-        if (bjVar == null) {
-            return null;
-        }
-        String str = "";
-        if (bjVar.aBW() == 1) {
-            str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
-        } else if (bjVar.aBW() == 2) {
-            str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        SpannableString spannableString = new SpannableString(new StringBuilder(str).toString());
-        spannableString.setSpan(new com.baidu.tbadk.core.view.a.a(R.color.cp_bg_line_c, UtilHelper.getDimenPixelSize(R.dimen.tbds5), UtilHelper.getDimenPixelSize(R.dimen.tbds26), R.color.cp_cont_b, UtilHelper.getDimenPixelSize(R.dimen.tbds8), UtilHelper.getDimenPixelSize(R.dimen.tbds9), UtilHelper.getDimenPixelSize(R.dimen.tbds13)), 0, spannableString.length(), 17);
-        return spannableString;
-    }
-
-    public static Layout c(SpannableStringBuilder spannableStringBuilder) {
-        Context context = TbadkCoreApplication.getInst().getContext();
-        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
-        int contentSize = TbConfig.getContentSize();
-        try {
-            if (dCN == null) {
-                dCN = new TextView(TbadkCoreApplication.getInst().getContext());
+    public void qw(boolean z) {
+        if (this.iPW != null && this.iPW.getText() != null) {
+            int selectionEnd = this.iPW.getSelectionEnd();
+            SpannableStringBuilder a = this.iPU.a(this.iPW.getText());
+            if (a != null) {
+                this.iPU.tH(true);
+                this.iPW.setText(a);
+                if (z && this.iPU.cUb() >= 0) {
+                    this.iPW.requestFocus();
+                    this.iPW.setSelection(this.iPU.cUb());
+                } else {
+                    this.iPW.setSelection(selectionEnd);
+                }
+                this.iPU.tG(this.iPU.cUb() >= 0);
             }
-            TextView textView = dCN;
-            if (textView.getLayoutParams() == null) {
-                textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            }
-            textView.setText(spannableStringBuilder);
-            textView.setTextSize(0, contentSize);
-            textView.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-            textView.getPaint().setFakeBoldText(true);
-            textView.measure(View.MeasureSpec.makeMeasureSpec(equipmentWidth, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-            return textView.getLayout();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
         }
     }
 
-    public static int cnJ() {
-        return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
+    public void qx(boolean z) {
+        if (this.hgP != null && this.hgP.getText() != null) {
+            int selectionEnd = this.hgP.getSelectionEnd();
+            SpannableStringBuilder a = this.iPV.a(this.hgP.getText());
+            if (a != null) {
+                this.iPV.tH(true);
+                this.hgP.setText(a);
+                if (z && this.iPV.cUb() >= 0) {
+                    this.hgP.requestFocus();
+                    this.hgP.setSelection(this.iPV.cUb());
+                } else {
+                    this.hgP.setSelection(selectionEnd);
+                }
+                this.iPV.tG(this.iPV.cUb() >= 0);
+            }
+        }
     }
 
-    public static int cnK() {
-        return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
+    public void cqt() {
+        this.iPV.KK(null);
+        this.iPV.aU(null);
+        this.iPV.tG(false);
+    }
+
+    public void cqu() {
+        this.iPU.KK(null);
+        this.iPU.aU(null);
+        this.iPU.tG(false);
+    }
+
+    public void f(PostWriteCallBackData postWriteCallBackData) {
+        if (postWriteCallBackData != null) {
+            this.iPU.aU(postWriteCallBackData.getSensitiveWords());
+            this.iPU.KK(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.v.isEmpty(this.iPU.cUa())) {
+                qw(true);
+                this.iJz = postWriteCallBackData;
+            }
+        }
+    }
+
+    public void g(PostWriteCallBackData postWriteCallBackData) {
+        if (postWriteCallBackData != null) {
+            this.iPV.aU(postWriteCallBackData.getSensitiveWords());
+            this.iPV.KK(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.v.isEmpty(this.iPV.cUa())) {
+                qx(true);
+            }
+        }
+    }
+
+    public void e(EditText editText) {
+        this.iPW = editText;
+    }
+
+    public void f(EditText editText) {
+        this.hgP = editText;
+    }
+
+    public void onDestroy() {
+        this.iPW = null;
+        this.hgP = null;
+    }
+
+    public void onChangeSkinType() {
+        this.iPU.onChangeSkinType();
+        this.iPV.onChangeSkinType();
+        if (this.iPU.cUc()) {
+            qw(false);
+        }
+        if (this.iPV.cUc()) {
+            qx(false);
+        }
+    }
+
+    public com.baidu.tieba.write.c cqv() {
+        return this.iPU;
+    }
+
+    public com.baidu.tieba.write.c cqw() {
+        return this.iPV;
+    }
+
+    public EditText cqx() {
+        return this.hgP;
+    }
+
+    public PostWriteCallBackData cqy() {
+        return this.iJz;
     }
 }

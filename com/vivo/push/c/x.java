@@ -7,7 +7,7 @@ import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class x implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ Map b;

@@ -6,42 +6,42 @@ import android.util.Log;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.runtime.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b bEU;
+    private b bIZ;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
-        void Yy();
-
         void a(@NonNull c cVar);
+
+        void aaM();
 
         void clear(String str);
 
-        void ke(String str);
+        void kt(String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0262a {
-        private static a bEX = new a();
+    /* loaded from: classes11.dex */
+    public static class C0272a {
+        private static a bJc = new a();
     }
 
-    public static a Yv() {
-        return C0262a.bEX;
+    public static a aaJ() {
+        return C0272a.bJc;
     }
 
     public void a(@NonNull final c cVar) {
-        long YE = cVar.YE();
-        if (YE > 0 || Looper.getMainLooper() != Looper.myLooper()) {
+        long aaS = cVar.aaS();
+        if (aaS > 0 || Looper.getMainLooper() != Looper.myLooper()) {
             d.getMainHandler().postDelayed(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(cVar);
                 }
-            }, YE >= 0 ? YE : 0L);
+            }, aaS >= 0 ? aaS : 0L);
         } else {
             b(cVar);
         }
@@ -54,30 +54,30 @@ public final class a {
             log("send: return by process check");
             return;
         }
-        if (this.bEU == null) {
-            this.bEU = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
+        if (this.bIZ == null) {
+            this.bIZ = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
         }
-        log("send: sender=" + this.bEU);
-        this.bEU.Yy();
-        this.bEU.a(cVar);
-        this.bEU.Yy();
+        log("send: sender=" + this.bIZ);
+        this.bIZ.aaM();
+        this.bIZ.a(cVar);
+        this.bIZ.aaM();
     }
 
-    public void kc(String str) {
-        if (this.bEU != null) {
-            this.bEU.clear(str);
-        }
-    }
-
-    public void Yw() {
-        if (this.bEU != null) {
-            this.bEU.Yy();
+    public void kr(String str) {
+        if (this.bIZ != null) {
+            this.bIZ.clear(str);
         }
     }
 
-    public void kd(String str) {
-        if (this.bEU != null) {
-            this.bEU.ke(str);
+    public void aaK() {
+        if (this.bIZ != null) {
+            this.bIZ.aaM();
+        }
+    }
+
+    public void ks(String str) {
+        if (this.bIZ != null) {
+            this.bIZ.kt(str);
         }
     }
 

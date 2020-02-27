@@ -1,16 +1,16 @@
 package rx.internal.operators;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class NotificationLite {
-    private static final Object nNb = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    private static final Object nNQ = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         private static final long serialVersionUID = 1;
 
         public String toString() {
             return "Notification=>Completed";
         }
     };
-    private static final Object nNc = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    private static final Object nNR = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         private static final long serialVersionUID = 2;
 
         public String toString() {
@@ -18,7 +18,7 @@ public final class NotificationLite {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class OnErrorSentinel implements Serializable {
         private static final long serialVersionUID = 3;
         final Throwable e;
@@ -34,13 +34,13 @@ public final class NotificationLite {
 
     public static <T> Object next(T t) {
         if (t == null) {
-            return nNc;
+            return nNR;
         }
         return t;
     }
 
-    public static Object dMU() {
-        return nNb;
+    public static Object dOh() {
+        return nNQ;
     }
 
     public static Object error(Throwable th) {
@@ -48,10 +48,10 @@ public final class NotificationLite {
     }
 
     public static <T> boolean a(rx.e<? super T> eVar, Object obj) {
-        if (obj == nNb) {
+        if (obj == nNQ) {
             eVar.onCompleted();
             return true;
-        } else if (obj == nNc) {
+        } else if (obj == nNR) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
@@ -66,8 +66,8 @@ public final class NotificationLite {
         }
     }
 
-    public static boolean cd(Object obj) {
-        return obj == nNb;
+    public static boolean ce(Object obj) {
+        return obj == nNQ;
     }
 
     public static boolean isError(Object obj) {
@@ -77,7 +77,7 @@ public final class NotificationLite {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T getValue(Object obj) {
-        if (obj == nNc) {
+        if (obj == nNR) {
             return null;
         }
         return obj;

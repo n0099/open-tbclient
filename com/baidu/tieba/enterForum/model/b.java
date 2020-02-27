@@ -6,16 +6,16 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.switchs.HttpsConnSwitch;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public static boolean bxn() {
+    public static boolean byS() {
         if (j.isNetWorkAvailable()) {
             return SwitchManager.getInstance().findType(HttpsConnSwitch.KEY) == 1;
         }
         return false;
     }
 
-    public static void bxo() {
+    public static void byT() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

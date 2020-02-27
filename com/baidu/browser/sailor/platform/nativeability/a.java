@@ -26,9 +26,9 @@ import java.io.File;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    private static BroadcastReceiver Je;
+    private static BroadcastReceiver Jz;
     private static final SparseArray<BdLightappKernelJsCallback> b = new SparseArray<>();
 
     public static String a() {
@@ -109,9 +109,9 @@ public final class a {
     }
 
     public static void b() {
-        if (Je != null) {
-            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(Je);
-            Je = null;
+        if (Jz != null) {
+            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(Jz);
+            Jz = null;
         }
     }
 
@@ -150,10 +150,10 @@ public final class a {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str, str2);
         bdLightappKernelJsCallback.setCallbackListener(aVar);
         b.put(10, bdLightappKernelJsCallback);
-        if (Je == null) {
-            Je = new d();
+        if (Jz == null) {
+            Jz = new d();
         }
-        BdSailorPlatform.getInstance().getAppContext().registerReceiver(Je, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        BdSailorPlatform.getInstance().getAppContext().registerReceiver(Jz, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public static void d(String str, String str2, BdLightappKernelJsCallback.a aVar) {
@@ -164,12 +164,12 @@ public final class a {
             return;
         }
         b.remove(10);
-        if (Je == null) {
+        if (Jz == null) {
             bdLightappKernelJsCallback.sendFailCallBack("not start yet");
             return;
         }
-        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(Je);
-        Je = null;
+        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(Jz);
+        Jz = null;
         bdLightappKernelJsCallback.sendSuccCallBack();
     }
 

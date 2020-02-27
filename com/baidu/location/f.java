@@ -10,7 +10,7 @@ import com.baidu.location.d.j;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f extends Service {
     LLSInterface a = null;
     LLSInterface b = null;

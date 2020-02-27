@@ -24,7 +24,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDLayoutMode {
     private static final String ATTR_NAME_BACKGROUND = "tb_background";
     private static final String ATTR_NAME_DIVIDER = "tb_divider";
@@ -133,13 +133,8 @@ public class BDLayoutMode {
                     bDLayoutInfo.appendTag(attributeName + ETAG.EQUAL + this.contextRes.getResourceName(i));
                 }
             }
-            if (z) {
-                if (!TextUtils.isEmpty(bDLayoutInfo.getId()) && this.viewModeInfos != null && !this.viewModeInfos.containsKey(bDLayoutInfo.getId())) {
-                    this.viewModeInfos.put(bDLayoutInfo.getId(), bDLayoutInfo);
-                    return;
-                }
-                if (TextUtils.isEmpty(bDLayoutInfo.getId()) || this.viewModeInfos == null || this.viewModeInfos.containsKey(bDLayoutInfo.getId())) {
-                }
+            if (z && !TextUtils.isEmpty(bDLayoutInfo.getId()) && this.viewModeInfos != null && !this.viewModeInfos.containsKey(bDLayoutInfo.getId())) {
+                this.viewModeInfos.put(bDLayoutInfo.getId(), bDLayoutInfo);
             }
         } catch (Resources.NotFoundException e) {
         } catch (Exception e2) {

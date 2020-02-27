@@ -1,54 +1,54 @@
 package com.google.android.exoplayer2.extractor.f;
 
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class o {
-    private boolean mmw;
-    private final int mnD;
-    private boolean mnE;
-    public byte[] mnF;
-    public int mnG;
+    private boolean mnc;
+    private final int moj;
+    private boolean mok;
+    public byte[] mol;
+    public int mom;
 
     public o(int i, int i2) {
-        this.mnD = i;
-        this.mnF = new byte[i2 + 3];
-        this.mnF[2] = 1;
+        this.moj = i;
+        this.mol = new byte[i2 + 3];
+        this.mol[2] = 1;
     }
 
     public void reset() {
-        this.mmw = false;
-        this.mnE = false;
+        this.mnc = false;
+        this.mok = false;
     }
 
     public boolean aW() {
-        return this.mnE;
+        return this.mok;
     }
 
-    public void JU(int i) {
-        com.google.android.exoplayer2.util.a.checkState(!this.mmw);
-        this.mmw = i == this.mnD;
-        if (this.mmw) {
-            this.mnG = 3;
-            this.mnE = false;
+    public void JZ(int i) {
+        com.google.android.exoplayer2.util.a.checkState(!this.mnc);
+        this.mnc = i == this.moj;
+        if (this.mnc) {
+            this.mom = 3;
+            this.mok = false;
         }
     }
 
-    public void s(byte[] bArr, int i, int i2) {
-        if (this.mmw) {
+    public void w(byte[] bArr, int i, int i2) {
+        if (this.mnc) {
             int i3 = i2 - i;
-            if (this.mnF.length < this.mnG + i3) {
-                this.mnF = Arrays.copyOf(this.mnF, (this.mnG + i3) * 2);
+            if (this.mol.length < this.mom + i3) {
+                this.mol = Arrays.copyOf(this.mol, (this.mom + i3) * 2);
             }
-            System.arraycopy(bArr, i, this.mnF, this.mnG, i3);
-            this.mnG = i3 + this.mnG;
+            System.arraycopy(bArr, i, this.mol, this.mom, i3);
+            this.mom = i3 + this.mom;
         }
     }
 
-    public boolean JV(int i) {
-        if (this.mmw) {
-            this.mnG -= i;
-            this.mmw = false;
-            this.mnE = true;
+    public boolean Ka(int i) {
+        if (this.mnc) {
+            this.mom -= i;
+            this.mnc = false;
+            this.mok = true;
             return true;
         }
         return false;

@@ -1,5 +1,6 @@
 package kotlin.io;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public enum OnErrorAction {
     SKIP,
     TERMINATE

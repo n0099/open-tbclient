@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
     final int count;
     final int skip;
@@ -22,23 +22,23 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         if (this.skip == this.count) {
             a aVar = new a(jVar, this.count);
             jVar.add(aVar);
-            jVar.setProducer(aVar.dMX());
+            jVar.setProducer(aVar.dOk());
             return aVar;
         } else if (this.skip > this.count) {
             BufferSkip bufferSkip = new BufferSkip(jVar, this.count, this.skip);
             jVar.add(bufferSkip);
-            jVar.setProducer(bufferSkip.dMX());
+            jVar.setProducer(bufferSkip.dOk());
             return bufferSkip;
         } else {
             BufferOverlap bufferOverlap = new BufferOverlap(jVar, this.count, this.skip);
             jVar.add(bufferOverlap);
-            jVar.setProducer(bufferOverlap.dMX());
+            jVar.setProducer(bufferOverlap.dOk());
             return bufferOverlap;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a<T> extends rx.j<T> {
         final rx.j<? super List<T>> actual;
         List<T> buffer;
@@ -79,7 +79,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f dMX() {
+        rx.f dOk() {
             return new rx.f() { // from class: rx.internal.operators.OperatorBufferWithSize.a.1
                 @Override // rx.f
                 public void request(long j) {
@@ -87,7 +87,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
                         throw new IllegalArgumentException("n >= required but it was " + j);
                     }
                     if (j != 0) {
-                        a.this.request(rx.internal.operators.a.af(j, a.this.count));
+                        a.this.request(rx.internal.operators.a.ae(j, a.this.count));
                     }
                 }
             };
@@ -95,7 +95,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class BufferSkip<T> extends rx.j<T> {
         final rx.j<? super List<T>> actual;
         List<T> buffer;
@@ -149,12 +149,12 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f dMX() {
+        rx.f dOk() {
             return new BufferSkipProducer();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public final class BufferSkipProducer extends AtomicBoolean implements rx.f {
             private static final long serialVersionUID = 3428177408082367154L;
 
@@ -169,9 +169,9 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
                 if (j != 0) {
                     BufferSkip bufferSkip = BufferSkip.this;
                     if (get() || !compareAndSet(false, true)) {
-                        bufferSkip.request(rx.internal.operators.a.af(j, bufferSkip.skip));
+                        bufferSkip.request(rx.internal.operators.a.ae(j, bufferSkip.skip));
                     } else {
-                        bufferSkip.request(rx.internal.operators.a.ae(rx.internal.operators.a.af(j, bufferSkip.count), rx.internal.operators.a.af(bufferSkip.skip - bufferSkip.count, j - 1)));
+                        bufferSkip.request(rx.internal.operators.a.ad(rx.internal.operators.a.ae(j, bufferSkip.count), rx.internal.operators.a.ae(bufferSkip.skip - bufferSkip.count, j - 1)));
                     }
                 }
             }
@@ -179,14 +179,14 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class BufferOverlap<T> extends rx.j<T> {
         final rx.j<? super List<T>> actual;
         final int count;
         long index;
         long produced;
         final int skip;
-        final ArrayDeque<List<T>> nOt = new ArrayDeque<>();
+        final ArrayDeque<List<T>> nPi = new ArrayDeque<>();
         final AtomicLong requested = new AtomicLong();
 
         public BufferOverlap(rx.j<? super List<T>> jVar, int i, int i2) {
@@ -200,7 +200,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         public void onNext(T t) {
             long j = this.index;
             if (j == 0) {
-                this.nOt.offer(new ArrayList(this.count));
+                this.nPi.offer(new ArrayList(this.count));
             }
             long j2 = j + 1;
             if (j2 == this.skip) {
@@ -208,13 +208,13 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             } else {
                 this.index = j2;
             }
-            Iterator<List<T>> it = this.nOt.iterator();
+            Iterator<List<T>> it = this.nPi.iterator();
             while (it.hasNext()) {
                 it.next().add(t);
             }
-            List<T> peek = this.nOt.peek();
+            List<T> peek = this.nPi.peek();
             if (peek != null && peek.size() == this.count) {
-                this.nOt.poll();
+                this.nPi.poll();
                 this.produced++;
                 this.actual.onNext(peek);
             }
@@ -222,7 +222,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.nOt.clear();
+            this.nPi.clear();
             this.actual.onError(th);
         }
 
@@ -236,15 +236,15 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
                 }
                 this.requested.addAndGet(-j);
             }
-            rx.internal.operators.a.a(this.requested, this.nOt, this.actual);
+            rx.internal.operators.a.a(this.requested, this.nPi, this.actual);
         }
 
-        rx.f dMX() {
+        rx.f dOk() {
             return new BufferOverlapProducer();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public final class BufferOverlapProducer extends AtomicBoolean implements rx.f {
             private static final long serialVersionUID = -4015894850868853147L;
 
@@ -254,11 +254,11 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             @Override // rx.f
             public void request(long j) {
                 BufferOverlap bufferOverlap = BufferOverlap.this;
-                if (rx.internal.operators.a.a(bufferOverlap.requested, j, bufferOverlap.nOt, bufferOverlap.actual) && j != 0) {
+                if (rx.internal.operators.a.a(bufferOverlap.requested, j, bufferOverlap.nPi, bufferOverlap.actual) && j != 0) {
                     if (get() || !compareAndSet(false, true)) {
-                        bufferOverlap.request(rx.internal.operators.a.af(bufferOverlap.skip, j));
+                        bufferOverlap.request(rx.internal.operators.a.ae(bufferOverlap.skip, j));
                     } else {
-                        bufferOverlap.request(rx.internal.operators.a.ae(rx.internal.operators.a.af(bufferOverlap.skip, j - 1), bufferOverlap.count));
+                        bufferOverlap.request(rx.internal.operators.a.ad(rx.internal.operators.a.ae(bufferOverlap.skip, j - 1), bufferOverlap.count));
                     }
                 }
             }

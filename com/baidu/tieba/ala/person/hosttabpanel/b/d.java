@@ -3,14 +3,14 @@ package com.baidu.tieba.ala.person.hosttabpanel.b;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.data.AlaLiveInfoData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.live.tieba.b.a.a implements IAdapterData {
-    public static BdUniqueId foj = BdUniqueId.gen();
-    public AlaLiveInfoData fnT;
-    public AlaLiveInfoData fnU;
+    public static BdUniqueId fqN = BdUniqueId.gen();
+    public AlaLiveInfoData fqx;
+    public AlaLiveInfoData fqy;
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return foj;
+        return fqN;
     }
 }

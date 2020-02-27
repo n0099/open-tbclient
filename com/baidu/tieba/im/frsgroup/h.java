@@ -2,66 +2,66 @@ package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId hxZ = BdUniqueId.gen();
-    private Object Ms;
-    private NoDataViewFactory.ImgType hya;
-    private String hyb;
-    private String hyc;
-    private String hyd;
-    private int hye;
+    public static final BdUniqueId hzY = BdUniqueId.gen();
+    private Object MU;
+    private String hAa;
+    private String hAb;
+    private String hAc;
+    private int hAd;
+    private NoDataViewFactory.ImgType hzZ;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hxZ;
+        return hzY;
     }
 
-    public String bTr() {
-        return this.hyb;
+    public String bUS() {
+        return this.hAa;
     }
 
-    public void CM(String str) {
-        this.hyb = str;
+    public void Dc(String str) {
+        this.hAa = str;
     }
 
-    public String bTs() {
-        return this.hyc;
+    public String bUT() {
+        return this.hAb;
     }
 
-    public void CN(String str) {
-        this.hyc = str;
+    public void Dd(String str) {
+        this.hAb = str;
     }
 
-    public String bTt() {
-        return this.hyd;
+    public String bUU() {
+        return this.hAc;
     }
 
-    public void CO(String str) {
-        this.hyd = str;
+    public void De(String str) {
+        this.hAc = str;
     }
 
-    public int bTu() {
-        return this.hye;
+    public int bUV() {
+        return this.hAd;
     }
 
-    public void wm(int i) {
-        this.hye = i;
+    public void ws(int i) {
+        this.hAd = i;
     }
 
-    public Object mZ() {
-        return this.Ms;
+    public Object nq() {
+        return this.MU;
     }
 
     public void setExtraData(Object obj) {
-        this.Ms = obj;
+        this.MU = obj;
     }
 
-    public NoDataViewFactory.ImgType bTv() {
-        return this.hya;
+    public NoDataViewFactory.ImgType bUW() {
+        return this.hzZ;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.hya = imgType;
+        this.hzZ = imgType;
     }
 }

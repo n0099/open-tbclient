@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.ao.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void gD(int i);
+    void gU(int i);
 }

@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.data;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class f {
     private String a;
     private String b;
@@ -12,7 +12,7 @@ public final class f {
     private String i;
     private int j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum a {
         GPS,
         COMMON,
@@ -20,7 +20,7 @@ public final class f {
         BD09MC
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum b {
         DRIVING,
         RIDING

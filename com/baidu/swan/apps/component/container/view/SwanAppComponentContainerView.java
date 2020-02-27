@@ -8,10 +8,10 @@ import android.widget.ScrollView;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.component.e.a;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
     protected static final boolean DEBUG = b.DEBUG;
-    private ScrollView bfi;
+    private ScrollView bjw;
     private View mTargetView;
 
     public SwanAppComponentContainerView(@NonNull Context context) {
@@ -28,7 +28,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
             return;
         }
         if (this.mTargetView != null) {
-            a.ak("Component-ContainerView", "repeat setTargetView with the different view");
+            a.au("Component-ContainerView", "repeat setTargetView with the different view");
             removeView(this.mTargetView);
         }
         this.mTargetView = view;
@@ -39,19 +39,19 @@ public class SwanAppComponentContainerView extends FrameLayout {
     /* JADX WARN: Type inference failed for: r1v2, types: [android.view.View] */
     /* JADX WARN: Type inference failed for: r1v3 */
     public void setHidden(boolean z) {
-        ScrollView scrollView = this.bfi;
+        ScrollView scrollView = this.bjw;
         ?? r1 = this;
         if (scrollView != null) {
-            r1 = this.bfi;
+            r1 = this.bjw;
         }
         r1.setVisibility(z ? 8 : 0);
     }
 
     public ScrollView getScrollView() {
-        return this.bfi;
+        return this.bjw;
     }
 
     public void setScrollView(ScrollView scrollView) {
-        this.bfi = scrollView;
+        this.bjw = scrollView;
     }
 }

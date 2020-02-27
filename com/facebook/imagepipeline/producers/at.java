@@ -3,10 +3,10 @@ package com.facebook.imagepipeline.producers;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.Executor;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class at {
-    private boolean lWh = false;
-    private final Deque<Runnable> lWi = new ArrayDeque();
+    private boolean lWO = false;
+    private final Deque<Runnable> lWP = new ArrayDeque();
     private final Executor mExecutor;
 
     public at(Executor executor) {
@@ -14,30 +14,30 @@ public class at {
     }
 
     public synchronized void z(Runnable runnable) {
-        if (this.lWh) {
-            this.lWi.add(runnable);
+        if (this.lWO) {
+            this.lWP.add(runnable);
         } else {
             this.mExecutor.execute(runnable);
         }
     }
 
-    public synchronized void dqX() {
-        this.lWh = true;
+    public synchronized void dsj() {
+        this.lWO = true;
     }
 
-    public synchronized void dqY() {
-        this.lWh = false;
-        dqZ();
+    public synchronized void dsk() {
+        this.lWO = false;
+        dsl();
     }
 
-    private void dqZ() {
-        while (!this.lWi.isEmpty()) {
-            this.mExecutor.execute(this.lWi.pop());
+    private void dsl() {
+        while (!this.lWP.isEmpty()) {
+            this.mExecutor.execute(this.lWP.pop());
         }
-        this.lWi.clear();
+        this.lWP.clear();
     }
 
     public synchronized void A(Runnable runnable) {
-        this.lWi.remove(runnable);
+        this.lWP.remove(runnable);
     }
 }

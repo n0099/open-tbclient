@@ -1,9 +1,9 @@
 package com.kascend.chushou;
 
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static volatile b mNZ;
+    private static volatile b mOB;
     public boolean a = false;
     public boolean b = false;
     public HashMap<String, String> c = new HashMap<>();
@@ -13,12 +13,12 @@ public class b {
     private b() {
     }
 
-    public static b dAF() {
-        if (mNZ == null) {
+    public static b dBL() {
+        if (mOB == null) {
             synchronized (b.class) {
-                mNZ = new b();
+                mOB = new b();
             }
         }
-        return mNZ;
+        return mOB;
     }
 }

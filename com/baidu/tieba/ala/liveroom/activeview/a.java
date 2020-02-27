@@ -1,23 +1,23 @@
 package com.baidu.tieba.ala.liveroom.activeview;
 
 import android.view.View;
-import com.baidu.live.data.e;
-import com.baidu.live.r.a;
+import com.baidu.live.data.f;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class a {
-    private TbImageView eLg;
-    private View eLh;
+    private TbImageView ePg;
+    private View ePh;
     private int mPosition;
     private View mRoot;
 
     public a(View view, int i) {
         this.mRoot = view;
-        this.eLg = (TbImageView) view.findViewById(a.g.ala_live_active_view_img);
-        this.eLh = view.findViewById(a.g.new_icon);
-        this.eLg.setDefaultErrorResource(0);
-        this.eLg.setDefaultBgResource(a.d.sdk_transparent);
-        this.eLg.setAutoChangeStyle(false);
+        this.ePg = (TbImageView) view.findViewById(a.g.ala_live_active_view_img);
+        this.ePh = view.findViewById(a.g.new_icon);
+        this.ePg.setDefaultErrorResource(0);
+        this.ePg.setDefaultBgResource(a.d.sdk_transparent);
+        this.ePg.setAutoChangeStyle(false);
         this.mPosition = i;
     }
 
@@ -25,15 +25,15 @@ public class a {
         return this.mRoot;
     }
 
-    public void a(e eVar) {
-        if (eVar != null) {
+    public void a(f fVar) {
+        if (fVar != null) {
             this.mRoot.setTag(a.g.ala_active_view_position, Integer.valueOf(this.mPosition));
-            this.mRoot.setTag(a.g.ala_active_view_data, eVar);
-            this.eLg.startLoad(eVar.pic_url, 10, false);
-            if (eVar.VJ) {
-                this.eLh.setVisibility(0);
+            this.mRoot.setTag(a.g.ala_active_view_data, fVar);
+            this.ePg.startLoad(fVar.pic_url, 10, false);
+            if (fVar.Xt) {
+                this.ePh.setVisibility(0);
             } else {
-                this.eLh.setVisibility(4);
+                this.ePh.setVisibility(4);
             }
         }
     }

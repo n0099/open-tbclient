@@ -2,7 +2,7 @@ package com.baidu.searchbox.ui.wheelview3d.timer;
 
 import com.baidu.searchbox.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class SmoothScrollTimerTask extends TimerTask {
     private int offset;
     private final WheelView3d wheelView;

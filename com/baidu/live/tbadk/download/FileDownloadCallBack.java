@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.download;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface FileDownloadCallBack {
     void onFileDownloadFailed(DownloadData downloadData, int i, String str);
 

@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.Search.DataReq;
 import tbclient.Search.SearchReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CandidateSearchReqMsg extends NetMessage {
     public int applyId;
     public long fid;

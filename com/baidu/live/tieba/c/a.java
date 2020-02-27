@@ -8,40 +8,40 @@ import com.baidu.live.adp.lib.guide.Component;
 import com.baidu.live.adp.lib.guide.Guide;
 import com.baidu.live.adp.lib.guide.GuideBuilder;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class a {
-    private boolean atC;
-    private String atD;
-    private int atJ;
-    private int atK;
-    private int atL;
-    private int atM;
-    private View.OnClickListener atP;
-    private boolean atQ;
+    private boolean axS;
+    private String axT;
+    private int axZ;
+    private int aya;
+    private int ayb;
+    private int ayc;
+    private View.OnClickListener ayf;
+    private boolean ayg;
     private String mMessage;
     private TbPageContext mPageContext;
     private View mTargetView;
     private Handler mHandler = null;
-    private Guide atB = null;
-    private int atE = a.f.sdk_pic_sign_tip;
-    private int atF = 0;
-    private int atG = 1;
-    private int atH = 1000;
-    private int atI = 3000;
+    private Guide axR = null;
+    private int axU = a.f.sdk_pic_sign_tip;
+    private int axV = 0;
+    private int axW = 1;
+    private int axX = 1000;
+    private int axY = 3000;
     private int mXOffset = 5;
     private int mYOffset = 0;
-    private int atN = 48;
-    private int atO = 4;
+    private int ayd = 48;
+    private int aye = 4;
     private boolean mUseDirectOffset = false;
-    private Runnable atR = new Runnable() { // from class: com.baidu.live.tieba.c.a.1
+    private Runnable ayh = new Runnable() { // from class: com.baidu.live.tieba.c.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.atB == null && !StringUtils.isNull(a.this.mMessage)) {
-                if (!a.this.atQ || a.this.xh()) {
+            if (a.this.axR == null && !StringUtils.isNull(a.this.mMessage)) {
+                if (!a.this.ayg || a.this.zy()) {
                     GuideBuilder guideBuilder = new GuideBuilder();
                     guideBuilder.setTargetView(a.this.mTargetView).setAlpha(0).setOverlayTarget(true).setOutsideTouchable(true);
                     guideBuilder.addComponent(new Component() { // from class: com.baidu.live.tieba.c.a.1.1
@@ -53,23 +53,23 @@ public class a {
                             SkinManager.setViewTextColor(textView, a.d.sdk_cp_cont_i);
                             textView.setTextSize(0, a.this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize28));
                             textView.setHeight(a.this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds76));
-                            textView.setPadding(a.this.atJ, a.this.atK, a.this.atL, a.this.atM);
+                            textView.setPadding(a.this.axZ, a.this.aya, a.this.ayb, a.this.ayc);
                             textView.setSingleLine(true);
-                            SkinManager.setBackgroundResource(textView, a.this.atE);
-                            if (a.this.atP != null) {
-                                textView.setOnClickListener(a.this.atP);
+                            SkinManager.setBackgroundResource(textView, a.this.axU);
+                            if (a.this.ayf != null) {
+                                textView.setOnClickListener(a.this.ayf);
                             }
                             return textView;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
                         public int getAnchor() {
-                            return a.this.atO;
+                            return a.this.aye;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
                         public int getFitPosition() {
-                            return a.this.atN;
+                            return a.this.ayd;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
@@ -82,98 +82,98 @@ public class a {
                             return a.this.mYOffset;
                         }
                     });
-                    a.this.atB = guideBuilder.createGuide();
-                    a.this.atB.setShouldCheckLocInWindow(false);
-                    a.this.atB.setUseDirectOffset(a.this.mUseDirectOffset);
-                    a.this.atB.show(a.this.mPageContext.getPageActivity());
-                    a.this.atC = true;
-                    a.this.xf();
-                    a.this.mHandler.postDelayed(a.this.atS, a.this.atI);
+                    a.this.axR = guideBuilder.createGuide();
+                    a.this.axR.setShouldCheckLocInWindow(false);
+                    a.this.axR.setUseDirectOffset(a.this.mUseDirectOffset);
+                    a.this.axR.show(a.this.mPageContext.getPageActivity());
+                    a.this.axS = true;
+                    a.this.zw();
+                    a.this.mHandler.postDelayed(a.this.ayi, a.this.axY);
                 }
             }
         }
     };
-    private Runnable atS = new Runnable() { // from class: com.baidu.live.tieba.c.a.2
+    private Runnable ayi = new Runnable() { // from class: com.baidu.live.tieba.c.a.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.atB != null) {
-                a.this.atB.dismiss();
+            if (a.this.axR != null) {
+                a.this.axR.dismiss();
             }
         }
     };
 
-    public void bT(int i) {
-        this.atN = i;
+    public void cj(int i) {
+        this.ayd = i;
     }
 
     public a(TbPageContext tbPageContext, View view) {
-        this.atJ = 0;
-        this.atK = 0;
-        this.atL = 0;
-        this.atM = 0;
+        this.axZ = 0;
+        this.aya = 0;
+        this.ayb = 0;
+        this.ayc = 0;
         this.mPageContext = tbPageContext;
         this.mTargetView = view;
-        this.atJ = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.atK = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.atL = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.atM = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
+        this.axZ = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.aya = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.ayb = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.ayc = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xf() {
-        SharedPrefHelper.getInstance().putInt(this.atD, this.atF + 1);
+    public void zw() {
+        SharedPrefHelper.getInstance().putInt(this.axT, this.axV + 1);
     }
 
-    public void Y(String str, String str2) {
-        c(str, str2, false);
+    public void aj(String str, String str2) {
+        d(str, str2, false);
     }
 
-    public void c(String str, String str2, boolean z) {
-        if (!this.atC && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
+    public void d(String str, String str2, boolean z) {
+        if (!this.axS && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
             this.mMessage = str;
-            this.atD = str2;
-            this.atF = SharedPrefHelper.getInstance().getInt(str2, 0);
-            if (this.atF < this.atG) {
+            this.axT = str2;
+            this.axV = SharedPrefHelper.getInstance().getInt(str2, 0);
+            if (this.axV < this.axW) {
                 if (z) {
-                    xf();
-                    this.atC = true;
+                    zw();
+                    this.axS = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.atR, this.atH);
+                this.mHandler.postDelayed(this.ayh, this.axX);
             }
         }
     }
 
-    public void xg() {
-        if (this.atB != null) {
-            this.atB.dismiss();
-            this.atB = null;
+    public void zx() {
+        if (this.axR != null) {
+            this.axR.dismiss();
+            this.axR = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.atR);
-            this.mHandler.removeCallbacks(this.atS);
+            this.mHandler.removeCallbacks(this.ayh);
+            this.mHandler.removeCallbacks(this.ayi);
         }
     }
 
-    public void bU(int i) {
+    public void ck(int i) {
         if (i > 0) {
-            this.atE = i;
+            this.axU = i;
         }
     }
 
-    public void bV(int i) {
+    public void cl(int i) {
         if (i > 0) {
-            this.atI = i;
+            this.axY = i;
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.atP = onClickListener;
+        this.ayf = onClickListener;
     }
 
-    public boolean xh() {
+    public boolean zy() {
         return this.mTargetView != null && this.mTargetView.getVisibility() == 0 && ((double) this.mTargetView.getAlpha()) >= 0.4d;
     }
 }

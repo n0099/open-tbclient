@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.interactionpopupwindow;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.pb.c;
+import com.baidu.tieba.pb.b;
 /* loaded from: classes.dex */
 public class c {
     public static f a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
@@ -12,7 +12,7 @@ public class c {
         }
         switch (iBaseDialogData.getType()) {
             case 1:
-                an anVar = new an(c.a.ixE);
+                an anVar = new an(b.a.izz);
                 int i = 0;
                 switch (iBaseDialogData.getFrom()) {
                     case 0:
@@ -25,7 +25,7 @@ public class c {
                         i = 4;
                         break;
                 }
-                anVar.Z("obj_type", i);
+                anVar.X("obj_type", i);
                 TiebaStatic.log(anVar);
                 return new d(tbPageContext, (CustomDialogData) iBaseDialogData);
             default:

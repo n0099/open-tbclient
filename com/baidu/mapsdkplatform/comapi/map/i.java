@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
     private static int a;
     private static Context b = BMapManager.getContext();

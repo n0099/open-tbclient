@@ -9,7 +9,7 @@ import io.reactivex.t;
 import io.reactivex.u;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SingleFlatMapObservable<T, R> extends q<R> {
     final h<? super T, ? extends t<? extends R>> mapper;
     final aa<T> source;
@@ -21,7 +21,7 @@ public final class SingleFlatMapObservable<T, R> extends q<R> {
         this.source.a(flatMapObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class FlatMapObserver<T, R> extends AtomicReference<b> implements b, u<R>, y<T> {
         private static final long serialVersionUID = -8948264376121066672L;
         final u<? super R> downstream;
@@ -67,7 +67,7 @@ public final class SingleFlatMapObservable<T, R> extends q<R> {
             try {
                 ((t) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null Publisher")).subscribe(this);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.downstream.onError(th);
             }
         }

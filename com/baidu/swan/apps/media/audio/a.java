@@ -6,68 +6,68 @@ import com.baidu.swan.apps.as.y;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    String bwu;
-    public boolean bww;
+    String bAD;
+    public boolean bAF;
     public String mReferer;
     public String mUserAgent;
-    public String bwp = "";
-    public String aXX = "";
+    public String bAy = "";
+    public String bch = "";
     public String mUrl = "";
     public String mTitle = "";
-    public String bwq = "";
-    public String bwr = "";
+    public String bAz = "";
+    public String bAA = "";
     public String mCoverUrl = "";
-    public int bws = 0;
+    public int bAB = 0;
     public int mPos = 0;
-    public String bwt = "";
-    public boolean bwv = false;
+    public String bAC = "";
+    public boolean bAE = false;
 
     public static a a(JSONObject jSONObject, a aVar) {
         a aVar2 = new a();
         if (jSONObject != null) {
-            aVar2.bwp = jSONObject.optString("audioId", aVar.bwp);
-            aVar2.aXX = jSONObject.optString("slaveId", aVar.aXX);
+            aVar2.bAy = jSONObject.optString("audioId", aVar.bAy);
+            aVar2.bch = jSONObject.optString("slaveId", aVar.bch);
             aVar2.mUrl = jSONObject.optString(UserAccountActionItem.KEY_SRC, aVar.mUrl);
-            aVar2.bwv = e.aap() != null && com.baidu.swan.apps.storage.b.lD(aVar2.mUrl);
+            aVar2.bAE = e.acD() != null && com.baidu.swan.apps.storage.b.lS(aVar2.mUrl);
             aVar2.mTitle = jSONObject.optString("title", aVar.mTitle);
-            aVar2.bwq = jSONObject.optString("epname", aVar.bwq);
-            aVar2.bwr = jSONObject.optString("singer", aVar.bwr);
+            aVar2.bAz = jSONObject.optString("epname", aVar.bAz);
+            aVar2.bAA = jSONObject.optString("singer", aVar.bAA);
             aVar2.mCoverUrl = jSONObject.optString("coverImgUrl", aVar.mCoverUrl);
-            aVar2.bws = jSONObject.optInt("startTime", aVar.bws);
+            aVar2.bAB = jSONObject.optInt("startTime", aVar.bAB);
             aVar2.mPos = jSONObject.optInt("position", aVar.mPos);
-            aVar2.bwu = jSONObject.optString("cb", aVar.bwu);
-            aVar2.bwt = jSONObject.optString("param", aVar.bwt);
-            aVar2.bww = TextUtils.isEmpty(jSONObject.optString(UserAccountActionItem.KEY_SRC));
-            String OD = com.baidu.swan.apps.core.k.d.Og().OD();
-            if (!TextUtils.isEmpty(OD)) {
-                aVar2.mUserAgent = OD;
+            aVar2.bAD = jSONObject.optString("cb", aVar.bAD);
+            aVar2.bAC = jSONObject.optString("param", aVar.bAC);
+            aVar2.bAF = TextUtils.isEmpty(jSONObject.optString(UserAccountActionItem.KEY_SRC));
+            String QR = com.baidu.swan.apps.core.k.d.Qu().QR();
+            if (!TextUtils.isEmpty(QR)) {
+                aVar2.mUserAgent = QR;
             }
-            String aeD = y.aeD();
-            if (!TextUtils.isEmpty(aeD) && y.my(aVar2.mUrl)) {
-                aVar2.mReferer = aeD;
+            String agR = y.agR();
+            if (!TextUtils.isEmpty(agR) && y.mN(aVar2.mUrl)) {
+                aVar2.mReferer = agR;
             }
         }
         return aVar2;
     }
 
-    public boolean UO() {
-        return this.bww;
+    public boolean Xc() {
+        return this.bAF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String iH(String str) {
+    public String iW(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(UserAccountActionItem.KEY_SRC, str);
             jSONObject.putOpt("title", this.mTitle);
-            jSONObject.putOpt("epname", this.bwq);
-            jSONObject.putOpt("singer", this.bwr);
+            jSONObject.putOpt("epname", this.bAz);
+            jSONObject.putOpt("singer", this.bAA);
             jSONObject.putOpt("coverImgUrl", this.mCoverUrl);
-            jSONObject.putOpt("isLocal", Boolean.valueOf(this.bwv));
-            jSONObject.putOpt("appid", e.aar());
+            jSONObject.putOpt("isLocal", Boolean.valueOf(this.bAE));
+            jSONObject.putOpt("appid", e.acF());
             jSONObject.putOpt("user-agent", this.mUserAgent);
             jSONObject.putOpt("refer", this.mReferer);
         } catch (JSONException e) {
@@ -79,6 +79,6 @@ public class a {
     }
 
     public String toString() {
-        return "playerId : " + this.bwp + "; slaveId : " + this.aXX + "; url : " + this.mUrl + "; startTime : " + this.bws + "; pos : " + this.mPos + "; canPlay : " + this.bww;
+        return "playerId : " + this.bAy + "; slaveId : " + this.bch + "; url : " + this.mUrl + "; startTime : " + this.bAB + "; pos : " + this.mPos + "; canPlay : " + this.bAF;
     }
 }

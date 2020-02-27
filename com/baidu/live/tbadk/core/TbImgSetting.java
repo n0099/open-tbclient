@@ -3,8 +3,7 @@ package com.baidu.live.tbadk.core;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-import com.baidu.live.tbadk.core.util.TbImageHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbImgSetting {
     private static TbImgSetting instance;
     private int mIsDisplayPhoto = 1;
@@ -120,15 +119,6 @@ public class TbImgSetting {
         if (this.mIsShowImages != z) {
             this.mIsShowImages = z;
             SharedPrefHelper.getInstance().putBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, z);
-        }
-    }
-
-    public void setViewImageQuality(int i) {
-        if (this.mViewImageQuality != i) {
-            this.mViewImageQuality = i;
-            SharedPrefHelper.getInstance().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, i);
-            TbImageHelper.getInstance().updateFrsShowBigImage();
-            TbImageHelper.getInstance().updateUrlQuality();
         }
     }
 

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ViewStubCompat extends View {
     private OnInflateListener mInflateListener;
     private int mInflatedId;
@@ -21,7 +21,7 @@ public final class ViewStubCompat extends View {
     private LayoutInflater mInflater;
     private int mLayoutResource;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnInflateListener {
         void onInflate(ViewStubCompat viewStubCompat, View view);
     }

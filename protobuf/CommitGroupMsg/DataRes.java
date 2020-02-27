@@ -2,7 +2,7 @@ package protobuf.CommitGroupMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long groupId;
@@ -40,7 +40,7 @@ public final class DataRes extends Message {
         this.recordId = builder.recordId;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Long groupId;
         public Long msgId;

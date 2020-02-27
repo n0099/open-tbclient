@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.d;
 import android.content.Context;
 import android.os.Build;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class z extends d {
     public z(l lVar, Context context) {
         super(lVar, context);

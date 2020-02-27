@@ -10,7 +10,7 @@ import com.google.gson.b.a;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UgcDataUtil {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = UgcDataUtil.class.getSimpleName();

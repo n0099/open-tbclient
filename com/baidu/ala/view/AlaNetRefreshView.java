@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.k.a;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaNetRefreshView extends a {
     private TextView mNetFailTipView;
     private TextView mNetRefreshBtn;

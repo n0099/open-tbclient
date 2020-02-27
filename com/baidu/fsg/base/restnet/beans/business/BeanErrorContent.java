@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.beans.business;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BeanErrorContent {
     private int mBeanId;
     private Object mErrContent;

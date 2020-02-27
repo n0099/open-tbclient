@@ -19,9 +19,10 @@ import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     private static final String DEFAULT_CLASS_NAME = "android.view.View";
     public static final int HOST_ID = -1;
@@ -173,7 +174,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
                 return 33;
             case 20:
             default:
-                return 130;
+                return IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER;
             case 21:
                 return 17;
             case 22:
@@ -198,7 +199,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
             case 17:
             case 33:
             case 66:
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 Rect rect2 = new Rect();
                 if (this.mKeyboardFocusedVirtualViewId != Integer.MIN_VALUE) {
                     getBoundsInParent(this.mKeyboardFocusedVirtualViewId, rect2);
@@ -238,7 +239,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
             case 66:
                 rect.set(-1, 0, -1, height);
                 break;
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 rect.set(0, -1, width, -1);
                 break;
             default:
@@ -527,7 +528,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     protected void onPopulateNodeForHost(@NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class MyNodeProvider extends AccessibilityNodeProviderCompat {
         MyNodeProvider() {
         }

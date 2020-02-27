@@ -13,11 +13,11 @@ public interface i {
 
     void d(Context context, String str, int i);
 
-    String wk(String str);
+    String wE(String str);
 
-    String wl(String str);
+    String wF(String str);
 
-    void wm(String str);
+    void wG(String str);
 
-    String wn(String str);
+    String wH(String str);
 }

@@ -2,7 +2,7 @@ package com.baidu.mobads.utils;
 
 import java.io.File;
 import java.util.Comparator;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class k implements Comparator<File> {
     final /* synthetic */ j a;
 

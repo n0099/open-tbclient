@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface ae {
     com.baidu.adp.widget.ListView.a<? extends bj, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
 

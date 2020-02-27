@@ -30,7 +30,7 @@ import java.util.Map;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 import tv.danmaku.ijk.media.player.misc.IAndroidIO;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class IjkMediaPlayerLocal extends AbstractMediaPlayer {
     public static final int FFP_PROPV_DECODER_AVCODEC = 1;
     public static final int FFP_PROPV_DECODER_MEDIACODEC = 2;
@@ -130,17 +130,17 @@ public final class IjkMediaPlayerLocal extends AbstractMediaPlayer {
     private static volatile boolean mIsLibLoaded = false;
     private static volatile boolean mIsNativeInitialized = false;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnControlMessageListener {
         String onControlResolveSegmentUrl(int i);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnMediaCodecSelectListener {
         String onMediaCodecSelect(IMediaPlayer iMediaPlayer, String str, int i, int i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnNativeInvokeListener {
         public static final String ARG_RETRY_COUNTER = "retry_counter";
         public static final String ARG_SEGMENT_INDEX = "segment_index";
@@ -736,7 +736,7 @@ public final class IjkMediaPlayerLocal extends AbstractMediaPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class EventHandler extends Handler {
         private boolean ignoreSubError;
         private final WeakReference<IjkMediaPlayerLocal> mWeakPlayer;
@@ -803,7 +803,7 @@ public final class IjkMediaPlayerLocal extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.cx(message.arg1, message.arg2);
+                    e.cy(message.arg1, message.arg2);
                     ijkMediaPlayerLocal.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:
@@ -906,7 +906,7 @@ public final class IjkMediaPlayerLocal extends AbstractMediaPlayer {
         return onMediaCodecSelectListener.onMediaCodecSelect(ijkMediaPlayerLocal, str, i, i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class DefaultMediaCodecSelector implements OnMediaCodecSelectListener {
         public static final DefaultMediaCodecSelector sInstance = new DefaultMediaCodecSelector();
 

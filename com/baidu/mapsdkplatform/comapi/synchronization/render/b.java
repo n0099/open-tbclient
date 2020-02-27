@@ -26,7 +26,7 @@ import java.lang.Thread;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends Handler {
     private static final String a = b.class.getSimpleName();
     private static RoleOptions d = null;
@@ -80,7 +80,7 @@ public class b extends Handler {
     private boolean z;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         private a() {
         }
@@ -110,9 +110,9 @@ public class b extends Handler {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.render.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class RunnableC0112b implements Runnable {
-        private RunnableC0112b() {
+    /* loaded from: classes8.dex */
+    public class RunnableC0120b implements Runnable {
+        private RunnableC0120b() {
         }
 
         @Override // java.lang.Runnable
@@ -183,7 +183,7 @@ public class b extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         private c() {
         }
@@ -215,7 +215,7 @@ public class b extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum d {
         NO_NEED_RENDER,
         RENDER_NEW_LINE,
@@ -223,7 +223,7 @@ public class b extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class e implements BaiduMap.OnSynchronizationListener {
         private int b = 1;
         private int c = 2;
@@ -291,7 +291,7 @@ public class b extends Handler {
         this.V = false;
         this.W = 0;
         this.X = false;
-        this.q = new Thread(new RunnableC0112b(), "Car moving");
+        this.q = new Thread(new RunnableC0120b(), "Car moving");
         this.x = new Thread(new c(), "Passenger marker");
         this.B = new Thread(new a(), "Adjust visible span");
     }
@@ -913,7 +913,7 @@ public class b extends Handler {
                 } else {
                     WinRound winRound = mapStatus.winRound;
                     int abs = Math.abs(winRound.right - winRound.left);
-                    int abs2 = Math.abs(winRound.bottom - winRound.top);
+                    int abs2 = Math.abs(winRound.bottom - winRound.f993top);
                     if (e != null) {
                         i3 = e.getPaddingLeft();
                         i2 = e.getPaddingTop();
@@ -1004,7 +1004,7 @@ public class b extends Handler {
                 this.q.start();
             } else if (Thread.State.TERMINATED == this.q.getState()) {
                 this.q = null;
-                this.q = new Thread(new RunnableC0112b(), "Car moving");
+                this.q = new Thread(new RunnableC0120b(), "Car moving");
                 this.q.start();
             }
         }

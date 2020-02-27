@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends a<T, U> {
     final h<? super Open, ? extends t<? extends Close>> bufferClose;
     final t<? extends Open> bufferOpen;
@@ -25,7 +25,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         this.source.subscribe(bufferBoundaryObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class BufferBoundaryObserver<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -8466418554264089604L;
         final u<? super C> actual;
@@ -35,7 +35,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         volatile boolean cancelled;
         volatile boolean done;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(q.dHT());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(q.dJa());
         final io.reactivex.disposables.a observers = new io.reactivex.disposables.a();
         final AtomicReference<io.reactivex.disposables.b> upstream = new AtomicReference<>();
         Map<Long, C> buffers = new LinkedHashMap();
@@ -136,7 +136,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 DisposableHelper.dispose(this.upstream);
                 onError(th);
             }
@@ -206,7 +206,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static final class BufferOpenObserver<Open> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<Open> {
             private static final long serialVersionUID = -8498650778633225126L;
             final BufferBoundaryObserver<?, ?, Open, ?> parent;
@@ -250,7 +250,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class BufferCloseObserver<T, C extends Collection<? super T>> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<Object> {
         private static final long serialVersionUID = -8498650778633225126L;
         final long index;

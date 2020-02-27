@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class d implements ae {
     private String avatar;
-    private int eno;
+    private int erB;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int jXe;
-    private int jXf;
-    private int jXg;
-    private int jXh;
-    private boolean jXi;
-    private boolean jXj;
-    private boolean jXk;
-    private boolean jXl;
-    private int jXm;
+    private boolean isSigned;
+    private int jYe;
+    private int jYf;
+    private int jYg;
+    private int jYh;
+    private boolean jYi;
+    private boolean jYj;
+    private boolean jYk;
+    private int jYl;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cHc() {
-        return this.jXe;
+    public int cIG() {
+        return this.jYe;
     }
 
-    public int cHd() {
-        return this.eno;
+    public int cIH() {
+        return this.erB;
     }
 
-    public int cHe() {
-        return this.jXf;
+    public int cII() {
+        return this.jYf;
     }
 
-    public int cHf() {
-        return this.jXg;
+    public int cIJ() {
+        return this.jYg;
     }
 
-    public int cHg() {
-        return this.jXh;
+    public int cIK() {
+        return this.jYh;
     }
 
-    public void BX(int i) {
-        this.jXe = i;
+    public void Ce(int i) {
+        this.jYe = i;
     }
 
-    public void BY(int i) {
-        this.eno = i;
+    public void Cf(int i) {
+        this.erB = i;
     }
 
-    public void BZ(int i) {
-        this.jXf = i;
+    public void Cg(int i) {
+        this.jYf = i;
     }
 
-    public boolean baP() {
-        return this.jXi;
+    public boolean bde() {
+        return this.isSigned;
     }
 
-    public void sv(boolean z) {
-        this.jXi = z;
-        this.jXe = 1;
+    public void sz(boolean z) {
+        this.isSigned = z;
+        this.jYe = 1;
     }
 
-    public boolean cHh() {
-        return this.jXk;
+    public boolean cIL() {
+        return this.jYj;
     }
 
-    public void sw(boolean z) {
-        this.jXk = z;
-        this.jXe = 0;
+    public void sA(boolean z) {
+        this.jYj = z;
+        this.jYe = 0;
     }
 
-    public boolean cHi() {
-        return this.jXl;
+    public boolean cIM() {
+        return this.jYk;
     }
 
-    public void sx(boolean z) {
-        this.jXl = z;
+    public void sB(boolean z) {
+        this.jYk = z;
     }
 
-    public int cHj() {
-        return this.jXm;
+    public int cIN() {
+        return this.jYl;
     }
 
-    public void Ca(int i) {
-        this.jXm = i;
+    public void Ch(int i) {
+        this.jYl = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean cHk() {
-        return this.jXj;
+    public boolean cIO() {
+        return this.jYi;
     }
 
-    public void sy(boolean z) {
-        this.jXj = z;
+    public void sC(boolean z) {
+        this.jYi = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.jXe = jSONObject.optInt("is_sign_in");
-            this.eno = jSONObject.optInt("cont_sign_num");
-            this.jXf = jSONObject.optInt("user_level");
-            this.jXg = jSONObject.optInt("user_exp");
-            this.jXh = jSONObject.optInt("need_exp");
-            if (this.jXe != 0) {
-                this.jXi = true;
-                this.jXk = false;
+            this.jYe = jSONObject.optInt("is_sign_in");
+            this.erB = jSONObject.optInt("cont_sign_num");
+            this.jYf = jSONObject.optInt("user_level");
+            this.jYg = jSONObject.optInt("user_exp");
+            this.jYh = jSONObject.optInt("need_exp");
+            if (this.jYe != 0) {
+                this.isSigned = true;
+                this.jYj = false;
             }
         }
     }

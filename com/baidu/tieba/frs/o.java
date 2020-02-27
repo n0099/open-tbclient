@@ -13,15 +13,15 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class o extends v.a {
-    public static BdUniqueId goZ = BdUniqueId.gen();
-    private LinearLayout dpb;
-    private int dwU;
-    public TextView gpa;
-    public ImageView gpb;
-    private int gpc;
-    private CustomMessageListener gpd;
+    public static BdUniqueId gra = BdUniqueId.gen();
+    private int dBa;
+    private LinearLayout dtj;
+    public TextView grb;
+    public ImageView grc;
+    private int grd;
+    private CustomMessageListener gre;
     private ViewGroup mParent;
     private View mRootView;
     private Rect rect;
@@ -29,34 +29,34 @@ public class o extends v.a {
     public o(View view, ViewGroup viewGroup) {
         super(view);
         this.rect = new Rect();
-        this.gpd = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.o.1
+        this.gre = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Integer num;
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && (num = (Integer) customResponsedMessage.getData()) != null) {
-                    o.this.ml(num.intValue());
+                    o.this.mD(num.intValue());
                 }
             }
         };
         this.mRootView = view;
         this.mParent = viewGroup;
-        this.dpb = (LinearLayout) view.findViewById(R.id.container);
-        this.gpb = (ImageView) view.findViewById(R.id.emotion_view);
-        this.gpa = (TextView) view.findViewById(R.id.no_data_tips);
-        com.baidu.tbadk.core.util.am.setImageResource(this.gpb, R.drawable.new_pic_emotion_06);
-        this.gpd.setTag(goZ);
-        MessageManager.getInstance().registerListener(this.gpd);
-        bDM();
+        this.dtj = (LinearLayout) view.findViewById(R.id.container);
+        this.grc = (ImageView) view.findViewById(R.id.emotion_view);
+        this.grb = (TextView) view.findViewById(R.id.no_data_tips);
+        com.baidu.tbadk.core.util.am.setImageResource(this.grc, R.drawable.new_pic_emotion_06);
+        this.gre.setTag(gra);
+        MessageManager.getInstance().registerListener(this.gre);
+        bFp();
     }
 
-    private void bDM() {
+    private void bFp() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.o.2
                 @Override // android.view.View.OnLayoutChangeListener
                 public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
                     if (o.this.bN(view)) {
-                        o.this.ml(Integer.MAX_VALUE);
+                        o.this.mD(Integer.MAX_VALUE);
                     }
                 }
             });
@@ -72,37 +72,37 @@ public class o extends v.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ml(int i) {
+    public void mD(int i) {
         if (this.mRootView != null && this.mParent != null) {
-            if (this.dwU <= 0) {
-                this.dwU = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+            if (this.dBa <= 0) {
+                this.dBa = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
             }
-            if (i != Integer.MAX_VALUE || this.gpc != Integer.MAX_VALUE) {
-                this.gpc = i;
+            if (i != Integer.MAX_VALUE || this.grd != Integer.MAX_VALUE) {
+                this.grd = i;
                 if (this.mParent.getLocalVisibleRect(this.rect)) {
                     int i2 = this.rect.bottom;
-                    int abs = Math.abs(this.dpb.getTop());
-                    int abs2 = i2 - Math.abs(this.dpb.getBottom());
-                    ViewGroup.LayoutParams layoutParams = this.dpb.getLayoutParams();
+                    int abs = Math.abs(this.dtj.getTop());
+                    int abs2 = i2 - Math.abs(this.dtj.getBottom());
+                    ViewGroup.LayoutParams layoutParams = this.dtj.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                        if (abs < this.dwU) {
-                            marginLayoutParams.topMargin = this.dwU;
-                            this.dpb.setLayoutParams(marginLayoutParams);
-                        } else if (abs == this.dwU) {
-                            if (abs2 > this.dwU) {
-                                marginLayoutParams.topMargin = ((abs2 - this.dwU) / 2) + this.dwU;
-                                this.dpb.setLayoutParams(marginLayoutParams);
+                        if (abs < this.dBa) {
+                            marginLayoutParams.topMargin = this.dBa;
+                            this.dtj.setLayoutParams(marginLayoutParams);
+                        } else if (abs == this.dBa) {
+                            if (abs2 > this.dBa) {
+                                marginLayoutParams.topMargin = ((abs2 - this.dBa) / 2) + this.dBa;
+                                this.dtj.setLayoutParams(marginLayoutParams);
                             }
-                        } else if (abs > this.dwU) {
-                            if (abs2 < this.dwU) {
-                                marginLayoutParams.topMargin = this.dwU;
-                            } else if (abs2 == this.dwU) {
-                                marginLayoutParams.topMargin = this.dwU;
-                            } else if (abs2 > this.dwU) {
+                        } else if (abs > this.dBa) {
+                            if (abs2 < this.dBa) {
+                                marginLayoutParams.topMargin = this.dBa;
+                            } else if (abs2 == this.dBa) {
+                                marginLayoutParams.topMargin = this.dBa;
+                            } else if (abs2 > this.dBa) {
                                 marginLayoutParams.topMargin = (abs + abs2) / 2;
                             }
-                            this.dpb.setLayoutParams(marginLayoutParams);
+                            this.dtj.setLayoutParams(marginLayoutParams);
                         }
                     }
                 }

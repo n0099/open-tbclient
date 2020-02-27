@@ -2,7 +2,7 @@ package com.baidu.live.c;
 
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends IntentConfig {
     public i(Context context, String str, String str2) {
         super(context);

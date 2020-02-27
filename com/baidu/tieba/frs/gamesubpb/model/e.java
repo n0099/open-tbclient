@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.gamesubpb.model;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e extends PbListView {
     TbPageContext<?> context;
 

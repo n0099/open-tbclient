@@ -1,5 +1,5 @@
 package com.baidu.live.adp;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdUniqueId {
     private static final int MIN_ID = 1000000;
     private static volatile int sBaseId = 0;

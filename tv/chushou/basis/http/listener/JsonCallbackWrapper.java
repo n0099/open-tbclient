@@ -8,7 +8,7 @@ import tv.chushou.basis.d.b;
 import tv.chushou.basis.http.Http;
 import tv.chushou.basis.http.HttpExecutor;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class JsonCallbackWrapper implements a<Http.Resp> {
     public abstract void callFailure(int i, @Nullable String str, @Nullable String str2);
 
@@ -39,12 +39,12 @@ public abstract class JsonCallbackWrapper implements a<Http.Resp> {
             return;
         }
         if (optInt == 401) {
-            b.dOF().d(HttpExecutor.TAG, "401, url=" + resp.baseUrl + resp.path);
+            b.dPS().d(HttpExecutor.TAG, "401, url=" + resp.baseUrl + resp.path);
         }
         String optString = resp.respJson.optString("message");
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) b.dOG().T(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) b.dPT().S(tv.chushou.basis.d.a.b.b.class);
         if (bVar != null) {
-            bVar.MT(optInt);
+            bVar.MW(optInt);
         }
         callFailure(optInt, optString, resp.respString);
     }

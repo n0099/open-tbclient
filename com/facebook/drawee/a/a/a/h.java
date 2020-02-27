@@ -2,63 +2,63 @@ package com.facebook.drawee.a.a.a;
 
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class h {
     @Nullable
-    private Object lJB;
+    private String lKg;
     @Nullable
-    private ImageRequest lJC;
+    private Object lKi;
     @Nullable
-    private com.facebook.imagepipeline.g.f lJD;
-    private boolean lJM;
+    private ImageRequest lKj;
     @Nullable
-    private String lJz;
+    private com.facebook.imagepipeline.g.f lKk;
+    private boolean lKt;
     private boolean mIsCanceled;
     @Nullable
     private String mRequestId;
-    private boolean zi;
-    private long lJE = -1;
-    private long lJF = -1;
-    private long lJG = -1;
-    private long lJH = -1;
-    private long lJI = -1;
-    private long lJJ = -1;
-    private long lJK = -1;
-    private int lJL = -1;
-    private int lJN = -1;
-    private int lJO = -1;
-    private int lJX = -1;
+    private boolean zA;
+    private long lKl = -1;
+    private long lKm = -1;
+    private long lKn = -1;
+    private long lKo = -1;
+    private long lKp = -1;
+    private long lKq = -1;
+    private long lKr = -1;
+    private int lKs = -1;
+    private int lKu = -1;
+    private int lKv = -1;
+    private int lKE = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.lJC = null;
-        this.lJB = null;
-        this.lJD = null;
-        this.lJE = -1L;
-        this.lJG = -1L;
-        this.lJH = -1L;
-        this.lJI = -1L;
-        this.lJJ = -1L;
-        this.lJK = -1L;
-        this.lJL = -1;
+        this.lKj = null;
+        this.lKi = null;
+        this.lKk = null;
+        this.lKl = -1L;
+        this.lKn = -1L;
+        this.lKo = -1L;
+        this.lKp = -1L;
+        this.lKq = -1L;
+        this.lKr = -1L;
+        this.lKs = -1;
         this.mIsCanceled = false;
-        this.zi = false;
-        this.lJM = false;
-        this.lJN = -1;
-        this.lJO = -1;
-        this.lJX = -1;
+        this.zA = false;
+        this.lKt = false;
+        this.lKu = -1;
+        this.lKv = -1;
+        this.lKE = -1;
     }
 
-    public void Ht(int i) {
-        this.lJX = i;
+    public void Hy(int i) {
+        this.lKE = i;
     }
 
-    public int dkB() {
-        return this.lJX;
+    public int dlO() {
+        return this.lKE;
     }
 
-    public void OK(@Nullable String str) {
-        this.lJz = str;
+    public void OX(@Nullable String str) {
+        this.lKg = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,70 +66,70 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.lJC = imageRequest;
+        this.lKj = imageRequest;
     }
 
-    public void bb(@Nullable Object obj) {
-        this.lJB = obj;
+    public void bd(@Nullable Object obj) {
+        this.lKi = obj;
+    }
+
+    public void eY(long j) {
+        this.lKl = j;
+    }
+
+    public void eZ(long j) {
+        this.lKm = j;
     }
 
     public void fa(long j) {
-        this.lJE = j;
+        this.lKn = j;
     }
 
     public void fb(long j) {
-        this.lJF = j;
+        this.lKo = j;
     }
 
     public void fc(long j) {
-        this.lJG = j;
+        this.lKp = j;
     }
 
     public void fd(long j) {
-        this.lJH = j;
+        this.lKq = j;
     }
 
     public void fe(long j) {
-        this.lJI = j;
+        this.lKr = j;
     }
 
-    public void ff(long j) {
-        this.lJJ = j;
+    public void Hz(int i) {
+        this.lKs = i;
     }
 
-    public void fg(long j) {
-        this.lJK = j;
-    }
-
-    public void Hu(int i) {
-        this.lJL = i;
-    }
-
-    public void uX(boolean z) {
+    public void vb(boolean z) {
         this.mIsCanceled = z;
     }
 
-    public void uY(boolean z) {
-        this.zi = z;
+    public void vc(boolean z) {
+        this.zA = z;
     }
 
-    public void uZ(boolean z) {
-        this.lJM = z;
+    public void vd(boolean z) {
+        this.lKt = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.g.f fVar) {
-        this.lJD = fVar;
+        this.lKk = fVar;
     }
 
-    public void Hv(int i) {
-        this.lJN = i;
+    public void HA(int i) {
+        this.lKu = i;
     }
 
-    public void Hw(int i) {
-        this.lJO = i;
+    public void HB(int i) {
+        this.lKv = i;
     }
 
-    public e dkC() {
-        return new e(this.lJz, this.mRequestId, this.lJC, this.lJB, this.lJD, this.lJE, this.lJF, this.lJG, this.lJH, this.lJI, this.lJJ, this.lJK, this.lJL, this.mIsCanceled, this.zi, this.lJM, this.lJN, this.lJO);
+    public e dlP() {
+        return new e(this.lKg, this.mRequestId, this.lKj, this.lKi, this.lKk, this.lKl, this.lKm, this.lKn, this.lKo, this.lKp, this.lKq, this.lKr, this.lKs, this.mIsCanceled, this.zA, this.lKt, this.lKu, this.lKv);
     }
 }

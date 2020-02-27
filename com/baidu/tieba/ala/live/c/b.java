@@ -3,14 +3,14 @@ package com.baidu.tieba.ala.live.c;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import com.baidu.tieba.ala.live.b.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a {
     public b(BaseActivity baseActivity) {
         super(baseActivity, PayChannelType.NUOMI);
     }
 
     @Override // com.baidu.tieba.ala.live.c.a
-    protected com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0436a interfaceC0436a) {
-        return new com.baidu.tieba.ala.live.b.b(getPageContext(), interfaceC0436a);
+    protected com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0447a interfaceC0447a) {
+        return new com.baidu.tieba.ala.live.b.b(getPageContext(), interfaceC0447a);
     }
 }

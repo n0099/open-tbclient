@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tv.chushou.zues.toolkit.richtext.RichText;
 import tv.chushou.zues.toolkit.richtext.RichTextPlus;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChatInfo {
     public static final int GIFT_EMOJI = 2;
     public static final int GIFT_NORMAL = 1;

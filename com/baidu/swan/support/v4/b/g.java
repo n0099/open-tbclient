@@ -1,5 +1,5 @@
 package com.baidu.swan.support.v4.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g<E> implements Cloneable {
     private static final Object DELETED = new Object();
     private boolean mGarbage;
@@ -25,7 +25,7 @@ public class g<E> implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: asA */
+    /* renamed from: auO */
     public g<E> clone() {
         try {
             g<E> gVar = (g) super.clone();

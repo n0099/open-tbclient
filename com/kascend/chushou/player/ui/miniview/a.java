@@ -12,16 +12,16 @@ import com.kascend.chushou.widget.MyWebView;
 import com.kascend.chushou.widget.cswebview.CSWebView;
 import com.kascend.chushou.widget.cswebview.c;
 import com.kascend.chushou.widget.cswebview.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a extends RelativeLayout {
     private Context a;
     private boolean c;
     private int d;
     private boolean g;
     private String h;
-    private MyWebView ncs;
-    private ListItem nct;
-    private d ncu;
+    private MyWebView ncV;
+    private ListItem ncW;
+    private d ncX;
 
     public a(Context context, ListItem listItem, d dVar) {
         super(context);
@@ -33,19 +33,19 @@ public class a extends RelativeLayout {
 
     private void a(Context context, ListItem listItem, d dVar) {
         this.a = context;
-        this.nct = listItem;
-        this.ncu = dVar;
+        this.ncW = listItem;
+        this.ncX = dVar;
         inflate(getContext(), a.h.popupwebview, this);
-        setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.he(this.a).x, tv.chushou.zues.utils.a.dip2px(this.a, 80.0f)));
-        this.ncs = (MyWebView) findViewById(a.f.wv);
-        this.ncs.setBackgroundColor(0);
+        setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.hd(this.a).x, tv.chushou.zues.utils.a.dip2px(this.a, 80.0f)));
+        this.ncV = (MyWebView) findViewById(a.f.wv);
+        this.ncV.setBackgroundColor(0);
         com.kascend.chushou.widget.cswebview.a aVar = new com.kascend.chushou.widget.cswebview.a();
         aVar.a(new JSInterface(this.a));
-        if (this.ncu != null) {
-            aVar.a(this.ncu);
+        if (this.ncX != null) {
+            aVar.a(this.ncX);
         }
-        aVar.bH(this);
-        CSWebView.a(this.ncs, this.a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
+        aVar.bI(this);
+        CSWebView.a(this.ncV, this.a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -64,10 +64,10 @@ public class a extends RelativeLayout {
                 }
             }
         }, aVar);
-        this.ncs.onResume();
-        this.ncs.resumeTimers();
+        this.ncV.onResume();
+        this.ncV.resumeTimers();
         this.g = false;
-        this.ncs.loadUrl(this.nct.mUrl);
+        this.ncV.loadUrl(this.ncW.mUrl);
         setVisibility(8);
     }
 
@@ -87,7 +87,7 @@ public class a extends RelativeLayout {
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 0);
-                aVar.QI(str);
+                aVar.QV(str);
                 tv.chushou.zues.a.a.post(aVar);
             }
 
@@ -104,14 +104,14 @@ public class a extends RelativeLayout {
 
     public boolean a() {
         if (!this.c) {
-            return this.nct.mPackStyle != 1;
+            return this.ncW.mPackStyle != 1;
         }
         this.c = false;
-        if (this.nct.mPackStyle != 1) {
+        if (this.ncW.mPackStyle != 1) {
             setVisibility(8);
             b();
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 8);
-            aVar.QI(this.h);
+            aVar.QV(this.h);
             tv.chushou.zues.a.a.post(aVar);
             return true;
         }
@@ -121,7 +121,7 @@ public class a extends RelativeLayout {
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar2 = new com.kascend.chushou.player.ui.button.a(3, 8);
-                aVar2.QI(a.this.h);
+                aVar2.QV(a.this.h);
                 tv.chushou.zues.a.a.post(aVar2);
             }
 
@@ -138,18 +138,18 @@ public class a extends RelativeLayout {
     }
 
     public void a(String str) {
-        if (this.ncs != null) {
-            this.ncs.loadUrl("javascript:getRefreshData('" + str + "')");
+        if (this.ncV != null) {
+            this.ncV.loadUrl("javascript:getRefreshData('" + str + "')");
         }
     }
 
     public void b() {
         this.a = null;
-        if (this.ncs != null) {
-            this.ncs.loadUrl("");
-            this.ncs.removeAllViews();
-            this.ncs.destroy();
-            this.ncs = null;
+        if (this.ncV != null) {
+            this.ncV.loadUrl("");
+            this.ncV.removeAllViews();
+            this.ncV.destroy();
+            this.ncV = null;
         }
     }
 }

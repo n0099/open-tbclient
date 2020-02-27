@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.util;
 
 import android.graphics.drawable.Drawable;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HostResourceManager {
     private static volatile HostResourceManager mInstance = null;
     private IResourceAdapter mResourceAdapter = null;

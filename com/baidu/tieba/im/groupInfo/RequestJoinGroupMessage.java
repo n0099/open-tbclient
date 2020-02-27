@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.ApplyJoinGroup.ApplyJoinGroupReqIdl;
 import protobuf.ApplyJoinGroup.DataReq;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RequestJoinGroupMessage extends TbSocketMessage {
     private long groupId;
     private long inviteUserId;

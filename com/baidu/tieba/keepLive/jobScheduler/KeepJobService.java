@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 @TargetApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class KeepJobService extends JobService {
     public static final long JOB_CHECK_PERIODIC = 600000;
     public static final int JOB_ID = 110;

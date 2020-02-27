@@ -1,6 +1,7 @@
 package okhttp3;
 
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -17,7 +18,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
 import org.apache.http.HttpHost;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class HttpUrl {
     static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     static final String FRAGMENT_ENCODE_SET = "";
@@ -121,7 +122,7 @@ public final class HttpUrl {
             return 80;
         }
         if (str.equals("https")) {
-            return 443;
+            return Constants.SOCKET_PORT_SSL;
         }
         return -1;
     }
@@ -368,7 +369,7 @@ public final class HttpUrl {
         return PublicSuffixDatabase.get().getEffectiveTldPlusOne(this.host);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         static final String INVALID_HOST = "Invalid URL host";
         @Nullable

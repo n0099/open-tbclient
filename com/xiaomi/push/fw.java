@@ -1,19 +1,19 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class fw implements Runnable {
     final /* synthetic */ ft a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f399a;
+    final /* synthetic */ String f396a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fw(ft ftVar, String str) {
         this.a = ftVar;
-        this.f399a = str;
+        this.f396a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cu.a().a(this.f399a, true);
+        cu.a().a(this.f396a, true);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.album;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface c {
     void at(List<a> list);
 
