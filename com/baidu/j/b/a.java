@@ -9,58 +9,58 @@ import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.process.messaging.c;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements com.baidu.j.c.a {
     private static final String TAG = a.class.getSimpleName();
-    private static final String aLr = SchemeConfig.getSchemeHead() + "://swan/";
+    private static final String aPQ = SchemeConfig.getSchemeHead() + "://swan/";
 
     @Override // com.baidu.j.c.a
     public void e(Activity activity, String str, com.baidu.j.a.a aVar) {
-        com.baidu.swan.apps.w.a.RW().e(activity, str, aVar);
+        com.baidu.swan.apps.w.a.Uk().e(activity, str, aVar);
     }
 
     @Override // com.baidu.j.c.a
     public void f(Activity activity, String str, com.baidu.j.a.a aVar) {
-        com.baidu.swan.apps.w.a.RW().f(activity, str, aVar);
+        com.baidu.swan.apps.w.a.Uk().f(activity, str, aVar);
     }
 
     @Override // com.baidu.j.c.a
     public void b(Context context, JSONObject jSONObject, com.baidu.j.a.a aVar) {
-        com.baidu.swan.apps.w.a.RW().b(context, jSONObject, aVar);
+        com.baidu.swan.apps.w.a.Uk().b(context, jSONObject, aVar);
     }
 
     @Override // com.baidu.j.c.a
     public void g(Context context, JSONObject jSONObject) {
         if (jSONObject == null) {
-            com.baidu.j.a.q(3, "支付信息不能为空");
+            com.baidu.j.a.s(3, "支付信息不能为空");
             return;
         }
         String optString = jSONObject.optString("appKey");
         String optString2 = jSONObject.optString("redirectUrl");
         if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
-            com.baidu.j.a.q(3, "支付信息不能为空");
+            com.baidu.j.a.s(3, "支付信息不能为空");
         } else {
-            SchemeRouter.invoke(context, aLr + optString + optString2);
+            SchemeRouter.invoke(context, aPQ + optString + optString2);
         }
     }
 
     @Override // com.baidu.j.c.a
-    public boolean aQ(Context context) {
-        return com.baidu.swan.apps.w.a.RW().aQ(context);
+    public boolean aU(Context context) {
+        return com.baidu.swan.apps.w.a.Uk().aU(context);
     }
 
     @Override // com.baidu.j.c.a
-    public void eu(String str) {
-        com.baidu.swan.apps.ae.a.Xe().appId = str;
+    public void eK(String str) {
+        com.baidu.swan.apps.ae.a.Zs().appId = str;
     }
 
     @Override // com.baidu.j.c.a
     public void i(Bundle bundle) {
-        String str = com.baidu.swan.apps.ae.a.Xe().appId;
+        String str = com.baidu.swan.apps.ae.a.Zs().appId;
         if (TextUtils.isEmpty(str)) {
             d.j(bundle);
         } else {
-            com.baidu.swan.apps.process.messaging.a.Yv().a(new c(119, bundle).q(str).dk(true));
+            com.baidu.swan.apps.process.messaging.a.aaJ().a(new c(119, bundle).u(str).dr(true));
         }
     }
 }

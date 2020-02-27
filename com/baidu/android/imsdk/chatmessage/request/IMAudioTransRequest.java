@@ -33,7 +33,7 @@ import java.util.UUID;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     private static final String CHARSET = "utf-8";
     private static final String CONTENT_TYPE = "multipart/form-data";

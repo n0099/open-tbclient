@@ -5,17 +5,17 @@ import com.google.android.exoplayer2.upstream.Loader;
 import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class p<T> implements Loader.c {
     public final g dataSpec;
     private volatile boolean isCanceled;
-    private final a<? extends T> mGi;
-    private volatile long mGj;
-    private final e mdo;
+    private final a<? extends T> mGO;
+    private volatile long mGP;
+    private final e mdU;
     private volatile T result;
     public final int type;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a<T> {
         T b(Uri uri, InputStream inputStream) throws IOException;
     }
@@ -25,18 +25,18 @@ public final class p<T> implements Loader.c {
     }
 
     public p(e eVar, g gVar, int i, a<? extends T> aVar) {
-        this.mdo = eVar;
+        this.mdU = eVar;
         this.dataSpec = gVar;
         this.type = i;
-        this.mGi = aVar;
+        this.mGO = aVar;
     }
 
     public final T getResult() {
         return this.result;
     }
 
-    public long dvz() {
-        return this.mGj;
+    public long dwJ() {
+        return this.mGP;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
@@ -45,18 +45,18 @@ public final class p<T> implements Loader.c {
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public final boolean dvh() {
+    public final boolean dwr() {
         return this.isCanceled;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void load() throws IOException {
-        f fVar = new f(this.mdo, this.dataSpec);
+        f fVar = new f(this.mdU, this.dataSpec);
         try {
             fVar.open();
-            this.result = this.mGi.b(this.mdo.getUri(), fVar);
+            this.result = this.mGO.b(this.mdU.getUri(), fVar);
         } finally {
-            this.mGj = fVar.dxK();
+            this.mGP = fVar.dyU();
             v.closeQuietly(fVar);
         }
     }

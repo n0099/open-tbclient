@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.d.a.d.a;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static void a(File file) {
         File parentFile;

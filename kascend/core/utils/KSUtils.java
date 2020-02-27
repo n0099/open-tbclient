@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class KSUtils {
     public static String decrypt(String str, String str2) {
         byte[] bArr = new byte[str2.length() / 2];
@@ -18,7 +18,7 @@ public class KSUtils {
         }
         byte[] bArr2 = new byte[0];
         try {
-            return new String(a.h(bArr, str), "UTF-8");
+            return new String(a.decryptByPrivateKey(bArr, str), "UTF-8");
         } catch (Exception e) {
             e.printStackTrace();
             return null;

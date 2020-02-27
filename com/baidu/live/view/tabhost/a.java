@@ -1,7 +1,7 @@
 package com.baidu.live.view.tabhost;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void enterBackground();
 
@@ -11,5 +11,5 @@ public interface a {
 
     void onChangeSkinType(int i);
 
-    View uA();
+    View we();
 }

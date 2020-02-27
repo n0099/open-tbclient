@@ -2,12 +2,12 @@ package com.baidu.swan.games.e.d;
 
 import android.support.annotation.Nullable;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
     @Nullable
-    V8EngineConfiguration.CodeCacheSetting MO();
+    V8EngineConfiguration.CodeCacheSetting Pc();
 
-    String MP();
+    String Pd();
 
     void a(com.baidu.swan.games.e.a aVar);
 

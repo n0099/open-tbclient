@@ -16,7 +16,7 @@ import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HardH264Encoder {
     private static final int CHECK_STREAM_DURATION = 5000;
     public static final int ENCODE_FPS = 25;

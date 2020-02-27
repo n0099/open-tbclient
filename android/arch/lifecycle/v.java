@@ -3,18 +3,18 @@ package android.arch.lifecycle;
 import android.arch.lifecycle.Lifecycle;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class v implements h {
-    private final g cN;
+    private final g cO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(g gVar) {
-        this.cN = gVar;
+        this.cO = gVar;
     }
 
     @Override // android.arch.lifecycle.h
     public void a(j jVar, Lifecycle.Event event) {
-        this.cN.a(jVar, event, false, null);
-        this.cN.a(jVar, event, true, null);
+        this.cO.a(jVar, event, false, null);
+        this.cO.a(jVar, event, true, null);
     }
 }

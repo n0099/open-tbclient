@@ -9,12 +9,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import kotlin.collections.o;
+import kotlin.h;
 import kotlin.jvm.internal.q;
 import org.java_websocket.a.a;
-import org.java_websocket.c.h;
 import org.java_websocket.d.b;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+@h
+/* loaded from: classes11.dex */
 public final class JavaWebSockeClientImpl implements IWebSocketClient {
     private a webSocketClient;
 
@@ -28,23 +29,23 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         JavaWebSockeClientImpl$connect$1 javaWebSockeClientImpl$connect$12;
         JavaWebSockeClientImpl javaWebSockeClientImpl;
         final WebSocketRequest webSocketRequest2;
-        ArrayList bR;
+        ArrayList bS;
         final IWebSocketListener iWebSocketListener2;
         final URI uri;
         org.java_websocket.drafts.a aVar4;
         q.j(webSocketRequest, "request");
         q.j(iWebSocketListener, "listener");
         URI create = URI.create(webSocketRequest.getUrl());
-        List dIU = o.dIU();
+        List dKb = o.dKb();
         List<String> protocols = webSocketRequest.getProtocols();
         if (protocols == null) {
-            list = dIU;
+            list = dKb;
             aVar2 = aVar;
             aVar3 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
             webSocketRequest2 = webSocketRequest;
-            bR = o.bR(new b(""));
+            bS = o.bS(new b(""));
             iWebSocketListener2 = iWebSocketListener;
             uri = create;
             aVar4 = aVar;
@@ -54,29 +55,29 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             for (String str : list2) {
                 arrayList.add(new b(str));
             }
-            list = dIU;
+            list = dKb;
             aVar2 = aVar;
             aVar3 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
             webSocketRequest2 = webSocketRequest;
-            bR = arrayList;
+            bS = arrayList;
             iWebSocketListener2 = iWebSocketListener;
             uri = create;
             aVar4 = aVar;
         }
-        new org.java_websocket.drafts.a(list, bR);
+        new org.java_websocket.drafts.a(list, bS);
         final org.java_websocket.drafts.a aVar5 = aVar4;
         final Map<String, String> headers = webSocketRequest.getHeaders();
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
-            public void onOpen(h hVar) {
-                Iterator<String> dMr;
+            public void onOpen(org.java_websocket.c.h hVar) {
+                Iterator<String> dNE;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (dMr = hVar.dMr()) != null) {
-                    while (dMr.hasNext()) {
-                        String next = dMr.next();
-                        hashMap.put(next, hVar.Sl(next));
+                if (hVar != null && (dNE = hVar.dNE()) != null) {
+                    while (dNE.hasNext()) {
+                        String next = dNE.next();
+                        hashMap.put(next, hVar.Sw(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -118,13 +119,13 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             int intValue = connectionLostTimeout.intValue();
             a aVar6 = this.webSocketClient;
             if (aVar6 == null) {
-                q.RV("webSocketClient");
+                q.Sg("webSocketClient");
             }
             aVar6.setConnectionLostTimeout(intValue);
         }
         a aVar7 = this.webSocketClient;
         if (aVar7 == null) {
-            q.RV("webSocketClient");
+            q.Sg("webSocketClient");
         }
         aVar7.connect();
     }
@@ -134,7 +135,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.j(str, TiebaInitialize.LogFields.REASON);
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.RV("webSocketClient");
+            q.Sg("webSocketClient");
         }
         aVar.close();
     }
@@ -144,7 +145,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.j(str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.RV("webSocketClient");
+            q.Sg("webSocketClient");
         }
         aVar.send(str);
     }
@@ -154,7 +155,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.j(byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.RV("webSocketClient");
+            q.Sg("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

@@ -2,7 +2,7 @@ package com.baidu.mobads.production;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ b b;

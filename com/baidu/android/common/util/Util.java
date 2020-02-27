@@ -4,19 +4,14 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.android.common.security.MD5Util;
+import com.baidu.cesium.d.b;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes.dex */
+/* loaded from: classes13.dex */
 public final class Util {
+    private static final boolean a = false;
+    private static final String b = "Util";
+
     private Util() {
-    }
-
-    public static String toMd5(byte[] bArr, boolean z) {
-        return MD5Util.toMd5(bArr, z);
-    }
-
-    public static String toHexString(byte[] bArr, String str, boolean z) {
-        return MD5Util.toHexString(bArr, str, z);
     }
 
     public static boolean hasOtherServiceRuninMyPid(Context context, String str) {
@@ -26,5 +21,13 @@ public final class Util {
             }
         }
         return false;
+    }
+
+    public static String toHexString(byte[] bArr, String str, boolean z) {
+        return b.a(bArr, str, z);
+    }
+
+    public static String toMd5(byte[] bArr, boolean z) {
+        return b.a(bArr, z);
     }
 }

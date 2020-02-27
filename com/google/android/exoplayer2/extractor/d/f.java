@@ -2,11 +2,11 @@ package com.google.android.exoplayer2.extractor.d;
 
 import com.google.android.exoplayer2.extractor.l;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 interface f {
-    l dtW();
+    l dvh();
 
-    long fU(long j);
+    long fS(long j);
 
     long u(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException;
 }

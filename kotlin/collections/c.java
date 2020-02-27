@@ -1,10 +1,11 @@
 package kotlin.collections;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final /* synthetic */ class c {
-    public static final /* synthetic */ int[] nlE = new int[State.values().length];
+    public static final /* synthetic */ int[] nmf = new int[State.values().length];
 
     static {
-        nlE[State.Done.ordinal()] = 1;
-        nlE[State.Ready.ordinal()] = 2;
+        nmf[State.Done.ordinal()] = 1;
+        nmf[State.Ready.ordinal()] = 2;
     }
 }

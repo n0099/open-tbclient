@@ -2,19 +2,19 @@ package com.baidu.swan.apps.extcore.model.b;
 
 import android.support.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
     @NonNull
-    String PG();
+    String RU();
 
     @NonNull
-    File PH();
+    File RV();
 
     @NonNull
-    String PI();
+    String RW();
 
     @NonNull
-    String PJ();
+    String RX();
 
-    int PK();
+    int RY();
 }

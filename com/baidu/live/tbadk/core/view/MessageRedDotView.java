@@ -11,9 +11,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class MessageRedDotView extends FrameLayout {
     public static final int TYPE_PLUS = 2;
     public static final int TYPE_THREE_DOT = 1;
@@ -67,7 +67,7 @@ public class MessageRedDotView extends FrameLayout {
         onChangeSkinType();
     }
 
-    public void onChangeSkinType() {
+    public final void onChangeSkinType() {
         if (this.mRedDot != null) {
             SkinManager.setImageResource(this.mRedDot, a.f.sdk_icon_news_red_dot);
         }

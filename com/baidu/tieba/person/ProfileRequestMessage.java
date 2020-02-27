@@ -12,6 +12,7 @@ import tbclient.Profile.ProfileReqIdl;
 public class ProfileRequestMessage extends NetMessage {
     private boolean error_hint;
     private Long friend_uid;
+    private String friend_uid_portrait;
     private boolean from_db;
     private Integer has_plist;
     private boolean isSelf;
@@ -77,6 +78,14 @@ public class ProfileRequestMessage extends NetMessage {
         this.friend_uid = l;
     }
 
+    public String get_friend_uid_portrait() {
+        return this.friend_uid_portrait;
+    }
+
+    public void set_friend_uid_portrait(String str) {
+        this.friend_uid_portrait = str;
+    }
+
     public Integer get_is_guest() {
         return this.is_guest;
     }
@@ -136,6 +145,7 @@ public class ProfileRequestMessage extends NetMessage {
             builder.uid = get_uid();
             builder.need_post_count = get_need_post_count();
             builder.friend_uid = get_friend_uid();
+            builder.friend_uid_portrait = get_friend_uid_portrait();
             builder.is_guest = get_is_guest();
             builder.st_type = get_st_type();
             builder.pn = get_pn();
@@ -146,7 +156,7 @@ public class ProfileRequestMessage extends NetMessage {
             double equipmentDensity = l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp());
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = i.axy().getViewImageQuality();
+            int viewImageQuality = i.azM().getViewImageQuality();
             builder.scr_w = Integer.valueOf(equipmentWidth);
             builder.scr_h = Integer.valueOf(equipmentHeight);
             builder.scr_dip = Double.valueOf(equipmentDensity);

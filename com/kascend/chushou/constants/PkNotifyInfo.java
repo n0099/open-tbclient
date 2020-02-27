@@ -1,5 +1,5 @@
 package com.kascend.chushou.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PkNotifyInfo {
     public static final int CLOSE_PK = 2;
     public static final int MODE_LINE = 1;
@@ -33,7 +33,7 @@ public class PkNotifyInfo {
     public PkUpdateInfo mPkUpdateInfo = new PkUpdateInfo();
     public int mAction = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class DestinyInfo {
         public int destinyId;
         public String pkBarIcon;

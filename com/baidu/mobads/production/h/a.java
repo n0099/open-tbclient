@@ -9,7 +9,7 @@ import com.baidu.mobads.interfaces.IXAdProd;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.vo.d;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends d {
     protected IXAdProd a;
 

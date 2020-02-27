@@ -1,8 +1,10 @@
 package kotlin.coroutines.jvm.internal;
 
 import kotlin.coroutines.c;
+import kotlin.h;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public abstract class ContinuationImpl extends BaseContinuationImpl {
     private final kotlin.coroutines.c _context;
     private transient kotlin.coroutines.a<Object> intercepted;
@@ -20,7 +22,7 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
     public kotlin.coroutines.c getContext() {
         kotlin.coroutines.c cVar = this._context;
         if (cVar == null) {
-            q.dJm();
+            q.dKt();
         }
         return cVar;
     }
@@ -28,7 +30,7 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
     public final kotlin.coroutines.a<Object> intercepted() {
         ContinuationImpl continuationImpl = this.intercepted;
         if (continuationImpl == null) {
-            kotlin.coroutines.b bVar = (kotlin.coroutines.b) getContext().get(kotlin.coroutines.b.nBm);
+            kotlin.coroutines.b bVar = (kotlin.coroutines.b) getContext().get(kotlin.coroutines.b.nBO);
             if (bVar == null || (continuationImpl = bVar.a(this)) == null) {
                 continuationImpl = this;
             }
@@ -41,12 +43,12 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
     protected void releaseIntercepted() {
         kotlin.coroutines.a<?> aVar = this.intercepted;
         if (aVar != null && aVar != this) {
-            c.b bVar = getContext().get(kotlin.coroutines.b.nBm);
+            c.b bVar = getContext().get(kotlin.coroutines.b.nBO);
             if (bVar == null) {
-                q.dJm();
+                q.dKt();
             }
             ((kotlin.coroutines.b) bVar).b(aVar);
         }
-        this.intercepted = a.nBt;
+        this.intercepted = a.nBV;
     }
 }

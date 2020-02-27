@@ -17,7 +17,7 @@ import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.tieba.R;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
     private VelocityTracker a;
@@ -36,9 +36,11 @@ public class CustomScrollView extends ScrollView {
     private boolean m;
     private com.baidu.platform.comapi.wnplatform.n.b n;
     protected Field scrollerField;
-    public int top;
 
-    /* loaded from: classes6.dex */
+    /* renamed from: top  reason: collision with root package name */
+    public int f994top;
+
+    /* loaded from: classes8.dex */
     public interface b {
         void a(int i);
 
@@ -73,18 +75,18 @@ public class CustomScrollView extends ScrollView {
         this.g = new GestureDetector(context, new a());
         setFadingEdgeLength(0);
         setVerticalScrollBarEnabled(false);
-        this.top = com.baidu.platform.comapi.wnplatform.o.g.c(context) - com.baidu.platform.comapi.wnplatform.o.g.d(context);
+        this.f994top = com.baidu.platform.comapi.wnplatform.o.g.c(context) - com.baidu.platform.comapi.wnplatform.o.g.d(context);
         this.bottom = 0;
         this.c = 3;
         com.baidu.platform.comapi.wnplatform.o.a.a.a((Activity) getContext(), R.layout.abc_action_mode_close_item_material, this);
-        this.j = (LinearLayout) findViewById(R.raw.lottie_use_my_cj_n_2);
-        this.l = (LinearLayout) findViewById(R.raw.lottie_use_my_cj_n_1);
-        this.l.setMinimumHeight(this.top);
+        this.j = (LinearLayout) findViewById(R.raw.lottie_use_publish_n_1);
+        this.l = (LinearLayout) findViewById(R.raw.lottie_use_publish_n);
+        this.l.setMinimumHeight(this.f994top);
     }
 
     public void setStatusHeight(int i, int i2) {
         this.l.setMinimumHeight(i);
-        this.top = i;
+        this.f994top = i;
         this.bottom = i2;
         this.c = 3;
     }
@@ -143,7 +145,7 @@ public class CustomScrollView extends ScrollView {
                 if (i > 1000 || i2 < this.c) {
                     return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
                 }
-                if (i2 > this.top) {
+                if (i2 > this.f994top) {
                     return com.baidu.platform.comapi.wnplatform.n.b.NULL;
                 }
                 return com.baidu.platform.comapi.wnplatform.n.b.TOP;
@@ -207,10 +209,10 @@ public class CustomScrollView extends ScrollView {
                 }
             case TOP:
                 if (z) {
-                    smoothScrollTo(0, this.top);
+                    smoothScrollTo(0, this.f994top);
                     return;
                 } else {
-                    scrollTo(0, this.top);
+                    scrollTo(0, this.f994top);
                     return;
                 }
             default:
@@ -231,7 +233,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c extends GestureDetector.SimpleOnGestureListener {
         c() {
         }
@@ -243,7 +245,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         a() {
         }

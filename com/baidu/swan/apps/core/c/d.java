@@ -17,63 +17,63 @@ import com.baidu.swan.games.b.f;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adaptation.b.a<NgWebView> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean biK;
+    private boolean bmU;
     private Context mContext;
 
     public d(Context context) {
         super(context);
-        this.biK = false;
+        this.bmU = false;
         this.mContext = context;
-        KX();
+        Nm();
     }
 
-    protected void KX() {
-        Gy().setVisibility(8);
-        Gy().setBackgroundColor(0);
-        File file = new File(com.baidu.swan.games.b.d.akH().akK(), "index.html");
+    protected void Nm() {
+        IN().setVisibility(8);
+        IN().setBackgroundColor(0);
+        File file = new File(com.baidu.swan.games.b.d.amV().amY(), "index.html");
         if (file.exists() && file.isFile()) {
             loadUrl(Uri.fromFile(file).toString());
-            ce(false);
+            cl(false);
             return;
         }
         loadUrl("file:///android_asset/aiapps/sConsole.html");
-        f.akU();
-        ce(true);
+        f.ani();
+        cl(true);
     }
 
-    private void ce(boolean z) {
+    private void cl(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
         }
-        if (!this.biK || z) {
-            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.d("sconsole-core", f.akT(), 2), new com.baidu.swan.games.b.a.a(new com.baidu.swan.games.b.b.a() { // from class: com.baidu.swan.apps.core.c.d.1
+        if (!this.bmU || z) {
+            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.d("sconsole-core", f.anh(), 2), new com.baidu.swan.games.b.a.a(new com.baidu.swan.games.b.b.a() { // from class: com.baidu.swan.apps.core.c.d.1
                 @Override // com.baidu.swan.games.b.b.a
                 @NonNull
-                public File KY() {
-                    return com.baidu.swan.games.b.d.akH().akK();
+                public File Nn() {
+                    return com.baidu.swan.games.b.d.amV().amY();
                 }
 
                 @Override // com.baidu.swan.games.b.b.a
-                public void gD(@NonNull String str) {
-                    f.ot(str);
+                public void gS(@NonNull String str) {
+                    f.oI(str);
                 }
             }, new com.baidu.swan.games.b.b() { // from class: com.baidu.swan.apps.core.c.d.2
                 @Override // com.baidu.swan.games.b.b
-                public void cf(boolean z2) {
+                public void cm(boolean z2) {
                     if (d.DEBUG) {
                         Log.d("SwanAppConsoleManager", "download sConsole result: " + z2);
                     }
                 }
             }));
-            this.biK = true;
+            this.bmU = true;
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void Ky() {
+    protected void MN() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
@@ -81,7 +81,7 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void ag(String str, String str2) {
+    public void aq(String str, String str2) {
         JSONArray jSONArray = new JSONArray();
         if (!TextUtils.isEmpty(str2)) {
             jSONArray.put(str2);
@@ -89,34 +89,34 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
         HashMap hashMap = new HashMap();
         hashMap.put("logType", str);
         hashMap.put("logs", jSONArray.toString());
-        com.baidu.swan.apps.y.f.UC().a("console", new com.baidu.swan.apps.n.a.b("searchboxSConsole", hashMap));
+        com.baidu.swan.apps.y.f.WQ().a("console", new com.baidu.swan.apps.n.a.b("searchboxSConsole", hashMap));
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void Gp() {
-        com.baidu.swan.apps.console.c.bZ(false);
-        ViewParent parent = Gy().getParent();
+    public void IE() {
+        com.baidu.swan.apps.console.c.ch(false);
+        ViewParent parent = IN().getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(Gy());
+            ((ViewGroup) parent).removeView(IN());
         }
         destroy();
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void l(ViewGroup viewGroup) {
+    public void m(ViewGroup viewGroup) {
         if (viewGroup != null) {
-            a(viewGroup, Gy());
+            a(viewGroup, IN());
         }
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void bO(boolean z) {
-        Gy().setVisibility(z ? 0 : 8);
+    public void bW(boolean z) {
+        IN().setVisibility(z ? 0 : 8);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void Go() {
-        bO(Gy().getVisibility() != 0);
+    public void ID() {
+        bW(IN().getVisibility() != 0);
     }
 
     private void a(ViewGroup viewGroup, View view) {
@@ -136,22 +136,22 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String GA() {
+    public String IP() {
         return "console";
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public void GB() {
-        super.GB();
+    public void IQ() {
+        super.IQ();
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
     public void destroy() {
-        Gu();
+        IJ();
         super.destroy();
     }
 
-    private void Gu() {
+    private void IJ() {
         if (this.mContext != null && (this.mContext instanceof Activity)) {
             t.forceHiddenSoftInput(this.mContext, ((Activity) this.mContext).getWindow().getDecorView().getWindowToken());
         }

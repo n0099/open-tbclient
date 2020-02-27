@@ -1,17 +1,17 @@
 package com.google.android.exoplayer2.source.dash;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface d {
-    long G(int i, long j);
+    long F(int i, long j);
 
-    long KQ(int i);
+    long KV(int i);
 
-    com.google.android.exoplayer2.source.dash.manifest.f KR(int i);
+    com.google.android.exoplayer2.source.dash.manifest.f KW(int i);
 
-    int U(long j, long j2);
+    int T(long j, long j2);
 
-    int dvL();
+    int dwV();
 
-    boolean dvM();
+    boolean dwW();
 
-    int gs(long j);
+    int gq(long j);
 }

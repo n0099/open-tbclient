@@ -3,9 +3,11 @@ package kotlin.coroutines.jvm.internal;
 import java.io.Serializable;
 import kotlin.Result;
 import kotlin.h;
+import kotlin.i;
 import kotlin.jvm.internal.q;
-import kotlin.k;
-/* loaded from: classes5.dex */
+import kotlin.l;
+@h
+/* loaded from: classes7.dex */
 public abstract class BaseContinuationImpl implements Serializable, kotlin.coroutines.a<Object>, b {
     private final kotlin.coroutines.a<Object> completion;
 
@@ -27,17 +29,17 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
         while (true) {
             kotlin.coroutines.a<Object> aVar = baseContinuationImpl.completion;
             if (aVar == null) {
-                q.dJm();
+                q.dKt();
             }
             try {
                 invokeSuspend = baseContinuationImpl.invokeSuspend(obj);
             } catch (Throwable th) {
                 Result.a aVar2 = Result.Companion;
-                obj = Result.m565constructorimpl(h.O(th));
+                obj = Result.m570constructorimpl(i.N(th));
             }
-            if (invokeSuspend != kotlin.coroutines.intrinsics.a.dJg()) {
+            if (invokeSuspend != kotlin.coroutines.intrinsics.a.dKn()) {
                 Result.a aVar3 = Result.Companion;
-                obj = Result.m565constructorimpl(invokeSuspend);
+                obj = Result.m570constructorimpl(invokeSuspend);
                 baseContinuationImpl.releaseIntercepted();
                 if (aVar instanceof BaseContinuationImpl) {
                     baseContinuationImpl = (BaseContinuationImpl) aVar;
@@ -54,12 +56,12 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
     protected void releaseIntercepted() {
     }
 
-    public kotlin.coroutines.a<k> create(kotlin.coroutines.a<?> aVar) {
+    public kotlin.coroutines.a<l> create(kotlin.coroutines.a<?> aVar) {
         q.j(aVar, "completion");
         throw new UnsupportedOperationException("create(Continuation) has not been overridden");
     }
 
-    public kotlin.coroutines.a<k> create(Object obj, kotlin.coroutines.a<?> aVar) {
+    public kotlin.coroutines.a<l> create(Object obj, kotlin.coroutines.a<?> aVar) {
         q.j(aVar, "completion");
         throw new UnsupportedOperationException("create(Any?;Continuation) has not been overridden");
     }

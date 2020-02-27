@@ -4,7 +4,7 @@ import android.util.LruCache;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class h {
-    private final LruCache<String, a> Ht = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+    private final LruCache<String, a> HN = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
     private final String a;
     private boolean c;
 
@@ -62,7 +62,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.Ht.evictAll();
+        this.HN.evictAll();
         l.a("Clear %s cache", this.a);
     }
 
@@ -73,7 +73,7 @@ class h {
         if ((b == null || b.isEmpty()) && (c == null || c.isEmpty())) {
             return;
         }
-        this.Ht.put(str, aVar);
+        this.HN.put(str, aVar);
         Object[] objArr = new Object[5];
         objArr[0] = this.a;
         objArr[1] = str;
@@ -91,7 +91,7 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (String str : this.Ht.snapshot().keySet()) {
+        for (String str : this.HN.snapshot().keySet()) {
             arrayList.add(str);
         }
         return arrayList;
@@ -99,19 +99,19 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(String str) {
-        a bD = bD(str);
-        if (bD == null || !bD.a()) {
+        a bF = bF(str);
+        if (bF == null || !bF.a()) {
             return;
         }
-        this.Ht.remove(str);
+        this.HN.remove(str);
         l.a("Remove expired entry from %s cache, host(%s)", this.a, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a bD(String str) {
-        a aVar = this.Ht.get(str);
+    public a bF(String str) {
+        a aVar = this.HN.get(str);
         if (aVar != null && aVar.a() && this.c) {
-            this.Ht.remove(str);
+            this.HN.remove(str);
             l.a("Remove expired entry from %s cache while reading, host(%s)", this.a, str);
             return null;
         }

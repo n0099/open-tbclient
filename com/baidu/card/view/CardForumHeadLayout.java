@@ -22,100 +22,100 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CardForumHeadLayout extends RelativeLayout implements View.OnClickListener {
-    private SingleLineEllipsizeTextView MA;
-    private TextView MC;
-    private TextView ME;
-    private String MF;
-    private View.OnClickListener MG;
-    private int MH;
-    private BarImageView Mz;
+    private BarImageView Nb;
+    private SingleLineEllipsizeTextView Nc;
+    private TextView Ne;
+    private TextView Nf;
+    private String Ng;
+    private View.OnClickListener Nh;
+    private int Ni;
 
     public CardForumHeadLayout(Context context) {
         super(context);
-        this.MH = 3;
+        this.Ni = 3;
         init(context);
     }
 
     public CardForumHeadLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.MH = 3;
+        this.Ni = 3;
         init(context);
     }
 
     public CardForumHeadLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.MH = 3;
+        this.Ni = 3;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_forum_head_layout, (ViewGroup) this, true);
-        this.Mz = (BarImageView) findViewById(R.id.forum_head_image);
-        this.MA = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
-        this.MC = (TextView) findViewById(R.id.forum_head_info_attention);
-        this.ME = (TextView) findViewById(R.id.forum_head_info_thread);
-        this.Mz.setShowOval(true);
-        this.Mz.setAutoChangeStyle(true);
-        this.Mz.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        this.Mz.setStrokeColorResId(R.color.cp_border_a);
-        this.Mz.setOnClickListener(this);
-        this.MA.setOnClickListener(this);
-        this.MC.setOnClickListener(this);
-        this.ME.setOnClickListener(this);
-        this.MA.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
+        this.Nb = (BarImageView) findViewById(R.id.forum_head_image);
+        this.Nc = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
+        this.Ne = (TextView) findViewById(R.id.forum_head_info_attention);
+        this.Nf = (TextView) findViewById(R.id.forum_head_info_thread);
+        this.Nb.setShowOval(true);
+        this.Nb.setAutoChangeStyle(true);
+        this.Nb.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.Nb.setStrokeColorResId(R.color.cp_border_a);
+        this.Nb.setOnClickListener(this);
+        this.Nc.setOnClickListener(this);
+        this.Ne.setOnClickListener(this);
+        this.Nf.setOnClickListener(this);
+        this.Nc.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
         onChangeSkinType();
     }
 
     public void setData(bj bjVar) {
-        if (bjVar == null || bjVar.aBJ() == null || StringUtils.isNull(bjVar.aBJ().forumName)) {
-            this.Mz.setVisibility(8);
-            this.MA.setVisibility(8);
-            this.ME.setVisibility(8);
-            this.MC.setVisibility(8);
+        if (bjVar == null || bjVar.aDV() == null || StringUtils.isNull(bjVar.aDV().forumName)) {
+            this.Nb.setVisibility(8);
+            this.Nc.setVisibility(8);
+            this.Nf.setVisibility(8);
+            this.Ne.setVisibility(8);
             return;
         }
-        this.Mz.setPlaceHolder(1);
-        this.Mz.setVisibility(0);
-        this.MA.setVisibility(0);
-        this.ME.setVisibility(0);
-        this.MC.setVisibility(0);
-        this.MF = bjVar.aBJ().forumName;
-        this.MA.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.MF));
-        this.Mz.startLoad(bjVar.aBJ().getAvatar(), 10, false);
-        this.ME.setText(String.format(getContext().getString(R.string.forum_thread_number), aq.numberUniformFormatExtra(bjVar.aBJ().postNum)));
-        this.MC.setText(String.format(getContext().getString(R.string.concern), aq.numberUniformFormatExtra(bjVar.aBJ().memberNum)));
+        this.Nb.setPlaceHolder(1);
+        this.Nb.setVisibility(0);
+        this.Nc.setVisibility(0);
+        this.Nf.setVisibility(0);
+        this.Ne.setVisibility(0);
+        this.Ng = bjVar.aDV().forumName;
+        this.Nc.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.Ng));
+        this.Nb.startLoad(bjVar.aDV().getAvatar(), 10, false);
+        this.Nf.setText(String.format(getContext().getString(R.string.forum_thread_number), aq.numberUniformFormatExtra(bjVar.aDV().postNum)));
+        this.Ne.setText(String.format(getContext().getString(R.string.concern), aq.numberUniformFormatExtra(bjVar.aDV().memberNum)));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.MF)) {
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.MF, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+        if (!StringUtils.isNull(this.Ng)) {
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.Ng, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
             createNormalCfg.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
-            if (this.MG != null) {
-                this.MG.onClick(view);
+            if (this.Nh != null) {
+                this.Nh.onClick(view);
             }
         }
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.MH) {
-            this.MH = skinType;
-            Drawable a = SvgManager.aEp().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+        if (skinType != this.Ni) {
+            this.Ni = skinType;
+            Drawable a = SvgManager.aGA().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             a.setBounds(0, 0, dimens, dimens);
-            this.MA.setCompoundDrawables(null, null, a, null);
-            this.MA.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds10));
-            am.setViewTextColor(this.MA, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.MC, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.ME, (int) R.color.cp_cont_d);
+            this.Nc.setCompoundDrawables(null, null, a, null);
+            this.Nc.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds10));
+            am.setViewTextColor(this.Nc, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.Ne, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.Nf, (int) R.color.cp_cont_d);
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.MG = onClickListener;
+        this.Nh = onClickListener;
     }
 }

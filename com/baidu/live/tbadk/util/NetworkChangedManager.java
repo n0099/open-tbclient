@@ -10,20 +10,13 @@ import com.baidu.live.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.live.tbadk.core.util.TbImageHelper;
 import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkChangedManager {
     private CustomMessageListener mNetworkChangedListener;
     private static final byte[] mlock = new byte[1];
-    private static NetworkChangedManager mInstance = null;
+    private static NetworkChangedManager mInstance = new NetworkChangedManager();
 
     public static NetworkChangedManager getInstance() {
-        if (mInstance == null) {
-            synchronized (mlock) {
-                if (mInstance == null) {
-                    mInstance = new NetworkChangedManager();
-                }
-            }
-        }
         return mInstance;
     }
 

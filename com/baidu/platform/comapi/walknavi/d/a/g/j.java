@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class j {
     private static Handler a;
 

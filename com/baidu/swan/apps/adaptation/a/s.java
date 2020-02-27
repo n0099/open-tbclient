@@ -3,10 +3,10 @@ package com.baidu.swan.apps.adaptation.a;
 import android.graphics.Bitmap;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface s {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onResult(String str);
     }

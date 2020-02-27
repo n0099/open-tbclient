@@ -4,12 +4,12 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.e, Set<b>> blz;
+    private HashMap<com.baidu.swan.pms.model.e, Set<b>> bpJ;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void a(PMSDownloadType pMSDownloadType);
 
@@ -17,21 +17,21 @@ public class c {
     }
 
     private c() {
-        this.blz = new HashMap<>();
+        this.bpJ = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.e eVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.blz.get(eVar);
+        Set<b> set = this.bpJ.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType);
                 }
             }
-            this.blz.remove(eVar);
+            this.bpJ.remove(eVar);
         }
     }
 
@@ -39,14 +39,14 @@ public class c {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.blz.get(eVar);
+        Set<b> set = this.bpJ.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType, aVar);
                 }
             }
-            this.blz.remove(eVar);
+            this.bpJ.remove(eVar);
         }
     }
 
@@ -55,23 +55,23 @@ public class c {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
         if (eVar != null && bVar != null) {
-            Set<b> set = this.blz.get(eVar);
+            Set<b> set = this.bpJ.get(eVar);
             if (set != null) {
                 set.add(bVar);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(bVar);
-                this.blz.put(eVar, hashSet);
+                this.bpJ.put(eVar, hashSet);
             }
         }
     }
 
-    public static c MU() {
-        return a.blA;
+    public static c Pi() {
+        return a.bpK;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class a {
-        private static c blA = new c();
+        private static c bpK = new c();
     }
 }

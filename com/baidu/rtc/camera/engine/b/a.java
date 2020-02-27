@@ -1,7 +1,7 @@
 package com.baidu.rtc.camera.engine.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void CQ();
+    void Fm();
 
-    void o(byte[] bArr);
+    void t(byte[] bArr);
 }

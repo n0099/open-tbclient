@@ -13,74 +13,74 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImageProblemItemView extends FrameLayout {
-    protected LinearLayout dpb;
-    protected TextView dpc;
-    protected ImageView dpf;
-    protected LinearLayout hRI;
-    protected TextView hRJ;
+    protected LinearLayout dtj;
+    protected TextView dtk;
+    protected ImageView dtn;
+    protected LinearLayout hTG;
+    protected TextView hTH;
     protected Context mContext;
     protected TextView textView;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aKu();
+        aMQ();
         d(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
         this.mContext = context;
-        aKu();
+        aMQ();
     }
 
     public void displayTip() {
-        if (this.dpc != null) {
-            this.dpc.setVisibility(0);
+        if (this.dtk != null) {
+            this.dtk.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        if (this.dpc != null) {
-            this.dpc.setVisibility(8);
+        if (this.dtk != null) {
+            this.dtk.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.dpc != null) {
-            this.dpc.setTextColor(i);
+        if (this.dtk != null) {
+            this.dtk.setTextColor(i);
         }
     }
 
     public void hideArrow() {
-        this.dpf.setVisibility(8);
+        this.dtn.setVisibility(8);
     }
 
     public void displayArrow() {
-        this.dpf.setVisibility(0);
+        this.dtn.setVisibility(0);
     }
 
     public void setArrowImg(int i) {
-        this.dpf.setImageResource(i);
+        this.dtn.setImageResource(i);
     }
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hRI.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hTG.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
-            this.hRI.setLayoutParams(layoutParams);
-            this.hRJ.setText("");
-            this.hRJ.setVisibility(8);
+            this.hTG.setLayoutParams(layoutParams);
+            this.hTH.setText("");
+            this.hTH.setVisibility(8);
             return;
         }
-        this.hRI.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.hRI.getLayoutParams();
+        this.hTG.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.hTG.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
-        this.hRI.setLayoutParams(layoutParams2);
-        this.hRJ.setText(str);
-        this.hRJ.setVisibility(0);
+        this.hTG.setLayoutParams(layoutParams2);
+        this.hTH.setText(str);
+        this.hTH.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -103,25 +103,25 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.dpc.setText(str);
+        this.dtk.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.dpc.getText();
+        return this.dtk.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.dpc.setBackgroundDrawable(drawable);
+        this.dtk.setBackgroundDrawable(drawable);
     }
 
-    protected void aKu() {
+    protected void aMQ() {
         LayoutInflater.from(this.mContext).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
-        this.dpb = (LinearLayout) findViewById(R.id.container);
+        this.dtj = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.dpc = (TextView) findViewById(R.id.tip);
-        this.dpf = (ImageView) findViewById(R.id.arrow2);
-        this.hRI = (LinearLayout) findViewById(R.id.ll_container);
-        this.hRJ = (TextView) findViewById(R.id.tv_help);
+        this.dtk = (TextView) findViewById(R.id.tip);
+        this.dtn = (ImageView) findViewById(R.id.arrow2);
+        this.hTG = (LinearLayout) findViewById(R.id.ll_container);
+        this.hTH = (TextView) findViewById(R.id.tv_help);
     }
 
     protected void d(AttributeSet attributeSet) {
@@ -137,14 +137,14 @@ public class ImageProblemItemView extends FrameLayout {
             this.textView.setTextColor(color);
         }
         if (string2 != null) {
-            this.dpc.setText(string2);
+            this.dtk.setText(string2);
         }
         if (color2 > -1) {
-            this.dpc.setTextColor(color2);
+            this.dtk.setTextColor(color2);
         }
         obtainStyledAttributes.recycle();
-        this.dpb.setClickable(false);
-        this.dpb.setFocusable(false);
-        this.dpf.setVisibility(4);
+        this.dtj.setClickable(false);
+        this.dtj.setFocusable(false);
+        this.dtn.setVisibility(4);
     }
 }

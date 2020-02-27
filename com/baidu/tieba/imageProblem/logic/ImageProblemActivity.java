@@ -6,43 +6,43 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
-    ImageProblemView hRA;
-    ImageProblemAssistant hRB;
-    CheckTask hRC;
+    CheckTask hTA;
+    ImageProblemView hTy;
+    ImageProblemAssistant hTz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hRB = new ImageProblemAssistant(getPageContext().getPageActivity());
-        this.hRA = new ImageProblemView(this, this.hRB);
+        this.hTz = new ImageProblemAssistant(getPageContext().getPageActivity());
+        this.hTy = new ImageProblemView(this, this.hTz);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.hRC != null) {
-            this.hRC.cancel();
-            this.hRC = null;
+        if (this.hTA != null) {
+            this.hTA.cancel();
+            this.hTA = null;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hRA.getCheckButton()) {
-            if (this.hRC == null) {
-                this.hRA.getCheckButton().setText(getResources().getText(R.string.stop));
-                this.hRC = new CheckTask();
-                this.hRC.execute(new Object[0]);
+        if (view == this.hTy.getCheckButton()) {
+            if (this.hTA == null) {
+                this.hTy.getCheckButton().setText(getResources().getText(R.string.stop));
+                this.hTA = new CheckTask();
+                this.hTA.execute(new Object[0]);
                 return;
             }
-            this.hRA.getCheckButton().setText(getResources().getText(R.string.diagnose));
-            if (this.hRC != null) {
-                this.hRC.cancel();
-                this.hRC = null;
+            this.hTy.getCheckButton().setText(getResources().getText(R.string.diagnose));
+            if (this.hTA != null) {
+                this.hTA.cancel();
+                this.hTA = null;
             }
         }
     }
@@ -50,10 +50,10 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.hRA.onChangeSkinType(i);
+        this.hTy.onChangeSkinType(i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class CheckTask extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         private CheckTask() {
         }
@@ -61,7 +61,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            ImageProblemActivity.this.hRA.start();
+            ImageProblemActivity.this.hTy.start();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,19 +70,19 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: c */
         public BdStatSwitchData doInBackground(Object... objArr) {
             publishProgress(0);
-            ImageProblemActivity.this.hRB.networkCheck();
+            ImageProblemActivity.this.hTz.networkCheck();
             publishProgress(1);
-            ImageProblemActivity.this.hRB.checkDNSIP();
+            ImageProblemActivity.this.hTz.checkDNSIP();
             publishProgress(2);
-            ImageProblemActivity.this.hRB.checkProxyIP();
+            ImageProblemActivity.this.hTz.checkProxyIP();
             publishProgress(3);
-            ImageProblemActivity.this.hRB.networkTest();
+            ImageProblemActivity.this.hTz.networkTest();
             publishProgress(4);
-            ImageProblemActivity.this.hRB.checkSetting();
+            ImageProblemActivity.this.hTz.checkSetting();
             publishProgress(5);
-            ImageProblemActivity.this.hRB.checkLoadImg();
+            ImageProblemActivity.this.hTz.checkLoadImg();
             publishProgress(6);
-            ImageProblemActivity.this.hRB.fix();
+            ImageProblemActivity.this.hTz.fix();
             publishProgress(7);
             return null;
         }
@@ -92,7 +92,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate((Object[]) numArr);
-            ImageProblemActivity.this.hRA.setValue(numArr[0].intValue(), ImageProblemActivity.this.hRB.Zm);
+            ImageProblemActivity.this.hTy.setValue(numArr[0].intValue(), ImageProblemActivity.this.hTz.abf);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,9 +101,9 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: a */
         public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
             super.onPostExecute(bdStatSwitchData);
-            ImageProblemActivity.this.hRA.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(R.string.diagnose));
-            ImageProblemActivity.this.hRA.complete();
-            ImageProblemActivity.this.hRC = null;
+            ImageProblemActivity.this.hTy.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(R.string.diagnose));
+            ImageProblemActivity.this.hTy.complete();
+            ImageProblemActivity.this.hTA = null;
         }
     }
 }

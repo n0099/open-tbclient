@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class BDLocation implements Parcelable {
     public static final String BDLOCATION_BD09LL_TO_GCJ02 = "bd09ll2gcj";
     public static final String BDLOCATION_BD09_TO_GCJ02 = "bd092gcj";
@@ -1006,13 +1006,13 @@ public final class BDLocation implements Parcelable {
             case 66:
                 setLocTypeDescription("Offline location successful!");
                 return;
-            case TypeNetWorkLocation /* 161 */:
+            case 161:
                 setLocTypeDescription("NetWork location successful!");
                 return;
-            case TypeServerDecryptError /* 162 */:
+            case 162:
                 setLocTypeDescription("NetWork location failed because baidu location service can not decrypt the request query, please check the so file !");
                 return;
-            case TypeServerError /* 167 */:
+            case 167:
                 setLocTypeDescription("NetWork location failed because baidu location service can not caculate the location!");
                 return;
             case 505:

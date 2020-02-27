@@ -5,20 +5,20 @@ import java.io.FileInputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class e {
-    private static final char[] Ti = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    private static final char[] Tj = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] UN = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] UO = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static String cD(String str) {
+    public static String cL(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes("UTF-8"));
-            return m(messageDigest.digest());
+            return r(messageDigest.digest());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return str;
@@ -28,11 +28,11 @@ public class e {
         }
     }
 
-    private static String m(byte[] bArr) {
+    private static String r(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
-            sb.append(Tj[(b & 240) >> 4]);
-            sb.append(Tj[b & 15]);
+            sb.append(UO[(b & 240) >> 4]);
+            sb.append(UO[b & 15]);
         }
         return sb.toString();
     }

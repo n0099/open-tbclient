@@ -3,41 +3,41 @@ package com.baidu.browser.core.permission;
 import com.baidu.k.a.a;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static a Ir = new a();
-    private Map<Integer, a.InterfaceC0072a> Iq = new HashMap();
+    private static a IQ = new a();
+    private Map<Integer, a.InterfaceC0078a> IP = new HashMap();
 
     private a() {
     }
 
-    public static a mm() {
-        return Ir;
+    public static a mB() {
+        return IQ;
     }
 
-    public void a(int i, a.InterfaceC0072a interfaceC0072a) {
-        if (this.Iq != null) {
+    public void a(int i, a.InterfaceC0078a interfaceC0078a) {
+        if (this.IP != null) {
             synchronized (a.class) {
-                if (this.Iq.containsKey(Integer.valueOf(i))) {
-                    this.Iq.remove(Integer.valueOf(i));
+                if (this.IP.containsKey(Integer.valueOf(i))) {
+                    this.IP.remove(Integer.valueOf(i));
                 }
-                this.Iq.put(Integer.valueOf(i), interfaceC0072a);
+                this.IP.put(Integer.valueOf(i), interfaceC0078a);
             }
         }
     }
 
-    public void aF(int i) {
+    public void aI(int i) {
         synchronized (a.class) {
-            if (this.Iq != null && this.Iq.containsKey(Integer.valueOf(i))) {
-                this.Iq.remove(Integer.valueOf(i));
+            if (this.IP != null && this.IP.containsKey(Integer.valueOf(i))) {
+                this.IP.remove(Integer.valueOf(i));
             }
         }
     }
 
-    public a.InterfaceC0072a aG(int i) {
-        if (this.Iq == null || !this.Iq.containsKey(Integer.valueOf(i))) {
+    public a.InterfaceC0078a aJ(int i) {
+        if (this.IP == null || !this.IP.containsKey(Integer.valueOf(i))) {
             return null;
         }
-        return this.Iq.get(Integer.valueOf(i));
+        return this.IP.get(Integer.valueOf(i));
     }
 }

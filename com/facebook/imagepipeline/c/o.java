@@ -1,38 +1,38 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class o<K, V> implements p<K, V> {
-    private final p<K, V> lQC;
-    private final r lQD;
+    private final p<K, V> lRj;
+    private final r lRk;
 
     public o(p<K, V> pVar, r rVar) {
-        this.lQC = pVar;
-        this.lQD = rVar;
+        this.lRj = pVar;
+        this.lRk = rVar;
     }
 
     @Override // com.facebook.imagepipeline.c.p
-    public com.facebook.common.references.a<V> bl(K k) {
-        com.facebook.common.references.a<V> bl = this.lQC.bl(k);
-        if (bl == null) {
-            this.lQD.dmC();
+    public com.facebook.common.references.a<V> bn(K k) {
+        com.facebook.common.references.a<V> bn = this.lRj.bn(k);
+        if (bn == null) {
+            this.lRk.dnP();
         } else {
-            this.lQD.bi(k);
+            this.lRk.bk(k);
         }
-        return bl;
+        return bn;
     }
 
     @Override // com.facebook.imagepipeline.c.p
     public com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar) {
-        this.lQD.dmD();
-        return this.lQC.a(k, aVar);
+        this.lRk.dnQ();
+        return this.lRj.a(k, aVar);
     }
 
     @Override // com.facebook.imagepipeline.c.p
     public int c(com.facebook.common.internal.h<K> hVar) {
-        return this.lQC.c(hVar);
+        return this.lRj.c(hVar);
     }
 
     @Override // com.facebook.imagepipeline.c.p
     public boolean d(com.facebook.common.internal.h<K> hVar) {
-        return this.lQC.d(hVar);
+        return this.lRj.d(hVar);
     }
 }

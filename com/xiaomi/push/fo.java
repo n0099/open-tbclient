@@ -1,9 +1,10 @@
 package com.xiaomi.push;
 
+import com.alibaba.fastjson.asm.Opcodes;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class fo {
     public static int a(Throwable th) {
         Throwable a = (!(th instanceof fx) || ((fx) th).a() == null) ? th : ((fx) th).a();
@@ -40,7 +41,10 @@ public class fo {
             if (message.indexOf("No route to host") != -1) {
                 return 104;
             }
-            return message.endsWith("EINVAL (Invalid argument)") ? 106 : 199;
+            if (message.endsWith("EINVAL (Invalid argument)")) {
+                return 106;
+            }
+            return Opcodes.IFNONNULL;
         }
     }
 }

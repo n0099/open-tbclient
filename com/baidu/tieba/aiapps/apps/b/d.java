@@ -16,40 +16,40 @@ import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class d {
-    public static String bfp = "https://mbd.baidu.com";
+    public static String bjD = "https://mbd.baidu.com";
 
     public static String processCommonParams(String str) {
-        String ca = ca(getDeviceInfo());
-        String ca2 = ca(getUid());
-        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", ca2), j.c, ca(nq())), "ut", ca), "osbranch", IT()), "pkgname", getPkgName()), "network", IS()), "appname", getAppName());
+        String ci = ci(getDeviceInfo());
+        String ci2 = ci(getUid());
+        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", ci2), j.c, ci(nY())), "ut", ci), "osbranch", Li()), "pkgname", getPkgName()), "network", Lh()), "appname", getAppName());
     }
 
-    public static String IS() {
-        return IZ() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + IY();
+    public static String Lh() {
+        return Lo() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Ln();
     }
 
-    public static String IT() {
+    public static String Li() {
         return "a0";
     }
 
     public static String getUid() {
-        return com.baidu.swan.apps.w.a.RL().bn(AppRuntime.getAppContext());
+        return com.baidu.swan.apps.w.a.TZ().br(AppRuntime.getAppContext());
     }
 
-    public static String nq() {
+    public static String nY() {
         Context appContext = AppRuntime.getAppContext();
         int displayWidth = af.getDisplayWidth(appContext);
         int displayHeight = af.getDisplayHeight(appContext);
         int densityDpi = af.getDensityDpi(appContext);
-        String IU = IU();
+        String Lj = Lj();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(displayHeight);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(IU);
+        stringBuffer.append(Lj);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(ai.getVersionName());
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -57,7 +57,7 @@ public class d {
         return stringBuffer.toString();
     }
 
-    public static String IU() {
+    public static String Lj() {
         return PraiseDataPassUtil.KEY_FROM_OS;
     }
 
@@ -67,12 +67,12 @@ public class d {
 
     public static String getDeviceInfo() {
         String deviceModel = getDeviceModel();
-        String IW = IW();
+        String Ll = Ll();
         int i = Build.VERSION.SDK_INT;
-        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + IW + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + IV();
+        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Ll + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Lk();
     }
 
-    public static String IV() {
+    public static String Lk() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -80,7 +80,7 @@ public class d {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String IW() {
+    public static String Ll() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -140,7 +140,7 @@ public class d {
         return str;
     }
 
-    public static String ca(String str) {
+    public static String ci(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -153,22 +153,22 @@ public class d {
     }
 
     private static String getAppName() {
-        return com.baidu.swan.apps.w.a.Sr().getHostName();
+        return com.baidu.swan.apps.w.a.UF().getHostName();
     }
 
-    private static int IY() {
-        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.w.a.RG());
+    private static int Ln() {
+        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.w.a.TU());
         if (activeNetworkInfo == null) {
             return 0;
         }
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int IZ() {
+    private static int Lo() {
         NetworkInfo networkInfo;
         String str = null;
         try {
-            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.w.a.RG().getSystemService("connectivity")).getActiveNetworkInfo();
+            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.w.a.TU().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (NullPointerException e) {
             networkInfo = null;
         }

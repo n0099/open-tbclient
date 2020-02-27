@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class MediaBrowserServiceCompat extends Service {
     private static final float EPSILON = 1.0E-5f;
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -59,7 +59,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
     final ArrayMap<IBinder, ConnectionRecord> mConnections = new ArrayMap<>();
     final ServiceHandler mHandler = new ServiceHandler();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface MediaBrowserServiceImpl {
         Bundle getBrowserRootHints();
 
@@ -74,12 +74,12 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private @interface ResultFlags {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface ServiceCallbacks {
         IBinder asBinder();
 
@@ -95,7 +95,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     public abstract void onLoadChildren(@NonNull String str, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class MediaBrowserServiceImplBase implements MediaBrowserServiceImpl {
         private Messenger mMessenger;
 
@@ -167,7 +167,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class MediaBrowserServiceImplApi21 implements MediaBrowserServiceImpl, MediaBrowserServiceCompatApi21.ServiceCompatProxy {
         Messenger mMessenger;
         final List<Bundle> mRootExtrasList = new ArrayList();
@@ -310,7 +310,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class MediaBrowserServiceImplApi23 extends MediaBrowserServiceImplApi21 implements MediaBrowserServiceCompatApi23.ServiceCompatProxy {
         MediaBrowserServiceImplApi23() {
             super();
@@ -347,7 +347,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
     }
 
     @RequiresApi(26)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class MediaBrowserServiceImplApi26 extends MediaBrowserServiceImplApi23 implements MediaBrowserServiceCompatApi26.ServiceCompatProxy {
         MediaBrowserServiceImplApi26() {
             super();
@@ -408,7 +408,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public final class ServiceHandler extends Handler {
         private final ServiceBinderImpl mServiceBinderImpl;
 
@@ -471,7 +471,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class ConnectionRecord implements IBinder.DeathRecipient {
         ServiceCallbacks callbacks;
         String pkg;
@@ -493,7 +493,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Result<T> {
         private final Object mDebug;
         private boolean mDetachCalled;
@@ -577,7 +577,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class ServiceBinderImpl {
         ServiceBinderImpl() {
         }
@@ -741,7 +741,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class ServiceCallbacksCompat implements ServiceCallbacks {
         final Messenger mCallbacks;
 
@@ -1049,7 +1049,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class BrowserRoot {
         public static final String EXTRA_OFFLINE = "android.service.media.extra.OFFLINE";
         public static final String EXTRA_RECENT = "android.service.media.extra.RECENT";

@@ -19,15 +19,15 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushMessageHandler extends BaseService {
     private static List<MiPushClient.MiPushClientCallback> a = new ArrayList();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ThreadPoolExecutor f35a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    private static ThreadPoolExecutor f32a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a extends Serializable {
     }
 
@@ -52,7 +52,7 @@ public class PushMessageHandler extends BaseService {
         try {
             context.startService(intent);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m42a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m47a(e.getMessage());
         }
     }
 
@@ -91,18 +91,18 @@ public class PushMessageHandler extends BaseService {
         } else if (aVar instanceof MiPushCommandMessage) {
             MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) aVar;
             String command = miPushCommandMessage.getCommand();
-            if (fa.COMMAND_REGISTER.f336a.equals(command)) {
+            if (fa.COMMAND_REGISTER.f333a.equals(command)) {
                 List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                 if (commandArguments != null && !commandArguments.isEmpty()) {
                     str = commandArguments.get(0);
                 }
                 a(miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
-            } else if (fa.COMMAND_SET_ALIAS.f336a.equals(command) || fa.COMMAND_UNSET_ALIAS.f336a.equals(command) || fa.COMMAND_SET_ACCEPT_TIME.f336a.equals(command)) {
+            } else if (fa.COMMAND_SET_ALIAS.f333a.equals(command) || fa.COMMAND_UNSET_ALIAS.f333a.equals(command) || fa.COMMAND_SET_ACCEPT_TIME.f333a.equals(command)) {
                 a(context, miPushCommandMessage.getCategory(), command, miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), miPushCommandMessage.getCommandArguments());
-            } else if (fa.COMMAND_SUBSCRIBE_TOPIC.f336a.equals(command)) {
+            } else if (fa.COMMAND_SUBSCRIBE_TOPIC.f333a.equals(command)) {
                 List<String> commandArguments2 = miPushCommandMessage.getCommandArguments();
                 a(context, miPushCommandMessage.getCategory(), miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), (commandArguments2 == null || commandArguments2.isEmpty()) ? null : commandArguments2.get(0));
-            } else if (fa.COMMAND_UNSUBSCRIBE_TOPIC.f336a.equals(command)) {
+            } else if (fa.COMMAND_UNSUBSCRIBE_TOPIC.f333a.equals(command)) {
                 List<String> commandArguments3 = miPushCommandMessage.getCommandArguments();
                 b(context, miPushCommandMessage.getCategory(), miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), (commandArguments3 == null || commandArguments3.isEmpty()) ? null : commandArguments3.get(0));
             }
@@ -214,16 +214,16 @@ public class PushMessageHandler extends BaseService {
     }
 
     private static void c(Context context, Intent intent) {
-        if (intent == null || f35a.isShutdown()) {
+        if (intent == null || f32a.isShutdown()) {
             return;
         }
-        f35a.execute(new au(context, intent));
+        f32a.execute(new au(context, intent));
     }
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    protected boolean mo56a() {
-        return (f35a == null || f35a.getQueue() == null || f35a.getQueue().size() <= 0) ? false : true;
+    protected boolean mo61a() {
+        return (f32a == null || f32a.getQueue() == null || f32a.getQueue().size() <= 0) ? false : true;
     }
 
     @Override // com.xiaomi.mipush.sdk.BaseService, android.app.Service

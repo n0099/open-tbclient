@@ -1,68 +1,68 @@
 package com.baidu.g.b;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static volatile a aEm;
-    private com.baidu.g.a.b.a.b aEn;
-    private com.baidu.g.a.a.a aEo;
-    private com.baidu.g.a.c.a aEp;
-    private com.baidu.g.a.d.a aEq;
-    private b aEr;
+    private static volatile a aIs;
+    private com.baidu.g.a.b.a.b aIt;
+    private com.baidu.g.a.a.a aIu;
+    private com.baidu.g.a.c.a aIv;
+    private com.baidu.g.a.d.a aIw;
+    private b aIx;
     private Context mContext;
 
     private a(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static a aL(Context context) {
-        if (aEm == null) {
+    public static a aP(Context context) {
+        if (aIs == null) {
             synchronized (a.class) {
-                if (aEm == null) {
-                    aEm = new a(context);
+                if (aIs == null) {
+                    aIs = new a(context);
                 }
             }
         }
-        return aEm;
+        return aIs;
     }
 
-    public com.baidu.g.a.b.a.b zx() {
-        return this.aEn;
+    public com.baidu.g.a.b.a.b BN() {
+        return this.aIt;
     }
 
     public void a(com.baidu.g.a.b.a.b bVar) {
-        this.aEn = bVar;
+        this.aIt = bVar;
     }
 
-    public com.baidu.g.a.a.a zy() {
-        return this.aEo;
+    public com.baidu.g.a.a.a BO() {
+        return this.aIu;
     }
 
     public void a(com.baidu.g.a.a.a aVar) {
-        this.aEo = aVar;
+        this.aIu = aVar;
     }
 
-    public com.baidu.g.a.c.a zz() {
-        return this.aEp;
+    public com.baidu.g.a.c.a BP() {
+        return this.aIv;
     }
 
     public void a(com.baidu.g.a.c.a aVar) {
-        this.aEp = aVar;
+        this.aIv = aVar;
     }
 
-    public com.baidu.g.a.d.a zA() {
-        return this.aEq;
+    public com.baidu.g.a.d.a BQ() {
+        return this.aIw;
     }
 
     public void a(com.baidu.g.a.d.a aVar) {
-        this.aEq = aVar;
+        this.aIw = aVar;
     }
 
-    public b zB() {
-        return this.aEr;
+    public b BR() {
+        return this.aIx;
     }
 
     public void a(b bVar) {
-        this.aEr = bVar;
+        this.aIx = bVar;
     }
 }

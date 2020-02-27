@@ -1,9 +1,9 @@
 package com.baidu.live.gift;
+/* loaded from: classes3.dex */
+public interface v {
+    void release();
 
-import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
-public class v {
-    public boolean adF;
-    public String fromType;
-    public TbPageContext pageContext;
+    void sK();
+
+    void sL();
 }

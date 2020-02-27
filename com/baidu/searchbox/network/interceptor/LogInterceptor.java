@@ -18,15 +18,14 @@ import java.nio.charset.UnsupportedCharsetException;
 import java.util.concurrent.TimeUnit;
 import okio.Buffer;
 import okio.BufferedSource;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LogInterceptor implements Interceptor {
     private static final String TAG = "http";
     private static final Charset UTF8 = Charset.forName("UTF-8");
     private volatile Level level;
     private final Logger logger;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public enum Level {
         NONE,
         BASIC,
@@ -34,7 +33,7 @@ public class LogInterceptor implements Interceptor {
         BODY
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface Logger {
         void log(String str);
     }
@@ -207,10 +206,10 @@ public class LogInterceptor implements Interceptor {
 
     private boolean bodyEncoded(Headers headers) {
         String str = headers.get("Content-Encoding");
-        return (str == null || str.equalsIgnoreCase(HTTP.IDENTITY_CODING)) ? false : true;
+        return (str == null || str.equalsIgnoreCase("identity")) ? false : true;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class DefaultLogger implements Logger {
         private String tag;
 

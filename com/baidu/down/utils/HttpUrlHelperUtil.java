@@ -1,11 +1,10 @@
 package com.baidu.down.utils;
 
-import com.baidu.down.manage.DownloadConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URLEncoder;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HttpUrlHelperUtil {
     static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, com.baidu.android.imsdk.internal.Constants.SHORT_PING_CMD_TYPE, 102};
 
@@ -112,7 +111,7 @@ public class HttpUrlHelperUtil {
         if (i < 128) {
             bArr = new byte[]{(byte) i};
         } else if (i < 2048) {
-            bArr = new byte[]{(byte) ((i >> 6) | DownloadConstants.STATUS_RUNNING), (byte) ((i & 63) | 128)};
+            bArr = new byte[]{(byte) ((i >> 6) | 192), (byte) ((i & 63) | 128)};
         } else if (i < 65536) {
             if (i >= 55296 && i <= 57343) {
                 throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i));
@@ -131,7 +130,7 @@ public class HttpUrlHelperUtil {
             return new byte[]{(byte) i};
         }
         if (i < 2048) {
-            return new byte[]{(byte) ((i >> 6) | DownloadConstants.STATUS_RUNNING), (byte) ((i & 63) | 128)};
+            return new byte[]{(byte) ((i >> 6) | 192), (byte) ((i & 63) | 128)};
         }
         if (i < 65536) {
             if (i < 55296 || i > 57343) {

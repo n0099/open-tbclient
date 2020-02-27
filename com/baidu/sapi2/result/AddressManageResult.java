@@ -1,7 +1,7 @@
 package com.baidu.sapi2.result;
 
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AddressManageResult extends SapiResult {
     public static final String KEY_ADDR_ID = "addrId";
     public static final String KEY_ADDR_INFO = "addrInfo";

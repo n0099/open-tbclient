@@ -3,78 +3,78 @@ package org.java_websocket.framing;
 import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode nLK;
-    private ByteBuffer nLL = org.java_websocket.e.b.dMu();
-    private boolean nLJ = true;
-    private boolean nLM = false;
-    private boolean nLN = false;
-    private boolean nLO = false;
-    private boolean nLP = false;
+    private Framedata.Opcode nMz;
+    private ByteBuffer nMA = org.java_websocket.e.b.dNH();
+    private boolean nMy = true;
+    private boolean nMB = false;
+    private boolean nMC = false;
+    private boolean nMD = false;
+    private boolean nME = false;
 
-    public abstract void dMj() throws InvalidDataException;
+    public abstract void dNw() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.nLK = opcode;
+        this.nMz = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dMm() {
-        return this.nLN;
+    public boolean dNz() {
+        return this.nMC;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dMn() {
-        return this.nLO;
+    public boolean dNA() {
+        return this.nMD;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dMo() {
-        return this.nLP;
+    public boolean dNB() {
+        return this.nME;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean JY() {
-        return this.nLJ;
+    public boolean Mn() {
+        return this.nMy;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode dMp() {
-        return this.nLK;
+    public Framedata.Opcode dNC() {
+        return this.nMz;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer dMl() {
-        return this.nLL;
+    public ByteBuffer dNy() {
+        return this.nMA;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + dMp() + ", fin:" + JY() + ", rsv1:" + dMm() + ", rsv2:" + dMn() + ", rsv3:" + dMo() + ", payloadlength:[pos:" + this.nLL.position() + ", len:" + this.nLL.remaining() + "], payload:" + (this.nLL.remaining() > 1000 ? "(too big to display)" : new String(this.nLL.array())) + '}';
+        return "Framedata{ optcode:" + dNC() + ", fin:" + Mn() + ", rsv1:" + dNz() + ", rsv2:" + dNA() + ", rsv3:" + dNB() + ", payloadlength:[pos:" + this.nMA.position() + ", len:" + this.nMA.remaining() + "], payload:" + (this.nMA.remaining() > 1000 ? "(too big to display)" : new String(this.nMA.array())) + '}';
     }
 
     public void u(ByteBuffer byteBuffer) {
-        this.nLL = byteBuffer;
+        this.nMA = byteBuffer;
     }
 
-    public void cc(boolean z) {
-        this.nLJ = z;
-    }
-
-    public void wR(boolean z) {
-        this.nLN = z;
-    }
-
-    public void wS(boolean z) {
-        this.nLO = z;
-    }
-
-    public void wT(boolean z) {
-        this.nLP = z;
+    public void cj(boolean z) {
+        this.nMy = z;
     }
 
     public void wU(boolean z) {
-        this.nLM = z;
+        this.nMC = z;
+    }
+
+    public void wV(boolean z) {
+        this.nMD = z;
+    }
+
+    public void wW(boolean z) {
+        this.nME = z;
+    }
+
+    public void wX(boolean z) {
+        this.nMB = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.nLJ == fVar.nLJ && this.nLM == fVar.nLM && this.nLN == fVar.nLN && this.nLO == fVar.nLO && this.nLP == fVar.nLP && this.nLK == fVar.nLK) {
-            if (this.nLL != null) {
-                z = this.nLL.equals(fVar.nLL);
-            } else if (fVar.nLL != null) {
+        if (this.nMy == fVar.nMy && this.nMB == fVar.nMB && this.nMC == fVar.nMC && this.nMD == fVar.nMD && this.nME == fVar.nME && this.nMz == fVar.nMz) {
+            if (this.nMA != null) {
+                z = this.nMA.equals(fVar.nMA);
+            } else if (fVar.nMA != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.nLO ? 1 : 0) + (((this.nLN ? 1 : 0) + (((this.nLM ? 1 : 0) + (((this.nLL != null ? this.nLL.hashCode() : 0) + ((((this.nLJ ? 1 : 0) * 31) + this.nLK.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.nLP ? 1 : 0);
+        return (((this.nMD ? 1 : 0) + (((this.nMC ? 1 : 0) + (((this.nMB ? 1 : 0) + (((this.nMA != null ? this.nMA.hashCode() : 0) + ((((this.nMy ? 1 : 0) * 31) + this.nMz.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.nME ? 1 : 0);
     }
 }

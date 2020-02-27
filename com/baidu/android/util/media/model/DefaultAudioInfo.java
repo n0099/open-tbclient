@@ -3,7 +3,7 @@ package com.baidu.android.util.media.model;
 import com.baidu.android.util.media.annotations.ColumnName;
 import com.baidu.android.util.media.annotations.MediaQueryParam;
 @MediaQueryParam(sortBy = "date_added", sortType = MediaQueryParam.SORT_DESC)
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DefaultAudioInfo extends MediaInfo {
     @ColumnName("duration")
     public long duration;

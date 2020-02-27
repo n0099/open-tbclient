@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FrsAlaStageLiveViewPager extends ViewPager {
     public FrsAlaStageLiveViewPager(Context context) {
         super(context);

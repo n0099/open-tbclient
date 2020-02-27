@@ -1,11 +1,11 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface b {
-    void Z(File file);
-
-    void aa(File file);
-
     void ab(File file);
+
+    void ac(File file);
+
+    void ad(File file);
 }

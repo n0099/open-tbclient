@@ -4,18 +4,18 @@ import android.content.Context;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class he {
     private static he a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Context f453a;
+    private final Context f450a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, hf> f454a = new HashMap();
+    private Map<String, hf> f451a = new HashMap();
 
     private he(Context context) {
-        this.f453a = context;
+        this.f450a = context;
     }
 
     public static he a(Context context) {
@@ -42,17 +42,17 @@ public class he {
         hkVar.a(true);
         hkVar.a("push_sdk_channel");
         hkVar.e(str2);
-        com.xiaomi.channel.commonutils.logger.b.m42a("TinyData TinyDataManager.upload item:" + hkVar.d() + "   ts:" + System.currentTimeMillis());
+        com.xiaomi.channel.commonutils.logger.b.m47a("TinyData TinyDataManager.upload item:" + hkVar.d() + "   ts:" + System.currentTimeMillis());
         return a(hkVar, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public hf a() {
-        hf hfVar = this.f454a.get("UPLOADER_PUSH_CHANNEL");
+        hf hfVar = this.f451a.get("UPLOADER_PUSH_CHANNEL");
         if (hfVar != null) {
             return hfVar;
         }
-        hf hfVar2 = this.f454a.get("UPLOADER_HTTP");
+        hf hfVar2 = this.f451a.get("UPLOADER_HTTP");
         if (hfVar2 == null) {
             return null;
         }
@@ -60,8 +60,8 @@ public class he {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    Map<String, hf> m326a() {
-        return this.f454a;
+    Map<String, hf> m331a() {
+        return this.f451a;
     }
 
     public void a(hf hfVar, String str) {
@@ -70,13 +70,13 @@ public class he {
         } else if (TextUtils.isEmpty(str)) {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
         } else {
-            m326a().put(str, hfVar);
+            m331a().put(str, hfVar);
         }
     }
 
     public boolean a(hk hkVar, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m47a("pkgName is null or empty, upload ClientUploadDataItem failed.");
             return false;
         } else if (com.xiaomi.push.service.be.a(hkVar, false)) {
             return false;
@@ -85,12 +85,12 @@ public class he {
                 hkVar.f(com.xiaomi.push.service.be.a());
             }
             hkVar.g(str);
-            com.xiaomi.push.service.bf.a(this.f453a, hkVar);
+            com.xiaomi.push.service.bf.a(this.f450a, hkVar);
             return true;
         }
     }
 
     public boolean a(String str, String str2, long j, String str3) {
-        return a(this.f453a.getPackageName(), this.f453a.getPackageName(), str, str2, j, str3);
+        return a(this.f450a.getPackageName(), this.f450a.getPackageName(), str, str2, j, str3);
     }
 }

@@ -6,7 +6,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultWebViewClient extends BaseWebViewClient {
     public DefaultWebViewClient(WebViewRequestCallback webViewRequestCallback, BaseWebViewRequestParam baseWebViewRequestParam) {
         super(webViewRequestCallback, baseWebViewRequestParam);

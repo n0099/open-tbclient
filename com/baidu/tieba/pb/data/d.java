@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb.data;
-
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes7.dex */
-public class d extends PostData {
+/* loaded from: classes9.dex */
+public class d {
+    public String forumName;
+    public String iBu;
+    public String source;
 }

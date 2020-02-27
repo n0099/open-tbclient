@@ -6,13 +6,13 @@ import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidubce.AbstractBceClient;
 import okhttp3.MediaType;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
     public static void b(JSONObject jSONObject, ResponseCallback responseCallback) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(f.processCommonParams(SB())).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).cookieManager(com.baidu.swan.config.e.agI().SK()).build().executeAsync(responseCallback);
+        HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(f.processCommonParams(UP())).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).cookieManager(com.baidu.swan.config.e.aiW().UY()).build().executeAsync(responseCallback);
     }
 
-    private static String SB() {
-        return String.format("%s/fetchbasedata", com.baidu.swan.config.e.agI().SN());
+    private static String UP() {
+        return String.format("%s/fetchbasedata", com.baidu.swan.config.e.aiW().Vb());
     }
 }

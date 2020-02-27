@@ -1,33 +1,39 @@
 package com.baidu.live.ar;
 
 import com.baidu.live.adp.BdUniqueId;
+import com.baidu.live.tbadk.core.data.BaseData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
-public class AlaFilterAndBeautyData {
-    public static HashMap<BeautyAdjustKey, b> Ub = new HashMap<>();
-    public a TY;
-    public List<Object> TZ = new ArrayList();
-    public HashMap<String, Object> Ua = new HashMap<>();
-    public BdUniqueId Uc;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class AlaFilterAndBeautyData extends BaseData {
+    public static HashMap<BeautyAdjustKey, b> VL = new HashMap<>();
+    public a VI;
+    public List<Object> VJ = new ArrayList();
+    public HashMap<String, Object> VK = new HashMap<>();
+    public BdUniqueId VM;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        public int Ue;
+        public int VN;
         public String mText;
     }
 
-    /* loaded from: classes2.dex */
-    public static class b {
-        HashMap<String, Object> Uf;
+    @Override // com.baidu.live.tbadk.core.data.BaseData
+    public void parserJson(JSONObject jSONObject) {
+    }
 
-        public HashMap<String, Object> oN() {
-            return this.Uf;
+    /* loaded from: classes3.dex */
+    public static class b {
+        HashMap<String, Object> VO;
+
+        public HashMap<String, Object> py() {
+            return this.VO;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BeautyAdjustKey {
         whiten("whiten_slider", "white_percent"),
         smooth("smooth_slider", "blur_level"),

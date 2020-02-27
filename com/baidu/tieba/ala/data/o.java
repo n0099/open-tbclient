@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.data;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class o extends HttpMessage {
-    private long ewe;
-    private long ewf;
-    private String ewg;
+    private long eAp;
+    private long eAq;
+    private String eAr;
     private String liveId;
     private String roomId;
 
@@ -13,30 +13,30 @@ public class o extends HttpMessage {
         super(1021159);
     }
 
-    public void cH(long j) {
-        this.ewe = j;
+    public void cK(long j) {
+        this.eAp = j;
     }
 
-    public void cI(long j) {
-        this.ewf = j;
+    public void cL(long j) {
+        this.eAq = j;
     }
 
-    public void xM(String str) {
-        this.ewg = str;
+    public void yg(String str) {
+        this.eAr = str;
     }
 
-    public void dD(String str) {
+    public void dO(String str) {
         this.liveId = str;
     }
 
-    public void dE(String str) {
+    public void dP(String str) {
         this.roomId = str;
     }
 
     public void setParams() {
-        addParam("red_packet_balance", this.ewe);
-        addParam("red_packet_num", this.ewf);
-        addParam("condition", this.ewg);
+        addParam("red_packet_balance", this.eAp);
+        addParam("red_packet_num", this.eAq);
+        addParam("condition", this.eAr);
         addParam("live_id", this.liveId);
         addParam("room_id", this.roomId);
     }

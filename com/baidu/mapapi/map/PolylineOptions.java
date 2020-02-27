@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class PolylineOptions extends OverlayOptions {
     int a;
     Bundle d;

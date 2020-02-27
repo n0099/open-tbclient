@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView gOJ;
-    private ShareFromPBMsgData hIS;
-    private TextView hny;
+    private HeadImageView gQJ;
+    private ShareFromPBMsgData hKR;
+    private TextView hpy;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(R.id.chat_title);
-        this.gOJ = (HeadImageView) findViewById(R.id.chat_group_img);
-        this.hny = (TextView) findViewById(R.id.chat_group_desc);
+        this.gQJ = (HeadImageView) findViewById(R.id.chat_group_img);
+        this.hpy = (TextView) findViewById(R.id.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-            this.hny.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.hpy.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.hny.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.hpy.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.hIS = shareFromPBMsgData;
+        this.hKR = shareFromPBMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.hIS.getTitle());
-        this.gOJ.setPlaceHolder(1);
-        this.gOJ.setAutoChangeStyle(false);
-        this.gOJ.startLoad(this.hIS.getImageUrl(), 10, false);
-        this.hny.setText(this.hIS.getContent());
+        this.title.setText(this.hKR.getTitle());
+        this.gQJ.setPlaceHolder(1);
+        this.gQJ.setAutoChangeStyle(false);
+        this.gQJ.startLoad(this.hKR.getImageUrl(), 10, false);
+        this.hpy.setText(this.hKR.getContent());
     }
 }

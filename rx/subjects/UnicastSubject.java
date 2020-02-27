@@ -14,9 +14,9 @@ import rx.internal.util.a.x;
 import rx.internal.util.a.y;
 import rx.j;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> nTp;
+    final State<T> nUd;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -24,25 +24,25 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.nTp = state;
+        this.nUd = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.nTp.onNext(t);
+        this.nUd.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.nTp.onError(th);
+        this.nUd.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.nTp.onCompleted();
+        this.nUd.onCompleted();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class State<T> extends AtomicLong implements d.a<T>, e<T>, f, k {
         private static final long serialVersionUID = -9044104859202255786L;
         volatile boolean caughtUp;
@@ -63,9 +63,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.dNA() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.dON() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.dNA() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.dON() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }
@@ -211,7 +211,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                                         j3 = 1 + j;
                                     } catch (Throwable th) {
                                         queue.clear();
-                                        rx.exceptions.a.I(th);
+                                        rx.exceptions.a.H(th);
                                         jVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                         return;
                                     }

@@ -4,139 +4,139 @@ import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements SharedPreferences {
-    private a HH;
-    private e HI;
+    private a Ic;
+    private e Id;
     private String mName;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
         this.mName = str;
-        this.HI = e.bE(this.mName);
+        this.Id = e.bG(this.mName);
     }
 
     @Override // android.content.SharedPreferences
     public Map<String, ?> getAll() {
-        return this.HI.getAll();
+        return this.Id.getAll();
     }
 
     @Override // android.content.SharedPreferences
     @Nullable
     public String getString(String str, @Nullable String str2) {
-        return this.HI.getString(str, str2);
+        return this.Id.getString(str, str2);
     }
 
     @Override // android.content.SharedPreferences
     @Nullable
     public Set<String> getStringSet(String str, @Nullable Set<String> set) {
-        return this.HI.getStringSet(str, set);
+        return this.Id.getStringSet(str, set);
     }
 
     @Override // android.content.SharedPreferences
     public int getInt(String str, int i) {
-        return this.HI.getInt(str, i);
+        return this.Id.getInt(str, i);
     }
 
     @Override // android.content.SharedPreferences
     public long getLong(String str, long j) {
-        return this.HI.getLong(str, j);
+        return this.Id.getLong(str, j);
     }
 
     @Override // android.content.SharedPreferences
     public float getFloat(String str, float f) {
-        return this.HI.getFloat(str, f);
+        return this.Id.getFloat(str, f);
     }
 
     @Override // android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
-        return this.HI.getBoolean(str, z);
+        return this.Id.getBoolean(str, z);
     }
 
     @Override // android.content.SharedPreferences
     public boolean contains(String str) {
-        return this.HI.contains(str);
+        return this.Id.contains(str);
     }
 
     @Override // android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
-        if (this.HH == null) {
-            this.HH = new a();
+        if (this.Ic == null) {
+            this.Ic = new a();
         }
-        return this.HH;
+        return this.Ic;
     }
 
     @Override // android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.HI.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.Id.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     @Override // android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.HI.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.Id.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private class a implements SharedPreferences.Editor {
         private a() {
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putString(String str, @Nullable String str2) {
-            c.this.HI.putString(str, str2);
+            c.this.Id.putString(str, str2);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
-            c.this.HI.putStringSet(str, set);
+            c.this.Id.putStringSet(str, set);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putInt(String str, int i) {
-            c.this.HI.putInt(str, i);
+            c.this.Id.putInt(str, i);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putLong(String str, long j) {
-            c.this.HI.putLong(str, j);
+            c.this.Id.putLong(str, j);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putFloat(String str, float f) {
-            c.this.HI.putFloat(str, f);
+            c.this.Id.putFloat(str, f);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putBoolean(String str, boolean z) {
-            c.this.HI.putBoolean(str, z);
+            c.this.Id.putBoolean(str, z);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor remove(String str) {
-            c.this.HI.remove(str);
+            c.this.Id.remove(str);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor clear() {
-            c.this.HI.clear();
+            c.this.Id.clear();
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public boolean commit() {
-            return c.this.HI.commit();
+            return c.this.Id.commit();
         }
 
         @Override // android.content.SharedPreferences.Editor
         public void apply() {
-            c.this.HI.apply();
+            c.this.Id.apply();
         }
     }
 }

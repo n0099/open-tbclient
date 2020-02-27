@@ -5,7 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.view.View;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a extends b {
     @Override // com.kascend.chushou.widget.dispalymenu.b
     public int a(int i, int i2) {
@@ -33,7 +33,7 @@ public class a extends b {
     }
 
     @Override // com.kascend.chushou.widget.dispalymenu.b
-    public int eg(int i, int i2) {
+    public int ej(int i, int i2) {
         return i2;
     }
 

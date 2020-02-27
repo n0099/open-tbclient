@@ -6,11 +6,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class q extends v.a {
-    public TextView gjt;
-    public TextView gju;
-    public RelativeLayout gjv;
+    public TextView glu;
+    public TextView glv;
+    public RelativeLayout glw;
     public LinearLayout mRootLayout;
     public int mSkinType;
 
@@ -18,8 +18,8 @@ public class q extends v.a {
         super(view);
         this.mSkinType = 3;
         this.mRootLayout = (LinearLayout) view.findViewById(R.id.root_member_manager_apply);
-        this.gjt = (TextView) view.findViewById(R.id.assist_apply_tip);
-        this.gju = (TextView) view.findViewById(R.id.assist_left_tv);
-        this.gjv = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
+        this.glu = (TextView) view.findViewById(R.id.assist_apply_tip);
+        this.glv = (TextView) view.findViewById(R.id.assist_left_tv);
+        this.glw = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
     }
 }

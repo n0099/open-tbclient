@@ -12,69 +12,69 @@ import com.baidu.tieba.tbadkCore.t;
 import com.baidu.tieba.tbadkCore.y;
 import com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f implements View.OnClickListener {
-    private LikeModel dfN;
-    private InterestFrsData.Tag kmC;
-    private NewUserGuideActivity kne;
-    private a knf;
-    private y kng;
+    private LikeModel djT;
+    private InterestFrsData.Tag knz;
+    private NewUserGuideActivity kob;
+    private a koc;
+    private y kod;
 
     public f(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, final NewUserGuideMainFragment.a aVar) {
-        this.kne = newUserGuideActivity;
-        this.kmC = tag;
+        this.kob = newUserGuideActivity;
+        this.knz = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.knf = new e(this.kne.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.koc = new e(this.kob.getPageContext().getPageActivity(), R.style.NewUserDialog);
         } else if (btype == 2) {
-            this.knf = new b(this.kne.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.koc = new b(this.kob.getPageContext().getPageActivity(), R.style.NewUserDialog);
         } else if (btype == 3) {
-            this.knf = new d(this.kne.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.koc = new d(this.kob.getPageContext().getPageActivity(), R.style.NewUserDialog);
         }
-        this.dfN = new LikeModel(newUserGuideActivity.getPageContext());
-        this.dfN.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.1
+        this.djT = new LikeModel(newUserGuideActivity.getPageContext());
+        this.djT.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.1
             @Override // com.baidu.adp.base.d
             public void callback(Object obj) {
                 if (obj == null) {
-                    f.this.kne.showToast(R.string.neterror);
+                    f.this.kob.showToast(R.string.neterror);
                 } else if (obj instanceof t) {
                     int i = com.baidu.adp.lib.f.b.toInt(((t) obj).getFid(), 0);
-                    f.this.knf.CJ(i);
-                    f.this.S(i, true);
-                    f.this.kne.sZ(true);
-                    f.this.kne.sY(true);
-                    TiebaStatic.eventStat(f.this.kne.getPageContext().getPageActivity(), "notlogin_12", "click", 1, new Object[0]);
+                    f.this.koc.CP(i);
+                    f.this.R(i, true);
+                    f.this.kob.td(true);
+                    f.this.kob.tc(true);
+                    TiebaStatic.eventStat(f.this.kob.getPageContext().getPageActivity(), "notlogin_12", "click", 1, new Object[0]);
                 }
             }
         });
-        this.kng = new y();
-        this.kng.a(new y.a() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.2
+        this.kod = new y();
+        this.kod.a(new y.a() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.2
             @Override // com.baidu.tieba.tbadkCore.y.a
             public void D(String str, long j) {
                 int i = com.baidu.adp.lib.f.b.toInt(String.valueOf(j), 0);
-                f.this.knf.CK(i);
-                f.this.S(i, false);
+                f.this.koc.CQ(i);
+                f.this.R(i, false);
             }
 
             @Override // com.baidu.tieba.tbadkCore.y.a
             public void E(String str, long j) {
-                f.this.kne.showToast(R.string.error);
+                f.this.kob.showToast(R.string.error);
             }
         });
-        this.knf.setOnClickListener(this);
-        this.knf.a(this.kmC);
-        ((Dialog) this.knf).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.3
+        this.koc.setOnClickListener(this);
+        this.koc.a(this.knz);
+        ((Dialog) this.koc).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                aVar.cMa();
+                aVar.cNv();
             }
         });
     }
 
-    public void S(int i, boolean z) {
-        for (int i2 = 0; i2 < this.kmC.getCard_list().size(); i2++) {
-            if (this.kmC.getCard_list().get(i2).getFid() == i) {
-                this.kmC.getCard_list().get(i2).setIs_like(z ? 1 : 0);
+    public void R(int i, boolean z) {
+        for (int i2 = 0; i2 < this.knz.getCard_list().size(); i2++) {
+            if (this.knz.getCard_list().get(i2).getFid() == i) {
+                this.knz.getCard_list().get(i2).setIs_like(z ? 1 : 0);
                 return;
             }
         }
@@ -83,23 +83,23 @@ public class f implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.box_close_layout) {
-            this.knf.hide();
+            this.koc.hide();
         } else if ((view.getId() == R.id.ll_like || view.getId() == R.id.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
             if (card.getIs_like() == 1) {
-                this.kng.L(card.getFname(), card.getFid());
+                this.kod.L(card.getFname(), card.getFid());
             } else {
-                this.dfN.au(card.getFname(), String.valueOf(card.getFid()), "newuser");
+                this.djT.au(card.getFname(), String.valueOf(card.getFid()), "newuser");
             }
         }
     }
 
     public void show() {
-        if (this.kne == null || g.isActivityCanShowDialogOrPopupWindow(this.kne.getPageContext().getPageActivity())) {
+        if (this.kob == null || g.isActivityCanShowDialogOrPopupWindow(this.kob.getPageContext().getPageActivity())) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
             scaleAnimation.setDuration(350L);
-            this.knf.getRootView().setAnimation(scaleAnimation);
-            this.knf.show();
+            this.koc.getRootView().setAnimation(scaleAnimation);
+            this.koc.show();
         }
     }
 }

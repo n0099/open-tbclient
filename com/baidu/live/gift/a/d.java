@@ -1,14 +1,14 @@
 package com.baidu.live.gift.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
-    public boolean ahC;
-    public int aiu;
-    public int aiv;
-    public int aiw;
-    public String ajA;
-    public int ajC;
-    public String ajy;
-    public int ajz;
+    public boolean ajJ;
+    public int akA;
+    public int akB;
+    public int akC;
+    public String alG;
+    public int alH;
+    public String alI;
+    public int alK;
     public boolean isNewUser;
     public String mAppId;
     public String mLiveId;
@@ -17,9 +17,9 @@ public class d {
     public String mUserId;
     public String mUserName;
     public String otherParams;
-    public boolean ajB = true;
-    public boolean agF = false;
-    public int agD = -1;
-    public boolean aiG = false;
-    public boolean agK = false;
+    public boolean alJ = true;
+    public boolean aiO = false;
+    public int aiM = -1;
+    public boolean akM = false;
+    public boolean aiT = false;
 }

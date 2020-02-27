@@ -1,5 +1,7 @@
 package com.googlecode.mp4parser.boxes.threegpp26244;
 
+import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -11,21 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SegmentIndexBox extends AbstractFullBox {
     public static final String TYPE = "sidx";
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_9 = null;
     long earliestPresentationTime;
     List<Entry> entries;
     long firstOffset;
@@ -40,13 +42,13 @@ public class SegmentIndexBox extends AbstractFullBox {
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SegmentIndexBox.java", SegmentIndexBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "java.util.List"), 128);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "java.util.List", "entries", "", "void"), 132);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "java.util.List", "entries", "", "void"), IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER);
         ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "int"), 168);
         ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "int", "reserved", "", "void"), 172);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getReferenceId", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 136);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setReferenceId", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "referenceId", "", "void"), 140);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getTimeScale", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 144);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setTimeScale", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "timeScale", "", "void"), 148);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setTimeScale", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "timeScale", "", "void"), Opcodes.LCMP);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 152);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "earliestPresentationTime", "", "void"), 156);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getFirstOffset", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 160);
@@ -133,7 +135,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setReferenceId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.hs(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.hq(j)));
         this.referenceId = j;
     }
 
@@ -143,7 +145,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setTimeScale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.hs(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.hq(j)));
         this.timeScale = j;
     }
 
@@ -153,7 +155,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setEarliestPresentationTime(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.hs(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.hq(j)));
         this.earliestPresentationTime = j;
     }
 
@@ -163,7 +165,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setFirstOffset(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.hs(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.hq(j)));
         this.firstOffset = j;
     }
 
@@ -173,11 +175,11 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.NM(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.NP(i)));
         this.reserved = i;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Entry {
         byte referenceType;
         int referencedSize;

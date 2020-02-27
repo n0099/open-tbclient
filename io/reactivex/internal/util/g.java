@@ -1,10 +1,10 @@
 package io.reactivex.internal.util;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] nzA;
+    T[] nAc;
     int size;
 
     public g() {
@@ -13,31 +13,31 @@ public final class g<T> {
 
     public g(int i, float f) {
         this.loadFactor = f;
-        int Nx = h.Nx(i);
-        this.mask = Nx - 1;
-        this.maxSize = (int) (Nx * f);
-        this.nzA = (T[]) new Object[Nx];
+        int NA = h.NA(i);
+        this.mask = NA - 1;
+        this.maxSize = (int) (NA * f);
+        this.nAc = (T[]) new Object[NA];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.nzA;
+        T[] tArr = this.nAc;
         int i = this.mask;
-        int Nw = Nw(t.hashCode()) & i;
-        T t3 = tArr[Nw];
+        int Nz = Nz(t.hashCode()) & i;
+        T t3 = tArr[Nz];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                Nw = (Nw + 1) & i;
-                t2 = tArr[Nw];
+                Nz = (Nz + 1) & i;
+                t2 = tArr[Nz];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[Nw] = t;
+        tArr[Nz] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.nzA;
+        T[] tArr = this.nAc;
         int i = this.mask;
-        int Nw = Nw(t.hashCode()) & i;
-        T t3 = tArr[Nw];
+        int Nz = Nz(t.hashCode()) & i;
+        T t3 = tArr[Nz];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(Nw, tArr, i);
+            return a(Nz, tArr, i);
         }
         do {
-            Nw = (Nw + 1) & i;
-            t2 = tArr[Nw];
+            Nz = (Nz + 1) & i;
+            t2 = tArr[Nz];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(Nw, tArr, i);
+        return a(Nz, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class g<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int Nw = Nw(t.hashCode()) & i2;
+                int Nz = Nz(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= Nw && Nw > i3) {
+                    if (i >= Nz && Nz > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < Nw && Nw <= i3) {
+                } else if (i < Nz && Nz <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.nzA;
+        T[] tArr = this.nAc;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -110,30 +110,30 @@ public final class g<T> {
                 do {
                     i3--;
                 } while (tArr[i3] == null);
-                int Nw = Nw(tArr[i3].hashCode()) & i2;
-                if (tArr2[Nw] != null) {
+                int Nz = Nz(tArr[i3].hashCode()) & i2;
+                if (tArr2[Nz] != null) {
                     do {
-                        Nw = (Nw + 1) & i2;
-                    } while (tArr2[Nw] != null);
+                        Nz = (Nz + 1) & i2;
+                    } while (tArr2[Nz] != null);
                 }
-                tArr2[Nw] = tArr[i3];
+                tArr2[Nz] = tArr[i3];
                 i4 = i5;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.nzA = tArr2;
+                this.nAc = tArr2;
                 return;
             }
         }
     }
 
-    static int Nw(int i) {
+    static int Nz(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] dIx() {
-        return this.nzA;
+    public Object[] dJE() {
+        return this.nAc;
     }
 
     public int size() {

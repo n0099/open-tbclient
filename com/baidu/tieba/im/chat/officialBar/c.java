@@ -8,16 +8,16 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public String fid;
-        public String hsb;
-        public long hsi;
-        public String hsj;
-        public int hsk;
+        public String hua;
+        public long huh;
+        public String hui;
+        public int huj;
         public long picId;
         public String src;
         public long taskId;
@@ -59,14 +59,14 @@ public class c {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.hsb = optString5;
+                aVar.hua = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.hsi = j;
-                    aVar.hsj = userData.getUserId();
-                    aVar.hsk = userData.getUserType();
+                    aVar.huh = j;
+                    aVar.hui = userData.getUserId();
+                    aVar.huj = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

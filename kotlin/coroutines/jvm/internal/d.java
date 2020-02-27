@@ -1,8 +1,10 @@
 package kotlin.coroutines.jvm.internal;
 
 import java.lang.reflect.Field;
+import kotlin.h;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public final class d {
     public static final StackTraceElement a(BaseContinuationImpl baseContinuationImpl) {
         q.j(baseContinuationImpl, "receiver$0");
@@ -10,10 +12,10 @@ public final class d {
         if (b == null) {
             return null;
         }
-        en(1, b.v());
+        eq(1, b.v());
         int c = c(baseContinuationImpl);
-        int i = c < 0 ? -1 : b.dJh()[c];
-        String d = f.nBw.d(baseContinuationImpl);
+        int i = c < 0 ? -1 : b.dKo()[c];
+        String d = f.nBY.d(baseContinuationImpl);
         return new StackTraceElement(d == null ? b.c() : d + '/' + b.c(), b.m(), b.f(), i);
     }
 
@@ -37,7 +39,7 @@ public final class d {
         }
     }
 
-    private static final void en(int i, int i2) {
+    private static final void eq(int i, int i2) {
         if (i2 > i) {
             throw new IllegalStateException(("Debug metadata version mismatch. Expected: " + i + ", got " + i2 + ". Please update the Kotlin standard library.").toString());
         }

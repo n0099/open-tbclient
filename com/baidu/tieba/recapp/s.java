@@ -29,9 +29,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.cIT;
-        if (StringUtils.isNull(str) && advertAppInfo.cJb != null) {
-            str = advertAppInfo.cJb.userName;
+        String str = advertAppInfo.cMW;
+        if (StringUtils.isNull(str) && advertAppInfo.cNe != null) {
+            str = advertAppInfo.cNe.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -47,17 +47,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.aLJ().b(advertAppInfo);
-        String str2 = advertAppInfo.cIT;
+        com.baidu.tbadk.distribute.a.aOf().b(advertAppInfo);
+        String str2 = advertAppInfo.cMW;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.cBd().a(advertAppInfo.cIV, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Hz(advertAppInfo.cIV).intValue(), null, true, false, true, advertAppInfo.cJb.userPortrait, downloadStaticsData, advertAppInfo.cJb.userName);
+        com.baidu.tieba.recapp.download.e.cCz().a(advertAppInfo.cMY, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.HN(advertAppInfo.cMY).intValue(), null, true, false, true, advertAppInfo.cNe.userPortrait, downloadStaticsData, advertAppInfo.cNe.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.cBd().z(advertAppInfo.apkUrl, advertAppInfo.cIV, true);
+        com.baidu.tieba.recapp.download.e.cCz().A(advertAppInfo.apkUrl, advertAppInfo.cMY, true);
     }
 
     public static final void bd(Context context, String str) {
@@ -100,7 +100,7 @@ public class s {
         return false;
     }
 
-    public static boolean ar(Activity activity) {
+    public static boolean as(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
@@ -169,15 +169,15 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.cAX().sendFRS(z, str, str2, str3, list, str4);
+        r.cCt().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.cAX().a(z, str, str2, str3, str4, list, str5);
+        r.cCt().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int b(TbPageContext tbPageContext, String str, String str2) {
-        if (com.baidu.tieba.a.aSU().aSV() != 1) {
+        if (com.baidu.tieba.a.aVl().aVm() != 1) {
             return e(tbPageContext, str);
         }
         if (tbPageContext == null || TextUtils.isEmpty(str)) {
@@ -232,15 +232,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h cAU = r.cAX().cAU();
-        if (cAU == null) {
+        h cCq = r.cCt().cCq();
+        if (cCq == null) {
             return false;
         }
-        if (cAU.wy(str)) {
-            cAU.a(tbPageContext.getPageActivity(), strArr, true);
+        if (cCq.wS(str)) {
+            cCq.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return cAU.c(tbPageContext.getPageActivity(), strArr);
+        return cCq.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int be(Context context, String str) {
@@ -259,14 +259,14 @@ public class s {
 
     private static boolean bf(Context context, String str) {
         String[] strArr = {str};
-        h cAU = r.cAX().cAU();
-        if (cAU == null) {
+        h cCq = r.cCt().cCq();
+        if (cCq == null) {
             return false;
         }
-        if (cAU.wy(str)) {
-            cAU.a(context, strArr, true);
+        if (cCq.wS(str)) {
+            cCq.a(context, strArr, true);
             return true;
         }
-        return cAU.c(context, strArr);
+        return cCq.c(context, strArr);
     }
 }

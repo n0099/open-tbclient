@@ -7,10 +7,10 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class f {
-    private String Pa;
-    private String Pb;
+    private String QJ;
+    private String QK;
     private String mVersionName;
 
     public f() {
@@ -20,8 +20,8 @@ public class f {
     private void init() {
         Context appContext = AppRuntime.getAppContext();
         this.mVersionName = getVersionName(appContext);
-        this.Pa = getUA(appContext);
-        this.Pb = new String(Base64Encoder.B64Encode(this.Pa.getBytes()));
+        this.QJ = getUA(appContext);
+        this.QK = new String(Base64Encoder.B64Encode(this.QJ.getBytes()));
     }
 
     private String getUA(Context context) {
@@ -41,8 +41,8 @@ public class f {
         return stringBuffer.toString();
     }
 
-    public String nq() {
-        return this.Pa;
+    public String nY() {
+        return this.QJ;
     }
 
     private String getVersionName(Context context) {

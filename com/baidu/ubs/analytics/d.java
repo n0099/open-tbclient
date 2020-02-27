@@ -9,19 +9,19 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private Context g;
     private String h;
     private String i;
     private boolean j;
     private Map<String, g> k;
-    private JSONArray kVc;
+    private JSONArray kVI;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public static final d kVd = new d((byte) 0);
+        public static final d kVJ = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
@@ -40,8 +40,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d cVY() {
-        return a.kVd;
+    public static d cXm() {
+        return a.kVJ;
     }
 
     public final void a(Context context) {
@@ -87,20 +87,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult KY(String str) {
-        if (this.kVc == null) {
+    public final SampleResult Ll(String str) {
+        if (this.kVI == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.Ll(this.k.get(str).getGroup());
+                return i.Ly(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.kVc.length(); i++) {
-            JSONObject optJSONObject = this.kVc.optJSONObject(i);
+        for (int i = 0; i < this.kVI.length(); i++) {
+            JSONObject optJSONObject = this.kVI.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.Ll(optJSONObject.optString(TbEnum.ParamKey.GROUP));
+                return i.Ly(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }
         }
         return SampleResult.OTHERE;

@@ -1,11 +1,11 @@
 package com.baidu.ala.recorder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveRecorderConfig {
     private static FaceUnityCallBack FACE_UNITY_CALLBACK = null;
     private static ILoadLibrary ILOAD_LIBRARY_CALLBACK = null;
     public static final boolean RECORDER_HARDWIRE_ENCODER_USE_SURFACE = true;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface FaceUnityCallBack {
         byte[] getAuthPackCert();
 
@@ -14,12 +14,12 @@ public class AlaLiveRecorderConfig {
         byte[] getV3Data();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ILoadLibrary {
         boolean loadlibrary(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Video {
         public static final int H264_ENCODE_FPS1 = 10;
         public static final int H264_ENCODE_FPS2 = 15;

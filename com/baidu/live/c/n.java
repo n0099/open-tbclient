@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.TbEnum;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n extends IntentConfig {
     public n(Context context, int i, long j, String str, String str2, int i2, boolean z, String str3, String str4, String str5, long j2, String str6) {
         super(context);

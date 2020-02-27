@@ -3,9 +3,11 @@ package com.baidu.searchbox.websocket;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.nio.ByteBuffer;
 import java.util.Map;
+import kotlin.h;
 import kotlin.jvm.internal.q;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+@h
+/* loaded from: classes11.dex */
 public final class WebSocketTask implements IWebSocketClient {
     private final String taskId;
     private final IWebSocketClient webSocketClient;

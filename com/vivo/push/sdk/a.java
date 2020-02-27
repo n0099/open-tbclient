@@ -12,7 +12,7 @@ import com.vivo.push.aa;
 import com.vivo.push.util.p;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a extends aa {
     private static a c;
     private Handler d = new Handler(Looper.getMainLooper());

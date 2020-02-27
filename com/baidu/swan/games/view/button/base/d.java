@@ -6,11 +6,11 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.PathType;
 import com.baidu.swan.games.k.a;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static PathType lL(String str) {
+    public static PathType ma(String str) {
         if (TextUtils.isEmpty(str)) {
             return PathType.ERROR;
         }
@@ -20,11 +20,11 @@ public class d {
         return PathType.RELATIVE;
     }
 
-    public static String aoy() {
-        File aB;
-        e aaj = com.baidu.swan.apps.runtime.d.aam().aaj();
-        if (aaj.available() && aaj.getVersion() != null && (aB = a.c.aB(aaj.getAppId(), aaj.getVersion())) != null && aB.exists()) {
-            return "file://" + aB.getAbsolutePath();
+    public static String aqM() {
+        File aL;
+        e acx = com.baidu.swan.apps.runtime.d.acA().acx();
+        if (acx.available() && acx.getVersion() != null && (aL = a.c.aL(acx.getAppId(), acx.getVersion())) != null && aL.exists()) {
+            return "file://" + aL.getAbsolutePath();
         }
         return null;
     }

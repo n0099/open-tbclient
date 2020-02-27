@@ -3,7 +3,8 @@ package kotlin.io;
 import java.io.File;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class AccessDeniedException extends FileSystemException {
     public /* synthetic */ AccessDeniedException(File file, File file2, String str, int i, o oVar) {
         this(file, (i & 2) != 0 ? null : file2, (i & 4) != 0 ? null : str);

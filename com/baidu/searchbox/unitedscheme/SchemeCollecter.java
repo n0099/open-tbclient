@@ -1,5 +1,5 @@
 package com.baidu.searchbox.unitedscheme;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class SchemeCollecter {
     public static final String CLASSIFY_ALL = "all";
     public static final String CLASSIFY_BASE = "base";

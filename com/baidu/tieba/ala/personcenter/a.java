@@ -9,12 +9,12 @@ import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ac;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
-    private AlaPersonCenterFragment frb = new AlaPersonCenterFragment();
+    private AlaPersonCenterFragment ftE = new AlaPersonCenterFragment();
 
     public a() {
-        aNy().frag = this.frb;
+        getFragmentTabStructure().frag = this.ftE;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,7 +23,7 @@ public class a extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c aNx() {
+    public c createFragmentTabStructure() {
         c cVar = new c();
         cVar.type = 5;
         cVar.textResId = R.string.ala_live;
@@ -32,33 +32,33 @@ public class a extends b {
     }
 
     public void a(ac acVar) {
-        if (acVar != null && acVar.sW(5)) {
+        if (acVar != null && acVar.tc(5)) {
             acVar.b(this);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator dW(Context context) {
-        this.dxc = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.dxc.setTextSize(2.0f);
-        return this.dxc;
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
+        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.mIndicator.setTextSize(2.0f);
+        return this.mIndicator;
     }
 
     public void setForumId(String str) {
-        if (this.frb != null) {
-            this.frb.setForumId(str);
+        if (this.ftE != null) {
+            this.ftE.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.frb != null) {
-            this.frb.setForumName(str);
+        if (this.ftE != null) {
+            this.ftE.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.frb != null) {
-            this.frb.setForumGameLabel(str);
+        if (this.ftE != null) {
+            this.ftE.setForumGameLabel(str);
         }
     }
 }

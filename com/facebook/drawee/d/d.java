@@ -3,15 +3,15 @@ package com.facebook.drawee.d;
 import android.net.Uri;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface d {
-    d J(Uri uri);
+    d K(Uri uri);
 
-    d bg(Object obj);
+    d bi(Object obj);
 
     d c(Uri uri, Map<String, String> map);
 
     d c(@Nullable a aVar);
 
-    a dla();
+    a dmn();
 }

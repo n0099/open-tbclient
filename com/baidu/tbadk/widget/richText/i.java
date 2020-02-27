@@ -4,12 +4,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class i {
-    private int aXT;
-    private int dKR;
-    private String dKS;
-    private int dKT;
+    private int dOW;
+    private String dOX;
+    private int dOY;
     private int duration;
     private int height;
+    private int playCount;
     private String thumbUrl;
     private String videoUrl;
     private int width;
@@ -20,11 +20,11 @@ public class i {
             this.thumbUrl = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.dKR = pbContent.e_type.intValue();
-            this.dKS = pbContent.text;
+            this.dOW = pbContent.e_type.intValue();
+            this.dOX = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aXT = pbContent.count.intValue();
-            this.dKT = pbContent.origin_size.intValue();
+            this.playCount = pbContent.count.intValue();
+            this.dOY = pbContent.origin_size.intValue();
         }
     }
 
@@ -44,12 +44,12 @@ public class i {
         return this.height;
     }
 
-    public String aSn() {
-        return this.dKS;
+    public String aUE() {
+        return this.dOX;
     }
 
-    public boolean aSo() {
-        return this.dKR == 15;
+    public boolean aUF() {
+        return this.dOW == 15;
     }
 
     public boolean isAvaliable() {
@@ -61,6 +61,6 @@ public class i {
     }
 
     public int getFileSize() {
-        return this.dKT;
+        return this.dOY;
     }
 }

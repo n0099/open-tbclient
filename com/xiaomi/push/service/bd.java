@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.bc;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class bd implements Runnable {
     final /* synthetic */ bc a;
 
@@ -15,13 +15,13 @@ class bd implements Runnable {
     public void run() {
         ConcurrentHashMap concurrentHashMap;
         try {
-            concurrentHashMap = this.a.f896a;
+            concurrentHashMap = this.a.f893a;
             for (bc.a aVar : concurrentHashMap.values()) {
                 aVar.run();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("Sync job exception :" + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m47a("Sync job exception :" + e.getMessage());
         }
-        this.a.f897a = false;
+        this.a.f894a = false;
     }
 }

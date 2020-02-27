@@ -3,7 +3,7 @@ package com.baidu.tieba.keepLive.startActivity;
 import android.app.Activity;
 import android.content.Context;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ScreenManager {
     public static volatile ScreenManager gDefualt;
     public static boolean isBackGround = true;

@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PropertyValuesHolder implements Cloneable {
     private Object mAnimatedValue;
     private TypeEvaluator mEvaluator;
@@ -284,12 +284,12 @@ public class PropertyValuesHolder implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PropertyValuesHolder m40clone() {
+    public PropertyValuesHolder m46clone() {
         try {
             PropertyValuesHolder propertyValuesHolder = (PropertyValuesHolder) super.clone();
             propertyValuesHolder.mPropertyName = this.mPropertyName;
             propertyValuesHolder.mProperty = this.mProperty;
-            propertyValuesHolder.mKeyframeSet = this.mKeyframeSet.m39clone();
+            propertyValuesHolder.mKeyframeSet = this.mKeyframeSet.m45clone();
             propertyValuesHolder.mEvaluator = this.mEvaluator;
             return propertyValuesHolder;
         } catch (CloneNotSupportedException e) {
@@ -369,7 +369,7 @@ public class PropertyValuesHolder implements Cloneable {
         return str;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static class IntPropertyValuesHolder extends PropertyValuesHolder {
         int mIntAnimatedValue;
         IntKeyframeSet mIntKeyframeSet;
@@ -424,7 +424,7 @@ public class PropertyValuesHolder implements Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.nineoldandroids.animation.PropertyValuesHolder
         public IntPropertyValuesHolder clone() {
-            IntPropertyValuesHolder intPropertyValuesHolder = (IntPropertyValuesHolder) super.m40clone();
+            IntPropertyValuesHolder intPropertyValuesHolder = (IntPropertyValuesHolder) super.m46clone();
             intPropertyValuesHolder.mIntKeyframeSet = (IntKeyframeSet) intPropertyValuesHolder.mKeyframeSet;
             return intPropertyValuesHolder;
         }
@@ -455,7 +455,7 @@ public class PropertyValuesHolder implements Cloneable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static class FloatPropertyValuesHolder extends PropertyValuesHolder {
         float mFloatAnimatedValue;
         FloatKeyframeSet mFloatKeyframeSet;
@@ -510,7 +510,7 @@ public class PropertyValuesHolder implements Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.nineoldandroids.animation.PropertyValuesHolder
         public FloatPropertyValuesHolder clone() {
-            FloatPropertyValuesHolder floatPropertyValuesHolder = (FloatPropertyValuesHolder) super.m40clone();
+            FloatPropertyValuesHolder floatPropertyValuesHolder = (FloatPropertyValuesHolder) super.m46clone();
             floatPropertyValuesHolder.mFloatKeyframeSet = (FloatKeyframeSet) floatPropertyValuesHolder.mKeyframeSet;
             return floatPropertyValuesHolder;
         }

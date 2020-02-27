@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.recent_history.b.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -30,80 +30,80 @@ public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(R.layout.square_recent_history_living_item, (ViewGroup) null);
-            aVar.elP = (TbImageView) view.findViewById(R.id.recent_history_living_img);
-            aVar.elP.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
+            aVar.eqd = (TbImageView) view.findViewById(R.id.recent_history_living_img);
+            aVar.eqd.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
             aVar.title = (TextView) view.findViewById(R.id.recent_history_living_title);
-            aVar.elQ = (TextView) view.findViewById(R.id.recent_history_living_audience_count);
-            aVar.cqf = (TextView) view.findViewById(R.id.recent_history_living_user_name);
-            aVar.elR = (TextView) view.findViewById(R.id.recent_history_living_living_tag);
-            aVar.elS = (TextView) view.findViewById(R.id.recent_history_living_send_gift_tag);
+            aVar.eqe = (TextView) view.findViewById(R.id.recent_history_living_audience_count);
+            aVar.cug = (TextView) view.findViewById(R.id.recent_history_living_user_name);
+            aVar.eqf = (TextView) view.findViewById(R.id.recent_history_living_living_tag);
+            aVar.eqg = (TextView) view.findViewById(R.id.recent_history_living_send_gift_tag);
             am.setBackgroundColor(view, R.color.cp_bg_line_d);
             am.setViewTextColor(aVar.title, (int) R.color.cp_cont_b);
-            am.setViewTextColor(aVar.elQ, (int) R.color.cp_cont_d);
-            am.setViewTextColor(aVar.cqf, (int) R.color.cp_cont_j);
-            am.setViewTextColor(aVar.elS, (int) R.color.cp_cont_h);
+            am.setViewTextColor(aVar.eqe, (int) R.color.cp_cont_d);
+            am.setViewTextColor(aVar.cug, (int) R.color.cp_cont_j);
+            am.setViewTextColor(aVar.eqg, (int) R.color.cp_cont_h);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        final com.baidu.tieba.ala.alasquare.recent_history.b.b os = getItem(i);
-        if (os != null && os.cNb != null && os.cNb.azX() != null && os.cNb.aAq() != null) {
-            MetaData azX = os.cNb.azX();
-            aVar.elP.startLoad(os.cNb.aAq().cover, 10, false);
-            aVar.title.setText(os.cNb.getTitle());
-            this.elM = 0;
-            aVar.elR.setVisibility(8);
-            aVar.elS.setVisibility(8);
-            if (!v.isEmpty(os.tagList)) {
-                for (b.a aVar2 : os.tagList) {
+        final com.baidu.tieba.ala.alasquare.recent_history.b.b oJ = getItem(i);
+        if (oJ != null && oJ.cRe != null && oJ.cRe.aCm() != null && oJ.cRe.aCF() != null) {
+            MetaData aCm = oJ.cRe.aCm();
+            aVar.eqd.startLoad(oJ.cRe.aCF().cover, 10, false);
+            aVar.title.setText(oJ.cRe.getTitle());
+            this.eqa = 0;
+            aVar.eqf.setVisibility(8);
+            aVar.eqg.setVisibility(8);
+            if (!v.isEmpty(oJ.tagList)) {
+                for (b.a aVar2 : oJ.tagList) {
                     if (aVar2 != null) {
-                        if (1 == aVar2.VE) {
-                            aVar.elR.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar2.emc)) {
-                                aVar.elR.setText(aVar2.emc);
+                        if (1 == aVar2.Xk) {
+                            aVar.eqf.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar2.eqq)) {
+                                aVar.eqf.setText(aVar2.eqq);
                             }
-                            this.elM++;
-                        } else if (2 == aVar2.VE) {
-                            aVar.elS.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar2.emc)) {
-                                aVar.elS.setText(aVar2.emc);
+                            this.eqa++;
+                        } else if (2 == aVar2.Xk) {
+                            aVar.eqg.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar2.eqq)) {
+                                aVar.eqg.setText(aVar2.eqq);
                             }
-                            this.elM++;
+                            this.eqa++;
                         }
                     }
                 }
             }
-            String name_show = azX.getName_show();
-            if (this.elM <= 1) {
+            String name_show = aCm.getName_show();
+            if (this.eqa <= 1) {
                 i2 = 14;
             } else {
                 i2 = 13;
             }
-            aVar.cqf.setText(k.byteLength(name_show) > i2 ? aq.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
-            aVar.elQ.setText(this.mContext.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, aq.numberUniformFormatExtra(os.cNb.aAq().audience_count)));
+            aVar.cug.setText(k.byteLength(name_show) > i2 ? aq.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
+            aVar.eqe.setText(this.mContext.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, aq.numberUniformFormatExtra(oJ.cRe.aCF().audience_count)));
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     an anVar = new an("c12659");
-                    anVar.cp("tid", os.cNb.getTid());
+                    anVar.cy("tid", oJ.cRe.getTid());
                     TiebaStatic.log(anVar);
-                    b.this.a(b.this.mPageContext, os.cNb, "recent_history_living_tab");
+                    b.this.a(b.this.mPageContext, oJ.cRe, "recent_history_living_tab");
                 }
             });
             an anVar = new an("c12658");
-            anVar.cp("tid", os.cNb.getTid());
-            com.baidu.tieba.ala.alasquare.c.a.baG().c(anVar);
+            anVar.cy("tid", oJ.cRe.getTid());
+            com.baidu.tieba.ala.alasquare.c.a.bcV().d(anVar);
         }
         return view;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private static class a {
-        public TextView cqf;
-        public TbImageView elP;
-        public TextView elQ;
-        public TextView elR;
-        public TextView elS;
+        public TextView cug;
+        public TbImageView eqd;
+        public TextView eqe;
+        public TextView eqf;
+        public TextView eqg;
         public TextView title;
 
         private a() {

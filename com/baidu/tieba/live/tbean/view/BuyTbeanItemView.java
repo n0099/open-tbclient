@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
@@ -18,11 +17,12 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tbadk.widget.VCenterTextSpan;
 import com.baidu.live.tieba.b.a;
+import com.baidu.live.u.a;
 import com.baidu.tieba.live.tbean.TBeanUtil;
 import com.baidu.tieba.live.tbean.data.IconInfoData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuyTbeanItemView extends a<IconInfoWrapperData> {
     private boolean mIsFromAlaLiveRoom;
     private TbImageView mIvIcon;

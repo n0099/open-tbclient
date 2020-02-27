@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.util.k;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
-    public f Ov;
+    public f OX;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
@@ -30,23 +30,23 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Ov = new f(r((Activity) context));
+        this.OX = new f(r((Activity) context));
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        SvgManager.aEp().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aGA().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!k.isFastDoubleClick()) {
-            this.Ov.xe();
-            this.Ov.showDialog();
+            this.OX.sN();
+            this.OX.showDialog();
         }
     }
 
     public void q(bj bjVar) {
-        this.Ov.q(bjVar);
-        if (!au.u(bjVar) && bjVar.aBN()) {
+        this.OX.q(bjVar);
+        if (!au.u(bjVar) && bjVar.aDZ()) {
             setVisibility(0);
         } else {
             setVisibility(8);
@@ -54,7 +54,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void onChangeSkinType() {
-        SvgManager.aEp().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aGA().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private TbPageContext r(Activity activity) {

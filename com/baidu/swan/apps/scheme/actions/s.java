@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.as.af;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class s extends ab {
     public s(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/pageScrollTo");
@@ -33,14 +33,14 @@ public class s extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        final com.baidu.swan.apps.adaptation.b.d Uo = com.baidu.swan.apps.y.f.UC().Uo();
-        if (Uo != null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(Uo.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(Uo, af.dip2px(context, optInt)));
+        final com.baidu.swan.apps.adaptation.b.d WC = com.baidu.swan.apps.y.f.WQ().WC();
+        if (WC != null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(WC.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(WC, af.dip2px(context, optInt)));
             ofInt.setDuration(optInt2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.scheme.actions.s.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Uo.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    WC.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
             ofInt.start();

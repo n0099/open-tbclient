@@ -8,54 +8,54 @@ import com.baidu.tieba.card.z;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private BdTypeRecyclerView Bs;
-    private List<com.baidu.adp.widget.ListView.a> apl = new LinkedList();
-    private ArrayList<m> fPW;
-    private b hOA;
-    private b hOB;
-    private b hOC;
-    private b hOD;
-    private b hOE;
+    private BdTypeRecyclerView BK;
+    private List<com.baidu.adp.widget.ListView.a> asE = new LinkedList();
+    private ArrayList<m> fSr;
+    private b hQA;
+    private b hQB;
+    private b hQC;
+    private b hQy;
+    private b hQz;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.Bs = bdTypeRecyclerView;
+            this.BK = bdTypeRecyclerView;
             s(tbPageContext);
         }
     }
 
     private void s(TbPageContext tbPageContext) {
-        this.hOA = new b(tbPageContext, a.hOj);
-        this.hOB = new b(tbPageContext, a.hOk);
-        this.hOC = new b(tbPageContext, a.hOn);
-        this.hOD = new b(tbPageContext, a.hOm);
-        this.hOE = new b(tbPageContext, a.hOl);
-        this.apl.add(this.hOA);
-        this.apl.add(this.hOB);
-        this.apl.add(this.hOC);
-        this.apl.add(this.hOD);
-        this.apl.add(this.hOE);
-        this.Bs.addAdapters(this.apl);
+        this.hQy = new b(tbPageContext, a.hQh);
+        this.hQz = new b(tbPageContext, a.hQi);
+        this.hQA = new b(tbPageContext, a.hQl);
+        this.hQB = new b(tbPageContext, a.hQk);
+        this.hQC = new b(tbPageContext, a.hQj);
+        this.asE.add(this.hQy);
+        this.asE.add(this.hQz);
+        this.asE.add(this.hQA);
+        this.asE.add(this.hQB);
+        this.asE.add(this.hQC);
+        this.BK.addAdapters(this.asE);
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.apl) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
         }
     }
 
     public void setData(ArrayList<m> arrayList) {
-        this.Bs.setData(arrayList);
-        this.fPW = arrayList;
+        this.BK.setData(arrayList);
+        this.fSr = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.Bs.getAdapter().notifyDataSetChanged();
+        this.BK.getAdapter().notifyDataSetChanged();
     }
 
     public void e(s sVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.apl) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
             if (aVar != null) {
                 aVar.a(sVar);
             }
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void setOnCardSubClickListener(z zVar) {
-        this.hOE.setOnCardSubClickListener(zVar);
-        this.hOD.setOnCardSubClickListener(zVar);
-        this.hOC.setOnCardSubClickListener(zVar);
+        this.hQC.setOnCardSubClickListener(zVar);
+        this.hQB.setOnCardSubClickListener(zVar);
+        this.hQA.setOnCardSubClickListener(zVar);
     }
 }

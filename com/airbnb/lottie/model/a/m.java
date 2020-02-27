@@ -1,5 +1,5 @@
 package com.airbnb.lottie.model.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface m<K, A> {
-    com.airbnb.lottie.a.b.a<K, A> cm();
+    com.airbnb.lottie.a.b.a<K, A> cn();
 }

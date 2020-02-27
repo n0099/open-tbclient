@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk.c;
 import java.util.Collection;
 import java.util.Vector;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     String a;
     public Vector<String> b = new Vector<>();

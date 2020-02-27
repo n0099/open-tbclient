@@ -6,16 +6,16 @@ import io.reactivex.j;
 import java.util.ArrayDeque;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableTakeLast<T> extends a<T, T> {
     final int count;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nvP.a((j) new TakeLastSubscriber(cVar, this.count));
+        this.nwr.a((j) new TakeLastSubscriber(cVar, this.count));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class TakeLastSubscriber<T> extends ArrayDeque<T> implements j<T>, org.a.d {
         private static final long serialVersionUID = 7240042530241604978L;
         final org.a.c<? super T> actual;

@@ -1,23 +1,23 @@
 package kotlin.jvm.internal;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class w {
-    private static <T extends Throwable> T P(T t) {
+    private static <T extends Throwable> T O(T t) {
         return (T) q.c(t, w.class.getName());
     }
 
     public static void k(Object obj, String str) {
-        RY((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
+        Sj((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
     }
 
-    public static void RY(String str) {
+    public static void Sj(String str) {
         throw a(new ClassCastException(str));
     }
 
     public static ClassCastException a(ClassCastException classCastException) {
-        throw ((ClassCastException) P(classCastException));
+        throw ((ClassCastException) O(classCastException));
     }
 
-    public static int bT(Object obj) {
+    public static int bU(Object obj) {
         if (obj instanceof p) {
             return ((p) obj).getArity();
         }
@@ -94,7 +94,7 @@ public class w {
     }
 
     public static boolean j(Object obj, int i) {
-        return (obj instanceof kotlin.c) && bT(obj) == i;
+        return (obj instanceof kotlin.c) && bU(obj) == i;
     }
 
     public static Object k(Object obj, int i) {

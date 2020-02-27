@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.as;
 
 import android.os.Build;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     public static boolean hasGingerbread() {
         return Build.VERSION.SDK_INT >= 9;

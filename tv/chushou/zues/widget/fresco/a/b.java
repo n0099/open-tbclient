@@ -6,13 +6,13 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import com.facebook.cache.common.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b extends com.facebook.imagepipeline.request.a {
-    private static final b nXu = new b();
-    private static final com.facebook.cache.common.b nXt = new g("GrayPostprocessor");
+    private static final b nYi = new b();
+    private static final com.facebook.cache.common.b nYh = new g("GrayPostprocessor");
 
-    public static b dPu() {
-        return nXu;
+    public static b dQH() {
+        return nYi;
     }
 
     private b() {
@@ -34,7 +34,7 @@ public class b extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dqi() {
-        return nXt;
+    public com.facebook.cache.common.b dru() {
+        return nYh;
     }
 }

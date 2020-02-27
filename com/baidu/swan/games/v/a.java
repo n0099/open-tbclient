@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.swan.games.v.a.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends c {
     public a(com.baidu.swan.games.e.b bVar) {
         super(bVar);
@@ -13,18 +13,18 @@ public class a extends c {
     public void getStorage(JsObject jsObject) {
         String a = a(jsObject, "getStorage");
         if (a != null) {
-            d pr = pr(a);
-            if (pr.isSuccess()) {
+            d pG = pG(a);
+            if (pG.isSuccess()) {
                 com.baidu.swan.games.v.a.b bVar = new com.baidu.swan.games.v.a.b();
-                bVar.errMsg = com.baidu.swan.games.v.a.a.pt("getStorage");
-                bVar.data = pr.getData();
+                bVar.errMsg = com.baidu.swan.games.v.a.a.pI("getStorage");
+                bVar.data = pG.getData();
                 if (bVar.data instanceof JsSerializeValue) {
                     ((JsSerializeValue) bVar.data).setAutoRelease(false);
                 }
                 com.baidu.swan.games.utils.b.a(i(jsObject), true, bVar);
                 return;
             }
-            a(jsObject, "getStorage", a, pr);
+            a(jsObject, "getStorage", a, pG);
         }
     }
 
@@ -38,18 +38,18 @@ public class a extends c {
     public void removeStorage(JsObject jsObject) {
         String a = a(jsObject, "removeStorage");
         if (a != null) {
-            a(jsObject, "removeStorage", a, ps(a));
+            a(jsObject, "removeStorage", a, pH(a));
         }
     }
 
     public void clearStorage(JsObject jsObject) {
-        a(jsObject, "clearStorage", "", anx());
+        a(jsObject, "clearStorage", "", apL());
     }
 
     public void getStorageInfo(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c i = i(jsObject);
         com.baidu.swan.games.v.a.c storageInfoSync = getStorageInfoSync();
-        storageInfoSync.errMsg = com.baidu.swan.games.v.a.a.pt("getStorageInfo");
+        storageInfoSync.errMsg = com.baidu.swan.games.v.a.a.pI("getStorageInfo");
         com.baidu.swan.games.utils.b.a(i, true, storageInfoSync);
     }
 
@@ -73,12 +73,12 @@ public class a extends c {
             if ("key".equals(jsObject.getPropertyName(i))) {
                 int propertyType = jsObject.getPropertyType(i);
                 if (propertyType == 7) {
-                    return d.V(jsObject.toString(i));
+                    return d.X(jsObject.toString(i));
                 }
-                return d.pu(String.format("parameter error: the key must be string instead of %s.", d.hF(propertyType)));
+                return d.pJ(String.format("parameter error: the key must be string instead of %s.", d.hW(propertyType)));
             }
         }
-        return d.pu("parameter error: the parameter key is necessary.");
+        return d.pJ("parameter error: the parameter key is necessary.");
     }
 
     private JsSerializeValue k(JsObject jsObject) {
@@ -94,10 +94,10 @@ public class a extends c {
         com.baidu.swan.games.binding.model.c i = i(jsObject);
         com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
         boolean isSuccess = dVar.isSuccess();
-        bVar.errMsg = dVar.bL(str, str2);
+        bVar.errMsg = dVar.bU(str, str2);
         com.baidu.swan.games.utils.b.a(i, isSuccess, bVar);
         if (!isSuccess) {
-            com.baidu.swan.games.u.c.bK(str2, bVar.errMsg);
+            com.baidu.swan.games.u.c.bT(str2, bVar.errMsg);
         }
     }
 }

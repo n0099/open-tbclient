@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.common;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class TooManyBitmapsException extends RuntimeException {
     public TooManyBitmapsException() {
     }

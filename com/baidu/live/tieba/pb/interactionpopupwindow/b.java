@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class b<D extends IBaseDialogData> implements d<D> {
     protected int mSkinType = 3;
     protected TbPageContext<?> mTbPageContext;

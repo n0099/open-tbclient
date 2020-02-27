@@ -1,31 +1,73 @@
 package com.baidu.tieba.pb.data;
 
-import tbclient.PbPage.ForumHeadlineImgInfo;
-/* loaded from: classes7.dex */
+import java.util.List;
+import tbclient.ManagerElection;
+/* loaded from: classes9.dex */
 public class h {
-    private long cKB = 0;
-    private String cKC = "";
-    private String imgUrl = "";
-    private int iAx = Integer.MAX_VALUE;
-    private String iAy = "";
-    private String ZN = "";
+    private boolean fDx;
+    private int iCs;
+    private int iCt;
+    private int iCu;
+    private List<String> iCv;
+    private String iCw;
+    private boolean iCx;
+    private int iCy;
+    private int status;
 
-    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        if (forumHeadlineImgInfo != null) {
-            this.cKB = forumHeadlineImgInfo.img_user_id.longValue();
-            this.cKC = forumHeadlineImgInfo.img_user_name;
-            this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.iAx = forumHeadlineImgInfo.rank_num.intValue();
-            this.iAy = forumHeadlineImgInfo.rank_up_info;
-            this.ZN = forumHeadlineImgInfo.rank_url;
+    public static h a(ManagerElection managerElection) {
+        if (managerElection == null) {
+            return null;
         }
+        h hVar = new h();
+        hVar.iCt = managerElection.begin_vote_time.intValue();
+        hVar.fDx = managerElection.can_vote.intValue() == 1;
+        hVar.iCs = managerElection.vote_num.intValue();
+        hVar.iCu = managerElection.election_id.intValue();
+        hVar.iCx = managerElection.is_show_distribute.intValue() == 1;
+        hVar.iCy = managerElection.remainder_time.intValue();
+        hVar.status = managerElection.status.intValue();
+        hVar.iCw = managerElection.tail_text;
+        hVar.iCv = managerElection.vote_condition;
+        return hVar;
     }
 
-    public String cjw() {
-        return this.ZN;
+    public int getStatus() {
+        return this.status;
     }
 
-    public String ayq() {
-        return this.imgUrl;
+    public boolean ckV() {
+        return this.iCx;
+    }
+
+    public int ckW() {
+        return this.iCy;
+    }
+
+    public int ckX() {
+        return this.iCs;
+    }
+
+    public List<String> ckY() {
+        return this.iCv;
+    }
+
+    public String ckZ() {
+        return this.iCw;
+    }
+
+    public boolean bud() {
+        return this.fDx;
+    }
+
+    public void ke(boolean z) {
+        this.fDx = z;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public void yB(int i) {
+        this.iCs = i;
     }
 }

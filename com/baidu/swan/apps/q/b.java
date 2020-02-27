@@ -10,43 +10,43 @@ import com.baidu.tbadk.TbConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private boolean brG;
-    private boolean brH;
-    private JSONObject brI;
+    private boolean bvQ;
+    private boolean bvR;
+    private JSONObject bvS;
     private String mImageUrl;
 
     public String getImageUrl() {
         return this.mImageUrl;
     }
 
-    public b QP() {
-        this.brG = false;
-        this.brH = false;
+    public b Td() {
+        this.bvQ = false;
+        this.bvR = false;
         this.mImageUrl = null;
-        this.brI = QS();
-        if (this.brI != null) {
-            this.brG = QR();
-            if (!this.brG) {
-                this.brH = QQ();
+        this.bvS = Tg();
+        if (this.bvS != null) {
+            this.bvQ = Tf();
+            if (!this.bvQ) {
+                this.bvR = Te();
             }
         }
         return this;
     }
 
-    private boolean QQ() {
-        if (com.baidu.swan.apps.runtime.d.aam().Ed() == 0) {
-            return k(this.brI, "swan_guide_");
+    private boolean Te() {
+        if (com.baidu.swan.apps.runtime.d.acA().Gs() == 0) {
+            return k(this.bvS, "swan_guide_");
         }
-        if (com.baidu.swan.apps.runtime.d.aam().Ed() == 1) {
-            return k(this.brI, "swangame_guide_");
+        if (com.baidu.swan.apps.runtime.d.acA().Gs() == 1) {
+            return k(this.bvS, "swangame_guide_");
         }
         return false;
     }
 
-    private boolean QR() {
-        JSONArray optJSONArray = this.brI.optJSONArray("custom_guide_list");
+    private boolean Tf() {
+        JSONArray optJSONArray = this.bvS.optJSONArray("custom_guide_list");
         if (optJSONArray == null || optJSONArray.length() == 0) {
             return false;
         }
@@ -54,7 +54,7 @@ public class b {
         for (int i = 0; i < length; i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             String optString = optJSONObject.optString("appid", "");
-            if (e.aar() == null || TextUtils.equals(e.aar(), optString)) {
+            if (e.acF() == null || TextUtils.equals(e.acF(), optString)) {
                 return k(optJSONObject, "");
             }
         }
@@ -67,7 +67,7 @@ public class b {
     */
     private boolean k(JSONObject jSONObject, String str) {
         boolean z;
-        b.a En;
+        b.a GC;
         boolean z2 = false;
         if (jSONObject != null) {
             String optString = jSONObject.optString(str + "count", "3");
@@ -78,9 +78,9 @@ public class b {
             int optInt = jSONObject.optInt(str + "shown_count", 0);
             int optInt2 = jSONObject.optInt(str + "image_index", 0);
             boolean z3 = System.currentTimeMillis() - optLong > longValue * BdKVCache.MILLS_1Hour;
-            if (e.aap() != null && (En = e.aap().En()) != null) {
-                String Tt = En.Tt();
-                if (!TextUtils.isEmpty(Tt) && !Tt.startsWith("120")) {
+            if (e.acD() != null && (GC = e.acD().GC()) != null) {
+                String VH = GC.VH();
+                if (!TextUtils.isEmpty(VH) && !VH.startsWith("120")) {
                     z = false;
                     if (optInt < intValue && z3 && !z) {
                         z2 = true;
@@ -94,7 +94,7 @@ public class b {
                             m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.q.b.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    h.adb().putString("swan_guide_toast", b.this.brI.toString());
+                                    h.afp().putString("swan_guide_toast", b.this.bvS.toString());
                                 }
                             }, "swanCloseGuideRunnable");
                         } catch (JSONException e) {
@@ -124,8 +124,8 @@ public class b {
         return i;
     }
 
-    private JSONObject QS() {
-        String string = h.adb().getString("swan_guide_toast", "");
+    private JSONObject Tg() {
+        String string = h.afp().getString("swan_guide_toast", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 return new JSONObject(string);
@@ -136,14 +136,14 @@ public class b {
     }
 
     public boolean isShow() {
-        return this.brH || this.brG;
+        return this.bvR || this.bvQ;
     }
 
-    public String QT() {
-        if (this.brG) {
+    public String Th() {
+        if (this.bvQ) {
             return "special";
         }
-        if (this.brH) {
+        if (this.bvR) {
             return "normal";
         }
         return null;

@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements io.reactivex.c.g<T> {
     final io.reactivex.c.g<? super T> onDrop;
 
@@ -14,10 +14,10 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements io.r
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nvP.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
+        this.nwr.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class BackpressureDropSubscriber<T> extends AtomicLong implements j<T>, org.a.d {
         private static final long serialVersionUID = -6246093802440953054L;
         final org.a.c<? super T> actual;
@@ -50,7 +50,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements io.r
                 try {
                     this.onDrop.accept(t);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.exceptions.a.H(th);
                     cancel();
                     onError(th);
                 }

@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements b<String, String> {
     public static final String a = "Host";
     private static final String b = "Accept";

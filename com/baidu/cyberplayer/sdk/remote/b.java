@@ -13,10 +13,10 @@ public interface b extends IInterface {
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        private static class C0057a implements b {
+        private static class C0063a implements b {
             private IBinder a;
 
-            C0057a(IBinder iBinder) {
+            C0063a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -70,7 +70,7 @@ public interface b extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0057a(iBinder) : (b) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0063a(iBinder) : (b) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

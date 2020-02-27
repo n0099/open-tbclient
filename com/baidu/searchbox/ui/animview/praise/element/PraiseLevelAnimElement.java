@@ -8,7 +8,7 @@ import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.ui.animview.util.PraiseLevelUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PraiseLevelAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final float FACTOR_SCALE_OUT = 0.82f;
@@ -37,7 +37,7 @@ public class PraiseLevelAnimElement extends BaseAnimatedElement {
                 if (lottie != null) {
                     g gVar = new g();
                     gVar.setImageAssetDelegate(lottie.mImageAssetDelegate);
-                    gVar.b(lottie.mLottieComposition);
+                    gVar.a(lottie.mLottieComposition);
                     gVar.setCallback(this.mDrawableCallback);
                     this.mLottieArray[i - 1] = gVar;
                 }

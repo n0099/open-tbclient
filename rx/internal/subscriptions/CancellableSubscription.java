@@ -5,7 +5,7 @@ import rx.c.c;
 import rx.exceptions.a;
 import rx.functions.d;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CancellableSubscription extends AtomicReference<d> implements k {
     private static final long serialVersionUID = 5718521705281392066L;
 
@@ -25,7 +25,7 @@ public final class CancellableSubscription extends AtomicReference<d> implements
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                a.I(e);
+                a.H(e);
                 c.onError(e);
             }
         }

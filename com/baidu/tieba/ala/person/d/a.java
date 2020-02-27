@@ -1,32 +1,31 @@
 package com.baidu.tieba.ala.person.d;
 
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.tieba.ala.person.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static PersonUserData a(b bVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new w();
+        personUserData.user_info = new x();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.Zq = bVar.metaKey;
+        personUserData.user_info.abj = bVar.metaKey;
         personUserData.user_info.user_id = bVar.id;
         personUserData.user_info.user_name = bVar.name;
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.eHG;
+        personUserData.relation_info.follow_status = bVar.eLA;
         return personUserData;
     }
 
-    public static String az(int i, String str) {
+    public static String aA(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -59,23 +58,7 @@ public class a {
         return null;
     }
 
-    public static String zl(String str) {
-        if (str != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("data");
-                if (new JSONObject(jSONObject.optString(BdStatsConstant.StatsType.ERROR)).optInt("errno") == 0) {
-                    return optString;
-                }
-                return null;
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-        }
-        return null;
-    }
-
-    public static String db(long j) {
+    public static String dd(long j) {
         return j / 10000 > 0 ? j(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 

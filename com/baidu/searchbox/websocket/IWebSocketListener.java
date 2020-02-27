@@ -2,8 +2,10 @@ package com.baidu.searchbox.websocket;
 
 import java.nio.ByteBuffer;
 import java.util.Map;
+import kotlin.h;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+@h
+/* loaded from: classes11.dex */
 public interface IWebSocketListener {
     void onClose(JSONObject jSONObject);
 

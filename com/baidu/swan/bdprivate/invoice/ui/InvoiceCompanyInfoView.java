@@ -6,14 +6,14 @@ import android.util.AttributeSet;
 import com.baidu.swan.bdprivate.b;
 import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
 import com.baidu.swan.bdprivate.invoice.ui.InvoiceInfoItemView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class InvoiceCompanyInfoView extends InvoiceBaseInfoView {
-    private InvoiceInfoItemView bZI;
-    private InvoiceInfoItemView bZJ;
-    private InvoiceInfoItemView bZK;
-    private InvoiceInfoItemView bZL;
-    private InvoiceInfoItemView bZM;
-    private InvoiceInfoItemView bZN;
+    private InvoiceInfoItemView cdO;
+    private InvoiceInfoItemView cdP;
+    private InvoiceInfoItemView cdQ;
+    private InvoiceInfoItemView cdR;
+    private InvoiceInfoItemView cdS;
+    private InvoiceInfoItemView cdT;
 
     public InvoiceCompanyInfoView(Context context) {
         this(context, null);
@@ -30,31 +30,31 @@ public class InvoiceCompanyInfoView extends InvoiceBaseInfoView {
 
     private void init(Context context) {
         setOrientation(1);
-        this.bZI = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().ej(true).ek(true).mZ(context.getString(b.g.invoice_desc_name)).na(context.getString(b.g.invoice_hint_name)).nb(InvoiceInfo.REG_NON_EMPTY).nc(context.getString(b.g.invoice_err_msg_name)));
-        this.bZJ = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().ej(true).mZ(context.getString(b.g.invoice_desc_tax_number)).ek(true).he(2).nd(context.getString(b.g.alphabet_and_number)).na(context.getString(b.g.invoice_hint_tax_number)).nb(InvoiceInfo.REG_NON_EMPTY).nc(context.getString(b.g.invoice_err_msg_tax_number)));
-        this.bZK = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().ek(true).mZ(context.getString(b.g.invoice_desc_company_address)).na(context.getString(b.g.invoice_hint_company_address)));
-        this.bZL = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().mZ(context.getString(b.g.invoice_desc_mobile)).ek(true).he(2).na(context.getString(b.g.invoice_hint_mobile)));
-        this.bZM = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().ek(true).mZ(context.getString(b.g.invoice_desc_bank)).na(context.getString(b.g.invoice_hint_bank)));
-        this.bZN = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().mZ(context.getString(b.g.invoice_desc_bank_account)).ek(true).he(2).na(context.getString(b.g.invoice_hint_bank_account)));
-        this.bZH = new InvoiceInfoItemView[]{this.bZI, this.bZJ, this.bZK, this.bZL, this.bZM, this.bZN};
-        for (int i = 0; i < this.bZH.length; i++) {
-            addView(this.bZH[i], i);
+        this.cdO = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().eq(true).er(true).no(context.getString(b.g.invoice_desc_name)).np(context.getString(b.g.invoice_hint_name)).nq(InvoiceInfo.REG_NON_EMPTY).nr(context.getString(b.g.invoice_err_msg_name)));
+        this.cdP = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().eq(true).no(context.getString(b.g.invoice_desc_tax_number)).er(true).hv(2).ns(context.getString(b.g.alphabet_and_number)).np(context.getString(b.g.invoice_hint_tax_number)).nq(InvoiceInfo.REG_NON_EMPTY).nr(context.getString(b.g.invoice_err_msg_tax_number)));
+        this.cdQ = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().er(true).no(context.getString(b.g.invoice_desc_company_address)).np(context.getString(b.g.invoice_hint_company_address)));
+        this.cdR = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().no(context.getString(b.g.invoice_desc_mobile)).er(true).hv(2).np(context.getString(b.g.invoice_hint_mobile)));
+        this.cdS = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().er(true).no(context.getString(b.g.invoice_desc_bank)).np(context.getString(b.g.invoice_hint_bank)));
+        this.cdT = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().no(context.getString(b.g.invoice_desc_bank_account)).er(true).hv(2).np(context.getString(b.g.invoice_hint_bank_account)));
+        this.cdN = new InvoiceInfoItemView[]{this.cdO, this.cdP, this.cdQ, this.cdR, this.cdS, this.cdT};
+        for (int i = 0; i < this.cdN.length; i++) {
+            addView(this.cdN[i], i);
         }
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.e
     public InvoiceInfo getInvoiceInfo() {
-        return new InvoiceInfo(0, this.bZI.getContent(), this.bZJ.getContent(), this.bZK.getContent(), this.bZL.getContent(), this.bZM.getContent(), this.bZN.getContent());
+        return new InvoiceInfo(0, this.cdO.getContent(), this.cdP.getContent(), this.cdQ.getContent(), this.cdR.getContent(), this.cdS.getContent(), this.cdT.getContent());
     }
 
     public void d(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
-            this.bZI.setContent(invoiceInfo.mTitle);
-            this.bZJ.setContent(invoiceInfo.mTaxNumber);
-            this.bZK.setContent(invoiceInfo.mCompanyAddress);
-            this.bZL.setContent(invoiceInfo.mTelephone);
-            this.bZM.setContent(invoiceInfo.mBankName);
-            this.bZN.setContent(invoiceInfo.mBankAccount);
+            this.cdO.setContent(invoiceInfo.mTitle);
+            this.cdP.setContent(invoiceInfo.mTaxNumber);
+            this.cdQ.setContent(invoiceInfo.mCompanyAddress);
+            this.cdR.setContent(invoiceInfo.mTelephone);
+            this.cdS.setContent(invoiceInfo.mBankName);
+            this.cdT.setContent(invoiceInfo.mBankAccount);
         }
     }
 }

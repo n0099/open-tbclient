@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SelectorImageView extends BdBaseImageView {
     private static int NORMAL_ALPHA = 255;
 

@@ -6,7 +6,7 @@ import com.baidu.searchbox.network.core.connect.IHttpDelegator;
 import com.baidu.searchbox.network.request.HttpRequest;
 import com.baidu.searchbox.network.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.network.statistics.NetworkStat;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IHttpContext {
     CookieManager getCookieManager(boolean z, boolean z2);
 

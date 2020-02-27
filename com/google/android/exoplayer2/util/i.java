@@ -6,47 +6,47 @@ import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.googlecode.mp4parser.boxes.AC3SpecificBox;
 import com.googlecode.mp4parser.boxes.EC3SpecificBox;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i {
-    public static boolean Qb(String str) {
-        return "audio".equals(Qi(str));
+    public static boolean Qo(String str) {
+        return "audio".equals(Qv(str));
     }
 
-    public static boolean OD(String str) {
-        return "video".equals(Qi(str));
+    public static boolean OQ(String str) {
+        return "video".equals(Qv(str));
     }
 
-    public static boolean Qc(String str) {
-        return "text".equals(Qi(str));
+    public static boolean Qp(String str) {
+        return "text".equals(Qv(str));
     }
 
-    public static String Qd(String str) {
+    public static String Qq(String str) {
         if (str == null) {
             return null;
         }
         for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            String Qf = Qf(str2);
-            if (Qf != null && OD(Qf)) {
-                return Qf;
+            String Qs = Qs(str2);
+            if (Qs != null && OQ(Qs)) {
+                return Qs;
             }
         }
         return null;
     }
 
-    public static String Qe(String str) {
+    public static String Qr(String str) {
         if (str == null) {
             return null;
         }
         for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            String Qf = Qf(str2);
-            if (Qf != null && Qb(Qf)) {
-                return Qf;
+            String Qs = Qs(str2);
+            if (Qs != null && Qo(Qs)) {
+                return Qs;
             }
         }
         return null;
     }
 
-    public static String Qf(String str) {
+    public static String Qs(String str) {
         if (str == null) {
             return null;
         }
@@ -87,27 +87,27 @@ public final class i {
         return null;
     }
 
-    public static int Qg(String str) {
+    public static int Qt(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        if (Qb(str)) {
+        if (Qo(str)) {
             return 1;
         }
-        if (OD(str)) {
+        if (OQ(str)) {
             return 2;
         }
-        if (Qc(str) || "application/cea-608".equals(str) || "application/cea-708".equals(str) || "application/x-mp4-cea-608".equals(str) || "application/x-subrip".equals(str) || "application/ttml+xml".equals(str) || "application/x-quicktime-tx3g".equals(str) || "application/x-mp4-vtt".equals(str) || "application/x-rawcc".equals(str) || "application/vobsub".equals(str) || "application/pgs".equals(str) || "application/dvbsubs".equals(str)) {
+        if (Qp(str) || "application/cea-608".equals(str) || "application/cea-708".equals(str) || "application/x-mp4-cea-608".equals(str) || "application/x-subrip".equals(str) || "application/ttml+xml".equals(str) || "application/x-quicktime-tx3g".equals(str) || "application/x-mp4-vtt".equals(str) || "application/x-rawcc".equals(str) || "application/vobsub".equals(str) || "application/pgs".equals(str) || "application/dvbsubs".equals(str)) {
             return 3;
         }
         return ("application/id3".equals(str) || "application/x-emsg".equals(str) || "application/x-scte35".equals(str) || "application/x-camera-motion".equals(str)) ? 4 : -1;
     }
 
-    public static int Qh(String str) {
-        return Qg(Qf(str));
+    public static int Qu(String str) {
+        return Qt(Qs(str));
     }
 
-    private static String Qi(String str) {
+    private static String Qv(String str) {
         if (str == null) {
             return null;
         }

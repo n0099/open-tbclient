@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public class r extends q {
     public static final <T> int a(Iterable<? extends T> iterable, int i) {
         kotlin.jvm.internal.q.j(iterable, "receiver$0");

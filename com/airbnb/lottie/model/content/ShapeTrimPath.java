@@ -1,15 +1,15 @@
 package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.a.a.r;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
-    private final Type gy;
-    private final com.airbnb.lottie.model.a.b iC;
-    private final com.airbnb.lottie.model.a.b iK;
-    private final com.airbnb.lottie.model.a.b iL;
+    private final Type gC;
+    private final com.airbnb.lottie.model.a.b iG;
+    private final com.airbnb.lottie.model.a.b iO;
+    private final com.airbnb.lottie.model.a.b iP;
     private final String name;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.gy = type;
-        this.iK = bVar;
-        this.iL = bVar2;
-        this.iC = bVar3;
+        this.gC = type;
+        this.iO = bVar;
+        this.iP = bVar2;
+        this.iG = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type bM() {
-        return this.gy;
-    }
-
-    public com.airbnb.lottie.model.a.b da() {
-        return this.iL;
+    public Type bN() {
+        return this.gC;
     }
 
     public com.airbnb.lottie.model.a.b db() {
-        return this.iK;
+        return this.iP;
     }
 
-    public com.airbnb.lottie.model.a.b cU() {
-        return this.iC;
+    public com.airbnb.lottie.model.a.b dc() {
+        return this.iO;
+    }
+
+    public com.airbnb.lottie.model.a.b cV() {
+        return this.iG;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.iK + ", end: " + this.iL + ", offset: " + this.iC + "}";
+        return "Trim Path: {start: " + this.iO + ", end: " + this.iP + ", offset: " + this.iG + "}";
     }
 }

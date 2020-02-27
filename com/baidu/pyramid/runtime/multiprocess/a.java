@@ -13,11 +13,11 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile int aRe = 0;
+    private static volatile int aVD = 0;
     private static volatile String sProcessName;
 
-    public static int Cs() {
-        int i = aRe;
+    public static int EO() {
+        int i = aVD;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,13 +26,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            aRe = i;
+            aVD = i;
         }
         return i;
     }
 
-    public static boolean Ct() {
-        return (Cs() & 2) != 0;
+    public static boolean EP() {
+        return (EO() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -42,7 +42,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = Cv();
+                    str = ER();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -53,7 +53,7 @@ public class a {
         return str;
     }
 
-    public static int Cu() {
+    public static int EQ() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -87,7 +87,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String Cv() {
+    private static String ER() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;

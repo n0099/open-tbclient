@@ -1,5 +1,5 @@
 package com.baidu.searchbox.suspension_ball_anim;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.suspension_ball_anim";
     public static final String BUILD_TYPE = "release";

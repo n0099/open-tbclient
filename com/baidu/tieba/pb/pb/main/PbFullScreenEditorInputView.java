@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.b;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbFullScreenEditorInputView extends EditText {
     public PbFullScreenEditorInputView(Context context) {
         super(context);
@@ -33,15 +33,15 @@ public class PbFullScreenEditorInputView extends EditText {
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
     }
 
-    public void b(com.baidu.tbadk.coreExtra.data.p pVar) {
-        if (com.baidu.tieba.face.a.Ab(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.aDz().showToast(R.string.too_many_face);
+    public void b(com.baidu.tbadk.coreExtra.data.q qVar) {
+        if (com.baidu.tieba.face.a.Ar(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.aFJ().showToast(R.string.too_many_face);
         } else {
-            com.baidu.tieba.face.b.b(getContext(), pVar, this);
+            com.baidu.tieba.face.b.b(getContext(), qVar, this);
         }
     }
 
-    public void uQ(String str) {
+    public void vh(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
@@ -67,7 +67,7 @@ public class PbFullScreenEditorInputView extends EditText {
         }
     }
 
-    public void BG(String str) {
+    public void BW(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.face.b.a(getContext(), str, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.1
                 @Override // com.baidu.tieba.face.b.a
@@ -79,7 +79,7 @@ public class PbFullScreenEditorInputView extends EditText {
         }
     }
 
-    public void dV(String str, String str2) {
+    public void ee(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.face.b.a(getContext(), str, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.2
                 @Override // com.baidu.tieba.face.b.a

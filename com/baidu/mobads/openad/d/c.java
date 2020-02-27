@@ -2,7 +2,7 @@ package com.baidu.mobads.openad.d;
 
 import android.net.Uri;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public String a;
     public String b;

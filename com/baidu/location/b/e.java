@@ -22,7 +22,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
     private int C;
     private int D;
@@ -41,7 +41,7 @@ public class e {
     private static String F = "";
     private LocationManager c = null;
     private c e = null;
-    private C0103e f = null;
+    private C0111e f = null;
     private b j = null;
     private boolean k = false;
     private d l = null;
@@ -61,7 +61,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends GnssStatus.Callback {
         private a() {
         }
@@ -120,7 +120,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements GpsStatus.Listener {
         private long b;
 
@@ -206,7 +206,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c implements LocationListener {
         private c() {
         }
@@ -255,7 +255,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class d implements GpsStatus.NmeaListener {
         private d() {
         }
@@ -274,15 +274,15 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.b.e$e  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0103e implements LocationListener {
+    /* loaded from: classes8.dex */
+    public class C0111e implements LocationListener {
         private long b;
 
-        private C0103e() {
+        private C0111e() {
             this.b = 0L;
         }
 
-        /* synthetic */ C0103e(e eVar, f fVar) {
+        /* synthetic */ C0111e(e eVar, f fVar) {
             this();
         }
 
@@ -566,7 +566,7 @@ public class e {
                         this.c.addNmeaListener(this.l);
                     }
                 }
-                this.f = new C0103e(this, null);
+                this.f = new C0111e(this, null);
                 this.c.requestLocationUpdates("passive", 9000L, 0.0f, this.f);
             } catch (Exception e) {
             }

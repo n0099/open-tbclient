@@ -1,7 +1,10 @@
 package kotlin.coroutines.jvm.internal;
-/* loaded from: classes5.dex */
+
+import kotlin.h;
+@h
+/* loaded from: classes7.dex */
 public final class a implements kotlin.coroutines.a<Object> {
-    public static final a nBt = new a();
+    public static final a nBV = new a();
 
     private a() {
     }

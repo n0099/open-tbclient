@@ -2,7 +2,7 @@ package com.baidu.ala.gift;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaDynamicGiftConfigInfo implements Serializable {
     public int frame_count;
     public int frame_rate;

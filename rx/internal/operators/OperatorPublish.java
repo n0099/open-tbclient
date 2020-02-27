@@ -7,10 +7,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.a.ae;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class OperatorPublish<T> extends rx.observables.a<T> {
     final AtomicReference<a<T>> current;
-    final rx.d<? extends T> nMR;
+    final rx.d<? extends T> nNG;
 
     @Override // rx.observables.a
     public void f(rx.functions.b<? super rx.k> bVar) {
@@ -30,25 +30,25 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
         boolean z = !aVar.shouldConnect.get() && aVar.shouldConnect.compareAndSet(false, true);
         bVar.call(aVar);
         if (z) {
-            this.nMR.a((rx.j<? super Object>) aVar);
+            this.nNG.a((rx.j<? super Object>) aVar);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class a<T> extends rx.j<T> implements rx.k {
-        static final InnerProducer[] nPj = new InnerProducer[0];
-        static final InnerProducer[] nPk = new InnerProducer[0];
+        static final InnerProducer[] nPY = new InnerProducer[0];
+        static final InnerProducer[] nPZ = new InnerProducer[0];
         final AtomicReference<a<T>> current;
         boolean emitting;
         boolean missed;
-        final AtomicReference<InnerProducer[]> nPl;
+        final AtomicReference<InnerProducer[]> nQa;
         final Queue<Object> queue;
         final AtomicBoolean shouldConnect;
         volatile Object terminalEvent;
 
         public a(AtomicReference<a<T>> atomicReference) {
-            this.queue = ae.dNA() ? new rx.internal.util.a.q<>(rx.internal.util.g.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.g.SIZE);
-            this.nPl = new AtomicReference<>(nPj);
+            this.queue = ae.dON() ? new rx.internal.util.a.q<>(rx.internal.util.g.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.g.SIZE);
+            this.nQa = new AtomicReference<>(nPY);
             this.current = atomicReference;
             this.shouldConnect = new AtomicBoolean();
         }
@@ -57,7 +57,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
             add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.OperatorPublish.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.nPl.getAndSet(a.nPk);
+                    a.this.nQa.getAndSet(a.nPZ);
                     a.this.current.compareAndSet(a.this, null);
                 }
             }));
@@ -88,7 +88,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
         @Override // rx.e
         public void onCompleted() {
             if (this.terminalEvent == null) {
-                this.terminalEvent = NotificationLite.dMU();
+                this.terminalEvent = NotificationLite.dOh();
                 dispatch();
             }
         }
@@ -97,8 +97,8 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
             InnerProducer[] innerProducerArr;
             InnerProducer[] innerProducerArr2;
             do {
-                innerProducerArr = this.nPl.get();
-                if (innerProducerArr != nPj && innerProducerArr != nPk) {
+                innerProducerArr = this.nQa.get();
+                if (innerProducerArr != nPY && innerProducerArr != nPZ) {
                     int i = -1;
                     int length = innerProducerArr.length;
                     int i2 = 0;
@@ -114,7 +114,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            innerProducerArr2 = nPj;
+                            innerProducerArr2 = nPY;
                         } else {
                             innerProducerArr2 = new InnerProducer[length - 1];
                             System.arraycopy(innerProducerArr, 0, innerProducerArr2, 0, i);
@@ -126,17 +126,17 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                 } else {
                     return;
                 }
-            } while (!this.nPl.compareAndSet(innerProducerArr, innerProducerArr2));
+            } while (!this.nQa.compareAndSet(innerProducerArr, innerProducerArr2));
         }
 
         boolean checkTerminated(Object obj, boolean z) {
             int i = 0;
             if (obj != null) {
-                if (NotificationLite.cd(obj)) {
+                if (NotificationLite.ce(obj)) {
                     if (z) {
                         this.current.compareAndSet(this, null);
                         try {
-                            InnerProducer[] andSet = this.nPl.getAndSet(nPk);
+                            InnerProducer[] andSet = this.nQa.getAndSet(nPZ);
                             int length = andSet.length;
                             while (i < length) {
                                 andSet[i].child.onCompleted();
@@ -150,7 +150,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                     Throwable error = NotificationLite.getError(obj);
                     this.current.compareAndSet(this, null);
                     try {
-                        InnerProducer[] andSet2 = this.nPl.getAndSet(nPk);
+                        InnerProducer[] andSet2 = this.nQa.getAndSet(nPZ);
                         int length2 = andSet2.length;
                         while (i < length2) {
                             andSet2[i].child.onError(error);
@@ -188,7 +188,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                         if (!checkTerminated(obj, isEmpty)) {
                             try {
                                 if (!isEmpty) {
-                                    InnerProducer[] innerProducerArr = this.nPl.get();
+                                    InnerProducer[] innerProducerArr = this.nQa.get();
                                     int length = innerProducerArr.length;
                                     int i2 = 0;
                                     long j = Long.MAX_VALUE;
@@ -281,7 +281,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class InnerProducer<T> extends AtomicLong implements rx.f, rx.k {
         static final long NOT_REQUESTED = -4611686018427387904L;
         static final long UNSUBSCRIBED = Long.MIN_VALUE;

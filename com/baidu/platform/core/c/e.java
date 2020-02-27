@@ -2,7 +2,7 @@ package com.baidu.platform.core.c;
 
 import android.util.Log;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e extends com.baidu.platform.base.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PoiDetailSearchOption poiDetailSearchOption) {

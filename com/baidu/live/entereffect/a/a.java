@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public c ade;
-    private JSONObject adf;
+    public c afg;
+    private JSONObject afh;
     public int frameCount;
     public String id;
     public int priority;
@@ -17,29 +17,29 @@ public class a {
 
     public a(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.adf = jSONObject;
+            this.afh = jSONObject;
         }
     }
 
-    public JSONObject qj() {
-        return this.adf;
+    public JSONObject qU() {
+        return this.afh;
     }
 
-    public a b(String str, List<String> list) {
-        if (this.ade == null) {
-            this.ade = new c();
+    public a c(String str, List<String> list) {
+        if (this.afg == null) {
+            this.afg = new c();
         }
-        this.ade.upZipDirPath = str;
+        this.afg.upZipDirPath = str;
         if (list != null) {
             this.frameCount = list.size();
-            if (this.ade.adJ != null && this.ade.adJ.adI != null) {
-                this.ade.adJ.adI.frame_count = this.frameCount;
+            if (this.afg.afL != null && this.afg.afL.afK != null) {
+                this.afg.afL.afK.frame_count = this.frameCount;
             }
-            this.ade.unZipFilesPathList = new ArrayList<>();
-            this.ade.unZipFilesPathList.addAll(list);
-            if (this.adf != null) {
+            this.afg.unZipFilesPathList = new ArrayList<>();
+            this.afg.unZipFilesPathList.addAll(list);
+            if (this.afh != null) {
                 try {
-                    this.adf.put("frame_count", this.frameCount);
+                    this.afh.put("frame_count", this.frameCount);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

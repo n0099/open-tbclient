@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.an;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.o, com.baidu.tieba.card.a.a<com.baidu.tieba.card.q>> {
     private TbPageContext<?> mPageContext;
 
@@ -17,7 +17,7 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* JADX INFO: Access modifiers changed from: protected */
     public z(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.fLw);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.fNS);
         this.mPageContext = tbPageContext;
     }
 
@@ -33,9 +33,9 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.bue().a(oVar);
-        aVar.bue().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.r.btA().c(new an("c10718").cp("obj_id", String.valueOf(oVar.fLx)));
+        aVar.bvI().a(oVar);
+        aVar.bvI().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.r.bve().d(new an("c10718").cy("obj_id", String.valueOf(oVar.fNT)));
         return aVar.getView();
     }
 }

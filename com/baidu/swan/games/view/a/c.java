@@ -3,52 +3,52 @@ package com.baidu.swan.games.view.a;
 import android.view.View;
 import com.baidu.swan.apps.y.f;
 import com.baidu.swan.games.view.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d UF = f.UC().UF();
-        return UF != null && UF.a(view, aVar);
+        d WT = f.WQ().WT();
+        return WT != null && WT.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d UF = f.UC().UF();
-        return UF != null && UF.b(view, aVar);
+        d WT = f.WQ().WT();
+        return WT != null && WT.b(view, aVar);
     }
 
     public static boolean au(View view) {
-        d UF = f.UC().UF();
-        return UF != null && UF.au(view);
+        d WT = f.WQ().WT();
+        return WT != null && WT.au(view);
     }
 
     public static boolean ay(View view) {
-        d UF = f.UC().UF();
-        return UF != null && UF.ax(view);
+        d WT = f.WQ().WT();
+        return WT != null && WT.ax(view);
     }
 
     public static boolean isLandScape() {
-        d UF = f.UC().UF();
-        return UF != null && UF.isLandScape();
+        d WT = f.WQ().WT();
+        return WT != null && WT.isLandScape();
     }
 
-    public static int aoj() {
-        return ((Integer) f.UC().Uq().first).intValue();
+    public static int aqx() {
+        return ((Integer) f.WQ().WE().first).intValue();
     }
 
-    public static int aok() {
-        return ((Integer) f.UC().Uq().second).intValue();
+    public static int aqy() {
+        return ((Integer) f.WQ().WE().second).intValue();
     }
 
     public static void a(com.baidu.swan.games.view.a aVar) {
-        d UF = f.UC().UF();
-        if (UF != null) {
-            UF.a(aVar);
+        d WT = f.WQ().WT();
+        if (WT != null) {
+            WT.a(aVar);
         }
     }
 
     public static void b(com.baidu.swan.games.view.a aVar) {
-        d UF = f.UC().UF();
-        if (UF != null) {
-            UF.b(aVar);
+        d WT = f.WQ().WT();
+        if (WT != null) {
+            WT.b(aVar);
         }
     }
 }

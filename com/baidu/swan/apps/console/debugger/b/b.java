@@ -5,27 +5,27 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.t.e;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static e.f d(com.baidu.swan.apps.x.b.b bVar) {
-        File Jl = Jl();
-        e.a(JF(), Jl, bVar);
+        File LA = LA();
+        e.a(LU(), LA, bVar);
         e.f fVar = new e.f();
-        File file = new File(Jl, "app.json");
-        SwanAppConfigData l = SwanAppConfigData.l(com.baidu.swan.d.c.readFileData(file), Jl);
-        fVar.bto = Jl.getPath() + File.separator;
-        fVar.btp = l;
+        File file = new File(LA, "app.json");
+        SwanAppConfigData l = SwanAppConfigData.l(com.baidu.swan.d.c.readFileData(file), LA);
+        fVar.bxy = LA.getPath() + File.separator;
+        fVar.bxz = l;
         if (DEBUG) {
             Log.d("WirelessDebugBundleHelper", "configFile path: " + file.getPath());
             Log.d("WirelessDebugBundleHelper", "configFile exist: " + file.exists());
-            Log.d("WirelessDebugBundleHelper", "info.mAppBundlePath path: " + fVar.bto);
+            Log.d("WirelessDebugBundleHelper", "info.mAppBundlePath path: " + fVar.bxy);
         }
         return fVar;
     }
 
-    public static File Jl() {
+    public static File LA() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
         if (!file.exists()) {
             file.mkdirs();
@@ -33,11 +33,11 @@ public class b {
         return file;
     }
 
-    public static File JF() {
-        return new File(JG(), "wireless_debug.aiapps");
+    public static File LU() {
+        return new File(LV(), "wireless_debug.aiapps");
     }
 
-    public static File JG() {
+    public static File LV() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
         if (!file.exists()) {
             file.mkdirs();

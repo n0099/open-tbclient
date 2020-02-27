@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static String encrypt(String str) {
         if (TextUtils.isEmpty(str)) {

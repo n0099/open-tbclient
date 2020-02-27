@@ -7,37 +7,37 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.swan.apps.c;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bTS;
+    private static String bXW;
 
-    public static String aea() {
-        return mm("swan");
+    public static String ago() {
+        return mB("swan");
     }
 
-    public static String Pg() {
-        return mm("swangame");
+    public static String Ru() {
+        return mB("swangame");
     }
 
-    private static String mm(String str) {
-        String hostName = com.baidu.swan.apps.w.a.Sr().getHostName();
+    private static String mB(String str) {
+        String hostName = com.baidu.swan.apps.w.a.UF().getHostName();
         a aVar = new a();
-        aVar.mn(str).mo(c.getVersion()).mp(hostName).mq(getVersionName()).mr(getOSVersion());
-        return aVar.aeb();
+        aVar.mC(str).mD(c.getVersion()).mE(hostName).mF(getVersionName()).mG(getOSVersion());
+        return aVar.agp();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.w.a.RG();
+        return com.baidu.swan.apps.w.a.TU();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(bTS)) {
-            return bTS;
+        if (!TextUtils.isEmpty(bXW)) {
+            return bXW;
         }
         try {
-            bTS = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return bTS;
+            bXW = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return bXW;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -54,56 +54,56 @@ public class b {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        private static String bTX = "%s/%s";
-        private static String bTY = "%s-%s/%s";
-        private static String bTZ = "(Baidu; P1 %s)";
-        private static String bUa = "%s/%s";
-        private String OW;
-        private String bTT;
-        private String bTU;
-        private String bTV;
-        private String bTW;
+        private static String bYb = "%s/%s";
+        private static String bYc = "%s-%s/%s";
+        private static String bYd = "(Baidu; P1 %s)";
+        private static String bYe = "%s/%s";
+        private String QF;
+        private String bXX;
+        private String bXY;
+        private String bXZ;
+        private String bYa;
 
-        public a mn(String str) {
-            this.bTT = str;
+        public a mC(String str) {
+            this.bXX = str;
             return this;
         }
 
-        public a mo(String str) {
-            this.bTU = str;
+        public a mD(String str) {
+            this.bXY = str;
             return this;
         }
 
-        public a mp(String str) {
-            this.bTV = str;
+        public a mE(String str) {
+            this.bXZ = str;
             return this;
         }
 
-        public a mq(String str) {
-            this.bTW = str;
+        public a mF(String str) {
+            this.bYa = str;
             return this;
         }
 
-        public a mr(String str) {
-            this.OW = str;
+        public a mG(String str) {
+            this.QF = str;
             return this;
         }
 
-        public String aeb() {
-            String format = String.format(bTX, this.bTT, this.bTU);
-            String format2 = String.format(bTY, this.bTT, this.bTV, this.bTW);
-            String format3 = String.format(bUa, this.bTV, this.bTW);
-            String format4 = String.format(bTZ, this.OW);
-            if (aec()) {
+        public String agp() {
+            String format = String.format(bYb, this.bXX, this.bXY);
+            String format2 = String.format(bYc, this.bXX, this.bXZ, this.bYa);
+            String format3 = String.format(bYe, this.bXZ, this.bYa);
+            String format4 = String.format(bYd, this.QF);
+            if (agq()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean aec() {
-            return TextUtils.equals("baiduboxapp", this.bTV);
+        private boolean agq() {
+            return TextUtils.equals("baiduboxapp", this.bXZ);
         }
     }
 }

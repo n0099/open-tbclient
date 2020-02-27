@@ -7,9 +7,9 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.StatisticItem;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PageStayDurationStat {
-    private static PageStayDurationStat stayDurationStat = null;
+    private static PageStayDurationStat stayDurationStat = new PageStayDurationStat();
     private boolean isSmallFlowOpen = false;
     private int maxCost;
 
@@ -17,13 +17,6 @@ public class PageStayDurationStat {
     }
 
     public static PageStayDurationStat getInstance() {
-        if (stayDurationStat == null) {
-            synchronized (PageStayDurationStat.class) {
-                if (stayDurationStat == null) {
-                    stayDurationStat = new PageStayDurationStat();
-                }
-            }
-        }
         return stayDurationStat;
     }
 

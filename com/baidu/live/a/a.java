@@ -5,15 +5,15 @@ import android.app.Application;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.im.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks TV;
+    private static Application.ActivityLifecycleCallbacks VA;
 
     public static void d(Application application) {
-        if (TV == null) {
-            TV = new C0073a();
+        if (VA == null) {
+            VA = new C0079a();
         }
-        application.registerActivityLifecycleCallbacks(TV);
+        application.registerActivityLifecycleCallbacks(VA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -32,11 +32,11 @@ public class a {
     }
 
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static class C0073a implements Application.ActivityLifecycleCallbacks {
-        private n TW;
+    /* loaded from: classes3.dex */
+    private static class C0079a implements Application.ActivityLifecycleCallbacks {
+        private n VB;
 
-        private C0073a() {
+        private C0079a() {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -46,10 +46,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.s(activity)) {
-                if (this.TW == null) {
-                    this.TW = new n();
+                if (this.VB == null) {
+                    this.VB = new n();
                 }
-                this.TW.init(String.valueOf(activity.hashCode()));
+                this.VB.init(String.valueOf(activity.hashCode()));
             }
         }
 
@@ -71,8 +71,8 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            if (a.s(activity) && this.TW != null) {
-                this.TW.destroy(String.valueOf(activity.hashCode()));
+            if (a.s(activity) && this.VB != null) {
+                this.VB.destroy(String.valueOf(activity.hashCode()));
             }
         }
     }

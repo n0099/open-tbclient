@@ -27,7 +27,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_SET_PORTRAIT = 0;
@@ -168,7 +168,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.aa = ClipBoxView.a;
             clipBoxView.ba = false;
         }
-        setPendingTransition(a.C0069a.sapi_sdk_slide_right_in, a.C0069a.sapi_sdk_slide_left_out, a.C0069a.sapi_sdk_slide_left_in, a.C0069a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0075a.sapi_sdk_slide_right_in, a.C0075a.sapi_sdk_slide_left_out, a.C0075a.sapi_sdk_slide_left_in, a.C0075a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {

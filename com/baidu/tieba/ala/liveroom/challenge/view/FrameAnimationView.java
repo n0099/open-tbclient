@@ -10,25 +10,25 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FrameAnimationView<T> extends ImageView implements d {
-    private BdUniqueId aoz;
-    private b eVA;
-    private com.baidu.tieba.ala.liveroom.challenge.a.a eVB;
-    private Runnable eVC;
-    private T[] eVu;
-    private Bitmap eVv;
-    private Rect eVw;
-    private long eVx;
-    private long eVy;
-    private boolean eVz;
+    private BdUniqueId arR;
+    private T[] eZl;
+    private Bitmap eZm;
+    private Rect eZn;
+    private long eZo;
+    private long eZp;
+    private boolean eZq;
+    private b eZr;
+    private com.baidu.tieba.ala.liveroom.challenge.a.a eZs;
+    private Runnable eZt;
     private int index;
     private boolean isPlaying;
     private int mFrameCount;
     private Handler mHandler;
     private Rect srcRect;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onAnimEnd();
 
@@ -39,12 +39,12 @@ public class FrameAnimationView<T> extends ImageView implements d {
         super(context);
         this.index = 0;
         this.srcRect = new Rect();
-        this.eVw = new Rect();
-        this.eVx = 0L;
-        this.eVC = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
+        this.eZn = new Rect();
+        this.eZo = 0L;
+        this.eZt = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrameAnimationView.this.bjC();
+                FrameAnimationView.this.blr();
             }
         };
     }
@@ -53,12 +53,12 @@ public class FrameAnimationView<T> extends ImageView implements d {
         super(context, attributeSet);
         this.index = 0;
         this.srcRect = new Rect();
-        this.eVw = new Rect();
-        this.eVx = 0L;
-        this.eVC = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
+        this.eZn = new Rect();
+        this.eZo = 0L;
+        this.eZt = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrameAnimationView.this.bjC();
+                FrameAnimationView.this.blr();
             }
         };
     }
@@ -67,12 +67,12 @@ public class FrameAnimationView<T> extends ImageView implements d {
         super(context, attributeSet, i);
         this.index = 0;
         this.srcRect = new Rect();
-        this.eVw = new Rect();
-        this.eVx = 0L;
-        this.eVC = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
+        this.eZn = new Rect();
+        this.eZo = 0L;
+        this.eZt = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrameAnimationView.this.bjC();
+                FrameAnimationView.this.blr();
             }
         };
     }
@@ -80,20 +80,20 @@ public class FrameAnimationView<T> extends ImageView implements d {
     public void startAnim() {
         if (this.mFrameCount > 0) {
             this.index = 0;
-            this.eVx = 0L;
+            this.eZo = 0L;
             a aVar = new a(this);
-            aVar.setTag(this.aoz);
+            aVar.setTag(this.arR);
             aVar.setKey("FRAMEANIMATIONVIEW_ASYNCTASK_KEY");
-            aVar.execute(this.eVu[this.index]);
+            aVar.execute(this.eZl[this.index]);
             this.isPlaying = true;
         }
     }
 
-    private void bjB() {
+    private void blq() {
         a aVar = new a(this);
-        aVar.setTag(this.aoz);
+        aVar.setTag(this.arR);
         aVar.setKey("FRAMEANIMATIONVIEW_ASYNCTASK_KEY");
-        aVar.execute(this.eVu[this.index]);
+        aVar.execute(this.eZl[this.index]);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -103,81 +103,81 @@ public class FrameAnimationView<T> extends ImageView implements d {
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.view.d
     public void q(Bitmap bitmap) {
-        if (this.eVx <= 0) {
-            this.eVx = System.currentTimeMillis();
+        if (this.eZo <= 0) {
+            this.eZo = System.currentTimeMillis();
         }
         if (bitmap != null) {
-            if (this.eVv != null) {
-                this.eVv.recycle();
+            if (this.eZm != null) {
+                this.eZm.recycle();
             }
-            this.eVv = bitmap;
-            this.srcRect.set(0, 0, this.eVv.getWidth(), this.eVv.getHeight());
+            this.eZm = bitmap;
+            this.srcRect.set(0, 0, this.eZm.getWidth(), this.eZm.getHeight());
             invalidate();
         } else {
             invalidate();
         }
-        if (this.index == 0 && this.eVA != null) {
-            this.eVA.onAnimStart();
+        if (this.index == 0 && this.eZr != null) {
+            this.eZr.onAnimStart();
         }
         this.index++;
-        if (this.eVu == null || this.index >= this.eVu.length) {
+        if (this.eZl == null || this.index >= this.eZl.length) {
             stopAnim();
         } else {
-            bjC();
+            blr();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bjC() {
-        int currentTimeMillis = (int) (((System.currentTimeMillis() - this.eVx) * this.mFrameCount) / this.eVy);
+    public void blr() {
+        int currentTimeMillis = (int) (((System.currentTimeMillis() - this.eZo) * this.mFrameCount) / this.eZp);
         if (currentTimeMillis > this.index) {
             this.index = currentTimeMillis;
-            if (this.index >= this.eVu.length) {
+            if (this.index >= this.eZl.length) {
                 stopAnim();
                 return;
             } else {
-                bjB();
+                blq();
                 return;
             }
         }
-        this.mHandler.postDelayed(this.eVC, 10L);
+        this.mHandler.postDelayed(this.eZt, 10L);
     }
 
     public void stopAnim() {
-        if (this.eVz) {
+        if (this.eZq) {
             startAnim();
             return;
         }
         this.isPlaying = false;
-        if (this.eVA != null) {
-            this.eVA.onAnimEnd();
+        if (this.eZr != null) {
+            this.eZr.onAnimEnd();
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.eVv != null) {
-            this.eVw.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
-            canvas.drawBitmap(this.eVv, this.srcRect, this.eVw, (Paint) null);
+        if (this.eZm != null) {
+            this.eZn.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
+            canvas.drawBitmap(this.eZm, this.srcRect, this.eZn, (Paint) null);
         }
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.aoz = bdUniqueId;
+        this.arR = bdUniqueId;
     }
 
     public void setOnFrameAnimationCallback(b bVar) {
-        this.eVA = bVar;
+        this.eZr = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<T, Bitmap, Bitmap> {
-        private d eVE;
+        private d eZv;
 
         private a(d dVar) {
-            this.eVE = dVar;
+            this.eZv = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -188,7 +188,7 @@ public class FrameAnimationView<T> extends ImageView implements d {
             if (tArr == null || tArr[0] == null) {
                 return null;
             }
-            return FrameAnimationView.this.eVB.ao(tArr[0]);
+            return FrameAnimationView.this.eZs.aq(tArr[0]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -196,8 +196,8 @@ public class FrameAnimationView<T> extends ImageView implements d {
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            if (this.eVE != null) {
-                this.eVE.q(bitmap);
+            if (this.eZv != null) {
+                this.eZv.q(bitmap);
             }
         }
     }

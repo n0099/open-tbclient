@@ -3,11 +3,11 @@ package com.baidu.swan.pms.c.a.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a<T> {
     protected final List<T> mQueue = new ArrayList();
 
-    public synchronized T arB() {
+    public synchronized T atP() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;
@@ -28,7 +28,7 @@ public class a<T> {
         return t;
     }
 
-    public T Y(T t) {
+    public T aa(T t) {
         if (t != null) {
             for (int size = this.mQueue.size() - 1; size >= 0; size--) {
                 if (t.equals(this.mQueue.get(size))) {

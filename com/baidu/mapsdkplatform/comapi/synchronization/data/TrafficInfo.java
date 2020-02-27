@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class TrafficInfo implements Parcelable {
     public static final Parcelable.Creator<TrafficInfo> CREATOR = new n();
     private boolean a;

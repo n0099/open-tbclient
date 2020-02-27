@@ -9,12 +9,12 @@ import android.os.Process;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class e implements d {
-    private c dxA;
-    private a dxz;
+    private a dBC;
+    private c dBD;
     private Application mApplication;
     private String mPackageName = null;
-    private final i dxB = new i();
-    private final j dxC = new j();
+    private final i dBE = new i();
+    private final j dBF = new j();
 
     public e(Application application) {
         this.mApplication = application;
@@ -22,7 +22,7 @@ public class e implements d {
 
     @Override // com.baidu.tbadk.mutiprocess.d
     public void a(c cVar) {
-        this.dxA = cVar;
+        this.dBD = cVar;
     }
 
     @Override // com.baidu.tbadk.mutiprocess.d
@@ -38,11 +38,11 @@ public class e implements d {
     private void registerReceiver() {
         try {
             unregisterReceiver();
-            this.dxz = new a();
+            this.dBC = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.setPriority(1000);
             intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
-            this.mApplication.registerReceiver(this.dxz, intentFilter);
+            this.mApplication.registerReceiver(this.dBC, intentFilter);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,8 +50,8 @@ public class e implements d {
 
     private void unregisterReceiver() {
         try {
-            if (this.dxz != null && this.mApplication != null) {
-                this.mApplication.unregisterReceiver(this.dxz);
+            if (this.dBC != null && this.mApplication != null) {
+                this.mApplication.unregisterReceiver(this.dBC);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class e implements d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             com.baidu.tbadk.mutiprocess.a W;
-            if (intent != null && "intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (W = e.this.dxB.W(intent)) != null) {
+            if (intent != null && "intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (W = e.this.dBE.W(intent)) != null) {
                 int myPid = Process.myPid();
                 int pid = W.getPid();
                 if (W != null && W.getType() == 1) {
@@ -81,8 +81,8 @@ public class e implements d {
                 } else if (W.getType() == 3 && !TbadkCoreApplication.getInst().isMainProcess(true)) {
                     return;
                 }
-                if (e.this.dxA != null) {
-                    e.this.dxA.b(W);
+                if (e.this.dBD != null) {
+                    e.this.dBD.b(W);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class e implements d {
             Intent intent = new Intent();
             intent.setPackage(getPackageName());
             intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
-            this.dxC.a(intent, aVar);
+            this.dBF.a(intent, aVar);
             this.mApplication.sendBroadcast(intent);
         } catch (Exception e) {
             e.printStackTrace();

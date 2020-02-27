@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public C0430a eFa;
-    public b eFb;
+    public C0441a eIU;
+    public b eIV;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -16,35 +16,35 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.eFa = new C0430a();
-                this.eFa.cx(optJSONObject);
+                this.eIU = new C0441a();
+                this.eIU.cx(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.eFb = new b();
-                this.eFb.cz(optJSONObject2);
+                this.eIV = new b();
+                this.eIV.cz(optJSONObject2);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0430a {
-        public String eFc;
-        public String eFd;
-        public String eFe;
-        public String eFf;
-        public String eFg;
-        public long eFh;
-        public long eFi;
-        public long eFj;
-        public List<C0431a> eFk;
+    /* loaded from: classes3.dex */
+    public static class C0441a {
+        public String eIW;
+        public String eIX;
+        public String eIY;
+        public String eIZ;
+        public String eJa;
+        public long eJb;
+        public long eJc;
+        public long eJd;
+        public List<C0442a> eJe;
         public long startTime;
         public String username;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0431a {
+        /* loaded from: classes3.dex */
+        public static class C0442a {
             public String pic;
             public String text;
 
@@ -57,40 +57,40 @@ public class a {
         public void cx(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.eFk = new ArrayList();
+                this.eJe = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    C0431a c0431a = new C0431a();
-                    c0431a.cy(optJSONArray.optJSONObject(i));
-                    this.eFk.add(c0431a);
+                    C0442a c0442a = new C0442a();
+                    c0442a.cy(optJSONArray.optJSONObject(i));
+                    this.eJe.add(c0442a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.eFc = jSONObject.optString("portrait");
+                this.eIW = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.eFg = jSONObject.optString("guard_seat_user");
+                this.eJa = jSONObject.optString("guard_seat_user");
             }
-            this.eFd = jSONObject.optString("frame_pic");
-            this.eFe = jSONObject.optString("time_text");
-            this.eFf = jSONObject.optString("rule_url");
+            this.eIX = jSONObject.optString("frame_pic");
+            this.eIY = jSONObject.optString("time_text");
+            this.eIZ = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
-            this.eFh = jSONObject.optLong("count_down");
-            this.eFi = jSONObject.optLong("effect_time");
-            this.eFj = jSONObject.optLong("polling_time");
+            this.eJb = jSONObject.optLong("count_down");
+            this.eJc = jSONObject.optLong("effect_time");
+            this.eJd = jSONObject.optLong("polling_time");
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
-        public C0432a eFl;
-        public List<C0433b> eFm;
+        public C0443a eJf;
+        public List<C0444b> eJg;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0433b {
+        /* loaded from: classes3.dex */
+        public static class C0444b {
             public String nickname;
             public String portrait;
             public String rank;
@@ -105,8 +105,8 @@ public class a {
         }
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0432a {
+        /* loaded from: classes3.dex */
+        public static class C0443a {
             public int rank;
             public String text;
 
@@ -120,17 +120,17 @@ public class a {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.eFm = new ArrayList();
+                    this.eJg = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        C0433b c0433b = new C0433b();
-                        c0433b.cB(optJSONArray.optJSONObject(i));
-                        this.eFm.add(c0433b);
+                        C0444b c0444b = new C0444b();
+                        c0444b.cB(optJSONArray.optJSONObject(i));
+                        this.eJg.add(c0444b);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.eFl = new C0432a();
-                    this.eFl.cA(optJSONObject);
+                    this.eJf = new C0443a();
+                    this.eJf.cA(optJSONObject);
                 }
             }
         }

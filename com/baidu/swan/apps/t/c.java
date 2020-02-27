@@ -11,28 +11,28 @@ import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final File bth;
+    private final File bxr;
 
     public c(File file) {
         super("dump");
-        this.bth = file;
+        this.bxr = file;
     }
 
     @Override // com.baidu.swan.apps.t.g.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        com.baidu.swan.apps.x.c.a ix = com.baidu.swan.apps.x.c.a.ix(bundle.getString("launch_id"));
-        ix.TT().iA("DumpFileProcessor").eW(1);
+        com.baidu.swan.apps.x.c.a iM = com.baidu.swan.apps.x.c.a.iM(bundle.getString("launch_id"));
+        iM.Wh().iP("DumpFileProcessor").fm(1);
         WritableByteChannel writableByteChannel = null;
         try {
-            writableByteChannel = Channels.newChannel(new FileOutputStream(this.bth, false));
+            writableByteChannel = Channels.newChannel(new FileOutputStream(this.bxr, false));
             a(sourceChannel, writableByteChannel);
-            ix.aJ("DumpFileProcessor", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+            iM.aT("DumpFileProcessor", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
             return true;
         } catch (IOException e) {
-            ix.aJ("DumpFileProcessor", "done with exception: " + e.toString());
+            iM.aT("DumpFileProcessor", "done with exception: " + e.toString());
             if (DEBUG) {
                 e.printStackTrace();
             }

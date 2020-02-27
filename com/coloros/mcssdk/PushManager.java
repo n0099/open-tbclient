@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushManager {
     public static final String APP_PACKAGE = "appPackage";
     public static final String EVENT_ID = "eventID";

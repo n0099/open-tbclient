@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.source.dash.manifest;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k {
     public final String schemeIdUri;
     public final String value;

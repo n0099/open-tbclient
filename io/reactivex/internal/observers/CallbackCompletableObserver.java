@@ -4,7 +4,7 @@ import io.reactivex.c.g;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CallbackCompletableObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, g<Throwable>, io.reactivex.disposables.b {
     private static final long serialVersionUID = -4361286194466301354L;
     final io.reactivex.c.a onComplete;
@@ -31,7 +31,7 @@ public final class CallbackCompletableObserver extends AtomicReference<io.reacti
         try {
             this.onComplete.run();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.I(th);
+            io.reactivex.exceptions.a.H(th);
             io.reactivex.e.a.onError(th);
         }
         lazySet(DisposableHelper.DISPOSED);
@@ -42,7 +42,7 @@ public final class CallbackCompletableObserver extends AtomicReference<io.reacti
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.I(th2);
+            io.reactivex.exceptions.a.H(th2);
             io.reactivex.e.a.onError(th2);
         }
         lazySet(DisposableHelper.DISPOSED);

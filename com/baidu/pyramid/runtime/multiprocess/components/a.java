@@ -19,9 +19,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class a {
-    private ContentProvider aRr;
-    private final int aRs;
-    public final int aRt;
+    private ContentProvider aVQ;
+    private final int aVR;
+    public final int aVS;
 
     public abstract int a(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 
@@ -38,26 +38,26 @@ public abstract class a {
     public abstract boolean onCreate();
 
     public a(int i, int i2) {
-        this.aRs = i;
-        this.aRt = i2;
+        this.aVR = i;
+        this.aVS = i2;
     }
 
-    public final int CE() {
-        return this.aRs;
+    public final int Fa() {
+        return this.aVR;
     }
 
-    public final int CF() {
-        return this.aRt;
+    public final int Fb() {
+        return this.aVS;
     }
 
     public void a(ContentProvider contentProvider) {
-        if (this.aRr == null) {
-            this.aRr = contentProvider;
+        if (this.aVQ == null) {
+            this.aVQ = contentProvider;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Uri uri, int i) {
+    public void b(Uri uri, int i) {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
@@ -90,7 +90,7 @@ public abstract class a {
         int size = arrayList.size();
         ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
         for (int i = 0; i < size; i++) {
-            contentProviderResultArr[i] = arrayList.get(i).apply(this.aRr, contentProviderResultArr, i);
+            contentProviderResultArr[i] = arrayList.get(i).apply(this.aVQ, contentProviderResultArr, i);
         }
         return contentProviderResultArr;
     }

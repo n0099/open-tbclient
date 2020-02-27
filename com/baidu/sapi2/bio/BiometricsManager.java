@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BiometricsManager implements c {
     public static final String LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN = "authtoken";
     public static final String LIVENESS_RECOGNIZE_TYPE_BDUSS = "bduss";
@@ -32,7 +32,7 @@ public class BiometricsManager implements c {
     private static final String b = "scene:certlogin";
     private static final String c = "scene:uncertlogin";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a {
         public static final String a = "bduss";
         public static final String b = "certinfo";

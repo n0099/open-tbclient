@@ -12,13 +12,15 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.widget.listview.BdListView;
+import com.baidu.live.data.e;
 import com.baidu.live.message.AlaSdkGetGiftListHttpResponseMessage;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.live.u.a;
 import com.baidu.live.view.input.AlaLiveInputEditView;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.core.atomData.FrsProfessionIntroActivityConfig;
@@ -28,13 +30,13 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends d {
-    private a etF;
-    private com.baidu.live.data.d etG;
-    private ArrayList<com.baidu.live.data.d> etH;
-    private RelativeLayout etl;
-    private TextView etm;
+    private a exP;
+    private e exQ;
+    private ArrayList<e> exR;
+    private RelativeLayout exv;
+    private TextView exw;
     private BdListView mListView;
 
     public c(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
@@ -48,24 +50,24 @@ public class c extends d {
 
     @Override // com.baidu.tieba.ala.a.d
     protected void initView() {
-        this.etl = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
-        this.etl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.c.1
+        this.exv = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
+        this.exv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.aZh();
+                c.this.bbw();
             }
         });
-        this.etm = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
-        this.etm.setText(a.i.sdk_choose_custom_number_tip);
+        this.exw = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
+        this.exw.setText(a.i.sdk_choose_custom_number_tip);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.choose_gift_listview);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.a.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (i >= 0 && i < c.this.etH.size()) {
-                    c.this.etG = (com.baidu.live.data.d) c.this.etH.get(i);
-                    if (c.this.etG != null) {
-                        c.this.etM = c.this.etG.getNumber();
-                        c.this.etF.oP(c.this.etM);
+                if (i >= 0 && i < c.this.exR.size()) {
+                    c.this.exQ = (e) c.this.exR.get(i);
+                    if (c.this.exQ != null) {
+                        c.this.exW = c.this.exQ.getNumber();
+                        c.this.exP.pg(c.this.exW);
                     }
                 }
             }
@@ -89,82 +91,82 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.ala.a.d
-    public void ai(int i, String str) {
+    public void aj(int i, String str) {
         d((AlaSdkGetGiftListHttpResponseMessage) null);
     }
 
     private void d(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
         if (alaSdkGetGiftListHttpResponseMessage != null) {
-            this.etH = alaSdkGetGiftListHttpResponseMessage.tq();
+            this.exR = alaSdkGetGiftListHttpResponseMessage.uH();
         }
-        if (ListUtils.isEmpty(this.etH)) {
-            bbK();
+        if (ListUtils.isEmpty(this.exR)) {
+            bdZ();
         }
-        if (this.etM > 0) {
-            Iterator<com.baidu.live.data.d> it = this.etH.iterator();
+        if (this.exW > 0) {
+            Iterator<e> it = this.exR.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                com.baidu.live.data.d next = it.next();
-                if (next != null && this.etM == next.getNumber()) {
-                    this.etG = next;
+                e next = it.next();
+                if (next != null && this.exW == next.getNumber()) {
+                    this.exQ = next;
                     break;
                 }
             }
         }
-        this.etF = new a(this.etJ.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.etF);
-        this.etF.setGiftNum(this.etM);
-        this.etF.setData(this.etH);
+        this.exP = new a(this.exT.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.exP);
+        this.exP.setGiftNum(this.exW);
+        this.exP.setData(this.exR);
     }
 
-    private void bbK() {
-        this.etH = new ArrayList<>();
+    private void bdZ() {
+        this.exR = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            com.baidu.live.data.d dVar = new com.baidu.live.data.d();
+            e eVar = new e();
             switch (i) {
                 case 0:
-                    dVar.number = 1;
-                    dVar.name = "一心一意";
+                    eVar.number = 1;
+                    eVar.name = "一心一意";
                     break;
                 case 1:
-                    dVar.number = 10;
-                    dVar.name = "十全十美";
+                    eVar.number = 10;
+                    eVar.name = "十全十美";
                     break;
                 case 2:
-                    dVar.number = 66;
-                    dVar.name = "六六大顺";
+                    eVar.number = 66;
+                    eVar.name = "六六大顺";
                     break;
                 case 3:
-                    dVar.number = 188;
-                    dVar.name = "要抱抱";
+                    eVar.number = Opcodes.NEWARRAY;
+                    eVar.name = "要抱抱";
                     break;
                 case 4:
-                    dVar.number = UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD;
-                    dVar.name = "我爱你";
+                    eVar.number = UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD;
+                    eVar.name = "我爱你";
                     break;
                 case 5:
-                    dVar.number = 1314;
-                    dVar.name = "一生一世";
+                    eVar.number = 1314;
+                    eVar.name = "一生一世";
                     break;
             }
-            this.etH.add(dVar);
+            this.exR.add(eVar);
         }
     }
 
     @Override // com.baidu.tieba.ala.a.d
     public void confirm() {
-        if (this.etG != null) {
-            f(this.etG.number, this.etG.name, false);
+        if (this.exQ != null) {
+            f(this.exQ.number, this.exQ.name, false);
         } else {
-            this.etJ.finish();
+            this.exT.finish();
         }
     }
 
     @Override // com.baidu.tieba.ala.a.d
-    public void oM(int i) {
-        super.oM(i);
+    public void pd(int i) {
+        super.pd(i);
         f(i, "", true);
     }
 
@@ -172,10 +174,10 @@ public class c extends d {
     public void a(CharSequence charSequence, int i, int i2, int i3) {
         super.a(charSequence, i, i2, i3);
         if (JavaTypesHelper.toInt(charSequence.toString(), 0) > 9999) {
-            this.ecH.getEditView().setText("9999");
-            this.ecH.getEditView().setSelection(this.ecH.getEditView().getText().length());
+            this.egK.getEditView().setText("9999");
+            this.egK.getEditView().setSelection(this.egK.getEditView().getText().length());
         }
-        this.ecH.setSendEnabled(true);
+        this.egK.setSendEnabled(true);
     }
 
     private void f(int i, String str, boolean z) {
@@ -189,8 +191,8 @@ public class c extends d {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.etJ.setResult(-1, intent);
-        this.etJ.finish();
+        this.exT.setResult(-1, intent);
+        this.exT.finish();
     }
 
     @Override // com.baidu.tieba.ala.a.d
@@ -199,9 +201,9 @@ public class c extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends BaseAdapter {
-        private List<com.baidu.live.data.d> dataList;
+        private List<e> dataList;
         private Context mContext;
         private int mGiftNum;
 
@@ -213,14 +215,14 @@ public class c extends d {
             this.mGiftNum = i;
         }
 
-        public void oP(int i) {
+        public void pg(int i) {
             if (this.mGiftNum != i) {
                 this.mGiftNum = i;
                 notifyDataSetChanged();
             }
         }
 
-        public void setData(List<com.baidu.live.data.d> list) {
+        public void setData(List<e> list) {
             this.dataList = new ArrayList(list);
             notifyDataSetChanged();
         }
@@ -235,8 +237,8 @@ public class c extends d {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: bs */
-        public com.baidu.live.data.d getItem(int i) {
+        /* renamed from: bz */
+        public e getItem(int i) {
             if (this.dataList == null) {
                 return null;
             }
@@ -254,32 +256,32 @@ public class c extends d {
             if (view == null) {
                 b bVar2 = new b();
                 view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_num_and_date_item, viewGroup, false);
-                bVar2.ett = (RelativeLayout) view.findViewById(a.g.item_root);
-                bVar2.etu = (TextView) view.findViewById(a.g.item_num_title);
-                bVar2.etv = (ImageView) view.findViewById(a.g.item_num_arrow);
+                bVar2.exD = (RelativeLayout) view.findViewById(a.g.item_root);
+                bVar2.exE = (TextView) view.findViewById(a.g.item_num_title);
+                bVar2.exF = (ImageView) view.findViewById(a.g.item_num_arrow);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            com.baidu.live.data.d item = getItem(i);
+            e item = getItem(i);
             if (item != null) {
-                bVar.etu.setText(item.getNumber() + HanziToPinyin.Token.SEPARATOR + item.getName());
+                bVar.exE.setText(item.getNumber() + HanziToPinyin.Token.SEPARATOR + item.getName());
                 if (item.getNumber() == this.mGiftNum) {
-                    bVar.etv.setVisibility(0);
+                    bVar.exF.setVisibility(0);
                 } else {
-                    bVar.etv.setVisibility(8);
+                    bVar.exF.setVisibility(8);
                 }
             }
             return view;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class b {
-        public RelativeLayout ett;
-        public TextView etu;
-        public ImageView etv;
+        public RelativeLayout exD;
+        public TextView exE;
+        public ImageView exF;
 
         private b() {
         }

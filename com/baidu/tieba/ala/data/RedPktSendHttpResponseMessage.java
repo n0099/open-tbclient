@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.data;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RedPktSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    public long ewc;
-    public long ewd;
+    public long eAn;
+    public long eAo;
 
     public RedPktSendHttpResponseMessage() {
         super(1021159);
@@ -16,8 +16,8 @@ public class RedPktSendHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ewc = optJSONObject.optLong("red_packet_id");
-            this.ewd = optJSONObject.optLong("red_packet_balance");
+            this.eAn = optJSONObject.optLong("red_packet_id");
+            this.eAo = optJSONObject.optLong("red_packet_balance");
         }
     }
 }

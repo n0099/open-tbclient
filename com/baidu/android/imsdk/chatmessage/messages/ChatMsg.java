@@ -20,7 +20,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static final int MSG_FORM_OTHER_DEVICE = 2;
     public static final int MSG_FROM_SAME_DEVICE = 1;
@@ -29,6 +29,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     private static AtomicInteger mOpenCounter = new AtomicInteger(1);
     private static Random mRandom = null;
     private long expiresTime;
+    private boolean isMediaRoleMsg;
     private long mAppId;
     private int mArrayIndex;
     private List<Long> mAtuks;
@@ -53,6 +54,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     private long mPaid;
     private int mReSend;
     private long mRowId;
+    private String mServiceType;
     private int mStatus;
     private int mSubChatType;
     private long mTime;
@@ -98,6 +100,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mAtuks = null;
         this.mCastids = null;
         this.expiresTime = 0L;
+        this.isMediaRoleMsg = false;
         this.sendMsgId = generateSendMsgId();
     }
 
@@ -131,6 +134,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mAtuks = null;
         this.mCastids = null;
         this.expiresTime = 0L;
+        this.isMediaRoleMsg = false;
         this.mMsgId = parcel.readLong();
         this.mTime = parcel.readLong();
         this.mFromUser = parcel.readLong();
@@ -169,6 +173,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mCastids = new ArrayList();
         parcel.readList(this.mCastids, Long.class.getClassLoader());
         this.expiresTime = parcel.readLong();
+        this.mServiceType = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -218,6 +223,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         parcel.writeList(this.mAtuks);
         parcel.writeList(this.mCastids);
         parcel.writeLong(this.expiresTime);
+        parcel.writeString(this.mServiceType);
     }
 
     public void setReSend() {
@@ -446,50 +452,50 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return this.mjsonContent;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0086 A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x008c A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00ac  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String getSendMsgContent() {
         JSONObject jSONObject;
         try {
-            if ((this.mChatType == 7 || this.mChatType == 16) && !TextUtils.isEmpty(this.mExtraContent)) {
+            if ((this.mChatType == 7 || this.mChatType == 16 || this.mChatType == 25) && !TextUtils.isEmpty(this.mExtraContent)) {
                 jSONObject = new JSONObject(this.mExtraContent);
             } else if (this.mjsonContent != null) {
                 jSONObject = new JSONObject(this.mjsonContent);
             } else {
                 jSONObject = new JSONObject();
             }
-            try {
-                jSONObject.put("buid", this.senderUid);
-                if (this.mChatType == 0) {
-                    jSONObject.put("tobuid", this.toBduid);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("sub_app_identity", String.valueOf(this.mChatType));
-                if (this.mMinSdkVersion > -1) {
-                    jSONObject2.put("min_sdk_version", this.mMinSdkVersion);
-                }
-                if (this.mSubChatType == 21) {
-                    jSONObject2.put("sub_pa_type", 21);
-                }
-                jSONObject.put("ext", jSONObject2);
-                if (!TextUtils.isEmpty(this.mjsonContentExtra)) {
-                    jSONObject.put("extra", this.mjsonContentExtra);
-                }
-                if (!TextUtils.isEmpty(this.mjsonStarExtra)) {
-                    jSONObject.put("stargroupext", this.mjsonStarExtra);
-                }
-            } catch (Exception e) {
-                e = e;
-                LogUtils.e(TAG, "getMsgContent Json", e);
-                if (jSONObject != null) {
-                }
+        } catch (Exception e) {
+            e = e;
+            jSONObject = null;
+        }
+        try {
+            jSONObject.put("buid", this.senderUid);
+            if (this.mChatType == 0) {
+                jSONObject.put("tobuid", this.toBduid);
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("sub_app_identity", String.valueOf(this.mChatType));
+            if (this.mMinSdkVersion > -1) {
+                jSONObject2.put("min_sdk_version", this.mMinSdkVersion);
+            }
+            if (this.mSubChatType == 21) {
+                jSONObject2.put("sub_pa_type", 21);
+            }
+            jSONObject.put("ext", jSONObject2);
+            if (!TextUtils.isEmpty(this.mjsonContentExtra)) {
+                jSONObject.put("extra", this.mjsonContentExtra);
+            }
+            if (!TextUtils.isEmpty(this.mjsonStarExtra)) {
+                jSONObject.put("stargroupext", this.mjsonStarExtra);
             }
         } catch (Exception e2) {
             e = e2;
-            jSONObject = null;
+            LogUtils.e(TAG, "getMsgContent Json", e);
+            if (jSONObject != null) {
+            }
         }
         if (jSONObject != null) {
             return null;
@@ -855,8 +861,12 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.expiresTime = j;
     }
 
-    public boolean isExpires() {
-        return this.expiresTime != 0 && System.currentTimeMillis() / 1000 > this.expiresTime;
+    public String getServiceType() {
+        return this.mServiceType;
+    }
+
+    public void setServiceType(String str) {
+        this.mServiceType = str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:21:0x006d -> B:19:0x006a). Please submit an issue!!! */
@@ -882,5 +892,13 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
             }
         }
         return false;
+    }
+
+    public boolean isMediaRoleMsg() {
+        return this.isMediaRoleMsg;
+    }
+
+    public void setMediaRoleMsg(boolean z) {
+        this.isMediaRoleMsg = z;
     }
 }

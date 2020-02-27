@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.picture.component.BaseBrowseView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CouponMsg extends NormalMsg {
     public static final Parcelable.Creator<CouponMsg> CREATOR = new Parcelable.Creator<CouponMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.CouponMsg.1
         /* JADX DEBUG: Method merged with bridge method */

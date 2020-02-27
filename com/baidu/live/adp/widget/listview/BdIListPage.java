@@ -1,7 +1,7 @@
 package com.baidu.live.adp.widget.listview;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BdIListPage {
     private View mView = null;
 

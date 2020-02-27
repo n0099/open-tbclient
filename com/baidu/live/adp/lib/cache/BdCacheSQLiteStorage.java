@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.cache;
 
 import com.baidu.live.adp.lib.cache.BdCacheEvictPolicy;
 import com.baidu.live.adp.lib.safe.ThreadService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdCacheSQLiteStorage<T> extends BdCacheBaseStorage<T> {
     protected final BdCacheBaseDBManager<T> dbManager;
 

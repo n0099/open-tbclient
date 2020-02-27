@@ -1,33 +1,33 @@
 package com.facebook.drawee.components;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b {
-    private boolean lKg;
-    private int lKh;
-    private int lKi;
+    private boolean lKN;
+    private int lKO;
+    private int lKP;
 
     public b() {
         init();
     }
 
     public void init() {
-        this.lKg = false;
-        this.lKh = 4;
+        this.lKN = false;
+        this.lKO = 4;
         reset();
     }
 
     public void reset() {
-        this.lKi = 0;
+        this.lKP = 0;
     }
 
-    public void va(boolean z) {
-        this.lKg = z;
+    public void ve(boolean z) {
+        this.lKN = z;
     }
 
-    public boolean dkG() {
-        return this.lKg && this.lKi < this.lKh;
+    public boolean dlT() {
+        return this.lKN && this.lKP < this.lKO;
     }
 
-    public void dkH() {
-        this.lKi++;
+    public void dlU() {
+        this.lKP++;
     }
 }

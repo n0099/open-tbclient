@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.controller;
 
 import com.baidu.live.adp.framework.message.ResponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ResponsedMessageRule<T extends ResponsedMessage<?>> extends Rule<T> {
     public abstract T process(T t);
 

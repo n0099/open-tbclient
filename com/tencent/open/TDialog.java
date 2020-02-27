@@ -30,7 +30,7 @@ import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TDialog extends b {
     static final FrameLayout.LayoutParams c = new FrameLayout.LayoutParams(-1, -1);
     static Toast d = null;
@@ -45,7 +45,7 @@ public class TDialog extends b {
     private boolean m;
     private QQToken n;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private class THandler extends Handler {
         private OnTimeListener b;
 
@@ -83,7 +83,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private static class OnTimeListener implements IUiListener {
         String a;
         String b;
@@ -218,7 +218,7 @@ public class TDialog extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class JsListener extends a.b {
         private JsListener() {
         }
@@ -268,7 +268,7 @@ public class TDialog extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class FbWebViewClient extends WebViewClient {
         private FbWebViewClient() {
         }

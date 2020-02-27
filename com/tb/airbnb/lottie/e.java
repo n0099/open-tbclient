@@ -19,9 +19,9 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
-    private static final Map<String, l<d>> ef = new HashMap();
+    private static final Map<String, l<d>> eg = new HashMap();
 
     public static l<d> bx(Context context, String str) {
         return com.tb.airbnb.lottie.network.b.bA(context, str);
@@ -32,7 +32,7 @@ public class e {
         return b(str, new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: dFs */
+            /* renamed from: dGz */
             public k<d> call() {
                 return e.bz(applicationContext, str);
             }
@@ -57,10 +57,10 @@ public class e {
 
     public static l<d> K(Context context, @RawRes final int i) {
         final Context applicationContext = context.getApplicationContext();
-        return b(k(i), new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.3
+        return b(n(i), new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: dFs */
+            /* renamed from: dGz */
             public k<d> call() {
                 return e.L(applicationContext, i);
             }
@@ -70,13 +70,13 @@ public class e {
     @WorkerThread
     public static k<d> L(Context context, @RawRes int i) {
         try {
-            return i(context.getResources().openRawResource(i), k(i));
+            return i(context.getResources().openRawResource(i), n(i));
         } catch (Resources.NotFoundException e) {
             return new k<>(e);
         }
     }
 
-    private static String k(@RawRes int i) {
+    private static String n(@RawRes int i) {
         return "rawRes_" + i;
     }
 
@@ -84,7 +84,7 @@ public class e {
         return b(str, new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: dFs */
+            /* renamed from: dGz */
             public k<d> call() {
                 return e.i(inputStream, str);
             }
@@ -111,7 +111,7 @@ public class e {
         return b(str, new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: dFs */
+            /* renamed from: dGz */
             public k<d> call() {
                 return e.d(jsonReader, str);
             }
@@ -122,7 +122,7 @@ public class e {
     public static k<d> d(JsonReader jsonReader, @Nullable String str) {
         try {
             d g = t.g(jsonReader);
-            com.tb.airbnb.lottie.model.g.dFF().a(str, g);
+            com.tb.airbnb.lottie.model.g.dGM().a(str, g);
             return new k<>(g);
         } catch (Exception e) {
             return new k<>(e);
@@ -171,12 +171,12 @@ public class e {
                     a.setBitmap((Bitmap) entry.getValue());
                 }
             }
-            for (Map.Entry<String, g> entry2 : dVar2.bm().entrySet()) {
+            for (Map.Entry<String, g> entry2 : dVar2.bn().entrySet()) {
                 if (entry2.getValue().getBitmap() == null) {
                     return new k<>(new IllegalStateException("There is no image for " + entry2.getValue().getFileName()));
                 }
             }
-            com.tb.airbnb.lottie.model.g.dFF().a(str, dVar2);
+            com.tb.airbnb.lottie.model.g.dGM().a(str, dVar2);
             return new k<>(dVar2);
         } catch (IOException e) {
             return new k<>(e);
@@ -185,7 +185,7 @@ public class e {
 
     @Nullable
     private static g a(d dVar, String str) {
-        for (g gVar : dVar.bm().values()) {
+        for (g gVar : dVar.bn().values()) {
             if (gVar.getFileName().equals(str)) {
                 return gVar;
             }
@@ -194,20 +194,20 @@ public class e {
     }
 
     private static l<d> b(@Nullable final String str, Callable<k<d>> callable) {
-        final d Rn = com.tb.airbnb.lottie.model.g.dFF().Rn(str);
-        if (Rn != null) {
+        final d Ry = com.tb.airbnb.lottie.model.g.dGM().Ry(str);
+        if (Ry != null) {
             return new l<>(new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: dFs */
+                /* renamed from: dGz */
                 public k<d> call() {
                     Log.d("Gabe", "call\treturning from cache");
                     return new k<>(d.this);
                 }
             });
         }
-        if (ef.containsKey(str)) {
-            return ef.get(str);
+        if (eg.containsKey(str)) {
+            return eg.get(str);
         }
         l<d> lVar = new l<>(callable);
         lVar.a(new h<d>() { // from class: com.tb.airbnb.lottie.e.7
@@ -215,20 +215,19 @@ public class e {
             @Override // com.tb.airbnb.lottie.h
             public void onResult(d dVar) {
                 if (str != null) {
-                    com.tb.airbnb.lottie.model.g.dFF().a(str, dVar);
+                    com.tb.airbnb.lottie.model.g.dGM().a(str, dVar);
                 }
-                e.ef.remove(str);
+                e.eg.remove(str);
             }
         });
         lVar.c(new h<Throwable>() { // from class: com.tb.airbnb.lottie.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.tb.airbnb.lottie.h
-            /* renamed from: g */
             public void onResult(Throwable th) {
-                e.ef.remove(str);
+                e.eg.remove(str);
             }
         });
-        ef.put(str, lVar);
+        eg.put(str, lVar);
         return lVar;
     }
 }

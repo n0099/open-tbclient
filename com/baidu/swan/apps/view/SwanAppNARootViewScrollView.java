@@ -3,7 +3,7 @@ package com.baidu.swan.apps.view;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppNARootViewScrollView extends ScrollView {
     public SwanAppNARootViewScrollView(Context context) {
         super(context);

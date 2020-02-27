@@ -10,7 +10,7 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdCacheService extends CustomMessageListener {
     public static final String CACHE_TABLE_PREFIX = "cache_kv_";
     public static final String SHARED_BLOB_TABLE = "cache_kv_bshare";
@@ -25,14 +25,14 @@ public class BdCacheService extends CustomMessageListener {
     private BdNameSpaceDBManager nameSpaceManager;
     private HashMap<String, BdKVCache<String>> textCaches;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum CacheEvictPolicy {
         NO_EVICT,
         LRU_ON_COUNT,
         LRU_ON_INSERT
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum CacheStorage {
         SQLite_CACHE_PER_TABLE,
         SQLite_CACHE_All_IN_ONE_TABLE

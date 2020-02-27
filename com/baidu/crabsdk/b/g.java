@@ -6,16 +6,16 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class g {
-    private static Intent Qj;
+    private static Intent RO;
 
     public static void e(Context context) {
-        if (Qj != null || context == null) {
+        if (RO != null || context == null) {
             return;
         }
         try {
-            Qj = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            RO = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             com.baidu.crabsdk.c.a.v("Battery Broadcast Regist Success");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Register Battery Error!", e);
@@ -45,11 +45,11 @@ public final class g {
     }
 
     public static String v() {
-        if (Qj == null) {
+        if (RO == null) {
             return "N/A";
         }
         try {
-            return ((int) ((Qj.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0) * 100.0f) / Qj.getIntExtra("scale", 100))) + "%";
+            return ((int) ((RO.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0) * 100.0f) / RO.getIntExtra("scale", 100))) + "%";
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Get Battery Error!", e);
             return "N/A";

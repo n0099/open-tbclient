@@ -2,7 +2,7 @@ package com.baidu.tieba.aiapps.apps.share;
 
 import android.content.Intent;
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class AiAppsShareDelegateActivity extends ProcessDelegateBaseActivity {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {

@@ -14,7 +14,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private OkHttpClient okHttpClient = new OkHttpClient();
 
@@ -132,7 +132,7 @@ public class a {
                     runnable = new Runnable() { // from class: com.baidu.swan.apps.l.a.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            bVar.cH(i2);
+                            bVar.cX(i2);
                         }
                     };
                     break;

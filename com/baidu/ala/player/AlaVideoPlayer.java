@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.TextureView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaVideoPlayer extends TextureView implements TextureView.SurfaceTextureListener {
     private VideoPlayerCallback mCallback;
     private SurfaceHolder mHolder;
@@ -12,12 +12,12 @@ public class AlaVideoPlayer extends TextureView implements TextureView.SurfaceTe
     private Surface mSurface;
     private SurfaceTexture mSurfaceTexture;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface SurfaceHolder {
         Surface getSurface();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface VideoPlayerCallback {
         void onAttachedToWindow();
 

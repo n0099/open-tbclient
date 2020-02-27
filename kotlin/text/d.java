@@ -6,31 +6,33 @@ import java.util.NoSuchElementException;
 import kotlin.Pair;
 import kotlin.TypeCastException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public final class d implements kotlin.sequences.c<kotlin.b.c> {
-    private final int azm;
+@kotlin.h
+/* loaded from: classes7.dex */
+public final class d implements kotlin.sequences.c<kotlin.b.h> {
+    private final int aDC;
     private final int limit;
-    private final CharSequence nCr;
-    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> nCs;
+    private final CharSequence nDk;
+    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> nDl;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.m<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
     public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.m<? super CharSequence, ? super Integer, Pair<Integer, Integer>> mVar) {
         kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.q.j(mVar, "getNextMatch");
-        this.nCr = charSequence;
-        this.azm = i;
+        this.nDk = charSequence;
+        this.aDC = i;
         this.limit = i2;
-        this.nCs = mVar;
+        this.nDl = mVar;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a implements Iterator<kotlin.b.c> {
-        private int nCe = -1;
-        private int nCt;
-        private int nCu;
-        private kotlin.b.c nCv;
-        private int nCw;
+    @kotlin.h
+    /* loaded from: classes7.dex */
+    public static final class a implements Iterator<kotlin.b.h> {
+        private int nCX = -1;
+        private int nDm;
+        private int nDn;
+        private kotlin.b.h nDo;
+        private int nDp;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -39,75 +41,75 @@ public final class d implements kotlin.sequences.c<kotlin.b.c> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.nCt = kotlin.b.d.av(d.this.azm, 0, d.this.nCr.length());
-            this.nCu = this.nCt;
+            this.nDm = kotlin.b.l.aw(d.this.aDC, 0, d.this.nDk.length());
+            this.nDn = this.nDm;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r6.nCw < r6.nCx.limit) goto L13;
+            if (r6.nDp < r6.nDq.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void dJz() {
-            if (this.nCu >= 0) {
+        private final void dKM() {
+            if (this.nDn >= 0) {
                 if (d.this.limit > 0) {
-                    this.nCw++;
+                    this.nDp++;
                 }
-                if (this.nCu <= d.this.nCr.length()) {
-                    Pair pair = (Pair) d.this.nCs.invoke(d.this.nCr, Integer.valueOf(this.nCu));
+                if (this.nDn <= d.this.nDk.length()) {
+                    Pair pair = (Pair) d.this.nDl.invoke(d.this.nDk, Integer.valueOf(this.nDn));
                     if (pair == null) {
-                        this.nCv = new kotlin.b.c(this.nCt, l.t(d.this.nCr));
-                        this.nCu = -1;
+                        this.nDo = new kotlin.b.h(this.nDm, l.t(d.this.nDk));
+                        this.nDn = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.nCv = kotlin.b.d.eu(this.nCt, intValue);
-                        this.nCt = intValue + intValue2;
-                        this.nCu = (intValue2 == 0 ? 1 : 0) + this.nCt;
+                        this.nDo = kotlin.b.l.ex(this.nDm, intValue);
+                        this.nDm = intValue + intValue2;
+                        this.nDn = (intValue2 == 0 ? 1 : 0) + this.nDm;
                     }
-                    this.nCe = 1;
+                    this.nCX = 1;
                     return;
                 }
-                this.nCv = new kotlin.b.c(this.nCt, l.t(d.this.nCr));
-                this.nCu = -1;
-                this.nCe = 1;
+                this.nDo = new kotlin.b.h(this.nDm, l.t(d.this.nDk));
+                this.nDn = -1;
+                this.nCX = 1;
                 return;
             }
-            this.nCe = 0;
-            this.nCv = null;
+            this.nCX = 0;
+            this.nDo = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: dJA */
-        public kotlin.b.c next() {
-            if (this.nCe == -1) {
-                dJz();
+        /* renamed from: dKN */
+        public kotlin.b.h next() {
+            if (this.nCX == -1) {
+                dKM();
             }
-            if (this.nCe == 0) {
+            if (this.nCX == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.c cVar = this.nCv;
-            if (cVar == null) {
+            kotlin.b.h hVar = this.nDo;
+            if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.nCv = null;
-            this.nCe = -1;
-            return cVar;
+            this.nDo = null;
+            this.nCX = -1;
+            return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nCe == -1) {
-                dJz();
+            if (this.nCX == -1) {
+                dKM();
             }
-            return this.nCe == 1;
+            return this.nCX == 1;
         }
     }
 
     @Override // kotlin.sequences.c
-    public Iterator<kotlin.b.c> iterator() {
+    public Iterator<kotlin.b.h> iterator() {
         return new a();
     }
 }

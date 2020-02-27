@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.charm.model;
 
-import com.baidu.live.data.g;
+import com.baidu.live.data.h;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private g esC;
+    private h ewM;
 
     public OnlineListHttpResponseMessage() {
         super(1021008);
@@ -16,12 +16,12 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null && optJSONObject.optJSONArray("initmacy_rank") != null) {
-            this.esC = new g();
-            this.esC.parserJson(optJSONObject);
+            this.ewM = new h();
+            this.ewM.parserJson(optJSONObject);
         }
     }
 
-    public g bbH() {
-        return this.esC;
+    public h bdW() {
+        return this.ewM;
     }
 }

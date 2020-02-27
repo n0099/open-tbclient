@@ -20,28 +20,28 @@ import com.baidu.tieba.frs.game.strategy.message.FrsGameStrategySocketResponseMe
 import com.baidu.tieba.frs.game.strategy.tab.e;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
-    private String gxD;
-    private com.baidu.tieba.frs.game.strategy.tab.b gxG;
-    private List<e> gxO;
+    private String emb;
+    private com.baidu.tieba.frs.game.strategy.tab.b gzG;
+    private List<e> gzO;
     private Context mContext;
     private long mFid;
     private BdUniqueId mPageId;
-    private int gxQ = 0;
-    private int gxR = 0;
-    private int gxS = 0;
+    private int gzQ = 0;
+    private int gzR = 0;
+    private int gzS = 0;
     private boolean mIsLoading = false;
     private Handler mHandler = new Handler();
-    private a.InterfaceC0498a gxU = new a.InterfaceC0498a() { // from class: com.baidu.tieba.frs.game.strategy.a.b.1
-        @Override // com.baidu.tieba.frs.game.strategy.a.a.InterfaceC0498a
+    private a.InterfaceC0505a gzU = new a.InterfaceC0505a() { // from class: com.baidu.tieba.frs.game.strategy.a.b.1
+        @Override // com.baidu.tieba.frs.game.strategy.a.a.InterfaceC0505a
         public void b(List<e> list, List<m> list2, boolean z) {
-            if (b.this.gxO != null && b.this.gxG != null) {
-                b.this.gxG.a(0, 0, list2, list, z, true, -1);
+            if (b.this.gzO != null && b.this.gzG != null) {
+                b.this.gzG.a(0, 0, list2, list, z, true, -1);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a gxV = new com.baidu.adp.framework.listener.a(1003362, CmdConfigSocket.CMD_FRS_GAME_STRATEGY) { // from class: com.baidu.tieba.frs.game.strategy.a.b.2
+    private com.baidu.adp.framework.listener.a gzV = new com.baidu.adp.framework.listener.a(1003362, CmdConfigSocket.CMD_FRS_GAME_STRATEGY) { // from class: com.baidu.tieba.frs.game.strategy.a.b.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             List<m> threadList;
@@ -53,32 +53,32 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
             if (responsedMessage != null) {
                 b.this.mIsLoading = false;
                 if (responsedMessage.hasError()) {
-                    if (b.this.gxG != null) {
-                        b.this.gxG.j(b.this.gxQ, b.this.gxR, responsedMessage.getErrorString());
+                    if (b.this.gzG != null) {
+                        b.this.gzG.j(b.this.gzQ, b.this.gzR, responsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 if (responsedMessage instanceof FrsGameStrategySocketResponseMessage) {
                     FrsGameStrategySocketResponseMessage frsGameStrategySocketResponseMessage = (FrsGameStrategySocketResponseMessage) responsedMessage;
-                    if (b.this.gxO == null) {
-                        b.this.gxO = frsGameStrategySocketResponseMessage.getTabList();
+                    if (b.this.gzO == null) {
+                        b.this.gzO = frsGameStrategySocketResponseMessage.getTabList();
                     }
                     threadList = frsGameStrategySocketResponseMessage.getThreadList();
                     hasMore = frsGameStrategySocketResponseMessage.hasMore();
                 } else if (responsedMessage instanceof FrsGameStrategyHttpResponseMessage) {
                     FrsGameStrategyHttpResponseMessage frsGameStrategyHttpResponseMessage = (FrsGameStrategyHttpResponseMessage) responsedMessage;
-                    if (b.this.gxO == null) {
-                        b.this.gxO = frsGameStrategyHttpResponseMessage.getTabList();
+                    if (b.this.gzO == null) {
+                        b.this.gzO = frsGameStrategyHttpResponseMessage.getTabList();
                     }
                     threadList = frsGameStrategyHttpResponseMessage.getThreadList();
                     hasMore = frsGameStrategyHttpResponseMessage.hasMore();
                 } else {
                     return;
                 }
-                int i2 = b.this.gxQ;
-                int i3 = b.this.gxR;
-                if (b.this.gxQ == 0 && b.this.gxR == 0 && !v.isEmpty(b.this.gxO) && (eVar = (e) b.this.gxO.get(0)) != null) {
+                int i2 = b.this.gzQ;
+                int i3 = b.this.gzR;
+                if (b.this.gzQ == 0 && b.this.gzR == 0 && !v.isEmpty(b.this.gzO) && (eVar = (e) b.this.gzO.get(0)) != null) {
                     i2 = eVar.tabId;
                     if (eVar.extra instanceof LabelDataList) {
                         LabelDataList labelDataList = (LabelDataList) eVar.extra;
@@ -87,60 +87,60 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
                         }
                     }
                 }
-                String bJ = b.this.bJ(i2, i3);
-                c cVar2 = (c) b.this.gxP.get(bJ);
+                String bK = b.this.bK(i2, i3);
+                c cVar2 = (c) b.this.gzP.get(bK);
                 if (cVar2 == null) {
                     c cVar3 = new c();
-                    b.this.gxP.put(bJ, cVar3);
-                    cVar3.key = bJ;
-                    cVar3.gxK = i2;
+                    b.this.gzP.put(bK, cVar3);
+                    cVar3.key = bK;
+                    cVar3.gzK = i2;
                     cVar3.labelId = i3;
-                    b.this.gxP.put(bJ, cVar3);
+                    b.this.gzP.put(bK, cVar3);
                     cVar = cVar3;
                 } else {
                     cVar = cVar2;
                 }
                 cVar.hasMore = hasMore;
-                cVar.pn = b.this.gxS;
+                cVar.pn = b.this.gzS;
                 if (!v.isEmpty(threadList)) {
-                    if (b.this.gxS == 0) {
-                        if (v.isEmpty(cVar.gxL)) {
-                            cVar.gxL = threadList;
+                    if (b.this.gzS == 0) {
+                        if (v.isEmpty(cVar.gzL)) {
+                            cVar.gzL = threadList;
                         } else {
-                            i = cVar.cl(threadList);
+                            i = cVar.ch(threadList);
                         }
                     } else {
-                        cVar.gxL.addAll(threadList);
+                        cVar.gzL.addAll(threadList);
                     }
                 }
-                if (b.this.gxG != null) {
-                    b.this.gxG.a(b.this.gxQ, b.this.gxR, cVar.gxL, b.this.gxO, cVar.hasMore, false, i);
+                if (b.this.gzG != null) {
+                    b.this.gzG.a(b.this.gzQ, b.this.gzR, cVar.gzL, b.this.gzO, cVar.hasMore, false, i);
                 }
             }
         }
     };
-    private final HashMap<String, c> gxP = new HashMap<>();
-    private a gxT = new a();
+    private final HashMap<String, c> gzP = new HashMap<>();
+    private a gzT = new a();
 
     public b(Context context, BdUniqueId bdUniqueId, long j, String str) {
         this.mFid = 0L;
         this.mContext = context;
         this.mPageId = bdUniqueId;
         this.mFid = j;
-        this.gxD = str;
-        this.gxT.a(this.gxU);
+        this.emb = str;
+        this.gzT.a(this.gzU);
         registerListeners();
-        aZL();
+        bcb();
     }
 
     private void registerListeners() {
-        this.gxV.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.gxV);
+        this.gzV.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.gzV);
     }
 
-    private static void aZL() {
+    private static void bcb() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FRS_GAME_STRATEGY, FrsGameStrategySocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003362, com.baidu.tieba.tbadkCore.a.a.bv(Config.FRS_GAME_STRATEGY, CmdConfigSocket.CMD_FRS_GAME_STRATEGY));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003362, com.baidu.tieba.tbadkCore.a.a.bu(Config.FRS_GAME_STRATEGY, CmdConfigSocket.CMD_FRS_GAME_STRATEGY));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -150,45 +150,9 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.a
-    public void bG(final int i, final int i2) {
+    public void bH(final int i, final int i2) {
         if (this.mIsLoading) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.a.b.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    b.this.bG(i, i2);
-                }
-            }, 1000L);
-            return;
-        }
-        this.gxQ = i;
-        this.gxR = i2;
-        if (i == 0 && i2 == 0) {
-            this.gxT.AX(String.valueOf(this.mFid));
-        } else {
-            String bJ = bJ(i, i2);
-            c cVar = this.gxP.get(bJ);
-            if (cVar == null) {
-                cVar = new c();
-                this.gxP.put(bJ, cVar);
-            }
-            cVar.key = bJ;
-            cVar.gxK = this.gxQ;
-            cVar.labelId = this.gxR;
-            cVar.pn = 0;
-            cVar.hasMore = true;
-        }
-        this.gxS = 0;
-        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.gxS, this.gxQ, this.gxR);
-        frsGameStrategyRequestMessage.setTag(this.mPageId);
-        MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
-        this.mIsLoading = true;
-    }
-
-    @Override // com.baidu.tieba.frs.game.strategy.tab.a
-    public void bH(final int i, final int i2) {
-        com.baidu.tieba.frs.game.strategy.data.a aVar;
-        if (this.mIsLoading) {
-            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.a.b.4
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.bH(i, i2);
@@ -196,48 +160,84 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
             }, 1000L);
             return;
         }
-        this.gxQ = i;
+        this.gzQ = i;
+        this.gzR = i2;
         if (i == 0 && i2 == 0) {
-            e tl = tl(i);
-            if (tl != null && (tl.extra instanceof LabelDataList)) {
-                LabelDataList labelDataList = (LabelDataList) tl.extra;
+            this.gzT.Bn(String.valueOf(this.mFid));
+        } else {
+            String bK = bK(i, i2);
+            c cVar = this.gzP.get(bK);
+            if (cVar == null) {
+                cVar = new c();
+                this.gzP.put(bK, cVar);
+            }
+            cVar.key = bK;
+            cVar.gzK = this.gzQ;
+            cVar.labelId = this.gzR;
+            cVar.pn = 0;
+            cVar.hasMore = true;
+        }
+        this.gzS = 0;
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.gzS, this.gzQ, this.gzR);
+        frsGameStrategyRequestMessage.setTag(this.mPageId);
+        MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
+        this.mIsLoading = true;
+    }
+
+    @Override // com.baidu.tieba.frs.game.strategy.tab.a
+    public void bI(final int i, final int i2) {
+        com.baidu.tieba.frs.game.strategy.data.a aVar;
+        if (this.mIsLoading) {
+            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.a.b.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    b.this.bI(i, i2);
+                }
+            }, 1000L);
+            return;
+        }
+        this.gzQ = i;
+        if (i == 0 && i2 == 0) {
+            e tr = tr(i);
+            if (tr != null && (tr.extra instanceof LabelDataList)) {
+                LabelDataList labelDataList = (LabelDataList) tr.extra;
                 if (!labelDataList.isEmpty() && (aVar = labelDataList.get(0)) != null) {
-                    this.gxR = aVar.labelId;
+                    this.gzR = aVar.labelId;
                 }
             }
         } else {
-            this.gxR = i2;
+            this.gzR = i2;
         }
-        String bJ = bJ(i, i2);
-        c cVar = this.gxP.get(bJ);
+        String bK = bK(i, i2);
+        c cVar = this.gzP.get(bK);
         if (cVar == null) {
             cVar = new c();
-            this.gxP.put(bJ, cVar);
-            cVar.key = bJ;
-            cVar.gxK = this.gxR;
-            cVar.labelId = this.gxQ;
+            this.gzP.put(bK, cVar);
+            cVar.key = bK;
+            cVar.gzK = this.gzR;
+            cVar.labelId = this.gzQ;
             cVar.hasMore = true;
-            this.gxP.put(bJ, cVar);
+            this.gzP.put(bK, cVar);
         }
-        this.gxS = cVar.pn + 1;
-        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.gxS, this.gxQ, this.gxR);
+        this.gzS = cVar.pn + 1;
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.gzS, this.gzQ, this.gzR);
         frsGameStrategyRequestMessage.setTag(this.mPageId);
         MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
         this.mIsLoading = true;
     }
 
     public void a(com.baidu.tieba.frs.game.strategy.tab.b bVar) {
-        this.gxG = bVar;
+        this.gzG = bVar;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.a
-    public boolean bI(int i, int i2) {
-        c bK = bK(i, i2);
-        if (bK == null || v.isEmpty(bK.gxL)) {
+    public boolean bJ(int i, int i2) {
+        c bL = bL(i, i2);
+        if (bL == null || v.isEmpty(bL.gzL)) {
             return false;
         }
-        if (this.gxG != null) {
-            this.gxG.a(i, i2, bK.gxL, this.gxO, bK.hasMore, false, -1);
+        if (this.gzG != null) {
+            this.gzG.a(i, i2, bL.gzL, this.gzO, bL.hasMore, false, -1);
         }
         return true;
     }
@@ -248,11 +248,11 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.a
-    public e tk(int i) {
-        if (v.isEmpty(this.gxO)) {
+    public e tq(int i) {
+        if (v.isEmpty(this.gzO)) {
             return null;
         }
-        for (e eVar : this.gxO) {
+        for (e eVar : this.gzO) {
             if (eVar != null && eVar.tabId == i) {
                 return eVar;
             }
@@ -260,11 +260,11 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         return null;
     }
 
-    private e tl(int i) {
-        if (v.isEmpty(this.gxO)) {
+    private e tr(int i) {
+        if (v.isEmpty(this.gzO)) {
             return null;
         }
-        for (e eVar : this.gxO) {
+        for (e eVar : this.gzO) {
             if (eVar != null && eVar.tabId == i) {
                 return eVar;
             }
@@ -273,12 +273,12 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String bJ(int i, int i2) {
+    public String bK(int i, int i2) {
         return i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2;
     }
 
-    public c bK(int i, int i2) {
-        return this.gxP.get(bJ(i, i2));
+    public c bL(int i, int i2) {
+        return this.gzP.get(bK(i, i2));
     }
 
     public void onDestory() {

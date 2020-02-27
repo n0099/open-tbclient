@@ -9,7 +9,7 @@ import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.exception.InterceptException;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CommonParamInterception implements IRequestIntercept {
     public static String aidInfo;
     private static String appKey;

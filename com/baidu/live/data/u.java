@@ -1,53 +1,41 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.util.ListUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u {
-    public int Zl;
-    public ArrayList<t> Zm;
+    public int aaW;
+    public String aaX;
+    public int aaY;
+    public int aaZ;
+    public w aba;
+    public int abb;
+    public String abd;
+    public int status;
 
-    public void parserJson(JSONObject jSONObject) {
-        this.Zl = jSONObject.optInt("received");
-        this.Zm = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    t tVar = new t();
-                    tVar.parseJson(optJSONObject);
-                    this.Zm.add(tVar);
-                }
-            }
+    public void parseJson(JSONObject jSONObject) {
+        this.aaW = jSONObject.optInt("taskid");
+        this.aaX = jSONObject.optString("taskname");
+        this.status = jSONObject.optInt("status");
+        this.aaY = jSONObject.optInt("cur_step");
+        this.aaZ = jSONObject.optInt("total_step");
+        JSONObject optJSONObject = jSONObject.optJSONObject("param");
+        if (optJSONObject != null) {
+            this.aba = new w();
+            this.aba.parseJson(optJSONObject);
         }
+        this.abb = jSONObject.optInt("award_num");
+        this.abd = jSONObject.optString("taskdetail");
     }
 
-    public boolean pR() {
-        if (!ListUtils.isEmpty(this.Zm)) {
-            Iterator<t> it = this.Zm.iterator();
-            while (it.hasNext()) {
-                if (it.next().pQ()) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public boolean qz() {
+        return this.aaW == 1;
     }
 
-    public t pS() {
-        if (!ListUtils.isEmpty(this.Zm)) {
-            Iterator<t> it = this.Zm.iterator();
-            while (it.hasNext()) {
-                t next = it.next();
-                if (next.pO()) {
-                    return next;
-                }
-            }
-        }
-        return null;
+    public boolean qA() {
+        return this.aaW == 6;
+    }
+
+    public boolean qB() {
+        return this.status == 2;
     }
 }

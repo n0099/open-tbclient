@@ -1,10 +1,10 @@
 package master.flame.danmaku.danmaku.model;
 
 import java.util.Comparator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface l {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class c<Progress> extends b<Progress, Void> {
     }
 
@@ -18,9 +18,9 @@ public interface l {
 
     void clear();
 
-    master.flame.danmaku.danmaku.model.d dKL();
+    master.flame.danmaku.danmaku.model.d dLY();
 
-    master.flame.danmaku.danmaku.model.d dKM();
+    master.flame.danmaku.danmaku.model.d dLZ();
 
     boolean isEmpty();
 
@@ -32,45 +32,45 @@ public interface l {
 
     int size();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class b<Progress, Result> {
-        public abstract int bU(Progress progress);
+        public abstract int bV(Progress progress);
 
-        public void dKN() {
+        public void dMa() {
         }
 
-        public void dKO() {
+        public void dMb() {
         }
 
-        public Result dJN() {
+        public Result dLa() {
             return null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Comparator<master.flame.danmaku.danmaku.model.d> {
-        protected boolean nFm;
+        protected boolean nGe;
 
         public a(boolean z) {
-            wI(z);
+            wL(z);
         }
 
-        public void wI(boolean z) {
-            this.nFm = z;
+        public void wL(boolean z) {
+            this.nGe = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(master.flame.danmaku.danmaku.model.d dVar, master.flame.danmaku.danmaku.model.d dVar2) {
-            if (this.nFm && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
+            if (this.nGe && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
                 return 0;
             }
             return master.flame.danmaku.danmaku.c.b.a(dVar, dVar2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d extends a {
         public d(boolean z) {
             super(z);
@@ -84,7 +84,7 @@ public interface l {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e extends a {
         public e(boolean z) {
             super(z);
@@ -94,14 +94,14 @@ public interface l {
         @Override // master.flame.danmaku.danmaku.model.l.a, java.util.Comparator
         /* renamed from: a */
         public int compare(master.flame.danmaku.danmaku.model.d dVar, master.flame.danmaku.danmaku.model.d dVar2) {
-            if (this.nFm && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
+            if (this.nGe && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
                 return 0;
             }
-            return Float.compare(dVar.dKz(), dVar2.dKz());
+            return Float.compare(dVar.dLM(), dVar2.dLM());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class f extends a {
         public f(boolean z) {
             super(z);
@@ -111,10 +111,10 @@ public interface l {
         @Override // master.flame.danmaku.danmaku.model.l.a, java.util.Comparator
         /* renamed from: a */
         public int compare(master.flame.danmaku.danmaku.model.d dVar, master.flame.danmaku.danmaku.model.d dVar2) {
-            if (this.nFm && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
+            if (this.nGe && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
                 return 0;
             }
-            return Float.compare(dVar2.dKz(), dVar.dKz());
+            return Float.compare(dVar2.dLM(), dVar.dLM());
         }
     }
 }

@@ -13,13 +13,13 @@ import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class z {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String sRomName;
     private static String sRomVersion;
 
-    public static boolean cB(Context context) {
+    public static boolean cF(Context context) {
         if (context == null) {
             return false;
         }
@@ -33,7 +33,7 @@ public class z {
             return hasNotchAtOPPO(context);
         }
         if (isMiui()) {
-            return cC(context);
+            return cG(context);
         }
         return false;
     }
@@ -66,7 +66,7 @@ public class z {
         return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
     }
 
-    private static boolean cC(@NonNull Context context) {
+    private static boolean cG(@NonNull Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
             return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
@@ -79,14 +79,14 @@ public class z {
         }
     }
 
-    public static int cD(Context context) {
+    public static int cH(Context context) {
         if (Build.VERSION.SDK_INT < 26) {
             return 0;
         }
         if (Build.VERSION.SDK_INT >= 28) {
-            return aeF();
+            return agT();
         }
-        if (cB(context)) {
+        if (cF(context)) {
             if (isMiui()) {
                 Resources resources = context.getResources();
                 try {
@@ -118,11 +118,11 @@ public class z {
     }
 
     @RequiresApi(28)
-    private static int aeF() {
+    private static int agT() {
         int i = 0;
-        if (com.baidu.swan.apps.runtime.e.aap() != null && com.baidu.swan.apps.runtime.e.aap().getActivity() != null) {
+        if (com.baidu.swan.apps.runtime.e.acD() != null && com.baidu.swan.apps.runtime.e.acD().getActivity() != null) {
             try {
-                DisplayCutout displayCutout = com.baidu.swan.apps.runtime.e.aap().getActivity().getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
+                DisplayCutout displayCutout = com.baidu.swan.apps.runtime.e.acD().getActivity().getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
                 if (displayCutout != null) {
                     i = displayCutout.getSafeInsetTop();
                     if (DEBUG) {

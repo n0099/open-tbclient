@@ -1,17 +1,21 @@
 package com.baidu.live.gift;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface u {
-    void ax(boolean z);
-
     void ay(boolean z);
+
+    void az(boolean z);
+
+    void br(int i);
 
     void onDestroy();
 
-    void onPause();
+    View sk();
 
-    void onResume();
+    View sl();
 
-    View rD();
+    void sm();
+
+    void sn();
 }

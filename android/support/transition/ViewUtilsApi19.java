@@ -7,7 +7,7 @@ import android.view.View;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(19)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class ViewUtilsApi19 extends ViewUtilsApi18 {
     private static final String TAG = "ViewUtilsApi19";
     private static Method sGetTransitionAlphaMethod;

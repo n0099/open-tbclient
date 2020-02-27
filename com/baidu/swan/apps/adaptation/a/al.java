@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface al {
-    boolean Gm();
+    boolean IB();
 
-    boolean Gn();
+    boolean IC();
 
     void a(com.baidu.swan.apps.core.j.c cVar);
 }

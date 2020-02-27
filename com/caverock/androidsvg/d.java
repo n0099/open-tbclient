@@ -2,17 +2,17 @@ package com.caverock.androidsvg;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class d {
-    public Typeface w(String str, int i, String str2) {
+    public Typeface x(String str, int i, String str2) {
         return null;
     }
 
-    public Bitmap NI(String str) {
+    public Bitmap NU(String str) {
         return null;
     }
 
-    public boolean NJ(String str) {
+    public boolean NV(String str) {
         return false;
     }
 }

@@ -1,36 +1,36 @@
 package master.flame.danmaku.danmaku.model.android;
 
 import master.flame.danmaku.danmaku.model.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e implements master.flame.danmaku.danmaku.model.a.c<e>, n<f> {
-    private e nHj;
-    private boolean nHk;
+    private e nIa;
+    private boolean nIb;
     private int mSize = 0;
-    private int nHl = 0;
-    private final f nHi = new f();
+    private int referenceCount = 0;
+    private final f nHZ = new f();
 
     public void e(int i, int i2, int i3, boolean z) {
-        this.nHi.f(i, i2, i3, z);
-        this.mSize = this.nHi.bitmap.getRowBytes() * this.nHi.bitmap.getHeight();
+        this.nHZ.f(i, i2, i3, z);
+        this.mSize = this.nHZ.bitmap.getRowBytes() * this.nHZ.bitmap.getHeight();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.n
-    /* renamed from: dLk */
+    /* renamed from: dMx */
     public f get() {
-        if (this.nHi.bitmap == null) {
+        if (this.nHZ.bitmap == null) {
             return null;
         }
-        return this.nHi;
+        return this.nHZ;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
     public void destroy() {
-        if (this.nHi != null) {
-            this.nHi.recycle();
+        if (this.nHZ != null) {
+            this.nHZ.recycle();
         }
         this.mSize = 0;
-        this.nHl = 0;
+        this.referenceCount = 0;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
@@ -41,48 +41,48 @@ public class e implements master.flame.danmaku.danmaku.model.a.c<e>, n<f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.a.c
     /* renamed from: a */
-    public void bW(e eVar) {
-        this.nHj = eVar;
+    public void bX(e eVar) {
+        this.nIa = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.a.c
-    /* renamed from: dLl */
-    public e dLo() {
-        return this.nHj;
+    /* renamed from: dMy */
+    public e dMB() {
+        return this.nIa;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.c
-    public boolean dLm() {
-        return this.nHk;
+    public boolean dMz() {
+        return this.nIb;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.c
-    public void wM(boolean z) {
-        this.nHk = z;
+    public void wP(boolean z) {
+        this.nIb = z;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
-    public synchronized boolean dKU() {
-        return this.nHl > 0;
+    public synchronized boolean dMh() {
+        return this.referenceCount > 0;
     }
 
-    public synchronized void dLn() {
-        this.nHl++;
+    public synchronized void dMA() {
+        this.referenceCount++;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
-    public synchronized void dKV() {
-        this.nHl--;
+    public synchronized void dMi() {
+        this.referenceCount--;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
     public int width() {
-        return this.nHi.width;
+        return this.nHZ.width;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
     public int height() {
-        return this.nHi.height;
+        return this.nHZ.height;
     }
 }

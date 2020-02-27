@@ -3,49 +3,49 @@ package com.baidu.rtc.camera.engine.c;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import com.baidu.rtc.camera.engine.b.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements com.baidu.rtc.camera.engine.b.a, b {
     public a(Context context, boolean z, com.baidu.rtc.camera.b.a aVar) {
-        com.baidu.rtc.camera.engine.a.b.CP().bG(z);
-        com.baidu.rtc.camera.a.b.CN().aRF = aVar;
-        com.baidu.rtc.camera.engine.d.b.CV().a(this).a(this).aV(context);
+        com.baidu.rtc.camera.engine.a.b.Fl().bO(z);
+        com.baidu.rtc.camera.a.b.Fj().aWe = aVar;
+        com.baidu.rtc.camera.engine.d.b.Fr().a(this).a(this).aZ(context);
     }
 
-    public void AL() {
-        com.baidu.rtc.camera.engine.d.b.CV().AL();
+    public void Db() {
+        com.baidu.rtc.camera.engine.d.b.Fr().Db();
     }
 
     public void stopRecording() {
-        com.baidu.rtc.camera.engine.d.b.CV().stopRecording();
+        com.baidu.rtc.camera.engine.d.b.Fr().stopRecording();
     }
 
     public void d(SurfaceTexture surfaceTexture) {
-        com.baidu.rtc.camera.engine.d.b.CV().d(surfaceTexture);
+        com.baidu.rtc.camera.engine.d.b.Fr().d(surfaceTexture);
     }
 
     public void switchCamera() {
-        com.baidu.rtc.camera.engine.d.b.CV().switchCamera();
+        com.baidu.rtc.camera.engine.d.b.Fr().switchCamera();
     }
 
-    public void J(int i, int i2) {
-        com.baidu.rtc.camera.engine.d.b.CV().J(i, i2);
+    public void K(int i, int i2) {
+        com.baidu.rtc.camera.engine.d.b.Fr().K(i, i2);
     }
 
-    public void CR() {
-        com.baidu.rtc.camera.engine.d.b.CV().CW();
+    public void Fn() {
+        com.baidu.rtc.camera.engine.d.b.Fr().Fs();
     }
 
-    public void CS() {
-        com.baidu.rtc.camera.engine.d.b.CV().CS();
-    }
-
-    @Override // com.baidu.rtc.camera.engine.b.a
-    public void CQ() {
+    public void Fo() {
+        com.baidu.rtc.camera.engine.d.b.Fr().Fo();
     }
 
     @Override // com.baidu.rtc.camera.engine.b.a
-    public void o(byte[] bArr) {
-        com.baidu.rtc.camera.engine.d.b.CV().requestRender();
+    public void Fm() {
+    }
+
+    @Override // com.baidu.rtc.camera.engine.b.a
+    public void t(byte[] bArr) {
+        com.baidu.rtc.camera.engine.d.b.Fr().requestRender();
     }
 
     @Override // com.baidu.rtc.camera.engine.b.b

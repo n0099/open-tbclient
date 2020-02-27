@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> dWE;
-    private int dWH = R.color.cp_cont_b;
-    private int dWI = R.color.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> eaI;
+    private int eaL = R.color.cp_cont_b;
+    private int eaM = R.color.cp_cont_c;
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.dWE = list;
+        this.eaI = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dWE == null) {
+        if (this.eaI == null) {
             return 0;
         }
-        return this.dWE.size();
+        return this.eaI.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: nT */
+    /* renamed from: ok */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.dWE == null || i < 0 || i >= this.dWE.size()) {
+        if (this.eaI == null || i < 0 || i >= this.eaI.size()) {
             return null;
         }
-        return this.dWE.get(i);
+        return this.eaI.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class a extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.aJS()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.aJR())) {
+        if (!TextUtils.isEmpty(item.aMm()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.aMl())) {
             return 0;
         }
         return 1;
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0533a c0533a;
+        C0540a c0540a;
         b bVar;
         if (getItemViewType(i) == 2) {
             return null;
@@ -82,37 +82,37 @@ public class a extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.dWQ = (TextView) view.findViewById(R.id.addresslist_group_item_key);
-                bVar2.cRQ = view.findViewById(R.id.addresslist_group_item_divider);
+                bVar2.eaU = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                bVar2.cVS = view.findViewById(R.id.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.aJS() != null) {
-                bVar.dWQ.setText(item.aJS());
+            if (item.aMm() != null) {
+                bVar.eaU.setText(item.aMm());
             }
-            am.setViewTextColor(bVar.dWQ, this.dWI, 1);
-            am.setBackgroundColor(bVar.cRQ, R.color.cp_bg_line_c);
+            am.setViewTextColor(bVar.eaU, this.eaM, 1);
+            am.setBackgroundColor(bVar.cVS, R.color.cp_bg_line_c);
             return view;
         } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0533a)) {
-                C0533a c0533a2 = new C0533a();
+            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0540a)) {
+                C0540a c0540a2 = new C0540a();
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                c0533a2.dWF = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                c0533a2.dWG = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                c0533a2.cRQ = view.findViewById(R.id.addresslist_child_item_divider);
-                view.setTag(c0533a2);
-                c0533a = c0533a2;
+                c0540a2.eaJ = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0540a2.eaK = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0540a2.cVS = view.findViewById(R.id.addresslist_child_item_divider);
+                view.setTag(c0540a2);
+                c0540a = c0540a2;
             } else {
-                c0533a = (C0533a) view.getTag();
+                c0540a = (C0540a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0533a.dWG.setText(item.getUserName());
-                c0533a.dWF.startLoad(item.aJR(), 12, false);
+                c0540a.eaK.setText(item.getUserName());
+                c0540a.eaJ.startLoad(item.aMl(), 12, false);
             }
-            am.setViewTextColor(c0533a.dWG, this.dWH, 1);
-            am.setBackgroundResource(c0533a.cRQ, R.color.cp_bg_line_c);
+            am.setViewTextColor(c0540a.eaK, this.eaL, 1);
+            am.setBackgroundResource(c0540a.cVS, R.color.cp_bg_line_c);
             am.setBackgroundResource(view, R.drawable.select_friend_item_bg);
             return view;
         } else {
@@ -120,23 +120,23 @@ public class a extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     private class b {
-        View cRQ;
-        TextView dWQ;
+        View cVS;
+        TextView eaU;
 
         private b() {
         }
     }
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private class C0533a {
-        View cRQ;
-        HeadImageView dWF;
-        TextView dWG;
+    /* loaded from: classes9.dex */
+    private class C0540a {
+        View cVS;
+        HeadImageView eaJ;
+        TextView eaK;
 
-        private C0533a() {
+        private C0540a() {
         }
     }
 }

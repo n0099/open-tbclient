@@ -5,12 +5,12 @@ import com.google.android.exoplayer2.util.j;
 import com.google.android.exoplayer2.util.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public final int height;
     public final List<byte[]> initializationData;
-    public final float mGK;
-    public final int meg;
+    public final float mHp;
+    public final int meM;
     public final int width;
 
     public static a ag(l lVar) throws ParserException {
@@ -33,10 +33,10 @@ public final class a {
             }
             float f = 1.0f;
             if (readUnsignedByte2 > 0) {
-                j.b y = j.y((byte[]) arrayList.get(0), readUnsignedByte, ((byte[]) arrayList.get(0)).length);
-                i = y.width;
-                i2 = y.height;
-                f = y.mGK;
+                j.b C = j.C((byte[]) arrayList.get(0), readUnsignedByte, ((byte[]) arrayList.get(0)).length);
+                i = C.width;
+                i2 = C.height;
+                f = C.mHp;
             } else {
                 i = -1;
             }
@@ -48,16 +48,16 @@ public final class a {
 
     private a(List<byte[]> list, int i, int i2, int i3, float f) {
         this.initializationData = list;
-        this.meg = i;
+        this.meM = i;
         this.width = i2;
         this.height = i3;
-        this.mGK = f;
+        this.mHp = f;
     }
 
     private static byte[] ah(l lVar) {
         int readUnsignedShort = lVar.readUnsignedShort();
         int position = lVar.getPosition();
         lVar.skipBytes(readUnsignedShort);
-        return com.google.android.exoplayer2.util.c.x(lVar.data, position, readUnsignedShort);
+        return com.google.android.exoplayer2.util.c.B(lVar.data, position, readUnsignedShort);
     }
 }

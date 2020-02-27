@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GameVideoTitleBar extends FrameLayout {
     public GameVideoTitleBar(@NonNull Context context) {
         super(context);

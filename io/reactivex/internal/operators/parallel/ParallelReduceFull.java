@@ -10,20 +10,20 @@ import io.reactivex.parallel.a;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ParallelReduceFull<T> extends g<T> {
-    final a<? extends T> nxR;
+    final a<? extends T> nyt;
     final c<T, T, T> reducer;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.nxR.dIi(), this.reducer);
+        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.nyt.dJp(), this.reducer);
         cVar.onSubscribe(parallelReduceFullMainSubscriber);
-        this.nxR.a(parallelReduceFullMainSubscriber.subscribers);
+        this.nyt.a(parallelReduceFullMainSubscriber.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ParallelReduceFullMainSubscriber<T> extends DeferredScalarSubscription<T> {
         private static final long serialVersionUID = -5370107872170712765L;
         final AtomicReference<SlotPair<T>> current;
@@ -101,7 +101,7 @@ public final class ParallelReduceFull<T> extends g<T> {
                     try {
                         t = (T) io.reactivex.internal.functions.a.h(this.reducer.apply(addValue.first, addValue.second), "The reducer returned a null value");
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.I(th);
+                        io.reactivex.exceptions.a.H(th);
                         innerError(th);
                         return;
                     }
@@ -120,7 +120,7 @@ public final class ParallelReduceFull<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ParallelReduceFullInnerSubscriber<T> extends AtomicReference<d> implements j<T> {
         private static final long serialVersionUID = -7954444275102466525L;
         boolean done;
@@ -149,7 +149,7 @@ public final class ParallelReduceFull<T> extends g<T> {
                 try {
                     this.value = (T) io.reactivex.internal.functions.a.h(this.reducer.apply(t2, t), "The reducer returned a null value");
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.exceptions.a.H(th);
                     get().cancel();
                     onError(th);
                 }
@@ -180,7 +180,7 @@ public final class ParallelReduceFull<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SlotPair<T> extends AtomicInteger {
         private static final long serialVersionUID = 473971317683868662L;
         T first;

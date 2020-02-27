@@ -8,27 +8,27 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.live.data.e;
-import com.baidu.live.r.a;
+import com.baidu.live.data.f;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.statics.AlaStaticItem;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.live.tbadk.statics.AlaStaticsManager;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
+import com.baidu.live.u.a;
 import com.baidu.tieba.ala.liveroom.activeview.b;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaActiveBannerView extends LinearLayout implements c {
-    private AlaActiveBannerViewPager eKZ;
-    private AlaActiveBannerViewPagerAdapter eLa;
-    private AlaActiveBannerDot eLb;
-    private b.a eLc;
-    private String eLd;
-    private Set<Integer> eLe;
+    private AlaActiveBannerViewPager eOZ;
+    private AlaActiveBannerViewPagerAdapter ePa;
+    private AlaActiveBannerDot ePb;
+    private b.a ePc;
+    private String ePd;
+    private Set<Integer> ePe;
     private boolean isHost;
     private int mCurrentPosition;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
@@ -37,9 +37,9 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     public AlaActiveBannerView(Context context) {
         super(context);
         this.mCurrentPosition = 0;
-        this.eLd = "";
+        this.ePd = "";
         this.isHost = false;
-        this.eLe = new HashSet();
+        this.ePe = new HashSet();
         this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerView.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
@@ -47,7 +47,7 @@ public class AlaActiveBannerView extends LinearLayout implements c {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                AlaActiveBannerView.this.pw(i);
+                AlaActiveBannerView.this.pE(i);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -60,9 +60,9 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     public AlaActiveBannerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCurrentPosition = 0;
-        this.eLd = "";
+        this.ePd = "";
         this.isHost = false;
-        this.eLe = new HashSet();
+        this.ePe = new HashSet();
         this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerView.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
@@ -70,7 +70,7 @@ public class AlaActiveBannerView extends LinearLayout implements c {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                AlaActiveBannerView.this.pw(i);
+                AlaActiveBannerView.this.pE(i);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -83,9 +83,9 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     public AlaActiveBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCurrentPosition = 0;
-        this.eLd = "";
+        this.ePd = "";
         this.isHost = false;
-        this.eLe = new HashSet();
+        this.ePe = new HashSet();
         this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerView.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i22) {
@@ -93,7 +93,7 @@ public class AlaActiveBannerView extends LinearLayout implements c {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                AlaActiveBannerView.this.pw(i2);
+                AlaActiveBannerView.this.pE(i2);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -106,33 +106,33 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(a.h.ala_active_banner, (ViewGroup) this, true);
-        this.eKZ = (AlaActiveBannerViewPager) findViewById(a.g.active_view_pager);
-        this.eLb = (AlaActiveBannerDot) findViewById(a.g.dot_container);
-        this.eLa = new AlaActiveBannerViewPagerAdapter();
-        this.eKZ.setAdapter(this.eLa);
-        this.eKZ.addOnPageChangeListener(this.mOnPageChangeListener);
+        this.eOZ = (AlaActiveBannerViewPager) findViewById(a.g.active_view_pager);
+        this.ePb = (AlaActiveBannerDot) findViewById(a.g.dot_container);
+        this.ePa = new AlaActiveBannerViewPagerAdapter();
+        this.eOZ.setAdapter(this.ePa);
+        this.eOZ.addOnPageChangeListener(this.mOnPageChangeListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pw(int i) {
-        int count = this.eKZ.getAdapter().getCount();
+    public void pE(int i) {
+        int count = this.eOZ.getAdapter().getCount();
         if (count > 3) {
             if (i == count - 1) {
                 this.mCurrentPosition = 1;
-                this.eKZ.setCurrentItem(this.mCurrentPosition, false);
+                this.eOZ.setCurrentItem(this.mCurrentPosition, false);
             } else if (i == 0) {
                 this.mCurrentPosition = count - 2;
-                this.eKZ.setCurrentItem(this.mCurrentPosition, false);
+                this.eOZ.setCurrentItem(this.mCurrentPosition, false);
             } else {
                 this.mCurrentPosition = i;
-                px(this.mCurrentPosition);
+                pF(this.mCurrentPosition);
             }
-            this.eLb.pu(this.mCurrentPosition - 1);
+            this.ePb.pC(this.mCurrentPosition - 1);
         }
-        py(i);
+        pG(i);
     }
 
-    private void px(int i) {
+    private void pF(int i) {
         AlaStaticItem alaStaticItem = new AlaStaticItem(AlaStaticKeys.ALA_STATIC_KEY);
         alaStaticItem.addParams("from", "liveshow");
         alaStaticItem.addParams("type", "show");
@@ -142,17 +142,17 @@ public class AlaActiveBannerView extends LinearLayout implements c {
         AlaStaticsManager.getInst().onStatic(alaStaticItem);
     }
 
-    private void py(int i) {
-        e pB;
-        if (!this.isHost && (pB = this.eLa.pB(i)) != null) {
-            int i2 = pB.activityId;
-            if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) && !this.eLe.contains(Integer.valueOf(i2)) && !TextUtils.isEmpty(this.eLd)) {
+    private void pG(int i) {
+        f pJ;
+        if (!this.isHost && (pJ = this.ePa.pJ(i)) != null) {
+            int i2 = pJ.activityId;
+            if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) && !this.ePe.contains(Integer.valueOf(i2)) && !TextUtils.isEmpty(this.ePd)) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.DISPLAY_PENDANT);
-                alaStaticItem.addParams("feed_id", this.eLd);
+                alaStaticItem.addParams("feed_id", this.ePd);
                 alaStaticItem.addParams(SdkStaticKeys.KEY_PENDANT_ID, i2 + "");
                 alaStaticItem.addParams("other_params", this.otherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
-                this.eLe.add(Integer.valueOf(i2));
+                this.ePe.add(Integer.valueOf(i2));
             }
         }
     }
@@ -163,41 +163,41 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void setData(ArrayList<e> arrayList, String str) {
+    public void setData(ArrayList<f> arrayList, String str) {
         boolean z = false;
-        if (!TextUtils.equals(this.eLd, str)) {
-            this.eLe = new HashSet();
-            this.eLd = str;
+        if (!TextUtils.equals(this.ePd, str)) {
+            this.ePe = new HashSet();
+            this.ePd = str;
         }
-        List<e> bfE = this.eLa.bfE();
-        if (bfE != null && bfE.size() == arrayList.size()) {
+        List<f> bhN = this.ePa.bhN();
+        if (bhN != null && bhN.size() == arrayList.size()) {
             int i = 0;
             while (true) {
-                if (i >= bfE.size()) {
+                if (i >= bhN.size()) {
                     z = true;
                     break;
                 }
-                e eVar = arrayList.get(i);
-                e eVar2 = bfE.get(i);
-                if (eVar.activityId != eVar2.activityId || eVar.picType != eVar2.picType || !eVar.pic_url.equals(eVar2.pic_url) || !eVar.jump_url.equals(eVar2.jump_url)) {
+                f fVar = arrayList.get(i);
+                f fVar2 = bhN.get(i);
+                if (fVar.activityId != fVar2.activityId || fVar.picType != fVar2.picType || !fVar.pic_url.equals(fVar2.pic_url) || !fVar.jump_url.equals(fVar2.jump_url)) {
                     break;
                 }
                 i++;
             }
         }
-        this.eLb.pv(ListUtils.getCount(arrayList));
-        this.eLa.setData(arrayList);
-        this.eLa.notifyDataSetChanged();
-        this.eKZ.bfD();
+        this.ePb.pD(ListUtils.getCount(arrayList));
+        this.ePa.setData(arrayList);
+        this.ePa.notifyDataSetChanged();
+        this.eOZ.bhM();
     }
 
-    public void pz(int i) {
-        this.eLa.pA(i);
+    public void pH(int i) {
+        this.ePa.pI(i);
     }
 
     public void a(b.a aVar) {
-        this.eLc = aVar;
-        this.eLa.a(this.eLc);
+        this.ePc = aVar;
+        this.ePa.a(this.ePc);
     }
 
     public int getCurrentPosition() {
@@ -214,11 +214,11 @@ public class AlaActiveBannerView extends LinearLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        if (this.eKZ != null) {
-            this.eKZ.release();
+        if (this.eOZ != null) {
+            this.eOZ.release();
         }
-        this.eLd = "";
-        this.eLe.clear();
+        this.ePd = "";
+        this.ePe.clear();
     }
 
     public void setHost(boolean z) {

@@ -8,7 +8,7 @@ import android.text.Layout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TextProgressBar extends ProgressBar {
     private static final int dis = 0;
     private Paint.FontMetrics fm;

@@ -7,7 +7,7 @@ import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.InsideNotificationItem;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class q extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(com.vivo.push.y yVar) {

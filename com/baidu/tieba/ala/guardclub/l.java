@@ -1,116 +1,72 @@
 package com.baidu.tieba.ala.guardclub;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.live.data.ag;
-/* loaded from: classes2.dex */
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class l {
-    private static volatile l eCt;
-    private ag aaT;
-    private SparseArray<String> eCu = new SparseArray<>();
-    private SparseArray<String> eCv = new SparseArray<>();
-    private SparseArray<String> eCw = new SparseArray<>();
-    private SparseArray<String> eCx = new SparseArray<>();
+    private a eGb;
+    private BdAlertDialog eGc;
+    private TbPageContext mPageContext;
 
-    private l() {
+    /* loaded from: classes3.dex */
+    public interface a {
+        void c(com.baidu.tieba.ala.guardclub.model.d dVar, int i);
     }
 
-    public static l bcZ() {
-        if (eCt == null) {
-            synchronized (l.class) {
-                if (eCt == null) {
-                    eCt = new l();
+    public l(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
+    }
+
+    public void a(a aVar) {
+        this.eGb = aVar;
+    }
+
+    public void release() {
+        sN();
+    }
+
+    public void b(final com.baidu.tieba.ala.guardclub.model.d dVar, final int i) {
+        if (TbadkCoreApplication.isLogin() && this.eGb != null) {
+            if (this.eGc == null) {
+                this.eGc = new BdAlertDialog(this.mPageContext.getPageActivity());
+                this.eGc.setMessageId(a.i.guard_club_exit_desc_msg);
+                this.eGc.setCancelable(true);
+                this.eGc.setCanceledOnTouchOutside(true);
+                this.eGc.setPositiveButton(a.i.guard_club_exit_confirm, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.l.1
+                    @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
+                    public void onClick(BdAlertDialog bdAlertDialog) {
+                        if (l.this.eGb != null) {
+                            l.this.eGb.c(dVar, i);
+                        }
+                        l.this.release();
+                    }
+                });
+                this.eGc.setNegativeButton(a.i.guard_club_exit_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.l.2
+                    @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
+                    public void onClick(BdAlertDialog bdAlertDialog) {
+                        l.this.release();
+                    }
+                });
+                if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+                    this.eGc.setPositiveButtonTextColor(this.mPageContext.getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
+                    this.eGc.setNagetiveButtonTextColor(this.mPageContext.getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
+                } else {
+                    this.eGc.setPositiveButtonTextColor(-57754);
+                    this.eGc.setNagetiveButtonTextColor(-13421773);
                 }
             }
+            if (!this.eGc.isShowing()) {
+                this.eGc.create(this.mPageContext).show();
+            }
         }
-        return eCt;
     }
 
-    public String bda() {
-        if (bdc() || this.aaT.aah == null) {
-            return null;
+    private void sN() {
+        if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing() && this.eGc != null) {
+            this.eGc.dismiss();
+            this.eGc = null;
         }
-        return this.aaT.aah;
-    }
-
-    public String pc(int i) {
-        String str = this.eCu.get(i);
-        if (TextUtils.isEmpty(str)) {
-            if (bdc() || this.aaT.aal == null) {
-                return null;
-            }
-            String optString = this.aaT.aal.optString(String.valueOf(i));
-            if (!TextUtils.isEmpty(optString)) {
-                this.eCu.put(i, optString);
-                return optString;
-            }
-            return optString;
-        }
-        return str;
-    }
-
-    public String pd(int i) {
-        String str = this.eCv.get(i);
-        if (TextUtils.isEmpty(str)) {
-            if (bdc() || this.aaT.aaj == null) {
-                return null;
-            }
-            String optString = this.aaT.aaj.optString(String.valueOf(i));
-            if (!TextUtils.isEmpty(optString)) {
-                this.eCv.put(i, optString);
-                return optString;
-            }
-            return optString;
-        }
-        return str;
-    }
-
-    public String pe(int i) {
-        String str = this.eCw.get(i);
-        if (TextUtils.isEmpty(str)) {
-            if (bdc() || this.aaT.aak == null) {
-                return null;
-            }
-            String optString = this.aaT.aak.optString(String.valueOf(i));
-            if (!TextUtils.isEmpty(optString)) {
-                this.eCw.put(i, optString);
-                return optString;
-            }
-            return optString;
-        }
-        return str;
-    }
-
-    public String pf(int i) {
-        String str = this.eCx.get(i);
-        if (TextUtils.isEmpty(str)) {
-            if (bdc() || this.aaT.aam == null) {
-                return null;
-            }
-            String optString = this.aaT.aam.optString(String.valueOf(i));
-            if (!TextUtils.isEmpty(optString)) {
-                this.eCx.put(i, optString);
-                return optString;
-            }
-            return optString;
-        }
-        return str;
-    }
-
-    public ag bdb() {
-        if (bdc()) {
-            return null;
-        }
-        return this.aaT;
-    }
-
-    private boolean bdc() {
-        if (this.aaT == null) {
-            this.aaT = com.baidu.live.s.a.wR().atk.aaT;
-            if (this.aaT == null) {
-                return true;
-            }
-        }
-        return false;
     }
 }

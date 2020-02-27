@@ -1,12 +1,14 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class WinRound {
     public int left = 0;
     public int right = 0;
-    public int top = 0;
+
+    /* renamed from: top  reason: collision with root package name */
+    public int f993top = 0;
     public int bottom = 0;
 
     public String toString() {
-        return "WinRound{left=" + this.left + ", right=" + this.right + ", top=" + this.top + ", bottom=" + this.bottom + '}';
+        return "WinRound{left=" + this.left + ", right=" + this.right + ", top=" + this.f993top + ", bottom=" + this.bottom + '}';
     }
 }

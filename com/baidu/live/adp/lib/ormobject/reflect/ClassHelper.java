@@ -1,5 +1,6 @@
 package com.baidu.live.adp.lib.ormobject.reflect;
 
+import android.util.Log;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -10,7 +11,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClassHelper {
     public static final <T> T newEmptyInstance(Class<T> cls) {
         try {
@@ -241,7 +242,24 @@ public class ClassHelper {
                             boolean z = true;
                             for (int i2 = 0; i2 < parameterTypes.length; i2++) {
                                 if (parameterTypes[i2].isPrimitive()) {
-                                    if ((parameterTypes[i2] != Integer.TYPE || objArr[i2].getClass() != Integer.class) && ((parameterTypes[i2] != Short.TYPE || objArr[i2].getClass() != Short.class) && ((parameterTypes[i2] != Long.TYPE || objArr[i2].getClass() != Long.class) && ((parameterTypes[i2] != Float.TYPE || objArr[i2].getClass() != Float.class) && ((parameterTypes[i2] != Double.TYPE || objArr[i2].getClass() != Double.class) && ((parameterTypes[i2] != Boolean.TYPE || objArr[i2].getClass() != Boolean.class) && ((parameterTypes[i2] != Byte.TYPE || objArr[i2].getClass() != Byte.class) && (parameterTypes[i2] != Character.TYPE || objArr[i2].getClass() != Character.class)))))))) {
+                                    if (parameterTypes[i2] == Integer.TYPE && objArr[i2].getClass() == Integer.class) {
+                                        Log.d("ClassHelper", "findMethod int");
+                                    } else if (parameterTypes[i2] == Short.TYPE && objArr[i2].getClass() == Short.class) {
+                                        Log.d("ClassHelper", "findMethod short");
+                                    } else if (parameterTypes[i2] == Long.TYPE && objArr[i2].getClass() == Long.class) {
+                                        Log.d("ClassHelper", "findMethod long");
+                                    } else if (parameterTypes[i2] == Float.TYPE && objArr[i2].getClass() == Float.class) {
+                                        Log.d("ClassHelper", "findMethod float");
+                                    } else if (parameterTypes[i2] == Double.TYPE && objArr[i2].getClass() == Double.class) {
+                                        Log.d("ClassHelper", "findMethod double");
+                                    } else if (parameterTypes[i2] == Boolean.TYPE && objArr[i2].getClass() == Boolean.class) {
+                                        Log.d("ClassHelper", "findMethod boolean");
+                                    } else if (parameterTypes[i2] == Byte.TYPE && objArr[i2].getClass() == Byte.class) {
+                                        Log.d("ClassHelper", "findMethod byte");
+                                    } else if (parameterTypes[i2] == Character.TYPE && objArr[i2].getClass() == Character.class) {
+                                        Log.d("ClassHelper", "findMethod char");
+                                    } else {
+                                        Log.d("ClassHelper", "findMethod no match");
                                         z = false;
                                     }
                                 } else if (objArr[i2].getClass() != parameterTypes[i2]) {

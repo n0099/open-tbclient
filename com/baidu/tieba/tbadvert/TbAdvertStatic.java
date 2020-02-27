@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class TbAdvertStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921390, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.tbadvert.TbAdvertStatic.1

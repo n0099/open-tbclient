@@ -6,14 +6,14 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e implements j, l, a.InterfaceC0010a {
     @Nullable
-    private r fP;
-    private final com.airbnb.lottie.a.b.a<?, PointF> fS;
-    private final com.airbnb.lottie.a.b.a<?, PointF> fT;
-    private final com.airbnb.lottie.model.content.a fU;
-    private boolean fV;
+    private r fT;
+    private final com.airbnb.lottie.a.b.a<?, PointF> fW;
+    private final com.airbnb.lottie.a.b.a<?, PointF> fX;
+    private final com.airbnb.lottie.model.content.a fY;
+    private boolean fZ;
     private final com.airbnb.lottie.g lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -21,22 +21,22 @@ public class e implements j, l, a.InterfaceC0010a {
     public e(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.lottieDrawable = gVar;
-        this.fS = aVar2.cw().cm();
-        this.fT = aVar2.cp().cm();
-        this.fU = aVar2;
-        aVar.a(this.fS);
-        aVar.a(this.fT);
-        this.fS.b(this);
-        this.fT.b(this);
+        this.fW = aVar2.cx().cn();
+        this.fX = aVar2.cq().cn();
+        this.fY = aVar2;
+        aVar.a(this.fW);
+        aVar.a(this.fX);
+        this.fW.b(this);
+        this.fX.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
-    public void bC() {
+    public void bD() {
         invalidate();
     }
 
     private void invalidate() {
-        this.fV = false;
+        this.fZ = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -47,9 +47,9 @@ public class e implements j, l, a.InterfaceC0010a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).bM() == ShapeTrimPath.Type.Simultaneously) {
-                    this.fP = (r) bVar;
-                    this.fP.a(this);
+                if ((bVar instanceof r) && ((r) bVar).bN() == ShapeTrimPath.Type.Simultaneously) {
+                    this.fT = (r) bVar;
+                    this.fT.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -64,18 +64,18 @@ public class e implements j, l, a.InterfaceC0010a {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path bF() {
-        if (this.fV) {
+    public Path bG() {
+        if (this.fZ) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.fS.getValue();
+        PointF value = this.fW.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
         this.path.reset();
-        if (this.fU.isReversed()) {
+        if (this.fY.isReversed()) {
             this.path.moveTo(0.0f, -f2);
             this.path.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
@@ -88,11 +88,11 @@ public class e implements j, l, a.InterfaceC0010a {
             this.path.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.fT.getValue();
+        PointF value2 = this.fX.getValue();
         this.path.offset(value2.x, value2.y);
         this.path.close();
-        com.airbnb.lottie.d.f.a(this.path, this.fP);
-        this.fV = true;
+        com.airbnb.lottie.d.f.a(this.path, this.fT);
+        this.fZ = true;
         return this.path;
     }
 
@@ -103,10 +103,10 @@ public class e implements j, l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.eQ) {
-            this.fS.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eR) {
-            this.fT.a(cVar);
+        if (t == com.airbnb.lottie.k.eT) {
+            this.fW.a(cVar);
+        } else if (t == com.airbnb.lottie.k.eU) {
+            this.fX.a(cVar);
         }
     }
 }

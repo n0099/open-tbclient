@@ -4,7 +4,7 @@ import com.xiaomi.push.ee;
 import com.xiaomi.push.fn;
 import com.xiaomi.push.fq;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class bm extends fn {
     final /* synthetic */ XMPushService a;
 
@@ -17,13 +17,13 @@ class bm extends fn {
 
     @Override // com.xiaomi.push.fn
     /* renamed from: a */
-    public byte[] mo285a() {
+    public byte[] mo290a() {
         try {
             ee.b bVar = new ee.b();
-            bVar.a(ba.a().m524a());
+            bVar.a(ba.a().m529a());
             return bVar.a();
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("getOBBString err: " + e.toString());
+            com.xiaomi.channel.commonutils.logger.b.m47a("getOBBString err: " + e.toString());
             return null;
         }
     }

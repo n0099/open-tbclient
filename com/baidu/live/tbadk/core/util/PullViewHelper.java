@@ -15,11 +15,11 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.safe.ThreadService;
 import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
+import com.baidu.live.u.a;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -30,7 +30,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PullViewHelper {
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 2000;
     private static final int IMAGE_COLORFILTER_NIGHT = -5000269;
@@ -51,12 +51,12 @@ public class PullViewHelper {
     private PorterDuffColorFilter nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
     private int[] defaultResources = {a.f.sdk_listview_pull_refresh01, a.f.sdk_listview_pull_refresh02};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PullViewDrawable {
         public Drawable dayDrawable;
         public Drawable nightDrawable;

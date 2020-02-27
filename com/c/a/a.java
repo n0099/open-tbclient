@@ -10,7 +10,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private Context mContext;
     private Handler mHandler;
@@ -29,9 +29,9 @@ public class a {
         public void onBindingDied(ComponentName componentName) {
         }
     };
-    private b njN;
+    private b nkp;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void aI(String str, boolean z);
 
@@ -40,14 +40,14 @@ public class a {
 
     private a(Context context, b bVar, Handler handler) {
         this.mContext = context;
-        this.njN = bVar;
-        this.mHandler = new HandlerC0641a(handler == null ? Looper.getMainLooper() : handler.getLooper());
+        this.nkp = bVar;
+        this.mHandler = new HandlerC0649a(handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
     /* renamed from: com.c.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private class HandlerC0641a extends Handler {
-        public HandlerC0641a(Looper looper) {
+    /* loaded from: classes6.dex */
+    private class HandlerC0649a extends Handler {
+        public HandlerC0649a(Looper looper) {
             super(looper);
         }
 
@@ -55,22 +55,22 @@ public class a {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    a.this.njN.d(-1, null);
+                    a.this.nkp.d(-1, null);
                     return;
                 case 1:
                     OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
                     try {
                         try {
-                            a.this.njN.aI(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            a.this.nkp.aI(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
                             try {
                                 a.this.mContext.unbindService(a.this.mServiceConnection);
                                 return;
                             } catch (Exception e) {
-                                a.this.njN.d(-4, e);
+                                a.this.nkp.d(-4, e);
                                 return;
                             }
                         } catch (RemoteException e2) {
-                            a.this.njN.d(-3, e2);
+                            a.this.nkp.d(-3, e2);
                             try {
                                 a.this.mContext.unbindService(a.this.mServiceConnection);
                                 return;
@@ -82,12 +82,12 @@ public class a {
                         try {
                             a.this.mContext.unbindService(a.this.mServiceConnection);
                         } catch (Exception e4) {
-                            a.this.njN.d(-4, e4);
+                            a.this.nkp.d(-4, e4);
                         }
                         throw th;
                     }
                 case 2:
-                    a.this.njN.d(-2, null);
+                    a.this.nkp.d(-2, null);
                     return;
                 default:
                     return;
@@ -100,10 +100,10 @@ public class a {
     }
 
     public static void a(Context context, b bVar, Handler handler) {
-        new a(context.getApplicationContext(), bVar, handler).dDv();
+        new a(context.getApplicationContext(), bVar, handler).dEC();
     }
 
-    private void dDv() {
+    private void dEC() {
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
         if (this.mContext.bindService(intent, this.mServiceConnection, 1)) {

@@ -4,7 +4,7 @@ import android.util.Log;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DnsUtil {
     public static final String TAG = "SMART_HTTP_DNS";
     public static boolean DEBUG = false;

@@ -1,19 +1,31 @@
 package com.baidu.c.a.e;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+import org.json.JSONObject;
+/* loaded from: classes13.dex */
 public class c {
-    public static void Q(Context context, String str) {
-        if (context != null && !TextUtils.isEmpty(str)) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            if (!(context instanceof Activity) && intent != null) {
-                intent.addFlags(268435456);
-            }
-            context.startActivity(intent);
+    public static String g(JSONObject jSONObject, String str) {
+        if (jSONObject != null && !TextUtils.isEmpty(str) && jSONObject.has(str)) {
+            return jSONObject.optString(str);
         }
+        return "";
+    }
+
+    public static double h(JSONObject jSONObject, String str) {
+        if (jSONObject == null || TextUtils.isEmpty(str) || !jSONObject.has(str)) {
+            return -10000.0d;
+        }
+        return jSONObject.optDouble(str);
+    }
+
+    public static boolean b(double d, double d2) {
+        return Math.abs(d - d2) <= 0.001d;
+    }
+
+    public static int i(JSONObject jSONObject, String str) {
+        if (jSONObject == null || TextUtils.isEmpty(str) || !jSONObject.has(str)) {
+            return Integer.MIN_VALUE;
+        }
+        return jSONObject.optInt(str);
     }
 }

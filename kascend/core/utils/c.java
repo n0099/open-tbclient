@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     private Charset charset = Charset.forName("UTF-8");
     private String content;
@@ -20,16 +20,16 @@ public class c {
         }
     }
 
-    public byte[] dIN() {
+    public byte[] dJU() {
         byte[] bArr = null;
         try {
             bArr = getContent().getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
         }
-        return dIO().digest(bArr);
+        return dJV().digest(bArr);
     }
 
-    private MessageDigest dIO() {
+    private MessageDigest dJV() {
         return this.md5;
     }
 
@@ -40,7 +40,7 @@ public class c {
     public static c i(String str, String... strArr) {
         c cVar = new c(str);
         if (strArr.length > 0) {
-            cVar.a(Charset.forName(strArr[0]));
+            cVar.setCharset(Charset.forName(strArr[0]));
         }
         return cVar;
     }
@@ -54,7 +54,7 @@ public class c {
     }
 
     public String toString() {
-        String bigInteger = new BigInteger(1, dIN()).toString(16);
+        String bigInteger = new BigInteger(1, dJU()).toString(16);
         while (bigInteger.length() < 32) {
             bigInteger = "0" + bigInteger;
         }
@@ -65,11 +65,11 @@ public class c {
         return toString().equals(obj);
     }
 
-    public void a(Charset charset) {
+    public void setCharset(Charset charset) {
         this.charset = charset;
     }
 
-    public static String RT(String str) {
+    public static String Se(String str) {
         return i(str, new String[0]).toString();
     }
 }

@@ -8,70 +8,70 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static a elD;
-    private List<an> dTz;
+    private static a epR;
+    private List<an> dXE;
 
-    public static a baG() {
-        if (elD == null) {
+    public static a bcV() {
+        if (epR == null) {
             synchronized (a.class) {
-                if (elD == null) {
-                    elD = new a();
+                if (epR == null) {
+                    epR = new a();
                 }
             }
         }
-        return elD;
+        return epR;
     }
 
-    public void c(an anVar) {
+    public void d(an anVar) {
         if (anVar != null) {
-            if (this.dTz == null) {
-                this.dTz = new ArrayList();
+            if (this.dXE == null) {
+                this.dXE = new ArrayList();
             }
-            if (this.dTz != null) {
-                this.dTz.add(anVar);
+            if (this.dXE != null) {
+                this.dXE.add(anVar);
             }
         }
     }
 
-    public void xo(String str) {
+    public void xI(String str) {
         if (str != null) {
-            if (this.dTz == null) {
-                this.dTz = new ArrayList();
+            if (this.dXE == null) {
+                this.dXE = new ArrayList();
             }
-            if (this.dTz != null) {
-                this.dTz.add(new an(str));
+            if (this.dXE != null) {
+                this.dXE.add(new an(str));
             }
         }
     }
 
-    public void aZA() {
-        if (v.getCount(this.dTz) != 0) {
-            for (an anVar : this.dTz) {
+    public void bbP() {
+        if (v.getCount(this.dXE) != 0) {
+            for (an anVar : this.dXE) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dTz.clear();
+            this.dXE.clear();
         }
     }
 
-    public void hU(boolean z) {
-        if (v.getCount(this.dTz) != 0) {
-            for (an anVar : this.dTz) {
+    public void ib(boolean z) {
+        if (v.getCount(this.dXE) != 0) {
+            for (an anVar : this.dXE) {
                 if (anVar != null) {
                     int i = 0;
                     if (z) {
                         i = 1;
                     }
                     if (!anVar.getParams().contains(TiebaInitialize.Params.OBJ_PARAM2)) {
-                        anVar.Z(TiebaInitialize.Params.OBJ_PARAM2, i);
+                        anVar.X(TiebaInitialize.Params.OBJ_PARAM2, i);
                     }
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dTz.clear();
+            this.dXE.clear();
         }
     }
 
@@ -80,32 +80,32 @@ public class a {
             return null;
         }
         String str3 = "";
-        if (bjVar.aAq() != null && !StringUtils.isNull(bjVar.aAq().appId)) {
-            str3 = bjVar.aAq().appId;
+        if (bjVar.aCF() != null && !StringUtils.isNull(bjVar.aCF().appId)) {
+            str3 = bjVar.aCF().appId;
         }
         an anVar = new an(str);
-        anVar.Z("obj_type", 1);
-        anVar.s("obj_id", Q(bjVar));
-        anVar.cp("tid", bjVar.getId());
-        anVar.cp(TiebaInitialize.Params.OBJ_PARAM3, str3);
-        anVar.Z("entryid", i2);
-        anVar.cp("name", str2);
-        anVar.Z("is_small_follow", i);
+        anVar.X("obj_type", 1);
+        anVar.s("obj_id", R(bjVar));
+        anVar.cy("tid", bjVar.getId());
+        anVar.cy(TiebaInitialize.Params.OBJ_PARAM3, str3);
+        anVar.X("entryid", i2);
+        anVar.cy("name", str2);
+        anVar.X("is_small_follow", i);
         return anVar;
     }
 
-    private long Q(bj bjVar) {
-        if (bjVar == null || bjVar.aAq() == null) {
+    private long R(bj bjVar) {
+        if (bjVar == null || bjVar.aCF() == null) {
             return -1L;
         }
-        return bjVar.aAq().live_id;
+        return bjVar.aCF().live_id;
     }
 
     public void c(String str, int i, int i2, String str2) {
         an anVar = new an(str);
-        anVar.Z("obj_source", i);
-        anVar.Z("obj_type", i2);
-        anVar.cp("tid", str2);
+        anVar.X("obj_source", i);
+        anVar.X("obj_type", i2);
+        anVar.cy("tid", str2);
         TiebaStatic.log(anVar);
     }
 }

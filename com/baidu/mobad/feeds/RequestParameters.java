@@ -3,7 +3,7 @@ package com.baidu.mobad.feeds;
 import com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final int ADS_TYPE_DOWNLOAD = 2;
     public static final int ADS_TYPE_OPENPAGE = 1;
@@ -14,7 +14,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final int MAX_ASSETS_RESERVED = 15;
     public static final String TAG = "RequestParameters";
     private final String a;
-    protected String aJU;
+    protected String aNY;
     private int b;
     private boolean c;
     private Map<String, String> d;
@@ -22,7 +22,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     private int f;
     private int g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         private String a;
         private Map<String, String> b = new HashMap();
@@ -133,7 +133,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public String getAdPlacementId() {
-        return this.aJU;
+        return this.aNY;
     }
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters

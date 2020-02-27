@@ -1,5 +1,7 @@
 package com.baidu.fsg.base.restnet.http;
-/* loaded from: classes3.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+/* loaded from: classes4.dex */
 public enum HttpStatus {
     CONTINUE(100, "Continue"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols"),
@@ -14,7 +16,7 @@ public enum HttpStatus {
     PARTIAL_CONTENT(206, "Partial Content"),
     MULTI_STATUS(org.apache.http.HttpStatus.SC_MULTI_STATUS, "Multi-Status"),
     ALREADY_REPORTED(208, "Already Reported"),
-    IM_USED(226, "IM Used"),
+    IM_USED(Constants.METHOD_MEDIA_NOTIFY, "IM Used"),
     MULTIPLE_CHOICES(300, "Multiple Choices"),
     MOVED_PERMANENTLY(301, "Moved Permanently"),
     FOUND(302, "Found"),
@@ -101,7 +103,7 @@ public enum HttpStatus {
         return Integer.toString(this.value);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum Series {
         INFORMATIONAL(1),
         SUCCESSFUL(2),

@@ -26,9 +26,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import java.util.List;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class o extends RecyclerView.Adapter<a> {
-    private BdUniqueId dfZ;
+    private BdUniqueId dkf;
     private Context mContext;
     private List<MetaData> mData;
     private TbPageContext mPageContext;
@@ -72,19 +72,19 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     private void a(MetaData metaData, a aVar) {
-        aVar.gVK.setData(metaData, true);
-        aVar.gVK.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.1
+        aVar.gXL.setData(metaData, true);
+        aVar.gXL.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 an anVar = new an("c13566");
-                anVar.Z("obj_locate", 2);
+                anVar.X("obj_locate", 2);
                 TiebaStatic.log(anVar);
             }
         });
     }
 
     private void b(final MetaData metaData, a aVar) {
-        aVar.gVL.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.o.2
+        aVar.gXM.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.o.2
             @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
             public void G(View view) {
                 if (metaData != null) {
@@ -93,16 +93,16 @@ public class o extends RecyclerView.Adapter<a> {
                         return;
                     }
                     an anVar = new an("c13566");
-                    anVar.Z("obj_locate", 1);
+                    anVar.X("obj_locate", 1);
                     anVar.s("obj_id", TbadkCoreApplication.getCurrentAccountId());
-                    anVar.cp("obj_param1", metaData.getUserId());
+                    anVar.cy("obj_param1", metaData.getUserId());
                     TiebaStatic.log(anVar);
                 }
             }
         });
-        com.baidu.tbadk.core.view.userLike.c cVar = aVar.Nb;
+        com.baidu.tbadk.core.view.userLike.c cVar = aVar.NB;
         if (cVar != null) {
-            cVar.j(this.dfZ);
+            cVar.j(this.dkf);
             cVar.a(metaData);
         }
     }
@@ -115,13 +115,13 @@ public class o extends RecyclerView.Adapter<a> {
             } else if (metaData.getBaijiahaoInfo() != null && !StringUtils.isNull(metaData.getBaijiahaoInfo().name)) {
                 str = metaData.getBaijiahaoInfo().name;
             }
-            aVar.bXF.setText(str);
-            aVar.bXF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.3
+            aVar.cbJ.setText(str);
+            aVar.cbJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (metaData != null && !StringUtils.isNull(metaData.getUserId())) {
                         an anVar = new an("c13566");
-                        anVar.Z("obj_locate", 2);
+                        anVar.X("obj_locate", 2);
                         TiebaStatic.log(anVar);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(o.this.mContext, metaData.getUserId(), metaData.getName_show())));
                     }
@@ -137,7 +137,7 @@ public class o extends RecyclerView.Adapter<a> {
             if (aq.isEmpty(str)) {
                 str = "";
             }
-            aVar.gVJ.setText(str);
+            aVar.gXK.setText(str);
         }
     }
 
@@ -145,36 +145,36 @@ public class o extends RecyclerView.Adapter<a> {
         this.mSkinType = i;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends RecyclerView.ViewHolder {
-        public com.baidu.tbadk.core.view.userLike.c Nb;
-        public TextView bXF;
-        public TextView gVJ;
-        public HeadPendantClickableView gVK;
-        public DynamicUserLikeButton gVL;
+        public com.baidu.tbadk.core.view.userLike.c NB;
+        public TextView cbJ;
+        public TextView gXK;
+        public HeadPendantClickableView gXL;
+        public DynamicUserLikeButton gXM;
         public LinearLayout mContainer;
 
         public a(View view) {
             super(view);
             this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-            this.gVK = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.gVK.getHeadView().setIsRound(true);
-            this.gVK.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.gVK.getHeadView().setDefaultResource(17170445);
-            this.gVK.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.gVK.getHeadView().setPlaceHolder(2);
-            this.gVK.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(o.this.mContext, R.dimen.tbds1));
-            this.gVK.getHeadView().setBorderColor(am.getColor(R.color.cp_border_a));
-            this.bXF = (TextView) view.findViewById(R.id.concern_user_name);
-            this.gVJ = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.gVL = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.Nb = new com.baidu.tbadk.core.view.userLike.c(o.this.mPageContext, this.gVL);
+            this.gXL = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
+            this.gXL.getHeadView().setIsRound(true);
+            this.gXL.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.gXL.getHeadView().setDefaultResource(17170445);
+            this.gXL.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
+            this.gXL.getHeadView().setPlaceHolder(2);
+            this.gXL.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(o.this.mContext, R.dimen.tbds1));
+            this.gXL.getHeadView().setBorderColor(am.getColor(R.color.cp_border_a));
+            this.cbJ = (TextView) view.findViewById(R.id.concern_user_name);
+            this.gXK = (TextView) view.findViewById(R.id.concern_user_desc);
+            this.gXM = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+            this.NB = new com.baidu.tbadk.core.view.userLike.c(o.this.mPageContext, this.gXM);
         }
 
         public void onChangeSkinType(int i) {
-            am.setViewTextColor(this.bXF, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.gVJ, (int) R.color.cp_cont_d);
-            this.gVL.onChangeSkinType(i);
+            am.setViewTextColor(this.cbJ, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.gXK, (int) R.color.cp_cont_d);
+            this.gXM.onChangeSkinType(i);
         }
     }
 
@@ -183,6 +183,6 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dfZ = bdUniqueId;
+        this.dkf = bdUniqueId;
     }
 }

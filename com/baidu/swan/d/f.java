@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
     public static String streamToString(InputStream inputStream) {
         return streamToString(inputStream, Xml.Encoding.UTF_8.toString());

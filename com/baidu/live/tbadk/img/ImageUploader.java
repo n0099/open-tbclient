@@ -6,7 +6,6 @@ import com.baidu.live.adp.lib.safe.BdCloseHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.Md5;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbImgSetting;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -15,11 +14,12 @@ import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.u.a;
 import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageUploader {
     private int bigHeight;
     private int bigWidth;
@@ -34,7 +34,7 @@ public class ImageUploader {
     private String groupId = "1";
     private NetWork mNetwork = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ImageUploadProgressCallback {
         void onImageDataSentInBackground(String str, Object obj, long j, long j2);
     }

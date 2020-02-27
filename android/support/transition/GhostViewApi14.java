@@ -14,7 +14,7 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 @RequiresApi(14)
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class GhostViewApi14 extends View implements GhostViewImpl {
     Matrix mCurrentMatrix;
     private int mDeltaX;
@@ -26,7 +26,7 @@ class GhostViewApi14 extends View implements GhostViewImpl {
     View mStartView;
     final View mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class Creator implements GhostViewImpl.Creator {
         @Override // android.support.transition.GhostViewImpl.Creator
         public GhostViewImpl addGhost(View view, ViewGroup viewGroup, Matrix matrix) {

@@ -37,8 +37,9 @@ import android.widget.EdgeEffect;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NestedScrollView extends FrameLayout implements NestedScrollingChild2, NestedScrollingParent, ScrollingView {
     static final int ANIMATED_SCROLL_GAP = 250;
     private static final int INVALID_POINTER = -1;
@@ -73,7 +74,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     private static final AccessibilityDelegate ACCESSIBILITY_DELEGATE = new AccessibilityDelegate();
     private static final int[] SCROLLVIEW_STYLEABLE = {16843130};
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnScrollChangeListener {
         void onScrollChange(NestedScrollView nestedScrollView, int i, int i2, int i3, int i4);
     }
@@ -370,8 +371,8 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
             if (findFocus == this) {
                 findFocus = null;
             }
-            View findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, 130);
-            return (findNextFocus == null || findNextFocus == this || !findNextFocus.requestFocus(130)) ? false : true;
+            View findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
+            return (findNextFocus == null || findNextFocus == this || !findNextFocus.requestFocus(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER)) ? false : true;
         } else if (keyEvent.getAction() == 0) {
             switch (keyEvent.getKeyCode()) {
                 case 19:
@@ -381,9 +382,9 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
                     return fullScroll(33);
                 case 20:
                     if (!keyEvent.isAltPressed()) {
-                        return arrowScroll(130);
+                        return arrowScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
                     }
-                    return fullScroll(130);
+                    return fullScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
                 case 62:
                     pageScroll(keyEvent.isShiftPressed() ? 33 : 130);
                     return false;
@@ -746,16 +747,16 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         int i3 = 0;
         while (i3 < size) {
             View view3 = (View) focusables.get(i3);
-            int top = view3.getTop();
+            int top2 = view3.getTop();
             int bottom = view3.getBottom();
-            if (i < bottom && top < i2) {
-                boolean z4 = i < top && bottom < i2;
+            if (i < bottom && top2 < i2) {
+                boolean z4 = i < top2 && bottom < i2;
                 if (view2 == null) {
                     boolean z5 = z4;
                     view = view3;
                     z2 = z5;
                 } else {
-                    boolean z6 = (z && top < view2.getTop()) || (!z && bottom > view2.getBottom());
+                    boolean z6 = (z && top2 < view2.getTop()) || (!z && bottom > view2.getBottom());
                     if (z3) {
                         if (z4 && z6) {
                             view = view3;
@@ -1087,7 +1088,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     protected boolean onRequestFocusInDescendants(int i, Rect rect) {
         View findNextFocusFromRect;
         if (i == 2) {
-            i = 130;
+            i = IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER;
         } else if (i == 1) {
             i = 33;
         }
@@ -1302,7 +1303,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.widget.NestedScrollView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1341,7 +1342,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class AccessibilityDelegate extends AccessibilityDelegateCompat {
         AccessibilityDelegate() {
         }

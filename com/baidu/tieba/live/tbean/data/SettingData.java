@@ -2,7 +2,7 @@ package com.baidu.tieba.live.tbean.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SettingData extends BaseData {
     public int amount_pay_limit;
     public int vip_extra_percent;

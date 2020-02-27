@@ -2,13 +2,13 @@ package com.baidu.tieba.write.vcode.newVcode.a;
 
 import android.webkit.WebView;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public interface b {
     void A(boolean z, String str);
 
     boolean c(WebView webView, String str);
 
-    void cTe();
+    void cUs();
 
     void d(NewWriteModel.d dVar);
 

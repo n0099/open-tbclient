@@ -3,21 +3,21 @@ package com.google.android.exoplayer2.audio;
 import android.support.annotation.Nullable;
 import com.google.android.exoplayer2.q;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface AudioSink {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void EP(int i);
+        void EU(int i);
 
-        void dsJ();
+        void dtU();
 
         void i(int i, long j, long j2);
     }
 
-    void Ja(int i);
+    void Jf(int i);
 
-    boolean OZ(String str);
+    boolean Pm(String str);
 
     void a(a aVar);
 
@@ -27,19 +27,19 @@ public interface AudioSink {
 
     boolean a(ByteBuffer byteBuffer, long j) throws InitializationException, WriteException;
 
-    boolean atB();
+    boolean avP();
 
     q d(q qVar);
 
-    q drH();
+    q dsT();
 
-    void dsF();
+    void dtQ();
 
-    void dsG() throws WriteException;
+    void dtR() throws WriteException;
 
-    boolean dsH();
+    boolean dtS();
 
-    void dsI();
+    void dtT();
 
     void pause();
 
@@ -51,9 +51,9 @@ public interface AudioSink {
 
     void setVolume(float f);
 
-    long vB(boolean z);
+    long vF(boolean z);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class ConfigurationException extends Exception {
         public ConfigurationException(Throwable th) {
             super(th);
@@ -64,7 +64,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class InitializationException extends Exception {
         public final int audioTrackState;
 
@@ -74,7 +74,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class WriteException extends Exception {
         public final int errorCode;
 

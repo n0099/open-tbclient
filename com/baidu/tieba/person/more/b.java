@@ -8,51 +8,51 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
-import com.baidu.tieba.personCenter.data.PersonMoreData;
-import com.baidu.tieba.personCenter.data.PersonMoreItemData;
-import com.baidu.tieba.personCenter.data.g;
+import com.baidu.tieba.person.PersonMoreData;
+import com.baidu.tieba.person.PersonMoreItemData;
+import com.baidu.tieba.personCenter.c.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private c jfJ;
-    private List<m> jfK;
-    private PersonMoreData jfL;
+    private c jgF;
+    private List<m> jgG;
+    private PersonMoreData jgH;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, z<g> zVar) {
         this.mPageContext = tbPageContext;
-        this.jfJ = new c(tbPageContext);
-        this.jfJ.c(zVar);
+        this.jgF = new c(tbPageContext);
+        this.jgF.c(zVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.jfL = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.jgH = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
-        this.jfJ.initView(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
-        ctG();
-        this.jfJ.setData(this.jfK);
+        this.jgF.initView(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
+        cuZ();
+        this.jgF.setData(this.jgG);
     }
 
     public void onChangeSkinType() {
-        if (this.jfJ != null) {
-            this.jfJ.onChangeSkinType();
+        if (this.jgF != null) {
+            this.jgF.onChangeSkinType();
         }
     }
 
-    private void ctG() {
-        this.jfK = new ArrayList();
-        if (this.jfL != null && !v.isEmpty(this.jfL.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.jfL.mUrlMaps) {
+    private void cuZ() {
+        this.jgG = new ArrayList();
+        if (this.jgH != null && !v.isEmpty(this.jgH.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.jgH.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     g gVar = new g();
                     gVar.title = personMoreItemData.mName;
                     gVar.type = 36;
-                    gVar.cHN = personMoreItemData.mUrl;
+                    gVar.cLQ = personMoreItemData.mUrl;
                     gVar.itemId = personMoreItemData.mId;
-                    this.jfK.add(gVar);
+                    this.jgG.add(gVar);
                 }
             }
         }

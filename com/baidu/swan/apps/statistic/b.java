@@ -3,7 +3,7 @@ package com.baidu.swan.apps.statistic;
 import android.util.Log;
 import com.baidu.swan.apps.as.m;
 import com.baidu.swan.ubc.s;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -22,7 +22,7 @@ public final class b {
         eVar.mSource = fVar.mSource;
         eVar.mType = fVar.mType;
         eVar.mValue = fVar.mValue;
-        eVar.aZ(fVar.acL());
+        eVar.aZ(fVar.aeZ());
         m.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.1
             @Override // java.lang.Runnable
             public void run() {

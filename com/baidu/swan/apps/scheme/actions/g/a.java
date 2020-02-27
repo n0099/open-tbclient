@@ -18,7 +18,7 @@ import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.apps.y.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/getMenuButtonBoundingClientRect");
@@ -33,30 +33,30 @@ public class a extends ab {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.core.d.e El = f.UC().El();
-        if (El == null) {
+        com.baidu.swan.apps.core.d.e GA = f.WQ().GA();
+        if (GA == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        b LX = El.LX();
-        if (LX == null) {
+        b Ol = GA.Ol();
+        if (Ol == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (eVar.aaG() && (LX instanceof i)) {
-            View ME = ((i) LX).ME();
-            if (ME == null) {
+        if (eVar.acU() && (Ol instanceof i)) {
+            View OS = ((i) Ol).OS();
+            if (OS == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = ar(ME);
+            unitedSchemeEntity.result = ar(OS);
         } else {
-            SwanAppActionBar Ln = LX.Ln();
-            if (Ln == null) {
+            SwanAppActionBar NB = Ol.NB();
+            if (NB == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            View rightMenu = Ln.getRightMenu();
+            View rightMenu = NB.getRightMenu();
             if (rightMenu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
@@ -68,8 +68,8 @@ public class a extends ab {
 
     private JSONObject ar(View view) {
         JSONObject wrapCallbackParams;
-        e aap = e.aap();
-        int px2dpFloat = aap != null ? aap.aaG() : false ? 0 : (int) (af.px2dpFloat(af.getStatusBarHeight()) + 0.5f);
+        e acD = e.acD();
+        int px2dpFloat = acD != null ? acD.acU() : false ? 0 : (int) (af.px2dpFloat(af.getStatusBarHeight()) + 0.5f);
         int px2dpFloat2 = (int) (af.px2dpFloat(view.getLeft()) + 0.5f);
         int px2dpFloat3 = (int) (af.px2dpFloat(view.getRight()) + 0.5f);
         int px2dpFloat4 = ((int) (af.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;
@@ -81,7 +81,7 @@ public class a extends ab {
             jSONObject.put("width", i);
             jSONObject.put("height", i2);
             jSONObject.put("left", px2dpFloat2);
-            jSONObject.put(HorizontalTranslateLayout.RIGHT, px2dpFloat3);
+            jSONObject.put(HorizontalTranslateLayout.DIRECTION_RIGHT, px2dpFloat3);
             jSONObject.put(VerticalTranslateLayout.TOP, px2dpFloat4);
             jSONObject.put(VerticalTranslateLayout.BOTTOM, px2dpFloat5);
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);

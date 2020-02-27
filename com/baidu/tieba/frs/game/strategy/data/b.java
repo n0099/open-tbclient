@@ -3,21 +3,21 @@ package com.baidu.tieba.frs.game.strategy.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.bj;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.data.b implements m {
-    public static final BdUniqueId gxJ = BdUniqueId.gen();
-    private bj cNb;
+    public static final BdUniqueId gzJ = BdUniqueId.gen();
+    private bj cRe;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gxJ;
+        return gzJ;
     }
 
-    public bj axQ() {
-        return this.cNb;
+    public bj aAe() {
+        return this.cRe;
     }
 
     public void setThreadData(bj bjVar) {
-        this.cNb = bjVar;
+        this.cRe = bjVar;
     }
 }

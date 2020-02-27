@@ -1,22 +1,23 @@
 package com.baidu.swan.apps.c.a;
-/* loaded from: classes10.dex */
+@kotlin.h
+/* loaded from: classes11.dex */
 public final class f {
-    private static Boolean aYd;
-    private static Long aYe;
+    private static Boolean bcn;
+    private static Long bco;
 
-    public static final Boolean Ha() {
-        return aYd;
+    public static final Boolean Jp() {
+        return bcn;
     }
 
     public static final void c(Boolean bool) {
-        aYd = bool;
+        bcn = bool;
     }
 
-    public static final Long Hb() {
-        return aYe;
+    public static final Long Jq() {
+        return bco;
     }
 
     public static final void c(Long l) {
-        aYe = l;
+        bco = l;
     }
 }

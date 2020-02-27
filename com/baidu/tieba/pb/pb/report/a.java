@@ -15,10 +15,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.view.d;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a implements com.baidu.tieba.ueg.a {
-    private BdUniqueId Mm;
-    private HttpMessageListener cVR = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.pb.pb.report.a.2
+    private BdUniqueId MO;
+    private HttpMessageListener cZT = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.pb.pb.report.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -29,45 +29,45 @@ public class a implements com.baidu.tieba.ueg.a {
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.FB(url);
+                    a.this.FQ(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.iSY.showFailToast(errorString);
+                a.this.iUs.showFailToast(errorString);
             }
         }
     };
-    private b iSX = new b();
-    private d iSY = new d();
+    private b iUr = new b();
+    private d iUs = new d();
     private Context mContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.iSY.toastTime = 1000L;
+        this.iUs.toastTime = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void t(BdUniqueId bdUniqueId) {
-        this.Mm = bdUniqueId;
-        this.iSX.setTag(bdUniqueId);
-        this.cVR.setTag(bdUniqueId);
-        this.cVR.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.cVR);
+        this.MO = bdUniqueId;
+        this.iUr.setTag(bdUniqueId);
+        this.cZT.setTag(bdUniqueId);
+        this.cZT.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.cZT);
     }
 
-    public void Ga(String str) {
+    public void Gp(String str) {
         showLoadingDialog();
-        this.iSX.Ga(str);
+        this.iUr.Gp(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void zk(String str) {
+    public void zC(String str) {
         showLoadingDialog();
-        this.iSX.zk(str);
+        this.iUr.zC(str);
     }
 
     private void showLoadingDialog() {
@@ -84,7 +84,7 @@ public class a implements com.baidu.tieba.ueg.a {
                 this.mWaitingDialog.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.pb.report.a.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
-                        MessageManager.getInstance().removeMessage(a.this.Mm);
+                        MessageManager.getInstance().removeMessage(a.this.MO);
                     }
                 });
             } else {
@@ -95,7 +95,7 @@ public class a implements com.baidu.tieba.ueg.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FB(String str) {
+    public void FQ(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(R.string.pb_web_view_report_title), str, true)));
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.publisher.video.interfaces.IPublisherSboxVideoInterface;
 import com.baidu.searchbox.ugc.activity.LocalPhotoPreviewActivity;
 import com.baidu.searchbox.ugc.model.ImageStruct;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ClickSpan extends ClickableSpan {
     private Context context;
     private int type;

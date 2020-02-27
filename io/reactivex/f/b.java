@@ -1,7 +1,7 @@
 package io.reactivex.f;
 
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b<T> {
     final long time;
     final TimeUnit unit;
@@ -13,11 +13,11 @@ public final class b<T> {
         this.unit = (TimeUnit) io.reactivex.internal.functions.a.h(timeUnit, "unit is null");
     }
 
-    public T dIH() {
+    public T dJO() {
         return this.value;
     }
 
-    public long XG() {
+    public long ZU() {
         return this.time;
     }
 

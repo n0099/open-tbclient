@@ -3,10 +3,10 @@ package com.baidu.swan.pms.c.a.d;
 import android.util.Log;
 import java.util.Iterator;
 import java.util.Vector;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class l implements b {
     private Object lock = new Object();
-    private Vector<b> cxP = new Vector<>();
+    private Vector<b> cBN = new Vector<>();
 
     public l(b bVar) {
         e(bVar);
@@ -15,7 +15,7 @@ public class l implements b {
     public void e(b bVar) {
         if (bVar != null) {
             synchronized (this.lock) {
-                this.cxP.add(bVar);
+                this.cBN.add(bVar);
             }
         }
     }
@@ -23,8 +23,8 @@ public class l implements b {
     public void f(b bVar) {
         if (bVar != null) {
             synchronized (this.lock) {
-                if (!this.cxP.remove(bVar)) {
-                    this.cxP.remove(this.cxP.indexOf(bVar));
+                if (!this.cBN.remove(bVar)) {
+                    this.cBN.remove(this.cBN.indexOf(bVar));
                 }
             }
         }
@@ -34,7 +34,7 @@ public class l implements b {
     public <T> void d(f<T> fVar) {
         try {
             synchronized (this.lock) {
-                Iterator<b> it = this.cxP.iterator();
+                Iterator<b> it = this.cBN.iterator();
                 while (it.hasNext()) {
                     it.next().d(fVar);
                 }
@@ -51,7 +51,7 @@ public class l implements b {
         Vector vector = new Vector();
         try {
             synchronized (this.lock) {
-                Iterator<b> it = this.cxP.iterator();
+                Iterator<b> it = this.cBN.iterator();
                 while (it.hasNext()) {
                     vector.add(it.next());
                 }

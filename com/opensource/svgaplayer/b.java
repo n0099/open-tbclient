@@ -4,28 +4,30 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
+import kotlin.h;
 import kotlin.jvm.internal.q;
+@h
 /* loaded from: classes.dex */
 public final class b extends Drawable {
-    private boolean njV;
-    private int njW;
-    private ImageView.ScaleType njX;
-    private final com.opensource.svgaplayer.a.b njY;
-    private final f njZ;
-    private final c nka;
+    private final f nkA;
+    private final c nkB;
+    private boolean nkx;
+    private int nky;
+    private final com.opensource.svgaplayer.a.b nkz;
+    private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.j(fVar, "videoItem");
         q.j(cVar, "dynamicItem");
-        this.njZ = fVar;
-        this.nka = cVar;
-        this.njV = true;
-        this.njX = ImageView.ScaleType.MATRIX;
-        this.njY = new com.opensource.svgaplayer.a.b(this.njZ, this.nka);
+        this.nkA = fVar;
+        this.nkB = cVar;
+        this.nkx = true;
+        this.scaleType = ImageView.ScaleType.MATRIX;
+        this.nkz = new com.opensource.svgaplayer.a.b(this.nkA, this.nkB);
     }
 
-    public final f dDx() {
-        return this.njZ;
+    public final f dEE() {
+        return this.nkA;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -34,33 +36,33 @@ public final class b extends Drawable {
         q.j(fVar, "videoItem");
     }
 
-    public final void wq(boolean z) {
-        if (this.njV != z) {
-            this.njV = z;
+    public final void wu(boolean z) {
+        if (this.nkx != z) {
+            this.nkx = z;
             invalidateSelf();
         }
     }
 
-    public final int dDw() {
-        return this.njW;
+    public final int dED() {
+        return this.nky;
     }
 
-    public final void Ne(int i) {
-        if (this.njW != i) {
-            this.njW = i;
+    public final void Nh(int i) {
+        if (this.nky != i) {
+            this.nky = i;
             invalidateSelf();
         }
     }
 
     public final void setScaleType(ImageView.ScaleType scaleType) {
         q.j(scaleType, "<set-?>");
-        this.njX = scaleType;
+        this.scaleType = scaleType;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.njV && canvas != null) {
-            this.njY.a(canvas, this.njW, this.njX);
+        if (!this.nkx && canvas != null) {
+            this.nkz.a(canvas, this.nky, this.scaleType);
         }
     }
 

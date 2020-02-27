@@ -4,7 +4,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ListView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ListViewCompat {
     public static void scrollListBy(@NonNull ListView listView, int i) {
         View childAt;

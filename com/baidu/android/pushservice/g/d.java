@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.g;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d {
     private int a;
     private String b;

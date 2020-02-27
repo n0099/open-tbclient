@@ -13,7 +13,7 @@ import android.view.SurfaceView;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RippleSurfaceView extends SurfaceView implements SurfaceHolder.Callback, Runnable {
     private SurfaceHolder a;
     private Canvas b;

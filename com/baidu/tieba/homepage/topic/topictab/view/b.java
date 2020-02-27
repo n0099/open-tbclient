@@ -7,14 +7,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.a<c> {
-    private View fWz;
-    private c hgQ;
+    private View fYA;
+    private c hiR;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fWz = getView().findViewById(R.id.card_topic_list_placeholder);
+        this.fYA = getView().findViewById(R.id.card_topic_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -30,11 +30,11 @@ public class b extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null) {
-            this.hgQ = cVar;
-            am.setBackgroundColor(this.fWz, this.hgQ.hfJ);
-            ViewGroup.LayoutParams layoutParams = this.fWz.getLayoutParams();
-            layoutParams.height = l.getDimens(this.mContext, cVar.fVa);
-            this.fWz.setLayoutParams(layoutParams);
+            this.hiR = cVar;
+            am.setBackgroundColor(this.fYA, this.hiR.hhJ);
+            ViewGroup.LayoutParams layoutParams = this.fYA.getLayoutParams();
+            layoutParams.height = l.getDimens(this.mContext, cVar.fXb);
+            this.fYA.setLayoutParams(layoutParams);
         }
     }
 

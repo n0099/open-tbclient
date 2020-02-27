@@ -1,26 +1,50 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.bj;
+/* loaded from: classes9.dex */
 public class k implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId iAI = BdUniqueId.gen();
-    public static final BdUniqueId iAJ = BdUniqueId.gen();
-    public long iAK;
-    public String iAL;
-    public boolean isDynamic;
-    public BdUniqueId zN;
-    public boolean isNew = true;
-    public int sortType = 0;
-    public String iAM = "";
-    public boolean iAN = false;
+    public static final BdUniqueId iCH = BdUniqueId.gen();
+    private bj NQ;
+    private AntiData dgA;
+    private boolean iCI = false;
+    public boolean iCJ = false;
 
-    public k(BdUniqueId bdUniqueId) {
-        this.zN = iAJ;
-        this.zN = bdUniqueId;
+    public k(bj bjVar, AntiData antiData) {
+        this.NQ = bjVar;
+        this.dgA = antiData;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.zN;
+        return iCH;
+    }
+
+    public int aDI() {
+        if (this.NQ != null) {
+            return this.NQ.aDI();
+        }
+        return 0;
+    }
+
+    public boolean cla() {
+        return this.NQ != null && this.NQ.aDH() == 1;
+    }
+
+    public AntiData getAnti() {
+        return this.dgA;
+    }
+
+    public bj aAe() {
+        return this.NQ;
+    }
+
+    public void pv(boolean z) {
+        this.iCI = z;
+    }
+
+    public boolean clb() {
+        return this.iCI;
     }
 }

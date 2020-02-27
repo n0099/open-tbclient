@@ -16,38 +16,38 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.BufferedSource;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class j<T> {
-    private e cxD;
-    private T cxE;
-    private AtomicBoolean cxF;
-    private f<T> cxO;
+    private e cBB;
+    private T cBC;
+    private AtomicBoolean cBD;
+    private f<T> cBM;
 
     public j(f<T> fVar) {
-        this.cxO = fVar;
-        this.cxD = fVar.cxD;
-        this.cxE = fVar.cxE;
-        this.cxF = fVar.cxF;
+        this.cBM = fVar;
+        this.cBB = fVar.cBB;
+        this.cBC = fVar.cBC;
+        this.cBD = fVar.cBD;
     }
 
-    public void arS() {
-        if (!this.cxF.get()) {
+    public void aug() {
+        if (!this.cBD.get()) {
             if (!ConnectManager.isNetworkConnected(AppRuntime.getAppContext())) {
-                this.cxD.cxB = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
-            } else if (!this.cxO.arp()) {
-                this.cxD.cxB = new com.baidu.swan.pms.model.a(2204, "download : path not writable");
+                this.cBB.cBz = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
+            } else if (!this.cBM.atD()) {
+                this.cBB.cBz = new com.baidu.swan.pms.model.a(2204, "download : path not writable");
             } else {
-                GetRequest.GetRequestBuilder url = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(this.cxD.cxC.downloadUrl);
-                this.cxO.arJ();
+                GetRequest.GetRequestBuilder url = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(this.cBB.cBA.downloadUrl);
+                this.cBM.atX();
                 Response response = null;
                 try {
                     response = url.build().executeSync();
                     int code = response.code();
                     int g = g(response, code);
-                    if (this.cxD.cxB.errorNo != g) {
-                        this.cxD.cxB = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
+                    if (this.cBB.cBz.errorNo != g) {
+                        this.cBB.cBz = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
                         if (com.baidu.swan.pms.d.DEBUG) {
-                            Log.w("PMSTaskProcessor", "mismatch errorCode:" + g + "!=" + this.cxD.cxB.errorNo + " HTTP-ErrorCode:" + code);
+                            Log.w("PMSTaskProcessor", "mismatch errorCode:" + g + "!=" + this.cBB.cBz.errorNo + " HTTP-ErrorCode:" + code);
                         }
                     }
                 } catch (Exception e) {
@@ -55,7 +55,7 @@ public class j<T> {
                         Log.e("PMSTaskProcessor", e.toString());
                         e.printStackTrace();
                     }
-                    this.cxD.cxB = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
+                    this.cBB.cBz = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
                 } finally {
                     com.baidu.swan.d.c.closeSafely(response);
                 }
@@ -65,56 +65,56 @@ public class j<T> {
 
     private int g(Response response, int i) {
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("PMSTaskProcessor", "download " + this.cxD.cxC.downloadUrl + "response code:" + response.code());
+            Log.d("PMSTaskProcessor", "download " + this.cBB.cBA.downloadUrl + "response code:" + response.code());
         }
-        this.cxD.cxB = null;
+        this.cBB.cBz = null;
         if (i < 200 || i > 300) {
-            this.cxD.cxB = new com.baidu.swan.pms.model.a(2104, "metadata : network error. http code=");
-            return this.cxD.cxB.errorNo;
+            this.cBB.cBz = new com.baidu.swan.pms.model.a(2104, "metadata : network error. http code=");
+            return this.cBB.cBz.errorNo;
         }
         ResponseBody body = response.body();
         if (body != null) {
             long contentLength = body.contentLength();
             if (com.baidu.swan.pms.d.DEBUG) {
-                Log.d("PMSTaskProcessor", "currentSize:" + this.cxD.cxC.currentSize + ",totalBytes:" + this.cxD.cxC.size + ",Content-Length:" + contentLength);
+                Log.d("PMSTaskProcessor", "currentSize:" + this.cBB.cBA.currentSize + ",totalBytes:" + this.cBB.cBA.size + ",Content-Length:" + contentLength);
             }
-            if (contentLength > 0 && contentLength != this.cxD.cxC.size) {
-                this.cxD.cxB = new com.baidu.swan.pms.model.a(2209, com.baidu.swan.pms.f.c.v(",file length not match:server=", "" + this.cxD.cxC.size, "local=", "" + contentLength));
-                return this.cxD.cxB.errorNo;
-            } else if (!this.cxO.bf(this.cxD.cxC.size)) {
-                this.cxD.cxB = new com.baidu.swan.pms.model.a(2205, "download : no space error");
-                return this.cxD.cxB.errorNo;
+            if (contentLength > 0 && contentLength != this.cBB.cBA.size) {
+                this.cBB.cBz = new com.baidu.swan.pms.model.a(2209, com.baidu.swan.pms.f.c.z(",file length not match:server=", "" + this.cBB.cBA.size, "local=", "" + contentLength));
+                return this.cBB.cBz.errorNo;
+            } else if (!this.cBM.bj(this.cBB.cBA.size)) {
+                this.cBB.cBz = new com.baidu.swan.pms.model.a(2205, "download : no space error");
+                return this.cBB.cBz.errorNo;
             } else {
                 try {
                     if (a(body, contentLength)) {
-                        this.cxD.cxB = new com.baidu.swan.pms.model.a(PushConstants.EXPIRE_NOTIFICATION, "download : package download success");
-                        return this.cxD.cxB.errorNo;
+                        this.cBB.cBz = new com.baidu.swan.pms.model.a(PushConstants.EXPIRE_NOTIFICATION, "download : package download success");
+                        return this.cBB.cBz.errorNo;
                     }
                 } catch (IOException e) {
                     if (com.baidu.swan.pms.d.DEBUG) {
                         e.printStackTrace();
                     }
-                    this.cxD.cxB = new com.baidu.swan.pms.model.a(2206, "download : disk write error");
-                    return this.cxD.cxB.errorNo;
+                    this.cBB.cBz = new com.baidu.swan.pms.model.a(2206, "download : disk write error");
+                    return this.cBB.cBz.errorNo;
                 }
             }
         }
-        if (this.cxD.cxB == null) {
-            this.cxD.cxB = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
+        if (this.cBB.cBz == null) {
+            this.cBB.cBz = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
         }
-        return this.cxD.cxB.errorNo;
+        return this.cBB.cBz.errorNo;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [245=5, 246=5] */
     private boolean a(ResponseBody responseBody, long j) throws IOException {
         BufferedSource bufferedSource = null;
-        c<T> cVar = this.cxO.cxG;
+        c<T> cVar = this.cBM.cBE;
         try {
-            T t = this.cxE;
+            T t = this.cBC;
             BufferedSource source = responseBody.source();
-            com.baidu.swan.pms.model.a a = cVar.a(t, source, this.cxO.bth, j);
+            com.baidu.swan.pms.model.a a = cVar.a(t, source, this.cBM.bxr, j);
             if (a.errorNo == 2302) {
-                if (!a(Channels.newInputStream(source), new FileOutputStream(this.cxO.bth), j) || !qg(this.cxD.cxC.filePath)) {
+                if (!a(Channels.newInputStream(source), new FileOutputStream(this.cBM.bxr), j) || !qv(this.cBB.cBA.filePath)) {
                     if (source != null && source.isOpen()) {
                         com.baidu.swan.d.c.closeSafely(source);
                     }
@@ -126,20 +126,20 @@ public class j<T> {
                     return true;
                 }
             } else if (a.errorNo != 2300) {
-                this.cxD.cxB = a;
+                this.cBB.cBz = a;
                 if (source != null && source.isOpen()) {
                     com.baidu.swan.d.c.closeSafely(source);
                 }
                 return false;
             } else {
-                this.cxD.cxC.currentSize = j;
-                this.cxO.arK();
-                boolean qg = qg(this.cxD.cxC.filePath);
+                this.cBB.cBA.currentSize = j;
+                this.cBM.atY();
+                boolean qv = qv(this.cBB.cBA.filePath);
                 if (source == null || !source.isOpen()) {
-                    return qg;
+                    return qv;
                 }
                 com.baidu.swan.d.c.closeSafely(source);
-                return qg;
+                return qv;
             }
         } catch (Throwable th) {
             if (0 != 0 && bufferedSource.isOpen()) {
@@ -172,7 +172,7 @@ public class j<T> {
         int i = 0;
         int length = bArr.length;
         long j2 = 0;
-        while (!this.cxF.get() && i != -1) {
+        while (!this.cBD.get() && i != -1) {
             if (j > 0) {
                 if (j2 >= j) {
                     break;
@@ -184,42 +184,42 @@ public class j<T> {
             if (i > 0) {
                 outputStream.write(bArr, 0, i);
                 j2 += i;
-                this.cxD.cxC.currentSize = j2;
-                this.cxO.arK();
+                this.cBB.cBA.currentSize = j2;
+                this.cBM.atY();
             }
         }
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.i("PMSTaskProcessor", "copyStream: mCanceled=" + this.cxF.get() + ", readed=" + j2 + ",totalBytes" + j);
+            Log.i("PMSTaskProcessor", "copyStream: mCanceled=" + this.cBD.get() + ", readed=" + j2 + ",totalBytes" + j);
         }
         return j2 == j;
     }
 
-    private boolean qf(String str) {
+    private boolean qu(String str) {
         File file = new File(str);
         if (!file.exists()) {
-            this.cxD.cxB = new com.baidu.swan.pms.model.a(2208, String.format("download file not found:%s", com.baidu.swan.pms.f.c.v("local file save failed:", str)));
+            this.cBB.cBz = new com.baidu.swan.pms.model.a(2208, String.format("download file not found:%s", com.baidu.swan.pms.f.c.z("local file save failed:", str)));
             return false;
-        } else if (file.length() != this.cxD.cxC.size) {
-            this.cxD.cxB = new com.baidu.swan.pms.model.a(PushConstants.DELAY_NOTIFICATION, String.format("download : package MD5 verify failed.", com.baidu.swan.pms.f.c.v(",file length not match:server=", "" + this.cxD.cxC.size, "local=", "" + file.length())));
+        } else if (file.length() != this.cBB.cBA.size) {
+            this.cBB.cBz = new com.baidu.swan.pms.model.a(PushConstants.DELAY_NOTIFICATION, String.format("download : package MD5 verify failed.", com.baidu.swan.pms.f.c.z(",file length not match:server=", "" + this.cBB.cBA.size, "local=", "" + file.length())));
             return false;
         } else {
             return true;
         }
     }
 
-    private boolean qg(String str) {
-        if (qf(str)) {
-            String str2 = this.cxD.cxC.md5 != null ? this.cxD.cxC.md5 : null;
+    private boolean qv(String str) {
+        if (qu(str)) {
+            String str2 = this.cBB.cBA.md5 != null ? this.cBB.cBA.md5 : null;
             String md5 = str != null ? com.baidu.swan.pms.f.a.toMd5(new File(str), true) : null;
             if (str2 == null || md5 == null) {
-                this.cxD.cxB = new com.baidu.swan.pms.model.a(2208, String.format("download file not found:%s", com.baidu.swan.pms.f.c.v("server:", str2, ",local", md5)));
+                this.cBB.cBz = new com.baidu.swan.pms.model.a(2208, String.format("download file not found:%s", com.baidu.swan.pms.f.c.z("server:", str2, ",local", md5)));
                 return false;
             }
             String upperCase = str2.toUpperCase();
             if (upperCase.equals(md5)) {
                 return true;
             }
-            this.cxD.cxB = new com.baidu.swan.pms.model.a(PushConstants.DELAY_NOTIFICATION, "download : package MD5 verify failed." + com.baidu.swan.pms.f.c.v("server:", upperCase, ",local", md5));
+            this.cBB.cBz = new com.baidu.swan.pms.model.a(PushConstants.DELAY_NOTIFICATION, "download : package MD5 verify failed." + com.baidu.swan.pms.f.c.z("server:", upperCase, ",local", md5));
             return false;
         }
         return false;

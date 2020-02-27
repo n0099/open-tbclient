@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.core.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b<T> {
-    void D(T t);
+    void F(T t);
 }

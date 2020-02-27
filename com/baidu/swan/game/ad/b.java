@@ -17,180 +17,180 @@ import com.baidu.swan.game.ad.a.a;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.component.RewardVideoView;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class b implements com.baidu.swan.game.ad.b.d {
-    private com.baidu.swan.apps.media.c.a aXu;
-    private RelativeLayout ccA;
-    private RewardVideoView ccB;
-    private LinearLayout ccC;
-    private ImageView ccD;
-    private TextView ccE;
-    private TextView ccF;
-    private View ccG;
-    private RelativeLayout ccH;
-    private a.b ccL;
-    private RewardLoadWebView ccM;
-    private RewardLoadWebView ccN;
-    private AdElementInfo ccj;
-    private a.c ccw;
+    private com.baidu.swan.apps.media.c.a bbF;
+    private a.c cgA;
+    private RelativeLayout cgE;
+    private RewardVideoView cgF;
+    private LinearLayout cgG;
+    private ImageView cgH;
+    private TextView cgI;
+    private TextView cgJ;
+    private View cgK;
+    private RelativeLayout cgL;
+    private a.b cgP;
+    private RewardLoadWebView cgQ;
+    private RewardLoadWebView cgR;
+    private AdElementInfo cgo;
     public Context mContext;
     private View mConvertView;
     private int mDuration;
     private ProgressBar mProgressBar;
     private Resources mResources;
-    private final Handler ccK = new Handler();
-    private Runnable ccO = new Runnable() { // from class: com.baidu.swan.game.ad.b.2
+    private final Handler cgO = new Handler();
+    private Runnable cgS = new Runnable() { // from class: com.baidu.swan.game.ad.b.2
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.aXu != null) {
-                int currentPosition = b.this.aXu.getCurrentPosition();
-                b.this.mDuration = b.this.aXu.getDuration();
+            if (b.this.bbF != null) {
+                int currentPosition = b.this.bbF.getCurrentPosition();
+                b.this.mDuration = b.this.bbF.getDuration();
                 if (b.this.mDuration <= 15000 || currentPosition > 15000) {
-                    b.this.ccG.setVisibility(8);
-                    b.this.ccF.setVisibility(8);
+                    b.this.cgK.setVisibility(8);
+                    b.this.cgJ.setVisibility(8);
                 } else {
-                    b.this.ccF.setText(String.format(b.this.mContext.getResources().getString(c.g.swangame_game_ad_close_ad_time_less), Integer.valueOf(15 - (currentPosition / 1000))));
+                    b.this.cgJ.setText(String.format(b.this.mContext.getResources().getString(c.g.swangame_game_ad_close_ad_time_less), Integer.valueOf(15 - (currentPosition / 1000))));
                 }
                 int min = Math.min(currentPosition + 1000, b.this.mDuration);
                 b.this.mProgressBar.setProgress(min / 1000);
                 if (min < b.this.mDuration) {
-                    b.this.ccK.postDelayed(b.this.ccO, 100L);
+                    b.this.cgO.postDelayed(b.this.cgS, 100L);
                 }
             }
         }
     };
-    private View.OnClickListener ccP = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.b.3
+    private View.OnClickListener cgT = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.ccB != null) {
-                if (b.this.ccB.isMute()) {
-                    b.this.ccD.setImageResource(c.d.ng_game_vol_open);
-                    b.this.ccB.cC(false);
+            if (b.this.cgF != null) {
+                if (b.this.cgF.isMute()) {
+                    b.this.cgH.setImageResource(c.d.ng_game_vol_open);
+                    b.this.cgF.cJ(false);
                     return;
                 }
-                b.this.ccD.setImageResource(c.d.ng_game_vol_close);
-                b.this.ccB.cC(true);
+                b.this.cgH.setImageResource(c.d.ng_game_vol_close);
+                b.this.cgF.cJ(true);
             }
         }
     };
-    private View.OnClickListener ccQ = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.b.4
+    private View.OnClickListener cgU = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.b.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.e.close_ad != view.getId() || b.this.aXu == null || b.this.mDuration <= 15000 || b.this.aXu.getCurrentPosition() <= 15000) {
-                if (b.this.ccL != null) {
-                    b.this.ccL.aib();
+            if (c.e.close_ad != view.getId() || b.this.bbF == null || b.this.mDuration <= 15000 || b.this.bbF.getCurrentPosition() <= 15000) {
+                if (b.this.cgP != null) {
+                    b.this.cgP.akp();
                     return;
                 }
                 return;
             }
-            b.this.aXu.seekTo(b.this.mDuration);
+            b.this.bbF.seekTo(b.this.mDuration);
         }
     };
-    public int ccI = com.baidu.swan.games.view.a.c.aoj();
-    public int ccJ = com.baidu.swan.games.view.a.c.aok();
+    public int cgM = com.baidu.swan.games.view.a.c.aqx();
+    public int cgN = com.baidu.swan.games.view.a.c.aqy();
 
-    public abstract View ahN();
+    public abstract View akb();
 
     public b(Context context, AdElementInfo adElementInfo) {
         this.mContext = context;
-        this.ccj = adElementInfo;
+        this.cgo = adElementInfo;
         this.mResources = this.mContext.getResources();
         initView();
     }
 
     private void initView() {
-        this.mConvertView = ahN();
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.ccI, this.ccJ);
+        this.mConvertView = akb();
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.cgM, this.cgN);
         this.mConvertView.setLayoutParams(layoutParams);
-        this.ccA = (RelativeLayout) this.mConvertView.findViewById(c.e.reward_relative);
-        this.ccB = (RewardVideoView) this.mConvertView.findViewById(c.e.video_view);
-        this.ccB.setLayoutParams(layoutParams);
+        this.cgE = (RelativeLayout) this.mConvertView.findViewById(c.e.reward_relative);
+        this.cgF = (RewardVideoView) this.mConvertView.findViewById(c.e.video_view);
+        this.cgF.setLayoutParams(layoutParams);
         this.mProgressBar = (ProgressBar) this.mConvertView.findViewById(c.e.swangame_game_ad_video_progress_horizontal);
-        this.ccC = (LinearLayout) this.mConvertView.findViewById(c.e.vol_clo);
-        this.ccD = (ImageView) this.mConvertView.findViewById(c.e.volume);
-        this.ccE = (TextView) this.mConvertView.findViewById(c.e.close_ad);
-        this.ccF = (TextView) this.mConvertView.findViewById(c.e.close_ad_header);
-        this.ccG = this.mConvertView.findViewById(c.e.close_ad_middle);
-        this.ccH = (RelativeLayout) this.mConvertView.findViewById(c.e.banner);
-        if (!TextUtils.isEmpty(this.ccj.ahX())) {
-            this.ccM = new RewardLoadWebView(this.mContext);
-            this.ccH.addView(this.ccM, new RelativeLayout.LayoutParams(-1, -1));
-            this.ccM.a("reward_banner_html", this.ccj, this);
+        this.cgG = (LinearLayout) this.mConvertView.findViewById(c.e.vol_clo);
+        this.cgH = (ImageView) this.mConvertView.findViewById(c.e.volume);
+        this.cgI = (TextView) this.mConvertView.findViewById(c.e.close_ad);
+        this.cgJ = (TextView) this.mConvertView.findViewById(c.e.close_ad_header);
+        this.cgK = this.mConvertView.findViewById(c.e.close_ad_middle);
+        this.cgL = (RelativeLayout) this.mConvertView.findViewById(c.e.banner);
+        if (!TextUtils.isEmpty(this.cgo.akl())) {
+            this.cgQ = new RewardLoadWebView(this.mContext);
+            this.cgL.addView(this.cgQ, new RelativeLayout.LayoutParams(-1, -1));
+            this.cgQ.a("reward_banner_html", this.cgo, this);
         }
-        this.aXu = this.ccB.getPlayer();
-        ahI();
+        this.bbF = this.cgF.getPlayer();
+        ajW();
     }
 
-    private void ahI() {
-        this.ccA.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.swan.game.ad.b.1
+    private void ajW() {
+        this.cgE.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.swan.game.ad.b.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return true;
             }
         });
-        this.ccD.setOnClickListener(this.ccP);
-        this.ccE.setOnClickListener(this.ccQ);
+        this.cgH.setOnClickListener(this.cgT);
+        this.cgI.setOnClickListener(this.cgU);
     }
 
     public void a(a.c cVar) {
-        this.ccw = cVar;
+        this.cgA = cVar;
     }
 
     public void a(a.b bVar) {
-        this.ccL = bVar;
+        this.cgP = bVar;
     }
 
     public View getConvertView() {
         return this.mConvertView;
     }
 
-    public void U(String str) {
-        if (this.ccB != null) {
-            this.ccB.U(str);
+    public void V(String str) {
+        if (this.cgF != null) {
+            this.cgF.V(str);
         }
     }
 
     public com.baidu.swan.apps.media.c.a getPlayer() {
-        if (this.ccB != null) {
-            return this.ccB.getPlayer();
+        if (this.cgF != null) {
+            return this.cgF.getPlayer();
         }
         return null;
     }
 
     private void startTimer() {
         if (this.mProgressBar != null) {
-            this.ccK.removeCallbacksAndMessages(null);
-            this.ccK.postDelayed(this.ccO, 0L);
+            this.cgO.removeCallbacksAndMessages(null);
+            this.cgO.postDelayed(this.cgS, 0L);
         }
     }
 
     private void stopTimer() {
         if (this.mProgressBar != null) {
-            this.ccK.removeCallbacksAndMessages(null);
+            this.cgO.removeCallbacksAndMessages(null);
         }
     }
 
-    public void ahJ() {
+    public void ajX() {
         startTimer();
-        if (this.mProgressBar != null && this.aXu != null) {
-            this.mProgressBar.setMax(this.aXu.getDuration() / 1000);
+        if (this.mProgressBar != null && this.bbF != null) {
+            this.mProgressBar.setMax(this.bbF.getDuration() / 1000);
             this.mProgressBar.setVisibility(4);
         }
-        if (this.ccF != null && this.aXu != null) {
-            this.ccF.setText(String.format(this.mContext.getResources().getString(c.g.swangame_game_ad_close_ad_time_less), Integer.valueOf(this.aXu.getDuration() / 1000)));
+        if (this.cgJ != null && this.bbF != null) {
+            this.cgJ.setText(String.format(this.mContext.getResources().getString(c.g.swangame_game_ad_close_ad_time_less), Integer.valueOf(this.bbF.getDuration() / 1000)));
         }
-        if (this.ccC.getVisibility() != 0) {
-            this.ccC.setVisibility(0);
+        if (this.cgG.getVisibility() != 0) {
+            this.cgG.setVisibility(0);
         }
-        if (this.ccH.getVisibility() != 0) {
-            this.ccH.setAnimation(AnimationUtils.loadAnimation(this.mContext, c.a.ng_game_ad_open));
-            this.ccH.setVisibility(0);
+        if (this.cgL.getVisibility() != 0) {
+            this.cgL.setAnimation(AnimationUtils.loadAnimation(this.mContext, c.a.ng_game_ad_open));
+            this.cgL.setVisibility(0);
         }
     }
 
     public void onPrepared() {
-        if (this.aXu != null) {
-            this.mDuration = this.aXu.getDuration();
+        if (this.bbF != null) {
+            this.mDuration = this.bbF.getDuration();
         }
     }
 
@@ -198,61 +198,61 @@ public abstract class b implements com.baidu.swan.game.ad.b.d {
         stopTimer();
     }
 
-    public void ahK() {
+    public void ajY() {
         startTimer();
     }
 
-    public void ahL() {
+    public void ajZ() {
         stopTimer();
-        if (this.ccM != null) {
-            this.ccM.destroy();
-            this.ccM = null;
+        if (this.cgQ != null) {
+            this.cgQ.destroy();
+            this.cgQ = null;
         }
-        if (this.ccN != null) {
-            this.ccN.destroy();
-            this.ccN = null;
+        if (this.cgR != null) {
+            this.cgR.destroy();
+            this.cgR = null;
         }
     }
 
-    public void ahM() {
-        ahO();
+    public void aka() {
+        akc();
         stopTimer();
     }
 
-    private void ahO() {
-        if (this.ccA != null) {
-            this.ccC.setVisibility(4);
-            this.ccH.setVisibility(4);
-            this.ccE.setVisibility(4);
-            if (!TextUtils.isEmpty(this.ccj.ahY())) {
-                this.ccN = new RewardLoadWebView(this.mContext);
-                this.ccN.a("reward_end_frame_html", this.ccj, this);
-                this.ccA.addView(this.ccN, new RelativeLayout.LayoutParams(-1, -1));
+    private void akc() {
+        if (this.cgE != null) {
+            this.cgG.setVisibility(4);
+            this.cgL.setVisibility(4);
+            this.cgI.setVisibility(4);
+            if (!TextUtils.isEmpty(this.cgo.akm())) {
+                this.cgR = new RewardLoadWebView(this.mContext);
+                this.cgR.a("reward_end_frame_html", this.cgo, this);
+                this.cgE.addView(this.cgR, new RelativeLayout.LayoutParams(-1, -1));
             }
-            ahP();
+            akd();
         }
     }
 
-    private void ahP() {
+    private void akd() {
         TextView textView = new TextView(this.mContext);
         textView.setBackground(this.mResources.getDrawable(c.d.ng_game_bg_close_ad));
         textView.setTextColor(this.mResources.getColor(c.b.close_ad_text_color));
         textView.setText(this.mResources.getString(c.g.close_ad_des));
         textView.setTextSize(2, 16.0f);
-        textView.setOnClickListener(this.ccQ);
+        textView.setOnClickListener(this.cgU);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(af.dip2px(this.mContext, 96.0f), af.dip2px(this.mContext, 30.0f));
         layoutParams.addRule(11);
         layoutParams.addRule(10);
         layoutParams.addRule(13);
         textView.setGravity(17);
-        layoutParams.setMargins(0, this.mResources.getDimensionPixelSize(c.C0319c.include_land_close_ad_margin), this.mResources.getDimensionPixelSize(c.C0319c.include_land_close_ad_margin), 0);
-        this.ccA.addView(textView, layoutParams);
+        layoutParams.setMargins(0, this.mResources.getDimensionPixelSize(c.C0329c.include_land_close_ad_margin), this.mResources.getDimensionPixelSize(c.C0329c.include_land_close_ad_margin), 0);
+        this.cgE.addView(textView, layoutParams);
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    public void ahQ() {
-        if (this.ccw != null) {
-            this.ccw.kR();
+    public void ake() {
+        if (this.cgA != null) {
+            this.cgA.lg();
         }
     }
 }

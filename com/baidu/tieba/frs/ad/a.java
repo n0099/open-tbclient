@@ -8,49 +8,49 @@ import com.baidu.tieba.frs.m;
 import com.baidu.tieba.frs.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
-    private FrsADFragment gqM;
-    private BdTypeRecyclerView gqN;
-    private d gqO;
-    private m gqP;
+    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
+    private FrsADFragment gsN;
+    private BdTypeRecyclerView gsO;
+    private d gsP;
+    private m gsQ;
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.gqM = frsADFragment;
-        this.gqN = bdTypeRecyclerView;
-        vi();
+        this.gsN = frsADFragment;
+        this.gsO = bdTypeRecyclerView;
+        wM();
     }
 
-    private void vi() {
-        this.gqO = new d(this.gqM.getPageContext(), c.grc, this.gqM.getUniqueId());
-        this.gqP = new m(this.gqM.getPageContext(), n.goX);
-        this.apl.add(this.gqO);
-        this.apl.add(this.gqP);
-        bEq();
-        this.gqN.addAdapters(this.apl);
+    private void wM() {
+        this.gsP = new d(this.gsN.getPageContext(), c.gtd, this.gsN.getUniqueId());
+        this.gsQ = new m(this.gsN.getPageContext(), n.gqY);
+        this.asE.add(this.gsP);
+        this.asE.add(this.gsQ);
+        bFS();
+        this.gsO.addAdapters(this.asE);
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-        this.gqN.setData(arrayList);
+        this.gsO.setData(arrayList);
     }
 
-    private void bEq() {
-        if (!v.isEmpty(this.apl) && this.gqM != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.apl) {
+    private void bFS() {
+        if (!v.isEmpty(this.asE) && this.gsN != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
                 if (aVar instanceof h) {
-                    ((h) aVar).a(this.gqM.getTbPageTag());
+                    ((h) aVar).a(this.gsN.getTbPageTag());
                 }
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.gqN.getAdapter().notifyDataSetChanged();
+        this.gsO.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.apl) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
             if (aVar instanceof h) {
                 ((h) aVar).release();
             }
@@ -58,8 +58,8 @@ public class a {
     }
 
     public void a(s sVar) {
-        if (this.apl != null && this.apl.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.apl) {
+        if (this.asE != null && this.asE.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
                 if (aVar != null && (aVar instanceof h)) {
                     aVar.a(sVar);
                 }

@@ -21,8 +21,10 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class IMPbGenerator {
+    private static final int MAX_ALL_LENGTH = 1000;
+    private static final int MAX_CRASH_LENGTH = 300;
     private static final String SDK_NAME = "im";
     private static final List<IMPushPb.Action> actionList = new CopyOnWriteArrayList();
 
@@ -42,6 +44,16 @@ public final class IMPbGenerator {
     public byte[] generateIMClient(Context context) {
         try {
             clearIMActions();
+            long crashCount = IMTrackDatabase.getInstance(context).getCrashCount();
+            long requestCount = IMTrackDatabase.getInstance(context).getRequestCount();
+            long connectionCount = IMTrackDatabase.getInstance(context).getConnectionCount();
+            if (crashCount >= 300) {
+                IMTrackDatabase.getInstance(context).clearCrashTable();
+            }
+            if (crashCount + requestCount + connectionCount > 1000) {
+                IMTrackDatabase.getInstance(context).clearAllTables();
+                return null;
+            }
             putIMUiToActions(context);
             putIMCrashToActions(context);
             putIMDbToActions(context);
@@ -49,10 +61,10 @@ public final class IMPbGenerator {
             putIMRequestToActions(context);
             putIMAckToActions(context);
             putIMMsgToActions(context);
-            if (actionList.size() <= 0) {
-                return null;
+            if (actionList.size() > 0) {
+                return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName("im").setSdkVersion(IMConfigInternal.getInstance().getSDKVersionValue(context)).addAllActions(actionList).build().toByteArray();
             }
-            return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName("im").setSdkVersion(IMConfigInternal.getInstance().getSDKVersionValue(context)).addAllActions(actionList).build().toByteArray();
+            return null;
         } catch (Exception e) {
             IMTrackDatabase.getInstance(context).clearAllTables();
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();

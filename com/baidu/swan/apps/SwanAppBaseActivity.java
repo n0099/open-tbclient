@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 import android.view.Window;
 import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.am.b aWG = null;
+    private com.baidu.swan.apps.am.b baR = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        g(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState(), false);
+        i(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState(), false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,7 +27,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         ai.fixedOrientation(this, releaseFixedOrientation);
     }
 
-    public void g(boolean z, boolean z2) {
+    public void i(boolean z, boolean z2) {
         Window window = getWindow();
         if (window == null) {
             if (DEBUG) {
@@ -36,21 +36,21 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.aWG == null) {
-            this.aWG = new com.baidu.swan.apps.am.b();
+        if (this.baR == null) {
+            this.baR = new com.baidu.swan.apps.am.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.aWG.p(viewGroup);
+            this.baR.q(viewGroup);
         } else {
-            this.aWG.q(viewGroup);
+            this.baR.r(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.Yv().a(new com.baidu.swan.apps.process.messaging.c(5).dl(true));
+            com.baidu.swan.apps.process.messaging.a.aaJ().a(new com.baidu.swan.apps.process.messaging.c(5).ds(true));
         }
     }
 
-    public com.baidu.swan.apps.am.b Ez() {
-        return this.aWG;
+    public com.baidu.swan.apps.am.b GO() {
+        return this.baR;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.ba;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class t extends com.baidu.tieba.card.data.a {
     private List<com.baidu.tieba.horizonalList.widget.c> mList = new ArrayList();
 
@@ -18,6 +18,6 @@ public class t extends com.baidu.tieba.card.data.a {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return ba.cMt;
+        return ba.cQw;
     }
 }

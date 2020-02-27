@@ -3,7 +3,7 @@ package android.support.design.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v7.appcompat.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class ThemeUtils {
     private static final int[] APPCOMPAT_CHECK_ATTRS = {R.attr.colorPrimary};
 

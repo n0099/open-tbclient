@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class f {
-    private String cAF;
-    private String cAG;
-    private int cAH;
-    private String cAI;
-    private int cAJ;
-    private int cAK;
-    private String cAL;
+    private String cED;
+    private String cEE;
+    private int cEF;
+    private String cEG;
+    private int cEH;
+    private int cEI;
+    private String cEJ;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,14 +15,14 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.cAF = str2;
-        this.cAG = str3;
-        this.cAH = i;
+        this.cED = str2;
+        this.cEE = str3;
+        this.cEF = i;
         this.mType = str4;
-        this.cAI = str5;
+        this.cEG = str5;
     }
 
-    public void iD(int i) {
+    public void iU(int i) {
         this.mRate = i;
     }
 
@@ -30,39 +30,39 @@ class f {
         this.mCategory = str;
     }
 
-    public void iE(int i) {
-        this.cAJ = i;
+    public void iV(int i) {
+        this.cEH = i;
     }
 
-    public void iF(int i) {
-        this.cAK = i;
+    public void iW(int i) {
+        this.cEI = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String asW() {
-        return this.cAF;
+    public String avk() {
+        return this.cED;
     }
 
-    public String asX() {
-        return this.cAG;
+    public String avl() {
+        return this.cEE;
     }
 
     public int getTimeout() {
-        return this.cAH;
+        return this.cEF;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String asY() {
-        return this.cAI;
+    public String avm() {
+        return this.cEG;
     }
 
-    public int asZ() {
+    public int avn() {
         return this.mRate;
     }
 
@@ -70,19 +70,19 @@ class f {
         return this.mCategory;
     }
 
-    public int ata() {
-        return this.cAJ;
+    public int avo() {
+        return this.cEH;
     }
 
-    public int atb() {
-        return this.cAK;
+    public int avp() {
+        return this.cEI;
     }
 
-    public void qH(String str) {
-        this.cAL = str;
+    public void qW(String str) {
+        this.cEJ = str;
     }
 
-    public String atc() {
-        return this.cAL;
+    public String avq() {
+        return this.cEJ;
     }
 }

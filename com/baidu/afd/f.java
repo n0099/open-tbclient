@@ -76,7 +76,7 @@ public class f {
                 throw new ParseError(1, "adInfo has no extraParam info");
             }
             if (z) {
-                return a.E(str2, str);
+                return a.H(str2, str);
             }
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
             if (optJSONArray3 == null || optJSONArray3.length() == 0) {
@@ -96,8 +96,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.CX = z;
-                eVar.CY = com.baidu.tieba.lego.card.b.DI(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.Dq = z;
+                eVar.Dr = com.baidu.tieba.lego.card.b.DY(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

@@ -16,10 +16,10 @@ import javax.net.ssl.SSLSocketFactory;
 class i extends SSLSocketFactory {
     private final String TAG = i.class.getSimpleName();
     HostnameVerifier hostnameVerifier = HttpsURLConnection.getDefaultHostnameVerifier();
-    private HttpsURLConnection rq;
+    private HttpsURLConnection rr;
 
     public i(HttpsURLConnection httpsURLConnection) {
-        this.rq = httpsURLConnection;
+        this.rr = httpsURLConnection;
     }
 
     @Override // javax.net.SocketFactory
@@ -49,7 +49,7 @@ class i extends SSLSocketFactory {
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        String requestProperty = this.rq.getRequestProperty("Host");
+        String requestProperty = this.rr.getRequestProperty("Host");
         if (requestProperty != null) {
             str = requestProperty;
         }

@@ -15,7 +15,7 @@ import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 import com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
 import com.baidu.tieba.keepLive.sync.SyncService;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class KeepLiveUtil {
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
     public static final String NEEDSHOWNOTIFICATION = "needShowBindSystemNotification";

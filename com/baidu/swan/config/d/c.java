@@ -6,42 +6,42 @@ import com.baidu.swan.config.c;
 import com.baidu.swan.d.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private static c cbo;
-    private a cbp = new a();
-    private String cbq = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
-    private String cbr = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
+    private static c cfu;
+    private a cfv = new a();
+    private String cfw = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
+    private String cfx = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
 
-    public static c agS() {
-        if (cbo == null) {
+    public static c ajg() {
+        if (cfu == null) {
             synchronized (c.class) {
-                if (cbo == null) {
-                    cbo = new c();
+                if (cfu == null) {
+                    cfu = new c();
                 }
             }
         }
-        return cbo;
+        return cfu;
     }
 
     private c() {
     }
 
     public int getVersion() {
-        return this.cbp.getInt("tips_config_version", 0);
+        return this.cfv.getInt("tips_config_version", 0);
     }
 
-    public String aP(long j) {
-        return this.cbp.getString(String.format("%04d", Long.valueOf(j)), this.cbq);
+    public String aT(long j) {
+        return this.cfv.getString(String.format("%04d", Long.valueOf(j)), this.cfw);
     }
 
-    public String aQ(long j) {
-        return this.cbp.getString(String.format("%04d", Long.valueOf(j)), this.cbr);
+    public String aU(long j) {
+        return this.cfv.getString(String.format("%04d", Long.valueOf(j)), this.cfx);
     }
 
     public void c(HashMap<String, String> hashMap, int i) {
         if (hashMap != null && !hashMap.isEmpty() && i > 0) {
-            SharedPreferences.Editor edit = this.cbp.edit();
+            SharedPreferences.Editor edit = this.cfv.edit();
             edit.clear();
             edit.putInt("tips_config_version", i);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -51,7 +51,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class a extends e {
         a() {
             super("swan_launch_tips_config_sp_name");

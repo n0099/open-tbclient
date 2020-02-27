@@ -2,9 +2,9 @@ package com.baidu.adp.lib.stats.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.lib.stats.base.a {
-    public e(i iVar) {
-        super(iVar);
-        this.tc = 50;
-        this.td = "pf";
+    public e(j jVar) {
+        super(jVar);
+        this.tr = 50;
+        this.tt = "pf";
     }
 }

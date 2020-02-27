@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.greenrobot.eventbus.meta.SubscriberInfo;
 import org.greenrobot.eventbus.meta.SubscriberInfoIndex;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class SubscriberMethodFinder {
     private static final int BRIDGE = 64;
     private static final int MODIFIERS_IGNORE = 5192;
@@ -160,7 +160,7 @@ class SubscriberMethodFinder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class FindState {
         Class<?> clazz;
         boolean skipSuperClasses;

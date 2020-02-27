@@ -7,42 +7,42 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class bb {
-    private String cMv;
-    private List<a> cMw = new ArrayList();
+    private String cQy;
+    private List<a> cQz = new ArrayList();
 
-    public String azg() {
-        return StringUtils.isNull(this.cMv) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.cMv;
+    public String aBx() {
+        return StringUtils.isNull(this.cQy) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.cQy;
     }
 
-    public com.baidu.tieba.card.data.n azh() {
+    public com.baidu.tieba.card.data.n aBy() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.fLb = azg();
-        if (this.cMw != null) {
+        nVar.fNx = aBx();
+        if (this.cQz != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.cMw) {
+            for (a aVar : this.cQz) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.azj());
+                    arrayList2.add(aVar.aBz());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.fLc = arrayList;
+        nVar.fNy = arrayList;
         return nVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.cMv = recomTopicInfo.recom_title;
+            this.cQy = recomTopicInfo.recom_title;
             if (com.baidu.tbadk.core.util.v.getCount(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.cMw.add(aVar);
+                            this.cQz.add(aVar);
                         }
                     }
                 }
@@ -51,45 +51,45 @@ public class bb {
     }
 
     private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.azi() <= 0;
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.getTopicId() <= 0;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        private String cMA;
-        private String cMx;
-        private long cMy;
-        private String cMz;
+        private String cQA;
+        private long cQB;
+        private String cQC;
+        private String cQD;
         private int tag;
         private long topicId;
         private int type;
 
-        public long azi() {
+        public long getTopicId() {
             return this.topicId;
         }
 
         public String getTopicName() {
-            return this.cMx;
+            return this.cQA;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
                 this.topicId = recomTopicList.topic_id.longValue();
-                this.cMx = recomTopicList.topic_name;
+                this.cQA = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.cMy = recomTopicList.discuss_num.longValue();
+                this.cQB = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.cMz = recomTopicList.topic_desc;
-                this.cMA = recomTopicList.topic_pic;
+                this.cQC = recomTopicList.topic_desc;
+                this.cQD = recomTopicList.topic_pic;
             }
         }
 
-        public com.baidu.tieba.card.data.m azj() {
+        public com.baidu.tieba.card.data.m aBz() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
-            mVar.desc = this.cMz;
+            mVar.desc = this.cQC;
             mVar.topicId = this.topicId;
-            mVar.cMx = this.cMx;
+            mVar.cQA = this.cQA;
             return mVar;
         }
     }

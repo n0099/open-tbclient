@@ -33,52 +33,52 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class cu {
     protected static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f205a;
+    private static a f202a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static cu f206a;
+    private static cu f203a;
     private static String c;
     private static String d;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f208a;
+    private long f205a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ct f209a;
+    private ct f206a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected b f210a;
+    protected b f207a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f211a;
+    private String f208a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Map<String, cr> f212a;
+    protected Map<String, cr> f209a;
 
     /* renamed from: b  reason: collision with other field name */
-    private final long f213b;
+    private final long f210b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f214b;
+    private String f211b;
 
     /* renamed from: c  reason: collision with other field name */
-    private long f215c;
+    private long f212c;
     protected static Map<String, cq> b = new HashMap();
 
     /* renamed from: a  reason: collision with other field name */
-    protected static boolean f207a = false;
+    protected static boolean f204a = false;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         cu a(Context context, ct ctVar, b bVar, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         String a(String str);
     }
@@ -89,19 +89,19 @@ public class cu {
     }
 
     protected cu(Context context, ct ctVar, b bVar, String str, String str2, String str3) {
-        this.f212a = new HashMap();
-        this.f211a = "0";
-        this.f208a = 0L;
-        this.f213b = 15L;
-        this.f215c = 0L;
-        this.f214b = "isp_prov_city_country_ip";
-        this.f210a = bVar;
+        this.f209a = new HashMap();
+        this.f208a = "0";
+        this.f205a = 0L;
+        this.f210b = 15L;
+        this.f212c = 0L;
+        this.f211b = "isp_prov_city_country_ip";
+        this.f207a = bVar;
         if (ctVar == null) {
-            this.f209a = new cv(this);
+            this.f206a = new cv(this);
         } else {
-            this.f209a = ctVar;
+            this.f206a = ctVar;
         }
-        this.f211a = str;
+        this.f208a = str;
         c = str2 == null ? context.getPackageName() : str2;
         d = str3 == null ? f() : str3;
     }
@@ -109,10 +109,10 @@ public class cu {
     public static synchronized cu a() {
         cu cuVar;
         synchronized (cu.class) {
-            if (f206a == null) {
+            if (f203a == null) {
                 throw new IllegalStateException("the host manager is not initialized yet.");
             }
-            cuVar = f206a;
+            cuVar = f203a;
         }
         return cuVar;
     }
@@ -120,7 +120,7 @@ public class cu {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x007c -> B:23:0x0007). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public static String m201a() {
+    public static String m206a() {
         String str;
         ConnectivityManager connectivityManager;
         if (a == null) {
@@ -166,10 +166,10 @@ public class cu {
     }
 
     private ArrayList<cq> a(ArrayList<String> arrayList) {
-        m210d();
-        synchronized (this.f212a) {
-            m206a();
-            for (String str : this.f212a.keySet()) {
+        m215d();
+        synchronized (this.f209a) {
+            m211a();
+            for (String str : this.f209a.keySet()) {
                 if (!arrayList.contains(str)) {
                     arrayList.add(str);
                 }
@@ -184,7 +184,7 @@ public class cu {
                 cq cqVar = (cq) array[i];
                 if (!cqVar.b()) {
                     isEmpty = true;
-                    b.remove(cqVar.f202b);
+                    b.remove(cqVar.f199b);
                 }
                 i++;
                 isEmpty = isEmpty;
@@ -199,7 +199,7 @@ public class cu {
         }
         try {
             String str2 = as.d(a) ? "wifi" : "wap";
-            String a2 = a(arrayList, str2, this.f211a, isEmpty);
+            String a2 = a(arrayList, str2, this.f208a, isEmpty);
             if (!TextUtils.isEmpty(a2)) {
                 JSONObject jSONObject = new JSONObject(a2);
                 com.xiaomi.channel.commonutils.logger.b.b(a2);
@@ -216,7 +216,7 @@ public class cu {
                         String str3 = arrayList.get(i3);
                         JSONArray optJSONArray = jSONObject3.optJSONArray(str3);
                         if (optJSONArray == null) {
-                            com.xiaomi.channel.commonutils.logger.b.m42a("no bucket found for " + str3);
+                            com.xiaomi.channel.commonutils.logger.b.m47a("no bucket found for " + str3);
                         } else {
                             cq cqVar2 = new cq(str3);
                             for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
@@ -240,7 +240,7 @@ public class cu {
                             if (jSONObject2.has("ttl")) {
                                 cqVar2.a(jSONObject2.getInt("ttl") * 1000);
                             }
-                            m205a(cqVar2.a());
+                            m210a(cqVar2.a());
                         }
                     }
                     JSONObject optJSONObject = jSONObject2.optJSONObject("reserved");
@@ -251,7 +251,7 @@ public class cu {
                             String next = keys.next();
                             JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
                             if (optJSONArray2 == null) {
-                                com.xiaomi.channel.commonutils.logger.b.m42a("no bucket found for " + next);
+                                com.xiaomi.channel.commonutils.logger.b.m47a("no bucket found for " + next);
                             } else {
                                 cq cqVar3 = new cq(next);
                                 cqVar3.a(j);
@@ -262,7 +262,7 @@ public class cu {
                                     }
                                 }
                                 synchronized (b) {
-                                    if (this.f209a.a(next)) {
+                                    if (this.f206a.a(next)) {
                                         b.put(next, cqVar3);
                                     }
                                 }
@@ -272,13 +272,13 @@ public class cu {
                 }
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("failed to get bucket " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m47a("failed to get bucket " + e.getMessage());
         }
         int i6 = 0;
         while (true) {
             int i7 = i6;
             if (i7 >= arrayList.size()) {
-                m209c();
+                m214c();
                 return arrayList2;
             }
             cq cqVar4 = arrayList2.get(i7);
@@ -295,11 +295,11 @@ public class cu {
             if (a == null) {
                 a = context;
             }
-            if (f206a == null) {
-                if (f205a == null) {
-                    f206a = new cu(context, ctVar, bVar, str, str2, str3);
+            if (f203a == null) {
+                if (f202a == null) {
+                    f203a = new cu(context, ctVar, bVar, str, str2, str3);
                 } else {
-                    f206a = f205a.a(context, ctVar, bVar, str);
+                    f203a = f202a.a(context, ctVar, bVar, str);
                 }
             }
         }
@@ -307,8 +307,8 @@ public class cu {
 
     public static synchronized void a(a aVar) {
         synchronized (cu.class) {
-            f205a = aVar;
-            f206a = null;
+            f202a = aVar;
+            f203a = null;
         }
     }
 
@@ -318,10 +318,10 @@ public class cu {
             if (cqVar == null) {
                 cq cqVar2 = new cq(str);
                 cqVar2.a(604800000L);
-                cqVar2.m194a(str2);
+                cqVar2.m199a(str2);
                 b.put(str, cqVar2);
             } else {
-                cqVar.m194a(str2);
+                cqVar.m199a(str2);
             }
         }
     }
@@ -338,7 +338,7 @@ public class cu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public cq m202a(String str) {
+    public cq m207a(String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the url is empty");
         }
@@ -350,7 +350,7 @@ public class cu {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        if (this.f209a.a(str)) {
+        if (this.f206a.a(str)) {
             cq c2 = c(str);
             return (c2 == null || !c2.b()) ? (z && as.b(a) && (d2 = d(str)) != null) ? d2 : new cw(this, str, c2) : c2;
         }
@@ -365,7 +365,7 @@ public class cu {
         ArrayList<ar> arrayList3 = new ArrayList();
         arrayList3.add(new ap("type", str));
         if (str.equals("wap")) {
-            arrayList3.add(new ap("conpt", a(as.m127a(a))));
+            arrayList3.add(new ap("conpt", a(as.m132a(a))));
         }
         if (z) {
             arrayList3.add(new ap("reserved", "1"));
@@ -398,33 +398,33 @@ public class cu {
                 buildUpon.appendQueryParameter(arVar.a(), arVar.b());
             }
             try {
-                str3 = this.f210a == null ? as.a(a, new URL(buildUpon.toString())) : this.f210a.a(buildUpon.toString());
+                str3 = this.f207a == null ? as.a(a, new URL(buildUpon.toString())) : this.f207a.a(buildUpon.toString());
                 return str3;
             } catch (IOException e2) {
                 e = e2;
             }
         }
         if (e != null) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("network exception: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m47a("network exception: " + e.getMessage());
             throw e;
         }
         return str3;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected JSONObject m203a() {
+    protected JSONObject m208a() {
         JSONObject jSONObject;
-        synchronized (this.f212a) {
+        synchronized (this.f209a) {
             jSONObject = new JSONObject();
             jSONObject.put("ver", 2);
             JSONArray jSONArray = new JSONArray();
-            for (cr crVar : this.f212a.values()) {
-                jSONArray.put(crVar.m198a());
+            for (cr crVar : this.f209a.values()) {
+                jSONArray.put(crVar.m203a());
             }
             jSONObject.put("data", jSONArray);
             JSONArray jSONArray2 = new JSONArray();
             for (cq cqVar : b.values()) {
-                jSONArray2.put(cqVar.m193a());
+                jSONArray2.put(cqVar.m198a());
             }
             jSONObject.put("reserved", jSONArray2);
         }
@@ -432,48 +432,48 @@ public class cu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m204a() {
-        synchronized (this.f212a) {
-            this.f212a.clear();
+    public void m209a() {
+        synchronized (this.f209a) {
+            this.f209a.clear();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m205a(String str) {
-        this.f214b = str;
+    public void m210a(String str) {
+        this.f211b = str;
     }
 
     public void a(String str, cq cqVar) {
         if (TextUtils.isEmpty(str) || cqVar == null) {
             throw new IllegalArgumentException("the argument is invalid " + str + ", " + cqVar);
         }
-        if (this.f209a.a(str)) {
-            synchronized (this.f212a) {
-                m206a();
-                if (this.f212a.containsKey(str)) {
-                    this.f212a.get(str).a(cqVar);
+        if (this.f206a.a(str)) {
+            synchronized (this.f209a) {
+                m211a();
+                if (this.f209a.containsKey(str)) {
+                    this.f209a.get(str).a(cqVar);
                 } else {
                     cr crVar = new cr(str);
                     crVar.a(cqVar);
-                    this.f212a.put(str, crVar);
+                    this.f209a.put(str, crVar);
                 }
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected boolean m206a() {
-        synchronized (this.f212a) {
-            if (f207a) {
+    protected boolean m211a() {
+        synchronized (this.f209a) {
+            if (f204a) {
                 return true;
             }
-            f207a = true;
-            this.f212a.clear();
+            f204a = true;
+            this.f209a.clear();
             String d2 = d();
             if (TextUtils.isEmpty(d2)) {
                 return false;
             }
-            m208b(d2);
+            m213b(d2);
             com.xiaomi.channel.commonutils.logger.b.b("loading the new hosts succeed");
             return true;
         }
@@ -489,13 +489,13 @@ public class cu {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m207b() {
+    public void m212b() {
         ArrayList<String> arrayList;
-        synchronized (this.f212a) {
-            m206a();
-            arrayList = new ArrayList<>(this.f212a.keySet());
+        synchronized (this.f209a) {
+            m211a();
+            arrayList = new ArrayList<>(this.f209a.keySet());
             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                cr crVar = this.f212a.get(arrayList.get(size));
+                cr crVar = this.f209a.get(arrayList.get(size));
                 if (crVar != null && crVar.a() != null) {
                     arrayList.remove(size);
                 }
@@ -516,9 +516,9 @@ public class cu {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    protected void m208b(String str) {
-        synchronized (this.f212a) {
-            this.f212a.clear();
+    protected void m213b(String str) {
+        synchronized (this.f209a) {
+            this.f209a.clear();
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.optInt("ver") != 2) {
                 throw new JSONException("Bad version");
@@ -526,12 +526,12 @@ public class cu {
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             for (int i = 0; i < optJSONArray.length(); i++) {
                 cr a2 = new cr().a(optJSONArray.getJSONObject(i));
-                this.f212a.put(a2.m196a(), a2);
+                this.f209a.put(a2.m201a(), a2);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("reserved");
             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 cq a3 = new cq("").a(optJSONArray2.getJSONObject(i2));
-                b.put(a3.f202b, a3);
+                b.put(a3.f199b, a3);
             }
         }
     }
@@ -539,9 +539,9 @@ public class cu {
     protected cq c(String str) {
         cr crVar;
         cq a2;
-        synchronized (this.f212a) {
-            m206a();
-            crVar = this.f212a.get(str);
+        synchronized (this.f209a) {
+            m211a();
+            crVar = this.f209a.get(str);
         }
         if (crVar == null || (a2 = crVar.a()) == null) {
             return null;
@@ -551,8 +551,8 @@ public class cu {
 
     public String c() {
         StringBuilder sb = new StringBuilder();
-        synchronized (this.f212a) {
-            for (Map.Entry<String, cr> entry : this.f212a.entrySet()) {
+        synchronized (this.f209a) {
+            for (Map.Entry<String, cr> entry : this.f209a.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append(":\n");
                 sb.append(entry.getValue().toString());
@@ -563,32 +563,32 @@ public class cu {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m209c() {
-        synchronized (this.f212a) {
+    public void m214c() {
+        synchronized (this.f209a) {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(a.openFileOutput(e(), 0)));
-                String jSONObject = m203a().toString();
+                String jSONObject = m208a().toString();
                 if (!TextUtils.isEmpty(jSONObject)) {
                     bufferedWriter.write(jSONObject);
                 }
                 bufferedWriter.close();
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m42a("persist bucket failure: " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m47a("persist bucket failure: " + e.getMessage());
             }
         }
     }
 
     protected cq d(String str) {
-        if (System.currentTimeMillis() - this.f215c > this.f208a * 60 * 1000) {
-            this.f215c = System.currentTimeMillis();
+        if (System.currentTimeMillis() - this.f212c > this.f205a * 60 * 1000) {
+            this.f212c = System.currentTimeMillis();
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);
             cq cqVar = a(arrayList).get(0);
             if (cqVar != null) {
-                this.f208a = 0L;
+                this.f205a = 0L;
                 return cqVar;
-            } else if (this.f208a < 15) {
-                this.f208a++;
+            } else if (this.f205a < 15) {
+                this.f205a++;
             }
         }
         return null;
@@ -614,7 +614,7 @@ public class cu {
                 } catch (Throwable th) {
                     th = th;
                     try {
-                        com.xiaomi.channel.commonutils.logger.b.m42a("load host exception " + th.getMessage());
+                        com.xiaomi.channel.commonutils.logger.b.m47a("load host exception " + th.getMessage());
                         return str;
                     } finally {
                         y.a(bufferedReader);
@@ -631,22 +631,22 @@ public class cu {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m210d() {
-        synchronized (this.f212a) {
-            for (cr crVar : this.f212a.values()) {
+    public void m215d() {
+        synchronized (this.f209a) {
+            for (cr crVar : this.f209a.values()) {
                 crVar.a(true);
             }
             boolean z = false;
             while (!z) {
-                Iterator<String> it = this.f212a.keySet().iterator();
+                Iterator<String> it = this.f209a.keySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;
                         break;
                     }
                     String next = it.next();
-                    if (this.f212a.get(next).m197a().isEmpty()) {
-                        this.f212a.remove(next);
+                    if (this.f209a.get(next).m202a().isEmpty()) {
+                        this.f209a.remove(next);
                         z = false;
                         break;
                     }

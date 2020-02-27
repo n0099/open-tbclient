@@ -1,10 +1,10 @@
 package com.baidu.android.pushservice.d;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class t {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum a {
         MODEL_O(1),
         MODEL_C(2),

@@ -1,11 +1,13 @@
 package kotlin.coroutines;
 
 import kotlin.coroutines.c;
+import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public final class CoroutineContext$plus$1 extends Lambda implements m<c, c.b, c> {
     public static final CoroutineContext$plus$1 INSTANCE = new CoroutineContext$plus$1();
 
@@ -19,15 +21,15 @@ public final class CoroutineContext$plus$1 extends Lambda implements m<c, c.b, c
         CombinedContext combinedContext;
         q.j(cVar, "acc");
         q.j(bVar, "element");
-        c minusKey = cVar.minusKey(bVar.dJe());
+        c minusKey = cVar.minusKey(bVar.dKl());
         if (minusKey == EmptyCoroutineContext.INSTANCE) {
             return bVar;
         }
-        b bVar2 = (b) minusKey.get(b.nBm);
+        b bVar2 = (b) minusKey.get(b.nBO);
         if (bVar2 == null) {
             combinedContext = new CombinedContext(minusKey, bVar);
         } else {
-            c minusKey2 = minusKey.minusKey(b.nBm);
+            c minusKey2 = minusKey.minusKey(b.nBO);
             combinedContext = minusKey2 == EmptyCoroutineContext.INSTANCE ? new CombinedContext(bVar, bVar2) : new CombinedContext(new CombinedContext(minusKey2, bVar), bVar2);
         }
         return combinedContext;

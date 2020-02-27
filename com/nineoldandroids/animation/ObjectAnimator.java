@@ -6,7 +6,7 @@ import com.nineoldandroids.util.Property;
 import com.nineoldandroids.view.animation.AnimatorProxy;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObjectAnimator extends ValueAnimator {
     private static final boolean DBG = false;
     private static final Map<String, Property> PROXY_PROPERTIES = new HashMap();

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.challenge.a;
 
 import android.graphics.Bitmap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a<T> {
-    Bitmap ao(T t);
+    Bitmap aq(T t);
 }

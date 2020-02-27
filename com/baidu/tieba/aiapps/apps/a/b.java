@@ -1,9 +1,9 @@
 package com.baidu.tieba.aiapps.apps.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b {
-    public String bXf;
+    public String aqo;
     public String bduss;
-    public String dZg;
     public String displayName;
+    public String edk;
     public String uid;
 }

@@ -1,51 +1,51 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends f {
-    private String cya;
-    private int cyb;
-    private String cyd;
-    private String cye;
-    private int cyf;
-    private String cyh;
+    private String cBY;
+    private int cBZ;
+    private String cCb;
+    private String cCc;
+    private int cCd;
+    private String cCf;
 
     public e(String str, int i, String str2, int i2) {
         super(i2);
-        this.cyf = -1;
-        this.cya = str;
-        this.cyh = str2;
-        this.cyb = i;
+        this.cCd = -1;
+        this.cBY = str;
+        this.cCf = str2;
+        this.cBZ = i;
     }
 
-    public e ql(String str) {
-        this.cyd = str;
+    public e qA(String str) {
+        this.cCb = str;
         return this;
     }
 
-    public int arW() {
-        return this.cyf;
+    public int auk() {
+        return this.cCd;
     }
 
-    public void qm(String str) {
-        this.cye = str;
+    public void qB(String str) {
+        this.cCc = str;
     }
 
     public String getBundleId() {
-        return this.cya;
+        return this.cBY;
     }
 
-    public String asb() {
-        return this.cyh;
+    public String aup() {
+        return this.cCf;
     }
 
-    public int arU() {
-        return this.cyb;
+    public int aui() {
+        return this.cBZ;
     }
 
-    public String arX() {
-        return this.cyd;
+    public String aul() {
+        return this.cCb;
     }
 
-    public String arY() {
-        return this.cye;
+    public String aum() {
+        return this.cCc;
     }
 }

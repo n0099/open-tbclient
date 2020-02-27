@@ -10,24 +10,24 @@ import com.baidu.swan.apps.process.messaging.c;
 import com.baidu.swan.apps.runtime.d;
 import java.util.ArrayDeque;
 import java.util.Deque;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> bFo = new ArrayDeque();
+    private final Deque<Message> bJt = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void Yy() {
-        a YF = a.YF();
-        while (YF.YJ() && !this.bFo.isEmpty()) {
-            Message peek = this.bFo.peek();
+    public void aaM() {
+        a aaT = a.aaT();
+        while (aaT.aaX() && !this.bJt.isEmpty()) {
+            Message peek = this.bJt.peek();
             if (peek == null || z(peek)) {
-                this.bFo.poll();
+                this.bJt.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void ke(String str) {
+    public void kt(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message Yz = cVar.Yz();
-        Yz.arg1 = SwanAppProcessInfo.current().index;
-        if (d.aam().YT() && (Yz.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) Yz.obj;
+        Message aaN = cVar.aaN();
+        aaN.arg1 = SwanAppProcessInfo.current().index;
+        if (d.acA().abh() && (aaN.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) aaN.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.aam().getAppId());
+                bundle.putString("ai_apps_id", d.acA().getAppId());
             }
         }
-        if (!z(Yz) && cVar.isSticky()) {
-            this.bFo.offer(Yz);
-            a.YF().YH();
+        if (!z(aaN) && cVar.isSticky()) {
+            this.bJt.offer(aaN);
+            a.aaT().aaV();
         }
     }
 
     private boolean z(Message message) {
-        a YF = a.YF();
-        if (message != null && YF.YJ()) {
+        a aaT = a.aaT();
+        if (message != null && aaT.aaX()) {
             try {
-                YF.YG().send(message);
+                aaT.aaU().send(message);
                 return true;
             } catch (RemoteException e) {
-                YF.YK();
+                aaT.aaY();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

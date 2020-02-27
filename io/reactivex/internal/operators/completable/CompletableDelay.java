@@ -8,7 +8,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CompletableDelay extends a {
     final long delay;
     final boolean delayError;
@@ -21,7 +21,7 @@ public final class CompletableDelay extends a {
         this.source.a(new Delay(cVar, this.delay, this.unit, this.scheduler, this.delayError));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class Delay extends AtomicReference<b> implements c, b, Runnable {
         private static final long serialVersionUID = 465972761105851022L;
         final long delay;

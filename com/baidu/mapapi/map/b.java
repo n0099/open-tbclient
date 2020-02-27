@@ -20,7 +20,7 @@ import javax.microedition.khronos.opengles.GL10;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     final /* synthetic */ BaiduMap a;
 

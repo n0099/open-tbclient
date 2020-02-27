@@ -3,30 +3,30 @@ package com.baidu.live.im.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ALAGroupHttpResponseMessage extends JsonHttpResponsedMessage {
-    private boolean aqj;
-    private List<com.baidu.live.im.data.a> aqk;
+    private boolean atT;
+    private List<com.baidu.live.im.data.a> atU;
     private long mGroupId;
 
     public ALAGroupHttpResponseMessage() {
         super(1021012);
     }
 
-    public boolean vB() {
-        return this.aqj;
+    public boolean xz() {
+        return this.atT;
     }
 
-    public void aT(boolean z) {
-        this.aqj = z;
+    public void aW(boolean z) {
+        this.atT = z;
     }
 
-    public List<com.baidu.live.im.data.a> vC() {
-        return this.aqk;
+    public List<com.baidu.live.im.data.a> xA() {
+        return this.atU;
     }
 
     public void F(List<com.baidu.live.im.data.a> list) {
-        this.aqk = list;
+        this.atU = list;
     }
 
     public long getGroupId() {
@@ -40,7 +40,7 @@ public class ALAGroupHttpResponseMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null && getError() == 0) {
+        if (jSONObject == null) {
         }
     }
 }

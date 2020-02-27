@@ -4,21 +4,21 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
-    private com.baidu.live.im.data.a adA;
-    private List<com.baidu.live.im.data.a> adz;
+    private List<com.baidu.live.im.data.a> afB;
+    private com.baidu.live.im.data.a afC;
 
-    public static d qp() {
-        return a.adB;
+    public static d ra() {
+        return a.afD;
     }
 
     public void c(com.baidu.live.im.data.a aVar) {
-        if (this.adz == null) {
-            this.adz = new ArrayList();
+        if (this.afB == null) {
+            this.afB = new ArrayList();
         }
-        if (d(aVar) || this.adz.size() < com.baidu.live.s.a.wR().asq.YV) {
-            this.adz.add(aVar);
+        if (d(aVar) || this.afB.size() < com.baidu.live.v.a.zj().awA.aaN) {
+            this.afB.add(aVar);
         }
     }
 
@@ -27,38 +27,38 @@ public class d {
     }
 
     public boolean hasMsg() {
-        return (this.adz == null || this.adz.isEmpty()) ? false : true;
+        return (this.afB == null || this.afB.isEmpty()) ? false : true;
     }
 
-    public boolean qq() {
-        return this.adA != null;
+    public boolean rb() {
+        return this.afC != null;
     }
 
-    public com.baidu.live.im.data.a qr() {
+    public com.baidu.live.im.data.a rc() {
         if (hasMsg()) {
-            this.adA = this.adz.remove(0);
+            this.afC = this.afB.remove(0);
         } else {
-            this.adA = null;
+            this.afC = null;
         }
-        return this.adA;
+        return this.afC;
     }
 
-    public com.baidu.live.im.data.a qs() {
-        return this.adA;
+    public com.baidu.live.im.data.a rd() {
+        return this.afC;
     }
 
     public void release() {
-        this.adA = null;
-        if (this.adz != null) {
-            this.adz.clear();
+        this.afC = null;
+        if (this.afB != null) {
+            this.afB.clear();
         }
     }
 
     private d() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private static class a {
-        private static final d adB = new d();
+        private static final d afD = new d();
     }
 }

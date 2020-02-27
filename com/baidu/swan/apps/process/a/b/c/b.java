@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.process.a.b.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class b extends c {
     @Override // com.baidu.swan.apps.process.a.b.c.a
-    public boolean Yu() {
+    public boolean aaI() {
         return true;
     }
 

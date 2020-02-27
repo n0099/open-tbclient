@@ -1,7 +1,7 @@
 package com.baidu.searchbox.picture.decoder;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CompatDecoderFactory<T> implements DecoderFactory<T> {
     private Class<? extends T> clazz;
 

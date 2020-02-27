@@ -9,6 +9,6 @@ import javax.annotation.meta.TypeQualifierDefault;
 @Nonnull
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface ParametersAreNonnullByDefault {
 }

@@ -15,7 +15,7 @@ import tbclient.StarTrends.DataRes;
 import tbclient.StarTrends.StarTrendsResIdl;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a implements c {
     public static final Wire WIRE = new Wire(new Class[0]);
     public boolean hasMore;
@@ -23,7 +23,7 @@ public class a implements c {
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public int mErrorNo = 0;
 
-    public StarTrendsResIdl O(byte[] bArr) {
+    public StarTrendsResIdl T(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -60,8 +60,8 @@ public class a implements c {
                         bj bjVar = new bj();
                         bjVar.setUserMap(this.userMap);
                         bjVar.a(threadInfo);
-                        bjVar.aAT();
-                        if (bjVar.getType() == bj.cNf || bjVar.getType() == bj.cNu || bjVar.getType() == bj.cNz || bjVar.getType() == bj.cNv || bjVar.getType() == bj.cND || bjVar.getType() == bj.cNE) {
+                        bjVar.aDh();
+                        if (bjVar.getType() == bj.cRi || bjVar.getType() == bj.cRx || bjVar.getType() == bj.cRC || bjVar.getType() == bj.cRy || bjVar.getType() == bj.cRG || bjVar.getType() == bj.cRH) {
                             this.threadList.add(bjVar);
                         }
                     }

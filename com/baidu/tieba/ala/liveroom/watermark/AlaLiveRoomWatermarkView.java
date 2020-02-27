@@ -5,13 +5,13 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
+import com.baidu.live.u.a;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveRoomWatermarkView extends LinearLayout {
-    private TextView flg;
-    private TextView flh;
+    private TextView foa;
+    private TextView fob;
 
     public AlaLiveRoomWatermarkView(Context context) {
         super(context);
@@ -30,27 +30,27 @@ public class AlaLiveRoomWatermarkView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_liveroom_watermark_layout, this);
-        this.flg = (TextView) findViewById(a.g.ala_liveroom_watermark_uname);
-        this.flh = (TextView) findViewById(a.g.ala_liveroom_watermark_starttime);
+        this.foa = (TextView) findViewById(a.g.ala_liveroom_watermark_uname);
+        this.fob = (TextView) findViewById(a.g.ala_liveroom_watermark_starttime);
     }
 
     public void setValues(String str, long j) {
         if (str == null) {
             str = "";
         }
-        this.flg.setText(str);
+        this.foa.setText(str);
         if (j == 0) {
-            this.flh.setText("");
+            this.fob.setText("");
             return;
         }
-        this.flh.setText(new SimpleDateFormat("yyyy.MM.dd").format(new Date(1000 * j)));
+        this.fob.setText(new SimpleDateFormat("yyyy.MM.dd").format(new Date(1000 * j)));
     }
 
     public void setTimeTextMode(boolean z) {
         if (z) {
-            this.flh.setTextColor(getContext().getResources().getColor(a.d.sdk_white_alpha25));
+            this.fob.setTextColor(getContext().getResources().getColor(a.d.sdk_white_alpha25));
         } else {
-            this.flh.setTextColor(getContext().getResources().getColor(a.d.sdk_black_alpha25));
+            this.fob.setTextColor(getContext().getResources().getColor(a.d.sdk_black_alpha25));
         }
     }
 }

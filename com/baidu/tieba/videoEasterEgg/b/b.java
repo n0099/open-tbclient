@@ -15,60 +15,60 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b implements a {
-    private com.baidu.tieba.videoEasterEgg.a.a kEd = new com.baidu.tieba.videoEasterEgg.a.b();
-    private com.baidu.tieba.videoEasterEgg.b kEe;
+    private com.baidu.tieba.videoEasterEgg.a.a kEY = new com.baidu.tieba.videoEasterEgg.a.b();
+    private com.baidu.tieba.videoEasterEgg.b kEZ;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, com.baidu.tieba.videoEasterEgg.b bVar, Intent intent) {
         this.mPageContext = tbPageContext;
-        this.kEe = bVar;
-        this.kEd.Z(intent);
-        this.kEd.A(tbPageContext.getUniqueId());
+        this.kEZ = bVar;
+        this.kEY.Z(intent);
+        this.kEY.A(tbPageContext.getUniqueId());
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void onClose() {
-        if (this.kEe != null) {
-            this.kEe.finishActivity();
+        if (this.kEZ != null) {
+            this.kEZ.finishActivity();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cQV() {
+    public void cSo() {
         if (this.mPageContext != null) {
             if (ShareSwitch.isOn() || bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-                aFL();
+                aIa();
             }
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cQW() {
-        if (this.kEd != null && this.kEe != null) {
-            this.kEe.Ki(this.kEd.getVideoUrl());
+    public void cSp() {
+        if (this.kEY != null && this.kEZ != null) {
+            this.kEZ.Kv(this.kEY.getVideoUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cwZ() {
-        if (this.kEe != null) {
-            this.kEe.Oe();
+    public void cys() {
+        if (this.kEZ != null) {
+            this.kEZ.Qs();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cQX() {
-        if (this.kEe != null && this.kEd != null) {
-            this.kEe.eD(this.kEd.getPopText(), this.kEd.getPopImageUrl());
+    public void cSq() {
+        if (this.kEZ != null && this.kEY != null) {
+            this.kEZ.eM(this.kEY.getPopText(), this.kEY.getPopImageUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cQY() {
-        if (this.kEd != null) {
-            com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.kEd.getID()), false);
+    public void cSr() {
+        if (this.kEY != null) {
+            com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.kEY.getID()), false);
         }
     }
 
@@ -79,8 +79,8 @@ public class b implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void playVideo() {
-        if (this.kEd != null && this.kEe != null) {
-            this.kEe.Kh(this.kEd.getVideoUrl());
+        if (this.kEY != null && this.kEZ != null) {
+            this.kEZ.Ku(this.kEY.getVideoUrl());
         }
     }
 
@@ -92,15 +92,15 @@ public class b implements a {
     public void onDestroy() {
     }
 
-    private void aFL() {
-        if (this.kEd != null && this.mPageContext != null) {
+    private void aIa() {
+        if (this.kEY != null && this.mPageContext != null) {
             final ShareItem shareItem = new ShareItem();
-            shareItem.title = this.kEd.getShareTitle();
-            shareItem.content = this.kEd.getShareContent();
-            shareItem.linkUrl = this.kEd.getShareUrl();
-            shareItem.dlQ = this.kEd.getShareUrl();
-            if (!aq.isEmpty(this.kEd.getShareImageUrl())) {
-                shareItem.imageUri = Uri.parse(this.kEd.getShareImageUrl());
+            shareItem.title = this.kEY.getShareTitle();
+            shareItem.content = this.kEY.getShareContent();
+            shareItem.linkUrl = this.kEY.getShareUrl();
+            shareItem.dpZ = this.kEY.getShareUrl();
+            if (!aq.isEmpty(this.kEY.getShareImageUrl())) {
+                shareItem.imageUri = Uri.parse(this.kEY.getShareImageUrl());
             }
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.mPageContext.getPageActivity(), shareItem, true, true);
             shareDialogConfig.setIsCopyLink(true);

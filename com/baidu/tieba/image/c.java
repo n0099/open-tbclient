@@ -3,9 +3,9 @@ package com.baidu.tieba.image;
 import android.content.Context;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private AdvertAppInfo hOV;
+    private AdvertAppInfo hQT;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -17,34 +17,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.hOV = advertAppInfo;
+        this.hQT = advertAppInfo;
     }
 
-    public void bYD() {
-        Dw("click");
-        com.baidu.tieba.recapp.report.c.cBR().a(com.baidu.tieba.recapp.report.f.c(this.hOV, 2, 0));
+    public void cae() {
+        DM("click");
+        com.baidu.tieba.recapp.report.c.cDn().a(com.baidu.tieba.recapp.report.f.c(this.hQT, 2, 0));
     }
 
-    public void bYE() {
-        Dw("click");
-        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.hOV, 2, 0);
-        c.HV("title");
-        com.baidu.tieba.recapp.report.c.cBR().a(c);
+    public void caf() {
+        DM("click");
+        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.hQT, 2, 0);
+        c.Ij("title");
+        com.baidu.tieba.recapp.report.c.cDn().a(c);
     }
 
-    public void bYF() {
-        Dw("show");
-        com.baidu.tieba.recapp.report.c.cBR().a(com.baidu.tieba.recapp.report.f.c(this.hOV, 3, 0));
+    public void cag() {
+        DM("show");
+        com.baidu.tieba.recapp.report.c.cDn().a(com.baidu.tieba.recapp.report.f.c(this.hQT, 3, 0));
     }
 
-    public void bYG() {
+    public void cah() {
     }
 
-    public void Dv(String str) {
+    public void DL(String str) {
         TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
     }
 
-    public void Dw(String str) {
-        com.baidu.tbadk.distribute.a.aLJ().a(this.hOV, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
+    public void DM(String str) {
+        com.baidu.tbadk.distribute.a.aOf().a(this.hQT, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
     }
 }

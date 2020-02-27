@@ -3,25 +3,25 @@ package com.google.android.exoplayer2.extractor.c;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import com.google.android.exoplayer2.extractor.m;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k {
-    public final m.a mft;
-    public final boolean mjW;
-    public final int mjX;
-    public final byte[] mjY;
+    public final m.a mfZ;
+    public final boolean mkC;
+    public final int mkD;
+    public final byte[] mkE;
     @Nullable
     public final String schemeType;
 
     public k(boolean z, @Nullable String str, int i, byte[] bArr, int i2, int i3, @Nullable byte[] bArr2) {
         com.google.android.exoplayer2.util.a.checkArgument((bArr2 == null) ^ (i == 0));
-        this.mjW = z;
+        this.mkC = z;
         this.schemeType = str;
-        this.mjX = i;
-        this.mjY = bArr2;
-        this.mft = new m.a(Pg(str), bArr, i2, i3);
+        this.mkD = i;
+        this.mkE = bArr2;
+        this.mfZ = new m.a(Pt(str), bArr, i2, i3);
     }
 
-    private static int Pg(@Nullable String str) {
+    private static int Pt(@Nullable String str) {
         if (str == null) {
             return 1;
         }

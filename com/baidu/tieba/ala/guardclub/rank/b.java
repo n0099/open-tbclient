@@ -3,49 +3,50 @@ package com.baidu.tieba.ala.guardclub.rank;
 import android.content.Context;
 import android.text.TextUtils;
 import android.widget.BaseAdapter;
-import com.baidu.live.r.a;
+import com.baidu.live.guardclub.f;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.guardclub.k;
-import com.baidu.tieba.ala.guardclub.model.n;
-import com.baidu.tieba.ala.guardclub.model.p;
+import com.baidu.live.u.a;
+import com.baidu.tieba.ala.guardclub.m;
+import com.baidu.tieba.ala.guardclub.model.i;
+import com.baidu.tieba.ala.guardclub.model.k;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements c {
-    private String asd;
-    private n eDB;
-    private a eDK;
-    private InterfaceC0425b eDN;
-    private k eDO;
-    private int eDP;
-    private boolean eDz;
+    private String awn;
+    private boolean eHj;
+    private i eHl;
+    private a eHu;
+    private InterfaceC0436b eHx;
+    private m eHy;
+    private int eHz;
     private Context mContext;
     private int mType;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void bdu();
+        void bfC();
 
-        void c(p pVar);
+        void c(k kVar);
 
-        void d(p pVar);
+        void d(k kVar);
 
-        void iy(boolean z);
+        void iF(boolean z);
 
-        void pa(int i);
+        void pr(int i);
     }
 
     /* renamed from: com.baidu.tieba.ala.guardclub.rank.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0425b {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0436b {
+        void B(boolean z, boolean z2);
+
         void a(BaseAdapter baseAdapter);
 
-        void bdx();
+        void bfF();
 
-        void bx(List<p> list);
+        void bx(List<k> list);
 
-        void f(String str, String str2, String str3, String str4, boolean z);
-
-        void y(boolean z, boolean z2);
+        void c(String str, String str2, String str3, String str4, boolean z);
     }
 
     public b(Context context) {
@@ -54,82 +55,82 @@ public class b implements c {
 
     public void i(int i, String str, boolean z) {
         this.mType = i;
-        this.asd = str;
-        this.eDz = z;
+        this.awn = str;
+        this.eHj = z;
     }
 
-    public void a(InterfaceC0425b interfaceC0425b) {
-        this.eDN = interfaceC0425b;
+    public void a(InterfaceC0436b interfaceC0436b) {
+        this.eHx = interfaceC0436b;
     }
 
     public void a(a aVar) {
-        this.eDK = aVar;
+        this.eHu = aVar;
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public void bdB() {
-        if (this.eDB == null) {
-            this.eDB = new n();
-            this.eDB.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.b.1
-                @Override // com.baidu.tieba.ala.guardclub.model.b, com.baidu.tieba.ala.guardclub.model.r.a
-                public void a(int i, com.baidu.tieba.ala.guardclub.model.c cVar, List<p> list, com.baidu.tieba.ala.guardclub.model.k kVar, int i2, boolean z, boolean z2) {
-                    super.a(i, cVar, list, kVar, i2, z, z2);
+    public void bfJ() {
+        if (this.eHl == null) {
+            this.eHl = new i();
+            this.eHl.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.b.1
+                @Override // com.baidu.tieba.ala.guardclub.model.b, com.baidu.tieba.ala.guardclub.model.m.a
+                public void a(int i, com.baidu.live.guardclub.a aVar, List<k> list, f fVar, int i2, boolean z, boolean z2) {
+                    super.a(i, aVar, list, fVar, i2, z, z2);
                     if (i == b.this.mType) {
-                        b.this.a(cVar, list, kVar, i2, z, z2);
+                        b.this.a(aVar, list, fVar, i2, z, z2);
                     }
                 }
             });
         }
-        this.eDB.b(this.asd, this.eDP, 20, this.mType);
+        this.eHl.b(this.awn, this.eHz, 20, this.mType);
     }
 
-    public void pi(int i) {
-        if (this.eDK != null) {
-            this.eDK.pa(i);
+    public void pu(int i) {
+        if (this.eHu != null) {
+            this.eHu.pr(i);
         }
     }
 
-    public void bdC() {
-        if (this.eDO != null) {
-            this.eDO.notifyDataSetChanged();
+    public void bfK() {
+        if (this.eHy != null) {
+            this.eHy.notifyDataSetChanged();
         }
     }
 
     public void w(String str, long j) {
-        List<p> datas;
-        if (this.eDO != null && (datas = this.eDO.getDatas()) != null && !datas.isEmpty()) {
-            for (p pVar : datas) {
-                if (pVar.id.equals(str)) {
-                    pVar.eDw = true;
+        List<k> datas;
+        if (this.eHy != null && (datas = this.eHy.getDatas()) != null && !datas.isEmpty()) {
+            for (k kVar : datas) {
+                if (kVar.id.equals(str)) {
+                    kVar.eHg = true;
                     if (j > 0) {
-                        pVar.score = String.valueOf(j);
+                        kVar.score = String.valueOf(j);
                     }
                 }
             }
-            this.eDO.notifyDataSetChanged();
+            this.eHy.notifyDataSetChanged();
         }
     }
 
-    public void f(p pVar) {
-        if (this.eDK != null) {
-            this.eDK.c(pVar);
+    public void f(k kVar) {
+        if (this.eHu != null) {
+            this.eHu.c(kVar);
         }
     }
 
-    public void bdu() {
-        if (this.eDK != null) {
-            this.eDK.bdu();
+    public void bfC() {
+        if (this.eHu != null) {
+            this.eHu.bfC();
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.c
     public void onInitial() {
-        this.eDP = 1;
-        bdD();
-        bdB();
+        this.eHz = 1;
+        bfL();
+        bfJ();
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.c
@@ -150,82 +151,82 @@ public class b implements c {
 
     @Override // com.baidu.tieba.ala.guardclub.rank.c
     public void onDestroy() {
-        this.eDN = null;
-        this.eDK = null;
+        this.eHx = null;
+        this.eHu = null;
     }
 
-    private void bdD() {
-        this.eDO = new k(this.mContext);
+    private void bfL() {
+        this.eHy = new m(this.mContext);
         switch (this.mType) {
             case 1:
-                this.eDO.setType(1);
+                this.eHy.setType(1);
                 break;
             case 2:
-                this.eDO.setType(0);
+                this.eHy.setType(0);
                 break;
         }
-        this.eDO.ya(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
-        this.eDO.a(new k.a() { // from class: com.baidu.tieba.ala.guardclub.rank.b.2
-            @Override // com.baidu.tieba.ala.guardclub.k.a
-            public void a(p pVar) {
-                if (b.this.eDK != null) {
-                    b.this.eDK.c(pVar);
+        this.eHy.yv(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+        this.eHy.a(new m.a() { // from class: com.baidu.tieba.ala.guardclub.rank.b.2
+            @Override // com.baidu.tieba.ala.guardclub.m.a
+            public void a(k kVar) {
+                if (b.this.eHu != null) {
+                    b.this.eHu.c(kVar);
                 }
             }
 
-            @Override // com.baidu.tieba.ala.guardclub.k.a
-            public void b(p pVar) {
-                if (b.this.eDK != null) {
-                    b.this.eDK.d(pVar);
+            @Override // com.baidu.tieba.ala.guardclub.m.a
+            public void b(k kVar) {
+                if (b.this.eHu != null) {
+                    b.this.eHu.d(kVar);
                 }
             }
         });
-        if (this.eDN != null) {
-            this.eDN.a(this.eDO);
+        if (this.eHx != null) {
+            this.eHx.a(this.eHy);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.ala.guardclub.model.c cVar, List<p> list, com.baidu.tieba.ala.guardclub.model.k kVar, int i, boolean z, boolean z2) {
-        if (this.eDK != null) {
-            this.eDK.iy(z2 && cVar != null && cVar.liveStatus == 1);
+    public void a(com.baidu.live.guardclub.a aVar, List<k> list, f fVar, int i, boolean z, boolean z2) {
+        if (this.eHu != null) {
+            this.eHu.iF(z2 && aVar != null && aVar.liveStatus == 1);
         }
         if (list != null && !list.isEmpty()) {
-            this.eDP = i + 1;
-            if (this.eDO != null) {
+            this.eHz = i + 1;
+            if (this.eHy != null) {
                 if (i == 1) {
-                    if (this.eDN != null) {
-                        this.eDN.bx(list.subList(0, list.size() >= 3 ? 3 : list.size()));
+                    if (this.eHx != null) {
+                        this.eHx.bx(list.subList(0, list.size() >= 3 ? 3 : list.size()));
                     }
                     if (list.size() > 3) {
-                        this.eDO.setData(list.subList(3, list.size()));
+                        this.eHy.setData(list.subList(3, list.size()));
                     }
                 } else {
-                    this.eDO.bw(list);
+                    this.eHy.bw(list);
                 }
             }
-        } else if (this.eDP == 1) {
-            if (this.eDN != null) {
-                this.eDN.bdx();
+        } else if (this.eHz == 1) {
+            if (this.eHx != null) {
+                this.eHx.bfF();
                 return;
             }
             return;
         }
-        if (this.eDN != null) {
-            this.eDN.y(z, i == 1);
+        if (this.eHx != null) {
+            this.eHx.B(z, i == 1);
         }
-        if (cVar != null) {
-            if (z2 || (kVar != null && !TextUtils.isEmpty(kVar.eDi))) {
+        if (aVar != null) {
+            if (z2 || (fVar != null && !TextUtils.isEmpty(fVar.aqn))) {
                 String str = null;
                 String str2 = null;
                 switch (this.mType) {
                     case 1:
-                        str = cVar.rank;
-                        str2 = String.format(this.mContext.getString(a.i.guard_club_rank_list_contribution_total), Long.valueOf(cVar.eCB));
+                        str = aVar.rank;
+                        str2 = String.format(this.mContext.getString(a.i.guard_club_rank_list_contribution_total), Long.valueOf(aVar.apN));
                         break;
                     case 2:
-                        str = cVar.eCH;
-                        str2 = String.format(this.mContext.getString(a.i.guard_club_rank_list_contribution_week), Long.valueOf(cVar.eCC));
+                        str = aVar.apT;
+                        str2 = String.format(this.mContext.getString(a.i.guard_club_rank_list_contribution_week), Long.valueOf(aVar.apO));
                         break;
                 }
                 if (str == null) {
@@ -234,8 +235,8 @@ public class b implements c {
                 if (str2 == null) {
                     str2 = "";
                 }
-                if (this.eDN != null) {
-                    this.eDN.f(str, cVar.eCG, cVar.eCz, str2, cVar.liveStatus == 1 && !this.eDz);
+                if (this.eHx != null) {
+                    this.eHx.c(str, aVar.apS, aVar.apL, str2, aVar.liveStatus == 1 && !this.eHj);
                 }
             }
         }

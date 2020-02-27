@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.swan.apps.scheme.j;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e implements com.baidu.swan.apps.w.b.d {
     @Override // com.baidu.swan.apps.w.b.d
     public void a(j jVar) {
-        a.agX().a(jVar);
-        a.agY().a(jVar);
+        a.ajl().a(jVar);
+        a.ajm().a(jVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.d

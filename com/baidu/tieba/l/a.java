@@ -1,283 +1,379 @@
 package com.baidu.tieba.l;
 
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.util.Log;
-import com.baidu.mobstat.Config;
-import dalvik.system.DexFile;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.zip.ZipFile;
-/* loaded from: classes.dex */
-public final class a {
-    private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> installedApk = new HashSet();
-    private static final boolean IS_VM_MULTIDEX_CAPABLE = isVMMultidexCapable(System.getProperty("java.vm.version"));
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.channels.FileChannel;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes10.dex */
+public class a {
+    private static final int iqy = V(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
+    private static final int iqz = V(new byte[]{106, 117, 110, 107});
+    private static final int iqA = V(new byte[]{109, 100, 97, 116});
+    private static final int iqB = V(new byte[]{109, 111, 111, 118});
+    private static final int iqC = V(new byte[]{112, 110, 111, 116});
+    private static final int iqD = V(new byte[]{115, 107, 105, 112});
+    private static final int iqE = V(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
+    private static final int iqF = V(new byte[]{80, 73, 67, 84});
+    private static final int iqG = V(new byte[]{102, 116, 121, 112});
+    private static final int iqH = V(new byte[]{117, 117, 105, 100});
+    private static final int iqI = V(new byte[]{99, 109, 111, 118});
+    private static final int iqJ = V(new byte[]{115, 116, 99, 111});
+    private static final int iqK = V(new byte[]{99, 111, 54, 52});
 
-    public static void install(Context context) {
-        Log.i("MultiDex", Config.INPUT_INSTALLED_PKG);
-        if (IS_VM_MULTIDEX_CAPABLE) {
-            Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
-        } else if (Build.VERSION.SDK_INT < 4) {
-            throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
-        } else {
+    /* renamed from: com.baidu.tieba.l.a$a  reason: collision with other inner class name */
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0545a {
+        void oS(boolean z);
+    }
+
+    /* loaded from: classes10.dex */
+    public interface b {
+        void m(Integer num);
+    }
+
+    static long yk(int i) {
+        return i & 4294967295L;
+    }
+
+    static int ek(long j) throws RuntimeException {
+        if (j > 2147483647L || j < 0) {
+            throw new RuntimeException("uint32 value is too large");
+        }
+        return (int) j;
+    }
+
+    static long el(long j) throws RuntimeException {
+        if (j < 0) {
+            throw new RuntimeException("uint64 value is too large");
+        }
+        return j;
+    }
+
+    private static int V(byte[] bArr) {
+        return ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).getInt();
+    }
+
+    private static boolean a(FileChannel fileChannel, ByteBuffer byteBuffer) throws IOException {
+        byteBuffer.clear();
+        int read = fileChannel.read(byteBuffer);
+        byteBuffer.flip();
+        return read == byteBuffer.capacity();
+    }
+
+    private static boolean a(FileChannel fileChannel, ByteBuffer byteBuffer, long j) throws IOException {
+        byteBuffer.clear();
+        int read = fileChannel.read(byteBuffer, j);
+        byteBuffer.flip();
+        return read == byteBuffer.capacity();
+    }
+
+    public static void a(String str, final b bVar) {
+        if (bVar != null) {
+            if (StringUtils.isNull(str)) {
+                bVar.m(2);
+            }
+            new BdAsyncTask<String, Void, Integer>() { // from class: com.baidu.tieba.l.a.1
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                /* renamed from: K */
+                public Integer doInBackground(String... strArr) {
+                    if (strArr == null || strArr.length != 1) {
+                        return 2;
+                    }
+                    return Integer.valueOf(a.Fj(strArr[0]));
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                public void onPostExecute(Integer num) {
+                    super.onPostExecute((AnonymousClass1) num);
+                    if (b.this != null) {
+                        b.this.m(num);
+                    }
+                }
+            }.execute(str);
+        }
+    }
+
+    public static int Fj(String str) {
+        FileInputStream fileInputStream;
+        Throwable th;
+        try {
+            fileInputStream = new FileInputStream(str);
             try {
-                ApplicationInfo applicationInfo = getApplicationInfo(context);
-                if (applicationInfo != null) {
-                    Set<String> set = installedApk;
-                    synchronized (installedApk) {
-                        String str = applicationInfo.sourceDir;
-                        if (!installedApk.contains(str)) {
-                            installedApk.add(str);
-                            if (Build.VERSION.SDK_INT > 20) {
-                                Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
-                            }
-                            try {
-                                ClassLoader classLoader = context.getClassLoader();
-                                if (classLoader == null) {
-                                    Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
-                                    return;
-                                }
-                                clearOldDexDir(context);
-                                File file = new File(applicationInfo.dataDir, SECONDARY_FOLDER_NAME);
-                                List<File> a = com.baidu.tieba.l.b.a(context, applicationInfo, file, false);
-                                if (dA(a)) {
-                                    installSecondaryDexes(classLoader, file, a);
-                                } else {
-                                    Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
-                                    List<File> a2 = com.baidu.tieba.l.b.a(context, applicationInfo, file, true);
-                                    if (!dA(a2)) {
-                                        throw new RuntimeException("Zip files were not valid.");
-                                    }
-                                    installSecondaryDexes(classLoader, file, a2);
-                                }
-                                Log.i("MultiDex", "install done");
-                            } catch (RuntimeException e) {
-                                Log.w("MultiDex", "Failure while trying to obtain Context class loader. Must be running in test mode. Skip patching.", e);
-                            }
+                int a = a(fileInputStream.getChannel());
+                com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
+                return a;
+            } catch (Exception e) {
+                com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
+                return 2;
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
+                throw th;
+            }
+        } catch (Exception e2) {
+            fileInputStream = null;
+        } catch (Throwable th3) {
+            fileInputStream = null;
+            th = th3;
+        }
+    }
+
+    public static int a(FileChannel fileChannel) throws IOException, RuntimeException {
+        int i;
+        ByteBuffer order = ByteBuffer.allocate(8).order(ByteOrder.BIG_ENDIAN);
+        int i2 = 0;
+        while (true) {
+            if (!a(fileChannel, order)) {
+                i = i2;
+                break;
+            }
+            long yk = yk(order.getInt());
+            i = order.getInt();
+            if (i == iqG) {
+                int ek = ek(yk);
+                ByteBuffer order2 = ByteBuffer.allocate(ek).order(ByteOrder.BIG_ENDIAN);
+                order.rewind();
+                order2.put(order);
+                if (fileChannel.read(order2) >= ek - 8) {
+                    order2.flip();
+                    if ((i == iqy && i != iqz && i != iqA && i != iqB && i != iqC && i != iqD && i != iqE && i != iqF && i != iqH && i != iqG) || yk < 8) {
+                        break;
+                    }
+                    i2 = i;
+                } else {
+                    break;
+                }
+            } else {
+                if (yk == 1) {
+                    order.clear();
+                    if (!a(fileChannel, order)) {
+                        break;
+                    }
+                    yk = el(order.getLong());
+                    fileChannel.position((fileChannel.position() + yk) - 16);
+                } else {
+                    fileChannel.position((fileChannel.position() + yk) - 8);
+                }
+                if (i == iqy) {
+                }
+                i2 = i;
+            }
+        }
+        return i != iqB ? 0 : 1;
+    }
+
+    public static void a(String str, String str2, final InterfaceC0545a interfaceC0545a) {
+        if (interfaceC0545a != null) {
+            if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
+                interfaceC0545a.oS(false);
+            } else {
+                new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.l.a.2
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX INFO: Access modifiers changed from: protected */
+                    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                    public Boolean doInBackground(String... strArr) {
+                        if (strArr == null || strArr.length != 2) {
+                            return false;
+                        }
+                        return Boolean.valueOf(a.dX(strArr[0], strArr[1]));
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX INFO: Access modifiers changed from: protected */
+                    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                    public void onPostExecute(Boolean bool) {
+                        super.onPostExecute((AnonymousClass2) bool);
+                        if (InterfaceC0545a.this != null) {
+                            InterfaceC0545a.this.oS(bool.booleanValue());
                         }
                     }
+                }.execute(str, str2);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
+    public static boolean dX(String str, String str2) {
+        FileInputStream fileInputStream;
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        try {
+            fileInputStream = new FileInputStream(str);
+            try {
+                FileChannel channel = fileInputStream.getChannel();
+                fileOutputStream = new FileOutputStream(str2);
+                try {
+                    boolean a = a(channel, fileOutputStream.getChannel());
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                    return a;
+                } catch (Exception e) {
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                    throw th;
                 }
             } catch (Exception e2) {
-                Log.e("MultiDex", "Multidex installation failure", e2);
-                throw new RuntimeException("Multi dex installation failed (" + e2.getMessage() + ").");
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                fileOutputStream = null;
+                th = th3;
             }
+        } catch (Exception e3) {
+            fileOutputStream = null;
+            fileInputStream = null;
+        } catch (Throwable th4) {
+            fileInputStream = null;
+            th = th4;
+            fileOutputStream = null;
         }
     }
 
-    private static ApplicationInfo getApplicationInfo(Context context) throws PackageManager.NameNotFoundException {
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            String packageName = context.getPackageName();
-            if (packageManager == null || packageName == null) {
-                return null;
+    /* JADX WARN: Removed duplicated region for block: B:99:0x00cc A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static boolean a(FileChannel fileChannel, FileChannel fileChannel2) throws IOException {
+        ByteBuffer byteBuffer;
+        int i;
+        long j;
+        ByteBuffer order = ByteBuffer.allocate(8).order(ByteOrder.BIG_ENDIAN);
+        int i2 = 0;
+        long j2 = 0;
+        ByteBuffer byteBuffer2 = null;
+        long j3 = 0;
+        while (true) {
+            if (!a(fileChannel, order)) {
+                long j4 = j3;
+                byteBuffer = byteBuffer2;
+                i = i2;
+                j = j4;
+                break;
             }
-            return packageManager.getApplicationInfo(packageName, 128);
-        } catch (RuntimeException e) {
-            Log.w("MultiDex", "Failure while trying to obtain ApplicationInfo from Context. Must be running in test mode. Skip patching.", e);
-            return null;
-        }
-    }
-
-    static boolean isVMMultidexCapable(String str) {
-        boolean z = false;
-        if (str != null) {
-            Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
-            if (matcher.matches()) {
-                try {
-                    int parseInt = Integer.parseInt(matcher.group(1));
-                    int parseInt2 = Integer.parseInt(matcher.group(2));
-                    if (parseInt > 2 || (parseInt == 2 && parseInt2 >= 1)) {
-                        z = true;
-                    }
-                } catch (NumberFormatException e) {
+            j2 = yk(order.getInt());
+            i2 = order.getInt();
+            if (i2 == iqG) {
+                int ek = ek(j2);
+                byteBuffer2 = ByteBuffer.allocate(ek).order(ByteOrder.BIG_ENDIAN);
+                order.rewind();
+                byteBuffer2.put(order);
+                if (fileChannel.read(byteBuffer2) < ek - 8) {
+                    long j5 = j3;
+                    byteBuffer = byteBuffer2;
+                    i = i2;
+                    j = j5;
+                    break;
                 }
-            }
-        }
-        Log.i("MultiDex", "VM with version " + str + (z ? " has multidex support" : " does not have multidex support"));
-        return z;
-    }
-
-    private static void installSecondaryDexes(ClassLoader classLoader, File file, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IOException {
-        if (!list.isEmpty()) {
-            if (Build.VERSION.SDK_INT < 19) {
-                if (Build.VERSION.SDK_INT < 14) {
-                    c.install(classLoader, list);
-                    return;
-                } else {
-                    C0539a.install(classLoader, list, file);
-                    return;
+                byteBuffer2.flip();
+                j3 = fileChannel.position();
+                if (i2 == iqy && i2 != iqz && i2 != iqA && i2 != iqB && i2 != iqC && i2 != iqD && i2 != iqE && i2 != iqF && i2 != iqH && i2 != iqG) {
+                    long j6 = j3;
+                    byteBuffer = byteBuffer2;
+                    i = i2;
+                    j = j6;
+                    break;
+                } else if (j2 < 8) {
+                    long j7 = j3;
+                    byteBuffer = byteBuffer2;
+                    i = i2;
+                    j = j7;
+                    break;
                 }
-            }
-            b.install(classLoader, list, file);
-        }
-    }
-
-    private static boolean dA(List<File> list) {
-        for (File file : list) {
-            if (!com.baidu.tieba.l.b.L(file)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static Field findField(Object obj, String str) throws NoSuchFieldException {
-        for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-            try {
-                Field declaredField = cls.getDeclaredField(str);
-                if (!declaredField.isAccessible()) {
-                    declaredField.setAccessible(true);
-                }
-                return declaredField;
-            } catch (NoSuchFieldException e) {
-            }
-        }
-        throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static Method findMethod(Object obj, String str, Class... clsArr) throws NoSuchMethodException {
-        for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-            try {
-                Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-                if (!declaredMethod.isAccessible()) {
-                    declaredMethod.setAccessible(true);
-                }
-                return declaredMethod;
-            } catch (NoSuchMethodException e) {
-            }
-        }
-        throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void expandFieldArray(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Field findField = findField(obj, str);
-        Object[] objArr2 = (Object[]) findField.get(obj);
-        Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
-        System.arraycopy(objArr2, 0, objArr3, 0, objArr2.length);
-        System.arraycopy(objArr, 0, objArr3, objArr2.length, objArr.length);
-        findField.set(obj, objArr3);
-    }
-
-    private static void clearOldDexDir(Context context) throws Exception {
-        File file = new File(context.getFilesDir(), "secondary-dexes");
-        if (file.isDirectory()) {
-            Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");
-            File[] listFiles = file.listFiles();
-            if (listFiles == null) {
-                Log.w("MultiDex", "Failed to list secondary dex dir content (" + file.getPath() + ").");
-                return;
-            }
-            for (File file2 : listFiles) {
-                Log.i("MultiDex", "Trying to delete old file " + file2.getPath() + " of size " + file2.length());
-                if (!file2.delete()) {
-                    Log.w("MultiDex", "Failed to delete old file " + file2.getPath());
-                } else {
-                    Log.i("MultiDex", "Deleted old file " + file2.getPath());
-                }
-            }
-            if (!file.delete()) {
-                Log.w("MultiDex", "Failed to delete secondary dex dir " + file.getPath());
             } else {
-                Log.i("MultiDex", "Deleted old secondary dex dir " + file.getPath());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class c {
-        /* JADX INFO: Access modifiers changed from: private */
-        public static void install(ClassLoader classLoader, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, IOException {
-            int size = list.size();
-            Field findField = a.findField(classLoader, "path");
-            StringBuilder sb = new StringBuilder((String) findField.get(classLoader));
-            String[] strArr = new String[size];
-            File[] fileArr = new File[size];
-            ZipFile[] zipFileArr = new ZipFile[size];
-            DexFile[] dexFileArr = new DexFile[size];
-            ListIterator<File> listIterator = list.listIterator();
-            while (listIterator.hasNext()) {
-                File next = listIterator.next();
-                String absolutePath = next.getAbsolutePath();
-                sb.append(':').append(absolutePath);
-                int previousIndex = listIterator.previousIndex();
-                strArr[previousIndex] = absolutePath;
-                fileArr[previousIndex] = next;
-                zipFileArr[previousIndex] = new ZipFile(next);
-                dexFileArr[previousIndex] = DexFile.loadDex(absolutePath, absolutePath + ".dex", 0);
-            }
-            findField.set(classLoader, sb.toString());
-            a.expandFieldArray(classLoader, "mPaths", strArr);
-            a.expandFieldArray(classLoader, "mFiles", fileArr);
-            a.expandFieldArray(classLoader, "mZips", zipFileArr);
-            a.expandFieldArray(classLoader, "mDexs", dexFileArr);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.tieba.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static final class C0539a {
-        /* JADX INFO: Access modifiers changed from: private */
-        public static void install(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
-            Object obj = a.findField(classLoader, "pathList").get(classLoader);
-            a.expandFieldArray(obj, "dexElements", makeDexElements(obj, new ArrayList(list), file));
-        }
-
-        private static Object[] makeDexElements(Object obj, ArrayList<File> arrayList, File file) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-            return (Object[]) a.findMethod(obj, "makeDexElements", ArrayList.class, File.class).invoke(obj, arrayList, file);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class b {
-        /* JADX INFO: Access modifiers changed from: private */
-        public static void install(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
-            IOException[] iOExceptionArr;
-            Object obj = a.findField(classLoader, "pathList").get(classLoader);
-            ArrayList arrayList = new ArrayList();
-            a.expandFieldArray(obj, "dexElements", makeDexElements(obj, new ArrayList(list), file, arrayList));
-            if (arrayList.size() > 0) {
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    Log.w("MultiDex", "Exception in makeDexElement", (IOException) it.next());
-                }
-                Field findField = a.findField(classLoader, "dexElementsSuppressedExceptions");
-                IOException[] iOExceptionArr2 = (IOException[]) findField.get(classLoader);
-                if (iOExceptionArr2 == null) {
-                    iOExceptionArr = (IOException[]) arrayList.toArray(new IOException[arrayList.size()]);
+                if (j2 == 1) {
+                    order.clear();
+                    if (!a(fileChannel, order)) {
+                        long j8 = j3;
+                        byteBuffer = byteBuffer2;
+                        i = i2;
+                        j = j8;
+                        break;
+                    }
+                    j2 = el(order.getLong());
+                    fileChannel.position((fileChannel.position() + j2) - 16);
                 } else {
-                    IOException[] iOExceptionArr3 = new IOException[arrayList.size() + iOExceptionArr2.length];
-                    arrayList.toArray(iOExceptionArr3);
-                    System.arraycopy(iOExceptionArr2, 0, iOExceptionArr3, arrayList.size(), iOExceptionArr2.length);
-                    iOExceptionArr = iOExceptionArr3;
+                    fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                findField.set(classLoader, iOExceptionArr);
+                if (i2 == iqy) {
+                }
+                if (j2 < 8) {
+                }
             }
         }
-
-        private static Object[] makeDexElements(Object obj, ArrayList<File> arrayList, File file, ArrayList<IOException> arrayList2) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-            return (Object[]) a.findMethod(obj, "makeDexElements", ArrayList.class, File.class, ArrayList.class).invoke(obj, arrayList, file, arrayList2);
+        if (i != iqB) {
+            return false;
         }
+        int ek2 = ek(j2);
+        long size = fileChannel.size() - ek2;
+        ByteBuffer order2 = ByteBuffer.allocate(ek2).order(ByteOrder.BIG_ENDIAN);
+        if (!a(fileChannel, order2, size)) {
+            throw new RuntimeException("failed to read moov atom");
+        }
+        if (order2.getInt(12) == iqI) {
+            throw new RuntimeException("this utility does not support compressed moov atoms yet");
+        }
+        while (order2.remaining() >= 8) {
+            int position = order2.position();
+            int i3 = order2.getInt(position + 4);
+            if (i3 != iqJ && i3 != iqK) {
+                order2.position(order2.position() + 1);
+            } else if (yk(order2.getInt(position)) > order2.remaining()) {
+                throw new RuntimeException("bad atom size");
+            } else {
+                order2.position(position + 12);
+                if (order2.remaining() < 4) {
+                    throw new RuntimeException("malformed atom");
+                }
+                int ek3 = ek(order2.getInt());
+                if (i3 == iqJ) {
+                    if (order2.remaining() < ek3 * 4) {
+                        throw new RuntimeException("bad atom size/element count");
+                    }
+                    for (int i4 = 0; i4 < ek3; i4++) {
+                        int i5 = order2.getInt(order2.position());
+                        int i6 = i5 + ek2;
+                        if (i5 < 0 && i6 >= 0) {
+                            throw new RuntimeException("This is bug in original qt-faststart.c: stco atom should be extended to co64 atom as new offset value overflows uint32, but is not implemented.");
+                        }
+                        order2.putInt(i6);
+                    }
+                    continue;
+                } else if (i3 != iqK) {
+                    continue;
+                } else if (order2.remaining() < ek3 * 8) {
+                    throw new RuntimeException("bad atom size/element count");
+                } else {
+                    for (int i7 = 0; i7 < ek3; i7++) {
+                        order2.putLong(order2.getLong(order2.position()) + ek2);
+                    }
+                }
+            }
+        }
+        fileChannel.position(j);
+        if (byteBuffer != null) {
+            byteBuffer.rewind();
+            fileChannel2.write(byteBuffer);
+        }
+        order2.rewind();
+        fileChannel2.write(order2);
+        fileChannel.transferTo(j, size - j, fileChannel2);
+        return true;
     }
 }

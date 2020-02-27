@@ -7,27 +7,28 @@ import android.text.TextUtils;
 import com.baidu.k.a;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.r.a;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.live.u.a;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PermissionJudgePolicy {
     private PermissionDialogClickListener mDialogClickListener;
     private OnPermissionsGrantedListener mOnPermissionsGrantedListener;
     private ArrayList<String> requestPermissionList = new ArrayList<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnPermissionsGrantedListener {
         void onPermissionsGranted();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PermissionDialogClickListener {
         void onDialogCaneled(String str);
 
@@ -55,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.BZ()) {
+        if (!a.Ev()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {
@@ -201,6 +202,9 @@ public class PermissionJudgePolicy {
             }
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
                 return activity.getResources().getString(a.i.sdk_permission_app_type_bd_text);
+            }
+            if (TbadkCoreApplication.getInst().isOther() && !TextUtils.isEmpty(TbConfig.getSubappName())) {
+                return TbConfig.getSubappName();
             }
             return activity.getResources().getString(a.i.sdk_permission_app_type_tb_text);
         }

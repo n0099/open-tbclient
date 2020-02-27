@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static final String a = "utf-8";
     private static final String b = "c82c403505338808201aad86f8194734";

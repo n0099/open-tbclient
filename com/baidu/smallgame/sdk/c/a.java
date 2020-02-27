@@ -2,7 +2,7 @@ package com.baidu.smallgame.sdk.c;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     public static boolean existsFile(String str) {
         if (TextUtils.isEmpty(str)) {

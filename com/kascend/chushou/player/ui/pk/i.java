@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import com.kascend.chushou.player.ui.pk.b;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class i<T extends b> extends Handler {
     private WeakReference<T> a;
 

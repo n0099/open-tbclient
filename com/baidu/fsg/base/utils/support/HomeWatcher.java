@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HomeWatcher {
     static final String a = "HomeWatcher";
     private final Context b;
@@ -13,7 +13,7 @@ public class HomeWatcher {
     private OnHomePressedListener d;
     private InnerRecevier e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnHomePressedListener {
         void onHomeLongPressed();
 
@@ -41,7 +41,7 @@ public class HomeWatcher {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class InnerRecevier extends BroadcastReceiver {
         final String a = TiebaInitialize.LogFields.REASON;
         final String b = "globalactions";

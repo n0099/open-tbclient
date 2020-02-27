@@ -25,7 +25,6 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.newwidget.imageview.IRefresh;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.CustomToast;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -36,11 +35,12 @@ import com.baidu.live.tbadk.pagestayduration.IPageStayDuration;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationFilter;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationItem;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationStat;
+import com.baidu.live.u.a;
 import com.baidu.megapp.ma.MAFragment;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, IScrollable, IPageStayDuration {
     private static final int PRELOAD_DELAY = 100;
     private CustomToast customToast;
@@ -598,7 +598,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class NetRefreshListener implements View.OnClickListener {
         private NetRefreshListener() {
         }

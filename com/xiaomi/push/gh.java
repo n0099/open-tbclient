@@ -7,20 +7,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class gh {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f419a;
+    private String f416a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<ga> f420a;
+    private List<ga> f417a;
     private String b;
     private String c;
     private String d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final a a = new a("internal-server-error");
         public static final a b = new a("forbidden");
@@ -48,62 +48,62 @@ public class gh {
         public static final a x = new a("request-timeout");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f421a;
+        private String f418a;
 
         public a(String str) {
-            this.f421a = str;
+            this.f418a = str;
         }
 
         public String toString() {
-            return this.f421a;
+            return this.f418a;
         }
     }
 
     public gh(int i, String str, String str2, String str3, String str4, List<ga> list) {
-        this.f420a = null;
+        this.f417a = null;
         this.a = i;
-        this.f419a = str;
+        this.f416a = str;
         this.c = str2;
         this.b = str3;
         this.d = str4;
-        this.f420a = list;
+        this.f417a = list;
     }
 
     public gh(Bundle bundle) {
-        this.f420a = null;
+        this.f417a = null;
         this.a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
-            this.f419a = bundle.getString("ext_err_type");
+            this.f416a = bundle.getString("ext_err_type");
         }
         this.b = bundle.getString("ext_err_cond");
         this.c = bundle.getString("ext_err_reason");
         this.d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
-            this.f420a = new ArrayList(parcelableArray.length);
+            this.f417a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
                 ga a2 = ga.a((Bundle) parcelable);
                 if (a2 != null) {
-                    this.f420a.add(a2);
+                    this.f417a.add(a2);
                 }
             }
         }
     }
 
     public gh(a aVar) {
-        this.f420a = null;
+        this.f417a = null;
         a(aVar);
         this.d = null;
     }
 
     private void a(a aVar) {
-        this.b = aVar.f421a;
+        this.b = aVar.f418a;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        if (this.f419a != null) {
-            bundle.putString("ext_err_type", this.f419a);
+        if (this.f416a != null) {
+            bundle.putString("ext_err_type", this.f416a);
         }
         bundle.putInt("ext_err_code", this.a);
         if (this.c != null) {
@@ -115,10 +115,10 @@ public class gh {
         if (this.d != null) {
             bundle.putString("ext_err_msg", this.d);
         }
-        if (this.f420a != null) {
-            Bundle[] bundleArr = new Bundle[this.f420a.size()];
+        if (this.f417a != null) {
+            Bundle[] bundleArr = new Bundle[this.f417a.size()];
             int i = 0;
-            Iterator<ga> it = this.f420a.iterator();
+            Iterator<ga> it = this.f417a.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
@@ -138,12 +138,12 @@ public class gh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m302a() {
+    public String m307a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"").append(this.a).append("\"");
-        if (this.f419a != null) {
+        if (this.f416a != null) {
             sb.append(" type=\"");
-            sb.append(this.f419a);
+            sb.append(this.f416a);
             sb.append("\"");
         }
         if (this.c != null) {
@@ -161,7 +161,7 @@ public class gh {
             sb.append(this.d);
             sb.append("</text>");
         }
-        for (ga gaVar : m303a()) {
+        for (ga gaVar : m308a()) {
             sb.append(gaVar.d());
         }
         sb.append("</error>");
@@ -169,8 +169,8 @@ public class gh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<ga> m303a() {
-        return this.f420a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f420a);
+    public synchronized List<ga> m308a() {
+        return this.f417a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f417a);
     }
 
     public String toString() {

@@ -10,20 +10,20 @@ import io.reactivex.u;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableSwitchMapSingle<T, R> extends q<R> {
     final boolean delayErrors;
     final h<? super T, ? extends aa<? extends R>> mapper;
-    final q<T> nxi;
+    final q<T> nxK;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        if (!a.b(this.nxi, this.mapper, uVar)) {
-            this.nxi.subscribe(new SwitchMapSingleMainObserver(uVar, this.mapper, this.delayErrors));
+        if (!a.b(this.nxK, this.mapper, uVar)) {
+            this.nxK.subscribe(new SwitchMapSingleMainObserver(uVar, this.mapper, this.delayErrors));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SwitchMapSingleMainObserver<T, R> extends AtomicInteger implements b, u<T> {
         static final SwitchMapSingleObserver<Object> INNER_DISPOSED = new SwitchMapSingleObserver<>(null);
         private static final long serialVersionUID = -5402190102429853762L;
@@ -70,7 +70,7 @@ public final class ObservableSwitchMapSingle<T, R> extends q<R> {
                 } while (!this.inner.compareAndSet(switchMapSingleObserver, switchMapSingleObserver3));
                 aaVar.a(switchMapSingleObserver3);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.upstream.dispose();
                 this.inner.getAndSet(INNER_DISPOSED);
                 onError(th);
@@ -168,7 +168,7 @@ public final class ObservableSwitchMapSingle<T, R> extends q<R> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class SwitchMapSingleObserver<R> extends AtomicReference<b> implements y<R> {
             private static final long serialVersionUID = 8042919737683345351L;
             volatile R item;

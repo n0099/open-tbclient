@@ -2,33 +2,33 @@ package com.google.android.exoplayer2.source.hls;
 
 import com.google.android.exoplayer2.source.p;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class k implements p {
     public final int group;
-    private final l mvJ;
+    private final l mwp;
 
     public k(l lVar, int i) {
-        this.mvJ = lVar;
+        this.mwp = lVar;
         this.group = i;
     }
 
     @Override // com.google.android.exoplayer2.source.p
     public boolean isReady() {
-        return this.mvJ.Kz(this.group);
+        return this.mwp.KE(this.group);
     }
 
     @Override // com.google.android.exoplayer2.source.p
-    public void duZ() throws IOException {
-        this.mvJ.duZ();
+    public void dwj() throws IOException {
+        this.mwp.dwj();
     }
 
     @Override // com.google.android.exoplayer2.source.p
     public int b(com.google.android.exoplayer2.m mVar, com.google.android.exoplayer2.a.e eVar, boolean z) {
-        return this.mvJ.a(this.group, mVar, eVar, z);
+        return this.mwp.a(this.group, mVar, eVar, z);
     }
 
     @Override // com.google.android.exoplayer2.source.p
-    public int gg(long j) {
-        return this.mvJ.F(this.group, j);
+    public int ge(long j) {
+        return this.mwp.E(this.group, j);
     }
 }

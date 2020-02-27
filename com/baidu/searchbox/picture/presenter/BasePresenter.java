@@ -11,7 +11,7 @@ import com.baidu.searchbox.picture.contract.IViewer;
 import com.baidu.searchbox.picture.model.BaseConfig;
 import com.baidu.searchbox.picture.model.PictureInfo;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class BasePresenter implements View.OnLongClickListener, IPresenter {
     public static BaseConfig sConfig;
     protected BaseConfig mConfigParams;

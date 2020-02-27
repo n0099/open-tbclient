@@ -53,7 +53,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.Executor;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class HugePhotoDraweeView extends SimpleDraweeView {
     public static final int EASE_IN_OUT_QUAD = 2;
     public static final int EASE_OUT_QUAD = 1;
@@ -148,7 +148,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     private static final List<Integer> VALID_SCALE_TYPES = Arrays.asList(2, 1, 3);
     public static int TILE_SIZE_AUTO = Integer.MAX_VALUE;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface OnAnimationEventListener {
         void onComplete();
 
@@ -157,7 +157,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         void onInterruptedByUser();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -1154,7 +1154,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class TilesInitTask extends AsyncTask<Void, Void, int[]> {
         private final WeakReference<Context> contextRef;
         private ImageRegionDecoder decoder;
@@ -1249,7 +1249,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class TileLoadTask extends AsyncTask<Void, Void, Bitmap> {
         private final WeakReference<ImageRegionDecoder> decoderRef;
         private Exception exception;
@@ -1335,7 +1335,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class BitmapLoadTask extends AsyncTask<Void, Void, Integer> {
         private Bitmap bitmap;
         private final WeakReference<Context> contextRef;
@@ -1531,7 +1531,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Tile {
         private Bitmap bitmap;
         private Rect fileSRect;
@@ -1546,7 +1546,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Anim {
         private long duration;
         private int easing;
@@ -1570,7 +1570,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class ScaleAndTranslate {
         private float scale;
         private PointF vTranslate;
@@ -2058,7 +2058,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         return null;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public final class AnimationBuilder {
         private long duration;
         private int easing;
@@ -2180,7 +2180,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class DefaultOnAnimationEventListener implements OnAnimationEventListener {
         @Override // com.baidu.searchbox.picture.component.HugePhotoDraweeView.OnAnimationEventListener
         public void onComplete() {
@@ -2195,7 +2195,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         @Override // com.baidu.searchbox.picture.component.HugePhotoDraweeView.OnImageEventListener
         public void onReady() {

@@ -2,18 +2,18 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.PointF;
 import com.airbnb.lottie.model.a.m;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements b {
-    private final m<PointF, PointF> hL;
-    private final com.airbnb.lottie.model.a.f hR;
-    private final boolean hS;
+    private final m<PointF, PointF> hP;
+    private final com.airbnb.lottie.model.a.f hV;
+    private final boolean hW;
     private final String name;
 
     public a(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.hL = mVar;
-        this.hR = fVar;
-        this.hS = z;
+        this.hP = mVar;
+        this.hV = fVar;
+        this.hW = z;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -25,15 +25,15 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> cp() {
-        return this.hL;
+    public m<PointF, PointF> cq() {
+        return this.hP;
     }
 
-    public com.airbnb.lottie.model.a.f cw() {
-        return this.hR;
+    public com.airbnb.lottie.model.a.f cx() {
+        return this.hV;
     }
 
     public boolean isReversed() {
-        return this.hS;
+        return this.hW;
     }
 }

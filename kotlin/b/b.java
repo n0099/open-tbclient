@@ -1,27 +1,27 @@
 package kotlin.b;
 
 import java.util.NoSuchElementException;
-import kotlin.collections.ad;
-/* loaded from: classes5.dex */
-public final class b extends ad {
+@kotlin.h
+/* loaded from: classes7.dex */
+public final class b extends kotlin.collections.n {
     private boolean hasNext;
-    private final int nBY;
+    private final int nCA;
     private int next;
     private final int step;
 
-    public b(int i, int i2, int i3) {
+    public b(char c, char c2, int i) {
         boolean z = true;
-        this.step = i3;
-        this.nBY = i2;
+        this.step = i;
+        this.nCA = c2;
         if (this.step > 0) {
-            if (i > i2) {
+            if (c > c2) {
                 z = false;
             }
-        } else if (i < i2) {
+        } else if (c < c2) {
             z = false;
         }
         this.hasNext = z;
-        this.next = this.hasNext ? i : this.nBY;
+        this.next = this.hasNext ? c : this.nCA;
     }
 
     @Override // java.util.Iterator
@@ -29,10 +29,10 @@ public final class b extends ad {
         return this.hasNext;
     }
 
-    @Override // kotlin.collections.ad
-    public int nextInt() {
+    @Override // kotlin.collections.n
+    public char dKa() {
         int i = this.next;
-        if (i == this.nBY) {
+        if (i == this.nCA) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }
@@ -40,6 +40,6 @@ public final class b extends ad {
         } else {
             this.next += this.step;
         }
-        return i;
+        return (char) i;
     }
 }

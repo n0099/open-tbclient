@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.http.HttpHost;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WebGLImageLoader {
     private static final String ASSET_URL = "asset://";
     static final String BDFILE = "bdfile://";
@@ -240,7 +240,7 @@ public class WebGLImageLoader {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         private final WebGLImage mImage;
         private final int mImageId;

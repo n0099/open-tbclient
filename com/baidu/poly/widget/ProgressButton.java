@@ -11,12 +11,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ProgressButton extends FrameLayout {
-    private boolean aNM;
-    private ImageView aNr;
-    private TextView aNs;
-    private Animation aNt;
+    private ImageView aRQ;
+    private TextView aRR;
+    private Animation aRS;
+    private boolean aSl;
 
     public ProgressButton(Context context) {
         this(context, null);
@@ -24,23 +24,23 @@ public class ProgressButton extends FrameLayout {
 
     private void c(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(b.f.button_progress, (ViewGroup) this, true);
-        this.aNs = (TextView) findViewById(b.e.text_view);
-        this.aNr = (ImageView) findViewById(b.e.progress_bar);
-        this.aNt = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.aRR = (TextView) findViewById(b.e.text_view);
+        this.aRQ = (ImageView) findViewById(b.e.progress_bar);
+        this.aRS = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.i.ProgressButton);
-        this.aNs.setTextColor(obtainStyledAttributes.getColor(b.i.ProgressButton_textColor, -1));
+        this.aRR.setTextColor(obtainStyledAttributes.getColor(b.i.ProgressButton_textColor, -1));
         obtainStyledAttributes.recycle();
     }
 
     public void setEnable(boolean z) {
         super.setEnabled(z);
-        this.aNM = z;
+        this.aSl = z;
     }
 
     @Override // android.view.View
     public void setPressed(boolean z) {
         super.setPressed(z);
-        if (this.aNM) {
+        if (this.aSl) {
             setAlpha(z ? 0.2f : 1.0f);
         } else {
             setAlpha(0.2f);
@@ -48,15 +48,15 @@ public class ProgressButton extends FrameLayout {
     }
 
     public void setText(String str) {
-        this.aNs.setText(str);
-        this.aNr.setVisibility(4);
-        this.aNs.setVisibility(0);
+        this.aRR.setText(str);
+        this.aRQ.setVisibility(4);
+        this.aRR.setVisibility(0);
     }
 
     public void startLoading() {
-        this.aNr.setVisibility(0);
-        this.aNr.startAnimation(this.aNt);
-        this.aNs.setVisibility(4);
+        this.aRQ.setVisibility(0);
+        this.aRQ.startAnimation(this.aRS);
+        this.aRR.setVisibility(4);
     }
 
     public ProgressButton(Context context, AttributeSet attributeSet) {

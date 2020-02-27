@@ -1,13 +1,14 @@
 package com.vivo.push.b;
 
+import com.baidu.android.imsdk.IMConstants;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class y extends com.vivo.push.y {
     private HashMap<String, String> a;
     private long b;
 
     public y() {
-        super(2012);
+        super(IMConstants.IM_MSG_TYPE_SHIELD_ME);
     }
 
     public y(long j) {

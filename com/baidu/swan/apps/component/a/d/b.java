@@ -9,17 +9,17 @@ import com.baidu.swan.apps.console.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.component.b.b {
     public float alpha;
     public int backgroundColor;
     @Nullable
-    public JSONObject bdG;
-    public int bdH;
-    public JSONArray bdI;
+    public JSONObject bhT;
+    public int bhU;
+    public JSONArray bhV;
     @Nullable
-    public JSONObject bdJ;
-    public String bdK;
+    public JSONObject bhW;
+    public String bhX;
     public int borderColor;
     public int borderWidth;
     public long duration;
@@ -29,30 +29,30 @@ public class b extends com.baidu.swan.apps.component.b.b {
         this.backgroundColor = 0;
         this.borderColor = 0;
         this.alpha = -1.0f;
-        this.bdK = "";
+        this.bhX = "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.b
     public Object clone() throws CloneNotSupportedException {
         b bVar = (b) super.clone();
-        if (this.bdG != null) {
+        if (this.bhT != null) {
             try {
-                bVar.bdG = new JSONObject(this.bdG.toString());
+                bVar.bhT = new JSONObject(this.bhT.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        if (this.bdI != null) {
+        if (this.bhV != null) {
             try {
-                bVar.bdI = new JSONArray(this.bdI.toString());
+                bVar.bhV = new JSONArray(this.bhV.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.bdJ != null) {
+        if (this.bhW != null) {
             try {
-                bVar.bdJ = new JSONObject(this.bdJ.toString());
+                bVar.bhW = new JSONObject(this.bhW.toString());
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
@@ -64,50 +64,50 @@ public class b extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            this.bdG = jSONObject.optJSONObject("style");
-            this.bdJ = jSONObject.optJSONObject("transition");
-            Ij();
-            In();
+            this.bhT = jSONObject.optJSONObject("style");
+            this.bhW = jSONObject.optJSONObject("transition");
+            Ky();
+            KC();
         }
     }
 
     @Override // com.baidu.swan.apps.component.b.b
     public void Y(JSONObject jSONObject) {
         super.Y(jSONObject);
-        Ij();
-        In();
+        Ky();
+        KC();
     }
 
-    private void Ij() {
-        if (this.bdG != null) {
+    private void Ky() {
+        if (this.bhT != null) {
             try {
-                this.backgroundColor = Color.parseColor(this.bdG.optString("bgColor"));
+                this.backgroundColor = Color.parseColor(this.bhT.optString("bgColor"));
             } catch (Exception e) {
                 c.w("Component-Model-View", "backgroundColor occurs exception");
                 this.backgroundColor = 0;
             }
-            this.borderWidth = this.bdG.optInt("borderWidth");
+            this.borderWidth = this.bhT.optInt("borderWidth");
             try {
-                this.borderColor = Color.parseColor(this.bdG.optString("borderColor"));
+                this.borderColor = Color.parseColor(this.bhT.optString("borderColor"));
             } catch (Exception e2) {
                 c.w("Component-Model-View", "borderColor occurs exception");
                 this.borderColor = 0;
             }
-            this.bdH = af.S(this.bdG.optInt("borderRadius"));
-            this.alpha = s.getFloat(this.bdG, "opacity", -1.0f);
-            this.bdI = this.bdG.optJSONArray("padding");
+            this.bhU = af.S(this.bhT.optInt("borderRadius"));
+            this.alpha = s.getFloat(this.bhT, "opacity", -1.0f);
+            this.bhV = this.bhT.optJSONArray("padding");
         }
     }
 
-    private void In() {
-        if (this.bdJ != null) {
+    private void KC() {
+        if (this.bhW != null) {
             try {
-                this.duration = Long.parseLong(this.bdJ.optString("duration"));
+                this.duration = Long.parseLong(this.bhW.optString("duration"));
             } catch (Exception e) {
                 c.e("Component-Model-View", "duration occurs exception", e);
                 this.duration = 0L;
             }
-            this.bdK = this.bdJ.optString("easing");
+            this.bhX = this.bhW.optString("easing");
         }
     }
 }

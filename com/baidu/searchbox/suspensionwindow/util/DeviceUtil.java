@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DeviceUtil {
     public static View inflate(Context context, int i) {
         return ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(i, (ViewGroup) null);

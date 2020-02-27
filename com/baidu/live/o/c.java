@@ -1,4 +1,7 @@
 package com.baidu.live.o;
-/* loaded from: classes2.dex */
+
+import android.view.View;
+/* loaded from: classes3.dex */
 public interface c {
+    View getLivePlayer();
 }

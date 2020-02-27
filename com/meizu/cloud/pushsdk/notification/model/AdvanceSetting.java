@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AdvanceSetting implements Parcelable {
     public static final String ADVANCE_SETTING = "as";
     public static final String CLEAR_NOTIFICATION = "cn";

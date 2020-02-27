@@ -9,7 +9,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.as.af;
 import java.io.ByteArrayOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends a {
     private int mHeight;
     private int mWidth;

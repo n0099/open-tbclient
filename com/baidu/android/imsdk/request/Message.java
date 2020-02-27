@@ -5,16 +5,19 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.utils.BigEndianDataOutputStream;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.sapi2.SapiContext;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class Message {
+    private Context context;
     protected long mAppid;
     protected String mListenerKey;
     private int mType;
@@ -58,7 +61,7 @@ public abstract class Message {
         return this.mPriority;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [113=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4] */
     public byte[] getMessageBytes() {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
@@ -122,6 +125,9 @@ public abstract class Message {
         if (!TextUtils.isEmpty(this.mBody)) {
             try {
                 JSONObject jSONObject = new JSONObject(this.mBody);
+                if (this.context != null) {
+                    jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.context));
+                }
                 if (TextUtils.isEmpty(jSONObject.optString("rpc"))) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("rpc_retry_time", 0);
@@ -211,6 +217,7 @@ public abstract class Message {
     }
 
     public void initCommonParameter(Context context) {
+        this.context = context;
         setUk(IMSDK.getInstance(context).getUk());
         setAppid(AccountManager.getAppid(context));
     }
@@ -223,6 +230,6 @@ public abstract class Message {
         return this.mListenerKey;
     }
 
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
     }
 }

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static String y() {
         int myPid = Process.myPid();

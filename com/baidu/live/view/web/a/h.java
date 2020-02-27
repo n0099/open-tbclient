@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.live.tbadk.data.ShareEntityWrapperData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends com.baidu.live.view.web.a {
     private Activity activity;
     private long userId;
@@ -20,7 +20,7 @@ public class h extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void dV(String str) {
+    public void ek(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl ShareBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -54,7 +54,7 @@ public class h extends com.baidu.live.view.web.a {
         this.userName = str;
     }
 
-    public void y(Activity activity) {
+    public void z(Activity activity) {
         this.activity = activity;
     }
 }

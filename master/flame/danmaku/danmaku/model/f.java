@@ -1,16 +1,16 @@
 package master.flame.danmaku.danmaku.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f {
-    public long nEZ;
-    private long nFa;
+    public long nFR;
+    private long nFS;
 
-    public long hp(long j) {
-        this.nFa = j - this.nEZ;
-        this.nEZ = j;
-        return this.nFa;
+    public long hn(long j) {
+        this.nFS = j - this.nFR;
+        this.nFR = j;
+        return this.nFS;
     }
 
-    public long hq(long j) {
-        return hp(this.nEZ + j);
+    public long ho(long j) {
+        return hn(this.nFR + j);
     }
 }

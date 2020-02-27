@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import com.baidu.android.ext.widget.dialog.BaseActivityDialog;
 import com.baidu.searchbox.ugc.base.R;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UGCBoxActivityDialog extends BaseActivityDialog {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.ext.widget.dialog.BaseActivityDialog, android.app.Activity

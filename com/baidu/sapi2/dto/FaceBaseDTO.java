@@ -2,7 +2,7 @@ package com.baidu.sapi2.dto;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FaceBaseDTO extends SapiDTO {
     public static final String BUSINESS_BAIDU_MINI_PROGRAMS_SENCE = "baidu_mini_programs";
     public static final String BUSINESS_SENCE = "netdisk_2pwd";

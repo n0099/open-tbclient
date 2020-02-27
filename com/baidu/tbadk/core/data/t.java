@@ -5,9 +5,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class t implements com.baidu.tbadk.core.flow.a.a {
-    private String cKw;
-    private String cKx;
-    private boolean cKy;
+    private String cOA;
+    private boolean cOB;
+    private String cOz;
     private String mImageUrl;
     private String mSubTitle;
     private String mTitle;
@@ -16,7 +16,7 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
 
     public t(String str, String str2, String str3) {
         this.mImageUrl = str;
-        this.cKw = str2;
+        this.cOz = str2;
         this.mTitle = str3;
     }
 
@@ -29,8 +29,8 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String ayl() {
-        return this.cKw;
+    public String aAz() {
+        return this.cOz;
     }
 
     public String getImageUrl() {
@@ -42,30 +42,30 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
     }
 
     public String getLinkUrl() {
-        return this.cKw;
+        return this.cOz;
     }
 
     public void setLinkUrl(String str) {
-        this.cKw = str;
+        this.cOz = str;
     }
 
-    public String aym() {
+    public String aAA() {
         return this.tagNameUrl;
     }
 
-    public float ayn() {
+    public float aAB() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: ayo */
+    /* renamed from: aAC */
     public t clone() {
         t tVar = new t();
         tVar.mImageUrl = this.mImageUrl;
-        tVar.cKw = this.cKw;
+        tVar.cOz = this.cOz;
         tVar.mTitle = this.mTitle;
         tVar.mSubTitle = this.mSubTitle;
-        tVar.cKx = this.cKx;
+        tVar.cOA = this.cOA;
         tVar.tagNameUrl = this.tagNameUrl;
         tVar.tagRatio = this.tagRatio;
         return tVar;
@@ -74,7 +74,7 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
     public void b(HeadImgs headImgs) {
         if (headImgs != null) {
             this.mImageUrl = headImgs.img_url;
-            this.cKw = headImgs.pc_url;
+            this.cOz = headImgs.pc_url;
             this.tagNameUrl = headImgs.tag_name_url;
             String str = headImgs.tag_name_wh;
             if (str != null) {
@@ -96,16 +96,16 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
                 this.mSubTitle = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.cKx = headImgs.btn_text.trim();
+                this.cOA = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean ayp() {
-        return this.cKy;
+    public boolean aAD() {
+        return this.cOB;
     }
 
-    public void fq(boolean z) {
-        this.cKy = z;
+    public void fx(boolean z) {
+        this.cOB = z;
     }
 }

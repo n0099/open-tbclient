@@ -16,34 +16,34 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.swan.facade.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LoadingProgressBar extends View {
-    private float axs;
-    private float axt;
-    private Paint.Cap bcL;
-    private int beN;
-    private final RectF cbR;
-    private final Rect cbS;
-    private final Paint cbT;
-    private final Paint cbU;
-    private final Paint cbV;
-    private float cbW;
-    private int cbX;
-    private float cbY;
-    private float cbZ;
-    private int cca;
-    private int ccb;
-    private int ccc;
-    private int ccd;
-    private boolean cce;
-    private b ccf;
-    private int ccg;
+    private float aBI;
+    private float aBJ;
+    private Paint.Cap bha;
+    private int bjb;
+    private final RectF cfW;
+    private final Rect cfX;
+    private final Paint cfY;
+    private final Paint cfZ;
+    private final Paint cga;
+    private float cgb;
+    private int cgc;
+    private float cgd;
+    private float cge;
+    private int cgf;
+    private int cgg;
+    private int cgh;
+    private int cgi;
+    private boolean cgj;
+    private b cgk;
+    private int cgl;
     private int mMax;
     private int mProgress;
     private float mRadius;
     private int mStyle;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
     }
 
@@ -53,75 +53,75 @@ public class LoadingProgressBar extends View {
 
     public LoadingProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cbR = new RectF();
-        this.cbS = new Rect();
-        this.cbT = new Paint(1);
-        this.cbU = new Paint(1);
-        this.cbV = new TextPaint(1);
-        this.bcL = Paint.Cap.ROUND;
+        this.cfW = new RectF();
+        this.cfX = new Rect();
+        this.cfY = new Paint(1);
+        this.cfZ = new Paint(1);
+        this.cga = new TextPaint(1);
+        this.bha = Paint.Cap.ROUND;
         this.mMax = 100;
-        this.beN = 45;
-        this.cbW = 4.0f;
-        this.cbX = -90;
-        this.cbY = getResources().getDimension(a.b.aiapps_dimen_dp_2);
-        this.cbZ = getResources().getDimension(a.b.aiapps_dimen_dp_12);
-        this.cca = getResources().getColor(a.C0314a.aiapps_white);
-        this.cce = false;
-        this.ccf = new a();
-        this.ccg = 2;
+        this.bjb = 45;
+        this.cgb = 4.0f;
+        this.cgc = -90;
+        this.cgd = getResources().getDimension(a.b.aiapps_dimen_dp_2);
+        this.cge = getResources().getDimension(a.b.aiapps_dimen_dp_12);
+        this.cgf = getResources().getColor(a.C0324a.aiapps_white);
+        this.cgj = false;
+        this.cgk = new a();
+        this.cgl = 2;
         this.mStyle = 2;
-        lB();
+        lQ();
     }
 
-    private void lB() {
-        this.ccb = getResources().getColor(a.C0314a.aiapps_progress_background_color);
-        this.ccc = getResources().getColor(a.C0314a.aiapps_progress_start_color);
-        this.ccd = getResources().getColor(a.C0314a.aiapps_progress_end_color);
-        this.cbV.setTextAlign(Paint.Align.CENTER);
-        this.cbV.setTextSize(this.cbZ);
-        this.cbT.setStyle(this.mStyle == 1 ? Paint.Style.FILL : Paint.Style.STROKE);
-        this.cbT.setStrokeWidth(this.cbY);
-        this.cbT.setColor(this.ccc);
-        this.cbT.setStrokeCap(this.bcL);
-        this.cbU.setStyle(this.mStyle == 1 ? Paint.Style.FILL : Paint.Style.STROKE);
-        this.cbU.setStrokeWidth(this.cbY);
-        this.cbU.setColor(this.ccb);
-        this.cbU.setStrokeCap(this.bcL);
+    private void lQ() {
+        this.cgg = getResources().getColor(a.C0324a.aiapps_progress_background_color);
+        this.cgh = getResources().getColor(a.C0324a.aiapps_progress_start_color);
+        this.cgi = getResources().getColor(a.C0324a.aiapps_progress_end_color);
+        this.cga.setTextAlign(Paint.Align.CENTER);
+        this.cga.setTextSize(this.cge);
+        this.cfY.setStyle(this.mStyle == 1 ? Paint.Style.FILL : Paint.Style.STROKE);
+        this.cfY.setStrokeWidth(this.cgd);
+        this.cfY.setColor(this.cgh);
+        this.cfY.setStrokeCap(this.bha);
+        this.cfZ.setStyle(this.mStyle == 1 ? Paint.Style.FILL : Paint.Style.STROKE);
+        this.cfZ.setStrokeWidth(this.cgd);
+        this.cfZ.setColor(this.cgg);
+        this.cfZ.setStrokeCap(this.bha);
     }
 
-    private void ahF() {
+    private void ajT() {
         Shader shader = null;
-        if (this.ccc != this.ccd) {
-            switch (this.ccg) {
+        if (this.cgh != this.cgi) {
+            switch (this.cgl) {
                 case 0:
-                    shader = new LinearGradient(this.cbR.left, this.cbR.top, this.cbR.left, this.cbR.bottom, this.ccc, this.ccd, Shader.TileMode.CLAMP);
+                    shader = new LinearGradient(this.cfW.left, this.cfW.top, this.cfW.left, this.cfW.bottom, this.cgh, this.cgi, Shader.TileMode.CLAMP);
                     Matrix matrix = new Matrix();
-                    matrix.setRotate(90.0f, this.axs, this.axt);
+                    matrix.setRotate(90.0f, this.aBI, this.aBJ);
                     shader.setLocalMatrix(matrix);
                     break;
                 case 1:
-                    shader = new RadialGradient(this.axs, this.axt, this.mRadius, this.ccc, this.ccd, Shader.TileMode.CLAMP);
+                    shader = new RadialGradient(this.aBI, this.aBJ, this.mRadius, this.cgh, this.cgi, Shader.TileMode.CLAMP);
                     break;
                 case 2:
-                    float f = (float) (-((this.bcL == Paint.Cap.BUTT && this.mStyle == 2) ? 0.0d : Math.toDegrees((float) (((this.cbY / 3.141592653589793d) * 2.0d) / this.mRadius))));
-                    shader = new SweepGradient(this.axs, this.axt, new int[]{this.ccc, this.ccd}, new float[]{0.0f, 1.0f});
+                    float f = (float) (-((this.bha == Paint.Cap.BUTT && this.mStyle == 2) ? 0.0d : Math.toDegrees((float) (((this.cgd / 3.141592653589793d) * 2.0d) / this.mRadius))));
+                    shader = new SweepGradient(this.aBI, this.aBJ, new int[]{this.cgh, this.cgi}, new float[]{0.0f, 1.0f});
                     Matrix matrix2 = new Matrix();
-                    matrix2.setRotate(f, this.axs, this.axt);
+                    matrix2.setRotate(f, this.aBI, this.aBJ);
                     shader.setLocalMatrix(matrix2);
                     break;
             }
-            this.cbT.setShader(shader);
+            this.cfY.setShader(shader);
             return;
         }
-        this.cbT.setShader(null);
-        this.cbT.setColor(this.ccc);
+        this.cfY.setShader(null);
+        this.cfY.setColor(this.cgh);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.save();
-        canvas.rotate(this.cbX, this.axs, this.axt);
+        canvas.rotate(this.cgc, this.aBI, this.aBJ);
         t(canvas);
         canvas.restore();
     }
@@ -141,28 +141,28 @@ public class LoadingProgressBar extends View {
     }
 
     private void u(Canvas canvas) {
-        float f = (float) (6.283185307179586d / this.beN);
+        float f = (float) (6.283185307179586d / this.bjb);
         float f2 = this.mRadius;
-        float f3 = this.mRadius - this.cbW;
-        int i = (int) ((this.mProgress / this.mMax) * this.beN);
+        float f3 = this.mRadius - this.cgb;
+        int i = (int) ((this.mProgress / this.mMax) * this.bjb);
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.beN) {
+            if (i3 < this.bjb) {
                 float f4 = i3 * (-f);
-                float cos = this.axs + (((float) Math.cos(f4)) * f3);
-                float sin = this.axt - (((float) Math.sin(f4)) * f3);
-                float cos2 = this.axs + (((float) Math.cos(f4)) * f2);
-                float sin2 = this.axt - (((float) Math.sin(f4)) * f2);
-                if (this.cce) {
+                float cos = this.aBI + (((float) Math.cos(f4)) * f3);
+                float sin = this.aBJ - (((float) Math.sin(f4)) * f3);
+                float cos2 = this.aBI + (((float) Math.cos(f4)) * f2);
+                float sin2 = this.aBJ - (((float) Math.sin(f4)) * f2);
+                if (this.cgj) {
                     if (i3 >= i) {
-                        canvas.drawLine(cos, sin, cos2, sin2, this.cbU);
+                        canvas.drawLine(cos, sin, cos2, sin2, this.cfZ);
                     }
                 } else {
-                    canvas.drawLine(cos, sin, cos2, sin2, this.cbU);
+                    canvas.drawLine(cos, sin, cos2, sin2, this.cfZ);
                 }
                 if (i3 < i) {
-                    canvas.drawLine(cos, sin, cos2, sin2, this.cbT);
+                    canvas.drawLine(cos, sin, cos2, sin2, this.cfY);
                 }
                 i2 = i3 + 1;
             } else {
@@ -172,105 +172,105 @@ public class LoadingProgressBar extends View {
     }
 
     private void v(Canvas canvas) {
-        if (this.cce) {
+        if (this.cgj) {
             float f = (this.mProgress * 360.0f) / this.mMax;
-            canvas.drawArc(this.cbR, f, 360.0f - f, true, this.cbU);
+            canvas.drawArc(this.cfW, f, 360.0f - f, true, this.cfZ);
         } else {
-            canvas.drawArc(this.cbR, 0.0f, 360.0f, true, this.cbU);
+            canvas.drawArc(this.cfW, 0.0f, 360.0f, true, this.cfZ);
         }
-        canvas.drawArc(this.cbR, 0.0f, (this.mProgress * 360.0f) / this.mMax, true, this.cbT);
+        canvas.drawArc(this.cfW, 0.0f, (this.mProgress * 360.0f) / this.mMax, true, this.cfY);
     }
 
     private void w(Canvas canvas) {
-        if (this.cce) {
+        if (this.cgj) {
             float f = (this.mProgress * 360.0f) / this.mMax;
-            canvas.drawArc(this.cbR, f, 360.0f - f, false, this.cbU);
+            canvas.drawArc(this.cfW, f, 360.0f - f, false, this.cfZ);
         } else {
-            canvas.drawArc(this.cbR, 0.0f, 360.0f, false, this.cbU);
+            canvas.drawArc(this.cfW, 0.0f, 360.0f, false, this.cfZ);
         }
-        canvas.drawArc(this.cbR, 0.0f, (this.mProgress * 360.0f) / this.mMax, false, this.cbT);
+        canvas.drawArc(this.cfW, 0.0f, (this.mProgress * 360.0f) / this.mMax, false, this.cfY);
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.axs = i / 2.0f;
-        this.axt = i2 / 2.0f;
-        this.mRadius = Math.min(this.axs, this.axt);
-        this.cbR.top = this.axt - this.mRadius;
-        this.cbR.bottom = this.axt + this.mRadius;
-        this.cbR.left = this.axs - this.mRadius;
-        this.cbR.right = this.axs + this.mRadius;
-        ahF();
-        this.cbR.inset(this.cbY / 2.0f, this.cbY / 2.0f);
+        this.aBI = i / 2.0f;
+        this.aBJ = i2 / 2.0f;
+        this.mRadius = Math.min(this.aBI, this.aBJ);
+        this.cfW.top = this.aBJ - this.mRadius;
+        this.cfW.bottom = this.aBJ + this.mRadius;
+        this.cfW.left = this.aBI - this.mRadius;
+        this.cfW.right = this.aBI + this.mRadius;
+        ajT();
+        this.cfW.inset(this.cgd / 2.0f, this.cgd / 2.0f);
     }
 
     public void setProgressFormatter(b bVar) {
-        this.ccf = bVar;
+        this.cgk = bVar;
         invalidate();
     }
 
     public void setProgressStrokeWidth(float f) {
-        this.cbY = f;
-        this.cbR.inset(this.cbY / 2.0f, this.cbY / 2.0f);
+        this.cgd = f;
+        this.cfW.inset(this.cgd / 2.0f, this.cgd / 2.0f);
         invalidate();
     }
 
     public void setProgressTextSize(float f) {
-        this.cbZ = f;
+        this.cge = f;
         invalidate();
     }
 
     public void setProgressStartColor(int i) {
-        this.ccc = i;
-        ahF();
+        this.cgh = i;
+        ajT();
         invalidate();
     }
 
     public void setProgressEndColor(int i) {
-        this.ccd = i;
-        ahF();
+        this.cgi = i;
+        ajT();
         invalidate();
     }
 
     public void setProgressTextColor(int i) {
-        this.cca = i;
+        this.cgf = i;
         invalidate();
     }
 
     public void setProgressBackgroundColor(int i) {
-        this.ccb = i;
-        this.cbU.setColor(this.ccb);
+        this.cgg = i;
+        this.cfZ.setColor(this.cgg);
         invalidate();
     }
 
     public void setLineCount(int i) {
-        this.beN = i;
+        this.bjb = i;
         invalidate();
     }
 
     public void setLineWidth(float f) {
-        this.cbW = f;
+        this.cgb = f;
         invalidate();
     }
 
     public void setStyle(int i) {
         this.mStyle = i;
-        this.cbT.setStyle(this.mStyle == 1 ? Paint.Style.FILL : Paint.Style.STROKE);
-        this.cbU.setStyle(this.mStyle == 1 ? Paint.Style.FILL : Paint.Style.STROKE);
+        this.cfY.setStyle(this.mStyle == 1 ? Paint.Style.FILL : Paint.Style.STROKE);
+        this.cfZ.setStyle(this.mStyle == 1 ? Paint.Style.FILL : Paint.Style.STROKE);
         invalidate();
     }
 
     public void setShader(int i) {
-        this.ccg = i;
-        ahF();
+        this.cgl = i;
+        ajT();
         invalidate();
     }
 
     public void setCap(Paint.Cap cap) {
-        this.bcL = cap;
-        this.cbT.setStrokeCap(cap);
-        this.cbU.setStrokeCap(cap);
+        this.bha = cap;
+        this.cfY.setStrokeCap(cap);
+        this.cfZ.setStrokeCap(cap);
         invalidate();
     }
 
@@ -293,21 +293,21 @@ public class LoadingProgressBar extends View {
     }
 
     public int getStartDegree() {
-        return this.cbX;
+        return this.cgc;
     }
 
     public void setStartDegree(int i) {
-        this.cbX = i;
+        this.cgc = i;
         invalidate();
     }
 
     public void setDrawBackgroundOutsideProgress(boolean z) {
-        this.cce = z;
+        this.cgj = z;
         invalidate();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.swan.facade.requred.webview.LoadingProgressBar.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -319,7 +319,7 @@ public class LoadingProgressBar extends View {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: hj */
+            /* renamed from: hA */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
@@ -356,7 +356,7 @@ public class LoadingProgressBar extends View {
         setProgress(savedState.progress);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static final class a implements b {
         private a() {
         }

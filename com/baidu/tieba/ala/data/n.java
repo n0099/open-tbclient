@@ -3,66 +3,66 @@ package com.baidu.tieba.ala.data;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
-    public int evU;
-    public long evV;
-    public long evW;
-    public long evX;
-    public String evY;
-    public long evZ;
-    public boolean ewa;
-    public boolean ewb;
+    public int eAf;
+    public long eAg;
+    public long eAh;
+    public long eAi;
+    public String eAj;
+    public long eAk;
+    public boolean eAl;
+    public boolean eAm;
     public long userId;
     public String userName;
     public String userNickname;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.evU = jSONObject.optInt("current_rank");
-            this.evV = jSONObject.optInt("current_charm_value");
-            this.evW = jSONObject.optInt("up_charm_value");
-            this.evX = jSONObject.optInt("down_charm_value");
+            this.eAf = jSONObject.optInt("current_rank");
+            this.eAg = jSONObject.optInt("current_charm_value");
+            this.eAh = jSONObject.optInt("up_charm_value");
+            this.eAi = jSONObject.optInt("down_charm_value");
             this.userId = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
             this.userName = jSONObject.optString("user_name");
             this.userNickname = jSONObject.optString("user_nickname");
-            this.evY = jSONObject.optString("bd_portrait");
+            this.eAj = jSONObject.optString("bd_portrait");
         }
     }
 
     public void a(g gVar) {
         if (gVar != null) {
-            this.evU = gVar.rank;
-            this.evV = JavaTypesHelper.toLong(gVar.point, 0L);
+            this.eAf = gVar.rank;
+            this.eAg = JavaTypesHelper.toLong(gVar.point, 0L);
             this.userId = gVar.user_id;
             this.userName = gVar.user_name;
             this.userNickname = gVar.user_nickname;
-            this.evY = gVar.avatar;
+            this.eAj = gVar.avatar;
         }
     }
 
-    public void cE(long j) {
-        this.evW = j;
+    public void cH(long j) {
+        this.eAh = j;
     }
 
-    public void cF(long j) {
-        this.evX = j;
+    public void cI(long j) {
+        this.eAi = j;
     }
 
-    public void ii(boolean z) {
-        this.ewa = z;
+    public void ip(boolean z) {
+        this.eAl = z;
     }
 
-    public boolean bcl() {
-        return this.ewa;
+    public boolean beA() {
+        return this.eAl;
     }
 
-    public void ij(boolean z) {
-        this.ewb = z;
+    public void iq(boolean z) {
+        this.eAm = z;
     }
 
-    public void cG(long j) {
-        this.evZ = j;
+    public void cJ(long j) {
+        this.eAk = j;
     }
 
     public String getNameShow() {
@@ -70,6 +70,6 @@ public class n {
     }
 
     public boolean isValid() {
-        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.evY)) ? false : true;
+        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.eAj)) ? false : true;
     }
 }

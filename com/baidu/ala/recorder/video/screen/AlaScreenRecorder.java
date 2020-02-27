@@ -12,7 +12,7 @@ import com.baidu.ala.recorder.video.RecorderHandler;
 import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.ala.recorder.video.hardware.EncoderOutputStream;
 import com.baidu.ala.recorder.video.hardware.HardH264Encoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaScreenRecorder implements IVideoRecorder {
     private static volatile AlaScreenRecorder mInstance;
     private Context mContext;

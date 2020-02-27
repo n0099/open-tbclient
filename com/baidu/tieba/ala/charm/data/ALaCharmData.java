@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ALaCharmData extends BaseData implements Serializable {
     private static final long serialVersionUID = -2170940113039348861L;
     public String anchor_live;

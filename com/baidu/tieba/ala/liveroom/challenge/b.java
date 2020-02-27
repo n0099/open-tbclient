@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.liveroom.challenge;
 import android.content.Context;
 import com.baidu.live.challenge.g;
 import com.baidu.live.challenge.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements g {
     private Context mContext;
 
@@ -12,12 +12,12 @@ public class b implements g {
     }
 
     @Override // com.baidu.live.challenge.g
-    public k pd() {
+    public k pO() {
         return new com.baidu.tieba.ala.liveroom.challenge.panel.d(this.mContext);
     }
 
     @Override // com.baidu.live.challenge.g
-    public com.baidu.live.challenge.e pe() {
+    public com.baidu.live.challenge.e pP() {
         return new com.baidu.tieba.ala.liveroom.challenge.view.a(this.mContext);
     }
 }

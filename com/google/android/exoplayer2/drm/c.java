@@ -3,16 +3,16 @@ package com.google.android.exoplayer2.drm;
 import android.annotation.TargetApi;
 import android.media.MediaCrypto;
 @TargetApi(16)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c implements b {
-    private final MediaCrypto mdh;
-    private final boolean mdi;
+    private final MediaCrypto mdN;
+    private final boolean mdO;
 
-    public MediaCrypto dtC() {
-        return this.mdh;
+    public MediaCrypto duN() {
+        return this.mdN;
     }
 
-    public boolean Pe(String str) {
-        return !this.mdi && this.mdh.requiresSecureDecoderComponent(str);
+    public boolean Pr(String str) {
+        return !this.mdO && this.mdN.requiresSecureDecoderComponent(str);
     }
 }

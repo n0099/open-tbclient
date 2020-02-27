@@ -1,12 +1,13 @@
 package com.google.zxing.datamatrix.decoder;
 
+import com.alibaba.fastjson.asm.Opcodes;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
 import com.google.zxing.common.DecoderResult;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class DecodedBitStreamParser {
     private static final char[] C40_BASIC_SET_CHARS = {'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     private static final char[] C40_SHIFT2_SET_CHARS = {'!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_'};
@@ -15,7 +16,7 @@ final class DecodedBitStreamParser {
     private static final char[] TEXT_SHIFT3_SET_CHARS = {'`', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '{', '|', '}', '~', 127};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum Mode {
         PAD_ENCODE,
         ASCII_ENCODE,
@@ -394,7 +395,7 @@ final class DecodedBitStreamParser {
     }
 
     private static int unrandomize255State(int i, int i2) {
-        int i3 = i - (((i2 * 149) % 255) + 1);
+        int i3 = i - (((i2 * Opcodes.FCMPL) % 255) + 1);
         return i3 >= 0 ? i3 : i3 + 256;
     }
 }

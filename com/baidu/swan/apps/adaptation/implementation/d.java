@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.implementation;
 
 import com.baidu.swan.apps.adaptation.a.r;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d implements r {
     @Override // com.baidu.swan.apps.adaptation.a.r
     public void a(com.baidu.swan.apps.commonsync.a.a aVar) {

@@ -13,25 +13,25 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.c> {
-    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> eoI;
-    private com.baidu.tieba.ala.alasquare.widget.banner.c eoJ;
+    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> esS;
+    private com.baidu.tieba.ala.alasquare.widget.banner.c esT;
     private TbPageContext mTbPageContext;
 
     public h(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.eoJ = new com.baidu.tieba.ala.alasquare.widget.banner.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.2
+        this.esT = new com.baidu.tieba.ala.alasquare.widget.banner.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.2
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.c
             public com.baidu.tieba.ala.alasquare.widget.banner.b m(ViewGroup viewGroup2, int i) {
                 return new com.baidu.tieba.ala.alasquare.widget.banner.b<com.baidu.tieba.ala.alasquare.special_forum.data.b>(LayoutInflater.from(h.this.mTbPageContext.getPageActivity()).inflate(R.layout.special_bar_recommend_activity, viewGroup2, false)) { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.2.1
-                    public TbImageView eoL;
+                    public TbImageView esV;
 
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     protected void initView(View view) {
-                        this.eoL = (TbImageView) view.findViewById(R.id.cover);
-                        this.eoL.setDefaultErrorResource(0);
-                        this.eoL.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                        this.esV = (TbImageView) view.findViewById(R.id.cover);
+                        this.esV.setDefaultErrorResource(0);
+                        this.esV.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -39,8 +39,8 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     /* renamed from: a */
                     public void h(int i2, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
-                        if (bVar != null && this.eoL != null && !StringUtils.isNull(bVar.pic)) {
-                            this.eoL.startLoad(bVar.pic, 10, false);
+                        if (bVar != null && this.esV != null && !StringUtils.isNull(bVar.pic)) {
+                            this.esV.startLoad(bVar.pic, 10, false);
                         }
                     }
 
@@ -52,15 +52,15 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
             }
         };
         this.mTbPageContext = tbPageContext;
-        this.eoI = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
-        this.eoI.setViewHolderAdapter(this.eoJ);
-        this.eoI.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.1
+        this.esS = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
+        this.esS.setViewHolderAdapter(this.esT);
+        this.esS.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.1
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.d
-            public void an(Object obj) {
+            public void ap(Object obj) {
                 if (obj != null && (obj instanceof com.baidu.tieba.ala.alasquare.special_forum.data.b)) {
                     com.baidu.tieba.ala.alasquare.special_forum.data.b bVar = (com.baidu.tieba.ala.alasquare.special_forum.data.b) obj;
                     if (!StringUtils.isNull(bVar.url)) {
-                        ba.aEt().a((TbPageContext) com.baidu.adp.base.i.ab(h.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
+                        ba.aGE().a((TbPageContext) com.baidu.adp.base.i.ab(h.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
                     }
                     TiebaStatic.log("c12902");
                 }
@@ -71,7 +71,7 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.eoI.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.esS.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
@@ -88,8 +88,8 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.a
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.c cVar) {
-        if (cVar != null && !v.isEmpty(cVar.enb)) {
-            this.eoI.a(cVar.enb, this.eoJ);
+        if (cVar != null && !v.isEmpty(cVar.ero)) {
+            this.esS.a(cVar.ero, this.esT);
             TiebaStatic.log("c12901");
         }
     }
@@ -98,15 +98,15 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     public void onClick(View view) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public View cqd;
-        public h eoN;
+        public View cue;
+        public h esX;
 
         public a(h hVar) {
             super(hVar.getView());
-            this.eoN = hVar;
-            this.cqd = hVar.getView();
+            this.esX = hVar;
+            this.cue = hVar.getView();
         }
     }
 }

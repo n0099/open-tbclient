@@ -1,7 +1,7 @@
 package com.facebook.common.internal;
 
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class g {
     public static void checkArgument(boolean z) {
         if (!z) {
@@ -47,7 +47,7 @@ public final class g {
         return t;
     }
 
-    public static int dq(int i, int i2) {
+    public static int dt(int i, int i2) {
         return o(i, i2, "index");
     }
 

@@ -2,7 +2,7 @@ package protobuf.ApplyJoinGroup;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class DataReq extends Message {
     public static final Long DEFAULT_GROUPID = 0L;
     public static final Long DEFAULT_INVITEUSERID = 0L;
@@ -49,7 +49,7 @@ public final class DataReq extends Message {
         this.joinType = builder.joinType;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long groupId;
         public Long inviteUserId;

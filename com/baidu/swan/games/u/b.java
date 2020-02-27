@@ -5,64 +5,62 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static volatile b col;
-    private int ajR;
-
-    /* renamed from: com  reason: collision with root package name */
-    private volatile ArrayList<a> f972com = new ArrayList<>(20);
+    private static volatile b csm;
+    private int alX;
+    private volatile ArrayList<a> csn = new ArrayList<>(20);
 
     private b() {
     }
 
-    public static b ann() {
-        if (col == null) {
+    public static b apB() {
+        if (csm == null) {
             synchronized (b.class) {
-                if (col == null) {
-                    col = new b();
+                if (csm == null) {
+                    csm = new b();
                 }
             }
         }
-        return col;
+        return csm;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.f972com.size() < 20) {
-                this.f972com.add(aVar);
+            if (this.csn.size() < 20) {
+                this.csn.add(aVar);
             } else {
-                this.ajR++;
+                this.alX++;
             }
         }
     }
 
-    public synchronized JSONObject ano() {
+    public synchronized JSONObject apC() {
         JSONObject jSONObject;
-        int size = this.f972com.size();
+        int size = this.csn.size();
         if (size == 0) {
             jSONObject = null;
         } else {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("dropcnt", this.ajR);
+                jSONObject2.put("dropcnt", this.alX);
                 jSONObject2.put("errorcnt", size);
                 JSONArray jSONArray = new JSONArray();
                 jSONObject2.put("errors", jSONArray);
-                Iterator<a> it = this.f972com.iterator();
+                Iterator<a> it = this.csn.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJSON());
                 }
             } catch (JSONException e) {
             }
-            this.f972com.clear();
+            this.csn.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.f972com.clear();
-        this.ajR = 0;
+        this.csn.clear();
+        this.alX = 0;
     }
 }

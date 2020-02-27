@@ -14,7 +14,7 @@ import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdStringHelper {
     protected static SimpleDateFormat FORMATE_DATE_ALL = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     protected static SimpleDateFormat FORMATE_DATE_YEAR = new SimpleDateFormat("yyyy年");
@@ -187,7 +187,7 @@ public class BdStringHelper {
         }
     }
 
-    public static String GetTimeString(Date date) {
+    public static String getTimeString1(Date date) {
         if (date == null) {
             return "";
         }
@@ -201,7 +201,7 @@ public class BdStringHelper {
         return getDateStringYear(date);
     }
 
-    public static String GetTimeString2(Date date) {
+    public static String getTimeString2(Date date) {
         if (date == null) {
             return "";
         }

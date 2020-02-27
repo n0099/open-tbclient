@@ -24,64 +24,64 @@ import com.baidu.tieba.ala.alasquare.subtablist.c.i;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private String entryName;
-    private boolean epn;
-    private d epo;
-    private AlaNewSquareSubListModel epp;
+    private AlaNewSquareSubListModel etA;
+    private boolean ety;
+    private d etz;
     private TbPageContext mTbPageContext;
-    private boolean epq = false;
-    private BdListView.e Ah = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.1
+    private boolean etB = false;
+    private BdListView.e Az = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             boolean z = false;
-            if (a.this.epp != null) {
-                z = a.this.epp.isHasMore();
+            if (a.this.etA != null) {
+                z = a.this.etA.isHasMore();
             }
-            if (a.this.epo != null) {
+            if (a.this.etz != null) {
                 if (!z) {
-                    a.this.epo.bab();
+                    a.this.etz.bcr();
                     return;
                 }
-                a.this.epp.bbh();
-                a.this.epo.bbi();
+                a.this.etA.bdw();
+                a.this.etz.bdx();
             }
         }
     };
-    private AlaNewSquareSubListModel.a enU = new AlaNewSquareSubListModel.a() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.2
+    private AlaNewSquareSubListModel.a esg = new AlaNewSquareSubListModel.a() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.2
         @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.a
-        public void hX(boolean z) {
-            if (a.this.mTbPageContext != null && a.this.epo != null) {
-                a.this.epo.completePullRefresh();
-                a.this.epo.hideLoadingView();
-                a.this.epo.setData(a.this.epp.getDatas());
-                a.this.epo.oy(a.this.epp.getLiveCount());
-                a.this.epo.bn(a.this.epp.getSortTypeList());
-                if (a.this.epp != null && a.this.epp.getPn() == 0 && a.this.epo.getListView() != null) {
-                    a.this.epo.getListView().smoothScrollToPosition(0);
+        public void ie(boolean z) {
+            if (a.this.mTbPageContext != null && a.this.etz != null) {
+                a.this.etz.completePullRefresh();
+                a.this.etz.hideLoadingView();
+                a.this.etz.setData(a.this.etA.getDatas());
+                a.this.etz.oP(a.this.etA.getLiveCount());
+                a.this.etz.bn(a.this.etA.getSortTypeList());
+                if (a.this.etA != null && a.this.etA.getPn() == 0 && a.this.etz.getListView() != null) {
+                    a.this.etz.getListView().smoothScrollToPosition(0);
                 }
-                if (v.getCount(a.this.epp.getDatas()) == 0) {
-                    a.this.epo.a(a.this.mTbPageContext.getString(R.string.no_data_text), a.this.mOnClickListener, true);
-                    a.this.epo.ox(8);
+                if (v.getCount(a.this.etA.getDatas()) == 0) {
+                    a.this.etz.a(a.this.mTbPageContext.getString(R.string.no_data_text), a.this.mOnClickListener, true);
+                    a.this.etz.oO(8);
                     return;
                 }
-                a.this.epo.baf();
-                a.this.epo.ox(0);
+                a.this.etz.bcv();
+                a.this.etz.oO(0);
             }
         }
 
         @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.a
-        public void af(int i, String str) {
-            if (a.this.mTbPageContext != null && a.this.epo != null) {
-                a.this.epo.completePullRefresh();
-                a.this.epo.hideLoadingView();
-                d dVar = a.this.epo;
+        public void ag(int i, String str) {
+            if (a.this.mTbPageContext != null && a.this.etz != null) {
+                a.this.etz.completePullRefresh();
+                a.this.etz.hideLoadingView();
+                d dVar = a.this.etz;
                 if (TextUtils.isEmpty(str)) {
                     str = a.this.mTbPageContext.getString(R.string.no_data_text);
                 }
                 dVar.a(str, a.this.mOnClickListener, true);
-                a.this.epo.ox(8);
+                a.this.etz.oO(8);
             }
         }
     };
@@ -91,7 +91,7 @@ public class a {
             a.this.refreshData();
         }
     };
-    private i epr = new i() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.4
+    private i etC = new i() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.4
         @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
         public void a(int i, String str, bj bjVar) {
             a.this.a(a.this.mTbPageContext, bjVar, str);
@@ -99,105 +99,105 @@ public class a {
 
         @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
         public void a(c cVar) {
-            if (a.this.epp != null && cVar != null && !StringUtils.isNull(cVar.type)) {
-                a.this.epp.setSortType(cVar.type);
-                a.this.epp.setLat(cVar.lat);
-                a.this.epp.setLng(cVar.lng);
-                a.this.epp.ia(cVar.epe);
-                a.this.epp.refreshData();
+            if (a.this.etA != null && cVar != null && !StringUtils.isNull(cVar.type)) {
+                a.this.etA.setSortType(cVar.type);
+                a.this.etA.setLat(cVar.lat);
+                a.this.etA.setLng(cVar.lng);
+                a.this.etA.ih(cVar.etp);
+                a.this.etA.refreshData();
             }
         }
     };
-    private g.c eps = new g.c() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.5
+    private g.c etD = new g.c() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.5
         @Override // com.baidu.tbadk.core.view.g.c
         public void onListPullRefresh(boolean z) {
-            if (a.this.epp != null) {
-                a.this.epp.refreshData();
+            if (a.this.etA != null) {
+                a.this.etA.refreshData();
             }
         }
     };
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.epn = z;
-        this.epp = new AlaNewSquareSubListModel(this.mTbPageContext);
-        this.epp.a(this.enU);
-        this.epo = new d(this.mTbPageContext);
-        this.epo.a(this.epr);
-        this.epo.setListPullRefreshListener(this.eps);
-        this.epo.b(this.Ah);
-        this.epo.showLoadingView();
+        this.ety = z;
+        this.etA = new AlaNewSquareSubListModel(this.mTbPageContext);
+        this.etA.a(this.esg);
+        this.etz = new d(this.mTbPageContext);
+        this.etz.a(this.etC);
+        this.etz.setListPullRefreshListener(this.etD);
+        this.etz.b(this.Az);
+        this.etz.showLoadingView();
     }
 
     public void a(String str, String str2, String str3, List<String> list) {
         if (!StringUtils.isNull(str2)) {
             if (!StringUtils.isNull(str)) {
-                this.epq = str.equals("16:9");
+                this.etB = str.equals("16:9");
             }
-            this.epo.a(this.epn, list, str2, str3, this.epq, false);
-            this.epp.setEntryName(str2);
-            this.epp.setLabelName(str3);
-            this.epp.setSortType(v.isEmpty(list) ? "" : list.get(0));
-            this.epp.hZ(this.epq);
+            this.etz.a(this.ety, list, str2, str3, this.etB, false);
+            this.etA.setEntryName(str2);
+            this.etA.setLabelName(str3);
+            this.etA.setSortType(v.isEmpty(list) ? "" : list.get(0));
+            this.etA.ig(this.etB);
             this.entryName = str2;
         }
     }
 
     public void refreshData() {
-        this.epp.refreshData();
+        this.etA.refreshData();
     }
 
     public View getRootView() {
-        return this.epo.getRootView();
+        return this.etz.getRootView();
     }
 
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.epo != null) {
-            this.epo.onChangeSkinType(tbPageContext, i);
+        if (this.etz != null) {
+            this.etz.onChangeSkinType(tbPageContext, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TbPageContext<?> tbPageContext, bj bjVar, String str) {
-        if (tbPageContext != null && bjVar != null && bjVar.azX() != null && bjVar.aAq() != null) {
-            an s = new an("c12116").s("obj_id", bjVar.aAq().live_id);
+        if (tbPageContext != null && bjVar != null && bjVar.aCm() != null && bjVar.aCF() != null) {
+            an s = new an("c12116").s("obj_id", bjVar.aCF().live_id);
             if (!StringUtils.isNull(this.entryName)) {
-                s.cp("locate_type", this.entryName);
+                s.cy("locate_type", this.entryName);
             }
             TiebaStatic.log(s);
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bjVar.azX().getUserId();
+                String userId = bjVar.aCm().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bjVar.aAq());
+            alaLiveInfoCoreData.fillWithInfoData(bjVar.aCF());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (bj bjVar2 : this.epp.baY()) {
-                alaLiveInfoListCoreData.mLiveInfoList.add(R(bjVar2));
+            for (bj bjVar2 : this.etA.bdn()) {
+                alaLiveInfoListCoreData.mLiveInfoList.add(S(bjVar2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "square_category", str2, z, "颜值".equals(str) ? str : null, null)));
         }
     }
 
-    private AlaLiveInfoCoreData R(bj bjVar) {
+    private AlaLiveInfoCoreData S(bj bjVar) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(bjVar.aAq());
-        alaLiveInfoCoreData.userName = bjVar.azX().getUserName();
+        alaLiveInfoCoreData.fillWithInfoData(bjVar.aCF());
+        alaLiveInfoCoreData.userName = bjVar.aCm().getUserName();
         return alaLiveInfoCoreData;
     }
 
     public void onDestroy() {
-        if (this.epp != null) {
-            this.epp.onDestroy();
-            this.epp = null;
+        if (this.etA != null) {
+            this.etA.onDestroy();
+            this.etA = null;
         }
-        if (this.epo != null) {
-            this.epo.onDestroy();
-            this.epo = null;
+        if (this.etz != null) {
+            this.etz.onDestroy();
+            this.etz = null;
         }
     }
 }

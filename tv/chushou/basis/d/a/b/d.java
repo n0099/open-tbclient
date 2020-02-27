@@ -1,15 +1,15 @@
 package tv.chushou.basis.d.a.b;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface d extends tv.chushou.basis.d.a {
-    String aeR();
+    String ahf();
 
-    String dOv();
+    String dPI();
 
-    String dOw();
+    String dPJ();
 
-    Map<String, String> dOx();
+    Map<String, String> dPK();
 
     String getIdentifier();
 }

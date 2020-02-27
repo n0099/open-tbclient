@@ -19,6 +19,7 @@ import com.baidu.android.imsdk.internal.Heartbeat;
 import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.imsdk.IMService;
@@ -29,7 +30,7 @@ import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class McastManagerImpl {
     private static final int FIRST_RETRY = 0;
     private static final long FIRST_RETRY_TIME = 1000;
@@ -45,7 +46,8 @@ public class McastManagerImpl {
     private long mCastId;
     private boolean mIsPull;
     private static final String TAG = McastManagerImpl.class.getSimpleName();
-    private static int mCastHeartBeatTime = 3000;
+    public static int mCastHeartBeatTime = 3000;
+    private boolean isRegisterNetReceiver = false;
     private int mFetchNum = 0;
     private LongSparseArray<Boolean> mReliableCastList = new LongSparseArray<>();
     private long mMinMsgId = 0;
@@ -53,40 +55,43 @@ public class McastManagerImpl {
     private IFetchMsgByIdListener mFetchMsgListener = new IFetchMsgByIdListener() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.1
         @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
         public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j, long j2, long j3, int i3, int i4, long j4, ArrayList<ChatMsg> arrayList) {
-            LogUtils.d(McastManagerImpl.TAG, "onFetchMsgByIdResult response :" + i + ", maxMsgid :" + j4 + ", fetch :" + arrayList.size() + ", real :" + i4 + ", count :" + i3);
-            if (i != 0) {
-                if (McastManagerImpl.this.mFetchNum == 0) {
-                    LogUtils.e(McastManagerImpl.TAG, "onFetchMsgByIdResult：fetch msg failed and first retry.");
-                    IMSDK.mHandler.postDelayed(McastManagerImpl.this.mReliableRunnable, 1000L);
+            boolean booleanValue = McastManagerImpl.this.isReliable(McastManagerImpl.this.mCastId).booleanValue();
+            LogUtils.d(McastManagerImpl.TAG, "onFetchMsgByIdResult response :" + i + ", maxMsgid :" + j4 + ", fetch :" + arrayList.size() + ", real :" + i4 + ", count :" + i3 + "，  mcastId = " + McastManagerImpl.this.mCastId + "，isReliable" + booleanValue);
+            if (booleanValue) {
+                if (i != 0) {
+                    if (McastManagerImpl.this.mFetchNum == 0) {
+                        LogUtils.e(McastManagerImpl.TAG, "onFetchMsgByIdResult：fetch msg failed and first retry.");
+                        IMService.mHandler.postDelayed(McastManagerImpl.this.mReliableRunnable, 1000L);
+                    }
+                } else if (i4 >= i3) {
+                    McastManagerImpl.this.fetchCastMsgByMsgId();
                 }
-            } else if (i4 >= i3) {
-                McastManagerImpl.this.fetchCastMsgByMsgId();
             }
         }
     };
     private Runnable mReliableRunnable = new Runnable() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.2
         @Override // java.lang.Runnable
         public void run() {
-            McastManagerImpl.access$208(McastManagerImpl.this);
+            McastManagerImpl.access$308(McastManagerImpl.this);
             if (McastManagerImpl.this.mFetchNum <= 3) {
                 McastManagerImpl.this.fetchCastMsgByMsgId();
-                IMSDK.mHandler.removeCallbacks(this);
-                IMSDK.mHandler.postDelayed(this, McastManagerImpl.this.mFetchNum != 3 ? 5000L : McastManagerImpl.THIRD_RETRY_TIME);
+                IMService.mHandler.removeCallbacks(this);
+                IMService.mHandler.postDelayed(this, McastManagerImpl.this.mFetchNum != 3 ? 5000L : McastManagerImpl.THIRD_RETRY_TIME);
                 return;
             }
             McastManagerImpl.this.mFetchNum = 0;
-            IMSDK.mHandler.removeCallbacks(this);
+            IMService.mHandler.removeCallbacks(this);
         }
     };
 
-    /* loaded from: classes2.dex */
-    interface HeartbeatOpearation {
+    /* loaded from: classes3.dex */
+    interface HeartbeatOperation {
         void cancelHearbeat();
 
         void startHeartbeat();
     }
 
-    static /* synthetic */ int access$208(McastManagerImpl mcastManagerImpl) {
+    static /* synthetic */ int access$308(McastManagerImpl mcastManagerImpl) {
         int i = mcastManagerImpl.mFetchNum;
         mcastManagerImpl.mFetchNum = i + 1;
         return i;
@@ -95,7 +100,6 @@ public class McastManagerImpl {
     private McastManagerImpl() {
         McastConfig.mLiveShowing = false;
         mRandom = new Random();
-        mNetChangedReceiver = new IMReceiver();
         Class<?>[] clsArr = {IMJoinCastMsg.class, IMQuitCastMsg.class, IMSendQuizOptMsg.class};
         int[] iArr = {201, 202, Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST};
         for (int i = 0; i < clsArr.length; i++) {
@@ -140,11 +144,11 @@ public class McastManagerImpl {
         this.mCastId = j;
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
         if (AccountManager.isLogin(mContext)) {
-            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 201);
-            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-            creatMethodIntent.putExtra("mcast_id", j);
+            Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 201);
+            createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+            createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                mContext.startService(creatMethodIntent);
+                mContext.startService(createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -166,6 +170,7 @@ public class McastManagerImpl {
                     fetchCastMsgByMsgId();
                 }
                 registerNetChangedReceiver();
+                setMcastQuickHeartBeat();
                 return;
             }
             return;
@@ -188,11 +193,11 @@ public class McastManagerImpl {
     public void endWithCompletion(long j, IMcastSetListener iMcastSetListener) {
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
         if (AccountManager.isLogin(mContext)) {
-            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 202);
-            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-            creatMethodIntent.putExtra("mcast_id", j);
+            Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 202);
+            createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+            createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                mContext.startService(creatMethodIntent);
+                mContext.startService(createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -244,6 +249,7 @@ public class McastManagerImpl {
     }
 
     public void deliverCastReliableMsg(long j, @NonNull ArrayList<ChatMsg> arrayList) {
+        ArrayList arrayList2 = new ArrayList();
         JSONArray jSONArray = new JSONArray();
         try {
             Iterator<ChatMsg> it = arrayList.iterator();
@@ -251,6 +257,7 @@ public class McastManagerImpl {
                 ChatMsg next = it.next();
                 if (j == ((TextMsg) next).getCastId()) {
                     jSONArray.put(new JSONObject(next.getMsgContent()));
+                    arrayList2.add(Long.valueOf(next.getMsgId()));
                 }
             }
         } catch (JSONException e) {
@@ -258,12 +265,15 @@ public class McastManagerImpl {
         }
         if (jSONArray.length() > 0) {
             LogUtils.d(TAG, "DeliverCastReliableMsg :" + jSONArray.toString());
-            ChatMsgManagerImpl.getInstance(mContext).deliverMcastMessage(j + "", jSONArray);
+            ChatMsgManagerImpl.getInstance(mContext).deliverReliableMcastMessage(j + "", jSONArray, arrayList2);
         }
     }
 
     private void fetchCastMsg(long j, long j2) {
         ChatMsgManagerImpl.getInstance(mContext).fetchMsgidByMsgid(mContext, 4, this.mCastId, j, j2, 160, 2, 0, this.mFetchMsgListener, this.mFetchNum);
+        if (j == 0) {
+            new IMTrack.RequestBuilder(mContext).requestId("" + this.mCastId).requestTime(System.currentTimeMillis()).ext("request endmsgid :" + j2).aliasId(501102L).build();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -283,14 +293,14 @@ public class McastManagerImpl {
     public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
         if (AccountManager.isLogin(mContext)) {
-            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST);
-            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-            creatMethodIntent.putExtra("mcast_id", j2);
-            creatMethodIntent.putExtra("room_id", j);
-            creatMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
-            creatMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
+            Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST);
+            createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+            createMcastMethodIntent.putExtra("mcast_id", j2);
+            createMcastMethodIntent.putExtra("room_id", j);
+            createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
+            createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
             try {
-                mContext.startService(creatMethodIntent);
+                mContext.startService(createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -312,36 +322,49 @@ public class McastManagerImpl {
     }
 
     private void registerNetChangedReceiver() {
-        try {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            intentFilter.addAction(McastConfig.ACTION_NETWORK_STATE_CHANGED);
-            intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
-            mContext.registerReceiver(mNetChangedReceiver, intentFilter);
-            LogUtils.d(TAG, " registerNetChangedReceiver ok !");
-        } catch (Exception e) {
-            LogUtils.e(TAG, "Exception ", e);
+        if (!IMService.isSmallFlow) {
+            try {
+                if (mNetChangedReceiver == null && mContext != null) {
+                    mNetChangedReceiver = new IMReceiver();
+                    IntentFilter intentFilter = new IntentFilter();
+                    intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                    intentFilter.addAction(McastConfig.ACTION_NETWORK_STATE_CHANGED);
+                    intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
+                    mContext.registerReceiver(mNetChangedReceiver, intentFilter);
+                    this.isRegisterNetReceiver = true;
+                    LogUtils.d(TAG, " registerNetChangedReceiver ok !");
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+            }
         }
     }
 
     private void unRegisterNetChangedReceiver() {
-        try {
-            mContext.unregisterReceiver(mNetChangedReceiver);
-            LogUtils.d(TAG, " unRegisterNetChangedReceiver ok !");
-        } catch (Exception e) {
-            LogUtils.e(TAG, "Exception ", e);
+        if (!IMService.isSmallFlow) {
+            try {
+                if (this.isRegisterNetReceiver && mContext != null) {
+                    mContext.unregisterReceiver(mNetChangedReceiver);
+                    this.isRegisterNetReceiver = false;
+                    LogUtils.d(TAG, " unRegisterNetChangedReceiver ok !");
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+            }
         }
     }
 
     public static void resetHeartBeat(int i) {
-        Heartbeat.ALARM_TIMEOUT = i;
-        LogUtils.d(TAG, "reset heartbeat time to = " + Heartbeat.ALARM_TIMEOUT);
-        IMSDK.getInstance(mContext).mHeartbeatOperator.cancelHearbeat();
-        IMSDK.getInstance(mContext).mHeartbeatOperator.startHeartbeat();
+        if (!IMService.isSmallFlow) {
+            Heartbeat.ALARM_TIMEOUT = i;
+            LogUtils.d(TAG, "reset heartbeat time to = " + Heartbeat.ALARM_TIMEOUT);
+            IMSDK.getInstance(mContext).mHeartbeatOperator.cancelHearbeat();
+            IMSDK.getInstance(mContext).mHeartbeatOperator.startHeartbeat();
+        }
     }
 
     public void setMcastQuickHeartBeat() {
-        if (McastConfig.mLiveShowing) {
+        if (!IMService.isSmallFlow && McastConfig.mLiveShowing) {
             if (mcastHeartbeat == null) {
                 mcastHeartbeat = new McastHeartbeat();
             }
@@ -353,26 +376,30 @@ public class McastManagerImpl {
     }
 
     public void cancelMcastQuickHeartBeat() {
-        McastConfig.mLiveShowing = false;
-        if (mcastHeartbeat != null) {
-            mcastHeartbeat.cancelHearbeat();
-            mcastHeartbeat = null;
-            LogUtils.d(TAG, "mcast quick heart beat canceled! ");
+        if (!IMService.isSmallFlow) {
+            McastConfig.mLiveShowing = false;
+            if (mcastHeartbeat != null) {
+                mcastHeartbeat.cancelHearbeat();
+                mcastHeartbeat = null;
+                LogUtils.d(TAG, "mcast quick heart beat canceled! ");
+            }
+            resetHeartBeat(60000);
         }
-        resetHeartBeat(120000);
     }
 
-    /* loaded from: classes2.dex */
-    public class McastHeartbeat implements HeartbeatOpearation {
+    /* loaded from: classes3.dex */
+    public class McastHeartbeat implements HeartbeatOperation {
         private Runnable startHeartBeatTask = new Runnable() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.McastHeartbeat.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    Intent intent = new Intent(McastManagerImpl.mContext, IMService.class);
-                    intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                    intent.setPackage(McastManagerImpl.mContext.getPackageName());
-                    McastManagerImpl.mContext.startService(intent);
-                    IMSDK.mHandler.postDelayed(McastHeartbeat.this.startHeartBeatTask, McastManagerImpl.mCastHeartBeatTime);
+                    if (!IMService.isSmallFlow) {
+                        Intent intent = new Intent(McastManagerImpl.mContext, IMService.class);
+                        intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
+                        intent.setPackage(McastManagerImpl.mContext.getPackageName());
+                        McastManagerImpl.mContext.startService(intent);
+                        IMService.mHandler.postDelayed(McastHeartbeat.this.startHeartBeatTask, McastManagerImpl.mCastHeartBeatTime);
+                    }
                 } catch (Exception e) {
                     if (e instanceof SecurityException) {
                         LogUtils.e(McastManagerImpl.TAG, "box SecurityException!!", e);
@@ -386,27 +413,27 @@ public class McastManagerImpl {
         public McastHeartbeat() {
         }
 
-        @Override // com.baidu.android.imsdk.mcast.McastManagerImpl.HeartbeatOpearation
+        @Override // com.baidu.android.imsdk.mcast.McastManagerImpl.HeartbeatOperation
         public void startHeartbeat() {
             try {
-                IMSDK.mHandler.removeCallbacks(this.startHeartBeatTask);
-                IMSDK.mHandler.postDelayed(this.startHeartBeatTask, McastManagerImpl.mCastHeartBeatTime);
+                IMService.mHandler.removeCallbacks(this.startHeartBeatTask);
+                IMService.mHandler.postDelayed(this.startHeartBeatTask, McastManagerImpl.mCastHeartBeatTime);
             } catch (Exception e) {
                 LogUtils.e(McastManagerImpl.TAG, e.getMessage());
             }
         }
 
-        @Override // com.baidu.android.imsdk.mcast.McastManagerImpl.HeartbeatOpearation
+        @Override // com.baidu.android.imsdk.mcast.McastManagerImpl.HeartbeatOperation
         public void cancelHearbeat() {
             try {
-                IMSDK.mHandler.removeCallbacks(this.startHeartBeatTask);
+                IMService.mHandler.removeCallbacks(this.startHeartBeatTask);
             } catch (Exception e) {
                 LogUtils.e(McastManagerImpl.TAG, e.getMessage());
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class McastTodoAfterLogin implements TodoAfterLogin {
         McastTodoAfterLogin() {
         }

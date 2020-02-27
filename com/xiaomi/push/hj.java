@@ -3,21 +3,21 @@ package com.xiaomi.push;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class hj implements ir<hj, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hk> f462a;
+    public List<hk> f459a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f461a = new jh("ClientUploadData");
+    private static final jh f458a = new jh("ClientUploadData");
     private static final iz a = new iz("", (byte) 15, 1);
 
     public int a() {
-        if (this.f462a == null) {
+        if (this.f459a == null) {
             return 0;
         }
-        return this.f462a.size();
+        return this.f459a.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
     public int compareTo(hj hjVar) {
         int a2;
         if (getClass().equals(hjVar.getClass())) {
-            int compareTo = Boolean.valueOf(m328a()).compareTo(Boolean.valueOf(hjVar.m328a()));
+            int compareTo = Boolean.valueOf(m333a()).compareTo(Boolean.valueOf(hjVar.m333a()));
             if (compareTo == 0) {
-                if (!m328a() || (a2 = is.a(this.f462a, hjVar.f462a)) == 0) {
+                if (!m333a() || (a2 = is.a(this.f459a, hjVar.f459a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -39,47 +39,47 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m327a() {
-        if (this.f462a == null) {
+    public void m332a() {
+        if (this.f459a == null) {
             throw new jd("Required field 'uploadDataItems' was not present! Struct: " + toString());
         }
     }
 
     public void a(hk hkVar) {
-        if (this.f462a == null) {
-            this.f462a = new ArrayList();
+        if (this.f459a == null) {
+            this.f459a = new ArrayList();
         }
-        this.f462a.add(hkVar);
+        this.f459a.add(hkVar);
     }
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m467a();
+        jcVar.m472a();
         while (true) {
-            iz m463a = jcVar.m463a();
-            if (m463a.a == 0) {
+            iz m468a = jcVar.m468a();
+            if (m468a.a == 0) {
                 jcVar.f();
-                m327a();
+                m332a();
                 return;
             }
-            switch (m463a.f792a) {
+            switch (m468a.f789a) {
                 case 1:
-                    if (m463a.a == 15) {
-                        ja m464a = jcVar.m464a();
-                        this.f462a = new ArrayList(m464a.f795a);
-                        for (int i = 0; i < m464a.f795a; i++) {
+                    if (m468a.a == 15) {
+                        ja m469a = jcVar.m469a();
+                        this.f459a = new ArrayList(m469a.f792a);
+                        for (int i = 0; i < m469a.f792a; i++) {
                             hk hkVar = new hk();
                             hkVar.a(jcVar);
-                            this.f462a.add(hkVar);
+                            this.f459a.add(hkVar);
                         }
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m463a.a);
+                        jf.a(jcVar, m468a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m463a.a);
+                    jf.a(jcVar, m468a.a);
                     break;
             }
             jcVar.g();
@@ -87,40 +87,40 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m328a() {
-        return this.f462a != null;
+    public boolean m333a() {
+        return this.f459a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m329a(hj hjVar) {
+    public boolean m334a(hj hjVar) {
         if (hjVar == null) {
             return false;
         }
-        boolean m328a = m328a();
-        boolean m328a2 = hjVar.m328a();
-        return !(m328a || m328a2) || (m328a && m328a2 && this.f462a.equals(hjVar.f462a));
+        boolean m333a = m333a();
+        boolean m333a2 = hjVar.m333a();
+        return !(m333a || m333a2) || (m333a && m333a2 && this.f459a.equals(hjVar.f459a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m327a();
-        jcVar.a(f461a);
-        if (this.f462a != null) {
+        m332a();
+        jcVar.a(f458a);
+        if (this.f459a != null) {
             jcVar.a(a);
-            jcVar.a(new ja((byte) 12, this.f462a.size()));
-            for (hk hkVar : this.f462a) {
+            jcVar.a(new ja((byte) 12, this.f459a.size()));
+            for (hk hkVar : this.f459a) {
                 hkVar.b(jcVar);
             }
             jcVar.e();
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m471a();
+        jcVar.m476a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hj)) {
-            return m329a((hj) obj);
+            return m334a((hj) obj);
         }
         return false;
     }
@@ -132,10 +132,10 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("ClientUploadData(");
         sb.append("uploadDataItems:");
-        if (this.f462a == null) {
+        if (this.f459a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f462a);
+            sb.append(this.f459a);
         }
         sb.append(")");
         return sb.toString();

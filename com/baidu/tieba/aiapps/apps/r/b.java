@@ -6,11 +6,11 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.sofire.ac.FH;
 import com.baidu.swan.apps.w.b.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b implements m {
     @Override // com.baidu.swan.apps.w.b.m
-    public String cb(Context context) {
-        return !ProcessUtils.isMainProcess() ? db(context) : getZid(context);
+    public String cf(Context context) {
+        return !ProcessUtils.isMainProcess() ? df(context) : getZid(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public class b implements m {
         return FH.gzfi(context, null, 0, null);
     }
 
-    private String db(Context context) {
+    private String df(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, a.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }

@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CodecStringUtils {
     public static boolean equals(CharSequence charSequence, CharSequence charSequence2) {
         if (charSequence == charSequence2) {

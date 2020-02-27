@@ -12,7 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -20,16 +19,17 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.pay.PayConfig;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private BaseActivity aBW;
-    private TBLottieAnimationView eGm;
-    private PayConfig eGn;
+    private BaseActivity aGd;
+    private TBLottieAnimationView eKg;
+    private PayConfig eKh;
     private boolean isPaying;
     private b mCallback;
     private View mChannelLayout;
@@ -59,7 +59,7 @@ public class a {
     private static final int ds20 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds20);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void doFinish();
 
@@ -67,20 +67,20 @@ public class a {
     }
 
     public a(BaseActivity baseActivity, b bVar, PayConfig payConfig) {
-        this.aBW = baseActivity;
+        this.aGd = baseActivity;
         this.mContext = baseActivity.getPageContext().getPageActivity();
         this.mCallback = bVar;
-        this.eGn = payConfig;
+        this.eKh = payConfig;
         initView();
     }
 
     private void initView() {
-        if (this.aBW instanceof AlaSdkWalletOpaqueActivity) {
+        if (this.aGd instanceof AlaSdkWalletOpaqueActivity) {
             this.mRootView = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.h.sdk_wallet_pay_opaque_layout, (ViewGroup) null);
         } else {
             this.mRootView = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.h.sdk_wallet_pay_layout, (ViewGroup) null);
         }
-        this.aBW.setContentView(this.mRootView);
+        this.aGd.setContentView(this.mRootView);
         this.mTitle = (TextView) this.mRootView.findViewById(a.g.pay_channel_title);
         this.mChannelLayout = this.mRootView.findViewById(a.g.pay_channel_layout);
         this.mTopSpaceView = this.mRootView.findViewById(a.g.pay_channel_top_space_view);
@@ -130,11 +130,11 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (StringUtils.isNull(a.this.mChosenChannel) || "NaN".equals(a.this.mChosenChannel)) {
-                    a.this.aBW.showToast(a.i.sdk_pay_choose_one_channel_tip);
+                    a.this.aGd.showToast(a.i.sdk_pay_choose_one_channel_tip);
                     return;
                 }
-                a.this.eGm.setVisibility(0);
-                a.this.eGm.playAnimation();
+                a.this.eKg.setVisibility(0);
+                a.this.eKg.playAnimation();
                 a.this.updatePayBtnText(a.this.mContext.getString(a.i.sdk_pay_loading));
                 if (a.this.mCallback != null) {
                     a.this.mCallback.doPay(a.this.mChosenChannel);
@@ -142,25 +142,25 @@ public class a {
                 }
             }
         });
-        this.eGm = (TBLottieAnimationView) this.mRootView.findViewById(a.g.pay_channel_pay_anim_view);
-        this.eGm.setAnimation("sdk_wallet_pay_anim.json");
-        this.eGm.loop(true);
+        this.eKg = (TBLottieAnimationView) this.mRootView.findViewById(a.g.pay_channel_pay_anim_view);
+        this.eKg.setAnimation("sdk_wallet_pay_anim.json");
+        this.eKg.loop(true);
         onChangeSkinType();
     }
 
     private void refreshView() {
-        String format = String.format("%.2f", Float.valueOf(JavaTypesHelper.toFloat(this.eGn.getMoney(), 0.0f)));
+        String format = String.format("%.2f", Float.valueOf(JavaTypesHelper.toFloat(this.eKh.getMoney(), 0.0f)));
         this.mMoneyTv.setText("￥" + format);
-        if (this.eGn.getPayType() == 2) {
+        if (this.eKh.getPayType() == 2) {
             this.mGoodDesc.setVisibility(0);
             this.mGoodCount.setVisibility(0);
             this.mGoodDivider.setVisibility(0);
             Drawable drawable = this.mContext.getResources().getDrawable(a.f.sdk_icon_huobi_tdou);
             drawable.setBounds(0, 0, ds20, ds22);
             this.mGoodCount.setCompoundDrawables(drawable, null, null, null);
-            this.mGoodCount.setText(this.eGn.getTBeanNum() + "");
+            this.mGoodCount.setText(this.eKh.getTBeanNum() + "");
         }
-        this.mGoodName.setText(this.eGn.getTitle());
+        this.mGoodName.setText(this.eKh.getTitle());
         handleChannelListView();
         this.mPayBtnStr = String.format(this.mContext.getResources().getString(a.i.sdk_pay_total_pay_confirm_tip), format);
         updatePayBtnText(this.mPayBtnStr);
@@ -204,20 +204,20 @@ public class a {
 
     private void a(com.baidu.tieba.ala.live.a.a aVar) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.h.sdk_wallet_channel_item_view, (ViewGroup) null);
-        C0435a c0435a = new C0435a(inflate);
-        c0435a.b(aVar);
-        inflate.setTag(c0435a);
+        C0446a c0446a = new C0446a(inflate);
+        c0446a.b(aVar);
+        inflate.setTag(c0446a);
         this.mChannelList.addView(inflate, new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds120)));
         this.mShowedItemViewList.add(inflate);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshChannelListView() {
-        C0435a c0435a;
+        C0446a c0446a;
         if (!ListUtils.isEmpty(this.mShowedItemViewList)) {
             for (View view : this.mShowedItemViewList) {
-                if (view != null && (c0435a = (C0435a) view.getTag()) != null && !StringUtils.isNull(c0435a.curChannel)) {
-                    c0435a.updateSelectorIcon(c0435a.curChannel.equals(this.mChosenChannel));
+                if (view != null && (c0446a = (C0446a) view.getTag()) != null && !StringUtils.isNull(c0446a.curChannel)) {
+                    c0446a.updateSelectorIcon(c0446a.curChannel.equals(this.mChosenChannel));
                 }
             }
         }
@@ -270,12 +270,12 @@ public class a {
     }
 
     public void hideLoadingView() {
-        this.aBW.hideLoadingView(this.mContentLayout);
+        this.aGd.hideLoadingView(this.mContentLayout);
     }
 
     public void payResult(boolean z) {
-        this.eGm.cancelAnimation();
-        this.eGm.setVisibility(8);
+        this.eKg.cancelAnimation();
+        this.eKg.setVisibility(8);
         if (z) {
             updatePayBtnText(this.mContext.getString(a.i.sdk_pay_succ));
         } else {
@@ -284,10 +284,10 @@ public class a {
         this.isPaying = false;
     }
 
-    public void onChangeSkinType() {
+    private void onChangeSkinType() {
         SkinManager.setBackgroundColor(this.mRootView, a.d.sdk_black_alpha0);
         SkinManager.setImageResource(this.mCloseBtn, a.f.sdk_icon_wallet_close);
-        if (this.aBW instanceof AlaSdkWalletOpaqueActivity) {
+        if (this.aGd instanceof AlaSdkWalletOpaqueActivity) {
             SkinManager.setBackgroundResource(this.mChannelLayout, a.d.sdk_cp_bg_line_d);
         } else {
             SkinManager.setBackgroundResource(this.mChannelLayout, a.f.sdk_wallet_pay_content_bg);
@@ -305,10 +305,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.ala.live.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0435a {
+    /* loaded from: classes3.dex */
+    public class C0446a {
         public String curChannel;
-        public HeadImageView eGp;
+        public HeadImageView eKj;
         private boolean mChosen;
         public TextView promptTv;
         public View rootView;
@@ -316,13 +316,13 @@ public class a {
         public TextView tagTv;
         public TextView titleTv;
 
-        public C0435a(View view) {
+        public C0446a(View view) {
             this.rootView = view;
-            this.eGp = (HeadImageView) view.findViewById(a.g.channel_icon);
-            this.eGp.setIsRound(true);
-            this.eGp.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.eGp.setDefaultResource(a.d.sdk_cp_cont_e);
-            this.eGp.setAutoChangeStyle(false);
+            this.eKj = (HeadImageView) view.findViewById(a.g.channel_icon);
+            this.eKj.setIsRound(true);
+            this.eKj.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.eKj.setDefaultResource(a.d.sdk_cp_cont_e);
+            this.eKj.setAutoChangeStyle(false);
             this.titleTv = (TextView) view.findViewById(a.g.channel_title);
             this.promptTv = (TextView) view.findViewById(a.g.channel_prompt);
             this.tagTv = (TextView) view.findViewById(a.g.channel_tag);
@@ -339,7 +339,7 @@ public class a {
 
         public void b(com.baidu.tieba.ala.live.a.a aVar) {
             this.curChannel = aVar.channel;
-            this.eGp.startLoad(aVar.iconUrl, 10, false);
+            this.eKj.startLoad(aVar.iconUrl, 10, false);
             this.titleTv.setText(aVar.title);
             if (!StringUtils.isNull(aVar.prompt)) {
                 this.promptTv.setVisibility(0);
@@ -356,10 +356,10 @@ public class a {
             this.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!C0435a.this.mChosen && !a.this.isPaying) {
-                        C0435a.this.mChosen = !C0435a.this.mChosen;
-                        C0435a.this.updateSelectorIcon(C0435a.this.mChosen);
-                        a.this.mChosenChannel = C0435a.this.curChannel;
+                    if (!C0446a.this.mChosen && !a.this.isPaying) {
+                        C0446a.this.mChosen = !C0446a.this.mChosen;
+                        C0446a.this.updateSelectorIcon(C0446a.this.mChosen);
+                        a.this.mChosenChannel = C0446a.this.curChannel;
                         a.this.refreshChannelListView();
                     }
                 }

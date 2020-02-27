@@ -14,7 +14,7 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class StatService {
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = StatService.class.getSimpleName();

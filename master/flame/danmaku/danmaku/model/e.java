@@ -1,5 +1,5 @@
 package master.flame.danmaku.danmaku.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e extends d {
     public e(CharSequence charSequence) {
         master.flame.danmaku.danmaku.c.b.a(this, charSequence);
@@ -20,22 +20,22 @@ public class e extends d {
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dKy() {
+    public float dLL() {
         return 0.0f;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dKz() {
+    public float dLM() {
         return 0.0f;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dKA() {
+    public float dLN() {
         return 0.0f;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dKB() {
+    public float dLO() {
         return 0.0f;
     }
 

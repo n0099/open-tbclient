@@ -1,11 +1,13 @@
 package kotlin.coroutines.experimental;
 
 import kotlin.coroutines.experimental.d;
+import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public final class e implements d {
-    public static final e nBs = new e();
+    public static final e nBU = new e();
 
     private e() {
     }

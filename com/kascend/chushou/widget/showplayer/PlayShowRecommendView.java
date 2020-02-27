@@ -28,7 +28,7 @@ import tv.chushou.zues.utils.systemBar.b;
 import tv.chushou.zues.widget.a.c;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 import tv.chushou.zues.widget.fresco.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PlayShowRecommendView extends RelativeLayout implements View.OnClickListener {
     protected Context a;
     private ImageView d;
@@ -40,12 +40,12 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     private LinearLayout j;
     private LinearLayout k;
     private ArrayList<ListItem> n;
-    private FrescoThumbnailView naI;
-    private FrescoThumbnailView naN;
-    private a njD;
-    private RoomInfo njE;
+    private FrescoThumbnailView nbl;
+    private FrescoThumbnailView nbq;
+    private a nkg;
+    private RoomInfo nkh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(View view);
     }
@@ -64,8 +64,8 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
         this.a = context;
         int statusBarHeight = b.getStatusBarHeight(this.a);
         LayoutInflater.from(this.a).inflate(a.h.view_playshow_recommend, (ViewGroup) this, true);
-        this.naN = (FrescoThumbnailView) findViewById(a.f.iv_head);
-        this.naI = (FrescoThumbnailView) findViewById(a.f.iv_audio_all_bg);
+        this.nbq = (FrescoThumbnailView) findViewById(a.f.iv_head);
+        this.nbl = (FrescoThumbnailView) findViewById(a.f.iv_audio_all_bg);
         this.e = (TextView) findViewById(a.f.tv_nickname);
         this.f = (TextView) findViewById(a.f.tv_roomid);
         this.g = (TextView) findViewById(a.f.tv_fans_count);
@@ -88,20 +88,20 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     }
 
     public void a(RoomInfo roomInfo, a aVar) {
-        this.njE = roomInfo;
-        this.njD = aVar;
+        this.nkh = roomInfo;
+        this.nkg = aVar;
         this.i.setVisibility(8);
         this.j.removeAllViews();
         a(roomInfo.mRoomID);
         c cVar = new c();
         cVar.append(this.a.getString(a.i.str_userinfo_roomid)).append(":  ").append(roomInfo.mRoomID);
         this.f.setText(cVar);
-        this.naI.setBlur(true);
-        this.naI.i(roomInfo.mCreatorAvatar, a.e.ic_audio_bg, b.a.nXq, b.a.nXq);
-        this.naN.i(roomInfo.mCreatorAvatar, tv.chushou.widget.a.c.dOV(), b.a.small, b.a.small);
+        this.nbl.setBlur(true);
+        this.nbl.i(roomInfo.mCreatorAvatar, a.e.ic_audio_bg, b.a.nYe, b.a.nYe);
+        this.nbq.i(roomInfo.mCreatorAvatar, tv.chushou.widget.a.c.dQi(), b.a.small, b.a.small);
         c cVar2 = new c();
         cVar2.append(roomInfo.mCreatorNickname);
-        cVar2.append(HanziToPinyin.Token.SEPARATOR).a(this.a, tv.chushou.widget.a.c.SD(roomInfo.mCreatorGender), a.d.double_icon_size, a.d.double_icon_size);
+        cVar2.append(HanziToPinyin.Token.SEPARATOR).a(this.a, tv.chushou.widget.a.c.SO(roomInfo.mCreatorGender), a.d.double_icon_size, a.d.double_icon_size);
         this.e.setText(cVar2);
         c cVar3 = new c();
         cVar3.append(this.a.getString(a.i.follower_title)).append(":  ").append(tv.chushou.zues.utils.b.formatNumber(roomInfo.mFansCount));
@@ -143,7 +143,7 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
                 } else {
                     findViewById.setVisibility(8);
                 }
-                ((FrescoThumbnailView) inflate.findViewById(a.f.iv_thumb)).bV(listItem.mCover, a.e.def_recmd);
+                ((FrescoThumbnailView) inflate.findViewById(a.f.iv_thumb)).bU(listItem.mCover, a.e.def_recmd);
                 ((TextView) inflate.findViewById(a.f.tv_content)).setText(listItem.mName);
                 ((ItemTagView) inflate.findViewById(a.f.iv_tag)).a(listItem);
                 inflate.setTag(listItem);
@@ -156,7 +156,7 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
                             ListItem listItem2 = (ListItem) tag;
                             if (listItem2.mType != null && listItem2.mType.equals("1")) {
                                 o oVar = new o();
-                                oVar.mOj = listItem2;
+                                oVar.mOL = listItem2;
                                 oVar.b = "recommend";
                                 oVar.c = PlayShowRecommendView.this.a;
                                 oVar.g = listItem2.mLiveType;
@@ -172,8 +172,8 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     }
 
     private void a(String str) {
-        if (tv.chushou.zues.utils.a.dPa()) {
-            com.kascend.chushou.c.c.dAI().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.2
+        if (tv.chushou.zues.utils.a.dQn()) {
+            com.kascend.chushou.c.c.dBO().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -246,16 +246,16 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.f.tv_subscribe) {
-            if (this.njE != null) {
-                b(this.njE.mCreatorUID);
+            if (this.nkh != null) {
+                b(this.nkh.mCreatorUID);
             }
-        } else if (this.njD != null) {
-            this.njD.a(view);
+        } else if (this.nkg != null) {
+            this.nkg.a(view);
         }
     }
 
     private void b(String str) {
-        com.kascend.chushou.c.c.dAI().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.3
+        com.kascend.chushou.c.c.dBO().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.3
             @Override // com.kascend.chushou.c.b
             public void a() {
             }

@@ -2,12 +2,12 @@ package com.baidu.tieba.live.tbean.view;
 
 import android.view.View;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tieba.b.a;
+import com.baidu.live.u.a;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GiftBagItemView extends a<GiftBagWrapperData> {
     private TbImageView mGiftBagPic;
 

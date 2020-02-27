@@ -3,9 +3,9 @@ package com.google.android.exoplayer2.extractor.c;
 import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class i {
-    private static final int[] mjQ = {v.Qr("isom"), v.Qr("iso2"), v.Qr("iso3"), v.Qr("iso4"), v.Qr("iso5"), v.Qr("iso6"), v.Qr(VisualSampleEntry.TYPE3), v.Qr("hvc1"), v.Qr("hev1"), v.Qr("mp41"), v.Qr("mp42"), v.Qr("3g2a"), v.Qr("3g2b"), v.Qr("3gr6"), v.Qr("3gs6"), v.Qr("3ge6"), v.Qr("3gg6"), v.Qr("M4V "), v.Qr("M4A "), v.Qr("f4v "), v.Qr("kddi"), v.Qr("M4VP"), v.Qr("qt  "), v.Qr("MSNV")};
+    private static final int[] mkw = {v.QE("isom"), v.QE("iso2"), v.QE("iso3"), v.QE("iso4"), v.QE("iso5"), v.QE("iso6"), v.QE(VisualSampleEntry.TYPE3), v.QE("hvc1"), v.QE("hev1"), v.QE("mp41"), v.QE("mp42"), v.QE("3g2a"), v.QE("3g2b"), v.QE("3gr6"), v.QE("3gs6"), v.QE("3ge6"), v.QE("3gg6"), v.QE("M4V "), v.QE("M4A "), v.QE("f4v "), v.QE("kddi"), v.QE("M4VP"), v.QE("qt  "), v.QE("MSNV")};
 
     public static boolean r(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         return b(fVar, true);
@@ -25,14 +25,14 @@ final class i {
         while (i2 < i) {
             int i3 = 8;
             lVar.reset(8);
-            fVar.o(lVar.data, 0, 8);
+            fVar.s(lVar.data, 0, 8);
             long readUnsignedInt = lVar.readUnsignedInt();
             int readInt = lVar.readInt();
             if (readUnsignedInt == 1) {
                 i3 = 16;
-                fVar.o(lVar.data, 8, 8);
+                fVar.s(lVar.data, 8, 8);
                 lVar.setLimit(16);
-                readUnsignedInt = lVar.dyu();
+                readUnsignedInt = lVar.dzE();
             } else if (readUnsignedInt == 0) {
                 long length2 = fVar.getLength();
                 if (length2 != -1) {
@@ -43,8 +43,8 @@ final class i {
                 return false;
             }
             i2 += i3;
-            if (readInt != a.mgL) {
-                if (readInt == a.mgU || readInt == a.mgW) {
+            if (readInt != a.mhr) {
+                if (readInt == a.mhA || readInt == a.mhC) {
                     z3 = true;
                     break;
                 } else if ((i2 + readUnsignedInt) - i3 >= i) {
@@ -52,12 +52,12 @@ final class i {
                 } else {
                     int i4 = (int) (readUnsignedInt - i3);
                     int i5 = i2 + i4;
-                    if (readInt == a.mgk) {
+                    if (readInt == a.mgQ) {
                         if (i4 < 8) {
                             return false;
                         }
                         lVar.reset(i4);
-                        fVar.o(lVar.data, 0, i4);
+                        fVar.s(lVar.data, 0, i4);
                         int i6 = i4 / 4;
                         int i7 = 0;
                         while (true) {
@@ -66,7 +66,7 @@ final class i {
                             }
                             if (i7 == 1) {
                                 lVar.skipBytes(4);
-                            } else if (JK(lVar.readInt())) {
+                            } else if (JP(lVar.readInt())) {
                                 z2 = true;
                                 break;
                             }
@@ -76,7 +76,7 @@ final class i {
                             return false;
                         }
                     } else if (i4 != 0) {
-                        fVar.Jr(i4);
+                        fVar.Jw(i4);
                     }
                     i2 = i5;
                 }
@@ -85,11 +85,11 @@ final class i {
         return z2 && z == z3;
     }
 
-    private static boolean JK(int i) {
-        if ((i >>> 8) == v.Qr("3gp")) {
+    private static boolean JP(int i) {
+        if ((i >>> 8) == v.QE("3gp")) {
             return true;
         }
-        for (int i2 : mjQ) {
+        for (int i2 : mkw) {
             if (i2 == i) {
                 return true;
             }

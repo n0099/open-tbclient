@@ -1,22 +1,22 @@
 package bolts;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class h<TResult> {
-    private final g<TResult> dE = new g<>();
+    private final g<TResult> dF = new g<>();
 
     public g<TResult> bb() {
-        return this.dE;
+        return this.dF;
     }
 
     public boolean ba() {
-        return this.dE.ba();
+        return this.dF.ba();
     }
 
     public boolean k(TResult tresult) {
-        return this.dE.k(tresult);
+        return this.dF.k(tresult);
     }
 
     public boolean f(Exception exc) {
-        return this.dE.f(exc);
+        return this.dF.f(exc);
     }
 
     public void bc() {

@@ -6,18 +6,18 @@ import android.os.SystemClock;
 import android.util.Printer;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class l implements Printer {
-    private final Context Pl;
-    private i Py;
-    private long Pw = 0;
-    private long Px = 0;
-    private boolean Pz = false;
+    private final Context QU;
+    private i Ri;
+    private long Rg = 0;
+    private long Rh = 0;
+    private boolean Rj = false;
 
     public l(i iVar, Context context) {
-        this.Py = null;
-        this.Py = iVar;
-        this.Pl = context;
+        this.Ri = null;
+        this.Ri = iVar;
+        this.QU = context;
     }
 
     @Override // android.util.Printer
@@ -25,24 +25,24 @@ final class l implements Printer {
         if (Debug.isDebuggerConnected()) {
             return;
         }
-        if (!this.Pz) {
-            this.Pw = System.currentTimeMillis();
-            this.Px = SystemClock.currentThreadTimeMillis();
-            this.Pz = true;
-            if (c.aq(this.Pl).Pj != null) {
-                c.aq(this.Pl).Pj.start();
+        if (!this.Rj) {
+            this.Rg = System.currentTimeMillis();
+            this.Rh = SystemClock.currentThreadTimeMillis();
+            this.Rj = true;
+            if (c.as(this.QU).QS != null) {
+                c.as(this.QU).QS.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        this.Pz = false;
-        if (currentTimeMillis - this.Pw >= ((long) a.U)) {
-            com.baidu.crabsdk.c.a.cb("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Pw + ETAG.EQUAL + (currentTimeMillis - this.Pw) + " >= " + a.U);
-            j.nw().post(new m(this, this.Pw, currentTimeMillis, this.Px, SystemClock.currentThreadTimeMillis()));
+        this.Rj = false;
+        if (currentTimeMillis - this.Rg >= ((long) a.U)) {
+            com.baidu.crabsdk.c.a.cj("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Rg + ETAG.EQUAL + (currentTimeMillis - this.Rg) + " >= " + a.U);
+            j.oe().post(new m(this, this.Rg, currentTimeMillis, this.Rh, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.aq(this.Pl).Pj != null) {
-            c.aq(this.Pl).Pj.stop();
+        if (c.as(this.QU).QS != null) {
+            c.as(this.QU).QS.stop();
         }
     }
 }

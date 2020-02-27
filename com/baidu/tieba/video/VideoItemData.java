@@ -2,10 +2,13 @@ package com.baidu.tieba.video;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.bj;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -21,7 +24,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Dm */
+        /* renamed from: Ds */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -34,6 +37,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public BaijiahaoData baijiahaoData;
     public String comment_num;
     public int discoverType;
+    public boolean forbidComment;
     public String forum_id;
     public String forum_name;
     public boolean isBjhVideo;
@@ -49,6 +53,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public String mRecomWeight;
     private long mVideoWatchDuration;
     public String mark_id;
+    public String noCommetStr;
     public int play_count;
     public String post_id;
     public String share_num;
@@ -67,6 +72,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
 
     public VideoItemData() {
         this.isBjhVideo = false;
+        this.forbidComment = false;
         this.discoverType = 0;
         this.isTitleExpanded = false;
     }
@@ -89,43 +95,88 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public VideoItemData buildWithThreadData(bj bjVar) {
         if (bjVar != null) {
             this.thread_id = bjVar.getTid();
-            this.post_id = bjVar.azH();
-            if (bjVar.aAo() != null) {
-                this.thumbnail_url = bjVar.aAo().thumbnail_url;
-                this.video_url = bjVar.aAo().video_url;
-                this.video_height = String.valueOf(bjVar.aAo().video_height);
-                this.video_width = String.valueOf(bjVar.aAo().video_width);
-                this.mMd5 = bjVar.aAo().video_md5;
-                this.video_duration = bjVar.aAo().video_duration.intValue();
-                this.play_count = bjVar.aAo().play_count.intValue();
-                this.isVerticalVideo = bjVar.aAo().is_vertical.intValue();
+            this.post_id = bjVar.aBW();
+            if (bjVar.aCD() != null) {
+                this.thumbnail_url = bjVar.aCD().thumbnail_url;
+                this.video_url = bjVar.aCD().video_url;
+                this.video_height = String.valueOf(bjVar.aCD().video_height);
+                this.video_width = String.valueOf(bjVar.aCD().video_width);
+                this.mMd5 = bjVar.aCD().video_md5;
+                this.video_duration = bjVar.aCD().video_duration.intValue();
+                this.play_count = bjVar.aCD().play_count.intValue();
+                this.isVerticalVideo = bjVar.aCD().is_vertical.intValue();
             }
-            this.comment_num = String.valueOf(bjVar.azO());
-            this.agree_num = String.valueOf(bjVar.aBs());
-            this.share_num = String.valueOf(bjVar.aBw());
+            this.comment_num = String.valueOf(bjVar.aCd());
+            this.agree_num = String.valueOf(bjVar.aDF());
+            this.share_num = String.valueOf(bjVar.aDJ());
             this.title = bjVar.getTitle();
             this.forum_id = String.valueOf(bjVar.getFid());
             this.baijiahaoData = bjVar.getBaijiahaoData();
-            this.forum_name = bjVar.aAc();
-            this.is_agreed = String.valueOf(bjVar.aBu());
-            if (bjVar.azX() != null) {
+            this.forum_name = bjVar.aCr();
+            this.is_agreed = String.valueOf(bjVar.aDH());
+            if (bjVar.aCm() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bjVar.azX().getUserName();
-                userItemData.name_show = bjVar.azX().getName_show();
-                userItemData.portrait = bjVar.azX().getPortrait();
-                userItemData.user_id = bjVar.azX().getUserId();
-                userItemData.is_follow = bjVar.azX().hadConcerned() ? "1" : "0";
-                if (bjVar.azX().getBaijiahaoInfo() != null) {
-                    userItemData.bjhAvatar = bjVar.azX().getBaijiahaoInfo().avatar;
+                userItemData.user_name = bjVar.aCm().getUserName();
+                userItemData.name_show = bjVar.aCm().getName_show();
+                userItemData.portrait = bjVar.aCm().getPortrait();
+                userItemData.user_id = bjVar.aCm().getUserId();
+                userItemData.is_follow = bjVar.aCm().hadConcerned() ? "1" : "0";
+                if (bjVar.aCm().getBaijiahaoInfo() != null) {
+                    userItemData.bjhAvatar = bjVar.aCm().getBaijiahaoInfo().avatar;
                 }
                 this.author_info = userItemData;
             }
-            this.act_info = bjVar.aAS();
+            this.act_info = bjVar.aAY();
             this.mRecomAbTag = bjVar.mRecomAbTag;
             this.mRecomSource = bjVar.mRecomSource;
             this.mRecomWeight = bjVar.mRecomWeight;
             this.mRecomExtra = bjVar.mRecomExtra;
-            this.isBjhVideo = bjVar.aBV();
+            this.isBjhVideo = bjVar.aEg();
+            this.forbidComment = bjVar.forbidComment;
+            this.noCommetStr = bjVar.noCommetStr;
+        }
+        return this;
+    }
+
+    public VideoItemData buildWithOriginThreadData(OriginalThreadInfo originalThreadInfo) {
+        if (originalThreadInfo != null) {
+            this.thread_id = originalThreadInfo.threadId;
+            this.post_id = originalThreadInfo.postId;
+            if (originalThreadInfo.videoInfo != null) {
+                this.thumbnail_url = originalThreadInfo.videoInfo.thumbnail_url;
+                this.video_url = originalThreadInfo.videoInfo.video_url;
+                this.video_height = String.valueOf(originalThreadInfo.videoInfo.video_height);
+                this.video_width = String.valueOf(originalThreadInfo.videoInfo.video_width);
+                this.mMd5 = originalThreadInfo.videoInfo.video_md5;
+                this.video_duration = originalThreadInfo.videoInfo.video_duration.intValue();
+                this.play_count = originalThreadInfo.videoInfo.play_count.intValue();
+                this.isVerticalVideo = originalThreadInfo.videoInfo.is_vertical.intValue();
+            }
+            this.comment_num = String.valueOf(originalThreadInfo.reply_num);
+            this.agree_num = String.valueOf(originalThreadInfo.agree.agree_num);
+            this.share_num = String.valueOf(originalThreadInfo.shared_num);
+            this.title = originalThreadInfo.title;
+            if (TextUtils.isEmpty(this.title)) {
+                this.title = originalThreadInfo.showText;
+            }
+            this.forum_id = String.valueOf(originalThreadInfo.forumId);
+            this.baijiahaoData = originalThreadInfo.oriUgcInfo;
+            this.forum_name = originalThreadInfo.forumName;
+            this.is_agreed = String.valueOf(originalThreadInfo.agree.has_agree);
+            if (originalThreadInfo.author != null) {
+                UserItemData userItemData = new UserItemData();
+                userItemData.user_name = originalThreadInfo.author.name;
+                userItemData.name_show = originalThreadInfo.author.name_show;
+                userItemData.portrait = originalThreadInfo.author.portrait;
+                userItemData.user_id = String.valueOf(originalThreadInfo.author.id);
+                userItemData.is_follow = String.valueOf(originalThreadInfo.author.has_concerned);
+                if (originalThreadInfo.author.baijiahao_info != null) {
+                    userItemData.bjhAvatar = originalThreadInfo.author.baijiahao_info.avatar;
+                }
+                this.author_info = userItemData;
+            }
+            this.act_info = originalThreadInfo.aAY();
+            this.isBjhVideo = originalThreadInfo.aBc();
         }
         return this;
     }
@@ -164,7 +215,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
                     }
                     this.author_info = userItemData;
                 }
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("baijiahao");
+                JSONObject optJSONObject4 = jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME);
                 if (optJSONObject4 != null) {
                     this.baijiahaoData = new BaijiahaoData();
                     this.baijiahaoData.parseJson(optJSONObject4);
@@ -173,6 +224,8 @@ public class VideoItemData implements Parcelable, b, Serializable {
                 this.mRecomSource = jSONObject.optString("source");
                 this.mRecomWeight = jSONObject.optString(TableDefine.SessionColumns.COLUMN_WEIGHT);
                 this.mRecomExtra = jSONObject.optString("extra");
+                this.forbidComment = jSONObject.optInt("if_comment", 0) == 1;
+                this.noCommetStr = jSONObject.optString("if_comment_info");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -225,6 +278,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
 
     protected VideoItemData(Parcel parcel) {
         this.isBjhVideo = false;
+        this.forbidComment = false;
         this.discoverType = 0;
         this.isTitleExpanded = false;
         this.forum_id = parcel.readString();

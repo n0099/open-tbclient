@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class n {
     public static final Charset a = Charset.forName("UTF-8");
 

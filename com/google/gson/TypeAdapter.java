@@ -10,7 +10,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class TypeAdapter<T> {
     public abstract T read(a aVar) throws IOException;
 
@@ -25,7 +25,7 @@ public abstract class TypeAdapter<T> {
             @Override // com.google.gson.TypeAdapter
             public void write(b bVar, T t) throws IOException {
                 if (t == null) {
-                    bVar.dAa();
+                    bVar.dBg();
                 } else {
                     TypeAdapter.this.write(bVar, t);
                 }
@@ -33,8 +33,8 @@ public abstract class TypeAdapter<T> {
 
             @Override // com.google.gson.TypeAdapter
             public T read(a aVar) throws IOException {
-                if (aVar.dzL() == JsonToken.NULL) {
-                    aVar.dzQ();
+                if (aVar.dAR() == JsonToken.NULL) {
+                    aVar.dAW();
                     return null;
                 }
                 return (T) TypeAdapter.this.read(aVar);
@@ -56,7 +56,7 @@ public abstract class TypeAdapter<T> {
         try {
             f fVar = new f();
             write(fVar, t);
-            return fVar.dzU();
+            return fVar.dBa();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }

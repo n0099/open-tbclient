@@ -40,7 +40,7 @@ import java.util.TreeSet;
 import javax.net.ssl.SSLException;
 import javax.security.cert.CertificateException;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AsyncHttpRequest implements Runnable {
     private static final boolean DEBUG = false;
     private static final String TAG = "AsyncHttpRequest";
@@ -531,7 +531,7 @@ public class AsyncHttpRequest implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class HandlerRedirectException extends RuntimeException {
         private static final long serialVersionUID = -4422626752285372402L;
 
@@ -541,7 +541,7 @@ public class AsyncHttpRequest implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class HandlerCdnRedirectException extends RuntimeException {
         private static final long serialVersionUID = -5562528406378234456L;
 

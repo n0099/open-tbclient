@@ -8,7 +8,7 @@ import java.util.List;
 import tbclient.HotForum.ForumInfo;
 import tbclient.HotForum.HotForumResIdl;
 import tbclient.HotForum.HotTopicList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     private List<b> mForumInfoList;
     private HotSearchInfoData mHotSearchInfo;

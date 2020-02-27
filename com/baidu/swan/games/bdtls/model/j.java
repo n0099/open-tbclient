@@ -4,18 +4,19 @@ import android.util.Log;
 import java.util.Arrays;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
-/* loaded from: classes10.dex */
+@kotlin.h
+/* loaded from: classes11.dex */
 public final class j {
-    private long aeo;
-    private int chb;
-    private volatile int chc;
-    private Integer chd;
-    private Integer che;
-    private Integer chf;
-    private Integer chg;
-    private byte[] chh;
-    private byte[] chi;
-    private byte[] chj;
+    private long agv;
+    private int clf;
+    private volatile int clg;
+    private Integer clh;
+    private Integer cli;
+    private Integer clj;
+    private Integer clk;
+    private byte[] cll;
+    private byte[] clm;
+    private byte[] cln;
 
     public j() {
         this(null, null, null, null, null, null, 0L, null, 255, null);
@@ -27,10 +28,10 @@ public final class j {
                 return false;
             }
             j jVar = (j) obj;
-            if (!q.h(this.chd, jVar.chd) || !q.h(this.che, jVar.che) || !q.h(this.chf, jVar.chf) || !q.h(this.chg, jVar.chg) || !q.h(this.chh, jVar.chh) || !q.h(this.chi, jVar.chi)) {
+            if (!q.h(this.clh, jVar.clh) || !q.h(this.cli, jVar.cli) || !q.h(this.clj, jVar.clj) || !q.h(this.clk, jVar.clk) || !q.h(this.cll, jVar.cll) || !q.h(this.clm, jVar.clm)) {
                 return false;
             }
-            if (!(this.aeo == jVar.aeo) || !q.h(this.chj, jVar.chj)) {
+            if (!(this.agv == jVar.agv) || !q.h(this.cln, jVar.cln)) {
                 return false;
             }
         }
@@ -38,126 +39,126 @@ public final class j {
     }
 
     public int hashCode() {
-        Integer num = this.chd;
+        Integer num = this.clh;
         int hashCode = (num != null ? num.hashCode() : 0) * 31;
-        Integer num2 = this.che;
+        Integer num2 = this.cli;
         int hashCode2 = ((num2 != null ? num2.hashCode() : 0) + hashCode) * 31;
-        Integer num3 = this.chf;
+        Integer num3 = this.clj;
         int hashCode3 = ((num3 != null ? num3.hashCode() : 0) + hashCode2) * 31;
-        Integer num4 = this.chg;
+        Integer num4 = this.clk;
         int hashCode4 = ((num4 != null ? num4.hashCode() : 0) + hashCode3) * 31;
-        byte[] bArr = this.chh;
+        byte[] bArr = this.cll;
         int hashCode5 = ((bArr != null ? Arrays.hashCode(bArr) : 0) + hashCode4) * 31;
-        byte[] bArr2 = this.chi;
+        byte[] bArr2 = this.clm;
         int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-        long j = this.aeo;
+        long j = this.agv;
         int i = (((hashCode6 + hashCode5) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
-        byte[] bArr3 = this.chj;
+        byte[] bArr3 = this.cln;
         return i + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
     }
 
     public String toString() {
-        return "SessionParams(dhGroupId=" + this.chd + ", dhSecretKey=" + this.che + ", dhPublicKey=" + this.chf + ", dhServerPublicKey=" + this.chg + ", aesSecretKey=" + Arrays.toString(this.chh) + ", sessionTicket=" + Arrays.toString(this.chi) + ", expireTime=" + this.aeo + ", entryType=" + Arrays.toString(this.chj) + ")";
+        return "SessionParams(dhGroupId=" + this.clh + ", dhSecretKey=" + this.cli + ", dhPublicKey=" + this.clj + ", dhServerPublicKey=" + this.clk + ", aesSecretKey=" + Arrays.toString(this.cll) + ", sessionTicket=" + Arrays.toString(this.clm) + ", expireTime=" + this.agv + ", entryType=" + Arrays.toString(this.cln) + ")";
     }
 
     public j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3) {
-        this.chd = num;
-        this.che = num2;
-        this.chf = num3;
-        this.chg = num4;
-        this.chh = bArr;
-        this.chi = bArr2;
-        this.aeo = j;
-        this.chj = bArr3;
+        this.clh = num;
+        this.cli = num2;
+        this.clj = num3;
+        this.clk = num4;
+        this.cll = bArr;
+        this.clm = bArr2;
+        this.agv = j;
+        this.cln = bArr3;
     }
 
     public /* synthetic */ j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3, int i, o oVar) {
         this((i & 1) != 0 ? null : num, (i & 2) != 0 ? null : num2, (i & 4) != 0 ? null : num3, (i & 8) != 0 ? null : num4, (i & 16) != 0 ? null : bArr, (i & 32) != 0 ? null : bArr2, (i & 64) != 0 ? 0L : j, (i & 128) != 0 ? null : bArr3);
     }
 
-    public final Integer akx() {
-        return this.chd;
+    public final Integer amL() {
+        return this.clh;
     }
 
     public final void c(Integer num) {
-        this.chd = num;
+        this.clh = num;
     }
 
-    public final Integer aky() {
-        return this.che;
+    public final Integer amM() {
+        return this.cli;
     }
 
     public final void d(Integer num) {
-        this.che = num;
+        this.cli = num;
     }
 
-    public final Integer akz() {
-        return this.chf;
+    public final Integer amN() {
+        return this.clj;
     }
 
     public final void e(Integer num) {
-        this.chf = num;
+        this.clj = num;
     }
 
-    public final Integer akA() {
-        return this.chg;
+    public final Integer amO() {
+        return this.clk;
     }
 
     public final void f(Integer num) {
-        this.chg = num;
+        this.clk = num;
     }
 
-    public final void D(byte[] bArr) {
-        this.chh = bArr;
+    public final void I(byte[] bArr) {
+        this.cll = bArr;
     }
 
-    public final byte[] akB() {
-        return this.chh;
+    public final byte[] amP() {
+        return this.cll;
     }
 
-    public final void E(byte[] bArr) {
-        this.chi = bArr;
+    public final void J(byte[] bArr) {
+        this.clm = bArr;
     }
 
-    public final byte[] akC() {
-        return this.chi;
+    public final byte[] amQ() {
+        return this.clm;
     }
 
     public final void g(long j) {
-        this.aeo = j;
+        this.agv = j;
     }
 
-    public final void F(byte[] bArr) {
-        this.chj = bArr;
+    public final void K(byte[] bArr) {
+        this.cln = bArr;
     }
 
-    public final int akt() {
-        return this.chb;
+    public final int amH() {
+        return this.clf;
     }
 
-    public final void hw(int i) {
-        this.chb = i;
+    public final void hN(int i) {
+        this.clf = i;
     }
 
-    public final void aku() {
-        this.chc++;
+    public final void amI() {
+        this.clg++;
     }
 
-    public final synchronized boolean akv() {
+    public final synchronized boolean amJ() {
         boolean z = true;
         synchronized (this) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.chh == null || this.chi == null || this.aeo <= currentTimeMillis || this.chb != 1) {
+            if (this.cll == null || this.clm == null || this.agv <= currentTimeMillis || this.clf != 1) {
                 z = false;
             }
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                Log.d("BDTLS", "isSessionEnable " + this.chh + ' ' + this.chi + ' ' + this.aeo + ' ' + this.chb);
+                Log.d("BDTLS", "isSessionEnable " + this.cll + ' ' + this.clm + ' ' + this.agv + ' ' + this.clf);
             }
         }
         return z;
     }
 
-    public final boolean akw() {
-        return this.chc < 3;
+    public final boolean amK() {
+        return this.clg < 3;
     }
 }

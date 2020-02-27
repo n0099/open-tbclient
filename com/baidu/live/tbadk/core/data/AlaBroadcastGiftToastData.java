@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.data;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaBroadcastGiftToastData extends BaseData {
     public static final int BROAD_TYPE_REDPACKET = 3;
     public static final int BROAD_TYPE_TURNTABLE_GIFT = 4;

@@ -1,7 +1,7 @@
 package android.support.v4.view.animation;
 
 import android.view.animation.Interpolator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 abstract class LookupTableInterpolator implements Interpolator {
     private final float mStepSize;
     private final float[] mValues;

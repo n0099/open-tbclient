@@ -1,5 +1,5 @@
 package android.support.v7.util;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ListUpdateCallback {
     void onChanged(int i, int i2, Object obj);
 

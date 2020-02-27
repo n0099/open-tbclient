@@ -9,25 +9,25 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private String[] bsB;
+    private String[] bwL;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, @NonNull String[] strArr) {
         this.mContext = context;
-        this.bsB = strArr;
+        this.bwL = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.bsB.length;
+        return this.bwL.length;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bsB[i];
+        return this.bwL[i];
     }
 
     @Override // android.widget.Adapter
@@ -43,15 +43,15 @@ public class a extends BaseAdapter {
         if (view == null) {
             if (i == 11) {
                 View inflate = View.inflate(this.mContext, a.g.aiapps_keyboard_img_item, null);
-                bVar = new C0265a();
-                ((C0265a) bVar).bsC = (ImageView) inflate.findViewById(a.f.delete_key_img_view);
+                bVar = new C0275a();
+                ((C0275a) bVar).bwM = (ImageView) inflate.findViewById(a.f.delete_key_img_view);
                 view2 = inflate;
             } else {
                 View inflate2 = View.inflate(this.mContext, a.g.aiapps_keyboard_text_item, null);
                 bVar = new b();
-                ((b) bVar).bsD = (TextView) inflate2.findViewById(a.f.key_text_view);
+                ((b) bVar).bwN = (TextView) inflate2.findViewById(a.f.key_text_view);
                 if (i == 9) {
-                    if (TextUtils.isEmpty(this.bsB[9])) {
+                    if (TextUtils.isEmpty(this.bwL[9])) {
                         inflate2.setBackgroundColor(this.mContext.getResources().getColor(a.c.aiapps_keyboard_non_number_item_background_normal));
                         view2 = inflate2;
                     } else {
@@ -67,25 +67,25 @@ public class a extends BaseAdapter {
             tag = view.getTag();
         }
         if (i != 11 && (tag instanceof b)) {
-            ((b) tag).bsD.setText(this.bsB[i]);
+            ((b) tag).bwN.setText(this.bwL[i]);
         }
         return view;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static final class b {
-        private TextView bsD;
+        private TextView bwN;
 
         private b() {
         }
     }
 
     /* renamed from: com.baidu.swan.apps.r.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private static final class C0265a {
-        private ImageView bsC;
+    /* loaded from: classes11.dex */
+    private static final class C0275a {
+        private ImageView bwM;
 
-        private C0265a() {
+        private C0275a() {
         }
     }
 }

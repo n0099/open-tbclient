@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String ftl;
-    private int ftn;
-    private int fto;
-    private int ftp;
-    private int ftq;
-    private String ftr;
-    private String fts;
-    private String ftt;
+    private String fvN;
+    private int fvP;
+    private int fvQ;
+    private int fvR;
+    private int fvS;
+    private String fvT;
+    private String fvU;
+    private String fvV;
     private int height;
     private String mark_name;
     private String mark_pic;
@@ -30,22 +30,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> ftu = new ArrayList();
+    private List<d> fvW = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.fto = jSONObject.optInt("mark_id");
+        this.fvQ = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.ftq = jSONObject.optInt("wear_status");
+        this.fvS = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.ftp = jSONObject.optInt("mark_rank");
+        this.fvR = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt(TableDefine.SessionColumns.COLUMN_WEIGHT);
-        this.fts = jSONObject.optString("next_level_diff");
-        this.ftr = jSONObject.optString("mark_dir_level");
-        this.ftt = jSONObject.optString("expire_text");
+        this.fvU = jSONObject.optString("next_level_diff");
+        this.fvT = jSONObject.optString("mark_dir_level");
+        this.fvV = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -53,7 +53,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.ftu.add(dVar);
+                this.fvW.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -70,70 +70,70 @@ public class b {
         }
     }
 
-    public List<d> bqI() {
-        if (this.ftu == null) {
-            this.ftu = new ArrayList();
+    public List<d> bsm() {
+        if (this.fvW == null) {
+            this.fvW = new ArrayList();
         }
-        return this.ftu;
+        return this.fvW;
     }
 
-    public boolean bqJ() {
-        return this.ftn == 1;
+    public boolean bsn() {
+        return this.fvP == 1;
     }
 
-    public void qH(int i) {
-        this.ftn = i;
+    public void qO(int i) {
+        this.fvP = i;
     }
 
-    public String bqH() {
-        return this.ftl;
+    public String bsl() {
+        return this.fvN;
     }
 
-    public void zn(String str) {
-        this.ftl = str;
+    public void zE(String str) {
+        this.fvN = str;
     }
 
-    public int bqK() {
-        return this.fto;
+    public int bso() {
+        return this.fvQ;
     }
 
-    public String bqL() {
+    public String bsp() {
         return this.mark_name;
     }
 
-    public String bqM() {
+    public String bsq() {
         return this.mark_pic;
     }
 
-    public int bqN() {
-        return this.ftq;
+    public int bsr() {
+        return this.fvS;
     }
 
-    public void qI(int i) {
-        this.ftq = i;
+    public void qP(int i) {
+        this.fvS = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public String bqO() {
-        return this.fts;
+    public String bss() {
+        return this.fvU;
     }
 
-    public int bqP() {
-        return this.ftp;
+    public int bst() {
+        return this.fvR;
     }
 
-    public String bqQ() {
-        return this.ftt;
+    public String bsu() {
+        return this.fvV;
     }
 
-    public boolean bqR() {
+    public boolean bsv() {
         return this.type == 10;
     }
 
-    public boolean bqS() {
+    public boolean bsw() {
         return this.type == 9;
     }
 }

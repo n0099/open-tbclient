@@ -1,5 +1,5 @@
 package org.java_websocket.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface h extends f {
-    String dMq();
+    String dND();
 }

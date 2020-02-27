@@ -1,7 +1,8 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public abstract class l implements Iterator<Boolean> {
     public abstract boolean nextBoolean();
 
@@ -12,7 +13,7 @@ public abstract class l implements Iterator<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dIR */
+    /* renamed from: dJY */
     public final Boolean next() {
         return Boolean.valueOf(nextBoolean());
     }

@@ -1,25 +1,25 @@
 package com.baidu.tieba.ala.liveroom.challenge.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends HttpMessage {
-    private long ash;
-    private long eKV;
-    private long eQx;
-    private int eQy;
-    private int eQz;
+    private long awr;
+    private long eOU;
+    private long eUo;
+    private int eUp;
+    private int eUq;
 
     public a(long j, int i, long j2, long j3, int i2) {
         super(1021112);
-        this.eQx = j;
-        this.eQy = i;
-        this.ash = j2;
-        this.eKV = j3;
-        this.eQz = i2;
-        addParam("challenge_id", this.eQx);
-        addParam("avts_conn", this.eQy);
-        addParam("live_id", this.ash);
-        addParam("anchor_id", this.eKV);
-        addParam("avts_fail", this.eQz);
+        this.eUo = j;
+        this.eUp = i;
+        this.awr = j2;
+        this.eOU = j3;
+        this.eUq = i2;
+        addParam("challenge_id", this.eUo);
+        addParam("avts_conn", this.eUp);
+        addParam("live_id", this.awr);
+        addParam("anchor_id", this.eOU);
+        addParam("avts_fail", this.eUq);
     }
 }

@@ -11,7 +11,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f extends c<PushSwitchStatus> {
     boolean a;
     private String b;

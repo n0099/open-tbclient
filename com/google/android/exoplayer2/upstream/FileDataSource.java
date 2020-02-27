@@ -4,15 +4,15 @@ import android.net.Uri;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FileDataSource implements e {
     private long bytesRemaining;
     private RandomAccessFile file;
-    private final q<? super FileDataSource> mFa;
-    private boolean mFb;
+    private final q<? super FileDataSource> mFH;
+    private boolean mFI;
     private Uri uri;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class FileDataSourceException extends IOException {
         public FileDataSourceException(IOException iOException) {
             super(iOException);
@@ -24,7 +24,7 @@ public final class FileDataSource implements e {
     }
 
     public FileDataSource(q<? super FileDataSource> qVar) {
-        this.mFa = qVar;
+        this.mFH = qVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
@@ -32,14 +32,14 @@ public final class FileDataSource implements e {
         try {
             this.uri = gVar.uri;
             this.file = new RandomAccessFile(gVar.uri.getPath(), "r");
-            this.file.seek(gVar.fLD);
-            this.bytesRemaining = gVar.length == -1 ? this.file.length() - gVar.fLD : gVar.length;
+            this.file.seek(gVar.fNZ);
+            this.bytesRemaining = gVar.length == -1 ? this.file.length() - gVar.fNZ : gVar.length;
             if (this.bytesRemaining < 0) {
                 throw new EOFException();
             }
-            this.mFb = true;
-            if (this.mFa != null) {
-                this.mFa.a(this, gVar);
+            this.mFI = true;
+            if (this.mFH != null) {
+                this.mFH.a(this, gVar);
             }
             return this.bytesRemaining;
         } catch (IOException e) {
@@ -59,8 +59,8 @@ public final class FileDataSource implements e {
             int read = this.file.read(bArr, i, (int) Math.min(this.bytesRemaining, i2));
             if (read > 0) {
                 this.bytesRemaining -= read;
-                if (this.mFa != null) {
-                    this.mFa.h(this, read);
+                if (this.mFH != null) {
+                    this.mFH.h(this, read);
                     return read;
                 }
                 return read;
@@ -89,10 +89,10 @@ public final class FileDataSource implements e {
             }
         } finally {
             this.file = null;
-            if (this.mFb) {
-                this.mFb = false;
-                if (this.mFa != null) {
-                    this.mFa.bz(this);
+            if (this.mFI) {
+                this.mFI = false;
+                if (this.mFH != null) {
+                    this.mFH.bB(this);
                 }
             }
         }

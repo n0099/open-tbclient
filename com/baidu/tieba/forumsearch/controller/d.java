@@ -11,14 +11,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private com.baidu.adp.framework.listener.a gkB = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private com.baidu.adp.framework.listener.a gmC = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.gkx != null) {
-                    d.this.gkx.a(false, null);
+                if (d.this.gmy != null) {
+                    d.this.gmy.a(false, null);
                     return;
                 }
                 return;
@@ -27,16 +27,16 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.gkx != null) {
-                d.this.gkx.a(searchData != null, searchData);
+            if (d.this.gmy != null) {
+                d.this.gmy.a(searchData != null, searchData);
             }
         }
     };
-    private a gkx;
+    private a gmy;
     TbPageContext mPageContext;
     private final BdUniqueId mPageId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(boolean z, com.baidu.tieba.forumsearch.b.c cVar);
     }
@@ -44,15 +44,15 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.gkB.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.gkB);
+        this.gmC.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.gmC);
     }
 
     public void a(a aVar) {
-        this.gkx = aVar;
+        this.gmy = aVar;
     }
 
-    public void AK(String str) {
+    public void Ba(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.isNetOk()) {
                 this.mPageContext.showToast(R.string.neterror);

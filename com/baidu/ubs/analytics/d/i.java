@@ -1,17 +1,16 @@
 package com.baidu.ubs.analytics.d;
 
-import com.baidu.android.common.util.DeviceId;
 import com.baidu.ubs.analytics.SampleResult;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class i {
-    public static SampleResult Ll(String str) {
+    public static SampleResult Ly(String str) {
         if (str == null || str.equals("")) {
             return SampleResult.OTHERE;
         }
         char c = 65535;
         switch (str.hashCode()) {
             case 79:
-                if (str.equals(DeviceId.CUIDInfo.I_FIXED)) {
+                if (str.equals("O")) {
                     c = '\b';
                     break;
                 }

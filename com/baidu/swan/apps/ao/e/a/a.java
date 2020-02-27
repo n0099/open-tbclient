@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/startCompass");
@@ -57,10 +57,10 @@ public class a extends ab {
                 return false;
             }
             c.i("compass", "init");
-            com.baidu.swan.apps.ao.e.a ady = com.baidu.swan.apps.ao.e.a.ady();
-            ady.init(context);
-            ady.a(new a.InterfaceC0197a() { // from class: com.baidu.swan.apps.ao.e.a.a.1
-                @Override // com.baidu.swan.apps.ao.e.a.InterfaceC0197a
+            com.baidu.swan.apps.ao.e.a afM = com.baidu.swan.apps.ao.e.a.afM();
+            afM.init(context);
+            afM.a(new a.InterfaceC0207a() { // from class: com.baidu.swan.apps.ao.e.a.a.1
+                @Override // com.baidu.swan.apps.ao.e.a.InterfaceC0207a
                 public void R(float f) {
                     c.i("compass", "handle compass change, angle:" + f);
                     a.this.a(unitedSchemeEntity, callbackHandler, optString, f);
@@ -70,7 +70,7 @@ public class a extends ab {
                 }
             });
             c.i("compass", "start listen compass");
-            ady.adz();
+            afM.afN();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

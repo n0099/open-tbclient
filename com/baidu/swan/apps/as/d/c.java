@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.as.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c<KeyType, ValueType> {
-    ValueType C(KeyType keytype);
+    ValueType E(KeyType keytype);
 }

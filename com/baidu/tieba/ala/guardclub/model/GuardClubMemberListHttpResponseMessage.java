@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public boolean eAt;
-    public boolean eCM;
-    public k eCO;
-    public int eCZ;
-    public List<k> eDk;
+    public boolean aqa;
+    public boolean aqb;
+    public com.baidu.live.guardclub.f aqd;
+    public int eGN;
+    public List<com.baidu.live.guardclub.f> eGU;
     public boolean hasMore;
     public int memberCount;
 
@@ -26,24 +26,24 @@ public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.eAt = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
+            this.aqa = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
             this.memberCount = optJSONObject.optInt("total_count");
-            this.eCM = optJSONObject.optInt("is_anchor") == 1;
+            this.aqb = optJSONObject.optInt("is_anchor") == 1;
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.eCZ = optJSONObject.optInt(Config.PACKAGE_NAME);
+            this.eGN = optJSONObject.optInt(Config.PACKAGE_NAME);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject2 != null) {
-                this.eCO = new k();
-                this.eCO.parseJson(optJSONObject2);
+                this.aqd = new com.baidu.live.guardclub.f();
+                this.aqd.parseJson(optJSONObject2);
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("member_rank_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.eDk = new ArrayList();
+                this.eGU = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
-                    k kVar = new k();
-                    kVar.parseJson(optJSONObject3);
-                    this.eDk.add(kVar);
+                    com.baidu.live.guardclub.f fVar = new com.baidu.live.guardclub.f();
+                    fVar.parseJson(optJSONObject3);
+                    this.eGU.add(fVar);
                 }
             }
         }

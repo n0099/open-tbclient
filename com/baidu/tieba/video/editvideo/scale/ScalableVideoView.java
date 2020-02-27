@@ -15,9 +15,9 @@ import com.baidu.tieba.R;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected ScalableType kwy;
+    protected ScalableType kxt;
     protected MediaPlayer mMediaPlayer;
 
     public ScalableVideoView(Context context) {
@@ -31,11 +31,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.kwy = ScalableType.NONE;
+        this.kxt = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.kwy = ScalableType.values()[i2];
+            this.kxt = ScalableType.values()[i2];
         }
     }
 
@@ -82,12 +82,12 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void ba(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.kwy)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.kxt)) != null) {
             setTransform(a);
         }
     }
 
-    private void aXd() {
+    private void aZs() {
         if (this.mMediaPlayer == null) {
             this.mMediaPlayer = new MediaPlayer();
             this.mMediaPlayer.setOnVideoSizeChangedListener(this);
@@ -111,36 +111,36 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        aXd();
+        aZs();
         this.mMediaPlayer.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
-        aXd();
+        aZs();
         this.mMediaPlayer.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
-        aXd();
+        aZs();
         this.mMediaPlayer.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        aXd();
+        aZs();
         this.mMediaPlayer.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        aXd();
+        aZs();
         this.mMediaPlayer.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.kwy = scalableType;
+        this.kxt = scalableType;
         ba(getVideoWidth(), getVideoHeight());
     }
 
-    public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
+    public void b(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.setOnPreparedListener(onPreparedListener);
             this.mMediaPlayer.prepare();

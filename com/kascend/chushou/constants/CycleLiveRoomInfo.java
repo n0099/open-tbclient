@@ -1,5 +1,5 @@
 package com.kascend.chushou.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CycleLiveRoomInfo {
     public String avatar;
     public String eventDesc;

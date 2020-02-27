@@ -1,7 +1,7 @@
 package com.kascend.chushou.player.ui.h5.c;
 
 import com.kascend.chushou.constants.H5Positon;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e extends d {
     private String a;
     private int b = 1;
@@ -25,7 +25,7 @@ public class e extends d {
         return this.b;
     }
 
-    public e MR(int i) {
+    public e MU(int i) {
         this.b = i;
         return this;
     }
@@ -34,16 +34,16 @@ public class e extends d {
         return this.a;
     }
 
-    public e QK(String str) {
+    public e QX(String str) {
         this.a = str;
         return this;
     }
 
-    public H5Positon dCT() {
-        return this.nbX;
+    public H5Positon dDZ() {
+        return this.ncA;
     }
 
-    public H5Positon dCU() {
-        return this.nbY;
+    public H5Positon dEa() {
+        return this.ncB;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.swan.ubc.q;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.a.a.c;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppInitHelper {
     private static final boolean DEBUG = false;
     private static final String TAG = "SwanAppInitHelper";
@@ -48,26 +48,26 @@ public class SwanAppInitHelper {
     }
 
     private static void initStatisticsModule(Application application) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.Ct()) {
-            q.atz();
-            m.atp().initConfig();
+        if (com.baidu.pyramid.runtime.multiprocess.a.EP()) {
+            q.avN();
+            m.avD().initConfig();
         }
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dkm()) {
+        if (!c.dlz()) {
             c.initialize(application);
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
-            a.dl(application).aha();
+            a.dp(application).ajo();
             asyncUpdateSwanConfig();
             com.baidu.swan.apps.ar.a.af(0, 1);
         }
     }
 
     private static void asyncUpdateSwanConfig() {
-        d.agH();
+        d.aiV();
     }
 
     private static void onlyInitForLollipopAndAbove(boolean z) {
@@ -87,16 +87,16 @@ public class SwanAppInitHelper {
     }
 
     private static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.Ss().Gm(), false);
-        if (com.baidu.swan.apps.w.a.Ss().Gn()) {
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.UG().IB(), false);
+        if (com.baidu.swan.apps.w.a.UG().IC()) {
             doWebViewInit(context);
         }
     }
 
     private static void doWebViewInit(Context context) {
-        b.bU(context).cr(ProcessUtils.isMainProcess());
+        b.bY(context).cy(ProcessUtils.isMainProcess());
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.env.e.Pn().p(null);
+            com.baidu.swan.apps.env.e.RB().p(null);
         }
     }
 
@@ -105,6 +105,6 @@ public class SwanAppInitHelper {
     }
 
     public static void onTerminate() {
-        b.bU(AppRuntime.getAppContext()).onTerminate();
+        b.bY(AppRuntime.getAppContext()).onTerminate();
     }
 }

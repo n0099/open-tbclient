@@ -2,7 +2,7 @@ package com.baidu.mobads.openad.c;
 
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements IOAdEvent {
     public static final String COMPLETE = "complete";
     public static final String EVENT_MESSAGE = "message";

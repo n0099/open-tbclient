@@ -1,25 +1,25 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface n {
     void a(h<?, ?> hVar);
 
     void b(h<?, ?> hVar);
 
-    void dmL();
+    void dnY();
 
-    void dmM();
+    void dnZ();
 
-    void dmN();
+    void doa();
 
-    void dmO();
+    void dob();
 
-    void dmP();
+    void doc();
 
-    void dmQ();
+    void dod();
 
-    void dmR();
+    void doe();
 
-    void dmS();
+    void dof();
 
     void p(com.facebook.cache.common.b bVar);
 

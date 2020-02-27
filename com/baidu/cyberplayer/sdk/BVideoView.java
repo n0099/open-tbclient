@@ -189,15 +189,15 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     private void c() {
-        ArrayList<a.C0053a> b;
+        ArrayList<a.C0059a> b;
         if (this.c == null || (b = this.v.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0053a c0053a = b.get(i);
-            if (c0053a != null && c0053a.a() != null) {
-                this.c.setExternalInfo(c0053a.a(), c0053a.b());
+            a.C0059a c0059a = b.get(i);
+            if (c0059a != null && c0059a.a() != null) {
+                this.c.setExternalInfo(c0059a.a(), c0059a.b());
             }
         }
     }

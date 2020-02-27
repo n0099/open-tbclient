@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.af;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void fo(String str);
+    void fD(String str);
 
-    void t(int i, String str);
+    void v(int i, String str);
 }

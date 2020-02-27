@@ -1,7 +1,7 @@
 package com.google.android.flexbox;
 
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 interface FlexItem extends Parcelable {
     public static final float FLEX_BASIS_PERCENT_DEFAULT = -1.0f;
     public static final float FLEX_GROW_DEFAULT = 0.0f;
@@ -9,15 +9,15 @@ interface FlexItem extends Parcelable {
     public static final int MAX_SIZE = 16777215;
     public static final int ORDER_DEFAULT = 1;
 
-    int dza();
+    int dAk();
 
-    boolean dzb();
+    boolean dAl();
 
-    float dzc();
+    float dAm();
 
-    int dzd();
+    int dAn();
 
-    int dze();
+    int dAo();
 
     float getFlexGrow();
 

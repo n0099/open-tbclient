@@ -4,7 +4,7 @@ import com.baidu.ala.recorder.video.gles.Drawable2d;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScaledDrawable2d extends Drawable2d {
     private static final int SIZEOF_FLOAT = 4;
     private boolean mRecalculate;

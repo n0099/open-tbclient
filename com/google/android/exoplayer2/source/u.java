@@ -1,25 +1,25 @@
 package com.google.android.exoplayer2.source;
 
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class u {
-    public static final u msu = new u(new t[0]);
+    public static final u mta = new u(new t[0]);
     private int hashCode;
     public final int length;
-    private final t[] msv;
+    private final t[] mtb;
 
     public u(t... tVarArr) {
-        this.msv = tVarArr;
+        this.mtb = tVarArr;
         this.length = tVarArr.length;
     }
 
-    public t KM(int i) {
-        return this.msv[i];
+    public t KR(int i) {
+        return this.mtb[i];
     }
 
     public int a(t tVar) {
         for (int i = 0; i < this.length; i++) {
-            if (this.msv[i] == tVar) {
+            if (this.mtb[i] == tVar) {
                 return i;
             }
         }
@@ -28,7 +28,7 @@ public final class u {
 
     public int hashCode() {
         if (this.hashCode == 0) {
-            this.hashCode = Arrays.hashCode(this.msv);
+            this.hashCode = Arrays.hashCode(this.mtb);
         }
         return this.hashCode;
     }
@@ -41,6 +41,6 @@ public final class u {
             return false;
         }
         u uVar = (u) obj;
-        return this.length == uVar.length && Arrays.equals(this.msv, uVar.msv);
+        return this.length == uVar.length && Arrays.equals(this.mtb, uVar.mtb);
     }
 }

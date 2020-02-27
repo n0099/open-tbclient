@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import android.webkit.ValueCallback;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.as.ai;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements com.baidu.swan.apps.core.container.a {
-    private BdSailorWebView cwy;
+    private BdSailorWebView cAw;
 
     @Override // com.baidu.swan.apps.core.container.a
     public boolean isWebView() {
@@ -15,18 +15,18 @@ public class a implements com.baidu.swan.apps.core.container.a {
 
     @Override // com.baidu.swan.apps.core.container.a
     public void addJavascriptInterface(@NonNull Object obj, @NonNull String str) {
-        this.cwy.addJavascriptInterface(obj, str);
+        this.cAw.addJavascriptInterface(obj, str);
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public void evaluateJavascript(final String str, final ValueCallback<String> valueCallback) {
         if (ai.isOnUiThread()) {
-            this.cwy.evaluateJavascript(str, valueCallback);
+            this.cAw.evaluateJavascript(str, valueCallback);
         } else {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.mini.slave.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.cwy.evaluateJavascript(str, valueCallback);
+                    a.this.cAw.evaluateJavascript(str, valueCallback);
                 }
             });
         }
@@ -34,7 +34,7 @@ public class a implements com.baidu.swan.apps.core.container.a {
 
     @Override // com.baidu.swan.apps.core.container.a
     public boolean isDestroyed() {
-        return this.cwy.isDestroyed();
+        return this.cAw.isDestroyed();
     }
 
     @Override // com.baidu.swan.apps.core.container.a

@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends ab {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -26,42 +26,42 @@ public class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e RL = com.baidu.swan.apps.w.a.RL();
+        com.baidu.swan.apps.adaptation.a.e TZ = com.baidu.swan.apps.w.a.TZ();
         JSONObject jSONObject = new JSONObject();
         if (context == null) {
             try {
-                context = com.baidu.swan.apps.w.a.RG();
+                context = com.baidu.swan.apps.w.a.TU();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        jSONObject.put("userid", RL == null ? "" : RL.bm(context));
-        jSONObject.put("zid", RL == null ? "" : com.baidu.swan.apps.w.a.Sx().cb(context));
+        jSONObject.put("userid", TZ == null ? "" : TZ.bq(context));
+        jSONObject.put("zid", TZ == null ? "" : com.baidu.swan.apps.w.a.UL().cf(context));
         jSONObject.put("idfa", "");
-        jSONObject.put("imei", ai.aeR());
+        jSONObject.put("imei", ai.ahf());
         jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
         jSONObject.put("os", PraiseDataPassUtil.KEY_FROM_OS);
         jSONObject.put("osVersion", Build.VERSION.RELEASE);
         jSONObject.put("hostName", context.getPackageName());
         jSONObject.put("hostVersion", ai.getVersionName());
         jSONObject.put("model", Build.MODEL);
-        jSONObject.put("uuid", com.baidu.swan.uuid.b.dD(context).getUUID());
+        jSONObject.put("uuid", com.baidu.swan.uuid.b.dH(context).getUUID());
         jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", RL == null ? "" : RL.bn(context));
+        jSONObject.put("cuid", TZ == null ? "" : TZ.br(context));
         if (DEBUG) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }
         String md5 = com.baidu.swan.uuid.b.b.toMd5(UUID.randomUUID().toString().getBytes(), false);
-        String p = l.p(md5, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
-        String H = l.H("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", md5, "RSA/ECB/PKCS1Padding");
+        String s = l.s(md5, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
+        String I = l.I("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", md5, "RSA/ECB/PKCS1Padding");
         if (DEBUG) {
-            Log.d("GetSystemRiskInfoAction", "aesKey=" + md5 + ", aesValue=" + p + ", rsaKey=" + H);
+            Log.d("GetSystemRiskInfoAction", "aesKey=" + md5 + ", aesValue=" + s + ", rsaKey=" + I);
         }
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject3.put("key", H);
-            jSONObject3.put("value", p);
+            jSONObject3.put("key", I);
+            jSONObject3.put("value", s);
             jSONObject2.put("content", jSONObject3);
         } catch (JSONException e2) {
             e2.printStackTrace();

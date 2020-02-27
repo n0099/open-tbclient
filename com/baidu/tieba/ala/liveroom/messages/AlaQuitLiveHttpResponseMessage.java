@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaQuitLiveHttpResponseMessage extends JsonHttpResponsedMessage {
     public AlaQuitLiveHttpResponseMessage() {
         super(1021006);

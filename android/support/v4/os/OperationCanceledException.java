@@ -1,5 +1,5 @@
 package android.support.v4.os;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OperationCanceledException extends RuntimeException {
     public OperationCanceledException() {
         this(null);

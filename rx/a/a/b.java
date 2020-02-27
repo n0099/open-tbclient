@@ -1,15 +1,15 @@
 package rx.a.a;
 
 import rx.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static final b nMG = new b();
+    private static final b nNv = new b();
 
-    public static b dML() {
-        return nMG;
+    public static b dNY() {
+        return nNv;
     }
 
-    public g dMM() {
+    public g dNZ() {
         return null;
     }
 

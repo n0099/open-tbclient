@@ -7,35 +7,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String kto;
-    private a ktp;
+    private String kul;
+    private a kum;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bZj();
+        void caK();
 
-        void bZk();
+        void caL();
 
-        void bZl();
+        void caM();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.kto = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.ktp = aVar;
+        this.kul = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.kum = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: J */
+    /* renamed from: K */
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.kto);
-            xVar.aDU().aEu().mIsNeedAddCommenParam = false;
-            xVar.aDU().aEu().mIsUseCurrentBDUSS = false;
+            x xVar = new x(this.kul);
+            xVar.aGe().aGF().mIsNeedAddCommenParam = false;
+            xVar.aGe().aGF().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.ktp != null && num != null) {
+        if (this.kum != null && num != null) {
             if (num.intValue() == -1) {
-                this.ktp.onError(null);
+                this.kum.onError(null);
             } else if (num.intValue() == 1) {
-                this.ktp.bZj();
+                this.kum.caK();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.ktp.bZk();
+                this.kum.caL();
             } else {
-                this.ktp.bZl();
+                this.kum.caM();
             }
         }
     }

@@ -13,7 +13,7 @@ import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.widget.TbImageView;
 import java.lang.reflect.Method;
 import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaUtilHelper {
     private static boolean hasNavBar(Context context) {
         Resources resources = context.getResources();

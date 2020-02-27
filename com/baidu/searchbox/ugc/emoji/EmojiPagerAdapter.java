@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EmojiPagerAdapter extends PagerAdapter {
     private List<GridView> gridViews;
 

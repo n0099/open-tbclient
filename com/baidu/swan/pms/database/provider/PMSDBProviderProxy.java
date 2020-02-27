@@ -13,19 +13,19 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.swan.pms.d;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PMSDBProviderProxy extends ContentProvider {
-    private volatile b cwY;
+    private volatile b cAW;
 
-    public b arn() {
-        if (this.cwY == null) {
+    public b atB() {
+        if (this.cAW == null) {
             synchronized (b.class) {
-                if (this.cwY == null) {
-                    this.cwY = new b(getContext());
+                if (this.cAW == null) {
+                    this.cAW = new b(getContext());
                 }
             }
         }
-        return this.cwY;
+        return this.cAW;
     }
 
     @Override // android.content.ContentProvider
@@ -36,36 +36,36 @@ public class PMSDBProviderProxy extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return arn().getType(uri);
+        return atB().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return arn().query(uri, strArr, str, strArr2, str2);
+        return atB().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return arn().insert(uri, contentValues);
+        return atB().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return arn().delete(uri, str, strArr);
+        return atB().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return arn().update(uri, contentValues, str, strArr);
+        return atB().update(uri, contentValues, str, strArr);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, SGET]}, finally: {[INVOKE, SGET, CONST_STR, CONST_STR, INVOKE, IF] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=4, 105=4, 106=4] */
     @Override // android.content.ContentProvider
     public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        SQLiteDatabase writableDatabase = arn().OI().getWritableDatabase();
+        SQLiteDatabase writableDatabase = atB().QW().getWritableDatabase();
         try {
             try {
                 if (d.DEBUG) {

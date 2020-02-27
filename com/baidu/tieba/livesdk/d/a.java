@@ -12,17 +12,17 @@ import com.baidu.live.tbadk.extrajump.interfaces.IExtraJump;
 import com.baidu.live.tbadk.extrajump.interfaces.IExtraJumpBuilder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements IExtraJumpBuilder {
     @Override // com.baidu.live.tbadk.extrajump.interfaces.IExtraJumpBuilder
     public IExtraJump build() {
-        return new C0545a();
+        return new C0551a();
     }
 
     /* renamed from: com.baidu.tieba.livesdk.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static class C0545a implements IExtraJump {
-        private C0545a() {
+    /* loaded from: classes3.dex */
+    private static class C0551a implements IExtraJump {
+        private C0551a() {
         }
 
         @Override // com.baidu.live.tbadk.extrajump.interfaces.IExtraJump

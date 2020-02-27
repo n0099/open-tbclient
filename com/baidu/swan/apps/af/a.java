@@ -5,11 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import com.baidu.swan.apps.af.c;
 import com.baidu.swan.apps.y.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static void a(@NonNull String str, @NonNull String[] strArr, @NonNull int i, @NonNull Context context, @NonNull b bVar) {
         if (com.baidu.swan.uuid.b.c.hasPermission(context, str)) {
-            bVar.fo("permission has already granted");
+            bVar.fD("permission has already granted");
         } else {
             a(strArr, i, bVar);
         }
@@ -17,33 +17,33 @@ public class a {
 
     public static void a(@NonNull String str, @NonNull String[] strArr, @NonNull int i, @NonNull b bVar) {
         if (!com.baidu.swan.apps.as.a.hasMarshMallow()) {
-            bVar.fo("it's no need system granted");
-        } else if (ActivityCompat.checkSelfPermission(com.baidu.swan.apps.w.a.RG(), str) == 0) {
-            bVar.fo("permission has already granted");
+            bVar.fD("it's no need system granted");
+        } else if (ActivityCompat.checkSelfPermission(com.baidu.swan.apps.w.a.TU(), str) == 0) {
+            bVar.fD("permission has already granted");
         } else {
             a(strArr, i, bVar);
         }
     }
 
     public static void a(@NonNull String[] strArr, @NonNull final int i, @NonNull final b bVar) {
-        f.UC().a(i, strArr, new c.a() { // from class: com.baidu.swan.apps.af.a.1
+        f.WQ().a(i, strArr, new c.a() { // from class: com.baidu.swan.apps.af.a.1
             @Override // com.baidu.swan.apps.af.c.a
             public void onRequestPermissionsResult(int i2, @NonNull String[] strArr2, @NonNull int[] iArr) {
                 if (i2 != i) {
                     b bVar2 = bVar;
                     b bVar3 = bVar;
-                    bVar2.t(2, "request permission fail");
+                    bVar2.v(2, "request permission fail");
                     return;
                 }
                 for (int i3 : iArr) {
                     if (i3 == -1) {
                         b bVar4 = bVar;
                         b bVar5 = bVar;
-                        bVar4.t(1, "user denied");
+                        bVar4.v(1, "user denied");
                         return;
                     }
                 }
-                bVar.fo("permission granted successful");
+                bVar.fD("permission granted successful");
             }
         });
     }

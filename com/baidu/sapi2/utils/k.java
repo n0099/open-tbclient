@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.i.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class k {
     public static void a(Context context, SapiWebView sapiWebView, boolean z) {
         a(context, sapiWebView);

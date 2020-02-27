@@ -27,7 +27,7 @@ import tbclient.FrsPage.TagInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tbadk.core.util.ae, Serializable {
     public static BdUniqueId FORUM_FLOOR_TYPE = BdUniqueId.gen();
     public static final String FROM_PAGE_FRS = "frs";
@@ -39,6 +39,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
     private String fShareImage;
     private int favo_type;
     private String forumGameLabel;
+    public String forum_share_link;
     private String image_url;
     public boolean isBrandForum;
     public int isShowAllTopThread;
@@ -363,6 +364,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                 this.image_url = forumInfo.avatar;
                 this.cur_score = forumInfo.cur_score.intValue();
                 this.levelup_score = forumInfo.levelup_score.intValue();
+                this.forum_share_link = forumInfo.forum_share_link;
                 this.first_class = forumInfo.first_class;
                 this.second_class = forumInfo.second_class;
                 this.is_exists = forumInfo.is_exists.intValue();

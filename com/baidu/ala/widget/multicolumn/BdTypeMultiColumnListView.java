@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.v;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdTypeMultiColumnListView extends BdMultiColumnListView {
     v mTypeAdapter;
 

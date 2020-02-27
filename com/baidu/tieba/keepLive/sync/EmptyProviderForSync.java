@@ -4,7 +4,7 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class EmptyProviderForSync extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {

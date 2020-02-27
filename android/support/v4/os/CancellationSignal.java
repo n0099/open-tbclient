@@ -1,14 +1,14 @@
 package android.support.v4.os;
 
 import android.os.Build;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CancellationSignal {
     private boolean mCancelInProgress;
     private Object mCancellationSignalObj;
     private boolean mIsCanceled;
     private OnCancelListener mOnCancelListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnCancelListener {
         void onCancel();
     }

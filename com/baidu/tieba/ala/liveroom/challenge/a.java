@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.liveroom.challenge;
 import com.baidu.live.challenge.i;
 import com.baidu.live.challenge.j;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements com.baidu.live.challenge.f {
     public a() {
-        d.bil();
+        d.bkb();
     }
 
     @Override // com.baidu.live.challenge.f

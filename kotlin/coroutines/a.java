@@ -1,5 +1,8 @@
 package kotlin.coroutines;
-/* loaded from: classes5.dex */
+
+import kotlin.h;
+@h
+/* loaded from: classes7.dex */
 public interface a<T> {
     c getContext();
 

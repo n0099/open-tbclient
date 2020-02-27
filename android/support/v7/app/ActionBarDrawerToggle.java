@@ -18,7 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     private final Delegate mActivityImpl;
     private final int mCloseDrawerContentDescRes;
@@ -32,7 +32,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     View.OnClickListener mToolbarNavigationClickListener;
     private boolean mWarnedForDisplayHomeAsUp;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface Delegate {
         Context getActionBarThemedContext();
 
@@ -45,7 +45,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         void setActionBarUpIndicator(Drawable drawable, @StringRes int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface DelegateProvider {
         @Nullable
         Delegate getDrawerToggleDelegate();
@@ -247,7 +247,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         this.mSlider.setProgress(f);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class IcsDelegate implements Delegate {
         final Activity mActivity;
         ActionBarDrawerToggleHoneycomb.SetIndicatorInfo mSetIndicatorInfo;
@@ -293,7 +293,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @RequiresApi(18)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class JellybeanMr2Delegate implements Delegate {
         final Activity mActivity;
 
@@ -342,7 +342,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class ToolbarCompatDelegate implements Delegate {
         final CharSequence mDefaultContentDescription;
         final Drawable mDefaultUpIndicator;

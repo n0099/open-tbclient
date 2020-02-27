@@ -1,9 +1,9 @@
 package tv.chushou.a.a.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface b {
     void d(String str, String str2);
 
-    boolean dOR();
+    boolean dQe();
 
     void e(String str, String str2);
 
@@ -15,7 +15,7 @@ public interface b {
 
     void w(String str, String str2);
 
-    void wZ(boolean z);
+    void xc(boolean z);
 
-    void xa(boolean z);
+    void xd(boolean z);
 }

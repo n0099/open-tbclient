@@ -3,7 +3,6 @@ package com.baidu.media.duplayer;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
@@ -28,8 +27,8 @@ public class a {
     }
 
     public static void a(Context context, int i, Map<String, String> map) {
-        Set<String> cS = b.cS(i);
-        if (a.containsAll(cS)) {
+        Set<String> di = b.di(i);
+        if (a.containsAll(di)) {
             return;
         }
         c();
@@ -37,7 +36,7 @@ public class a {
             b.a();
         }
         try {
-            for (String str : cS) {
+            for (String str : di) {
                 a(str, context, map);
             }
         } catch (SecurityException e) {
@@ -54,7 +53,7 @@ public class a {
         IjkMediaPlayer.e();
         IjkMediaPlayer.f();
         String str = map != null ? map.get(CyberPlayerManager.OPT_CHCHE_PATH) : null;
-        String str2 = str == null ? Utils.a(context) + File.separator + BuildConfig.FLAVOR + File.separator + "flyflow" + File.separator + Utils.c + File.separator + context.getPackageName() + File.separator : str + File.separator + Utils.c + File.separator;
+        String str2 = str == null ? Utils.a(context) + File.separator + "baidu" + File.separator + "flyflow" + File.separator + Utils.c + File.separator + context.getPackageName() + File.separator : str + File.separator + Utils.c + File.separator;
         if (!Utils.d(context)) {
             str2 = str2 + "remote" + File.separator;
         }
@@ -97,7 +96,7 @@ public class a {
     }
 
     public static boolean a(int i) {
-        return a.containsAll(b.cS(i));
+        return a.containsAll(b.di(i));
     }
 
     public static String b() {
@@ -111,7 +110,7 @@ public class a {
                 public void run() {
                     String str = Utils.e() + File.separator + "cybermedia" + File.separator + "libs";
                     com.baidu.cyberplayer.sdk.Utils.deleteMismatchChildFile(str, "cyber-media-dex", SDKVersion.VERSION);
-                    for (String str2 : b.cS(Integer.MAX_VALUE)) {
+                    for (String str2 : b.di(Integer.MAX_VALUE)) {
                         com.baidu.cyberplayer.sdk.Utils.deleteMismatchChildFile(str, str2, b.b(str2));
                     }
                     CyberCfgManager.getInstance().setPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, System.currentTimeMillis());

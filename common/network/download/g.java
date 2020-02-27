@@ -11,10 +11,10 @@ public class g {
     public void onFail(Exception exc) {
     }
 
-    public void am(File file) {
+    public void ao(File file) {
     }
 
-    public void j(int i, int i2) {
+    public void k(int i, int i2) {
     }
 
     public void a(File file, int i, int i2) {
@@ -41,20 +41,20 @@ public class g {
         });
     }
 
-    public final void ei(final int i, final int i2) {
+    public final void el(final int i, final int i2) {
         this.mHandler.post(new Runnable() { // from class: common.network.download.g.2
             @Override // java.lang.Runnable
             public void run() {
-                g.this.j(i, i2);
+                g.this.k(i, i2);
             }
         });
     }
 
-    public final void an(final File file) {
+    public final void ap(final File file) {
         this.mHandler.post(new Runnable() { // from class: common.network.download.g.3
             @Override // java.lang.Runnable
             public void run() {
-                g.this.am(file);
+                g.this.ao(file);
             }
         });
     }

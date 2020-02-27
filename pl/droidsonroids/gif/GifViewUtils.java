@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class GifViewUtils {
     static final String ANDROID_NS = "http://schemas.android.com/apk/res/android";
     static final List<String> SUPPORTED_RESOURCE_TYPE_NAMES = Arrays.asList("raw", "drawable", "mipmap");
@@ -97,7 +97,7 @@ public final class GifViewUtils {
         return 1.0f;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class InitResult {
         final int mBackgroundResId;
         final boolean mFreezesAnimation;

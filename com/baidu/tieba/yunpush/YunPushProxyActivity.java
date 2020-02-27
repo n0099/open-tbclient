@@ -19,7 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Removed duplicated region for block: B:30:0x00c4 A[Catch: Exception -> 0x010b, TRY_LEAVE, TryCatch #0 {Exception -> 0x010b, blocks: (B:3:0x0006, B:5:0x000c, B:7:0x001d, B:9:0x0041, B:10:0x0049, B:12:0x0055, B:13:0x005c, B:15:0x0062, B:17:0x006b, B:33:0x00df, B:20:0x0075, B:22:0x00a3, B:24:0x00ac, B:26:0x00b5, B:28:0x00be, B:30:0x00c4, B:38:0x00f3, B:35:0x00e8), top: B:44:0x0006 }] */
@@ -55,21 +55,21 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 i = 3;
                             }
                         }
-                        TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).Z("obj_type", 2).cp("task_id", str).cp(TiebaInitialize.Params.OBJ_TO, str2).Z("obj_source", i));
+                        TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).X("obj_type", 2).cy("task_id", str).cy(TiebaInitialize.Params.OBJ_TO, str2).X("obj_source", i));
                         if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https") || str2.startsWith("com.baidu.tieba://deeplink?jump=new_hot_topic_list"))) {
-                            if (!KU(str2)) {
+                            if (!Lh(str2)) {
                                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                 mainTabActivityConfig.setTargetScheme(str2);
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
                             } else {
-                                ba.aEt().b(getPageContext(), new String[]{str2, "yun_push_tag"});
+                                ba.aGE().b(getPageContext(), new String[]{str2, "yun_push_tag"});
                             }
                         }
                     }
                     i = 0;
-                    TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).Z("obj_type", 2).cp("task_id", str).cp(TiebaInitialize.Params.OBJ_TO, str2).Z("obj_source", i));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).X("obj_type", 2).cy("task_id", str).cy(TiebaInitialize.Params.OBJ_TO, str2).X("obj_source", i));
                     if (!TextUtils.isEmpty(str2)) {
-                        if (!KU(str2)) {
+                        if (!Lh(str2)) {
                         }
                     }
                 }
@@ -79,7 +79,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean KU(String str) {
+    private boolean Lh(String str) {
         Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(str);
         return (matcher.find() && !StringUtils.isNull(matcher.group(1), true)) || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail");
     }

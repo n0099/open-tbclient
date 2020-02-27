@@ -4,9 +4,9 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class y implements aj<PointF> {
-    public static final y jW = new y();
+    public static final y kb = new y();
 
     private y() {
     }

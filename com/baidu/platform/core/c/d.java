@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.platform.base.d {
     private static final String b = d.class.getSimpleName();
     private boolean c = false;

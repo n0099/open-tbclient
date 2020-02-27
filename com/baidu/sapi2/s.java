@@ -7,7 +7,7 @@ import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.result.FaceLoginStatusResult;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class s extends HttpHandlerWrap {
     final /* synthetic */ SapiCallback a;
     final /* synthetic */ FaceLoginStatusResult b;

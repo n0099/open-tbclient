@@ -1,5 +1,5 @@
 package com.baidu.swan.pms.c.a.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    Runnable eS(boolean z);
+    Runnable eZ(boolean z);
 }

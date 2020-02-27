@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class ZipUtil {
     private static final int BUFFER_SIZE = 16384;
     private static final int ENDHDR = 22;
     private static final int ENDSIG = 101010256;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class CentralDirectory {
         long offset;
         long size;

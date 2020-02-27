@@ -15,21 +15,21 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class TaskStackBuilder implements Iterable<Intent> {
     private static final TaskStackBuilderBaseImpl IMPL;
     private static final String TAG = "TaskStackBuilder";
     private final ArrayList<Intent> mIntents = new ArrayList<>();
     private final Context mSourceContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface SupportParentable {
         @Nullable
         Intent getSupportParentActivityIntent();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class TaskStackBuilderBaseImpl {
         TaskStackBuilderBaseImpl() {
         }
@@ -41,7 +41,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
     }
 
     @RequiresApi(16)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class TaskStackBuilderApi16Impl extends TaskStackBuilderBaseImpl {
         TaskStackBuilderApi16Impl() {
         }

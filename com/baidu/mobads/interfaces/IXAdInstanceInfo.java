@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IXAdInstanceInfo {
     boolean getAPOOpen();
 
@@ -297,7 +297,7 @@ public interface IXAdInstanceInfo {
 
     void setWinurl(String str);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum CreativeType {
         NONE("none"),
         TEXT("text"),

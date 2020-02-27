@@ -1,5 +1,5 @@
 package com.vivo.push.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class s extends com.vivo.push.y {
     private String a;
     private int b;

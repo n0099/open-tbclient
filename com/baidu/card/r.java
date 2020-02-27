@@ -6,17 +6,17 @@ import com.baidu.card.a.a;
 import com.baidu.card.view.MutiImgMutiPicLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class r extends b<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a JH;
-    private MutiImgMutiPicLayout Kt;
+    private MutiImgMutiPicLayout KP;
+    private com.baidu.tbadk.core.data.a Kc;
     private String mFrom;
     private int mSkinType;
 
     public r(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.Kt = new MutiImgMutiPicLayout(context);
+        this.KP = new MutiImgMutiPicLayout(context);
     }
 
     public void setFrom(String str) {
@@ -26,21 +26,21 @@ public class r extends b<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.Kt;
+        return this.KP;
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.z<com.baidu.tbadk.core.data.a> zVar) {
-        this.Kt.setSubClickListener(zVar);
+        this.KP.setSubClickListener(zVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        this.JH = aVar;
-        this.Kt.setFrom(this.mFrom);
-        this.Kt.A(aVar);
+        this.Kc = aVar;
+        this.KP.setFrom(this.mFrom);
+        this.KP.A(aVar);
     }
 
     @Override // com.baidu.card.n
@@ -52,14 +52,14 @@ public class r extends b<com.baidu.tbadk.core.data.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void mD() {
+    public void mS() {
         a(1, new a.b() { // from class: com.baidu.card.r.1
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0050a c0050a) {
-                if (r.this.JH != null && r.this.JH.axQ() != null) {
-                    com.baidu.tieba.card.l.zC(r.this.JH.axQ().getId());
-                    com.baidu.tieba.card.l.a(r.this.Kt.mTitle, r.this.JH.axQ().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.l.a(r.this.Kt.Kf, r.this.JH.axQ().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            public boolean a(a.C0052a c0052a) {
+                if (r.this.Kc != null && r.this.Kc.aAe() != null) {
+                    com.baidu.tieba.card.l.zS(r.this.Kc.aAe().getId());
+                    com.baidu.tieba.card.l.a(r.this.KP.mTitle, r.this.Kc.aAe().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                    com.baidu.tieba.card.l.a(r.this.KP.KA, r.this.Kc.aAe().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -67,6 +67,6 @@ public class r extends b<com.baidu.tbadk.core.data.a> {
     }
 
     public void setFromCDN(boolean z) {
-        this.Kt.setFromCDN(z);
+        this.KP.setFromCDN(z);
     }
 }

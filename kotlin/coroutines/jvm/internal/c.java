@@ -4,13 +4,15 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import kotlin.h;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public @interface c {
     String c() default "";
 
-    int[] dJh() default {};
+    int[] dKo() default {};
 
     String f() default "";
 

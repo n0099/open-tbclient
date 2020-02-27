@@ -6,7 +6,7 @@ import android.os.Parcel;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
 import java.util.Collections;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class a implements Runnable {
     final /* synthetic */ IBinder a;
     final /* synthetic */ ServiceConnection b;

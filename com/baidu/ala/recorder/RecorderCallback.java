@@ -1,7 +1,7 @@
 package com.baidu.ala.recorder;
 
 import com.baidu.ala.helper.AlaLiveDebugInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface RecorderCallback {
     public static final int ERROR_CAMERA_EGL_ERROR = 3;
     public static final int ERROR_CAMERA_FRAME_ERROR = 1;

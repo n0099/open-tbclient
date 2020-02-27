@@ -3,6 +3,7 @@ package com.baidu.mapapi.walknavi;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.mapapi.common.BaiduMapSDKException;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -26,7 +27,7 @@ import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class WalkNavigateHelper {
     private static WalkNavigateHelper d;
     private com.baidu.mapapi.walknavi.controllers.a.a a = new com.baidu.mapapi.walknavi.controllers.a.a();
@@ -76,9 +77,9 @@ public class WalkNavigateHelper {
                 WNavigatorWrapper.getWNavigator().d(walkNaviLaunchParam.getExtraNaviMode());
                 b.a().a(walkNaviLaunchParam.getStartPt());
                 b.a().b(walkNaviLaunchParam.getEndPt());
-                create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), 131);
+                create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
                 create.d(0);
-                create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{131});
+                create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
                 this.a.a(create, iWRoutePlanListener);
             }
         }

@@ -3,63 +3,63 @@ package com.tb.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nqf;
-    private final m<PointF, PointF> nqg;
-    private final g nqh;
-    private final b nqi;
-    private final d nqj;
+    private final e nqH;
+    private final m<PointF, PointF> nqI;
+    private final g nqJ;
+    private final b nqK;
+    private final d nqL;
     @Nullable
-    private final b nqk;
+    private final b nqM;
     @Nullable
-    private final b nql;
+    private final b nqN;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nqf = eVar;
-        this.nqg = mVar;
-        this.nqh = gVar;
-        this.nqi = bVar;
-        this.nqj = dVar;
-        this.nqk = bVar2;
-        this.nql = bVar3;
+        this.nqH = eVar;
+        this.nqI = mVar;
+        this.nqJ = gVar;
+        this.nqK = bVar;
+        this.nqL = dVar;
+        this.nqM = bVar2;
+        this.nqN = bVar3;
     }
 
-    public e dFI() {
-        return this.nqf;
+    public e dGP() {
+        return this.nqH;
     }
 
-    public m<PointF, PointF> dFJ() {
-        return this.nqg;
+    public m<PointF, PointF> dGQ() {
+        return this.nqI;
     }
 
-    public g dFK() {
-        return this.nqh;
+    public g dGR() {
+        return this.nqJ;
     }
 
-    public b dFL() {
-        return this.nqi;
+    public b dGS() {
+        return this.nqK;
     }
 
-    public d dFM() {
-        return this.nqj;
-    }
-
-    @Nullable
-    public b dFN() {
-        return this.nqk;
+    public d dGT() {
+        return this.nqL;
     }
 
     @Nullable
-    public b dFO() {
-        return this.nql;
+    public b dGU() {
+        return this.nqM;
     }
 
-    public o dFP() {
+    @Nullable
+    public b dGV() {
+        return this.nqN;
+    }
+
+    public o dGW() {
         return new o(this);
     }
 

@@ -2,12 +2,12 @@ package com.baidu.tieba.pb.pb.sub.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a implements m {
-    public static final BdUniqueId iVo = BdUniqueId.gen();
+    public static final BdUniqueId iWD = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return iVo;
+        return iWD;
     }
 }

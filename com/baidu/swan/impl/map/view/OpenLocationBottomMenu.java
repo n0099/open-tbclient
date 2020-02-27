@@ -29,34 +29,34 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class OpenLocationBottomMenu extends LinearLayout implements OpenLocationMenuItem.a {
     protected static final boolean DEBUG = b.DEBUG;
-    private static final List<String> cuh = Arrays.asList("BaiduMap", "GaodeMap");
-    private static a cuo;
-    private static boolean cup;
-    private OpenLocationMenuItem cui;
-    private OpenLocationMenuItem cuj;
-    private LinearLayout.LayoutParams cuk;
-    private com.baidu.swan.impl.map.c.a cul;
-    private LatLng cum;
-    private OnGetRoutePlanResultListener cun;
-    private LatLng cuq;
-    private boolean cus;
-    private String cuu;
-    private String cuv;
-    private Map<OpenLocationMenuItem.MenuItemType, c> cuw;
+    private static final List<String> cyh = Arrays.asList("BaiduMap", "GaodeMap");
+    private static a cyo;
+    private static boolean cyp;
+    private OpenLocationMenuItem cyi;
+    private OpenLocationMenuItem cyj;
+    private LinearLayout.LayoutParams cyk;
+    private com.baidu.swan.impl.map.c.a cyl;
+    private LatLng cym;
+    private OnGetRoutePlanResultListener cyn;
+    private LatLng cyq;
+    private boolean cyr;
+    private String cys;
+    private String cyt;
+    private Map<OpenLocationMenuItem.MenuItemType, c> cyu;
     private Context mContext;
 
     public OpenLocationBottomMenu(Context context) {
         super(context);
-        this.cus = false;
+        this.cyr = false;
         init(context);
     }
 
     public OpenLocationBottomMenu(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cus = false;
+        this.cyr = false;
         init(context);
     }
 
@@ -65,49 +65,49 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
         setOrientation(1);
     }
 
-    private void aqp() {
+    private void asD() {
         String string;
         if (DEBUG) {
             Log.e("OpenLocationBottomMenu", "addMenuItem run");
         }
-        if (!cup) {
+        if (!cyp) {
             string = this.mContext.getString(R.string.openlocation_bottommenu_showpath);
         } else {
             string = this.mContext.getString(R.string.openlocation_bottommenu_hidepath);
         }
-        this.cui = new OpenLocationMenuItem(this.mContext, string, OpenLocationMenuItem.MenuItemType.OPENLOCATION_PATH);
-        this.cui.a(this);
-        addView(this.cui.apM());
-        this.cuw = getMapApps();
-        for (OpenLocationMenuItem.MenuItemType menuItemType : this.cuw.keySet()) {
-            c cVar = this.cuw.get(menuItemType);
-            if (cVar.dv(this.mContext) || cVar.aqh()) {
+        this.cyi = new OpenLocationMenuItem(this.mContext, string, OpenLocationMenuItem.MenuItemType.OPENLOCATION_PATH);
+        this.cyi.a(this);
+        addView(this.cyi.arZ());
+        this.cyu = getMapApps();
+        for (OpenLocationMenuItem.MenuItemType menuItemType : this.cyu.keySet()) {
+            c cVar = this.cyu.get(menuItemType);
+            if (cVar.dz(this.mContext) || cVar.asv()) {
                 OpenLocationMenuItem openLocationMenuItem = new OpenLocationMenuItem(this.mContext, cVar.getName(), menuItemType);
                 openLocationMenuItem.a(this);
-                if (!this.cus) {
-                    ((LinearLayout.LayoutParams) openLocationMenuItem.apM().getLayoutParams()).topMargin = af.S(7.0f);
-                    this.cus = true;
+                if (!this.cyr) {
+                    ((LinearLayout.LayoutParams) openLocationMenuItem.arZ().getLayoutParams()).topMargin = af.S(7.0f);
+                    this.cyr = true;
                 }
-                addView(openLocationMenuItem.apM());
+                addView(openLocationMenuItem.arZ());
             }
         }
-        this.cuj = new OpenLocationMenuItem(this.mContext, this.mContext.getString(R.string.openlocation_bottommenu_cancel), OpenLocationMenuItem.MenuItemType.OPENLOCATION_CANCEL);
-        this.cuj.a(this);
-        this.cuk = (LinearLayout.LayoutParams) this.cuj.apM().getLayoutParams();
-        this.cuk.topMargin = af.S(7.0f);
-        addView(this.cuj.apM());
+        this.cyj = new OpenLocationMenuItem(this.mContext, this.mContext.getString(R.string.openlocation_bottommenu_cancel), OpenLocationMenuItem.MenuItemType.OPENLOCATION_CANCEL);
+        this.cyj.a(this);
+        this.cyk = (LinearLayout.LayoutParams) this.cyj.arZ().getLayoutParams();
+        this.cyk.topMargin = af.S(7.0f);
+        addView(this.cyj.arZ());
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private Map<OpenLocationMenuItem.MenuItemType, c> getMapApps() {
         boolean z;
-        ArrayList<String> arrayList = new ArrayList(cuh);
+        ArrayList<String> arrayList = new ArrayList(cyh);
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        if (this.cul != null) {
-            List<String> apK = this.cul.apK();
-            if (apK != null) {
-                apK.remove("BaiduMap");
-                arrayList.removeAll(apK);
+        if (this.cyl != null) {
+            List<String> arX = this.cyl.arX();
+            if (arX != null) {
+                arX.remove("BaiduMap");
+                arrayList.removeAll(arX);
             }
             for (String str : arrayList) {
                 switch (str.hashCode()) {
@@ -144,26 +144,26 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
 
     @Override // com.baidu.swan.impl.map.item.OpenLocationMenuItem.a
     public void b(OpenLocationMenuItem openLocationMenuItem) {
-        if (this.cul != null) {
-            this.cul.apF();
+        if (this.cyl != null) {
+            this.cyl.arS();
         }
-        OpenLocationMenuItem.MenuItemType apL = openLocationMenuItem.apL();
-        switch (apL) {
+        OpenLocationMenuItem.MenuItemType arY = openLocationMenuItem.arY();
+        switch (arY) {
             case OPENLOCATION_PATH:
-                cup = !cup;
-                if (!cup) {
-                    aqr();
+                cyp = !cyp;
+                if (!cyp) {
+                    asF();
                     return;
-                } else if (cuo == null) {
-                    aqq();
+                } else if (cyo == null) {
+                    asE();
                     if (DEBUG) {
                         Log.e("OpenLocationBottomMenu", "use a new path");
                         return;
                     }
                     return;
-                } else if (this.cul != null) {
-                    a(this.cul.apG(), cuo);
-                    this.cul.eE(true);
+                } else if (this.cyl != null) {
+                    a(this.cyl.arT(), cyo);
+                    this.cyl.eL(true);
                     if (DEBUG) {
                         Log.e("OpenLocationBottomMenu", "use a cache path");
                         return;
@@ -175,10 +175,10 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
             case OPENLOCATION_CANCEL:
                 return;
             default:
-                aqt();
-                c cVar = this.cuw.get(apL);
+                asH();
+                c cVar = this.cyu.get(arY);
                 if (cVar != null) {
-                    cVar.b(this.mContext, this.cum, this.cuq, this.cuu, this.cuv);
+                    cVar.b(this.mContext, this.cym, this.cyq, this.cys, this.cyt);
                     return;
                 }
                 return;
@@ -186,23 +186,23 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
     }
 
     public void setFragment(com.baidu.swan.impl.map.c.a aVar) {
-        this.cul = aVar;
-        aqt();
-        aqp();
+        this.cyl = aVar;
+        asH();
+        asD();
     }
 
-    private void aqq() {
-        if (this.cul == null) {
-            cup = false;
+    private void asE() {
+        if (this.cyl == null) {
+            cyp = false;
             if (DEBUG) {
                 Log.e("OpenLocationBottomMenu", "getFragment null");
                 return;
             }
             return;
         }
-        this.cul.eE(false);
-        final com.baidu.swan.impl.map.f.a aqn = com.baidu.swan.impl.map.f.a.aqn();
-        this.cun = new OnGetRoutePlanResultListener() { // from class: com.baidu.swan.impl.map.view.OpenLocationBottomMenu.1
+        this.cyl.eL(false);
+        final com.baidu.swan.impl.map.f.a asB = com.baidu.swan.impl.map.f.a.asB();
+        this.cyn = new OnGetRoutePlanResultListener() { // from class: com.baidu.swan.impl.map.view.OpenLocationBottomMenu.1
             @Override // com.baidu.mapapi.search.route.OnGetRoutePlanResultListener
             public void onGetWalkingRouteResult(WalkingRouteResult walkingRouteResult) {
             }
@@ -220,9 +220,9 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
                 if (OpenLocationBottomMenu.DEBUG) {
                     Log.e("OpenLocationBottomMenu", "onGetDrivingRouteResult thread  " + Thread.currentThread().getName());
                 }
-                aqn.aqo();
+                asB.asC();
                 if (drivingRouteResult == null || drivingRouteResult.error != SearchResult.ERRORNO.NO_ERROR || drivingRouteResult.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
-                    boolean unused = OpenLocationBottomMenu.cup = false;
+                    boolean unused = OpenLocationBottomMenu.cyp = false;
                     if (OpenLocationBottomMenu.DEBUG) {
                         if (drivingRouteResult == null) {
                             Log.e("OpenLocationBottomMenu", "onGetDrivingRouteResult error, result is null ");
@@ -234,22 +234,22 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
                     }
                     return;
                 }
-                BaiduMap apG = OpenLocationBottomMenu.this.cul.apG();
-                if (apG == null) {
-                    boolean unused2 = OpenLocationBottomMenu.cup = false;
+                BaiduMap arT = OpenLocationBottomMenu.this.cyl.arT();
+                if (arT == null) {
+                    boolean unused2 = OpenLocationBottomMenu.cyp = false;
                     if (OpenLocationBottomMenu.DEBUG) {
                         Log.e("OpenLocationBottomMenu", "getBaiduMap null");
                     }
-                } else if (OpenLocationBottomMenu.cup) {
-                    a unused3 = OpenLocationBottomMenu.cuo = new com.baidu.swan.impl.map.e.b(apG);
-                    apG.setOnMarkerClickListener(OpenLocationBottomMenu.cuo);
-                    OpenLocationBottomMenu.cuo.a(drivingRouteResult.getRouteLines().get(0));
-                    OpenLocationBottomMenu.cuo.aqk();
-                    OpenLocationBottomMenu.cuo.aqm();
+                } else if (OpenLocationBottomMenu.cyp) {
+                    a unused3 = OpenLocationBottomMenu.cyo = new com.baidu.swan.impl.map.e.b(arT);
+                    arT.setOnMarkerClickListener(OpenLocationBottomMenu.cyo);
+                    OpenLocationBottomMenu.cyo.a(drivingRouteResult.getRouteLines().get(0));
+                    OpenLocationBottomMenu.cyo.asy();
+                    OpenLocationBottomMenu.cyo.asA();
                     if (OpenLocationBottomMenu.DEBUG) {
                         Log.e("OpenLocationBottomMenu", "showPath success");
                     }
-                    OpenLocationBottomMenu.this.cul.eE(true);
+                    OpenLocationBottomMenu.this.cyl.eL(true);
                 }
             }
 
@@ -261,21 +261,21 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
             public void onGetBikingRouteResult(BikingRouteResult bikingRouteResult) {
             }
         };
-        if (this.cum == null) {
-            cup = false;
+        if (this.cym == null) {
+            cyp = false;
             if (DEBUG) {
                 Log.e("OpenLocationBottomMenu", "getStartPosition null");
                 return;
             }
             return;
         }
-        aqn.a(this.cum, this.cuq, this.cun);
+        asB.a(this.cym, this.cyq, this.cyn);
     }
 
-    private void aqr() {
-        if (this.cul != null && this.cul.apJ()) {
-            if (cuo != null) {
-                cuo.aql();
+    private void asF() {
+        if (this.cyl != null && this.cyl.arW()) {
+            if (cyo != null) {
+                cyo.asz();
                 if (DEBUG) {
                     Log.e("OpenLocationBottomMenu", "hideDrivingRootPlan success");
                 }
@@ -286,48 +286,48 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
         }
     }
 
-    public static void aqs() {
+    public static void asG() {
         if (DEBUG) {
             Log.e("OpenLocationBottomMenu", "resetItemClickFlag");
         }
-        cup = false;
-        cuo = null;
+        cyp = false;
+        cyo = null;
     }
 
     private void a(BaiduMap baiduMap, a aVar) {
         if (baiduMap != null && aVar != null) {
             baiduMap.setOnMarkerClickListener(aVar);
-            aVar.aqk();
-            aVar.aqm();
+            aVar.asy();
+            aVar.asA();
         }
     }
 
-    private void aqt() {
-        if (this.cul != null) {
-            if (this.cum == null) {
+    private void asH() {
+        if (this.cyl != null) {
+            if (this.cym == null) {
                 if (DEBUG) {
                     Log.e("OpenLocationBottomMenu", "getStartPosi again");
                 }
-                BDLocation apI = this.cul.apI();
-                if (apI != null) {
-                    this.cum = new LatLng(apI.getLatitude(), apI.getLongitude());
-                    String addrStr = apI.getAddrStr();
+                BDLocation arV = this.cyl.arV();
+                if (arV != null) {
+                    this.cym = new LatLng(arV.getLatitude(), arV.getLongitude());
+                    String addrStr = arV.getAddrStr();
                     if (TextUtils.isEmpty(addrStr)) {
-                        addrStr = TextUtils.isEmpty(apI.getStreet()) ? "" : apI.getStreet();
+                        addrStr = TextUtils.isEmpty(arV.getStreet()) ? "" : arV.getStreet();
                     }
-                    this.cuu = addrStr;
+                    this.cys = addrStr;
                 } else {
                     return;
                 }
             }
-            if (this.cuq == null) {
-                Bundle arguments = this.cul.getArguments();
-                this.cuq = new LatLng(arguments.getDouble("latitude"), arguments.getDouble("longitude"));
+            if (this.cyq == null) {
+                Bundle arguments = this.cyl.getArguments();
+                this.cyq = new LatLng(arguments.getDouble("latitude"), arguments.getDouble("longitude"));
                 String string = arguments.getString("name");
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                this.cuv = string;
+                this.cyt = string;
             }
         }
     }

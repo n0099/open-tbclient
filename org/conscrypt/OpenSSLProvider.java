@@ -1,10 +1,11 @@
 package org.conscrypt;
 
 import android.support.media.ExifInterface;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.live.adp.lib.util.SecureHelper;
 import java.security.Provider;
 import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class OpenSSLProvider extends Provider {
     private static final String PREFIX = OpenSSLProvider.class.getPackage().getName() + ".";
     private static final String STANDARD_EC_PRIVATE_KEY_INTERFACE_CLASS_NAME = "java.security.interfaces.ECPrivateKey";
@@ -95,16 +96,16 @@ public final class OpenSSLProvider extends Provider {
         put("Alg.Alias.KeyGenerator.HMAC-SHA512", "HmacSHA512");
         put("Alg.Alias.KeyGenerator.HMAC/SHA512", "HmacSHA512");
         put("KeyPairGenerator.RSA", PREFIX + "OpenSSLRSAKeyPairGenerator");
-        put("Alg.Alias.KeyPairGenerator.1.2.840.113549.1.1.1", "RSA");
-        put("Alg.Alias.KeyPairGenerator.1.2.840.113549.1.1.7", "RSA");
-        put("Alg.Alias.KeyPairGenerator.2.5.8.1.1", "RSA");
+        put("Alg.Alias.KeyPairGenerator.1.2.840.113549.1.1.1", RSAUtil.ALGORITHM_RSA);
+        put("Alg.Alias.KeyPairGenerator.1.2.840.113549.1.1.7", RSAUtil.ALGORITHM_RSA);
+        put("Alg.Alias.KeyPairGenerator.2.5.8.1.1", RSAUtil.ALGORITHM_RSA);
         put("KeyPairGenerator.EC", PREFIX + "OpenSSLECKeyPairGenerator");
         put("Alg.Alias.KeyPairGenerator.1.2.840.10045.2.1", "EC");
         put("Alg.Alias.KeyPairGenerator.1.3.133.16.840.63.0.2", "EC");
         put("KeyFactory.RSA", PREFIX + "OpenSSLRSAKeyFactory");
-        put("Alg.Alias.KeyFactory.1.2.840.113549.1.1.1", "RSA");
-        put("Alg.Alias.KeyFactory.1.2.840.113549.1.1.7", "RSA");
-        put("Alg.Alias.KeyFactory.2.5.8.1.1", "RSA");
+        put("Alg.Alias.KeyFactory.1.2.840.113549.1.1.1", RSAUtil.ALGORITHM_RSA);
+        put("Alg.Alias.KeyFactory.1.2.840.113549.1.1.7", RSAUtil.ALGORITHM_RSA);
+        put("Alg.Alias.KeyFactory.2.5.8.1.1", RSAUtil.ALGORITHM_RSA);
         put("KeyFactory.EC", PREFIX + "OpenSSLECKeyFactory");
         put("Alg.Alias.KeyFactory.1.2.840.10045.2.1", "EC");
         put("Alg.Alias.KeyFactory.1.3.133.16.840.63.0.2", "EC");

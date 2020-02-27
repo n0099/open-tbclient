@@ -2,7 +2,7 @@ package com.baidu.ala.recorder.video.gles;
 
 import com.baidu.ala.recorder.video.gles.Drawable2d;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FullFrameRectFU {
     private Texture2dProgram mProgram;
     private final Drawable2d mRectDrawable = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);

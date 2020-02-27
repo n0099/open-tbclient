@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.c;
 
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.c.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class s implements h.a {
     @Override // com.facebook.imagepipeline.c.h.a
     public double b(MemoryTrimType memoryTrimType) {

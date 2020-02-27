@@ -9,16 +9,16 @@ import com.baidu.mobstat.Config;
 import com.google.android.exoplayer2.util.i;
 import com.google.android.exoplayer2.util.v;
 @TargetApi(16)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    public final boolean mbs;
+    public final boolean mbY;
     private final String mimeType;
-    public final boolean moG;
-    private final MediaCodecInfo.CodecCapabilities moH;
+    public final boolean mpm;
+    private final MediaCodecInfo.CodecCapabilities mpn;
     public final String name;
     public final boolean secure;
 
-    public static a Ph(String str) {
+    public static a Pu(String str) {
         return new a(str, null, null, false, false);
     }
 
@@ -30,94 +30,94 @@ public final class a {
         boolean z3 = false;
         this.name = (String) com.google.android.exoplayer2.util.a.checkNotNull(str);
         this.mimeType = str2;
-        this.moH = codecCapabilities;
-        this.moG = (z || codecCapabilities == null || !a(codecCapabilities)) ? false : true;
-        this.mbs = codecCapabilities != null && c(codecCapabilities);
+        this.mpn = codecCapabilities;
+        this.mpm = (z || codecCapabilities == null || !a(codecCapabilities)) ? false : true;
+        this.mbY = codecCapabilities != null && c(codecCapabilities);
         if (z2 || (codecCapabilities != null && e(codecCapabilities))) {
             z3 = true;
         }
         this.secure = z3;
     }
 
-    public MediaCodecInfo.CodecProfileLevel[] duB() {
-        return (this.moH == null || this.moH.profileLevels == null) ? new MediaCodecInfo.CodecProfileLevel[0] : this.moH.profileLevels;
+    public MediaCodecInfo.CodecProfileLevel[] dvL() {
+        return (this.mpn == null || this.mpn.profileLevels == null) ? new MediaCodecInfo.CodecProfileLevel[0] : this.mpn.profileLevels;
     }
 
-    public boolean Pf(String str) {
-        MediaCodecInfo.CodecProfileLevel[] duB;
+    public boolean Ps(String str) {
+        MediaCodecInfo.CodecProfileLevel[] dvL;
         if (str == null || this.mimeType == null) {
             return true;
         }
-        String Qf = i.Qf(str);
-        if (Qf == null) {
+        String Qs = i.Qs(str);
+        if (Qs == null) {
             return true;
         }
-        if (!this.mimeType.equals(Qf)) {
-            Pi("codec.mime " + str + ", " + Qf);
+        if (!this.mimeType.equals(Qs)) {
+            Pv("codec.mime " + str + ", " + Qs);
             return false;
         }
-        Pair<Integer, Integer> Pp = MediaCodecUtil.Pp(str);
-        if (Pp == null) {
+        Pair<Integer, Integer> PC = MediaCodecUtil.PC(str);
+        if (PC == null) {
             return true;
         }
-        for (MediaCodecInfo.CodecProfileLevel codecProfileLevel : duB()) {
-            if (codecProfileLevel.profile == ((Integer) Pp.first).intValue() && codecProfileLevel.level >= ((Integer) Pp.second).intValue()) {
+        for (MediaCodecInfo.CodecProfileLevel codecProfileLevel : dvL()) {
+            if (codecProfileLevel.profile == ((Integer) PC.first).intValue() && codecProfileLevel.level >= ((Integer) PC.second).intValue()) {
                 return true;
             }
         }
-        Pi("codec.profileLevel, " + str + ", " + Qf);
+        Pv("codec.profileLevel, " + str + ", " + Qs);
         return false;
     }
 
     @TargetApi(21)
     public boolean a(int i, int i2, double d) {
-        if (this.moH == null) {
-            Pi("sizeAndRate.caps");
+        if (this.mpn == null) {
+            Pv("sizeAndRate.caps");
             return false;
         }
-        MediaCodecInfo.VideoCapabilities videoCapabilities = this.moH.getVideoCapabilities();
+        MediaCodecInfo.VideoCapabilities videoCapabilities = this.mpn.getVideoCapabilities();
         if (videoCapabilities == null) {
-            Pi("sizeAndRate.vCaps");
+            Pv("sizeAndRate.vCaps");
             return false;
         }
         if (!a(videoCapabilities, i, i2, d)) {
             if (i >= i2 || !a(videoCapabilities, i2, i, d)) {
-                Pi("sizeAndRate.support, " + i + Config.EVENT_HEAT_X + i2 + Config.EVENT_HEAT_X + d);
+                Pv("sizeAndRate.support, " + i + Config.EVENT_HEAT_X + i2 + Config.EVENT_HEAT_X + d);
                 return false;
             }
-            Pj("sizeAndRate.rotated, " + i + Config.EVENT_HEAT_X + i2 + Config.EVENT_HEAT_X + d);
+            Pw("sizeAndRate.rotated, " + i + Config.EVENT_HEAT_X + i2 + Config.EVENT_HEAT_X + d);
         }
         return true;
     }
 
     @TargetApi(21)
-    public Point dK(int i, int i2) {
-        if (this.moH == null) {
-            Pi("align.caps");
+    public Point dN(int i, int i2) {
+        if (this.mpn == null) {
+            Pv("align.caps");
             return null;
         }
-        MediaCodecInfo.VideoCapabilities videoCapabilities = this.moH.getVideoCapabilities();
+        MediaCodecInfo.VideoCapabilities videoCapabilities = this.mpn.getVideoCapabilities();
         if (videoCapabilities == null) {
-            Pi("align.vCaps");
+            Pv("align.vCaps");
             return null;
         }
         int widthAlignment = videoCapabilities.getWidthAlignment();
         int heightAlignment = videoCapabilities.getHeightAlignment();
-        return new Point(widthAlignment * v.dW(i, widthAlignment), heightAlignment * v.dW(i2, heightAlignment));
+        return new Point(widthAlignment * v.dZ(i, widthAlignment), heightAlignment * v.dZ(i2, heightAlignment));
     }
 
     @TargetApi(21)
-    public boolean JW(int i) {
-        if (this.moH == null) {
-            Pi("sampleRate.caps");
+    public boolean Kb(int i) {
+        if (this.mpn == null) {
+            Pv("sampleRate.caps");
             return false;
         }
-        MediaCodecInfo.AudioCapabilities audioCapabilities = this.moH.getAudioCapabilities();
+        MediaCodecInfo.AudioCapabilities audioCapabilities = this.mpn.getAudioCapabilities();
         if (audioCapabilities == null) {
-            Pi("sampleRate.aCaps");
+            Pv("sampleRate.aCaps");
             return false;
         } else if (!audioCapabilities.isSampleRateSupported(i)) {
-            Pi("sampleRate.support, " + i);
+            Pv("sampleRate.support, " + i);
             return false;
         } else {
             return true;
@@ -125,32 +125,32 @@ public final class a {
     }
 
     @TargetApi(21)
-    public boolean JX(int i) {
-        if (this.moH == null) {
-            Pi("channelCount.caps");
+    public boolean Kc(int i) {
+        if (this.mpn == null) {
+            Pv("channelCount.caps");
             return false;
         }
-        MediaCodecInfo.AudioCapabilities audioCapabilities = this.moH.getAudioCapabilities();
+        MediaCodecInfo.AudioCapabilities audioCapabilities = this.mpn.getAudioCapabilities();
         if (audioCapabilities == null) {
-            Pi("channelCount.aCaps");
+            Pv("channelCount.aCaps");
             return false;
-        } else if (x(this.name, this.mimeType, audioCapabilities.getMaxInputChannelCount()) < i) {
-            Pi("channelCount.support, " + i);
+        } else if (w(this.name, this.mimeType, audioCapabilities.getMaxInputChannelCount()) < i) {
+            Pv("channelCount.support, " + i);
             return false;
         } else {
             return true;
         }
     }
 
-    private void Pi(String str) {
-        Log.d("MediaCodecInfo", "NoSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHh + "]");
+    private void Pv(String str) {
+        Log.d("MediaCodecInfo", "NoSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHM + "]");
     }
 
-    private void Pj(String str) {
-        Log.d("MediaCodecInfo", "AssumedSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHh + "]");
+    private void Pw(String str) {
+        Log.d("MediaCodecInfo", "AssumedSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHM + "]");
     }
 
-    private static int x(String str, String str2, int i) {
+    private static int w(String str, String str2, int i) {
         int i2;
         if (i <= 1) {
             if ((v.SDK_INT < 26 || i <= 0) && !"audio/mpeg".equals(str2) && !"audio/3gpp".equals(str2) && !"audio/amr-wb".equals(str2) && !"audio/mp4a-latm".equals(str2) && !"audio/vorbis".equals(str2) && !"audio/opus".equals(str2) && !"audio/raw".equals(str2) && !"audio/flac".equals(str2) && !"audio/g711-alaw".equals(str2) && !"audio/g711-mlaw".equals(str2) && !"audio/gsm".equals(str2)) {

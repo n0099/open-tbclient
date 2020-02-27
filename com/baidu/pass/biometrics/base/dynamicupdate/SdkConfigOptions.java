@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SdkConfigOptions {
     public static final String HOST_VERSION = "3.0.0";
     private static final String KEY_DISTRIBUTED_SDK = "distributedSdk";
@@ -124,7 +124,7 @@ public class SdkConfigOptions {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class DistributedFile {
         private static final String KEY_FILE_DOWNLOAD_URL = "url";
         private static final String KEY_FILE_HASH = "hash";
@@ -157,7 +157,7 @@ public class SdkConfigOptions {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class LivenessConfigOption {
         private static final String CROP_FACE_RATIO = "crop_face_ratio";
         private static final String CROP_FACE_SIZE = "crop_face_size";

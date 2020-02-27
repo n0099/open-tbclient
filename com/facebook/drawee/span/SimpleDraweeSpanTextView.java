@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Property;
 import android.widget.TextView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SimpleDraweeSpanTextView extends TextView {
     private static final Property<c[], Float> ANIMATED_COLOR_SPAN_FLOAT_PROPERTY = new Property<c[], Float>(Float.class, "ANIMATED_COLOR_SPAN_FLOAT_PROPERTY") { // from class: com.facebook.drawee.span.SimpleDraweeSpanTextView.2
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public class SimpleDraweeSpanTextView extends TextView {
             if (cVarArr != null && f.floatValue() != 0.0f) {
                 for (int i = 0; i < cVarArr.length; i++) {
                     if (cVarArr[i] != null) {
-                        cVarArr[i].bs(f.floatValue());
+                        cVarArr[i].br(f.floatValue());
                     }
                 }
             }
@@ -59,7 +59,7 @@ public class SimpleDraweeSpanTextView extends TextView {
         super.onAttachedToWindow();
         this.mIsAttached = true;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.dm(this);
+            this.mDraweeStringBuilder.m38do(this);
         }
         startAni();
     }
@@ -69,7 +69,7 @@ public class SimpleDraweeSpanTextView extends TextView {
         super.onFinishTemporaryDetach();
         this.mIsAttached = true;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.dm(this);
+            this.mDraweeStringBuilder.m38do(this);
         }
     }
 
@@ -77,7 +77,7 @@ public class SimpleDraweeSpanTextView extends TextView {
     protected void onDetachedFromWindow() {
         this.mIsAttached = false;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.dn(this);
+            this.mDraweeStringBuilder.dp(this);
         }
         endAni();
         super.onDetachedFromWindow();
@@ -87,7 +87,7 @@ public class SimpleDraweeSpanTextView extends TextView {
     public void onStartTemporaryDetach() {
         this.mIsAttached = false;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.dn(this);
+            this.mDraweeStringBuilder.dp(this);
         }
         super.onStartTemporaryDetach();
     }
@@ -105,13 +105,13 @@ public class SimpleDraweeSpanTextView extends TextView {
             }
         }
         if (this.mDraweeStringBuilder != null && this.mIsAttached) {
-            this.mDraweeStringBuilder.dm(this);
+            this.mDraweeStringBuilder.m38do(this);
         }
     }
 
     public void detachCurrentDraweeSpanStringBuilder() {
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.dn(this);
+            this.mDraweeStringBuilder.dp(this);
         }
         this.mDraweeStringBuilder = null;
     }
@@ -142,7 +142,7 @@ public class SimpleDraweeSpanTextView extends TextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements TimeInterpolator {
         int count;
 
@@ -162,7 +162,7 @@ public class SimpleDraweeSpanTextView extends TextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends FloatEvaluator {
         private a() {
         }

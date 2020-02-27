@@ -9,11 +9,11 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ChooseColorView extends View {
-    private int jdL;
-    private boolean jdM;
-    private Bitmap jdN;
+    private int jeH;
+    private boolean jeI;
+    private Bitmap jeJ;
     private int mBorderColor;
     private Paint mBorderPaint;
     private float mBorderWidth;
@@ -30,7 +30,7 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jdL = ViewCompat.MEASURED_STATE_MASK;
+        this.jeH = ViewCompat.MEASURED_STATE_MASK;
         this.mBorderColor = -1;
         this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
         init();
@@ -39,18 +39,18 @@ public class ChooseColorView extends View {
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.jdL);
+        this.mPaint.setColor(this.jeH);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.jdN = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
+        this.jeJ = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.jdL = i;
-        this.mPaint.setColor(this.jdL);
+        this.jeH = i;
+        this.mPaint.setColor(this.jeH);
     }
 
     public void setRadius(int i) {
@@ -58,11 +58,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.jdL;
+        return this.jeH;
     }
 
     public void setIsChooseView(boolean z) {
-        this.jdM = z;
+        this.jeI = z;
         invalidate();
     }
 
@@ -71,8 +71,8 @@ public class ChooseColorView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
-        if (this.jdM) {
-            canvas.drawBitmap(this.jdN, getWidth() - this.jdN.getWidth(), 0.0f, (Paint) null);
+        if (this.jeI) {
+            canvas.drawBitmap(this.jeJ, getWidth() - this.jeJ.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

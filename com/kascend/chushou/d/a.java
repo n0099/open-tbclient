@@ -14,12 +14,12 @@ import com.kascend.chushou.view.h5.H5Activity;
 import com.kascend.chushou.view.h5.H5UploadActivity;
 import com.kascend.chushou.view.user.RoomInfoActivity;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static void a(Context context, String str, String str2, String str3, String str4, JSONObject jSONObject) {
         boolean z;
         String str5;
-        com.kascend.chushou.player.b dAX;
+        com.kascend.chushou.player.b dCd;
         boolean z2 = false;
         a(context);
         VideoPlayer videoPlayer = null;
@@ -31,16 +31,16 @@ public class a {
             if (videoPlayer instanceof VideoPlayer) {
                 z = true;
                 VideoPlayer videoPlayer2 = videoPlayer;
-                if (tv.chushou.zues.utils.h.isEmpty(str) && (dAX = videoPlayer2.dAX()) != null) {
-                    str = dAX.a;
+                if (tv.chushou.zues.utils.h.isEmpty(str) && (dCd = videoPlayer2.dCd()) != null) {
+                    str = dCd.a;
                 }
-                z2 = videoPlayer2.dBj();
+                z2 = videoPlayer2.dCp();
                 str5 = str;
             } else {
                 z = false;
                 str5 = str;
             }
-            com.kascend.chushou.view.b.b.a.neF.a(str2, str5, str3, z, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
+            com.kascend.chushou.view.b.b.a.nfi.a(str2, str5, str3, z, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
         }
     }
 
@@ -48,7 +48,7 @@ public class a {
         boolean z2;
         boolean z3;
         String str4;
-        com.kascend.chushou.player.b dAX;
+        com.kascend.chushou.player.b dCd;
         if (!tv.chushou.zues.utils.h.isEmpty(str2)) {
             if (!tv.chushou.zues.utils.h.isEmpty(str3) && str3.equals(str2)) {
                 z = false;
@@ -67,17 +67,17 @@ public class a {
                 if (videoPlayer instanceof VideoPlayer) {
                     z3 = true;
                     VideoPlayer videoPlayer2 = videoPlayer;
-                    if (tv.chushou.zues.utils.h.isEmpty(str) && (dAX = videoPlayer2.dAX()) != null) {
-                        str = dAX.a;
+                    if (tv.chushou.zues.utils.h.isEmpty(str) && (dCd = videoPlayer2.dCd()) != null) {
+                        str = dCd.a;
                     }
-                    z2 = videoPlayer2.dBj();
+                    z2 = videoPlayer2.dCp();
                     str4 = str;
                 } else {
                     z2 = false;
                     z3 = false;
                     str4 = str;
                 }
-                com.kascend.chushou.view.b.b.a.neF.a(str2, str4, null, z3, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
+                com.kascend.chushou.view.b.b.a.nfi.a(str2, str4, null, z3, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
             }
         }
     }
@@ -119,7 +119,7 @@ public class a {
         bundle.putBoolean("mCanBack", true);
         bundle.putBoolean("mEnableRefresh", z);
         intent.putExtra("extra", bundle);
-        if (!(context instanceof Activity)) {
+        if (f.a(context) == null) {
             intent.addFlags(268435456);
         }
         context.startActivity(intent);
@@ -134,10 +134,10 @@ public class a {
     }
 
     public static void b(Context context, String str) {
-        com.kascend.cstvsdk.utils.a.njI.a(context);
+        com.kascend.cstvsdk.utils.a.nkk.a(context);
     }
 
     public static void c(Context context, String str) {
-        com.kascend.cstvsdk.utils.a.njI.c(context);
+        com.kascend.cstvsdk.utils.a.nkk.c(context);
     }
 }

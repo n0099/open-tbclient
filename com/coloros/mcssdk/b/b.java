@@ -4,7 +4,7 @@ import android.content.Context;
 import com.coloros.mcssdk.callback.MessageCallback;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.coloros.mcssdk.mode.Message;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class b implements c {
     @Override // com.coloros.mcssdk.b.c
     public final void a(Context context, Message message, MessageCallback messageCallback) {

@@ -2,7 +2,7 @@ package okio;
 
 import java.util.AbstractList;
 import java.util.RandomAccess;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Options extends AbstractList<ByteString> implements RandomAccess {
     final ByteString[] byteStrings;
 

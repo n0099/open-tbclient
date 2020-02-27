@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private long cxm;
+    private long cBk;
     private JSONObject mData;
     private int mErrorCode = -1;
     private String mErrorMessage;
@@ -32,11 +32,11 @@ public class c {
         this.mErrorMessage = str;
     }
 
-    public void be(long j) {
-        this.cxm = j;
+    public void bi(long j) {
+        this.cBk = j;
     }
 
-    public static c qd(String str) {
+    public static c qs(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -55,7 +55,7 @@ public class c {
         c cVar = new c();
         cVar.setErrorCode(jSONObject.optInt("errno", -1));
         cVar.setErrorMessage(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-        cVar.be(jSONObject.optLong("request_id"));
+        cVar.bi(jSONObject.optLong("request_id"));
         cVar.setData(jSONObject.optJSONObject("data"));
         return cVar;
     }

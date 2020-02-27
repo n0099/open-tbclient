@@ -38,7 +38,7 @@ public final class Util {
         public int step = 0;
     }
 
-    public static boolean jP() {
+    public static boolean ke() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -98,17 +98,17 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean p(long j) {
-        long jR = jR();
+    public static final boolean q(long j) {
+        long kg = kg();
         if (j <= 0) {
-            return jR <= 0 || jR >= 31457280;
+            return kg <= 0 || kg >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < jR;
+        return (j2 <= 31457280 ? j2 : 31457280L) < kg;
     }
 
     public static a b(InputStream inputStream, File file) {
@@ -223,15 +223,15 @@ public final class Util {
         }
     }
 
-    public static File bt(String str) {
-        PluginSetting aZ = PluginPackageManager.jd().aZ(str);
-        if (aZ == null || aZ.apkPath == null || aZ.apkPath.length() <= ".apk".length()) {
+    public static File bv(String str) {
+        PluginSetting bb = PluginPackageManager.js().bb(str);
+        if (bb == null || bb.apkPath == null || bb.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(aZ.apkPath.substring(0, aZ.apkPath.length() - ".apk".length()));
+        return new File(bb.apkPath.substring(0, bb.apkPath.length() - ".apk".length()));
     }
 
-    public static File jQ() {
+    public static File kf() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -313,7 +313,7 @@ public final class Util {
         return applicationInfo.metaData.getString("replace_method_classes", null);
     }
 
-    public static VersionCompare D(String str, String str2) {
+    public static VersionCompare G(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -354,7 +354,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + pluginSetting.tempVersionCode;
     }
 
-    public static String bu(String str) {
+    public static String bw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -365,10 +365,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return jQ() + File.separator + e(pluginSetting);
+        return kf() + File.separator + e(pluginSetting);
     }
 
-    public static long jR() {
+    public static long kg() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class c {
     public static boolean delete(File file) {
         if (file == null) {
@@ -97,7 +97,7 @@ public class c {
         }
     }
 
-    public static boolean oz() {
+    public static boolean ph() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
@@ -116,7 +116,7 @@ public class c {
         return availableBlocks * blockSize > j;
     }
 
-    public static FileOutputStream cz(String str) throws IOException {
+    public static FileOutputStream cH(String str) throws IOException {
         File file = new File(str);
         if (file.exists()) {
             if (file.isDirectory()) {
@@ -143,14 +143,14 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [617=4] */
-    public static boolean L(String str, String str2) {
+    public static boolean Q(String str, String str2) {
         FileInputStream fileInputStream;
         FileOutputStream fileOutputStream = null;
         try {
-            fileInputStream = cA(str);
+            fileInputStream = cI(str);
             try {
                 try {
-                    fileOutputStream = cz(str2);
+                    fileOutputStream = cH(str2);
                     byte[] bArr = new byte[1024];
                     while (true) {
                         int read = fileInputStream.read(bArr);
@@ -187,7 +187,7 @@ public class c {
         }
     }
 
-    public static FileInputStream cA(String str) throws IOException {
+    public static FileInputStream cI(String str) throws IOException {
         File file = new File(str);
         if (file.exists()) {
             if (file.isDirectory()) {
@@ -203,21 +203,21 @@ public class c {
 
     public static boolean b(String str, File file) {
         boolean z = false;
-        InputStream cB = cB(str);
+        InputStream cJ = cJ(str);
         try {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            d.close(cB);
+            d.close(cJ);
         }
-        if (cB != null) {
-            d.copyStream(cB, file);
+        if (cJ != null) {
+            d.copyStream(cJ, file);
             z = true;
         }
         return z;
     }
 
-    public static InputStream cB(String str) {
+    public static InputStream cJ(String str) {
         try {
             return Application.get().getAssets().open(str);
         } catch (IOException e) {
@@ -234,7 +234,7 @@ public class c {
         return true;
     }
 
-    public static long cC(String str) {
+    public static long cK(String str) {
         try {
             File file = new File(str);
             if (file.exists()) {

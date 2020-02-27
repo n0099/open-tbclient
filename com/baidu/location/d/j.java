@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.os.Process;
 import android.provider.Settings;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
@@ -26,7 +27,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class j {
     public static boolean a = false;
     public static boolean b = false;
@@ -282,7 +283,7 @@ public class j {
 
     public static boolean b(String str, String str2, String str3) {
         try {
-            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(com.baidu.android.bbalbs.common.a.b.a(str3.getBytes())));
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(com.baidu.android.bbalbs.common.a.b.a(str3.getBytes())));
             Signature signature = Signature.getInstance("SHA1WithRSA");
             signature.initVerify(generatePublic);
             signature.update(str.getBytes());

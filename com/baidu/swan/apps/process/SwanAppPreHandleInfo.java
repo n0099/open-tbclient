@@ -2,7 +2,7 @@ package com.baidu.swan.apps.process;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppPreHandleInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppPreHandleInfo> CREATOR = new Parcelable.Creator<SwanAppPreHandleInfo>() { // from class: com.baidu.swan.apps.process.SwanAppPreHandleInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -14,7 +14,7 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fp */
+        /* renamed from: fF */
         public SwanAppPreHandleInfo[] newArray(int i) {
             return new SwanAppPreHandleInfo[i];
         }

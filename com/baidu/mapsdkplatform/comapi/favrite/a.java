@@ -14,7 +14,7 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static a b = null;
     private com.baidu.mapsdkplatform.comjni.map.favorite.a a = null;
@@ -28,9 +28,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0110a implements Comparator<String> {
-        C0110a() {
+    /* loaded from: classes8.dex */
+    public class C0118a implements Comparator<String> {
+        C0118a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private class b {
         private long b;
         private long c;
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private class c {
         private String b;
         private long c;
@@ -339,7 +339,7 @@ public class a {
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0110a());
+                            Collections.sort(this.f, new C0118a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -379,7 +379,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0110a());
+                            Collections.sort(this.e, new C0118a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

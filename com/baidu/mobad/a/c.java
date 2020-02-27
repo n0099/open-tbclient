@@ -6,15 +6,15 @@ import com.baidu.mobads.interfaces.IXAdProd;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class c implements Runnable {
-    final /* synthetic */ IOAdEvent aKm;
-    final /* synthetic */ a.C0121a aKn;
+    final /* synthetic */ IOAdEvent aOq;
+    final /* synthetic */ a.C0129a aOr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a.C0121a c0121a, IOAdEvent iOAdEvent) {
-        this.aKn = c0121a;
-        this.aKm = iOAdEvent;
+    public c(a.C0129a c0129a, IOAdEvent iOAdEvent) {
+        this.aOr = c0129a;
+        this.aOq = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -35,44 +35,44 @@ class c implements Runnable {
         IXAdProd iXAdProd10;
         IOAdEventDispatcher iOAdEventDispatcher5;
         IXAdProd iXAdProd11;
-        if (this.aKm.getType().equals(com.baidu.mobads.openad.c.b.COMPLETE)) {
-            iOAdEventDispatcher5 = this.aKn.aKl;
-            iXAdProd11 = this.aKn.aKk;
+        if (this.aOq.getType().equals(com.baidu.mobads.openad.c.b.COMPLETE)) {
+            iOAdEventDispatcher5 = this.aOr.aOp;
+            iXAdProd11 = this.aOr.aOo;
             iOAdEventDispatcher5.dispatchEvent(new d(IXAdConstants4PDK.EVENT_REQUEST_COMPLETE, iXAdProd11));
         }
-        if (this.aKm.getType().equals(IXAdEvent.AD_STARTED)) {
-            iXAdProd8 = this.aKn.aKk;
+        if (this.aOq.getType().equals(IXAdEvent.AD_STARTED)) {
+            iXAdProd8 = this.aOr.aOo;
             if (iXAdProd8.getProdBase() != null) {
-                iXAdProd10 = this.aKn.aKk;
+                iXAdProd10 = this.aOr.aOo;
                 iXAdProd10.getProdBase().setVisibility(0);
             }
-            iOAdEventDispatcher4 = this.aKn.aKl;
-            iXAdProd9 = this.aKn.aKk;
+            iOAdEventDispatcher4 = this.aOr.aOp;
+            iXAdProd9 = this.aOr.aOo;
             iOAdEventDispatcher4.dispatchEvent(new d(IXAdConstants4PDK.EVENT_SLOT_STARTED, iXAdProd9));
         }
-        if (this.aKm.getType().equals("AdUserClick")) {
-            iOAdEventDispatcher3 = this.aKn.aKl;
-            iXAdProd7 = this.aKn.aKk;
+        if (this.aOq.getType().equals("AdUserClick")) {
+            iOAdEventDispatcher3 = this.aOr.aOp;
+            iXAdProd7 = this.aOr.aOo;
             iOAdEventDispatcher3.dispatchEvent(new d(IXAdConstants4PDK.EVENT_SLOT_CLICKED, iXAdProd7));
         }
-        if (this.aKm.getType().equals(IXAdEvent.AD_STOPPED)) {
-            iXAdProd4 = this.aKn.aKk;
+        if (this.aOq.getType().equals(IXAdEvent.AD_STOPPED)) {
+            iXAdProd4 = this.aOr.aOo;
             if (iXAdProd4.getProdBase() != null) {
-                iXAdProd6 = this.aKn.aKk;
+                iXAdProd6 = this.aOr.aOo;
                 iXAdProd6.getProdBase().setVisibility(4);
             }
-            iOAdEventDispatcher2 = this.aKn.aKl;
-            iXAdProd5 = this.aKn.aKk;
+            iOAdEventDispatcher2 = this.aOr.aOp;
+            iXAdProd5 = this.aOr.aOo;
             iOAdEventDispatcher2.dispatchEvent(new d(IXAdConstants4PDK.EVENT_SLOT_ENDED, iXAdProd5));
         }
-        if (this.aKm.getType().equals(IXAdEvent.AD_ERROR)) {
-            iXAdProd = this.aKn.aKk;
+        if (this.aOq.getType().equals(IXAdEvent.AD_ERROR)) {
+            iXAdProd = this.aOr.aOo;
             if (iXAdProd.getProdBase() != null) {
-                iXAdProd3 = this.aKn.aKk;
+                iXAdProd3 = this.aOr.aOo;
                 iXAdProd3.getProdBase().setVisibility(4);
             }
-            iOAdEventDispatcher = this.aKn.aKl;
-            iXAdProd2 = this.aKn.aKk;
+            iOAdEventDispatcher = this.aOr.aOp;
+            iXAdProd2 = this.aOr.aOo;
             iOAdEventDispatcher.dispatchEvent(new d(IXAdConstants4PDK.EVENT_ERROR, iXAdProd2));
         }
     }

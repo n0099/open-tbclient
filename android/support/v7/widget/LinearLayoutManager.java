@@ -11,8 +11,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LinearLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider, ItemTouchHelper.ViewDropHandler {
     static final boolean DEBUG = false;
     public static final int HORIZONTAL = 0;
@@ -1013,7 +1014,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                 return this.mOrientation != 1 ? Integer.MIN_VALUE : -1;
             case 66:
                 return this.mOrientation != 0 ? Integer.MIN_VALUE : 1;
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 return this.mOrientation == 1 ? 1 : Integer.MIN_VALUE;
             default:
                 return Integer.MIN_VALUE;
@@ -1282,7 +1283,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class LayoutState {
         static final int INVALID_LAYOUT = Integer.MIN_VALUE;
         static final int ITEM_DIRECTION_HEAD = -1;
@@ -1393,7 +1394,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v7.widget.LinearLayoutManager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1451,7 +1452,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class AnchorInfo {
         int mCoordinate;
         boolean mLayoutFromEnd;
@@ -1533,7 +1534,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class LayoutChunkResult {
         public int mConsumed;
         public boolean mFinished;

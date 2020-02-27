@@ -24,7 +24,7 @@ public class BigdaySwitch extends a {
 
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected int getDefaultType() {
-        return b.aDr().getInt("key_bigday_sync_switch", 0);
+        return b.aFB().getInt("key_bigday_sync_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

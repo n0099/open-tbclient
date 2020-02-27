@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.List;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Format implements Parcelable {
     public static final Parcelable.Creator<Format> CREATOR = new Parcelable.Creator<Format>() { // from class: com.google.android.exoplayer2.Format.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public final class Format implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: IR */
+        /* renamed from: IW */
         public Format[] newArray(int i) {
             return new Format[i];
         }
@@ -91,7 +91,7 @@ public final class Format implements Parcelable {
         return new Format(str, null, str2, str3, i, i2, -1, -1, -1.0f, -1, -1.0f, null, -1, null, i3, i4, i5, i6, i7, i8, str4, -1, OFFSET_SAMPLE_RELATIVE, list, drmInitData, metadata);
     }
 
-    public static Format b(String str, String str2, String str3, String str4, int i, int i2, String str5) {
+    public static Format d(String str, String str2, String str3, String str4, int i, int i2, String str5) {
         return a(str, str2, str3, str4, i, i2, str5, -1);
     }
 
@@ -123,7 +123,7 @@ public final class Format implements Parcelable {
         return new Format(str, null, str2, str3, i, -1, -1, -1, -1.0f, -1, -1.0f, null, -1, null, -1, -1, -1, -1, -1, 0, str4, -1, OFFSET_SAMPLE_RELATIVE, list, drmInitData, null);
     }
 
-    public static Format c(String str, String str2, String str3, String str4, int i, int i2, String str5) {
+    public static Format e(String str, String str2, String str3, String str4, int i, int i2, String str5) {
         return new Format(str, str2, str3, str4, i, -1, -1, -1, -1.0f, -1, -1.0f, null, -1, null, -1, -1, -1, -1, -1, i2, str5, -1, OFFSET_SAMPLE_RELATIVE, null, null, null);
     }
 
@@ -197,11 +197,11 @@ public final class Format implements Parcelable {
         this.metadata = (Metadata) parcel.readParcelable(Metadata.class.getClassLoader());
     }
 
-    public Format IQ(int i) {
+    public Format IV(int i) {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, i, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, this.drmInitData, this.metadata);
     }
 
-    public Format fz(long j) {
+    public Format fx(long j) {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, j, this.initializationData, this.drmInitData, this.metadata);
     }
 
@@ -216,7 +216,7 @@ public final class Format implements Parcelable {
         return new Format(format.id, this.containerMimeType, this.sampleMimeType, this.codecs == null ? format.codecs : this.codecs, this.bitrate == -1 ? format.bitrate : this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate == -1.0f ? format.frameRate : this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags | format.selectionFlags, this.language == null ? format.language : this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, format.drmInitData != null ? b(format.drmInitData) : this.drmInitData, this.metadata);
     }
 
-    public Format dC(int i, int i2) {
+    public Format dF(int i, int i2) {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, i, i2, this.selectionFlags, this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, this.drmInitData, this.metadata);
     }
 
@@ -228,7 +228,7 @@ public final class Format implements Parcelable {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, this.drmInitData, metadata);
     }
 
-    public int dsk() {
+    public int dtw() {
         if (this.width == -1 || this.height == -1) {
             return -1;
         }
@@ -237,7 +237,7 @@ public final class Format implements Parcelable {
 
     @SuppressLint({"InlinedApi"})
     @TargetApi(16)
-    public final MediaFormat dsl() {
+    public final MediaFormat dtx() {
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString(IMediaFormat.KEY_MIME, this.sampleMimeType);
         a(mediaFormat, IjkMediaMeta.IJKM_KEY_LANGUAGE, this.language);
@@ -402,11 +402,11 @@ public final class Format implements Parcelable {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (int i = 0; i < drmInitData.schemeDataCount; i++) {
-            DrmInitData.SchemeData Jm = drmInitData.Jm(i);
-            if (Jm.hasData()) {
-                arrayList.add(Jm);
+            DrmInitData.SchemeData Jr = drmInitData.Jr(i);
+            if (Jr.hasData()) {
+                arrayList.add(Jr);
             } else {
-                arrayList2.add(Jm);
+                arrayList2.add(Jr);
             }
         }
         if (!arrayList2.isEmpty()) {
@@ -415,14 +415,14 @@ public final class Format implements Parcelable {
             }
             int size = arrayList2.size();
             for (int i2 = 0; i2 < this.drmInitData.schemeDataCount; i2++) {
-                DrmInitData.SchemeData Jm2 = this.drmInitData.Jm(i2);
+                DrmInitData.SchemeData Jr2 = this.drmInitData.Jr(i2);
                 int i3 = 0;
                 while (true) {
                     if (i3 < size) {
-                        if (!Jm2.a((DrmInitData.SchemeData) arrayList2.get(i3))) {
+                        if (!Jr2.a((DrmInitData.SchemeData) arrayList2.get(i3))) {
                             i3++;
                         } else {
-                            arrayList.add(Jm2);
+                            arrayList.add(Jr2);
                             break;
                         }
                     } else {

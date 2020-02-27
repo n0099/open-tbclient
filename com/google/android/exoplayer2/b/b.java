@@ -5,55 +5,55 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.source.t;
 import java.util.Arrays;
 import java.util.Comparator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b implements f {
     private int hashCode;
     protected final int length;
-    protected final t mBV;
-    protected final int[] mBW;
-    private final long[] mBX;
-    private final Format[] mrN;
+    protected final t mCC;
+    protected final int[] mCD;
+    private final long[] mCE;
+    private final Format[] msu;
 
     public b(t tVar, int... iArr) {
         com.google.android.exoplayer2.util.a.checkState(iArr.length > 0);
-        this.mBV = (t) com.google.android.exoplayer2.util.a.checkNotNull(tVar);
+        this.mCC = (t) com.google.android.exoplayer2.util.a.checkNotNull(tVar);
         this.length = iArr.length;
-        this.mrN = new Format[this.length];
+        this.msu = new Format[this.length];
         for (int i = 0; i < iArr.length; i++) {
-            this.mrN[i] = tVar.KL(iArr[i]);
+            this.msu[i] = tVar.KQ(iArr[i]);
         }
-        Arrays.sort(this.mrN, new a());
-        this.mBW = new int[this.length];
+        Arrays.sort(this.msu, new a());
+        this.mCD = new int[this.length];
         for (int i2 = 0; i2 < this.length; i2++) {
-            this.mBW[i2] = tVar.m(this.mrN[i2]);
+            this.mCD[i2] = tVar.m(this.msu[i2]);
         }
-        this.mBX = new long[this.length];
+        this.mCE = new long[this.length];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final t dvT() {
-        return this.mBV;
+    public final t dxd() {
+        return this.mCC;
     }
 
     @Override // com.google.android.exoplayer2.b.f
     public final int length() {
-        return this.mBW.length;
+        return this.mCD.length;
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final Format KL(int i) {
-        return this.mrN[i];
+    public final Format KQ(int i) {
+        return this.msu[i];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final int LB(int i) {
-        return this.mBW[i];
+    public final int LG(int i) {
+        return this.mCD[i];
     }
 
     @Override // com.google.android.exoplayer2.b.f
     public final int m(Format format) {
         for (int i = 0; i < this.length; i++) {
-            if (this.mrN[i] == format) {
+            if (this.msu[i] == format) {
                 return i;
             }
         }
@@ -63,7 +63,7 @@ public abstract class b implements f {
     @Override // com.google.android.exoplayer2.b.f
     public final int indexOf(int i) {
         for (int i2 = 0; i2 < this.length; i2++) {
-            if (this.mBW[i2] == i) {
+            if (this.mCD[i2] == i) {
                 return i2;
             }
         }
@@ -71,39 +71,39 @@ public abstract class b implements f {
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final Format dxl() {
-        return this.mrN[dvX()];
+    public final Format dyv() {
+        return this.msu[dxh()];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final int dxm() {
-        return this.mBW[dvX()];
+    public final int dyw() {
+        return this.mCD[dxh()];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final boolean I(int i, long j) {
+    public final boolean H(int i, long j) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        boolean J = J(i, elapsedRealtime);
+        boolean I = I(i, elapsedRealtime);
         int i2 = 0;
-        while (i2 < this.length && !J) {
-            J = (i2 == i || J(i2, elapsedRealtime)) ? false : true;
+        while (i2 < this.length && !I) {
+            I = (i2 == i || I(i2, elapsedRealtime)) ? false : true;
             i2++;
         }
-        if (J) {
-            this.mBX[i] = Math.max(this.mBX[i], elapsedRealtime + j);
+        if (I) {
+            this.mCE[i] = Math.max(this.mCE[i], elapsedRealtime + j);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean J(int i, long j) {
-        return this.mBX[i] > j;
+    public final boolean I(int i, long j) {
+        return this.mCE[i] > j;
     }
 
     public int hashCode() {
         if (this.hashCode == 0) {
-            this.hashCode = (System.identityHashCode(this.mBV) * 31) + Arrays.hashCode(this.mBW);
+            this.hashCode = (System.identityHashCode(this.mCC) * 31) + Arrays.hashCode(this.mCD);
         }
         return this.hashCode;
     }
@@ -116,10 +116,10 @@ public abstract class b implements f {
             return false;
         }
         b bVar = (b) obj;
-        return this.mBV == bVar.mBV && Arrays.equals(this.mBW, bVar.mBW);
+        return this.mCC == bVar.mCC && Arrays.equals(this.mCD, bVar.mCD);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static final class a implements Comparator<Format> {
         private a() {
         }

@@ -8,13 +8,13 @@ import android.text.TextUtils;
 import android.view.Surface;
 import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Field;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class h extends MediaPlayer {
-    private b dRq;
-    private Handler dRs;
-    private Handler.Callback dRt;
+    private b dVv;
+    private Handler dVx;
+    private Handler.Callback dVy;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void handleOppoError(String str);
     }
@@ -26,23 +26,23 @@ public class h extends MediaPlayer {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(this);
                 if (obj instanceof Handler) {
-                    this.dRs = (Handler) obj;
+                    this.dVx = (Handler) obj;
                     Field declaredField2 = Handler.class.getDeclaredField("mCallback");
                     declaredField2.setAccessible(true);
                     Object obj2 = declaredField2.get(obj);
                     if (obj2 instanceof Handler.Callback) {
-                        this.dRt = (Handler.Callback) obj2;
+                        this.dVy = (Handler.Callback) obj2;
                     }
                     declaredField2.set(obj, new a());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                o(e);
+                n(e);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     private class a implements Handler.Callback {
         private a() {
         }
@@ -50,23 +50,23 @@ public class h extends MediaPlayer {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
-                if ((h.this.dRt == null || !h.this.dRt.handleMessage(message)) && h.this.dRs != null) {
-                    h.this.dRs.handleMessage(message);
+                if ((h.this.dVy == null || !h.this.dVy.handleMessage(message)) && h.this.dVx != null) {
+                    h.this.dVx.handleMessage(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                h.this.o(e);
+                h.this.n(e);
             }
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(Throwable th) {
+    public void n(Throwable th) {
         if (th != null) {
-            String r = com.baidu.tieba.j.a.r(th);
-            if (this.dRq != null) {
-                this.dRq.handleOppoError(r);
+            String q = com.baidu.tieba.k.a.q(th);
+            if (this.dVv != null) {
+                this.dVv.handleOppoError(q);
             }
         }
     }
@@ -79,6 +79,6 @@ public class h extends MediaPlayer {
     }
 
     public void a(b bVar) {
-        this.dRq = bVar;
+        this.dVv = bVar;
     }
 }

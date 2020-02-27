@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends a<T, U> {
     final h<? super Open, ? extends org.a.b<? extends Close>> bufferClose;
     final org.a.b<? extends Open> bufferOpen;
@@ -22,10 +22,10 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     protected void a(org.a.c<? super U> cVar) {
         BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(cVar, this.bufferOpen, this.bufferClose, this.bufferSupplier);
         cVar.onSubscribe(bufferBoundarySubscriber);
-        this.nvP.a((j) bufferBoundarySubscriber);
+        this.nwr.a((j) bufferBoundarySubscriber);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class BufferBoundarySubscriber<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -8466418554264089604L;
         final org.a.c<? super C> actual;
@@ -36,7 +36,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         volatile boolean done;
         long emitted;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dHT());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dJa());
         final io.reactivex.disposables.a subscribers = new io.reactivex.disposables.a();
         final AtomicLong requested = new AtomicLong();
         final AtomicReference<org.a.d> upstream = new AtomicReference<>();
@@ -140,7 +140,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 SubscriptionHelper.cancel(this.upstream);
                 onError(th);
             }
@@ -237,7 +237,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static final class BufferOpenSubscriber<Open> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Open> {
             private static final long serialVersionUID = -8498650778633225126L;
             final BufferBoundarySubscriber<?, ?, Open, ?> parent;
@@ -281,7 +281,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class BufferCloseSubscriber<T, C extends Collection<? super T>> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Object> {
         private static final long serialVersionUID = -8498650778633225126L;
         final long index;

@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TemporalLevelEntry extends GroupEntry {
     public static final String TYPE = "tele";
     private boolean levelIndependentlyDecodable;

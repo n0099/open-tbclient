@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.security.PublicKey;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class aa extends com.vivo.push.v {
     protected PushMessageCallback b;
 

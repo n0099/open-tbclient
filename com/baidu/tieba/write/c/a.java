@@ -1,5 +1,5 @@
 package com.baidu.tieba.write.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a {
     private static long lastClickTime = 0;
 

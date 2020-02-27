@@ -1,6 +1,6 @@
 package com.baidu.live.c;
 
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k extends IntentConfig {
 }

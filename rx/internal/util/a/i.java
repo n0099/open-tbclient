@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i<E> extends m<E> {
     public i(int i) {
         super(i);
@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.nBk;
-        long j = this.nRV;
-        long dIm = dIm();
-        long hv = hv(dIm);
-        if (b(eArr, hv) != null) {
-            if (dIm - dIn() > j) {
+        E[] eArr = this.nBM;
+        long j = this.nSJ;
+        long dJt = dJt();
+        long ht = ht(dJt);
+        if (b(eArr, ht) != null) {
+            if (dJt - dJu() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, hv) != null);
-            a(eArr, hv, e);
-            hx(1 + dIm);
+            } while (b(eArr, ht) != null);
+            a(eArr, ht, e);
+            hv(1 + dJt);
             return true;
         }
-        a(eArr, hv, e);
-        hx(1 + dIm);
+        a(eArr, ht, e);
+        hv(1 + dJt);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long dIn;
-        long dNz = dNz();
+        long dJu;
+        long dOM = dOM();
         do {
-            dIn = dIn();
-            if (dIn >= dNz) {
-                long dIm = dIm();
-                if (dIn >= dIm) {
+            dJu = dJu();
+            if (dJu >= dOM) {
+                long dJt = dJt();
+                if (dJu >= dJt) {
                     return null;
                 }
-                hy(dIm);
+                hw(dJt);
             }
-        } while (!am(dIn, 1 + dIn));
-        long hv = hv(dIn);
-        E[] eArr = this.nBk;
-        E a = a(eArr, hv);
-        b(eArr, hv, null);
+        } while (!am(dJu, 1 + dJu));
+        long ht = ht(dJu);
+        E[] eArr = this.nBM;
+        E a = a(eArr, ht);
+        b(eArr, ht, null);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E hw;
-        long dNz = dNz();
+        E hu;
+        long dOM = dOM();
         do {
-            long dIn = dIn();
-            if (dIn >= dNz) {
-                long dIm = dIm();
-                if (dIn >= dIm) {
+            long dJu = dJu();
+            if (dJu >= dOM) {
+                long dJt = dJt();
+                if (dJu >= dJt) {
                     return null;
                 }
-                hy(dIm);
+                hw(dJt);
             }
-            hw = hw(hv(dIn));
-        } while (hw == null);
-        return hw;
+            hu = hu(ht(dJu));
+        } while (hu == null);
+        return hu;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dIn = dIn();
+        long dJu = dJu();
         while (true) {
-            long dIm = dIm();
-            long dIn2 = dIn();
-            if (dIn == dIn2) {
-                return (int) (dIm - dIn2);
+            long dJt = dJt();
+            long dJu2 = dJu();
+            if (dJu == dJu2) {
+                return (int) (dJt - dJu2);
             }
-            dIn = dIn2;
+            dJu = dJu2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dIn() == dIm();
+        return dJu() == dJt();
     }
 }

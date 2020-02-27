@@ -1,7 +1,7 @@
 package com.baidu.mapapi.favorite;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FavoritePoiInfo {
     String a;
     String b;

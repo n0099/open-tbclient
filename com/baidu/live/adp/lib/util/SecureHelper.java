@@ -1,5 +1,6 @@
 package com.baidu.live.adp.lib.util;
 
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -27,7 +28,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SecureHelper {
     public static final int AES256_PASSWORD_LENGTH = 32;
     public static final String CIPHER_TRIPLE_AES = "AES/ECB/PKCS5Padding";
@@ -39,32 +40,36 @@ public class SecureHelper {
         CRC32 crc32 = new CRC32();
         try {
             fileInputStream = new FileInputStream(file);
-            try {
-                byte[] bArr = new byte[4096];
-                while (true) {
-                    int read = fileInputStream.read(bArr, 0, bArr.length);
-                    if (read == -1) {
-                        break;
-                    }
-                    crc32.update(bArr, 0, read);
+        } catch (Throwable th) {
+            th = th;
+            fileInputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[4096];
+            while (true) {
+                int read = fileInputStream.read(bArr, 0, bArr.length);
+                if (read == -1) {
+                    break;
                 }
-                long value = crc32.getValue();
+                crc32.update(bArr, 0, read);
+            }
+            long value = crc32.getValue();
+            if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
                 } catch (Exception e) {
                 }
-                return value;
-            } catch (Throwable th) {
-                th = th;
+            }
+            return value;
+        } catch (Throwable th2) {
+            th = th2;
+            if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
                 } catch (Exception e2) {
                 }
-                throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
+            throw th;
         }
     }
 
@@ -84,17 +89,21 @@ public class SecureHelper {
                 crc32.reset();
                 map.clear();
                 channel.close();
-                try {
-                    fileInputStream2.close();
-                } catch (Exception e) {
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e) {
+                    }
                 }
                 return value;
             } catch (Throwable th) {
                 th = th;
                 fileInputStream = fileInputStream2;
-                try {
-                    fileInputStream.close();
-                } catch (Exception e2) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (Exception e2) {
+                    }
                 }
                 throw th;
             }
@@ -104,7 +113,7 @@ public class SecureHelper {
     }
 
     public static PublicKey loadRSAPublicKey(byte[] bArr) throws Exception {
-        return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
+        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
     public static PublicKey loadRSAPublicKey(InputStream inputStream) throws Exception {
@@ -112,7 +121,7 @@ public class SecureHelper {
     }
 
     public static PrivateKey loadRSAPrivateKey(InputStream inputStream) throws Exception {
-        return KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(readBytes(inputStream)));
+        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(readBytes(inputStream)));
     }
 
     public static byte[] readBytes(InputStream inputStream) throws IOException {
@@ -134,25 +143,30 @@ public class SecureHelper {
                 }
             }
             byte[] byteArray = byteArrayOutputStream.toByteArray();
-            try {
-                byteArrayOutputStream.close();
-                inputStream.close();
-            } catch (Exception e) {
+            if (byteArrayOutputStream != null) {
+                try {
+                    byteArrayOutputStream.close();
+                } catch (Exception e) {
+                }
             }
+            inputStream.close();
             return byteArray;
         } catch (Throwable th2) {
             th = th2;
-            try {
-                byteArrayOutputStream.close();
-                inputStream.close();
-            } catch (Exception e2) {
+            if (byteArrayOutputStream != null) {
+                try {
+                    byteArrayOutputStream.close();
+                } catch (Exception e2) {
+                    throw th;
+                }
             }
+            inputStream.close();
             throw th;
         }
     }
 
     public static KeyPair createKeyPair() throws NoSuchAlgorithmException {
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA);
         keyPairGenerator.initialize(1024);
         return keyPairGenerator.generateKeyPair();
     }
@@ -168,7 +182,7 @@ public class SecureHelper {
     }
 
     public static byte[] encryptWithRSA(byte[] bArr, byte[] bArr2) throws GeneralSecurityException {
-        return encryptWithRSA(KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr)), bArr2);
+        return encryptWithRSA(KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr)), bArr2);
     }
 
     public static byte[] decryptWithRSA(Key key, byte[] bArr) throws GeneralSecurityException {

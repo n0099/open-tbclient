@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ThreadPoolService {
     private static final int MSG_RUN_IN_CHILD_THREAD = 1;
     private static final int MSG_RUN_IN_UI_THREAD = 0;
@@ -25,7 +25,7 @@ public class ThreadPoolService {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class SingletonContainer {
         public static ThreadPoolService mSingleInstance = new ThreadPoolService();
 

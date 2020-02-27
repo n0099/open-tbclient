@@ -10,7 +10,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class h extends j {
     @Override // com.baidu.webkit.internal.b.j
     public final boolean a(Context context, String str) {

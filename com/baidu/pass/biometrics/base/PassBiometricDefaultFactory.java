@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.pass.biometrics.base.callback.PassBiometricCallback;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PassBiometricDefaultFactory extends PassBiometricFactory {
     public static final int VERSION_CODE = 8;
     public static final String VERSION_NAME = "1.2.4";

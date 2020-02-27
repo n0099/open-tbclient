@@ -3,7 +3,7 @@ package rx.internal.util.atomic;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c<E> extends a<E> {
     private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
@@ -33,7 +33,7 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.nRP;
+        AtomicReferenceArray<E> atomicReferenceArray = this.nSD;
         int i = this.mask;
         long j = this.producerIndex.get();
         int calcElementOffset = calcElementOffset(j, i);
@@ -54,7 +54,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.nRP;
+        AtomicReferenceArray<E> atomicReferenceArray = this.nSD;
         E b = b(atomicReferenceArray, calcElementOffset);
         if (b == null) {
             return null;
@@ -71,20 +71,20 @@ public final class c<E> extends a<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dIn = dIn();
+        long dJu = dJu();
         while (true) {
-            long dIm = dIm();
-            long dIn2 = dIn();
-            if (dIn == dIn2) {
-                return (int) (dIm - dIn2);
+            long dJt = dJt();
+            long dJu2 = dJu();
+            if (dJu == dJu2) {
+                return (int) (dJt - dJu2);
             }
-            dIn = dIn2;
+            dJu = dJu2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dIm() == dIn();
+        return dJt() == dJu();
     }
 
     private void soProducerIndex(long j) {
@@ -95,11 +95,11 @@ public final class c<E> extends a<E> {
         this.consumerIndex.lazySet(j);
     }
 
-    private long dIn() {
+    private long dJu() {
         return this.consumerIndex.get();
     }
 
-    private long dIm() {
+    private long dJt() {
         return this.producerIndex.get();
     }
 }

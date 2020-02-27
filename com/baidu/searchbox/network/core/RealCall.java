@@ -8,7 +8,7 @@ import com.baidu.searchbox.network.core.http.RealInterceptorChain;
 import com.baidu.searchbox.network.core.internal.NamedRunnable;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class RealCall implements Call {
     @Nullable
     private EventListener eventListener;
@@ -100,7 +100,7 @@ public final class RealCall implements Call {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public final class AsyncCall extends NamedRunnable {
         private final Callback responseCallback;
 

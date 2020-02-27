@@ -11,24 +11,24 @@ import io.reactivex.j;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayErrors;
-    final org.a.b<? extends T>[] nvY;
-    final Iterable<? extends org.a.b<? extends T>> nvZ;
+    final org.a.b<? extends T>[] nwA;
+    final Iterable<? extends org.a.b<? extends T>> nwB;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
         int length;
         org.a.b<? extends T>[] bVarArr;
         org.a.b<? extends T>[] bVarArr2;
-        org.a.b<? extends T>[] bVarArr3 = this.nvY;
+        org.a.b<? extends T>[] bVarArr3 = this.nwA;
         if (bVarArr3 == null) {
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
             try {
-                Iterator it = (Iterator) io.reactivex.internal.functions.a.h(this.nvZ.iterator(), "The iterator returned is null");
+                Iterator it = (Iterator) io.reactivex.internal.functions.a.h(this.nwB.iterator(), "The iterator returned is null");
                 int i = 0;
                 while (it.hasNext()) {
                     try {
@@ -44,12 +44,12 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             i++;
                             bVarArr4 = bVarArr2;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.I(th);
+                            io.reactivex.exceptions.a.H(th);
                             EmptySubscription.error(th, cVar);
                             return;
                         }
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.I(th2);
+                        io.reactivex.exceptions.a.H(th2);
                         EmptySubscription.error(th2, cVar);
                         return;
                     }
@@ -57,7 +57,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                 bVarArr = bVarArr4;
                 length = i;
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.I(th3);
+                io.reactivex.exceptions.a.H(th3);
                 EmptySubscription.error(th3, cVar);
                 return;
             }
@@ -76,7 +76,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class CombineLatestCoordinator<T, R> extends BasicIntQueueSubscription<R> {
         private static final long serialVersionUID = -5082275438355852221L;
         final org.a.c<? super R> actual;
@@ -237,7 +237,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             ((CombineLatestInnerSubscriber) poll).requestOne();
                             j2 = 1 + j2;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.I(th);
+                            io.reactivex.exceptions.a.H(th);
                             cancelAll();
                             ExceptionHelper.addThrowable(this.error, th);
                             cVar.onError(ExceptionHelper.terminate(this.error));
@@ -346,7 +346,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class CombineLatestInnerSubscriber<T> extends AtomicReference<org.a.d> implements j<T> {
         private static final long serialVersionUID = -8730235182291002949L;
         final int index;
@@ -397,7 +397,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     final class a implements h<T, R> {
         a() {
         }

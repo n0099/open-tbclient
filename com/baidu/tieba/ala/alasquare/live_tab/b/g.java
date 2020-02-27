@@ -1,28 +1,20 @@
 package com.baidu.tieba.ala.alasquare.live_tab.b;
 
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.ala.data.SdkLiveInfoData;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
-    private boolean ehB = false;
-    public bj ehH;
+    public SdkLiveInfoData elM;
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.ehB = jSONObject.optInt("need_show") == 1;
-            JSONObject optJSONObject = jSONObject.optJSONObject("live_info");
-            if (optJSONObject != null) {
-                this.ehH = new bj();
-                this.ehH.parserJson(optJSONObject);
-            }
+        JSONObject optJSONObject;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("live_info")) != null) {
+            this.elM = new SdkLiveInfoData();
+            this.elM.fromJson(optJSONObject);
         }
     }
 
     public boolean isValid() {
-        return (this.ehH == null || this.ehH.aAq() == null || this.ehH.aAq().live_id <= 0) ? false : true;
-    }
-
-    public boolean baj() {
-        return this.ehB && this.ehH != null;
+        return this.elM != null && ((long) com.baidu.adp.lib.f.b.toInt(this.elM.liveId, 0)) > 0;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.ala.player.StreamConfig;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaAudioRecorder {
     public static final int BUFFER_LENGTH = 2048;
     private int mChannels;
@@ -33,7 +33,7 @@ public class AlaAudioRecorder {
     private int[] mNativePosArr = new int[1];
     private int[] mNativeLenArr = new int[1];
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AlaAudioRecorderCallback {
         void onAudioRecordError(String str);
 
@@ -132,34 +132,27 @@ public class AlaAudioRecorder {
                         this.mFramesPerBuffer = (i / 100) * 2;
                         int i5 = i2 == 12 ? 2 : 1;
                         AudioProcessModule.sharedInstance().createAudioProcessModule(StreamConfig.OUTPUT_SAMPLE_RATE, i, i5, i5, 0, 1, 1);
-                        AudioProcessModule.sharedInstance().setCaptureBuffer(this.mNativeBuffer, 1.3f);
+                        AudioProcessModule.sharedInstance().setCaptureBuffer(this.mNativeBuffer, 1.4f);
                     }
                 } else {
                     this.mAudioRecord = new AudioRecord(1, i, i2, 2, minBufferSize);
                 }
                 if (!this.mRunOpenSLES && this.mAudioRecord.getState() == 0) {
                     this.mAudioRecord = null;
-                    return;
+                } else {
+                    registerHeadset();
                 }
-                registerHeadset();
-                if (this.mAudioManager != null) {
-                    try {
-                        this.mAudioManager.setSpeakerphoneOn(!this.mAudioManager.isWiredHeadsetOn());
-                    } catch (Exception e) {
-                        BdLog.e(e);
-                    }
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                this.mAudioRecord = null;
+                if (this.mCallback != null) {
+                    this.mCallback.onAudioRecordInitError("IllegalArgumentException " + e.getLocalizedMessage());
                 }
-            } catch (IllegalArgumentException e2) {
+            } catch (Exception e2) {
                 e2.printStackTrace();
                 this.mAudioRecord = null;
                 if (this.mCallback != null) {
-                    this.mCallback.onAudioRecordInitError("IllegalArgumentException " + e2.getLocalizedMessage());
-                }
-            } catch (Exception e3) {
-                e3.printStackTrace();
-                this.mAudioRecord = null;
-                if (this.mCallback != null) {
-                    this.mCallback.onAudioRecordInitError("1 Exception " + e3.getLocalizedMessage());
+                    this.mCallback.onAudioRecordInitError("1 Exception " + e2.getLocalizedMessage());
                 }
             }
         }
@@ -242,6 +235,18 @@ public class AlaAudioRecorder {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x00a9, code lost:
+        if (r1 == false) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:?, code lost:
+        return null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:?, code lost:
+        return r8.mBuffer;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private byte[] readDataAndACE() {
         boolean z = false;
         if (this.mAudioRecord == null) {
@@ -249,7 +254,7 @@ public class AlaAudioRecorder {
         }
         while (true) {
             try {
-                int read = this.mAudioRecord.read(this.mNativeBuffer.array(), 0, this.mFramesPerBuffer);
+                int read = this.mAudioRecord.read(this.mNativeBuffer.array(), this.mNativeBuffer.arrayOffset(), this.mFramesPerBuffer);
                 if (read != this.mFramesPerBuffer) {
                     BdLog.e("readDataRTC read data error. length is " + read);
                     return null;
@@ -263,7 +268,7 @@ public class AlaAudioRecorder {
                 if (updateCaptureBuffer != 0 || this.mNativeLenArr[0] <= 0) {
                     break;
                 }
-                this.mAudioBuffer.write(this.mNativeBuffer.array(), 0, this.mNativeLenArr[0]);
+                this.mAudioBuffer.write(this.mNativeBuffer.array(), this.mNativeBuffer.arrayOffset(), this.mNativeLenArr[0]);
                 if (this.mAudioBuffer.size() > 2048) {
                     this.mAudioBuffer.read(this.mBuffer, 0, 2048);
                     this.mAudioBuffer.delete(2048);
@@ -275,10 +280,6 @@ public class AlaAudioRecorder {
                 return null;
             }
         }
-        if (z) {
-            return this.mBuffer;
-        }
-        return null;
     }
 
     private void registerHeadset() {
@@ -323,7 +324,7 @@ public class AlaAudioRecorder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class HeadSetReceiver extends BroadcastReceiver {
         private AudioManager audioManager;
 

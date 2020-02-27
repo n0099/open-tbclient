@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class g {
     public static void b(Context context, View view) {
         try {
@@ -15,7 +15,7 @@ public class g {
         }
     }
 
-    public static void ax(Context context) {
+    public static void az(Context context) {
         try {
             if (context instanceof Activity) {
                 a(context, (Activity) context);

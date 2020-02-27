@@ -3,16 +3,16 @@ package com.facebook.imagepipeline.decoder;
 import com.facebook.c.c;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class c {
-    private final Map<com.facebook.c.c, b> lSV;
-    private final List<c.a> lSW;
+    private final Map<com.facebook.c.c, b> lTC;
+    private final List<c.a> lTD;
 
-    public Map<com.facebook.c.c, b> doV() {
-        return this.lSV;
+    public Map<com.facebook.c.c, b> dqh() {
+        return this.lTC;
     }
 
-    public List<c.a> doW() {
-        return this.lSW;
+    public List<c.a> dqi() {
+        return this.lTD;
     }
 }

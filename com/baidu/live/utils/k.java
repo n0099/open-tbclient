@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.lang.reflect.Method;
 import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
     private static boolean hasNavBar(Context context) {
         Resources resources = context.getResources();
@@ -77,7 +77,7 @@ public class k {
         }
     }
 
-    public static boolean dS(String str) {
+    public static boolean eh(String str) {
         if (str.contains("·") || str.contains("•")) {
             if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
                 return true;
@@ -88,8 +88,8 @@ public class k {
         return false;
     }
 
-    public static boolean yH() {
-        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
+    public static boolean AY() {
+        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }
         IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
@@ -99,8 +99,8 @@ public class k {
         return true;
     }
 
-    public static boolean yI() {
-        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
+    public static boolean AZ() {
+        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }
         IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();

@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.bawu;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BawuTeamInfoActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
 

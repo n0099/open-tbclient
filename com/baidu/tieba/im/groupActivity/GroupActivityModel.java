@@ -6,39 +6,39 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestDelGroupActivityMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int cDa;
-    private RequestGetGroupActivityMessage hAl;
-    private RequestGetGroupActivityLocalMessage hAm;
-    private RequestDelGroupActivityMessage hAn;
-    private GroupActivityActivity hAo;
-    private GroupActivityData hAp;
+    private int cGY;
+    private RequestGetGroupActivityMessage hCk;
+    private RequestGetGroupActivityLocalMessage hCl;
+    private RequestDelGroupActivityMessage hCm;
+    private GroupActivityActivity hCn;
+    private GroupActivityData hCo;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.hAo = groupActivityActivity;
+        this.hCn = groupActivityActivity;
     }
 
-    public int bUf() {
+    public int bVG() {
         return this.mFrom;
     }
 
-    public void wr(int i) {
+    public void wx(int i) {
         this.mFrom = i;
     }
 
-    public int bUg() {
-        return this.cDa;
+    public int bVH() {
+        return this.cGY;
     }
 
-    public void ws(int i) {
-        this.cDa = i;
+    public void wy(int i) {
+        this.cGY = i;
     }
 
-    public long bUh() {
+    public long bVI() {
         return this.mGroupId;
     }
 
@@ -56,14 +56,14 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return false;
     }
 
-    private RequestGetGroupActivityMessage wt(int i) {
+    private RequestGetGroupActivityMessage wz(int i) {
         RequestGetGroupActivityMessage requestGetGroupActivityMessage = new RequestGetGroupActivityMessage();
         requestGetGroupActivityMessage.setActivityId(i);
         requestGetGroupActivityMessage.setFrom(this.mFrom);
         return requestGetGroupActivityMessage;
     }
 
-    private RequestGetGroupActivityLocalMessage wu(int i) {
+    private RequestGetGroupActivityLocalMessage wA(int i) {
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = new RequestGetGroupActivityLocalMessage();
         requestGetGroupActivityLocalMessage.setActivityId(i);
         requestGetGroupActivityLocalMessage.setFrom(this.mFrom);
@@ -71,45 +71,45 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.hAl = wt(i);
-        this.hAo.sendMessage(this.hAl);
+        this.hCk = wz(i);
+        this.hCn.sendMessage(this.hCk);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
     }
 
-    public void wv(int i) {
-        this.hAm = wu(i);
-        this.hAo.sendMessage(this.hAm);
+    public void wB(int i) {
+        this.hCl = wA(i);
+        this.hCn.sendMessage(this.hCl);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.hAm;
+        return this.hCl;
     }
 
     public Message<?> getSendMsg() {
-        return this.hAl;
+        return this.hCk;
     }
 
-    public Message<?> bUi() {
-        return this.hAn;
+    public Message<?> bVJ() {
+        return this.hCm;
     }
 
     public void r(long j, int i) {
-        this.hAn = new RequestDelGroupActivityMessage();
-        this.hAn.setActivityId(i);
-        this.hAn.setGroupId(j);
-        this.hAo.sendMessage(this.hAn);
+        this.hCm = new RequestDelGroupActivityMessage();
+        this.hCm.setActivityId(i);
+        this.hCm.setGroupId(j);
+        this.hCn.sendMessage(this.hCm);
     }
 
-    public GroupActivityData bUj() {
-        return this.hAp;
+    public GroupActivityData bVK() {
+        return this.hCo;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.hAp = groupActivityData;
+            this.hCo = groupActivityData;
         }
     }
 }

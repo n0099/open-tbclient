@@ -8,7 +8,7 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.ubc.s;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements com.baidu.swan.pms.b {
     @Override // com.baidu.swan.pms.b
     public boolean isDebug() {
@@ -16,63 +16,63 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SB() {
-        return com.baidu.swan.apps.w.a.RS().FN();
+    public String UP() {
+        return com.baidu.swan.apps.w.a.Ug().Ic();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SC() {
-        return com.baidu.swan.apps.w.a.RL().bn(AppRuntime.getAppContext());
+    public String UQ() {
+        return com.baidu.swan.apps.w.a.TZ().br(AppRuntime.getAppContext());
     }
 
     @Override // com.baidu.swan.pms.b
     public String getUUID() {
-        return com.baidu.swan.uuid.b.dD(AppRuntime.getAppContext()).getUUID();
+        return com.baidu.swan.uuid.b.dH(AppRuntime.getAppContext()).getUUID();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SD() {
-        return com.baidu.swan.apps.w.a.Sr().getHostName();
+    public String UR() {
+        return com.baidu.swan.apps.w.a.UF().getHostName();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SE() {
+    public String US() {
         return ai.getVersionName();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SF() {
+    public String UT() {
         return com.baidu.swan.apps.c.getVersion();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SG() {
-        return com.baidu.swan.apps.swancore.b.gh(0);
+    public String UU() {
+        return com.baidu.swan.apps.swancore.b.gy(0);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SH() {
-        return com.baidu.swan.apps.extcore.b.ez(0);
+    public String UV() {
+        return com.baidu.swan.apps.extcore.b.eP(0);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SI() {
-        return com.baidu.swan.apps.swancore.b.gh(1);
+    public String UW() {
+        return com.baidu.swan.apps.swancore.b.gy(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SJ() {
-        return com.baidu.swan.apps.extcore.b.ez(1);
+    public String UX() {
+        return com.baidu.swan.apps.extcore.b.eP(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public CookieManager SK() {
-        return com.baidu.swan.apps.w.a.Se().Gd();
+    public CookieManager UY() {
+        return com.baidu.swan.apps.w.a.Us().Is();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String SL() {
-        return com.baidu.swan.apps.w.a.RJ().EN();
+    public String UZ() {
+        return com.baidu.swan.apps.w.a.TX().Hc();
     }
 
     @Override // com.baidu.swan.pms.b

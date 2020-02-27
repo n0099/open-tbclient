@@ -4,9 +4,11 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
+import kotlin.h;
 import kotlin.jvm.internal.q;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+@h
+/* loaded from: classes11.dex */
 public final class WebSocketManager {
     public static final WebSocketManager INSTANCE = new WebSocketManager();
     private static HashMap<String, WebSocketTask> mTasks = new HashMap<>();

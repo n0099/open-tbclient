@@ -6,7 +6,7 @@ import android.os.Message;
 import android.util.Log;
 import com.baidu.platform.comjni.bikenavi.JNIEngineManager;
 import com.baidu.platform.comjni.jninative.EngineCommonConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a {
     private JNIEngineManager a = null;
     private long b = 0;
@@ -37,7 +37,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
         engineCommonConfig.mNoExistSensor = !com.baidu.platform.comapi.walknavi.b.a().e();
         this.a = new JNIEngineManager();
         new a(j, engineCommonConfig).start();
-        new C0132b(context).start();
+        new C0141b(context).start();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -57,7 +57,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends Thread {
         private EngineCommonConfig b;
         private long c;
@@ -117,11 +117,11 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0132b extends Thread {
+    /* loaded from: classes8.dex */
+    public class C0141b extends Thread {
         private Context b;
 
-        public C0132b(Context context) {
+        public C0141b(Context context) {
             this.b = context;
         }
 

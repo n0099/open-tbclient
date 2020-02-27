@@ -1,5 +1,6 @@
 package kotlin;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public final class UninitializedPropertyAccessException extends RuntimeException {
     public UninitializedPropertyAccessException() {
     }

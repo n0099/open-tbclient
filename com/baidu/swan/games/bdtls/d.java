@@ -9,19 +9,19 @@ import com.baidu.swan.games.bdtls.model.h;
 import com.baidu.swan.games.bdtls.model.i;
 import com.baidu.swan.games.bdtls.model.j;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static volatile d cgE;
+    private static volatile d ckI;
 
-    public static d ajs() {
-        if (cgE == null) {
+    public static d alG() {
+        if (ckI == null) {
             synchronized (d.class) {
-                if (cgE == null) {
-                    cgE = new d();
+                if (ckI == null) {
+                    ckI = new d();
                 }
             }
         }
-        return cgE;
+        return ckI;
     }
 
     private d() {
@@ -34,11 +34,11 @@ public class d {
         try {
             byte[] a = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
             if (a != null) {
-                h akq = h.cgY.akq();
-                akq.b((byte) 22);
-                akq.b((short) a.length);
-                akq.C(a);
-                return com.baidu.swan.games.bdtls.a.b.a(akq);
+                h amE = h.clc.amE();
+                amE.b((byte) 22);
+                amE.c((short) a.length);
+                amE.H(a);
+                return com.baidu.swan.games.bdtls.a.b.a(amE);
             }
             return null;
         } catch (Exception e) {
@@ -56,19 +56,19 @@ public class d {
             return null;
         }
         try {
-            h akq = h.cgY.akq();
-            akq.b((byte) 23);
-            byte[] akC = jVar.akC();
-            if (akC != null && akC.length > 0 && akC.length <= 32767) {
-                akq.b((short) akC.length);
-                akq.C(akC);
+            h amE = h.clc.amE();
+            amE.b((byte) 23);
+            byte[] amQ = jVar.amQ();
+            if (amQ != null && amQ.length > 0 && amQ.length <= 32767) {
+                amE.c((short) amQ.length);
+                amE.H(amQ);
             }
             if (!TextUtils.isEmpty(str)) {
-                byte[] f = AES.f(str, jVar.akB());
-                akq.hv(f.length);
-                akq.setContent(f);
+                byte[] f = AES.f(str, jVar.amP());
+                amE.hM(f.length);
+                amE.setContent(f);
             }
-            return com.baidu.swan.games.bdtls.a.b.a(akq);
+            return com.baidu.swan.games.bdtls.a.b.a(amE);
         } catch (Exception e) {
             if (a.DEBUG) {
                 e.printStackTrace();
@@ -82,10 +82,10 @@ public class d {
     public i a(j jVar, byte[] bArr) {
         i iVar = new i();
         try {
-            h G = com.baidu.swan.games.bdtls.a.b.G(bArr);
-            switch (G.akl()) {
+            h L = com.baidu.swan.games.bdtls.a.b.L(bArr);
+            switch (L.amz()) {
                 case 21:
-                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(G.akp());
+                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(L.amD());
                     if (parseFrom != null) {
                         if (a.DEBUG) {
                             Log.d("BDTLS", "bdtls ubc application alert");
@@ -114,7 +114,7 @@ public class d {
                     }
                     break;
                 case 23:
-                    iVar.og(new String(AES.c(G.getContent(), jVar.akB())));
+                    iVar.ow(new String(AES.c(L.getContent(), jVar.amP())));
                     iVar.b(1);
                     break;
             }
@@ -128,11 +128,11 @@ public class d {
         return iVar;
     }
 
-    public static byte[] hp(int i) {
+    public static byte[] hG(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
     }
 
-    public static int y(byte[] bArr) {
+    public static int D(byte[] bArr) {
         if (bArr != null) {
             int i = 0;
             for (byte b : bArr) {
@@ -145,7 +145,7 @@ public class d {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: char */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String z(byte[] bArr) {
+    public static String E(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < bArr.length; i++) {
             sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);

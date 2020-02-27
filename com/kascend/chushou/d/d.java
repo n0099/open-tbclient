@@ -10,9 +10,10 @@ import java.io.File;
 import java.util.List;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
-/* loaded from: classes4.dex */
+@kotlin.h
+/* loaded from: classes5.dex */
 public final class d {
-    public static final d mOv = new d();
+    public static final d mOX = new d();
 
     private d() {
     }
@@ -25,7 +26,7 @@ public final class d {
             return null;
         }
         if (str == null) {
-            q.dJm();
+            q.dKt();
         }
         List b = l.b((CharSequence) str, new String[]{Constants.ACCEPT_TIME_SEPARATOR_SP}, false, 0, 6, (Object) null);
         if (b.size() > 1) {
@@ -54,11 +55,11 @@ public final class d {
         q.j(str2, "avatarUrl");
         q.j(cVar, "sp");
         int length = cVar.length();
-        ImageRequestBuilder vs = ImageRequestBuilder.X(i.QH(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).vs(true);
-        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).HJ(com.kascend.chushou.view.a.a(null)).dlK(), tv.chushou.basis.d.b.dOE());
-        com.facebook.drawee.controller.a dkW = com.facebook.drawee.a.a.c.dkj().be(vs.dro()).dla();
+        ImageRequestBuilder vw = ImageRequestBuilder.Y(i.QU(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).vw(true);
+        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).HO(com.kascend.chushou.view.a.a(null)).dmW(), tv.chushou.basis.d.b.dPR());
+        com.facebook.drawee.controller.a dmj = com.facebook.drawee.a.a.c.dlw().bg(vw.dsA()).dmn();
         q.i(a, "draweeHolder");
-        a.setController(dkW);
+        a.setController(dmj);
         cVar.append(HanziToPinyin.Token.SEPARATOR);
         String str3 = str;
         int i3 = str3 == null || str3.length() == 0 ? i2 : i;
@@ -67,7 +68,7 @@ public final class d {
     }
 
     public final void a() {
-        tv.chushou.zues.utils.h.dPg();
+        tv.chushou.zues.utils.h.dQt();
         System.gc();
     }
 }

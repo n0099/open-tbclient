@@ -33,7 +33,7 @@ import javax.net.ssl.TrustManagerFactory;
 import org.apache.http.HttpHost;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class d {
     private static final Uri c = Uri.parse("content://telephony/carriers/preferapn");
     private static boolean d = false;
@@ -56,11 +56,11 @@ public final class d {
     private int r = 0;
     private boolean s = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b implements HostnameVerifier {
         public b() {
         }
@@ -71,7 +71,7 @@ public final class d {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         boolean a();
 

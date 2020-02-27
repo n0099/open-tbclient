@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ad implements aj<com.airbnb.lottie.model.content.h> {
-    public static final ad jY = new ad();
+    public static final ad kd = new ad();
 
     private ad() {
     }

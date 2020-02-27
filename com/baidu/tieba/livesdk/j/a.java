@@ -5,14 +5,14 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public static void l(String str, Map<String, String> map) {
+    public static void k(String str, Map<String, String> map) {
         if (!aq.isEmpty(str)) {
             an anVar = new an(str);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    anVar.cp(str2, map.get(str2));
+                    anVar.cy(str2, map.get(str2));
                 }
             }
             TiebaStatic.log(anVar);
@@ -26,7 +26,7 @@ public class a {
             for (String str : map.keySet()) {
                 hashMap.put(str, map.get(str));
             }
-            l(remove, hashMap);
+            k(remove, hashMap);
         }
     }
 }

@@ -18,40 +18,40 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a {
-    private static String rI;
     private static String rJ;
-    private static boolean rK;
-    private static String rL;
+    private static String rK;
+    private static boolean rL;
     private static String rM;
     private static String rN;
+    private static String rO;
     private static String sUid;
-    private e rO;
-    private c rP;
-    private long rQ;
+    private e rP;
+    private c rQ;
+    private long rR;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.rQ = BdStatisticsManager.getInstance().getClientLogId();
+        this.rR = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     public static void au(String str) {
-        rI = str;
+        rJ = str;
     }
 
     public static void setCuid(String str) {
-        rL = str;
-    }
-
-    public static void av(String str) {
         rM = str;
     }
 
-    public static void aw(String str) {
+    public static void av(String str) {
         rN = str;
     }
 
+    public static void aw(String str) {
+        rO = str;
+    }
+
     public static void setUserAgent(String str) {
-        rJ = str;
+        rK = str;
     }
 
     public static void setUid(String str) {
@@ -59,16 +59,16 @@ public class a {
     }
 
     public static void setKeepAlive(boolean z) {
-        rK = z;
+        rL = z;
     }
 
     public g a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.rO = new e();
-        a(this.rO, z);
-        this.rO.fX().setUrl(str);
-        this.rP = new c(this.rO);
-        this.rP.c(i, i3, i4);
-        return this.rO.fY();
+        this.rP = new e();
+        a(this.rP, z);
+        this.rP.fX().setUrl(str);
+        this.rQ = new c(this.rP);
+        this.rQ.c(i, i3, i4);
+        return this.rP.fY();
     }
 
     public g a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -76,61 +76,61 @@ public class a {
     }
 
     public g a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.rO = new e();
-        a(this.rO, z);
-        this.rO.fX().setUrl(str);
+        this.rP = new e();
+        a(this.rP, z);
+        this.rP.fX().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.rO.fX().addPostData(basicNameValuePair);
+                this.rP.fX().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.rO.fX().l(next.getName(), next.getValue());
+                this.rP.fX().n(next.getName(), next.getValue());
             }
         }
-        this.rP = new c(this.rO);
-        this.rP.e(i, i2, -1);
-        return this.rO.fY();
+        this.rQ = new c(this.rP);
+        this.rQ.e(i, i2, -1);
+        return this.rP.fY();
     }
 
     public g a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.rO = new e();
-        a(this.rO, z);
-        this.rO.fX().setUrl(str);
+        this.rP = new e();
+        a(this.rP, z);
+        this.rP.fX().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.rO.fX().l(next.getName(), next.getValue());
+                this.rP.fX().n(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.rO.fX().addPostData(next2.getName(), next2.getValue());
+                this.rP.fX().addPostData(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.rO.fX().addPostData(entry.getKey(), entry.getValue());
+                this.rP.fX().addPostData(entry.getKey(), entry.getValue());
             }
         }
-        this.rP = new c(this.rO);
-        this.rP.e(i, i2, -1);
-        return this.rO.fY();
+        this.rQ = new c(this.rP);
+        this.rQ.e(i, i2, -1);
+        return this.rP.fY();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2, boolean z3, boolean z4) {
-        this.rO = new e();
-        b(this.rO);
-        this.rO.fX().setUrl(str);
-        this.rO.fX().I(z4);
-        this.rP = new c(this.rO);
-        return this.rP.a(str2, hVar, i, i2, i3, i4, z2, z3);
+        this.rP = new e();
+        b(this.rP);
+        this.rP.fX().setUrl(str);
+        this.rP.fX().I(z4);
+        this.rQ = new c(this.rP);
+        return this.rQ.a(str2, hVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -138,60 +138,60 @@ public class a {
     }
 
     public void cancel() {
-        if (this.rP != null) {
-            this.rP.cancel();
+        if (this.rQ != null) {
+            this.rQ.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.rP != null) {
-            return this.rP.isCancel();
+        if (this.rQ != null) {
+            return this.rQ.isCancel();
         }
         return false;
     }
 
     public void setCancel() {
-        if (this.rP != null) {
-            this.rP.setCancel();
+        if (this.rQ != null) {
+            this.rQ.setCancel();
         }
     }
 
     public e gq() {
-        return this.rO;
+        return this.rP;
     }
 
     private void a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(rI)) {
-                eVar.fX().l(SM.COOKIE, rI);
+            if (!TextUtils.isEmpty(rJ)) {
+                eVar.fX().n(SM.COOKIE, rJ);
             } else {
-                eVar.fX().l(SM.COOKIE, "");
+                eVar.fX().n(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                eVar.fX().l("client_user_token", sUid);
+                eVar.fX().n("client_user_token", sUid);
             }
-            if (!TextUtils.isEmpty(rJ)) {
-                eVar.fX().l("User-Agent", rJ);
+            if (!TextUtils.isEmpty(rK)) {
+                eVar.fX().n("User-Agent", rK);
             }
             if (z) {
-                eVar.fX().l(Headers.ACCEPT_ENCODING, "gzip");
+                eVar.fX().n(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                eVar.fX().l(Headers.ACCEPT_ENCODING, "");
+                eVar.fX().n(Headers.ACCEPT_ENCODING, "");
             }
-            if (rK) {
-                eVar.fX().l(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (rL) {
+                eVar.fX().n(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                eVar.fX().l(HTTP.CONN_DIRECTIVE, "close");
+                eVar.fX().n(HTTP.CONN_DIRECTIVE, "close");
             }
-            eVar.fX().l("client_logid", String.valueOf(this.rQ));
-            if (!TextUtils.isEmpty(rL)) {
-                eVar.fX().l("cuid", rL);
-            }
+            eVar.fX().n("client_logid", String.valueOf(this.rR));
             if (!TextUtils.isEmpty(rM)) {
-                eVar.fX().l("cuid_galaxy2", rM);
+                eVar.fX().n("cuid", rM);
             }
             if (!TextUtils.isEmpty(rN)) {
-                eVar.fX().l("cuid_gid", rN);
+                eVar.fX().n("cuid_galaxy2", rN);
+            }
+            if (!TextUtils.isEmpty(rO)) {
+                eVar.fX().n("cuid_gid", rO);
             }
         }
     }

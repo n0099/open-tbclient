@@ -23,7 +23,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ActivityChooserModel extends DataSetObservable {
     static final String ATTRIBUTE_ACTIVITY = "activity";
     static final String ATTRIBUTE_TIME = "time";
@@ -54,17 +54,17 @@ public class ActivityChooserModel extends DataSetObservable {
     private boolean mHistoricalRecordsChanged = true;
     private boolean mReloadActivities = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface ActivityChooserModelClient {
         void setActivityChooserModel(ActivityChooserModel activityChooserModel);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface ActivitySorter {
         void sort(Intent intent, List<ActivityResolveInfo> list, List<HistoricalRecord> list2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnChooseActivityListener {
         boolean onChooseActivity(ActivityChooserModel activityChooserModel, Intent intent);
     }
@@ -306,7 +306,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class HistoricalRecord {
         public final ComponentName activity;
         public final long time;
@@ -355,7 +355,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class ActivityResolveInfo implements Comparable<ActivityResolveInfo> {
         public final ResolveInfo resolveInfo;
         public float weight;
@@ -391,7 +391,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static final class DefaultSorter implements ActivitySorter {
         private static final float WEIGHT_DECAY_COEFFICIENT = 0.95f;
         private final Map<ComponentName, ActivityResolveInfo> mPackageNameToActivityMap = new HashMap();
@@ -495,7 +495,7 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public final class PersistHistoryAsyncTask extends AsyncTask<Object, Void, Void> {
         PersistHistoryAsyncTask() {
         }

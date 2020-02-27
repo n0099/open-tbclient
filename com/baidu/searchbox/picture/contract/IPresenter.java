@@ -1,5 +1,5 @@
 package com.baidu.searchbox.picture.contract;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IPresenter {
     void disableDrag();
 

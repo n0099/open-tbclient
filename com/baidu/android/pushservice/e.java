@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static Handler j;
     public static int a = -1;
@@ -44,7 +44,7 @@ public class e {
     private static int l = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends Handler {
         public a(Context context) {
             super(context.getMainLooper());
@@ -60,7 +60,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class b implements Runnable {
         private Context a;
 

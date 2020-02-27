@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.ArrayMap;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
     public static Bundle k(Map<String, String> map) {
         Bundle bundle = new Bundle();

@@ -5,9 +5,9 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
-    private a ceG;
+    private a ciK;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -17,13 +17,15 @@ public class f {
     @V8JavascriptField
     public int realWidth;
     @V8JavascriptField
-    public int top;
+
+    /* renamed from: top  reason: collision with root package name */
+    public int f1012top;
     @V8JavascriptField
     public int width;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void nD(String str);
+        void nS(String str);
     }
 
     public f(@NonNull com.baidu.swan.games.binding.model.c cVar) {
@@ -32,7 +34,7 @@ public class f {
 
     private void a(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         this.left = cVar.optInt("left", this.left);
-        this.top = cVar.optInt(VerticalTranslateLayout.TOP, this.top);
+        this.f1012top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1012top);
         this.width = cVar.optInt("width", this.width);
         this.height = cVar.optInt("height", this.height);
     }
@@ -42,12 +44,12 @@ public class f {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.ceG != null) {
-            this.ceG.nD(str);
+        if (this.ciK != null) {
+            this.ciK.nS(str);
         }
     }
 
     public void a(a aVar) {
-        this.ceG = aVar;
+        this.ciK = aVar;
     }
 }

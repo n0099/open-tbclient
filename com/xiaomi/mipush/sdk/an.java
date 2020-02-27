@@ -9,7 +9,7 @@ import com.xiaomi.push.hq;
 import com.xiaomi.push.ht;
 import com.xiaomi.push.hy;
 import com.xiaomi.push.iq;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class an extends ai.a {
     private Context a;
 
@@ -19,7 +19,7 @@ public class an extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo152a() {
+    public int mo157a() {
         return 2;
     }
 
@@ -30,7 +30,7 @@ public class an extends ai.a {
         hyVar.a(com.xiaomi.push.service.ah.a(a, hm.MISC_CONFIG));
         hyVar.b(com.xiaomi.push.service.ah.a(a, hm.PLUGIN_CONFIG));
         Cif cif = new Cif("-1", false);
-        cif.c(hq.DailyCheckClientConfig.f493a);
+        cif.c(hq.DailyCheckClientConfig.f490a);
         cif.a(iq.a(hyVar));
         ay.a(this.a).a((ay) cif, hg.Notification, (ht) null);
     }

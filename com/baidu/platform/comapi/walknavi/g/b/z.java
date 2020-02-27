@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.platform.comapi.walknavi.g.b.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class z implements View.OnClickListener {
     final /* synthetic */ c a;
 

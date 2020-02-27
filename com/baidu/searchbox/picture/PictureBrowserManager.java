@@ -6,7 +6,7 @@ import com.baidu.pyramid.runtime.service.d;
 import com.baidu.searchbox.picture.params.LaunchParams;
 import com.tencent.open.SocialConstants;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface PictureBrowserManager {
     public static final d SERVICE_REFERENCE = new d(SocialConstants.PARAM_AVATAR_URI, "light_picture_browser");
 

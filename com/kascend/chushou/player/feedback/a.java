@@ -4,18 +4,18 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public long b;
     private List<FlingObj> c;
-    public FlingObj mXI = new FlingObj();
+    public FlingObj mYl = new FlingObj();
 
     public void a() {
-        if (this.mXI != null && !h.isEmpty(this.mXI.roomId)) {
+        if (this.mYl != null && !h.isEmpty(this.mYl.roomId)) {
             if (this.c == null) {
                 this.c = new ArrayList();
             }
-            this.c.add(this.mXI.copy());
+            this.c.add(this.mYl.copy());
         }
     }
 

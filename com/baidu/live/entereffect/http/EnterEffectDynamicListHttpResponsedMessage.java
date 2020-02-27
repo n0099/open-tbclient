@@ -4,7 +4,7 @@ import com.baidu.live.entereffect.a.a;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EnterEffectDynamicListHttpResponsedMessage extends JsonHttpResponsedMessage {
     private List<a> mDatas;
 
@@ -20,7 +20,7 @@ public class EnterEffectDynamicListHttpResponsedMessage extends JsonHttpResponse
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1021141) {
-            this.mDatas = com.baidu.live.entereffect.a.qg().i(jSONObject.optJSONArray("data"));
+            this.mDatas = com.baidu.live.entereffect.a.qR().i(jSONObject.optJSONArray("data"));
         }
     }
 }

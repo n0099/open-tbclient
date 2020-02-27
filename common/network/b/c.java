@@ -8,20 +8,20 @@ import java.util.List;
 import okhttp3.Dns;
 /* loaded from: classes.dex */
 public class c implements Dns {
-    private BDHttpDns ntV;
+    private BDHttpDns nuy;
 
     public c(BDHttpDns bDHttpDns) {
-        this.ntV = bDHttpDns;
+        this.nuy = bDHttpDns;
     }
 
     @Override // okhttp3.Dns
     public List<InetAddress> lookup(String str) throws UnknownHostException {
-        ArrayList<String> lR = this.ntV.f(str, false).lR();
-        if (lR == null) {
+        ArrayList<String> mg = this.nuy.f(str, false).mg();
+        if (mg == null) {
             throw new UnknownHostException(str);
         }
         ArrayList arrayList = new ArrayList();
-        for (String str2 : lR) {
+        for (String str2 : mg) {
             arrayList.add(InetAddress.getByName(str2));
         }
         return arrayList;

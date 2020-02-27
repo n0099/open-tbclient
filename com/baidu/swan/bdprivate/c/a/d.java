@@ -10,7 +10,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends ab {
     public d(j jVar) {
         super(jVar, "/swanAPI/getRealNameInfo");
@@ -36,11 +36,11 @@ public class d extends ab {
             return false;
         } else {
             final boolean aO = com.baidu.swan.apps.setting.oauth.c.aO(optParamsAsJo);
-            eVar.aaz().a(context, "ppcert", aO, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.d.1
+            eVar.acN().a(context, "ppcert", aO, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void B(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void D(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         d.this.a((Activity) context, aO, callbackHandler, optString);
                     } else {
@@ -59,12 +59,12 @@ public class d extends ab {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void B(com.baidu.swan.apps.setting.b.a aVar) {
+            public void D(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                if (!aVar.acp()) {
+                if (!aVar.aeD()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, str);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.bPw, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.bTB, 0).toString());
                 }
             }
         });

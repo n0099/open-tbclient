@@ -1,53 +1,53 @@
 package master.flame.danmaku.danmaku.model.a;
 
 import master.flame.danmaku.danmaku.model.a.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
-    private final d<T> nHp;
-    private final int nHq;
-    private T nHr;
-    private int nHs;
+    private final d<T> nIf;
+    private final int nIg;
+    private T nIh;
+    private int nIi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.nHp = dVar;
-        this.nHq = i;
+        this.nIf = dVar;
+        this.nIg = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dLs() {
-        T dLr;
-        if (this.nHr != null) {
-            T t = this.nHr;
-            this.nHr = (T) t.dLo();
-            this.nHs--;
-            dLr = t;
+    public T dMF() {
+        T dME;
+        if (this.nIh != null) {
+            T t = this.nIh;
+            this.nIh = (T) t.dMB();
+            this.nIi--;
+            dME = t;
         } else {
-            dLr = this.nHp.dLr();
+            dME = this.nIf.dME();
         }
-        if (dLr != null) {
-            dLr.bW(null);
-            dLr.wM(false);
-            this.nHp.b(dLr);
+        if (dME != null) {
+            dME.bX(null);
+            dME.wP(false);
+            this.nIf.b(dME);
         }
-        return dLr;
+        return dME;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dLm()) {
-            if (this.mInfinite || this.nHs < this.nHq) {
-                this.nHs++;
-                t.bW(this.nHr);
-                t.wM(true);
-                this.nHr = t;
+        if (!t.dMz()) {
+            if (this.mInfinite || this.nIi < this.nIg) {
+                this.nIi++;
+                t.bX(this.nIh);
+                t.wP(true);
+                this.nIh = t;
             }
-            this.nHp.a(t);
+            this.nIf.a(t);
         }
     }
 }

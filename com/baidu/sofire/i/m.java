@@ -6,6 +6,7 @@ import android.content.Context;
 import android.net.Proxy;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidubce.http.Headers;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedOutputStream;
@@ -36,15 +37,15 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class m {
     private static SSLSocketFactory h;
     Context a;
     private String c;
     private String d;
     byte[] b = new byte[8192];
-    private int e = 120000;
-    private int f = 120000;
+    private int e = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
+    private int f = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     private boolean g = false;
 
     public m(Context context) {
@@ -414,7 +415,7 @@ public final class m {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements X509TrustManager {
         private X509TrustManager b;
 

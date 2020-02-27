@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends ImageSpan {
     public b(Context context, int i) {
         super(context, i);

@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comjni.tools;
 import android.os.Bundle;
 import com.baidu.mapapi.model.inner.Point;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static double a(Point point, Point point2) {
         Bundle bundle = new Bundle();

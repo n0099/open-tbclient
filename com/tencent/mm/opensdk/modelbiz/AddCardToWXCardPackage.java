@@ -11,11 +11,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 import org.json.JSONTokener;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AddCardToWXCardPackage {
     private static final String TAG = "MicroMsg.AddCardToWXCardPackage";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public List<WXCardItem> cardArrary;
 
@@ -62,7 +62,7 @@ public class AddCardToWXCardPackage {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public List<WXCardItem> cardArrary;
 
@@ -134,7 +134,7 @@ public class AddCardToWXCardPackage {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class WXCardItem {
         public String cardExtMsg;
         public String cardId;

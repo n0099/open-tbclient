@@ -4,11 +4,11 @@ import rx.exceptions.CompositeException;
 import rx.exceptions.OnCompletedFailedException;
 import rx.exceptions.OnErrorFailedException;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b implements rx.c, k {
     final rx.c actual;
     boolean done;
-    k nSg;
+    k nSU;
 
     public b(rx.c cVar) {
         this.actual = cVar;
@@ -21,7 +21,7 @@ public final class b implements rx.c, k {
             try {
                 this.actual.onCompleted();
             } catch (Throwable th) {
-                rx.exceptions.a.I(th);
+                rx.exceptions.a.H(th);
                 throw new OnCompletedFailedException(th);
             }
         }
@@ -35,7 +35,7 @@ public final class b implements rx.c, k {
             try {
                 this.actual.onError(th);
             } catch (Throwable th2) {
-                rx.exceptions.a.I(th2);
+                rx.exceptions.a.H(th2);
                 throw new OnErrorFailedException(new CompositeException(th, th2));
             }
         }
@@ -43,11 +43,11 @@ public final class b implements rx.c, k {
 
     @Override // rx.c
     public void onSubscribe(k kVar) {
-        this.nSg = kVar;
+        this.nSU = kVar;
         try {
             this.actual.onSubscribe(this);
         } catch (Throwable th) {
-            rx.exceptions.a.I(th);
+            rx.exceptions.a.H(th);
             kVar.unsubscribe();
             onError(th);
         }
@@ -55,11 +55,11 @@ public final class b implements rx.c, k {
 
     @Override // rx.k
     public void unsubscribe() {
-        this.nSg.unsubscribe();
+        this.nSU.unsubscribe();
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.done || this.nSg.isUnsubscribed();
+        return this.done || this.nSU.isUnsubscribed();
     }
 }

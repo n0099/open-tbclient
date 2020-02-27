@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import rx.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k<T> implements d.b<T, T> {
     final rx.functions.a action;
 
@@ -30,7 +30,7 @@ public final class k<T> implements d.b<T, T> {
                 try {
                     jVar.onError(th);
                 } finally {
-                    dMY();
+                    dOl();
                 }
             }
 
@@ -39,15 +39,15 @@ public final class k<T> implements d.b<T, T> {
                 try {
                     jVar.onCompleted();
                 } finally {
-                    dMY();
+                    dOl();
                 }
             }
 
-            void dMY() {
+            void dOl() {
                 try {
                     k.this.action.call();
                 } catch (Throwable th) {
-                    rx.exceptions.a.I(th);
+                    rx.exceptions.a.H(th);
                     rx.c.c.onError(th);
                 }
             }

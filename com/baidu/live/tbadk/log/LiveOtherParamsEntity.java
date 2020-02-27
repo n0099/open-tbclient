@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveOtherParamsEntity {
     public String source = "";
     public String tab = "";

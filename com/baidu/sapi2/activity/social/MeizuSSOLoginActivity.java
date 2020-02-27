@@ -23,7 +23,7 @@ import sdk.meizu.auth.MzAuthenticator;
 import sdk.meizu.auth.OAuthError;
 import sdk.meizu.auth.OAuthToken;
 import sdk.meizu.auth.callback.ImplictCallback;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String TAG = "MeizuSSOLoginActivity";
 

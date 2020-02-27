@@ -1,14 +1,14 @@
 package com.baidu.c.a.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a {
-    public float Ri;
-    public float Rj;
-    public float Rk;
-    public float Rl;
-    public float Rm;
-    public int Rn;
-    public float Ro;
-    public String Rp;
+    public float SQ;
+    public float SR;
+    public float SS;
+    public float ST;
+    public float SU;
+    public int SV;
+    public float SW;
+    public String SX;
     public int color;
     public int height;
     public String poster;

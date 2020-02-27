@@ -14,7 +14,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.DecoderResult;
 import com.google.zxing.maxicode.decoder.Decoder;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class MaxiCodeReader implements Reader {
     private static final int MATRIX_HEIGHT = 33;
     private static final int MATRIX_WIDTH = 30;

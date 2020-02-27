@@ -5,128 +5,128 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class c {
-    protected static final Set<String> cIA = new HashSet();
-    public boolean CU;
-    public String cIw;
-    public String cIx;
-    public String cIy;
-    public String cIz;
+    protected static final Set<String> cMD = new HashSet();
+    public boolean Dn;
+    public String cMA;
+    public String cMB;
+    public String cMC;
+    public String cMz;
     public String extensionInfo;
     public String fid;
     public String page;
     public int pn;
 
     public static void a(c cVar, int i, boolean z) {
-        if (cVar != null && !cVar.CU && !sd(cVar.extensionInfo)) {
-            com.baidu.tieba.recapp.report.b X = com.baidu.tieba.recapp.report.f.X(z ? 13 : 3, i, cVar.pn);
-            X.HU(cVar.page);
-            X.ei("isCache", String.valueOf(cVar.cIw));
-            X.HR(cVar.cIx);
-            X.HS(cVar.cIy);
-            X.HT(cVar.fid);
-            X.ei("vc", cVar.cIz);
-            X.HM(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.cBR().a(X);
-            cVar.CU = true;
-            cIA.add(cVar.extensionInfo);
+        if (cVar != null && !cVar.Dn && !su(cVar.extensionInfo)) {
+            com.baidu.tieba.recapp.report.b Y = com.baidu.tieba.recapp.report.f.Y(z ? 13 : 3, i, cVar.pn);
+            Y.Ii(cVar.page);
+            Y.er("isCache", String.valueOf(cVar.cMz));
+            Y.If(cVar.cMA);
+            Y.Ig(cVar.cMB);
+            Y.Ih(cVar.fid);
+            Y.er("vc", cVar.cMC);
+            Y.Ia(cVar.extensionInfo);
+            com.baidu.tieba.recapp.report.c.cDn().a(Y);
+            cVar.Dn = true;
+            cMD.add(cVar.extensionInfo);
         }
     }
 
     public static void a(AdvertAppInfo advertAppInfo) {
         c cVar;
-        if (advertAppInfo != null && (cVar = advertAppInfo.advertAppContext) != null && !cVar.CU && !sd(cVar.extensionInfo)) {
+        if (advertAppInfo != null && (cVar = advertAppInfo.advertAppContext) != null && !cVar.Dn && !su(cVar.extensionInfo)) {
             com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(advertAppInfo, 3, cVar.pn);
-            c.HU(cVar.page);
-            c.ei("isCache", cVar.cIw);
-            c.HR(cVar.cIx);
-            c.HS(cVar.cIy);
-            c.HT(cVar.fid);
-            c.ei("vc", cVar.cIz);
-            c.HM(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.cBR().a(c);
+            c.Ii(cVar.page);
+            c.er("isCache", cVar.cMz);
+            c.If(cVar.cMA);
+            c.Ig(cVar.cMB);
+            c.Ih(cVar.fid);
+            c.er("vc", cVar.cMC);
+            c.Ia(cVar.extensionInfo);
+            com.baidu.tieba.recapp.report.c.cDn().a(c);
             com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(advertAppInfo));
-            cVar.CU = true;
-            cIA.add(cVar.extensionInfo);
+            cVar.Dn = true;
+            cMD.add(cVar.extensionInfo);
         }
     }
 
     public static void a(com.baidu.afd.d dVar) {
-        if (dVar != null && dVar.kw() != null && !dVar.CU && !TextUtils.isEmpty(dVar.kw().ext) && !sd(dVar.kw().ext)) {
-            com.baidu.tieba.recapp.report.c.cBR().a(com.baidu.tieba.recapp.report.f.a(dVar, 3, dVar.getPageNum()));
+        if (dVar != null && dVar.kL() != null && !dVar.Dn && !TextUtils.isEmpty(dVar.kL().ext) && !su(dVar.kL().ext)) {
+            com.baidu.tieba.recapp.report.c.cDn().a(com.baidu.tieba.recapp.report.f.a(dVar, 3, dVar.getPageNum()));
             com.baidu.tieba.lego.card.b.c.b(dVar);
-            dVar.CU = true;
-            cIA.add(dVar.kw().ext);
+            dVar.Dn = true;
+            cMD.add(dVar.kL().ext);
         }
     }
 
     public static void b(c cVar, int i, boolean z) {
-        if (cVar != null && !cVar.CU && !sd(cVar.extensionInfo)) {
+        if (cVar != null && !cVar.Dn && !su(cVar.extensionInfo)) {
             int i2 = z ? 13 : 3;
             com.baidu.tieba.recapp.report.b bVar = new com.baidu.tieba.recapp.report.b();
-            bVar.AP(i2);
+            bVar.AY(i2);
             if ("PB_BANNER".equals(cVar.page)) {
-                bVar.AQ(-1);
+                bVar.AZ(-1);
                 bVar.setPageNumber(-1);
             } else {
-                bVar.AQ(i2);
+                bVar.AZ(i2);
                 bVar.setPageNumber(cVar.pn);
             }
-            bVar.HU(cVar.page);
-            bVar.HR(cVar.cIx);
-            bVar.HS(cVar.cIy);
-            bVar.HT(cVar.fid);
-            bVar.ei("vc", cVar.cIz);
-            bVar.HM(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.cBR().a(bVar);
-            cVar.CU = true;
-            cIA.add(cVar.extensionInfo);
+            bVar.Ii(cVar.page);
+            bVar.If(cVar.cMA);
+            bVar.Ig(cVar.cMB);
+            bVar.Ih(cVar.fid);
+            bVar.er("vc", cVar.cMC);
+            bVar.Ia(cVar.extensionInfo);
+            com.baidu.tieba.recapp.report.c.cDn().a(bVar);
+            cVar.Dn = true;
+            cMD.add(cVar.extensionInfo);
         }
     }
 
     public static void a(com.baidu.tieba.tbadkCore.data.m mVar) {
         c cVar;
-        if (mVar != null && mVar.cJn() != null && (cVar = mVar.cJn().advertAppContext) != null && !cVar.CU && !sd(cVar.extensionInfo)) {
-            mVar.cJe = cVar.cIx;
-            mVar.cJf = cVar.cIy;
+        if (mVar != null && mVar.cKM() != null && (cVar = mVar.cKM().advertAppContext) != null && !cVar.Dn && !su(cVar.extensionInfo)) {
+            mVar.cNh = cVar.cMA;
+            mVar.cNi = cVar.cMB;
             mVar.forumId = cVar.fid;
             int i = 3;
-            if (mVar != null && mVar.cJo() != null && mVar.cJo().forFree()) {
+            if (mVar != null && mVar.cKN() != null && mVar.cKN().forFree()) {
                 i = 103;
             }
             com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(mVar, i);
-            c.HM(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.cBR().a(c);
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(mVar.kv()));
-            cVar.CU = true;
-            cIA.add(cVar.extensionInfo);
+            c.Ia(cVar.extensionInfo);
+            com.baidu.tieba.recapp.report.c.cDn().a(c);
+            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(mVar.kK()));
+            cVar.Dn = true;
+            cMD.add(cVar.extensionInfo);
         }
     }
 
     public static void c(c cVar, int i, boolean z) {
-        if (cVar != null && !cVar.CU && !sd(cVar.extensionInfo)) {
-            com.baidu.tieba.recapp.report.b X = com.baidu.tieba.recapp.report.f.X(z ? 13 : 3, i, cVar.pn);
-            X.HU(cVar.page);
-            X.HM(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.cBR().a(X);
-            cVar.CU = true;
-            cIA.add(cVar.extensionInfo);
+        if (cVar != null && !cVar.Dn && !su(cVar.extensionInfo)) {
+            com.baidu.tieba.recapp.report.b Y = com.baidu.tieba.recapp.report.f.Y(z ? 13 : 3, i, cVar.pn);
+            Y.Ii(cVar.page);
+            Y.Ia(cVar.extensionInfo);
+            com.baidu.tieba.recapp.report.c.cDn().a(Y);
+            cVar.Dn = true;
+            cMD.add(cVar.extensionInfo);
         }
     }
 
     public static void a(com.baidu.tieba.card.data.d dVar) {
-        if (dVar != null && dVar.btR() != null && dVar.btR().advertAppContext != null && !dVar.btR().advertAppContext.CU && !sd(dVar.btR().advertAppContext.extensionInfo)) {
-            dVar.btR().page = dVar.btR().advertAppContext.page;
-            com.baidu.tbadk.distribute.a.aLJ().a(dVar.btR(), "", 0L, dVar.btR().page, "show", dVar.btR().advertAppContext.pn);
-            com.baidu.tieba.recapp.report.b d = com.baidu.tieba.recapp.report.f.d(dVar.btR(), 3, dVar.btR().advertAppContext.pn);
-            d.HM(dVar.btR().advertAppContext.extensionInfo);
-            com.baidu.tieba.recapp.report.c.cBR().a(d);
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(dVar.btR()));
-            dVar.btR().advertAppContext.CU = true;
-            cIA.add(dVar.btR().advertAppContext.extensionInfo);
+        if (dVar != null && dVar.bvv() != null && dVar.bvv().advertAppContext != null && !dVar.bvv().advertAppContext.Dn && !su(dVar.bvv().advertAppContext.extensionInfo)) {
+            dVar.bvv().page = dVar.bvv().advertAppContext.page;
+            com.baidu.tbadk.distribute.a.aOf().a(dVar.bvv(), "", 0L, dVar.bvv().page, "show", dVar.bvv().advertAppContext.pn);
+            com.baidu.tieba.recapp.report.b d = com.baidu.tieba.recapp.report.f.d(dVar.bvv(), 3, dVar.bvv().advertAppContext.pn);
+            d.Ia(dVar.bvv().advertAppContext.extensionInfo);
+            com.baidu.tieba.recapp.report.c.cDn().a(d);
+            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(dVar.bvv()));
+            dVar.bvv().advertAppContext.Dn = true;
+            cMD.add(dVar.bvv().advertAppContext.extensionInfo);
         }
     }
 
-    private static boolean sd(String str) {
-        return cIA.contains(str);
+    private static boolean su(String str) {
+        return cMD.contains(str);
     }
 }

@@ -4,20 +4,20 @@ import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.a.q;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShapeStroke implements b {
-    private final float ig;
-    private final List<com.tb.airbnb.lottie.model.a.b> ii;
+    private final float il;
+    private final List<com.tb.airbnb.lottie.model.a.b> im;
     private final String name;
+    private final com.tb.airbnb.lottie.model.a.a nqD;
+    private final com.tb.airbnb.lottie.model.a.d nqL;
+    private final com.tb.airbnb.lottie.model.a.b nqV;
+    private final LineCapType nqW;
+    private final LineJoinType nqX;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nqH;
-    private final com.tb.airbnb.lottie.model.a.a nqb;
-    private final com.tb.airbnb.lottie.model.a.d nqj;
-    private final com.tb.airbnb.lottie.model.a.b nqt;
-    private final LineCapType nqu;
-    private final LineJoinType nqv;
+    private final com.tb.airbnb.lottie.model.a.b nrj;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum LineCapType {
         Butt,
         Round,
@@ -35,7 +35,7 @@ public class ShapeStroke implements b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum LineJoinType {
         Miter,
         Round,
@@ -57,14 +57,14 @@ public class ShapeStroke implements b {
 
     public ShapeStroke(String str, @Nullable com.tb.airbnb.lottie.model.a.b bVar, List<com.tb.airbnb.lottie.model.a.b> list, com.tb.airbnb.lottie.model.a.a aVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
         this.name = str;
-        this.nqH = bVar;
-        this.ii = list;
-        this.nqb = aVar;
-        this.nqj = dVar;
-        this.nqt = bVar2;
-        this.nqu = lineCapType;
-        this.nqv = lineJoinType;
-        this.ig = f;
+        this.nrj = bVar;
+        this.im = list;
+        this.nqD = aVar;
+        this.nqL = dVar;
+        this.nqV = bVar2;
+        this.nqW = lineCapType;
+        this.nqX = lineJoinType;
+        this.il = f;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -76,35 +76,35 @@ public class ShapeStroke implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.a dGm() {
-        return this.nqb;
+    public com.tb.airbnb.lottie.model.a.a dHt() {
+        return this.nqD;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dFM() {
-        return this.nqj;
+    public com.tb.airbnb.lottie.model.a.d dGT() {
+        return this.nqL;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dFV() {
-        return this.nqt;
+    public com.tb.airbnb.lottie.model.a.b dHc() {
+        return this.nqV;
     }
 
-    public List<com.tb.airbnb.lottie.model.a.b> cG() {
-        return this.ii;
+    public List<com.tb.airbnb.lottie.model.a.b> cH() {
+        return this.im;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dFY() {
-        return this.nqH;
+    public com.tb.airbnb.lottie.model.a.b dHf() {
+        return this.nrj;
     }
 
-    public LineCapType dFW() {
-        return this.nqu;
+    public LineCapType dHd() {
+        return this.nqW;
     }
 
-    public LineJoinType dFX() {
-        return this.nqv;
+    public LineJoinType dHe() {
+        return this.nqX;
     }
 
-    public float cI() {
-        return this.ig;
+    public float cJ() {
+        return this.il;
     }
 }

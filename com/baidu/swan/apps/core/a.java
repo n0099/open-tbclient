@@ -26,12 +26,12 @@ import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
 import org.json.JSONObject;
 import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean FE() {
-        return com.baidu.swan.apps.w.a.RS().FE();
+    public static boolean HT() {
+        return com.baidu.swan.apps.w.a.Ug().HT();
     }
 
     public static void d(File file, File file2) throws IOException {
@@ -64,11 +64,11 @@ public class a {
         }
     }
 
-    public static void gw(String str) {
+    public static void gL(String str) {
         b(str, null, null, true);
     }
 
-    public static void p(String str, String str2, String str3) {
+    public static void q(String str, String str2, String str3) {
         b(str, str2, str3, false);
     }
 
@@ -180,7 +180,7 @@ public class a {
         }
     }
 
-    public static void bP(@NonNull Context context) {
+    public static void bT(@NonNull Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             Class<?> cls = Class.forName("android.content.res.AssetManager");
@@ -237,10 +237,10 @@ public class a {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new a.C0287a(10006).lq(jSONObject2).lp(e.aar()).TW();
+        new a.C0297a(10006).lF(jSONObject2).lE(e.acF()).Wk();
     }
 
-    public static void q(String str, String str2, String str3) {
+    public static void r(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", str);
@@ -257,7 +257,7 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new a.C0287a(10008).lq(jSONObject2).lp(e.aar()).TW();
+            new a.C0297a(10008).lF(jSONObject2).lE(e.acF()).Wk();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

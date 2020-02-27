@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect.model;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Search.SearchResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
     public com.baidu.tieba.barselect.data.a candidateData;
 

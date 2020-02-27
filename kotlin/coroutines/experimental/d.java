@@ -1,22 +1,27 @@
 package kotlin.coroutines.experimental;
 
+import kotlin.h;
 import kotlin.jvm.a.m;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public interface d {
 
-    /* loaded from: classes5.dex */
+    @h
+    /* loaded from: classes7.dex */
     public static final class a {
     }
 
-    /* loaded from: classes5.dex */
+    @h
+    /* loaded from: classes7.dex */
     public interface b extends d {
         @Override // kotlin.coroutines.experimental.d
         <E extends b> E a(c<E> cVar);
 
-        c<?> dJf();
+        c<?> dKm();
     }
 
-    /* loaded from: classes5.dex */
+    @h
+    /* loaded from: classes7.dex */
     public interface c<E extends b> {
     }
 

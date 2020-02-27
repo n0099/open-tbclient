@@ -7,9 +7,9 @@ import android.graphics.RectF;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class TbViewTagDrawer {
     public static final int DEFAULT_PADDING = 16;
     private int extraHeight;
@@ -59,12 +59,12 @@ public class TbViewTagDrawer {
             int paddingBottom = this.view.getPaddingBottom();
             int left = this.view.getLeft();
             int right = this.view.getRight();
-            int top = this.view.getTop();
+            int top2 = this.view.getTop();
             int bottom = this.view.getBottom();
             float measureText = this.tagPaint.measureText(str);
             float f = this.extraWidth + measureText;
             float f2 = this.tagTextSize + this.extraHeight;
-            canvas.translate((((right - left) - paddingRight) - f) - this.tagDisX, (((bottom - top) - paddingBottom) - f2) - this.tagDisY);
+            canvas.translate((((right - left) - paddingRight) - f) - this.tagDisX, (((bottom - top2) - paddingBottom) - f2) - this.tagDisY);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
             canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.tagBGPaint);
             Paint.FontMetrics fontMetrics = this.tagPaint.getFontMetrics();

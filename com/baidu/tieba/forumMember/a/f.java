@@ -5,25 +5,25 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.view.GodHeadImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f extends v.a {
-    public TextView cqf;
+    public TextView cug;
     public View dividerLine;
-    public GodHeadImageView gis;
-    public TextView git;
-    public TextView giu;
+    public GodHeadImageView gkt;
+    public TextView gku;
+    public TextView gkv;
     public int mSkinType;
 
     public f(View view) {
         super(view);
         this.mSkinType = 3;
-        this.gis = (GodHeadImageView) view.findViewById(R.id.item_head);
-        this.gis.setShapeType(0);
-        this.gis.setShowType(1);
-        this.gis.setRadius(14);
-        this.cqf = (TextView) view.findViewById(R.id.item_manito_name);
-        this.git = (TextView) view.findViewById(R.id.item_manito_intro);
-        this.giu = (TextView) view.findViewById(R.id.item_manito_fans);
+        this.gkt = (GodHeadImageView) view.findViewById(R.id.item_head);
+        this.gkt.setShapeType(0);
+        this.gkt.setShowType(1);
+        this.gkt.setRadius(14);
+        this.cug = (TextView) view.findViewById(R.id.item_manito_name);
+        this.gku = (TextView) view.findViewById(R.id.item_manito_intro);
+        this.gkv = (TextView) view.findViewById(R.id.item_manito_fans);
         this.dividerLine = view.findViewById(R.id.divider_line);
     }
 }

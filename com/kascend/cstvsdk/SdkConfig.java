@@ -5,10 +5,12 @@ import android.content.res.Resources;
 import android.support.annotation.Keep;
 import com.kascend.cstvsdk.interfaces.ThirdParty;
 import java.util.Map;
+import kotlin.h;
 import kotlin.jvm.internal.q;
 import okhttp3.OkHttpClient;
 @Keep
-/* loaded from: classes4.dex */
+@h
+/* loaded from: classes5.dex */
 public final class SdkConfig {
     private Application application;
     private boolean debug;

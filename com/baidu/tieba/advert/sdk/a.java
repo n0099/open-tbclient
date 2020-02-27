@@ -18,23 +18,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.coreExtra.data.i;
+import com.baidu.tbadk.coreExtra.data.j;
 import com.baidu.tieba.R;
 import com.baidu.tieba.advert.sdk.data.AdType;
 import com.baidu.tieba.advert.sdk.data.RedirectType;
 import com.baidu.tieba.advert.sdk.view.SplashAdView;
 import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private C0401a dYg = null;
-    private String dYh = null;
-    private WeakReference<SplashAdView> dYi;
+    private C0412a eck = null;
+    private String ecl = null;
+    private WeakReference<SplashAdView> ecm;
 
-    public void rT() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_ADVERT_SDK_GET_SPLASH, new CustomMessageTask.CustomRunnable<i>() { // from class: com.baidu.tieba.advert.sdk.a.1
+    public void te() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_ADVERT_SDK_GET_SPLASH, new CustomMessageTask.CustomRunnable<j>() { // from class: com.baidu.tieba.advert.sdk.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<i> customMessage) {
+            public CustomResponsedMessage<?> run(CustomMessage<j> customMessage) {
                 if (customMessage == null || customMessage.getCmd() != 2016310) {
                     return null;
                 }
@@ -50,32 +50,32 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public View a(i iVar) {
+    public View a(j jVar) {
         boolean z;
-        if (iVar == null || !iVar.isAvailable()) {
+        if (jVar == null || !jVar.isAvailable()) {
             return null;
         }
-        Activity pageActivity = iVar.aGW().getPageActivity();
-        int aig = iVar.aig();
-        int aif = iVar.aif();
-        final SplashAdView splashAdView = new SplashAdView(iVar.aGW(), "1481698145541", AdType.SPLASH, aig, aif, RedirectType.APPMANAGE);
-        splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(aif, aig));
-        this.dYi = new WeakReference<>(splashAdView);
+        Activity pageActivity = jVar.aJo().getPageActivity();
+        int aku = jVar.aku();
+        int akt = jVar.akt();
+        final SplashAdView splashAdView = new SplashAdView(jVar.aJo(), "1481698145541", AdType.SPLASH, aku, akt, RedirectType.APPMANAGE);
+        splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(akt, aku));
+        this.ecm = new WeakReference<>(splashAdView);
         splashAdView.setBCAdCallBack(new com.baidu.tieba.advert.sdk.a.a() { // from class: com.baidu.tieba.advert.sdk.a.2
             @Override // com.baidu.tieba.advert.sdk.a.a
-            public void aWN() {
+            public void aZc() {
                 com.baidu.tieba.advert.sdk.data.b entryInfoData;
-                SplashAdView splashAdView2 = (SplashAdView) a.this.dYi.get();
+                SplashAdView splashAdView2 = (SplashAdView) a.this.ecm.get();
                 if (splashAdView2 != null) {
-                    a.this.dYh = splashAdView.aXb();
-                    a.this.xc(a.this.dYh);
+                    a.this.ecl = splashAdView.aZq();
+                    a.this.xw(a.this.ecl);
                 }
                 an anVar = new an("c13319");
                 if (splashAdView2 != null && (entryInfoData = splashAdView2.getEntryInfoData()) != null) {
-                    if (entryInfoData.aWR()) {
-                        anVar.cp("obj_source", entryInfoData.videoJumpUrl);
+                    if (entryInfoData.aZg()) {
+                        anVar.cy("obj_source", entryInfoData.videoJumpUrl);
                     } else {
-                        anVar.cp("obj_source", entryInfoData.redirectUrl);
+                        anVar.cy("obj_source", entryInfoData.redirectUrl);
                     }
                 }
                 TiebaStatic.log(anVar);
@@ -86,23 +86,23 @@ public class a {
             }
 
             @Override // com.baidu.tieba.advert.sdk.a.a
-            public void aWO() {
+            public void aZd() {
             }
 
             @Override // com.baidu.tieba.advert.sdk.a.a
-            public void aWP() {
+            public void aZe() {
             }
 
             @Override // com.baidu.tieba.advert.sdk.a.a
-            public void xd(String str) {
+            public void xx(String str) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, str));
                 an anVar = new an("c13320");
-                anVar.cp("obj_source", str);
+                anVar.cy("obj_source", str);
                 TiebaStatic.log(anVar);
             }
         });
         try {
-            z = splashAdView.aXa();
+            z = splashAdView.aZp();
         } catch (Throwable th) {
             z = false;
         }
@@ -110,23 +110,23 @@ public class a {
             try {
                 int dimension = (int) pageActivity.getResources().getDimension(R.dimen.ds22);
                 int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.ds36);
-                Activity pageActivity2 = iVar.aGW().getPageActivity();
+                Activity pageActivity2 = jVar.aJo().getPageActivity();
                 int statusBarHeight = (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) ? dimension2 + l.getStatusBarHeight(pageActivity2) : dimension2;
                 int dimension3 = (int) pageActivity.getResources().getDimension(R.dimen.ds32);
                 int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.ds106);
                 int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.ds52);
                 CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
-                this.dYg = new C0401a(countDownTextView);
-                String str = this.dYh;
+                this.eck = new C0412a(countDownTextView);
+                String str = this.ecl;
                 if (TextUtils.isEmpty(str)) {
                     str = pageActivity.getResources().getString(R.string.skip);
                 }
-                if (splashAdView.dYM) {
-                    countDownTextView.an(str, 6);
+                if (splashAdView.ecQ) {
+                    countDownTextView.al(str, 6);
                 } else {
-                    countDownTextView.an(str, 3);
+                    countDownTextView.al(str, 3);
                 }
-                splashAdView.setTag(Boolean.valueOf(splashAdView.dYM));
+                splashAdView.setTag(Boolean.valueOf(splashAdView.ecQ));
                 countDownTextView.setTextSize(0, dimension);
                 countDownTextView.setTextColor(Color.parseColor("#ffffff"));
                 countDownTextView.setGravity(17);
@@ -180,26 +180,26 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xc(String str) {
-        if (this.dYg != null && !TextUtils.isEmpty(str)) {
-            this.dYg.xe(str);
+    public void xw(String str) {
+        if (this.eck != null && !TextUtils.isEmpty(str)) {
+            this.eck.xy(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.advert.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0401a {
-        private final WeakReference<CountDownTextView> dYl;
+    /* loaded from: classes10.dex */
+    public static class C0412a {
+        private final WeakReference<CountDownTextView> ecp;
 
-        private C0401a(CountDownTextView countDownTextView) {
-            this.dYl = new WeakReference<>(countDownTextView);
+        private C0412a(CountDownTextView countDownTextView) {
+            this.ecp = new WeakReference<>(countDownTextView);
         }
 
-        public void xe(String str) {
-            CountDownTextView countDownTextView = this.dYl.get();
+        public void xy(String str) {
+            CountDownTextView countDownTextView = this.ecp.get();
             if (countDownTextView != null) {
-                countDownTextView.an(str, 0);
+                countDownTextView.al(str, 0);
             }
         }
     }

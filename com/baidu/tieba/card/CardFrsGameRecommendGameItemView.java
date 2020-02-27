@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
-    private TbImageView fFW;
-    private TextView fFX;
-    private TextView fFY;
+    private TbImageView fIt;
+    private TextView fIu;
+    private TextView fIv;
     private String mForumId;
     public int mSkinType;
 
@@ -42,18 +42,18 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
-        this.fFW = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
-        this.fFW.setAutoChangeStyle(true);
-        this.fFW.setDefaultResource(17170445);
-        this.fFW.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.fFW.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.fFW.setDrawerType(1);
-        this.fFW.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
-        this.fFW.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fFW.setBorderColor(am.getColor(R.color.common_color_10043));
-        this.fFW.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-        this.fFX = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
-        this.fFY = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
+        this.fIt = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
+        this.fIt.setAutoChangeStyle(true);
+        this.fIt.setDefaultResource(17170445);
+        this.fIt.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.fIt.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fIt.setDrawerType(1);
+        this.fIt.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
+        this.fIt.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fIt.setBorderColor(am.getColor(R.color.common_color_10043));
+        this.fIt.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
+        this.fIu = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
+        this.fIv = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -62,7 +62,7 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new an("c13047").Z("obj_locate", 10).cp("fid", CardFrsGameRecommendGameItemView.this.mForumId));
+                    TiebaStatic.log(new an("c13047").X("obj_locate", 10).cy("fid", CardFrsGameRecommendGameItemView.this.mForumId));
                     com.baidu.tbadk.browser.a.startWebActivity(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
                 }
             }
@@ -74,22 +74,22 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     public TbImageView getGamePicView() {
-        return this.fFW;
+        return this.fIt;
     }
 
     public TextView getGameNameView() {
-        return this.fFX;
+        return this.fIu;
     }
 
     public TextView getGameDscView() {
-        return this.fFY;
+        return this.fIv;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setViewTextColor(this.fFX, R.color.cp_cont_f, 1);
-            am.setViewTextColor(this.fFY, R.color.cp_cont_d, 1);
+            am.setViewTextColor(this.fIu, R.color.cp_cont_f, 1);
+            am.setViewTextColor(this.fIv, R.color.cp_cont_d, 1);
         }
     }
 }

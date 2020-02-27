@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util;
 
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.tbadk.core.TbImgSetting;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbImageHelper {
     private static TbImageHelper mInstance = null;
     private boolean mIsWifiCache = false;
@@ -64,7 +64,7 @@ public class TbImageHelper {
         return 18000;
     }
 
-    public void updateFrsShowBigImage() {
+    private void updateFrsShowBigImage() {
         boolean z = true;
         if (TbImgSetting.getInstance().getViewImageQuality() != 0 ? TbImgSetting.getInstance().getViewImageQuality() != 1 : !this.mIsWifiCache) {
             z = false;
@@ -72,7 +72,7 @@ public class TbImageHelper {
         setFrsShowBigImage(z);
     }
 
-    public void updateUrlQuality() {
+    private void updateUrlQuality() {
         String valueOf = String.valueOf(45);
         if (TbImgSetting.getInstance().getViewImageQuality() == 0) {
             if (getIsWifi()) {
@@ -84,7 +84,7 @@ public class TbImageHelper {
         this.mUrlQuality = valueOf;
     }
 
-    public void updatePostImageSize() {
+    private void updatePostImageSize() {
         int i = 2000;
         switch (TbImgSetting.getInstance().getUploadImageQuality()) {
             case 0:

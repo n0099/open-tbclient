@@ -1,7 +1,7 @@
 package com.baidu.location.d;
 
 import com.baidu.live.adp.framework.MessageConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static String a = "baidu_location_service";
     public static int b = 12000;

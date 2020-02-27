@@ -9,87 +9,87 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.x;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MarkModel extends BdBaseModel {
-    private boolean irn;
-    private MarkData iro;
-    private a irp;
-    private a.InterfaceC0364a irq;
+    private boolean iti;
+    private MarkData itj;
+    private a itk;
+    private a.InterfaceC0374a itl;
 
-    public void a(a.InterfaceC0364a interfaceC0364a) {
-        this.irq = interfaceC0364a;
+    public void a(a.InterfaceC0374a interfaceC0374a) {
+        this.itl = interfaceC0374a;
     }
 
     public MarkModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.irn = false;
-        this.iro = null;
-        this.irp = null;
-        this.irq = null;
-        this.iro = new MarkData();
+        this.iti = false;
+        this.itj = null;
+        this.itk = null;
+        this.itl = null;
+        this.itj = new MarkData();
     }
 
     public MarkModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.irn = false;
-        this.iro = null;
-        this.irp = null;
-        this.irq = null;
-        this.iro = new MarkData();
+        this.iti = false;
+        this.itj = null;
+        this.itk = null;
+        this.itl = null;
+        this.itj = new MarkData();
     }
 
-    public boolean aww() {
-        return this.irn;
+    public boolean ayJ() {
+        return this.iti;
     }
 
-    public MarkData awz() {
-        return this.iro;
+    public MarkData ayM() {
+        return this.itj;
     }
 
     public void a(MarkData markData) {
-        this.iro = markData;
+        this.itj = markData;
     }
 
-    public void ff(boolean z) {
-        this.irn = z;
+    public void fm(boolean z) {
+        this.iti = z;
     }
 
-    public String awv() {
-        if (this.iro != null) {
-            return this.iro.getPostId();
+    public String ayI() {
+        if (this.itj != null) {
+            return this.itj.getPostId();
         }
         return null;
     }
 
-    public void awy() {
-        if (this.irp != null) {
-            this.irp.cancel();
+    public void ayL() {
+        if (this.itk != null) {
+            this.itk.cancel();
         }
-        this.irp = new a(true);
-        this.irp.setPriority(3);
-        this.irp.execute(new Boolean[0]);
+        this.itk = new a(true);
+        this.itk.setPriority(3);
+        this.itk.execute(new Boolean[0]);
     }
 
-    public void awx() {
-        if (this.irp != null) {
-            this.irp.cancel();
+    public void ayK() {
+        if (this.itk != null) {
+            this.itk.cancel();
         }
-        this.irp = new a(false);
-        this.irp.setPriority(3);
-        this.irp.execute(new Boolean[0]);
+        this.itk = new a(false);
+        this.itk.setPriority(3);
+        this.itk.execute(new Boolean[0]);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     private class a extends BdAsyncTask<Boolean, Integer, Boolean> {
-        private x cHA = null;
-        private boolean fMb;
-        private c irj;
+        private x cLD = null;
+        private boolean fOx;
+        private c ite;
 
         public a(boolean z) {
-            this.fMb = true;
-            this.irj = null;
-            this.fMb = z;
-            this.irj = new c();
+            this.fOx = true;
+            this.ite = null;
+            this.fOx = z;
+            this.ite = new c();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -102,20 +102,20 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public Boolean doInBackground(Boolean... boolArr) {
-            if (this.fMb) {
-                this.cHA = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
+            if (this.fOx) {
+                this.cLD = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
                 com.baidu.tieba.myCollection.baseEditMark.a aVar = new com.baidu.tieba.myCollection.baseEditMark.a();
-                aVar.f(MarkModel.this.iro);
-                this.cHA.addPostData("data", aVar.cl(0, 1));
+                aVar.f(MarkModel.this.itj);
+                this.cLD.addPostData("data", aVar.cm(0, 1));
             } else {
-                this.cHA = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.cHA.addPostData("user_id", MarkModel.this.iro.getAccount());
-                this.cHA.addPostData("tid", MarkModel.this.iro.getId());
-                this.cHA.addPostData("fid", MarkModel.this.iro.getForumId());
+                this.cLD = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.cLD.addPostData("user_id", MarkModel.this.itj.getAccount());
+                this.cLD.addPostData("tid", MarkModel.this.itj.getId());
+                this.cLD.addPostData("fid", MarkModel.this.itj.getForumId());
             }
-            this.irj.parserJson(this.cHA.postNetData());
-            boolean z = this.irj.getErrorCode() == 0;
-            if (this.cHA.aDU().aEv().isRequestSuccess() && z) {
+            this.ite.parserJson(this.cLD.postNetData());
+            boolean z = this.ite.getErrorCode() == 0;
+            if (this.cLD.aGe().aGG().isRequestSuccess() && z) {
                 return true;
             }
             return false;
@@ -124,10 +124,10 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cHA != null) {
-                this.cHA.cancelNetConnect();
+            if (this.cLD != null) {
+                this.cLD.cancelNetConnect();
             }
-            MarkModel.this.irp = null;
+            MarkModel.this.itk = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,21 +135,21 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             try {
-                if (this.irj != null) {
-                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.irj.getErrorCode(), this.irj.getErrorString(), new Object[0]);
+                if (this.ite != null) {
+                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.ite.getErrorCode(), this.ite.getErrorString(), new Object[0]);
                 }
                 if (bool.booleanValue()) {
-                    if (MarkModel.this.irq != null) {
-                        MarkModel.this.irq.c(true, this.fMb, null);
+                    if (MarkModel.this.itl != null) {
+                        MarkModel.this.itl.c(true, this.fOx, null);
                     }
-                } else if (MarkModel.this.irq != null) {
-                    if (this.cHA == null || this.cHA.aDU().aEv().isRequestSuccess()) {
-                        MarkModel.this.irq.c(false, this.fMb, this.irj.getErrorString());
+                } else if (MarkModel.this.itl != null) {
+                    if (this.cLD == null || this.cLD.aGe().aGG().isRequestSuccess()) {
+                        MarkModel.this.itl.c(false, this.fOx, this.ite.getErrorString());
                     } else {
-                        MarkModel.this.irq.c(false, this.fMb, this.cHA.getErrorString());
+                        MarkModel.this.itl.c(false, this.fOx, this.cLD.getErrorString());
                     }
                 }
-                MarkModel.this.irp = null;
+                MarkModel.this.itk = null;
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
@@ -163,8 +163,8 @@ public class MarkModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.irp != null) {
-            this.irp.cancel();
+        if (this.itk != null) {
+            this.itk.cancel();
             return false;
         }
         return false;

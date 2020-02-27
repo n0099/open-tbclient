@@ -4,7 +4,7 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.platform.core.busline.IBusLineSearch;
 import com.baidu.platform.core.busline.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BusLineSearch extends l {
     private boolean b = false;
     IBusLineSearch a = new c();

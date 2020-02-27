@@ -1,14 +1,14 @@
 package com.google.android.exoplayer2.source.dash.manifest;
 
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j {
-    private final String[] muN;
-    private final int[] muO;
-    private final String[] muP;
-    private final int muQ;
+    private final String[] mvt;
+    private final int[] mvu;
+    private final String[] mvv;
+    private final int mvw;
 
-    public static j Pv(String str) {
+    public static j PI(String str) {
         String[] strArr = new String[5];
         int[] iArr = new int[4];
         String[] strArr2 = new String[4];
@@ -16,27 +16,27 @@ public final class j {
     }
 
     private j(String[] strArr, int[] iArr, String[] strArr2, int i) {
-        this.muN = strArr;
-        this.muO = iArr;
-        this.muP = strArr2;
-        this.muQ = i;
+        this.mvt = strArr;
+        this.mvu = iArr;
+        this.mvv = strArr2;
+        this.mvw = i;
     }
 
     public String a(String str, int i, int i2, long j) {
         StringBuilder sb = new StringBuilder();
-        for (int i3 = 0; i3 < this.muQ; i3++) {
-            sb.append(this.muN[i3]);
-            if (this.muO[i3] == 1) {
+        for (int i3 = 0; i3 < this.mvw; i3++) {
+            sb.append(this.mvt[i3]);
+            if (this.mvu[i3] == 1) {
                 sb.append(str);
-            } else if (this.muO[i3] == 2) {
-                sb.append(String.format(Locale.US, this.muP[i3], Integer.valueOf(i)));
-            } else if (this.muO[i3] == 3) {
-                sb.append(String.format(Locale.US, this.muP[i3], Integer.valueOf(i2)));
-            } else if (this.muO[i3] == 4) {
-                sb.append(String.format(Locale.US, this.muP[i3], Long.valueOf(j)));
+            } else if (this.mvu[i3] == 2) {
+                sb.append(String.format(Locale.US, this.mvv[i3], Integer.valueOf(i)));
+            } else if (this.mvu[i3] == 3) {
+                sb.append(String.format(Locale.US, this.mvv[i3], Integer.valueOf(i2)));
+            } else if (this.mvu[i3] == 4) {
+                sb.append(String.format(Locale.US, this.mvv[i3], Long.valueOf(j)));
             }
         }
-        sb.append(this.muN[this.muQ]);
+        sb.append(this.mvt[this.mvw]);
         return sb.toString();
     }
 

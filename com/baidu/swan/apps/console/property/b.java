@@ -18,127 +18,127 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
+    private d bkB;
+    private e bkC;
+    private Choreographer$FrameCallbackC0237b bkD;
+    private a bkE;
+    private ConcurrentMap<String, Object> bkF;
+    private boolean bkG;
+    private int bkH;
+    private int bkq;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final String bgh = com.baidu.swan.apps.ap.e.bTH.id;
-    public static final String bgi = com.baidu.swan.apps.ap.e.bTF.id;
-    public static final String bgj = com.baidu.swan.apps.ap.e.bTG.id;
-    public static final String bgk = com.baidu.swan.apps.ap.e.bTK.id;
-    public static final String bgl = com.baidu.swan.apps.ap.e.bTI.id;
-    public static final String bgm = com.baidu.swan.apps.ap.e.bTJ.id;
-    public static final String bgn = com.baidu.swan.apps.ap.e.bTL.id;
-    private int bgd;
-    private d bgo;
-    private e bgp;
-    private Choreographer$FrameCallbackC0227b bgq;
-    private a bgr;
-    private ConcurrentMap<String, Object> bgt;
-    private boolean bgu;
-    private int bgv;
+    public static final String bku = com.baidu.swan.apps.ap.e.bXL.id;
+    public static final String bkv = com.baidu.swan.apps.ap.e.bXJ.id;
+    public static final String bkw = com.baidu.swan.apps.ap.e.bXK.id;
+    public static final String bkx = com.baidu.swan.apps.ap.e.bXO.id;
+    public static final String bky = com.baidu.swan.apps.ap.e.bXM.id;
+    public static final String bkz = com.baidu.swan.apps.ap.e.bXN.id;
+    public static final String bkA = com.baidu.swan.apps.ap.e.bXP.id;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class c {
-        public static final b bgA = new b();
+        public static final b bkM = new b();
     }
 
     private b() {
-        this.bgt = new ConcurrentHashMap();
-        this.bgd = 1000;
+        this.bkF = new ConcurrentHashMap();
+        this.bkq = 1000;
     }
 
-    public static b JK() {
-        return c.bgA;
+    public static b LZ() {
+        return c.bkM;
     }
 
-    public Map<String, Object> JL() {
-        this.bgv++;
-        JM();
-        return this.bgt;
+    public Map<String, Object> Ma() {
+        this.bkH++;
+        Mb();
+        return this.bkF;
     }
 
     public void recycle() {
-        int i = this.bgv - 1;
-        this.bgv = i;
+        int i = this.bkH - 1;
+        this.bkH = i;
         if (i <= 0) {
-            JN();
+            Mc();
         }
     }
 
-    private void JM() {
-        if (this.bgu) {
+    private void Mb() {
+        if (this.bkG) {
             if (DEBUG) {
                 Log.d("PropertyMonitor", "System monitor already started");
                 return;
             }
             return;
         }
-        this.bgu = true;
-        this.bgq = new Choreographer$FrameCallbackC0227b();
-        Choreographer.getInstance().postFrameCallback(this.bgq);
-        this.bgr = new a();
-        this.bgp = new e();
-        com.baidu.swan.apps.ap.e.adY().a(this.bgp, com.baidu.swan.apps.ap.e.bTH, com.baidu.swan.apps.ap.e.bTF, com.baidu.swan.apps.ap.e.bTG, com.baidu.swan.apps.ap.e.bTI, com.baidu.swan.apps.ap.e.bTJ, com.baidu.swan.apps.ap.e.bTK, com.baidu.swan.apps.ap.e.bTL);
-        this.bgo = new d();
-        this.bgo.sendEmptyMessage(0);
+        this.bkG = true;
+        this.bkD = new Choreographer$FrameCallbackC0237b();
+        Choreographer.getInstance().postFrameCallback(this.bkD);
+        this.bkE = new a();
+        this.bkC = new e();
+        com.baidu.swan.apps.ap.e.agm().a(this.bkC, com.baidu.swan.apps.ap.e.bXL, com.baidu.swan.apps.ap.e.bXJ, com.baidu.swan.apps.ap.e.bXK, com.baidu.swan.apps.ap.e.bXM, com.baidu.swan.apps.ap.e.bXN, com.baidu.swan.apps.ap.e.bXO, com.baidu.swan.apps.ap.e.bXP);
+        this.bkB = new d();
+        this.bkB.sendEmptyMessage(0);
         if (DEBUG) {
             Log.d("PropertyMonitor", "Start system monitor");
         }
     }
 
-    private void JN() {
-        if (!this.bgu) {
+    private void Mc() {
+        if (!this.bkG) {
             if (DEBUG) {
                 Log.d("PropertyMonitor", "System monitor not started yet");
                 return;
             }
             return;
         }
-        this.bgu = false;
-        if (this.bgo != null) {
-            this.bgo.removeMessages(0);
-            this.bgo = null;
+        this.bkG = false;
+        if (this.bkB != null) {
+            this.bkB.removeMessages(0);
+            this.bkB = null;
         }
-        if (this.bgp != null) {
-            com.baidu.swan.apps.ap.e.adY().b(this.bgp, new com.baidu.swan.apps.ap.c[0]);
-            this.bgp = null;
+        if (this.bkC != null) {
+            com.baidu.swan.apps.ap.e.agm().b(this.bkC, new com.baidu.swan.apps.ap.c[0]);
+            this.bkC = null;
         }
-        this.bgq = null;
-        this.bgr = null;
+        this.bkD = null;
+        this.bkE = null;
         if (DEBUG) {
             Log.d("PropertyMonitor", "Stop system monitor");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class d extends Handler {
         private d() {
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (b.this.bgt != null) {
-                b.this.JO();
-                b.this.bgt.put("mem", Long.valueOf(((ActivityManager) com.baidu.swan.apps.w.a.RG().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
-                if (b.this.bgo != null) {
-                    b.this.bgo.sendEmptyMessageDelayed(0, b.this.bgd);
+            if (b.this.bkF != null) {
+                b.this.Md();
+                b.this.bkF.put("mem", Long.valueOf(((ActivityManager) com.baidu.swan.apps.w.a.TU().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
+                if (b.this.bkB != null) {
+                    b.this.bkB.sendEmptyMessageDelayed(0, b.this.bkq);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JO() {
-        if (!this.bgr.bgw) {
-            m.postOnIO(this.bgr, "swanAppCpuMonitor");
+    public void Md() {
+        if (!this.bkE.bkI) {
+            m.postOnIO(this.bkE, "swanAppCpuMonitor");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
-        private boolean bgw;
+        private boolean bkI;
         private final String name;
 
         private a() {
@@ -154,7 +154,7 @@ public class b {
         @Override // java.lang.Runnable
         public void run() {
             BufferedReader bufferedReader;
-            this.bgw = true;
+            this.bkI = true;
             if (b.DEBUG) {
                 Log.d("PropertyMonitor", "start cpu monitor thread");
             }
@@ -165,24 +165,24 @@ public class b {
                     bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{IXAdRequestInfo.SCREEN_HEIGHT, "-c", append.append(myPid).toString()}).getInputStream()));
                     try {
                         String a = a(bufferedReader);
-                        b.this.bgt.put(com.baidu.fsg.face.base.b.c.i, a);
+                        b.this.bkF.put(com.baidu.fsg.face.base.b.c.i, a);
                         if (b.DEBUG) {
                             Log.d("PropertyMonitor", "stop cpu monitor thread , cpu rate is : " + a);
                         }
                         com.baidu.swan.d.c.closeSafely(bufferedReader);
-                        this.bgw = false;
+                        this.bkI = false;
                     } catch (IOException e) {
                         e = e;
                         if (b.DEBUG) {
                             Log.e("PropertyMonitor", "error in cpu monitor", e);
                         }
                         com.baidu.swan.d.c.closeSafely(bufferedReader);
-                        this.bgw = false;
+                        this.bkI = false;
                     }
                 } catch (Throwable th) {
                     th = th;
                     com.baidu.swan.d.c.closeSafely(append);
-                    this.bgw = false;
+                    this.bkI = false;
                     throw th;
                 }
             } catch (IOException e2) {
@@ -192,7 +192,7 @@ public class b {
                 th = th2;
                 append = 0;
                 com.baidu.swan.d.c.closeSafely(append);
-                this.bgw = false;
+                this.bkI = false;
                 throw th;
             }
         }
@@ -250,32 +250,32 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.property.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class Choreographer$FrameCallbackC0227b implements Choreographer.FrameCallback {
-        long bgy;
-        int bgz;
+    /* loaded from: classes11.dex */
+    public class Choreographer$FrameCallbackC0237b implements Choreographer.FrameCallback {
+        long bkK;
+        int bkL;
 
-        private Choreographer$FrameCallbackC0227b() {
-            this.bgy = -1L;
-            this.bgz = -1;
+        private Choreographer$FrameCallbackC0237b() {
+            this.bkK = -1L;
+            this.bkL = -1;
         }
 
         @Override // android.view.Choreographer.FrameCallback
         public void doFrame(long j) {
             int i;
-            if (b.this.bgu) {
-                if (this.bgy > 0 && this.bgz != (i = (int) ((1.0d / (j - this.bgy)) * 1.0E9d))) {
-                    this.bgz = i;
-                    b.this.bgt.put("frame", Integer.valueOf(i));
+            if (b.this.bkG) {
+                if (this.bkK > 0 && this.bkL != (i = (int) ((1.0d / (j - this.bkK)) * 1.0E9d))) {
+                    this.bkL = i;
+                    b.this.bkF.put("frame", Integer.valueOf(i));
                 }
-                this.bgy = j;
+                this.bkK = j;
                 Choreographer.getInstance().postFrameCallback(this);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class e implements e.a {
         private e() {
         }
@@ -283,10 +283,10 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.as.d.b
         /* renamed from: b */
-        public void B(Set<com.baidu.swan.apps.ap.c<?>> set) {
+        public void D(Set<com.baidu.swan.apps.ap.c<?>> set) {
             if (set != null && set.size() > 0) {
                 for (com.baidu.swan.apps.ap.c<?> cVar : set) {
-                    b.this.bgt.put(cVar.id, cVar.adX());
+                    b.this.bkF.put(cVar.id, cVar.agl());
                 }
             }
         }

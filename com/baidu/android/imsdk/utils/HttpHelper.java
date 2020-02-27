@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.http.Headers;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.task.TaskManager;
@@ -23,7 +22,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpHelper {
     public static final int ERROR_EXCEPTION = -10;
     private static final int GET = 1;
@@ -32,27 +31,31 @@ public class HttpHelper {
     public static final String TAG = HttpHelper.class.getSimpleName();
     private static Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Request {
+        int getConnectTimeout();
+
         Map<String, String> getHeaders();
 
         String getHost();
 
         String getMethod();
 
+        int getReadTimeout();
+
         byte[] getRequestParameter() throws NoSuchAlgorithmException;
 
         boolean shouldAbort();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ResponseHandler {
         void onFailure(int i, byte[] bArr, Throwable th);
 
         void onSuccess(int i, byte[] bArr);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     protected class Result {
         int errorCode;
         InputStream inputStream = null;
@@ -60,6 +63,28 @@ public class HttpHelper {
         HttpURLConnection urlConnection = null;
 
         protected Result() {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class ResponseResult {
+        protected int mErrorCode;
+        protected String mErrorMsg;
+
+        public int getErrorCode() {
+            return this.mErrorCode;
+        }
+
+        public String getErrorMsg() {
+            return this.mErrorMsg;
+        }
+
+        public void setErrorCode(int i) {
+            this.mErrorCode = i;
+        }
+
+        public void setErrorMsg(String str) {
+            this.mErrorMsg = str;
         }
     }
 
@@ -88,9 +113,9 @@ public class HttpHelper {
                             } else {
                                 i = 256;
                             }
-                            HttpHelper.executor(i, Request.this.getHost(), Request.this.getRequestParameter(), Request.this.getHeaders(), responseHandler);
+                            HttpHelper.executor(i, Request.this.getHost(), Request.this.getRequestParameter(), Request.this.getHeaders(), Request.this.getConnectTimeout(), Request.this.getReadTimeout(), responseHandler);
                         } catch (Exception e) {
-                            LogUtils.d(HttpHelper.TAG, "Http Unknown exception");
+                            LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e);
                             responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e);
                         }
                     }
@@ -99,12 +124,12 @@ public class HttpHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [135=4] */
-    public static void executor(int i, String str, byte[] bArr, Map<String, String> map, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [161=4] */
+    public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         InputStream inputStream = null;
         try {
-            httpURLConnection = createConnection(i, str, bArr, map);
+            httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
             try {
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode == -1) {
@@ -146,7 +171,7 @@ public class HttpHelper {
         }
     }
 
-    static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         if ((i & 1) != 0) {
             if (bArr != null && bArr.length > 0) {
                 str = str + "?" + new String(bArr);
@@ -160,7 +185,7 @@ public class HttpHelper {
             LogUtils.e(TAG, "HttpURLConnection is null");
         }
         setConnectionHeader(httpURLConnection, map);
-        setConnectionParametersForRequest(httpURLConnection, i, bArr, false);
+        setConnectionParametersForRequest(httpURLConnection, i, bArr, false, i2, i3);
         return httpURLConnection;
     }
 
@@ -172,13 +197,13 @@ public class HttpHelper {
         }
     }
 
-    static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z) throws IOException {
+    static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z, int i2, int i3) throws IOException {
         httpURLConnection.setDoInput(true);
-        httpURLConnection.setConnectTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+        httpURLConnection.setConnectTimeout(i2);
         if (z) {
             httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, "gzip");
         }
-        httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+        httpURLConnection.setReadTimeout(i3);
         switch (i) {
             case 1:
                 httpURLConnection.setRequestMethod("GET");

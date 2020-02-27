@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public enum WirelessNetworkType {
     UNKNOWN_NETWORK(0),
     WIFI(1),

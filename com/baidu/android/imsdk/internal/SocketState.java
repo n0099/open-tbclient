@@ -3,8 +3,9 @@ package com.baidu.android.imsdk.internal;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-/* loaded from: classes2.dex */
-class SocketState {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes3.dex */
+public class SocketState {
     Integer mSocketId = null;
     Boolean mSocketCreateOk = false;
     Boolean mSocketEnvOk = false;

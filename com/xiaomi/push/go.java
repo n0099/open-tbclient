@@ -2,11 +2,11 @@ package com.xiaomi.push;
 
 import com.baidu.webkit.internal.ETAG;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class go {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final char[] f423a = "&quot;".toCharArray();
+    private static final char[] f420a = "&quot;".toCharArray();
     private static final char[] b = "&apos;".toCharArray();
     private static final char[] c = "&amp;".toCharArray();
     private static final char[] d = "&lt;".toCharArray();
@@ -62,7 +62,7 @@ public class go {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f423a);
+                    sb.append(f420a);
                 } else if (c2 == '\'') {
                     if (i2 > i) {
                         sb.append(charArray, i, i2 - i);

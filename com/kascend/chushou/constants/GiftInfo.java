@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GiftInfo implements Serializable {
     private static final long serialVersionUID = 4218828431331138979L;
     public String mCornerImage;

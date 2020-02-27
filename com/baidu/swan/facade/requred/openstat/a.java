@@ -6,7 +6,7 @@ import com.baidu.swan.ubc.l;
 import com.baidu.swan.ubc.s;
 import java.util.HashMap;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements l {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -17,9 +17,9 @@ public class a implements l {
         }
         com.baidu.swan.facade.requred.openstat.imupload.c cVar = new com.baidu.swan.facade.requred.openstat.imupload.c();
         HashMap hashMap = new HashMap(2);
-        hashMap.put("cuid", s.atD().getDeviceId(AppRuntime.getApplication()));
-        hashMap.put("uuid", s.atD().cl(AppRuntime.getApplication()));
-        com.baidu.swan.facade.requred.openstat.imupload.b.ahl().a(hashMap, jSONArray.toString().getBytes(), (String) null, cVar);
+        hashMap.put("cuid", s.avR().getDeviceId(AppRuntime.getApplication()));
+        hashMap.put("uuid", s.avR().cp(AppRuntime.getApplication()));
+        com.baidu.swan.facade.requred.openstat.imupload.b.ajz().a(hashMap, jSONArray.toString().getBytes(), (String) null, cVar);
         if (DEBUG) {
             Log.d("OpenBehaviorUploader", "errorCode : " + cVar.errorCode);
             Log.d("OpenBehaviorUploader", "errorMsg : " + cVar.errMsg);
@@ -28,7 +28,7 @@ public class a implements l {
             case 1:
             case 2:
             case 4:
-                com.baidu.swan.c.c.atO();
+                com.baidu.swan.c.c.awc();
                 return false;
             case 3:
             default:

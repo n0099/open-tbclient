@@ -1,5 +1,5 @@
 package com.kascend.chushou.player.feedback;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FlingObj {
     public int enterType;
     public String roomId;

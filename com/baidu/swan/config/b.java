@@ -1,18 +1,18 @@
 package com.baidu.swan.config;
 
 import com.baidu.searchbox.config.QuickPersistConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.swan.d.e {
     private b() {
         super(QuickPersistConfig.SP_FILE_STARTUP);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static final class a {
-        private static final b cbk = new b();
+        private static final b cfq = new b();
     }
 
-    public static b agF() {
-        return a.cbk;
+    public static b aiT() {
+        return a.cfq;
     }
 }

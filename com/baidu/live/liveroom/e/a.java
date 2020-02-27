@@ -1,4 +1,30 @@
 package com.baidu.live.liveroom.e;
-/* loaded from: classes2.dex */
+
+import android.content.Context;
+import android.net.Uri;
+import android.view.View;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
 public interface a {
+    void a(c cVar);
+
+    void b(int i, JSONObject jSONObject);
+
+    void c(Uri uri);
+
+    void cf(int i);
+
+    void d(Context context, Uri uri);
+
+    View getPlayerView();
+
+    void release();
+
+    void setDecodeMode(int i);
+
+    void setVideoScalingMode(int i);
+
+    void start();
+
+    void stop();
 }

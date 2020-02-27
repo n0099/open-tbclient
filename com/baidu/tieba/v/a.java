@@ -1,68 +1,89 @@
 package com.baidu.tieba.v;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.coreExtra.data.aa;
-import java.util.Date;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
 public class a {
-    private long bDL;
-    private CustomMessageListener cHC = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.v.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                a.this.GJ();
-            }
+    public static void a(final View view, int i, final Animation.AnimationListener animationListener) {
+        if (view != null && i >= 0) {
+            view.clearAnimation();
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(i);
+            alphaAnimation.setFillAfter(true);
+            alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.v.a.1
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                    if (animationListener != null) {
+                        animationListener.onAnimationStart(animation);
+                    }
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
+                    if (animationListener != null) {
+                        animationListener.onAnimationRepeat(animation);
+                    }
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    if (animationListener != null) {
+                        animationListener.onAnimationEnd(animation);
+                    }
+                    if (view != null) {
+                        view.clearAnimation();
+                        view.setVisibility(0);
+                    }
+                }
+            });
+            view.setVisibility(0);
+            view.startAnimation(alphaAnimation);
         }
-    };
-    private long kGl;
-    private aa kGm;
-    private long mInterval;
-    private long mStartTime;
-
-    public a() {
-        init();
     }
 
-    private void init() {
-        GJ();
-        this.kGl = com.baidu.tbadk.core.sharedPref.b.aDr().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
-        MessageManager.getInstance().registerListener(this.cHC);
-    }
+    public static void b(final View view, int i, final Animation.AnimationListener animationListener) {
+        if (view != null && i >= 0) {
+            view.clearAnimation();
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(i);
+            alphaAnimation.setFillAfter(true);
+            alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.v.a.2
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                    if (animationListener != null) {
+                        animationListener.onAnimationStart(animation);
+                    }
+                }
 
-    public boolean cRQ() {
-        if (this.mStartTime == 0 || this.bDL == 0 || this.mInterval == 0) {
-            return false;
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
+                    if (animationListener != null) {
+                        animationListener.onAnimationRepeat(animation);
+                    }
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    if (animationListener != null) {
+                        animationListener.onAnimationEnd(animation);
+                    }
+                    if (view != null) {
+                        view.clearAnimation();
+                        view.setVisibility(8);
+                    }
+                }
+            });
+            view.setVisibility(8);
+            view.startAnimation(alphaAnimation);
         }
-        Date date = new Date();
-        return o(date) && p(date);
     }
 
-    private boolean o(Date date) {
-        return date != null && date.getTime() >= this.mStartTime && date.getTime() <= this.bDL;
+    public static void v(View view, int i) {
+        b(view, i, null);
     }
 
-    private boolean p(Date date) {
-        return date != null && date.getTime() - this.kGl >= this.mInterval;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void GJ() {
-        if (this.kGm == null) {
-            this.kGm = new aa();
-        }
-        this.kGm.parseJson(com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
-        this.mStartTime = this.kGm.aHn();
-        this.bDL = this.kGm.aHo();
-        this.mInterval = this.kGm.aHp();
-    }
-
-    public void eK(long j) {
-        this.kGl = j;
-        com.baidu.tbadk.core.sharedPref.b.aDr().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
+    public static void w(View view, int i) {
+        a(view, i, null);
     }
 }

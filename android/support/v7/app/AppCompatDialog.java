@@ -13,7 +13,7 @@ import android.support.v7.view.ActionMode;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AppCompatDialog extends Dialog implements AppCompatCallback {
     private AppCompatDelegate mDelegate;
 

@@ -10,20 +10,22 @@ import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public class j extends i {
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class a implements Iterable<T> {
-        final /* synthetic */ kotlin.sequences.c nCj;
+        final /* synthetic */ kotlin.sequences.c nDc;
 
         public a(kotlin.sequences.c cVar) {
-            this.nCj = cVar;
+            this.nDc = cVar;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            return this.nCj.iterator();
+            return this.nDc.iterator();
         }
     }
 
@@ -64,51 +66,55 @@ public class j extends i {
         return new k(cVar, bVar);
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class b implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c nCk;
-        final /* synthetic */ Object nCl;
+        final /* synthetic */ kotlin.sequences.c nDd;
+        final /* synthetic */ Object nDe;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
             Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = false;
-            return kotlin.sequences.e.a(this.nCk, new SequencesKt___SequencesKt$minus$1$iterator$1(this, booleanRef)).iterator();
+            return kotlin.sequences.e.a(this.nDd, new SequencesKt___SequencesKt$minus$1$iterator$1(this, booleanRef)).iterator();
         }
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class c implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c nCk;
-        final /* synthetic */ Object[] nCm;
+        final /* synthetic */ kotlin.sequences.c nDd;
+        final /* synthetic */ Object[] nDf;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return kotlin.sequences.e.b(this.nCk, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.N(this.nCm))).iterator();
+            return kotlin.sequences.e.b(this.nDd, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.N(this.nDf))).iterator();
         }
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class d implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c nCk;
-        final /* synthetic */ Iterable nCn;
+        final /* synthetic */ kotlin.sequences.c nDd;
+        final /* synthetic */ Iterable nDg;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            Collection b = o.b(this.nCn);
-            return b.isEmpty() ? this.nCk.iterator() : kotlin.sequences.e.b(this.nCk, new SequencesKt___SequencesKt$minus$3$iterator$1(b)).iterator();
+            Collection b = o.b(this.nDg);
+            return b.isEmpty() ? this.nDd.iterator() : kotlin.sequences.e.b(this.nDd, new SequencesKt___SequencesKt$minus$3$iterator$1(b)).iterator();
         }
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class e implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c nCk;
-        final /* synthetic */ kotlin.sequences.c nCo;
+        final /* synthetic */ kotlin.sequences.c nDd;
+        final /* synthetic */ kotlin.sequences.c nDh;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            HashSet a = kotlin.sequences.e.a(this.nCo);
-            return a.isEmpty() ? this.nCk.iterator() : kotlin.sequences.e.b(this.nCk, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
+            HashSet a = kotlin.sequences.e.a(this.nDh);
+            return a.isEmpty() ? this.nDd.iterator() : kotlin.sequences.e.b(this.nDd, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
         }
     }
 

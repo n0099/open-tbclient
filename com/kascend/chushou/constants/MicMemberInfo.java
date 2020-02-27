@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MicMemberInfo implements Serializable {
     public String avatar;
     public long contributePoint;

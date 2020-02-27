@@ -3,7 +3,7 @@ package com.baidu.swan.apps.scheme;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
     public static String getErrMessage(int i) {
         switch (i) {

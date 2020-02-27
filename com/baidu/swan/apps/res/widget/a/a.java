@@ -14,11 +14,11 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.a.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a {
-    protected d bKq;
-    protected b.a bKr;
-    private InterfaceC0268a bKs;
+    protected d bOv;
+    protected b.a bOw;
+    private InterfaceC0278a bOx;
     protected Context mContext;
     protected View.OnKeyListener mKeyClickListener;
     private View mMenu;
@@ -38,15 +38,15 @@ public abstract class a {
     };
     protected List<com.baidu.swan.apps.res.widget.a.b> mItems = new ArrayList();
     private int mPopupWindowWidth = -2;
-    private boolean mCurrentMode = com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState();
+    private boolean mCurrentMode = com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState();
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0268a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0278a {
         void onMenuItemUpdated(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
     }
 
@@ -68,7 +68,7 @@ public abstract class a {
     }
 
     public void a(b.a aVar) {
-        this.bKr = aVar;
+        this.bOw = aVar;
     }
 
     public void setPopupWindowWidth(int i) {
@@ -84,29 +84,29 @@ public abstract class a {
                     if (bVar2.isAutoDismiss()) {
                         a.this.dismiss(bVar2.getDismissDelayTime());
                     }
-                    if (a.this.bKr != null) {
-                        a.this.bKr.c(bVar2);
+                    if (a.this.bOw != null) {
+                        a.this.bOw.c(bVar2);
                     }
                 }
             });
         } else {
-            bVar.b(this.bKr);
+            bVar.b(this.bOw);
         }
         this.mItems.add(bVar);
         return bVar;
     }
 
-    public com.baidu.swan.apps.res.widget.a.b r(int i, int i2, int i3) {
+    public com.baidu.swan.apps.res.widget.a.b s(int i, int i2, int i3) {
         return a(i, this.mResources.getString(i2), this.mResources.getDrawable(i3));
     }
 
     public void show() {
-        if (com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState() != this.mCurrentMode) {
+        if (com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState() != this.mCurrentMode) {
             prepareMenuView(this.mContext);
             this.mPopupWindow = null;
         }
         showPopUpWindow(true);
-        this.mCurrentMode = com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState();
+        this.mCurrentMode = com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState();
     }
 
     public void dismiss() {
@@ -178,14 +178,14 @@ public abstract class a {
     }
 
     protected void updateMenuItems(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.bKs != null) {
-            this.bKs.onMenuItemUpdated(list);
+        if (this.bOx != null) {
+            this.bOx.onMenuItemUpdated(list);
         }
     }
 
     private void showPopUpWindow(boolean z) {
-        if (this.bKq != null) {
-            this.bKq.onShowMenu();
+        if (this.bOv != null) {
+            this.bOv.onShowMenu();
         }
         updateMenuItems(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
@@ -207,15 +207,15 @@ public abstract class a {
                     if (a.this.mIsBackgroundDarken) {
                         a.this.clearBackgroundDarkenStatus();
                     }
-                    if (a.this.bKq != null) {
-                        a.this.bKq.onDismissMenu();
+                    if (a.this.bOv != null) {
+                        a.this.bOv.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.bKq != null) {
-                this.bKq.onDismissMenu();
+            if (this.bOv != null) {
+                this.bOv.onDismissMenu();
                 return;
             }
             return;

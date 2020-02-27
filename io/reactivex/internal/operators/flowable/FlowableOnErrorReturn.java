@@ -4,16 +4,16 @@ import io.reactivex.c.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import io.reactivex.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableOnErrorReturn<T> extends a<T, T> {
     final h<? super Throwable, ? extends T> valueSupplier;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nvP.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
+        this.nwr.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class OnErrorReturnSubscriber<T> extends SinglePostCompleteSubscriber<T, T> {
         private static final long serialVersionUID = -3740826063558713822L;
         final h<? super Throwable, ? extends T> valueSupplier;
@@ -34,7 +34,7 @@ public final class FlowableOnErrorReturn<T> extends a<T, T> {
             try {
                 complete(io.reactivex.internal.functions.a.h(this.valueSupplier.apply(th), "The valueSupplier returned a null value"));
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.I(th2);
+                io.reactivex.exceptions.a.H(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

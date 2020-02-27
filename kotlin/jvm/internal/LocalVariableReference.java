@@ -1,15 +1,16 @@
 package kotlin.jvm.internal;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public class LocalVariableReference extends PropertyReference0 {
     @Override // kotlin.jvm.internal.CallableReference
     public kotlin.reflect.d getOwner() {
-        r.dJo();
+        r.dKv();
         throw null;
     }
 
     @Override // kotlin.reflect.k
     public Object get() {
-        r.dJo();
+        r.dKv();
         throw null;
     }
 }

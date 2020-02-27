@@ -3,18 +3,18 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.fx;
 import com.xiaomi.push.ic;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class q extends XMPushService.i {
     final /* synthetic */ ic a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f927a;
+    final /* synthetic */ XMPushService f924a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(int i, XMPushService xMPushService, ic icVar) {
         super(i);
-        this.f927a = xMPushService;
+        this.f924a = xMPushService;
         this.a = icVar;
     }
 
@@ -26,10 +26,10 @@ final class q extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            w.a(this.f927a, w.a(this.a.b(), this.a.m397a()));
+            w.a(this.f924a, w.a(this.a.b(), this.a.m402a()));
         } catch (fx e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f927a.a(10, e);
+            this.f924a.a(10, e);
         }
     }
 }

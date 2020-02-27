@@ -7,36 +7,39 @@ import android.support.annotation.Keep;
 import com.kascend.chushou.player.ui.pk.f;
 import com.kascend.chushou.toolkit.LoginManager;
 import com.kascend.cstvsdk.interfaces.SimpleCallback;
+import kotlin.h;
 import kotlin.jvm.internal.q;
-import kotlin.k;
+import kotlin.l;
 import tv.chushou.a.a.d.b;
+import tv.chushou.widget.a.c;
 @Keep
-/* loaded from: classes4.dex */
+@h
+/* loaded from: classes5.dex */
 public final class CSTVSdk {
     public static final CSTVSdk INSTANCE = new CSTVSdk();
     public static final String TAG = "CSTVSdk";
     public static final int TYPE_LOGIN = 1;
     public static final int TYPE_LOGOUT = 2;
-    private static volatile boolean initialized;
+    private static volatile boolean inited;
+
+    public final void startH5(Context context, String str) {
+        startH5$default(this, context, str, null, 4, null);
+    }
 
     private CSTVSdk() {
     }
 
     public final boolean getInitialized() {
-        return initialized;
-    }
-
-    public final void setInitialized(boolean z) {
-        initialized = z;
+        return inited && c.getResources() != null;
     }
 
     public final void init(SdkConfig sdkConfig) {
         q.j(sdkConfig, "config");
-        if (!initialized) {
+        if (!getInitialized()) {
             synchronized (this) {
-                com.kascend.cstvsdk.utils.a.njI.a(sdkConfig);
-                initialized = true;
-                k kVar = k.nAY;
+                com.kascend.cstvsdk.utils.a.nkk.a(sdkConfig);
+                inited = true;
+                l lVar = l.nBA;
             }
         }
     }
@@ -48,7 +51,7 @@ public final class CSTVSdk {
     }
 
     public final void onLoginStatusChanged(int i) {
-        tv.chushou.basis.d.b.dOF().d(TAG, "onLoginStatusChanged: " + i);
+        tv.chushou.basis.d.b.dPS().d(TAG, "onLoginStatusChanged: " + i);
         if (i == 2) {
             LoginManager.Instance().openLogout(null);
         } else if (i == 1) {
@@ -56,7 +59,8 @@ public final class CSTVSdk {
         }
     }
 
-    /* loaded from: classes4.dex */
+    @h
+    /* loaded from: classes5.dex */
     public static final class a implements SimpleCallback {
         a() {
         }
@@ -68,16 +72,16 @@ public final class CSTVSdk {
         @Override // com.kascend.cstvsdk.interfaces.SimpleCallback
         public void onSuccess() {
             Application application;
-            if (com.kascend.cstvsdk.utils.a.njI.b() && CSTVSdk.INSTANCE.getInitialized()) {
+            if (com.kascend.cstvsdk.utils.a.nkk.b() && CSTVSdk.INSTANCE.getInitialized()) {
                 Activity e = com.kascend.chushou.d.b.e();
                 if (e != null) {
                     application = e;
                 } else {
-                    Application dOE = tv.chushou.basis.d.b.dOE();
-                    q.i(dOE, "Router.application()");
-                    application = dOE;
+                    Application dPR = tv.chushou.basis.d.b.dPR();
+                    q.i(dPR, "Router.application()");
+                    application = dPR;
                 }
-                com.kascend.cstvsdk.utils.a.njI.b(application);
+                com.kascend.cstvsdk.utils.a.nkk.b(application);
             }
         }
 
@@ -94,12 +98,23 @@ public final class CSTVSdk {
             }
             String str4 = str2;
             if (!(str4 == null || str4.length() == 0)) {
-                com.kascend.cstvsdk.utils.a.njI.a(context, str, str2);
+                com.kascend.cstvsdk.utils.a.nkk.a(context, str, str2);
             }
         }
     }
 
+    public static /* synthetic */ void startH5$default(CSTVSdk cSTVSdk, Context context, String str, String str2, int i, Object obj) {
+        cSTVSdk.startH5(context, str, (i & 4) != 0 ? null : str2);
+    }
+
+    public final void startH5(Context context, String str, String str2) {
+        if (context == null) {
+            context = tv.chushou.basis.d.b.dPR();
+        }
+        com.kascend.chushou.d.a.a(context, str, str2);
+    }
+
     public final void check() {
-        f.a(initialized, "确保调用了fun CSTVSdk.init(config: SdkConfig)方法", new Object[0]);
+        f.a(inited, "确保调用了fun CSTVSdk.init(config: SdkConfig)方法", new Object[0]);
     }
 }

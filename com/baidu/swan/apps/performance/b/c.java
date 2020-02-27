@@ -3,29 +3,29 @@ package com.baidu.swan.apps.performance.b;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements e {
-    private List<Long> bDM = new ArrayList();
-    private long bDL = -1;
+    private List<Long> bHR = new ArrayList();
+    private long mEndTime = -1;
 
     @Override // com.baidu.swan.apps.performance.b.e
     public void setStart(long j) {
-        if (this.bDM != null) {
-            this.bDM.add(Long.valueOf(j));
+        if (this.bHR != null) {
+            this.bHR.add(Long.valueOf(j));
         }
     }
 
     @Override // com.baidu.swan.apps.performance.b.e
     public void setEnd(long j) {
-        this.bDL = j;
+        this.mEndTime = j;
     }
 
     @Override // com.baidu.swan.apps.performance.b.e
-    public long XK() {
-        if (this.bDM == null || this.bDM.size() <= 0 || this.bDL < 0) {
+    public long ZY() {
+        if (this.bHR == null || this.bHR.size() <= 0 || this.mEndTime < 0) {
             return -1L;
         }
-        return this.bDL - ((Long) Collections.min(this.bDM)).longValue();
+        return this.mEndTime - ((Long) Collections.min(this.bHR)).longValue();
     }
 
     @Override // com.baidu.swan.apps.performance.b.e

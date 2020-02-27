@@ -7,7 +7,7 @@ import java.net.SocketAddress;
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NullProxySelector extends ProxySelector {
     @Override // java.net.ProxySelector
     public List<Proxy> select(URI uri) {

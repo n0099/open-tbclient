@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static int computeSampleSize(BitmapFactory.Options options, int i, int i2) {
         int computeInitialSampleSize = computeInitialSampleSize(options, i, i2);
@@ -112,12 +112,12 @@ public class c {
 
     public static com.facebook.c.c u(InputStream inputStream) {
         if (inputStream == null) {
-            return com.facebook.c.c.lOR;
+            return com.facebook.c.c.lPy;
         }
         try {
             return com.facebook.c.d.u(inputStream);
         } catch (IOException e) {
-            return com.facebook.c.c.lOR;
+            return com.facebook.c.c.lPy;
         }
     }
 }

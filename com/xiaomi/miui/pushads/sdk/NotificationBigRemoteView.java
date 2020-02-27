@@ -2,7 +2,7 @@ package com.xiaomi.miui.pushads.sdk;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class NotificationBigRemoteView extends NotificationBaseRemoteView {
     public NotificationBigRemoteView(Context context) {
         super(context.getPackageName(), context.getResources().getIdentifier("notification_big_picture_layout", "layout", context.getPackageName()));

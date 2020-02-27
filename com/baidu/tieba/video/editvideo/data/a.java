@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.editvideo.data;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public int coverId;
     public String name;

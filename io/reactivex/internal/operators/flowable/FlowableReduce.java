@@ -4,16 +4,16 @@ import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableReduce<T> extends a<T, T> {
     final io.reactivex.c.c<T, T, T> reducer;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nvP.a((j) new ReduceSubscriber(cVar, this.reducer));
+        this.nwr.a((j) new ReduceSubscriber(cVar, this.reducer));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ReduceSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = -4663883003264602070L;
         final io.reactivex.c.c<T, T, T> reducer;
@@ -44,7 +44,7 @@ public final class FlowableReduce<T> extends a<T, T> {
                 try {
                     this.value = (T) io.reactivex.internal.functions.a.h(this.reducer.apply(t2, t), "The reducer returned a null value");
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.exceptions.a.H(th);
                     this.s.cancel();
                     onError(th);
                 }

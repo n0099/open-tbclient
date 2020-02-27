@@ -15,7 +15,7 @@ import java.net.Proxy;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ConnectionFactory {
     public static HttpURLConnection createConnect(String str, Context context) {
         HttpURLConnection httpURLConnection;

@@ -2,63 +2,63 @@ package com.facebook.imagepipeline.memory;
 
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class q {
-    private c lPG;
-    private com.facebook.common.memory.g lPJ;
-    private i lPL;
-    private com.facebook.common.memory.j lPZ;
-    private final p lTY;
-    private k lTZ;
-    private com.facebook.common.memory.a lUa;
+    private com.facebook.common.memory.j lQG;
+    private c lQn;
+    private com.facebook.common.memory.g lQq;
+    private i lQs;
+    private final p lUF;
+    private k lUG;
+    private com.facebook.common.memory.a lUH;
 
     public q(p pVar) {
-        this.lTY = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.lUF = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c dpZ() {
-        if (this.lPG == null) {
-            this.lPG = new c(this.lTY.dnK(), this.lTY.dpQ(), this.lTY.dpR());
+    public c drl() {
+        if (this.lQn == null) {
+            this.lQn = new c(this.lUF.doW(), this.lUF.drc(), this.lUF.drd());
         }
-        return this.lPG;
+        return this.lQn;
     }
 
-    public i dqa() {
-        if (this.lPL == null) {
-            this.lPL = new i(this.lTY.dnK(), this.lTY.dpU());
+    public i drm() {
+        if (this.lQs == null) {
+            this.lQs = new i(this.lUF.doW(), this.lUF.drg());
         }
-        return this.lPL;
+        return this.lQs;
     }
 
-    public int dqb() {
-        return this.lTY.dpU().lUh;
+    public int drn() {
+        return this.lUF.drg().lUO;
     }
 
-    public k dqc() {
-        if (this.lTZ == null) {
-            this.lTZ = new k(this.lTY.dnK(), this.lTY.dpS(), this.lTY.dpT());
+    public k dro() {
+        if (this.lUG == null) {
+            this.lUG = new k(this.lUF.doW(), this.lUF.dre(), this.lUF.drf());
         }
-        return this.lTZ;
+        return this.lUG;
     }
 
-    public com.facebook.common.memory.g dqd() {
-        if (this.lPJ == null) {
-            this.lPJ = new m(dqc(), dqe());
+    public com.facebook.common.memory.g drp() {
+        if (this.lQq == null) {
+            this.lQq = new m(dro(), drq());
         }
-        return this.lPJ;
+        return this.lQq;
     }
 
-    public com.facebook.common.memory.j dqe() {
-        if (this.lPZ == null) {
-            this.lPZ = new com.facebook.common.memory.j(dqf());
+    public com.facebook.common.memory.j drq() {
+        if (this.lQG == null) {
+            this.lQG = new com.facebook.common.memory.j(drr());
         }
-        return this.lPZ;
+        return this.lQG;
     }
 
-    public com.facebook.common.memory.a dqf() {
-        if (this.lUa == null) {
-            this.lUa = new j(this.lTY.dnK(), this.lTY.dpV(), this.lTY.dpW());
+    public com.facebook.common.memory.a drr() {
+        if (this.lUH == null) {
+            this.lUH = new j(this.lUF.doW(), this.lUF.drh(), this.lUF.dri());
         }
-        return this.lUa;
+        return this.lUH;
     }
 }

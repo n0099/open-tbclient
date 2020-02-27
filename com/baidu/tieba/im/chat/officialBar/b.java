@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class b {
-    public static b hsg = new b();
-    private com.baidu.adp.lib.d.b<MultiImageTextTopView> hrT;
-    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> hrU;
-    private com.baidu.adp.lib.d.b<SingleImageTextView> hrV;
+    public static b huf = new b();
+    private com.baidu.adp.lib.d.b<MultiImageTextTopView> htS;
+    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> htT;
+    private com.baidu.adp.lib.d.b<SingleImageTextView> htU;
 
-    private void eR(final Context context) {
-        this.hrT = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
+    private void eU(final Context context) {
+        this.htS = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bQS */
+            /* renamed from: bSt */
             public MultiImageTextTopView makeObject() {
                 return new MultiImageTextTopView(context);
             }
@@ -46,11 +46,11 @@ public class b {
         };
     }
 
-    private void eS(final Context context) {
-        this.hrU = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.3
+    private void eV(final Context context) {
+        this.htT = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bQT */
+            /* renamed from: bSu */
             public MultiImageTextBottomView makeObject() {
                 return new MultiImageTextBottomView(context);
             }
@@ -84,11 +84,11 @@ public class b {
         };
     }
 
-    private void eT(final Context context) {
-        this.hrV = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.5
+    private void eW(final Context context) {
+        this.htU = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bQU */
+            /* renamed from: bSv */
             public SingleImageTextView makeObject() {
                 return new SingleImageTextView(context);
             }
@@ -121,24 +121,24 @@ public class b {
         }, 1, 0);
     }
 
-    public com.baidu.adp.lib.d.b<MultiImageTextTopView> eU(Context context) {
-        if (this.hrT == null) {
-            eR(context);
+    public com.baidu.adp.lib.d.b<MultiImageTextTopView> eX(Context context) {
+        if (this.htS == null) {
+            eU(context);
         }
-        return this.hrT;
+        return this.htS;
     }
 
-    public com.baidu.adp.lib.d.b<MultiImageTextBottomView> eV(Context context) {
-        if (this.hrU == null) {
-            eS(context);
+    public com.baidu.adp.lib.d.b<MultiImageTextBottomView> eY(Context context) {
+        if (this.htT == null) {
+            eV(context);
         }
-        return this.hrU;
+        return this.htT;
     }
 
-    public com.baidu.adp.lib.d.b<SingleImageTextView> eW(Context context) {
-        if (this.hrV == null) {
-            eT(context);
+    public com.baidu.adp.lib.d.b<SingleImageTextView> eZ(Context context) {
+        if (this.htU == null) {
+            eW(context);
         }
-        return this.hrV;
+        return this.htU;
     }
 }

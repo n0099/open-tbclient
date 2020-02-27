@@ -4,9 +4,9 @@ import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class i {
-    public static <T> io.reactivex.internal.a.g<T> Ny(int i) {
+    public static <T> io.reactivex.internal.a.g<T> NB(int i) {
         return i < 0 ? new io.reactivex.internal.queue.a(-i) : new SpscArrayQueue(i);
     }
 
@@ -18,7 +18,7 @@ public final class i {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, b.ae(Format.OFFSET_SAMPLE_RELATIVE & j2, j) | (j2 & Long.MIN_VALUE)));
+        } while (!atomicLong.compareAndSet(j2, b.ad(Format.OFFSET_SAMPLE_RELATIVE & j2, j) | (j2 & Long.MIN_VALUE)));
         if (j2 == Long.MIN_VALUE) {
             b(j | Long.MIN_VALUE, cVar, queue, atomicLong, eVar);
             return true;
@@ -30,7 +30,7 @@ public final class i {
         try {
             return eVar.getAsBoolean();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.I(th);
+            io.reactivex.exceptions.a.H(th);
             return true;
         }
     }

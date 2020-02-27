@@ -1,7 +1,8 @@
 package kotlin.jvm.internal;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class v {
-    public static final v nBP = new v();
+    public static final v nCr = new v();
 
     private v() {
     }

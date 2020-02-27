@@ -5,10 +5,10 @@ import com.google.android.exoplayer2.util.j;
 import com.google.android.exoplayer2.util.l;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public final List<byte[]> initializationData;
-    public final int meg;
+    public final int meM;
 
     public static b ai(l lVar) throws ParserException {
         try {
@@ -40,8 +40,8 @@ public final class b {
                 int i7 = i6;
                 for (int i8 = 0; i8 < readUnsignedShort3; i8++) {
                     int readUnsignedShort4 = lVar.readUnsignedShort();
-                    System.arraycopy(j.mGt, 0, bArr, i7, j.mGt.length);
-                    int length = i7 + j.mGt.length;
+                    System.arraycopy(j.mGZ, 0, bArr, i7, j.mGZ.length);
+                    int length = i7 + j.mGZ.length;
                     System.arraycopy(lVar.data, lVar.getPosition(), bArr, length, readUnsignedShort4);
                     i7 = length + readUnsignedShort4;
                     lVar.skipBytes(readUnsignedShort4);
@@ -57,6 +57,6 @@ public final class b {
 
     private b(List<byte[]> list, int i) {
         this.initializationData = list;
-        this.meg = i;
+        this.meM = i;
     }
 }

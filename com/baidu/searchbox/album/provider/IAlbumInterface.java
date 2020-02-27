@@ -6,7 +6,7 @@ import com.baidu.searchbox.ugc.model.ImageStruct;
 import com.baidu.searchbox.ugc.provider.listener.OnDeletePreviewPhotoListener;
 import com.baidu.searchbox.ugc.provider.listener.OnSelectPhotoListener;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IAlbumInterface {
     public static final IAlbumInterface EMPTY = new IAlbumInterface() { // from class: com.baidu.searchbox.album.provider.IAlbumInterface.1
         @Override // com.baidu.searchbox.album.provider.IAlbumInterface
@@ -59,7 +59,7 @@ public interface IAlbumInterface {
 
     void setSelectedImages(ImageStruct imageStruct);
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class Impl {
         private static IAlbumInterface sAlbumProvider = AlbumProviderManager.getAlbumProvider();
 

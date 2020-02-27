@@ -7,7 +7,7 @@ import com.baidu.fsg.base.utils.FileCopyUtils;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends a<Object> {
     public static final Charset a = Charset.forName("UTF-8");
 

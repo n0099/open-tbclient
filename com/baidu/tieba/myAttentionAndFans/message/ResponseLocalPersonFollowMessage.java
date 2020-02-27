@@ -3,7 +3,7 @@ package com.baidu.tieba.myAttentionAndFans.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Object> {
     private av data;
 

@@ -1,5 +1,5 @@
 package com.baidu.platform.comjni.bikenavi;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class JNIEngineManager {
     public native long getSubSysHandle(long j, int i, long[] jArr);
 

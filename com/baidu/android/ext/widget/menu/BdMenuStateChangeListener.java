@@ -1,5 +1,5 @@
 package com.baidu.android.ext.widget.menu;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface BdMenuStateChangeListener {
     void onDismissMenu();
 

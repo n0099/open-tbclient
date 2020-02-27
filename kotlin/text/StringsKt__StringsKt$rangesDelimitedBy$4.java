@@ -5,7 +5,8 @@ import java.util.List;
 import kotlin.Pair;
 import kotlin.jvm.internal.Lambda;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class StringsKt__StringsKt$rangesDelimitedBy$4 extends Lambda implements kotlin.jvm.a.m<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>> {
     final /* synthetic */ List $delimitersList;
     final /* synthetic */ boolean $ignoreCase;
@@ -30,7 +31,7 @@ public final class StringsKt__StringsKt$rangesDelimitedBy$4 extends Lambda imple
         kotlin.jvm.internal.q.j(charSequence, "receiver$0");
         a = u.a(charSequence, (Collection<String>) this.$delimitersList, i, this.$ignoreCase, false);
         if (a != null) {
-            return kotlin.i.l(a.getFirst(), Integer.valueOf(((String) a.getSecond()).length()));
+            return kotlin.j.k(a.getFirst(), Integer.valueOf(((String) a.getSecond()).length()));
         }
         return null;
     }

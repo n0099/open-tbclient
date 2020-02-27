@@ -9,7 +9,7 @@ import com.baidu.swan.apps.t.a.a;
 import com.baidu.swan.d.c;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -23,11 +23,11 @@ public class b {
         if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(bundleId)) {
             return null;
         }
-        return O(appId, bundleId, String.valueOf(aVar.getVersionCode()));
+        return P(appId, bundleId, String.valueOf(aVar.getVersionCode()));
     }
 
     @NonNull
-    public static File O(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public static File P(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         return new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "swan_mini_folder" + File.separator + str + File.separator + str2, str3);
     }
 
@@ -51,9 +51,9 @@ public class b {
         if (!b.exists() && !b.mkdirs()) {
             return new com.baidu.swan.pms.b.b.b(1002, "解压失败：解压文件夹创建失败");
         }
-        a.b q = com.baidu.swan.apps.t.a.a.q(file);
-        if (q.type != -1) {
-            if (com.baidu.swan.apps.t.a.a.a(q.btz, b, q.type).isSuccess) {
+        a.b r = com.baidu.swan.apps.t.a.a.r(file);
+        if (r.type != -1) {
+            if (com.baidu.swan.apps.t.a.a.a(r.bxJ, b, r.type).isSuccess) {
                 return new com.baidu.swan.pms.b.b.b(0, "解密成功");
             }
             return new com.baidu.swan.pms.b.b.b(1011, "解密失败");
@@ -79,7 +79,7 @@ public class b {
             }
         })) != null && listFiles.length > 0) {
             for (File file : listFiles) {
-                if (file != null && b(j, file.getName()) && !com.baidu.swan.mini.a.aqP().contains(file.getAbsolutePath())) {
+                if (file != null && c(j, file.getName()) && !com.baidu.swan.mini.a.atd().contains(file.getAbsolutePath())) {
                     if (DEBUG) {
                         Log.i("Mini-Pm", "删除低版本文件夹：" + file.getAbsolutePath());
                     }
@@ -89,7 +89,7 @@ public class b {
         }
     }
 
-    private static boolean b(long j, String str) {
+    private static boolean c(long j, String str) {
         if (DEBUG) {
             Log.i("Mini-Pm", "curVersion:" + j + " ,targetVersion:" + str);
         }

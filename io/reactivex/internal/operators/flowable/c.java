@@ -3,9 +3,9 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
-    final io.reactivex.c.a nwi;
+    final io.reactivex.c.a nwK;
     final io.reactivex.c.a onComplete;
     final io.reactivex.c.g<? super Throwable> onError;
     final io.reactivex.c.g<? super T> onNext;
@@ -15,21 +15,21 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         this.onNext = gVar2;
         this.onError = gVar3;
         this.onComplete = aVar;
-        this.nwi = aVar2;
+        this.nwK = aVar2;
     }
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nvP.a((j) new a((io.reactivex.internal.a.a) cVar, this.onNext, this.onError, this.onComplete, this.nwi));
+            this.nwr.a((j) new a((io.reactivex.internal.a.a) cVar, this.onNext, this.onError, this.onComplete, this.nwK));
         } else {
-            this.nvP.a((j) new b(cVar, this.onNext, this.onError, this.onComplete, this.nwi));
+            this.nwr.a((j) new b(cVar, this.onNext, this.onError, this.onComplete, this.nwK));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class b<T> extends io.reactivex.internal.subscribers.b<T, T> {
-        final io.reactivex.c.a nwi;
+        final io.reactivex.c.a nwK;
         final io.reactivex.c.a onComplete;
         final io.reactivex.c.g<? super Throwable> onError;
         final io.reactivex.c.g<? super T> onNext;
@@ -39,7 +39,7 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
             this.onNext = gVar;
             this.onError = gVar2;
             this.onComplete = aVar;
-            this.nwi = aVar2;
+            this.nwK = aVar2;
         }
 
         @Override // org.a.c
@@ -53,7 +53,7 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                     this.onNext.accept(t);
                     this.actual.onNext(t);
                 } catch (Throwable th) {
-                    J(th);
+                    I(th);
                 }
             }
         }
@@ -70,7 +70,7 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                 this.onError.accept(th);
                 z = true;
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.I(th2);
+                io.reactivex.exceptions.a.H(th2);
                 this.actual.onError(new CompositeException(th, th2));
                 z = false;
             }
@@ -78,9 +78,9 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                 this.actual.onError(th);
             }
             try {
-                this.nwi.run();
+                this.nwK.run();
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.I(th3);
+                io.reactivex.exceptions.a.H(th3);
                 io.reactivex.e.a.onError(th3);
             }
         }
@@ -93,20 +93,20 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                     this.done = true;
                     this.actual.onComplete();
                     try {
-                        this.nwi.run();
+                        this.nwK.run();
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.I(th);
+                        io.reactivex.exceptions.a.H(th);
                         io.reactivex.e.a.onError(th);
                     }
                 } catch (Throwable th2) {
-                    J(th2);
+                    I(th2);
                 }
             }
         }
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Ns(i);
+            return Nv(i);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -119,11 +119,11 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                         this.onNext.accept(poll);
                     } catch (Throwable th) {
                         try {
-                            io.reactivex.exceptions.a.I(th);
+                            io.reactivex.exceptions.a.H(th);
                             this.onError.accept(th);
-                            throw ExceptionHelper.L(th);
+                            throw ExceptionHelper.K(th);
                         } finally {
-                            this.nwi.run();
+                            this.nwK.run();
                         }
                     }
                 } else if (this.sourceMode == 1) {
@@ -131,10 +131,10 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                 }
                 return poll;
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.I(th2);
+                io.reactivex.exceptions.a.H(th2);
                 try {
                     this.onError.accept(th2);
-                    throw ExceptionHelper.L(th2);
+                    throw ExceptionHelper.K(th2);
                 } catch (Throwable th3) {
                     throw new CompositeException(th2, th3);
                 }
@@ -142,9 +142,9 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class a<T> extends io.reactivex.internal.subscribers.a<T, T> {
-        final io.reactivex.c.a nwi;
+        final io.reactivex.c.a nwK;
         final io.reactivex.c.a onComplete;
         final io.reactivex.c.g<? super Throwable> onError;
         final io.reactivex.c.g<? super T> onNext;
@@ -154,7 +154,7 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
             this.onNext = gVar;
             this.onError = gVar2;
             this.onComplete = aVar2;
-            this.nwi = aVar3;
+            this.nwK = aVar3;
         }
 
         @Override // org.a.c
@@ -168,7 +168,7 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                     this.onNext.accept(t);
                     this.actual.onNext(t);
                 } catch (Throwable th) {
-                    J(th);
+                    I(th);
                 }
             }
         }
@@ -182,7 +182,7 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                 this.onNext.accept(t);
                 return this.actual.tryOnNext(t);
             } catch (Throwable th) {
-                J(th);
+                I(th);
                 return false;
             }
         }
@@ -199,7 +199,7 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                 this.onError.accept(th);
                 z = true;
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.I(th2);
+                io.reactivex.exceptions.a.H(th2);
                 this.actual.onError(new CompositeException(th, th2));
                 z = false;
             }
@@ -207,9 +207,9 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                 this.actual.onError(th);
             }
             try {
-                this.nwi.run();
+                this.nwK.run();
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.I(th3);
+                io.reactivex.exceptions.a.H(th3);
                 io.reactivex.e.a.onError(th3);
             }
         }
@@ -222,20 +222,20 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                     this.done = true;
                     this.actual.onComplete();
                     try {
-                        this.nwi.run();
+                        this.nwK.run();
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.I(th);
+                        io.reactivex.exceptions.a.H(th);
                         io.reactivex.e.a.onError(th);
                     }
                 } catch (Throwable th2) {
-                    J(th2);
+                    I(th2);
                 }
             }
         }
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Ns(i);
+            return Nv(i);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -248,11 +248,11 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                         this.onNext.accept(poll);
                     } catch (Throwable th) {
                         try {
-                            io.reactivex.exceptions.a.I(th);
+                            io.reactivex.exceptions.a.H(th);
                             this.onError.accept(th);
-                            throw ExceptionHelper.L(th);
+                            throw ExceptionHelper.K(th);
                         } finally {
-                            this.nwi.run();
+                            this.nwK.run();
                         }
                     }
                 } else if (this.sourceMode == 1) {
@@ -260,10 +260,10 @@ public final class c<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                 }
                 return poll;
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.I(th2);
+                io.reactivex.exceptions.a.H(th2);
                 try {
                     this.onError.accept(th2);
-                    throw ExceptionHelper.L(th2);
+                    throw ExceptionHelper.K(th2);
                 } catch (Throwable th3) {
                     throw new CompositeException(th2, th3);
                 }

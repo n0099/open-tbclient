@@ -1,5 +1,5 @@
 package com.baidu.pano.platform.comapi.map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface b {
     void a();
 

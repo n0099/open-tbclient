@@ -3,7 +3,7 @@ package com.baidu.ubc;
 import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class Slot implements Parcelable {
     public static final String CATEGORY = "id";
     public static final Parcelable.Creator<Slot> CREATOR = new Parcelable.Creator<Slot>() { // from class: com.baidu.ubc.Slot.1
@@ -16,7 +16,7 @@ public class Slot implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Eu */
+        /* renamed from: Ez */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }

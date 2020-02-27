@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CompletableAndThenPublisher<R> extends g<R> {
     final b<? extends R> other;
     final e source;
@@ -20,7 +20,7 @@ public final class CompletableAndThenPublisher<R> extends g<R> {
         this.source.a(new AndThenPublisherSubscriber(cVar, this.other));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class AndThenPublisherSubscriber<R> extends AtomicReference<d> implements io.reactivex.c, j<R>, d {
         private static final long serialVersionUID = -8948264376121066672L;
         final c<? super R> downstream;

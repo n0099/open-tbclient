@@ -13,7 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.support.design.R;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.drawable.DrawableWrapper;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class ShadowDrawableWrapper extends DrawableWrapper {
     static final double COS_45 = Math.cos(Math.toRadians(45.0d));
     static final float SHADOW_BOTTOM_SCALE = 1.0f;

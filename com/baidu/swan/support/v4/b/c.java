@@ -1,5 +1,5 @@
 package com.baidu.swan.support.v4.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     public static void buildShortClassTag(Object obj, StringBuilder sb) {
         int lastIndexOf;

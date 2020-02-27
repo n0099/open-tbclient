@@ -11,19 +11,19 @@ import com.google.android.exoplayer2.upstream.e;
 import com.google.android.exoplayer2.upstream.p;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j implements HlsPlaylistTracker.c, com.google.android.exoplayer2.source.l {
-    private final int mqJ;
-    private l.a mqw;
-    private final b.a msS;
-    private final Uri mtE;
-    private final f muU;
-    private HlsPlaylistTracker muZ;
-    private final e mvD;
-    private final p.a<com.google.android.exoplayer2.source.hls.playlist.c> mvI;
+    private l.a mrc;
+    private final int mrp;
+    private final b.a mtz;
+    private final Uri muk;
+    private final f mvA;
+    private HlsPlaylistTracker mvF;
+    private final e mwj;
+    private final p.a<com.google.android.exoplayer2.source.hls.playlist.c> mwo;
 
     static {
-        com.google.android.exoplayer2.l.OY("goog.exo.hls");
+        com.google.android.exoplayer2.l.Pl("goog.exo.hls");
     }
 
     public j(Uri uri, e.a aVar, Handler handler, com.google.android.exoplayer2.source.b bVar) {
@@ -31,35 +31,35 @@ public final class j implements HlsPlaylistTracker.c, com.google.android.exoplay
     }
 
     public j(Uri uri, e.a aVar, int i, Handler handler, com.google.android.exoplayer2.source.b bVar) {
-        this(uri, new b(aVar), f.mvl, i, handler, bVar, new com.google.android.exoplayer2.source.hls.playlist.d());
+        this(uri, new b(aVar), f.mvR, i, handler, bVar, new com.google.android.exoplayer2.source.hls.playlist.d());
     }
 
     public j(Uri uri, e eVar, f fVar, int i, Handler handler, com.google.android.exoplayer2.source.b bVar, p.a<com.google.android.exoplayer2.source.hls.playlist.c> aVar) {
-        this.mtE = uri;
-        this.mvD = eVar;
-        this.muU = fVar;
-        this.mqJ = i;
-        this.mvI = aVar;
-        this.msS = new b.a(handler, bVar);
+        this.muk = uri;
+        this.mwj = eVar;
+        this.mvA = fVar;
+        this.mrp = i;
+        this.mwo = aVar;
+        this.mtz = new b.a(handler, bVar);
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void a(com.google.android.exoplayer2.g gVar, boolean z, l.a aVar) {
-        com.google.android.exoplayer2.util.a.checkState(this.muZ == null);
-        this.muZ = new HlsPlaylistTracker(this.mtE, this.mvD, this.msS, this.mqJ, this, this.mvI);
-        this.mqw = aVar;
-        this.muZ.start();
+        com.google.android.exoplayer2.util.a.checkState(this.mvF == null);
+        this.mvF = new HlsPlaylistTracker(this.muk, this.mwj, this.mtz, this.mrp, this, this.mwo);
+        this.mrc = aVar;
+        this.mvF.start();
     }
 
     @Override // com.google.android.exoplayer2.source.l
-    public void dva() throws IOException {
-        this.muZ.dwl();
+    public void dwk() throws IOException {
+        this.mvF.dxv();
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public com.google.android.exoplayer2.source.k a(l.b bVar, com.google.android.exoplayer2.upstream.b bVar2) {
         com.google.android.exoplayer2.util.a.checkArgument(bVar.periodIndex == 0);
-        return new i(this.muU, this.muZ, this.mvD, this.mqJ, this.msS, bVar2);
+        return new i(this.mvA, this.mvF, this.mwj, this.mrp, this.mtz, bVar2);
     }
 
     @Override // com.google.android.exoplayer2.source.l
@@ -69,32 +69,32 @@ public final class j implements HlsPlaylistTracker.c, com.google.android.exoplay
 
     @Override // com.google.android.exoplayer2.source.l
     public void releaseSource() {
-        if (this.muZ != null) {
-            this.muZ.release();
-            this.muZ = null;
+        if (this.mvF != null) {
+            this.mvF.release();
+            this.mvF = null;
         }
-        this.mqw = null;
+        this.mrc = null;
     }
 
     @Override // com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.c
     public void b(com.google.android.exoplayer2.source.hls.playlist.b bVar) {
         s sVar;
-        long j = bVar.mwj ? 0L : -9223372036854775807L;
-        long fp = bVar.mwj ? com.google.android.exoplayer2.b.fp(bVar.msC) : -9223372036854775807L;
-        long j2 = bVar.mwc;
-        if (this.muZ.dwm()) {
-            long j3 = bVar.mwi ? bVar.lYV + bVar.msC : -9223372036854775807L;
-            List<b.a> list = bVar.mwl;
+        long j = bVar.mwP ? 0L : -9223372036854775807L;
+        long fn = bVar.mwP ? com.google.android.exoplayer2.b.fn(bVar.mti) : -9223372036854775807L;
+        long j2 = bVar.mwI;
+        if (this.mvF.dxw()) {
+            long j3 = bVar.mwO ? bVar.lZB + bVar.mti : -9223372036854775807L;
+            List<b.a> list = bVar.mwR;
             if (j2 == -9223372036854775807L) {
-                j2 = list.isEmpty() ? 0L : list.get(Math.max(0, list.size() - 3)).mwn;
+                j2 = list.isEmpty() ? 0L : list.get(Math.max(0, list.size() - 3)).mwT;
             }
-            sVar = new s(j, fp, j3, bVar.lYV, bVar.msC, j2, true, !bVar.mwi);
+            sVar = new s(j, fn, j3, bVar.lZB, bVar.mti, j2, true, !bVar.mwO);
         } else {
             if (j2 == -9223372036854775807L) {
                 j2 = 0;
             }
-            sVar = new s(j, fp, bVar.msC + bVar.lYV, bVar.lYV, bVar.msC, j2, true, false);
+            sVar = new s(j, fn, bVar.mti + bVar.lZB, bVar.lZB, bVar.mti, j2, true, false);
         }
-        this.mqw.a(this, sVar, new g(this.muZ.dwk(), bVar));
+        this.mrc.a(this, sVar, new g(this.mvF.dxu(), bVar));
     }
 }

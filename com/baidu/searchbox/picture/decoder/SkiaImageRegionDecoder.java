@@ -13,7 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     private static final String ASSET_PREFIX = "file:///android_asset/";
     private static final String FILE_PREFIX = "file://";

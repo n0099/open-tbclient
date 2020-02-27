@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PaoPaoView extends FrameLayout implements b {
     final Queue<WeakReference<ImageView>> a;
     private final Object c;
@@ -39,9 +39,9 @@ public class PaoPaoView extends FrameLayout implements b {
     private List<CustomCircle> k;
     private List<CustomCircle> l;
     private int m;
-    final Queue<WeakReference<ImageView>> mYX;
-    private Random mYY;
-    private i<PaoPaoView> mYZ;
+    final Queue<WeakReference<ImageView>> mZA;
+    private Random mZB;
+    private i<PaoPaoView> mZC;
     private int n;
     private final int o;
     private final int p;
@@ -57,13 +57,13 @@ public class PaoPaoView extends FrameLayout implements b {
     public PaoPaoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.a = new ArrayDeque();
-        this.mYX = new ArrayDeque();
+        this.mZA = new ArrayDeque();
         this.c = new Object();
         this.d = false;
         this.g = tv.chushou.zues.utils.a.dip2px(getContext(), 188.0f);
         this.h = tv.chushou.zues.utils.a.dip2px(getContext(), 220.0f);
-        this.mYY = new Random();
-        this.mYZ = new i<>(this);
+        this.mZB = new Random();
+        this.mZC = new i<>(this);
         this.k = new ArrayList();
         this.l = new ArrayList();
         this.o = 0;
@@ -86,16 +86,16 @@ public class PaoPaoView extends FrameLayout implements b {
         if (this.l != null && this.l.size() > 0) {
             for (int i = 0; i < this.l.size(); i++) {
                 int randDelayTime = getRandDelayTime();
-                if (this.mYZ != null) {
+                if (this.mZC != null) {
                     Message obtain = Message.obtain();
                     obtain.obj = Integer.valueOf(i);
                     obtain.what = 1;
-                    this.mYZ.sendMessageDelayed(obtain, randDelayTime);
+                    this.mZC.sendMessageDelayed(obtain, randDelayTime);
                 }
             }
         }
-        if (this.mYZ != null) {
-            this.mYZ.sendEmptyMessageDelayed(0, 10000L);
+        if (this.mZC != null) {
+            this.mZC.sendEmptyMessageDelayed(0, 10000L);
         }
     }
 
@@ -309,11 +309,11 @@ public class PaoPaoView extends FrameLayout implements b {
         if (customCircle != null && customCircle2 != null && customCircle3 != null) {
             setVisibility(0);
             while (true) {
-                if (this.mYX.isEmpty()) {
+                if (this.mZA.isEmpty()) {
                     imageView = null;
                     break;
                 }
-                WeakReference<ImageView> poll = this.mYX.poll();
+                WeakReference<ImageView> poll = this.mZA.poll();
                 if (poll != null && poll.get() != null) {
                     imageView = poll.get();
                     if (imageView.getParent() != null) {
@@ -353,7 +353,7 @@ public class PaoPaoView extends FrameLayout implements b {
                     if (this.e != null && PaoPaoView.this.getContext() != null) {
                         ImageView imageView2 = (ImageView) this.e;
                         PaoPaoView.this.removeView(imageView2);
-                        PaoPaoView.this.mYX.offer(new WeakReference<>(imageView2));
+                        PaoPaoView.this.mZA.offer(new WeakReference<>(imageView2));
                         if (PaoPaoView.this.f == imageView2) {
                             PaoPaoView.this.f = null;
                         }
@@ -387,9 +387,9 @@ public class PaoPaoView extends FrameLayout implements b {
     }
 
     public void b() {
-        if (this.mYZ != null) {
-            this.mYZ.removeMessages(1);
-            this.mYZ.removeMessages(0);
+        if (this.mZC != null) {
+            this.mZC.removeMessages(1);
+            this.mZC.removeMessages(0);
         }
         synchronized (this.c) {
             if (this.d) {
@@ -402,8 +402,8 @@ public class PaoPaoView extends FrameLayout implements b {
         if (this.a != null) {
             this.a.clear();
         }
-        if (this.mYX != null) {
-            this.mYX.clear();
+        if (this.mZA != null) {
+            this.mZA.clear();
         }
         if (this.k != null) {
             this.k.clear();
@@ -427,19 +427,19 @@ public class PaoPaoView extends FrameLayout implements b {
     }
 
     public int getRandBubbleTotal() {
-        return this.mYY.nextInt(3) + 6;
+        return this.mZB.nextInt(3) + 6;
     }
 
     public int getRandOffsetAngle() {
-        return this.mYY.nextInt(20) - 10;
+        return this.mZB.nextInt(20) - 10;
     }
 
     public int getRandDelayTime() {
-        return this.mYY.nextInt(2000);
+        return this.mZB.nextInt(2000);
     }
 
     public float getRandScale() {
-        return (this.mYY.nextFloat() / 2.0f) + 0.5f;
+        return (this.mZB.nextFloat() / 2.0f) + 0.5f;
     }
 
     public float a(float f, float f2, float f3) {
@@ -476,7 +476,7 @@ public class PaoPaoView extends FrameLayout implements b {
 
     public float getEndRadius() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) tv.chushou.basis.d.b.dOE().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) tv.chushou.basis.d.b.dPR().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics.widthPixels / 2.0f;
     }
 

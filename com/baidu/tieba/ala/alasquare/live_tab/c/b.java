@@ -1,73 +1,73 @@
 package com.baidu.tieba.ala.alasquare.live_tab.c;
 
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.ala.alasquare.live_tab.b.d;
+import com.baidu.tieba.ala.alasquare.live_tab.b.e;
 import com.baidu.tieba.ala.alasquare.live_tab.b.f;
 import com.baidu.tieba.ala.alasquare.live_tab.b.g;
 import com.baidu.tieba.ala.alasquare.live_tab.b.j;
-import com.baidu.tieba.ala.alasquare.live_tab.b.k;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     private List<m> dataList;
-    private List<m> eko;
+    private List<m> eoz;
     private com.baidu.tieba.ala.alasquare.live_tab.b.a hotLiveInfo;
     private d officialRecommendLiveInfo;
     private g stageLiveInfo;
     private j tabAllLiveInfo;
     private boolean hasMore = false;
-    private List<String> ekl = new ArrayList();
-    private List<bj> ekm = new ArrayList();
-    private List<m> ekn = new ArrayList();
+    private List<String> eow = new ArrayList();
+    private List<SdkLiveInfoData> eox = new ArrayList();
+    private List<m> eoy = new ArrayList();
 
     public b(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         this.stageLiveInfo = alaTabLiveResponsedMessage.stageLiveInfo;
         this.hotLiveInfo = alaTabLiveResponsedMessage.hotLiveInfo;
         this.officialRecommendLiveInfo = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
         this.tabAllLiveInfo = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        bay();
+        bcN();
     }
 
-    private void bay() {
-        this.eko = new ArrayList();
-        if (this.stageLiveInfo != null && this.stageLiveInfo.baj() && this.stageLiveInfo.isValid()) {
+    private void bcN() {
+        this.eoz = new ArrayList();
+        if (this.stageLiveInfo != null && this.stageLiveInfo.isValid()) {
             f fVar = new f();
-            fVar.ehG = this.stageLiveInfo;
-            this.eko.add(fVar);
-            this.ekl.add(this.stageLiveInfo.ehH.getTid());
+            fVar.elL = this.stageLiveInfo;
+            this.eoz.add(fVar);
+            this.eow.add(this.stageLiveInfo.elM.tid);
         }
         if (this.hotLiveInfo != null) {
-            ArrayList<m> baz = baz();
-            if (!v.isEmpty(baz)) {
-                this.eko.addAll(baz);
+            ArrayList<m> bcO = bcO();
+            if (!v.isEmpty(bcO)) {
+                this.eoz.addAll(bcO);
             }
         }
-        if (this.officialRecommendLiveInfo != null && this.officialRecommendLiveInfo.ehB && !v.isEmpty(this.officialRecommendLiveInfo.ehy)) {
+        if (this.officialRecommendLiveInfo != null && !v.isEmpty(this.officialRecommendLiveInfo.elE)) {
             com.baidu.tieba.ala.alasquare.live_tab.b.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.b.c();
-            cVar.ehA = this.officialRecommendLiveInfo;
-            this.eko.add(cVar);
+            cVar.elG = this.officialRecommendLiveInfo;
+            this.eoz.add(cVar);
         }
-        this.dataList = new ArrayList(this.eko);
+        this.dataList = new ArrayList(this.eoz);
         a(this.tabAllLiveInfo);
     }
 
-    private ArrayList<m> baz() {
-        ArrayList<bj> arrayList = this.hotLiveInfo.ehy;
+    private ArrayList<m> bcO() {
+        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.elE;
         if (arrayList == null || arrayList.size() < 2) {
             return null;
         }
         ArrayList arrayList2 = new ArrayList();
-        for (bj bjVar : arrayList) {
-            if (bjVar != null) {
-                String tid = bjVar.getTid();
-                if (!this.ekl.contains(tid)) {
-                    arrayList2.add(bjVar);
-                    this.ekl.add(tid);
+        for (SdkLiveInfoData sdkLiveInfoData : arrayList) {
+            if (sdkLiveInfoData != null) {
+                String str = sdkLiveInfoData.tid;
+                if (!this.eow.contains(str)) {
+                    arrayList2.add(sdkLiveInfoData);
+                    this.eow.add(str);
                 }
             }
         }
@@ -90,49 +90,49 @@ public class b {
         if (jVar == null) {
             return false;
         }
-        ArrayList<bj> arrayList = jVar.ehy;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.elE;
         if (v.isEmpty(arrayList)) {
             return false;
         }
         ArrayList arrayList2 = new ArrayList();
-        Iterator<bj> it = arrayList.iterator();
+        Iterator<SdkLiveInfoData> it = arrayList.iterator();
         while (it.hasNext()) {
-            bj next = it.next();
+            SdkLiveInfoData next = it.next();
             if (next != null) {
-                String tid = next.getTid();
-                if (!this.ekl.contains(tid)) {
+                String str = next.tid;
+                if (!this.eow.contains(str)) {
                     arrayList2.add(next);
-                    this.ekl.add(tid);
+                    this.eow.add(str);
                 }
             }
         }
         if (v.isEmpty(arrayList2)) {
             return false;
         }
-        this.ekm.addAll(arrayList2);
-        this.ekn = bj(this.ekm);
-        return !v.isEmpty(this.ekn);
+        this.eox.addAll(arrayList2);
+        this.eoy = bj(this.eox);
+        return !v.isEmpty(this.eoy);
     }
 
-    private ArrayList<m> bj(List<bj> list) {
+    private ArrayList<m> bj(List<SdkLiveInfoData> list) {
         ArrayList<m> arrayList = new ArrayList<>();
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
-            k kVar = new k();
-            com.baidu.tieba.ala.alasquare.a.c cVar = new com.baidu.tieba.ala.alasquare.a.c();
-            cVar.efE = list.get(i);
-            cVar.isLeft = true;
-            kVar.ehP = cVar;
+            e eVar = new e();
+            com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
+            aVar.ejF = list.get(i);
+            aVar.isLeft = true;
+            eVar.elI = aVar;
             if (i + 1 < size) {
-                com.baidu.tieba.ala.alasquare.a.c cVar2 = new com.baidu.tieba.ala.alasquare.a.c();
-                cVar2.efE = list.get(i + 1);
-                kVar.ehQ = cVar2;
-                cVar2.isRight = true;
+                com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
+                aVar2.ejF = list.get(i + 1);
+                eVar.elJ = aVar2;
+                aVar2.isRight = true;
             } else {
-                cVar.isLeft = false;
-                cVar.efC = true;
+                aVar.isLeft = false;
+                aVar.ejG = true;
             }
-            arrayList.add(kVar);
+            arrayList.add(eVar);
         }
         return arrayList;
     }
@@ -146,8 +146,8 @@ public class b {
         if (!v.isEmpty(this.dataList)) {
             arrayList.addAll(this.dataList);
         }
-        if (!v.isEmpty(this.ekn)) {
-            arrayList.addAll(this.ekn);
+        if (!v.isEmpty(this.eoy)) {
+            arrayList.addAll(this.eoy);
         }
         return arrayList;
     }
@@ -157,20 +157,20 @@ public class b {
         this.hotLiveInfo = null;
         this.officialRecommendLiveInfo = null;
         this.hasMore = false;
-        if (this.eko != null) {
-            this.eko.clear();
+        if (this.eoz != null) {
+            this.eoz.clear();
         }
         if (this.dataList != null) {
             this.dataList.clear();
         }
-        if (this.ekl != null) {
-            this.ekl.clear();
+        if (this.eow != null) {
+            this.eow.clear();
         }
-        if (this.ekm != null) {
-            this.ekm.clear();
+        if (this.eox != null) {
+            this.eox.clear();
         }
-        if (this.ekn != null) {
-            this.ekn.clear();
+        if (this.eoy != null) {
+            this.eoy.clear();
         }
     }
 }

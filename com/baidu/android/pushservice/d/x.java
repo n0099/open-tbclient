@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.baidu.android.pushservice.PushConstants;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class x extends c {
     protected String d;
 

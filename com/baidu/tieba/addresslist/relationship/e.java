@@ -5,9 +5,9 @@ import java.util.List;
 import tbclient.GetAddressList.friendList;
 import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> dWE;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> eaI;
     private String mKey;
 
     public String getKey() {
@@ -15,22 +15,22 @@ public class e {
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> getContacts() {
-        if (this.dWE == null) {
-            this.dWE = new ArrayList();
+        if (this.eaI == null) {
+            this.eaI = new ArrayList();
         }
-        return this.dWE;
+        return this.eaI;
     }
 
     public void a(listData listdata) {
         if (listdata != null) {
             this.mKey = listdata.key;
             if (listdata.friend_list != null) {
-                this.dWE = new ArrayList();
+                this.eaI = new ArrayList();
                 for (friendList friendlist : listdata.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.ue(this.mKey);
-                    this.dWE.add(aVar);
+                    aVar.uv(this.mKey);
+                    this.eaI.add(aVar);
                 }
             }
         }
@@ -40,12 +40,12 @@ public class e {
         if (robotslist != null) {
             this.mKey = robotslist.key;
             if (robotslist.friend_list != null) {
-                this.dWE = new ArrayList();
+                this.eaI = new ArrayList();
                 for (friendList friendlist : robotslist.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.ue(this.mKey);
-                    this.dWE.add(aVar);
+                    aVar.uv(this.mKey);
+                    this.eaI.add(aVar);
                 }
             }
         }

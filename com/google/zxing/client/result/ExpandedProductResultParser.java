@@ -1,10 +1,11 @@
 package com.google.zxing.client.result;
 
+import com.alibaba.fastjson.parser.JSONLexer;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
@@ -196,7 +197,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                     break;
                 case 1568936:
                     if (findAIvalue.equals("3209")) {
-                        c = 26;
+                        c = JSONLexer.EOI;
                         break;
                     }
                     break;

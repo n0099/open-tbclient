@@ -16,7 +16,7 @@ import com.baidu.searchbox.picture.utils.Utils;
 import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EnterAndExitAnimationHelper {
     private static final boolean DEBUG = true;
     private static final AccelerateDecelerateInterpolator DEFAULT_INTERPOLATOR = new AccelerateDecelerateInterpolator();
@@ -43,7 +43,7 @@ public class EnterAndExitAnimationHelper {
     private float[] mScale = new float[2];
     private float[] mTransition = new float[2];
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface ExitAnimationListener {
         void endExitAnimation();
 

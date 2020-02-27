@@ -9,7 +9,7 @@ import android.graphics.PorterDuffXfermode;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TrapezoidButton extends LinearLayout {
     private Paint mPaint;
     private Path mPath;

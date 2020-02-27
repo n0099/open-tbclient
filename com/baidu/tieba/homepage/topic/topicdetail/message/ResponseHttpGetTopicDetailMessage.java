@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.b.a;
 import com.squareup.wire.Wire;
 import tbclient.NewHottopic.NewHottopicResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
     private a mTopicDetailData;
 

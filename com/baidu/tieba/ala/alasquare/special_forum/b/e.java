@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.alasquare.special_forum.b;
 
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
-    public a eoU;
-    private int eoV = -1;
+    public a etf;
+    private int etg = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.eoV = -1;
-            this.eoU = new b(this.mTbPageContext);
+            this.etg = -1;
+            this.etf = new b(this.mTbPageContext);
         } else if (z) {
-            this.eoV = aVar.emZ;
-            switch (aVar.emZ) {
+            this.etg = aVar.erm;
+            switch (aVar.erm) {
                 case 1:
-                    this.eoU = new d(this.mTbPageContext);
+                    this.etf = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.eoU = new f(this.mTbPageContext);
+                    this.etf = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.eoU = new c(this.mTbPageContext);
+                    this.etf = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.eoU = new b(this.mTbPageContext);
+                    this.etf = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.eoU.b(aVar)) {
+        if (this.etf.b(aVar)) {
             if (z) {
-                this.eoU.init();
+                this.etf.init();
             }
-            this.eoU.a(aVar);
+            this.etf.a(aVar);
             return;
         }
-        this.eoV = -1;
-        this.eoU = new b(this.mTbPageContext);
+        this.etg = -1;
+        this.etf = new b(this.mTbPageContext);
         if (z) {
-            this.eoU.init();
+            this.etf.init();
         }
-        this.eoU.a(aVar);
+        this.etf.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.eoV != aVar.emZ;
+        return aVar == null || this.etg != aVar.erm;
     }
 
     public void pause() {
-        if (this.eoU != null) {
-            this.eoU.pause();
+        if (this.etf != null) {
+            this.etf.pause();
         }
     }
 
     public void resume() {
-        if (this.eoU != null) {
-            this.eoU.resume();
+        if (this.etf != null) {
+            this.etf.resume();
         }
     }
 
-    public void hK(boolean z) {
-        if (this.eoU != null) {
-            this.eoU.hK(z);
+    public void hR(boolean z) {
+        if (this.etf != null) {
+            this.etf.hR(z);
         }
     }
 
-    public void M(ViewGroup viewGroup) {
-        if (this.eoU != null) {
-            this.eoU.M(viewGroup);
+    public void N(ViewGroup viewGroup) {
+        if (this.etf != null) {
+            this.etf.N(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eoU != null) {
-            this.eoU.onChangeSkinType(i);
+        if (this.etf != null) {
+            this.etf.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.eoU != null) {
-            this.eoU.startPlay();
+        if (this.etf != null) {
+            this.etf.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.eoU != null) {
-            this.eoU.stopPlay();
+        if (this.etf != null) {
+            this.etf.stopPlay();
         }
     }
 
-    public void bbe() {
-        if (this.eoU != null) {
-            this.eoU.bbe();
+    public void bdt() {
+        if (this.etf != null) {
+            this.etf.bdt();
         }
     }
 
     public void onDestroy() {
-        if (this.eoU != null) {
-            this.eoU.onDestroy();
+        if (this.etf != null) {
+            this.etf.onDestroy();
         }
     }
 }

@@ -6,9 +6,9 @@ import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.live.u.a;
 import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
 import com.baidu.tieba.live.tbean.data.IconInfoData;
@@ -20,7 +20,7 @@ import com.baidu.tieba.live.tbean.message.GetYinJiRequestMessage;
 import com.baidu.tieba.live.tbean.message.IYinJiResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuyTBeanModel extends BdBaseModel {
     public static final String GET_BIG_TBEAN_WALLET_H5 = "tbmall/getPayUrl";
     public static final String GET_ICON_URL = "tbmall/pay/geticonlist";
@@ -35,7 +35,7 @@ public class BuyTBeanModel extends BdBaseModel {
     private UserInfoData userInfo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CallBack {
         void onFailed(String str);
 

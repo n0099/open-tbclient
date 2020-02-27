@@ -10,7 +10,7 @@ import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.h;
 import com.baidu.sofire.i.u;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MyReceiver extends BroadcastReceiver {
     Callback a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
         @Override // com.baidu.sofire.ac.Callback

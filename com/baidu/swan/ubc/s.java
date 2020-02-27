@@ -9,72 +9,72 @@ import com.baidu.swan.ubc.IRemoteUBCService;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class s {
-    private static volatile IRemoteUBCService cBy;
+    private static volatile IRemoteUBCService cFw;
 
-    public static final k atD() {
-        return com.baidu.swan.apps.ad.b.Xd();
+    public static final k avR() {
+        return com.baidu.swan.apps.ad.b.Zr();
     }
 
     public static final void onEvent(String str) {
-        l(str, "", 0);
+        k(str, "", 0);
     }
 
     public static final void onEvent(String str, String str2) {
-        l(str, str2, 0);
+        k(str, str2, 0);
     }
 
     public static final void k(String str, JSONObject jSONObject) {
         b(str, jSONObject, 0);
     }
 
-    public static final void i(String str, Map<String, String> map) {
+    public static final void onEvent(String str, Map<String, String> map) {
         a(str, map, 0);
     }
 
     public static final void a(String str, Map<String, String> map, int i) {
-        k atD = atD();
-        if (com.baidu.swan.c.d.atP()) {
-            o.atr().a(str, map, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.Ct() && atD != null) {
-                atD.c(str, map, i);
+        k avR = avR();
+        if (com.baidu.swan.c.d.awd()) {
+            o.avF().a(str, map, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.EP() && avR != null) {
+                avR.c(str, map, i);
             }
-        } else if (atD != null) {
-            atD.c(str, map, i);
+        } else if (avR != null) {
+            avR.c(str, map, i);
         }
     }
 
-    public static void l(String str, String str2, int i) {
-        k atD = atD();
-        if (com.baidu.swan.c.d.atP()) {
-            o.atr().l(str, str2, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.Ct() && atD != null) {
-                atD.c(str, str2, i);
+    public static void k(String str, String str2, int i) {
+        k avR = avR();
+        if (com.baidu.swan.c.d.awd()) {
+            o.avF().k(str, str2, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.EP() && avR != null) {
+                avR.c(str, str2, i);
             }
-        } else if (atD != null) {
-            atD.c(str, str2, i);
+        } else if (avR != null) {
+            avR.c(str, str2, i);
         }
     }
 
     public static void b(String str, JSONObject jSONObject, int i) {
-        k atD = atD();
-        if (com.baidu.swan.c.d.atP()) {
-            o.atr().b(str, jSONObject, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.Ct() && atD != null) {
-                atD.c(str, jSONObject, i);
+        k avR = avR();
+        if (com.baidu.swan.c.d.awd()) {
+            o.avF().b(str, jSONObject, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.EP() && avR != null) {
+                avR.c(str, jSONObject, i);
             }
-        } else if (atD != null) {
-            atD.c(str, jSONObject, i);
+        } else if (avR != null) {
+            avR.c(str, jSONObject, i);
         }
     }
 
-    public static final Flow qM(String str) {
-        return k(str, "", 0);
+    public static final Flow rb(String str) {
+        return j(str, "", 0);
     }
 
-    public static Flow k(String str, String str2, int i) {
-        return o.atr().k(str, str2, i);
+    public static Flow j(String str, String str2, int i) {
+        return o.avF().j(str, str2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -83,20 +83,20 @@ public class s {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService att() throws RemoteException {
-        if (cBy == null) {
+    public static IRemoteUBCService avH() throws RemoteException {
+        if (cFw == null) {
             synchronized (s.class) {
-                if (cBy == null) {
+                if (cFw == null) {
                     IBinder o = IPCServiceManager.o("open_log", true);
                     if (o == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
                     if (o != null) {
-                        cBy = IRemoteUBCService.Stub.asInterface(o);
+                        cFw = IRemoteUBCService.Stub.asInterface(o);
                     }
                 }
             }
         }
-        return cBy;
+        return cFw;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.sapi2.shell.response.SocialResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class p extends HttpHandlerWrap {
     final /* synthetic */ IqiyiLoginCallback a;
     final /* synthetic */ IqiyiLoginResult b;

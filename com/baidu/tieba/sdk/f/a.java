@@ -5,54 +5,54 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.l;
 import com.baidu.live.data.m;
+import com.baidu.live.data.n;
 import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.live.tbadk.data.ShareEntityWrapperData;
 import com.baidu.tieba.sdk.a.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-        f cCO = com.baidu.tieba.sdk.c.a.cCJ().cCO();
-        if (cCO != null) {
-            if (customMessage.getData() instanceof m) {
-                m mVar = (m) customMessage.getData();
+        f cEp = com.baidu.tieba.sdk.c.a.cEk().cEp();
+        if (cEp != null) {
+            if (customMessage.getData() instanceof n) {
+                n nVar = (n) customMessage.getData();
                 ShareEntity shareEntity = new ShareEntity();
-                a(mVar.WE, shareEntity);
-                cCO.a(mVar.activity, shareEntity);
+                a(nVar.Yq, shareEntity);
+                cEp.a(nVar.activity, shareEntity);
             } else if (customMessage.getData() instanceof ShareEntityWrapperData) {
                 ShareEntityWrapperData shareEntityWrapperData = (ShareEntityWrapperData) customMessage.getData();
-                cCO.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                cEp.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
             }
         }
         return null;
     }
 
-    private void a(l lVar, ShareEntity shareEntity) {
-        if (lVar != null && shareEntity != null) {
-            shareEntity.userId = lVar.Wf.userId;
-            shareEntity.userName = lVar.Wf.userName;
-            if (lVar.Wu != null && !TextUtils.isEmpty(lVar.Wu.Ws)) {
-                shareEntity.title = lVar.Wu.Ws;
+    private void a(m mVar, ShareEntity shareEntity) {
+        if (mVar != null && shareEntity != null) {
+            shareEntity.userId = mVar.XQ.userId;
+            shareEntity.userName = mVar.XQ.userName;
+            if (mVar.Yf != null && !TextUtils.isEmpty(mVar.Yf.Yd)) {
+                shareEntity.title = mVar.Yf.Yd;
             } else {
                 shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
             }
-            if (lVar.Wu != null && !TextUtils.isEmpty(lVar.Wu.subTitle)) {
-                shareEntity.content = lVar.Wu.subTitle;
+            if (mVar.Yf != null && !TextUtils.isEmpty(mVar.Yf.subTitle)) {
+                shareEntity.content = mVar.Yf.subTitle;
             } else {
                 shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
             }
-            if (lVar.Wu != null && !TextUtils.isEmpty(lVar.Wu.imgUrl)) {
-                shareEntity.imageUrl = lVar.Wu.imgUrl;
+            if (mVar.Yf != null && !TextUtils.isEmpty(mVar.Yf.imgUrl)) {
+                shareEntity.imageUrl = mVar.Yf.imgUrl;
             } else {
-                String str = lVar.mLiveInfo.cover;
+                String str = mVar.mLiveInfo.cover;
                 if (str != null && !str.contains(".jpg")) {
                     str = str + ".jpg";
                 }
                 shareEntity.imageUrl = str;
             }
-            shareEntity.linkUrl = lVar.mLiveInfo.share_url;
+            shareEntity.linkUrl = mVar.mLiveInfo.share_url;
         }
     }
 }

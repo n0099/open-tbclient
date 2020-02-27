@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.liveroom.turntable.lucky;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TurnTableLuckyMomentsResponseMessage extends JsonHttpResponsedMessage {
-    public c fio;
+    public c flt;
 
     public TurnTableLuckyMomentsResponseMessage() {
         super(1021157);
@@ -15,7 +15,7 @@ public class TurnTableLuckyMomentsResponseMessage extends JsonHttpResponsedMessa
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1021157 && (optJSONObject = jSONObject.optJSONObject("result")) != null) {
-            this.fio = new c(optJSONObject);
+            this.flt = new c(optJSONObject);
         }
     }
 }

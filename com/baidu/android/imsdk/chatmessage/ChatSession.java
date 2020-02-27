@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.NoProGuard;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public static final Parcelable.Creator<ChatSession> CREATOR = new Parcelable.Creator<ChatSession>() { // from class: com.baidu.android.imsdk.chatmessage.ChatSession.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -27,6 +27,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     };
     private int mCategory;
+    private String mCertification;
     private int mChatType;
     private String mClassAvatar;
     private int mClassShow;
@@ -48,9 +49,14 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     private long mNewMsgSum;
     private String mNickName;
     private long mPaid;
+    private int mSessionFrom;
+    private int mShield;
+    private long mShieldTime;
     private int mShow;
     private int mState;
+    private String mVipId;
     private int mWeight;
+    private String vPortrait;
 
     public ChatSession(int i, long j, long j2, String str) {
         this.mCategory = -1;
@@ -77,10 +83,49 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mNickName = null;
         this.mGameHistory = "";
         this.mExt = "";
+        this.vPortrait = "";
+        this.mCertification = "";
+        this.mVipId = "";
+        this.mShield = 0;
+        this.mShieldTime = 0L;
+        this.mSessionFrom = 0;
         this.mContacter = j;
         this.mName = str;
         this.mCategory = i;
         this.mContacterId = j2;
+    }
+
+    public ChatSession() {
+        this.mCategory = -1;
+        this.mContacter = -1L;
+        this.mContacterId = -1L;
+        this.mName = null;
+        this.mLastMsg = null;
+        this.mLastMsgTime = -1L;
+        this.mLastOpenTime = -1L;
+        this.mNewMsgSum = 0L;
+        this.mWeight = 0;
+        this.mShow = 1;
+        this.mCollectionType = -1;
+        this.mChatType = -1;
+        this.mIconUrl = null;
+        this.mState = -1;
+        this.mPaid = -1L;
+        this.mClassType = -1;
+        this.mClassTitle = null;
+        this.mClassAvatar = null;
+        this.mClassShow = 1;
+        this.mMarkTop = 0;
+        this.mMarkTopTime = 0L;
+        this.mNickName = null;
+        this.mGameHistory = "";
+        this.mExt = "";
+        this.vPortrait = "";
+        this.mCertification = "";
+        this.mVipId = "";
+        this.mShield = 0;
+        this.mShieldTime = 0L;
+        this.mSessionFrom = 0;
     }
 
     ChatSession(Parcel parcel) {
@@ -108,6 +153,12 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mNickName = null;
         this.mGameHistory = "";
         this.mExt = "";
+        this.vPortrait = "";
+        this.mCertification = "";
+        this.mVipId = "";
+        this.mShield = 0;
+        this.mShieldTime = 0L;
+        this.mSessionFrom = 0;
         this.mCategory = parcel.readInt();
         this.mContacter = parcel.readLong();
         this.mContacterId = parcel.readLong();
@@ -133,6 +184,12 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mNickName = parcel.readString();
         this.mGameHistory = parcel.readString();
         this.mExt = parcel.readString();
+        this.vPortrait = parcel.readString();
+        this.mCertification = parcel.readString();
+        this.mVipId = parcel.readString();
+        this.mShield = parcel.readInt();
+        this.mShieldTime = parcel.readLong();
+        this.mSessionFrom = parcel.readInt();
     }
 
     public int getMarkTop() {
@@ -214,6 +271,46 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
+    public String getVPortrait() {
+        return this.vPortrait;
+    }
+
+    public String getCertification() {
+        return this.mCertification;
+    }
+
+    public String getVipId() {
+        return this.mVipId;
+    }
+
+    public void setVPortrait(String str) {
+        this.vPortrait = str;
+    }
+
+    public void setCertification(String str) {
+        this.mCertification = str;
+    }
+
+    public void setVipId(String str) {
+        this.mVipId = str;
+    }
+
+    public int getShield() {
+        return this.mShield;
+    }
+
+    public long getShieldTime() {
+        return this.mShieldTime;
+    }
+
+    public void setShield(int i) {
+        this.mShield = i;
+    }
+
+    public void setShieldTime(long j) {
+        this.mShieldTime = j;
+    }
+
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
@@ -246,6 +343,12 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         parcel.writeString(this.mNickName);
         parcel.writeString(this.mGameHistory);
         parcel.writeString(this.mExt);
+        parcel.writeString(this.vPortrait);
+        parcel.writeString(this.mCertification);
+        parcel.writeString(this.mVipId);
+        parcel.writeInt(this.mShield);
+        parcel.writeLong(this.mShieldTime);
+        parcel.writeInt(this.mSessionFrom);
     }
 
     public int getCategory() {
@@ -396,10 +499,18 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mGameHistory = str;
     }
 
+    public void setSessionFrom(int i) {
+        this.mSessionFrom = i;
+    }
+
+    public int getSessionFrom() {
+        return this.mSessionFrom;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
-    public ChatSession m14clone() throws CloneNotSupportedException {
+    public ChatSession m18clone() throws CloneNotSupportedException {
         return (ChatSession) super.clone();
     }
 
@@ -425,7 +536,13 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         sb.append(" mMarkTopTime=").append(this.mMarkTopTime).append(" ,");
         sb.append(" icon=").append(this.mIconUrl).append(" ,");
         sb.append(" mExt=").append(this.mExt).append(" ,");
-        sb.append(" mNickName=").append(this.mNickName).append("]");
+        sb.append(" mShield=").append(this.mShield).append(" ,");
+        sb.append(" mShieldTime=").append(this.mShieldTime).append(" ,");
+        sb.append(" vPortrait=").append(this.vPortrait).append(" ,");
+        sb.append(" mVipId=").append(this.mVipId).append(" ,");
+        sb.append(" mCertification=").append(this.mCertification).append(" ,");
+        sb.append(" mNickName=").append(this.mNickName).append(" ,");
+        sb.append(" mSessionFrom=").append(this.mSessionFrom).append("]");
         return sb.toString();
     }
 }

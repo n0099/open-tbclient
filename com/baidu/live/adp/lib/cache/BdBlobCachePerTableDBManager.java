@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.db.DatabaseManager;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdBlobCachePerTableDBManager extends BdCacheBaseDBManager<byte[]> {
     public BdBlobCachePerTableDBManager(DatabaseManager databaseManager) {
         super(databaseManager);
@@ -31,7 +31,7 @@ public class BdBlobCachePerTableDBManager extends BdCacheBaseDBManager<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v15, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r2v15, types: [T, byte[]] */
     @Override // com.baidu.live.adp.lib.cache.BdCacheBaseDBManager
     protected BdCacheItem<byte[]> getFromDB(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;

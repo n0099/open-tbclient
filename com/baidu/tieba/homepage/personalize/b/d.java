@@ -11,19 +11,19 @@ import com.baidu.tieba.homepage.personalize.data.g;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d {
-    public static long hdt;
-    private String hds;
+    public static long hft;
+    private String hfs;
 
-    public void cL(List<m> list) {
+    public void cH(List<m> list) {
         com.baidu.tieba.card.data.c cVar;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.hds == null) {
-                this.hds = com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.hfs == null) {
+                this.hfs = com.baidu.tbadk.core.sharedPref.b.aFB().getString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.hds)) {
-                String[] split = this.hds.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (!StringUtils.isNull(this.hfs)) {
+                String[] split = this.hfs.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length == 2) {
                     String str = split[0];
                     long j = com.baidu.adp.lib.f.b.toLong(split[1], 0L);
@@ -36,7 +36,7 @@ public class d {
                                 } else if (!StringUtils.isNull(cVar.tid) && !cVar.tid.equals(str) && z) {
                                     c cVar2 = new c();
                                     cVar2.mTimeStamp = j;
-                                    cVar2.hdr = false;
+                                    cVar2.hfr = false;
                                     list.add(i, cVar2);
                                     return;
                                 }
@@ -52,23 +52,23 @@ public class d {
         ThreadInfo threadInfo;
         if (TbadkCoreApplication.isLogin() && !v.isEmpty(list) && i == v.getCount(list2) - 1 && z && (threadInfo = (ThreadInfo) v.getItem(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
             System.currentTimeMillis();
-            this.hds = null;
-            hdt = threadInfo.tid.longValue();
-            com.baidu.tbadk.core.sharedPref.b.aDr().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
+            this.hfs = null;
+            hft = threadInfo.tid.longValue();
+            com.baidu.tbadk.core.sharedPref.b.aFB().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public void ac(List<ThreadInfo> list) {
         ThreadInfo threadInfo;
-        if (g.hcV && !v.isEmpty(list) && (threadInfo = (ThreadInfo) v.getItem(list, list.size() - 1)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
-            this.hds = null;
-            hdt = threadInfo.tid.longValue();
-            com.baidu.tbadk.core.sharedPref.b.aDr().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
+        if (g.heV && !v.isEmpty(list) && (threadInfo = (ThreadInfo) v.getItem(list, list.size() - 1)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
+            this.hfs = null;
+            hft = threadInfo.tid.longValue();
+            com.baidu.tbadk.core.sharedPref.b.aFB().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public static void a(long j, int i, List<ThreadInfo> list, List<m> list2) {
-        if (j == hdt && !v.isEmpty(list) && !v.isEmpty(list2)) {
+        if (j == hft && !v.isEmpty(list) && !v.isEmpty(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -87,16 +87,16 @@ public class d {
             } else {
                 final ThreadInfo threadInfo = list.get(i - 1);
                 if (threadInfo != null && threadInfo.tid.longValue() != 0) {
-                    hdt = threadInfo.tid.longValue();
+                    hft = threadInfo.tid.longValue();
                     ac.a(new ab<Object>() { // from class: com.baidu.tieba.homepage.personalize.b.d.1
                         @Override // com.baidu.tbadk.util.ab
                         public Object doInBackground() {
-                            String[] split = com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                            String[] split = com.baidu.tbadk.core.sharedPref.b.aFB().getString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                             if (split.length == 2) {
                                 String str = split[0];
                                 long j2 = com.baidu.adp.lib.f.b.toLong(split[1], 0L);
                                 if (j2 != 0 && !StringUtils.isNull(str)) {
-                                    com.baidu.tbadk.core.sharedPref.b.aDr().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), ThreadInfo.this.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + j2);
+                                    com.baidu.tbadk.core.sharedPref.b.aFB().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), ThreadInfo.this.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + j2);
                                 }
                             }
                             return null;

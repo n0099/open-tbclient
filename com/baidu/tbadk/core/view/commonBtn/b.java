@@ -8,23 +8,23 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends a {
     public b() {
-        this.dft = R.color.cp_cont_a;
-        this.dfv = R.color.cp_link_tip_a;
+        this.djz = R.color.cp_cont_a;
+        this.djB = R.color.cp_link_tip_a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable al(float f) {
-        return am(f);
+    public Drawable ak(float f) {
+        return al(f);
     }
 
-    private Drawable am(float f) {
+    private Drawable al(float f) {
         GradientDrawable gradientDrawable;
-        if (!this.dfE) {
-            this.dft = am.getColor(R.color.cp_cont_a);
+        if (!this.djK) {
+            this.djz = am.getColor(R.color.cp_cont_a);
         }
-        int color = this.dfE ? am.getColor(this.dfv) : this.dfv;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.Cf(color), color};
+        int color = this.djK ? am.getColor(this.djB) : this.djB;
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.Cm(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);

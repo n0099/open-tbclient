@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a {
     @Nullable
-    private static Pattern lQK;
+    private static Pattern lRr;
     public final int from;
     public final int to;
 
@@ -18,8 +18,8 @@ public class a {
         this.to = i2;
     }
 
-    public String dmW() {
-        return String.format(null, "bytes=%s-%s", HZ(this.from), HZ(this.to));
+    public String doj() {
+        return String.format(null, "bytes=%s-%s", Ie(this.from), Ie(this.to));
     }
 
     public boolean a(@Nullable a aVar) {
@@ -27,10 +27,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", HZ(this.from), HZ(this.to));
+        return String.format(null, "%s-%s", Ie(this.from), Ie(this.to));
     }
 
-    private static String HZ(int i) {
+    private static String Ie(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -49,25 +49,25 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a Ia(int i) {
+    public static a If(int i) {
         g.checkArgument(i >= 0);
         return new a(i, Integer.MAX_VALUE);
     }
 
-    public static a Ib(int i) {
+    public static a Ig(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }
 
     @Nullable
-    public static a OP(@Nullable String str) throws IllegalArgumentException {
+    public static a Pc(@Nullable String str) throws IllegalArgumentException {
         a aVar = null;
         if (str != null) {
-            if (lQK == null) {
-                lQK = Pattern.compile("[-/ ]");
+            if (lRr == null) {
+                lRr = Pattern.compile("[-/ ]");
             }
             try {
-                String[] split = lQK.split(str);
+                String[] split = lRr.split(str);
                 g.checkArgument(split.length == 4);
                 g.checkArgument(split[0].equals("bytes"));
                 int parseInt = Integer.parseInt(split[1]);

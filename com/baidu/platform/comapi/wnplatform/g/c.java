@@ -15,7 +15,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c extends ItemizedOverlay {
     private View b;
     private TextView c;
@@ -23,7 +23,7 @@ public class c extends ItemizedOverlay {
     private Context e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         static final c a = new c();
     }
@@ -67,8 +67,8 @@ public class c extends ItemizedOverlay {
     private BitmapDescriptor a(Context context, int i) {
         try {
             this.b = ((Activity) context).getLayoutInflater().inflate(R.layout.abc_alert_dialog_title_material, (ViewGroup) null);
-            this.c = (TextView) this.b.findViewById(R.raw.sapi_camera_put_face_round);
-            this.d = (ImageView) this.b.findViewById(R.raw.sapi_camera_photo_done);
+            this.c = (TextView) this.b.findViewById(R.raw.shake_tone);
+            this.d = (ImageView) this.b.findViewById(R.raw.scan_refresh);
             if (com.baidu.platform.comapi.wnplatform.a.a().h() == 2) {
                 this.c.setText(i + "");
             } else {

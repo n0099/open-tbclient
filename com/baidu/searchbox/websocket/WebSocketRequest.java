@@ -4,16 +4,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import kotlin.b.d;
+import kotlin.h;
 import kotlin.jvm.a.b;
 import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
-import kotlin.k;
+import kotlin.l;
 import kotlin.sequences.e;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+@h
+/* loaded from: classes11.dex */
 public final class WebSocketRequest {
     public static final Companion Companion = new Companion(null);
     public static final String PARAM_KEY_HEADER = "header";
@@ -81,7 +82,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            q.dJm();
+            q.dKt();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -89,7 +90,8 @@ public final class WebSocketRequest {
         this.connectionLostTimeout = builder.getConnectionLostTimeout();
     }
 
-    /* loaded from: classes10.dex */
+    @h
+    /* loaded from: classes11.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -98,7 +100,7 @@ public final class WebSocketRequest {
             this();
         }
 
-        public final WebSocketRequest build(b<? super Builder, k> bVar) {
+        public final WebSocketRequest build(b<? super Builder, l> bVar) {
             q.j(bVar, "block");
             Builder builder = new Builder();
             bVar.invoke(builder);
@@ -136,13 +138,14 @@ public final class WebSocketRequest {
                     objectRef.element = new JSONArray();
                     ((JSONArray) objectRef.element).put("");
                 }
-                builder.setProtocols(e.b(e.c(kotlin.collections.o.h(d.eu(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                builder.setProtocols(e.b(e.c(kotlin.collections.o.h(kotlin.b.l.ex(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
             }
             return builder.build();
         }
     }
 
-    /* loaded from: classes10.dex */
+    @h
+    /* loaded from: classes11.dex */
     public static final class Builder {
         private Integer connectionLostTimeout;
         private Map<String, String> headers;

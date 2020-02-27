@@ -3,7 +3,7 @@ package com.baidu.ala.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaUserInfoData extends OrmObject {
     public static final int IS_LIVING = 1;
     public long ala_id;

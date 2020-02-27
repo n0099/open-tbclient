@@ -5,31 +5,31 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class p implements l, a.InterfaceC0730a {
-    private boolean fV;
+/* loaded from: classes6.dex */
+public class p implements l, a.InterfaceC0738a {
+    private boolean fZ;
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
-    private final com.tb.airbnb.lottie.a.b.a<?, Path> npA;
     @Nullable
-    private r npe;
+    private r npG;
+    private final com.tb.airbnb.lottie.a.b.a<?, Path> nqc;
     private final Path path = new Path();
 
     public p(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.lottieDrawable = fVar;
-        this.npA = kVar.dGn().dFG();
-        aVar.a(this.npA);
-        this.npA.b(this);
+        this.nqc = kVar.dHu().dGN();
+        aVar.a(this.nqc);
+        this.nqc.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0730a
-    public void bC() {
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0738a
+    public void bD() {
         invalidate();
     }
 
     private void invalidate() {
-        this.fV = false;
+        this.fZ = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -40,9 +40,9 @@ public class p implements l, a.InterfaceC0730a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dFw() == ShapeTrimPath.Type.Simultaneously) {
-                    this.npe = (r) bVar;
-                    this.npe.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dGD() == ShapeTrimPath.Type.Simultaneously) {
+                    this.npG = (r) bVar;
+                    this.npG.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -52,15 +52,15 @@ public class p implements l, a.InterfaceC0730a {
     }
 
     @Override // com.tb.airbnb.lottie.a.a.l
-    public Path bF() {
-        if (this.fV) {
+    public Path bG() {
+        if (this.fZ) {
             return this.path;
         }
         this.path.reset();
-        this.path.set(this.npA.getValue());
+        this.path.set(this.nqc.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.tb.airbnb.lottie.d.f.a(this.path, this.npe);
-        this.fV = true;
+        com.tb.airbnb.lottie.d.f.a(this.path, this.npG);
+        this.fZ = true;
         return this.path;
     }
 

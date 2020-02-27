@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.geocode;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GeoCodeOption {
     public String mCity = null;
     public String mAddress = null;

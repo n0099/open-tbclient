@@ -10,7 +10,7 @@ import java.util.Map;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
 import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OAEPParameters extends AlgorithmParametersSpi {
     private static final String MGF1_OID = "1.2.840.113549.1.1.8";
     private static final String PSPECIFIED_OID = "1.2.840.113549.1.1.9";

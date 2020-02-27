@@ -6,38 +6,46 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class e {
-    private String cNZ;
-    private String cOa;
+    private String cSc;
+    private String cSd;
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private List<FrsTabInfo> glw;
-    private final List<com.baidu.tbadk.mainTab.b> glx = new LinkedList();
+    private List<FrsTabInfo> gnx;
+    private final List<com.baidu.tbadk.mainTab.b> gny = new LinkedList();
     private Context mContext;
     private String mFrom;
 
     public e(Context context, List<FrsTabInfo> list) {
-        this.glw = list;
+        this.gnx = list;
         this.mContext = context;
     }
 
+    public List<FrsTabInfo> bDs() {
+        return this.gnx;
+    }
+
     public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.aNy() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.glx) {
-                if (bVar2 != null && bVar2.aNy() != null && bVar2.aNy().type == bVar.aNy().type) {
+        if (bVar != null && bVar.getFragmentTabStructure() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.gny) {
+                if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
                     return;
                 }
             }
-            this.glx.add(bVar);
+            this.gny.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bBQ() {
-        return this.glx;
+    public List<com.baidu.tbadk.mainTab.b> bDt() {
+        return this.gny;
     }
 
     public void setForumName(String str) {
         this.forumName = str;
+    }
+
+    public String getForumName() {
+        return this.forumName;
     }
 
     public void setForumId(String str) {
@@ -60,11 +68,11 @@ public class e {
         this.forumGameLabel = str;
     }
 
-    public void sv(String str) {
-        this.cNZ = str;
+    public void sL(String str) {
+        this.cSc = str;
     }
 
-    public void sw(String str) {
-        this.cOa = str;
+    public void sM(String str) {
+        this.cSd = str;
     }
 }

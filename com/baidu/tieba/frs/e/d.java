@@ -9,19 +9,19 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d gIC;
-    private LruCache<String, String> gIA = new LruCache<>(10);
-    private l<String> gIB = com.baidu.tbadk.core.c.a.aCo().sA("tb.recently_vistited_forum_animation");
+    private static d gKB;
+    private LruCache<String, String> gKz = new LruCache<>(10);
+    private l<String> gKA = com.baidu.tbadk.core.c.a.aEz().sQ("tb.recently_vistited_forum_animation");
 
-    public static d bIr() {
-        if (gIC == null) {
+    public static d bJT() {
+        if (gKB == null) {
             synchronized (d.class) {
-                if (gIC == null) {
-                    gIC = new d();
+                if (gKB == null) {
+                    gKB = new d();
                 }
             }
         }
-        return gIC;
+        return gKB;
     }
 
     private d() {
@@ -30,26 +30,26 @@ public class d {
             public void onActivityDestroyed(Activity activity) {
                 if (activity != null && activity.getClass().getName().equals("FrsActivity")) {
                     StringBuilder sb = new StringBuilder();
-                    for (Map.Entry entry : d.this.gIA.snapshot().entrySet()) {
+                    for (Map.Entry entry : d.this.gKz.snapshot().entrySet()) {
                         sb.append((String) entry.getKey()).append(ETAG.EQUAL).append((String) entry.getValue()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
                     if (sb.length() > 1) {
                         sb.deleteCharAt(sb.length() - 1);
-                        d.this.gIB.asyncSetForever("transition_cache_key", sb.toString());
+                        d.this.gKA.asyncSetForever("transition_cache_key", sb.toString());
                     }
                 }
             }
         });
-        this.gIB.a("transition_cache_key", new l.a<String>() { // from class: com.baidu.tieba.frs.e.d.2
+        this.gKA.a("transition_cache_key", new l.a<String>() { // from class: com.baidu.tieba.frs.e.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.cache.l.a
-            /* renamed from: dk */
+            /* renamed from: dt */
             public void onItemGet(String str, String str2) {
                 if (str2 != null && !str2.isEmpty()) {
                     for (String str3 : str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
                         String[] split = str3.split(ETAG.EQUAL);
                         if (split != null && split.length == 2) {
-                            d.this.gIA.put(split[0], split[1]);
+                            d.this.gKz.put(split[0], split[1]);
                         }
                     }
                 }
@@ -58,10 +58,10 @@ public class d {
     }
 
     public void a(String str, e eVar) {
-        this.gIA.put(str, eVar.toString());
+        this.gKz.put(str, eVar.toString());
     }
 
-    public e Bv(String str) {
-        return str == null ? new e(null) : new e(this.gIA.get(str));
+    public e BL(String str) {
+        return str == null ? new e(null) : new e(this.gKz.get(str));
     }
 }

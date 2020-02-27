@@ -14,7 +14,7 @@ import java.util.Queue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -28,7 +28,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class MergeObserver<T, U> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -2117620485640801370L;
         final u<? super U> actual;
@@ -86,7 +86,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                     }
                     subscribeInner(tVar);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.I(th);
+                    io.reactivex.exceptions.a.H(th);
                     this.s.dispose();
                     onError(th);
                 }
@@ -207,7 +207,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                 drainLoop();
                 return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.errors.addThrowable(th);
                 drain();
                 return true;
@@ -359,7 +359,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.I(th);
+                                            io.reactivex.exceptions.a.H(th);
                                             innerObserver.dispose();
                                             this.errors.addThrowable(th);
                                             if (!checkTerminate()) {
@@ -450,7 +450,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class InnerObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements u<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         volatile boolean done;

@@ -3,11 +3,11 @@ package com.baidu.swan.support.v4.c;
 import android.graphics.Paint;
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
-    static final k czQ;
+    static final k cDO;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     interface k {
         boolean canScrollVertically(View view, int i);
 
@@ -20,7 +20,7 @@ public class f {
         void setSaveFromParentEnabled(View view, boolean z);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class a implements k {
         a() {
         }
@@ -49,19 +49,19 @@ public class f {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class b extends a {
         b() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class c extends b {
         c() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class d extends c {
         d() {
         }
@@ -82,9 +82,9 @@ public class f {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class e extends d {
-        static boolean czR = false;
+        static boolean cDP = false;
 
         e() {
         }
@@ -96,9 +96,9 @@ public class f {
     }
 
     /* renamed from: com.baidu.swan.support.v4.c.f$f  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    static class C0358f extends e {
-        C0358f() {
+    /* loaded from: classes11.dex */
+    static class C0368f extends e {
+        C0368f() {
         }
 
         @Override // com.baidu.swan.support.v4.c.f.a, com.baidu.swan.support.v4.c.f.k
@@ -107,25 +107,25 @@ public class f {
         }
     }
 
-    /* loaded from: classes10.dex */
-    static class g extends C0358f {
+    /* loaded from: classes11.dex */
+    static class g extends C0368f {
         g() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class h extends g {
         h() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class i extends h {
         i() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class j extends i {
         j() {
         }
@@ -133,29 +133,29 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            czQ = new j();
+            cDO = new j();
         } else {
-            czQ = new i();
+            cDO = new i();
         }
     }
 
     public static boolean canScrollVertically(View view, int i2) {
-        return czQ.canScrollVertically(view, i2);
+        return cDO.canScrollVertically(view, i2);
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        czQ.setLayerType(view, i2, paint);
+        cDO.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return czQ.getLayerType(view);
+        return cDO.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        czQ.setSaveFromParentEnabled(view, z);
+        cDO.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return czQ.hasOverlappingRendering(view);
+        return cDO.hasOverlappingRendering(view);
     }
 }

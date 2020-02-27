@@ -5,10 +5,10 @@ import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.config.core.ConfigNode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    public static void agH() {
-        if (!com.baidu.swan.config.core.c.agK()) {
+    public static void aiV() {
+        if (!com.baidu.swan.config.core.c.aiY()) {
             if (e.DEBUG) {
                 Log.i("SwanConfig", "getConfig: 命中MaxAge策略，不请求");
                 return;
@@ -37,7 +37,7 @@ public class d {
         try {
             for (ConfigNode configNode : configNodeArr) {
                 if (configNode != null && (a = com.baidu.swan.config.core.a.b.a(configNode)) != null) {
-                    jSONObject.put(configNode.getName(), a.agN());
+                    jSONObject.put(configNode.getName(), a.ajb());
                 }
             }
             return jSONObject;

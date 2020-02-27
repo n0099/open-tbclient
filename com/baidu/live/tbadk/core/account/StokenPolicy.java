@@ -7,10 +7,10 @@ import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StokenPolicy {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IStokenCallback {
         void onFailed();
 
@@ -58,7 +58,7 @@ public class StokenPolicy {
                         return;
                     }
                     String str2 = map.get("tb");
-                    if (StringUtils.isNULL(str2)) {
+                    if (StringUtils.isNullObject(str2)) {
                         if (iStokenCallback != null) {
                             iStokenCallback.onFailed();
                         }

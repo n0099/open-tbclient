@@ -1,15 +1,15 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d implements c {
     @Override // com.google.android.exoplayer2.c
     public boolean a(r rVar, boolean z) {
-        rVar.vu(z);
+        rVar.vy(z);
         return true;
     }
 
     @Override // com.google.android.exoplayer2.c
     public boolean a(r rVar, int i, long j) {
-        rVar.B(i, j);
+        rVar.A(i, j);
         return true;
     }
 
@@ -21,7 +21,7 @@ public class d implements c {
 
     @Override // com.google.android.exoplayer2.c
     public boolean b(r rVar, boolean z) {
-        rVar.vv(z);
+        rVar.vz(z);
         return true;
     }
 }

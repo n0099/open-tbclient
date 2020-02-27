@@ -1,36 +1,51 @@
 package com.baidu.live.gift;
 
+import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
-    public b adJ;
+    public b afL;
+    public String afM;
     public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
+    private String videoPath;
 
     public String getDynamicGiftId() {
-        if (this.adJ == null) {
+        if (this.afL == null) {
             return null;
         }
-        return this.adJ.giftId;
+        return this.afL.giftId;
     }
 
     public boolean isLandScapeZip() {
-        if (this.adJ == null || this.adJ.adH == null) {
+        if (this.afL == null || this.afL.afJ == null) {
             return false;
         }
-        return this.adJ.adH.isLandScape();
+        return this.afL.afJ.isLandScape();
     }
 
-    public boolean qu() {
-        if (this.adJ == null || this.adJ.adH == null) {
+    public boolean rh() {
+        if (this.afL == null || this.afL.afJ == null) {
             return false;
         }
-        return this.adJ.adH.qu();
+        return this.afL.afJ.rh();
+    }
+
+    public String ri() {
+        File[] listFiles;
+        if (!TextUtils.isEmpty(this.videoPath)) {
+            return this.videoPath;
+        }
+        if (TextUtils.isEmpty(this.afM) || (listFiles = new File(this.afM).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
+            return null;
+        }
+        this.videoPath = listFiles[0].getAbsolutePath();
+        return this.videoPath;
     }
 
     public ArrayList<String> getDynamicGiftPicPathList() {

@@ -6,28 +6,28 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.y.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private b coJ;
+    private b csK;
 
     public d(JsObject jsObject) {
-        this.coJ = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
-        a.anC().a(this);
+        this.csK = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
+        a.apQ().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity Un = f.UC().Un();
-        if (Un == null) {
+        final SwanAppActivity WB = f.WQ().WB();
+        if (WB == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (Un.isDestroyed() || Un.getIntent() == null) {
+        } else if (WB.isDestroyed() || WB.getIntent() == null) {
             return false;
         } else {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.z.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.m(Un);
+                    com.baidu.swan.games.utils.a.m(WB);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.coJ != null && JSEvent.isValid(cVar)) {
+        if (this.csK != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.coJ.b(cVar);
+                    this.csK.b(cVar);
                     return;
                 case true:
-                    this.coJ.anE();
+                    this.csK.apS();
                     return;
                 case true:
-                    this.coJ.No();
+                    this.csK.PC();
                     return;
                 default:
                     return;

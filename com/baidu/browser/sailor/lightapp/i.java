@@ -5,17 +5,17 @@ import com.baidu.android.util.media.MimeType;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i implements Runnable {
-    final /* synthetic */ BdLightappKernelClient IP;
-    final /* synthetic */ String IR;
-    final /* synthetic */ String IS;
+    final /* synthetic */ BdLightappKernelClient Jm;
+    final /* synthetic */ String Jo;
+    final /* synthetic */ String Jp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(BdLightappKernelClient bdLightappKernelClient, String str, String str2) {
-        this.IP = bdLightappKernelClient;
-        this.IR = str;
-        this.IS = str2;
+        this.Jm = bdLightappKernelClient;
+        this.Jo = str;
+        this.Jp = str2;
     }
 
     @Override // java.lang.Runnable
@@ -36,45 +36,45 @@ public class i implements Runnable {
         File file10;
         File file11;
         File file12;
-        BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(this.IR, this.IS);
-        bdLightappKernelJsCallback.setCallbackListener(this.IP);
-        mediaRecorder = this.IP.mRecorder;
+        BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(this.Jo, this.Jp);
+        bdLightappKernelJsCallback.setCallbackListener(this.Jm);
+        mediaRecorder = this.Jm.mRecorder;
         if (mediaRecorder != null) {
-            file = this.IP.mRecordingFile;
+            file = this.Jm.mRecordingFile;
             if (file != null) {
-                file2 = this.IP.mRecordingFile;
+                file2 = this.Jm.mRecordingFile;
                 if (file2.exists()) {
-                    mediaRecorder2 = this.IP.mRecorder;
+                    mediaRecorder2 = this.Jm.mRecorder;
                     mediaRecorder2.stop();
-                    mediaRecorder3 = this.IP.mRecorder;
+                    mediaRecorder3 = this.Jm.mRecorder;
                     mediaRecorder3.reset();
-                    mediaRecorder4 = this.IP.mRecorder;
+                    mediaRecorder4 = this.Jm.mRecorder;
                     mediaRecorder4.release();
-                    file3 = this.IP.mRecordFile;
+                    file3 = this.Jm.mRecordFile;
                     if (file3 != null) {
-                        file11 = this.IP.mRecordFile;
+                        file11 = this.Jm.mRecordFile;
                         if (file11.exists()) {
-                            file12 = this.IP.mRecordFile;
+                            file12 = this.Jm.mRecordFile;
                             file12.delete();
                         }
                     }
-                    BdLightappKernelClient bdLightappKernelClient = this.IP;
-                    file4 = this.IP.mRecordingFile;
+                    BdLightappKernelClient bdLightappKernelClient = this.Jm;
+                    file4 = this.Jm.mRecordingFile;
                     bdLightappKernelClient.mRecordFile = file4;
-                    this.IP.mRecordingFile = null;
-                    this.IP.mRecorder = null;
+                    this.Jm.mRecordingFile = null;
+                    this.Jm.mRecorder = null;
                     bdLightappKernelJsCallback.setResult(true);
-                    file5 = this.IP.mRecordFile;
+                    file5 = this.Jm.mRecordFile;
                     bdLightappKernelJsCallback.addField("path", file5.getAbsolutePath());
-                    file6 = this.IP.mRecordFile;
+                    file6 = this.Jm.mRecordFile;
                     bdLightappKernelJsCallback.addField("record_length", String.valueOf(file6.length()));
-                    file7 = this.IP.mRecordFile;
+                    file7 = this.Jm.mRecordFile;
                     bdLightappKernelJsCallback.addField("fullPath", file7.getAbsolutePath());
-                    file8 = this.IP.mRecordFile;
+                    file8 = this.Jm.mRecordFile;
                     bdLightappKernelJsCallback.addField("name", file8.getName());
-                    file9 = this.IP.mRecordFile;
+                    file9 = this.Jm.mRecordFile;
                     bdLightappKernelJsCallback.addField(TiebaInitialize.LogFields.SIZE, String.valueOf(file9.length()));
-                    file10 = this.IP.mRecordFile;
+                    file10 = this.Jm.mRecordFile;
                     bdLightappKernelJsCallback.addField("lastModified", String.valueOf(file10.lastModified()));
                     bdLightappKernelJsCallback.addField("type", MimeType.Audio.AMR);
                     bdLightappKernelJsCallback.addField("height", "0");

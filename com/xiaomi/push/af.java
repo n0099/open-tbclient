@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class af {
     static final char[] a = com.coloros.mcssdk.c.a.f.toCharArray();
 
@@ -16,6 +16,6 @@ public class af {
     }
 
     public static boolean a(Context context) {
-        return ae.f118a;
+        return ae.f115a;
     }
 }

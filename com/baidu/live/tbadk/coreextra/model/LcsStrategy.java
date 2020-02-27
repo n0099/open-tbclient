@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.coreextra.model;
 import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LcsStrategy {
     private int[] blackCmds;
     private int connConf;

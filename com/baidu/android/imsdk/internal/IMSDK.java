@@ -24,8 +24,7 @@ import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class IMSDK {
     private static final String TAG = "IMSDK";
     public static Handler mHandler;
@@ -176,14 +175,9 @@ public final class IMSDK {
                     }
                     return false;
                 }
-                int intExtra = intent.getIntExtra("method", -1);
-                if (0 == this.mUk && intExtra != 50) {
-                    LogUtils.e(TAG, "Get UK First!");
-                    this.mConnection.mMessageHandler.onSessionOpened();
-                }
-                final Message createNewMessage = MessageFactory.getInstance().createNewMessage(this.mContext, intExtra, intent);
+                final Message createNewMessage = MessageFactory.getInstance().createNewMessage(this.mContext, intent.getIntExtra("method", -1), intent);
                 if (createNewMessage != null) {
-                    LogUtils.d(TAG, "msg is not null" + createNewMessage.getClass().getName());
+                    LogUtils.d(TAG, "msg is not null, msg=" + createNewMessage.getClass().getName());
                     if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
                         createNewMessage.setListenerKey(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
                     }
@@ -207,10 +201,10 @@ public final class IMSDK {
                             public void run() {
                                 try {
                                     createNewMessage.handleMessageResult(IMSDK.this.mContext, null, 1001, Constants.ERROR_MSG_NETWORK_ERROR);
-                                } catch (JSONException e) {
+                                } catch (Exception e) {
                                     try {
                                         createNewMessage.handleMessageResult(IMSDK.this.mContext, null, 1010, Constants.ERROR_MSG_PARAMETER_ERROR);
-                                    } catch (JSONException e2) {
+                                    } catch (Exception e2) {
                                         LogUtils.e(IMSDK.TAG, "UnKown ERROR! " + createNewMessage.getBody());
                                         new IMTrack.CrashBuilder(IMSDK.this.mContext).exception(Log.getStackTraceString(e)).build();
                                     }
@@ -296,6 +290,9 @@ public final class IMSDK {
     }
 
     public long getUk() {
+        if (this.mUk == 0) {
+            this.mUk = Utility.getUK(this.mContext);
+        }
         return this.mUk;
     }
 

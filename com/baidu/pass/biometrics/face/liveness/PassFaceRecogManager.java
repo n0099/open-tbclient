@@ -21,7 +21,7 @@ import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PassFaceRecogManager implements PassBiometric {
     private static final long MAX_CALL_INTERNAL_TIME = 300;
     private static PassFaceRecogManager instance;

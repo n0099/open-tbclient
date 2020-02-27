@@ -4,30 +4,30 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static final c nrC;
+    private static final c nse;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         h a(com.yanzhenjie.permission.b.b bVar);
     }
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            nrC = new C0748b();
+            nse = new C0756b();
         } else {
-            nrC = new a();
+            nse = new a();
         }
     }
 
     @NonNull
-    public static h gF(@NonNull Context context) {
-        return nrC.a(new com.yanzhenjie.permission.b.a(context));
+    public static h gE(@NonNull Context context) {
+        return nse.a(new com.yanzhenjie.permission.b.a(context));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class a implements c {
         private a() {
         }
@@ -40,9 +40,9 @@ public class b {
 
     @RequiresApi(api = 23)
     /* renamed from: com.yanzhenjie.permission.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private static class C0748b implements c {
-        private C0748b() {
+    /* loaded from: classes6.dex */
+    private static class C0756b implements c {
+        private C0756b() {
         }
 
         @Override // com.yanzhenjie.permission.b.c

@@ -2,7 +2,7 @@ package com.baidu.crius;
 
 import com.baidu.crius.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public enum CriusFlexDirection {
     COLUMN(0),
     COLUMN_REVERSE(1),

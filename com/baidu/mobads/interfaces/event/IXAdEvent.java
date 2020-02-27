@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.event;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IXAdEvent {
     public static final String AD_CLICK_THRU = "AdClickThru";
     public static final String AD_DURATION_CHANGE = "AdDurationChange";

@@ -1,38 +1,28 @@
 package com.baidu.live.data;
 
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+import java.util.List;
+/* loaded from: classes3.dex */
 public class c {
-    private String VG;
-    private ArrayList<Integer> VH;
-    private boolean VI;
-    private int categoryId;
+    public String Xm;
+    public List<a> Xn = new ArrayList();
+    public String mName;
 
-    public void setCategoryId(int i) {
-        this.categoryId = i;
+    /* loaded from: classes3.dex */
+    public static class a {
+        public String Xo;
+        public int Xp;
+        public String ip;
+        public String status;
     }
 
-    public void setCategoryName(String str) {
-        this.VG = str;
-    }
-
-    public void e(ArrayList<Integer> arrayList) {
-        this.VH = arrayList;
-    }
-
-    public String getCategoryName() {
-        return this.VG;
-    }
-
-    public int getCategoryId() {
-        return this.categoryId;
-    }
-
-    public ArrayList<Integer> pF() {
-        return this.VH;
-    }
-
-    public void at(boolean z) {
-        this.VI = z;
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(String.format("mName:%s, mRanme:%s mIpList.size():%d\n", this.mName, this.Xm, Integer.valueOf(this.Xn.size())));
+        for (int i = 0; i < this.Xn.size(); i++) {
+            a aVar = this.Xn.get(i);
+            stringBuffer.append(String.format("ip:%s isp:%d status:%s idc:%s\n", aVar.ip, Integer.valueOf(aVar.Xp), aVar.status, aVar.Xo));
+        }
+        return stringBuffer.toString();
     }
 }

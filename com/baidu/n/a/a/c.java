@@ -1,29 +1,29 @@
 package com.baidu.n.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface c {
-    void GZ(int i);
+    void He(int i);
 
-    void Nw(String str);
+    void NI(String str);
 
-    void Nx(String str);
+    void NJ(String str);
 
-    void Ny(String str);
+    void NK(String str);
 
-    boolean dgA();
+    boolean dhO();
 
-    c dgK();
+    c dhY();
 
-    String dgL();
+    String dhZ();
 
-    String dgM();
+    String dia();
 
-    String dgN();
+    String dib();
 
     int getStatusCode();
 
     boolean isSupport();
 
-    void uS(boolean z);
+    void uW(boolean z);
 
-    void uT(boolean z);
+    void uX(boolean z);
 }

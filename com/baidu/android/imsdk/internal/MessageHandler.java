@@ -16,7 +16,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -27,7 +26,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MessageHandler extends IMessageHandler {
     private static final HostnameVerifier HOSTNAME_VERIFIER = HttpsURLConnection.getDefaultHostnameVerifier();
     private static final String TAG = "MessageHandler";
@@ -55,11 +54,13 @@ public class MessageHandler extends IMessageHandler {
         }
     }
 
-    private SocketState connectImpl(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+    private SocketState connectImpl(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
         LogUtils.i(TAG, "---------------ip:" + str + "  port:" + i + "-----------------");
         this.mSocket = createSocket(str, i);
         SocketState socketState = new SocketState();
-        if (this.mSocket != null) {
+        if (this.mSocket == null) {
+            Utility.writeLoginFlag(this.mContext, "14N_2", "socketConnect mSocket = null");
+        } else {
             socketState.mSocket = this.mSocket;
             socketState.mInputStream = this.mSocket.getInputStream();
             socketState.mOutputStream = this.mSocket.getOutputStream();
@@ -70,7 +71,7 @@ public class MessageHandler extends IMessageHandler {
         return socketState;
     }
 
-    private Socket createSocket(String str, int i) throws UnknownHostException, IOException, KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+    private Socket createSocket(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
                 if (Utility.isCreateTlsSocket(this.mContext)) {
@@ -87,22 +88,22 @@ public class MessageHandler extends IMessageHandler {
         }
     }
 
-    private Socket createSocketRD(String str, int i) throws UnknownHostException, IOException {
+    private Socket createSocketRD(String str, int i) throws IOException {
         return new Socket(str, i);
     }
 
-    private Socket createSocketOnlineByTcp(String str, int i) throws UnknownHostException, IOException {
+    private Socket createSocketOnlineByTcp(String str, int i) throws IOException {
         return new Socket(str, i);
     }
 
     @SuppressLint({"NewApi"})
-    private Socket createSocketOnLine(String str, int i) throws UnknownHostException, IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, KeyManagementException, TimeoutException, SSLHandshakeException, AssertionError {
+    private Socket createSocketOnLine(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
         SSLCertificateSocketFactory sSLCertificateSocketFactory;
         SSLSessionCache sSLSessionCache = new SSLSessionCache(this.mContext);
         if (Constants.URL_SOCKET_SERVER.equals(str)) {
-            sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(30000, sSLSessionCache);
+            sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
         } else {
-            sSLCertificateSocketFactory = IMUrlProvider.isIp(str) ? (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getInsecure(30000, sSLSessionCache) : null;
+            sSLCertificateSocketFactory = Utility.isIp(str) ? (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getInsecure(10000, sSLSessionCache) : null;
         }
         if (sSLCertificateSocketFactory != null) {
             SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
@@ -112,9 +113,11 @@ public class MessageHandler extends IMessageHandler {
             if (sSLSocket.getInetAddress() != null) {
                 this.mSocketIp = sSLSocket.getInetAddress().getHostAddress();
             }
+            Utility.writeLoginFlag(this.mContext, "14N_3", "socketConnect sf = null");
             sSLSocket.startHandshake();
             SSLSession session = sSLSocket.getSession();
-            if (IMUrlProvider.isIp(str) && !HOSTNAME_VERIFIER.verify(Constants.URL_SOCKET_SERVER, session)) {
+            Utility.writeLoginFlag(this.mContext, "14N_4", "SSLHandshakeException");
+            if (Utility.isIp(str) && !HOSTNAME_VERIFIER.verify(Constants.URL_SOCKET_SERVER, session)) {
                 throw new SSLHandshakeException("Exepected pimc.baidu.com, found" + session.getPeerPrincipal());
             }
             return sSLSocket;
@@ -170,8 +173,14 @@ public class MessageHandler extends IMessageHandler {
     @Override // com.baidu.android.imsdk.internal.IMessageHandler
     public void setCurrentSocketState(SocketState socketState) {
         this.mCurrentSocketState = socketState;
-        this.mInputStream = this.mCurrentSocketState.mInputStream;
-        this.mOutputStream = this.mCurrentSocketState.mOutputStream;
-        this.mIs = new BigEndianDataIutputStream(this.mInputStream);
+        if (this.mCurrentSocketState != null) {
+            this.mInputStream = this.mCurrentSocketState.mInputStream;
+            this.mOutputStream = this.mCurrentSocketState.mOutputStream;
+            this.mIs = new BigEndianDataIutputStream(this.mInputStream);
+            return;
+        }
+        this.mInputStream = null;
+        this.mOutputStream = null;
+        this.mIs = null;
     }
 }

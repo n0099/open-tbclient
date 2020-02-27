@@ -1,7 +1,7 @@
 package com.baidu.ala.dumixar;
 
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DuArConfig {
     private static DuArConfig sInstance;
     public String apiKey;

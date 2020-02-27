@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class DateTimeUtil {
     public static final String DATE_FORMAT = "yyyy-MM-dd";
     public static final String DATE_FORMAT_CN = "yyyy年MM月dd日";

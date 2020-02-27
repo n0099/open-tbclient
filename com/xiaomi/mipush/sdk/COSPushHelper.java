@@ -3,11 +3,11 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class COSPushHelper {
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f22a = false;
+    private static volatile boolean f19a = false;
     private static long a = 0;
 
     public static void convertMessage(Intent intent) {
@@ -25,11 +25,11 @@ public class COSPushHelper {
     }
 
     public static boolean getNeedRegister() {
-        return f22a;
+        return f19a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return j.m100a(context);
+        return j.m105a(context);
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -41,14 +41,14 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2 = g.a(context).a(f.ASSEMBLE_PUSH_COS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m42a("ASSEMBLE_PUSH :  register cos when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m47a("ASSEMBLE_PUSH :  register cos when network change!");
             a2.register();
         }
     }
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            f22a = z;
+            f19a = z;
         }
     }
 

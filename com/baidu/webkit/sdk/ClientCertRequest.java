@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk;
 import java.security.Principal;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class ClientCertRequest {
     public abstract void cancel();
 

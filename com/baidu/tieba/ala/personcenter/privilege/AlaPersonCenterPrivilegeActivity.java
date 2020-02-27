@@ -14,10 +14,10 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFrag
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaPrivilegeFragmentAdapter;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
-    private LinkedList<AbsFragment> fsf = new LinkedList<>();
-    private AlaPrivilegeFragmentAdapter fsg;
+    private LinkedList<AbsFragment> fuH = new LinkedList<>();
+    private AlaPrivilegeFragmentAdapter fuI;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -29,12 +29,12 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     public void onPreInit() {
         super.onPreInit();
-        if (!v.isEmpty(this.fsf)) {
-            this.fsf.clear();
+        if (!v.isEmpty(this.fuH)) {
+            this.fuH.clear();
         }
-        this.fsf.add(new AlaAchievementMarkFragment());
-        this.fsf.add(new AlaEnterEffectFragment());
-        this.fsg = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.fsf);
+        this.fuH.add(new AlaAchievementMarkFragment());
+        this.fuH.add(new AlaEnterEffectFragment());
+        this.fuI = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.fuH);
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
@@ -50,15 +50,15 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     protected AbsTabPagerAdapter getAdapter() {
-        return this.fsg;
+        return this.fuI;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (!v.isEmpty(this.fsf)) {
-            Iterator<AbsFragment> it = this.fsf.iterator();
+        if (!v.isEmpty(this.fuH)) {
+            Iterator<AbsFragment> it = this.fuH.iterator();
             while (it.hasNext()) {
                 AbsFragment next = it.next();
                 if (next != null) {

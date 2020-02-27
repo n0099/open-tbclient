@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import android.util.Base64;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static final String a = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
     public static final String b = "aHR0cDovL3dhcHBhc3MuYmFpZHUuY29t";

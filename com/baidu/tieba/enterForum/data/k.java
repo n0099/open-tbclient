@@ -1,11 +1,11 @@
 package com.baidu.tieba.enterForum.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class k {
-    public String fRX;
+    public String fUr;
     public int sortType;
 
     public k(String str, int i) {
-        this.fRX = str;
+        this.fUr = str;
         this.sortType = i;
     }
 }

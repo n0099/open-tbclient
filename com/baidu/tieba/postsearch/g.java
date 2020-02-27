@@ -4,91 +4,91 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class g {
-    private a jAG;
-    private c jAH;
-    private f jAI;
-    private PostSearchActivity jzQ;
+    private PostSearchActivity jAG;
+    private a jBw;
+    private c jBx;
+    private f jBy;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.jzQ = postSearchActivity;
+        this.jAG = postSearchActivity;
     }
 
     public void initView() {
-        this.jzQ.setContentView(R.layout.post_search_activity);
-        this.mRootView = this.jzQ.findViewById(R.id.search_rootview);
-        this.jAG = new a(this.jzQ, this.mRootView);
-        this.jAH = new c(this.jzQ, this.mRootView);
-        this.jAI = new f(this.jzQ, this.mRootView);
+        this.jAG.setContentView(R.layout.post_search_activity);
+        this.mRootView = this.jAG.findViewById(R.id.search_rootview);
+        this.jBw = new a(this.jAG, this.mRootView);
+        this.jBx = new c(this.jAG, this.mRootView);
+        this.jBy = new f(this.jAG, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.jAI != null) {
-            this.jAI.setOnPageChangeListener(onPageChangeListener);
+        if (this.jBy != null) {
+            this.jBy.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
-    public void aP(ArrayList<String> arrayList) {
-        this.jAI.setVisibility(false);
-        this.jAH.aP(arrayList);
+    public void aO(ArrayList<String> arrayList) {
+        this.jBy.setVisibility(false);
+        this.jBx.aO(arrayList);
     }
 
-    public void Aw(int i) {
-        this.jAG.bKi();
+    public void AF(int i) {
+        this.jBw.bLK();
         hideSoftKeyPad();
-        this.jAG.cyY();
-        this.jAI.setVisibility(true);
-        this.jAI.Aw(i);
+        this.jBw.cAt();
+        this.jBy.setVisibility(true);
+        this.jBy.AF(i);
     }
 
-    public void GY(String str) {
-        this.jAG.GY(str);
+    public void Hm(String str) {
+        this.jBw.Hm(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.jAI.a(i, bVar, z);
+        this.jBy.a(i, bVar, z);
     }
 
-    public boolean czc() {
-        return this.jAH.czk();
+    public boolean cAx() {
+        return this.jBx.cAF();
     }
 
     public void showLoadingView() {
-        this.jAH.showLoadingView();
+        this.jBx.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.jAH.hideLoadingView();
+        this.jBx.hideLoadingView();
     }
 
-    public void czj() {
-        this.jAH.czj();
+    public void cAE() {
+        this.jBx.cAE();
     }
 
     public void hideSoftKeyPad() {
-        this.jAG.hideSoftKeyPad();
+        this.jBw.hideSoftKeyPad();
     }
 
-    public void czv() {
-        this.jAH.czi();
+    public void cAQ() {
+        this.jBx.cAD();
     }
 
     public int getCurrentTabType() {
-        return this.jAI.getCurrentTabType();
+        return this.jBy.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.jAG.onChangeSkinType(i);
-        this.jAH.onChangeSkinType(i);
-        this.jAI.onChangeSkinType(i);
-        com.baidu.tbadk.q.a.a(this.jzQ.getPageContext(), this.mRootView);
+        this.jBw.onChangeSkinType(i);
+        this.jBx.onChangeSkinType(i);
+        this.jBy.onChangeSkinType(i);
+        com.baidu.tbadk.q.a.a(this.jAG.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.jAG != null) {
-            this.jAG.onDestroy();
+        if (this.jBw != null) {
+            this.jBw.onDestroy();
         }
     }
 }

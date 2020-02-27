@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.util;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class w {
     public static boolean g(XmlPullParser xmlPullParser, String str) throws XmlPullParserException {
         return v(xmlPullParser) && xmlPullParser.getName().equals(str);

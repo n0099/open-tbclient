@@ -4,15 +4,15 @@ import com.baidu.mobads.BaiduNativeH5AdView;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class i implements Runnable {
-    final /* synthetic */ h aKZ;
-    final /* synthetic */ IOAdEvent aKm;
+    final /* synthetic */ IOAdEvent aOq;
+    final /* synthetic */ h aPd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, IOAdEvent iOAdEvent) {
-        this.aKZ = hVar;
-        this.aKm = iOAdEvent;
+        this.aPd = hVar;
+        this.aOq = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -29,40 +29,40 @@ class i implements Runnable {
         BaiduNativeAdPlacement baiduNativeAdPlacement4;
         BaiduNativeH5AdView.BaiduNativeH5EventListner baiduNativeH5EventListner7;
         BaiduNativeH5AdView.BaiduNativeH5EventListner baiduNativeH5EventListner8;
-        if (IXAdEvent.AD_STARTED.equals(this.aKm.getType())) {
-            this.aKZ.aKY.f = true;
-            baiduNativeAdPlacement4 = this.aKZ.aKY.aKE;
-            baiduNativeAdPlacement4.bC(false);
-            this.aKZ.aKY.recordImpression();
-            baiduNativeH5EventListner7 = this.aKZ.aKY.aKG;
+        if (IXAdEvent.AD_STARTED.equals(this.aOq.getType())) {
+            this.aPd.aPc.f = true;
+            baiduNativeAdPlacement4 = this.aPd.aPc.aOI;
+            baiduNativeAdPlacement4.bK(false);
+            this.aPd.aPc.recordImpression();
+            baiduNativeH5EventListner7 = this.aPd.aPc.aOK;
             if (baiduNativeH5EventListner7 != null) {
-                baiduNativeH5EventListner8 = this.aKZ.aKY.aKG;
+                baiduNativeH5EventListner8 = this.aPd.aPc.aOK;
                 baiduNativeH5EventListner8.onAdShow();
             }
-        } else if (IXAdEvent.AD_ERROR.equals(this.aKm.getType())) {
-            baiduNativeAdPlacement3 = this.aKZ.aKY.aKE;
-            baiduNativeAdPlacement3.bC(false);
-            baiduNativeH5EventListner5 = this.aKZ.aKY.aKG;
+        } else if (IXAdEvent.AD_ERROR.equals(this.aOq.getType())) {
+            baiduNativeAdPlacement3 = this.aPd.aPc.aOI;
+            baiduNativeAdPlacement3.bK(false);
+            baiduNativeH5EventListner5 = this.aPd.aPc.aOK;
             if (baiduNativeH5EventListner5 != null) {
-                baiduNativeH5EventListner6 = this.aKZ.aKY.aKG;
-                baiduNativeH5EventListner6.onAdFail(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.aKm.getData()));
+                baiduNativeH5EventListner6 = this.aPd.aPc.aOK;
+                baiduNativeH5EventListner6.onAdFail(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.aOq.getData()));
             }
-        } else if ("AdUserClick".equals(this.aKm.getType())) {
-            baiduNativeAdPlacement2 = this.aKZ.aKY.aKE;
-            baiduNativeAdPlacement2.bD(true);
-            baiduNativeH5EventListner3 = this.aKZ.aKY.aKG;
+        } else if ("AdUserClick".equals(this.aOq.getType())) {
+            baiduNativeAdPlacement2 = this.aPd.aPc.aOI;
+            baiduNativeAdPlacement2.bL(true);
+            baiduNativeH5EventListner3 = this.aPd.aPc.aOK;
             if (baiduNativeH5EventListner3 != null) {
-                baiduNativeH5EventListner4 = this.aKZ.aKY.aKG;
+                baiduNativeH5EventListner4 = this.aPd.aPc.aOK;
                 baiduNativeH5EventListner4.onAdClick();
             }
-        } else if (IXAdEvent.AD_IMPRESSION.equals(this.aKm.getType())) {
-            baiduNativeAdPlacement = this.aKZ.aKY.aKE;
-            baiduNativeAdPlacement.bE(true);
-        } else if ("AdLoadData".equals(this.aKm.getType())) {
-            this.aKZ.aKY.g = true;
-            baiduNativeH5EventListner = this.aKZ.aKY.aKG;
+        } else if (IXAdEvent.AD_IMPRESSION.equals(this.aOq.getType())) {
+            baiduNativeAdPlacement = this.aPd.aPc.aOI;
+            baiduNativeAdPlacement.bM(true);
+        } else if ("AdLoadData".equals(this.aOq.getType())) {
+            this.aPd.aPc.g = true;
+            baiduNativeH5EventListner = this.aPd.aPc.aOK;
             if (baiduNativeH5EventListner != null) {
-                baiduNativeH5EventListner2 = this.aKZ.aKY.aKG;
+                baiduNativeH5EventListner2 = this.aPd.aPc.aOK;
                 baiduNativeH5EventListner2.onAdDataLoaded();
             }
         }

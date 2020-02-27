@@ -17,7 +17,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DBOperation {
     public static final String TAG = "DBOperation";
     public static final int TIMEOUT_DB_OPERATION = 10;
@@ -206,7 +206,7 @@ public class DBOperation {
         return this.mDb;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class InsertTask implements Callable<Long> {
         private ContentValues mCv;
         private String mOperationId;
@@ -242,7 +242,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class InsertBatchTask implements Callable<List<Long>> {
         private List<ContentValues> mCvs;
         private String mOperationId;
@@ -284,7 +284,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class DeleteTask implements Callable<Integer> {
         private String mOperationId;
         private String mTable;
@@ -324,7 +324,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class UpdateTask implements Callable<Integer> {
         private ContentValues mCv;
         private String mOperationId;
@@ -364,7 +364,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class QueryTask<T> implements Callable<ArrayList<T>> {
         private String[] mColumns;
         private String mGroupBy;
@@ -461,7 +461,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class ExecSQLTask implements Callable<Integer> {
         private String mOperationId;
         private String mSql;
@@ -496,7 +496,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class ExecTransaction implements Callable<Integer> {
         private String mOperationId;
         private ITransaction mTransaction;

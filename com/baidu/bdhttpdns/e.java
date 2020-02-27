@@ -30,7 +30,7 @@ final class e {
     private static String a(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(1, bB(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(1, bD(str), new IvParameterSpec("01020304".getBytes()));
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e) {
             return null;
@@ -63,7 +63,7 @@ final class e {
         return c(replaceAll) || d(replaceAll);
     }
 
-    private static Key bB(String str) {
+    private static Key bD(String str) {
         return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
     }
 
@@ -99,7 +99,7 @@ final class e {
     private static String e(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(2, bB(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(2, bD(str), new IvParameterSpec("01020304".getBytes()));
             return new String(cipher.doFinal(bArr));
         } catch (Exception e) {
             return null;

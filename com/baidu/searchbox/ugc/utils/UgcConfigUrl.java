@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ugc.utils;
 
 import com.baidu.searchbox.config.HostConfig;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UgcConfigUrl {
     public static String getSearchboxHost() {
         return HostConfig.getSearchboxHostForHttps();

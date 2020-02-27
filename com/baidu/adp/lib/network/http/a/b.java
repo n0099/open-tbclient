@@ -16,34 +16,34 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b ru = null;
-    private com.baidu.adp.lib.network.http.a.a rt;
+    private static b rw = null;
+    private com.baidu.adp.lib.network.http.a.a ru;
     private HashMap<String, com.baidu.adp.lib.network.http.a.a> mCache = new HashMap<>();
-    private InterfaceC0018b rw = null;
-    private int rz = 0;
+    private InterfaceC0018b rz = null;
+    private int rA = 0;
 
     /* renamed from: com.baidu.adp.lib.network.http.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0018b {
-        void n(String str, String str2);
+        void q(String str, String str2);
     }
 
     private b() {
     }
 
     public static b gi() {
-        if (ru == null) {
+        if (rw == null) {
             synchronized (b.class) {
-                if (ru == null) {
-                    ru = new b();
+                if (rw == null) {
+                    rw = new b();
                 }
             }
         }
-        return ru;
+        return rw;
     }
 
     public void a(InterfaceC0018b interfaceC0018b) {
-        this.rw = interfaceC0018b;
+        this.rz = interfaceC0018b;
     }
 
     public c an(String str) {
@@ -55,7 +55,7 @@ public class b {
         return cVar;
     }
 
-    public c m(String str, String str2) {
+    public c o(String str, String str2) {
         c cVar = new c();
         if (k.isEmpty(str)) {
             return cVar;
@@ -63,12 +63,12 @@ public class b {
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
         if (aVar != null && !aVar.h(System.currentTimeMillis()) && aVar.gh() != null && aVar.gh().size() > 0) {
             for (int i = 0; i < aVar.gh().size(); i++) {
-                if (!k.q(str2, aVar.gh().get(i))) {
-                    cVar.L(i);
+                if (!k.t(str2, aVar.gh().get(i))) {
+                    cVar.O(i);
                     cVar.as(aVar.gh().get(i));
                     return cVar;
                 } else if (i == aVar.gh().size() - 1) {
-                    cVar.L(0);
+                    cVar.O(0);
                     cVar.as(aVar.gh().get(0));
                     return cVar;
                 }
@@ -76,7 +76,7 @@ public class b {
         }
         for (int i2 = 0; i2 < 3; i2++) {
             cVar.gk();
-            cVar.O(i2);
+            cVar.R(i2);
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.adp.lib.network.http.a.a a2 = a(str, cVar);
             cVar.i(System.currentTimeMillis() - currentTimeMillis);
@@ -84,12 +84,12 @@ public class b {
                 a2.g(300L);
                 this.mCache.put(str, a2);
                 for (int i3 = 0; i3 < a2.gh().size(); i3++) {
-                    if (!k.q(str2, a2.gh().get(i2))) {
-                        cVar.L(i3);
+                    if (!k.t(str2, a2.gh().get(i2))) {
+                        cVar.O(i3);
                         cVar.as(a2.gh().get(i3));
                         return cVar;
                     } else if (i3 == a2.gh().size() - 1) {
-                        cVar.L(0);
+                        cVar.O(0);
                         cVar.as(a2.gh().get(0));
                         return cVar;
                     }
@@ -110,22 +110,22 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (ap(str) && this.rt.gh().size() > this.rz) {
-            if (this.rw != null) {
-                InterfaceC0018b interfaceC0018b = this.rw;
-                List<String> gh = this.rt.gh();
-                int i = this.rz;
-                this.rz = i + 1;
-                interfaceC0018b.n(gh.get(i), str);
+        if (ap(str) && this.ru.gh().size() > this.rA) {
+            if (this.rz != null) {
+                InterfaceC0018b interfaceC0018b = this.rz;
+                List<String> gh = this.ru.gh();
+                int i = this.rA;
+                this.rA = i + 1;
+                interfaceC0018b.q(gh.get(i), str);
             }
             return true;
-        } else if (this.rt != null && this.rt.gh() != null && this.rt.gh().size() <= this.rz) {
-            this.rz = 0;
-            this.rt = null;
+        } else if (this.ru != null && this.ru.gh() != null && this.ru.gh().size() <= this.rA) {
+            this.rA = 0;
+            this.ru = null;
             return false;
         } else {
-            this.rz = 0;
-            this.rt = null;
+            this.rA = 0;
+            this.ru = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -134,7 +134,7 @@ public class b {
     }
 
     private boolean ap(String str) {
-        return (this.rt == null || TextUtils.isEmpty(str) || !str.equals(this.rt.getHost()) || this.rt.gh() == null || this.rt.gh().size() == 0 || this.rt.h(System.currentTimeMillis()) || this.rt.gh().size() <= this.rz) ? false : true;
+        return (this.ru == null || TextUtils.isEmpty(str) || !str.equals(this.ru.getHost()) || this.ru.gh() == null || this.ru.gh().size() == 0 || this.ru.h(System.currentTimeMillis()) || this.ru.gh().size() <= this.rA) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -380,14 +380,14 @@ public class b {
         public void onProgressUpdate(com.baidu.adp.lib.network.http.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
-                b.this.rt = aVarArr[0];
-                if (aVarArr[0].gh() != null && aVarArr[0].gh().size() > 0 && b.this.rw != null) {
-                    b.this.rw.n(aVarArr[0].gh().get(0), aVarArr[0].getHost());
+                b.this.ru = aVarArr[0];
+                if (aVarArr[0].gh() != null && aVarArr[0].gh().size() > 0 && b.this.rz != null) {
+                    b.this.rz.q(aVarArr[0].gh().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.rw != null) {
-                b.this.rw.n(null, null);
+            if (b.this.rz != null) {
+                b.this.rz.q(null, null);
             }
         }
 

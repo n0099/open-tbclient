@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMGetUserIpLocation extends Message {
     private static final String TAG = "IMGetUserIpLocation";
     private Context mContext;
@@ -82,8 +82,9 @@ public class IMGetUserIpLocation extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
-        ArrayList<IpInfo> arrayList = null;
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        ArrayList<IpInfo> arrayList;
+        ArrayList<IpInfo> arrayList2 = null;
         if (getMsgType() == 1) {
             if (i != 0) {
                 if (this.mReSendCount >= 3) {
@@ -99,22 +100,40 @@ public class IMGetUserIpLocation extends Message {
                 setNeedReSend(false);
             }
         }
-        if (i == 0 && jSONObject.has("location")) {
-            arrayList = new ArrayList<>();
-            JSONArray jSONArray = (JSONArray) jSONObject.opt("location");
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                IpInfo ipInfo = new IpInfo();
-                ipInfo.setUid(jSONObject2.optLong("uid"));
-                ipInfo.setIp(jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_IP));
-                ipInfo.setIsp(jSONObject2.optString("isp"));
-                ipInfo.setCountry(jSONObject2.optString("country"));
-                ipInfo.setProv(jSONObject2.optString("prov"));
-                ipInfo.setCity(jSONObject2.optString("city"));
-                ipInfo.setCounty(jSONObject2.optString("county"));
-                arrayList.add(ipInfo);
+        if (i != 0) {
+            arrayList = null;
+        } else {
+            try {
+                if (jSONObject.has("location")) {
+                    ArrayList<IpInfo> arrayList3 = new ArrayList<>();
+                    try {
+                        JSONArray jSONArray = (JSONArray) jSONObject.opt("location");
+                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                            IpInfo ipInfo = new IpInfo();
+                            ipInfo.setUid(jSONObject2.optLong("uid"));
+                            ipInfo.setIp(jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_IP));
+                            ipInfo.setIsp(jSONObject2.optString("isp"));
+                            ipInfo.setCountry(jSONObject2.optString("country"));
+                            ipInfo.setProv(jSONObject2.optString("prov"));
+                            ipInfo.setCity(jSONObject2.optString("city"));
+                            ipInfo.setCounty(jSONObject2.optString("county"));
+                            arrayList3.add(ipInfo);
+                        }
+                        updateDB(context, arrayList3);
+                        arrayList2 = arrayList3;
+                    } catch (Exception e) {
+                        arrayList2 = arrayList3;
+                        e = e;
+                        LogUtils.e(TAG, "IMGetUserIpLocation handleMessageResult :", e);
+                        arrayList = arrayList2;
+                        ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i, str, this.mUids, arrayList);
+                    }
+                }
+                arrayList = arrayList2;
+            } catch (Exception e2) {
+                e = e2;
             }
-            updateDB(context, arrayList);
         }
         ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i, str, this.mUids, arrayList);
     }

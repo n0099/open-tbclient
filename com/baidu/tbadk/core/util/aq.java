@@ -43,11 +43,11 @@ public class aq extends com.baidu.adp.lib.util.k {
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
     private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT);
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static final SimpleDateFormat cWm = new SimpleDateFormat("dd日HH:mm");
-    private static final SimpleDateFormat cWn = new SimpleDateFormat("HH:mm");
-    private static final SimpleDateFormat cWo = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat cWp = new SimpleDateFormat("MM-dd HH:mm");
-    private static final SimpleDateFormat cWq = new SimpleDateFormat("MM-dd");
+    private static final SimpleDateFormat dao = new SimpleDateFormat("dd日HH:mm");
+    private static final SimpleDateFormat dap = new SimpleDateFormat("HH:mm");
+    private static final SimpleDateFormat daq = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat dar = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat das = new SimpleDateFormat("MM-dd");
     private static Date date = new Date();
 
     static {
@@ -66,20 +66,20 @@ public class aq extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String bw(long j) {
+    public static String bA(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (cWp) {
-            format = cWp.format(date2);
+        synchronized (dar) {
+            format = dar.format(date2);
         }
         return format;
     }
 
-    public static String bx(long j) {
+    public static String bB(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (cWq) {
-            format = cWq.format(date2);
+        synchronized (das) {
+            format = das.format(date2);
         }
         return format;
     }
@@ -101,7 +101,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return (i + 1) + TIME_HOUR;
     }
 
-    public static String by(long j) {
+    public static String bC(long j) {
         return (((j / BdKVCache.MILLS_1Hour) / 24) + 1) + TIME_DAY;
     }
 
@@ -302,7 +302,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return formatTime;
     }
 
-    public static String bz(long j) {
+    public static String bD(long j) {
         String a;
         synchronized (date) {
             date.setTime(j);
@@ -364,17 +364,17 @@ public class aq extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static boolean ti(String str) {
+    public static boolean ty(String str) {
         if (str.length() != 10) {
             return false;
         }
-        return cWo.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
+        return daq.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
     }
 
     public static String k(Date date2) {
         String format;
-        synchronized (cWo) {
-            format = cWo.format(date2);
+        synchronized (daq) {
+            format = daq.format(date2);
         }
         return format;
     }
@@ -507,7 +507,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return f2 + "KW";
     }
 
-    public static String bA(long j) {
+    public static String bE(long j) {
         if (j <= 0) {
             return "0";
         }
@@ -575,7 +575,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return "" + j;
     }
 
-    public static String bB(long j) {
+    public static String bF(long j) {
         if (j > 99990000) {
             return "9999W+";
         }
@@ -852,7 +852,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return str;
     }
 
-    public static String aa(String str, int i) {
+    public static String Y(String str, int i) {
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
@@ -1104,18 +1104,18 @@ public class aq extends com.baidu.adp.lib.util.k {
         return sb.toString();
     }
 
-    public static boolean tj(String str) {
+    public static boolean tz(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        return tk(str) || my(str);
+        return tA(str) || mN(str);
     }
 
-    public static boolean tk(String str) {
+    public static boolean tA(String str) {
         return str != null && str.length() > 6 && str.substring(0, 7).equalsIgnoreCase("http://");
     }
 
-    public static boolean my(String str) {
+    public static boolean mN(String str) {
         return str != null && str.length() > 7 && str.substring(0, 8).equalsIgnoreCase(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 }

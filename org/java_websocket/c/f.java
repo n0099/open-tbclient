@@ -1,13 +1,13 @@
 package org.java_websocket.c;
 
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface f {
-    String Sl(String str);
+    String Sw(String str);
 
-    boolean Sm(String str);
+    boolean Sx(String str);
 
-    Iterator<String> dMr();
+    Iterator<String> dNE();
 
     byte[] getContent();
 }

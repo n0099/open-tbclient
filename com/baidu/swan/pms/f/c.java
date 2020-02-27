@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    public static File dB(Context context) {
+    public static File dF(Context context) {
         File dir = context.getDir("pms_dir", 0);
         if (!dir.exists()) {
             dir.mkdir();
@@ -16,11 +16,11 @@ public class c {
         return dir;
     }
 
-    public static String bW(String str, String str2) {
-        return Q(str, str2, File.separator);
+    public static String cf(String str, String str2) {
+        return R(str, str2, File.separator);
     }
 
-    public static String Q(String str, String str2, String str3) {
+    public static String R(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -39,11 +39,11 @@ public class c {
         return str2;
     }
 
-    public static File bX(String str, String str2) {
+    public static File cg(String str, String str2) {
         File file = new File(str);
         if (file.exists() || file.mkdirs()) {
-            String bW = bW(str, str2);
-            String str3 = bW;
+            String cf = cf(str, str2);
+            String str3 = cf;
             for (int i = 0; i < 1000; i++) {
                 File file2 = new File(str3);
                 try {
@@ -55,14 +55,14 @@ public class c {
                         e.printStackTrace();
                     }
                 }
-                str3 = bW + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
+                str3 = cf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
             }
             return null;
         }
         return null;
     }
 
-    public static String v(String... strArr) {
+    public static String z(String... strArr) {
         JSONObject jSONObject = new JSONObject();
         if (strArr != null) {
             try {

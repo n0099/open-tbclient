@@ -19,82 +19,82 @@ import com.baidu.swan.apps.r.e.a.q;
 import com.baidu.swan.apps.r.e.a.r;
 import com.baidu.swan.apps.r.e.a.s;
 import com.baidu.swan.apps.r.e.b.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 final class a extends com.baidu.swan.apps.r.b<com.baidu.swan.apps.r.e.b.a> {
-    private final a.InterfaceC0267a bsW;
+    private final a.InterfaceC0277a bxg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull com.baidu.swan.apps.r.e.b.a aVar) {
         super(aVar);
-        this.bsW = new a.InterfaceC0267a() { // from class: com.baidu.swan.apps.r.e.a.1
-            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0267a
+        this.bxg = new a.InterfaceC0277a() { // from class: com.baidu.swan.apps.r.e.a.1
+            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0277a
             public void onPrepared() {
-                if (a.this.bsi != null) {
-                    a.this.bsi.onCallback(a.this, "onPrepared", null);
+                if (a.this.bws != null) {
+                    a.this.bws.onCallback(a.this, "onPrepared", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0267a
+            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0277a
             public void onPlayed() {
-                if (a.this.bsi != null) {
-                    a.this.bsi.onCallback(a.this, "onPlayed", null);
+                if (a.this.bws != null) {
+                    a.this.bws.onCallback(a.this, "onPlayed", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0267a
+            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0277a
             public void onPaused() {
-                if (a.this.bsi != null) {
-                    a.this.bsi.onCallback(a.this, "onPaused", null);
+                if (a.this.bws != null) {
+                    a.this.bws.onCallback(a.this, "onPaused", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0267a
+            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0277a
             public void onEnded() {
-                if (a.this.bsi != null) {
-                    a.this.bsi.onCallback(a.this, "onEnded", null);
+                if (a.this.bws != null) {
+                    a.this.bws.onCallback(a.this, "onEnded", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0267a
+            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0277a
             public void onError(int i) {
-                if (a.this.bsi != null) {
-                    a.this.bsi.onCallback(a.this, "onError", Integer.valueOf(i));
+                if (a.this.bws != null) {
+                    a.this.bws.onCallback(a.this, "onError", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0267a
-            public void eN(int i) {
-                if (a.this.bsi != null) {
-                    a.this.bsi.onCallback(a.this, "onInfo", Integer.valueOf(i));
+            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0277a
+            public void fd(int i) {
+                if (a.this.bws != null) {
+                    a.this.bws.onCallback(a.this, "onInfo", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0267a
-            public void Rp() {
-                if (a.this.bsi != null) {
-                    a.this.bsi.onCallback(a.this, "onVideoSizeChanged", null);
+            @Override // com.baidu.swan.apps.r.e.b.a.InterfaceC0277a
+            public void TD() {
+                if (a.this.bws != null) {
+                    a.this.bws.onCallback(a.this, "onVideoSizeChanged", null);
                 }
             }
         };
-        aVar.a(this.bsW);
-        this.bsh.a(new com.baidu.swan.apps.r.e.a.a());
-        this.bsh.a(new com.baidu.swan.apps.r.e.a.b());
-        this.bsh.a(new c());
-        this.bsh.a(new d());
-        this.bsh.a(new e());
-        this.bsh.a(new f());
-        this.bsh.a(new g());
-        this.bsh.a(new h());
-        this.bsh.a(new j());
-        this.bsh.a(new k());
-        this.bsh.a(new l());
-        this.bsh.a(new m());
-        this.bsh.a(new o());
-        this.bsh.a(new p());
-        this.bsh.a(new q());
-        this.bsh.a(new r());
-        this.bsh.a(new s());
-        this.bsh.a(new n());
-        this.bsh.a(new i());
+        aVar.a(this.bxg);
+        this.bwr.a(new com.baidu.swan.apps.r.e.a.a());
+        this.bwr.a(new com.baidu.swan.apps.r.e.a.b());
+        this.bwr.a(new c());
+        this.bwr.a(new d());
+        this.bwr.a(new e());
+        this.bwr.a(new f());
+        this.bwr.a(new g());
+        this.bwr.a(new h());
+        this.bwr.a(new j());
+        this.bwr.a(new k());
+        this.bwr.a(new l());
+        this.bwr.a(new m());
+        this.bwr.a(new o());
+        this.bwr.a(new p());
+        this.bwr.a(new q());
+        this.bwr.a(new r());
+        this.bwr.a(new s());
+        this.bwr.a(new n());
+        this.bwr.a(new i());
     }
 }

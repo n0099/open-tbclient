@@ -5,7 +5,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.down.statistic.ConfigSpeedStat;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class aa {
     public static long a() {
         File externalStorageDirectory;
@@ -21,7 +21,7 @@ public class aa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m118a() {
+    public static boolean m123a() {
         try {
             return Environment.getExternalStorageState().equals("removed");
         } catch (Exception e) {
@@ -44,6 +44,6 @@ public class aa {
     }
 
     public static boolean d() {
-        return (b() || c() || m118a()) ? false : true;
+        return (b() || c() || m123a()) ? false : true;
     }
 }

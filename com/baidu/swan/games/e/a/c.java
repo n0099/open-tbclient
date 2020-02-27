@@ -12,14 +12,14 @@ import com.baidu.swan.apps.statistic.g;
 import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements V8Engine.JavaScriptExceptionDelegate {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a bgR;
-    private String ciD = "";
+    private com.baidu.swan.games.e.a bld;
+    private String cmH = "";
 
     public c(com.baidu.swan.games.e.a aVar) {
-        this.bgR = aVar;
+        this.bld = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
@@ -28,58 +28,58 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         if (v8ExceptionInfo != null) {
             String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
             String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-            Log.e("V8Exception", this.bgR.alk() + "msg: " + str + " ,stack: " + str2);
-            this.bgR.ali().error(str);
-            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.ciD.equals(str)) {
-                this.ciD = str;
-                bx(str, str2);
-                com.baidu.swan.games.u.c.pl(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
+            Log.e("V8Exception", this.bld.getLogTag() + "msg: " + str + " ,stack: " + str2);
+            this.bld.anw().error(str);
+            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.cmH.equals(str)) {
+                this.cmH = str;
+                bG(str, str2);
+                com.baidu.swan.games.u.c.pA(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
                 g.a(v8ExceptionInfo);
-                DuMixGameSurfaceView alL = com.baidu.swan.games.i.a.alJ().alL();
-                if (alL != null) {
-                    alL.d(v8ExceptionInfo);
+                DuMixGameSurfaceView anY = com.baidu.swan.games.i.a.anW().anY();
+                if (anY != null) {
+                    anY.d(v8ExceptionInfo);
                 }
             }
         }
     }
 
-    private void bx(String str, String str2) {
-        if (this.bgR.alg() != null) {
-            this.bgR.alg().dispatchEvent(new a().ov(str + "\n" + str2).ow("").alq());
+    private void bG(String str, String str2) {
+        if (this.bld.anu() != null) {
+            this.bld.anu().dispatchEvent(new a().oK(str + "\n" + str2).oL("").anD());
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private String ciD;
-        private JSEvent ciE = new JSEvent(BdStatsConstant.StatsType.ERROR);
-        private String ciF;
+        private String cmH;
+        private JSEvent cmI = new JSEvent(BdStatsConstant.StatsType.ERROR);
+        private String cmJ;
 
-        public a ov(String str) {
-            this.ciD = str;
+        public a oK(String str) {
+            this.cmH = str;
             return this;
         }
 
-        public a ow(String str) {
-            this.ciF = str;
+        public a oL(String str) {
+            this.cmJ = str;
             return this;
         }
 
-        public JSEvent alq() {
+        public JSEvent anD() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.ciD);
-                jSONObject.put("stack", this.ciF);
+                jSONObject.put("message", this.cmH);
+                jSONObject.put("stack", this.cmJ);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("V8Exception", Log.getStackTraceString(e));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.ciE.data = jSONObject;
+                this.cmI.data = jSONObject;
             }
-            return this.ciE;
+            return this.cmI;
         }
     }
 }

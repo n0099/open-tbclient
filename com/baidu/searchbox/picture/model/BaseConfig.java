@@ -1,7 +1,7 @@
 package com.baidu.searchbox.picture.model;
 
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class BaseConfig {
     protected List<PictureInfo> mPictureInfoList;
 

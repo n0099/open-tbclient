@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tieba.s.c;
-/* loaded from: classes9.dex */
+import com.baidu.tieba.t.c;
+/* loaded from: classes11.dex */
 public class HomeExtraStatic {
     static {
         MessageManager.getInstance().registerTask(new a());

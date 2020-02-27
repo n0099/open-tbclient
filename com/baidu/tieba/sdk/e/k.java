@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.scheme.ILiveScheme;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, final SchemeCallback schemeCallback) {
@@ -54,7 +54,7 @@ public class k implements ILiveScheme {
                     }
                 });
             }
-            com.baidu.tieba.sdk.a.cCF().HY(jSONObject.toString());
+            com.baidu.tieba.sdk.a.cEg().Im(jSONObject.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

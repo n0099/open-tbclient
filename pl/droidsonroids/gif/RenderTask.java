@@ -3,7 +3,7 @@ package pl.droidsonroids.gif;
 import android.os.SystemClock;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RenderTask extends SafeRunnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public RenderTask(GifDrawable gifDrawable) {

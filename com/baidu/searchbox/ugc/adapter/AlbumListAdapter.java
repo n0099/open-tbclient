@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AlbumListAdapter extends BaseAdapter {
     private Activity mContext;
     private List<ImageGroup> mList;
@@ -76,12 +76,12 @@ public class AlbumListAdapter extends BaseAdapter {
             if (imageGroup.images != null) {
                 UiBaseUtils.setTextString(viewHolder.numbers, imageGroup.images.size() + this.mContext.getString(R.string.ugc_album_pages));
                 if (imageGroup.images.get(0) != null && imageGroup.images.get(0).contentUri != null) {
-                    ImageRequestBuilder X = ImageRequestBuilder.X(imageGroup.images.get(0).contentUri);
-                    X.c(new d((int) (dp2px / 2.0f), (int) (dp2px2 / 2.0f)));
-                    X.vs(true);
-                    a dkW = c.dkj().vd(false).be(X.dro()).c(viewHolder.img.getController()).dla();
+                    ImageRequestBuilder Y = ImageRequestBuilder.Y(imageGroup.images.get(0).contentUri);
+                    Y.c(new d((int) (dp2px / 2.0f), (int) (dp2px2 / 2.0f)));
+                    Y.vw(true);
+                    a dmj = c.dlw().vh(false).bg(Y.dsA()).c(viewHolder.img.getController()).dmn();
                     if (viewHolder.img != null) {
-                        viewHolder.img.setController(dkW);
+                        viewHolder.img.setController(dmj);
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class AlbumListAdapter extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class ViewHolder {
         SimpleDraweeView img;
         TextView numbers;

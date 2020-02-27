@@ -22,7 +22,7 @@ import com.baidu.searchbox.ugc.utils.UiBaseUtils;
 import com.baidu.searchbox.ugc.webjs.UnitedSchemeUGCDispatcher;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PublishMenuDialog extends Dialog {
     private static final int COL_MAX = 3;
     private PublishMenuAdapter mAdapter;
@@ -31,7 +31,7 @@ public class PublishMenuDialog extends Dialog {
     private GridView mGridView;
     private OnItemClickListener mOnItemClickListener;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface OnItemClickListener {
         void onItemClick(ItemInfo itemInfo);
     }

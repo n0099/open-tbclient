@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.android.app.event.EventBusWrapper;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public NetworkErrorView(Context context) {
         super(context);
@@ -66,7 +66,7 @@ public class NetworkErrorView extends CommonEmptyView {
         EventBusWrapper.post(aVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public int arg0;
         public int messageId;

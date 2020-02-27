@@ -11,7 +11,7 @@ import com.baidu.mobstat.Config;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class i {
     public static String c = null;
     public com.baidu.location.b.h a = null;
@@ -23,7 +23,7 @@ public abstract class i {
     private String h = null;
     private String i = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public a() {
         }
@@ -47,7 +47,7 @@ public abstract class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b extends com.baidu.location.d.e {
         String a = null;
         String b = null;

@@ -1,32 +1,24 @@
 package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
-import kotlin.jvm.internal.o;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class c extends kotlin.b.a {
-    public static final a nCa = new a(null);
-    private static final c nBZ = new c(1, 0);
+    public static final a nCC = new a(null);
+    private static final c nCB = new c((char) 1, (char) 0);
 
-    public c(int i, int i2) {
-        super(i, i2, 1);
-    }
-
-    public Integer dJv() {
-        return Integer.valueOf(getFirst());
-    }
-
-    public Integer dJw() {
-        return Integer.valueOf(getLast());
+    public c(char c, char c2) {
+        super(c, c2, 1);
     }
 
     @Override // kotlin.b.a
     public boolean isEmpty() {
-        return getFirst() > getLast();
+        return dKA() > dKB();
     }
 
     @Override // kotlin.b.a
     public boolean equals(Object obj) {
-        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (getFirst() == ((c) obj).getFirst() && getLast() == ((c) obj).getLast()));
+        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dKA() == ((c) obj).dKA() && dKB() == ((c) obj).dKB()));
     }
 
     @Override // kotlin.b.a
@@ -34,25 +26,22 @@ public final class c extends kotlin.b.a {
         if (isEmpty()) {
             return -1;
         }
-        return (getFirst() * 31) + getLast();
+        return (dKA() * 31) + dKB();
     }
 
     @Override // kotlin.b.a
     public String toString() {
-        return getFirst() + IStringUtil.TOP_PATH + getLast();
+        return dKA() + IStringUtil.TOP_PATH + dKB();
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class a {
         private a() {
         }
 
-        public /* synthetic */ a(o oVar) {
+        public /* synthetic */ a(kotlin.jvm.internal.o oVar) {
             this();
-        }
-
-        public final c dJy() {
-            return c.nBZ;
         }
     }
 }

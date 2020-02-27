@@ -1,21 +1,21 @@
 package com.google.android.exoplayer2.mediacodec;
 
 import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface b {
-    public static final b mps = new b() { // from class: com.google.android.exoplayer2.mediacodec.b.1
+    public static final b mpY = new b() { // from class: com.google.android.exoplayer2.mediacodec.b.1
         @Override // com.google.android.exoplayer2.mediacodec.b
         public a aL(String str, boolean z) throws MediaCodecUtil.DecoderQueryException {
             return MediaCodecUtil.aL(str, z);
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.b
-        public a duM() throws MediaCodecUtil.DecoderQueryException {
-            return MediaCodecUtil.duM();
+        public a dvW() throws MediaCodecUtil.DecoderQueryException {
+            return MediaCodecUtil.dvW();
         }
     };
 
     a aL(String str, boolean z) throws MediaCodecUtil.DecoderQueryException;
 
-    a duM() throws MediaCodecUtil.DecoderQueryException;
+    a dvW() throws MediaCodecUtil.DecoderQueryException;
 }

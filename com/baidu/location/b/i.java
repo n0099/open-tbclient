@@ -18,7 +18,7 @@ import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
     private WifiManager c = null;
     private a d = null;
@@ -33,7 +33,7 @@ public class i {
     public static long a = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends BroadcastReceiver {
         private long b;
         private boolean c;

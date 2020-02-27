@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.tb.airbnb.lottie.b;
 import com.tb.airbnb.lottie.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TBImageAssetDelegate implements b {
     private static final String DIR_ANIMATION = "animation";
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
@@ -19,7 +19,7 @@ public class TBImageAssetDelegate implements b {
         if (StringHelper.isEmpty(this.mPath)) {
             return null;
         }
-        return BitmapFactory.decodeFile(this.mPath + gVar.bw().replace("/", "") + "/" + gVar.getFileName());
+        return BitmapFactory.decodeFile(this.mPath + gVar.bx().replace("/", "") + "/" + gVar.getFileName());
     }
 
     public void setPath(String str) {

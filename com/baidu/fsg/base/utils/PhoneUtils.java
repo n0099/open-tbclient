@@ -57,7 +57,7 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class PhoneUtils {
     private static final String a = "PhoneUtils";
     private static final String b = "_rim_pay.preferences";
@@ -876,7 +876,7 @@ public final class PhoneUtils {
         return str2;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";

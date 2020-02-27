@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.HistorySwan.DataReq;
 import tbclient.HistorySwan.HistorySwanReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SmartAppBrowseHistoryRequestMessage extends NetMessage {
     public SmartAppBrowseHistoryRequestMessage() {
         super(CmdConfigHttp.CMD_HISTORY_SWAN, 309638);

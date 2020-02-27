@@ -8,7 +8,7 @@ import com.baidu.searchbox.upload.provider.IUploadInterface;
 import com.baidu.searchbox.upload.provider.listener.UploadImageListener;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UploadProviderImpl implements IUploadInterface {
     public static String STS_FROM = "ugc";
     private int mFinishedTask = 0;

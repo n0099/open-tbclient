@@ -3,15 +3,15 @@ package com.baidu.cyberplayer.sdk;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<C0053a> a = new ArrayList<>();
+    private ArrayList<C0059a> a = new ArrayList<>();
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0053a {
+    public static class C0059a {
         private String a;
         private Object b;
 
-        public C0053a(String str, Object obj) {
+        public C0059a(String str, Object obj) {
             this.a = str;
             this.b = obj;
         }
@@ -36,16 +36,16 @@ public class a {
     public void a(String str, Object obj) {
         int size = this.a.size();
         for (int i = 0; i < size; i++) {
-            C0053a c0053a = this.a.get(i);
-            if (c0053a != null && c0053a.a() != null && c0053a.a().equals(str)) {
-                c0053a.a(obj);
+            C0059a c0059a = this.a.get(i);
+            if (c0059a != null && c0059a.a() != null && c0059a.a().equals(str)) {
+                c0059a.a(obj);
                 return;
             }
         }
-        this.a.add(new C0053a(str, obj));
+        this.a.add(new C0059a(str, obj));
     }
 
-    public ArrayList<C0053a> b() {
+    public ArrayList<C0059a> b() {
         return this.a;
     }
 }

@@ -1,27 +1,53 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes7.dex */
-public class ae extends PostData {
-    public static final BdUniqueId iKL = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.as iKM;
-    public com.baidu.tbadk.core.data.as iKN;
-    public com.baidu.tbadk.core.data.as iKO;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.ad;
+/* loaded from: classes9.dex */
+public class ae extends l<ab, ad> {
+    private com.baidu.tieba.pb.data.e iEG;
+    private ad.a iMC;
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return iKL;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ae(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
+        this.iMC = new ad.a() { // from class: com.baidu.tieba.pb.pb.main.ae.1
+            @Override // com.baidu.tieba.pb.pb.main.ad.a
+            public void b(ab abVar) {
+                if (abVar != null) {
+                    com.baidu.tieba.pb.c.a.a(ae.this.iEG, abVar, abVar.locate, 5);
+                }
+            }
+        };
     }
 
-    public boolean hasData() {
-        if (this.iKM == null || StringUtils.isNull(this.iKM.summary)) {
-            if (this.iKN == null || StringUtils.isNull(this.iKN.summary)) {
-                return (this.iKO == null || StringUtils.isNull(this.iKO.summary)) ? false : true;
-            }
-            return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bI */
+    public ad b(ViewGroup viewGroup) {
+        return new ad(this.iDW.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.iMC);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, ab abVar, ad adVar) {
+        super.a(i, view, viewGroup, (ViewGroup) abVar, (ab) adVar);
+        if (abVar != null) {
+            abVar.locate = i + 1;
+            com.baidu.tieba.pb.c.a.a(this.iDW.getUniqueId(), this.iEG, abVar, abVar.locate, 5);
+            adVar.a(abVar);
+            adVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
-        return true;
+        return view;
+    }
+
+    public void setData(com.baidu.tieba.pb.data.e eVar) {
+        this.iEG = eVar;
     }
 }

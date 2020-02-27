@@ -14,76 +14,76 @@ import com.baidu.tieba.lego.card.view.i;
 import com.baidu.tieba.lego.card.view.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.lego.card.view.f, com.baidu.tieba.lego.card.view.g {
-    private BdTypeRecyclerView Bs;
-    private j Dj;
-    private String cKN;
-    private TbPageContext cRe;
-    private c gLz;
-    private e gMf;
-    private com.baidu.afd.a.b gMg;
-    private com.baidu.adp.widget.ListView.a gMh;
-    private a gMk;
-    RecyclerView.SmoothScroller gMl;
-    private boolean gsp;
+    private BdTypeRecyclerView BK;
+    private j DD;
+    private String cOQ;
+    private TbPageContext cVg;
+    private c gNy;
+    private e gOe;
+    private com.baidu.afd.a.b gOf;
+    private com.baidu.adp.widget.ListView.a gOg;
+    private a gOj;
+    RecyclerView.SmoothScroller gOk;
+    private boolean guq;
     private BdUniqueId mBdUniqueId;
     private String mFrom;
     private List<m> mDatas = new ArrayList();
-    private final List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
-    private boolean gMi = false;
-    private int gsq = -1;
-    private int gMj = -1;
+    private final List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
+    private boolean gOh = false;
+    private int gur = -1;
+    private int gOi = -1;
 
     public f(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, c cVar, boolean z, String str, String str2, BdUniqueId bdUniqueId) {
-        this.gsp = false;
-        this.cRe = tbPageContext;
+        this.guq = false;
+        this.cVg = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.Bs = bdTypeRecyclerView;
-        this.gsp = z;
-        this.gLz = cVar;
+        this.BK = bdTypeRecyclerView;
+        this.guq = z;
+        this.gNy = cVar;
         this.mFrom = str;
-        this.cKN = str2;
-        vi();
+        this.cOQ = str2;
+        wM();
     }
 
-    private void vi() {
-        this.gMf = new e(this.cRe, this, this.gLz, this.gsp, this.mFrom, this.cKN, this, this.mBdUniqueId, this, this);
-        this.gMg = new com.baidu.afd.a.b(this.cRe, com.baidu.afd.b.CJ, this, this.gLz, this);
-        this.gMh = new com.baidu.afd.a.c(this.cRe, com.baidu.afd.b.CI);
-        this.apl.add(this.gMf);
-        this.apl.add(this.gMh);
-        this.apl.add(this.gMg);
-        this.Bs.addAdapters(this.apl);
+    private void wM() {
+        this.gOe = new e(this.cVg, this, this.gNy, this.guq, this.mFrom, this.cOQ, this, this.mBdUniqueId, this, this);
+        this.gOf = new com.baidu.afd.a.b(this.cVg, com.baidu.afd.b.De, this, this.gNy, this);
+        this.gOg = new com.baidu.afd.a.c(this.cVg, com.baidu.afd.b.Dd);
+        this.asE.add(this.gOe);
+        this.asE.add(this.gOg);
+        this.asE.add(this.gOf);
+        this.BK.addAdapters(this.asE);
     }
 
     public void setData(List<com.baidu.tieba.card.data.b> list, boolean z) {
         if (list != null) {
             int size = this.mDatas.size();
             this.mDatas.addAll(list);
-            if (this.gMi) {
-                this.gMi = false;
-                this.Bs.setData(this.mDatas);
+            if (this.gOh) {
+                this.gOh = false;
+                this.BK.setData(this.mDatas);
             } else {
-                this.Bs.setDataWithPartChange(this.mDatas, size, list.size());
+                this.BK.setDataWithPartChange(this.mDatas, size, list.size());
             }
-            if (list.size() > 0 && this.gsp && z) {
-                bEP();
+            if (list.size() > 0 && this.guq && z) {
+                bGr();
                 if (list.get(0) instanceof i) {
                     i iVar = (i) list.get(0);
                     iVar.setAutoPlay(true);
-                    if (com.baidu.adp.lib.util.j.isMobileNet() && !com.baidu.tieba.video.g.cNK().cNL()) {
+                    if (com.baidu.adp.lib.util.j.isMobileNet() && !com.baidu.tieba.video.g.cPf().cPg()) {
                         iVar.setWaitConfirm(true);
                     } else {
                         iVar.setWaitConfirm(false);
                     }
                 }
             }
-            int i = this.gsq != -1 ? this.gsq : this.gMj;
+            int i = this.gur != -1 ? this.gur : this.gOi;
             if (this.mDatas.size() > i && !z && i != -1 && (this.mDatas.get(i) instanceof i)) {
                 i iVar2 = (i) this.mDatas.get(i);
                 iVar2.setAutoPlay(true);
-                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL()) {
+                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cPf().cPg()) {
                     iVar2.setWaitConfirm(false);
                     return;
                 }
@@ -95,78 +95,78 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
 
     public void l(com.baidu.tieba.frs.aggregation.g gVar) {
         if (gVar != null && !v.isEmpty(this.mDatas) && this.mDatas.get(0) != null) {
-            this.gMi = true;
+            this.gOh = true;
             com.baidu.tieba.frs.aggregation.g gVar2 = (com.baidu.tieba.frs.aggregation.g) this.mDatas.get(0);
-            gVar2.gsw.mcnLeadPage = gVar.gsw.mcnLeadPage;
-            gVar2.gsw.gsH = gVar.gsw.gsH;
+            gVar2.gux.mcnLeadPage = gVar.gux.mcnLeadPage;
+            gVar2.gux.guI = gVar.gux.guI;
         }
     }
 
     public void al(String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
             for (m mVar : this.mDatas) {
-                if (mVar != null && (mVar instanceof com.baidu.tieba.frs.aggregation.g) && ((com.baidu.tieba.frs.aggregation.g) mVar).gsv != null && str.equals(((com.baidu.tieba.frs.aggregation.g) mVar).gsv.userId)) {
-                    ((com.baidu.tieba.frs.aggregation.g) mVar).gsv.hasFocus = z;
+                if (mVar != null && (mVar instanceof com.baidu.tieba.frs.aggregation.g) && ((com.baidu.tieba.frs.aggregation.g) mVar).guw != null && str.equals(((com.baidu.tieba.frs.aggregation.g) mVar).guw.userId)) {
+                    ((com.baidu.tieba.frs.aggregation.g) mVar).guw.hasFocus = z;
                 }
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.Bs != null && this.Bs.getListAdapter() != null) {
-            this.Bs.getListAdapter().notifyDataSetChanged();
+        if (this.BK != null && this.BK.getListAdapter() != null) {
+            this.BK.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.gMf.onDestroy();
-        this.gMg.onDestory();
+        this.gOe.onDestroy();
+        this.gOf.onDestory();
     }
 
-    public boolean kC() {
-        return this.gMf.kC() || this.gMg.kC();
+    public boolean kR() {
+        return this.gOe.kR() || this.gOf.kR();
     }
 
-    public boolean bJG() {
-        return this.gMf.bJG();
+    public boolean bLh() {
+        return this.gOe.bLh();
     }
 
-    public void kA() {
-        this.gMf.kA();
-        this.gMg.kA();
+    public void kP() {
+        this.gOe.kP();
+        this.gOf.kP();
     }
 
-    public void kB() {
-        this.gMf.kB();
-        this.gMg.kB();
+    public void kQ() {
+        this.gOe.kQ();
+        this.gOf.kQ();
     }
 
-    public void bJT() {
-        this.gMf.bJT();
+    public void bLu() {
+        this.gOe.bLu();
     }
 
-    public void bJU() {
-        this.gMf.bJU();
+    public void bLv() {
+        this.gOe.bLv();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.gMf.onConfigurationChanged(configuration);
+        this.gOe.onConfigurationChanged(configuration);
     }
 
-    public boolean sZ(int i) {
-        return this.gMf.sZ(i);
+    public boolean tf(int i) {
+        return this.gOe.tf(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
-    public void sY(int i) {
-        ut(i);
+    public void te(int i) {
+        uz(i);
     }
 
-    public int bEN() {
-        return this.gsq;
+    public int bGp() {
+        return this.gur;
     }
 
-    public void bEO() {
+    public void bGq() {
         if (!v.isEmpty(this.mDatas)) {
             for (m mVar : this.mDatas) {
                 if (mVar instanceof i) {
@@ -180,40 +180,40 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        bEP();
+        bGr();
     }
 
-    private void bEP() {
-        bEO();
-        this.gsq = 0;
-        this.gMj = -1;
-        kA();
+    private void bGr() {
+        bGq();
+        this.gur = 0;
+        this.gOi = -1;
+        kP();
     }
 
-    public void ut(int i) {
-        this.gsq = i;
-        this.gMj = i;
-        if (!v.isEmpty(this.mDatas) && this.Bs != null) {
+    public void uz(int i) {
+        this.gur = i;
+        this.gOi = i;
+        if (!v.isEmpty(this.mDatas) && this.BK != null) {
             for (m mVar : this.mDatas) {
                 if (mVar instanceof i) {
                     ((i) mVar).setAutoPlay(false);
                     ((i) mVar).setWaitConfirm(false);
                 }
             }
-            if (this.gsq < this.mDatas.size() - 1) {
-                int uu = uu(i);
-                int i2 = this.gsq + uu;
-                this.gsq = i2;
+            if (this.gur < this.mDatas.size() - 1) {
+                int uA = uA(i);
+                int i2 = this.gur + uA;
+                this.gur = i2;
                 if (this.mDatas.get(i2) instanceof i) {
                     i iVar = (i) this.mDatas.get(i2);
                     iVar.setAutoPlay(true);
-                    if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL()) {
+                    if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cPf().cPg()) {
                         iVar.setWaitConfirm(false);
                     } else {
                         iVar.setWaitConfirm(true);
                     }
-                    if (this.gMl == null) {
-                        this.gMl = new LinearSmoothScroller(this.cRe.getContext()) { // from class: com.baidu.tieba.frs.videomiddlepage.f.1
+                    if (this.gOk == null) {
+                        this.gOk = new LinearSmoothScroller(this.cVg.getContext()) { // from class: com.baidu.tieba.frs.videomiddlepage.f.1
                             @Override // android.support.v7.widget.LinearSmoothScroller
                             public int calculateDtToFit(int i3, int i4, int i5, int i6, int i7) {
                                 return (((i6 - i5) / 5) + i5) - (((i4 - i3) / 5) + i3);
@@ -230,14 +230,14 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
                             }
                         };
                     }
-                    this.gMl.setTargetPosition(uu + this.Bs.getHeaderViewsCount() + i);
-                    this.Bs.getLayoutManager().startSmoothScroll(this.gMl);
+                    this.gOk.setTargetPosition(uA + this.BK.getHeaderViewsCount() + i);
+                    this.BK.getLayoutManager().startSmoothScroll(this.gOk);
                     notifyDataSetChanged();
                 }
-            } else if (this.gsq == this.mDatas.size() - 1 && (this.mDatas.get(this.gsq) instanceof i)) {
-                i iVar2 = (i) this.mDatas.get(this.gsq);
+            } else if (this.gur == this.mDatas.size() - 1 && (this.mDatas.get(this.gur) instanceof i)) {
+                i iVar2 = (i) this.mDatas.get(this.gur);
                 iVar2.setAutoPlay(true);
-                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL()) {
+                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cPf().cPg()) {
                     iVar2.setWaitConfirm(false);
                 } else {
                     iVar2.setWaitConfirm(true);
@@ -247,7 +247,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         }
     }
 
-    public int uu(int i) {
+    public int uA(int i) {
         int size = this.mDatas.size();
         for (int i2 = i + 1; i2 < size; i2++) {
             if (f(this.mDatas.get(i2))) {
@@ -257,7 +257,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         return 1;
     }
 
-    public boolean uv(int i) {
+    public boolean uB(int i) {
         if (i < 0 || i >= this.mDatas.size()) {
             return false;
         }
@@ -273,8 +273,8 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
             return true;
         }
         if (mVar instanceof com.baidu.afd.d) {
-            com.baidu.afd.e kw = ((com.baidu.afd.d) mVar).kw();
-            if (kw == null || kw.CX) {
+            com.baidu.afd.e kL = ((com.baidu.afd.d) mVar).kL();
+            if (kL == null || kL.Dq) {
                 z = false;
             }
             return z;
@@ -282,22 +282,22 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         return false;
     }
 
-    public void uw(int i) {
-        if (this.gsq != i || this.Dj == null || !this.Dj.isPlaying()) {
-            if (this.gsq != i || this.Dj == null || !bJG()) {
-                this.gsq = i;
-                this.gMj = i;
-                if (!v.isEmpty(this.mDatas) && this.Bs != null) {
+    public void uC(int i) {
+        if (this.gur != i || this.DD == null || !this.DD.isPlaying()) {
+            if (this.gur != i || this.DD == null || !bLh()) {
+                this.gur = i;
+                this.gOi = i;
+                if (!v.isEmpty(this.mDatas) && this.BK != null) {
                     for (m mVar : this.mDatas) {
                         if (mVar instanceof i) {
                             ((i) mVar).setAutoPlay(false);
                             ((i) mVar).setWaitConfirm(false);
                         }
                     }
-                    if (this.gsq <= this.mDatas.size() - 1 && (this.mDatas.get(this.gsq) instanceof i)) {
-                        i iVar = (i) this.mDatas.get(this.gsq);
+                    if (this.gur <= this.mDatas.size() - 1 && (this.mDatas.get(this.gur) instanceof i)) {
+                        i iVar = (i) this.mDatas.get(this.gur);
                         iVar.setAutoPlay(true);
-                        if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL()) {
+                        if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.cPf().cPg()) {
                             iVar.setWaitConfirm(false);
                         } else {
                             iVar.setWaitConfirm(true);
@@ -311,19 +311,23 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
 
     @Override // com.baidu.tieba.lego.card.view.f
     public void a(j jVar) {
-        j jVar2 = this.Dj;
-        this.Dj = jVar;
-        if (jVar2 != null && jVar2 != this.Dj) {
+        j jVar2 = this.DD;
+        this.DD = jVar;
+        if (jVar2 != null && jVar2 != this.DD) {
             jVar2.stopPlay();
         }
     }
 
-    public void ml(boolean z) {
-        this.gMf.ml(z);
+    public a bLw() {
+        return this.gOj;
+    }
+
+    public void mn(boolean z) {
+        this.gOe.mn(z);
     }
 
     @Override // com.baidu.tieba.frs.videomiddlepage.b
-    public com.baidu.afd.videopaster.data.b BB(String str) {
+    public com.baidu.afd.videopaster.data.b BR(String str) {
         int i;
         int i2 = -1;
         if (this.mDatas == null || this.mDatas.isEmpty() || str == null) {
@@ -361,16 +365,16 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
             i2 = i;
         }
         bVar.setVideoId(str);
-        bVar.ax(i6);
-        bVar.aw(i5);
-        bVar.ay(i2);
+        bVar.aA(i6);
+        bVar.az(i5);
+        bVar.aB(i2);
         return bVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.g
     public void a(com.baidu.tieba.card.a aVar) {
         if (aVar instanceof a) {
-            this.gMk = (a) aVar;
+            this.gOj = (a) aVar;
         }
     }
 }

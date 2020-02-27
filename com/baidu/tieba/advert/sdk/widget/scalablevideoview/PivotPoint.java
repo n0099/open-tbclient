@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.widget.scalablevideoview;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public enum PivotPoint {
     LEFT_TOP,
     LEFT_CENTER,

@@ -16,46 +16,46 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private String csS;
-    private final boolean icE = true;
-    private ArrayList<ForumSuggestModel.Forum> icF;
+    private String cwU;
+    private final boolean ieF = true;
+    private ArrayList<ForumSuggestModel.Forum> ieG;
     private final BaseActivity<?> mActivity;
 
     public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
         this.mActivity = baseActivity;
-        this.icF = arrayList;
+        this.ieG = arrayList;
     }
 
     public void ay(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.icF = arrayList;
-        if (this.icF != null) {
+        this.ieG = arrayList;
+        if (this.ieG != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void DW(String str) {
-        this.csS = str;
+    public void Em(String str) {
+        this.cwU = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.icF == null) {
+        if (this.ieG == null) {
             return 0;
         }
-        return this.icF.size();
+        return this.ieG.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: xC */
+    /* renamed from: xI */
     public ForumSuggestModel.Forum getItem(int i) {
         int count = getCount();
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.icF.get(i);
+        return this.ieG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -65,50 +65,50 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0551a c0551a;
+        C0558a c0558a;
         String str;
         if (view == null) {
             view = LayoutInflater.from(this.mActivity.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
-            C0551a c0551a2 = new C0551a();
-            c0551a2.icH = (BarImageView) view.findViewById(R.id.forum_avatar);
-            c0551a2.icH.setGifIconSupport(false);
-            c0551a2.ddX = (TextView) view.findViewById(R.id.name);
-            c0551a2.icI = (TextView) view.findViewById(R.id.forum_member_count);
-            c0551a2.icJ = (TextView) view.findViewById(R.id.forum_thread_count);
-            c0551a2.icK = (TextView) view.findViewById(R.id.slogan);
-            c0551a2.icG = view.findViewById(R.id.offical_icon);
-            view.setTag(c0551a2);
-            c0551a = c0551a2;
+            C0558a c0558a2 = new C0558a();
+            c0558a2.ieI = (BarImageView) view.findViewById(R.id.forum_avatar);
+            c0558a2.ieI.setGifIconSupport(false);
+            c0558a2.dib = (TextView) view.findViewById(R.id.name);
+            c0558a2.ieJ = (TextView) view.findViewById(R.id.forum_member_count);
+            c0558a2.ieK = (TextView) view.findViewById(R.id.forum_thread_count);
+            c0558a2.ieL = (TextView) view.findViewById(R.id.slogan);
+            c0558a2.ieH = view.findViewById(R.id.offical_icon);
+            view.setTag(c0558a2);
+            c0558a = c0558a2;
         } else {
-            c0551a = (C0551a) view.getTag();
+            c0558a = (C0558a) view.getTag();
         }
         ForumSuggestModel.Forum item = getItem(i);
         if (item != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            c0551a.icH.setTag(str2);
-            c0551a.icH.startLoad(str2, 10, false);
-            c0551a.icH.invalidate();
-            if (this.icE) {
+            c0558a.ieI.setTag(str2);
+            c0558a.ieI.startLoad(str2, 10, false);
+            c0558a.ieI.invalidate();
+            if (this.ieF) {
                 str = this.mActivity.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
-            c(c0551a.ddX, str);
-            c0551a.icH.setTag(item.avatar);
-            c0551a.icI.setText(this.mActivity.getPageContext().getString(R.string.attention) + HanziToPinyin.Token.SEPARATOR + xD(item.member_num));
-            c0551a.icJ.setText(this.mActivity.getPageContext().getString(R.string.text_post) + HanziToPinyin.Token.SEPARATOR + xD(item.thread_num));
-            if (this.icE || !TextUtils.isEmpty(item.slogan)) {
-                c0551a.icK.setVisibility(0);
-                c0551a.icK.setText(item.slogan);
+            c(c0558a.dib, str);
+            c0558a.ieI.setTag(item.avatar);
+            c0558a.ieJ.setText(this.mActivity.getPageContext().getString(R.string.attention) + HanziToPinyin.Token.SEPARATOR + xJ(item.member_num));
+            c0558a.ieK.setText(this.mActivity.getPageContext().getString(R.string.text_post) + HanziToPinyin.Token.SEPARATOR + xJ(item.thread_num));
+            if (this.ieF || !TextUtils.isEmpty(item.slogan)) {
+                c0558a.ieL.setVisibility(0);
+                c0558a.ieL.setText(item.slogan);
             } else {
-                c0551a.icK.setVisibility(8);
+                c0558a.ieL.setVisibility(8);
             }
             if (item.is_offical == 1) {
-                c0551a.icG.setVisibility(0);
-                am.setBackgroundResource(c0551a.icG, R.drawable.icon_search_official);
+                c0558a.ieH.setVisibility(0);
+                am.setBackgroundResource(c0558a.ieH, R.drawable.icon_search_official);
             } else {
-                c0551a.icG.setVisibility(8);
+                c0558a.ieH.setVisibility(8);
             }
             this.mActivity.getLayoutMode().setNightMode(skinType == 1);
             this.mActivity.getLayoutMode().onModeChanged(view);
@@ -116,7 +116,7 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public String xD(int i) {
+    public String xJ(int i) {
         if (i >= 100000) {
             return String.valueOf(i / 10000) + this.mActivity.getPageContext().getString(R.string.member_count_unit);
         }
@@ -124,9 +124,9 @@ public class a extends BaseAdapter {
     }
 
     public void c(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.csS)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.cwU)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.csS.toLowerCase();
+            String lowerCase2 = this.cwU.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -134,22 +134,22 @@ public class a extends BaseAdapter {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(am.getColor(R.color.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.csS.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.cwU.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }
 
     /* renamed from: com.baidu.tieba.mainentrance.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    private class C0551a {
-        TextView ddX;
-        View icG;
-        BarImageView icH;
-        TextView icI;
-        TextView icJ;
-        TextView icK;
+    /* loaded from: classes11.dex */
+    private class C0558a {
+        TextView dib;
+        View ieH;
+        BarImageView ieI;
+        TextView ieJ;
+        TextView ieK;
+        TextView ieL;
 
-        private C0551a() {
+        private C0558a() {
         }
     }
 }

@@ -1,20 +1,20 @@
 package com.baidu.rtc.camera.engine.a;
 
 import com.baidu.rtc.camera.engine.model.AspectRatio;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    private static final b aSf = new b();
-    public boolean aRU;
-    public AspectRatio aRV;
-    public float aRW;
-    public int aRX;
-    public int aRY;
-    public int aRZ;
-    public int aSa;
-    public boolean aSb;
-    public boolean aSc;
-    public com.baidu.rtc.camera.engine.b.a aSd;
-    public com.baidu.rtc.camera.engine.b.b aSe;
+    private static final b aWE = new b();
+    public boolean aWA;
+    public boolean aWB;
+    public com.baidu.rtc.camera.engine.b.a aWC;
+    public com.baidu.rtc.camera.engine.b.b aWD;
+    public boolean aWt;
+    public AspectRatio aWu;
+    public float aWv;
+    public int aWw;
+    public int aWx;
+    public int aWy;
+    public int aWz;
     public int cameraId;
     public int orientation;
     public int previewHeight;
@@ -25,29 +25,29 @@ public final class b {
     }
 
     private void reset() {
-        this.aRU = false;
-        this.aRV = AspectRatio.Ratio_16_9;
-        this.aRW = 0.5625f;
-        this.aRX = 30;
-        this.aRY = 0;
-        this.aRZ = 1280;
-        this.aSa = 720;
+        this.aWt = false;
+        this.aWu = AspectRatio.Ratio_16_9;
+        this.aWv = 0.5625f;
+        this.aWw = 30;
+        this.aWx = 0;
+        this.aWy = 1280;
+        this.aWz = 720;
         this.previewWidth = 0;
         this.previewHeight = 0;
         this.orientation = 0;
-        this.aSb = false;
+        this.aWA = false;
         this.cameraId = 1;
-        this.aSc = false;
-        this.aSd = null;
-        this.aSe = null;
+        this.aWB = false;
+        this.aWC = null;
+        this.aWD = null;
     }
 
-    public static b CP() {
-        return aSf;
+    public static b Fl() {
+        return aWE;
     }
 
-    public void bG(boolean z) {
-        this.aSb = z;
+    public void bO(boolean z) {
+        this.aWA = z;
         if (z) {
             this.cameraId = 0;
         } else {

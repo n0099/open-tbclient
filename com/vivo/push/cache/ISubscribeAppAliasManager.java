@@ -1,7 +1,7 @@
 package com.vivo.push.cache;
 
 import com.vivo.push.model.SubscribeAppInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface ISubscribeAppAliasManager {
     boolean delAlias(String str);
 

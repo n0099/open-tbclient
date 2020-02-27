@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import java.util.concurrent.atomic.AtomicInteger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class c implements Handler.Callback {
     final /* synthetic */ b a;
 

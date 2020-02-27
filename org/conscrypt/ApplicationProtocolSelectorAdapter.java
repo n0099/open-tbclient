@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.net.ssl.SSLEngine;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class ApplicationProtocolSelectorAdapter {
     private static final int NO_PROTOCOL_SELECTED = -1;
     private final SSLEngine engine;

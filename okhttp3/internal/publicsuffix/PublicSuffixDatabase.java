@@ -11,7 +11,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PublicSuffixDatabase {
     private static final byte EXCEPTION_MARKER = 33;
     public static final String PUBLIC_SUFFIX_RESOURCE = "publicsuffixes.gz";

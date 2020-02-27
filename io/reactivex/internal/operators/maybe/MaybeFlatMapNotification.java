@@ -7,7 +7,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
     final Callable<? extends o<? extends R>> onCompleteSupplier;
     final h<? super Throwable, ? extends o<? extends R>> onErrorMapper;
@@ -18,7 +18,7 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
         this.source.a(new FlatMapMaybeObserver(mVar, this.onSuccessMapper, this.onErrorMapper, this.onCompleteSupplier));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class FlatMapMaybeObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4375739915521278546L;
         final m<? super R> actual;
@@ -58,7 +58,7 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
             try {
                 ((o) io.reactivex.internal.functions.a.h(this.onSuccessMapper.apply(t), "The onSuccessMapper returned a null MaybeSource")).a(new a());
             } catch (Exception e) {
-                io.reactivex.exceptions.a.I(e);
+                io.reactivex.exceptions.a.H(e);
                 this.actual.onError(e);
             }
         }
@@ -68,7 +68,7 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
             try {
                 ((o) io.reactivex.internal.functions.a.h(this.onErrorMapper.apply(th), "The onErrorMapper returned a null MaybeSource")).a(new a());
             } catch (Exception e) {
-                io.reactivex.exceptions.a.I(e);
+                io.reactivex.exceptions.a.H(e);
                 this.actual.onError(new CompositeException(th, e));
             }
         }
@@ -78,12 +78,12 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
             try {
                 ((o) io.reactivex.internal.functions.a.h(this.onCompleteSupplier.call(), "The onCompleteSupplier returned a null MaybeSource")).a(new a());
             } catch (Exception e) {
-                io.reactivex.exceptions.a.I(e);
+                io.reactivex.exceptions.a.H(e);
                 this.actual.onError(e);
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         final class a implements m<R> {
             a() {
             }

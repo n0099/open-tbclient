@@ -20,52 +20,52 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.BufferedSource;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private final Deque<a> cxc;
-    private final Deque<a> cxd;
+    private final Deque<a> cBa;
+    private final Deque<a> cBb;
     private final ExecutorService executorService;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b {
-        private static d cxg = new d();
+        private static d cBe = new d();
     }
 
     private d() {
-        this.cxc = new ArrayDeque();
-        this.cxd = new ArrayDeque();
+        this.cBa = new ArrayDeque();
+        this.cBb = new ArrayDeque();
         this.executorService = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
-    public static d aro() {
-        return b.cxg;
+    public static d atC() {
+        return b.cBe;
     }
 
     public synchronized void a(@NonNull com.baidu.swan.pms.b.b.a aVar) {
         a aVar2 = new a(aVar);
-        if (this.cxd.size() < 1) {
-            this.cxd.add(aVar2);
+        if (this.cBb.size() < 1) {
+            this.cBb.add(aVar2);
             this.executorService.execute(aVar2);
         } else {
-            this.cxc.add(aVar2);
+            this.cBa.add(aVar2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(@NonNull a aVar) {
-        if (!this.cxd.remove(aVar) && DEBUG) {
+        if (!this.cBb.remove(aVar) && DEBUG) {
             throw new RuntimeException("runningCalls remove fail ");
         }
-        if (this.cxd.size() < 1 && !this.cxc.isEmpty()) {
-            Iterator<a> it = this.cxc.iterator();
+        if (this.cBb.size() < 1 && !this.cBa.isEmpty()) {
+            Iterator<a> it = this.cBa.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 it.remove();
-                this.cxd.add(next);
+                this.cBb.add(next);
                 this.executorService.execute(next);
-                if (this.cxd.size() >= 1) {
+                if (this.cBb.size() >= 1) {
                     break;
                 }
             }
@@ -73,35 +73,35 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public final class a implements Runnable {
-        private File bth;
+        private File bxr;
         @NonNull
-        private com.baidu.swan.pms.b.b.a cxe;
+        private com.baidu.swan.pms.b.b.a cBc;
         public String filePath = "";
 
         a(@NonNull com.baidu.swan.pms.b.b.a aVar) {
-            this.cxe = aVar;
+            this.cBc = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (d.DEBUG) {
-                Log.d("Mini-Pm-Download", "run thread: " + Thread.currentThread().getName() + " md5: " + this.cxe.md5);
+                Log.d("Mini-Pm-Download", "run thread: " + Thread.currentThread().getName() + " md5: " + this.cBc.md5);
             }
             execute();
             d.this.a(this);
         }
 
         private void execute() {
-            com.baidu.swan.pms.b.b bVar = this.cxe.cxb;
+            com.baidu.swan.pms.b.b bVar = this.cBc.cAZ;
             if (!ConnectManager.isNetworkConnected(AppRuntime.getAppContext())) {
                 com.baidu.swan.pms.b.b.b bVar2 = new com.baidu.swan.pms.b.b.b(1003, "无网");
                 if (d.DEBUG) {
                     Log.d("Mini-Pm-Download", bVar2.toString());
                 }
                 bVar.a(bVar2);
-            } else if (!arp()) {
+            } else if (!atD()) {
                 com.baidu.swan.pms.b.b.b bVar3 = new com.baidu.swan.pms.b.b.b(1004, "创建本地文件失败");
                 if (d.DEBUG) {
                     Log.d("Mini-Pm-Download", bVar3.toString());
@@ -109,7 +109,7 @@ public class d {
                 bVar.a(bVar3);
             } else {
                 try {
-                    Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(this.cxe.downloadUrl).build().executeSync();
+                    Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(this.cBc.downloadUrl).build().executeSync();
                     com.baidu.swan.pms.b.b.b f = f(executeSync, executeSync.code());
                     f.filePath = this.filePath;
                     if (d.DEBUG) {
@@ -136,13 +136,13 @@ public class d {
             }
         }
 
-        private boolean arp() {
+        private boolean atD() {
             if (TextUtils.isEmpty(this.filePath)) {
-                this.bth = com.baidu.swan.pms.f.c.bX(c.RA().getPath(), this.cxe.md5);
-                if (this.bth == null) {
+                this.bxr = com.baidu.swan.pms.f.c.cg(c.TO().getPath(), this.cBc.md5);
+                if (this.bxr == null) {
                     return false;
                 }
-                this.filePath = this.bth.getAbsolutePath();
+                this.filePath = this.bxr.getAbsolutePath();
                 return true;
             }
             return true;
@@ -163,15 +163,15 @@ public class d {
                 return new com.baidu.swan.pms.b.b.b(1005, "response body is null");
             }
             long contentLength = body.contentLength();
-            if (contentLength <= 0 || contentLength == this.cxe.size) {
-                if (c.p(c.RA().getPath(), this.cxe.size)) {
+            if (contentLength <= 0 || contentLength == this.cBc.size) {
+                if (c.p(c.TO().getPath(), this.cBc.size)) {
                     BufferedSource source = body.source();
                     try {
                         if (source == null) {
                             return new com.baidu.swan.pms.b.b.b(1005, "body source is null");
                         }
                         try {
-                            if (!c.a(Channels.newInputStream(source), new FileOutputStream(this.bth), contentLength)) {
+                            if (!c.a(Channels.newInputStream(source), new FileOutputStream(this.bxr), contentLength)) {
                                 bVar = new com.baidu.swan.pms.b.b.b(1008, "写入磁盘出错");
                                 if (source.isOpen()) {
                                     try {
@@ -180,7 +180,7 @@ public class d {
                                         e.printStackTrace();
                                     }
                                 }
-                            } else if (c.d(this.filePath, this.cxe.size, this.cxe.md5)) {
+                            } else if (c.d(this.filePath, this.cBc.size, this.cBc.md5)) {
                                 bVar = new com.baidu.swan.pms.b.b.b(0, "成功");
                                 if (source.isOpen()) {
                                     try {

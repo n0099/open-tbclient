@@ -9,12 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
 import org.apache.http.HttpHost;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class d {
-    private static final Uri lIu = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
+    private static final Uri lJb = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
 
     @Nullable
-    public static URL A(@Nullable Uri uri) {
+    public static URL B(@Nullable Uri uri) {
         if (uri == null) {
             return null;
         }
@@ -25,7 +25,7 @@ public class d {
         }
     }
 
-    public static boolean B(@Nullable Uri uri) {
+    public static boolean C(@Nullable Uri uri) {
         String schemeOrNull = getSchemeOrNull(uri);
         return "https".equals(schemeOrNull) || HttpHost.DEFAULT_SCHEME_NAME.equals(schemeOrNull);
     }
@@ -38,28 +38,28 @@ public class d {
         return "content".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean C(Uri uri) {
-        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(lIu.getPath());
+    public static boolean D(Uri uri) {
+        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(lJb.getPath());
     }
 
-    public static boolean D(Uri uri) {
+    public static boolean E(Uri uri) {
         String uri2 = uri.toString();
         return uri2.startsWith(MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()) || uri2.startsWith(MediaStore.Images.Media.INTERNAL_CONTENT_URI.toString());
     }
 
-    public static boolean E(@Nullable Uri uri) {
+    public static boolean F(@Nullable Uri uri) {
         return "asset".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean F(@Nullable Uri uri) {
+    public static boolean G(@Nullable Uri uri) {
         return "res".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean G(@Nullable Uri uri) {
+    public static boolean H(@Nullable Uri uri) {
         return "android.resource".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean H(@Nullable Uri uri) {
+    public static boolean I(@Nullable Uri uri) {
         return "data".equals(getSchemeOrNull(uri));
     }
 
@@ -116,7 +116,7 @@ public class d {
         }
     }
 
-    public static Uri Hq(int i) {
+    public static Uri Hv(int i) {
         return new Uri.Builder().scheme("res").path(String.valueOf(i)).build();
     }
 }

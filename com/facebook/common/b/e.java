@@ -7,7 +7,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class e extends AbstractExecutorService implements d {
     private final Handler mHandler;
 
@@ -116,7 +116,7 @@ public class e extends AbstractExecutorService implements d {
         throw new UnsupportedOperationException();
     }
 
-    public boolean djo() {
+    public boolean dkB() {
         return Thread.currentThread() == this.mHandler.getLooper().getThread();
     }
 }

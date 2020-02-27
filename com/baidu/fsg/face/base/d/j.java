@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j {
     public static final int a = -1728053248;
     private static String b;
@@ -129,7 +129,7 @@ public class j {
         viewGroup.addView(this.g);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         private static final String a = "status_bar_height";
         private static final String b = "navigation_bar_height";

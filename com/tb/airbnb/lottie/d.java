@@ -10,64 +10,59 @@ import com.tb.airbnb.lottie.model.layer.Layer;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     private Rect bounds;
-    private Map<String, List<Layer>> dW;
-    private Map<String, com.tb.airbnb.lottie.model.c> dX;
-    private SparseArrayCompat<com.tb.airbnb.lottie.model.d> dY;
-    private LongSparseArray<Layer> dZ;
-    private List<Layer> eb;
-    private float ec;
+    private Map<String, List<Layer>> dX;
+    private Map<String, com.tb.airbnb.lottie.model.c> dY;
+    private SparseArrayCompat<com.tb.airbnb.lottie.model.d> dZ;
+    private LongSparseArray<Layer> eb;
+    private List<Layer> ec;
     private float ed;
+    private float ee;
     private float frameRate;
     private Map<String, g> images;
-    private final m noJ = new m();
-    private final HashSet<String> dV = new HashSet<>();
+    private final m npl = new m();
+    private final HashSet<String> dW = new HashSet<>();
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
         this.bounds = rect;
-        this.ec = f;
-        this.ed = f2;
+        this.ed = f;
+        this.ee = f2;
         this.frameRate = f3;
-        this.eb = list;
-        this.dZ = longSparseArray;
-        this.dW = map;
+        this.ec = list;
+        this.eb = longSparseArray;
+        this.dX = map;
         this.images = map2;
-        this.dY = sparseArrayCompat;
-        this.dX = map3;
+        this.dZ = sparseArrayCompat;
+        this.dY = map3;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void G(String str) {
         Log.w("LOTTIE", str);
-        this.dV.add(str);
+        this.dW.add(str);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.noJ.setEnabled(z);
+        this.npl.setEnabled(z);
     }
 
     public m getPerformanceTracker() {
-        return this.noJ;
+        return this.npl;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer hc(long j) {
-        return this.dZ.get(j);
+    public Layer ha(long j) {
+        return this.eb.get(j);
     }
 
-    public Rect be() {
+    public Rect bf() {
         return this.bounds;
     }
 
-    public float bf() {
-        return (bn() / this.frameRate) * 1000.0f;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float bg() {
-        return this.ec;
+        return (bo() / this.frameRate) * 1000.0f;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -75,39 +70,44 @@ public class d {
         return this.ed;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float bi() {
+        return this.ee;
+    }
+
+    public float bj() {
         return this.frameRate;
     }
 
-    public List<Layer> bj() {
-        return this.eb;
+    public List<Layer> bk() {
+        return this.ec;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public List<Layer> H(String str) {
-        return this.dW.get(str);
+        return this.dX.get(str);
     }
 
-    public SparseArrayCompat<com.tb.airbnb.lottie.model.d> bk() {
+    public SparseArrayCompat<com.tb.airbnb.lottie.model.d> bl() {
+        return this.dZ;
+    }
+
+    public Map<String, com.tb.airbnb.lottie.model.c> bm() {
         return this.dY;
     }
 
-    public Map<String, com.tb.airbnb.lottie.model.c> bl() {
-        return this.dX;
-    }
-
-    public Map<String, g> bm() {
+    public Map<String, g> bn() {
         return this.images;
     }
 
-    public float bn() {
-        return this.ed - this.ec;
+    public float bo() {
+        return this.ee - this.ed;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.eb) {
+        for (Layer layer : this.ec) {
             sb.append(layer.toString("\t"));
         }
         return sb.toString();

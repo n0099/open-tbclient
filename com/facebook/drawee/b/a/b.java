@@ -1,5 +1,5 @@
 package com.facebook.drawee.b.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface b {
-    void fh(long j);
+    void ff(long j);
 }

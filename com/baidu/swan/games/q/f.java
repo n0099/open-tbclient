@@ -2,44 +2,44 @@ package com.baidu.swan.games.q;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
-    private static volatile f cmP;
-    private boolean cmQ;
-    private String cmR;
-    private String cmS;
+    private static volatile f cqR;
+    private boolean cqS;
+    private String cqT;
+    private String cqU;
 
-    public static f amM() {
-        if (cmP == null) {
+    public static f aoZ() {
+        if (cqR == null) {
             synchronized (f.class) {
-                if (cmP == null) {
-                    cmP = new f();
+                if (cqR == null) {
+                    cqR = new f();
                 }
             }
         }
-        return cmP;
+        return cqR;
     }
 
     private f() {
     }
 
-    public boolean amN() {
-        return this.cmQ;
+    public boolean apa() {
+        return this.cqS;
     }
 
-    public void ey(boolean z) {
-        this.cmQ = z;
+    public void eF(boolean z) {
+        this.cqS = z;
     }
 
-    public String amO() {
-        return TextUtils.isEmpty(this.cmS) ? "" : this.cmS + File.separator + "index.js";
+    public String apb() {
+        return TextUtils.isEmpty(this.cqU) ? "" : this.cqU + File.separator + "index.js";
     }
 
-    public void pe(String str) {
-        this.cmR = str;
+    public void pt(String str) {
+        this.cqT = str;
     }
 
-    public void pf(String str) {
-        this.cmS = str;
+    public void pu(String str) {
+        this.cqU = str;
     }
 }

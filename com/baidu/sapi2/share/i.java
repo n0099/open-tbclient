@@ -12,7 +12,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i implements Runnable {
     final /* synthetic */ List a;
     final /* synthetic */ boolean b;

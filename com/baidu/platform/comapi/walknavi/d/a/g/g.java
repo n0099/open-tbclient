@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static NetworkInfo a(Context context) {
         ConnectivityManager connectivityManager;

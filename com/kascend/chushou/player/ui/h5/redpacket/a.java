@@ -9,15 +9,15 @@ import java.util.List;
 import tv.chushou.basis.rxjava.RxExecutor;
 import tv.chushou.basis.rxjava.thread.EventThread;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     private final List<e> a = new ArrayList();
     private io.reactivex.disposables.a c = new io.reactivex.disposables.a();
-    private InterfaceC0698a ncg;
+    private InterfaceC0706a ncJ;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.redpacket.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0698a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0706a {
         void D();
 
         void a(int i);
@@ -25,9 +25,9 @@ public class a {
 
     public a(Context context) {
         try {
-            this.ncg = (InterfaceC0698a) context;
+            this.ncJ = (InterfaceC0706a) context;
         } catch (Exception e) {
-            this.ncg = null;
+            this.ncJ = null;
         }
     }
 
@@ -48,7 +48,7 @@ public class a {
         if (!h.isEmpty(str)) {
             for (e eVar : this.a) {
                 if (str.equals(eVar.a())) {
-                    eVar.MR(2);
+                    eVar.MU(2);
                     return;
                 }
             }
@@ -63,8 +63,8 @@ public class a {
                 it.remove();
             }
         }
-        if (this.ncg != null) {
-            this.ncg.a(this.a.size());
+        if (this.ncJ != null) {
+            this.ncJ.a(this.a.size());
         }
     }
 
@@ -90,26 +90,26 @@ public class a {
         RxExecutor.post(this.c, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.redpacket.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ncg != null) {
-                    a.this.ncg.a(a.this.a.size());
+                if (a.this.ncJ != null) {
+                    a.this.ncJ.a(a.this.a.size());
                 }
             }
         });
-        if (com.kascend.chushou.d.h.dAM().q() && this.a.size() > 0 && this.ncg != null) {
-            this.ncg.D();
+        if (com.kascend.chushou.d.h.dBS().q() && this.a.size() > 0 && this.ncJ != null) {
+            this.ncJ.D();
         }
     }
 
-    public H5Positon MQ(int i) {
+    public H5Positon MT(int i) {
         if (this.a.size() == 0) {
             return null;
         }
         e eVar = this.a.get(0);
         if (i == 2) {
-            return eVar.dCU();
+            return eVar.dEa();
         }
         if (i == 1) {
-            return eVar.dCT();
+            return eVar.dDZ();
         }
         return null;
     }

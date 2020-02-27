@@ -1,7 +1,7 @@
 package com.faceunity.gles;
 
 import android.view.Surface;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e extends b {
     private boolean mReleaseSurface;
     private Surface mSurface;
@@ -27,7 +27,7 @@ public class e extends b {
         if (this.mSurface == null) {
             throw new RuntimeException("not yet implemented for SurfaceTexture");
         }
-        this.lWY = aVar;
+        this.lXE = aVar;
         createWindowSurface(this.mSurface);
     }
 }

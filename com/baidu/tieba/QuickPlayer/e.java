@@ -16,96 +16,96 @@ import com.baidu.tieba.QuickPlayer.d;
 import com.baidu.tieba.play.g;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class e implements d.b, com.baidu.tieba.play.g {
     private static final String TAG = e.class.getSimpleName();
-    private g.b dIa;
-    private IQuickMediaPlayer dQV;
-    private g.a dQW;
-    private g.f dQX;
-    private g.c dQY;
-    private g.e dQZ;
-    private g.InterfaceC0582g dRa;
-    private g.i dRb;
-    private g.d dRc;
-    private g.h dRd;
-    private b dRe;
+    private g.b dMf;
+    private IQuickMediaPlayer dVa;
+    private g.a dVb;
+    private g.f dVc;
+    private g.c dVd;
+    private g.e dVe;
+    private g.InterfaceC0590g dVf;
+    private g.i dVg;
+    private g.d dVh;
+    private g.h dVi;
+    private b dVj;
     private boolean mPlayerReuseEnable;
-    private boolean dRf = false;
-    private boolean dRg = true;
+    private boolean dVk = false;
+    private boolean dVl = true;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.QuickPlayer.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
                 if (message.obj instanceof b) {
-                    d.aUg().a(e.this);
+                    d.aWw().a(e.this);
                     e.this.a((b) message.obj);
                 }
             } else if (message.what == 2) {
-                d.aUg().b(e.this);
-                e.this.a(e.this.dQV);
-                e.this.dQV = null;
+                d.aWw().b(e.this);
+                e.this.a(e.this.dVa);
+                e.this.dVa = null;
             } else if (message.what == 3) {
-                e.this.b(e.this.dQV);
+                e.this.b(e.this.dVa);
             } else if (message.what == 4) {
-                e.this.c(e.this.dQV);
+                e.this.c(e.this.dVa);
             } else if (message.what == 5) {
-                e.this.nF(message.arg1);
+                e.this.nW(message.arg1);
             } else if (message.what == 10) {
                 if (message.obj instanceof b) {
                     e.this.a((b) message.obj, message.arg1);
                 }
             } else if (message.what == 7) {
-                e.this.aUn();
+                e.this.aWD();
             }
             return true;
         }
     };
-    private Handler.Callback dRh = new Handler.Callback() { // from class: com.baidu.tieba.QuickPlayer.e.3
+    private Handler.Callback dVm = new Handler.Callback() { // from class: com.baidu.tieba.QuickPlayer.e.3
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 6) {
-                if (e.this.dQX != null) {
-                    e.this.dQX.onPrepared(e.this);
+                if (e.this.dVc != null) {
+                    e.this.dVc.onPrepared(e.this);
                 }
             } else if (message.what == 7) {
-                if (e.this.dQW != null) {
-                    e.this.dQW.onCompletion(e.this);
+                if (e.this.dVb != null) {
+                    e.this.dVb.onCompletion(e.this);
                 }
             } else if (message.what == 8) {
                 if (message.obj != null && (message.obj instanceof com.baidu.tieba.play.b.d)) {
                     com.baidu.tieba.play.b.d dVar = (com.baidu.tieba.play.b.d) message.obj;
-                    if (e.this.dIa != null) {
-                        e.this.dIa.onError(e.this, dVar.what, dVar.jyk);
+                    if (e.this.dMf != null) {
+                        e.this.dMf.onError(e.this, dVar.what, dVar.jza);
                     }
-                    if (e.this.dQY != null) {
-                        e.this.dQY.a(e.this, dVar.jyj, dVar.what, dVar.jyk);
+                    if (e.this.dVd != null) {
+                        e.this.dVd.a(e.this, dVar.jyZ, dVar.what, dVar.jza);
                     }
                 }
             } else if (message.what == 9) {
-                if (e.this.dQZ != null) {
-                    e.this.dQZ.onInfo(e.this, message.arg1, message.arg2);
+                if (e.this.dVe != null) {
+                    e.this.dVe.onInfo(e.this, message.arg1, message.arg2);
                 }
             } else if (message.what == 12) {
-                if (e.this.dRa != null) {
-                    e.this.dRa.b(e.this);
+                if (e.this.dVf != null) {
+                    e.this.dVf.b(e.this);
                 }
             } else if (message.what == 13) {
-                if (e.this.dRb != null && ((message.obj instanceof String) || message.obj == null)) {
-                    e.this.dRb.onSubError(message.arg1, message.arg2, (String) message.obj);
+                if (e.this.dVg != null && ((message.obj instanceof String) || message.obj == null)) {
+                    e.this.dVg.onSubError(message.arg1, message.arg2, (String) message.obj);
                 }
             } else if (message.what == 14) {
-                if (e.this.dRc != null && (message.obj instanceof String)) {
-                    e.this.dRc.onHandleOppoError((String) message.obj);
+                if (e.this.dVh != null && (message.obj instanceof String)) {
+                    e.this.dVh.onHandleOppoError((String) message.obj);
                 }
-            } else if (message.what == 15 && e.this.dRd != null && (message.obj instanceof Long)) {
-                e.this.dRd.onSpeed(((Long) message.obj).longValue());
+            } else if (message.what == 15 && e.this.dVi != null && (message.obj instanceof Long)) {
+                e.this.dVi.onSpeed(((Long) message.obj).longValue());
             }
             return true;
         }
     };
-    private Handler mHandler = new Handler(c.aUf().getLooper(), this.mHandlerCallback);
-    private Handler mMainThreadHandler = new Handler(Looper.getMainLooper(), this.dRh);
+    private Handler mHandler = new Handler(c.aWv().getLooper(), this.mHandlerCallback);
+    private Handler mMainThreadHandler = new Handler(Looper.getMainLooper(), this.dVm);
 
     @Override // com.baidu.tieba.play.g
     public void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, String str, boolean z) {
@@ -124,13 +124,13 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar) {
-        this.dRe = bVar;
+        this.dVj = bVar;
         try {
-            this.dQV = d.aUg().createPlayer();
-            if (this.dQV != null) {
-                aUl();
+            this.dVa = d.aWw().createPlayer();
+            if (this.dVa != null) {
+                aWB();
             } else {
-                aUm();
+                aWC();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,17 +138,17 @@ public class e implements d.b, com.baidu.tieba.play.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUl() throws RemoteException {
-        Map<String, String> aJF;
-        if (this.dQV != null) {
-            if (!StringUtils.isNull(com.baidu.tbadk.coreExtra.model.f.aJE()) && (aJF = com.baidu.tbadk.coreExtra.model.f.aJF()) != null) {
-                for (Map.Entry<String, String> entry : aJF.entrySet()) {
-                    this.dQV.setDebugParams(entry.getKey(), entry.getValue());
+    public void aWB() throws RemoteException {
+        Map<String, String> aLZ;
+        if (this.dVa != null) {
+            if (!StringUtils.isNull(com.baidu.tbadk.coreExtra.model.f.aLY()) && (aLZ = com.baidu.tbadk.coreExtra.model.f.aLZ()) != null) {
+                for (Map.Entry<String, String> entry : aLZ.entrySet()) {
+                    this.dVa.setDebugParams(entry.getKey(), entry.getValue());
                 }
             }
-            this.dQV.forceUseSystemMediaPlayer((CustomPlayerSwitch.getSwitchStatus() == 0) | this.dRf);
-            this.dQV.setListener(new PlayerListener(this.mMainThreadHandler));
-            this.dQV.openVideo(this.dRe.getUri(), new Surface(this.dRe.getSurfaceTexture()), this.dRe.getHost(), this.mPlayerReuseEnable);
+            this.dVa.forceUseSystemMediaPlayer((CustomPlayerSwitch.getSwitchStatus() == 0) | this.dVk);
+            this.dVa.setListener(new PlayerListener(this.mMainThreadHandler));
+            this.dVa.openVideo(this.dVj.getUri(), new Surface(this.dVj.getSurfaceTexture()), this.dVj.getHost(), this.mPlayerReuseEnable);
         }
     }
 
@@ -170,13 +170,13 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, int i) {
-        this.dRe = bVar;
+        this.dVj = bVar;
         try {
-            this.dQV = d.aUg().createPlayer();
-            if (this.dQV != null) {
-                aUl();
+            this.dVa = d.aWw().createPlayer();
+            if (this.dVa != null) {
+                aWB();
             } else {
-                aUm();
+                aWC();
             }
             if (i == 3) {
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(7), 1000L);
@@ -188,69 +188,69 @@ public class e implements d.b, com.baidu.tieba.play.g {
         }
     }
 
-    private void aUm() {
-        d.aUg().a(new d.a() { // from class: com.baidu.tieba.QuickPlayer.e.2
+    private void aWC() {
+        d.aWw().a(new d.a() { // from class: com.baidu.tieba.QuickPlayer.e.2
             @Override // com.baidu.tieba.QuickPlayer.d.a
             public void a(IQuickMediaPlayerService iQuickMediaPlayerService) {
                 try {
-                    e.this.dQV = iQuickMediaPlayerService.createPlayer();
-                    e.this.aUl();
+                    e.this.dVa = iQuickMediaPlayerService.createPlayer();
+                    e.this.aWB();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                d.aUg().a((d.a) null);
+                d.aWw().a((d.a) null);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUn() {
-        nF(getDuration());
+    public void aWD() {
+        nW(getDuration());
     }
 
     @Override // com.baidu.tieba.play.g
     public void setOnPreparedListener(g.f fVar) {
-        this.dQX = fVar;
+        this.dVc = fVar;
     }
 
     @Override // com.baidu.tieba.play.g
     public void setOnCompletionListener(g.a aVar) {
-        this.dQW = aVar;
+        this.dVb = aVar;
     }
 
     @Override // com.baidu.tieba.play.g
     public void setOnErrorListener(g.b bVar) {
-        this.dIa = bVar;
+        this.dMf = bVar;
     }
 
     @Override // com.baidu.tieba.play.g
     public void a(g.c cVar) {
-        this.dQY = cVar;
+        this.dVd = cVar;
     }
 
     @Override // com.baidu.tieba.play.g
     public void a(g.e eVar) {
-        this.dQZ = eVar;
+        this.dVe = eVar;
     }
 
     @Override // com.baidu.tieba.play.g
-    public void setOnSeekCompleteListener(g.InterfaceC0582g interfaceC0582g) {
-        this.dRa = interfaceC0582g;
+    public void setOnSeekCompleteListener(g.InterfaceC0590g interfaceC0590g) {
+        this.dVf = interfaceC0590g;
     }
 
     @Override // com.baidu.tieba.play.g
     public void a(g.i iVar) {
-        this.dRb = iVar;
+        this.dVg = iVar;
     }
 
     @Override // com.baidu.tieba.play.g
     public void a(g.d dVar) {
-        this.dRc = dVar;
+        this.dVh = dVar;
     }
 
     @Override // com.baidu.tieba.play.g
     public void a(g.h hVar) {
-        this.dRd = hVar;
+        this.dVi = hVar;
     }
 
     @Override // com.baidu.tieba.play.g
@@ -295,9 +295,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public int getDuration() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.getDuration();
+                return this.dVa.getDuration();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -307,9 +307,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public int getCurrentPosition() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.getCurrentPosition();
+                return this.dVa.getCurrentPosition();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -318,10 +318,10 @@ public class e implements d.b, com.baidu.tieba.play.g {
     }
 
     @Override // com.baidu.tieba.play.g
-    public int aUo() {
-        if (this.dQV != null) {
+    public int aWE() {
+        if (this.dVa != null) {
             try {
-                return this.dQV.getCachedPostion();
+                return this.dVa.getCachedPostion();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -331,9 +331,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public int getBitRate() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.getBitRate();
+                return this.dVa.getBitRate();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -343,9 +343,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public int getCachedSize() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.getCachedSize();
+                return this.dVa.getCachedSize();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -355,9 +355,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public int getVideoWidth() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.getVideoWidth();
+                return this.dVa.getVideoWidth();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -367,9 +367,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public int getVideoHeight() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.getVideoHeight();
+                return this.dVa.getVideoHeight();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -385,10 +385,10 @@ public class e implements d.b, com.baidu.tieba.play.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nF(int i) {
-        if (this.dQV != null) {
+    public void nW(int i) {
+        if (this.dVa != null) {
             try {
-                this.dQV.seekTo(i);
+                this.dVa.seekTo(i);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -397,9 +397,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public boolean isPlaying() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.isPlaying();
+                return this.dVa.isPlaying();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -409,9 +409,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public boolean isPlayerReuse() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.isPlayerReuse();
+                return this.dVa.isPlayerReuse();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -433,10 +433,10 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public void setVolume(float f, float f2) {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                this.dQV.setVolume(f, f2);
-                this.dRg = f == 0.0f && f2 == 0.0f;
+                this.dVa.setVolume(f, f2);
+                this.dVl = f == 0.0f && f2 == 0.0f;
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -444,15 +444,15 @@ public class e implements d.b, com.baidu.tieba.play.g {
     }
 
     @Override // com.baidu.tieba.play.g
-    public boolean aUp() {
-        return this.dRg;
+    public boolean aWF() {
+        return this.dVl;
     }
 
     @Override // com.baidu.tieba.play.g
     public void setLooping(boolean z) {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                this.dQV.setLooping(z);
+                this.dVa.setLooping(z);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -461,9 +461,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public void setSurface(SurfaceTexture surfaceTexture) {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                this.dQV.setSurface(new Surface(surfaceTexture));
+                this.dVa.setSurface(new Surface(surfaceTexture));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -472,9 +472,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public boolean isExistInRemote() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.isExistInRemote();
+                return this.dVa.isExistInRemote();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -494,9 +494,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public void forceUseSystemMediaPlayer(boolean z) {
-        this.dRf = z;
+        this.dVk = z;
         try {
-            this.dQV.forceUseSystemMediaPlayer(z);
+            this.dVa.forceUseSystemMediaPlayer(z);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -504,9 +504,9 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     @Override // com.baidu.tieba.play.g
     public int getPlayerType() {
-        if (this.dQV != null) {
+        if (this.dVa != null) {
             try {
-                return this.dQV.isIjkPlayer() ? -200 : -100;
+                return this.dVa.isIjkPlayer() ? -200 : -100;
             } catch (Exception e) {
                 e.printStackTrace();
                 return -300;
@@ -516,15 +516,15 @@ public class e implements d.b, com.baidu.tieba.play.g {
     }
 
     @Override // com.baidu.tieba.QuickPlayer.d.b
-    public void aUj() {
-        if (this.dQY != null) {
-            this.dQY.a(this, -300, -14399, -14399);
+    public void aWz() {
+        if (this.dVd != null) {
+            this.dVd.a(this, -300, -14399, -14399);
             TiebaStatic.log(new an("c12197"));
         }
     }
 
     @Override // com.baidu.tieba.play.g
-    public void aUq() {
+    public void aWG() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }

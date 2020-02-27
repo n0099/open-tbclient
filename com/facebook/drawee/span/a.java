@@ -1,5 +1,5 @@
 package com.facebook.drawee.span;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a extends com.facebook.e.a.a.a {
     private final com.facebook.drawee.view.b mDraweeHolder;
 
@@ -16,7 +16,7 @@ public class a extends com.facebook.e.a.a.a {
         this.mDraweeHolder.onDetach();
     }
 
-    public com.facebook.drawee.view.b dlT() {
+    public com.facebook.drawee.view.b dnf() {
         return this.mDraweeHolder;
     }
 }

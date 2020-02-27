@@ -3,34 +3,34 @@ package com.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.o;
 import com.airbnb.lottie.model.a.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g implements b {
-    private final com.airbnb.lottie.model.a.b iB;
-    private final com.airbnb.lottie.model.a.b iC;
-    private final l iD;
+    private final com.airbnb.lottie.model.a.b iF;
+    private final com.airbnb.lottie.model.a.b iG;
+    private final l iH;
     private final String name;
 
     public g(String str, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.iB = bVar;
-        this.iC = bVar2;
-        this.iD = lVar;
+        this.iF = bVar;
+        this.iG = bVar2;
+        this.iH = lVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.airbnb.lottie.model.a.b cT() {
-        return this.iB;
-    }
-
     public com.airbnb.lottie.model.a.b cU() {
-        return this.iC;
+        return this.iF;
     }
 
-    public l cV() {
-        return this.iD;
+    public com.airbnb.lottie.model.a.b cV() {
+        return this.iG;
+    }
+
+    public l cW() {
+        return this.iH;
     }
 
     @Override // com.airbnb.lottie.model.content.b

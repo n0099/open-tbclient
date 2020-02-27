@@ -3,23 +3,23 @@ package com.facebook.imagepipeline.c;
 import android.app.ActivityManager;
 import android.os.Build;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class i implements com.facebook.common.internal.j<q> {
-    private final ActivityManager jAN;
+    private final ActivityManager jBD;
 
     public i(ActivityManager activityManager) {
-        this.jAN = activityManager;
+        this.jBD = activityManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: czy */
+    /* renamed from: cAT */
     public q get() {
-        return new q(czz(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        return new q(cAU(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
-    private int czz() {
-        int min = Math.min(this.jAN.getMemoryClass() * 1048576, Integer.MAX_VALUE);
+    private int cAU() {
+        int min = Math.min(this.jBD.getMemoryClass() * 1048576, Integer.MAX_VALUE);
         if (min < 33554432) {
             return 4194304;
         }

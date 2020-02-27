@@ -8,7 +8,7 @@ import com.baidu.swan.bdprivate.a.aa;
 import com.baidu.swan.bdprivate.a.l;
 import com.baidu.swan.bdprivate.a.z;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
     void a(Activity activity, String str, String str2, aa aaVar);
 
@@ -20,9 +20,9 @@ public interface a {
 
     void b(c cVar);
 
-    String cX(Context context);
+    String db(Context context);
 
-    z da(Context context);
+    z de(Context context);
 
     String getBduss(Context context);
 

@@ -1,11 +1,19 @@
 package com.baidu.tieba.pb.pb.a;
-/* loaded from: classes7.dex */
-public interface b extends a {
-    boolean cjV();
 
-    void pause();
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tieba.R;
+/* loaded from: classes9.dex */
+public class b extends v.a {
+    public ImageView mImageView;
+    public TextView mTextView;
 
-    void release();
-
-    void resume();
+    public b(View view, Context context) {
+        super(view);
+        this.mTextView = (TextView) view.findViewById(R.id.no_data_text);
+        this.mImageView = (ImageView) view.findViewById(R.id.no_data_image);
+    }
 }

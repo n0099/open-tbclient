@@ -19,7 +19,7 @@ import android.util.Log;
 import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WrappedDrawableApi21 extends WrappedDrawableApi19 {
     private static final String TAG = "WrappedDrawableApi21";
     private static Method sIsProjectedDrawableMethod;
@@ -119,7 +119,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi19 {
         return new DrawableWrapperStateLollipop(this.mState, null);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class DrawableWrapperStateLollipop extends WrappedDrawableApi14.DrawableWrapperState {
         DrawableWrapperStateLollipop(@Nullable WrappedDrawableApi14.DrawableWrapperState drawableWrapperState, @Nullable Resources resources) {
             super(drawableWrapperState, resources);

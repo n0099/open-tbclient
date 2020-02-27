@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     private static final String KEY_COOKIE = "Cookie";
     private Comparator<Map.Entry<String, Object>> mComparator;
@@ -23,7 +23,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     private String mUserAgent;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum SORT {
         ASCEND,
         DESCEND,
@@ -204,7 +204,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ParamsComparator implements Comparator<Map.Entry<String, Object>> {
         private SORT mSort;
 

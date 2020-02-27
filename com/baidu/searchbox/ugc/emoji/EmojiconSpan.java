@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.style.DynamicDrawableSpan;
 import android.util.Log;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 class EmojiconSpan extends DynamicDrawableSpan {
     private final Context mContext;
     private Drawable mDrawable;

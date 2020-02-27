@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class w {
     private int B;
     long a = 0;
@@ -42,7 +42,7 @@ public class w {
     private static w A = null;
     private static long C = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private class a extends com.baidu.location.d.e {
         boolean a = false;
         int b = 0;

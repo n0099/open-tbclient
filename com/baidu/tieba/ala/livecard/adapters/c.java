@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.card.x;
 import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends h<bj, com.baidu.tieba.ala.livecard.a.a> implements x {
-    private com.baidu.tieba.ala.livecard.b.b eJb;
-    private z<bj> eJc;
+    private com.baidu.tieba.ala.livecard.b.b eMV;
+    private z<bj> eMW;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.eJc = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.eMW = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
@@ -38,26 +38,26 @@ public class c extends h<bj, com.baidu.tieba.ala.livecard.a.a> implements x {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Z */
+    /* renamed from: ab */
     public com.baidu.tieba.ala.livecard.a.a b(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.eJb = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.eJb.m(this.mPageId);
-        this.eJb.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.eJb);
+        this.eMV = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.eMV.m(this.mPageId);
+        this.eMV.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.eMV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bj bjVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.eJm.a(bjVar);
-        aVar.eJm.setForumName(this.mForumName);
-        aVar.eJm.c(this.eJc);
+        aVar.eNg.a(bjVar);
+        aVar.eNg.setForumName(this.mForumName);
+        aVar.eNg.c(this.eMW);
         if (bjVar != null) {
-            bjVar.aBh();
+            bjVar.aDu();
         }
         return aVar.getView();
     }
@@ -68,6 +68,6 @@ public class c extends h<bj, com.baidu.tieba.ala.livecard.a.a> implements x {
     }
 
     @Override // com.baidu.tieba.card.x
-    public void po(int i) {
+    public void pz(int i) {
     }
 }

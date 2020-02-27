@@ -3,18 +3,18 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableRepeatUntil<T> extends a<T, T> {
-    final io.reactivex.c.e nwx;
+    final io.reactivex.c.e nwZ;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RepeatSubscriber(cVar, this.nwx, subscriptionArbiter, this.nvP).subscribeNext();
+        new RepeatSubscriber(cVar, this.nwZ, subscriptionArbiter, this.nwr).subscribeNext();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class RepeatSubscriber<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final org.a.c<? super T> actual;
@@ -55,7 +55,7 @@ public final class FlowableRepeatUntil<T> extends a<T, T> {
                     subscribeNext();
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.actual.onError(th);
             }
         }

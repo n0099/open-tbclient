@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DTSTrackImpl extends AbstractTrack {
     int bcCoreBitRate;
     int bcCoreChannelMask;
@@ -1253,7 +1253,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.bitrate = 128;
      */
     /* JADX WARN: Code restructure failed: missing block: B:89:0x01b0, code lost:
-        r22.bitrate = com.baidu.down.manage.DownloadConstants.STATUS_RUNNING;
+        r22.bitrate = 192;
      */
     /* JADX WARN: Code restructure failed: missing block: B:90:0x01b7, code lost:
         r22.bitrate = 224;

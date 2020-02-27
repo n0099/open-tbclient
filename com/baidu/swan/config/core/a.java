@@ -8,9 +8,9 @@ import java.util.Iterator;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a extends ResponseCallback<JSONObject> {
-    protected abstract void aN(long j);
+    protected abstract void aR(long j);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -64,7 +64,7 @@ public abstract class a extends ResponseCallback<JSONObject> {
         int optInt2 = optJSONObject.optInt("max_age", 0);
         optJSONObject.remove("max_age");
         bh(optJSONObject);
-        aN(optInt2);
+        aR(optInt2);
     }
 
     @Override // com.baidu.searchbox.http.callback.ResponseCallback

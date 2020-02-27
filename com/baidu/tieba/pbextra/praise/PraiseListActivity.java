@@ -15,11 +15,11 @@ import com.baidu.tbadk.util.s;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pbextra.praise.d;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, d.a {
     public int pageType = 0;
-    private e jei = null;
-    private d jej = null;
+    private e jfe = null;
+    private d jff = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -29,92 +29,92 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (bundle != null) {
             this.pageType = bundle.getInt("list_type", 0);
             boolean z2 = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-            this.jej = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString("post_desc"), bundle.getBoolean("is_from_pb", true), this);
-            this.jej.zC(bundle.getInt("KeyIntentPraiseId"));
+            this.jff = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString("post_desc"), bundle.getBoolean("is_from_pb", true), this);
+            this.jff.zJ(bundle.getInt("KeyIntentPraiseId"));
             z = z2;
         } else if (getIntent() != null) {
             this.pageType = getIntent().getIntExtra("list_type", 0);
             boolean booleanExtra = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-            this.jej = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra("post_desc"), getIntent().getBooleanExtra("is_from_pb", true), this);
+            this.jff = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra("post_desc"), getIntent().getBooleanExtra("is_from_pb", true), this);
             z = booleanExtra;
         } else {
             z = false;
         }
-        if (this.jej == null) {
-            this.jej = new d();
+        if (this.jff == null) {
+            this.jff = new d();
         }
-        this.jej.setIsAuthor(z);
-        this.jei = new e(this, this.jej.ctu());
-        this.jei.ra(false);
-        this.jej.zE(this.pageType);
+        this.jff.setIsAuthor(z);
+        this.jfe = new e(this, this.jff.cuN());
+        this.jfe.re(false);
+        this.jff.zL(this.pageType);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.jej.g(bundle, "is_from_pb");
-        this.jej.h(bundle, "thread_id");
-        this.jej.i(bundle, "post_id");
-        this.jej.j(bundle, "post_desc");
-        this.jej.k(bundle, "KeyIntentPraiseId");
+        this.jff.g(bundle, "is_from_pb");
+        this.jff.h(bundle, "thread_id");
+        this.jff.i(bundle, "post_id");
+        this.jff.j(bundle, "post_desc");
+        this.jff.k(bundle, "KeyIntentPraiseId");
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jei.ctx()) {
-            ctt();
-            if (this.jej.cpV()) {
+        if (view == this.jfe.cuQ()) {
+            cuM();
+            if (this.jff.crn()) {
                 finish();
                 return;
             }
-            s.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.jej.getThreadId(), null, "praise_list"));
-        } else if (view == this.jei.cty() && !this.jei.isLoading()) {
-            this.jei.ra(true);
-            this.jej.zE(this.pageType);
+            s.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.jff.getThreadId(), null, "praise_list"));
+        } else if (view == this.jfe.cuR() && !this.jfe.isLoading()) {
+            this.jfe.re(true);
+            this.jff.zL(this.pageType);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a zD = this.jej.zD(i);
-        if (zD != null) {
-            s.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), zD.getUserId(), zD.getShowName(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        a zK = this.jff.zK(i);
+        if (zK != null) {
+            s.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), zK.getUserId(), zK.getShowName(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
-    private void ctt() {
-        if (this.jej != null) {
-            this.jej.unRegister();
+    private void cuM() {
+        if (this.jff != null) {
+            this.jff.unRegister();
         }
     }
 
     @Override // com.baidu.tieba.pbextra.praise.d.a
-    public void br(String str) {
+    public void bt(String str) {
         if (k.isEmpty(str)) {
             str = getResources().getString(R.string.neterror);
         }
-        this.jei.ctw();
-        this.jei.bm(str, this.pageType);
+        this.jfe.cuP();
+        this.jfe.bk(str, this.pageType);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.jei.bTP();
+        this.jfe.bVq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        ctt();
+        cuM();
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.jei.a(getLayoutMode(), i);
+        this.jfe.a(getLayoutMode(), i);
     }
 
     public void changSkinType(View view) {
@@ -124,6 +124,6 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.tieba.pbextra.praise.d.a
     public void a(int i, List<a> list, int i2, int i3) {
-        this.jei.b(i, list, i2, i3);
+        this.jfe.b(i, list, i2, i3);
     }
 }

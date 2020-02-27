@@ -6,10 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public @interface Experimental {
 
-    /* loaded from: classes5.dex */
+    @h
+    /* loaded from: classes7.dex */
     public enum Level {
         WARNING,
         ERROR

@@ -16,7 +16,7 @@ import com.baidu.searchbox.ugc.activity.LocalPhotoPreviewActivity;
 import com.baidu.searchbox.ugc.adapter.PhotoChooseAdapter;
 import com.baidu.searchbox.ugc.utils.LocalPreviewUtils;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PhotoChooseView extends GridView implements AdapterView.OnItemClickListener {
     private PhotoChooseAdapter mAdapter;
     private Activity mContext;
@@ -25,7 +25,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     private int mNumColumns;
     private int mVerticalSpacing;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface StartAlbumListener {
         void goAlbumBefore();
 

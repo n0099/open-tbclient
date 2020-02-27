@@ -1,9 +1,9 @@
 package io.reactivex.internal.functions;
 
 import io.reactivex.c.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    static final d<Object, Object> nvF = new C0753a();
+    static final d<Object, Object> nwh = new C0761a();
 
     public static <T> T h(T t, String str) {
         if (t == null) {
@@ -23,21 +23,21 @@ public final class a {
         return i > i2 ? 1 : 0;
     }
 
-    public static int ad(long j, long j2) {
+    public static int ac(long j, long j2) {
         if (j < j2) {
             return -1;
         }
         return j > j2 ? 1 : 0;
     }
 
-    public static int bk(int i, String str) {
+    public static int bj(int i, String str) {
         if (i <= 0) {
             throw new IllegalArgumentException(str + " > 0 required but it was " + i);
         }
         return i;
     }
 
-    public static long x(long j, String str) {
+    public static long y(long j, String str) {
         if (j <= 0) {
             throw new IllegalArgumentException(str + " > 0 required but it was " + j);
         }
@@ -45,13 +45,13 @@ public final class a {
     }
 
     /* renamed from: io.reactivex.internal.functions.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    static final class C0753a implements d<Object, Object> {
-        C0753a() {
+    /* loaded from: classes7.dex */
+    static final class C0761a implements d<Object, Object> {
+        C0761a() {
         }
 
         @Override // io.reactivex.c.d
-        public boolean k(Object obj, Object obj2) {
+        public boolean j(Object obj, Object obj2) {
             return a.equals(obj, obj2);
         }
     }

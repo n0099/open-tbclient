@@ -3,7 +3,7 @@ package com.baidu.searchbox.datachannel;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NAReceiver extends BaseBroadcastReceiver {
     private NAReceiverCallback mNAReceiverCallback;
 

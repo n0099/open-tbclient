@@ -1,8 +1,8 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface g extends r {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void k(int i, Object obj) throws ExoPlaybackException;
     }
@@ -13,16 +13,16 @@ public interface g extends r {
 
     void b(b... bVarArr);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
-        public final a lXM;
-        public final Object lXN;
+        public final a lYs;
+        public final Object lYt;
         public final int messageType;
 
         public b(a aVar, int i, Object obj) {
-            this.lXM = aVar;
+            this.lYs = aVar;
             this.messageType = i;
-            this.lXN = obj;
+            this.lYt = obj;
         }
     }
 }

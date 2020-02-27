@@ -8,7 +8,7 @@ import com.baidu.tieba.frs.game.strategy.tab.e;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage {
     private boolean mHasMore;
     private List<e> mTabList;
@@ -28,8 +28,8 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
                 setError(gameForumGuideTabResIdl.error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = a.cm(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = a.cn(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = a.ci(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = a.cj(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }

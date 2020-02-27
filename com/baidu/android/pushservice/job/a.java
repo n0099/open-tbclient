@@ -9,20 +9,20 @@ import android.os.Build;
 import android.os.SystemClock;
 import com.baidu.android.pushservice.i.l;
 @TargetApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static C0043a a;
+    private static C0045a a;
     private static boolean b;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0043a {
+    /* loaded from: classes8.dex */
+    public static class C0045a {
         private final Context a;
         private final JobScheduler b;
         private boolean c;
 
-        C0043a(Context context) {
+        C0045a(Context context) {
             this.a = context;
             this.b = (JobScheduler) this.a.getSystemService("jobscheduler");
         }
@@ -74,7 +74,7 @@ public class a {
         synchronized (a.class) {
             if (a == null && Build.VERSION.SDK_INT >= 21 && !l.E(context)) {
                 try {
-                    a = new C0043a(context);
+                    a = new C0045a(context);
                 } catch (Exception e) {
                 }
             }

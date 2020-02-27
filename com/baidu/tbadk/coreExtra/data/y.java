@@ -1,21 +1,24 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import org.json.JSONObject;
-/* loaded from: classes.dex */
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
 public class y {
-    private String checkUrl;
+    private String dmL;
+    private ArrayList<Object> dmM;
 
-    public String aHj() {
-        return this.checkUrl;
+    public y() {
+        C(new ArrayList<>());
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.checkUrl = jSONObject.optString("checkurl", null);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public String aJA() {
+        return this.dmL;
+    }
+
+    public ArrayList<Object> aJB() {
+        return this.dmM;
+    }
+
+    public void C(ArrayList<Object> arrayList) {
+        this.dmM = arrayList;
     }
 }

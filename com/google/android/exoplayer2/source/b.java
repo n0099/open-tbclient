@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source;
 import android.os.Handler;
 import com.google.android.exoplayer2.Format;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface b {
     void a(int i, Format format, int i2, Object obj, long j);
 
@@ -15,11 +15,11 @@ public interface b {
 
     void b(com.google.android.exoplayer2.upstream.g gVar, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3, long j4, long j5);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private final Handler handler;
-        private final b mpW;
-        private final long mpX;
+        private final b mqC;
+        private final long mqD;
 
         public a(Handler handler, b bVar) {
             this(handler, bVar, 0L);
@@ -27,12 +27,12 @@ public interface b {
 
         public a(Handler handler, b bVar, long j) {
             this.handler = bVar != null ? (Handler) com.google.android.exoplayer2.util.a.checkNotNull(handler) : null;
-            this.mpW = bVar;
-            this.mpX = j;
+            this.mqC = bVar;
+            this.mqD = j;
         }
 
-        public a gb(long j) {
-            return new a(this.handler, this.mpW, j);
+        public a fZ(long j) {
+            return new a(this.handler, this.mqC, j);
         }
 
         public void a(com.google.android.exoplayer2.upstream.g gVar, int i, long j) {
@@ -40,11 +40,11 @@ public interface b {
         }
 
         public void b(final com.google.android.exoplayer2.upstream.g gVar, final int i, final int i2, final Format format, final int i3, final Object obj, final long j, final long j2, final long j3) {
-            if (this.mpW != null) {
+            if (this.mqC != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.source.b.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mpW.a(gVar, i, i2, format, i3, obj, a.this.gc(j), a.this.gc(j2), j3);
+                        a.this.mqC.a(gVar, i, i2, format, i3, obj, a.this.ga(j), a.this.ga(j2), j3);
                     }
                 });
             }
@@ -55,11 +55,11 @@ public interface b {
         }
 
         public void c(final com.google.android.exoplayer2.upstream.g gVar, final int i, final int i2, final Format format, final int i3, final Object obj, final long j, final long j2, final long j3, final long j4, final long j5) {
-            if (this.mpW != null) {
+            if (this.mqC != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.source.b.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mpW.b(gVar, i, i2, format, i3, obj, a.this.gc(j), a.this.gc(j2), j3, j4, j5);
+                        a.this.mqC.b(gVar, i, i2, format, i3, obj, a.this.ga(j), a.this.ga(j2), j3, j4, j5);
                     }
                 });
             }
@@ -70,11 +70,11 @@ public interface b {
         }
 
         public void d(final com.google.android.exoplayer2.upstream.g gVar, final int i, final int i2, final Format format, final int i3, final Object obj, final long j, final long j2, final long j3, final long j4, final long j5) {
-            if (this.mpW != null) {
+            if (this.mqC != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.source.b.a.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mpW.a(gVar, i, i2, format, i3, obj, a.this.gc(j), a.this.gc(j2), j3, j4, j5);
+                        a.this.mqC.a(gVar, i, i2, format, i3, obj, a.this.ga(j), a.this.ga(j2), j3, j4, j5);
                     }
                 });
             }
@@ -85,34 +85,34 @@ public interface b {
         }
 
         public void b(final com.google.android.exoplayer2.upstream.g gVar, final int i, final int i2, final Format format, final int i3, final Object obj, final long j, final long j2, final long j3, final long j4, final long j5, final IOException iOException, final boolean z) {
-            if (this.mpW != null) {
+            if (this.mqC != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.source.b.a.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mpW.a(gVar, i, i2, format, i3, obj, a.this.gc(j), a.this.gc(j2), j3, j4, j5, iOException, z);
+                        a.this.mqC.a(gVar, i, i2, format, i3, obj, a.this.ga(j), a.this.ga(j2), j3, j4, j5, iOException, z);
                     }
                 });
             }
         }
 
         public void b(final int i, final Format format, final int i2, final Object obj, final long j) {
-            if (this.mpW != null) {
+            if (this.mqC != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.source.b.a.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mpW.a(i, format, i2, obj, a.this.gc(j));
+                        a.this.mqC.a(i, format, i2, obj, a.this.ga(j));
                     }
                 });
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public long gc(long j) {
-            long fp = com.google.android.exoplayer2.b.fp(j);
-            if (fp == -9223372036854775807L) {
+        public long ga(long j) {
+            long fn = com.google.android.exoplayer2.b.fn(j);
+            if (fn == -9223372036854775807L) {
                 return -9223372036854775807L;
             }
-            return this.mpX + fp;
+            return this.mqD + fn;
         }
     }
 }

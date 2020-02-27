@@ -1,7 +1,7 @@
 package com.baidu.ala.recorder.video.camera;
 
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ICameraStatusHandler {
     int getDisplayRotate();
 

@@ -1,15 +1,18 @@
 package kotlin.coroutines.experimental;
 
 import kotlin.coroutines.experimental.d;
-/* loaded from: classes5.dex */
+import kotlin.h;
+@h
+/* loaded from: classes7.dex */
 public interface c extends d.b {
-    public static final a nBq = a.nBr;
+    public static final a nBS = a.nBT;
 
     <T> b<T> a(b<? super T> bVar);
 
-    /* loaded from: classes5.dex */
+    @h
+    /* loaded from: classes7.dex */
     public static final class a implements d.c<c> {
-        static final /* synthetic */ a nBr = new a();
+        static final /* synthetic */ a nBT = new a();
 
         private a() {
         }

@@ -11,7 +11,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TaskManager {
     private static final int KEEP_ALIVE_SECONDS = 30;
     public static final String TAG = "TaskManager";
@@ -27,8 +27,9 @@ public class TaskManager {
         this.service = null;
         this.singleThreadService = null;
         this.mContext = context;
-        this.service = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.service.allowCoreThreadTimeOut(true);
+        ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
+        this.service = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
+        this.service.allowCoreThreadTimeOut(false);
         this.singleThreadService = Executors.newSingleThreadExecutor();
     }
 
@@ -59,15 +60,21 @@ public class TaskManager {
         return this.singleThreadService.submit(callable);
     }
 
-    public void submitForNetWork(Runnable runnable) {
+    public boolean submitForNetWork(Runnable runnable) {
         try {
             this.service.submit(runnable);
+            return true;
         } catch (Throwable th) {
             LogUtils.e(TAG, "Exception ", th);
+            return false;
         }
     }
 
-    /* loaded from: classes2.dex */
+    public void clearTask() {
+        this.service.purge();
+    }
+
+    /* loaded from: classes3.dex */
     public static class Task implements Runnable {
         protected String mAction;
         protected String mJson;

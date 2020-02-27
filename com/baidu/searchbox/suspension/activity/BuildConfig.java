@@ -1,5 +1,5 @@
 package com.baidu.searchbox.suspension.activity;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.suspension.activity";
     public static final String BUILD_TYPE = "release";

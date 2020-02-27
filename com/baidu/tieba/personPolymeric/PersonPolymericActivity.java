@@ -2,26 +2,36 @@ package com.baidu.tieba.personPolymeric;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
+import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private PersonPolymericFragment jlo;
+    private PersonPolymericFragment jmh;
+    private boolean mIsFromSchema = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_new_fragment_view);
-        this.jlo = new PersonPolymericFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.jlo).commit();
+        this.jmh = new PersonPolymericFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.jmh).commit();
+        if (getIntent() != null && getIntent().getParcelableExtra("key_uri") != null && !com.baidu.adp.base.a.eH().T("MainTabActivity")) {
+            this.mIsFromSchema = true;
+        }
+        if (this.mIsFromSchema) {
+            setIsAddSwipeBackLayout(false);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,8 +43,8 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.jlo != null) {
-            this.jlo.onChangeSkinType(i);
+        if (this.jmh != null) {
+            this.jmh.onChangeSkinType(i);
         }
     }
 
@@ -47,15 +57,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.jlo != null) {
-            this.jlo.onActivityResult(i, i2, intent);
+        if (this.jmh != null) {
+            this.jmh.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.jlo != null) {
-            return this.jlo.getVoiceManager();
+        if (this.jmh != null) {
+            return this.jmh.getVoiceManager();
         }
         return null;
     }
@@ -73,18 +83,20 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            boolean z = false;
-            if (this.jlo != null) {
-                z = this.jlo.onBackPressed();
-            }
-            if (z) {
-                return true;
-            }
-            return super.onKeyDown(i, keyEvent);
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
+    public void finish() {
+        if (this.mIsFromSchema) {
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
         }
-        return super.onKeyDown(i, keyEvent);
+        super.finish();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void enterExitAnimation() {
+        if (this.mIsFromSchema) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        } else {
+            super.enterExitAnimation();
+        }
     }
 }

@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class NotificationManagerCompat {
     public static final String ACTION_BIND_SIDE_CHANNEL = "android.support.BIND_NOTIFICATION_SIDE_CHANNEL";
     private static final String CHECK_OP_NO_THROW = "checkOpNoThrow";
@@ -61,7 +61,7 @@ public final class NotificationManagerCompat {
     private static final Object sLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface Task {
         void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException;
     }
@@ -182,7 +182,7 @@ public final class NotificationManagerCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SideChannelManager implements ServiceConnection, Handler.Callback {
         private static final int MSG_QUEUE_TASK = 0;
         private static final int MSG_RETRY_LISTENER_QUEUE = 3;
@@ -383,7 +383,7 @@ public final class NotificationManagerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class ListenerRecord {
             final ComponentName componentName;
             INotificationSideChannel service;
@@ -397,7 +397,7 @@ public final class NotificationManagerCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class ServiceConnectedEvent {
         final ComponentName componentName;
         final IBinder iBinder;
@@ -409,7 +409,7 @@ public final class NotificationManagerCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class NotifyTask implements Task {
         final int id;
         final Notification notif;
@@ -439,7 +439,7 @@ public final class NotificationManagerCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class CancelTask implements Task {
         final boolean all;
         final int id;

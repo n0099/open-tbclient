@@ -17,17 +17,17 @@ import com.baidu.live.adp.lib.resourceloader.BdResourceLoader;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.newwidget.imageview.BDImageView;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tieba.pb.a.a;
+import com.baidu.live.u.a;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbImageView extends BDImageView implements View.OnClickListener, Runnable {
     private static final int LOADING_FRAMES_COUNT = 12;
     private static final int LOADING_FRAMES_DURATION = 150;
@@ -72,14 +72,14 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     protected int mWidth;
     protected long requestTime;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ImageViewEvent {
         void onCancel();
 
         void onComplete(String str, boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnDrawListener {
         void onAfterDraw(TbImageView tbImageView, Canvas canvas);
 
@@ -133,8 +133,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0094a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0100a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
                     TbImageView.this.mGestureDetector.Q(view);
@@ -143,12 +143,12 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
@@ -189,8 +189,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0094a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0100a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
                     TbImageView.this.mGestureDetector.Q(view);
@@ -199,12 +199,12 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
@@ -687,15 +687,16 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     }
 
     public static int[] parseResizeFromUrlTag(String str) {
-        if (TextUtils.isEmpty(str) || !str.startsWith("@resize")) {
-            return null;
+        int[] iArr = new int[2];
+        if (!TextUtils.isEmpty(str) && str.startsWith("@resize")) {
+            try {
+                JSONObject jSONObject = new JSONObject(str.substring(str.indexOf("{"), str.indexOf("}") + 1));
+                iArr[0] = jSONObject.optInt("w");
+                iArr[1] = jSONObject.optInt("h");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str.substring(str.indexOf("{"), str.indexOf("}") + 1));
-            return new int[]{jSONObject.optInt("w"), jSONObject.optInt("h")};
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return iArr;
     }
 }

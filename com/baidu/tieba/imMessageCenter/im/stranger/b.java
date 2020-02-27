@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends c<StrangerListActivity> {
-    private NoNetworkView ehd;
-    private StrangerListActivity hLO;
-    private StrangerListAdapter hLT;
-    private ImageView hLU;
-    private BdListView htf;
+    private NoNetworkView elh;
+    private StrangerListActivity hNM;
+    private StrangerListAdapter hNR;
+    private ImageView hNS;
+    private BdListView hve;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
     public b(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext());
         strangerListActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.hLO = strangerListActivity;
+        this.hNM = strangerListActivity;
         l(strangerListActivity);
         m(strangerListActivity);
     }
@@ -33,34 +33,34 @@ public class b extends c<StrangerListActivity> {
         this.mNavigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.stranger_list_activity_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.hLU = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.hLO);
-        SvgManager.aEp().a(this.hLU, R.drawable.icon_pure_topbar_delete44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.hNS = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.hNM);
+        SvgManager.aGA().a(this.hNS, R.drawable.icon_pure_topbar_delete44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.mRootView = (ViewGroup) strangerListActivity.findViewById(R.id.root_view);
-        this.ehd = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
+        this.elh = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
     }
 
     public void onChangeSkinType(int i) {
-        this.hLO.getLayoutMode().setNightMode(i == 1);
-        this.hLO.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.hLO.getPageContext(), i);
-        this.ehd.onChangeSkinType(this.hLO.getPageContext(), i);
-        this.hLT.notifyDataSetChanged();
-        SvgManager.aEp().a(this.hLU, R.drawable.icon_pure_topbar_delete44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.hNM.getLayoutMode().setNightMode(i == 1);
+        this.hNM.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.hNM.getPageContext(), i);
+        this.elh.onChangeSkinType(this.hNM.getPageContext(), i);
+        this.hNR.notifyDataSetChanged();
+        SvgManager.aGA().a(this.hNS, R.drawable.icon_pure_topbar_delete44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private void m(StrangerListActivity strangerListActivity) {
-        this.htf = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
-        this.htf.setOnItemClickListener(strangerListActivity);
-        this.htf.setOnItemLongClickListener(strangerListActivity);
-        this.hLT = new StrangerListAdapter(strangerListActivity);
-        this.htf.setAdapter((ListAdapter) this.hLT);
+        this.hve = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
+        this.hve.setOnItemClickListener(strangerListActivity);
+        this.hve.setOnItemLongClickListener(strangerListActivity);
+        this.hNR = new StrangerListAdapter(strangerListActivity);
+        this.hve.setAdapter((ListAdapter) this.hNR);
     }
 
-    public StrangerListAdapter bXL() {
-        return this.hLT;
+    public StrangerListAdapter bZm() {
+        return this.hNR;
     }
 
-    public View bXM() {
-        return this.hLU;
+    public View bZn() {
+        return this.hNS;
     }
 }

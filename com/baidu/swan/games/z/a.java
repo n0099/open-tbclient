@@ -3,30 +3,30 @@ package com.baidu.swan.games.z;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static final ReentrantLock coE = new ReentrantLock();
-    private static volatile a coF;
-    private d chD;
-    private List<c> civ = new ArrayList(3);
+    private static final ReentrantLock csF = new ReentrantLock();
+    private static volatile a csG;
+    private d clH;
+    private List<c> cmz = new ArrayList(3);
 
     private a() {
     }
 
-    public static a anC() {
-        if (coF == null) {
+    public static a apQ() {
+        if (csG == null) {
             synchronized (a.class) {
-                if (coF == null) {
-                    coF = new a();
+                if (csG == null) {
+                    csG = new a();
                 }
             }
         }
-        return coF;
+        return csG;
     }
 
     public void a(d dVar) {
-        this.chD = dVar;
-        anD();
+        this.clH = dVar;
+        apR();
     }
 
     public void O(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.chD = null;
-        this.civ.clear();
+        this.clH = null;
+        this.cmz.clear();
     }
 
     private void a(c cVar) {
-        coE.lock();
+        csF.lock();
         try {
-            if (this.chD != null) {
-                this.chD.c(cVar);
+            if (this.clH != null) {
+                this.clH.c(cVar);
             } else {
-                this.civ.add(cVar);
+                this.cmz.add(cVar);
             }
         } finally {
-            coE.unlock();
+            csF.unlock();
         }
     }
 
-    private void anD() {
-        if (!this.civ.isEmpty() && this.chD != null) {
-            coE.lock();
+    private void apR() {
+        if (!this.cmz.isEmpty() && this.clH != null) {
+            csF.lock();
             try {
-                for (c cVar : this.civ) {
-                    this.chD.c(cVar);
+                for (c cVar : this.cmz) {
+                    this.clH.c(cVar);
                 }
-                this.civ.clear();
+                this.cmz.clear();
             } finally {
-                coE.unlock();
+                csF.unlock();
             }
         }
     }

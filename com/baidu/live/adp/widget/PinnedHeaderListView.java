@@ -12,7 +12,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import com.baidu.live.adp.widget.listview.BdListView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PinnedHeaderListView extends BdListView implements AbsListView.OnScrollListener {
     private static final String TAG = "PinnedHeaderListView";
     private int mCurrentPinnedPosition;
@@ -237,7 +237,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         return new AbsListView.LayoutParams(-1, -2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class PinnedHeaderListAdapter implements ListAdapter {
         private final DataSetObservable mDataSetObservable = new DataSetObservable();
 

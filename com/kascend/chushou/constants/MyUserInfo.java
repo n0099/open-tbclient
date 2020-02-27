@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MyUserInfo {
     public boolean isNewUser;
     public String mAge;

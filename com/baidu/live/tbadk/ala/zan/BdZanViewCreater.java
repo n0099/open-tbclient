@@ -1,20 +1,13 @@
 package com.baidu.live.tbadk.ala.zan;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdZanViewCreater {
-    private static BdZanViewCreater sBdZanViewCreater;
+    private static BdZanViewCreater sBdZanViewCreater = new BdZanViewCreater();
     private IAlaBdZanBuilder mIAlaBdZanBuilder;
 
     private BdZanViewCreater() {
     }
 
     public static BdZanViewCreater getInst() {
-        if (sBdZanViewCreater == null) {
-            synchronized (BdZanViewCreater.class) {
-                if (sBdZanViewCreater == null) {
-                    sBdZanViewCreater = new BdZanViewCreater();
-                }
-            }
-        }
         return sBdZanViewCreater;
     }
 

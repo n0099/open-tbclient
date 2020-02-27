@@ -4,136 +4,136 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.e.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static b cGk = null;
-    private static a cGl = null;
-    private static boolean cGm = false;
-    private static String cGn = "";
-    private static transient List<String> cGo = new ArrayList(5);
+    private static b cKo = null;
+    private static a cKp = null;
+    private static boolean cKq = false;
+    private static String cKr = "";
+    private static transient List<String> cKs = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (cGl == null) {
+        if (cKp == null) {
             synchronized (a.class) {
-                if (cGl == null) {
-                    cGl = new a();
-                    cGk = b.c(baseFragmentActivity);
+                if (cKp == null) {
+                    cKp = new a();
+                    cKo = b.c(baseFragmentActivity);
                 }
             }
-        } else if (cGk != null) {
-            cGk.a(baseFragmentActivity.getPageContext());
+        } else if (cKo != null) {
+            cKo.a(baseFragmentActivity.getPageContext());
         }
-        if (cGm && cGk != null) {
-            cGk.awH();
-            cGk.awI();
-            cGm = false;
+        if (cKq && cKo != null) {
+            cKo.ayU();
+            cKo.ayV();
+            cKq = false;
         }
-        return cGl;
+        return cKp;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        awE();
+        ayR();
         if (z) {
-            awA();
+            ayN();
         }
         if (z2) {
-            awB();
+            ayO();
         }
-        fg(z3);
+        fn(z3);
         a(aVar);
     }
 
-    public void awA() {
-        awE();
-        if (cGk != null) {
-            cGk.awH();
-            cGm = false;
+    public void ayN() {
+        ayR();
+        if (cKo != null) {
+            cKo.ayU();
+            cKq = false;
         }
     }
 
-    public void awB() {
-        awE();
-        if (cGk != null) {
-            cGk.awI();
-            cGm = false;
+    public void ayO() {
+        ayR();
+        if (cKo != null) {
+            cKo.ayV();
+            cKq = false;
         }
     }
 
-    public void fg(boolean z) {
-        awE();
-        if (cGk != null) {
-            cGk.fg(z);
+    public void fn(boolean z) {
+        ayR();
+        if (cKo != null) {
+            cKo.fn(z);
         }
     }
 
     public void a(b.a aVar) {
-        awE();
-        if (cGk != null) {
-            cGk.c(aVar);
+        ayR();
+        if (cKo != null) {
+            cKo.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        awE();
-        if (cGk != null) {
-            if (cGk.awF()) {
-                cGk.c(aVar);
+        ayR();
+        if (cKo != null) {
+            if (cKo.ayS()) {
+                cKo.c(aVar);
             }
-            cGk.awG();
+            cKo.ayT();
         }
     }
 
     public void a(int i, b.a aVar) {
-        awE();
-        if (cGk != null) {
-            if (cGk.awF()) {
-                cGk.c(aVar);
+        ayR();
+        if (cKo != null) {
+            if (cKo.ayS()) {
+                cKo.c(aVar);
             }
-            cGk.iW(i);
+            cKo.jn(i);
         }
     }
 
-    public void awC() {
-        awE();
-        if (cGk != null) {
-            cGk.awC();
-            cGm = true;
+    public void ayP() {
+        ayR();
+        if (cKo != null) {
+            cKo.ayP();
+            cKq = true;
         }
     }
 
     public void resetContext() {
-        awE();
-        if (cGk != null) {
-            cGk.resetContext();
+        ayR();
+        if (cKo != null) {
+            cKo.resetContext();
         }
     }
 
-    public void awD() {
-        awE();
+    public void ayQ() {
+        ayR();
         resetContext();
-        awC();
+        ayP();
     }
 
-    private void awE() {
-        if (cGk == null) {
+    private void ayR() {
+        if (cKo == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (cGk != null) {
-                if (cGl != null) {
-                    cGl.awD();
+            if (cKo != null) {
+                if (cKp != null) {
+                    cKp.ayQ();
                 }
-                cGk.removeCallBack();
-                cGk.awJ();
-                cGk = null;
+                cKo.removeCallBack();
+                cKo.ayW();
+                cKo = null;
             }
-            if (cGl != null) {
-                cGl = null;
+            if (cKp != null) {
+                cKp = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

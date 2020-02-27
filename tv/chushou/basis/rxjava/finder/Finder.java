@@ -5,7 +5,7 @@ import java.util.Set;
 import tv.chushou.basis.rxjava.entity.EventType;
 import tv.chushou.basis.rxjava.entity.ProducerEvent;
 import tv.chushou.basis.rxjava.entity.SubscriberEvent;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface Finder {
     public static final Finder ANNOTATED = new Finder() { // from class: tv.chushou.basis.rxjava.finder.Finder.1
         @Override // tv.chushou.basis.rxjava.finder.Finder

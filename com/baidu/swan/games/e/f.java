@@ -2,19 +2,19 @@ package com.baidu.swan.games.e;
 
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.v8engine.event.EventTarget;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f extends com.baidu.swan.games.e.a {
     public f(@NonNull String str) {
         super("worker", new a(str), null);
     }
 
     @Override // com.baidu.swan.games.e.a
-    public EventTarget akZ() {
+    public EventTarget ann() {
         return null;
     }
 
     @Override // com.baidu.swan.games.e.a
-    public EventTarget ala() {
+    public EventTarget ano() {
         return null;
     }
 
@@ -23,7 +23,7 @@ public class f extends com.baidu.swan.games.e.a {
         return 1;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class a extends com.baidu.swan.games.e.d.a {
         private String mBasePath;
 
@@ -37,7 +37,7 @@ public class f extends com.baidu.swan.games.e.a {
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
-        public String MP() {
+        public String Pd() {
             return "swan-game-worker.js";
         }
     }

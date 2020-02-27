@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.listener;
 
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpMessageListener extends MessageListener<HttpResponsedMessage> {
     public HttpMessageListener(int i) {
         super(i);

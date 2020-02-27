@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ChangeClipBounds extends Transition {
     private static final String PROPNAME_BOUNDS = "android:clipBounds:bounds";
     private static final String PROPNAME_CLIP = "android:clipBounds:clip";

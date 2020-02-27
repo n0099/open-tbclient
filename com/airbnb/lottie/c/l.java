@@ -8,12 +8,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class l implements aj<com.airbnb.lottie.model.content.c> {
-    private int jR;
+    private int jV;
 
     public l(int i) {
-        this.jR = i;
+        this.jV = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,14 +31,14 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.jR == -1) {
-            this.jR = arrayList.size() / 4;
+        if (this.jV == -1) {
+            this.jV = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.jR];
-        int[] iArr = new int[this.jR];
+        float[] fArr = new float[this.jV];
+        int[] iArr = new int[this.jV];
         int i = 0;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.jR * 4; i3++) {
+        for (int i3 = 0; i3 < this.jV * 4; i3++) {
             int i4 = i3 / 4;
             double floatValue = arrayList.get(i3).floatValue();
             switch (i3 % 4) {
@@ -63,7 +63,7 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
 
     private void a(com.airbnb.lottie.model.content.c cVar, List<Float> list) {
         int i;
-        int i2 = this.jR * 4;
+        int i2 = this.jV * 4;
         if (list.size() > i2) {
             int size = (list.size() - i2) / 2;
             double[] dArr = new double[size];
@@ -83,7 +83,7 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
             }
             for (int i5 = 0; i5 < cVar.getSize(); i5++) {
                 int i6 = cVar.getColors()[i5];
-                cVar.getColors()[i5] = Color.argb(a(cVar.cx()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
+                cVar.getColors()[i5] = Color.argb(a(cVar.cy()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
             }
         }
     }

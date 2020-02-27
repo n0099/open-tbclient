@@ -3,7 +3,7 @@ package com.baidu.pano.platform.comjni;
 import com.baidu.lbsapi.model.StatisticsEvent;
 import com.baidu.pano.platform.c.g;
 import com.baidu.pano.platform.comapi.map.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MessageProxy {
     private static b mListener;
 

@@ -1,33 +1,30 @@
 package com.baidu.tieba.pb;
 
-import android.net.Uri;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.view.m;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
+    private static String izB;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public static String ixE = "c12585";
-        public static String ixF = "c12586";
+    public static SpannableStringBuilder ba(Context context, String str) {
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) str);
+        int length = spannableStringBuilder.length();
+        Drawable drawable = context.getResources().getDrawable(R.drawable.icon_nichenghuodong);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        spannableStringBuilder.append((CharSequence) "tag");
+        spannableStringBuilder.setSpan(new m(drawable), length, spannableStringBuilder.length(), 33);
+        return spannableStringBuilder;
     }
 
-    public static CustomDialogData dd(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("tb_hudong")) == null || TextUtils.isEmpty(optJSONObject.optString("content"))) {
-            return null;
+    public static String ckb() {
+        if (TextUtils.isEmpty(izB)) {
+            izB = com.baidu.tbadk.core.sharedPref.b.aFB().getString("nick_name_activity_link", "");
         }
-        try {
-            JSONObject jSONObject2 = new JSONObject(Uri.decode(optJSONObject.optString("content")));
-            if (jSONObject2 != null) {
-                return CustomDialogData.praseJSON(jSONObject2);
-            }
-            return null;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return izB;
     }
 }

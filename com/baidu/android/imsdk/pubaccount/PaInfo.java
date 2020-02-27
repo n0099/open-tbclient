@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.pubaccount;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PaInfo implements Parcelable {
     public static final Parcelable.Creator<PaInfo> CREATOR = new Parcelable.Creator<PaInfo>() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,6 +43,22 @@ public class PaInfo implements Parcelable {
     private String url;
     private int subsetType = 0;
     private long mLastRefreshTime = -1;
+    private String mVipId = "";
+    private String vPortrait = "";
+    private int mHasIdentity = 0;
+    private int mShield = 0;
+    private long mShieldTime = 0;
+    private String mIdentity = "";
+    private int mSubscribe = 0;
+    private String mThirdExt = "";
+
+    public void setIdentity(String str) {
+        this.mIdentity = str;
+    }
+
+    public String getIdentity() {
+        return this.mIdentity;
+    }
 
     public long getMarkTopTime() {
         return this.markTopTime;
@@ -236,6 +252,62 @@ public class PaInfo implements Parcelable {
         this.mLastRefreshTime = j;
     }
 
+    public String getVPortrait() {
+        return this.vPortrait;
+    }
+
+    public String getVipId() {
+        return this.mVipId;
+    }
+
+    public void setVipId(String str) {
+        this.mVipId = str;
+    }
+
+    public int getHasIdentity() {
+        return this.mHasIdentity;
+    }
+
+    public int getShield() {
+        return this.mShield;
+    }
+
+    public long getShieldTime() {
+        return this.mShieldTime;
+    }
+
+    public void setVPortrait(String str) {
+        this.vPortrait = str;
+    }
+
+    public void setHasIdentity(int i) {
+        this.mHasIdentity = i;
+    }
+
+    public void setShield(int i) {
+        this.mShield = i;
+    }
+
+    public void setShieldTime(long j) {
+        this.mShieldTime = j;
+    }
+
+    public int getSubscribe() {
+        return this.mSubscribe;
+    }
+
+    public void setSubscribe(int i) {
+        this.mSubscribe = i;
+    }
+
+    public String getThirdExt() {
+        return this.mThirdExt;
+    }
+
+    public void setThirdExt(String str) {
+        this.mThirdExt = str;
+    }
+
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
@@ -266,10 +338,18 @@ public class PaInfo implements Parcelable {
         parcel.writeLong(this.mLastRefreshTime);
         parcel.writeInt(this.subsetType);
         parcel.writeString(this.paExt);
+        parcel.writeString(this.vPortrait);
+        parcel.writeString(this.mVipId);
+        parcel.writeInt(this.mHasIdentity);
+        parcel.writeInt(this.mShield);
+        parcel.writeLong(this.mShieldTime);
+        parcel.writeString(this.mIdentity);
+        parcel.writeString(this.mThirdExt);
+        parcel.writeInt(this.mSubscribe);
     }
 
     public String toString() {
-        return "PaInfo [pdId=" + this.paId + " nickName=" + this.nickName + " disturb= " + this.disturb + " description=" + this.description + " acceptPush=" + this.acceptPush + " url=" + this.url + " subscribeTime" + this.subcribeTime + " classtype " + this.classtype + "  classtitle " + this.classtitle + " markTop " + this.markTop + " markTopTime " + this.markTopTime + "  classavatar " + this.classavatar + " mMsgNotify " + this.mMsgNotify + " mRepliesStr " + this.mRepliesStr + " mLastRefreshTime " + this.mLastRefreshTime + " subsetType " + this.subsetType + " paExt " + this.paExt + "  ]";
+        return "PaInfo [pdId=" + this.paId + " nickName=" + this.nickName + " disturb= " + this.disturb + " description=" + this.description + " acceptPush=" + this.acceptPush + " url=" + this.url + " subscribeTime" + this.subcribeTime + " classtype= " + this.classtype + "  classtitle= " + this.classtitle + " markTop= " + this.markTop + " markTopTime= " + this.markTopTime + "  classavatar= " + this.classavatar + " mMsgNotify= " + this.mMsgNotify + " mRepliesStr= " + this.mRepliesStr + " mLastRefreshTime= " + this.mLastRefreshTime + " subsetType= " + this.subsetType + " paExt= " + this.paExt + " vPortrait= " + this.vPortrait + " mHasIdentity= " + this.mHasIdentity + " mShield= " + this.mShield + " mShieldTime " + this.mShieldTime + " mIdentity= " + this.mIdentity + " mVipId= " + this.mVipId + ", mSubscribe=" + this.mSubscribe + ", mThirdExt=" + this.mThirdExt + "  ]";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -298,6 +378,14 @@ public class PaInfo implements Parcelable {
         paInfo.setLastRefreshTime(parcel.readLong());
         paInfo.setSubsetType(parcel.readInt());
         paInfo.setPaExt(parcel.readString());
+        paInfo.setVPortrait(parcel.readString());
+        paInfo.setVipId(parcel.readString());
+        paInfo.setHasIdentity(parcel.readInt());
+        paInfo.setShield(parcel.readInt());
+        paInfo.setShieldTime(parcel.readLong());
+        paInfo.setIdentity(parcel.readString());
+        paInfo.setSubscribe(parcel.readInt());
+        paInfo.setThirdExt(parcel.readString());
         return paInfo;
     }
 }

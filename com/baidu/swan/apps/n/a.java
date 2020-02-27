@@ -9,24 +9,24 @@ import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.swan.apps.performance.e;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static void a(final com.baidu.swan.apps.core.container.a aVar, com.baidu.swan.apps.n.a.a aVar2) {
         String format;
-        String r;
+        String s;
         if (aVar != null && aVar2 != null) {
-            e.aK("postMessage", "dispatchJSEvent start.");
+            e.z("postMessage", "dispatchJSEvent start.");
             if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bqi);
-                r = "";
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bus);
+                s = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                r = r(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bqi);
+                s = s(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bus);
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, r + aVar2.hu(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
-            e.aK("postMessage", "dispatchJSEvent buildEvent");
+            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, s + aVar2.hJ(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
+            e.z("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
             }
@@ -53,7 +53,7 @@ public final class a {
             return;
         }
         aVar.evaluateJavascript(str, null);
-        e.aK("postMessage", "dispatchJSEvent evaluateJavascript");
+        e.z("postMessage", "dispatchJSEvent evaluateJavascript");
     }
 
     private static String b(com.baidu.swan.apps.core.container.a aVar) {
@@ -63,7 +63,7 @@ public final class a {
         return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
     }
 
-    public static String r(String str, String str2, String str3) {
+    public static String s(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return "";
         }

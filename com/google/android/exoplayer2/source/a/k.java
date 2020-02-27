@@ -4,49 +4,49 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.source.a.d;
 import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k extends c {
-    private volatile boolean mrm;
-    private final d mte;
-    private volatile int mtf;
+    private volatile boolean mrS;
+    private final d mtL;
+    private volatile int mtM;
 
     public k(com.google.android.exoplayer2.upstream.e eVar, com.google.android.exoplayer2.upstream.g gVar, Format format, int i, Object obj, d dVar) {
         super(eVar, gVar, 2, format, i, obj, -9223372036854775807L, -9223372036854775807L);
-        this.mte = dVar;
+        this.mtL = dVar;
     }
 
     @Override // com.google.android.exoplayer2.source.a.c
-    public long dvz() {
-        return this.mtf;
+    public long dwJ() {
+        return this.mtM;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void cancelLoad() {
-        this.mrm = true;
+        this.mrS = true;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public boolean dvh() {
-        return this.mrm;
+    public boolean dwr() {
+        return this.mrS;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void load() throws IOException, InterruptedException {
-        com.google.android.exoplayer2.upstream.g gH = this.dataSpec.gH(this.mtf);
+        com.google.android.exoplayer2.upstream.g gF = this.dataSpec.gF(this.mtM);
         try {
-            com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.mdo, gH.mFi, this.mdo.a(gH));
-            if (this.mtf == 0) {
-                this.mte.a((d.b) null);
+            com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.mdU, gF.mFO, this.mdU.a(gF));
+            if (this.mtM == 0) {
+                this.mtL.a((d.b) null);
             }
-            com.google.android.exoplayer2.extractor.e eVar = this.mte.mrq;
+            com.google.android.exoplayer2.extractor.e eVar = this.mtL.mrW;
             int i = 0;
-            while (i == 0 && !this.mrm) {
+            while (i == 0 && !this.mrS) {
                 i = eVar.a(bVar, null);
             }
             com.google.android.exoplayer2.util.a.checkState(i != 1);
-            this.mtf = (int) (bVar.getPosition() - this.dataSpec.mFi);
+            this.mtM = (int) (bVar.getPosition() - this.dataSpec.mFO);
         } finally {
-            v.a(this.mdo);
+            v.a(this.mdU);
         }
     }
 }

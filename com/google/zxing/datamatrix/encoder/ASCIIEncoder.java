@@ -1,6 +1,8 @@
 package com.google.zxing.datamatrix.encoder;
+
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class ASCIIEncoder implements Encoder {
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {
@@ -53,7 +55,7 @@ public final class ASCIIEncoder implements Encoder {
 
     private static char encodeASCIIDigits(char c, char c2) {
         if (HighLevelEncoder.isDigit(c) && HighLevelEncoder.isDigit(c2)) {
-            return (char) (((c - '0') * 10) + (c2 - '0') + 130);
+            return (char) (((c - '0') * 10) + (c2 - '0') + IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
         }
         throw new IllegalArgumentException("not digits: " + c + c2);
     }

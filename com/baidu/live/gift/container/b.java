@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.live.r.a;
+import com.baidu.live.u.a;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private List<com.baidu.live.data.d> ahc;
+    private List<com.baidu.live.data.e> ajl;
     private Context mContext;
     private int mType;
 
@@ -19,26 +19,26 @@ public class b extends BaseAdapter {
         this.mType = i;
     }
 
-    public void t(List<com.baidu.live.data.d> list) {
-        this.ahc = list;
+    public void t(List<com.baidu.live.data.e> list) {
+        this.ajl = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ahc == null) {
+        if (this.ajl == null) {
             return 1;
         }
-        return this.ahc.size() + 1;
+        return this.ajl.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: bs */
-    public com.baidu.live.data.d getItem(int i) {
-        if (this.ahc == null || i < 0 || i >= getCount() - 1) {
+    /* renamed from: bz */
+    public com.baidu.live.data.e getItem(int i) {
+        if (this.ajl == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.ahc.get(i);
+        return this.ajl.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -68,7 +68,7 @@ public class b extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        com.baidu.live.data.d item = getItem(i);
+        com.baidu.live.data.e item = getItem(i);
         if (getItemViewType(i) == 1) {
             aVar.text.setText(a.i.ala_custom_num);
         } else if (item != null) {
@@ -86,7 +86,7 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class a {
         public TextView text;
 

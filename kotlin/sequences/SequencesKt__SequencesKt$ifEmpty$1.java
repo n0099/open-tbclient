@@ -5,9 +5,11 @@ import kotlin.Result;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
-@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt__SequencesKt$ifEmpty$1", dJh = {67, 69}, f = "Sequences.kt", m = "invokeSuspend")
-/* loaded from: classes5.dex */
-final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda implements m<d<? super T>, kotlin.coroutines.a<? super kotlin.k>, Object> {
+import kotlin.l;
+@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt__SequencesKt$ifEmpty$1", dKo = {67, 69}, f = "Sequences.kt", m = "invokeSuspend")
+@kotlin.h
+/* loaded from: classes7.dex */
+final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda implements m<d<? super T>, kotlin.coroutines.a<? super l>, Object> {
     final /* synthetic */ kotlin.jvm.a.a $defaultValue;
     final /* synthetic */ c $this_ifEmpty;
     Object L$0;
@@ -22,7 +24,7 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final kotlin.coroutines.a<kotlin.k> create(Object obj, kotlin.coroutines.a<?> aVar) {
+    public final kotlin.coroutines.a<l> create(Object obj, kotlin.coroutines.a<?> aVar) {
         q.j(aVar, "completion");
         SequencesKt__SequencesKt$ifEmpty$1 sequencesKt__SequencesKt$ifEmpty$1 = new SequencesKt__SequencesKt$ifEmpty$1(this.$this_ifEmpty, this.$defaultValue, aVar);
         d dVar = (d) obj;
@@ -32,14 +34,14 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.a.m
-    public final Object invoke(Object obj, kotlin.coroutines.a<? super kotlin.k> aVar) {
-        return ((SequencesKt__SequencesKt$ifEmpty$1) create(obj, aVar)).invokeSuspend(kotlin.k.nAY);
+    public final Object invoke(Object obj, kotlin.coroutines.a<? super l> aVar) {
+        return ((SequencesKt__SequencesKt$ifEmpty$1) create(obj, aVar)).invokeSuspend(l.nBA);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=5] */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        Object dJg = kotlin.coroutines.intrinsics.a.dJg();
+        Object dKn = kotlin.coroutines.intrinsics.a.dKn();
         switch (this.label) {
             case 0:
                 if (obj instanceof Result.Failure) {
@@ -50,14 +52,14 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
                 if (it.hasNext()) {
                     this.L$0 = it;
                     this.label = 1;
-                    if (dVar.a(it, (kotlin.coroutines.a<? super kotlin.k>) this) == dJg) {
-                        return dJg;
+                    if (dVar.a(it, (kotlin.coroutines.a<? super l>) this) == dKn) {
+                        return dKn;
                     }
                 } else {
                     this.L$0 = it;
                     this.label = 2;
-                    if (dVar.a((c) this.$defaultValue.invoke(), (kotlin.coroutines.a<? super kotlin.k>) this) == dJg) {
-                        return dJg;
+                    if (dVar.a((c) this.$defaultValue.invoke(), (kotlin.coroutines.a<? super l>) this) == dKn) {
+                        return dKn;
                     }
                 }
                 break;
@@ -76,6 +78,6 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
             default:
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }
-        return kotlin.k.nAY;
+        return l.nBA;
     }
 }

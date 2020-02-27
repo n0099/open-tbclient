@@ -6,7 +6,7 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
@@ -44,8 +44,9 @@ public class TbConfig {
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 1500;
     public static final boolean PROMOTED_DEFAULT = true;
-    public static final String SDK_VERSION = "3.5.0";
+    public static final String SDK_VERSION = "3.6.0";
     public static final String ST_TYPE_USE = "use";
+    private static String SUBAPP_NAME = null;
     private static int SUBAPP_VERSION = 0;
     private static String SUBAPP_VERSION_NAME = null;
     public static final String TMP_ALA_IM_RECORD_DIR_NAME = "imRecord";
@@ -97,7 +98,7 @@ public class TbConfig {
     private static Map<Integer, String> mapAppServer = new HashMap();
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class PassConfig {
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";
@@ -151,6 +152,14 @@ public class TbConfig {
 
     public static String getSubappType() {
         return SUBAPP_TYPE;
+    }
+
+    public static String getSubappName() {
+        return SUBAPP_NAME;
+    }
+
+    public static void setSubappName(String str) {
+        SUBAPP_NAME = str;
     }
 
     public static int getSubappVersionCode() {

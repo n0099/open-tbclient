@@ -5,14 +5,13 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.pool.BdCache;
 import com.baidu.live.adp.lib.pool.BdObjectPool;
-import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.imageview.BdImage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.widget.largeimage.atomskeleton.BlockBitmap;
 import com.baidu.live.tbadk.widget.largeimage.tools.BlockBitmapObjectFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TbImageMemoryCache {
     private static TbImageMemoryCache mInstance = new TbImageMemoryCache();
     private BdCache<String, Bitmap> mBitmap;
@@ -55,8 +54,6 @@ public class TbImageMemoryCache {
             @Override // com.baidu.live.adp.lib.pool.BdCache
             public void entryRemoved(boolean z, String str, BdImage bdImage, BdImage bdImage2) {
                 if (bdImage != null) {
-                    if (BdLog.isDebugMode()) {
-                    }
                     bdImage.recycle();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_GC_VIEW_DRAW_CACHE, str));
                 }
@@ -159,8 +156,6 @@ public class TbImageMemoryCache {
 
     public void addPic(String str, BdImage bdImage, boolean z) {
         if (bdImage != null && this.mPic != null) {
-            if (BdLog.isDebugMode()) {
-            }
             this.mPic.put(str, bdImage);
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.e.a.a;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class h {
     public static int getVersionCode(Context context) {
         try {

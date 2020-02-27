@@ -17,33 +17,33 @@ import com.baidu.tbadk.core.view.h;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private FrameLayout css;
-    private PbListView ehe;
-    private BdSwipeRefreshLayout ejj;
-    private BdTypeRecyclerView goi;
-    private FrsADFragment gqM;
-    private a gqX;
+    private FrameLayout cwu;
+    private PbListView eli;
+    private BdSwipeRefreshLayout ens;
+    private BdTypeRecyclerView gqj;
+    private FrsADFragment gsN;
+    private a gsY;
     private RelativeLayout mContainer;
     private h mPullView;
 
     public e(FrsADFragment frsADFragment, View view) {
-        this.gqM = frsADFragment;
+        this.gsN = frsADFragment;
         bJ(view);
     }
 
-    public a bEA() {
-        return this.gqX;
+    public a bGc() {
+        return this.gsY;
     }
 
     private void bJ(View view) {
         this.mContainer = (RelativeLayout) view.findViewById(R.id.frs_ad_container);
-        this.goi = (BdTypeRecyclerView) view.findViewById(R.id.frs_ad_listview);
-        this.goi.setLayoutManager(new LinearLayoutManager(this.goi.getContext()));
-        this.goi.setFadingEdgeLength(0);
-        this.goi.setOverScrollMode(2);
-        this.goi.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.ad.e.1
+        this.gqj = (BdTypeRecyclerView) view.findViewById(R.id.frs_ad_listview);
+        this.gqj.setLayoutManager(new LinearLayoutManager(this.gqj.getContext()));
+        this.gqj.setFadingEdgeLength(0);
+        this.gqj.setOverScrollMode(2);
+        this.gqj.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.ad.e.1
             @Override // android.support.v7.widget.RecyclerView.RecyclerListener
             public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                 View view2 = viewHolder.itemView;
@@ -62,77 +62,77 @@ public class e {
                 }
             }
         });
-        this.goi.setOnSrollToBottomListener(this.gqM);
-        this.gqX = new a(this.gqM, this.goi);
-        this.ehe = new PbListView(this.gqM.getPageContext().getPageActivity());
-        this.ehe.createView();
-        this.ehe.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.ehe.setHeight(l.getDimens(this.gqM.getActivity(), R.dimen.tbds182));
-        this.ehe.setLineGone();
-        this.ehe.setTextSize(R.dimen.tbfontsize33);
-        this.ehe.setTextColor(am.getColor(R.color.cp_cont_j));
-        this.ehe.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.mPullView = new h(this.gqM.getPageContext());
-        if (this.ejj == null) {
-            this.ejj = (BdSwipeRefreshLayout) view.findViewById(R.id.frs_ad_pull_refresh_layout);
-            this.ejj.setProgressView(this.mPullView);
-            am.setBackgroundColor(this.ejj, R.color.cp_bg_line_e);
+        this.gqj.setOnSrollToBottomListener(this.gsN);
+        this.gsY = new a(this.gsN, this.gqj);
+        this.eli = new PbListView(this.gsN.getPageContext().getPageActivity());
+        this.eli.createView();
+        this.eli.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.eli.setHeight(l.getDimens(this.gsN.getActivity(), R.dimen.tbds182));
+        this.eli.setLineGone();
+        this.eli.setTextSize(R.dimen.tbfontsize33);
+        this.eli.setTextColor(am.getColor(R.color.cp_cont_j));
+        this.eli.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.mPullView = new h(this.gsN.getPageContext());
+        if (this.ens == null) {
+            this.ens = (BdSwipeRefreshLayout) view.findViewById(R.id.frs_ad_pull_refresh_layout);
+            this.ens.setProgressView(this.mPullView);
+            am.setBackgroundColor(this.ens, R.color.cp_bg_line_e);
         }
-        this.css = (FrameLayout) view.findViewById(R.id.frs_ad_list_content);
-        hn(false);
+        this.cwu = (FrameLayout) view.findViewById(R.id.frs_ad_list_content);
+        hu(false);
     }
 
     public void setListPullRefreshListener(g.c cVar) {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void hn(boolean z) {
+    public void hu(boolean z) {
         if (!z) {
-            this.ejj.setRefreshing(false);
+            this.ens.setRefreshing(false);
         }
     }
 
     public BdTypeRecyclerView getListView() {
-        return this.goi;
+        return this.gqj;
     }
 
-    public RelativeLayout bqY() {
+    public RelativeLayout bsC() {
         return this.mContainer;
     }
 
-    public View bEB() {
-        return this.ejj;
+    public View bGd() {
+        return this.ens;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bba() {
-        this.goi.setNextPage(this.ehe);
-        this.ehe.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.ehe.startLoadData();
+    public void bdp() {
+        this.gqj.setNextPage(this.eli);
+        this.eli.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.eli.startLoadData();
     }
 
-    public void bbb() {
-        this.goi.setNextPage(this.ehe);
-        this.ehe.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.ehe.endLoadData();
-        this.ehe.setText(this.gqM.getResources().getString(R.string.list_no_more));
+    public void bdq() {
+        this.gqj.setNextPage(this.eli);
+        this.eli.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.eli.endLoadData();
+        this.eli.setText(this.gsN.getResources().getString(R.string.list_no_more));
     }
 
-    public void bbc() {
-        this.goi.setNextPage(null);
+    public void bdr() {
+        this.gqj.setNextPage(null);
     }
 
-    public void lC(boolean z) {
-        this.css.setVisibility(z ? 0 : 8);
+    public void lF(boolean z) {
+        this.cwu.setVisibility(z ? 0 : 8);
     }
 
     public void startPullRefresh() {
-        this.ejj.setRefreshing(true);
+        this.ens.setRefreshing(true);
     }
 
-    public void bDo() {
-        if (this.gqX != null) {
-            this.gqX.notifyDataSetChanged();
+    public void bER() {
+        if (this.gsY != null) {
+            this.gsY.notifyDataSetChanged();
         }
     }
 
@@ -140,24 +140,24 @@ public class e {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        this.gqM.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
-        this.gqM.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.mContainer);
-        if (this.ehe != null) {
-            this.ehe.setTextColor(am.getColor(R.color.cp_cont_j));
-            this.ehe.changeSkin(i);
+        this.gsN.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
+        this.gsN.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.mContainer);
+        if (this.eli != null) {
+            this.eli.setTextColor(am.getColor(R.color.cp_cont_j));
+            this.eli.changeSkin(i);
         }
-        am.setBackgroundColor(this.ejj, R.color.cp_bg_line_e);
-        if (this.gqX != null) {
-            this.gqX.notifyDataSetChanged();
+        am.setBackgroundColor(this.ens, R.color.cp_bg_line_e);
+        if (this.gsY != null) {
+            this.gsY.notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.gqX.onDestory();
-        this.goi.setOnSrollToBottomListener(null);
+        this.gsY.onDestory();
+        this.gqj.setOnSrollToBottomListener(null);
     }
 
     public void setOnScrollListener(RecyclerView.OnScrollListener onScrollListener) {
-        this.goi.setOnScrollListener(onScrollListener);
+        this.gqj.setOnScrollListener(onScrollListener);
     }
 }

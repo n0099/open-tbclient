@@ -1,5 +1,5 @@
 package com.baidu.searchbox.config;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class QuickPersistConfigConst {
     public static final String KEY_ACTIVITY_TRACE_ENABLE = "activity_trace_enable";
     public static final String KEY_BUNDLE_PRESET = "rn_bundle_preset_installed";

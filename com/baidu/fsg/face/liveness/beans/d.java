@@ -11,7 +11,7 @@ import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends k {
     private String b;
     private String c;

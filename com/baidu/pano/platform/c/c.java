@@ -6,7 +6,7 @@ import com.baidu.pano.platform.a.a.m;
 import com.baidu.pano.platform.a.a.n;
 import com.baidu.pano.platform.a.p;
 import java.util.concurrent.ExecutionException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static volatile c a = null;
     private static Context b;

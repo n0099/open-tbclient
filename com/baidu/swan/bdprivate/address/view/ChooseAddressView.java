@@ -17,20 +17,20 @@ import com.baidu.swan.bdprivate.address.a.a;
 import com.baidu.swan.bdprivate.b;
 import com.baidu.swan.bdprivate.widget.SwanAppBdActionBar;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ChooseAddressView extends FrameLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private RecyclerView bYn;
-    private com.baidu.swan.bdprivate.address.a.a bYo;
-    private View bYp;
-    private TextView bYq;
-    private CommonEmptyView bYr;
-    private View bYs;
-    private a.b bYt;
-    private SwanAppBdActionBar bYu;
+    private RecyclerView ccr;
+    private com.baidu.swan.bdprivate.address.a.a cct;
+    private View ccu;
+    private TextView ccv;
+    private CommonEmptyView ccw;
+    private View ccx;
+    private a.b ccy;
+    private SwanAppBdActionBar ccz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum PageState {
         Normal,
         EMPTY_DATA,
@@ -49,23 +49,23 @@ public class ChooseAddressView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(b.f.delivery_choose_layout, this);
-        this.bYu = (SwanAppBdActionBar) findViewById(b.e.bd_action_bar);
-        this.bYn = (RecyclerView) findViewById(b.e.delivery_list);
-        this.bYp = findViewById(b.e.delivery_add);
-        this.bYs = findViewById(b.e.delivery_add_line);
-        this.bYr = (CommonEmptyView) findViewById(b.e.delivery_empty);
-        this.bYq = (TextView) findViewById(b.e.delivery_add_txt);
+        this.ccz = (SwanAppBdActionBar) findViewById(b.e.bd_action_bar);
+        this.ccr = (RecyclerView) findViewById(b.e.delivery_list);
+        this.ccu = findViewById(b.e.delivery_add);
+        this.ccx = findViewById(b.e.delivery_add_line);
+        this.ccw = (CommonEmptyView) findViewById(b.e.delivery_empty);
+        this.ccv = (TextView) findViewById(b.e.delivery_add_txt);
         a(PageState.Normal);
-        onNightModeChanged(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState());
-        this.bYo = new com.baidu.swan.bdprivate.address.a.a(context);
-        this.bYn.setLayoutManager(new LinearLayoutManager(context));
-        this.bYn.addItemDecoration(new a(0, af.dip2px(context, 7.0f)));
-        this.bYn.setAdapter(this.bYo);
-        this.bYp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.view.ChooseAddressView.1
+        onNightModeChanged(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState());
+        this.cct = new com.baidu.swan.bdprivate.address.a.a(context);
+        this.ccr.setLayoutManager(new LinearLayoutManager(context));
+        this.ccr.addItemDecoration(new a(0, af.dip2px(context, 7.0f)));
+        this.ccr.setAdapter(this.cct);
+        this.ccu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.view.ChooseAddressView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ChooseAddressView.this.bYt != null) {
-                    ChooseAddressView.this.bYt.b(new com.baidu.swan.bdprivate.address.c.b(), "add");
+                if (ChooseAddressView.this.ccy != null) {
+                    ChooseAddressView.this.ccy.b(new com.baidu.swan.bdprivate.address.c.b(), "add");
                 }
             }
         });
@@ -73,76 +73,76 @@ public class ChooseAddressView extends FrameLayout {
 
     public void onNightModeChanged(boolean z) {
         if (z) {
-            this.bYn.setBackgroundColor(Color.parseColor("#161616"));
-            this.bYs.setBackgroundColor(Color.parseColor("#303030"));
-            this.bYp.setBackgroundColor(Color.parseColor("#191919"));
-            this.bYq.setBackgroundColor(Color.parseColor("#803C76FF"));
-            this.bYq.setTextColor(Color.parseColor("#80ffffff"));
+            this.ccr.setBackgroundColor(Color.parseColor("#161616"));
+            this.ccx.setBackgroundColor(Color.parseColor("#303030"));
+            this.ccu.setBackgroundColor(Color.parseColor("#191919"));
+            this.ccv.setBackgroundColor(Color.parseColor("#803C76FF"));
+            this.ccv.setTextColor(Color.parseColor("#80ffffff"));
         }
     }
 
-    public void age() {
+    public void ais() {
         a(PageState.EMPTY_DATA);
-        this.bYr.setTitle(getResources().getString(b.g.delivery_empty_title));
-        this.bYr.setIcon(getResources().getDrawable(b.d.empty_icon_document));
+        this.ccw.setTitle(getResources().getString(b.g.delivery_empty_title));
+        this.ccw.setIcon(getResources().getDrawable(b.d.empty_icon_document));
     }
 
     public void e(View.OnClickListener onClickListener) {
         a(PageState.NET_ERROR);
-        this.bYr.setTitle(getResources().getString(b.g.net_error));
-        this.bYr.setIcon(getResources().getDrawable(b.d.aiapps_empty_icon_network));
-        this.bYr.setTextButtonClickListener(onClickListener);
+        this.ccw.setTitle(getResources().getString(b.g.net_error));
+        this.ccw.setIcon(getResources().getDrawable(b.d.aiapps_empty_icon_network));
+        this.ccw.setTextButtonClickListener(onClickListener);
     }
 
     private void a(PageState pageState) {
         boolean z = pageState == PageState.Normal;
-        this.bYr.setVisibility(z ? 8 : 0);
-        this.bYn.setVisibility(z ? 0 : 8);
+        this.ccw.setVisibility(z ? 8 : 0);
+        this.ccr.setVisibility(z ? 0 : 8);
     }
 
     public com.baidu.swan.bdprivate.address.a.a getDeliveryAdapter() {
-        return this.bYo;
+        return this.cct;
     }
 
     public void setDeliveryChooseListener(a.b bVar) {
-        this.bYt = bVar;
-        this.bYo.setDeliveryChooseListener(this.bYt);
+        this.ccy = bVar;
+        this.cct.setDeliveryChooseListener(this.ccy);
     }
 
     public void ag(List<com.baidu.swan.bdprivate.address.c.b> list) {
         if (list != null && list.size() > 0) {
-            this.bYo.ac(list);
+            this.cct.ac(list);
             a(PageState.Normal);
             updateUI();
             return;
         }
-        age();
+        ais();
     }
 
     public void updateUI() {
-        this.bYo.notifyDataSetChanged();
+        this.cct.notifyDataSetChanged();
     }
 
     public SwanAppBdActionBar getBdActionBar() {
-        return this.bYu;
+        return this.ccz;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends RecyclerView.ItemDecoration {
-        private int bYw;
-        private int bYx;
+        private int ccB;
+        private int ccC;
 
         public a(int i, int i2) {
-            this.bYw = i;
-            this.bYx = i2;
+            this.ccB = i;
+            this.ccC = i2;
         }
 
         @Override // android.support.v7.widget.RecyclerView.ItemDecoration
         public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-            rect.top = this.bYx;
-            rect.left = this.bYw;
-            rect.right = this.bYw;
+            rect.top = this.ccC;
+            rect.left = this.ccB;
+            rect.right = this.ccB;
         }
     }
 }

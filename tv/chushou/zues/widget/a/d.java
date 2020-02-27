@@ -5,14 +5,14 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.text.TextPaint;
 import android.text.style.ReplacementSpan;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d extends ReplacementSpan {
-    private int gMQ;
+    private int gOQ;
     private Context mContext;
 
     public d(Context context, int i) {
         this.mContext = context;
-        this.gMQ = i;
+        this.gOQ = i;
     }
 
     @Override // android.text.style.ReplacementSpan
@@ -30,7 +30,7 @@ public class d extends ReplacementSpan {
 
     private TextPaint b(Paint paint) {
         TextPaint textPaint = new TextPaint(paint);
-        textPaint.setTextSize(h(this.mContext, this.gMQ));
+        textPaint.setTextSize(h(this.mContext, this.gOQ));
         return textPaint;
     }
 

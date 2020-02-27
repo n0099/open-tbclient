@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.charm.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public long esh;
+    public long ewr;
     public int grade;
     public String portrait;
     public long totalPrice;

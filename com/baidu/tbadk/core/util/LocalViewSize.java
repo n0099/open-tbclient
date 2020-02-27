@@ -1,11 +1,10 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import com.baidu.location.BDLocation;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize cVh = null;
+    private static LocalViewSize cZj = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -14,11 +13,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize aDR() {
-        if (cVh == null) {
-            cVh = new LocalViewSize();
+    public static LocalViewSize aGb() {
+        if (cZj == null) {
+            cZj = new LocalViewSize();
         }
-        return cVh;
+        return cZj;
     }
 
     private LocalViewSize() {
@@ -50,7 +49,7 @@ public class LocalViewSize {
             imageSize2.width = (imageSize2.height * i2) / i;
             if (imageSize2.width == 0) {
                 imageSize2.height = 324;
-                imageSize2.width = BDLocation.TypeServerDecryptError;
+                imageSize2.width = 162;
             }
         } else {
             imageSize2.width = imageSize.width;
@@ -67,7 +66,7 @@ public class LocalViewSize {
         return (equipmentWidth < 720 || equipmentWidth >= 1080) ? 480 : 720;
     }
 
-    public ImageSize aDS() {
+    public ImageSize aGc() {
         int i = 240;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
         if (equipmentWidth < 240) {
@@ -85,7 +84,7 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize aDT() {
+    public ImageSize aGd() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
@@ -93,7 +92,7 @@ public class LocalViewSize {
     }
 
     public int getMsgSPicMaxSizeInt() {
-        ImageSize aDS = aDS();
-        return aDS.height >= aDS.width ? aDS.height : aDS.width;
+        ImageSize aGc = aGc();
+        return aGc.height >= aGc.width ? aGc.height : aGc.width;
     }
 }

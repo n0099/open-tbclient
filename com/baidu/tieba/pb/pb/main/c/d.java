@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d extends a {
-    public TextView dTT;
+    public TextView dXY;
     private LinearLayout mRootView;
 
     public d(TbPageContext tbPageContext, int i) {
@@ -22,15 +22,15 @@ public class d extends a {
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        this.mRootView = (LinearLayout) this.cRe.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-        this.dTT = (TextView) this.mRootView.findViewById(R.id.text);
+        this.mRootView = (LinearLayout) this.cVg.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+        this.dXY = (TextView) this.mRootView.findViewById(R.id.text);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
-    public void f(OriginalThreadInfo originalThreadInfo) {
-        this.dTT.setText(new SpannableString(originalThreadInfo.title));
-        am.setViewTextColor(this.dTT, (int) R.color.cp_cont_b);
+    public void g(OriginalThreadInfo originalThreadInfo) {
+        this.dXY.setText(new SpannableString(originalThreadInfo.title));
+        am.setViewTextColor(this.dXY, (int) R.color.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
@@ -48,7 +48,7 @@ public class d extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.dTT, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.dXY, (int) R.color.cp_cont_b);
         }
     }
 }

@@ -10,21 +10,21 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    private b dwE;
-    private d dwF = new d() { // from class: com.baidu.tbadk.img.e.1
+    private b dAK;
+    private d dAL = new d() { // from class: com.baidu.tbadk.img.e.1
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             String saveTempUploadFile;
             if (imageFileInfo == null) {
                 return null;
             }
-            if (e.this.dwE == null) {
-                e.this.dwE = new b();
+            if (e.this.dAK == null) {
+                e.this.dAK = new b();
             }
             String filePath = imageFileInfo.getFilePath();
             LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
             imageFileInfo.setPageActionsList(null);
-            com.baidu.adp.widget.ImageView.a a = e.this.dwE.a(imageFileInfo, true);
+            com.baidu.adp.widget.ImageView.a a = e.this.dAK.a(imageFileInfo, true);
             if (a == null) {
                 Bitmap b = e.this.b(imageFileInfo);
                 if (b == null) {
@@ -42,7 +42,7 @@ public class e {
             return saveTempUploadFile;
         }
     };
-    private d dwG = new d() { // from class: com.baidu.tbadk.img.e.2
+    private d dAM = new d() { // from class: com.baidu.tbadk.img.e.2
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -51,8 +51,8 @@ public class e {
             return e.this.compressOriginalImageFile(imageFileInfo.getFilePath());
         }
     };
-    private d dwH = this.dwG;
-    private d dwI = new d() { // from class: com.baidu.tbadk.img.e.3
+    private d dAN = this.dAM;
+    private d dAO = new d() { // from class: com.baidu.tbadk.img.e.3
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -69,36 +69,36 @@ public class e {
         }
         String filePath = imageFileInfo.getFilePath();
         boolean checkIsLongImage = m.checkIsLongImage(filePath);
-        boolean sS = m.sS(filePath);
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !sS)) {
+        boolean ti = m.ti(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !ti)) {
             if (checkIsLongImage) {
-                dVar = this.dwH;
+                dVar = this.dAN;
             } else {
-                dVar = this.dwG;
+                dVar = this.dAM;
             }
         } else if (checkIsLongImage) {
-            dVar = this.dwI;
+            dVar = this.dAO;
         } else {
-            dVar = this.dwF;
+            dVar = this.dAL;
         }
         return dVar.a(imageFileInfo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap b(ImageFileInfo imageFileInfo) {
-        com.baidu.adp.lib.e.e R;
+        com.baidu.adp.lib.e.e U;
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.dwE == null) {
-            this.dwE = new b();
+        if (this.dAK == null) {
+            this.dAK = new b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.dwE.b(imageFileInfo, true);
+            return this.dAK.b(imageFileInfo, true);
         }
-        if (imageFileInfo.getImageType() == 1 && (R = com.baidu.adp.lib.e.c.gr().R(20)) != null) {
+        if (imageFileInfo.getImageType() == 1 && (U = com.baidu.adp.lib.e.c.gr().U(20)) != null) {
             try {
-                Object a = R.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
+                Object a = U.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
                 if (a instanceof com.baidu.adp.widget.ImageView.a) {
                     return ((com.baidu.adp.widget.ImageView.a) a).getRawBitmap();
                 }

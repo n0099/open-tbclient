@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class InvoiceInfo implements Parcelable, c {
     public static final int COMPANY = 0;
     public static final Parcelable.Creator<InvoiceInfo> CREATOR = new Parcelable.Creator<InvoiceInfo>() { // from class: com.baidu.swan.bdprivate.invoice.model.InvoiceInfo.1
@@ -17,7 +17,7 @@ public class InvoiceInfo implements Parcelable, c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hd */
+        /* renamed from: hu */
         public InvoiceInfo[] newArray(int i) {
             return new InvoiceInfo[i];
         }

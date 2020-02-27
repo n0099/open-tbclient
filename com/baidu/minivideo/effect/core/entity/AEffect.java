@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AEffect implements Parcelable {
     public static final String AE_ANIM_ONCE = "once";
     public static final String AE_ANIM_ORDER = "order";
@@ -27,7 +27,7 @@ public class AEffect implements Parcelable {
     public static final Parcelable.Creator<AEffect> CREATOR = new Parcelable.Creator<AEffect>() { // from class: com.baidu.minivideo.effect.core.entity.AEffect.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cV */
+        /* renamed from: dl */
         public AEffect[] newArray(int i) {
             return new AEffect[i];
         }
@@ -56,13 +56,13 @@ public class AEffect implements Parcelable {
     public AEffect() {
         this.resourceType = "1";
         this.animRepeatMode = AE_ANIM_REPEAT;
-        this.animOrderMode = AE_ANIM_ORDER;
+        this.animOrderMode = "order";
     }
 
     protected AEffect(Parcel parcel) {
         this.resourceType = "1";
         this.animRepeatMode = AE_ANIM_REPEAT;
-        this.animOrderMode = AE_ANIM_ORDER;
+        this.animOrderMode = "order";
         this.name = parcel.readString();
         this.resourceType = parcel.readString();
         this.textureParams = parcel.createTypedArrayList(AEffectTextureParams.CREATOR);
@@ -152,7 +152,12 @@ public class AEffect implements Parcelable {
         return "1".equals(this.resourceType) ? b.a(context, Y(context, this.vertexShader)) : b.a(str + File.separator + this.vertexShader);
     }
 
-    public void cU(int i) {
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public void dk(int i) {
         ArrayList arrayList;
         AEffectAnimatorGroup aEffectAnimatorGroup;
         AEffectAnimatorGroup aEffectAnimatorGroup2;
@@ -169,7 +174,7 @@ public class AEffect implements Parcelable {
             this.totalAnimGroup.addAll(this.animGroup);
             return;
         }
-        boolean z = !TextUtils.equals(this.animOrderMode, AE_ANIM_ORDER);
+        boolean z = !TextUtils.equals(this.animOrderMode, "order");
         if (z) {
             ArrayList arrayList2 = new ArrayList(this.animGroup);
             Iterator it = arrayList2.iterator();
@@ -250,11 +255,6 @@ public class AEffect implements Parcelable {
         if (aEffectAnimatorGroup8 != null) {
             this.totalAnimGroup.add(this.totalAnimGroup.size(), aEffectAnimatorGroup8);
         }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
     }
 
     @Override // android.os.Parcelable

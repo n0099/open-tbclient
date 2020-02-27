@@ -6,10 +6,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import com.baidu.spswitch.emotion.EmotionType;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class c {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void onClickSwitch(View view, boolean z);
     }
@@ -19,7 +19,7 @@ public class c {
             view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.spswitch.b.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view4) {
-                    if (com.baidu.spswitch.emotion.b.aY(view2.getContext()).a(EmotionType.EMOTION_CLASSIC_TYPE)) {
+                    if (com.baidu.spswitch.emotion.b.bc(view2.getContext()).a(EmotionType.EMOTION_CLASSIC_TYPE)) {
                         boolean c = c.c(view, view3);
                         if (aVar != null) {
                             aVar.onClickSwitch(view4, c);
@@ -28,7 +28,7 @@ public class c {
                 }
             });
         }
-        if (bc(view.getContext())) {
+        if (bg(view.getContext())) {
             view3.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.spswitch.b.c.2
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view4, MotionEvent motionEvent) {
@@ -54,7 +54,7 @@ public class c {
 
     public static void d(View view, View view2) {
         e.Z(view2);
-        if (bc(view.getContext())) {
+        if (bg(view.getContext())) {
             view.setVisibility(4);
         }
     }
@@ -74,13 +74,13 @@ public class c {
         view.setVisibility(8);
     }
 
-    public static boolean bI(boolean z) {
+    public static boolean bQ(boolean z) {
         return z;
     }
 
-    public static boolean bc(Context context) {
+    public static boolean bg(Context context) {
         if (context instanceof Activity) {
-            return bI(g.isFullScreen((Activity) context));
+            return bQ(g.isFullScreen((Activity) context));
         }
         return false;
     }

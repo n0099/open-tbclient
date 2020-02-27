@@ -3,12 +3,14 @@ package kotlin.coroutines;
 import java.io.Serializable;
 import kotlin.TypeCastException;
 import kotlin.coroutines.c;
+import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
-import kotlin.k;
-/* loaded from: classes5.dex */
+import kotlin.l;
+@h
+/* loaded from: classes7.dex */
 public final class CombinedContext implements Serializable, c {
     private final c.b element;
     private final c left;
@@ -27,17 +29,17 @@ public final class CombinedContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public <E extends c.b> E get(c.InterfaceC0762c<E> interfaceC0762c) {
-        q.j(interfaceC0762c, "key");
+    public <E extends c.b> E get(c.InterfaceC0770c<E> interfaceC0770c) {
+        q.j(interfaceC0770c, "key");
         CombinedContext combinedContext = this;
         while (true) {
-            E e = (E) combinedContext.element.get(interfaceC0762c);
+            E e = (E) combinedContext.element.get(interfaceC0770c);
             if (e == null) {
                 c cVar = combinedContext.left;
                 if (cVar instanceof CombinedContext) {
                     combinedContext = (CombinedContext) cVar;
                 } else {
-                    return (E) cVar.get(interfaceC0762c);
+                    return (E) cVar.get(interfaceC0770c);
                 }
             } else {
                 return e;
@@ -52,12 +54,12 @@ public final class CombinedContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public c minusKey(c.InterfaceC0762c<?> interfaceC0762c) {
-        q.j(interfaceC0762c, "key");
-        if (this.element.get(interfaceC0762c) != null) {
+    public c minusKey(c.InterfaceC0770c<?> interfaceC0770c) {
+        q.j(interfaceC0770c, "key");
+        if (this.element.get(interfaceC0770c) != null) {
             return this.left;
         }
-        c minusKey = this.left.minusKey(interfaceC0762c);
+        c minusKey = this.left.minusKey(interfaceC0770c);
         return minusKey == this.left ? this : minusKey == EmptyCoroutineContext.INSTANCE ? this.element : new CombinedContext(minusKey, this.element);
     }
 
@@ -79,7 +81,7 @@ public final class CombinedContext implements Serializable, c {
     }
 
     private final boolean contains(c.b bVar) {
-        return q.h(get(bVar.dJe()), bVar);
+        return q.h(get(bVar.dKl()), bVar);
     }
 
     private final boolean containsAll(CombinedContext combinedContext) {
@@ -113,20 +115,22 @@ public final class CombinedContext implements Serializable, c {
         c[] cVarArr = new c[size];
         Ref.IntRef intRef = new Ref.IntRef();
         intRef.element = 0;
-        fold(k.nAY, new CombinedContext$writeReplace$1(cVarArr, intRef));
+        fold(l.nBA, new CombinedContext$writeReplace$1(cVarArr, intRef));
         if (intRef.element == size) {
             return new Serialized(cVarArr);
         }
         throw new IllegalStateException("Check failed.".toString());
     }
 
-    /* loaded from: classes5.dex */
+    @h
+    /* loaded from: classes7.dex */
     private static final class Serialized implements Serializable {
         public static final a Companion = new a(null);
         private static final long serialVersionUID = 0;
         private final c[] elements;
 
-        /* loaded from: classes5.dex */
+        @h
+        /* loaded from: classes7.dex */
         public static final class a {
             private a() {
             }

@@ -1,5 +1,5 @@
 package com.baidu.b.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface d {
     String g(String str, boolean z);
 
@@ -9,9 +9,9 @@ public interface d {
 
     String getZid();
 
-    String nm();
+    String nU();
 
-    String nn();
+    String nV();
 
-    String no();
+    String nW();
 }

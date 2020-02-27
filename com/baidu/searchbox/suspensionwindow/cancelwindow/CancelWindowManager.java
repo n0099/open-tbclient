@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.searchbox.suspensionwindow.R;
 import com.baidu.searchbox.suspensionwindow.cancelwindow.SpreadView;
 import com.baidu.searchbox.suspensionwindow.util.DeviceUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CancelWindowManager implements SpreadView.OnStateChangeListener {
     private TextView mCancelHint;
     private WindowManager.LayoutParams mCancelLayoutParams;
@@ -35,7 +35,7 @@ public class CancelWindowManager implements SpreadView.OnStateChangeListener {
         this.mColor = -502961;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     static class InstanceHolder {
         static CancelWindowManager INSTANCE = new CancelWindowManager();
 

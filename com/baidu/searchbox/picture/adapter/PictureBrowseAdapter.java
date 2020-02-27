@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.searchbox.picture.model.PictureInfo;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class PictureBrowseAdapter extends PagerAdapter {
     protected Context mContext;
     private int mCurrentPos;

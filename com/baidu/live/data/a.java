@@ -2,6 +2,7 @@ package com.baidu.live.data;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.xiaomi.mipush.sdk.Constants;
@@ -10,16 +11,17 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public long VA;
-    public int VB;
-    public boolean VC;
-    public boolean VD;
-    public int VE;
-    public List<AlaLiveMarkData> VF;
-    public long Vz;
+    public long Xf;
+    public long Xg;
+    public int Xh;
+    public boolean Xi;
+    public boolean Xj;
+    public int Xk;
+    public List<AlaLiveMarkData> Xl;
     public String appId;
+    public JSONObject extraUserInfo;
     public int level_id;
     public String name_show;
     public String portrait;
@@ -42,24 +44,27 @@ public class a {
             }
             this.level_id = jSONObject.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
             this.sex = jSONObject.optInt("sex");
-            this.Vz = jSONObject.optLong("fan_num");
-            this.VA = jSONObject.optLong("concern_num");
-            this.VB = jSONObject.optInt("have_concern");
-            this.VC = jSONObject.optBoolean("isOfficial");
-            this.VD = jSONObject.optBoolean("isLiveAdmin");
+            this.Xf = jSONObject.optLong("fan_num");
+            this.Xg = jSONObject.optLong("concern_num");
+            this.Xh = jSONObject.optInt("have_concern");
+            this.Xi = jSONObject.optBoolean("isOfficial");
+            this.Xj = jSONObject.optBoolean("isLiveAdmin");
             this.appId = jSONObject.optString(Constants.APP_ID);
             this.tagName = jSONObject.optString("tag_name");
-            this.VE = jSONObject.optInt("tag_type");
+            this.Xk = jSONObject.optInt("tag_type");
             this.appId = jSONObject.optString(Constants.APP_ID);
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.VF = new ArrayList(optJSONArray.length());
+                this.Xl = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                     alaLiveMarkData.parserJson(optJSONObject);
-                    this.VF.add(alaLiveMarkData);
+                    this.Xl.add(alaLiveMarkData);
                 }
+            }
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
             }
         }
     }
@@ -73,21 +78,24 @@ public class a {
             jSONObject.put("portrait", this.portrait);
             jSONObject.put(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, this.level_id);
             jSONObject.put("sex", this.sex);
-            jSONObject.put("fan_num", this.Vz);
-            jSONObject.put("concern_num", this.VA);
-            jSONObject.put("have_concern", this.VB);
-            jSONObject.put("isOfficial", this.VC);
-            jSONObject.put("isLiveAdmin", this.VD);
+            jSONObject.put("fan_num", this.Xf);
+            jSONObject.put("concern_num", this.Xg);
+            jSONObject.put("have_concern", this.Xh);
+            jSONObject.put("isOfficial", this.Xi);
+            jSONObject.put("isLiveAdmin", this.Xj);
             jSONObject.put(Constants.APP_ID, this.appId);
             jSONObject.put("tag_name", this.tagName);
-            jSONObject.put("tag_type", this.VE);
+            jSONObject.put("tag_type", this.Xk);
             JSONArray jSONArray = new JSONArray();
-            if (this.VF != null) {
-                for (AlaLiveMarkData alaLiveMarkData : this.VF) {
+            if (this.Xl != null) {
+                for (AlaLiveMarkData alaLiveMarkData : this.Xl) {
                     jSONArray.put(alaLiveMarkData.toJsonObject());
                 }
             }
             jSONObject.put("live_mark_info_new", jSONArray);
+            if (this.extraUserInfo != null) {
+                jSONObject.put(TbConfig.getSubappType() + "_info", this.extraUserInfo);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

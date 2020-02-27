@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageUploadResult implements Serializable {
     public long picId;
     public static int INTER_ERROR_FILE_ERROR = -1;
@@ -56,7 +56,7 @@ public class ImageUploadResult implements Serializable {
         return imageUploadResult;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class picInfo implements Serializable {
         public PicDetailedInfo bigPic;
         public PicDetailedInfo originPic;
@@ -92,7 +92,7 @@ public class ImageUploadResult implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PicDetailedInfo implements Serializable {
         public int height;
         public String picUrl;

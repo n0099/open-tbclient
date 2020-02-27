@@ -5,7 +5,7 @@ import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.u;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class BlockingObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
     public static final Object TERMINATED = new Object();
     private static final long serialVersionUID = -4875965440900746268L;

@@ -2,6 +2,7 @@ package com.baidu.fsg.face.liveness.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.UploadBean;
@@ -17,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends UploadBean {
     private String a;
     private String b;
@@ -59,7 +60,7 @@ public class a extends UploadBean {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            arrayList.add(new RestNameValuePair("service_type", this.f.serviceType));
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f.serviceType));
             if (this.f.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
                 arrayList.add(new RestNameValuePair("type", "bduss"));
                 arrayList.add(new RestNameValuePair("atbc", a()));

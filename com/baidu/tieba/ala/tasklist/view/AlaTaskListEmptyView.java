@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class AlaTaskListEmptyView extends LinearLayout {
-    private ImageView esS;
-    private TextView esT;
-    private TextView esU;
+    private ImageView exc;
+    private TextView exd;
+    private TextView exe;
 
     public AlaTaskListEmptyView(Context context) {
         super(context);
@@ -31,26 +31,26 @@ public class AlaTaskListEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_task_empty_view, this);
-        this.esS = (ImageView) findViewById(a.g.empty_image);
-        this.esT = (TextView) findViewById(a.g.empty_text);
-        this.esU = (TextView) findViewById(a.g.empty_sub_text);
+        this.exc = (ImageView) findViewById(a.g.empty_image);
+        this.exd = (TextView) findViewById(a.g.empty_text);
+        this.exe = (TextView) findViewById(a.g.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.esS.setImageResource(i);
+            this.exc.setImageResource(i);
         } else {
-            this.esS.setVisibility(8);
+            this.exc.setVisibility(8);
         }
         if (i2 != -1) {
-            this.esT.setText(i2);
+            this.exd.setText(i2);
         } else {
-            this.esT.setVisibility(8);
+            this.exd.setVisibility(8);
         }
         if (i3 != -1) {
-            this.esU.setText(i3);
+            this.exe.setText(i3);
         } else {
-            this.esU.setVisibility(8);
+            this.exe.setVisibility(8);
         }
     }
 }

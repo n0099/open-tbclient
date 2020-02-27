@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     private static final String A = "select";
     private static final String B = "isCheck";

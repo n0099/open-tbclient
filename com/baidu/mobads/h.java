@@ -4,13 +4,13 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h implements IOAdEventListener {
-    final /* synthetic */ BaiduNativeH5AdView aKY;
+    final /* synthetic */ BaiduNativeH5AdView aPc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BaiduNativeH5AdView baiduNativeH5AdView) {
-        this.aKY = baiduNativeH5AdView;
+        this.aPc = baiduNativeH5AdView;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

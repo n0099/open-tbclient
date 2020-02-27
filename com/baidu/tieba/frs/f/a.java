@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, ForumData forumData, List<m> list, boolean z, int i) {
         if (!v.isEmpty(list)) {
@@ -18,14 +18,14 @@ public class a {
             bVar2.aT(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.vP(forumData.getFirst_class());
-                bVar2.vQ(forumData.getSecond_class());
+                bVar2.wj(forumData.getFirst_class());
+                bVar2.wk(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.vR(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.wl(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
-            bVar2.ho(z);
+            bVar2.hv(z);
             bVar2.setPageNum(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
         }
@@ -41,10 +41,10 @@ public class a {
         int[] iArr;
         int indexOf;
         if (fVar != null && v.getCount(list) > 0 && v.getCount(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.keU) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.kfT) {
                 m mVar = (m) v.getItem(list, i);
                 if (mVar != null && (indexOf = list2.indexOf(mVar)) >= 0) {
-                    fVar.cG(i, indexOf);
+                    fVar.cJ(i, indexOf);
                 }
             }
         }

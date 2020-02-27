@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class b {
-    private String cxh;
-    private ArrayList<String> kKQ;
-    private final String kRe = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String cBf;
+    private ArrayList<String> kLw;
+    private final String kRK = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -38,10 +38,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.kKQ)) {
+        if (spannable != null && !v.isEmpty(this.kLw)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.kKQ.iterator();
+                Iterator<String> it = this.kLw.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -90,7 +90,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(cSM())) {
+        if (v.isEmpty(cUa())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -112,20 +112,20 @@ public class b {
         }
     }
 
-    public void aV(ArrayList<String> arrayList) {
-        this.kKQ = arrayList;
+    public void aU(ArrayList<String> arrayList) {
+        this.kLw = arrayList;
     }
 
-    public ArrayList<String> cSM() {
-        return this.kKQ;
+    public ArrayList<String> cUa() {
+        return this.kLw;
     }
 
-    public void Kx(String str) {
-        this.cxh = str;
+    public void KK(String str) {
+        this.cBf = str;
     }
 
-    public String cSQ() {
-        return this.cxh;
+    public String cUe() {
+        return this.cBf;
     }
 
     private void c(Spannable spannable) {

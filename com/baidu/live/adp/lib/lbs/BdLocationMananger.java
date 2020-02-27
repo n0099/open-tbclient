@@ -11,7 +11,7 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdLocationMananger {
     private static final int APP_STOP_LOCATION_SERVICE = 0;
     public static final String BAIDU_MAP_API_FORMAT = "http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s";
@@ -26,7 +26,7 @@ public class BdLocationMananger {
     public static final int LOC_UNKONWN_ERROR = 5;
     private static final int MAX_CALLBACK_NUM = 100;
     public static final int TEN_SECONDS = 10000;
-    private static BdLocationMananger mInstance = null;
+    private static volatile BdLocationMananger mInstance = null;
     public long mTimeOutValue = 10000;
     public long lastLocationTime = 0;
     private long location_expiration = 300000;
@@ -76,12 +76,12 @@ public class BdLocationMananger {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface LocationCallBack {
         void onLocationGeted(int i, String str, Address address);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ProviderCallBack {
         void onProviderGetLocation(int i, String str, Address address, long j, boolean z);
     }

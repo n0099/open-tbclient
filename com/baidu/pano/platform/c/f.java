@@ -5,10 +5,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import com.baidu.android.imsdk.BuildConfig;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
     private static f j;
     private int a;
@@ -18,7 +17,7 @@ public class f {
     private String e = "-1";
     private String f = "02";
     private String g = "";
-    private String h = BuildConfig.FLAVOR;
+    private String h = "baidu";
     private Context i;
 
     public static f a(Context context) {

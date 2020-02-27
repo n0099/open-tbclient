@@ -3,39 +3,39 @@ package com.baidu.tieba.barselect.idCard;
 import android.graphics.Rect;
 import android.view.View;
 import com.baidu.tieba.barselect.idCard.ICameraControl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface d {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        int f(byte[] bArr, int i);
+        int h(byte[] bArr, int i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void L(byte[] bArr);
+        void Q(byte[] bArr);
     }
 
     void a(b bVar);
 
     void a(e eVar);
 
-    void bsE();
+    void bui();
 
     @ICameraControl.FlashMode
-    int bsF();
+    int buj();
 
-    View bsG();
+    View buk();
 
-    Rect bsN();
+    Rect bur();
 
-    void bsO();
+    void bus();
 
     void pause();
 
-    void ra(@ICameraControl.FlashMode int i);
-
     void resume();
+
+    void rh(@ICameraControl.FlashMode int i);
 
     void setDisplayOrientation(int i);
 

@@ -2,7 +2,9 @@ package kotlin.coroutines.intrinsics;
 
 import kotlin.coroutines.jvm.internal.RestrictedContinuationImpl;
 import kotlin.h;
-/* loaded from: classes5.dex */
+import kotlin.i;
+@h
+/* loaded from: classes7.dex */
 public final class IntrinsicsKt__IntrinsicsJvmKt$createCoroutineFromSuspendFunction$1 extends RestrictedContinuationImpl {
     final /* synthetic */ kotlin.jvm.a.b $block;
     final /* synthetic */ kotlin.coroutines.a $completion;
@@ -20,11 +22,11 @@ public final class IntrinsicsKt__IntrinsicsJvmKt$createCoroutineFromSuspendFunct
         switch (this.label) {
             case 0:
                 this.label = 1;
-                h.bP(obj);
+                i.bQ(obj);
                 return this.$block.invoke(this);
             case 1:
                 this.label = 2;
-                h.bP(obj);
+                i.bQ(obj);
                 return obj;
             default:
                 throw new IllegalStateException("This coroutine had already completed".toString());

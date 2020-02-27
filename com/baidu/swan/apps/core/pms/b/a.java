@@ -8,21 +8,21 @@ import com.baidu.swan.apps.core.pms.f;
 import com.baidu.swan.apps.env.e;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import java.util.HashSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends f {
     private static final boolean DEBUG = b.DEBUG;
-    private a.InterfaceC0233a bmq;
+    private a.InterfaceC0243a bqz;
 
-    public a(String str, a.InterfaceC0233a interfaceC0233a) {
+    public a(String str, a.InterfaceC0243a interfaceC0243a) {
         super(str);
-        this.bmq = interfaceC0233a;
+        this.bqz = interfaceC0243a;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void MS() {
-        super.MS();
-        if (this.blR != null) {
-            Ni();
+    public void Pg() {
+        super.Pg();
+        if (this.bqb != null) {
+            Pw();
         }
     }
 
@@ -32,43 +32,43 @@ public class a extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        if (this.bmq != null) {
+        if (this.bqz != null) {
             if (aVar.errorNo == 1010) {
-                this.bmq.KN();
+                this.bqz.Nc();
             } else {
-                this.bmq.ea(0);
+                this.bqz.eq(0);
             }
         }
-        er(aVar.errorNo);
+        eH(aVar.errorNo);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void MY() {
-        this.blS.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ap.a Nh = Nh();
-        this.blS.add(new UbcFlowEvent("na_end_update_db"));
-        if (Nh == null) {
-            if (this.bmq != null) {
-                this.bmq.KN();
+    protected void Pm() {
+        this.bqc.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ap.a Pv = Pv();
+        this.bqc.add(new UbcFlowEvent("na_end_update_db"));
+        if (Pv == null) {
+            if (this.bqz != null) {
+                this.bqz.Nc();
             }
-        } else if (this.bmq != null) {
-            this.bmq.ea(5);
+        } else if (this.bqz != null) {
+            this.bqz.eq(5);
         }
-        ar("main_pre_download", this.blT);
+        aB("main_pre_download", this.bqd);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
-        e.Pn().Po().c(hashSet);
+        e.RB().RC().c(hashSet);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void n(Throwable th) {
-        if (this.bmq != null) {
-            this.bmq.ea(0);
+    protected void m(Throwable th) {
+        if (this.bqz != null) {
+            this.bqz.eq(0);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType MZ() {
+    protected PMSDownloadType Pn() {
         return PMSDownloadType.PRE;
     }
 }

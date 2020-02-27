@@ -13,102 +13,102 @@ import com.baidu.tbadk.core.util.aq;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
-    private String hQA;
-    private int hQB;
-    private int hQC;
-    private int hQD;
-    private long hQz = 0;
-    private HashMap<String, Boolean> hQy = new HashMap<>();
+    private int hSA;
+    private int hSB;
+    private String hSy;
+    private int hSz;
+    private long hSx = 0;
+    private HashMap<String, Boolean> hSw = new HashMap<>();
 
-    public void xb(int i) {
-        this.hQC = i;
+    public void xh(int i) {
+        this.hSA = i;
     }
 
-    public int bZf() {
-        return this.hQC;
+    public int caG() {
+        return this.hSA;
     }
 
-    public void xc(int i) {
-        this.hQD = i;
+    public void xi(int i) {
+        this.hSB = i;
     }
 
-    public int bZg() {
-        return this.hQD;
+    public int caH() {
+        return this.hSB;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.hQA = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.hSy = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.hQA = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.hSy = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.hQB = intExtra;
-            this.hQC = intExtra;
-            this.hQD = intExtra;
+            this.hSz = intExtra;
+            this.hSA = intExtra;
+            this.hSB = intExtra;
         }
     }
 
     public void ar(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.hQA);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.hSy);
         }
     }
 
     public void d(List<String> list, int i, int i2) {
-        synchronized (this.hQy) {
-            if (System.nanoTime() - this.hQz > 300000000 && list != null && i < list.size()) {
-                this.hQy.put(list.get(i), true);
+        synchronized (this.hSw) {
+            if (System.nanoTime() - this.hSx > 300000000 && list != null && i < list.size()) {
+                this.hSw.put(list.get(i), true);
             }
-            this.hQz = System.nanoTime();
-            if (list != null && i2 < list.size() && this.hQy.get(list.get(i2)) == null) {
-                this.hQy.put(list.get(i2), false);
+            this.hSx = System.nanoTime();
+            if (list != null && i2 < list.size() && this.hSw.get(list.get(i2)) == null) {
+                this.hSw.put(list.get(i2), false);
             }
         }
-        if (this.hQy.size() >= 100) {
-            bZh();
+        if (this.hSw.size() >= 100) {
+            caI();
         }
     }
 
-    public void bZh() {
-        if (this.hQy != null) {
-            synchronized (this.hQy) {
-                if (this.hQy.size() > 0) {
+    public void caI() {
+        if (this.hSw != null) {
+            synchronized (this.hSw) {
+                if (this.hSw.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.hQy.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.hSw.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.hQy.size(), this.hQA, this.hQB + 1, this.hQC + 1);
-                    this.hQy.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.hSw.size(), this.hSy, this.hSz + 1, this.hSA + 1);
+                    this.hSw.clear();
                 }
             }
         }
     }
 
     public void aM(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.hQz > 300000000) {
-            this.hQy.put(str, true);
+        if (i == 1 && System.nanoTime() - this.hSx > 300000000) {
+            this.hSw.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.hQD == this.hQC) {
-            sb.append(this.hQD + 1);
-            if (this.hQC == i - 1) {
+        if (this.hSB == this.hSA) {
+            sb.append(this.hSB + 1);
+            if (this.hSA == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.hQD; i2 <= this.hQC; i2++) {
-                if (i2 == this.hQC) {
+            for (int i2 = this.hSB; i2 <= this.hSA; i2++) {
+                if (i2 == this.hSA) {
                     sb.append(i2 + 1);
-                    if (this.hQC == i - 1) {
+                    if (this.hSA == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -122,25 +122,25 @@ public class i {
             }
         }
         an anVar = new an("common_exp");
-        anVar.cp("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
+        anVar.cy("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
         if (!aq.isEmpty(str2)) {
-            anVar.cp("fid", str2);
+            anVar.cy("fid", str2);
         }
         if (!aq.isEmpty(str3)) {
-            anVar.cp("tid", str3);
+            anVar.cy("tid", str3);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
+            anVar.cy(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dlX);
         }
-        anVar.Z("pic_count", i);
-        anVar.cp("obj_floors", sb.toString());
-        anVar.cp("obj_isads", sb2.toString());
-        int i3 = (this.hQC - this.hQD) + 1;
+        anVar.X("pic_count", i);
+        anVar.cy("obj_floors", sb.toString());
+        anVar.cy("obj_isads", sb2.toString());
+        int i3 = (this.hSA - this.hSB) + 1;
         if (i3 == 1) {
-            if (this.hQC == i - 1) {
-                anVar.cp("obj_id", str);
+            if (this.hSA == i - 1) {
+                anVar.cy("obj_id", str);
             } else {
-                anVar.cp("obj_id", "");
+                anVar.cy("obj_id", "");
             }
         }
         if (i3 > 1) {
@@ -148,16 +148,16 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.hQC == i - 1) {
+            if (this.hSA == i - 1) {
                 sb3.append(str);
             }
-            anVar.cp("obj_ids", str);
+            anVar.cy("obj_ids", str);
         }
         if (!StringUtils.isNull(str4)) {
-            anVar.cp("first_dir", str4);
+            anVar.cy("first_dir", str4);
         }
         if (!StringUtils.isNull(str5)) {
-            anVar.cp("second_dir", str5);
+            anVar.cy("second_dir", str5);
         }
         TiebaStatic.log(anVar);
     }

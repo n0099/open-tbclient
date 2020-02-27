@@ -1,10 +1,10 @@
 package com.baidu.swan.games.utils.so;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 final class a implements b {
     private a() {
     }
 
-    public static a anQ() {
+    public static a aqe() {
         return new a();
     }
 

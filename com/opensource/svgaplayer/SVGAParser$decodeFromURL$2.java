@@ -4,12 +4,14 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.opensource.svgaplayer.d;
 import java.io.InputStream;
 import java.net.URL;
+import kotlin.h;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
-import kotlin.k;
+import kotlin.l;
 /* JADX INFO: Access modifiers changed from: package-private */
+@h
 /* loaded from: classes.dex */
-public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.jvm.a.b<InputStream, k> {
+public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.jvm.a.b<InputStream, l> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ URL $url;
     final /* synthetic */ d this$0;
@@ -26,9 +28,9 @@ public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.j
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.b
-    public /* bridge */ /* synthetic */ k invoke(InputStream inputStream) {
+    public /* bridge */ /* synthetic */ l invoke(InputStream inputStream) {
         invoke2(inputStream);
-        return k.nAY;
+        return l.nBA;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

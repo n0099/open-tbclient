@@ -8,45 +8,45 @@ import com.baidu.tbadk.data.n;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
-    private HTypeListView jeT;
-    private c jeU;
-    private b jeV;
-    private a jeW;
+    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
+    private HTypeListView jfP;
+    private c jfQ;
+    private b jfR;
+    private a jfS;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.jeT = hTypeListView;
-        vi();
+        this.jfP = hTypeListView;
+        wM();
     }
 
-    private void vi() {
-        this.jeU = new c(this.mTbPageContext, n.Mm);
-        this.jeV = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jfe);
-        this.jeW = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jeJ);
-        this.apl.add(this.jeU);
-        this.apl.add(this.jeV);
-        this.apl.add(this.jeW);
-        this.jeT.addAdapters(this.apl);
+    private void wM() {
+        this.jfQ = new c(this.mTbPageContext, n.MO);
+        this.jfR = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jga);
+        this.jfS = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jfF);
+        this.asE.add(this.jfQ);
+        this.asE.add(this.jfR);
+        this.asE.add(this.jfS);
+        this.jfP.addAdapters(this.asE);
     }
 
     public void setDatas(List<m> list) {
-        if (this.jeT != null) {
-            this.jeT.setData(list);
+        if (this.jfP != null) {
+            this.jfP.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.jeT != null && (this.jeT.getAdapter() instanceof v)) {
-            ((v) this.jeT.getAdapter()).notifyDataSetChanged();
+        if (this.jfP != null && (this.jfP.getAdapter() instanceof v)) {
+            ((v) this.jfP.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.jeU.C(onClickListener);
-        this.jeV.C(onClickListener);
+        this.jfQ.D(onClickListener);
+        this.jfR.D(onClickListener);
     }
 }

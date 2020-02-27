@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.down.manage.DownloadConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class DownloadDBHelper extends SQLiteOpenHelper {
     private static final String TAG = "DaoMaster";
     private static DownloadDBHelper mInstance;

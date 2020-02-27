@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     private Context context;
     private boolean markCache;
-    private com.baidu.tieba.pb.data.f pbData;
+    private com.baidu.tieba.pb.data.e pbData;
     private String postId;
     private int updateType;
 
@@ -20,12 +20,12 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         this.updateType = i;
     }
 
-    public com.baidu.tieba.pb.data.f getPbData() {
+    public com.baidu.tieba.pb.data.e getPbData() {
         return this.pbData;
     }
 
-    public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.pbData = fVar;
+    public void setPbData(com.baidu.tieba.pb.data.e eVar) {
+        this.pbData = eVar;
     }
 
     public void setPostId(String str) {
@@ -54,13 +54,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
             setError(pbPageResIdl.error.errorno.intValue());
             setErrorString(pbPageResIdl.error.usermsg);
             if (getError() == 0 && pbPageResIdl.data != null) {
-                this.pbData = new com.baidu.tieba.pb.data.f();
-                this.pbData.yt(1);
+                this.pbData = new com.baidu.tieba.pb.data.e();
+                this.pbData.yA(1);
                 try {
                     this.pbData.a(pbPageResIdl.data, this.context);
                     if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.awv() != null && !this.pbData.awv().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.ayI() != null && !this.pbData.ayI().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

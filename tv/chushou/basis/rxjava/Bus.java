@@ -16,7 +16,7 @@ import tv.chushou.basis.rxjava.entity.ProducerEvent;
 import tv.chushou.basis.rxjava.entity.SubscriberEvent;
 import tv.chushou.basis.rxjava.finder.Finder;
 import tv.chushou.basis.rxjava.thread.ThreadEnforcer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Bus {
     public static final String DEFAULT_IDENTIFIER = "default";
     private final ThreadEnforcer enforcer;

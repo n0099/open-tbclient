@@ -8,12 +8,12 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
+import com.baidu.live.u.a;
 import com.baidu.mobstat.Config;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
-    private TextView aqn;
-    private String fhU;
+    private TextView atX;
+    private String fla;
     private String mName;
 
     public TurnTableLuckyBubbleView(Context context) {
@@ -22,21 +22,21 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str) {
-        this.aqn.setText(str);
+        this.atX.setText(str);
     }
 
     public void setContent(String str, String str2) {
-        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.fhU) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.fhU.equals(str2)) {
+        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.fla) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.fla.equals(str2)) {
             this.mName = str;
-            this.fhU = str2;
-            this.aqn.setText(!TextUtils.isEmpty(this.fhU) ? this.mName + Config.EVENT_HEAT_X + this.fhU : this.mName);
+            this.fla = str2;
+            this.atX.setText(!TextUtils.isEmpty(this.fla) ? this.mName + Config.EVENT_HEAT_X + this.fla : this.mName);
         }
     }
 
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.turn_table_widget_lucky_bubble, (ViewGroup) this, true);
-        this.aqn = (TextView) findViewById(a.g.tv_content);
+        this.atX = (TextView) findViewById(a.g.tv_content);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds40));
         gradientDrawable.setShape(0);
@@ -46,6 +46,6 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
         } else {
             gradientDrawable.setColor(-2199);
         }
-        this.aqn.setBackgroundDrawable(gradientDrawable);
+        this.atX.setBackgroundDrawable(gradientDrawable);
     }
 }

@@ -13,10 +13,12 @@ import com.baidu.swan.pms.a.c;
 import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    private c<g> blW = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.apps.core.pms.c.a.1
+    private com.baidu.swan.apps.core.pms.b bqA;
+    private String bqB;
+    private c<g> bqg = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.apps.core.pms.c.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -26,15 +28,15 @@ public class a extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: c */
-        public String I(g gVar) {
-            return com.baidu.swan.apps.core.pms.d.b.gU(a.this.bms);
+        public String K(g gVar) {
+            return com.baidu.swan.apps.core.pms.d.b.hj(a.this.bqB);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: e */
-        public void H(g gVar) {
-            super.H(gVar);
+        public void J(g gVar) {
+            super.J(gVar);
             if (a.DEBUG) {
                 Log.i("SwanAppSubPkgDownload", "onDownloading");
             }
@@ -48,46 +50,44 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("SwanAppSubPkgDownload", "onDownloadError:" + aVar.toString());
             }
-            a.this.et(3);
-            com.baidu.swan.apps.core.pms.c.MU().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aE(12L).aF(aVar.errorNo).mj("分包下载失败").mk(aVar.toString()));
+            a.this.eJ(3);
+            com.baidu.swan.apps.core.pms.c.Pi().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aI(12L).aJ(aVar.errorNo).my("分包下载失败").mz(aVar.toString()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: f */
-        public void E(g gVar) {
-            super.E(gVar);
+        public void G(g gVar) {
+            super.G(gVar);
             if (a.DEBUG) {
                 Log.e("SwanAppSubPkgDownload", "onDownloadFinish:" + gVar.toString());
             }
             a.this.g(gVar);
         }
     };
-    private com.baidu.swan.apps.core.pms.b bmr;
-    private String bms;
     private String mAppId;
 
     public a(String str, String str2, com.baidu.swan.apps.core.pms.b bVar) {
         this.mAppId = str;
-        this.bmr = bVar;
-        this.bms = e.d.aB(str, str2).getPath();
+        this.bqA = bVar;
+        this.bqB = e.d.aL(str, str2).getPath();
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.model.a aVar) {
         super.a(aVar);
-        et(1);
+        eJ(1);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void MS() {
-        super.MS();
-        et(2);
+    public void Pg() {
+        super.Pg();
+        eJ(2);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<g> Nb() {
-        return this.blW;
+    public c<g> Pp() {
+        return this.bqg;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,51 +96,51 @@ public class a extends j {
             if (DEBUG) {
                 Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 签名校验失败");
             }
-            et(4);
-            com.baidu.swan.apps.core.pms.c.MU().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aE(12L).aF(2300L).mj("分包签名校验"));
-        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.bms, gVar.pkgName))) {
+            eJ(4);
+            com.baidu.swan.apps.core.pms.c.Pi().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aI(12L).aJ(2300L).my("分包签名校验"));
+        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.bqB, gVar.pkgName))) {
             if (DEBUG) {
                 Log.i("SwanAppSubPkgDownload", "onDownloadFinish: 解压成功");
             }
             gVar.appId = this.mAppId;
-            com.baidu.swan.pms.database.a.arf().c(gVar);
-            Nq();
-            com.baidu.swan.apps.core.pms.c.MU().a(gVar, PMSDownloadType.ALONE_SUB);
+            com.baidu.swan.pms.database.a.att().c(gVar);
+            PE();
+            com.baidu.swan.apps.core.pms.c.Pi().a(gVar, PMSDownloadType.ALONE_SUB);
         } else {
             if (DEBUG) {
                 Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 解压失败");
             }
-            et(5);
-            com.baidu.swan.apps.core.pms.c.MU().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aE(12L).aF(2320L).mj("分包解压失败"));
+            eJ(5);
+            com.baidu.swan.apps.core.pms.c.Pi().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aI(12L).aJ(2320L).my("分包解压失败"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(g gVar) {
-        com.baidu.swan.apps.core.pms.c.MU().a(gVar, new c.b() { // from class: com.baidu.swan.apps.core.pms.c.a.2
+        com.baidu.swan.apps.core.pms.c.Pi().a(gVar, new c.b() { // from class: com.baidu.swan.apps.core.pms.c.a.2
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType) {
-                a.this.Nq();
+                a.this.PE();
             }
 
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ap.a aVar) {
-                a.this.et(0);
+                a.this.eJ(0);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void et(int i) {
-        if (this.bmr != null) {
-            this.bmr.eq(i);
+    public void eJ(int i) {
+        if (this.bqA != null) {
+            this.bqA.eG(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Nq() {
-        if (this.bmr != null) {
-            this.bmr.MT();
+    public void PE() {
+        if (this.bqA != null) {
+            this.bqA.Ph();
         }
     }
 }

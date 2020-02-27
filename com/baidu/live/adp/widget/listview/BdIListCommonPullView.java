@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.live.adp.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdIListCommonPullView extends BdIListPullView {
     @SuppressLint({"SimpleDateFormat"})
     private static SimpleDateFormat FORMATE_DATA = new SimpleDateFormat("HH:mm");
@@ -29,12 +29,12 @@ public class BdIListCommonPullView extends BdIListPullView {
     protected TextView mPullTime;
     private String mReleaseMsg;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ListPullRefreshListener {
         void onListPullRefresh(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ListPullRefreshListenerEx {
         void onListPullRefresh(View view, boolean z);
     }
@@ -128,8 +128,6 @@ public class BdIListCommonPullView extends BdIListPullView {
         this.mPullImage.setBackgroundDrawable(this.mAnimImage.getFrame(0));
         this.mPullText.setVisibility(0);
         this.mPullTime.setVisibility(0);
-        if (z) {
-        }
         this.mPullText.setText(this.mPullMsg);
     }
 

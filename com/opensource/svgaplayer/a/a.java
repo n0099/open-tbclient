@@ -7,60 +7,63 @@ import com.opensource.svgaplayer.entities.g;
 import com.opensource.svgaplayer.f;
 import java.util.ArrayList;
 import java.util.List;
+import kotlin.h;
 import kotlin.jvm.internal.q;
+@h
 /* loaded from: classes.dex */
 public class a {
-    private final f njZ;
-    private final d nkY;
+    private final f nkA;
+    private final d nlz;
 
     public a(f fVar) {
         q.j(fVar, "videoItem");
-        this.njZ = fVar;
-        this.nkY = new d();
+        this.nkA = fVar;
+        this.nlz = new d();
     }
 
-    public final f dDx() {
-        return this.njZ;
+    public final f dEE() {
+        return this.nkA;
     }
 
-    public final d dDS() {
-        return this.nkY;
+    public final d dEZ() {
+        return this.nlz;
     }
 
+    @h
     /* renamed from: com.opensource.svgaplayer.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class C0725a {
+    public final class C0733a {
         private final String imageKey;
-        private final g nkZ;
-        final /* synthetic */ a nla;
+        private final g nlA;
+        final /* synthetic */ a nlB;
 
-        public C0725a(a aVar, String str, g gVar) {
+        public C0733a(a aVar, String str, g gVar) {
             q.j(gVar, "frameEntity");
-            this.nla = aVar;
+            this.nlB = aVar;
             this.imageKey = str;
-            this.nkZ = gVar;
+            this.nlA = gVar;
         }
 
-        public final String dDT() {
+        public final String dFa() {
             return this.imageKey;
         }
 
-        public final g dDU() {
-            return this.nkZ;
+        public final g dFb() {
+            return this.nlA;
         }
     }
 
-    public final List<C0725a> Nf(int i) {
-        C0725a c0725a;
+    public final List<C0733a> Ni(int i) {
+        C0733a c0733a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.njZ.dDN()) {
-            if (i < 0 || i >= fVar.dEr().size()) {
-                c0725a = null;
+        for (com.opensource.svgaplayer.entities.f fVar : this.nkA.dEU()) {
+            if (i < 0 || i >= fVar.dFy().size()) {
+                c0733a = null;
             } else {
-                c0725a = fVar.dEr().get(i).dEs() <= 0.0d ? null : new C0725a(this, fVar.dDT(), fVar.dEr().get(i));
+                c0733a = fVar.dFy().get(i).dFz() <= 0.0d ? null : new C0733a(this, fVar.dFa(), fVar.dFy().get(i));
             }
-            if (c0725a != null) {
-                arrayList.add(c0725a);
+            if (c0733a != null) {
+                arrayList.add(c0733a);
             }
         }
         return arrayList;
@@ -69,6 +72,6 @@ public class a {
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         q.j(canvas, "canvas");
         q.j(scaleType, "scaleType");
-        this.nkY.a(canvas.getWidth(), canvas.getHeight(), (float) this.njZ.dDL().getWidth(), (float) this.njZ.dDL().getHeight(), scaleType);
+        this.nlz.a(canvas.getWidth(), canvas.getHeight(), (float) this.nkA.dES().getWidth(), (float) this.nkA.dES().getHeight(), scaleType);
     }
 }

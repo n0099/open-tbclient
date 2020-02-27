@@ -7,7 +7,7 @@ import java.util.zip.CRC32;
 import java.util.zip.CheckedInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [37=4] */
     public static boolean a(File file, File file2) {

@@ -1,7 +1,7 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.WebModifyPwdResult;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class WebModifyPwdCallback {
     public abstract void onFinish(WebModifyPwdResult webModifyPwdResult);
 }

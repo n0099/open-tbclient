@@ -10,7 +10,7 @@ import com.baidu.android.pushservice.i.l;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BasicPushNotificationBuilder extends PushNotificationBuilder {
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         this.mStatusbarIcon = objectInputStream.readInt();

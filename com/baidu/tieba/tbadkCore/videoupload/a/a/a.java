@@ -14,35 +14,35 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private final String Tm;
-    private final long kiK;
-    private final int kiL;
-    private final int kiM;
-    private e kiN;
+    private final String US;
+    private final long kjG;
+    private final int kjH;
+    private final int kjI;
+    private e kjJ;
     protected final String mFileName;
 
-    public abstract d c(ArrayList<Integer> arrayList, String str, int i);
-
     public abstract void cancel();
+
+    public abstract d d(ArrayList<Integer> arrayList, String str, int i);
 
     public abstract boolean isCancelled();
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.kiM = i2;
-        this.kiK = j;
-        this.Tm = str2;
-        this.kiL = i;
+        this.kjI = i2;
+        this.kjG = j;
+        this.US = str2;
+        this.kjH = i;
     }
 
     public void a(e eVar) {
-        this.kiN = eVar;
+        this.kjJ = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void notifyProgress(int i) {
-        if (this.kiN != null) {
-            this.kiN.aL(i / 100.0f);
+        if (this.kjJ != null) {
+            this.kjJ.aK(i / 100.0f);
         }
     }
 
@@ -59,10 +59,10 @@ public abstract class a {
         } else {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             xVar.addPostData("chunk_no", String.valueOf(i));
-            xVar.addPostData("chunk_sum", String.valueOf(this.kiM));
+            xVar.addPostData("chunk_sum", String.valueOf(this.kjI));
             xVar.addPostData("chunk_size", String.valueOf(a.length));
-            xVar.addPostData("video_size", String.valueOf(this.kiK));
-            xVar.addPostData("video_md5", this.Tm);
+            xVar.addPostData("video_size", String.valueOf(this.kjG));
+            xVar.addPostData("video_md5", this.US);
             xVar.addPostData(PublishLimitUpdateListener.KEY_VIDEO_LEN, String.valueOf(j));
             xVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
             xVar.addPostData("video_chunk", a);
@@ -75,16 +75,16 @@ public abstract class a {
                 return null;
             }
             d dVar2 = new d();
-            if (xVar.aDU().aEv().isRequestSuccess()) {
-                dVar2.videoUrl = Jf(postMultiNetData);
+            if (xVar.aGe().aGG().isRequestSuccess()) {
+                dVar2.videoUrl = Js(postMultiNetData);
                 return dVar2;
             }
-            if (xVar.aDU().aEv().isNetSuccess()) {
-                dVar2.errorNo = xVar.aDU().aEv().mServerErrorCode;
+            if (xVar.aGe().aGG().isNetSuccess()) {
+                dVar2.errorNo = xVar.aGe().aGG().mServerErrorCode;
             } else {
-                dVar2.errorNo = xVar.aDU().aEv().mNetErrorCode;
+                dVar2.errorNo = xVar.aGe().aGG().mNetErrorCode;
             }
-            dVar2.errorMessage = xVar.aDU().aEv().mErrorString;
+            dVar2.errorMessage = xVar.aGe().aGG().mErrorString;
             return dVar2;
         }
     }
@@ -94,15 +94,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.kiM) {
-            i2 = (int) (this.kiK - ((i - 1) * this.kiL));
+        if (i == this.kjI) {
+            i2 = (int) (this.kjG - ((i - 1) * this.kjH));
         } else {
-            i2 = this.kiL;
+            i2 = this.kjH;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.kiL);
+                randomAccessFile.seek((i - 1) * this.kjH);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {
@@ -114,7 +114,7 @@ public abstract class a {
         return null;
     }
 
-    private String Jf(String str) {
+    private String Js(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

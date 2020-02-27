@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageUploadStrategy {
     public static final long FILE_SIZE_10M = 10485760;
     public static final long FILE_SIZE_4M = 4194304;

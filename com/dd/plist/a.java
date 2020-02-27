@@ -10,14 +10,14 @@ import java.text.ParseException;
 import java.text.StringCharacterIterator;
 import java.util.LinkedList;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static CharsetEncoder lFO;
+    private static CharsetEncoder lGv;
     private byte[] data;
     private int index;
 
-    public static i Y(byte[] bArr) throws ParseException {
-        return new a(bArr).die();
+    public static i ad(byte[] bArr) throws ParseException {
+        return new a(bArr).djr();
     }
 
     protected a() {
@@ -75,11 +75,11 @@ public class a {
         this.index++;
     }
 
-    private void Hf(int i) {
+    private void Hk(int i) {
         this.index += i;
     }
 
-    private void did() {
+    private void djq() {
         boolean z;
         do {
             z = false;
@@ -87,16 +87,16 @@ public class a {
                 skip();
             }
             if (b('/', '/')) {
-                Hf(2);
+                Hk(2);
                 e('\r', '\n');
                 z = true;
                 continue;
             } else if (b('/', '*')) {
-                Hf(2);
+                Hk(2);
                 while (!b('*', '/')) {
                     skip();
                 }
-                Hf(2);
+                Hk(2);
                 z = true;
                 continue;
             } else {
@@ -123,87 +123,87 @@ public class a {
         return str;
     }
 
-    public i die() throws ParseException {
+    public i djr() throws ParseException {
         this.index = 0;
         if (this.data.length >= 3 && (this.data[0] & 255) == 239 && (this.data[1] & 255) == 187 && (this.data[2] & 255) == 191) {
-            Hf(3);
+            Hk(3);
         }
-        did();
+        djq();
         d('{', '(', '/');
         try {
-            return dif();
+            return djs();
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new ParseException("Reached end of input unexpectedly.", this.index);
         }
     }
 
-    private i dif() throws ParseException {
+    private i djs() throws ParseException {
         switch (this.data[this.index]) {
             case 34:
-                String dil = dil();
-                if (dil.length() == 20 && dil.charAt(4) == '-') {
+                String djy = djy();
+                if (djy.length() == 20 && djy.charAt(4) == '-') {
                     try {
-                        return new f(dil);
+                        return new f(djy);
                     } catch (Exception e) {
-                        return new k(dil);
+                        return new k(djy);
                     }
                 }
-                return new k(dil);
+                return new k(djy);
             case 40:
-                return dig();
+                return djt();
             case 60:
-                return dii();
+                return djv();
             case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
-                return dih();
+                return dju();
             default:
                 if (this.data[this.index] > 47 && this.data[this.index] < 58) {
-                    return dij();
+                    return djw();
                 }
-                return new k(dik());
+                return new k(djx());
         }
     }
 
-    private d dig() throws ParseException {
+    private d djt() throws ParseException {
         skip();
-        did();
+        djq();
         LinkedList linkedList = new LinkedList();
         while (!i(')')) {
-            linkedList.add(dif());
-            did();
+            linkedList.add(djs());
+            djq();
             if (!i(',')) {
                 break;
             }
             skip();
-            did();
+            djq();
         }
         k(')');
         return new d((i[]) linkedList.toArray(new i[linkedList.size()]));
     }
 
-    private g dih() throws ParseException {
-        String dik;
+    private g dju() throws ParseException {
+        String djx;
         skip();
-        did();
+        djq();
         g gVar = new g();
         while (!i('}')) {
             if (i('\"')) {
-                dik = dil();
+                djx = djy();
             } else {
-                dik = dik();
+                djx = djx();
             }
-            did();
+            djq();
             k('=');
-            did();
-            gVar.put(dik, dif());
-            did();
+            djq();
+            gVar.put(djx, djs());
+            djq();
             k(';');
-            did();
+            djq();
         }
         skip();
         return gVar;
     }
 
-    private i dii() throws ParseException {
+    private i djv() throws ParseException {
         i iVar = null;
         skip();
         if (i('*')) {
@@ -238,22 +238,22 @@ public class a {
         return eVar;
     }
 
-    private i dij() {
-        String dik = dik();
-        if (dik.length() > 4 && dik.charAt(4) == '-') {
+    private i djw() {
+        String djx = djx();
+        if (djx.length() > 4 && djx.charAt(4) == '-') {
             try {
-                return new f(dik);
+                return new f(djx);
             } catch (Exception e) {
             }
         }
-        return new k(dik);
+        return new k(djx);
     }
 
-    private String dik() {
+    private String djx() {
         return e(' ', '\t', '\n', '\r', ',', ';', '=', ')');
     }
 
-    private String dil() throws ParseException {
+    private String djy() throws ParseException {
         skip();
         String str = "";
         boolean z = true;
@@ -266,9 +266,9 @@ public class a {
                 skip();
             } else {
                 try {
-                    String Or = Or(str);
+                    String OD = OD(str);
                     skip();
-                    return Or;
+                    return OD;
                 } catch (Exception e) {
                     throw new ParseException("The quoted string could not be parsed.", this.index);
                 }
@@ -276,7 +276,7 @@ public class a {
         }
     }
 
-    public static synchronized String Or(String str) throws UnsupportedEncodingException, CharacterCodingException {
+    public static synchronized String OD(String str) throws UnsupportedEncodingException, CharacterCodingException {
         String str2;
         synchronized (a.class) {
             LinkedList<Byte> linkedList = new LinkedList();
@@ -304,11 +304,11 @@ public class a {
             }
             str2 = new String(bArr, "UTF-8");
             CharBuffer wrap = CharBuffer.wrap(str2);
-            if (lFO == null) {
-                lFO = Charset.forName(HTTP.ASCII).newEncoder();
+            if (lGv == null) {
+                lGv = Charset.forName(HTTP.ASCII).newEncoder();
             }
-            if (lFO.canEncode(wrap)) {
-                str2 = lFO.encode(wrap).asCharBuffer().toString();
+            if (lGv.canEncode(wrap)) {
+                str2 = lGv.encode(wrap).asCharBuffer().toString();
             }
         }
         return str2;

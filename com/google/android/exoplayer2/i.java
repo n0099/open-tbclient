@@ -2,7 +2,7 @@ package com.google.android.exoplayer2;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i {
     @Deprecated
     public static w a(Context context, com.google.android.exoplayer2.b.h hVar, n nVar, @Nullable com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> aVar) {

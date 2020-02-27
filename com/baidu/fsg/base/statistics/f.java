@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     private static final String a = f.class.getSimpleName();
     private JSONArray b;
@@ -15,7 +15,7 @@ public class f {
     private byte[] e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         private static f a = new f();
 
@@ -79,7 +79,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static class a {
         public int a;
         public String b;

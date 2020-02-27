@@ -5,22 +5,22 @@ import master.flame.danmaku.danmaku.model.android.e;
 import master.flame.danmaku.danmaku.model.android.f;
 import master.flame.danmaku.danmaku.model.d;
 import master.flame.danmaku.danmaku.model.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static boolean a(m mVar, d dVar, d dVar2, long j, long j2) {
         int type = dVar.getType();
-        if (type == dVar2.getType() && !dVar.dKu()) {
-            long dKD = dVar2.dKD() - dVar.dKD();
-            if (dKD <= 0) {
+        if (type == dVar2.getType() && !dVar.dLH()) {
+            long dLQ = dVar2.dLQ() - dVar.dLQ();
+            if (dLQ <= 0) {
                 return true;
             }
-            if (Math.abs(dKD) >= j || dVar.isTimeOut() || dVar2.isTimeOut()) {
+            if (Math.abs(dLQ) >= j || dVar.isTimeOut() || dVar2.isTimeOut()) {
                 return false;
             }
             if (type == 5 || type == 4) {
                 return true;
             }
-            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.dKD() + dVar.getDuration());
+            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.dLQ() + dVar.getDuration());
         }
         return false;
     }
@@ -51,18 +51,18 @@ public class b {
         if (eVar == null) {
             eVar = new e();
         }
-        eVar.e((int) Math.ceil(dVar.nEI), (int) Math.ceil(dVar.nEJ), mVar.getDensityDpi(), false);
+        eVar.e((int) Math.ceil(dVar.nFA), (int) Math.ceil(dVar.nFB), mVar.getDensityDpi(), false);
         f fVar = eVar.get();
         if (fVar != null) {
-            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.lEO, 0.0f, 0.0f, true);
+            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.lFv, 0.0f, 0.0f, true);
             if (mVar.isHardwareAccelerated()) {
-                fVar.O(mVar.getWidth(), mVar.getHeight(), mVar.dKR(), mVar.dKS());
+                fVar.O(mVar.getWidth(), mVar.getHeight(), mVar.dMe(), mVar.dMf());
             }
         }
         return eVar;
     }
 
-    public static int ez(int i, int i2) {
+    public static int eC(int i, int i2) {
         return i * i2 * 4;
     }
 
@@ -123,7 +123,7 @@ public class b {
         if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("/n")) {
             String[] split = String.valueOf(dVar.text).split("/n", -1);
             if (split.length > 1) {
-                dVar.nED = split;
+                dVar.nFv = split;
             }
         }
     }

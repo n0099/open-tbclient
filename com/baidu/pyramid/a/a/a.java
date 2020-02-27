@@ -1,10 +1,10 @@
 package com.baidu.pyramid.a.a;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a<T> implements b<T> {
-    public com.baidu.pyramid.a.a<List<T>> aRc;
-    public com.baidu.pyramid.a.a<List<T>> aRd;
+    public com.baidu.pyramid.a.a<List<T>> aVB;
+    public com.baidu.pyramid.a.a<List<T>> aVC;
     public List<T> list;
 
     @Override // com.baidu.pyramid.a.a.b
@@ -12,11 +12,11 @@ public class a<T> implements b<T> {
         if (this.list != null) {
             return this.list;
         }
-        if (this.aRc != null) {
-            this.list = this.aRc.get();
+        if (this.aVB != null) {
+            this.list = this.aVB.get();
             return this.list;
-        } else if (this.aRd != null) {
-            return this.aRd.get();
+        } else if (this.aVC != null) {
+            return this.aVC.get();
         } else {
             return null;
         }
@@ -24,11 +24,11 @@ public class a<T> implements b<T> {
 
     @Override // com.baidu.pyramid.a.a.b
     public void a(com.baidu.pyramid.a.a<List<T>> aVar) {
-        this.aRc = aVar;
+        this.aVB = aVar;
         this.list = null;
     }
 
-    public static a Cr() {
+    public static a EN() {
         return new a();
     }
 }

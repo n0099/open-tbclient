@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class TooltipPopup {
     private static final String TAG = "TooltipPopup";
     private final View mContentView;

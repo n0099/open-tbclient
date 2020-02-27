@@ -28,6 +28,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.idl.facesdk.FaceInfo;
 import com.baidu.idl.facesdk.FaceSDK;
@@ -78,7 +79,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 @TargetApi(3)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
     private static final int COUNTDOWNINTERVAL = 200;
     public static final String EXTRA_TIME_POINT_START = "time_point_start";
@@ -863,7 +864,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class FaceRecognitionTask extends AsyncTask<Void, Void, String> {
         private FaceRecognitionTask() {
         }
@@ -892,7 +893,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class TimeCount extends CountDownTimer {
         public TimeCount(long j, long j2) {
             super(j, j2);
@@ -1624,7 +1625,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             httpHashMapWrap.put("type", "outer");
             httpHashMapWrap.put("exuid", this.passFaceRecogDTO.exUid);
         }
-        httpHashMapWrap.put("service_type", this.passFaceRecogDTO.serviceType);
+        httpHashMapWrap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.passFaceRecogDTO.serviceType);
         httpHashMapWrap.put("imgdigests", str);
         httpHashMapWrap.put("image", str2);
         String zid = PassBioGlobalUtils.getZid(getApplicationContext());
@@ -1808,7 +1809,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class ProcessState {
         static final int DEFAULT_WHOLE_PROCESS_TIME_OUT = 20000;
         static final int LIVENESS_RECOG_MIN_TIME = 5000;
@@ -1841,7 +1842,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class AnimState {
         private static final int POSE_BOTTOM_TO_MIDDLE = 0;
         private static final int POSE_MIDDLE_TO_TOP = 1;

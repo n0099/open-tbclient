@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SharedPreferencesUtils {
     private SharedPreferencesUtils() {
     }

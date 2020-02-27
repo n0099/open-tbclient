@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class d {
     public static String h(InputStream inputStream) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -44,7 +44,7 @@ public class d {
     public static void copyStream(InputStream inputStream, File file) throws IOException {
         FileOutputStream fileOutputStream = null;
         try {
-            fileOutputStream = c.cz(file.getAbsolutePath());
+            fileOutputStream = c.cH(file.getAbsolutePath());
             copyStream(inputStream, fileOutputStream);
         } finally {
             close(fileOutputStream);

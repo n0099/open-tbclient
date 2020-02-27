@@ -1,7 +1,7 @@
 package com.baidu.location.b;
 
 import com.baidu.location.b.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class c implements Runnable {
     final /* synthetic */ b.a a;
 

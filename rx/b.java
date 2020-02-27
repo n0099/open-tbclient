@@ -2,76 +2,76 @@ package rx;
 
 import rx.g;
 import rx.internal.operators.CompletableOnSubscribeConcatIterable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    static final b nMg = new b(new a() { // from class: rx.b.1
+    static final b nMV = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.dOn());
+            cVar.onSubscribe(rx.subscriptions.e.dPA());
             cVar.onCompleted();
         }
     }, false);
-    static final b nMh = new b(new a() { // from class: rx.b.2
+    static final b nMW = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.dOn());
+            cVar.onSubscribe(rx.subscriptions.e.dPA());
         }
     }, false);
-    private final a nMf;
+    private final a nMU;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a extends rx.functions.b<c> {
     }
 
     /* renamed from: rx.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0779b extends rx.functions.f<c, c> {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0787b extends rx.functions.f<c, c> {
     }
 
     public static b k(Iterable<? extends b> iterable) {
-        bY(iterable);
+        bZ(iterable);
         return a(new CompletableOnSubscribeConcatIterable(iterable));
     }
 
     public static b a(a aVar) {
-        bY(aVar);
+        bZ(aVar);
         try {
             return new b(aVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
             rx.c.c.onError(th);
-            throw G(th);
+            throw F(th);
         }
     }
 
-    static <T> T bY(T t) {
+    static <T> T bZ(T t) {
         if (t == null) {
             throw new NullPointerException();
         }
         return t;
     }
 
-    static NullPointerException G(Throwable th) {
+    static NullPointerException F(Throwable th) {
         NullPointerException nullPointerException = new NullPointerException("Actually not, but can't pass out an exception otherwise...");
         nullPointerException.initCause(th);
         return nullPointerException;
     }
 
     protected b(a aVar) {
-        this.nMf = rx.c.c.b(aVar);
+        this.nMU = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.nMf = z ? rx.c.c.b(aVar) : aVar;
+        this.nMU = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final b a(final g gVar) {
-        bY(gVar);
+        bZ(gVar);
         return a(new a() { // from class: rx.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
@@ -119,7 +119,7 @@ public class b {
         });
     }
 
-    public final k dMx() {
+    public final k dNK() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         b(new c() { // from class: rx.b.4
             @Override // rx.c
@@ -131,7 +131,7 @@ public class b {
             public void onError(Throwable th) {
                 rx.c.c.onError(th);
                 cVar.unsubscribe();
-                b.Q(th);
+                b.P(th);
             }
 
             @Override // rx.c
@@ -142,22 +142,22 @@ public class b {
         return cVar;
     }
 
-    static void Q(Throwable th) {
+    static void P(Throwable th) {
         Thread currentThread = Thread.currentThread();
         currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
     }
 
     public final void b(c cVar) {
-        bY(cVar);
+        bZ(cVar);
         try {
-            rx.c.c.b(this, this.nMf).call(cVar);
+            rx.c.c.b(this, this.nMU).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            rx.exceptions.a.I(th);
-            Throwable ab = rx.c.c.ab(th);
-            rx.c.c.onError(ab);
-            throw G(ab);
+            rx.exceptions.a.H(th);
+            Throwable aa = rx.c.c.aa(th);
+            rx.c.c.onError(aa);
+            throw F(aa);
         }
     }
 
@@ -169,7 +169,7 @@ public class b {
     }
 
     public final b b(final g gVar) {
-        bY(gVar);
+        bZ(gVar);
         return a(new a() { // from class: rx.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b

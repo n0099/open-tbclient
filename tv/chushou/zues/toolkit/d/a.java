@@ -9,7 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a extends Animation {
     public static final boolean NEEDS_PROXY;
     private static final WeakHashMap<View, a> PROXIES;
@@ -35,7 +35,7 @@ public final class a extends Animation {
         PROXIES = new WeakHashMap<>();
     }
 
-    public static a dB(View view) {
+    public static a dD(View view) {
         a aVar = PROXIES.get(view);
         if (aVar == null || aVar != view.getAnimation()) {
             a aVar2 = new a(view);

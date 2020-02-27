@@ -23,7 +23,7 @@ import com.baidu.live.tbadk.pagestayduration.IPageStayDuration;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IntentConfig {
     public static final String CALL_FROM = "call_from";
     public static final String CLOSE = "close";
@@ -141,7 +141,7 @@ public class IntentConfig {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: android.content.Intent */
     /* JADX WARN: Multi-variable type inference failed */
-    public void addSourceTraceForPageStayDurationStat() {
+    private void addSourceTraceForPageStayDurationStat() {
         ArrayList arrayList;
         if (this.mIntent != null) {
             BdPageContextSupport<?> bdPageContextSupport = IScrollableHelper.getBdPageContextSupport(this.mContext);
@@ -364,7 +364,7 @@ public class IntentConfig {
         return true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class ClientHandler extends Handler {
         private ClientHandler() {
         }

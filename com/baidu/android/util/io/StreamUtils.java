@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class StreamUtils {
     private static final boolean DEBUG = false;
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;

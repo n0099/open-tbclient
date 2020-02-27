@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.box;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.IMManager;
@@ -8,6 +9,7 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.ILoginListener;
 import com.baidu.android.imsdk.account.ISetNotificationPrivacyListener;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
@@ -15,6 +17,7 @@ import com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMessageListener;
 import com.baidu.android.imsdk.chatmessage.IGetNewMsgCountListener;
 import com.baidu.android.imsdk.chatmessage.IGetSessionListener;
+import com.baidu.android.imsdk.chatmessage.IGetSmartChatSessionListener;
 import com.baidu.android.imsdk.chatmessage.IMessageReceiveListener;
 import com.baidu.android.imsdk.chatmessage.IOnRegisterNotifyListener;
 import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
@@ -23,14 +26,19 @@ import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.ChatUserManager;
+import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
 import com.baidu.android.imsdk.chatuser.IGetUnconcernedMsgListener;
+import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
 import com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener;
 import com.baidu.android.imsdk.chatuser.IStatusListener;
 import com.baidu.android.imsdk.chatuser.IUserPrivacyListener;
+import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
+import com.baidu.android.imsdk.chatuser.db.IMUserManager;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.GroupManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.notification.IFetchNotificationDataListener;
 import com.baidu.android.imsdk.pubaccount.IAcceptPaPushListener;
 import com.baidu.android.imsdk.pubaccount.IClickPaQuickReplyListener;
 import com.baidu.android.imsdk.pubaccount.IGetPaInfoListener;
@@ -43,16 +51,25 @@ import com.baidu.android.imsdk.pubaccount.ISubscribePaListener;
 import com.baidu.android.imsdk.pubaccount.ISubscriptionChangeListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManager;
+import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
+import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.shield.IGetServiceNotifyMenuListener;
+import com.baidu.android.imsdk.shield.IGetShieldAndTopListener;
+import com.baidu.android.imsdk.shield.IGetSubscriptionListener;
+import com.baidu.android.imsdk.shield.IGetUserShieldListener;
+import com.baidu.android.imsdk.shield.ISetSubscriptionListener;
+import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class IMBoxManager {
     private static final String TAG = IMBoxManager.class.getSimpleName();
 
@@ -226,11 +243,11 @@ public final class IMBoxManager {
     }
 
     public static void setDisturb(Context context, long j, int i, IStatusListener iStatusListener) {
-        PaManager.setDisturb(context, j, i, iStatusListener);
+        setShield(context, j, 1, i, iStatusListener);
     }
 
     public static void setMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
-        PaManager.setMarkTop(context, j, i, iStatusListener);
+        ShieldAndTopManager.getInstance(context).setMarkTop(j, 1, i, iStatusListener);
     }
 
     public static void setGroupDisturb(Context context, String str, int i, BIMValueCallBack<String> bIMValueCallBack) {
@@ -355,6 +372,34 @@ public final class IMBoxManager {
         return ChatMsgManager.getChatRecords(context, list);
     }
 
+    public static void getSmartChatSession(final Context context, final List<Integer> list, final IGetSmartChatSessionListener iGetSmartChatSessionListener) {
+        LogUtils.d(TAG, "getSmartChatSession by callback ~ ");
+        if (iGetSmartChatSessionListener != null) {
+            if (list == null || list.isEmpty()) {
+                LogUtils.d(TAG, "getSmartChatSession by callback ~ returned null ~");
+                iGetSmartChatSessionListener.onGetSessionResult(-4, null);
+                return;
+            }
+            TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    ArrayList<ChatSession> chatRecords = ChatMsgManager.getChatRecords(context, list);
+                    int i = 0;
+                    if (chatRecords == null) {
+                        if (!AccountManager.isLogin(context)) {
+                            i = -1;
+                        } else if (LoginManager.getInstance(context).getCurrentState().equals(LoginManager.LoginState.LOGINING)) {
+                            i = -2;
+                        } else {
+                            i = -3;
+                        }
+                    }
+                    iGetSmartChatSessionListener.onGetSessionResult(i, chatRecords);
+                }
+            });
+        }
+    }
+
     public static void getChatSession(final Context context, final List<Integer> list, final IGetSessionListener iGetSessionListener) {
         LogUtils.d(TAG, "getChatSession by callback ~ ");
         if (iGetSessionListener != null) {
@@ -363,7 +408,7 @@ public final class IMBoxManager {
                 iGetSessionListener.onGetSessionResult(null);
                 return;
             }
-            TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.4
+            TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.5
                 @Override // java.lang.Runnable
                 public void run() {
                     LogUtils.d(IMBoxManager.TAG, "getChatSession by callback ~ start run ~");
@@ -393,7 +438,7 @@ public final class IMBoxManager {
             LogUtils.d(TAG, "getNewMsgCount all, context is null, return 0! ");
             iGetNewMsgCountListener.onGetNewMsgCount(0);
         } else {
-            TaskManager.getInstance(context).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.5
+            TaskManager.getInstance(context).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.6
                 @Override // java.lang.Runnable
                 public void run() {
                     IGetNewMsgCountListener.this.onGetNewMsgCount(ChatMsgManager.getNewMsgCount(context));
@@ -416,7 +461,7 @@ public final class IMBoxManager {
             LogUtils.d(TAG, "getNewMsgCount type, chattypes == null || chattypes.isEmpty() is true! return 0! ");
             iGetNewMsgCountListener.onGetNewMsgCount(0);
         } else {
-            TaskManager.getInstance(context).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.6
+            TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.7
                 @Override // java.lang.Runnable
                 public void run() {
                     IGetNewMsgCountListener.this.onGetNewMsgCount(ChatMessageDBManager.getInstance(context).getNewMsgCount(list));
@@ -437,7 +482,7 @@ public final class IMBoxManager {
             LogUtils.d(TAG, "getNewCountOfClass, context is null! return 0! ");
             iGetNewMsgCountListener.onGetNewMsgCount(0);
         } else {
-            TaskManager.getInstance(context).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.7
+            TaskManager.getInstance(context).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.8
                 @Override // java.lang.Runnable
                 public void run() {
                     IGetNewMsgCountListener.this.onGetNewMsgCount(ChatMessageDBManager.getInstance(context).getNewMsgCountOfClass(i));
@@ -503,7 +548,7 @@ public final class IMBoxManager {
             LogUtils.d(TAG, "in getChatRecordsByClass type, context == null || classtypes == null || classtypes.isEmpty() is true!");
             iGetSessionListener.onGetSessionResult(null);
         } else {
-            TaskManager.getInstance(context).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.8
+            TaskManager.getInstance(context).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.9
                 @Override // java.lang.Runnable
                 public void run() {
                     IGetSessionListener.this.onGetSessionResult(ChatMsgManager.getChatRecordsByClass(context, list));
@@ -541,7 +586,150 @@ public final class IMBoxManager {
         return ChatMsgManager.getPaMsgByChatType(context, i, i2);
     }
 
+    public static void getPaMsgByChatTypeAndPaidList(Context context, List<Integer> list, List<Long> list2, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
+        ChatMsgManager.getPaMsgByChatTypeAndPaidList(context, list, list2, j, i, iFetchNotificationDataListener);
+    }
+
+    public static void setMsgReadByChatTypes(final Context context, final List<Integer> list, final long j) {
+        TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.10
+            @Override // java.lang.Runnable
+            public void run() {
+                ChatMsgManager.setMsgReadByChatTpyes(context, list, j);
+            }
+        });
+    }
+
     public static void getUnconcernedUserDisturb(Context context, IGetUnconcernedMsgListener iGetUnconcernedMsgListener) {
         ChatUserManager.getUnconcernedUserDisturb(context, iGetUnconcernedMsgListener);
+    }
+
+    public static void setShield(Context context, long j, int i, int i2, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).setShield(j, i, i2, iStatusListener);
+    }
+
+    public static void getUserShieldList(Context context, int i, IGetUserShieldListener iGetUserShieldListener) {
+        ShieldAndTopManager.getInstance(context).getUserShieldListToShow(i, iGetUserShieldListener);
+    }
+
+    public static void setInterActiveMsgStatus(Context context, long j, long j2, int i, int i2) {
+        ChatMsgManager.setInterActiveMsgStatus(context, j, j2, i, i2);
+    }
+
+    public static void updateMsgUsersFromMsgCenter(@NonNull final Context context) {
+        if (Utility.isNeedSync(context, Constants.KEY_SYNC_MSG_TAB_TIME) && AccountManager.isLogin(context)) {
+            try {
+                List<ChatSession> chatSession = getChatSession(context);
+                if (chatSession != null && chatSession.size() > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    ArrayList arrayList2 = new ArrayList();
+                    ArrayList<Long> arrayList3 = new ArrayList<>();
+                    for (ChatSession chatSession2 : chatSession) {
+                        if (chatSession2.getChatType() == 0) {
+                            ChatUser chatUser = ChatUserDBManager.getInstance(context).getChatUser(chatSession2.getContacter());
+                            if (chatUser != null) {
+                                arrayList.add(Long.valueOf(chatUser.getBuid()));
+                            } else {
+                                arrayList2.add(Long.valueOf(chatSession2.getContacter()));
+                            }
+                        } else if (chatSession2.getChatType() == 7) {
+                            arrayList3.add(Long.valueOf(chatSession2.getContacter()));
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.11
+                            @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
+                            public void onGetUserIdentityResult(int i, List<ChatUser> list) {
+                                for (ChatUser chatUser2 : list) {
+                                    IMUserManager.getInstance(context).updateUser(chatUser2);
+                                    ChatMessageDBManager.getInstance(context).updateSessionClass(chatUser2);
+                                }
+                            }
+                        });
+                    }
+                    if (arrayList2.size() > 0) {
+                        long[] jArr = new long[arrayList2.size()];
+                        for (int i = 0; i < arrayList2.size(); i++) {
+                            if (arrayList2.get(i) != null) {
+                                jArr[i] = ((Long) arrayList2.get(i)).longValue();
+                            }
+                        }
+                        LogUtils.d(TAG, "updateMsgUsersFromMsgCenter noBduidUks :" + arrayList2.toString());
+                        ChatUserManagerImpl.getInstance(context).updateUserProfileByUks(jArr, false, "");
+                    }
+                    if (arrayList3.size() > 0) {
+                        LogUtils.d(TAG, "updateMsgUsersFromMsgCenter paIds :" + arrayList3.toString());
+                        PaManagerImpl.getInstance(context).getPaInfos(arrayList3, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.12
+                            @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
+                            public void onResult(int i2, String str, ArrayList<PaInfo> arrayList4) {
+                                if (i2 == 0) {
+                                    Iterator<PaInfo> it = arrayList4.iterator();
+                                    while (it.hasNext()) {
+                                        PaInfo next = it.next();
+                                        PaInfoDBManager.getInstance(context).subscribePa(next);
+                                        ChatMessageDBManager.getInstance(context).updateSessionClass(next);
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    ShieldAndTopManager.getInstance(context).requestUserShieldList(0, "");
+                    ShieldAndTopManager.getInstance(context).requestMsgMarkTopList();
+                    Utility.writeLongData(context, Constants.KEY_SYNC_MSG_TAB_TIME, System.currentTimeMillis() + Constants.SYNC_MSG_DELAY_TIME);
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "updateMsgUsersFromMsgCenter :", e);
+            }
+        }
+    }
+
+    public static void updateSubscribedUsers(Context context, @NonNull List<Long> list, @NonNull List<Long> list2) {
+        HashMap hashMap = new HashMap();
+        for (Long l : list) {
+            hashMap.put(l, 1);
+        }
+        for (Long l2 : list2) {
+            hashMap.put(l2, 0);
+        }
+        ChatUserDBManager.getInstance(context).updateSubscribedUsers(hashMap);
+    }
+
+    public static void updateSubscribedPaList(Context context, @NonNull List<Long> list, @NonNull List<Long> list2) {
+        HashMap hashMap = new HashMap();
+        for (Long l : list) {
+            hashMap.put(l, 1);
+        }
+        for (Long l2 : list2) {
+            hashMap.put(l2, 0);
+        }
+        PaInfoDBManager.getInstance(context).updateSubscribedPaList(hashMap);
+    }
+
+    public static void updateSubscribe(Context context, long j, int i, int i2) {
+        if (i == 0) {
+            ChatUserDBManager.getInstance(context).updateSubscribedUser(j, i2);
+        } else if (i == 7) {
+            PaInfoDBManager.getInstance(context).updateSubscribedUser(j, i2);
+        }
+    }
+
+    public static boolean setMsgReadByMsgId(Context context, long j, int i) {
+        LogUtils.d(TAG, "setMsgReadByMsgId...msgid=" + j + "， setType=" + i);
+        return ChatMsgManager.setMsgReadByMsgId(context, j, i);
+    }
+
+    public static void getSubscription(Context context, long j, List<Long> list, String str, IGetSubscriptionListener iGetSubscriptionListener) {
+        ShieldAndTopManager.getInstance(context).getSubscription(j, list, str, iGetSubscriptionListener);
+    }
+
+    public static void setSubscription(Context context, long j, List<Long> list, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
+        ShieldAndTopManager.getInstance(context).setSubscription(j, list, i, str, iSetSubscriptionListener);
+    }
+
+    public static void getServiceNotifyMenuStatus(Context context, long j, List<Long> list, int i, String str, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+        ShieldAndTopManager.getInstance(context).getServiceNotifyMenuStatus(j, list, str, i, iGetServiceNotifyMenuListener);
+    }
+
+    public static void getShield(Context context, long j, IGetShieldAndTopListener iGetShieldAndTopListener) {
+        ShieldAndTopManager.getInstance(context).getOneShieldAndTopRequest(j, iGetShieldAndTopListener);
     }
 }

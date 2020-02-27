@@ -9,7 +9,7 @@ import io.reactivex.q;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableMergeWithMaybe<T> extends a<T, T> {
     final o<? extends T> other;
 
@@ -21,7 +21,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
         this.other.a(mergeWithObserver.otherObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class MergeWithObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
         static final int OTHER_STATE_HAS_VALUE = 1;
@@ -124,7 +124,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
         f<T> getOrCreateQueue() {
             f<T> fVar = this.queue;
             if (fVar == null) {
-                io.reactivex.internal.queue.a aVar = new io.reactivex.internal.queue.a(q.dHT());
+                io.reactivex.internal.queue.a aVar = new io.reactivex.internal.queue.a(q.dJa());
                 this.queue = aVar;
                 return aVar;
             }
@@ -176,7 +176,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
             this.queue = null;
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         static final class OtherObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
             private static final long serialVersionUID = -2935427570954647017L;
             final MergeWithObserver<T> parent;

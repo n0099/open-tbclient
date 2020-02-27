@@ -12,7 +12,7 @@ import android.text.style.TypefaceSpan;
 import android.text.style.UnderlineSpan;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class d {
     public static e a(e eVar, String[] strArr, Map<String, e> map) {
         if (eVar == null && strArr == null) {
@@ -44,33 +44,33 @@ final class d {
         if (eVar.getStyle() != -1) {
             spannableStringBuilder.setSpan(new StyleSpan(eVar.getStyle()), i, i2, 33);
         }
-        if (eVar.dwZ()) {
+        if (eVar.dyj()) {
             spannableStringBuilder.setSpan(new StrikethroughSpan(), i, i2, 33);
         }
-        if (eVar.dxa()) {
+        if (eVar.dyk()) {
             spannableStringBuilder.setSpan(new UnderlineSpan(), i, i2, 33);
         }
-        if (eVar.dxc()) {
+        if (eVar.dym()) {
             spannableStringBuilder.setSpan(new ForegroundColorSpan(eVar.getFontColor()), i, i2, 33);
         }
-        if (eVar.dxd()) {
+        if (eVar.dyn()) {
             spannableStringBuilder.setSpan(new BackgroundColorSpan(eVar.getBackgroundColor()), i, i2, 33);
         }
-        if (eVar.dxb() != null) {
-            spannableStringBuilder.setSpan(new TypefaceSpan(eVar.dxb()), i, i2, 33);
+        if (eVar.dyl() != null) {
+            spannableStringBuilder.setSpan(new TypefaceSpan(eVar.dyl()), i, i2, 33);
         }
-        if (eVar.dxe() != null) {
-            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(eVar.dxe()), i, i2, 33);
+        if (eVar.dyo() != null) {
+            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(eVar.dyo()), i, i2, 33);
         }
-        switch (eVar.dxf()) {
+        switch (eVar.dyp()) {
             case 1:
-                spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) eVar.dxg(), true), i, i2, 33);
+                spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) eVar.dyq(), true), i, i2, 33);
                 return;
             case 2:
-                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dxg()), i, i2, 33);
+                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dyq()), i, i2, 33);
                 return;
             case 3:
-                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dxg() / 100.0f), i, i2, 33);
+                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dyq() / 100.0f), i, i2, 33);
                 return;
             default:
                 return;
@@ -89,7 +89,7 @@ final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String PM(String str) {
+    public static String PZ(String str) {
         return str.replaceAll("\r\n", "\n").replaceAll(" *\n *", "\n").replaceAll("\n", HanziToPinyin.Token.SEPARATOR).replaceAll("[ \t\\x0B\f\r]+", HanziToPinyin.Token.SEPARATOR);
     }
 }

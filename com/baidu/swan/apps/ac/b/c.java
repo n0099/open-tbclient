@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class c extends a {
     private static final String TAG = c.class.getSimpleName();
 
@@ -19,8 +19,8 @@ class c extends a {
         }
         int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
         boolean z2 = pixel == -1 || pixel == -657931;
-        if (!z2 && this.bBV != null) {
-            for (Integer num : this.bBV) {
+        if (!z2 && this.bGb != null) {
+            for (Integer num : this.bGb) {
                 if (num.intValue() == pixel) {
                     z = true;
                     break;

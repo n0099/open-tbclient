@@ -7,7 +7,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class y extends HttpHandlerWrap {
     final /* synthetic */ SapiCallBack a;
     final /* synthetic */ String b;

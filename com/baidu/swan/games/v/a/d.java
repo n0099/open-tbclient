@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
     private final Object data;
     private final String error;
@@ -19,14 +19,14 @@ public class d {
         return this.error == null;
     }
 
-    public String bL(String str, String str2) {
+    public String bU(String str, String str2) {
         if (isSuccess()) {
-            return a.pt(str);
+            return a.pI(str);
         }
-        return a.L(str, str2, any());
+        return a.M(str, str2, apM());
     }
 
-    public String any() {
+    public String apM() {
         return this.error;
     }
 
@@ -34,11 +34,11 @@ public class d {
         return this.data;
     }
 
-    public static Object anz() {
+    public static Object apN() {
         return new JsObject();
     }
 
-    public static String hF(int i) {
+    public static String hW(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -66,11 +66,11 @@ public class d {
         }
     }
 
-    public static d V(@Nullable Object obj) {
+    public static d X(@Nullable Object obj) {
         return new d(null, obj);
     }
 
-    public static d pu(@NonNull String str) {
+    public static d pJ(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,8 +78,8 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String L = a.L(str, str2, dVar.any());
-        bVar.throwJSException(JSExceptionType.Error, L);
-        return L;
+        String M = a.M(str, str2, dVar.apM());
+        bVar.throwJSException(JSExceptionType.Error, M);
+        return M;
     }
 }

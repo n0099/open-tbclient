@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.core.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void onFail();
 

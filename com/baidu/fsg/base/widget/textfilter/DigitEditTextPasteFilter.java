@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.widget.textfilter;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DigitEditTextPasteFilter implements IEditTextPasteFilter {
     private static final String a = DigitEditTextPasteFilter.class.getSimpleName();
 

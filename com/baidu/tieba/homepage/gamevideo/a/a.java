@@ -10,94 +10,94 @@ import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private BdTypeRecyclerView Bs;
-    private LinkedList<com.baidu.adp.widget.ListView.a> gYs = new LinkedList<>();
-    private f gYt;
-    private c gYu;
-    private d gYv;
-    private e gYw;
+    private BdTypeRecyclerView BK;
+    private LinkedList<com.baidu.adp.widget.ListView.a> has = new LinkedList<>();
+    private f hat;
+    private c hau;
+    private d hav;
+    private e haw;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Bs = bdTypeRecyclerView;
-        vi();
+        this.BK = bdTypeRecyclerView;
+        wM();
     }
 
-    private void vi() {
-        this.gYt = new f(this.mPageContext, k.fKA);
-        this.gYu = new c(this.mPageContext, l.cNv);
-        this.gYv = new d(this.mPageContext, k.fKI);
-        this.gYw = new e(this.mPageContext, k.fKJ);
-        this.gYt.b((r) this.Bs);
-        this.gYu.b((r) this.Bs);
-        this.gYv.b((r) this.Bs);
-        this.gYw.b((r) this.Bs);
-        this.gYs.add(this.gYt);
-        this.gYs.add(this.gYu);
-        this.gYs.add(this.gYv);
-        this.gYs.add(this.gYw);
-        this.Bs.addAdapters(this.gYs);
+    private void wM() {
+        this.hat = new f(this.mPageContext, k.fMW);
+        this.hau = new c(this.mPageContext, l.cRy);
+        this.hav = new d(this.mPageContext, k.fNe);
+        this.haw = new e(this.mPageContext, k.fNf);
+        this.hat.b((r) this.BK);
+        this.hau.b((r) this.BK);
+        this.hav.b((r) this.BK);
+        this.haw.b((r) this.BK);
+        this.has.add(this.hat);
+        this.has.add(this.hau);
+        this.has.add(this.hav);
+        this.has.add(this.haw);
+        this.BK.addAdapters(this.has);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Bs != null) {
-            this.Bs.getListAdapter().notifyDataSetChanged();
+        if (this.BK != null) {
+            this.BK.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.gYt != null) {
-            this.gYt.setPageUniqueId(bdUniqueId);
+        if (this.hat != null) {
+            this.hat.setPageUniqueId(bdUniqueId);
         }
-        if (this.gYu != null) {
-            this.gYu.setPageUniqueId(bdUniqueId);
+        if (this.hau != null) {
+            this.hau.setPageUniqueId(bdUniqueId);
         }
-        if (this.gYv != null) {
-            this.gYv.setPageUniqueId(bdUniqueId);
+        if (this.hav != null) {
+            this.hav.setPageUniqueId(bdUniqueId);
         }
-        if (this.gYw != null) {
-            this.gYw.setPageUniqueId(bdUniqueId);
+        if (this.haw != null) {
+            this.haw.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<m> list) {
-        this.Bs.setData(list);
+        this.BK.setData(list);
     }
 
     public List<m> getDataList() {
-        if (this.Bs != null) {
-            return this.Bs.getData();
+        if (this.BK != null) {
+            return this.BK.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.gYw != null) {
-            this.gYw.setEventCallback(aVar);
+        if (this.haw != null) {
+            this.haw.setEventCallback(aVar);
         }
     }
 
-    public void vf(int i) {
-        if (this.gYt != null) {
-            this.gYt.vf(i);
+    public void vl(int i) {
+        if (this.hat != null) {
+            this.hat.vl(i);
         }
-        if (this.gYu != null) {
-            this.gYu.vf(i);
+        if (this.hau != null) {
+            this.hau.vl(i);
         }
-        if (this.gYv != null) {
-            this.gYv.vf(i);
+        if (this.hav != null) {
+            this.hav.vl(i);
         }
-        if (this.gYw != null) {
-            this.gYw.vf(i);
+        if (this.haw != null) {
+            this.haw.vl(i);
         }
     }
 
     public void onPause() {
-        if (this.gYu != null) {
-            this.gYu.onPause();
+        if (this.hau != null) {
+            this.hau.onPause();
         }
     }
 

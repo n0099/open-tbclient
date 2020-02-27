@@ -3,7 +3,7 @@ package alaim.AlaPushAlert;
 import alaim.Error;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class AlaPushAlertResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class AlaPushAlertResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<AlaPushAlertResIdl> {
         public DataRes data;
         public Error error;

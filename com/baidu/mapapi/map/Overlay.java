@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class Overlay {
     protected a listener;
     public com.baidu.mapsdkplatform.comapi.map.h type;
@@ -16,7 +16,7 @@ public abstract class Overlay {
     Bundle y;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(Overlay overlay);
 

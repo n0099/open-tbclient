@@ -1,7 +1,7 @@
 package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBEngineInitListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class b implements com.baidu.platform.comapi.walknavi.c.a {
     final /* synthetic */ IBEngineInitListener a;
     final /* synthetic */ a b;

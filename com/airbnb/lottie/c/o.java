@@ -2,9 +2,9 @@ package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o implements aj<Integer> {
-    public static final o jS = new o();
+    public static final o jW = new o();
 
     private o() {
     }

@@ -1,5 +1,5 @@
 package com.kascend.chushou.widget.gifts.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public String a;
     public boolean b;

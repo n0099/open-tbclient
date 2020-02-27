@@ -2,6 +2,7 @@ package com.baidu.fsg.face.liveness.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.UploadBean;
@@ -15,7 +16,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l extends UploadBean {
     private String a;
     private String b;
@@ -58,7 +59,7 @@ public class l extends UploadBean {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            arrayList.add(new RestNameValuePair("service_type", this.e.serviceType));
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.e.serviceType));
             arrayList.add(new RestNameValuePair("type", "video"));
         }
         arrayList.add(new RestNameValuePair("client", PraiseDataPassUtil.KEY_FROM_OS));

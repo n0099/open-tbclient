@@ -3,7 +3,7 @@ package com.baidu.down.common;
 import com.baidu.down.common.intercepter.IIntercepter;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FileMsg {
     public long mCurFilePos;
     public String mDownInfoParams;

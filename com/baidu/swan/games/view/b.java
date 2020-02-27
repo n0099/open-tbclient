@@ -6,44 +6,44 @@ import com.baidu.swan.apps.core.d.i;
 import com.baidu.swan.apps.y.f;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private ArrayList<a> coV = new ArrayList<>();
+    private ArrayList<a> csW = new ArrayList<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void Hs();
+        void JH();
 
-        void dJ(int i);
+        void dZ(int i);
     }
 
     public synchronized void a(a aVar) {
-        if (!this.coV.contains(aVar)) {
-            this.coV.add(aVar);
+        if (!this.csW.contains(aVar)) {
+            this.csW.add(aVar);
         }
     }
 
-    public synchronized void hH(int i) {
-        Iterator<a> it = this.coV.iterator();
+    public synchronized void hY(int i) {
+        Iterator<a> it = this.csW.iterator();
         while (it.hasNext()) {
-            it.next().dJ(i);
+            it.next().dZ(i);
         }
     }
 
-    public synchronized void Hs() {
-        Iterator<a> it = this.coV.iterator();
+    public synchronized void JH() {
+        Iterator<a> it = this.csW.iterator();
         while (it.hasNext()) {
-            it.next().Hs();
+            it.next().JH();
         }
-        this.coV.clear();
+        this.csW.clear();
     }
 
     @Nullable
-    public static b aoa() {
+    public static b aqo() {
         i iVar;
-        e El = f.UC().El();
-        if (El != null && (iVar = (i) El.p(i.class)) != null) {
-            return iVar.Mx();
+        e GA = f.WQ().GA();
+        if (GA != null && (iVar = (i) GA.p(i.class)) != null) {
+            return iVar.OL();
         }
         return null;
     }

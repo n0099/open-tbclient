@@ -8,30 +8,30 @@ import android.view.ViewParent;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.frs.e.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private com.baidu.tbadk.n.a.a Bp;
-    private b gIG;
-    private g gIx;
+    private com.baidu.tbadk.n.a.a BH;
+    private b gKF;
+    private g gKw;
     private Context mContext;
     private ViewGroup mParent;
-    private b.a gIH = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
+    private b.a gKG = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
         @Override // com.baidu.tieba.frs.e.b.a
         public void onStateChanged(int i) {
             if (i == 1) {
                 if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    if (f.this.Bp == null) {
-                        f.this.Bp = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
+                    if (f.this.BH == null) {
+                        f.this.BH = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
                     }
-                    f.this.Bp.aPa();
+                    f.this.BH.aRq();
                 }
             } else if (i == 2) {
                 f.this.showContentView();
-                if (f.this.Bp != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    f.this.Bp.aPb();
+                if (f.this.BH != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                    f.this.BH.aRr();
                 }
             } else if (i == 0) {
-                f.this.bIx();
+                f.this.bJZ();
             }
         }
     };
@@ -45,21 +45,21 @@ public class f {
     public f(Context context, ViewGroup viewGroup, Intent intent) {
         this.mContext = context;
         this.mParent = viewGroup;
-        this.gIx = new g(context);
-        this.gIG = c.a(this.gIx, intent);
-        this.gIG.a(this.gIH);
+        this.gKw = new g(context);
+        this.gKF = c.a(this.gKw, intent);
+        this.gKF.a(this.gKG);
     }
 
-    public void bIv() {
+    public void bJX() {
         if (this.mParent != null) {
-            bIx();
-            this.mParent.addView(this.gIx.mRootView);
-            bIw();
-            this.gIG.bIl();
+            bJZ();
+            this.mParent.addView(this.gKw.mRootView);
+            bJY();
+            this.gKF.bJN();
         }
     }
 
-    public void bBF() {
+    public void bDh() {
         if (this.mParent != null) {
             hide();
         }
@@ -68,12 +68,12 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         com.baidu.adp.lib.f.e.gx().removeCallbacks(this.mHideRunnable);
-        if (this.gIG.getState() == 1) {
+        if (this.gKF.getState() == 1) {
             com.baidu.adp.lib.f.e.gx().postDelayed(this.mHideRunnable, 10L);
             return;
         }
         showContentView();
-        this.gIG.bIm();
+        this.gKF.bJO();
     }
 
     public static boolean ak(Intent intent) {
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void bIw() {
+    private void bJY() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,10 +101,10 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIx() {
-        ViewParent parent = this.gIx.mRootView.getParent();
+    public void bJZ() {
+        ViewParent parent = this.gKw.mRootView.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.gIx.mRootView);
+            ((ViewGroup) parent).removeView(this.gKw.mRootView);
         }
         com.baidu.adp.lib.f.e.gx().removeCallbacks(this.mHideRunnable);
     }

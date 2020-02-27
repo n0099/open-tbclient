@@ -2,10 +2,10 @@ package com.facebook.fresco.animation.b;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface b {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a(b bVar, int i);
 
@@ -13,17 +13,17 @@ public interface b {
     }
 
     @Nullable
-    com.facebook.common.references.a<Bitmap> HP(int i);
+    com.facebook.common.references.a<Bitmap> HU(int i);
 
     @Nullable
-    com.facebook.common.references.a<Bitmap> HQ(int i);
+    com.facebook.common.references.a<Bitmap> HV(int i);
 
-    boolean HR(int i);
+    boolean HW(int i);
 
     void a(int i, com.facebook.common.references.a<Bitmap> aVar, int i2);
 
     @Nullable
-    com.facebook.common.references.a<Bitmap> ac(int i, int i2, int i3);
+    com.facebook.common.references.a<Bitmap> ad(int i, int i2, int i3);
 
     void b(int i, com.facebook.common.references.a<Bitmap> aVar, int i2);
 

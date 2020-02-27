@@ -7,9 +7,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import kotlin.TypeCastException;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a nBg = new a(null);
+    public static final a nBI = new a(null);
 
     public abstract Set getEntries();
 
@@ -101,7 +102,8 @@ public abstract class e<K, V> implements Map<K, V> {
         return obj == this ? "(this Map)" : String.valueOf(obj);
     }
 
-    /* loaded from: classes5.dex */
+    @kotlin.h
+    /* loaded from: classes7.dex */
     public static final class a {
         private a() {
         }

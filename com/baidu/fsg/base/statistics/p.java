@@ -8,7 +8,7 @@ import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class p extends BaseBean {
     private String a;
 

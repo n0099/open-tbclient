@@ -10,7 +10,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.live.tbadk.log.LogConfig;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class DisplayManagerCompat {
     public static final String DISPLAY_CATEGORY_PRESENTATION = "android.hardware.display.category.PRESENTATION";
     private static final WeakHashMap<Context, DisplayManagerCompat> sInstances = new WeakHashMap<>();
@@ -44,7 +44,7 @@ public abstract class DisplayManagerCompat {
         return displayManagerCompat;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class DisplayManagerCompatApi14Impl extends DisplayManagerCompat {
         private final WindowManager mWindowManager;
 
@@ -73,7 +73,7 @@ public abstract class DisplayManagerCompat {
     }
 
     @RequiresApi(17)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class DisplayManagerCompatApi17Impl extends DisplayManagerCompat {
         private final DisplayManager mDisplayManager;
 

@@ -8,12 +8,12 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.live.u.a;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileSerialDownLoader {
     private static final int CMD_BET_MSG_RESULT = 18;
     private static final int CMD_NET_MSG_GETLENTH = 17;
@@ -368,7 +368,7 @@ public class FileSerialDownLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @SuppressLint({"DefaultLocale"})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AsyFileDownLoadTask extends BdAsyncTask<DownloadData, Object, Object> {
         private NetWork mNetWork = new NetWork();
 

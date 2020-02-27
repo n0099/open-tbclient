@@ -3,7 +3,7 @@ package okio;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface Sink extends Closeable, Flushable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     void close() throws IOException;

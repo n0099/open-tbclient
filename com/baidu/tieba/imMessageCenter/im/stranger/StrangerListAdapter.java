@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tieba.im.chat.a.c;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class StrangerListAdapter extends c {
     public StrangerListAdapter(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext().getContext());
@@ -15,7 +15,7 @@ public class StrangerListAdapter extends c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!d.aIQ().aIY()) {
+        if (!d.aLj().aLr()) {
             str = "";
             i = 0;
         }
@@ -29,14 +29,14 @@ public class StrangerListAdapter extends c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.hrE.setDrawBorder(true);
-        aVar.hrE.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.htD.setDrawBorder(true);
+        aVar.htD.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
         if (TextUtils.isEmpty(friendBjhAvatar)) {
             friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
         }
         if (!TextUtils.isEmpty(friendBjhAvatar)) {
-            aVar.hrE.startLoad(friendBjhAvatar, 12, false);
+            aVar.htD.startLoad(friendBjhAvatar, 12, false);
         }
     }
 

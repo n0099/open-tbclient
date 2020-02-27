@@ -1,14 +1,14 @@
 package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class i extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId jnY = BdUniqueId.gen();
+    public static final BdUniqueId joS = BdUniqueId.gen();
     public boolean isHost;
     public int sex;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return jnY;
+        return joS;
     }
 }

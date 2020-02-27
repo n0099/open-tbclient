@@ -12,13 +12,13 @@ import com.kascend.chushou.widget.convenientbanner.ConvenientBanner;
 import java.util.ArrayList;
 import java.util.List;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d extends RecyclerView.ViewHolder {
     private final List<ListItem> a;
     private Context b;
     private boolean d;
     private String e;
-    private ConvenientBanner<ListItem> neu;
+    private ConvenientBanner<ListItem> neX;
 
     public d(View view, String str) {
         super(view);
@@ -26,19 +26,19 @@ public class d extends RecyclerView.ViewHolder {
         this.d = false;
         this.e = str;
         this.b = view.getContext();
-        this.neu = (ConvenientBanner) view.findViewById(a.f.recycler_view);
-        this.neu.a(new com.kascend.chushou.widget.convenientbanner.c.a<ListItem>() { // from class: com.kascend.chushou.view.a.a.d.1
+        this.neX = (ConvenientBanner) view.findViewById(a.f.recycler_view);
+        this.neX.a(new com.kascend.chushou.widget.convenientbanner.c.a<ListItem>() { // from class: com.kascend.chushou.view.a.a.d.1
             @Override // com.kascend.chushou.widget.convenientbanner.c.a
             public int getLayoutId() {
                 return a.h.recycleitem_sliding_items;
             }
 
             @Override // com.kascend.chushou.widget.convenientbanner.c.a
-            public com.kascend.chushou.widget.convenientbanner.c.b<ListItem> dA(View view2) {
+            public com.kascend.chushou.widget.convenientbanner.c.b<ListItem> dC(View view2) {
                 return new a(view2, null);
             }
         }, this.a);
-        this.neu.q(new int[]{a.e.cs_point_normal, a.e.cs_point_selected});
+        this.neX.p(new int[]{a.e.cs_point_normal, a.e.cs_point_selected});
     }
 
     public void a(PannelItem pannelItem) {
@@ -48,24 +48,24 @@ public class d extends RecyclerView.ViewHolder {
         if (!h.isEmpty(this.a)) {
             this.d = !h.isEmpty(this.a.get(0).mName);
         }
-        this.neu.notifyDataSetChanged();
+        this.neX.notifyDataSetChanged();
         if (this.d) {
-            this.neu.j(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 34.0f));
+            this.neX.j(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 34.0f));
         } else {
-            this.neu.j(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 10.0f));
+            this.neX.j(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 10.0f));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private class a extends com.kascend.chushou.widget.convenientbanner.c.b<ListItem> {
         private TextView b;
         private TextView c;
         private TextView d;
-        private FoodView nat;
+        private FoodView naW;
 
         a(View view, com.kascend.chushou.widget.convenientbanner.d.b<ListItem> bVar) {
             super(view, bVar);
-            this.nat = (FoodView) view.findViewById(a.f.iv_ad);
+            this.naW = (FoodView) view.findViewById(a.f.iv_ad);
             this.b = (TextView) view.findViewById(a.f.tv_creator);
             this.c = (TextView) view.findViewById(a.f.tv_count);
             this.d = (TextView) view.findViewById(a.f.tv_name);
@@ -74,9 +74,9 @@ public class d extends RecyclerView.ViewHolder {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kascend.chushou.widget.convenientbanner.c.b
         /* renamed from: a */
-        public void bF(ListItem listItem) {
-            super.bF(listItem);
-            this.nat.a(listItem, null, true, d.this.e, 405, 208, 0);
+        public void bH(ListItem listItem) {
+            super.bH(listItem);
+            this.naW.a(listItem, null, true, d.this.e, 405, 208, 0);
             if (h.isEmpty(listItem.mDesc)) {
                 this.b.setVisibility(8);
             } else {

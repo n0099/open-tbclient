@@ -4,27 +4,27 @@ import android.app.Activity;
 import com.baidu.ubs.analytics.c.a;
 import com.baidu.ubs.analytics.c.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
-public final class c implements a.InterfaceC0634a {
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0634a
+/* loaded from: classes8.dex */
+public final class c implements a.InterfaceC0642a {
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
     public final void T() {
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0634a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
     public final void U() {
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0634a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
     public final void onActivityDestroyed(Activity activity) {
         d dVar;
-        dVar = d.a.kVt;
+        dVar = d.a.kVZ;
         dVar.b(activity);
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0634a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
     public final void a(Activity activity) {
         d dVar;
-        dVar = d.a.kVt;
+        dVar = d.a.kVZ;
         dVar.a(new WeakReference<>(activity));
     }
 }

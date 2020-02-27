@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NotificationData {
     private String content;
     private String link;

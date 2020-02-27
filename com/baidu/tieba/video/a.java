@@ -1,5 +1,5 @@
 package com.baidu.tieba.video;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public float beautyBlurLevel;
     public float beautyCheeckThin;
@@ -8,7 +8,7 @@ public class a {
     public float beautyRedLevel;
     public int level;
 
-    public static a Dj(int i) {
+    public static a Dp(int i) {
         switch (i) {
             case 0:
                 return c(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);

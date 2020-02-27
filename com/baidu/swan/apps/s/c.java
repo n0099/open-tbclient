@@ -6,17 +6,17 @@ import com.baidu.swan.apps.component.components.f.a;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a.InterfaceC0222a btb;
+    private static a.InterfaceC0232a bxl;
 
-    public static void a(a.InterfaceC0222a interfaceC0222a) {
-        btb = interfaceC0222a;
+    public static void a(a.InterfaceC0232a interfaceC0232a) {
+        bxl = interfaceC0232a;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && btb != null) {
+        if (editText != null && bxl != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -28,7 +28,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            btb.b(String.valueOf(editText.getTag()), jSONObject);
+            bxl.b(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,7 +45,7 @@ public class c {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && btb != null) {
+        if (editText != null && bxl != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -57,7 +57,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            btb.b(String.valueOf(editText.getTag()), jSONObject);
+            bxl.b(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

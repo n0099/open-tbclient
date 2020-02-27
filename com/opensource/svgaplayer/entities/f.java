@@ -6,19 +6,21 @@ import com.opensource.svgaplayer.proto.SpriteEntity;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.collections.o;
+import kotlin.h;
 import kotlin.jvm.internal.q;
 import org.json.JSONArray;
 import org.json.JSONObject;
+@h
 /* loaded from: classes.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
 
-    public final String dDT() {
+    public final String dFa() {
         return this.imageKey;
     }
 
-    public final List<g> dEr() {
+    public final List<g> dFy() {
         return this.frames;
     }
 
@@ -33,8 +35,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.ci().isEmpty()) && ((SVGAVideoShapeEntity) o.fC(gVar.ci())).dEh() && arrayList.size() > 0) {
-                        gVar.fs(((g) o.fD(arrayList)).ci());
+                    if ((!gVar.cj().isEmpty()) && ((SVGAVideoShapeEntity) o.fx(gVar.cj())).dFo() && arrayList.size() > 0) {
+                        gVar.fn(((g) o.fy(arrayList)).cj());
                     }
                     arrayList.add(gVar);
                 }
@@ -44,7 +46,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList dIU;
+        ArrayList dKb;
         q.j(spriteEntity, "obj");
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -56,16 +58,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.i(frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.ci().isEmpty()) && ((SVGAVideoShapeEntity) o.fC(gVar3.ci())).dEh() && gVar2 != null) {
-                    gVar3.fs(gVar2.ci());
+                if ((!gVar3.cj().isEmpty()) && ((SVGAVideoShapeEntity) o.fx(gVar3.cj())).dFo() && gVar2 != null) {
+                    gVar3.fn(gVar2.cj());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            dIU = arrayList;
+            dKb = arrayList;
         } else {
-            dIU = o.dIU();
+            dKb = o.dKb();
         }
-        this.frames = dIU;
+        this.frames = dKb;
     }
 }

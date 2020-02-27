@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b implements g {
     private long d = 60;
     private int e = 10;
@@ -27,7 +27,7 @@ public class b implements g {
     private String h = String.valueOf(Process.myPid());
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a {
         String a;
         String b;

@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.view.View;
 import com.baidu.tieba.play.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface a {
 
     /* renamed from: com.baidu.tieba.aiapps.apps.media.videoplayer.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0406a {
+    /* loaded from: classes12.dex */
+    public interface InterfaceC0417a {
         void a(b bVar);
 
         void a(b bVar, int i, int i2);
@@ -17,18 +17,18 @@ public interface a {
         void a(b bVar, int i, int i2, int i3);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a(g gVar);
 
-        a aYd();
+        a bas();
 
-        SurfaceTexture aYe();
+        SurfaceTexture bat();
     }
 
-    void a(InterfaceC0406a interfaceC0406a);
+    void a(InterfaceC0417a interfaceC0417a);
 
-    void b(InterfaceC0406a interfaceC0406a);
+    void b(InterfaceC0417a interfaceC0417a);
 
     Bitmap getBitmap();
 

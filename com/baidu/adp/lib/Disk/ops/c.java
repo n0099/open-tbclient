@@ -10,36 +10,36 @@ import java.nio.ByteBuffer;
 public class c extends DiskFileOperate {
     protected Bitmap mBitmap;
     protected BitmapFactory.Options mOptions;
-    protected a oR;
-    protected boolean oS;
+    protected a oV;
+    protected boolean oW;
 
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
         this.mOptions = null;
-        this.oR = null;
-        this.oS = true;
-        this.oR = new a();
+        this.oV = null;
+        this.oW = true;
+        this.oV = new a();
     }
 
     public void C(boolean z) {
-        this.oS = z;
+        this.oW = z;
     }
 
     public boolean isGif() {
-        return this.oR.mIsGif;
+        return this.oV.mIsGif;
     }
 
     public void setGif(boolean z) {
-        this.oR.mIsGif = z;
+        this.oV.mIsGif = z;
     }
 
     public boolean isHighQuality() {
-        return this.oR.mIsHighQuality;
+        return this.oV.mIsHighQuality;
     }
 
     public void setHighQuality(boolean z) {
-        this.oR.mIsHighQuality = z;
+        this.oV.mIsHighQuality = z;
     }
 
     public Bitmap getBitmap() {
@@ -56,16 +56,16 @@ public class c extends DiskFileOperate {
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public byte[] buildFormatData() {
-        if (this.mData == null || !this.oS) {
+        if (this.mData == null || !this.oW) {
             return null;
         }
-        return this.oR.toByteArray();
+        return this.oV.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean formatData(byte[] bArr) {
-        if (bArr != null && this.oR.paserFromByte(bArr)) {
-            if (this.oR.mValidTime == 0 || this.oR.mValidTime >= System.currentTimeMillis()) {
+        if (bArr != null && this.oV.paserFromByte(bArr)) {
+            if (this.oV.mValidTime == 0 || this.oV.mValidTime >= System.currentTimeMillis()) {
                 if (this.mOptions == null) {
                     this.mOptions = new BitmapFactory.Options();
                     this.mOptions.inPreferredConfig = Bitmap.Config.RGB_565;

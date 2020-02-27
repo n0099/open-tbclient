@@ -5,7 +5,7 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
 import com.baidu.sapi2.result.RealNameFaceIDResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j extends PassFaceRecogCallback {
     final /* synthetic */ RealNameFaceIDResult a;
     final /* synthetic */ VerifyUserFaceIDCallback b;

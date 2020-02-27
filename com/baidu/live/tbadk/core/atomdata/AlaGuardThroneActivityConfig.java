@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.atomdata;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaGuardThroneActivityConfig extends IntentConfig {
     public static final String GUARD_THRONE_ANCHOR_ID = "GUARD_THRONE_ANCHOR_ID";
     public static final String GUARD_THRONE_GIFT_ID = "GUARD_THRONE_GIFT_ID";

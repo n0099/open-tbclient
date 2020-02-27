@@ -4,7 +4,7 @@ import android.graphics.Point;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class af {
     private com.baidu.mapsdkplatform.comjni.map.basemap.a a;
 

@@ -18,19 +18,19 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableConcatMapMaybe<T, R> extends g<R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends o<? extends R>> mapper;
-    final g<T> nvP;
+    final g<T> nwr;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(c<? super R> cVar) {
-        this.nvP.a((j) new ConcatMapMaybeSubscriber(cVar, this.mapper, this.prefetch, this.errorMode));
+        this.nwr.a((j) new ConcatMapMaybeSubscriber(cVar, this.mapper, this.prefetch, this.errorMode));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ConcatMapMaybeSubscriber<T, R> extends AtomicInteger implements j<T>, d {
         static final int STATE_ACTIVE = 1;
         static final int STATE_INACTIVE = 0;
@@ -181,7 +181,7 @@ public final class FlowableConcatMapMaybe<T, R> extends g<R> {
                                         this.state = 1;
                                         oVar.a(this.inner);
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.I(th);
+                                        io.reactivex.exceptions.a.H(th);
                                         this.upstream.cancel();
                                         fVar.clear();
                                         atomicThrowable.addThrowable(th);
@@ -213,7 +213,7 @@ public final class FlowableConcatMapMaybe<T, R> extends g<R> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class ConcatMapMaybeObserver<R> extends AtomicReference<io.reactivex.disposables.b> implements m<R> {
             private static final long serialVersionUID = -3051469169682093892L;
             final ConcatMapMaybeSubscriber<?, R> parent;

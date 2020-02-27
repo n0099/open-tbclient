@@ -6,7 +6,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c implements b {
     public static final int a = 30000;
     public static final int b = 30000;

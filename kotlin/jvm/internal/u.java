@@ -1,11 +1,11 @@
 package kotlin.jvm.internal;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class u {
     public kotlin.reflect.d j(Class cls, String str) {
         return new s(cls, str);
     }
 
-    public kotlin.reflect.c N(Class cls) {
+    public kotlin.reflect.c M(Class cls) {
         return new m(cls);
     }
 

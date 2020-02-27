@@ -5,7 +5,7 @@ import android.support.annotation.RestrictTo;
 import android.util.Log;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PathParser {
     private static final String LOGTAG = "PathParser";
 
@@ -108,7 +108,7 @@ public class PathParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class ExtractFloatResult {
         int mEndPosition;
         boolean mEndWithNegOrDot;
@@ -199,7 +199,7 @@ public class PathParser {
         extractFloatResult.mEndPosition = i2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class PathDataNode {
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public float[] mParams;

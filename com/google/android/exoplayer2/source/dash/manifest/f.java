@@ -2,35 +2,35 @@ package com.google.android.exoplayer2.source.dash.manifest;
 
 import android.net.Uri;
 import com.google.android.exoplayer2.util.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class f {
     private int hashCode;
     public final long length;
-    private final String muv;
+    private final String mvb;
     public final long start;
 
     public f(String str, long j, long j2) {
-        this.muv = str == null ? "" : str;
+        this.mvb = str == null ? "" : str;
         this.start = j;
         this.length = j2;
     }
 
-    public Uri Pt(String str) {
-        return u.fk(str, this.muv);
+    public Uri PG(String str) {
+        return u.fs(str, this.mvb);
     }
 
-    public String Pu(String str) {
-        return u.fl(str, this.muv);
+    public String PH(String str) {
+        return u.ft(str, this.mvb);
     }
 
     public f a(f fVar, String str) {
         f fVar2 = null;
-        String Pu = Pu(str);
-        if (fVar != null && Pu.equals(fVar.Pu(str))) {
+        String PH = PH(str);
+        if (fVar != null && PH.equals(fVar.PH(str))) {
             if (this.length != -1 && this.start + this.length == fVar.start) {
-                fVar2 = new f(Pu, this.start, fVar.length != -1 ? this.length + fVar.length : -1L);
+                fVar2 = new f(PH, this.start, fVar.length != -1 ? this.length + fVar.length : -1L);
             } else if (fVar.length != -1 && fVar.start + fVar.length == this.start) {
-                fVar2 = new f(Pu, fVar.start, this.length != -1 ? fVar.length + this.length : -1L);
+                fVar2 = new f(PH, fVar.start, this.length != -1 ? fVar.length + this.length : -1L);
             }
         }
         return fVar2;
@@ -38,7 +38,7 @@ public final class f {
 
     public int hashCode() {
         if (this.hashCode == 0) {
-            this.hashCode = ((((((int) this.start) + 527) * 31) + ((int) this.length)) * 31) + this.muv.hashCode();
+            this.hashCode = ((((((int) this.start) + 527) * 31) + ((int) this.length)) * 31) + this.mvb.hashCode();
         }
         return this.hashCode;
     }
@@ -51,6 +51,6 @@ public final class f {
             return false;
         }
         f fVar = (f) obj;
-        return this.start == fVar.start && this.length == fVar.length && this.muv.equals(fVar.muv);
+        return this.start == fVar.start && this.length == fVar.length && this.mvb.equals(fVar.mvb);
     }
 }

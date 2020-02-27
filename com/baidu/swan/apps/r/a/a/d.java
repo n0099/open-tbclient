@@ -3,11 +3,11 @@ package com.baidu.swan.apps.r.a.a;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.as.af;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.a.c> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String Rc() {
+    public String Tq() {
         return "pageScrollUp";
     }
 

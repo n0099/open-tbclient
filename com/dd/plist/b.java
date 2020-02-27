@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final byte[] _ORDERED_ALPHABET;

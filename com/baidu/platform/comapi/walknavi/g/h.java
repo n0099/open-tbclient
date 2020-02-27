@@ -5,8 +5,8 @@ import android.content.Intent;
 import com.baidu.platform.comapi.walknavi.widget.a;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
-public class h implements a.InterfaceC0139a {
+/* loaded from: classes8.dex */
+public class h implements a.InterfaceC0148a {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class h implements a.InterfaceC0139a {
         this.a = aVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0139a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0148a
     public void a() {
         Activity activity;
         Activity activity2;

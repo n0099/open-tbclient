@@ -3,14 +3,14 @@ package com.baidu.minivideo.effect.core.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AEffectOneAnimator implements Parcelable {
     public static final String ANIM_TYPE_ANIMATORVALUE = "animatorValue";
     public static final String ANIM_TYPE_VALUE = "value";
     public static final Parcelable.Creator<AEffectOneAnimator> CREATOR = new Parcelable.Creator<AEffectOneAnimator>() { // from class: com.baidu.minivideo.effect.core.entity.AEffectOneAnimator.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cZ */
+        /* renamed from: dp */
         public AEffectOneAnimator[] newArray(int i) {
             return new AEffectOneAnimator[i];
         }

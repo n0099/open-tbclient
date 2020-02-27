@@ -11,7 +11,7 @@ import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.ala.recorder.video.camera.AlaCameraRecorder;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.lang.reflect.Array;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CPUCaremaOperator implements ICameraOperator {
     private static final int PREVIEW_BUFFER_COUNT = 3;
     private Activity mActivity;

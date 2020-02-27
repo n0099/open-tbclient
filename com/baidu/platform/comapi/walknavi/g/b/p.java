@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 
 import com.baidu.mapapi.walknavi.adapter.IWNPCLoadAndInitListener;
 import com.baidu.platform.comapi.walknavi.g.b.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class p implements c.d {
     final /* synthetic */ o a;
 

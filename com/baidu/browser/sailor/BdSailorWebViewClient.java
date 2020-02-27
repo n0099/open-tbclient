@@ -11,7 +11,7 @@ import com.baidu.webkit.sdk.HttpAuthHandler;
 import com.baidu.webkit.sdk.RenderProcessGoneDetail;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import com.baidu.webkit.sdk.WebResourceResponse;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdSailorWebViewClient implements INoProGuard {
     public void doUpdateVisitedHistory(BdSailorWebView bdSailorWebView, String str, boolean z) {
     }

@@ -3,7 +3,7 @@ package com.baidu.searchbox.widget.toucharea;
 import android.view.View;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ExpandTouchAreaHelper {
     public static final int UNIT_DP = 1;
     public static final int UNIT_PX = 0;

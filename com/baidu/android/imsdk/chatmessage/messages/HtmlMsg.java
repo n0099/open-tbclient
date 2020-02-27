@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.ugc.model.QuestionResponseModel;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HtmlMsg extends NormalMsg {
     public static final Parcelable.Creator<HtmlMsg> CREATOR = new Parcelable.Creator<HtmlMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.HtmlMsg.1
         /* JADX DEBUG: Method merged with bridge method */

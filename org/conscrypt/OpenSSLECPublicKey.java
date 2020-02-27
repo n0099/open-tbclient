@@ -13,7 +13,7 @@ import java.util.Arrays;
 import org.conscrypt.NativeRef;
 import org.conscrypt.OpenSSLX509CertificateFactory;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class OpenSSLECPublicKey implements ECPublicKey, OpenSSLKeyHolder {
     private static final String ALGORITHM = "EC";
     private static final long serialVersionUID = 3215842926808298020L;

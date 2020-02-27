@@ -17,7 +17,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class q {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -57,11 +57,11 @@ public final class q {
         return Uri.parse(str);
     }
 
-    public static File mw(String str) {
-        return bl(com.baidu.swan.apps.y.f.UC().Uj().acZ(), str);
+    public static File mL(String str) {
+        return bu(com.baidu.swan.apps.y.f.WQ().Wx().afn(), str);
     }
 
-    public static File bl(String str, String str2) {
+    public static File bu(String str, String str2) {
         if (DEBUG) {
             Log.d("ImageUtils", "获取temp路径");
         }

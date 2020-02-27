@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.core.pms;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void MR();
+    void Pf();
 
-    void MS();
+    void Pg();
 
-    void ep(int i);
+    void eF(int i);
 }

@@ -1,5 +1,5 @@
 package com.google.gson;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class JsonIOException extends JsonParseException {
     private static final long serialVersionUID = 1;
 

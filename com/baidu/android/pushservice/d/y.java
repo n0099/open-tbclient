@@ -13,17 +13,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class y implements Runnable {
     private Context a;
     private int b = 3;
     private int c;
     private boolean d;
-    private a.C0041a e;
+    private a.C0043a e;
 
-    public y(Context context, a.C0041a c0041a) {
+    public y(Context context, a.C0043a c0043a) {
         this.a = context.getApplicationContext();
-        this.e = c0041a;
+        this.e = c0043a;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.io.Closeable[] */

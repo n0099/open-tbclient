@@ -4,11 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class c {
-    private TextView eMi;
+    private TextView eQl;
     private TbPageContext mContext;
     private View mView;
 
@@ -20,13 +20,13 @@ public class c {
 
     private void initUI() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_id_view_layout, (ViewGroup) null);
-        this.eMi = (TextView) this.mView.findViewById(a.g.ala_id_txt);
+        this.eQl = (TextView) this.mView.findViewById(a.g.ala_id_txt);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cP(long j) {
-        if (this.eMi != null) {
-            this.eMi.setText(String.format(this.mContext.getString(a.i.sdk_live_id), String.valueOf(j)));
+    public void cR(long j) {
+        if (this.eQl != null) {
+            this.eQl.setText(String.format(this.mContext.getString(a.i.sdk_live_id), String.valueOf(j)));
         }
     }
 

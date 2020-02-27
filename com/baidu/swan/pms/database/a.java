@@ -9,33 +9,33 @@ import com.baidu.swan.pms.model.g;
 import com.baidu.swan.pms.model.h;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a {
-    private static volatile a cwK;
+    private static volatile a cAI;
 
-    public abstract boolean P(String str, String str2, String str3);
+    public abstract boolean Q(String str, int i);
 
-    public abstract boolean S(String str, int i);
+    public abstract boolean Q(String str, String str2, String str3);
 
     public abstract boolean a(f fVar, PMSAppInfo pMSAppInfo);
 
     public abstract boolean a(f fVar, List<g> list, d dVar, com.baidu.swan.pms.model.b bVar, PMSAppInfo pMSAppInfo);
 
-    public abstract Map<String, f> arg();
+    public abstract Map<String, f> atu();
 
-    public abstract Map<String, PMSAppInfo> arh();
+    public abstract Map<String, PMSAppInfo> atv();
 
     public abstract <T extends e> boolean b(Class<T> cls, String str);
-
-    public abstract void bT(String str, String str2);
-
-    public abstract h bU(String str, String str2);
-
-    public abstract com.baidu.swan.pms.b.a bV(@NonNull String str, @NonNull String str2);
 
     public abstract <T extends e> T c(Class<T> cls, String str);
 
     public abstract <T extends e> boolean c(T t);
+
+    public abstract void cc(String str, String str2);
+
+    public abstract h cd(String str, String str2);
+
+    public abstract com.baidu.swan.pms.b.a ce(@NonNull String str, @NonNull String str2);
 
     public abstract boolean d(@NonNull com.baidu.swan.pms.b.a aVar);
 
@@ -45,20 +45,20 @@ public abstract class a {
 
     public abstract boolean m(PMSAppInfo pMSAppInfo);
 
-    public abstract PMSAppInfo pZ(String str);
+    public abstract PMSAppInfo qo(String str);
 
-    public abstract boolean qa(String str);
+    public abstract boolean qp(String str);
 
-    public abstract void qb(String str);
+    public abstract void qq(String str);
 
-    public static a arf() {
-        if (cwK == null) {
+    public static a att() {
+        if (cAI == null) {
             synchronized (a.class) {
-                if (cwK == null) {
-                    cwK = new b();
+                if (cAI == null) {
+                    cAI = new b();
                 }
             }
         }
-        return cwK;
+        return cAI;
     }
 }

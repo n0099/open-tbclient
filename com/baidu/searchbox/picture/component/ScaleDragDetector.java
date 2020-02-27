@@ -7,7 +7,7 @@ import android.view.ScaleGestureDetector;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import com.baidu.searchbox.picture.component.listener.OnScaleDragGestureListener;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ScaleDragDetector implements ScaleGestureDetector.OnScaleGestureListener {
     private static final int INVALID_POINTER_ID = -1;
     private int mActivePointerId = -1;

@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.util;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class IntHashMap {
     private transient int count;
     private float loadFactor;
@@ -7,18 +7,18 @@ public class IntHashMap {
     private int threshold;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         int hash;
         int key;
-        a mNF;
+        a mOh;
         Object value;
 
         protected a(int i, int i2, Object obj, a aVar) {
             this.hash = i;
             this.key = i2;
             this.value = obj;
-            this.mNF = aVar;
+            this.mOh = aVar;
         }
     }
 
@@ -60,7 +60,7 @@ public class IntHashMap {
         while (true) {
             int i = length - 1;
             if (length > 0) {
-                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.mNF) {
+                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.mOh) {
                     if (aVar.value.equals(obj)) {
                         return true;
                     }
@@ -78,7 +78,7 @@ public class IntHashMap {
 
     public boolean containsKey(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.mNF) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.mOh) {
             if (aVar.hash == i) {
                 return true;
             }
@@ -88,7 +88,7 @@ public class IntHashMap {
 
     public Object get(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.mNF) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.mOh) {
             if (aVar.hash == i) {
                 return aVar.value;
             }
@@ -108,9 +108,9 @@ public class IntHashMap {
             if (length > 0) {
                 a aVar = aVarArr[i2];
                 while (aVar != null) {
-                    a aVar2 = aVar.mNF;
+                    a aVar2 = aVar.mOh;
                     int i3 = (aVar.hash & Integer.MAX_VALUE) % i;
-                    aVar.mNF = aVarArr2[i3];
+                    aVar.mOh = aVarArr2[i3];
                     aVarArr2[i3] = aVar;
                     aVar = aVar2;
                 }
@@ -124,7 +124,7 @@ public class IntHashMap {
     public Object put(int i, Object obj) {
         a[] aVarArr = this.table;
         int length = (i & Integer.MAX_VALUE) % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.mNF) {
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.mOh) {
             if (aVar.hash == i) {
                 Object obj2 = aVar.value;
                 aVar.value = obj;
@@ -149,13 +149,13 @@ public class IntHashMap {
         while (aVar != null) {
             if (aVar.hash != i) {
                 a aVar3 = aVar;
-                aVar = aVar.mNF;
+                aVar = aVar.mOh;
                 aVar2 = aVar3;
             } else {
                 if (aVar2 != null) {
-                    aVar2.mNF = aVar.mNF;
+                    aVar2.mOh = aVar.mOh;
                 } else {
-                    aVarArr[length] = aVar.mNF;
+                    aVarArr[length] = aVar.mOh;
                 }
                 this.count--;
                 Object obj = aVar.value;

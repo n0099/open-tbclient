@@ -4,7 +4,7 @@ import android.os.Process;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PerformanceLoggerHelper {
     private static volatile PerformanceLoggerHelper mInstance;
 
@@ -34,6 +34,7 @@ public class PerformanceLoggerHelper {
         Process process2;
         String str;
         String str2;
+        String[] split;
         BufferedReader bufferedReader2 = null;
         int myPid = Process.myPid();
         try {
@@ -44,28 +45,25 @@ public class PerformanceLoggerHelper {
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();
-                        if (readLine != null) {
-                            if (readLine.trim().startsWith(String.valueOf(myPid))) {
-                                String[] split = readLine.split("\\s+");
-                                if (split != null && split.length > 2 && split[2] != null && split[2].contains("%")) {
-                                    break;
-                                }
-                                int i = 0;
-                                while (true) {
-                                    if (i < split.length) {
-                                        if (split[i] == null || !split[i].contains("%")) {
-                                            i++;
-                                        } else {
-                                            str2 = split[i].trim();
-                                            break;
-                                        }
+                        if (readLine == null) {
+                            break;
+                        } else if (readLine.trim().startsWith(String.valueOf(myPid)) && (split = readLine.split("\\s+")) != null) {
+                            if (split.length > 2 && split[2] != null && split[2].contains("%")) {
+                                break;
+                            }
+                            int i = 0;
+                            while (true) {
+                                if (i < split.length) {
+                                    if (split[i] == null || !split[i].contains("%")) {
+                                        i++;
                                     } else {
+                                        str2 = split[i].trim();
                                         break;
                                     }
+                                } else {
+                                    break;
                                 }
                             }
-                        } else {
-                            break;
                         }
                     } catch (Exception e) {
                         bufferedReader2 = bufferedReader;

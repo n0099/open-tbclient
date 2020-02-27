@@ -15,7 +15,7 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ProxyHttpClient extends DefaultHttpClient {
     private static final boolean DEBUG = false;
     private static final int HTTP_TIMEOUT_MS = 30000;

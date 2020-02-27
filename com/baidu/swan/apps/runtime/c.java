@@ -4,12 +4,12 @@ import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class c extends d {
-    public final e bKG = new e(this, "");
+    public final e bOL = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo YR() {
+    public SwanAppProcessInfo abf() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,37 +19,37 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean YT() {
+    public boolean abh() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean YS() {
+    public boolean abg() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores YU() {
+    public SwanAppCores abi() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public int Ed() {
+    public int Gs() {
         return -1;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a aai() {
+    public com.baidu.swan.apps.process.messaging.client.a acw() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e aaj() {
-        return this.bKG;
+    public e acx() {
+        return this.bOL;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public String r(String... strArr) {
+    public String v(String... strArr) {
         return "";
     }
 
@@ -58,7 +58,7 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void aak() {
+    public void acy() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,7 +70,7 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity aal() {
+    public SwanAppActivity acz() {
         return null;
     }
 }

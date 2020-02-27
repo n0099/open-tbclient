@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.group;
 
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EmojionUtils {
     private static ArrayList<Integer> emojionlist = new ArrayList<>();
 

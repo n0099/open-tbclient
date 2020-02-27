@@ -2,7 +2,7 @@ package com.baidu.smallgame.sdk.permission;
 
 import com.baidu.searchbox.v8engine.NotProguard;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface PermissionListener {
     public static final int PERMISSION_OK = 0;
     public static final int PERMISSION_SYSTEM_DENY = 1;

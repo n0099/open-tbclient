@@ -3,11 +3,11 @@ package com.baidu.live.tieba.d;
 import android.os.Handler;
 import android.os.Message;
 import android.view.MotionEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private float atV;
-    private float atW;
-    private InterfaceC0090a atX;
+    private float ayl;
+    private float aym;
+    private InterfaceC0096a ayn;
     private float mLastTouchX;
     private float mLastTouchY;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.live.tieba.d.a.1
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.atX.y(i, i2);
+                    a.this.ayn.z(i, i2);
                     return true;
                 case 1:
-                    a.this.atX.z(i, i2);
+                    a.this.ayn.A(i, i2);
                     return true;
                 case 2:
-                    a.this.atX.A(i, i2);
+                    a.this.ayn.B(i, i2);
                     return true;
                 default:
                     return false;
@@ -33,46 +33,46 @@ public class a {
     private Handler mHandler = new Handler(this.mHandlerCallback);
 
     /* renamed from: com.baidu.live.tieba.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0090a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0096a {
         void A(int i, int i2);
 
-        void y(int i, int i2);
+        void B(int i, int i2);
 
         void z(int i, int i2);
     }
 
-    public void a(InterfaceC0090a interfaceC0090a) {
-        this.atX = interfaceC0090a;
+    public void a(InterfaceC0096a interfaceC0096a) {
+        this.ayn = interfaceC0096a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.atV = motionEvent.getRawX();
-                this.atW = motionEvent.getRawY();
+                this.ayl = motionEvent.getRawX();
+                this.aym = motionEvent.getRawY();
                 return true;
             case 1:
             case 3:
-                if (this.atX != null) {
-                    int i = (int) (this.mLastTouchX - this.atV);
-                    if (Math.abs(i) >= Math.abs((int) (this.mLastTouchY - this.atW))) {
-                        x(i, (int) this.atV);
+                if (this.ayn != null) {
+                    int i = (int) (this.mLastTouchX - this.ayl);
+                    if (Math.abs(i) >= Math.abs((int) (this.mLastTouchY - this.aym))) {
+                        y(i, (int) this.ayl);
                     }
                 }
-                this.atV = 0.0f;
-                this.atW = 0.0f;
+                this.ayl = 0.0f;
+                this.aym = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
                 int i2 = (int) (rawX - this.mLastTouchX);
                 int i3 = (int) (rawY - this.mLastTouchY);
-                if (this.atX != null) {
+                if (this.ayn != null) {
                     if (i3 > 0) {
-                        v(i2, i3);
-                    } else {
                         w(i2, i3);
+                    } else {
+                        x(i2, i3);
                     }
                 }
                 this.mLastTouchX = rawX;
@@ -83,7 +83,7 @@ public class a {
         }
     }
 
-    public void v(int i, int i2) {
+    public void w(int i, int i2) {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(0)) {
             Message message = new Message();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public void w(int i, int i2) {
+    public void x(int i, int i2) {
         this.mHandler.removeMessages(0);
         if (!this.mHandler.hasMessages(1)) {
             Message message = new Message();
@@ -105,7 +105,7 @@ public class a {
         }
     }
 
-    public void x(int i, int i2) {
+    public void y(int i, int i2) {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(2)) {
             Message message = new Message();

@@ -1,7 +1,8 @@
 package com.vivo.push.c;
 
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class ah {
     public static com.vivo.push.v a(com.vivo.push.y yVar) {
         switch (yVar.b()) {
@@ -15,10 +16,10 @@ public final class ah {
             case UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE /* 2008 */:
             case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
             case 2010:
-            case 2011:
-            case 2012:
-            case 2013:
-            case 2014:
+            case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
+            case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
+            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME /* 2013 */:
+            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
                 return new ai(yVar);
             case 1:
                 return new ab(yVar);

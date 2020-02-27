@@ -15,7 +15,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class DownloadTaskImpl implements DownloadTask {
     private volatile int mCommend = 0;
     private final DownloadInfo mDownloadInfo;

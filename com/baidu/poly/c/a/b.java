@@ -1,8 +1,8 @@
 package com.baidu.poly.c.a;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public JSONObject aNE;
+    public JSONObject aSd;
     public String channel;
 }

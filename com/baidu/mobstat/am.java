@@ -23,7 +23,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class am {
     private static final am B = new am();
     private Context a;
@@ -96,7 +96,7 @@ public class am {
         this.f = new a(this.g.getLooper());
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     class c extends Handler {
         public c(Looper looper) {
             super(looper);
@@ -118,7 +118,7 @@ public class am {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements aj.a {
         private b() {
         }
@@ -148,7 +148,7 @@ public class am {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);

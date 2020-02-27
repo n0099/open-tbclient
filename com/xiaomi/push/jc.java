@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class jc {
     protected jm a;
 
@@ -13,40 +13,40 @@ public abstract class jc {
     public abstract byte a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract double m460a();
+    public abstract double m465a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract int m461a();
+    public abstract int m466a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract long m462a();
+    public abstract long m467a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract iz m463a();
+    public abstract iz m468a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ja m464a();
+    public abstract ja m469a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jb m465a();
+    public abstract jb m470a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jg m466a();
+    public abstract jg m471a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jh m467a();
+    public abstract jh m472a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m468a();
+    public abstract String m473a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m469a();
+    public abstract ByteBuffer m474a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract short m470a();
+    public abstract short m475a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m471a();
+    public abstract void m476a();
 
     public abstract void a(byte b);
 
@@ -71,7 +71,7 @@ public abstract class jc {
     public abstract void a(boolean z);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m472a();
+    public abstract boolean m477a();
 
     public abstract void b();
 

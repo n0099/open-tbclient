@@ -2,28 +2,28 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bj;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f extends k {
-    public static final BdUniqueId fKc = BdUniqueId.gen();
+    public static final BdUniqueId fMy = BdUniqueId.gen();
 
     public f(bj bjVar) {
-        this.cNb = bjVar;
+        this.cRe = bjVar;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fKc;
+        return fMy;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bj axQ() {
-        return this.cNb;
+    public bj aAe() {
+        return this.cRe;
     }
 
-    public static boolean aa(bj bjVar) {
+    public static boolean ab(bj bjVar) {
         if (bjVar == null) {
             return false;
         }
-        return bjVar.aBT();
+        return bjVar.aEe();
     }
 }

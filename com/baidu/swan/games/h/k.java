@@ -3,67 +3,67 @@ package com.baidu.swan.games.h;
 import android.text.TextUtils;
 import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class k implements com.baidu.swan.apps.storage.b.c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lR(String str) {
-        return l.lR(str);
+    public String mg(String str) {
+        return l.mg(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lS(String str) {
-        if (com.baidu.swan.apps.storage.b.lL(str) == PathType.RELATIVE) {
-            return l.lR(str);
+    public String mh(String str) {
+        if (com.baidu.swan.apps.storage.b.ma(str) == PathType.RELATIVE) {
+            return l.mg(str);
         }
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lT(String str) {
-        String oy = l.oy(str);
-        if (TextUtils.isEmpty(oy)) {
+    public String mi(String str) {
+        String oN = l.oN(str);
+        if (TextUtils.isEmpty(oN)) {
             return null;
         }
-        return oy;
+        return oN;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lU(String str) {
-        return l.oP(str);
+    public String mj(String str) {
+        return l.pe(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lV(String str) {
-        return lU(str);
+    public String mk(String str) {
+        return mj(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lW(String str) {
-        return l.oJ("bdfile://tmp" + File.separator + str);
+    public String ml(String str) {
+        return l.oY("bdfile://tmp" + File.separator + str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String acZ() {
-        return l.oJ("bdfile://tmp");
+    public String afn() {
+        return l.oY("bdfile://tmp");
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lK(String str) {
-        return lS(str);
+    public String lZ(String str) {
+        return mh(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean lF(String str) {
+    public boolean lU(String str) {
         return !TextUtils.isEmpty(str) && (a.USER_DATA_PATH.equals(str) || str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()));
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean az(long j) {
-        return l.aV(j);
+    public boolean aD(long j) {
+        return l.aZ(j);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public void aA(long j) {
-        l.aU(j);
+    public void aE(long j) {
+        l.aY(j);
     }
 }

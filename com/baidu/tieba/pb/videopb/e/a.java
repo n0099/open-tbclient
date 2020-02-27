@@ -11,34 +11,34 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a extends v.a implements View.OnClickListener {
-    private bj Np;
-    CardForumHeadLayout iZD;
+    private bj NQ;
+    CardForumHeadLayout jbe;
 
     public a(View view) {
         super(view);
-        this.iZD = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-        if (this.iZD != null) {
-            this.iZD.setOnClickListener(this.iZD);
-            this.iZD.setAfterClickListener(this);
+        this.jbe = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+        if (this.jbe != null) {
+            this.jbe.setOnClickListener(this.jbe);
+            this.jbe.setAfterClickListener(this);
         }
     }
 
     public void setData(bj bjVar) {
-        this.Np = bjVar;
-        this.iZD.setData(bjVar);
+        this.NQ = bjVar;
+        this.jbe.setData(bjVar);
     }
 
-    public void aFw() {
-        this.iZD.onChangeSkinType();
-        am.c(this.iZD, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.cp_bg_line_g, R.color.cp_bg_line_g);
+    public void aHL() {
+        this.jbe.onChangeSkinType();
+        am.c(this.jbe, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.cp_bg_line_g, R.color.cp_bg_line_g);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.Np != null) {
-            TiebaStatic.log(new an("c13399").cp("tid", this.Np.getTid()).s("fid", this.Np.getFid()).cp("uid", TbadkCoreApplication.getCurrentAccount()));
+        if (this.NQ != null) {
+            TiebaStatic.log(new an("c13399").cy("tid", this.NQ.getTid()).s("fid", this.NQ.getFid()).cy("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 }

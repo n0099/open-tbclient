@@ -1,24 +1,24 @@
 package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.a.a.p;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class k implements b {
-    private final com.airbnb.lottie.model.a.h iH;
+    private final com.airbnb.lottie.model.a.h iL;
     private final int index;
     private final String name;
 
     public k(String str, int i, com.airbnb.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.iH = hVar;
+        this.iL = hVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.airbnb.lottie.model.a.h cZ() {
-        return this.iH;
+    public com.airbnb.lottie.model.a.h da() {
+        return this.iL;
     }
 
     @Override // com.airbnb.lottie.model.content.b

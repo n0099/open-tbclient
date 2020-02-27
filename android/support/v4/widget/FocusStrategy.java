@@ -3,18 +3,19 @@ package android.support.v4.widget;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class FocusStrategy {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface BoundsAdapter<T> {
         void obtainBounds(T t, Rect rect);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface CollectionAdapter<T, V> {
         V get(T t, int i);
 
@@ -65,7 +66,7 @@ class FocusStrategy {
         return null;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class SequentialComparator<T> implements Comparator<T> {
         private final BoundsAdapter<T> mAdapter;
         private final boolean mIsLayoutRtl;
@@ -122,7 +123,7 @@ class FocusStrategy {
             case 66:
                 rect2.offset(-(rect.width() + 1), 0);
                 break;
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 rect2.offset(0, -(rect.height() + 1));
                 break;
             default:
@@ -174,7 +175,7 @@ class FocusStrategy {
                 return (rect.bottom > rect2.bottom || rect.top >= rect2.bottom) && rect.top > rect2.top;
             case 66:
                 return (rect.left < rect2.left || rect.right <= rect2.left) && rect.right < rect2.right;
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 return (rect.top < rect2.top || rect.bottom <= rect2.top) && rect.bottom < rect2.bottom;
             default:
                 throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
@@ -187,7 +188,7 @@ class FocusStrategy {
             case 66:
                 return rect2.bottom >= rect.top && rect2.top <= rect.bottom;
             case 33:
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 return rect2.right >= rect.left && rect2.left <= rect.right;
             default:
                 throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
@@ -202,7 +203,7 @@ class FocusStrategy {
                 return rect.top >= rect2.bottom;
             case 66:
                 return rect.right <= rect2.left;
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 return rect.bottom <= rect2.top;
             default:
                 throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
@@ -221,7 +222,7 @@ class FocusStrategy {
                 return rect.top - rect2.bottom;
             case 66:
                 return rect2.left - rect.right;
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 return rect2.top - rect.bottom;
             default:
                 throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
@@ -240,7 +241,7 @@ class FocusStrategy {
                 return rect.top - rect2.top;
             case 66:
                 return rect2.right - rect.right;
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 return rect2.bottom - rect.bottom;
             default:
                 throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
@@ -253,7 +254,7 @@ class FocusStrategy {
             case 66:
                 return Math.abs((rect.top + (rect.height() / 2)) - (rect2.top + (rect2.height() / 2)));
             case 33:
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
                 return Math.abs((rect.left + (rect.width() / 2)) - (rect2.left + (rect2.width() / 2)));
             default:
                 throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");

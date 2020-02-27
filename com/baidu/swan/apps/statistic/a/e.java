@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject bRf;
-    protected JSONObject bRg;
+    protected JSONObject bVk;
+    protected JSONObject bVl;
     public String mAppId;
     public String mFrom = "swan";
     public String mPage;
@@ -36,13 +36,13 @@ public class e {
             if (!TextUtils.isEmpty(this.mPage)) {
                 jSONObject.put("page", this.mPage);
             }
-            if (this.bRf == null) {
-                this.bRf = new JSONObject();
+            if (this.bVk == null) {
+                this.bVk = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.bRf.put("appid", this.mAppId);
+                this.bVk.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.bRf);
+            jSONObject.put("ext", this.bVk);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -54,14 +54,14 @@ public class e {
 
     public void aZ(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.bRf == null) {
-                this.bRf = new JSONObject();
+            if (this.bVk == null) {
+                this.bVk = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.bRf.put(next, jSONObject.opt(next));
+                    this.bVk.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -71,7 +71,7 @@ public class e {
         }
     }
 
-    public void lC(String str) {
+    public void lR(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 aZ(new JSONObject(str));
@@ -83,18 +83,18 @@ public class e {
 
     public void ba(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.bRf == null) {
-                this.bRf = new JSONObject();
+            if (this.bVk == null) {
+                this.bVk = new JSONObject();
             }
-            this.bRg = this.bRf.optJSONObject("extlog");
-            if (this.bRg == null) {
-                this.bRg = new JSONObject();
+            this.bVl = this.bVk.optJSONObject("extlog");
+            if (this.bVl == null) {
+                this.bVl = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.bRg.put(next, jSONObject.opt(next));
+                    this.bVl.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -102,7 +102,7 @@ public class e {
                 }
             }
             try {
-                this.bRf.put("extlog", this.bRg);
+                this.bVk.put("extlog", this.bVl);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -112,11 +112,11 @@ public class e {
     }
 
     public void n(@NonNull String str, Object obj) {
-        if (this.bRf == null) {
-            this.bRf = new JSONObject();
+        if (this.bVk == null) {
+            this.bVk = new JSONObject();
         }
         try {
-            this.bRf.put(str, obj);
+            this.bVk.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -124,12 +124,12 @@ public class e {
         }
     }
 
-    public JSONObject acL() {
-        if (this.bRf == null) {
+    public JSONObject aeZ() {
+        if (this.bVk == null) {
             return null;
         }
         try {
-            return new JSONObject(this.bRf.toString());
+            return new JSONObject(this.bVk.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

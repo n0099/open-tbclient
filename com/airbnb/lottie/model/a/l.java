@@ -3,63 +3,63 @@ package com.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e hK;
-    private final m<PointF, PointF> hL;
-    private final g hM;
-    private final b hN;
-    private final d hO;
+    private final e hO;
+    private final m<PointF, PointF> hP;
+    private final g hQ;
+    private final b hR;
+    private final d hS;
     @Nullable
-    private final b hP;
+    private final b hT;
     @Nullable
-    private final b hQ;
+    private final b hU;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.hK = eVar;
-        this.hL = mVar;
-        this.hM = gVar;
-        this.hN = bVar;
-        this.hO = dVar;
-        this.hP = bVar2;
-        this.hQ = bVar3;
+        this.hO = eVar;
+        this.hP = mVar;
+        this.hQ = gVar;
+        this.hR = bVar;
+        this.hS = dVar;
+        this.hT = bVar2;
+        this.hU = bVar3;
     }
 
-    public e co() {
-        return this.hK;
-    }
-
-    public m<PointF, PointF> cp() {
-        return this.hL;
-    }
-
-    public g cq() {
-        return this.hM;
-    }
-
-    public b cr() {
-        return this.hN;
-    }
-
-    public d cs() {
+    public e cp() {
         return this.hO;
     }
 
-    @Nullable
-    public b ct() {
+    public m<PointF, PointF> cq() {
         return this.hP;
+    }
+
+    public g cr() {
+        return this.hQ;
+    }
+
+    public b cs() {
+        return this.hR;
+    }
+
+    public d ct() {
+        return this.hS;
     }
 
     @Nullable
     public b cu() {
-        return this.hQ;
+        return this.hT;
     }
 
-    public o cv() {
+    @Nullable
+    public b cv() {
+        return this.hU;
+    }
+
+    public o cw() {
         return new o(this);
     }
 

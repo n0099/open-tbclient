@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.al;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class gp {
     private static al a = new al(true, 20);
 

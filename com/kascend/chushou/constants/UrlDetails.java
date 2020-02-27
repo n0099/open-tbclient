@@ -2,7 +2,7 @@ package com.kascend.chushou.constants;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UrlDetails implements Parcelable {
     public static final Parcelable.Creator<UrlDetails> CREATOR = new Parcelable.Creator<UrlDetails>() { // from class: com.kascend.chushou.constants.UrlDetails.1
         /* JADX DEBUG: Method merged with bridge method */

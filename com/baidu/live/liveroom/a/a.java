@@ -1,12 +1,9 @@
 package com.baidu.live.liveroom.a;
-
-import android.view.ViewGroup;
-import com.baidu.live.data.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
-    void a(int i, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+    boolean cc(int i);
 
-    void g(l lVar);
+    void cd(int i);
 
-    void setHost(boolean z);
+    void ce(int i);
 }

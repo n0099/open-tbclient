@@ -4,32 +4,32 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GiftPanelFragmentPagerAdapter extends FragmentPagerAdapter {
-    public Fragment ama;
-    private Fragment[] amb;
+    public Fragment aon;
+    private Fragment[] aoo;
 
     public GiftPanelFragmentPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 
     public void a(Fragment... fragmentArr) {
-        this.amb = fragmentArr;
+        this.aoo = fragmentArr;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.amb[i];
+        return this.aoo[i];
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.amb.length;
+        return this.aoo.length;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        this.ama = (Fragment) obj;
+        this.aon = (Fragment) obj;
         super.setPrimaryItem(viewGroup, i, obj);
     }
 }

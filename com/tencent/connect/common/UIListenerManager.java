@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UIListenerManager {
     private static UIListenerManager a = null;
     private Map<String, ApiTask> b;
@@ -222,7 +222,7 @@ public class UIListenerManager {
         return true;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;

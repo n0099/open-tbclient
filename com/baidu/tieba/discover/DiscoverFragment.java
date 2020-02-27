@@ -19,32 +19,32 @@ import com.baidu.tieba.frs.af;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DiscoverFragment extends BaseFragment implements af {
-    private a fNY;
-    private boolean fNZ;
+    private a fQt;
+    private boolean fQu;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean ejJ = true;
+    private boolean enT = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.DiscoverFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && DiscoverFragment.this.fNY != null && DiscoverFragment.this.fNY.getWebView() != null && DiscoverFragment.this.fNY.getWebView().getUrl() != null) {
-                if (DiscoverFragment.this.fNY.getWebView().getUrl().contains((String) customResponsedMessage.getData())) {
-                    DiscoverFragment.this.fNY.hideLoadingView();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && DiscoverFragment.this.fQt != null && DiscoverFragment.this.fQt.getWebView() != null && DiscoverFragment.this.fQt.getWebView().getUrl() != null) {
+                if (DiscoverFragment.this.fQt.getWebView().getUrl().contains((String) customResponsedMessage.getData())) {
+                    DiscoverFragment.this.fQt.hideLoadingView();
                 }
             }
         }
     };
-    private CustomMessageListener fOa = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.DiscoverFragment.2
+    private CustomMessageListener fQv = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.DiscoverFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    DiscoverFragment.this.bah();
+                    DiscoverFragment.this.bcx();
                 } else {
-                    DiscoverFragment.this.bai();
+                    DiscoverFragment.this.bcy();
                 }
             }
         }
@@ -52,33 +52,33 @@ public class DiscoverFragment extends BaseFragment implements af {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.fNY = new a();
-        return this.fNY.a(layoutInflater, viewGroup);
+        this.fQt = new a();
+        return this.fQt.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.fNY.n(getPageContext());
+        this.fQt.n(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.fOa);
-        ag.a(this.fNY.getWebView(), getUniqueId());
+        registerListener(this.fQv);
+        ag.a(this.fQt.getWebView(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.ejJ || StringUtils.isNull(this.fNY.getWebView().getUrl())) {
+        if (this.enT || StringUtils.isNull(this.fQt.getWebView().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.fNY.loadUrl(xO(this.mUrl));
+                this.fQt.loadUrl(yi(this.mUrl));
             } else {
-                this.fNY.loadUrl(this.mUrl);
+                this.fQt.loadUrl(this.mUrl);
             }
-            this.ejJ = false;
+            this.enT = false;
         }
     }
 
-    private String xO(String str) {
+    private String yi(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -98,8 +98,8 @@ public class DiscoverFragment extends BaseFragment implements af {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fNY != null) {
-            this.fNY.onDestroy();
+        if (this.fQt != null) {
+            this.fQt.onDestroy();
         }
     }
 
@@ -125,32 +125,32 @@ public class DiscoverFragment extends BaseFragment implements af {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.ejJ) {
+        if (!this.enT) {
             if (i == 1 || i == 4) {
-                this.fNY.loadUrl(xO(this.mUrl));
+                this.fQt.loadUrl(yi(this.mUrl));
             } else {
-                this.fNY.loadUrl(this.mUrl);
+                this.fQt.loadUrl(this.mUrl);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void yj() {
+    public void AA() {
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void bah() {
-        if (this.fNY != null && !this.fNZ) {
-            this.fNZ = true;
-            this.fNY.bvb();
+    public void bcx() {
+        if (this.fQt != null && !this.fQu) {
+            this.fQu = true;
+            this.fQt.bwF();
         }
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void bai() {
-        if (this.fNY != null && this.fNZ) {
-            this.fNZ = false;
-            this.fNY.bvc();
+    public void bcy() {
+        if (this.fQt != null && this.fQu) {
+            this.fQu = false;
+            this.fQt.bwG();
         }
     }
 
@@ -163,6 +163,6 @@ public class DiscoverFragment extends BaseFragment implements af {
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void aFw() {
+    public void aHL() {
     }
 }

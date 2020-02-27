@@ -2,28 +2,28 @@ package com.baidu.swan.games.d;
 
 import com.baidu.swan.d.c;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public static File PD() {
-        return com.baidu.swan.games.k.a.oS("aigames_debug_dashboard");
+    public static File RR() {
+        return com.baidu.swan.games.k.a.ph("aigames_debug_dashboard");
     }
 
-    public static void PE() {
-        File PD = PD();
-        if (PD.exists()) {
-            c.deleteFile(PD);
+    public static void RS() {
+        File RR = RR();
+        if (RR.exists()) {
+            c.deleteFile(RR);
         }
     }
 
-    public static File PF() {
-        File PD = PD();
-        if (!PD.exists()) {
-            PD.mkdirs();
+    public static File RT() {
+        File RR = RR();
+        if (!RR.exists()) {
+            RR.mkdirs();
         }
-        return new File(PD, "debugDashboard.zip");
+        return new File(RR, "debugDashboard.zip");
     }
 
-    public static String akY() {
+    public static String anm() {
         return "meter.js";
     }
 }

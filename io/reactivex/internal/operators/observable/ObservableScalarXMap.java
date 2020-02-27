@@ -6,7 +6,7 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableScalarXMap {
     public static <T, R> boolean a(t<T> tVar, u<? super R> uVar, h<? super T, ? extends t<? extends R>> hVar) {
         if (tVar instanceof Callable) {
@@ -29,7 +29,7 @@ public final class ObservableScalarXMap {
                             uVar.onSubscribe(scalarDisposable);
                             scalarDisposable.run();
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.I(th);
+                            io.reactivex.exceptions.a.H(th);
                             EmptyDisposable.error(th, uVar);
                             return true;
                         }
@@ -38,12 +38,12 @@ public final class ObservableScalarXMap {
                     }
                     return true;
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.I(th2);
+                    io.reactivex.exceptions.a.H(th2);
                     EmptyDisposable.error(th2, uVar);
                     return true;
                 }
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.I(th3);
+                io.reactivex.exceptions.a.H(th3);
                 EmptyDisposable.error(th3, uVar);
                 return true;
             }
@@ -51,7 +51,7 @@ public final class ObservableScalarXMap {
         return false;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ScalarDisposable<T> extends AtomicInteger implements io.reactivex.internal.a.b<T>, Runnable {
         static final int FUSED = 1;
         static final int ON_COMPLETE = 3;

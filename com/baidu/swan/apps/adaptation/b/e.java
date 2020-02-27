@@ -3,17 +3,17 @@ package com.baidu.swan.apps.adaptation.b;
 import android.app.Activity;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.swan.apps.adaptation.b.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface e<T extends d> extends TypedCallbackHandler {
-    void G(Activity activity);
+    void H(Activity activity);
 
-    String GA();
+    T IN();
 
-    void GB();
+    String IO();
 
-    T Gy();
+    String IP();
 
-    String Gz();
+    void IQ();
 
     void a(com.baidu.swan.apps.core.b bVar);
 

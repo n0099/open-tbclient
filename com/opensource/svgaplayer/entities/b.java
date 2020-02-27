@@ -8,34 +8,36 @@ import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptio
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Set;
 import java.util.StringTokenizer;
+import kotlin.h;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
+@h
 /* loaded from: classes.dex */
 public final class b {
-    private final String nls;
-    private Path nlt;
+    private final String nlT;
+    private Path nlU;
 
     public b(String str) {
         q.j(str, "originValue");
-        this.nls = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, HanziToPinyin.Token.SEPARATOR, false, 4, (Object) null) : str;
+        this.nlT = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, HanziToPinyin.Token.SEPARATOR, false, 4, (Object) null) : str;
     }
 
     public final void c(Path path) {
         Set set;
         q.j(path, "toPath");
-        Path path2 = this.nlt;
+        Path path2 = this.nlU;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.nls, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.nlT, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             q.i(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.nlu;
+                set = c.nlV;
                 if (set.contains(nextToken)) {
                     if (q.h(nextToken, "Z") || q.h(nextToken, "z")) {
                         a(path3, nextToken, new StringTokenizer("", ""));
@@ -47,7 +49,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.nlt = path3;
+        this.nlU = path3;
         path.set(path3);
     }
 

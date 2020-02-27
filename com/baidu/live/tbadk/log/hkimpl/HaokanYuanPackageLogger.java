@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.log.IYuanPackageLogger;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HaokanYuanPackageLogger implements IYuanPackageLogger {
     @Override // com.baidu.live.tbadk.log.IYuanPackageLogger
     public void doDisplayOneGiftBagLog(String str, String str2, String str3, String str4, long j) {

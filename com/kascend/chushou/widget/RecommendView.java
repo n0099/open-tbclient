@@ -18,13 +18,13 @@ import org.json.JSONObject;
 import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RecommendView extends LinearLayout {
     protected Context a;
     private ArrayList<ListItem> b;
-    private a ngz;
+    private a nhc;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(String str);
     }
@@ -45,7 +45,7 @@ public class RecommendView extends LinearLayout {
     }
 
     public void a(String str, a aVar) {
-        this.ngz = aVar;
+        this.nhc = aVar;
         a(str);
     }
 
@@ -62,7 +62,7 @@ public class RecommendView extends LinearLayout {
             for (int i = 0; i < min; i++) {
                 ListItem listItem = this.b.get(i);
                 View inflate = LayoutInflater.from(this.a).inflate(a.h.recommendview_item, (ViewGroup) null, false);
-                ((FrescoThumbnailView) inflate.findViewById(a.f.iv_thumb)).bV(listItem.mCover, a.e.def_recmd);
+                ((FrescoThumbnailView) inflate.findViewById(a.f.iv_thumb)).bU(listItem.mCover, a.e.def_recmd);
                 inflate.setTag(listItem);
                 inflate.setClickable(true);
                 inflate.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.widget.RecommendView.1
@@ -73,7 +73,7 @@ public class RecommendView extends LinearLayout {
                             ListItem listItem2 = (ListItem) tag;
                             if (listItem2.mType != null && listItem2.mType.equals("1")) {
                                 o oVar = new o();
-                                oVar.mOj = listItem2;
+                                oVar.mOL = listItem2;
                                 oVar.b = "recommend";
                                 oVar.c = RecommendView.this.a;
                                 oVar.g = listItem2.mLiveType;
@@ -89,8 +89,8 @@ public class RecommendView extends LinearLayout {
     }
 
     private void a(String str) {
-        if (tv.chushou.zues.utils.a.dPa()) {
-            c.dAI().b(new b() { // from class: com.kascend.chushou.widget.RecommendView.2
+        if (tv.chushou.zues.utils.a.dQn()) {
+            c.dBO().b(new b() { // from class: com.kascend.chushou.widget.RecommendView.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -123,8 +123,8 @@ public class RecommendView extends LinearLayout {
                                     }
                                 }
                                 String optString = optJSONObject.optString("background");
-                                if (!h.isEmpty(optString) && RecommendView.this.ngz != null) {
-                                    RecommendView.this.ngz.a(optString);
+                                if (!h.isEmpty(optString) && RecommendView.this.nhc != null) {
+                                    RecommendView.this.nhc.a(optString);
                                 }
                                 if (!h.isEmpty(arrayList)) {
                                     RecommendView.this.b = arrayList;
@@ -162,7 +162,7 @@ public class RecommendView extends LinearLayout {
             this.b.clear();
             this.b = null;
         }
-        this.ngz = null;
+        this.nhc = null;
         this.a = null;
     }
 }

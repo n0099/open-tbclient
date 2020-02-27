@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.ReportGroup.ReportGroupResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ResponseReportGroupMessage extends SocketResponsedMessage {
     public ResponseReportGroupMessage() {
         super(CmdConfigSocket.CMD_REPORT_GROUP);

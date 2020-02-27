@@ -1,7 +1,7 @@
 package io.reactivex.internal.observers;
 
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     static final int DISPOSED = 4;
     static final int FUSED_CONSUMED = 32;

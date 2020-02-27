@@ -1,5 +1,5 @@
 package com.baidu.swan.b.a.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a extends b {
     void setFilePath(String str);
 

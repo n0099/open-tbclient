@@ -4,7 +4,7 @@ import android.os.Build;
 import android.system.ErrnoException;
 import android.system.Os;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class cc {
     public static long a(String str) {
         if (Build.VERSION.SDK_INT >= 21) {

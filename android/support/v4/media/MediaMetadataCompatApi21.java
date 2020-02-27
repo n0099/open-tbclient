@@ -7,7 +7,7 @@ import android.os.Parcel;
 import android.support.annotation.RequiresApi;
 import java.util.Set;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class MediaMetadataCompatApi21 {
     MediaMetadataCompatApi21() {
     }
@@ -40,7 +40,7 @@ class MediaMetadataCompatApi21 {
         return MediaMetadata.CREATOR.createFromParcel(parcel);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static Object newInstance() {
             return new MediaMetadata.Builder();

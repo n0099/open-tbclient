@@ -7,7 +7,7 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     @V8JavascriptField
     public String backgroundColor;
@@ -19,7 +19,7 @@ public class a {
     public int borderWidth;
     @V8JavascriptField
     public String color;
-    private InterfaceC0339a cpb;
+    private InterfaceC0349a ctc;
     @V8JavascriptField
     public String fontWeight;
     @V8JavascriptField
@@ -33,7 +33,9 @@ public class a {
     @V8JavascriptField
     public String textAlign;
     @V8JavascriptField
-    public int top;
+
+    /* renamed from: top  reason: collision with root package name */
+    public int f1014top;
     @V8JavascriptField
     public int width;
     @V8JavascriptField
@@ -42,9 +44,9 @@ public class a {
     public double opacity = 1.0d;
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0339a {
-        void aou();
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0349a {
+        void aqI();
     }
 
     public a(@NonNull com.baidu.swan.games.binding.model.c cVar) {
@@ -53,7 +55,7 @@ public class a {
 
     private void m(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         this.left = cVar.optInt("left", this.left);
-        this.top = cVar.optInt(VerticalTranslateLayout.TOP, this.top);
+        this.f1014top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1014top);
         this.width = cVar.optInt("width", this.width);
         this.height = cVar.optInt("height", this.height);
         this.backgroundColor = cVar.optString("backgroundColor", this.backgroundColor);
@@ -77,16 +79,16 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.cpb != null) {
-            this.cpb.aou();
+        if (this.ctc != null) {
+            this.ctc.aqI();
         }
     }
 
-    public void a(InterfaceC0339a interfaceC0339a) {
-        this.cpb = interfaceC0339a;
+    public void a(InterfaceC0349a interfaceC0349a) {
+        this.ctc = interfaceC0349a;
     }
 
-    public static int hJ(@ColorInt int i) {
+    public static int ia(@ColorInt int i) {
         int i2 = (16711680 & i) >> 16;
         int i3 = (65280 & i) >> 8;
         int i4 = i & 255;
@@ -98,6 +100,6 @@ public class a {
     }
 
     public String toString() {
-        return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        return "left:" + this.left + ";top:" + this.f1014top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
     }
 }

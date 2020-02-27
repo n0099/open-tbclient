@@ -19,9 +19,9 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements j.a {
-    private boolean gtF;
-    public j htI;
-    private a htJ;
+    private boolean gvG;
+    public j hvH;
+    private a hvI;
     private boolean isLeft;
     private final Path mDefaultPath;
     public int position;
@@ -44,8 +44,8 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.isLeft = true;
         this.position = 0;
         this.mDefaultPath = new Path();
-        this.gtF = true;
-        this.htJ = null;
+        this.gvG = true;
+        this.hvI = null;
         init(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             }
         }
         if (z) {
-            this.htI = new g();
+            this.hvH = new g();
         } else {
-            this.htI = new m();
+            this.hvH = new m();
         }
-        this.we.isChatPage = true;
-        this.htI.a(this);
-        this.wf = this.htI;
-        this.wf.a(this.we);
+        this.wx.isChatPage = true;
+        this.hvH.a(this);
+        this.wy = this.hvH;
+        this.wy.a(this.wx);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.htI.releaseMemory();
+        this.hvH.releaseMemory();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.htI.releaseMemory();
-        } else if (!this.gtF) {
-            this.htI.onFinishComputeBounds();
+            this.hvH.releaseMemory();
+        } else if (!this.gvG) {
+            this.hvH.onFinishComputeBounds();
             invalidate();
         } else {
-            this.gtF = false;
+            this.gvG = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.isLeft = z;
     }
 
-    public void bRh() {
-        this.htI.onFinishComputeBounds();
-        this.htI.setPathAvailable(true);
+    public void bSI() {
+        this.hvH.onFinishComputeBounds();
+        this.hvH.setPathAvailable(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
@@ -127,7 +127,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
         boolean z3 = bdImage != null && bdImage.isValidNow();
-        j jVar = this.htI;
+        j jVar = this.hvH;
         if (z3 || z2) {
             z = true;
         }
@@ -138,7 +138,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
-        this.htI.setPathAvailable(false);
+        this.hvH.setPathAvailable(false);
         return super.getDefaultBdImage();
     }
 
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.htJ == null) {
+        if (this.hvI == null) {
             am.setBackgroundColor(this, R.color.cp_bg_line_c, 0);
         } else {
-            this.htJ.N(canvas);
+            this.hvI.N(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.htJ = aVar;
+        this.hvI = aVar;
     }
 }

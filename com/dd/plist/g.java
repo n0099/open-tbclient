@@ -5,23 +5,23 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g extends i implements Map<String, i> {
-    private HashMap<String, i> lFW = new LinkedHashMap();
+    private HashMap<String, i> lGD = new LinkedHashMap();
 
     @Override // java.util.Map
     public int size() {
-        return this.lFW.size();
+        return this.lGD.size();
     }
 
     @Override // java.util.Map
     public boolean isEmpty() {
-        return this.lFW.isEmpty();
+        return this.lGD.isEmpty();
     }
 
     @Override // java.util.Map
     public boolean containsKey(Object obj) {
-        return this.lFW.containsKey(obj);
+        return this.lGD.containsKey(obj);
     }
 
     @Override // java.util.Map
@@ -29,14 +29,14 @@ public class g extends i implements Map<String, i> {
         if (obj == null) {
             return false;
         }
-        return this.lFW.containsValue(i.aM(obj));
+        return this.lGD.containsValue(i.aO(obj));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Map
-    /* renamed from: aK */
+    /* renamed from: aM */
     public i get(Object obj) {
-        return this.lFW.get(obj);
+        return this.lGD.get(obj);
     }
 
     @Override // java.util.Map
@@ -54,45 +54,45 @@ public class g extends i implements Map<String, i> {
             return null;
         }
         if (iVar == null) {
-            return this.lFW.get(str);
+            return this.lGD.get(str);
         }
-        return this.lFW.put(str, iVar);
+        return this.lGD.put(str, iVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Map
-    /* renamed from: aL */
+    /* renamed from: aN */
     public i remove(Object obj) {
-        return this.lFW.remove(obj);
+        return this.lGD.remove(obj);
     }
 
     @Override // java.util.Map
     public void clear() {
-        this.lFW.clear();
+        this.lGD.clear();
     }
 
     @Override // java.util.Map
     public Set<String> keySet() {
-        return this.lFW.keySet();
+        return this.lGD.keySet();
     }
 
     @Override // java.util.Map
     public Collection<i> values() {
-        return this.lFW.values();
+        return this.lGD.values();
     }
 
     @Override // java.util.Map
     public Set<Map.Entry<String, i>> entrySet() {
-        return this.lFW.entrySet();
+        return this.lGD.entrySet();
     }
 
     @Override // java.util.Map
     public boolean equals(Object obj) {
-        return obj.getClass().equals(getClass()) && ((g) obj).lFW.equals(this.lFW);
+        return obj.getClass().equals(getClass()) && ((g) obj).lGD.equals(this.lGD);
     }
 
     @Override // java.util.Map
     public int hashCode() {
-        return (this.lFW != null ? this.lFW.hashCode() : 0) + 581;
+        return (this.lGD != null ? this.lGD.hashCode() : 0) + 581;
     }
 }

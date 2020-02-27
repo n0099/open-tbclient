@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CustomMsg extends NormalMsg {
     public static final Parcelable.Creator<CustomMsg> CREATOR = new Parcelable.Creator<CustomMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.CustomMsg.1
         /* JADX DEBUG: Method merged with bridge method */

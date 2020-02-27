@@ -1,5 +1,5 @@
 package com.baidu.live.adp.widget.listview;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IListAdapter<T> {
     int getCount();
 

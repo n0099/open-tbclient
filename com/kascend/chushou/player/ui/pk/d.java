@@ -1,5 +1,5 @@
 package com.kascend.chushou.player.ui.pk;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface d {
     void a(c cVar);
 

@@ -9,7 +9,7 @@ public interface k<T> {
 
     T get(String str, String str2);
 
-    l.b<T> k(String str, String str2);
+    l.b<T> m(String str, String str2);
 
     void remove(String str, String str2);
 

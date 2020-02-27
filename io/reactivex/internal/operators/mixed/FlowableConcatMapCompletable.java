@@ -17,19 +17,19 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
     final ErrorMode errorMode;
     final h<? super T, ? extends e> mapper;
-    final g<T> nvP;
+    final g<T> nwr;
     final int prefetch;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        this.nvP.a((j) new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
+        this.nwr.a((j) new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ConcatMapCompletableObserver<T> extends AtomicInteger implements b, j<T> {
         private static final long serialVersionUID = 3610901111000061034L;
         volatile boolean active;
@@ -176,7 +176,7 @@ public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
                                 this.active = true;
                                 eVar.a(this.inner);
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.I(th);
+                                io.reactivex.exceptions.a.H(th);
                                 this.queue.clear();
                                 this.upstream.cancel();
                                 this.errors.addThrowable(th);
@@ -194,7 +194,7 @@ public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class ConcatMapInnerObserver extends AtomicReference<b> implements c {
             private static final long serialVersionUID = 5638352172918776687L;
             final ConcatMapCompletableObserver<?> parent;

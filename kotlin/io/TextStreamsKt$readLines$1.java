@@ -4,9 +4,10 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.ArrayList;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
-import kotlin.k;
-/* loaded from: classes5.dex */
-final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<String, k> {
+import kotlin.l;
+@kotlin.h
+/* loaded from: classes7.dex */
+final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<String, l> {
     final /* synthetic */ ArrayList $result;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -18,9 +19,9 @@ final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<S
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.b
-    public /* bridge */ /* synthetic */ k invoke(String str) {
+    public /* bridge */ /* synthetic */ l invoke(String str) {
         invoke2(str);
-        return k.nAY;
+        return l.nBA;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

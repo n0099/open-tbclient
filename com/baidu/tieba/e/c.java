@@ -3,29 +3,29 @@ package com.baidu.tieba.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c implements m {
-    public static BdUniqueId fNJ = BdUniqueId.gen();
-    private FeatureCardCompetition fNK;
-    private Integer fNL;
-    private Integer fNM;
+    public static BdUniqueId fQe = BdUniqueId.gen();
+    private FeatureCardCompetition fQf;
+    private Integer fQg;
+    private Integer fQh;
     private String mTitle;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fNJ;
+        return fQe;
     }
 
-    public FeatureCardCompetition buV() {
-        return this.fNK;
+    public FeatureCardCompetition bwz() {
+        return this.fQf;
     }
 
     public void a(FeatureCardCompetition featureCardCompetition) {
         if (featureCardCompetition != null) {
-            this.fNK = featureCardCompetition;
+            this.fQf = featureCardCompetition;
             this.mTitle = featureCardCompetition.title;
-            this.fNL = featureCardCompetition.floor;
-            this.fNM = featureCardCompetition.type;
+            this.fQg = featureCardCompetition.floor;
+            this.fQh = featureCardCompetition.type;
         }
     }
 }

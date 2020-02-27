@@ -68,7 +68,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PassportSDK {
     private static PassportSDK a;
     private static LoginStatusChangeCallback b;

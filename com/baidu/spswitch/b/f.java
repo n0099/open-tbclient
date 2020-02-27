@@ -3,26 +3,26 @@ package com.baidu.spswitch.b;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class f {
-    private static boolean aWh = false;
-    private static int aWi = 0;
+    private static boolean bat = false;
+    private static int bau = 0;
     private static final boolean DEBUG = b.isDebug();
 
     public static synchronized int getStatusBarHeight(Context context) {
         int i;
         synchronized (f.class) {
-            if (!aWh) {
+            if (!bat) {
                 int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS);
                 if (identifier > 0) {
-                    aWi = context.getResources().getDimensionPixelSize(identifier);
-                    aWh = true;
+                    bau = context.getResources().getDimensionPixelSize(identifier);
+                    bat = true;
                 }
                 if (DEBUG) {
-                    Log.d("StatusBarUtil", "status bar util: " + aWi);
+                    Log.d("StatusBarUtil", "status bar util: " + bau);
                 }
             }
-            i = aWi;
+            i = bau;
         }
         return i;
     }

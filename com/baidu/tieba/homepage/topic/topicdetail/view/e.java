@@ -20,13 +20,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.view.CellTopicLinearLayout;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.topicdetail.b.d> {
-    private TbImageView cZu;
-    private CellTopicLinearLayout hfk;
-    private TextView hfl;
-    private TextView hfm;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.d hfn;
+    private TbImageView ddz;
+    private CellTopicLinearLayout hhk;
+    private TextView hhl;
+    private TextView hhm;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.d hhn;
     private int mSkinType;
     private TextView mTitleView;
 
@@ -34,25 +34,25 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.hfk = (CellTopicLinearLayout) view.findViewById(R.id.topic_special_root);
-        this.hfl = (TextView) view.findViewById(R.id.topic_special_title);
-        this.cZu = (TbImageView) view.findViewById(R.id.topic_special_thread_img);
+        this.hhk = (CellTopicLinearLayout) view.findViewById(R.id.topic_special_root);
+        this.hhl = (TextView) view.findViewById(R.id.topic_special_title);
+        this.ddz = (TbImageView) view.findViewById(R.id.topic_special_thread_img);
         this.mTitleView = (TextView) view.findViewById(R.id.topic_special_thread_title);
-        this.hfm = (TextView) view.findViewById(R.id.topic_special_thread_discuss);
-        this.cZu.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
-        this.cZu.setConrers(15);
-        this.cZu.setPlaceHolder(2);
-        this.hfk.setTopicOnClickListener(this);
+        this.hhm = (TextView) view.findViewById(R.id.topic_special_thread_discuss);
+        this.ddz.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
+        this.ddz.setConrers(15);
+        this.ddz.setPlaceHolder(2);
+        this.hhk.setTopicOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setViewTextColor(this.hfl, (int) R.color.cp_cont_b);
-            this.cZu.setIsNight(this.mSkinType == 1);
+            am.setViewTextColor(this.hhl, (int) R.color.cp_cont_b);
+            this.ddz.setIsNight(this.mSkinType == 1);
             am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.hfm, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.hhm, (int) R.color.cp_cont_d);
         }
     }
 
@@ -64,19 +64,19 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.homepage.topic.topicdetail.b.d dVar) {
-        if (dVar != null && dVar.cNb != null) {
-            this.hfn = dVar;
-            if (dVar.hej) {
-                if (StringUtils.isNull(dVar.hek)) {
-                    this.hfl.setText(R.string.topic_special_title_default);
+        if (dVar != null && dVar.cRe != null) {
+            this.hhn = dVar;
+            if (dVar.hgk) {
+                if (StringUtils.isNull(dVar.hgl)) {
+                    this.hhl.setText(R.string.topic_special_title_default);
                 } else {
-                    this.hfl.setText(dVar.hek);
+                    this.hhl.setText(dVar.hgl);
                 }
             }
-            this.hfl.setVisibility(dVar.hej ? 0 : 8);
+            this.hhl.setVisibility(dVar.hgk ? 0 : 8);
             String str = null;
-            if (!v.isEmpty(dVar.cNb.aAh())) {
-                Iterator<MediaData> it = dVar.cNb.aAh().iterator();
+            if (!v.isEmpty(dVar.cRe.aCw())) {
+                Iterator<MediaData> it = dVar.cRe.aCw().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {
@@ -96,31 +96,31 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
                     }
                 }
             }
-            if (!aq.equals(str, this.cZu.getUrl())) {
-                this.cZu.reset();
+            if (!aq.equals(str, this.ddz.getUrl())) {
+                this.ddz.reset();
             }
-            this.cZu.startLoad(str, 10, false);
-            if (StringUtils.isNull(dVar.cNb.getTitle())) {
+            this.ddz.startLoad(str, 10, false);
+            if (StringUtils.isNull(dVar.cRe.getTitle())) {
                 this.mTitleView.setVisibility(8);
             } else {
                 this.mTitleView.setVisibility(0);
-                this.mTitleView.setText(dVar.cNb.getTitle());
+                this.mTitleView.setText(dVar.cRe.getTitle());
             }
-            this.hfm.setText(String.format(this.mContext.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.cNb.azO())));
+            this.hhm.setText(String.format(this.mContext.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.cRe.aCd())));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hfn != null && this.hfn.cNb != null) {
-            TiebaStatic.log(new an("c13354").cp("tid", this.hfn.cNb.tid).s("topic_id", this.hfn.topicId).Z("obj_locate", this.hfn.index));
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mTbPageContext.getPageActivity()).createFromThreadCfg(this.hfn.cNb, null, "", RequestResponseCode.REQUEST_PERSONCENTER_TO_PB, true, false, false);
-            if (this.hfn.cNb.aBJ() == null) {
-                createFromThreadCfg.setForumId(String.valueOf(this.hfn.cNb.getFid()));
-                createFromThreadCfg.setForumName(this.hfn.cNb.aAc());
+        if (this.hhn != null && this.hhn.cRe != null) {
+            TiebaStatic.log(new an("c13354").cy("tid", this.hhn.cRe.tid).s("topic_id", this.hhn.topicId).X("obj_locate", this.hhn.index));
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mTbPageContext.getPageActivity()).createFromThreadCfg(this.hhn.cRe, null, "", RequestResponseCode.REQUEST_PERSONCENTER_TO_PB, true, false, false);
+            if (this.hhn.cRe.aDV() == null) {
+                createFromThreadCfg.setForumId(String.valueOf(this.hhn.cRe.getFid()));
+                createFromThreadCfg.setForumName(this.hhn.cRe.aCr());
             } else {
-                createFromThreadCfg.setForumId(this.hfn.cNb.aBJ().getForumId());
-                createFromThreadCfg.setForumName(this.hfn.cNb.aBJ().getForumName());
+                createFromThreadCfg.setForumId(this.hhn.cRe.aDV().getForumId());
+                createFromThreadCfg.setForumName(this.hhn.cRe.aDV().getForumName());
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }

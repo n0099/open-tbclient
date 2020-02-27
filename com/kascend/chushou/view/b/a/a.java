@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.kascend.chushou.a;
 import tv.chushou.zues.utils.systemBar.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a extends com.kascend.chushou.view.base.a implements View.OnClickListener {
     public int a = 0;
     private RelativeLayout d;
@@ -22,15 +22,15 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     private View f;
     private TextView g;
     private TextView h;
-    private InterfaceC0706a neC;
+    private InterfaceC0714a nff;
 
     /* renamed from: com.kascend.chushou.view.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0706a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0714a {
         void a(int i);
     }
 
-    public static a dDf() {
+    public static a dEm() {
         return new a();
     }
 
@@ -83,8 +83,8 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.neC != null) {
-            this.neC.a(view.getId());
+        if (this.nff != null) {
+            this.nff.a(view.getId());
         }
     }
 
@@ -94,7 +94,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
         this.a--;
     }
 
-    public void a(InterfaceC0706a interfaceC0706a) {
-        this.neC = interfaceC0706a;
+    public void a(InterfaceC0714a interfaceC0714a) {
+        this.nff = interfaceC0714a;
     }
 }

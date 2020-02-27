@@ -4,16 +4,16 @@ import com.baidu.tbadk.data.UserData;
 import tbclient.GetUserInfo.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private UserData dvG;
+    private UserData dzM;
 
-    public UserData aNk() {
-        return this.dvG;
+    public UserData aPG() {
+        return this.dzM;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.dvG = new UserData();
-            this.dvG.parserProtobuf(dataRes.user);
+            this.dzM = new UserData();
+            this.dzM.parserProtobuf(dataRes.user);
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.request.Message;
@@ -12,7 +13,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMBindPushMsg extends Message {
     private String mChannelId;
     private boolean mChannelIdIsEmpty;
@@ -81,11 +82,12 @@ public class IMBindPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i);
         if (i != 0) {
-            if (i == 1004 || i == 1001) {
+            if (i == 1004 || i == 1001 || i == 4001) {
                 setNeedReSend(false);
+                LoginManager.getInstance(context).triggleLogoutListener(i, str);
             } else if (this.mReSendCount >= 3) {
                 LogUtils.e(LogUtils.TAG, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i);
                 setNeedReSend(false);

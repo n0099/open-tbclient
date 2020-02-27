@@ -1,13 +1,13 @@
 package master.flame.danmaku.danmaku.c;
 
 import android.os.SystemClock;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
-    public static final long dLA() {
+    public static final long dMN() {
         return SystemClock.elapsedRealtime();
     }
 
-    public static final void hr(long j) {
+    public static final void hp(long j) {
         SystemClock.sleep(j);
     }
 }

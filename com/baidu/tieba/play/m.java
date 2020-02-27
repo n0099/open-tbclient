@@ -12,42 +12,43 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.util.BdListViewHelper;
 /* loaded from: classes.dex */
 public class m {
-    private int bIm;
-    private int hYV;
-    private View hZb;
-    private f hZd;
-    private com.baidu.adp.widget.ListView.o jtK;
+    private int bMr;
+    private int iaT;
+    private View iaZ;
+    private f ibb;
+    private com.baidu.adp.widget.ListView.o juy;
     private com.baidu.adp.base.e mContext;
-    private int hYW = 0;
-    private String hYY = null;
-    private int hYZ = 0;
-    private boolean hZc = false;
+    private int jux = 0;
+    private int iaU = 0;
+    private String iaW = null;
+    private int iaX = 0;
+    private boolean iba = false;
     private boolean mIsShowing = true;
-    private a hZf = new a();
-    private final CustomMessageListener cHu = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.play.m.1
+    private a ibd = new a();
+    private final CustomMessageListener cLx = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.play.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                m.this.bML();
+                m.this.bOn();
                 if (m.this.mIsShowing && m.this.mIsShowing) {
-                    m.this.a(m.this.hZe.cxJ(), m.this.hZe.cxK(), m.this.hZe.cxL(), m.this.hZe.cxM());
+                    m.this.a(m.this.ibc.czd(), m.this.ibc.cze(), m.this.ibc.czf(), m.this.ibc.czg());
                 }
             }
         }
     };
-    private final CustomMessageListener jtL = new CustomMessageListener(2921387) { // from class: com.baidu.tieba.play.m.2
+    private final CustomMessageListener juz = new CustomMessageListener(2921387) { // from class: com.baidu.tieba.play.m.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921387 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (!aq.isEmpty(str)) {
-                    com.baidu.adp.lib.f.e.gx().removeCallbacks(m.this.hZf);
-                    com.baidu.adp.lib.f.e.gx().removeCallbacks(m.this.jtM);
-                    if (m.this.hZb != null && (m.this.hZb.getTag() instanceof f)) {
-                        if (!str.equals(((f) m.this.hZb.getTag()).getPlayUrl())) {
-                            ((f) m.this.hZb.getTag()).stopPlay();
+                    com.baidu.adp.lib.f.e.gx().removeCallbacks(m.this.ibd);
+                    com.baidu.adp.lib.f.e.gx().removeCallbacks(m.this.juA);
+                    if (m.this.iaZ != null && (m.this.iaZ.getTag() instanceof f)) {
+                        if (!str.equals(((f) m.this.iaZ.getTag()).getPlayUrl())) {
+                            ((f) m.this.iaZ.getTag()).stopPlay();
                         } else {
                             return;
                         }
@@ -55,10 +56,10 @@ public class m {
                     int i = 0;
                     while (true) {
                         int i2 = i;
-                        if (i2 < m.this.jtK.getListView().getChildCount()) {
-                            View childAt = m.this.jtK.getListView().getChildAt(i2);
+                        if (i2 < m.this.juy.getListView().getChildCount()) {
+                            View childAt = m.this.juy.getListView().getChildAt(i2);
                             if ((childAt.getTag() instanceof f) && str.equals(((f) childAt.getTag()).getPlayUrl())) {
-                                m.this.hZb = childAt;
+                                m.this.iaZ = childAt;
                                 return;
                             }
                             i = i2 + 1;
@@ -70,30 +71,30 @@ public class m {
             }
         }
     };
-    private b jtM = new b(this);
-    private r hZe = new r();
+    private b juA = new b(this);
+    private r ibc = new r();
 
     public m(com.baidu.adp.base.e eVar, com.baidu.adp.widget.ListView.o oVar) {
-        this.hYV = 0;
-        this.bIm = 0;
+        this.iaT = 0;
+        this.bMr = 0;
         this.mContext = eVar;
-        this.hYV = com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext.getPageActivity());
-        this.jtK = oVar;
-        this.bIm = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        eVar.registerListener(this.cHu);
+        this.iaT = com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext.getPageActivity());
+        this.juy = oVar;
+        this.bMr = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        eVar.registerListener(this.cLx);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            if (this.cHu != null) {
-                this.cHu.setTag(bdUniqueId);
+            if (this.cLx != null) {
+                this.cLx.setTag(bdUniqueId);
             }
-            if (this.jtL != null) {
-                this.jtL.setSelfListener(true);
-                this.jtL.setTag(bdUniqueId);
+            if (this.juz != null) {
+                this.juz.setSelfListener(true);
+                this.juz.setTag(bdUniqueId);
             }
-            MessageManager.getInstance().registerListener(this.cHu);
-            MessageManager.getInstance().registerListener(this.jtL);
+            MessageManager.getInstance().registerListener(this.cLx);
+            MessageManager.getInstance().registerListener(this.juz);
         }
     }
 
@@ -104,30 +105,31 @@ public class m {
         int i4;
         int i5;
         int i6 = 0;
-        this.hZe.n(i, i2, z);
-        if (this.jtK != null && this.jtK.getListView().getChildCount() != 0 && this.jtK.getContentViewsCount() != 0) {
-            if (this.hZd != null && !ck(this.hZd.getVideoContainer())) {
-                this.hZd.stopPlay();
+        this.ibc.n(i, i2, z);
+        if (this.juy != null && this.juy.getListView().getChildCount() != 0 && this.juy.getContentViewsCount() != 0) {
+            if (this.ibb != null && !ck(this.ibb.getVideoContainer())) {
+                this.ibb.stopPlay();
             }
-            if (this.hZb != null && (this.hZb.getTag() instanceof f) && this.hZc) {
-                if (ck(((f) this.hZb.getTag()).getVideoContainer())) {
-                    f(i3, this.hZb);
+            if (this.iaZ != null && (this.iaZ.getTag() instanceof f) && this.iba) {
+                if (ck(((f) this.iaZ.getTag()).getVideoContainer())) {
+                    f(i3, this.iaZ);
+                    this.iba = false;
                     return;
                 }
-                this.hZb = null;
+                this.iaZ = null;
             }
-            int contentViewsCount = this.jtK.getContentViewsCount() + this.jtK.getHeaderViewsCount() + this.jtK.getFooterViewsCount();
+            int contentViewsCount = this.juy.getContentViewsCount() + this.juy.getHeaderViewsCount() + this.juy.getFooterViewsCount();
             if (i == 0) {
                 z2 = true;
             } else {
                 z2 = i2 == contentViewsCount + (-1) ? false : false;
             }
-            int childCount = this.jtK.getListView().getChildCount();
+            int childCount = this.juy.getListView().getChildCount();
             if (i == 0 || i2 == contentViewsCount - 1) {
                 int i7 = 0;
                 z3 = false;
                 while (i7 < childCount) {
-                    View childAt = this.jtK.getListView().getChildAt(z2 ? i7 : (childCount - 1) - i7);
+                    View childAt = this.juy.getListView().getChildAt(z2 ? i7 : (childCount - 1) - i7);
                     if (childAt.getTag() instanceof f) {
                         f fVar = (f) childAt.getTag();
                         if (!z3 && ck(fVar.getVideoContainer())) {
@@ -153,7 +155,7 @@ public class m {
                         i4 = -1;
                         break;
                     }
-                    View childAt2 = this.jtK.getListView().getChildAt(i8);
+                    View childAt2 = this.juy.getListView().getChildAt(i8);
                     if (childAt2.getTag() instanceof f) {
                         f fVar2 = (f) childAt2.getTag();
                         if (fVar2.isPlayStarted() && ck(fVar2.getVideoContainer())) {
@@ -165,7 +167,7 @@ public class m {
                 }
                 if (i4 >= 0) {
                     while (i6 < childCount) {
-                        View childAt3 = this.jtK.getListView().getChildAt(i6);
+                        View childAt3 = this.juy.getListView().getChildAt(i6);
                         if (i6 != i4) {
                             g(i3, childAt3);
                         } else {
@@ -177,7 +179,7 @@ public class m {
                 }
                 int i9 = 0;
                 while (i9 < childCount) {
-                    View childAt4 = this.jtK.getListView().getChildAt(z ? (childCount - 1) - i9 : i9);
+                    View childAt4 = this.juy.getListView().getChildAt(z ? (childCount - 1) - i9 : i9);
                     if (childAt4.getTag() instanceof f) {
                         f fVar3 = (f) childAt4.getTag();
                         if (i6 == 0 && (fVar3.isFullScreen() || ck(fVar3.getVideoContainer()))) {
@@ -193,8 +195,8 @@ public class m {
                     i9++;
                     i6 = i5;
                 }
-                if (i6 == 0 && this.hZb != null && (this.hZb.getTag() instanceof f)) {
-                    ((f) this.hZb.getTag()).stopPlay();
+                if (i6 == 0 && this.iaZ != null && (this.iaZ.getTag() instanceof f)) {
+                    ((f) this.iaZ.getTag()).stopPlay();
                 }
             }
         }
@@ -202,17 +204,17 @@ public class m {
 
     private void f(int i, View view) {
         if (view != null) {
-            if (this.hZb != null && this.hZb != view && (this.hZb.getTag() instanceof f)) {
-                ((f) this.hZb.getTag()).stopPlay();
+            if (this.iaZ != null && this.iaZ != view && (this.iaZ.getTag() instanceof f)) {
+                ((f) this.iaZ.getTag()).stopPlay();
             }
-            this.hZb = view;
+            this.iaZ = view;
             if (i == 1 && (view.getTag() instanceof f)) {
                 f fVar = (f) view.getTag();
                 if (this.mIsShowing && !fVar.isPlayStarted()) {
                     fVar.startPlay();
                 }
             } else if (i == 2 && (view.getTag() instanceof e)) {
-                ((e) view.getTag()).caL();
+                ((e) view.getTag()).ccm();
             }
         }
     }
@@ -224,7 +226,7 @@ public class m {
                 fVar.stopPlay();
             }
         } else if (i == 2 && (view.getTag() instanceof e)) {
-            ((e) view.getTag()).caM();
+            ((e) view.getTag()).ccn();
         }
     }
 
@@ -234,7 +236,10 @@ public class m {
         }
         Rect rect = new Rect();
         view.getGlobalVisibleRect(rect);
-        return rect.top >= 0 && rect.bottom <= this.hYV - this.hYW && rect.bottom - rect.top >= view.getMeasuredHeight();
+        if (this.jux == 1) {
+            return rect.top >= 0 && rect.top <= com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext.getPageActivity()) / 2 && rect.bottom - rect.top >= view.getMeasuredHeight();
+        }
+        return rect.top >= 0 && rect.bottom <= this.iaT - this.iaU && rect.bottom - rect.top >= view.getMeasuredHeight();
     }
 
     public void cl(View view) {
@@ -244,21 +249,21 @@ public class m {
     }
 
     public void destroy() {
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.hZf);
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jtM);
-        cbn();
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.ibd);
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.juA);
+        ccO();
     }
 
-    public void xx(int i) {
-        this.hYZ = i;
+    public void xD(int i) {
+        this.iaX = i;
     }
 
-    public void cbn() {
+    public void ccO() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.jtK.getListView().getChildCount()) {
-                View childAt = this.jtK.getListView().getChildAt(i2);
+            if (i2 < this.juy.getListView().getChildCount()) {
+                View childAt = this.juy.getListView().getChildAt(i2);
                 if (childAt.getTag() instanceof f) {
                     ((f) childAt.getTag()).stopPlay();
                 }
@@ -269,23 +274,23 @@ public class m {
         }
     }
 
-    public void DN(String str) {
-        this.hYY = str;
+    public void Ed(String str) {
+        this.iaW = str;
     }
 
-    public void cbq() {
+    public void ccR() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.jtK.getListView().getChildCount()) {
-                View childAt = this.jtK.getListView().getChildAt(i2);
+            if (i2 < this.juy.getListView().getChildCount()) {
+                View childAt = this.juy.getListView().getChildAt(i2);
                 if (childAt.getTag() instanceof f) {
                     f fVar = (f) childAt.getTag();
                     if (fVar.isPlayStarted()) {
-                        xx(fVar.getCurrentPosition());
-                        DN(fVar.getPlayUrl());
-                        this.hZb = childAt;
-                        this.hZc = fVar.isPlaying();
+                        xD(fVar.getCurrentPosition());
+                        Ed(fVar.getPlayUrl());
+                        this.iaZ = childAt;
+                        this.iba = fVar.isPlaying();
                         fVar.stopPlay();
                         return;
                     }
@@ -297,29 +302,30 @@ public class m {
         }
     }
 
-    public void cbr() {
+    public void ccS() {
         if (this.mIsShowing) {
-            if (this.hZb != null && (this.hZb.getTag() instanceof f)) {
-                f fVar = (f) this.hZb.getTag();
-                if (this.hZc) {
+            if (this.iaZ != null && (this.iaZ.getTag() instanceof f)) {
+                f fVar = (f) this.iaZ.getTag();
+                if (this.iba) {
                     fVar.startPlay();
+                    this.iba = false;
                 }
-                if (this.hZb.getTag() instanceof e) {
-                    ((e) this.hZb.getTag()).caN();
+                if (this.iaZ.getTag() instanceof e) {
+                    ((e) this.iaZ.getTag()).cco();
                 }
             }
-            this.hZb = null;
+            this.iaZ = null;
         }
     }
 
-    public void bML() {
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.hZf);
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jtM);
+    public void bOn() {
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.ibd);
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.juA);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.jtK.getListView().getChildCount()) {
-                View childAt = this.jtK.getListView().getChildAt(i2);
+            if (i2 < this.juy.getListView().getChildCount()) {
+                View childAt = this.juy.getListView().getChildAt(i2);
                 if (childAt.getTag() instanceof f) {
                     f fVar = (f) childAt.getTag();
                     if (fVar.isPlayStarted()) {
@@ -335,24 +341,28 @@ public class m {
     }
 
     public void a(int i, int i2, boolean z, boolean z2) {
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jtM);
-        this.jtM.xo(i);
-        this.jtM.xp(i2);
-        this.jtM.lr(z);
-        this.jtM.ox(z2);
-        this.hZe.ox(z2);
-        com.baidu.adp.lib.f.e.gx().postDelayed(this.jtM, 500L);
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.juA);
+        this.juA.xu(i);
+        this.juA.xv(i2);
+        this.juA.lu(z);
+        this.juA.oz(z2);
+        this.ibc.oz(z2);
+        com.baidu.adp.lib.f.e.gx().postDelayed(this.juA, 500L);
     }
 
-    public void oz(boolean z) {
+    public void oB(boolean z) {
         this.mIsShowing = z;
     }
 
-    public void Ah(int i) {
-        this.hYW = i;
+    public void Aq(int i) {
+        this.iaU = i;
     }
 
-    public View cxn() {
-        return this.hZb;
+    public void Ar(int i) {
+        this.jux = i;
+    }
+
+    public View cyG() {
+        return this.iaZ;
     }
 }

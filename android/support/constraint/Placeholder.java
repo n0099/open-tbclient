@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Placeholder extends View {
     private View mContent;
     private int mContentId;

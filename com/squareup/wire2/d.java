@@ -12,7 +12,7 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int Np(int i) {
+    public static int Ns(int i) {
         return varint32Size(a(i, FieldEncoding.VARINT));
     }
 
@@ -119,7 +119,7 @@ public final class d {
         this.sink.write(byteString);
     }
 
-    public void Gl(String str) throws IOException {
+    public void writeString(String str) throws IOException {
         this.sink.writeUtf8(str);
     }
 

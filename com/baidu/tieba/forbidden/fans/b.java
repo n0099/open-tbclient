@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener ghn = null;
-    private View.OnClickListener eIL = null;
+    private View.OnClickListener gjo = null;
+    private View.OnClickListener eMF = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -35,14 +35,14 @@ public class b extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a sh;
-        if (aVar != null && (sh = sh(i)) != null) {
-            aVar.ghp.startLoad(sh.portrait, 12, false);
-            aVar.ghq.setText(sh.nameShow);
-            aVar.ghr.setOnClickListener(this.ghn);
-            aVar.ghr.setTag(sh);
-            aVar.gho.setOnClickListener(this.eIL);
-            aVar.gho.setTag(sh);
+        com.baidu.tieba.forbidden.fans.a sn;
+        if (aVar != null && (sn = sn(i)) != null) {
+            aVar.gjq.startLoad(sn.portrait, 12, false);
+            aVar.gjr.setText(sn.nameShow);
+            aVar.gjs.setOnClickListener(this.gjo);
+            aVar.gjs.setTag(sn);
+            aVar.gjp.setOnClickListener(this.eMF);
+            aVar.gjp.setTag(sn);
             a(aVar);
         }
     }
@@ -52,7 +52,7 @@ public class b extends RecyclerView.Adapter<a> {
         return v.getCount(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a sh(int i) {
+    private com.baidu.tieba.forbidden.fans.a sn(int i) {
         return (com.baidu.tieba.forbidden.fans.a) v.getItem(this.fansList, i);
     }
 
@@ -79,43 +79,43 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean bAF() {
+    public boolean bCh() {
         return v.isEmpty(this.fansList);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends RecyclerView.ViewHolder {
         public View dividerLine;
-        public View gho;
-        public ClickableHeaderImageView ghp;
-        public TextView ghq;
-        public TextView ghr;
+        public View gjp;
+        public ClickableHeaderImageView gjq;
+        public TextView gjr;
+        public TextView gjs;
 
         public a(View view) {
             super(view);
-            this.gho = view.findViewById(R.id.container_forbidden_item);
-            this.ghp = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
-            this.ghp.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
-            this.ghp.setAutoChangeStyle(true);
-            this.ghp.setClickable(false);
-            this.ghq = (TextView) view.findViewById(R.id.view_fans_name);
-            this.ghr = (TextView) view.findViewById(R.id.view_fans_remove);
+            this.gjp = view.findViewById(R.id.container_forbidden_item);
+            this.gjq = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
+            this.gjq.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
+            this.gjq.setAutoChangeStyle(true);
+            this.gjq.setClickable(false);
+            this.gjr = (TextView) view.findViewById(R.id.view_fans_name);
+            this.gjs = (TextView) view.findViewById(R.id.view_fans_remove);
             this.dividerLine = view.findViewById(R.id.line_divider);
         }
     }
 
     private void a(a aVar) {
-        am.setViewTextColor(aVar.ghq, (int) R.color.cp_cont_b);
+        am.setViewTextColor(aVar.gjr, (int) R.color.cp_cont_b);
         am.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(aVar.ghr, (int) R.color.btn_color_remove);
-        am.setBackgroundResource(aVar.ghr, R.drawable.btn_transparent_focus_border_bg);
+        am.setViewTextColor(aVar.gjs, (int) R.color.btn_color_remove);
+        am.setBackgroundResource(aVar.gjs, R.drawable.btn_transparent_focus_border_bg);
     }
 
-    public void v(View.OnClickListener onClickListener) {
-        this.ghn = onClickListener;
+    public void w(View.OnClickListener onClickListener) {
+        this.gjo = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.eIL = onClickListener;
+        this.eMF = onClickListener;
     }
 }

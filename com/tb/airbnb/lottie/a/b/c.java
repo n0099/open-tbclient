@@ -1,7 +1,7 @@
 package com.tb.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends f<Float> {
     public c(List<com.tb.airbnb.lottie.e.a<Float>> list) {
         super(list);
@@ -13,9 +13,9 @@ public class c extends f<Float> {
     /* renamed from: c */
     public Float a(com.tb.airbnb.lottie.e.a<Float> aVar, float f) {
         Float f2;
-        if (aVar.km == null || aVar.kn == null) {
+        if (aVar.kq == null || aVar.kr == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return (this.npF == null || (f2 = (Float) this.npF.b(aVar.ec, aVar.kp.floatValue(), aVar.km, aVar.kn, f, bS(), getProgress())) == null) ? Float.valueOf(com.tb.airbnb.lottie.d.e.lerp(aVar.km.floatValue(), aVar.kn.floatValue(), f)) : f2;
+        return (this.nqh == null || (f2 = (Float) this.nqh.b(aVar.ed, aVar.kt.floatValue(), aVar.kq, aVar.kr, f, bT(), getProgress())) == null) ? Float.valueOf(com.tb.airbnb.lottie.d.e.lerp(aVar.kq.floatValue(), aVar.kr.floatValue(), f)) : f2;
     }
 }

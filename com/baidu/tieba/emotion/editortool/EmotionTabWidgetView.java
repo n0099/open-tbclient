@@ -15,17 +15,17 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class EmotionTabWidgetView extends LinearLayout {
-    private EditorTools Fv;
-    private EmotionTabHorizonScrollView fQs;
-    private ImageView fQt;
-    private ImageView fQu;
-    private View fQv;
+    private EditorTools FO;
+    private EmotionTabHorizonScrollView fSN;
+    private ImageView fSO;
+    private ImageView fSP;
+    private View fSQ;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void mi(int i);
+        void mA(int i);
     }
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -41,81 +41,81 @@ public class EmotionTabWidgetView extends LinearLayout {
     private void init(Context context) {
         removeAllViews();
         LayoutInflater.from(context).inflate(R.layout.emotion_tab_widget, (ViewGroup) this, true);
-        this.fQs = (EmotionTabHorizonScrollView) findViewById(R.id.face_tab_scroll_view);
-        this.fQt = (ImageView) findViewById(R.id.face_tab_delete);
-        this.fQu = (ImageView) findViewById(R.id.face_tab_setting);
-        this.fQv = findViewById(R.id.vertical_div_line);
-        this.fQt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.1
+        this.fSN = (EmotionTabHorizonScrollView) findViewById(R.id.face_tab_scroll_view);
+        this.fSO = (ImageView) findViewById(R.id.face_tab_delete);
+        this.fSP = (ImageView) findViewById(R.id.face_tab_setting);
+        this.fSQ = findViewById(R.id.vertical_div_line);
+        this.fSO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (EmotionTabWidgetView.this.Fv != null) {
-                    EmotionTabWidgetView.this.Fv.b(new com.baidu.tbadk.editortools.a(3, -1, null));
+                if (EmotionTabWidgetView.this.FO != null) {
+                    EmotionTabWidgetView.this.FO.b(new com.baidu.tbadk.editortools.a(3, -1, null));
                 }
             }
         });
-        this.fQu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.2
+        this.fSP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UserCollectManageActivityConfig(EmotionTabWidgetView.this.getContext())));
             }
         });
-        this.fQu.setVisibility(8);
+        this.fSP.setVisibility(8);
     }
 
     public void setFrom(int i) {
-        if (this.fQs != null) {
-            this.fQs.setFrom(i);
+        if (this.fSN != null) {
+            this.fSN.setFrom(i);
         }
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList) {
-        this.fQs.setDatas(arrayList);
+        this.fSN.setDatas(arrayList);
     }
 
     public void c(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.fQs.c(cVar);
+        this.fSN.c(cVar);
     }
 
     public void setCurrentTab(int i) {
-        this.fQs.setCurrentTab(i);
+        this.fSN.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.fQs.setOnTabSelectedListener(aVar);
+        this.fSN.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.fQs.reset();
+        this.fSN.reset();
     }
 
     public void onChangeSkinType(int i) {
         am.setBackgroundColor(this, R.color.common_color_10255, i);
-        this.fQs.onChangeSkin(i);
-        am.setImageResource(this.fQt, R.drawable.emotion_delete, i);
-        am.setBackgroundColor(this.fQt, R.color.common_color_10255, i);
-        am.setImageResource(this.fQu, R.drawable.icon_sett_s, i);
-        am.setBackgroundColor(this.fQu, R.color.common_color_10255, i);
-        am.setBackgroundColor(this.fQv, R.color.common_color_10288, i);
+        this.fSN.onChangeSkin(i);
+        am.setImageResource(this.fSO, R.drawable.emotion_delete, i);
+        am.setBackgroundColor(this.fSO, R.color.common_color_10255, i);
+        am.setImageResource(this.fSP, R.drawable.icon_sett_s, i);
+        am.setBackgroundColor(this.fSP, R.color.common_color_10255, i);
+        am.setBackgroundColor(this.fSQ, R.color.common_color_10288, i);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.fQt.setVisibility(0);
+            this.fSO.setVisibility(0);
         } else {
-            this.fQt.setVisibility(8);
+            this.fSO.setVisibility(8);
         }
     }
 
     public void setTabWidgetVisibility(int i, boolean z) {
-        this.fQs.setTabWidgetVisibility(i, z);
+        this.fSN.setTabWidgetVisibility(i, z);
     }
 
     public void setTabWidgetBigEmontionVisibility(boolean z) {
-        this.fQs.setTabWidgetBigEmontionVisibility(z);
+        this.fSN.setTabWidgetBigEmontionVisibility(z);
     }
 
     public void setOnDataSelected(EditorTools editorTools) {
-        this.Fv = editorTools;
-        this.fQs.setEditorTools(this.Fv);
+        this.FO = editorTools;
+        this.fSN.setEditorTools(this.FO);
     }
 }

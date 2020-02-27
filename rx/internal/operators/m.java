@@ -8,16 +8,16 @@ import rx.a;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m<T> implements d.b<T, T> {
-    private final Long nPa = null;
-    private final rx.functions.a nPb = null;
-    private final a.d nPc = rx.a.nLZ;
+    private final Long nPP = null;
+    private final rx.functions.a nPQ = null;
+    private final a.d nPR = rx.a.nMO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
-        static final m<?> nPh = new m<>();
+        static final m<?> nPW = new m<>();
     }
 
     @Override // rx.functions.f
@@ -25,37 +25,37 @@ public class m<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> m<T> dNd() {
-        return (m<T>) b.nPh;
+    public static <T> m<T> dOq() {
+        return (m<T>) b.nPW;
     }
 
     m() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.nPa, this.nPb, this.nPc);
+        a aVar = new a(jVar, this.nPP, this.nPQ, this.nPR);
         jVar.add(aVar);
-        jVar.setProducer(aVar.dNf());
+        jVar.setProducer(aVar.dOs());
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a nPb;
-        private final a.d nPc;
-        private final AtomicLong nPe;
-        private final BackpressureDrainManager nPg;
-        private final ConcurrentLinkedQueue<Object> nPd = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean nPf = new AtomicBoolean(false);
+        private final rx.functions.a nPQ;
+        private final a.d nPR;
+        private final AtomicLong nPT;
+        private final BackpressureDrainManager nPV;
+        private final ConcurrentLinkedQueue<Object> nPS = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean nPU = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.nPe = l != null ? new AtomicLong(l.longValue()) : null;
-            this.nPb = aVar;
-            this.nPg = new BackpressureDrainManager(this);
-            this.nPc = dVar;
+            this.nPT = l != null ? new AtomicLong(l.longValue()) : null;
+            this.nPQ = aVar;
+            this.nPV = new BackpressureDrainManager(this);
+            this.nPR = dVar;
         }
 
         @Override // rx.j
@@ -65,33 +65,33 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.nPf.get()) {
-                this.nPg.terminateAndDrain();
+            if (!this.nPU.get()) {
+                this.nPV.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.nPf.get()) {
-                this.nPg.terminateAndDrain(th);
+            if (!this.nPU.get()) {
+                this.nPV.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (dNe()) {
-                this.nPd.offer(NotificationLite.next(t));
-                this.nPg.drain();
+            if (dOr()) {
+                this.nPS.offer(NotificationLite.next(t));
+                this.nPV.drain();
             }
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
-        public boolean cg(Object obj) {
+        public boolean ch(Object obj) {
             return NotificationLite.a(this.child, obj);
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
-        public void V(Throwable th) {
+        public void U(Throwable th) {
             if (th != null) {
                 this.child.onError(th);
             } else {
@@ -101,42 +101,42 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.nPd.peek();
+            return this.nPS.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.nPd.poll();
-            if (this.nPe != null && poll != null) {
-                this.nPe.incrementAndGet();
+            Object poll = this.nPS.poll();
+            if (this.nPT != null && poll != null) {
+                this.nPT.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean dNe() {
+        private boolean dOr() {
             long j;
             boolean z;
-            if (this.nPe == null) {
+            if (this.nPT == null) {
                 return true;
             }
             do {
-                j = this.nPe.get();
+                j = this.nPT.get();
                 if (j <= 0) {
                     try {
-                        z = this.nPc.dMw() && poll() != null;
+                        z = this.nPR.dNJ() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.nPf.compareAndSet(false, true)) {
+                        if (this.nPU.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.nPb != null) {
+                    if (this.nPQ != null) {
                         try {
-                            this.nPb.call();
+                            this.nPQ.call();
                         } catch (Throwable th) {
-                            rx.exceptions.a.I(th);
-                            this.nPg.terminateAndDrain(th);
+                            rx.exceptions.a.H(th);
+                            this.nPV.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -144,12 +144,12 @@ public class m<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.nPe.compareAndSet(j, j - 1));
+            } while (!this.nPT.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f dNf() {
-            return this.nPg;
+        protected rx.f dOs() {
+            return this.nPV;
         }
     }
 }

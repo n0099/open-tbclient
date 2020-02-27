@@ -1,9 +1,8 @@
 package com.baidu.platform.comapi.wnplatform.o;
 
 import android.media.MediaPlayer;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
-public class j implements MediaPlayer.OnCompletionListener {
+/* loaded from: classes8.dex */
+class j implements MediaPlayer.OnCompletionListener {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

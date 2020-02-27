@@ -1,7 +1,7 @@
 package com.baidu.ala.player;
 
 import com.baidu.ala.helper.AlaLiveDebugInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface AlaLivePlayerCallback {
     public static final int BUFFER_EVENT_MEDIA_NOT_SYNC = 0;
     public static final int BUFFER_EVENT_NET_DELAY = 1;

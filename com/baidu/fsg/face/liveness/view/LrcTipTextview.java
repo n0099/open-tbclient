@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.fsg.face.liveness.view.LrcView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LrcTipTextview extends LinearLayout {
     private boolean a;
     private TextView b;
@@ -20,7 +20,7 @@ public class LrcTipTextview extends LinearLayout {
     private int e;
     private int f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     interface a {
         void a();
     }
@@ -71,7 +71,7 @@ public class LrcTipTextview extends LinearLayout {
             public void run() {
                 LrcTipTextview.this.b.setVisibility(8);
                 final RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) LrcTipTextview.this.getLayoutParams();
-                final int top = LrcTipTextview.this.getTop() + LrcTipTextview.this.getPaddingTop();
+                final int top2 = LrcTipTextview.this.getTop() + LrcTipTextview.this.getPaddingTop();
                 final int dimensionPixelOffset = LrcTipTextview.this.getResources().getDimensionPixelOffset(R.dimen.liveness_video_lrc_tip_margintop_afteranim);
                 ValueAnimator ofInt = ValueAnimator.ofInt(1, 100);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.fsg.face.liveness.view.LrcTipTextview.1.1
@@ -81,7 +81,7 @@ public class LrcTipTextview extends LinearLayout {
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                         float f = intValue / 100.0f;
-                        layoutParams.topMargin = this.e.evaluate(f, Integer.valueOf(top), Integer.valueOf(dimensionPixelOffset)).intValue();
+                        layoutParams.topMargin = this.e.evaluate(f, Integer.valueOf(top2), Integer.valueOf(dimensionPixelOffset)).intValue();
                         int intValue2 = this.e.evaluate(f, (Integer) 255, (Integer) 51).intValue();
                         LrcTipTextview.this.c.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
                         LrcTipTextview.this.d.setTextColor(Color.rgb(intValue2, intValue2, intValue2));

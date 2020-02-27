@@ -1,75 +1,77 @@
 package com.baidu.adp.lib.stats.b;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class h {
-    public void hr() {
-        new a().execute(new String[0]);
-    }
-
-    /* loaded from: classes.dex */
-    private static class a extends BdAsyncTask<String, Integer, String> {
-        private a() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            hr();
-            return null;
-        }
-
-        private void hr() {
-            int i;
-            ArrayList<com.baidu.adp.lib.stats.base.c> O = com.baidu.adp.lib.stats.base.b.O(true);
-            if (O != null && O.size() != 0) {
-                int i2 = 0;
-                Iterator<com.baidu.adp.lib.stats.base.c> it = O.iterator();
-                while (true) {
-                    i = i2;
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    i2 = (int) (it.next().th + i);
-                }
-                int i3 = i - BdStatsConstant.MAX_STATISTICS_SIZE;
-                ArrayList arrayList = new ArrayList();
-                if (i3 > 0) {
-                    Collections.sort(O, new com.baidu.adp.lib.stats.base.d());
-                    Iterator<com.baidu.adp.lib.stats.base.c> it2 = O.iterator();
-                    while (true) {
-                        int i4 = i3;
-                        if (!it2.hasNext()) {
-                            break;
-                        }
-                        com.baidu.adp.lib.stats.base.c next = it2.next();
-                        arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.th);
-                        if (i3 <= 0) {
-                            break;
+    public static void c(final com.baidu.adp.lib.stats.base.a aVar, final boolean z) {
+        if (aVar != null && aVar.gR() != 0) {
+            com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.gW(), DiskFileOperate.Action.APPEND) { // from class: com.baidu.adp.lib.stats.b.h.1
+                @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+                public void callback(boolean z2) {
+                    super.callback(z2);
+                    if (z2) {
+                        aVar.o(getFileInfo().length());
+                        if (z || aVar.gR() > 20480) {
+                            h.p(aVar);
                         }
                     }
                 }
-                long currentTimeMillis = System.currentTimeMillis();
-                Iterator<com.baidu.adp.lib.stats.base.c> it3 = O.iterator();
-                while (it3.hasNext()) {
-                    com.baidu.adp.lib.stats.base.c next2 = it3.next();
-                    if (next2 != null) {
-                        long j = next2.ti;
-                        if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
-                            arrayList.add(next2.mFileName);
-                        }
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    com.baidu.adp.lib.stats.base.b.a(arrayList, true);
-                }
+            };
+            dVar.setSdCard(aVar.hn());
+            dVar.setContent(aVar.hl().toString());
+            aVar.hd();
+            if (!aVar.ho()) {
+                dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+                dVar.setTrySuccessWeight(3);
+            }
+            if (!com.baidu.adp.lib.Disk.d.fk().c(dVar)) {
+                BdLog.e("Track Log write to disk fail!");
             }
         }
+    }
+
+    public static void p(final com.baidu.adp.lib.stats.base.a aVar) {
+        if (aVar != null) {
+            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.gW(), BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.gX(), DiskFileOperate.Action.RENAME) { // from class: com.baidu.adp.lib.stats.b.h.2
+                @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+                public void callback(boolean z) {
+                    super.callback(z);
+                    if (z) {
+                        aVar.o(0L);
+                        com.baidu.adp.lib.stats.upload.b.hw().b(aVar);
+                        return;
+                    }
+                    BdLog.e("Track Log rename fail!");
+                }
+            };
+            diskFileOperate.setSdCard(aVar.hn());
+            diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
+            com.baidu.adp.lib.Disk.d.fk().c(diskFileOperate);
+        }
+    }
+
+    public static long f(final com.baidu.adp.lib.stats.base.a aVar) {
+        if (aVar == null) {
+            return -1L;
+        }
+        if (aVar.ha() <= 0) {
+            com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.gW(), DiskFileOperate.Action.INFO) { // from class: com.baidu.adp.lib.stats.b.h.3
+                @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+                public void callback(boolean z) {
+                    super.callback(z);
+                    if (z) {
+                        aVar.o(getFileInfo().length());
+                    }
+                }
+            };
+            dVar.setSdCard(aVar.hn());
+            dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
+            if (com.baidu.adp.lib.Disk.d.fk().c(dVar)) {
+                return aVar.ha();
+            }
+        }
+        return aVar.ha();
     }
 }

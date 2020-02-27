@@ -17,6 +17,7 @@ import com.baidu.android.imsdk.group.GroupInfo;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.notification.IFetchNotificationDataListener;
 import com.baidu.android.imsdk.upload.FileUploadTask;
 import com.baidu.android.imsdk.upload.IFileUploadListener;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -26,7 +27,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ChatMsgManager extends BaseManager {
     public static void init(Context context) {
         if (!isNullContext(context)) {
@@ -221,6 +222,10 @@ public class ChatMsgManager extends BaseManager {
         return ChatMsgManagerImpl.getInstance(context).setAllMsgRead(i, j, z);
     }
 
+    public static boolean setMsgReadByChatTpyes(Context context, List<Integer> list, long j) {
+        return ChatMsgManagerImpl.getInstance(context).setMsgReadByChatTpyes(list, j);
+    }
+
     @Deprecated
     public static long getTotalNewMsgNum(Context context) {
         if (isNullContext(context)) {
@@ -286,8 +291,13 @@ public class ChatMsgManager extends BaseManager {
         if (isNullContext(context)) {
             return null;
         }
-        ChatMsgManagerImpl.getInstance(context);
-        return ChatMsgManagerImpl.getPaMsgByChatType(i, i2);
+        return ChatMsgManagerImpl.getInstance(context).getPaMsgByChatType(i, i2);
+    }
+
+    public static void getPaMsgByChatTypeAndPaidList(Context context, List<Integer> list, List<Long> list2, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
+        if (!isNullContext(context)) {
+            ChatMsgManagerImpl.getInstance(context).getPaMsgByChatTypeAndPaidList(list, list2, j, i, iFetchNotificationDataListener);
+        }
     }
 
     public static void unregisterChatSessionListener(Context context, IChatSessionChangeListener iChatSessionChangeListener) {
@@ -296,8 +306,8 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
-    public static void createChatSession(Context context, ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j) {
-        ChatSessionManagerImpl.getInstance(context).createChatSession(chatObject, str, i, str2, i2, str3, str4, i3, i4, j);
+    public static void createChatSession(Context context, ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
+        ChatSessionManagerImpl.getInstance(context).createChatSession(chatObject, str, i, str2, i2, str3, str4, i3, i4, j, i5, j2, str5, str6, str7);
     }
 
     public static int saveAsDraftMsg(Context context, ChatMsg chatMsg) {
@@ -426,5 +436,80 @@ public class ChatMsgManager extends BaseManager {
 
     public static void fetchMsgRequst(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
         ChatMsgManagerImpl.getInstance(context).fetchMsgRequst(j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
+    }
+
+    public static void setInterActiveMsgStatus(Context context, long j, long j2, int i, int i2) {
+        ChatMsgManagerImpl.getInstance(context).setInterActiveMsgStatus(j, j2, i, i2);
+    }
+
+    public static boolean updateChatMsg(Context context, ChatMsg chatMsg) {
+        return ChatMsgManagerImpl.getInstance(context).updateMsgContent(chatMsg);
+    }
+
+    public static ChatMsg getMsgByMsgId(Context context, long j) {
+        return ChatMsgManagerImpl.getInstance(context).getMsgByMsgId(j);
+    }
+
+    public static boolean setMsgReadByMsgId(Context context, long j, int i) {
+        if (i != 1 && i != 0) {
+            LogUtils.d(TAG, "return!!! for setMsgReadByMsgId...setType=" + i);
+            return false;
+        }
+        ChatMsg msgByMsgId = getMsgByMsgId(context, j);
+        if (msgByMsgId != null) {
+            LogUtils.d(TAG, "setMsgReadByMsgId...msg=" + msgByMsgId.toString());
+            int category = msgByMsgId.getCategory();
+            if (category != 0) {
+                return false;
+            }
+            long contacter = msgByMsgId.getContacter();
+            boolean isZhida = msgByMsgId.isZhida();
+            if (i == 0) {
+                return setAllMsgRead(context, category, contacter, isZhida);
+            }
+            if (i == 1) {
+                return setMsgRead(context, category, contacter, j, isZhida);
+            }
+        }
+        LogUtils.d(TAG, "setMsgReadByMsgId...msg=NULL !!!");
+        return false;
+    }
+
+    public static void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaFetchChatMsgs(context, j, j2, j3, i, iMediaFetchChatMsgsListener);
+    }
+
+    public static void mediaSendChatMsg(Context context, long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(context, j, chatMsg, iMediaSendChatMsgListener);
+    }
+
+    public static void mediaDeleteChatMsg(Context context, long j, long j2, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(context, j, j2, list, iMediaDeleteChatMsgListener);
+    }
+
+    public static void mediaRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaRegisterChatMsgChangedListener(iMediaChatMsgChangedListener);
+    }
+
+    public static void mediaUnRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaUnRegisterChatMsgChangedListener(iMediaChatMsgChangedListener);
+    }
+
+    public static void mediaGetChatSessions(Context context, long j, long j2, int i, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        if (!isNullContext(context)) {
+            ChatSessionManagerImpl.getInstance(context).mediaGetChatSessions(j, j2, i, iMediaGetChatSessionListener);
+        }
+    }
+
+    public static void mediaSetSessionRead(Context context, long j, long j2, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+        if (!isNullContext(context)) {
+            ChatSessionManagerImpl.getInstance(context).mediaSetSessionRead(j, j2, iMediaSetSessionReadListener);
+        }
+    }
+
+    public static void mediaDeleteChatSession(Context context, long j, long j2, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+        if (!isNullContext(context)) {
+            ChatSessionManagerImpl.getInstance(context).mediaDeleteChatSession(j, j2, iMediaDeleteChatSessionListener);
+        }
     }
 }

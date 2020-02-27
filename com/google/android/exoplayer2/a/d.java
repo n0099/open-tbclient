@@ -1,16 +1,16 @@
 package com.google.android.exoplayer2.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d {
-    public int mcL;
-    public int mcM;
-    public int mcN;
-    public int mcO;
-    public int mcP;
-    public int mcQ;
-    public int mcR;
-    public int mcS;
-    public int mcT;
+    public int mdr;
+    public int mds;
+    public int mdt;
+    public int mdu;
+    public int mdv;
+    public int mdw;
+    public int mdx;
+    public int mdy;
+    public int mdz;
 
-    public synchronized void dto() {
+    public synchronized void duz() {
     }
 }

@@ -7,12 +7,12 @@ import android.util.Log;
 import com.baidu.swan.apps.r.d;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a<W extends d> {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @NonNull
-    public abstract String Rc();
+    public abstract String Tq();
 
     public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
 
@@ -22,7 +22,7 @@ public abstract class a<W extends d> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
         if (DEBUG) {
-            String str3 = ("【" + w.Re() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + w.hashCode() + "】\t") + "【" + str + "】";
+            String str3 = ("【" + w.Ts() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + w.hashCode() + "】\t") + "【" + str + "】";
             if (!TextUtils.isEmpty(str2)) {
                 str3 = str3 + "\t【" + str2 + "】";
             }

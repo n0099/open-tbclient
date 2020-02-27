@@ -2,11 +2,11 @@ package com.baidu.swan.apps.component.d;
 
 import android.support.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bfk = 5;
-    private int[] bfl;
+    private static int bjy = 5;
+    private int[] bjz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.bfl = new int[dR(i - 1) + 1];
-        int length = this.bfl.length;
+        this.bjz = new int[eh(i - 1) + 1];
+        int length = this.bjz.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.bfl[i2] = -1;
+                this.bjz[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.bfl.length << bfk) - 1;
+        int length = (this.bjz.length << bjy) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.bfl;
-        int dR = dR(i);
-        iArr[dR] = iArr[dR] | (1 << i);
+        int[] iArr = this.bjz;
+        int eh = eh(i);
+        iArr[eh] = iArr[eh] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.bfl.length << bfk) - 1;
+        int length = (this.bjz.length << bjy) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bfl[dR(i)] & (1 << i)) != 0;
+        return (this.bjz[eh(i)] & (1 << i)) != 0;
     }
 
-    private int dR(int i) {
-        return i >> bfk;
+    private int eh(int i) {
+        return i >> bjy;
     }
 }

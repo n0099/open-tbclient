@@ -1,11 +1,11 @@
 package com.baidu.platform.comapi.wnplatform.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static final String[] a = {"m", "km", "米", "公里"};
     public static final String[] b = {"m", "h", "分钟", "小时"};
     public static final String[] c = {"m", "h", "d", "分钟", "小时", "天"};
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum a {
         EN(0),
         ZH(1);

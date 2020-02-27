@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMPaSubscribedListMsg extends Message {
     private Context mContext;
 
@@ -46,7 +46,7 @@ public class IMPaSubscribedListMsg extends Message {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0001 */
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         List<PaInfo> list;
         Exception e;
         List<PaInfo> list2 = null;

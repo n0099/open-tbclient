@@ -14,7 +14,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/prefetchAppData");
@@ -31,17 +31,17 @@ public class a extends ab {
         if (aL == null || !aL.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params: " + param);
             return false;
-        } else if (!com.baidu.swan.apps.core.a.a.a.gz(parseString.optString("netconf", "1"))) {
+        } else if (!com.baidu.swan.apps.core.a.a.a.gO(parseString.optString("netconf", "1"))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         } else {
-            c.Nx().e(aL);
+            c.PL().e(aL);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
     }
 
     private PrefetchEvent aL(@NonNull JSONObject jSONObject) {
-        return new PrefetchEvent.a().gY(jSONObject.optString("state")).gX(jSONObject.optString("schema")).gZ(jSONObject.optString(FaceBaseDTO.KEY_BUSINESS_SCENE)).gW(jSONObject.optString("appKey")).Nw();
+        return new PrefetchEvent.a().hn(jSONObject.optString("state")).hm(jSONObject.optString("schema")).ho(jSONObject.optString(FaceBaseDTO.KEY_BUSINESS_SCENE)).hl(jSONObject.optString("appKey")).PK();
     }
 }

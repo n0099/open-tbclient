@@ -10,7 +10,7 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.inner.MapBound;
 import java.lang.ref.SoftReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
     private e b;
     private a c = null;
@@ -169,9 +169,9 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     public MapStatus j() {
         MapStatus i = com.baidu.platform.comapi.walknavi.b.a().G().i();
         if (i != null) {
-            int[] iArr = {(i.winRound.left + i.winRound.right) / 2, Math.abs(i.winRound.bottom + i.winRound.top) / 2};
+            int[] iArr = {(i.winRound.left + i.winRound.right) / 2, Math.abs(i.winRound.bottom + i.winRound.f993top) / 2};
             int[] iArr2 = {0, 0};
-            return new MapStatus.Builder(i).targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.top + i.winRound.bottom) / 2) - (0 - ((Math.abs(i.winRound.bottom - i.winRound.top) * 2) / 10)))).build();
+            return new MapStatus.Builder(i).targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f993top + i.winRound.bottom) / 2) - (0 - ((Math.abs(i.winRound.bottom - i.winRound.f993top) * 2) / 10)))).build();
         }
         return i;
     }
@@ -208,7 +208,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         Bundle bundle = new Bundle();
         bundle.putInt("left", mapBound.ptLB.getmPtx());
         bundle.putInt(VerticalTranslateLayout.BOTTOM, mapBound.ptLB.getmPty());
-        bundle.putInt(HorizontalTranslateLayout.RIGHT, mapBound.ptRT.getmPtx());
+        bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapBound.ptRT.getmPtx());
         bundle.putInt(VerticalTranslateLayout.TOP, mapBound.ptRT.getmPty());
         if (this.c != null) {
             return this.c.a(bundle, i, i2);

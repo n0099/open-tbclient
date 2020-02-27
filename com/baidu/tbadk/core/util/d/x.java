@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class x extends a {
-    private boolean Nj;
-    private boolean cXO;
+    private boolean NJ;
+    private boolean dbR;
     private int procType;
 
     public x(boolean z, int i) {
@@ -17,12 +17,12 @@ public class x extends a {
     }
 
     public x(boolean z, int i, boolean z2) {
-        this.Nj = true;
+        this.NJ = true;
         this.procType = 0;
-        this.cXO = true;
-        this.Nj = z;
+        this.dbR = true;
+        this.NJ = z;
         this.procType = i;
-        this.cXO = z2;
+        this.dbR = z2;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -37,30 +37,31 @@ public class x extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.Nj;
+        return this.NJ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aEE() {
+    public boolean aGQ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aEF() {
+    public boolean aGR() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int aEG() {
+    public int aGS() {
         return this.procType;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.e.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.e.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect, boolean z2) {
         if (o(bitmap)) {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
-            if (!iVar.cXp) {
+            aVar2.setNeedCache(z2);
+            if (z2 && !iVar.dbs) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setSubFolder(true);
@@ -68,12 +69,12 @@ public class x extends a {
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(z);
-                cVar.C(this.cXO);
-                com.baidu.adp.lib.Disk.d.fj().c(cVar);
+                cVar.C(this.dbR);
+                com.baidu.adp.lib.Disk.d.fk().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();
                     eVar.f(cVar);
-                    aVar.rS = eVar;
+                    aVar.rT = eVar;
                 }
             }
         }

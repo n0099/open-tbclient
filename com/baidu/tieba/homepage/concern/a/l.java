@@ -8,7 +8,7 @@ import com.baidu.card.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, af<com.baidu.tieba.homepage.concern.b.a>> {
     private TbPageContext<?> mPageContext;
 
@@ -24,11 +24,11 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public af<com.baidu.tieba.homepage.concern.b.a> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         aVar.c(new com.baidu.tieba.homepage.concern.view.c(this.mPageContext));
-        aVar.mS().aR(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44));
-        aVar.mS().aT(0);
-        aVar.mS().aS(0);
-        aVar.mS().aN(0);
-        return new af<>(aVar.mT());
+        aVar.ni().aV(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44));
+        aVar.ni().aX(0);
+        aVar.ni().aW(0);
+        aVar.ni().aR(0);
+        return new af<>(aVar.nj());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

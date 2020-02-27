@@ -3,11 +3,11 @@ package com.baidu.swan.apps.adaptation.a;
 import android.content.Context;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface k {
     File ab(Context context, String str);
 
     JSONObject ac(Context context, String str);
 
-    void af(String str, String str2);
+    void ap(String str, String str2);
 }

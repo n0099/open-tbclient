@@ -3,7 +3,7 @@ package com.baidu.mapapi.bikenavi.params;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.walknavi.e.a;
 import com.baidu.platform.comapi.walknavi.e.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BikeNaviLaunchParam {
     private LatLng a;
     private LatLng b;

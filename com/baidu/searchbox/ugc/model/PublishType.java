@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.model;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PublishType {
     public static final String TYPE_ANSWER = "6";
     public static final String TYPE_ASK = "11";

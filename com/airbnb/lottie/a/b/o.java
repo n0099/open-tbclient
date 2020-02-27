@@ -4,108 +4,108 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o {
-    private final a<PointF, PointF> gS;
-    private final a<?, PointF> gT;
-    private final a<com.airbnb.lottie.e.d, com.airbnb.lottie.e.d> gU;
-    private final a<Float, Float> gV;
-    private final a<Integer, Integer> gW;
+    private final a<PointF, PointF> gW;
+    private final a<?, PointF> gX;
+    private final a<com.airbnb.lottie.e.d, com.airbnb.lottie.e.d> gY;
+    private final a<Float, Float> gZ;
+    private final a<Integer, Integer> hb;
     @Nullable
-    private final a<?, Float> gX;
+    private final a<?, Float> hc;
     @Nullable
-    private final a<?, Float> gY;
+    private final a<?, Float> hd;
     private final Matrix matrix = new Matrix();
 
     public o(com.airbnb.lottie.model.a.l lVar) {
-        this.gS = lVar.co().cm();
-        this.gT = lVar.cp().cm();
-        this.gU = lVar.cq().cm();
-        this.gV = lVar.cr().cm();
-        this.gW = lVar.cs().cm();
-        if (lVar.ct() != null) {
-            this.gX = lVar.ct().cm();
-        } else {
-            this.gX = null;
-        }
+        this.gW = lVar.cp().cn();
+        this.gX = lVar.cq().cn();
+        this.gY = lVar.cr().cn();
+        this.gZ = lVar.cs().cn();
+        this.hb = lVar.ct().cn();
         if (lVar.cu() != null) {
-            this.gY = lVar.cu().cm();
+            this.hc = lVar.cu().cn();
         } else {
-            this.gY = null;
+            this.hc = null;
+        }
+        if (lVar.cv() != null) {
+            this.hd = lVar.cv().cn();
+        } else {
+            this.hd = null;
         }
     }
 
     public void a(com.airbnb.lottie.model.layer.a aVar) {
-        aVar.a(this.gS);
-        aVar.a(this.gT);
-        aVar.a(this.gU);
-        aVar.a(this.gV);
         aVar.a(this.gW);
-        if (this.gX != null) {
-            aVar.a(this.gX);
+        aVar.a(this.gX);
+        aVar.a(this.gY);
+        aVar.a(this.gZ);
+        aVar.a(this.hb);
+        if (this.hc != null) {
+            aVar.a(this.hc);
         }
-        if (this.gY != null) {
-            aVar.a(this.gY);
+        if (this.hd != null) {
+            aVar.a(this.hd);
         }
     }
 
     public void a(a.InterfaceC0010a interfaceC0010a) {
-        this.gS.b(interfaceC0010a);
-        this.gT.b(interfaceC0010a);
-        this.gU.b(interfaceC0010a);
-        this.gV.b(interfaceC0010a);
         this.gW.b(interfaceC0010a);
-        if (this.gX != null) {
-            this.gX.b(interfaceC0010a);
+        this.gX.b(interfaceC0010a);
+        this.gY.b(interfaceC0010a);
+        this.gZ.b(interfaceC0010a);
+        this.hb.b(interfaceC0010a);
+        if (this.hc != null) {
+            this.hc.b(interfaceC0010a);
         }
-        if (this.gY != null) {
-            this.gY.b(interfaceC0010a);
+        if (this.hd != null) {
+            this.hd.b(interfaceC0010a);
         }
     }
 
     public void setProgress(float f) {
-        this.gS.setProgress(f);
-        this.gT.setProgress(f);
-        this.gU.setProgress(f);
-        this.gV.setProgress(f);
         this.gW.setProgress(f);
-        if (this.gX != null) {
-            this.gX.setProgress(f);
+        this.gX.setProgress(f);
+        this.gY.setProgress(f);
+        this.gZ.setProgress(f);
+        this.hb.setProgress(f);
+        if (this.hc != null) {
+            this.hc.setProgress(f);
         }
-        if (this.gY != null) {
-            this.gY.setProgress(f);
+        if (this.hd != null) {
+            this.hd.setProgress(f);
         }
     }
 
-    public a<?, Integer> ca() {
-        return this.gW;
-    }
-
-    @Nullable
-    public a<?, Float> cb() {
-        return this.gX;
+    public a<?, Integer> cb() {
+        return this.hb;
     }
 
     @Nullable
     public a<?, Float> cc() {
-        return this.gY;
+        return this.hc;
+    }
+
+    @Nullable
+    public a<?, Float> cd() {
+        return this.hd;
     }
 
     public Matrix getMatrix() {
         this.matrix.reset();
-        PointF value = this.gT.getValue();
+        PointF value = this.gX.getValue();
         if (value.x != 0.0f || value.y != 0.0f) {
             this.matrix.preTranslate(value.x, value.y);
         }
-        float floatValue = this.gV.getValue().floatValue();
+        float floatValue = this.gZ.getValue().floatValue();
         if (floatValue != 0.0f) {
             this.matrix.preRotate(floatValue);
         }
-        com.airbnb.lottie.e.d value2 = this.gU.getValue();
+        com.airbnb.lottie.e.d value2 = this.gY.getValue();
         if (value2.getScaleX() != 1.0f || value2.getScaleY() != 1.0f) {
             this.matrix.preScale(value2.getScaleX(), value2.getScaleY());
         }
-        PointF value3 = this.gS.getValue();
+        PointF value3 = this.gW.getValue();
         if (value3.x != 0.0f || value3.y != 0.0f) {
             this.matrix.preTranslate(-value3.x, -value3.y);
         }
@@ -113,10 +113,10 @@ public class o {
     }
 
     public Matrix j(float f) {
-        PointF value = this.gT.getValue();
-        PointF value2 = this.gS.getValue();
-        com.airbnb.lottie.e.d value3 = this.gU.getValue();
-        float floatValue = this.gV.getValue().floatValue();
+        PointF value = this.gX.getValue();
+        PointF value2 = this.gW.getValue();
+        com.airbnb.lottie.e.d value3 = this.gY.getValue();
+        float floatValue = this.gZ.getValue().floatValue();
         this.matrix.reset();
         this.matrix.preTranslate(value.x * f, value.y * f);
         this.matrix.preScale((float) Math.pow(value3.getScaleX(), f), (float) Math.pow(value3.getScaleY(), f));
@@ -125,20 +125,20 @@ public class o {
     }
 
     public <T> boolean b(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.eO) {
-            this.gS.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eP) {
-            this.gT.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eS) {
-            this.gU.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eT) {
-            this.gV.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eM) {
+        if (t == com.airbnb.lottie.k.eR) {
             this.gW.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fg && this.gX != null) {
+        } else if (t == com.airbnb.lottie.k.eS) {
             this.gX.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fh && this.gY != null) {
+        } else if (t == com.airbnb.lottie.k.eV) {
             this.gY.a(cVar);
+        } else if (t == com.airbnb.lottie.k.eW) {
+            this.gZ.a(cVar);
+        } else if (t == com.airbnb.lottie.k.eP) {
+            this.hb.a(cVar);
+        } else if (t == com.airbnb.lottie.k.fk && this.hc != null) {
+            this.hc.a(cVar);
+        } else if (t == com.airbnb.lottie.k.fn && this.hd != null) {
+            this.hd.a(cVar);
         } else {
             return false;
         }

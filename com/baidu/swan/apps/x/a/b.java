@@ -8,12 +8,12 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean hU(@Nullable String str) {
-        if (!com.baidu.swan.apps.w.a.RJ().EY()) {
+    public static boolean ik(@Nullable String str) {
+        if (!com.baidu.swan.apps.w.a.TX().Hn()) {
             if (DEBUG) {
                 Log.d("LaunchError", "isExecuteSwanNewYearH5Downgrade false => 新年小程序错误兜底h5降级ab开关为关闭 swan_new_year_h5_downgrade false");
             }
@@ -24,14 +24,14 @@ public class b {
             }
             return false;
         } else {
-            List<String> Tb = Tb();
-            if (Tb == null) {
+            List<String> Vp = Vp();
+            if (Vp == null) {
                 if (DEBUG) {
                     Log.w("LaunchError", "isExecuteSwanNewYearH5Downgrade false =》 illegal newYearAppIds");
                 }
                 return false;
             }
-            for (String str2 : Tb) {
+            for (String str2 : Vp) {
                 if (TextUtils.isEmpty(str2)) {
                     if (DEBUG) {
                         Log.w("LaunchError", "isExecuteSwanNewYearH5Downgrade =》 illegal newYearAppId");
@@ -53,21 +53,21 @@ public class b {
     }
 
     @NonNull
-    public static String Ta() {
-        String EZ = EZ();
+    public static String Vo() {
+        String Ho = Ho();
         if (DEBUG) {
-            Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => originUrl: " + EZ);
+            Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => originUrl: " + Ho);
         }
         String str = null;
         try {
-            str = URLEncoder.encode(EZ, "UTF-8");
+            str = URLEncoder.encode(Ho, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);
             }
         }
         if (TextUtils.isEmpty(str)) {
-            str = EZ;
+            str = Ho;
         }
         if (DEBUG) {
             Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => encodedUrl: " + str);
@@ -80,15 +80,15 @@ public class b {
     }
 
     @NonNull
-    private static String EZ() {
-        String EZ = com.baidu.swan.apps.w.a.RJ().EZ();
-        if (TextUtils.isEmpty(EZ)) {
+    private static String Ho() {
+        String Ho = com.baidu.swan.apps.w.a.TX().Ho();
+        if (TextUtils.isEmpty(Ho)) {
             return "https://2019.baidu.com/activity/shake2019/index.html?idfrom=aiappfb";
         }
-        return EZ;
+        return Ho;
     }
 
-    private static List<String> Tb() {
+    private static List<String> Vp() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("i2UoL6iWVUjaSpHLA4ftCxO2SNCdkTf0");
         arrayList.add("uSTqbBp5u8egzErCpTiPrAOumDjAXWMU");

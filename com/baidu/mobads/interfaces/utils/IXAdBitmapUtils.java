@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces.utils;
 
 import android.graphics.Bitmap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IXAdBitmapUtils {
     String bitmap2tring(Bitmap bitmap);
 

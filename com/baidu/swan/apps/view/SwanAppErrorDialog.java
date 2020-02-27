@@ -5,7 +5,7 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private TextView mMessage;
@@ -20,7 +20,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
         this.mMessage.setGravity(17);
     }
 
-    public static BaseActivityDialog.a afi() {
+    public static BaseActivityDialog.a ahw() {
         return new BaseActivityDialog.a(SwanAppErrorDialog.class);
     }
 }

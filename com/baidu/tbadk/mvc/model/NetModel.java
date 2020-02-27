@@ -33,16 +33,16 @@ import org.json.JSONObject;
 import protobuf.Error;
 /* loaded from: classes.dex */
 public abstract class NetModel<T extends h, D extends j, ActivityType> extends BdBaseModel<ActivityType> {
-    private c<T, D> dya;
-    private d<T, D> dyb;
-    protected T dyc;
-    private final NetModelType dyd;
-    private a<T, D, ActivityType> dye;
-    private boolean dyf;
-    private boolean dyg;
-    private boolean dyh;
-    private boolean dyi;
-    private Runnable dyj;
+    private boolean aPv;
+    private Runnable aPw;
+    private c<T, D> dCd;
+    private d<T, D> dCe;
+    protected T dCf;
+    private final NetModelType dCg;
+    private a<T, D, ActivityType> dCh;
+    private boolean dCi;
+    private boolean dCj;
+    private boolean dCk;
     private boolean isLoading;
     private boolean isNeedCache;
     private TbPageContext<ActivityType> mPageContext;
@@ -70,27 +70,27 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         void a(MvcSocketResponsedMessage<D, ?> mvcSocketResponsedMessage, MvcSocketMessage<T, D> mvcSocketMessage, MvcNetMessage<T, D> mvcNetMessage);
     }
 
-    protected abstract int aOh();
+    protected abstract String Ek();
 
-    protected abstract int aOi();
+    protected abstract int El();
 
-    protected abstract String aOj();
+    protected abstract int Em();
 
     protected abstract Class<D> getResponseDataClass();
 
     public NetModel(TbPageContext<ActivityType> tbPageContext, T t, NetModelType netModelType) {
         super(tbPageContext);
-        this.dye = null;
+        this.dCh = null;
         this.isNeedCache = false;
-        this.dyf = false;
-        this.dyg = false;
-        this.dyh = false;
+        this.dCi = false;
+        this.dCj = false;
+        this.dCk = false;
         this.isLoading = false;
         this.timeout = -1;
-        this.dyi = true;
+        this.aPv = true;
         this.mPageContext = tbPageContext;
-        this.dyc = t;
-        this.dyd = netModelType;
+        this.dCf = t;
+        this.dCg = netModelType;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -102,21 +102,21 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         this.isNeedCache = z;
     }
 
-    public Runnable aOk() {
-        if (this.dyj == null) {
-            this.dyj = new Runnable() { // from class: com.baidu.tbadk.mvc.model.NetModel.1
+    public Runnable Ep() {
+        if (this.aPw == null) {
+            this.aPw = new Runnable() { // from class: com.baidu.tbadk.mvc.model.NetModel.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    switch (AnonymousClass2.dyk[NetModel.this.dyd.ordinal()]) {
+                    switch (AnonymousClass2.dCl[NetModel.this.dCg.ordinal()]) {
                         case 1:
-                            NetModel.this.T(-1, NetModel.this.mPageContext.getString(R.string.neterror));
+                            NetModel.this.V(-1, NetModel.this.mPageContext.getString(R.string.neterror));
                             return;
                         case 2:
-                            NetModel.this.V(-1, NetModel.this.mPageContext.getString(R.string.neterror));
+                            NetModel.this.W(-1, NetModel.this.mPageContext.getString(R.string.neterror));
                             return;
                         case 3:
                         case 4:
-                            NetModel.this.U(-1, NetModel.this.mPageContext.getString(R.string.neterror));
+                            NetModel.this.r(-1, NetModel.this.mPageContext.getString(R.string.neterror));
                             return;
                         default:
                             return;
@@ -124,47 +124,21 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                 }
             };
         }
-        return this.dyj;
+        return this.aPw;
     }
 
     public boolean loadData() {
-        if (this.dyb == null && this.dya == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        if (this.dCe == null && this.dCd == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.dyi = l.isNetOk();
+        this.aPv = l.isNetOk();
         if (this.timeout >= 10) {
-            e.gx().postDelayed(aOk(), this.timeout * 1000);
+            e.gx().postDelayed(Ep(), this.timeout * 1000);
         }
-        switch (this.dyd) {
+        switch (this.dCg) {
             case TYPE_AUTO:
-                if (!this.dyi) {
+                if (!this.aPv) {
                     e.gx().post(new Runnable() { // from class: com.baidu.tbadk.mvc.model.NetModel.3
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            NetModel.this.T(-1, NetModel.this.mPageContext.getString(R.string.neterror));
-                        }
-                    });
-                    return false;
-                }
-                this.isLoading = true;
-                aOn();
-                aOp();
-                aOl();
-                MvcNetMessage mvcNetMessage = new MvcNetMessage(this.dyc, aOh(), aOi());
-                mvcNetMessage.setNeedCache(isNeedCache());
-                mvcNetMessage.setResponseDataClass(getResponseDataClass());
-                mvcNetMessage.setTag(this.unique_id);
-                HashMap<String, String> aNP = this.dyc.aNP();
-                if (aNP != null) {
-                    for (Map.Entry<String, String> entry : aNP.entrySet()) {
-                        mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
-                    }
-                }
-                sendMessage(mvcNetMessage);
-                return true;
-            case TYPE_SOCKET:
-                if (!this.dyi) {
-                    e.gx().post(new Runnable() { // from class: com.baidu.tbadk.mvc.model.NetModel.5
                         @Override // java.lang.Runnable
                         public void run() {
                             NetModel.this.V(-1, NetModel.this.mPageContext.getString(R.string.neterror));
@@ -173,38 +147,64 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                     return false;
                 }
                 this.isLoading = true;
-                aOp();
-                aOl();
-                MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.dyc, aOi());
+                aQD();
+                aQF();
+                aQB();
+                MvcNetMessage mvcNetMessage = new MvcNetMessage(this.dCf, Em(), El());
+                mvcNetMessage.setNeedCache(isNeedCache());
+                mvcNetMessage.setResponseDataClass(getResponseDataClass());
+                mvcNetMessage.setTag(this.unique_id);
+                HashMap<String, String> aQj = this.dCf.aQj();
+                if (aQj != null) {
+                    for (Map.Entry<String, String> entry : aQj.entrySet()) {
+                        mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
+                    }
+                }
+                sendMessage(mvcNetMessage);
+                return true;
+            case TYPE_SOCKET:
+                if (!this.aPv) {
+                    e.gx().post(new Runnable() { // from class: com.baidu.tbadk.mvc.model.NetModel.5
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            NetModel.this.W(-1, NetModel.this.mPageContext.getString(R.string.neterror));
+                        }
+                    });
+                    return false;
+                }
+                this.isLoading = true;
+                aQF();
+                aQB();
+                MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.dCf, El());
                 mvcSocketMessage.setResponseDataClass(getResponseDataClass());
                 mvcSocketMessage.setNeedCache(isNeedCache());
                 mvcSocketMessage.setTag(this.unique_id);
                 sendMessage(mvcSocketMessage);
                 return true;
             case TYPE_HTTP:
-                if (!this.dyi) {
+                if (!this.aPv) {
                     e.gx().post(new Runnable() { // from class: com.baidu.tbadk.mvc.model.NetModel.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            NetModel.this.U(-1, NetModel.this.mPageContext.getString(R.string.neterror));
+                            NetModel.this.r(-1, NetModel.this.mPageContext.getString(R.string.neterror));
                         }
                     });
                     return false;
                 }
                 this.isLoading = true;
-                aOo();
-                aOl();
-                MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.dyc, aOh());
+                aQE();
+                aQB();
+                MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.dCf, Em());
                 mvcHttpMessage.setResponseDataClass(getResponseDataClass());
-                HashMap<String, Object> aNO = this.dyc.aNO();
-                if (aNO != null) {
-                    for (Map.Entry<String, Object> entry2 : aNO.entrySet()) {
+                HashMap<String, Object> aQi = this.dCf.aQi();
+                if (aQi != null) {
+                    for (Map.Entry<String, Object> entry2 : aQi.entrySet()) {
                         mvcHttpMessage.addParam(entry2.getKey(), entry2.getValue());
                     }
                 }
-                HashMap<String, String> aNP2 = this.dyc.aNP();
-                if (aNP2 != null) {
-                    for (Map.Entry<String, String> entry3 : aNP2.entrySet()) {
+                HashMap<String, String> aQj2 = this.dCf.aQj();
+                if (aQj2 != null) {
+                    for (Map.Entry<String, String> entry3 : aQj2.entrySet()) {
                         mvcHttpMessage.addHeader(entry3.getKey(), entry3.getValue());
                     }
                 }
@@ -213,17 +213,17 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                 sendMessage(mvcHttpMessage);
                 return true;
             case TYPE_NETWORK:
-                if (!this.dyi) {
+                if (!this.aPv) {
                     e.gx().post(new Runnable() { // from class: com.baidu.tbadk.mvc.model.NetModel.6
                         @Override // java.lang.Runnable
                         public void run() {
-                            NetModel.this.U(-1, NetModel.this.mPageContext.getString(R.string.neterror));
+                            NetModel.this.r(-1, NetModel.this.mPageContext.getString(R.string.neterror));
                         }
                     });
                     return false;
-                } else if (this.dye == null) {
-                    this.dye = new a<>(this);
-                    this.dye.execute(new Object[0]);
+                } else if (this.dCh == null) {
+                    this.dCh = new a<>(this);
+                    this.dCh.execute(new Object[0]);
                     return true;
                 } else {
                     return false;
@@ -233,29 +233,29 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         }
     }
 
-    private void aOl() {
-        if (!this.dyh) {
-            switch (this.dyd) {
+    private void aQB() {
+        if (!this.dCk) {
+            switch (this.dCg) {
                 case TYPE_AUTO:
-                    com.baidu.adp.framework.listener.a aVar = new com.baidu.adp.framework.listener.a(aOh(), aOi()) { // from class: com.baidu.tbadk.mvc.model.NetModel.7
+                    com.baidu.adp.framework.listener.a aVar = new com.baidu.adp.framework.listener.a(Em(), El()) { // from class: com.baidu.tbadk.mvc.model.NetModel.7
                         /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: com.baidu.tbadk.mvc.model.NetModel$d */
                         /* JADX DEBUG: Multi-variable search result rejected for r2v8, resolved type: com.baidu.tbadk.mvc.model.NetModel$c */
                         /* JADX WARN: Multi-variable type inference failed */
                         @Override // com.baidu.adp.framework.listener.a
                         public void onMessage(ResponsedMessage<?> responsedMessage) {
                             NetModel.this.isLoading = false;
-                            if (NetModel.this.dyj != null) {
-                                e.gx().removeCallbacks(NetModel.this.dyj);
+                            if (NetModel.this.aPw != null) {
+                                e.gx().removeCallbacks(NetModel.this.aPw);
                             }
                             if (responsedMessage instanceof MvcProtobufHttpResponsedMessage) {
                                 MvcNetMessage mvcNetMessage = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-                                if (NetModel.this.dya != null) {
-                                    NetModel.this.dya.a((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
+                                if (NetModel.this.dCd != null) {
+                                    NetModel.this.dCd.a((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
                                 }
                             } else if (responsedMessage instanceof MvcSocketResponsedMessage) {
                                 MvcNetMessage mvcNetMessage2 = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-                                if (NetModel.this.dyb != null) {
-                                    NetModel.this.dyb.a((MvcSocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
+                                if (NetModel.this.dCe != null) {
+                                    NetModel.this.dCe.a((MvcSocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
                                 }
                             } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                                 throw new RuntimeException("mvc netmodel NetListener responsedMessage error");
@@ -268,18 +268,18 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                     registerListener(aVar);
                     break;
                 case TYPE_SOCKET:
-                    com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(aOi(), true) { // from class: com.baidu.tbadk.mvc.model.NetModel.12
+                    com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(El(), true) { // from class: com.baidu.tbadk.mvc.model.NetModel.12
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.adp.framework.listener.MessageListener
                         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                             NetModel.this.isLoading = false;
-                            if (NetModel.this.dyj != null) {
-                                e.gx().removeCallbacks(NetModel.this.dyj);
+                            if (NetModel.this.aPw != null) {
+                                e.gx().removeCallbacks(NetModel.this.aPw);
                             }
                             if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
                                 if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                                    if (NetModel.this.dyb != null) {
-                                        NetModel.this.dyb.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
+                                    if (NetModel.this.dCe != null) {
+                                        NetModel.this.dCe.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                                     }
                                 } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                                     throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage originaMessage error");
@@ -293,18 +293,18 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                     registerListener(cVar);
                     break;
                 case TYPE_HTTP:
-                    HttpMessageListener httpMessageListener = new HttpMessageListener(aOh(), true) { // from class: com.baidu.tbadk.mvc.model.NetModel.8
+                    HttpMessageListener httpMessageListener = new HttpMessageListener(Em(), true) { // from class: com.baidu.tbadk.mvc.model.NetModel.8
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.adp.framework.listener.MessageListener
                         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                             NetModel.this.isLoading = false;
-                            if (NetModel.this.dyj != null) {
-                                e.gx().removeCallbacks(NetModel.this.dyj);
+                            if (NetModel.this.aPw != null) {
+                                e.gx().removeCallbacks(NetModel.this.aPw);
                             }
                             if (httpResponsedMessage instanceof MvcJsonHttpResponsedMessage) {
                                 if (httpResponsedMessage.getOrginalMessage() instanceof MvcHttpMessage) {
-                                    if (NetModel.this.dya != null) {
-                                        NetModel.this.dya.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
+                                    if (NetModel.this.dCd != null) {
+                                        NetModel.this.dCd.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
                                     }
                                 } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                                     throw new RuntimeException("mvc netmodel HttpListener jsonHttpResponsedMessage originaMessage error");
@@ -318,19 +318,19 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                     registerListener(httpMessageListener);
                     break;
             }
-            this.dyh = true;
+            this.dCk = true;
         }
     }
 
-    protected Class<? extends MvcProtobufHttpResponsedMessage> aOf() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> aQz() {
         return MvcProtobufHttpResponsedMessage.class;
     }
 
-    protected Class<? extends MvcJsonHttpResponsedMessage> aOm() {
+    protected Class<? extends MvcJsonHttpResponsedMessage> aQC() {
         return MvcJsonHttpResponsedMessage.class;
     }
 
-    protected Class<? extends MvcSocketResponsedMessage> aOg() {
+    protected Class<? extends MvcSocketResponsedMessage> aQA() {
         return MvcSocketResponsedMessage.class;
     }
 
@@ -338,42 +338,42 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         return this.isLoading;
     }
 
-    private void aOn() {
-        if (!this.dyf && MessageManager.getInstance().findTask(aOh()) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(aOh(), TbConfig.SERVER_ADDRESS + aOj() + "?cmd=" + aOi());
-            tbHttpMessageTask.setResponsedClass(aOf());
+    private void aQD() {
+        if (!this.dCi && MessageManager.getInstance().findTask(Em()) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(Em(), TbConfig.SERVER_ADDRESS + Ek() + "?cmd=" + El());
+            tbHttpMessageTask.setResponsedClass(aQz());
             a(tbHttpMessageTask);
-            MessageManager.getInstance().unRegisterTask(aOh());
+            MessageManager.getInstance().unRegisterTask(Em());
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.dyf = true;
+            this.dCi = true;
         }
     }
 
     protected void a(TbHttpMessageTask tbHttpMessageTask) {
     }
 
-    private void aOo() {
-        if (!this.dyf && MessageManager.getInstance().findTask(aOh()) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(aOh(), TbConfig.SERVER_ADDRESS + aOj());
-            tbHttpMessageTask.setResponsedClass(aOm());
+    private void aQE() {
+        if (!this.dCi && MessageManager.getInstance().findTask(Em()) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(Em(), TbConfig.SERVER_ADDRESS + Ek());
+            tbHttpMessageTask.setResponsedClass(aQC());
             b(tbHttpMessageTask);
-            MessageManager.getInstance().unRegisterTask(aOh());
+            MessageManager.getInstance().unRegisterTask(Em());
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.dyf = true;
+            this.dCi = true;
         }
     }
 
     protected void b(TbHttpMessageTask tbHttpMessageTask) {
     }
 
-    private void aOp() {
-        if (!this.dyg && MessageManager.getInstance().findTask(aOi()) == null) {
-            com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(aOi());
-            bVar.setResponsedClass(aOg());
+    private void aQF() {
+        if (!this.dCj && MessageManager.getInstance().findTask(El()) == null) {
+            com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(El());
+            bVar.setResponsedClass(aQA());
             a(bVar);
-            MessageManager.getInstance().unRegisterTask(aOi());
+            MessageManager.getInstance().unRegisterTask(El());
             MessageManager.getInstance().registerTask(bVar);
-            this.dyg = true;
+            this.dCj = true;
         }
     }
 
@@ -389,16 +389,16 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         this.isLoading = false;
-        MessageManager.getInstance().removeMessage(aOi(), this.unique_id);
-        MessageManager.getInstance().removeMessage(aOh(), this.unique_id);
+        MessageManager.getInstance().removeMessage(El(), this.unique_id);
+        MessageManager.getInstance().removeMessage(Em(), this.unique_id);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void T(int i, String str) {
-        MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.dyc, aOh(), aOi());
-        if (this.dyb != null) {
-            MvcSocketResponsedMessage<D, ?> mvcSocketResponsedMessage = new MvcSocketResponsedMessage(aOi()) { // from class: com.baidu.tbadk.mvc.model.NetModel.9
+    public void V(int i, String str) {
+        MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.dCf, Em(), El());
+        if (this.dCe != null) {
+            MvcSocketResponsedMessage<D, ?> mvcSocketResponsedMessage = new MvcSocketResponsedMessage(El()) { // from class: com.baidu.tbadk.mvc.model.NetModel.9
                 @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
                 protected Class getProtobufResponseIdlClass() {
                     return null;
@@ -407,9 +407,9 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
             mvcSocketResponsedMessage.setOrginalMessage(mvcNetMessage.getSocketMessage());
             mvcSocketResponsedMessage.setError(i);
             mvcSocketResponsedMessage.setErrorString(str);
-            this.dyb.a(mvcSocketResponsedMessage, null, mvcNetMessage);
-        } else if (this.dya != null) {
-            MvcHttpResponsedMessage<D> mvcHttpResponsedMessage = new MvcProtobufHttpResponsedMessage<D, Error>(aOh()) { // from class: com.baidu.tbadk.mvc.model.NetModel.10
+            this.dCe.a(mvcSocketResponsedMessage, null, mvcNetMessage);
+        } else if (this.dCd != null) {
+            MvcHttpResponsedMessage<D> mvcHttpResponsedMessage = new MvcProtobufHttpResponsedMessage<D, Error>(Em()) { // from class: com.baidu.tbadk.mvc.model.NetModel.10
                 @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
                 protected Class<Error> getProtobufResponseIdlClass() {
                     return Error.class;
@@ -418,26 +418,26 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
             mvcHttpResponsedMessage.setOrginalMessage(mvcNetMessage.getHttpMessage());
             mvcHttpResponsedMessage.setError(i);
             mvcHttpResponsedMessage.setErrorString(str);
-            this.dya.a(mvcHttpResponsedMessage, null, mvcNetMessage);
+            this.dCd.a(mvcHttpResponsedMessage, null, mvcNetMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void U(int i, String str) {
-        if (this.dya != null) {
-            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.dyc, aOh());
-            MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(aOh());
+    public void r(int i, String str) {
+        if (this.dCd != null) {
+            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.dCf, Em());
+            MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(Em());
             mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
             mvcJsonHttpResponsedMessage.setError(i);
             mvcJsonHttpResponsedMessage.setErrorString(str);
-            this.dya.a(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
+            this.dCd.a(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void V(int i, String str) {
-        MvcSocketMessage<T, D> mvcSocketMessage = new MvcSocketMessage<>(this.dyc, aOi());
-        MvcSocketResponsedMessage<D, ?> mvcSocketResponsedMessage = new MvcSocketResponsedMessage(aOi()) { // from class: com.baidu.tbadk.mvc.model.NetModel.11
+    public void W(int i, String str) {
+        MvcSocketMessage<T, D> mvcSocketMessage = new MvcSocketMessage<>(this.dCf, El());
+        MvcSocketResponsedMessage<D, ?> mvcSocketResponsedMessage = new MvcSocketResponsedMessage(El()) { // from class: com.baidu.tbadk.mvc.model.NetModel.11
             @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
             protected Class getProtobufResponseIdlClass() {
                 return null;
@@ -446,24 +446,24 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         mvcSocketResponsedMessage.setOrginalMessage(mvcSocketMessage);
         mvcSocketResponsedMessage.setError(i);
         mvcSocketResponsedMessage.setErrorString(str);
-        this.dyb.a(mvcSocketResponsedMessage, mvcSocketMessage, null);
+        this.dCe.a(mvcSocketResponsedMessage, mvcSocketMessage, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOq() {
-        this.dye = null;
+    public void Eo() {
+        this.dCh = null;
     }
 
     public void a(b<T, D> bVar) {
-        this.dya = bVar;
-        this.dyb = bVar;
+        this.dCd = bVar;
+        this.dCe = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a<T extends h, D extends j, ActivityType> extends BdAsyncTask<Object, D, D> {
-        private NetModel<T, D, ActivityType> dyl;
-        private com.baidu.tbadk.core.util.a.a dym;
+        private com.baidu.tbadk.core.util.a.a aPB;
+        private NetModel<T, D, ActivityType> dCm;
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tbadk.mvc.model.NetModel$a<T extends com.baidu.tbadk.mvc.b.h, D extends com.baidu.tbadk.mvc.b.j, ActivityType> */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -474,7 +474,7 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         }
 
         public a(NetModel<T, D, ActivityType> netModel) {
-            this.dyl = netModel;
+            this.dCm = netModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -482,14 +482,14 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public D doInBackground(Object... objArr) {
-            ((NetModel) this.dyl).isLoading = true;
-            x xVar = new x(TbConfig.SERVER_ADDRESS + this.dyl.aOj());
-            for (Map.Entry<String, Object> entry : this.dyl.dyc.aNO().entrySet()) {
+            ((NetModel) this.dCm).isLoading = true;
+            x xVar = new x(TbConfig.SERVER_ADDRESS + this.dCm.Ek());
+            for (Map.Entry<String, Object> entry : this.dCm.dCf.aQi().entrySet()) {
                 xVar.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
             }
             String postNetData = xVar.postNetData();
-            this.dym = xVar.aDU();
-            D u = u(this.dyl.getResponseDataClass());
+            this.aPB = xVar.aGe();
+            D u = u(this.dCm.getResponseDataClass());
             if (postNetData != null) {
                 try {
                     u.initByJson(new JSONObject(postNetData));
@@ -498,19 +498,19 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
                 }
             }
             publishProgress(u);
-            if (this.dyl.isNeedCache() && this.dym != null && this.dym.aEv() != null && this.dym.aEv().isRequestSuccess() && u != null && (this.dyl.dyc instanceof com.baidu.tbadk.mvc.b.e)) {
-                com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) this.dyl.dyc;
+            if (this.dCm.isNeedCache() && this.aPB != null && this.aPB.aGG() != null && this.aPB.aGG().isRequestSuccess() && u != null && (this.dCm.dCf instanceof com.baidu.tbadk.mvc.b.e)) {
+                com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) this.dCm.dCf;
                 String cacheKey = eVar.getCacheKey();
-                String aNL = eVar.aNL();
+                String aQf = eVar.aQf();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey == null || TextUtils.isEmpty(aNL) || u == null) {
+                if (cacheKey == null || TextUtils.isEmpty(aQf) || u == null) {
                     return u;
                 }
-                com.baidu.adp.lib.cache.l<String> ci = com.baidu.tbadk.core.c.a.aCo().ci(aNL, currentAccount);
-                if (ci == null) {
+                com.baidu.adp.lib.cache.l<String> cr = com.baidu.tbadk.core.c.a.aEz().cr(aQf, currentAccount);
+                if (cr == null) {
                     return u;
                 }
-                ci.setForever(cacheKey, postNetData);
+                cr.setForever(cacheKey, postNetData);
             }
             return u;
         }
@@ -522,25 +522,25 @@ public abstract class NetModel<T extends h, D extends j, ActivityType> extends B
         public void onProgressUpdate(D... dArr) {
             super.onProgressUpdate(dArr);
             if (dArr != null && dArr.length > 0) {
-                ((NetModel) this.dyl).isLoading = false;
-                if (((NetModel) this.dyl).dyj != null) {
-                    e.gx().removeCallbacks(((NetModel) this.dyl).dyj);
+                ((NetModel) this.dCm).isLoading = false;
+                if (((NetModel) this.dCm).aPw != null) {
+                    e.gx().removeCallbacks(((NetModel) this.dCm).aPw);
                 }
-                MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.dyl.dyc, this.dyl.aOh());
-                MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.dyl.aOh());
+                MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.dCm.dCf, this.dCm.Em());
+                MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.dCm.Em());
                 mvcJsonHttpResponsedMessage.setData(dArr[0]);
                 mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
-                if (this.dym != null && this.dym.aEv() != null) {
-                    mvcJsonHttpResponsedMessage.setStatusCode(this.dym.aEv().mNetErrorCode, this.dym.aEv().mErrorString);
-                    mvcJsonHttpResponsedMessage.setError(this.dym.aEv().mServerErrorCode);
-                    mvcJsonHttpResponsedMessage.setErrorString(this.dym.aEv().mErrorString);
-                    if (this.dym.aEv().mException != null) {
-                        BdLog.e(this.dym.aEv().mException);
+                if (this.aPB != null && this.aPB.aGG() != null) {
+                    mvcJsonHttpResponsedMessage.setStatusCode(this.aPB.aGG().mNetErrorCode, this.aPB.aGG().mErrorString);
+                    mvcJsonHttpResponsedMessage.setError(this.aPB.aGG().mServerErrorCode);
+                    mvcJsonHttpResponsedMessage.setErrorString(this.aPB.aGG().mErrorString);
+                    if (this.aPB.aGG().mException != null) {
+                        BdLog.e(this.aPB.aGG().mException);
                     }
                 }
-                this.dyl.aOq();
-                if (((NetModel) this.dyl).dya != null) {
-                    ((NetModel) this.dyl).dya.a(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
+                this.dCm.Eo();
+                if (((NetModel) this.dCm).dCd != null) {
+                    ((NetModel) this.dCm).dCd.a(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
                 }
             }
         }

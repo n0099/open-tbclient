@@ -6,9 +6,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class e extends Dialog {
     public e(@NonNull Context context) {
         super(context, a.j.sdk_Transparent);

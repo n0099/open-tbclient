@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 import com.baidu.mapapi.walknavi.adapter.IWNPCEngineInitListener;
 import com.baidu.mapapi.walknavi.adapter.IWNPCLoadAndInitListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ab implements IWNPCEngineInitListener {
     final /* synthetic */ String a;
     final /* synthetic */ String b;

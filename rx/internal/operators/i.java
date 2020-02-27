@@ -2,14 +2,14 @@ package rx.internal.operators;
 
 import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i<T> implements d.b<Boolean, T> {
-    final rx.functions.f<? super T, Boolean> nNt;
-    final boolean nOo;
+    final rx.functions.f<? super T, Boolean> nOi;
+    final boolean nPd;
 
     public i(rx.functions.f<? super T, Boolean> fVar, boolean z) {
-        this.nNt = fVar;
-        this.nOo = z;
+        this.nOi = fVar;
+        this.nPd = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,16 +18,16 @@ public final class i<T> implements d.b<Boolean, T> {
         final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
         rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.i.1
             boolean done;
-            boolean nOp;
+            boolean nPe;
 
             @Override // rx.e
             public void onNext(T t) {
                 if (!this.done) {
-                    this.nOp = true;
+                    this.nPe = true;
                     try {
-                        if (i.this.nNt.call(t).booleanValue()) {
+                        if (i.this.nOi.call(t).booleanValue()) {
                             this.done = true;
-                            singleDelayedProducer.setValue(Boolean.valueOf(!i.this.nOo));
+                            singleDelayedProducer.setValue(Boolean.valueOf(!i.this.nPd));
                             unsubscribe();
                         }
                     } catch (Throwable th) {
@@ -50,10 +50,10 @@ public final class i<T> implements d.b<Boolean, T> {
             public void onCompleted() {
                 if (!this.done) {
                     this.done = true;
-                    if (this.nOp) {
+                    if (this.nPe) {
                         singleDelayedProducer.setValue(false);
                     } else {
-                        singleDelayedProducer.setValue(Boolean.valueOf(i.this.nOo));
+                        singleDelayedProducer.setValue(Boolean.valueOf(i.this.nPd));
                     }
                 }
             }

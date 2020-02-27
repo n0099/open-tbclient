@@ -5,20 +5,21 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import kotlin.TypeCastException;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class n {
-    private static final Object[] nBM = new Object[0];
+    private static final Object[] nCo = new Object[0];
 
     public static final Object[] n(Collection<?> collection) {
         Object[] objArr;
         q.j(collection, "collection");
         int size = collection.size();
         if (size == 0) {
-            return nBM;
+            return nCo;
         }
         Iterator<?> it = collection.iterator();
         if (!it.hasNext()) {
-            return nBM;
+            return nCo;
         }
         Object[] objArr2 = new Object[size];
         int i = 0;

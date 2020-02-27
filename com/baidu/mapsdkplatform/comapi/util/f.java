@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
-import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.webkit.internal.ETAG;
@@ -21,7 +20,7 @@ import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
     static String b;
     static String c;
@@ -42,8 +41,8 @@ public class f {
     private static final String A = f.class.getSimpleName();
     private static com.baidu.mapsdkplatform.comjni.util.a B = new com.baidu.mapsdkplatform.comjni.util.a();
     static String a = "02";
-    static String n = BuildConfig.FLAVOR;
-    static String o = BuildConfig.FLAVOR;
+    static String n = "baidu";
+    static String o = "baidu";
     static String p = "";
     static String q = "";
     static String r = "";

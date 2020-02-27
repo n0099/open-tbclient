@@ -12,13 +12,13 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class BdZeusDownloadHelper {
     protected long b;
     protected long c;
     private Context h;
     public static final String a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper Jq = null;
+    private static BdZeusDownloadHelper JL = null;
     protected static final String d = Environment.getExternalStorageDirectory().getAbsolutePath() + "/baidu/zeus/";
     protected static String e = d + "updateZeus.zes";
     protected static String f = "com.baidu.android.appswitchsdk:web";
@@ -27,7 +27,7 @@ public final class BdZeusDownloadHelper {
     private int j = a.c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
         private ZeusDownloadTaskListener() {
         }
@@ -108,7 +108,7 @@ public final class BdZeusDownloadHelper {
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class a {
         public static final int a = 1;
         public static final int b = 2;
@@ -136,14 +136,14 @@ public final class BdZeusDownloadHelper {
     }
 
     public static BdZeusDownloadHelper ak(Context context) {
-        if (Jq == null) {
+        if (JL == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (Jq == null) {
-                    Jq = new BdZeusDownloadHelper(context);
+                if (JL == null) {
+                    JL = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return Jq;
+        return JL;
     }
 
     public final void a(String str) {

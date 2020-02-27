@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.img.ImageFileInfo;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageActionManager {
     private static ImageActionManager _instance = new ImageActionManager();
     private final HashMap<String, Class<? extends ImageAction>> imageActions = new HashMap<>();
@@ -40,8 +40,10 @@ public class ImageActionManager {
                 ImageOperation imageOperation = list.get(i3);
                 if (ResizeImageAction.ACTION_NAME.equals(imageOperation.actionName)) {
                     ResizeImageAction resizeImageAction2 = (ResizeImageAction) allocateImageAction(imageOperation);
-                    if (resizeImageAction != null && resizeImageAction2.getMaxWidth() > resizeImageAction.getMaxWidth() && resizeImageAction2.getMaxHeight() > resizeImageAction.getMaxHeight()) {
-                        resizeImageAction2 = resizeImageAction;
+                    if (resizeImageAction != null) {
+                        if (resizeImageAction2.getMaxWidth() > resizeImageAction.getMaxWidth() && resizeImageAction2.getMaxHeight() > resizeImageAction.getMaxHeight()) {
+                            resizeImageAction2 = resizeImageAction;
+                        }
                     }
                     list.remove(i3);
                     resizeImageAction = resizeImageAction2;
@@ -92,8 +94,10 @@ public class ImageActionManager {
             ImageOperation imageOperation = list.get(i4);
             if (ResizeImageAction.ACTION_NAME.equals(imageOperation.actionName)) {
                 ResizeImageAction resizeImageAction2 = (ResizeImageAction) allocateImageAction(imageOperation);
-                if (resizeImageAction != null && resizeImageAction2.getMaxWidth() > resizeImageAction.getMaxWidth() && resizeImageAction2.getMaxHeight() > resizeImageAction.getMaxHeight()) {
-                    resizeImageAction2 = resizeImageAction;
+                if (resizeImageAction != null) {
+                    if (resizeImageAction2.getMaxWidth() > resizeImageAction.getMaxWidth() && resizeImageAction2.getMaxHeight() > resizeImageAction.getMaxHeight()) {
+                        resizeImageAction2 = resizeImageAction;
+                    }
                 }
                 list.remove(i4);
                 resizeImageAction = resizeImageAction2;

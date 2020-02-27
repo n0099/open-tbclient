@@ -59,7 +59,7 @@ import android.widget.ViewSwitcher;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ay {
     private static final ay b = new ay();
     private HashMap<String, String> a = new HashMap<>();

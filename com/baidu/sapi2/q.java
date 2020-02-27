@@ -3,7 +3,7 @@ package com.baidu.sapi2;
 import android.os.Looper;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q extends HttpHandlerWrap {
     final /* synthetic */ G a;
 

@@ -3,7 +3,7 @@ package android.support.v4.util;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Pair<F, S> {
     @Nullable
     public final F first;

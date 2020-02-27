@@ -2,15 +2,17 @@ package kotlin.jvm;
 
 import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import kotlin.TypeCastException;
+import kotlin.h;
 import kotlin.jvm.internal.l;
 import kotlin.jvm.internal.q;
 import kotlin.reflect.c;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=10] */
     public static final <T> Class<T> a(c<T> cVar) {
         q.j(cVar, "receiver$0");
-        Class<T> cls = (Class<T>) ((l) cVar).dJk();
+        Class<T> cls = (Class<T>) ((l) cVar).dKr();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {

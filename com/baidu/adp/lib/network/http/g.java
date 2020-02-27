@@ -7,8 +7,8 @@ import java.util.Map;
 public class g {
     public int downSize;
     public byte[] retBytes;
-    public Map<String, List<String>> rp;
-    public volatile boolean ro = false;
+    public Map<String, List<String>> rq;
+    public volatile boolean rp = false;
     public int responseCode = -1;
     public int mNetErrorCode = -1;
     public String contentEncoding = "";
@@ -22,7 +22,7 @@ public class g {
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = httpURLConnection.getContentLength() + "";
-            this.rp = httpURLConnection.getHeaderFields();
+            this.rq = httpURLConnection.getHeaderFields();
         }
     }
 

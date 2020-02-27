@@ -5,9 +5,10 @@ import kotlin.collections.ad;
 import kotlin.collections.ae;
 import kotlin.collections.ap;
 import kotlin.collections.z;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class i {
-    public static final kotlin.collections.m aE(byte[] bArr) {
+    public static final kotlin.collections.m aJ(byte[] bArr) {
         q.j(bArr, "array");
         return new b(bArr);
     }
@@ -22,7 +23,7 @@ public final class i {
         return new k(sArr);
     }
 
-    public static final ad r(int[] iArr) {
+    public static final ad q(int[] iArr) {
         q.j(iArr, "array");
         return new f(iArr);
     }

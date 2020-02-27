@@ -12,7 +12,7 @@ public class FrameHelper {
         CUSTOM
     }
 
-    public static TYPE z(int i) {
+    public static TYPE C(int i) {
         if (i >= 0 && i < 1000000) {
             return TYPE.SOCKET;
         }
@@ -53,6 +53,6 @@ public class FrameHelper {
         }
     }
 
-    public static void A(int i) {
+    public static void D(int i) {
     }
 }

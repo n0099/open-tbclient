@@ -4,16 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import com.baidu.k.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public final class b implements a.InterfaceC0072a {
-    final /* synthetic */ BdUploadHandler IG;
+/* loaded from: classes11.dex */
+public final class b implements a.InterfaceC0078a {
+    final /* synthetic */ BdUploadHandler Jg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdUploadHandler bdUploadHandler) {
-        this.IG = bdUploadHandler;
+        this.Jg = bdUploadHandler;
     }
 
-    @Override // com.baidu.k.a.a.InterfaceC0072a
+    @Override // com.baidu.k.a.a.InterfaceC0078a
     public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Activity activity;
         Intent createCamcorderIntent;
@@ -25,12 +25,12 @@ public final class b implements a.InterfaceC0072a {
                 }
             }
             if (z) {
-                this.IG.mCanHandleResult = true;
-                activity = this.IG.mActivity;
-                createCamcorderIntent = this.IG.createCamcorderIntent();
+                this.Jg.mCanHandleResult = true;
+                activity = this.Jg.mActivity;
+                createCamcorderIntent = this.Jg.createCamcorderIntent();
                 activity.startActivityForResult(createCamcorderIntent, 11);
             }
-            com.baidu.browser.core.permission.a.mm().aF(4099);
+            com.baidu.browser.core.permission.a.mB().aI(4099);
         }
     }
 }

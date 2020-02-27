@@ -1,5 +1,5 @@
 package com.baidu.poly.a.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
@@ -20,7 +20,7 @@ public class b {
             r0.<init>(r1)     // Catch: java.lang.Throwable -> L39
             java.net.URLConnection r0 = r0.openConnection()     // Catch: java.lang.Throwable -> L39
             java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L39
-            java.util.Map r1 = r10.Cb()     // Catch: java.lang.Throwable -> L39
+            java.util.Map r1 = r10.Ex()     // Catch: java.lang.Throwable -> L39
             java.util.Set r1 = r1.entrySet()     // Catch: java.lang.Throwable -> L39
             java.util.Iterator r4 = r1.iterator()     // Catch: java.lang.Throwable -> L39
         L1d:
@@ -58,7 +58,7 @@ public class b {
             r0.setReadTimeout(r1)     // Catch: java.lang.Throwable -> L39
             java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L39
             r4.<init>()     // Catch: java.lang.Throwable -> L39
-            java.util.Map r1 = r11.Cb()     // Catch: java.lang.Throwable -> L39
+            java.util.Map r1 = r11.Ex()     // Catch: java.lang.Throwable -> L39
             java.util.Set r1 = r1.entrySet()     // Catch: java.lang.Throwable -> L39
             java.util.Iterator r5 = r1.iterator()     // Catch: java.lang.Throwable -> L39
         L70:

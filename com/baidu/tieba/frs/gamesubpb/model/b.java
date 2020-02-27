@@ -3,15 +3,15 @@ package com.baidu.tieba.frs.gamesubpb.model;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b implements m {
-    public static final BdUniqueId gBu = BdUniqueId.gen();
+    public static final BdUniqueId gDu = BdUniqueId.gen();
     public String content;
     public String createTime;
     public String forumId;
-    public String gBv;
-    public int gBw;
-    public boolean gBx;
+    public String gDv;
+    public int gDw;
+    public boolean gDx;
     public String id;
     public String portrait;
     public String score;
@@ -25,10 +25,10 @@ public class b implements m {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString("score");
             this.createTime = jSONObject.optString("create_time");
-            this.gBv = jSONObject.optString("time_passed");
+            this.gDv = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.gBw = jSONObject.optInt("zan_num");
-            this.gBx = jSONObject.optInt("is_zan", 0) == 1;
+            this.gDw = jSONObject.optInt("zan_num");
+            this.gDx = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString("portrait");
         }
@@ -36,6 +36,6 @@ public class b implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gBu;
+        return gDu;
     }
 }

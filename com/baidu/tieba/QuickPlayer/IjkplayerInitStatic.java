@@ -1,7 +1,7 @@
 package com.baidu.tieba.QuickPlayer;
 
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IjkplayerInitStatic {
     static {
         QuickMediaPlayerBinder.isIjkPlayerLoaded = true;

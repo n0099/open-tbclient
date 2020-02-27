@@ -3,7 +3,7 @@ package com.baidu.live.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.data.ao;
+import com.baidu.live.data.ap;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -13,9 +13,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class o {
-    public static long azz;
+    public static long aDP;
 
     public static void g(String str, long j) {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isVideoGoodslistUnabled()) {
@@ -25,17 +25,17 @@ public class o {
 
     public static void b(String str, long j, boolean z) {
         com.baidu.live.message.h hVar = new com.baidu.live.message.h();
-        hVar.aeS = str;
+        hVar.agZ = str;
         hVar.liveId = j;
-        hVar.asB = z;
+        hVar.awL = z;
         hVar.setParams();
         MessageManager.getInstance().sendMessage(hVar);
     }
 
     public static void k(Context context, String str, String str2) {
-        ao aoVar = com.baidu.live.s.a.wR().atk;
-        if (aoVar != null && aoVar.aaY != null) {
-            String str3 = aoVar.aaY.acF;
+        ap apVar = com.baidu.live.v.a.zj().axB;
+        if (apVar != null && apVar.acW != null) {
+            String str3 = apVar.acW.aeH;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }
@@ -43,16 +43,16 @@ public class o {
     }
 
     public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7) {
-        ao aoVar = com.baidu.live.s.a.wR().atk;
-        if (aoVar == null || aoVar.aaY == null) {
+        ap apVar = com.baidu.live.v.a.zj().axB;
+        if (apVar == null || apVar.acW == null) {
             return "";
         }
-        String str8 = aoVar.aaY.acE;
+        String str8 = apVar.acW.aeG;
         if (TextUtils.isEmpty(str8)) {
             return "";
         }
-        String str9 = aoVar.aaY.appKey;
-        String str10 = aoVar.aaY.acG;
+        String str9 = apVar.acW.appKey;
+        String str10 = apVar.acW.aeI;
         String str11 = str10 == null ? "" : str10;
         StringBuffer stringBuffer = new StringBuffer(str8);
         stringBuffer.append(str8.contains("?") ? ETAG.ITEM_SEPARATOR : "?");

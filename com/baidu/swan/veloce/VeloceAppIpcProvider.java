@@ -10,13 +10,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VeloceAppIpcProvider extends ContentProvider {
-    public static final String cbA = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
-    public static final Uri cBN = Uri.parse("content://" + cbA);
-    public static final Uri cBO = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
-    public static String cBP = "ipc_veloce_call_app";
-    public static String cBQ = "ipc_app_call_veloce";
+    public static final String cfF = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
+    public static final Uri cFL = Uri.parse("content://" + cfF);
+    public static final Uri cFM = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
+    public static String cFN = "ipc_veloce_call_app";
+    public static String cFO = "ipc_app_call_veloce";
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -28,10 +28,10 @@ public class VeloceAppIpcProvider extends ContentProvider {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (cBP.equals(str)) {
+        if (cFN.equals(str)) {
             return X(bundle);
         }
-        if (cBQ.equals(str)) {
+        if (cFO.equals(str)) {
             return f(AppRuntime.getAppContext(), bundle);
         }
         return null;
@@ -51,10 +51,10 @@ public class VeloceAppIpcProvider extends ContentProvider {
     }
 
     private Bundle f(String str, Bundle bundle) {
-        if (TextUtils.isEmpty(str) || b.aub() == null) {
+        if (TextUtils.isEmpty(str) || b.awp() == null) {
             return null;
         }
-        return b.aub().e(str, bundle);
+        return b.awp().e(str, bundle);
     }
 
     @Override // android.content.ContentProvider
@@ -96,7 +96,7 @@ public class VeloceAppIpcProvider extends ContentProvider {
         bundle3.putString("action", string);
         bundle3.putBundle("data", bundle2);
         try {
-            return context.getContentResolver().call(cBO, cBQ, (String) null, bundle3);
+            return context.getContentResolver().call(cFM, cFO, (String) null, bundle3);
         } catch (Exception e) {
             return null;
         }

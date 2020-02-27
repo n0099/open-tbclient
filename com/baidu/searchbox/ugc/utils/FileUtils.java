@@ -9,7 +9,6 @@ import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.ugc.upload.CompressImageUtil;
@@ -23,12 +22,12 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.codec.digest4util.EncryptUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class FileUtils {
     private static final boolean DEBUG = false;
     private static final String IMAGE_DIR = "imgDir";
     private static final String UPLOAD_DIR = "ugc_upload";
-    public static final String VIDEOCOVER = File.separator + BuildConfig.FLAVOR + File.separator + "searchbox" + File.separator + "videocover";
+    public static final String VIDEOCOVER = File.separator + "baidu" + File.separator + "searchbox" + File.separator + "videocover";
     private static final String VIDEO_CLIP_DIR = "video_clip";
     private static final String VIDEO_DIR = "videoDir";
 

@@ -6,34 +6,34 @@ import com.qiniu.android.http.Dns;
 import com.qiniu.android.http.ProxyConfiguration;
 import com.qiniu.android.http.UrlConverter;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Configuration {
     public final int chunkSize;
     public final int connectTimeout;
-    public final Recorder nmZ;
-    public final KeyGenerator nna;
-    public final ProxyConfiguration nnb;
-    public final int nnc;
-    public final int nnd;
-    public UrlConverter nne;
-    public Dns nnf;
-    public Zone nng;
+    public final Recorder nnA;
+    public final KeyGenerator nnB;
+    public final ProxyConfiguration nnC;
+    public final int nnD;
+    public final int nnE;
+    public UrlConverter nnF;
+    public Dns nnG;
+    public Zone nnH;
     public final int responseTimeout;
     public boolean useHttps;
 
     private Configuration(Builder builder) {
         this.useHttps = builder.useHttps;
         this.chunkSize = builder.chunkSize;
-        this.nnc = builder.nnc;
+        this.nnD = builder.nnD;
         this.connectTimeout = builder.connectTimeout;
         this.responseTimeout = builder.responseTimeout;
-        this.nmZ = builder.nmZ;
-        this.nna = a(builder.nna);
-        this.nnd = builder.nnd;
-        this.nnb = builder.nnb;
-        this.nne = builder.nne;
-        this.nng = builder.nng == null ? AutoZone.nme : builder.nng;
-        this.nnf = builder.nnf;
+        this.nnA = builder.nnA;
+        this.nnB = a(builder.nnB);
+        this.nnE = builder.nnE;
+        this.nnC = builder.nnC;
+        this.nnF = builder.nnF;
+        this.nnH = builder.nnH == null ? AutoZone.nmF : builder.nnH;
+        this.nnG = builder.nnG;
     }
 
     private KeyGenerator a(KeyGenerator keyGenerator) {
@@ -48,22 +48,22 @@ public final class Configuration {
         return keyGenerator;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
-        private Zone nng = null;
-        private Recorder nmZ = null;
-        private KeyGenerator nna = null;
-        private ProxyConfiguration nnb = null;
+        private Zone nnH = null;
+        private Recorder nnA = null;
+        private KeyGenerator nnB = null;
+        private ProxyConfiguration nnC = null;
         private boolean useHttps = false;
         private int chunkSize = 2097152;
-        private int nnc = 4194304;
+        private int nnD = 4194304;
         private int connectTimeout = 10;
         private int responseTimeout = 60;
-        private int nnd = 3;
-        private UrlConverter nne = null;
-        private Dns nnf = null;
+        private int nnE = 3;
+        private UrlConverter nnF = null;
+        private Dns nnG = null;
 
-        public Configuration dEQ() {
+        public Configuration dFX() {
             return new Configuration(this);
         }
     }

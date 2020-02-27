@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSampleTimed<T> extends a<T, T> {
     final boolean emitLast;
     final long period;
@@ -22,13 +22,13 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         if (this.emitLast) {
-            this.nvP.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
+            this.nwr.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
-            this.nvP.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
+            this.nwr.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static abstract class SampleTimedSubscriber<T> extends AtomicReference<T> implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = -3517602651313910099L;
         final org.a.c<? super T> actual;
@@ -106,7 +106,7 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SampleTimedNoLast<T> extends SampleTimedSubscriber<T> {
         private static final long serialVersionUID = -7139995637533111443L;
 
@@ -125,7 +125,7 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SampleTimedEmitLast<T> extends SampleTimedSubscriber<T> {
         private static final long serialVersionUID = -7139995637533111443L;
         final AtomicInteger wip;

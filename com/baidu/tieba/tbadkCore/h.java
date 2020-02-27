@@ -3,13 +3,13 @@ package com.baidu.tieba.tbadkCore;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.FrsPage.BusinessPromot;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h {
     private long id;
     private String img;
     private String img_popup;
-    private int kdn;
-    private List<i> kdo;
+    private int kem;
+    private List<i> ken;
     private String thread_id;
     private int thread_type;
     private String title;
@@ -24,10 +24,10 @@ public class h {
             this.type = businessPromot.type.intValue();
             this.thread_id = businessPromot.thread_id;
             this.url = businessPromot.url;
-            this.kdn = businessPromot.join_num.intValue();
+            this.kem = businessPromot.join_num.intValue();
             this.id = businessPromot.id.longValue();
             if (businessPromot.comment_list != null) {
-                this.kdo = new LinkedList();
+                this.ken = new LinkedList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -37,7 +37,7 @@ public class h {
                     if (businessPromot.comment_list.get(i2) != null) {
                         i iVar = new i();
                         iVar.a(businessPromot.comment_list.get(i2));
-                        this.kdo.add(iVar);
+                        this.ken.add(iVar);
                     }
                     i = i2 + 1;
                 }
@@ -50,11 +50,11 @@ public class h {
         return this.title;
     }
 
-    public String avB() {
+    public String getImg() {
         return this.img;
     }
 
-    public String cIx() {
+    public String cKb() {
         return this.img_popup;
     }
 
@@ -70,16 +70,16 @@ public class h {
         return this.url;
     }
 
-    public int cIy() {
-        return this.kdn;
+    public int cKc() {
+        return this.kem;
     }
 
     public long getId() {
         return this.id;
     }
 
-    public List<i> cIz() {
-        return this.kdo;
+    public List<i> cKd() {
+        return this.ken;
     }
 
     public int getThreadType() {

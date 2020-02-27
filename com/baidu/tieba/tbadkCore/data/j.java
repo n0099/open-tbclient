@@ -14,12 +14,4 @@ public class j {
             this.url = detailInfo.url;
         }
     }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
 }

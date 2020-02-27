@@ -5,23 +5,23 @@ import com.google.android.exoplayer2.util.v;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class d {
-    private float Ro;
+    private float SW;
     private int backgroundColor;
     private int bold;
-    private int gMR;
-    private String hz;
+    private int gOR;
+    private String hD;
     private int italic;
-    private boolean mAO;
-    private boolean mAP;
-    private int mAQ;
-    private int mAR;
-    private Layout.Alignment mAT;
-    private String mBq;
-    private String mBr;
-    private List<String> mBs;
-    private String mBt;
+    private Layout.Alignment mBA;
+    private String mBW;
+    private String mBX;
+    private List<String> mBY;
+    private String mBZ;
+    private boolean mBv;
+    private boolean mBw;
+    private int mBx;
+    private int mBy;
     private int underline;
 
     public d() {
@@ -29,46 +29,46 @@ final class d {
     }
 
     public void reset() {
-        this.mBq = "";
-        this.mBr = "";
-        this.mBs = Collections.emptyList();
-        this.mBt = "";
-        this.hz = null;
-        this.mAO = false;
-        this.mAP = false;
-        this.mAQ = -1;
+        this.mBW = "";
+        this.mBX = "";
+        this.mBY = Collections.emptyList();
+        this.mBZ = "";
+        this.hD = null;
+        this.mBv = false;
+        this.mBw = false;
+        this.mBx = -1;
         this.underline = -1;
         this.bold = -1;
         this.italic = -1;
-        this.mAR = -1;
-        this.mAT = null;
+        this.mBy = -1;
+        this.mBA = null;
     }
 
-    public void PP(String str) {
-        this.mBq = str;
+    public void Qc(String str) {
+        this.mBW = str;
     }
 
-    public void PQ(String str) {
-        this.mBr = str;
+    public void Qd(String str) {
+        this.mBX = str;
     }
 
-    public void S(String[] strArr) {
-        this.mBs = Arrays.asList(strArr);
+    public void T(String[] strArr) {
+        this.mBY = Arrays.asList(strArr);
     }
 
-    public void PR(String str) {
-        this.mBt = str;
+    public void Qe(String str) {
+        this.mBZ = str;
     }
 
     public int a(String str, String str2, String[] strArr, String str3) {
-        if (this.mBq.isEmpty() && this.mBr.isEmpty() && this.mBs.isEmpty() && this.mBt.isEmpty()) {
+        if (this.mBW.isEmpty() && this.mBX.isEmpty() && this.mBY.isEmpty() && this.mBZ.isEmpty()) {
             return str2.isEmpty() ? 1 : 0;
         }
-        int b = b(b(b(0, this.mBq, str, 1073741824), this.mBr, str2, 2), this.mBt, str3, 4);
-        if (b == -1 || !Arrays.asList(strArr).containsAll(this.mBs)) {
+        int b = b(b(b(0, this.mBW, str, 1073741824), this.mBX, str2, 2), this.mBZ, str3, 4);
+        if (b == -1 || !Arrays.asList(strArr).containsAll(this.mBY)) {
             return 0;
         }
-        return (this.mBs.size() * 4) + b;
+        return (this.mBY.size() * 4) + b;
     }
 
     public int getStyle() {
@@ -78,82 +78,82 @@ final class d {
         return (this.bold == 1 ? 1 : 0) | (this.italic == 1 ? 2 : 0);
     }
 
-    public boolean dwZ() {
-        return this.mAQ == 1;
+    public boolean dyj() {
+        return this.mBx == 1;
     }
 
-    public boolean dxa() {
+    public boolean dyk() {
         return this.underline == 1;
     }
 
-    public d vL(boolean z) {
+    public d vP(boolean z) {
         this.underline = z ? 1 : 0;
         return this;
     }
 
-    public d vM(boolean z) {
+    public d vQ(boolean z) {
         this.bold = z ? 1 : 0;
         return this;
     }
 
-    public d vN(boolean z) {
+    public d vR(boolean z) {
         this.italic = z ? 1 : 0;
         return this;
     }
 
-    public String dxb() {
-        return this.hz;
+    public String dyl() {
+        return this.hD;
     }
 
-    public d PS(String str) {
-        this.hz = v.Qo(str);
+    public d Qf(String str) {
+        this.hD = v.QB(str);
         return this;
     }
 
     public int getFontColor() {
-        if (!this.mAO) {
+        if (!this.mBv) {
             throw new IllegalStateException("Font color not defined");
         }
-        return this.gMR;
+        return this.gOR;
     }
 
-    public d Lw(int i) {
-        this.gMR = i;
-        this.mAO = true;
+    public d LB(int i) {
+        this.gOR = i;
+        this.mBv = true;
         return this;
     }
 
-    public boolean dxc() {
-        return this.mAO;
+    public boolean dym() {
+        return this.mBv;
     }
 
     public int getBackgroundColor() {
-        if (!this.mAP) {
+        if (!this.mBw) {
             throw new IllegalStateException("Background color not defined.");
         }
         return this.backgroundColor;
     }
 
-    public d Lx(int i) {
+    public d LC(int i) {
         this.backgroundColor = i;
-        this.mAP = true;
+        this.mBw = true;
         return this;
     }
 
-    public boolean dxd() {
-        return this.mAP;
+    public boolean dyn() {
+        return this.mBw;
     }
 
-    public Layout.Alignment dxe() {
-        return this.mAT;
+    public Layout.Alignment dyo() {
+        return this.mBA;
     }
 
-    public int dxf() {
-        return this.mAR;
+    public int dyp() {
+        return this.mBy;
     }
 
-    public float dxg() {
-        return this.Ro;
+    public float dyq() {
+        return this.SW;
     }
 
     private static int b(int i, String str, String str2, int i2) {

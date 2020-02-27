@@ -28,7 +28,7 @@ import com.facebook.imagepipeline.g.a;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LocalAlbumAdapter extends PagerAdapter {
     private static final float LONG_PIC_DISTINGUISH_RATE = 1.6f;
     public static final float MAX_BITMAP_SIZE = 10240.0f;
@@ -37,7 +37,7 @@ public class LocalAlbumAdapter extends PagerAdapter {
     private List<ImageStruct> mList = new ArrayList();
     private int[] maxTextureSize = new int[1];
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface ClickPagerViewListener {
         void clickContainer();
     }
@@ -89,10 +89,10 @@ public class LocalAlbumAdapter extends PagerAdapter {
         UiBaseUtils.setViewColorResource(inflate.findViewById(ResourceUtils.getResIdByName("ugc_photo_item_root")), R.color.ugc_common_black);
         UiBaseUtils.setViewColorResource(inflate, R.color.ugc_common_black);
         UiBaseUtils.setViewColorResource(inflate.findViewById(R.id.ugc_photo_item_root), R.color.ugc_common_black);
-        ImageRequestBuilder X = ImageRequestBuilder.X(uri);
-        X.c(new d(DeviceUtil.ScreenInfo.getDisplayWidth(this.mContext), DeviceUtil.ScreenInfo.getDisplayHeight(this.mContext), 10240.0f));
-        X.vs(true);
-        hugePhotoDraweeView.setController(com.facebook.drawee.a.a.c.dkj().vd(SelectUtil.supportGifLongImg).be(X.dro()).c(controllerListener).c(hugePhotoDraweeView.getController()).dla());
+        ImageRequestBuilder Y = ImageRequestBuilder.Y(uri);
+        Y.c(new d(DeviceUtil.ScreenInfo.getDisplayWidth(this.mContext), DeviceUtil.ScreenInfo.getDisplayHeight(this.mContext), 10240.0f));
+        Y.vw(true);
+        hugePhotoDraweeView.setController(com.facebook.drawee.a.a.c.dlw().vh(SelectUtil.supportGifLongImg).bg(Y.dsA()).c(controllerListener).c(hugePhotoDraweeView.getController()).dmn());
         hugePhotoDraweeView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ugc.adapter.LocalAlbumAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -118,20 +118,20 @@ public class LocalAlbumAdapter extends PagerAdapter {
                 if (obj instanceof com.facebook.imagepipeline.g.d) {
                     hugePhotoDraweeView.setIsDynamicBitmap(false);
                     hugePhotoDraweeView.setZoomEnabled(true);
-                    Bitmap dpd = ((com.facebook.imagepipeline.g.d) obj).dpd();
+                    Bitmap dqp = ((com.facebook.imagepipeline.g.d) obj).dqp();
                     LocalAlbumAdapter.this.maxTextureSize = HugePhotoUtils.getMaxTextureSize();
-                    ImageSource cachedBitmap = ImageSource.cachedBitmap(dpd);
-                    if (dpd.getWidth() >= LocalAlbumAdapter.this.maxTextureSize[0] || dpd.getHeight() >= LocalAlbumAdapter.this.maxTextureSize[0]) {
+                    ImageSource cachedBitmap = ImageSource.cachedBitmap(dqp);
+                    if (dqp.getWidth() >= LocalAlbumAdapter.this.maxTextureSize[0] || dqp.getHeight() >= LocalAlbumAdapter.this.maxTextureSize[0]) {
                         cachedBitmap.tilingEnabled();
                     } else {
                         cachedBitmap.tilingDisabled();
                     }
                     hugePhotoDraweeView.setImage(cachedBitmap);
-                    LocalAlbumAdapter.this.longPicDisplayMode(hugePhotoDraweeView, dpd);
+                    LocalAlbumAdapter.this.longPicDisplayMode(hugePhotoDraweeView, dqp);
                 } else if (obj instanceof a) {
                     hugePhotoDraweeView.setIsDynamicBitmap(true);
                     hugePhotoDraweeView.setZoomEnabled(false);
-                    hugePhotoDraweeView.getHierarchy().b(p.b.lMg);
+                    hugePhotoDraweeView.getHierarchy().b(p.b.lMN);
                 }
             }
 

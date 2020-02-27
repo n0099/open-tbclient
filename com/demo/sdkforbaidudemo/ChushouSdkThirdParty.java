@@ -19,7 +19,7 @@ import com.kascend.cstvsdk.interfaces.ShareListener;
 import com.kascend.cstvsdk.interfaces.ThirdParty;
 import tv.chushou.common.player.a;
 import tv.chushou.sdk.tieba.player.TiebaPlayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChushouSdkThirdParty implements ThirdParty {
     private final CustomMessageListener RechargeSucceedListener = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.demo.sdkforbaidudemo.ChushouSdkThirdParty.1
         /* JADX DEBUG: Method merged with bridge method */

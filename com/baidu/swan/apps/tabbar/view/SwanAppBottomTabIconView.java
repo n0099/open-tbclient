@@ -9,12 +9,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private static int bTl = 5;
-    private static int bTm = 0;
-    private TextView bTj;
-    private boolean bTk;
+    private static int bXp = 5;
+    private static int bXq = 0;
+    private TextView bXn;
+    private boolean bXo;
     private ImageView mIconView;
     private ImageView mRedDot;
     private TextView mTextView;
@@ -25,7 +25,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
         this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.bTj = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.bXn = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -41,8 +41,8 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setTextView(String str) {
-        if (str.length() > bTl) {
-            str = str.substring(bTm, bTl);
+        if (str.length() > bXp) {
+            str = str.substring(bXq, bXp);
         }
         this.mTextView.setText(str);
     }
@@ -51,16 +51,16 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mTextView.setTextColor(i);
     }
 
-    public boolean adM() {
-        return this.bTk;
+    public boolean aga() {
+        return this.bXo;
     }
 
     public void setmIsSelect(boolean z) {
-        this.bTk = z;
+        this.bXo = z;
     }
 
     public void setBadgeText(String str) {
-        this.bTj.setText(str);
+        this.bXn.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
@@ -73,9 +73,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.bTj.setVisibility(0);
+            this.bXn.setVisibility(0);
         } else {
-            this.bTj.setVisibility(8);
+            this.bXn.setVisibility(8);
         }
     }
 }

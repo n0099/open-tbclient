@@ -2,13 +2,13 @@ package com.kascend.chushou.player.ui.pk;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
-    private static final e ndI = new e();
+    private static final e nel = new e();
     private Handler b = new Handler(Looper.getMainLooper());
 
-    public static e dCV() {
-        return ndI;
+    public static e dEb() {
+        return nel;
     }
 
     private e() {

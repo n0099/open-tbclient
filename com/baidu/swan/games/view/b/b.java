@@ -8,12 +8,12 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.y.f;
 import com.baidu.swan.games.utils.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static final int cpJ = d.S(42.0f);
-    private static volatile b cpL = null;
-    private int cpK;
-    private ViewTreeObserver.OnGlobalLayoutListener cpM = null;
+    private static final int ctK = d.S(42.0f);
+    private static volatile b ctM = null;
+    private int ctL;
+    private ViewTreeObserver.OnGlobalLayoutListener ctN = null;
     private int mBottomNavigationKeyHeight;
     private int mInputMethodHeight;
     private boolean mIsFirstGlobalLayout;
@@ -22,25 +22,25 @@ public class b {
     private b() {
     }
 
-    public static b aoD() {
-        if (cpL == null) {
+    public static b aqR() {
+        if (ctM == null) {
             synchronized (b.class) {
-                if (cpL == null) {
-                    cpL = new b();
+                if (ctM == null) {
+                    ctM = new b();
                 }
             }
         }
-        return cpL;
+        return ctM;
     }
 
     public boolean f(a aVar) {
-        com.baidu.swan.games.view.d UE = f.UC().UE();
-        boolean z = (UE == null || az(aVar.getContentView()) || !UE.a(aVar.getContentView(), aoE())) ? false : true;
+        com.baidu.swan.games.view.d WS = f.WQ().WS();
+        boolean z = (WS == null || az(aVar.getContentView()) || !WS.a(aVar.getContentView(), aqS())) ? false : true;
         if (z) {
-            if (!aVar.aoB() || UE == null) {
+            if (!aVar.aqP() || WS == null) {
                 return false;
             }
-            a(UE.aoc(), aVar);
+            a(WS.aqq(), aVar);
         }
         return z;
     }
@@ -48,7 +48,7 @@ public class b {
     private void a(final View view, final a aVar) {
         if (view != null && aVar != null) {
             this.mLastVisibleHeight = view.getHeight();
-            this.cpM = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.games.view.b.b.1
+            this.ctN = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.games.view.b.b.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Rect rect = new Rect();
@@ -74,65 +74,65 @@ public class b {
                                 return;
                             }
                             b.this.mLastVisibleHeight = i;
-                            b.this.cpK = i - b.cpJ;
+                            b.this.ctL = i - b.ctK;
                             b.this.mInputMethodHeight = ((displayHeight - i) - statusBarHeight) - b.this.mBottomNavigationKeyHeight;
-                            if (b.this.mInputMethodHeight > 0 && !b.this.a(aVar, b.this.mInputMethodHeight, b.this.cpK)) {
+                            if (b.this.mInputMethodHeight > 0 && !b.this.a(aVar, b.this.mInputMethodHeight, b.this.ctL)) {
                                 b.this.g(aVar);
                             }
                         }
                     }
                 }
             };
-            view.getViewTreeObserver().addOnGlobalLayoutListener(this.cpM);
+            view.getViewTreeObserver().addOnGlobalLayoutListener(this.ctN);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(a aVar, int i, int i2) {
-        com.baidu.swan.games.view.d UE = f.UC().UE();
-        boolean z = UE != null && UE.b(aVar.getContentView(), hL(i2));
+        com.baidu.swan.games.view.d WS = f.WQ().WS();
+        boolean z = WS != null && WS.b(aVar.getContentView(), ic(i2));
         if (z) {
-            aVar.hK(i);
+            aVar.ib(i);
         }
         return z;
     }
 
     public boolean g(a aVar) {
-        com.baidu.swan.games.view.d UE = f.UC().UE();
-        if (UE == null) {
+        com.baidu.swan.games.view.d WS = f.WQ().WS();
+        if (WS == null) {
             return false;
         }
-        FrameLayout aoc = UE.aoc();
-        if (aoc != null && this.cpM != null) {
-            aoc.getViewTreeObserver().removeOnGlobalLayoutListener(this.cpM);
+        FrameLayout aqq = WS.aqq();
+        if (aqq != null && this.ctN != null) {
+            aqq.getViewTreeObserver().removeOnGlobalLayoutListener(this.ctN);
         }
         aVar.hideKeyboard();
-        this.cpM = null;
+        this.ctN = null;
         this.mInputMethodHeight = -1;
-        this.cpK = -1;
+        this.ctL = -1;
         this.mBottomNavigationKeyHeight = -1;
         this.mIsFirstGlobalLayout = false;
         this.mLastVisibleHeight = -1;
-        return UE.au(aVar.getContentView());
+        return WS.au(aVar.getContentView());
     }
 
     private boolean az(View view) {
-        com.baidu.swan.games.view.d UE = f.UC().UE();
-        return UE != null && UE.ax(view);
+        com.baidu.swan.games.view.d WS = f.WQ().WS();
+        return WS != null && WS.ax(view);
     }
 
-    private com.baidu.swan.apps.model.a.a.a aoE() {
+    private com.baidu.swan.apps.model.a.a.a aqS() {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
-        aVar.cV(true);
+        aVar.dc(true);
         aVar.setWidth(-1);
         aVar.setHeight(-2);
         return aVar;
     }
 
-    private com.baidu.swan.apps.model.a.a.a hL(int i) {
+    private com.baidu.swan.apps.model.a.a.a ic(int i) {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
-        aVar.cV(true);
-        aVar.fj(i);
+        aVar.dc(true);
+        aVar.fz(i);
         aVar.setWidth(-1);
         aVar.setHeight(-2);
         return aVar;

@@ -7,7 +7,7 @@ import io.reactivex.internal.observers.DeferredScalarDisposable;
 import io.reactivex.q;
 import io.reactivex.u;
 import io.reactivex.y;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SingleToObservable<T> extends q<T> {
     final aa<? extends T> source;
 
@@ -25,7 +25,7 @@ public final class SingleToObservable<T> extends q<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SingleToObservableObserver<T> extends DeferredScalarDisposable<T> implements y<T> {
         private static final long serialVersionUID = 3786543492451018833L;
         b d;

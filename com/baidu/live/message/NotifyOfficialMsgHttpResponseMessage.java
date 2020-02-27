@@ -2,10 +2,10 @@ package com.baidu.live.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NotifyOfficialMsgHttpResponseMessage extends JsonHttpResponsedMessage {
     public NotifyOfficialMsgHttpResponseMessage() {
-        super(1021176);
+        super(1021184);
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage

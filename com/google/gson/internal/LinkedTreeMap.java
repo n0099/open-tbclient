@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Comparator<Comparable> NATURAL_ORDER;
@@ -83,8 +83,8 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         this.size = 0;
         this.modCount++;
         d<K, V> dVar = this.header;
-        dVar.mKs = dVar;
-        dVar.mKn = dVar;
+        dVar.mKW = dVar;
+        dVar.mKR = dVar;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -118,7 +118,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                 if (compare == 0) {
                     return dVar3;
                 }
-                d<K, V> dVar4 = compare < 0 ? dVar3.mKq : dVar3.mKr;
+                d<K, V> dVar4 = compare < 0 ? dVar3.mKU : dVar3.mKV;
                 if (dVar4 == null) {
                     int i2 = compare;
                     dVar = dVar3;
@@ -134,14 +134,14 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                 if (comparator == NATURAL_ORDER && !(k instanceof Comparable)) {
                     throw new ClassCastException(k.getClass().getName() + " is not Comparable");
                 }
-                dVar2 = new d<>(dVar, k, dVar5, dVar5.mKs);
+                dVar2 = new d<>(dVar, k, dVar5, dVar5.mKW);
                 this.root = dVar2;
             } else {
-                dVar2 = new d<>(dVar, k, dVar5, dVar5.mKs);
+                dVar2 = new d<>(dVar, k, dVar5, dVar5.mKW);
                 if (i < 0) {
-                    dVar.mKq = dVar2;
+                    dVar.mKU = dVar2;
                 } else {
-                    dVar.mKr = dVar2;
+                    dVar.mKV = dVar2;
                 }
                 rebalance(dVar, true);
             }
@@ -181,41 +181,41 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         int i;
         int i2 = 0;
         if (z) {
-            dVar.mKs.mKn = dVar.mKn;
-            dVar.mKn.mKs = dVar.mKs;
+            dVar.mKW.mKR = dVar.mKR;
+            dVar.mKR.mKW = dVar.mKW;
         }
-        d<K, V> dVar2 = dVar.mKq;
-        d<K, V> dVar3 = dVar.mKr;
-        d<K, V> dVar4 = dVar.mKp;
+        d<K, V> dVar2 = dVar.mKU;
+        d<K, V> dVar3 = dVar.mKV;
+        d<K, V> dVar4 = dVar.mKT;
         if (dVar2 != null && dVar3 != null) {
-            d<K, V> dzF = dVar2.height > dVar3.height ? dVar2.dzF() : dVar3.dzE();
-            removeInternal(dzF, false);
-            d<K, V> dVar5 = dVar.mKq;
+            d<K, V> dAN = dVar2.height > dVar3.height ? dVar2.dAN() : dVar3.dAM();
+            removeInternal(dAN, false);
+            d<K, V> dVar5 = dVar.mKU;
             if (dVar5 != null) {
                 i = dVar5.height;
-                dzF.mKq = dVar5;
-                dVar5.mKp = dzF;
-                dVar.mKq = null;
+                dAN.mKU = dVar5;
+                dVar5.mKT = dAN;
+                dVar.mKU = null;
             } else {
                 i = 0;
             }
-            d<K, V> dVar6 = dVar.mKr;
+            d<K, V> dVar6 = dVar.mKV;
             if (dVar6 != null) {
                 i2 = dVar6.height;
-                dzF.mKr = dVar6;
-                dVar6.mKp = dzF;
-                dVar.mKr = null;
+                dAN.mKV = dVar6;
+                dVar6.mKT = dAN;
+                dVar.mKV = null;
             }
-            dzF.height = Math.max(i, i2) + 1;
-            replaceInParent(dVar, dzF);
+            dAN.height = Math.max(i, i2) + 1;
+            replaceInParent(dVar, dAN);
             return;
         }
         if (dVar2 != null) {
             replaceInParent(dVar, dVar2);
-            dVar.mKq = null;
+            dVar.mKU = null;
         } else if (dVar3 != null) {
             replaceInParent(dVar, dVar3);
-            dVar.mKr = null;
+            dVar.mKV = null;
         } else {
             replaceInParent(dVar, null);
         }
@@ -233,19 +233,19 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     private void replaceInParent(d<K, V> dVar, d<K, V> dVar2) {
-        d<K, V> dVar3 = dVar.mKp;
-        dVar.mKp = null;
+        d<K, V> dVar3 = dVar.mKT;
+        dVar.mKT = null;
         if (dVar2 != null) {
-            dVar2.mKp = dVar3;
+            dVar2.mKT = dVar3;
         }
         if (dVar3 != null) {
-            if (dVar3.mKq == dVar) {
-                dVar3.mKq = dVar2;
+            if (dVar3.mKU == dVar) {
+                dVar3.mKU = dVar2;
                 return;
-            } else if (!$assertionsDisabled && dVar3.mKr != dVar) {
+            } else if (!$assertionsDisabled && dVar3.mKV != dVar) {
                 throw new AssertionError();
             } else {
-                dVar3.mKr = dVar2;
+                dVar3.mKV = dVar2;
                 return;
             }
         }
@@ -254,14 +254,14 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
     private void rebalance(d<K, V> dVar, boolean z) {
         while (dVar != null) {
-            d<K, V> dVar2 = dVar.mKq;
-            d<K, V> dVar3 = dVar.mKr;
+            d<K, V> dVar2 = dVar.mKU;
+            d<K, V> dVar3 = dVar.mKV;
             int i = dVar2 != null ? dVar2.height : 0;
             int i2 = dVar3 != null ? dVar3.height : 0;
             int i3 = i - i2;
             if (i3 == -2) {
-                d<K, V> dVar4 = dVar3.mKq;
-                d<K, V> dVar5 = dVar3.mKr;
+                d<K, V> dVar4 = dVar3.mKU;
+                d<K, V> dVar5 = dVar3.mKV;
                 int i4 = (dVar4 != null ? dVar4.height : 0) - (dVar5 != null ? dVar5.height : 0);
                 if (i4 == -1 || (i4 == 0 && !z)) {
                     rotateLeft(dVar);
@@ -275,8 +275,8 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                     return;
                 }
             } else if (i3 == 2) {
-                d<K, V> dVar6 = dVar2.mKq;
-                d<K, V> dVar7 = dVar2.mKr;
+                d<K, V> dVar6 = dVar2.mKU;
+                d<K, V> dVar7 = dVar2.mKV;
                 int i5 = (dVar6 != null ? dVar6.height : 0) - (dVar7 != null ? dVar7.height : 0);
                 if (i5 == 1 || (i5 == 0 && !z)) {
                     rotateRight(dVar);
@@ -302,38 +302,38 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                     return;
                 }
             }
-            dVar = dVar.mKp;
+            dVar = dVar.mKT;
         }
     }
 
     private void rotateLeft(d<K, V> dVar) {
-        d<K, V> dVar2 = dVar.mKq;
-        d<K, V> dVar3 = dVar.mKr;
-        d<K, V> dVar4 = dVar3.mKq;
-        d<K, V> dVar5 = dVar3.mKr;
-        dVar.mKr = dVar4;
+        d<K, V> dVar2 = dVar.mKU;
+        d<K, V> dVar3 = dVar.mKV;
+        d<K, V> dVar4 = dVar3.mKU;
+        d<K, V> dVar5 = dVar3.mKV;
+        dVar.mKV = dVar4;
         if (dVar4 != null) {
-            dVar4.mKp = dVar;
+            dVar4.mKT = dVar;
         }
         replaceInParent(dVar, dVar3);
-        dVar3.mKq = dVar;
-        dVar.mKp = dVar3;
+        dVar3.mKU = dVar;
+        dVar.mKT = dVar3;
         dVar.height = Math.max(dVar2 != null ? dVar2.height : 0, dVar4 != null ? dVar4.height : 0) + 1;
         dVar3.height = Math.max(dVar.height, dVar5 != null ? dVar5.height : 0) + 1;
     }
 
     private void rotateRight(d<K, V> dVar) {
-        d<K, V> dVar2 = dVar.mKq;
-        d<K, V> dVar3 = dVar.mKr;
-        d<K, V> dVar4 = dVar2.mKq;
-        d<K, V> dVar5 = dVar2.mKr;
-        dVar.mKq = dVar5;
+        d<K, V> dVar2 = dVar.mKU;
+        d<K, V> dVar3 = dVar.mKV;
+        d<K, V> dVar4 = dVar2.mKU;
+        d<K, V> dVar5 = dVar2.mKV;
+        dVar.mKU = dVar5;
         if (dVar5 != null) {
-            dVar5.mKp = dVar;
+            dVar5.mKT = dVar;
         }
         replaceInParent(dVar, dVar2);
-        dVar2.mKr = dVar;
-        dVar.mKp = dVar2;
+        dVar2.mKV = dVar;
+        dVar.mKT = dVar2;
         dVar.height = Math.max(dVar3 != null ? dVar3.height : 0, dVar5 != null ? dVar5.height : 0) + 1;
         dVar2.height = Math.max(dVar.height, dVar4 != null ? dVar4.height : 0) + 1;
     }
@@ -361,31 +361,31 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class d<K, V> implements Map.Entry<K, V> {
         int height;
         final K key;
-        d<K, V> mKn;
-        d<K, V> mKp;
-        d<K, V> mKq;
-        d<K, V> mKr;
-        d<K, V> mKs;
+        d<K, V> mKR;
+        d<K, V> mKT;
+        d<K, V> mKU;
+        d<K, V> mKV;
+        d<K, V> mKW;
         V value;
 
         d() {
             this.key = null;
-            this.mKs = this;
-            this.mKn = this;
+            this.mKW = this;
+            this.mKR = this;
         }
 
         d(d<K, V> dVar, K k, d<K, V> dVar2, d<K, V> dVar3) {
-            this.mKp = dVar;
+            this.mKT = dVar;
             this.key = k;
             this.height = 1;
-            this.mKn = dVar2;
-            this.mKs = dVar3;
-            dVar3.mKn = this;
-            dVar2.mKs = this;
+            this.mKR = dVar2;
+            this.mKW = dVar3;
+            dVar3.mKR = this;
+            dVar2.mKW = this;
         }
 
         @Override // java.util.Map.Entry
@@ -437,15 +437,15 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             return this.key + ETAG.EQUAL + this.value;
         }
 
-        public d<K, V> dzE() {
-            for (d<K, V> dVar = this.mKq; dVar != null; dVar = dVar.mKq) {
+        public d<K, V> dAM() {
+            for (d<K, V> dVar = this.mKU; dVar != null; dVar = dVar.mKU) {
                 this = dVar;
             }
             return this;
         }
 
-        public d<K, V> dzF() {
-            for (d<K, V> dVar = this.mKr; dVar != null; dVar = dVar.mKr) {
+        public d<K, V> dAN() {
+            for (d<K, V> dVar = this.mKV; dVar != null; dVar = dVar.mKV) {
                 this = dVar;
             }
             return this;
@@ -453,47 +453,47 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public abstract class c<T> implements Iterator<T> {
-        int mKf;
-        d<K, V> mKn;
-        d<K, V> mKo = null;
+        int expectedModCount;
+        d<K, V> mKR;
+        d<K, V> mKS = null;
 
         c() {
-            this.mKn = LinkedTreeMap.this.header.mKn;
-            this.mKf = LinkedTreeMap.this.modCount;
+            this.mKR = LinkedTreeMap.this.header.mKR;
+            this.expectedModCount = LinkedTreeMap.this.modCount;
         }
 
         @Override // java.util.Iterator
         public final boolean hasNext() {
-            return this.mKn != LinkedTreeMap.this.header;
+            return this.mKR != LinkedTreeMap.this.header;
         }
 
-        final d<K, V> dzD() {
-            d<K, V> dVar = this.mKn;
+        final d<K, V> dAL() {
+            d<K, V> dVar = this.mKR;
             if (dVar == LinkedTreeMap.this.header) {
                 throw new NoSuchElementException();
             }
-            if (LinkedTreeMap.this.modCount != this.mKf) {
+            if (LinkedTreeMap.this.modCount != this.expectedModCount) {
                 throw new ConcurrentModificationException();
             }
-            this.mKn = dVar.mKn;
-            this.mKo = dVar;
+            this.mKR = dVar.mKR;
+            this.mKS = dVar;
             return dVar;
         }
 
         @Override // java.util.Iterator
         public final void remove() {
-            if (this.mKo == null) {
+            if (this.mKS == null) {
                 throw new IllegalStateException();
             }
-            LinkedTreeMap.this.removeInternal(this.mKo, true);
-            this.mKo = null;
-            this.mKf = LinkedTreeMap.this.modCount;
+            LinkedTreeMap.this.removeInternal(this.mKS, true);
+            this.mKS = null;
+            this.expectedModCount = LinkedTreeMap.this.modCount;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     class a extends AbstractSet<Map.Entry<K, V>> {
         a() {
         }
@@ -513,7 +513,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Iterator
                 public Map.Entry<K, V> next() {
-                    return dzD();
+                    return dAL();
                 }
             };
         }
@@ -539,7 +539,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     final class b extends AbstractSet<K> {
         b() {
         }
@@ -558,7 +558,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
                 @Override // java.util.Iterator
                 public K next() {
-                    return dzD().key;
+                    return dAL().key;
                 }
             };
         }

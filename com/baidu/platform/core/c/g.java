@@ -20,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class g extends com.baidu.platform.base.d {
     private static final String b = g.class.getSimpleName();
     private int c;

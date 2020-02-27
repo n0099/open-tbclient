@@ -1,21 +1,40 @@
 package com.baidu.live.w;
 
-import com.baidu.live.data.AlaLiveUserInfoData;
-/* loaded from: classes2.dex */
+import android.view.ViewGroup;
+import com.baidu.live.data.m;
+/* loaded from: classes3.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.w.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0099a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0105a {
     }
 
-    a a(int i, String str, String str2, String str3, String str4, int i2, String str5);
+    void a(com.baidu.live.g.a aVar);
 
-    void a(AlaLiveUserInfoData alaLiveUserInfoData, String str);
+    void a(com.baidu.live.liveroom.b.a aVar);
 
-    void a(InterfaceC0099a interfaceC0099a);
+    void a(InterfaceC0105a interfaceC0105a);
 
-    void cF(int i);
+    void bh(boolean z);
+
+    void bi(boolean z);
+
+    void ch(int i);
+
+    void ci(int i);
+
+    void h(ViewGroup viewGroup);
+
+    void i(ViewGroup viewGroup);
+
+    void j(ViewGroup viewGroup);
+
+    void n(m mVar);
 
     void onDestroy();
+
+    void onKeyboardVisibilityChanged(boolean z);
+
+    void showDialog();
 }

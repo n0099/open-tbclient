@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface RequestResponseCode {
     public static final int COLLECT_EMOTION_DETAIL = 25031;
     public static final int COLLECT_SELECT_ALBUM = 25030;

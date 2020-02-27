@@ -2,16 +2,16 @@ package com.baidu.crabsdk.a;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> PN = new LinkedHashMap<>();
-    private Thread PO;
+    private static final LinkedHashMap<Long, String> Rt = new LinkedHashMap<>();
+    private Thread Ru;
     private int V;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.V = a.V;
-        this.PO = thread;
+        this.Ru = thread;
         this.V = i;
     }
 
@@ -21,14 +21,14 @@ public final class p extends n {
 
     public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (PN) {
-            for (Long l : PN.keySet()) {
+        synchronized (Rt) {
+            for (Long l : Rt.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(PN.get(l));
+                    arrayList.add(Rt.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.cb("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.cj("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void n() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.PO.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.Ru.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (PN) {
-            if (PN.size() == this.V && this.V > 0) {
-                PN.remove(PN.keySet().iterator().next());
+        synchronized (Rt) {
+            if (Rt.size() == this.V && this.V > 0) {
+                Rt.remove(Rt.keySet().iterator().next());
             }
-            PN.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            Rt.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

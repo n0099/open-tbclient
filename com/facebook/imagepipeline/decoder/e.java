@@ -4,29 +4,29 @@ import com.facebook.common.internal.g;
 import com.facebook.common.internal.l;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class e {
-    private final com.facebook.common.memory.a lHW;
-    private boolean lTd;
-    private int lSZ = 0;
-    private int lSY = 0;
-    private int lTa = 0;
-    private int lTc = 0;
-    private int lTb = 0;
-    private int lSX = 0;
+    private final com.facebook.common.memory.a lID;
+    private boolean lTK;
+    private int lTG = 0;
+    private int lTF = 0;
+    private int lTH = 0;
+    private int lTJ = 0;
+    private int lTI = 0;
+    private int lTE = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.lHW = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.lID = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.lSX != 6 && eVar.getSize() > this.lSZ) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lHW.get(16384), this.lHW);
+        if (this.lTE != 6 && eVar.getSize() > this.lTG) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lID.get(16384), this.lID);
             try {
-                com.facebook.common.util.c.a(fVar, this.lSZ);
+                com.facebook.common.util.c.a(fVar, this.lTG);
                 return w(fVar);
             } catch (IOException e) {
-                l.u(e);
+                l.t(e);
                 return false;
             } finally {
                 com.facebook.common.internal.b.r(fVar);
@@ -38,88 +38,88 @@ public class e {
     private boolean w(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.lTb;
-        while (this.lSX != 6 && (read = inputStream.read()) != -1) {
+        int i = this.lTI;
+        while (this.lTE != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.lSZ++;
-                if (this.lTd) {
-                    this.lSX = 6;
-                    this.lTd = false;
+                this.lTG++;
+                if (this.lTK) {
+                    this.lTE = 6;
+                    this.lTK = false;
                     return false;
                 }
-                switch (this.lSX) {
+                switch (this.lTE) {
                     case 0:
                         if (read == 255) {
-                            this.lSX = 1;
+                            this.lTE = 1;
                             break;
                         } else {
-                            this.lSX = 6;
+                            this.lTE = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.lSX = 2;
+                            this.lTE = 2;
                             break;
                         } else {
-                            this.lSX = 6;
+                            this.lTE = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.lSX = 3;
+                            this.lTE = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.lSX = 3;
+                            this.lTE = 3;
                             break;
                         } else if (read == 0) {
-                            this.lSX = 2;
+                            this.lTE = 2;
                             break;
                         } else if (read == 217) {
-                            this.lTd = true;
-                            If(this.lSZ - 2);
-                            this.lSX = 2;
+                            this.lTK = true;
+                            Ik(this.lTG - 2);
+                            this.lTE = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                If(this.lSZ - 2);
+                                Ik(this.lTG - 2);
                             }
-                            if (Ie(read)) {
-                                this.lSX = 4;
+                            if (Ij(read)) {
+                                this.lTE = 4;
                                 break;
                             } else {
-                                this.lSX = 2;
+                                this.lTE = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.lSX = 5;
+                        this.lTE = 5;
                         break;
                     case 5:
-                        int i2 = ((this.lSY << 8) + read) - 2;
+                        int i2 = ((this.lTF << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.lSZ = i2 + this.lSZ;
-                        this.lSX = 2;
+                        this.lTG = i2 + this.lTG;
+                        this.lTE = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.lSY = read;
+                this.lTF = read;
             } catch (IOException e) {
-                l.u(e);
+                l.t(e);
             }
         }
-        if (this.lSX == 6 || this.lTb == i) {
+        if (this.lTE == 6 || this.lTI == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean Ie(int i) {
+    private static boolean Ij(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void If(int i) {
-        if (this.lTa > 0) {
-            this.lTc = i;
+    private void Ik(int i) {
+        if (this.lTH > 0) {
+            this.lTJ = i;
         }
-        int i2 = this.lTa;
-        this.lTa = i2 + 1;
-        this.lTb = i2;
+        int i2 = this.lTH;
+        this.lTH = i2 + 1;
+        this.lTI = i2;
     }
 
-    public int doX() {
-        return this.lTc;
+    public int dqj() {
+        return this.lTJ;
     }
 
-    public int doY() {
-        return this.lTb;
+    public int dqk() {
+        return this.lTI;
     }
 
-    public boolean doZ() {
-        return this.lTd;
+    public boolean dql() {
+        return this.lTK;
     }
 }

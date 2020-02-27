@@ -12,7 +12,6 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.UserSettingPaCmdMsg;
-import com.baidu.android.imsdk.chatuser.IStatusListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.Dispatcher;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -28,15 +27,12 @@ import com.baidu.android.imsdk.pubaccount.request.IMPaGetInfoRequest;
 import com.baidu.android.imsdk.pubaccount.request.IMPaGetOneInfoRequest;
 import com.baidu.android.imsdk.pubaccount.request.IMPaGetQuickReplies;
 import com.baidu.android.imsdk.pubaccount.request.IMPaSearchListMsg;
-import com.baidu.android.imsdk.pubaccount.request.IMPaSetDisturbRequest;
-import com.baidu.android.imsdk.pubaccount.request.IMPaSetMarkTopRequest;
 import com.baidu.android.imsdk.pubaccount.request.IMPaSubscribeMsg;
 import com.baidu.android.imsdk.pubaccount.request.IMPaSubscribedListMsg;
 import com.baidu.android.imsdk.pubaccount.request.IMPaSubscribedMsg;
 import com.baidu.android.imsdk.pubaccount.request.IMPaUnsubscribeMsg;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
@@ -47,7 +43,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PaManagerImpl {
     private static Context mContext;
     private static volatile PaManagerImpl mInstance;
@@ -123,7 +119,7 @@ public class PaManagerImpl {
                     try {
                         JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
                         final long optLong = jSONObject.optLong("pa_uid");
-                        final boolean optBoolean = jSONObject.optBoolean("subscription");
+                        final boolean optBoolean = jSONObject.optBoolean(IMConstants.SERVICE_TYPE_SUBSCRIPTION);
                         if (optBoolean) {
                             LogUtils.d(PaManagerImpl.TAG, "dealmessage subscription " + chatMsg.toString());
                             GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) GetChatObjectInfoForRecordManager.newInstance(PaManagerImpl.mContext, 0, optLong, 1);
@@ -209,25 +205,10 @@ public class PaManagerImpl {
 
     public void syncAndQueryAllPaInfo() {
         LogUtils.d(TAG, "syncAndQueryAllPaInfo begin");
-        final String str = Constants.KEY_PA_SUBSCRIBE_SYNC_TIME + AccountManager.getAppid(mContext) + AccountManager.getUid(mContext);
-        if (Utility.isNeedSync(mContext, str)) {
+        String str = Constants.KEY_PA_SUBSCRIBE_SYNC_TIME + AccountManager.getAppid(mContext) + AccountManager.getUid(mContext);
+        if (Utility.readBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, true) && Utility.isNeedSync(mContext, str)) {
+            Utility.writeLongData(mContext, str, System.currentTimeMillis() + Utility.getPaSyncDelay());
             syncAllPainfo(mContext);
-            queryPaInfoList(new IQuerySubscribedPaListListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.4
-                @Override // com.baidu.android.imsdk.pubaccount.IQuerySubscribedPaListListener
-                public void onQuerySubscribedPaResult(int i, String str2, List<PaInfo> list) {
-                    if (i == 0) {
-                        LogUtils.d(PaManagerImpl.TAG, "queryPaInfoList----SUCCESS: " + list.size());
-                        Utility.writeLongData(PaManagerImpl.mContext, str, System.currentTimeMillis() + Utility.getRandDelay());
-                        for (PaInfo paInfo : list) {
-                            LogUtils.d(PaManagerImpl.TAG, "syncpa info " + paInfo.getPaId() + HanziToPinyin.Token.SEPARATOR + paInfo.getClassType() + HanziToPinyin.Token.SEPARATOR + paInfo.getClassTitle() + HanziToPinyin.Token.SEPARATOR + paInfo.getClassshow());
-                            PaInfoDBManager.getInstance(PaManagerImpl.mContext).subscribePa(paInfo);
-                            if (paInfo.getClassType() > 0) {
-                                ChatMessageDBManager.getInstance(PaManagerImpl.mContext).updateSessionClass(paInfo);
-                            }
-                        }
-                    }
-                }
-            });
         }
     }
 
@@ -279,7 +260,7 @@ public class PaManagerImpl {
     public void subscribePa(final long j, ISubscribePaListener iSubscribePaListener) {
         final String addListener = ListenerManager.getInstance().addListener(iSubscribePaListener);
         if (AccountManager.isLogin(mContext)) {
-            getPaInfo(j, new IGetPaInfoListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.5
+            getPaInfo(j, new IGetPaInfoListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.4
                 @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfoListener
                 public void onGetPaInfoResult(int i, String str, PaInfo paInfo) {
                     if (i == 0) {
@@ -368,13 +349,26 @@ public class PaManagerImpl {
 
     public void getPaInfos(ArrayList<Long> arrayList, IGetPaInfosListener iGetPaInfosListener) {
         if (AccountManager.isLogin(mContext)) {
-            String addListener = ListenerManager.getInstance().addListener(iGetPaInfosListener);
-            AccountManager.getAppid(mContext);
-            IMPaGetInfoListRequest iMPaGetInfoListRequest = new IMPaGetInfoListRequest(mContext, addListener, arrayList, AccountManager.getAppid(mContext), IMSDK.getInstance(mContext).getUk());
-            HttpHelper.executor(mContext, iMPaGetInfoListRequest, iMPaGetInfoListRequest);
+            if (arrayList == null || arrayList.size() == 0) {
+                iGetPaInfosListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
+                return;
+            }
+            long appid = AccountManager.getAppid(mContext);
+            long uk = IMSDK.getInstance(mContext).getUk();
+            int size = arrayList.size() / 20;
+            int i = arrayList.size() % 20 > 0 ? size + 1 : size;
+            GetPaInfoSliceListener getPaInfoSliceListener = new GetPaInfoSliceListener(iGetPaInfosListener, i);
+            for (int i2 = 0; i2 < i; i2++) {
+                requestPaInfos(arrayList.subList(i2 * 20, (i2 + 1) * 20 > arrayList.size() ? arrayList.size() : (i2 + 1) * 20), appid, uk, getPaInfoSliceListener);
+            }
         } else if (iGetPaInfosListener != null) {
             iGetPaInfosListener.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
         }
+    }
+
+    private void requestPaInfos(List<Long> list, long j, long j2, GetPaInfoSliceListener getPaInfoSliceListener) {
+        IMPaGetInfoListRequest iMPaGetInfoListRequest = new IMPaGetInfoListRequest(mContext, list, j, j2, getPaInfoSliceListener);
+        HttpHelper.executor(mContext, iMPaGetInfoListRequest, iMPaGetInfoListRequest);
     }
 
     public void queryPaInfoList(IQuerySubscribedPaListListener iQuerySubscribedPaListListener) {
@@ -574,51 +568,11 @@ public class PaManagerImpl {
         }
     }
 
-    public void setDisturb(Context context, long j, int i, IStatusListener iStatusListener) {
-        String addListener = ListenerManager.getInstance().addListener(iStatusListener);
-        AccountManager.getAppid(mContext);
-        IMPaSetDisturbRequest iMPaSetDisturbRequest = new IMPaSetDisturbRequest(mContext, addListener, AccountManager.getAppid(mContext), j, i);
-        HttpHelper.executor(mContext, iMPaSetDisturbRequest, iMPaSetDisturbRequest);
-    }
-
-    public void setMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
-        String addListener = ListenerManager.getInstance().addListener(iStatusListener);
-        AccountManager.getAppid(mContext);
-        IMPaSetMarkTopRequest iMPaSetMarkTopRequest = new IMPaSetMarkTopRequest(mContext, addListener, AccountManager.getAppid(mContext), j, i);
-        HttpHelper.executor(mContext, iMPaSetMarkTopRequest, iMPaSetMarkTopRequest);
-    }
-
-    public void onSetDisturResult(String str, int i, String str2, int i2, long j) {
-        LogUtils.d(TAG, "onSetDisturResult----errorCode: " + i + " msg: " + str2);
-        IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str);
-        if (i == 0) {
-            PaInfoDBManager.getInstance(mContext).updateDisturb(j, i2);
-        }
-        if (iStatusListener != null) {
-            iStatusListener.onResult(i, str2, i2, j);
-        } else {
-            LogUtils.d(TAG, "IMPaSetDisturbRequest listener is null");
-        }
-    }
-
-    public void onSetMarkTopResult(String str, int i, String str2, int i2, long j, long j2) {
-        LogUtils.d(TAG, "onSetMarkTopResult----errorCode: " + i + " msg: " + str2);
-        IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str);
-        if (iStatusListener != null) {
-            iStatusListener.onResult(i, str2, i2, j2);
-        } else {
-            LogUtils.d(TAG, "IMPaSetMarkTopRequest listener is null");
-        }
-        if (i == 0) {
-            PaInfoDBManager.getInstance(mContext).updateMarkTop(j2, i2, j);
-        }
-    }
-
     public void syncAllPainfo(Context context) {
         if (this.mTimer == null) {
             this.mTimer = new Timer();
         }
-        this.mTimer.schedule(new TimerTask() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.6
+        this.mTimer.schedule(new TimerTask() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.5
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 int sDKVersionValue = IMConfigInternal.getInstance().getSDKVersionValue(PaManagerImpl.mContext);
@@ -630,7 +584,7 @@ public class PaManagerImpl {
                         return;
                     }
                     LogUtils.d(PaManagerImpl.TAG, "syncAllPainfo> paidlist = " + queryPaidList.toString());
-                    PaManagerImpl.this.getPaInfos(queryPaidList, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.6.1
+                    PaManagerImpl.this.getPaInfos(queryPaidList, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.5.1
                         @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
                         public void onResult(int i, String str, ArrayList<PaInfo> arrayList) {
                             if (i == 0) {

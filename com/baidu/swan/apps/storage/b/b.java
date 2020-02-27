@@ -2,72 +2,72 @@ package com.baidu.swan.apps.storage.b;
 
 import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lR(String str) {
-        e aap = e.aap();
-        return aap == null ? str : com.baidu.swan.apps.storage.b.d(str, aap);
+    public String mg(String str) {
+        e acD = e.acD();
+        return acD == null ? str : com.baidu.swan.apps.storage.b.d(str, acD);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lS(String str) {
-        e aap = e.aap();
-        if (aap == null) {
+    public String mh(String str) {
+        e acD = e.acD();
+        if (acD == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.a(str, aap, aap.getVersion());
+        return com.baidu.swan.apps.storage.b.a(str, acD, acD.getVersion());
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lT(String str) {
-        e aap = e.aap();
-        if (aap == null) {
+    public String mi(String str) {
+        e acD = e.acD();
+        if (acD == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.bg(str, aap.id);
+        return com.baidu.swan.apps.storage.b.bp(str, acD.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lU(String str) {
-        e aap = e.aap();
-        return aap == null ? str : com.baidu.swan.apps.storage.b.bi(str, aap.id);
+    public String mj(String str) {
+        e acD = e.acD();
+        return acD == null ? str : com.baidu.swan.apps.storage.b.br(str, acD.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lV(String str) {
-        String qS = com.baidu.swan.d.c.qS(str);
-        return TextUtils.isEmpty(qS) ? lU(str) : lU(str) + "." + qS;
+    public String mk(String str) {
+        String rh = com.baidu.swan.d.c.rh(str);
+        return TextUtils.isEmpty(rh) ? mj(str) : mj(str) + "." + rh;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lW(String str) {
-        e aap = e.aap();
-        return aap == null ? "" : com.baidu.swan.apps.storage.b.G(aap.id, str, null);
+    public String ml(String str) {
+        e acD = e.acD();
+        return acD == null ? "" : com.baidu.swan.apps.storage.b.H(acD.id, str, null);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String acZ() {
-        e aap = e.aap();
-        return aap == null ? "" : com.baidu.swan.apps.storage.b.lJ(aap.id);
+    public String afn() {
+        e acD = e.acD();
+        return acD == null ? "" : com.baidu.swan.apps.storage.b.lY(acD.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lK(String str) {
-        return com.baidu.swan.apps.storage.b.lK(str);
+    public String lZ(String str) {
+        return com.baidu.swan.apps.storage.b.lZ(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean lF(String str) {
-        return com.baidu.swan.apps.storage.b.lF(str);
+    public boolean lU(String str) {
+        return com.baidu.swan.apps.storage.b.lU(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean az(long j) {
+    public boolean aD(long j) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public void aA(long j) {
+    public void aE(long j) {
     }
 }

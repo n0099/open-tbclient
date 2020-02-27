@@ -7,24 +7,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View caf;
-    private int fLF;
-    private int fLG;
+    private View cel;
+    private int fOb;
+    private int fOc;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fLF = R.color.cp_bg_line_c;
-        this.fLG = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.fOb = R.color.cp_bg_line_c;
+        this.fOc = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.caf = getView().findViewById(R.id.card_divider);
+        this.cel = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(this.caf, this.fLF);
+            am.setBackgroundColor(this.cel, this.fOb);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.a<b> {
     @Override // com.baidu.tieba.card.a
     public void a(b bVar) {
         if (bVar != null) {
-            this.caf.setVisibility(0);
-            this.fLF = bVar.fLF;
-            this.fLG = bVar.fLG;
-            bud();
+            this.cel.setVisibility(0);
+            this.fOb = bVar.fOb;
+            this.fOc = bVar.fOc;
+            bvH();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bud() {
-        ViewGroup.LayoutParams layoutParams = this.caf.getLayoutParams();
-        if (layoutParams != null && layoutParams.height != this.fLG) {
-            layoutParams.height = this.fLG;
-            this.caf.setLayoutParams(layoutParams);
+    private void bvH() {
+        ViewGroup.LayoutParams layoutParams = this.cel.getLayoutParams();
+        if (layoutParams != null && layoutParams.height != this.fOc) {
+            layoutParams.height = this.fOc;
+            this.cel.setLayoutParams(layoutParams);
         }
     }
 

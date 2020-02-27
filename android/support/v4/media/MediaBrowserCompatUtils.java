@@ -3,7 +3,7 @@ package android.support.v4.media;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MediaBrowserCompatUtils {
     public static boolean areSameOptions(Bundle bundle, Bundle bundle2) {
         if (bundle == bundle2) {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class BasePatternRule implements IEditTextPatternRule {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = "BasePatternRule";
@@ -17,7 +17,7 @@ public abstract class BasePatternRule implements IEditTextPatternRule {
     protected final List<Range> mRangeList = new ArrayList();
     protected boolean mIsCallPatternTagInput = true;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface PatternTagInputListener {
         void onPatternTagInput();
     }
@@ -101,7 +101,7 @@ public abstract class BasePatternRule implements IEditTextPatternRule {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     protected class Range {
         int mFrom;
         String mText;

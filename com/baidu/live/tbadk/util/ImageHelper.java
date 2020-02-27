@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageHelper {
     public static boolean canUseIp(String str) {
         if (str == null) {

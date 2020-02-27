@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -16,7 +17,7 @@ import java.util.TreeMap;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private Context mContext;
     private String mKey;
@@ -107,7 +108,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                 return "https://pim.baidu.com/rest/2.0/im/zhidahao";
             case 1:
             case 2:
-                return "https://cp01-ocean-749.epc.baidu.com:8444/rest/2.0/im/zhidahao";
+                return "http://cp01-ocean-749.epc.baidu.com:8080/rest/2.0/im/zhidahao";
             case 3:
                 return "http://180.97.36.95:8080/rest/2.0/im/zhidahao";
             default:
@@ -147,5 +148,15 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
         return false;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getConnectTimeout() {
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getReadTimeout() {
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
     }
 }

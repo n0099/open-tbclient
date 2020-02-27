@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuyYinjiInfo {
     private String mTBeanNum;
     private int status;

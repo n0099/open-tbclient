@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccountManager extends BaseManager {
     public static void init(Context context) {
         AccountManagerImpl.getInstance(context);
@@ -181,5 +181,17 @@ public class AccountManager extends BaseManager {
 
     public static void retryLogin(Context context, ILoginListener iLoginListener) {
         AccountManagerImpl.getInstance(context).login(1, Utility.getAccessToken(context), getUid(context), "", "", iLoginListener);
+    }
+
+    public static void setUpdateSwitch(Context context, int i) {
+        AccountManagerImpl.getInstance(context).setUpdateSwitch(i);
+    }
+
+    public static void setMediaRole(Context context, boolean z) {
+        AccountManagerImpl.getInstance(context).setMediaRole(z);
+    }
+
+    public static boolean getMediaRole(Context context) {
+        return AccountManagerImpl.getInstance(context).getMediaRole();
     }
 }

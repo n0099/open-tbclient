@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HttpExecutor {
     public static final String TAG = "HttpLogger";
     private static OkHttpClient sClient;

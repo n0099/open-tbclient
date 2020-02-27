@@ -6,16 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class GuideImInputView extends FrameLayout {
-    private TextView eZI;
-    private a eZJ;
+    private TextView fcV;
+    private a fcW;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void yL(String str);
+        void zd(String str);
     }
 
     public GuideImInputView(Context context) {
@@ -24,16 +24,16 @@ public class GuideImInputView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.eZJ = aVar;
+        this.fcW = aVar;
     }
 
     public void setText(String str) {
-        this.eZI.setText(str);
+        this.fcV.setText(str);
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.guide_im_input, (ViewGroup) this, true);
-        this.eZI = (TextView) findViewById(a.g.tv_input);
+        this.fcV = (TextView) findViewById(a.g.tv_input);
         TextView textView = (TextView) findViewById(a.g.tv_send);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             textView.setBackgroundResource(a.f.ala_live_follow_btn_radius_20_selector_hk);
@@ -43,8 +43,8 @@ public class GuideImInputView extends FrameLayout {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.guideim.GuideImInputView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GuideImInputView.this.eZJ != null) {
-                    GuideImInputView.this.eZJ.yL(GuideImInputView.this.eZI.getText().toString());
+                if (GuideImInputView.this.fcW != null) {
+                    GuideImInputView.this.fcW.zd(GuideImInputView.this.fcV.getText().toString());
                 }
             }
         });

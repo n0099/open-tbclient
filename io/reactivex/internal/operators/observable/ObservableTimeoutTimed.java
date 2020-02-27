@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.operators.observable.a<T, T> {
     final t<? extends T> other;
     final v scheduler;
@@ -18,7 +18,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     final TimeUnit unit;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void onTimeout(long j);
     }
@@ -26,19 +26,19 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
         if (this.other == null) {
-            TimeoutObserver timeoutObserver = new TimeoutObserver(uVar, this.timeout, this.unit, this.scheduler.dHY());
+            TimeoutObserver timeoutObserver = new TimeoutObserver(uVar, this.timeout, this.unit, this.scheduler.dJf());
             uVar.onSubscribe(timeoutObserver);
             timeoutObserver.startTimeout(0L);
             this.source.subscribe(timeoutObserver);
             return;
         }
-        TimeoutFallbackObserver timeoutFallbackObserver = new TimeoutFallbackObserver(uVar, this.timeout, this.unit, this.scheduler.dHY(), this.other);
+        TimeoutFallbackObserver timeoutFallbackObserver = new TimeoutFallbackObserver(uVar, this.timeout, this.unit, this.scheduler.dJf(), this.other);
         uVar.onSubscribe(timeoutFallbackObserver);
         timeoutFallbackObserver.startTimeout(0L);
         this.source.subscribe(timeoutFallbackObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class TimeoutObserver<T> extends AtomicLong implements io.reactivex.disposables.b, b, u<T> {
         private static final long serialVersionUID = 3764492702657003550L;
         final u<? super T> actual;
@@ -116,23 +116,23 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class c implements Runnable {
         final long idx;
-        final b nxI;
+        final b nyk;
 
         c(long j, b bVar) {
             this.idx = j;
-            this.nxI = bVar;
+            this.nyk = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.nxI.onTimeout(this.idx);
+            this.nyk.onTimeout(this.idx);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class TimeoutFallbackObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, b, u<T> {
         private static final long serialVersionUID = 3764492702657003550L;
         final u<? super T> actual;
@@ -215,20 +215,20 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class a<T> implements u<T> {
         final u<? super T> actual;
-        final AtomicReference<io.reactivex.disposables.b> nxH;
+        final AtomicReference<io.reactivex.disposables.b> nyj;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(u<? super T> uVar, AtomicReference<io.reactivex.disposables.b> atomicReference) {
             this.actual = uVar;
-            this.nxH = atomicReference;
+            this.nyj = atomicReference;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.nxH, bVar);
+            DisposableHelper.replace(this.nyj, bVar);
         }
 
         @Override // io.reactivex.u

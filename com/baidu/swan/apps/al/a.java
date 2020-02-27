@@ -39,38 +39,38 @@ import com.baidu.swan.apps.x.b.c;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
     /* renamed from: com.baidu.swan.apps.al.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0193a {
-        void fZ(int i);
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0203a {
+        void gq(int i);
     }
 
     public static void a(Context context, com.baidu.swan.apps.x.b.b bVar) {
-        a(context, bVar, (InterfaceC0193a) null);
+        a(context, bVar, (InterfaceC0203a) null);
     }
 
-    public static void a(Context context, final com.baidu.swan.apps.x.b.b bVar, final InterfaceC0193a interfaceC0193a) {
+    public static void a(Context context, final com.baidu.swan.apps.x.b.b bVar, final InterfaceC0203a interfaceC0203a) {
         Uri uri;
         String iconUrl = bVar.getIconUrl();
         if (!TextUtils.isEmpty(iconUrl) && (uri = ai.getUri(iconUrl)) != null) {
             m(bVar);
-            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().ij(bVar.getAppId())).im(bVar.Tt())).iq(bVar.TB())).io(bVar.getPage())).ip(bVar.TA())).cF(bVar.isDebug())).ir(bVar.TE())).eT(bVar.getAppFrameType())).eS(bVar.getOrientation())).in(c.g(bVar.getAppId(), bVar.Tt(), bVar.getAppFrameType()));
-            if (p.f(uri)) {
+            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().iy(bVar.getAppId())).iB(bVar.VH())).iF(bVar.VP())).iD(bVar.getPage())).iE(bVar.VO())).cM(bVar.isDebug())).iG(bVar.VS())).fj(bVar.getAppFrameType())).fi(bVar.getOrientation())).iC(c.f(bVar.getAppId(), bVar.VH(), bVar.getAppFrameType()));
+            if (p.g(uri)) {
                 a(context, bVar, aVar, p.a(uri, context));
-                b(context, bVar, interfaceC0193a);
+                b(context, bVar, interfaceC0203a);
                 return;
             }
             com.baidu.swan.apps.core.pms.d.c.a(iconUrl, aVar.getAppFrameType(), new c.a() { // from class: com.baidu.swan.apps.al.a.1
                 @Override // com.baidu.swan.apps.core.pms.d.c.a
                 public void h(Bitmap bitmap) {
-                    if (e.aap() != null) {
-                        SwanAppActivity aal = d.aam().aal();
-                        a.a(aal, com.baidu.swan.apps.x.b.b.this, aVar, bitmap);
-                        a.b(aal, com.baidu.swan.apps.x.b.b.this, interfaceC0193a);
+                    if (e.acD() != null) {
+                        SwanAppActivity acz = d.acA().acz();
+                        a.a(acz, com.baidu.swan.apps.x.b.b.this, aVar, bitmap);
+                        a.b(acz, com.baidu.swan.apps.x.b.b.this, interfaceC0203a);
                     }
                 }
             });
@@ -85,20 +85,20 @@ public final class a {
                 return;
             }
             if (com.baidu.swan.apps.as.a.hasOreo()) {
-                a(context, bVar.getAppId(), bVar.OL(), bitmap, com.baidu.swan.apps.x.b.c.a(context, cVar));
+                a(context, bVar.getAppId(), bVar.QZ(), bitmap, com.baidu.swan.apps.x.b.c.a(context, cVar));
             } else {
-                context.sendBroadcast(a(bVar.OL(), bitmap, com.baidu.swan.apps.x.b.c.a(context, cVar)));
+                context.sendBroadcast(a(bVar.QZ(), bitmap, com.baidu.swan.apps.x.b.c.a(context, cVar)));
             }
-            cs(context);
+            cw(context);
         }
     }
 
     private static void m(com.baidu.swan.apps.x.b.b bVar) {
-        bVar.io(null);
-        bVar.im("1230000000000000");
+        bVar.iD(null);
+        bVar.iB("1230000000000000");
     }
 
-    private static void cs(Context context) {
+    private static void cw(Context context) {
         if (!(context instanceof Activity)) {
             if (DEBUG) {
                 throw new IllegalArgumentException("context must be activity.");
@@ -107,14 +107,14 @@ public final class a {
         }
         g.a aVar = new g.a(context);
         aVar.a(new com.baidu.swan.apps.view.c.a());
-        g MM = aVar.MM();
-        aVar.en(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, MM)).ZW().e(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.al.a.2
+        g Pa = aVar.Pa();
+        aVar.eD(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, Pa)).ack().e(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.al.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
             }
-        }).dx(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState()).ZV();
-        MM.setCancelable(false);
-        MM.show();
+        }).dE(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState()).acj();
+        Pa.setCancelable(false);
+        Pa.show();
     }
 
     private static SpannableStringBuilder a(final Context context, final g gVar) {
@@ -128,7 +128,7 @@ public final class a {
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 g.this.dismiss();
-                v.cx(context);
+                v.cB(context);
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -167,15 +167,15 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(final Context context, final com.baidu.swan.apps.x.b.b bVar, final InterfaceC0193a interfaceC0193a) {
-        if (interfaceC0193a != null) {
+    public static void b(final Context context, final com.baidu.swan.apps.x.b.b bVar, final InterfaceC0203a interfaceC0203a) {
+        if (interfaceC0203a != null) {
             if (context == null) {
-                interfaceC0193a.fZ(-1);
+                interfaceC0203a.gq(-1);
             } else {
                 m.a(new Runnable() { // from class: com.baidu.swan.apps.al.a.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        InterfaceC0193a.this.fZ(a.n(context, bVar.OL(), bVar.getAppId()));
+                        InterfaceC0203a.this.gq(a.n(context, bVar.QZ(), bVar.getAppId()));
                     }
                 }, "SwanAppShortcutHelper", 1000L, TimeUnit.MILLISECONDS);
             }
@@ -185,7 +185,7 @@ public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [377=5] */
     public static int n(@NonNull Context context, String str, String str2) {
         try {
-            Cursor query = context.getContentResolver().query(Uri.parse(String.format("content://%s/favorites?notify=true", ct(context))), new String[]{"title", "intent"}, "title = ?", new String[]{str}, null);
+            Cursor query = context.getContentResolver().query(Uri.parse(String.format("content://%s/favorites?notify=true", cx(context))), new String[]{"title", "intent"}, "title = ?", new String[]{str}, null);
             while (query != null && query.moveToNext()) {
                 String string = query.getString(query.getColumnIndex("intent"));
                 if (string != null && string.contains(str2)) {
@@ -216,7 +216,7 @@ public final class a {
     }
 
     @NonNull
-    private static String ct(Context context) {
+    private static String cx(Context context) {
         List<ProviderInfo> queryContentProviders;
         String[] split;
         Intent intent = new Intent("android.intent.action.MAIN");

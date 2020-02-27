@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static final int a = 100;
     private static final String c = ".BD_SAPI_CACHE";
@@ -25,7 +25,7 @@ public class b {
     private String b;
     private SharedPreferences j;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public String a;
         public String b;

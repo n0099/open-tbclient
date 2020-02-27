@@ -3,21 +3,21 @@ package com.baidu.swan.games.m;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    public int clE;
-    public String clF;
-    public String clB = "";
+    public int cpI;
+    public String cpJ;
+    public String cpF = "";
     public int maxLength = Integer.MAX_VALUE;
-    public boolean clC = false;
-    public boolean clD = false;
+    public boolean cpG = false;
+    public boolean cpH = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.clB = cVar.optString("defaultValue");
+            this.cpF = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.clC = cVar.optBoolean("multiple");
-            this.clD = cVar.optBoolean("confirmHold");
+            this.cpG = cVar.optBoolean("multiple");
+            this.cpH = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -54,28 +54,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.clE = 6;
-                    this.clF = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.cpI = 6;
+                    this.cpJ = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.clE = 5;
-                    this.clF = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.cpI = 5;
+                    this.cpJ = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.clE = 3;
-                    this.clF = "search";
+                    this.cpI = 3;
+                    this.cpJ = "search";
                     return true;
                 case 3:
-                    this.clE = 2;
-                    this.clF = "go";
+                    this.cpI = 2;
+                    this.cpJ = "go";
                     return true;
                 case 4:
-                    this.clE = 4;
-                    this.clF = "send";
+                    this.cpI = 4;
+                    this.cpJ = "send";
                     return true;
                 default:
-                    this.clE = 6;
-                    this.clF = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.cpI = 6;
+                    this.cpJ = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

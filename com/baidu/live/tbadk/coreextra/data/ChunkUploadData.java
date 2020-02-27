@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.coreextra.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ChunkUploadData {
     private int mChunkNo;
     private String mMd5;

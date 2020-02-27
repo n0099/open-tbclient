@@ -14,7 +14,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SocketClient extends Client<SocketMessage, SocketMessageTask> implements ConnStateCallback {
     private static final String MODULE_NAME = "queue";
     private int mCWProtobufParseErrCnt;

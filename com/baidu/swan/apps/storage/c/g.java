@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g implements SharedPreferences {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private final String mName;
@@ -17,7 +17,7 @@ public class g implements SharedPreferences {
         if ("default".equals(this.mName)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
         } else {
-            this.mSp = com.baidu.swan.apps.w.a.RG().getSharedPreferences(str, 0);
+            this.mSp = com.baidu.swan.apps.w.a.TU().getSharedPreferences(str, 0);
         }
     }
 

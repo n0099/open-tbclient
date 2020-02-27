@@ -2,11 +2,11 @@ package com.baidu.webkit.sdk;
 
 import android.webkit.ValueCallback;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WebStorage {
     private static final WebStorage mInstance = new WebStorage();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class Origin {
         private String mOrigin;
         private long mQuota;
@@ -35,7 +35,7 @@ public class WebStorage {
     }
 
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface QuotaUpdater {
         void updateQuota(long j);
     }

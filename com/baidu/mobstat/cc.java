@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -11,7 +12,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class cc extends bz implements by, Runnable {
     static final /* synthetic */ boolean c;
     private ca a;
@@ -123,7 +124,7 @@ public abstract class cc extends bz implements by, Runnable {
         if (port == -1) {
             String scheme = this.b.getScheme();
             if (scheme.equals("wss")) {
-                return 443;
+                return Constants.SOCKET_PORT_SSL;
             }
             if (scheme.equals("ws")) {
                 return 80;
@@ -229,7 +230,7 @@ public abstract class cc extends bz implements by, Runnable {
     public void b(cq cqVar) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     class a implements Runnable {
         private a() {
         }

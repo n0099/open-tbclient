@@ -2,7 +2,7 @@ package com.baidu.swan.apps.ag.c.d;
 
 import com.baidu.swan.apps.SwanAppActivity;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends a {
     @Override // com.baidu.swan.apps.ag.c.d.b
     com.baidu.swan.apps.api.b.b ax(JSONObject jSONObject) {
@@ -11,35 +11,35 @@ public class c extends a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.swan.apps.ag.c.d.b
-    public String XT() {
+    public String aah() {
         return "mapp_choose_address";
     }
 
     @Override // com.baidu.swan.apps.ag.c.d.a
     void a(SwanAppActivity swanAppActivity, String str, com.baidu.swan.apps.ag.c.b.b bVar, com.baidu.swan.apps.setting.b.a aVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ag.c.c.a> bVar2) {
-        final com.baidu.swan.apps.ag.c.c.a aVar2 = new com.baidu.swan.apps.ag.c.c.a(bVar.bdV);
-        aVar2.bdW = bVar.bdW;
-        if (aVar == null || aVar.bQm.adU() == 10003) {
+        final com.baidu.swan.apps.ag.c.c.a aVar2 = new com.baidu.swan.apps.ag.c.c.a(bVar.bik);
+        aVar2.bil = bVar.bil;
+        if (aVar == null || aVar.bUr.agi() == 10003) {
             com.baidu.swan.apps.ag.d.a.print("user denied");
-            bVar2.D(aVar2);
+            bVar2.F(aVar2);
             return;
         }
         com.baidu.swan.apps.ag.d.a.print("obtain address detail");
-        com.baidu.swan.apps.w.a.RM().a(swanAppActivity, str, str, new com.baidu.swan.apps.b.a.b() { // from class: com.baidu.swan.apps.ag.c.d.c.1
+        com.baidu.swan.apps.w.a.Ua().a(swanAppActivity, str, str, new com.baidu.swan.apps.b.a.b() { // from class: com.baidu.swan.apps.ag.c.d.c.1
             @Override // com.baidu.swan.apps.b.a.b
             public void L(JSONObject jSONObject) {
                 com.baidu.swan.apps.ag.d.a.print("obtain address success");
                 aVar2.isSuccess = true;
                 if (jSONObject != null) {
-                    aVar2.bEq = jSONObject.toString();
+                    aVar2.bIv = jSONObject.toString();
                 }
-                bVar2.D(aVar2);
+                bVar2.F(aVar2);
             }
 
             @Override // com.baidu.swan.apps.b.a.b
-            public void dH(int i) {
+            public void dX(int i) {
                 com.baidu.swan.apps.ag.d.a.print("obtain address failure, errCode = " + i);
-                bVar2.D(aVar2);
+                bVar2.F(aVar2);
             }
         });
     }

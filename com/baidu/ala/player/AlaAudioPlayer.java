@@ -6,7 +6,7 @@ import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.ala.player.StreamConfig;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaAudioPlayer {
     private static final int BUFFER_LENGTH = 4096;
     private static final boolean ENABLE_FRAGMENT = false;
@@ -61,7 +61,7 @@ public class AlaAudioPlayer {
                     i3 = 3;
                     z2 = false;
                 } else {
-                    AudioProcessModule.sharedInstance().setRenderBuffer(this.mNativeBuffer, 1.2f);
+                    AudioProcessModule.sharedInstance().setRenderBuffer(this.mNativeBuffer, 1.4f);
                     z2 = true;
                 }
             } catch (IllegalArgumentException e2) {
@@ -126,7 +126,7 @@ public class AlaAudioPlayer {
                         if (AudioProcessModule.sharedInstance().updateRenderBuffer(this.mNativePosArr, this.mNativeLenArr) != 0) {
                             BdLog.e("AudioProcessModule.updateRenderBuffer failed");
                         }
-                        this.mAudioTrack.write(this.mNativeBuffer.array(), 0, i2);
+                        this.mAudioTrack.write(this.mNativeBuffer.array(), this.mNativeBuffer.arrayOffset(), i2);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

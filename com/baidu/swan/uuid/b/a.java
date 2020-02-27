@@ -11,7 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static boolean saveFile(String str, File file) {
         File parentFile;
@@ -93,7 +93,7 @@ public class a {
         }
     }
 
-    public static String getFileContent(File file) {
+    public static String B(File file) {
         FileReader fileReader;
         Throwable th;
         String str = null;

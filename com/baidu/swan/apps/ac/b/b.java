@@ -2,7 +2,7 @@ package com.baidu.swan.apps.ac.b;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class b extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
@@ -22,7 +22,7 @@ class b extends a {
         int height = rect.height() - 2;
         int i2 = width / 3;
         int i3 = height / i2;
-        int ceil = (int) Math.ceil(i3 * 3 * this.bBU);
+        int ceil = (int) Math.ceil(i3 * 3 * this.bGa);
         int i4 = 0;
         int i5 = 0;
         while (true) {

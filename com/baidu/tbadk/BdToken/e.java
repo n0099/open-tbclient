@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class e {
-    private a cDW;
+    private a cHS;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a cDZ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
+    private com.baidu.adp.framework.listener.a cHV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             e.this.isLoading = false;
@@ -30,7 +30,7 @@ public class e {
     }
 
     public e() {
-        rT();
+        te();
         registerListener();
     }
 
@@ -46,21 +46,21 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, v vVar) {
-        if (this.cDW != null) {
-            this.cDW.a(z, vVar);
+        if (this.cHS != null) {
+            this.cHS.a(z, vVar);
         }
     }
 
-    private void rT() {
+    private void te() {
         com.baidu.tieba.tbadkCore.a.a.a(309608, GetTokenSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.cDZ);
+        MessageManager.getInstance().registerListener(this.cHV);
     }
 
     public void a(a aVar) {
-        this.cDW = aVar;
+        this.cHS = aVar;
     }
 }

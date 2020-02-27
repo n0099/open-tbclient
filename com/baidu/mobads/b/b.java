@@ -7,7 +7,7 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.a.d;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends d {
     protected final IXAdLogger a;
     private a d;

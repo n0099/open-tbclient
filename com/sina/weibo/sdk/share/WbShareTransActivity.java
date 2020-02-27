@@ -22,7 +22,7 @@ import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WbShareTransActivity extends BaseActivity {
     private CopyResourceTask copyResourceTask;
     boolean flag = false;

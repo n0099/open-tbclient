@@ -8,9 +8,9 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.lbs.BdLocationMananger;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tieba.compatible.EditorHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdStatisticsManager {
-    private static BdStatisticsManager statisticsManager = null;
+    private static volatile BdStatisticsManager statisticsManager = null;
     private Context mContext;
 
     public static BdStatisticsManager getInstance() {

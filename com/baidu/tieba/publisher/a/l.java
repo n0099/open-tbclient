@@ -10,11 +10,11 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.ugc.bridge.IUgcHostInterface;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 import com.baidu.tbadk.plugins.PluginCheckUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class l implements IUgcHostInterface<CookieManager> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
-    /* renamed from: ai */
+    /* renamed from: ak */
     public CookieManager newCookieManagerInstance(boolean z, boolean z2) {
         return new d(z, z2);
     }
@@ -50,9 +50,9 @@ public class l implements IUgcHostInterface<CookieManager> {
 
     @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
     public void openVideoPublisherActivity(Context context, UgcSchemeModel ugcSchemeModel) {
-        com.baidu.tbadk.data.h ad;
-        if (PluginCheckUtil.vs("com.baidu.tieba.pluginPublisher") && (ad = com.baidu.tbadk.data.h.ad(ugcSchemeModel)) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921429, ad));
+        com.baidu.tbadk.data.h af;
+        if (PluginCheckUtil.vM("com.baidu.tieba.pluginPublisher") && (af = com.baidu.tbadk.data.h.af(ugcSchemeModel)) != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921429, af));
         }
     }
 

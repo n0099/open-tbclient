@@ -1,7 +1,7 @@
 package com.baidu.live.data;
 
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveExceptionInfo implements Serializable {
     public static final int EVENT_TYPE_DELAY = 5;
     public static final int EVENT_TYPE_FAST_OPEN = 2;

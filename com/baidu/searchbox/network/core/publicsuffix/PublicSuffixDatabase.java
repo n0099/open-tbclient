@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class PublicSuffixDatabase {
     private static final byte EXCEPTION_MARKER = 33;
     public static final String PUBLIC_SUFFIX_RESOURCE = "publicsuffixes.gz";

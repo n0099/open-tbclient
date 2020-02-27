@@ -1,13 +1,13 @@
 package com.facebook.imagepipeline.c;
 
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface p<K, V> {
     @Nullable
     com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar);
 
     @Nullable
-    com.facebook.common.references.a<V> bl(K k);
+    com.facebook.common.references.a<V> bn(K k);
 
     int c(com.facebook.common.internal.h<K> hVar);
 

@@ -2,7 +2,7 @@ package com.google.gson.internal;
 
 import java.io.ObjectStreamException;
 import java.math.BigDecimal;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class LazilyParsedNumber extends Number {
     private final String value;
 

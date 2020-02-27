@@ -15,26 +15,26 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
     private boolean isBJH;
-    private boolean jae;
+    private boolean jbF;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.jae = false;
+        this.jbF = false;
         this.isBJH = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jae = false;
+        this.jbF = false;
         this.isBJH = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jae = false;
+        this.jbF = false;
         this.isBJH = false;
     }
 
@@ -42,12 +42,12 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
         this.isBJH = z;
     }
 
-    public void fN(boolean z) {
-        this.jae = z;
+    public void fU(boolean z) {
+        this.jbF = z;
         if (z) {
             if (this.isBJH) {
                 setText(R.string.followed);
-                com.baidu.tbadk.core.util.f.a.aEM().kk(0).kr(1).ag(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).kl(R.color.cp_bg_line_c).aQ(this);
+                com.baidu.tbadk.core.util.f.a.aGY().kB(0).kI(1).af(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).kC(R.color.cp_bg_line_c).aQ(this);
                 am.setViewTextColor(this, R.color.cp_cont_b, 1);
                 return;
             }
@@ -58,7 +58,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
             am.setViewTextColor(this, R.color.cp_cont_e, 1);
         } else if (this.isBJH) {
             setText(R.string.attention);
-            com.baidu.tbadk.core.util.f.a.c(com.baidu.tbadk.core.util.f.a.b.aEN().kk(0).kr(1).ag(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b, R.color.cp_link_tip_a).aEP(), com.baidu.tbadk.core.util.f.a.b.aEN().kk(0).kr(1).ag(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).aEP()).aQ(this);
+            com.baidu.tbadk.core.util.f.a.c(com.baidu.tbadk.core.util.f.a.b.aGZ().kB(0).kI(1).af(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b, R.color.cp_link_tip_a).aHb(), com.baidu.tbadk.core.util.f.a.b.aGZ().kB(0).kI(1).af(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).aHb()).aQ(this);
             am.setViewTextColor(this, R.color.cp_cont_a, 1);
         } else {
             setText(R.string.attention);
@@ -70,37 +70,37 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void l(boolean z, int i) {
-        fN(z);
+    public void m(boolean z, int i) {
+        fU(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void b(boolean z, int i, boolean z2) {
-        l(z, i);
+        m(z, i);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void lg(int i) {
+    public void lx(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void ba(View view) {
         if (!this.isBJH) {
-            TiebaStatic.log(new an("c12503").cp("obj_locate", "4"));
+            TiebaStatic.log(new an("c12503").cy("obj_locate", "4"));
             if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 an anVar = new an("c12507");
-                anVar.cp("uid", TbadkCoreApplication.getCurrentAccount());
-                anVar.Z("obj_locate", 2);
-                anVar.cp("obj_source", TbadkCoreApplication.getInst().getTaskId());
+                anVar.cy("uid", TbadkCoreApplication.getCurrentAccount());
+                anVar.X("obj_locate", 2);
+                anVar.cy("obj_source", TbadkCoreApplication.getInst().getTaskId());
                 TiebaStatic.log(anVar);
             }
-            if (!this.jae) {
+            if (!this.jbF) {
                 Context context = getContext();
                 if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.m.a)) {
                     String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
                     List<String> currentPageSourceKeyList = ((com.baidu.tbadk.m.a) context).getCurrentPageSourceKeyList();
                     if (currentPageSourceKeyList != null && aq.equals((String) v.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE) && !aq.isEmpty(stringExtra)) {
-                        TiebaStatic.log(new an("c12613").Z("obj_type", 1).cp("tid", stringExtra));
+                        TiebaStatic.log(new an("c12613").X("obj_type", 1).cy("tid", stringExtra));
                     }
                 }
             }

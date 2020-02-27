@@ -1,4 +1,5 @@
 package kotlin;
-/* loaded from: classes5.dex */
+@h
+/* loaded from: classes7.dex */
 class g extends f {
 }

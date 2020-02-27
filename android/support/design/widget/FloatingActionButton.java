@@ -29,7 +29,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 @CoordinatorLayout.DefaultBehavior(Behavior.class)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton {
     private static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
     private static final String LOG_TAG = "FloatingActionButton";
@@ -53,7 +53,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public @interface Size {
     }
 
@@ -62,7 +62,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
         super.setVisibility(i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class OnVisibilityChangedListener {
         public void onShown(FloatingActionButton floatingActionButton) {
         }
@@ -337,7 +337,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
         return super.onTouchEvent(motionEvent);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Behavior extends CoordinatorLayout.Behavior<FloatingActionButton> {
         private static final boolean AUTO_HIDE_DEFAULT = true;
         private boolean mAutoHideEnabled;
@@ -506,7 +506,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class ShadowDelegateImpl implements ShadowViewDelegate {
         ShadowDelegateImpl() {
         }

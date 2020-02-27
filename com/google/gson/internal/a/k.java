@@ -11,9 +11,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class k extends TypeAdapter<Time> {
-    public static final TypeAdapterFactory mKA = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.k.1
+    public static final TypeAdapterFactory mLe = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.k.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             if (aVar.getRawType() == Time.class) {
@@ -22,19 +22,19 @@ public final class k extends TypeAdapter<Time> {
             return null;
         }
     };
-    private final DateFormat mLc = new SimpleDateFormat("hh:mm:ss a");
+    private final DateFormat mLF = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     /* renamed from: e */
     public synchronized Time read(com.google.gson.stream.a aVar) throws IOException {
         Time time;
-        if (aVar.dzL() == JsonToken.NULL) {
-            aVar.dzQ();
+        if (aVar.dAR() == JsonToken.NULL) {
+            aVar.dAW();
             time = null;
         } else {
             try {
-                time = new Time(this.mLc.parse(aVar.dzP()).getTime());
+                time = new Time(this.mLF.parse(aVar.dAV()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -46,6 +46,6 @@ public final class k extends TypeAdapter<Time> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: a */
     public synchronized void write(com.google.gson.stream.b bVar, Time time) throws IOException {
-        bVar.Qz(time == null ? null : this.mLc.format((Date) time));
+        bVar.QM(time == null ? null : this.mLF.format((Date) time));
     }
 }

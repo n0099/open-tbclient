@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetSuggestionByAddrName.DataRes;
 import tbclient.Lbs;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private ArrayList<C0548a> icg = new ArrayList<>();
+    private ArrayList<C0554a> ieh = new ArrayList<>();
 
     /* renamed from: com.baidu.tieba.location.data.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0548a {
+    /* loaded from: classes10.dex */
+    public static class C0554a {
         private String lat;
         private String lng;
         private String name;
@@ -37,26 +37,26 @@ public class a {
             return this.screatString;
         }
 
-        public void DV(String str) {
+        public void El(String str) {
             this.screatString = str;
         }
     }
 
-    public ArrayList<C0548a> ccf() {
-        return this.icg;
+    public ArrayList<C0554a> cdJ() {
+        return this.ieh;
     }
 
-    public void ax(ArrayList<C0548a> arrayList) {
-        this.icg = arrayList;
+    public void ax(ArrayList<C0554a> arrayList) {
+        this.ieh = arrayList;
     }
 
     public void a(DataRes dataRes) {
         List<Lbs> list = dataRes.poi_info;
         if (list != null && !list.isEmpty()) {
             for (Lbs lbs : list) {
-                C0548a c0548a = new C0548a();
-                c0548a.b(lbs);
-                this.icg.add(c0548a);
+                C0554a c0554a = new C0554a();
+                c0554a.b(lbs);
+                this.ieh.add(c0554a);
             }
         }
     }

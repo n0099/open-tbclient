@@ -9,7 +9,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.net.HttpCookie;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
     public void a(Context context, SapiConfiguration sapiConfiguration, SapiWebView.WeixinHandler weixinHandler) {
         if (!a(sapiConfiguration)) {

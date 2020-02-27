@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface f {
     public static final String A = "/wp/passwordresult";
     public static final String B = "/wp/v3/ucenter/accountbind";

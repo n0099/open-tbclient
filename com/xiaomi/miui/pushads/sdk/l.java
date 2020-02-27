@@ -23,63 +23,63 @@ import com.xiaomi.push.cj;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class l extends MiPushClient.MiPushClientCallback implements c {
     private static l a;
 
     /* renamed from: a  reason: collision with other field name */
-    static final /* synthetic */ boolean f103a;
+    static final /* synthetic */ boolean f100a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f104a;
+    private int f101a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f105a;
+    private Context f102a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f106a;
+    private SharedPreferences f103a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Handler f107a;
+    private Handler f104a;
 
     /* renamed from: a  reason: collision with other field name */
-    private e f108a;
+    private e f105a;
 
     /* renamed from: a  reason: collision with other field name */
-    private g f109a;
+    private g f106a;
 
     /* renamed from: a  reason: collision with other field name */
-    private cd f110a;
+    private cd f107a;
 
     /* renamed from: a  reason: collision with other field name */
-    private cj f111a;
+    private cj f108a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f112a;
+    private String f109a;
     private int b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f113b;
+    private String f110b;
     private String c;
 
     static {
-        f103a = !l.class.desiredAssertionStatus();
+        f100a = !l.class.desiredAssertionStatus();
     }
 
     private PendingIntent a(h hVar, int i) {
-        Intent intent = new Intent(this.f105a, MiPushRelayTraceService.class);
+        Intent intent = new Intent(this.f102a, MiPushRelayTraceService.class);
         Bundle bundle = new Bundle();
         bundle.putAll(hVar.a());
         bundle.putInt("intenttype", i);
-        if (i == 2 && this.f108a != null) {
-            PendingIntent a2 = this.f108a.a(new h(hVar));
+        if (i == 2 && this.f105a != null) {
+            PendingIntent a2 = this.f105a.a(new h(hVar));
             if (a2 != null) {
                 bundle.putParcelable("pendingintent", a2);
             }
         }
         intent.putExtras(bundle);
-        int i2 = (int) hVar.f181a;
-        return PendingIntent.getService(this.f105a, (i2 * i2) + i, intent, 134217728);
+        int i2 = (int) hVar.f178a;
+        return PendingIntent.getService(this.f102a, (i2 * i2) + i, intent, 134217728);
     }
 
     public static synchronized l a() {
@@ -94,12 +94,12 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
         Bitmap decodeFile;
         a("sdk handle notify");
         int hashCode = hVar.d.hashCode() + hVar.a.hashCode();
-        int a2 = this.f108a.a();
-        Notification.Builder builder = new Notification.Builder(this.f105a);
+        int a2 = this.f105a.a();
+        Notification.Builder builder = new Notification.Builder(this.f102a);
         if (a2 != 0) {
             builder.setSmallIcon(a2);
         }
-        NotificationBaseRemoteView notificationBaseRemoteView = new NotificationBaseRemoteView(this.f105a);
+        NotificationBaseRemoteView notificationBaseRemoteView = new NotificationBaseRemoteView(this.f102a);
         notificationBaseRemoteView.a(hVar.d, hVar.e);
         notificationBaseRemoteView.a(a2);
         a(hVar, hashCode, notificationBaseRemoteView);
@@ -110,40 +110,40 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
         Notification build = builder.build();
         if (!TextUtils.isEmpty(hVar.a()) && (decodeFile = BitmapFactory.decodeFile(hVar.a())) != null) {
             a("big picture");
-            NotificationBigRemoteView notificationBigRemoteView = new NotificationBigRemoteView(this.f105a);
+            NotificationBigRemoteView notificationBigRemoteView = new NotificationBigRemoteView(this.f102a);
             notificationBigRemoteView.a(hVar.d, hVar.e);
             notificationBigRemoteView.a(a2);
             notificationBigRemoteView.a(decodeFile);
             a(hVar, hashCode, notificationBigRemoteView);
             build.bigContentView = notificationBigRemoteView;
         }
-        ((NotificationManager) this.f105a.getSystemService("notification")).notify(hashCode, build);
+        ((NotificationManager) this.f102a.getSystemService("notification")).notify(hashCode, build);
     }
 
     private void a(h hVar, int i, NotificationBaseRemoteView notificationBaseRemoteView) {
         PendingIntent pendingIntent = null;
         h hVar2 = new h(hVar);
-        if (hVar.g != null && !TextUtils.isEmpty(hVar.g.trim()) && this.f108a != null) {
-            pendingIntent = this.f108a.b(hVar2);
+        if (hVar.g != null && !TextUtils.isEmpty(hVar.g.trim()) && this.f105a != null) {
+            pendingIntent = this.f105a.b(hVar2);
         }
         if (pendingIntent == null) {
             return;
         }
-        Intent intent = new Intent(this.f105a, MiPushRelayTraceService.class);
+        Intent intent = new Intent(this.f102a, MiPushRelayTraceService.class);
         Bundle bundle = new Bundle();
         bundle.putAll(hVar.a());
         bundle.putInt("intenttype", 2);
         bundle.putInt("notifyid", i);
         bundle.putParcelable("pendingintent", pendingIntent);
         intent.putExtras(bundle);
-        int i2 = (int) hVar.f181a;
-        notificationBaseRemoteView.a(hVar.g, PendingIntent.getService(this.f105a, (i2 * i2) + 3, intent, 134217728));
+        int i2 = (int) hVar.f178a;
+        notificationBaseRemoteView.a(hVar.g, PendingIntent.getService(this.f102a, (i2 * i2) + 3, intent, 134217728));
     }
 
     private void a(ce ceVar) {
-        if (this.f111a != null) {
-            a(this.f113b + "--->receivedT " + ceVar.f181a);
-            this.f111a.c(new cg(ceVar));
+        if (this.f108a != null) {
+            a(this.f110b + "--->receivedT " + ceVar.f178a);
+            this.f108a.c(new cg(ceVar));
         }
     }
 
@@ -152,15 +152,15 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
     }
 
     private void a(String str, int i, String str2) {
-        new j(this.f105a, this.f106a, str, i, str2, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[0]);
+        new j(this.f102a, this.f103a, str, i, str2, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[0]);
     }
 
     private void a(String str, long j, int i) {
         this.b++;
         d.a("存入cache 的数量: " + this.b);
-        if (this.f109a != null) {
-            this.f109a.a(str, j, i);
-            this.f109a.a();
+        if (this.f106a != null) {
+            this.f106a.a(str, j, i);
+            this.f106a.a();
         }
     }
 
@@ -169,7 +169,7 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m114a(ce ceVar) {
+    private boolean m119a(ce ceVar) {
         int i;
         int i2;
         if (ceVar.c <= 0) {
@@ -180,12 +180,12 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
             case 1:
                 i = ceVar.c * 4;
                 a("bubble uplimit: " + i);
-                i2 = this.f106a.getInt("bubblecount", 0);
+                i2 = this.f103a.getInt("bubblecount", 0);
                 break;
             case 2:
                 i = ceVar.c;
                 a("notify uplimit: " + i);
-                i2 = this.f106a.getInt("notifycount", 0);
+                i2 = this.f103a.getInt("notifycount", 0);
                 break;
             default:
                 i = 0;
@@ -200,14 +200,14 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m115a(String str) {
+    private boolean m120a(String str) {
         boolean z = true;
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.optInt("showType") != 1000) {
                 z = false;
-            } else if (this.f110a != null) {
-                this.f110a.a(jSONObject.optString("content"));
+            } else if (this.f107a != null) {
+                this.f107a.a(jSONObject.optString("content"));
             } else {
                 Log.e("ads-notify-fd5dfce4", "接受到外部的消息，但是外部的listener");
             }
@@ -220,15 +220,15 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
         a(ceVar);
         if (ceVar.a == 1) {
             a aVar = (a) ceVar;
-            if (this.f108a != null) {
-                this.f108a.a(aVar);
+            if (this.f105a != null) {
+                this.f105a.a(aVar);
             }
         } else if (ceVar.a == 2) {
             h hVar = (h) ceVar;
             try {
-                a(this.f113b + "--->get notify");
-                if (this.f108a != null) {
-                    if (this.f108a.m110a(new h(hVar))) {
+                a(this.f110b + "--->get notify");
+                if (this.f105a != null) {
+                    if (this.f105a.m115a(new h(hVar))) {
                         return;
                     }
                     a(hVar);
@@ -243,55 +243,55 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
         int i2 = 0;
         synchronized (this) {
             if (i == 2) {
-                i2 = this.f106a.getInt("notifycount", 0);
+                i2 = this.f103a.getInt("notifycount", 0);
             } else if (i == 1) {
-                i2 = this.f106a.getInt("bubblecount", 0);
+                i2 = this.f103a.getInt("bubblecount", 0);
             }
         }
         return i2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m116a(int i) {
+    public synchronized void m121a(int i) {
         if (i == 2) {
-            this.f106a.edit().putInt("notifycount", this.f106a.getInt("notifycount", 0) + 1).commit();
+            this.f103a.edit().putInt("notifycount", this.f103a.getInt("notifycount", 0) + 1).commit();
         } else if (i == 1) {
-            this.f106a.edit().putInt("bubblecount", this.f106a.getInt("bubblecount", 0) + 1).commit();
+            this.f103a.edit().putInt("bubblecount", this.f103a.getInt("bubblecount", 0) + 1).commit();
         }
     }
 
     @Override // com.xiaomi.miui.pushads.sdk.c
     public void a(int i, ce ceVar, j jVar) {
         if (ceVar == null) {
-            a(this.f113b + "--->cell is null");
+            a(this.f110b + "--->cell is null");
             return;
         }
         if (i == -1) {
-            a(this.f113b + "--->download failed: " + ceVar.f181a);
+            a(this.f110b + "--->download failed: " + ceVar.f178a);
             ceVar.d++;
             if (ceVar.d < 10) {
-                d.a("下载失败写入缓存 " + ceVar.h + "  " + ceVar.f183b + "  " + ceVar.d);
-                a(ceVar.h, ceVar.f183b, ceVar.d);
+                d.a("下载失败写入缓存 " + ceVar.h + "  " + ceVar.f180b + "  " + ceVar.d);
+                a(ceVar.h, ceVar.f180b, ceVar.d);
             } else {
                 d.a("下载失败次数超过 10 不写入缓存");
             }
         } else if (i == 0) {
             if (ceVar.c > 0) {
-                this.f104a++;
-                a().m116a(ceVar.a);
+                this.f101a++;
+                a().m121a(ceVar.a);
             }
-            a(this.f113b + "--->download sucess: id: " + ceVar.f181a + " type: " + ceVar.a + " count: " + a().a(ceVar.a));
+            a(this.f110b + "--->download sucess: id: " + ceVar.f178a + " type: " + ceVar.a + " count: " + a().a(ceVar.a));
         } else {
             Log.w("com.miui.ads", "广告无效或者超过限制 " + i);
             d.a("广告无效或者超过限制");
         }
-        if (this.f108a == null || i != 0) {
+        if (this.f105a == null || i != 0) {
             return;
         }
-        if (m114a(ceVar)) {
+        if (m119a(ceVar)) {
             b(ceVar);
         } else {
-            a(this.f113b + "--->reach limit, no return to app");
+            a(this.f110b + "--->reach limit, no return to app");
         }
     }
 
@@ -299,16 +299,16 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
     public void onCommandResult(String str, long j, String str2, List<String> list) {
         boolean z;
         int i = 0;
-        a(this.f113b + "--->onCommandResult == " + str + " resultCode: " + j + " reason: " + str2);
+        a(this.f110b + "--->onCommandResult == " + str + " resultCode: " + j + " reason: " + str2);
         for (int i2 = 0; i2 < list.size(); i2++) {
             a("param: " + list.get(i2));
         }
         if (TextUtils.equals(MiPushClient.COMMAND_SET_ALIAS, str)) {
             boolean z2 = false;
             while (i < list.size()) {
-                if (TextUtils.equals(this.f112a, list.get(i))) {
+                if (TextUtils.equals(this.f109a, list.get(i))) {
                     z = true;
-                    a(this.f113b + "--->alias ok: ");
+                    a(this.f110b + "--->alias ok: ");
                 } else {
                     z = z2;
                 }
@@ -318,58 +318,58 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
             if (z2) {
                 return;
             }
-            a(this.f113b + "--->alias failed, retry: ");
+            a(this.f110b + "--->alias failed, retry: ");
         }
     }
 
     @Override // com.xiaomi.mipush.sdk.MiPushClient.MiPushClientCallback
     public void onInitializeResult(long j, String str, String str2) {
-        if (this.f108a != null) {
-            Message obtainMessage = this.f107a.obtainMessage();
+        if (this.f105a != null) {
+            Message obtainMessage = this.f104a.obtainMessage();
             obtainMessage.what = 4;
             obtainMessage.arg1 = (int) j;
             obtainMessage.obj = str2;
-            this.f107a.sendMessage(obtainMessage);
+            this.f104a.sendMessage(obtainMessage);
         }
         if (0 != j) {
-            a(this.f113b + "--->chanle failed， need app reopen");
+            a(this.f110b + "--->chanle failed， need app reopen");
             return;
         }
-        a(this.f113b + "--->cahnel OK");
-        this.f107a.sendEmptyMessage(3);
+        a(this.f110b + "--->cahnel OK");
+        this.f104a.sendEmptyMessage(3);
         if (!f.a(this.c)) {
-            this.f107a.sendEmptyMessage(6);
+            this.f104a.sendEmptyMessage(6);
         }
-        this.f107a.sendEmptyMessage(5);
+        this.f104a.sendEmptyMessage(5);
     }
 
     @Override // com.xiaomi.mipush.sdk.MiPushClient.MiPushClientCallback
     public void onReceiveMessage(String str, String str2, String str3, boolean z) {
-        a(this.f113b + "--->##" + str3);
-        if (f.a(this.f112a) && f.a(this.c)) {
-            a(this.f113b + "--->no alias，ignore the msg " + str + "##" + str3);
-        } else if (!f.a(str2) && !f.a(this.f112a) && !TextUtils.equals(this.f112a, str2)) {
-            a(this.f113b + "--->get msg for different alias. unset " + str + "##" + str3);
-            MiPushClient.unsetAlias(this.f105a, str2, getCategory());
+        a(this.f110b + "--->##" + str3);
+        if (f.a(this.f109a) && f.a(this.c)) {
+            a(this.f110b + "--->no alias，ignore the msg " + str + "##" + str3);
+        } else if (!f.a(str2) && !f.a(this.f109a) && !TextUtils.equals(this.f109a, str2)) {
+            a(this.f110b + "--->get msg for different alias. unset " + str + "##" + str3);
+            MiPushClient.unsetAlias(this.f102a, str2, getCategory());
         } else if (!f.a(str3) && !f.a(this.c) && !TextUtils.equals(this.c, str3)) {
-            a(this.f113b + "--->get msg for old topic, unset " + str + "##" + str3);
-            MiPushClient.unsubscribe(this.f105a, str3, getCategory());
-        } else if (m115a(str)) {
+            a(this.f110b + "--->get msg for old topic, unset " + str + "##" + str3);
+            MiPushClient.unsubscribe(this.f102a, str3, getCategory());
+        } else if (m120a(str)) {
         } else {
-            a(str, this.f113b);
+            a(str, this.f110b);
         }
     }
 
     @Override // com.xiaomi.mipush.sdk.MiPushClient.MiPushClientCallback
     public void onSubscribeResult(long j, String str, String str2) {
-        a(this.f113b + "--->topic resultCode: " + j + " reason: " + str + " topic: " + str2);
+        a(this.f110b + "--->topic resultCode: " + j + " reason: " + str + " topic: " + str2);
         if (j != 0) {
-            this.f107a.sendEmptyMessageDelayed(6, BdKVCache.MILLS_1Hour);
+            this.f104a.sendEmptyMessageDelayed(6, BdKVCache.MILLS_1Hour);
         }
     }
 
     @Override // com.xiaomi.mipush.sdk.MiPushClient.MiPushClientCallback
     public void onUnsubscribeResult(long j, String str, String str2) {
-        a(this.f113b + "--->unsuscribe topic resultCode: " + j + " reason: " + str + " topic: " + str2);
+        a(this.f110b + "--->unsuscribe topic resultCode: " + j + " reason: " + str + " topic: " + str2);
     }
 }

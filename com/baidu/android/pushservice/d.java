@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.PushSocket;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.util.Properties;
 import org.apache.http.HttpStatus;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private static int c = -1;
     private static Boolean e = false;
@@ -58,7 +59,7 @@ public final class d {
     private int w = 0;
     private int x = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     class a extends Thread {
         a() {
             setName("PushService-PushConnection-readThread");
@@ -109,7 +110,7 @@ public final class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     class b extends Thread {
         b() {
             setName("PushService-PushConnection-SendThread");
@@ -291,7 +292,7 @@ public final class d {
                     } catch (Exception e2) {
                     }
                     if (d.c == -1 || d.c == -2) {
-                        int i = 132;
+                        int i = IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER;
                         try {
                             i = PushSocket.getLastSocketError();
                         } catch (Exception e3) {

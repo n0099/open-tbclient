@@ -2,11 +2,11 @@ package rx.internal.util;
 
 import rx.g;
 import rx.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class h<T> extends rx.h<T> {
     final T value;
 
-    public static <T> h<T> cj(T t) {
+    public static <T> h<T> ck(T t) {
         return new h<>(t);
     }
 
@@ -27,13 +27,13 @@ public final class h<T> extends rx.h<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a<T> implements h.a<T> {
-        private final rx.internal.schedulers.b nRM;
+        private final rx.internal.schedulers.b nSA;
         private final T value;
 
         a(rx.internal.schedulers.b bVar, T t) {
-            this.nRM = bVar;
+            this.nSA = bVar;
             this.value = t;
         }
 
@@ -41,12 +41,12 @@ public final class h<T> extends rx.h<T> {
         @Override // rx.functions.b
         /* renamed from: b */
         public void call(rx.i<? super T> iVar) {
-            iVar.add(this.nRM.g(new c(iVar, this.value)));
+            iVar.add(this.nSA.g(new c(iVar, this.value)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b<T> implements h.a<T> {
         private final rx.g scheduler;
         private final T value;
@@ -67,13 +67,13 @@ public final class h<T> extends rx.h<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class c<T> implements rx.functions.a {
-        private final rx.i<? super T> nRN;
+        private final rx.i<? super T> nSB;
         private final T value;
 
         c(rx.i<? super T> iVar, T t) {
-            this.nRN = iVar;
+            this.nSB = iVar;
             this.value = t;
         }
 
@@ -81,9 +81,9 @@ public final class h<T> extends rx.h<T> {
         @Override // rx.functions.a
         public void call() {
             try {
-                this.nRN.onSuccess((T) this.value);
+                this.nSB.onSuccess((T) this.value);
             } catch (Throwable th) {
-                this.nRN.onError(th);
+                this.nSB.onError(th);
             }
         }
     }

@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b cSA = new a();
-    private static final b cSB = new c();
-    private static final boolean cSC;
+    private static final b cWC = new a();
+    private static final b cWD = new c();
+    private static final boolean cWE;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void S(String str, String str2, String str3);
+        void T(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -24,7 +24,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void S(String str, String str2, String str3) {
+        public void T(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -38,35 +38,35 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void S(String str, String str2, String str3) {
+        public void T(String str, String str2, String str3) {
             an anVar = new an("c10729");
-            anVar.cp("obj_param1", str);
-            anVar.cp(TiebaInitialize.Params.OBJ_PARAM2, str2);
-            anVar.cp(TiebaInitialize.Params.OBJ_PARAM3, str3);
+            anVar.cy("obj_param1", str);
+            anVar.cy(TiebaInitialize.Params.OBJ_PARAM2, str2);
+            anVar.cy(TiebaInitialize.Params.OBJ_PARAM3, str3);
             if (BdBaseApplication.getInst() != null) {
                 TiebaStatic.log(anVar);
             }
         }
     }
 
-    public static void S(String str, String str2, String str3) {
-        if (cSC) {
-            cSA.S(str, str2, str3);
+    public static void T(String str, String str2, String str3) {
+        if (cWE) {
+            cWC.T(str, str2, str3);
         }
-        cSB.S(str, str2, str3);
+        cWD.T(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (cSC) {
-            cSA.S(null, null, str);
+        if (cWE) {
+            cWC.T(null, null, str);
         }
     }
 
-    public static void T(String str, String str2, String str3) {
+    public static void U(String str, String str2, String str3) {
         debug(str3);
     }
 
     static {
-        cSC = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        cWE = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

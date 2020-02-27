@@ -8,9 +8,9 @@ import com.baidu.live.adp.lib.image.loader.interfaces.IGenerateImageAddress;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener;
 import com.baidu.live.adp.widget.imageview.BdImage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdResourceLoader {
-    private static BdResourceLoader sInstance;
+    private static volatile BdResourceLoader sInstance;
     private IImageLoader mImageLoader = ImageLoaderManager.getInstance().buildImageLoader();
     private IGenerateImageAddress mGenImgAddress = new GenerateImageAddressImpl();
 
@@ -38,12 +38,8 @@ public class BdResourceLoader {
             this.mImageLoader.loadBlurImage(realGenerateAddress, genCacheKey(str, i), new IImageLoaderListener() { // from class: com.baidu.live.adp.lib.resourceloader.BdResourceLoader.1
                 @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener
                 public void onLoadComplete(String str2, Bitmap bitmap) {
-                    if (bdResourceCallback != null) {
-                        if (bitmap != null) {
-                        }
-                        if (bitmap != null && !bitmap.isRecycled()) {
-                            bdResourceCallback.onLoaded(new BdImage(bitmap, false), str2, -1);
-                        }
+                    if (bdResourceCallback != null && bitmap != null && !bitmap.isRecycled()) {
+                        bdResourceCallback.onLoaded(new BdImage(bitmap, false), str2, -1);
                     }
                 }
             });
@@ -52,12 +48,8 @@ public class BdResourceLoader {
         this.mImageLoader.loadImage(realGenerateAddress, new IImageLoaderListener() { // from class: com.baidu.live.adp.lib.resourceloader.BdResourceLoader.2
             @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener
             public void onLoadComplete(String str2, Bitmap bitmap) {
-                if (bdResourceCallback != null) {
-                    if (bitmap != null) {
-                    }
-                    if (bitmap != null && !bitmap.isRecycled()) {
-                        bdResourceCallback.onLoaded(new BdImage(bitmap, false), str2, -1);
-                    }
+                if (bdResourceCallback != null && bitmap != null && !bitmap.isRecycled()) {
+                    bdResourceCallback.onLoaded(new BdImage(bitmap, false), str2, -1);
                 }
             }
         });

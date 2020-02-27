@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class MaybeFlatMapPublisher<T, R> extends g<R> {
     final h<? super T, ? extends b<? extends R>> mapper;
     final o<T> source;
@@ -22,7 +22,7 @@ public final class MaybeFlatMapPublisher<T, R> extends g<R> {
         this.source.a(new FlatMapPublisherSubscriber(cVar, this.mapper));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class FlatMapPublisherSubscriber<T, R> extends AtomicReference<d> implements j<R>, m<T>, d {
         private static final long serialVersionUID = -8948264376121066672L;
         final c<? super R> downstream;
@@ -74,7 +74,7 @@ public final class MaybeFlatMapPublisher<T, R> extends g<R> {
             try {
                 ((b) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null Publisher")).subscribe(this);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 this.downstream.onError(th);
             }
         }

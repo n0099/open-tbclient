@@ -9,7 +9,7 @@ import com.baidu.tbadk.switchs.IsFullScreenSwitch;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean aDA() {
+    public static boolean aFK() {
         boolean z = true;
         if (IsFullScreenSwitch.isOn()) {
             String trim = Build.MODEL.trim();
@@ -31,15 +31,15 @@ public class g {
         return false;
     }
 
-    public static boolean aDB() {
+    public static boolean aFL() {
         return aq.equals(Build.MODEL.trim(), "ANE-AL00");
     }
 
-    public static boolean aDC() {
+    public static boolean aFM() {
         return aq.equals(Build.MODEL.trim(), "vivo X20A");
     }
 
-    public static String IV() {
+    public static String Lk() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -47,7 +47,7 @@ public class g {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static boolean dL(Context context) {
+    public static boolean dP(Context context) {
         SensorManager sensorManager;
         if (context == null || (sensorManager = (SensorManager) context.getSystemService("sensor")) == null) {
             return false;

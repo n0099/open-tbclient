@@ -2,7 +2,7 @@ package com.baidu.swan.apps.p;
 
 import android.support.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
     void K(@Nullable JSONObject jSONObject);
 

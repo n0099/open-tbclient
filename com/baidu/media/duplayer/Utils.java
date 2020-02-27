@@ -7,7 +7,6 @@ import android.net.Proxy;
 import android.os.Environment;
 import android.os.Process;
 import android.os.StatFs;
-import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
@@ -74,7 +73,7 @@ public class Utils {
     }
 
     public static String b(Context context) {
-        String str = a(context) + File.separator + BuildConfig.FLAVOR + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+        String str = a(context) + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
         if (a() < 10485760) {
             str = str2;

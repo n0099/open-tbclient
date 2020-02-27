@@ -20,7 +20,6 @@ import com.baidu.ala.helper.AlaLiveUtilHelper;
 import com.baidu.ala.helper.AlaVideoFrame;
 import com.baidu.ala.ndk.AlaNDKPlayerAdapter;
 import com.baidu.ala.player.AlaVideoPlayer;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.adp.framework.MessageManager;
@@ -43,20 +42,20 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLivePlayer extends LinearLayout {
     private static final int JNI_NOTIFY_MESSAGE_NO_VIDEO_FRAME = 2;
     private static final int JNI_NOTIFY_MESSAGE_RENDER_VIDEO_FRAME = 1;
     private static final int JNI_NOTIFY_MESSAGE_STREAM_CMD = 3;
     public static final int LINE_INDEX1 = 1;
     public static final int LINE_INDEX2 = 2;
-    private static final int MESSAGE_KEY_BUFFERING_EVENT = 2;
-    private static final int MESSAGE_KEY_DEBUG_INFO = 1;
-    private static final int MESSAGE_KEY_FIRST_VIDEO_FRAME = 0;
-    private static final int MESSAGE_KEY_FRAME_DELAY_EVENT = 3;
-    private static final int MESSAGE_KEY_STREAM_FAST_OPEN = 6;
-    private static final int MESSAGE_KEY_STREAM_STATE_CHANGE = 4;
-    private static final int MESSAGE_KEY_STREAM_STUCK = 5;
+    public static final int MESSAGE_KEY_BUFFERING_EVENT = 2;
+    public static final int MESSAGE_KEY_DEBUG_INFO = 1;
+    public static final int MESSAGE_KEY_FIRST_VIDEO_FRAME = 0;
+    public static final int MESSAGE_KEY_FRAME_DELAY_EVENT = 3;
+    public static final int MESSAGE_KEY_STREAM_FAST_OPEN = 6;
+    public static final int MESSAGE_KEY_STREAM_STATE_CHANGE = 4;
+    public static final int MESSAGE_KEY_STREAM_STUCK = 5;
     private static final int NATIVE_CONN_BREAKED_STATE = 0;
     private static final int NATIVE_CONN_CONNECTED_STATE = 1;
     public static final int PLAYER_VIDEO_MODEL_FILL = 1;
@@ -80,14 +79,14 @@ public class AlaLivePlayer extends LinearLayout {
     private BdPageContext<?> mPageContext;
     private byte[] mPcmBytes;
     private AlaLivePlayerCallback mPlayerCallback;
-    private volatile Handler mPlayerHandler;
+    private volatile PlayerHandler mPlayerHandler;
     private Map<Integer, AlaVideoPlayer2> mPlayersMap;
     private CallStateReceiver mReceiver;
     private AlaLiveStatConfig mStatConfig;
     private CustomMessageListener mSwitchForeBackListener;
     private boolean manualReconnect;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AlaLivePlayerConf {
         public int index;
         public LinearLayout.LayoutParams param;
@@ -245,10 +244,11 @@ public class AlaLivePlayer extends LinearLayout {
     }
 
     public AlaVideoPlayer getVideoPlayer(int i) {
-        if (this.mPlayersMap.containsKey(Integer.valueOf(i))) {
-            return this.mPlayersMap.get(Integer.valueOf(i)).getPlayerSurface();
+        AlaVideoPlayer2 alaVideoPlayer2;
+        if (!this.mPlayersMap.containsKey(Integer.valueOf(i)) || (alaVideoPlayer2 = this.mPlayersMap.get(Integer.valueOf(i))) == null) {
+            return null;
         }
-        return null;
+        return alaVideoPlayer2.getPlayerSurface();
     }
 
     private boolean getVideoPlayerUrlsEmpty() {
@@ -292,10 +292,10 @@ public class AlaLivePlayer extends LinearLayout {
     }
 
     private void jniNotifyMessage(final int i, int i2, final String str) {
-        if (getVideoPlayer(i) == null) {
-            BdLog.i("No VideoPlayer with Index " + i);
-        } else if (this.mIsDestroy) {
+        if (this.mIsDestroy) {
             BdLog.i("VideoPlayer destroyed" + i);
+        } else if (getVideoPlayer(i) == null) {
+            BdLog.i("No VideoPlayer with Index " + i);
         } else if (getVideoPlayer(i).getPlayerData().mIsRun == 1) {
             switch (i2) {
                 case 1:
@@ -325,52 +325,33 @@ public class AlaLivePlayer extends LinearLayout {
                         this.mEventQueue.add(new Runnable() { // from class: com.baidu.ala.player.AlaLivePlayer.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                AlaLivePlayer.this.parseStreamCmd(i, str);
+                                AlaLiveStreamCmdInfo.parseStreamCmd(i, str, new AlaLiveStreamCmdInfo.CmdParseCallback() { // from class: com.baidu.ala.player.AlaLivePlayer.2.1
+                                    @Override // com.baidu.ala.helper.AlaLiveStreamCmdInfo.CmdParseCallback
+                                    public Message getMessage() {
+                                        return AlaLivePlayer.this.mPlayerHandler.obtainMessage();
+                                    }
+
+                                    @Override // com.baidu.ala.helper.AlaLiveStreamCmdInfo.CmdParseCallback
+                                    public void sendMessage(Message message) {
+                                        if (AlaLivePlayer.this.mPlayerHandler != null && message != null) {
+                                            message.setTarget(AlaLivePlayer.this.mPlayerHandler);
+                                            AlaLivePlayer.this.mPlayerHandler.sendMessage(message);
+                                        }
+                                    }
+
+                                    @Override // com.baidu.ala.helper.AlaLiveStreamCmdInfo.CmdParseCallback
+                                    public void onResult(AlaLiveStreamCmdInfo.CmdParseResult cmdParseResult) {
+                                        if (AlaLivePlayer.this.getVideoPlayer(i) != null) {
+                                            AlaLivePlayer.this.getVideoPlayer(i).getPlayerData().mCmdInfo = cmdParseResult;
+                                        }
+                                    }
+                                });
                             }
                         });
                     }
                     return;
                 default:
                     return;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void parseStreamCmd(int i, String str) {
-        int i2 = 0;
-        if (!TextUtils.isEmpty(str) && getVideoPlayer(i) != null && this.mPlayerHandler != null) {
-            try {
-                String[] split = str.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
-                while (split != null) {
-                    if (i2 < split.length) {
-                        String[] split2 = split[i2].split("\\^");
-                        if (split2.length > 2) {
-                            int parseInt = Integer.parseInt(split2[0]);
-                            if (parseInt == 1) {
-                                long parseLong = Long.parseLong(split2[1]);
-                                Message obtainMessage = this.mPlayerHandler.obtainMessage();
-                                obtainMessage.what = 3;
-                                obtainMessage.obj = Integer.valueOf(i);
-                                obtainMessage.arg1 = (int) (System.currentTimeMillis() - parseLong);
-                                obtainMessage.arg2 = Integer.parseInt(split2[2]);
-                                this.mPlayerHandler.sendMessage(obtainMessage);
-                            } else if (parseInt == 2) {
-                                if (split2.length >= 5) {
-                                    AlaLiveStreamCmdInfo alaLiveStreamCmdInfo = new AlaLiveStreamCmdInfo();
-                                    alaLiveStreamCmdInfo.fillByStatus(split2[1], split2[2], split2[4], split2[3]);
-                                    if (getVideoPlayer(i) != null) {
-                                        getVideoPlayer(i).getPlayerData().mCmdInfo = alaLiveStreamCmdInfo;
-                                    }
-                                }
-                            }
-                        }
-                        i2++;
-                    } else {
-                        return;
-                    }
-                }
-            } catch (Exception e) {
             }
         }
     }
@@ -741,7 +722,7 @@ public class AlaLivePlayer extends LinearLayout {
     }
 
     private void nativeOnFastOpen(int i, int i2) {
-        if (getVideoPlayer(i) != null && !this.mIsDestroy) {
+        if (getVideoPlayer(i) != null) {
             getVideoPlayer(i).getPlayerData().mFastOpen = i2;
             Message obtainMessage = this.mPlayerHandler.obtainMessage(6);
             obtainMessage.arg1 = i;
@@ -751,36 +732,32 @@ public class AlaLivePlayer extends LinearLayout {
     }
 
     private void nativeOnStreamStuck(int i, int i2, int i3) {
-        if (getVideoPlayer(i) != null && !this.mIsDestroy) {
-            MessageStreamStuckData messageStreamStuckData = new MessageStreamStuckData();
-            messageStreamStuckData.index = i;
-            messageStreamStuckData.type = i2;
-            messageStreamStuckData.ms = i3;
-            Message obtainMessage = this.mPlayerHandler.obtainMessage(5);
-            obtainMessage.obj = messageStreamStuckData;
-            this.mPlayerHandler.sendMessage(obtainMessage);
-        }
+        MessageStreamStuckData messageStreamStuckData = new MessageStreamStuckData();
+        messageStreamStuckData.index = i;
+        messageStreamStuckData.type = i2;
+        messageStreamStuckData.ms = i3;
+        Message obtainMessage = this.mPlayerHandler.obtainMessage(5);
+        obtainMessage.obj = messageStreamStuckData;
+        this.mPlayerHandler.sendMessage(obtainMessage);
     }
 
     private void rtmpResponsedCallback(int i, int i2, int i3, String str) {
-        if (getVideoPlayer(i) != null && !this.mIsDestroy) {
-            if (i2 == 0) {
-                if (this.mPlayerHandler != null) {
-                    this.mPlayerHandler.sendMessage(this.mPlayerHandler.obtainMessage(4, i, 1));
-                }
-                AlaLivePlayerUtil.log(BdStatsConstant.StatsType.ERROR, "startnative", "curnet", BdNetTypeUtil.netTypeNameInLowerCase(), "pullip", getPullStreamIp(i));
-            } else if (i2 == 1 && this.mPlayerHandler != null) {
-                this.mPlayerHandler.sendMessage(this.mPlayerHandler.obtainMessage(4, i, 0));
+        if (i2 == 0) {
+            if (this.mPlayerHandler != null) {
+                this.mPlayerHandler.sendMessage(this.mPlayerHandler.obtainMessage(4, i, 1));
             }
-            if (getVideoPlayer(i) != null && getVideoPlayer(i).getPlayerData().mIsRun == 1 && !this.manualReconnect && i2 == 0 && getNetworkState() > 0) {
-                for (Map.Entry<Integer, AlaVideoPlayer2> entry : this.mPlayersMap.entrySet()) {
-                    AlaVideoPlayer2 value = entry.getValue();
-                    if (value != null && value.getPlayerData().mPlayUrl != null && value.getPlayerData().mPlayUrl.length() > 0) {
-                        restart(entry.getKey().intValue(), getVideoPlayer(entry.getKey().intValue()).getPlayerData().mPlayUrl);
-                    }
+            AlaLivePlayerUtil.log(BdStatsConstant.StatsType.ERROR, "startnative", "curnet", BdNetTypeUtil.netTypeNameInLowerCase(), "pullip", getPullStreamIp(i));
+        } else if (i2 == 1 && this.mPlayerHandler != null) {
+            this.mPlayerHandler.sendMessage(this.mPlayerHandler.obtainMessage(4, i, 0));
+        }
+        if (getVideoPlayer(i) != null && getVideoPlayer(i).getPlayerData().mIsRun == 1 && !this.manualReconnect && i2 == 0 && getNetworkState() > 0) {
+            for (Map.Entry<Integer, AlaVideoPlayer2> entry : this.mPlayersMap.entrySet()) {
+                AlaVideoPlayer2 value = entry.getValue();
+                if (value != null && value.getPlayerData().mPlayUrl != null && value.getPlayerData().mPlayUrl.length() > 0) {
+                    restart(entry.getKey().intValue(), getVideoPlayer(entry.getKey().intValue()).getPlayerData().mPlayUrl);
                 }
-                AlaLivePlayerUtil.log(BdStatsConstant.StatsType.ERROR, "restart", TiebaInitialize.LogFields.REASON, "streamclose");
             }
+            AlaLivePlayerUtil.log(BdStatsConstant.StatsType.ERROR, "restart", TiebaInitialize.LogFields.REASON, "streamclose");
         }
     }
 
@@ -825,7 +802,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AlaVideoPlayer2 implements AlaVideoPlayer.VideoPlayerCallback {
         private AlaVideoPlayer mPlayer;
 
@@ -914,7 +891,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class MessageStreamStuckData {
         public int index;
         public int ms;
@@ -924,7 +901,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private class MessageBufferEventData {
         public int duration;
         public int index;
@@ -935,8 +912,9 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
-    private class PlayerHandler extends Handler {
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes3.dex */
+    public class PlayerHandler extends Handler {
         public PlayerHandler() {
         }
 
@@ -1029,7 +1007,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class CallStateReceiver extends BroadcastReceiver {
         private boolean isRegisted = false;
 

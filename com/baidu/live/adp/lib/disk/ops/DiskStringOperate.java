@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.disk.ops;
 
 import com.baidu.live.adp.lib.disk.ops.DiskFileOperate;
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DiskStringOperate extends DiskFileOperate {
     private String mCharsetName;
     private String mContent;

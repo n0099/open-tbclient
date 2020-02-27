@@ -1,15 +1,15 @@
 package com.baidu.swan.bdprivate.address.b;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
+    void I(String str, int i);
+
+    void J(String str, int i);
+
     void K(String str, int i);
 
-    void L(String str, int i);
-
-    void M(String str, int i);
-
-    void afL();
+    void ahZ();
 
     void b(List<com.baidu.swan.bdprivate.address.c.b> list, int i);
 

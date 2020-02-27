@@ -9,7 +9,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SplashStaticHttpRequest extends HttpMessage {
     public SplashStaticHttpRequest() {
         super(1003193);
@@ -35,7 +35,7 @@ public class SplashStaticHttpRequest extends HttpMessage {
             BdLog.e(e.getMessage());
         }
         splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003193, com.baidu.tieba.advert.sdk.b.b.aWV());
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003193, com.baidu.tieba.advert.sdk.b.b.aZk());
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
         MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);
@@ -57,7 +57,7 @@ public class SplashStaticHttpRequest extends HttpMessage {
         MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class SplashStaticHttpResponse extends JsonHttpResponsedMessage {
         public SplashStaticHttpResponse(int i) {
             super(i);

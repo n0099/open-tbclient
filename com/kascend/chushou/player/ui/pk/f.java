@@ -1,7 +1,7 @@
 package com.kascend.chushou.player.ui.pk;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class f {
     public static void a(boolean z, @Nullable Object obj) {
         if (!z) {

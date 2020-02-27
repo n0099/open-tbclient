@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.coreExtra.data.v;
 import com.baidu.tbadk.coreExtra.data.w;
+import com.baidu.tbadk.coreExtra.data.x;
 import com.baidu.tbadk.d.a;
 import com.baidu.tbadk.switchs.PbPreloadSwitch;
 import com.baidu.tieba.R;
@@ -37,6 +37,7 @@ public final class TbSingleton {
     private boolean isRecommendPage;
     private List<String> mHostWhiteList;
     private String mHotSearch;
+    private boolean mIsOpenTrack;
     private boolean mIsPbFold;
     private boolean mIsShowPersonCenterLiteGame;
     private String mMissionEntranceIcon;
@@ -44,13 +45,14 @@ public final class TbSingleton {
     private String mProfileGameCenterKey;
     private String mPubEnvValue;
     private String mSampleId;
-    private w mSharePanelConfData;
+    private x mSharePanelConfData;
     private String mSharePanelText;
     private boolean mShowHomeFloatRefreshButton;
     private boolean mShowShoubaiDynamicGuide;
     private boolean mShowVivoBadge;
     private LinkedList<a> mVideoWatchTimeRecord;
     private String mWalletSignLink;
+    private String videoTestType;
     private static TbSingleton mInstance = null;
     private static int VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE = 2;
     private static int VIDEO_ENTER_TYPE_NO_JUMP_VIDEO_MIDDLE_PAGE = 1;
@@ -65,7 +67,7 @@ public final class TbSingleton {
     private boolean hasShowPermDlg = false;
     private boolean isNewUser = false;
     private boolean mHasAgreeToPlay = false;
-    private v mShakeData = null;
+    private w mShakeData = null;
     private String invokeSource = "";
     private boolean mFrsRootViewLoadingShow = false;
     private boolean mFrsContentViewLoadingShow = false;
@@ -81,7 +83,6 @@ public final class TbSingleton {
     private int mIsCutoutScreen = -1;
     public boolean mStartGameClicked = false;
     private boolean mIsVisitPreviewServer = false;
-    private boolean mIsShowNewYearSkin = false;
     private boolean hasDownloadEmotion = false;
     private int mHomePageStyleAbTest = 0;
     private HashMap<Long, String> liveForumMap = new HashMap<>();
@@ -104,17 +105,18 @@ public final class TbSingleton {
     private TbSingleton() {
         this.mShowHomeFloatRefreshButton = false;
         this.mShowVivoBadge = false;
-        setProfileGameCenterKey(b.aDr().getString("profile_swan_app_key", ""));
-        setHomePageStyleAbTest(b.aDr().getInt("index_activity_abtest_switch_json", 0));
-        setMissionEntranceIcon(b.aDr().getString("index_activity_abtest_icon_url", ""));
-        setMissionEntranceUrl(b.aDr().getString("index_activity_abtest_url", ""));
-        setShowPersonCenterLiteGame(b.aDr().getBoolean("person_center_show_lite_game", true));
-        setIsPbFold(b.aDr().getBoolean("pb_fold_small_flow_json", false));
-        setVideoEnterMiddlePage(b.aDr().getInt("key_video_play_type", VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE));
-        setNewVideoClickType(b.aDr().getInt("key_video_click_test", NEW_VIDEO_CLICK_TEST_SWITCH_OFF));
-        setUbsSampleId(b.aDr().getString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), ""));
-        setShowShoubaiDynamicGuide(b.aDr().getInt("key_is_show_shoubai_dynamic_guide", 0) == 1);
-        this.mShowHomeFloatRefreshButton = b.aDr().getInt("key_home_refresh_button_test", 0) == 1;
+        setIsOpenTrack(b.aFB().getBoolean("key_is_open_track", false));
+        setProfileGameCenterKey(b.aFB().getString("profile_swan_app_key", ""));
+        setHomePageStyleAbTest(b.aFB().getInt("index_activity_abtest_switch_json", 0));
+        setMissionEntranceIcon(b.aFB().getString("index_activity_abtest_icon_url", ""));
+        setMissionEntranceUrl(b.aFB().getString("index_activity_abtest_url", ""));
+        setShowPersonCenterLiteGame(b.aFB().getBoolean("person_center_show_lite_game", true));
+        setIsPbFold(b.aFB().getBoolean("pb_fold_small_flow_json", false));
+        setVideoEnterMiddlePage(b.aFB().getInt("key_video_play_type", VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE));
+        setNewVideoClickType(b.aFB().getInt("key_video_click_test", NEW_VIDEO_CLICK_TEST_SWITCH_OFF));
+        setUbsSampleId(b.aFB().getString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), ""));
+        setShowShoubaiDynamicGuide(b.aFB().getInt("key_is_show_shoubai_dynamic_guide", 0) == 1);
+        this.mShowHomeFloatRefreshButton = b.aFB().getInt("key_home_refresh_button_test", 0) == 1;
         initBenchmarkData();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
@@ -125,8 +127,7 @@ public final class TbSingleton {
                 TbSingleton.this.registerScreenSizeChangeTask();
             }
         });
-        setIsShowNewYearSkin();
-        this.mShowVivoBadge = b.aDr().getBoolean("key_show_vivo_badge", false);
+        this.mShowVivoBadge = b.aFB().getBoolean("key_show_vivo_badge", false);
     }
 
     public static TbSingleton getInstance() {
@@ -138,6 +139,14 @@ public final class TbSingleton {
             }
         }
         return mInstance;
+    }
+
+    public boolean isIsOpenTrack() {
+        return this.mIsOpenTrack;
+    }
+
+    public void setIsOpenTrack(boolean z) {
+        this.mIsOpenTrack = z;
     }
 
     public void setIsRecommendPage(boolean z) {
@@ -231,7 +240,7 @@ public final class TbSingleton {
 
     public long getLastResumeTime() {
         if (this.lastResumeTime == 0) {
-            this.lastResumeTime = b.aDr().getLong("last_resume_time", 0L);
+            this.lastResumeTime = b.aFB().getLong("last_resume_time", 0L);
         }
         return this.lastResumeTime;
     }
@@ -324,9 +333,9 @@ public final class TbSingleton {
             setAnimAvgFpsCount("anim_switch_slide", 0);
             return;
         }
-        this.mEnableBenchmark = b.aDr().getBoolean("enable_benchmark", true);
-        this.mCpuThreshold = b.aDr().getInt("cpu_flops_dura_threshold", Integer.MAX_VALUE);
-        this.mAnimFpsSyncThreshold = b.aDr().getInt("anim_avg_fps_threshold", 0);
+        this.mEnableBenchmark = b.aFB().getBoolean("enable_benchmark", true);
+        this.mCpuThreshold = b.aFB().getInt("cpu_flops_dura_threshold", Integer.MAX_VALUE);
+        this.mAnimFpsSyncThreshold = b.aFB().getInt("anim_avg_fps_threshold", 0);
     }
 
     public boolean isAnimFpsComputed(String str) {
@@ -337,12 +346,12 @@ public final class TbSingleton {
         if (aq.isEmpty(str)) {
             return -1;
         }
-        return b.aDr().getInt(str, -1);
+        return b.aFB().getInt(str, -1);
     }
 
     public void setAnimComputedFps(String str, int i) {
         if (!aq.isEmpty(str)) {
-            b.aDr().putInt(str, i);
+            b.aFB().putInt(str, i);
             if ("anim_switch_slide".equals(str) && !isAnimEnable(str)) {
                 setSlideAnimLocalSwitch(false);
             }
@@ -353,12 +362,12 @@ public final class TbSingleton {
         if (aq.isEmpty(str)) {
             return 0;
         }
-        return Integer.valueOf(b.aDr().getInt(str + "_anim_benchmark_avg_suffix", 0));
+        return Integer.valueOf(b.aFB().getInt(str + "_anim_benchmark_avg_suffix", 0));
     }
 
     public void setAnimAvgFps(String str, int i) {
         if (!aq.isEmpty(str) && i >= 0) {
-            b.aDr().putInt(str + "_anim_benchmark_avg_suffix", i);
+            b.aFB().putInt(str + "_anim_benchmark_avg_suffix", i);
         }
     }
 
@@ -366,33 +375,33 @@ public final class TbSingleton {
         if (aq.isEmpty(str)) {
             return 0;
         }
-        return Integer.valueOf(b.aDr().getInt(str + "_anim_benchmark_times_suffix", 0));
+        return Integer.valueOf(b.aFB().getInt(str + "_anim_benchmark_times_suffix", 0));
     }
 
     public void setAnimAvgFpsCount(String str, int i) {
         if (!aq.isEmpty(str) && i >= 0) {
-            b.aDr().putInt(str + "_anim_benchmark_times_suffix", i);
+            b.aFB().putInt(str + "_anim_benchmark_times_suffix", i);
         }
     }
 
     public void setSlideAnimLocalSwitch(boolean z) {
-        b.aDr().putBoolean("local_slide_animation__switch", z);
+        b.aFB().putBoolean("local_slide_animation__switch", z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156674, Boolean.valueOf(z)));
     }
 
     public boolean isSlideAnimLocalSwitchOn() {
-        return b.aDr().getBoolean("local_slide_animation__switch", false);
+        return b.aFB().getBoolean("local_slide_animation__switch", false);
     }
 
     public boolean isSlideAnimEnable() {
-        boolean z = b.aDr().getInt("slide_local_switch_is_clicked", 0) == 1;
-        boolean z2 = b.aDr().getInt("sync_slide_animation__switch", 0) == 1;
+        boolean z = b.aFB().getInt("slide_local_switch_is_clicked", 0) == 1;
+        boolean z2 = b.aFB().getInt("sync_slide_animation__switch", 0) == 1;
         boolean isSlideAnimLocalSwitchOn = isSlideAnimLocalSwitchOn();
         if (z) {
             return isSlideAnimLocalSwitchOn;
         }
         if (z2 != isSlideAnimLocalSwitchOn) {
-            b.aDr().putBoolean("local_slide_animation__switch", z2);
+            b.aFB().putBoolean("local_slide_animation__switch", z2);
             return z2;
         }
         return z2;
@@ -410,7 +419,7 @@ public final class TbSingleton {
 
     public int getCpuFlopsDuration() {
         if (this.mCpuFlopsDur < 0) {
-            this.mCpuFlopsDur = b.aDr().getInt("cpu_flops_dura", 0);
+            this.mCpuFlopsDur = b.aFB().getInt("cpu_flops_dura", 0);
         }
         return this.mCpuFlopsDur;
     }
@@ -418,13 +427,13 @@ public final class TbSingleton {
     public void setCpuFlopsDuration(int i) {
         if (i >= 0) {
             this.mCpuFlopsDur = i;
-            b.aDr().putInt("cpu_flops_dura", i);
+            b.aFB().putInt("cpu_flops_dura", i);
         }
     }
 
     public void setEnableBenchmark(boolean z) {
         this.mEnableBenchmark = z;
-        b.aDr().putBoolean("enable_benchmark", z);
+        b.aFB().putBoolean("enable_benchmark", z);
     }
 
     public boolean isEnableBenchmark() {
@@ -433,12 +442,12 @@ public final class TbSingleton {
 
     public void setCpuThreshold(int i) {
         this.mCpuThreshold = i;
-        b.aDr().putInt("cpu_flops_dura_threshold", i);
+        b.aFB().putInt("cpu_flops_dura_threshold", i);
     }
 
     public void setAnimAverageFpsThreshold(int i) {
         this.mAnimFpsSyncThreshold = i;
-        b.aDr().putInt("anim_avg_fps_threshold", i);
+        b.aFB().putInt("anim_avg_fps_threshold", i);
     }
 
     public int getCpuFlopsDurationSyncThreshold() {
@@ -449,11 +458,11 @@ public final class TbSingleton {
         return this.mAnimFpsSyncThreshold;
     }
 
-    public void setShakeData(v vVar) {
-        this.mShakeData = vVar;
+    public void setShakeData(w wVar) {
+        this.mShakeData = wVar;
     }
 
-    public v getShakeData() {
+    public w getShakeData() {
         return this.mShakeData;
     }
 
@@ -563,7 +572,7 @@ public final class TbSingleton {
         if (this.mStartGameClicked) {
             this.mStartGameClicked = false;
             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swangame/ikyQxumlFXoxbTw4eVaZDHCGU4vSVvLI/?_baiduboxapp=%7B%22from%22%3A%221191003700000000%22%7D&callback=_bdbox_js_275&upgrade=0"));
-            TiebaStatic.log(new an("c13274").cp("uid", TbadkCoreApplication.getCurrentAccount()).cp("obj_id", "15471320").cp("obj_source", "game_lauch_screen").cp("obj_name", "可口大冒险").Z("obj_param1", 1));
+            TiebaStatic.log(new an("c13274").cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("obj_id", "15471320").cy("obj_source", "game_lauch_screen").cy("obj_name", "可口大冒险").X("obj_param1", 1));
         }
     }
 
@@ -659,37 +668,23 @@ public final class TbSingleton {
         return this.mDistanceAccuracy;
     }
 
-    public boolean isShowNewYearSkin() {
-        return this.mIsShowNewYearSkin;
-    }
-
-    private void setIsShowNewYearSkin() {
-        this.mIsShowNewYearSkin = false;
-        String string = b.aDr().getString("key_show_newyear_skin_time", "");
-        if (!aq.isEmpty(string)) {
-            String[] split = string.split(":");
-            if (split.length == 2 && !aq.isEmpty(split[0]) && !aq.isEmpty(split[1])) {
-                long j = com.baidu.adp.lib.f.b.toLong(split[0], 0L) * 1000;
-                long j2 = com.baidu.adp.lib.f.b.toLong(split[1], 0L) * 1000;
-                if (j > 0 && j2 > 0 && j2 >= j) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis >= j && currentTimeMillis < j2) {
-                        this.mIsShowNewYearSkin = true;
-                    }
-                }
-            }
-        }
-    }
-
     public boolean isShowVivoBadge() {
         return this.mShowVivoBadge;
     }
 
-    public void setSharePanelConfData(w wVar) {
-        this.mSharePanelConfData = wVar;
+    public void setSharePanelConfData(x xVar) {
+        this.mSharePanelConfData = xVar;
     }
 
-    public w getSharePanelConfData() {
+    public x getSharePanelConfData() {
         return this.mSharePanelConfData;
+    }
+
+    public String getVideoTestType() {
+        return this.videoTestType;
+    }
+
+    public void setVideoTestType(String str) {
+        this.videoTestType = str;
     }
 }

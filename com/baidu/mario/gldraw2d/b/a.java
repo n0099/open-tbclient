@@ -9,7 +9,7 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final String TAG = a.class.getSimpleName();
     private EGLConfig mEGLConfig;
@@ -45,11 +45,11 @@ public final class a {
         }
         if ((i & 2) != 0) {
             Log.d(TAG, "Trying GLES 3");
-            EGLConfig e = e(i, 3, z);
-            if (e != null) {
-                EGLContext eglCreateContext = EGL14.eglCreateContext(this.mEGLDisplay, e, eGLContext, new int[]{12440, 3, 12344}, 0);
+            EGLConfig f = f(i, 3, z);
+            if (f != null) {
+                EGLContext eglCreateContext = EGL14.eglCreateContext(this.mEGLDisplay, f, eGLContext, new int[]{12440, 3, 12344}, 0);
                 if (EGL14.eglGetError() == 12288) {
-                    this.mEGLConfig = e;
+                    this.mEGLConfig = f;
                     this.mEGLContext = eglCreateContext;
                     this.mGlVersion = 3;
                 }
@@ -57,13 +57,13 @@ public final class a {
         }
         if (this.mEGLContext == EGL14.EGL_NO_CONTEXT) {
             Log.d(TAG, "Trying GLES 2");
-            EGLConfig e2 = e(i, 2, z);
-            if (e2 == null) {
+            EGLConfig f2 = f(i, 2, z);
+            if (f2 == null) {
                 throw new RuntimeException("Unable to find a suitable EGLConfig");
             }
-            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.mEGLDisplay, e2, eGLContext, new int[]{12440, 2, 12344}, 0);
+            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.mEGLDisplay, f2, eGLContext, new int[]{12440, 2, 12344}, 0);
             checkEglError("eglCreateContext");
-            this.mEGLConfig = e2;
+            this.mEGLConfig = f2;
             this.mEGLContext = eglCreateContext2;
             this.mGlVersion = 2;
         }
@@ -72,7 +72,7 @@ public final class a {
         Log.d(TAG, "EGLContext created, client version " + iArr2[0]);
     }
 
-    private EGLConfig e(int i, int i2, boolean z) {
+    private EGLConfig f(int i, int i2, boolean z) {
         int i3 = i2 >= 3 ? 68 : 4;
         int i4 = z ? 16 : 0;
         int[] iArr = new int[17];

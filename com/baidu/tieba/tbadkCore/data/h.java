@@ -17,16 +17,4 @@ public class h {
             this.text = actBtn.text;
         }
     }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public int getType() {
-        return this.type;
-    }
 }

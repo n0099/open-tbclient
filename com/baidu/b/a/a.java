@@ -1,23 +1,23 @@
 package com.baidu.b.a;
 
 import android.text.TextUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
-    private static a OM;
+    private static a Qw;
     private String mAppName;
 
     private a() {
     }
 
-    public static a nh() {
-        if (OM == null) {
+    public static a nP() {
+        if (Qw == null) {
             synchronized (a.class) {
-                if (OM == null) {
-                    OM = new a();
+                if (Qw == null) {
+                    Qw = new a();
                 }
             }
         }
-        return OM;
+        return Qw;
     }
 
     public void setAppName(String str) {
@@ -25,6 +25,6 @@ public class a {
     }
 
     public String getAppName() {
-        return !TextUtils.isEmpty(this.mAppName) ? this.mAppName : b.ni().getAppName();
+        return !TextUtils.isEmpty(this.mAppName) ? this.mAppName : b.nQ().getAppName();
     }
 }

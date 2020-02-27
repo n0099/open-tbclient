@@ -4,7 +4,7 @@ import android.animation.Animator;
 import android.graphics.Matrix;
 import android.os.Build;
 import android.widget.ImageView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class ImageViewUtils {
     private static final ImageViewUtilsImpl IMPL;
 

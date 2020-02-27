@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.coreextra.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ChunkUploadResult {
     private ChunkUploadData mData;
     private int mErrorCode;

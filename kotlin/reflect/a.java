@@ -2,7 +2,8 @@ package kotlin.reflect;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public interface a {
     List<Annotation> getAnnotations();
 }

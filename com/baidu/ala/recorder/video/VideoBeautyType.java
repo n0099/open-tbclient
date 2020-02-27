@@ -1,8 +1,9 @@
 package com.baidu.ala.recorder.video;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum VideoBeautyType {
     BEAUTY_FACEU,
     BEAUTY_TIEBA,
     BEAUTY_FACEUNITY,
-    DUMIX_AR
+    DUMIX_AR,
+    BEAUTY_NONE
 }

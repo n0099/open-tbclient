@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class k {
     public static String encodeUrl(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -17,7 +17,7 @@ public class k {
         }
     }
 
-    public static String cE(String str) {
+    public static String cM(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -28,7 +28,7 @@ public class k {
         }
     }
 
-    public static String cF(String str) {
+    public static String cN(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (Exception e) {

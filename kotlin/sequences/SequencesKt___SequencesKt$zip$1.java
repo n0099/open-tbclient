@@ -3,7 +3,8 @@ package kotlin.sequences;
 import kotlin.Pair;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class SequencesKt___SequencesKt$zip$1 extends Lambda implements m<T, R, Pair<? extends T, ? extends R>> {
     public static final SequencesKt___SequencesKt$zip$1 INSTANCE = new SequencesKt___SequencesKt$zip$1();
 
@@ -18,6 +19,6 @@ final class SequencesKt___SequencesKt$zip$1 extends Lambda implements m<T, R, Pa
 
     @Override // kotlin.jvm.a.m
     public final Pair<T, R> invoke(T t, R r) {
-        return kotlin.i.l(t, r);
+        return kotlin.j.k(t, r);
     }
 }

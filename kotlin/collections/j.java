@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public class j extends i {
     public static final boolean a(byte[] bArr, byte b) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
@@ -27,7 +28,7 @@ public class j extends i {
 
     public static final int c(byte[] bArr, byte b) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
-        for (Number number : o.d(f.aC(bArr))) {
+        for (Number number : o.d(f.aH(bArr))) {
             int intValue = number.intValue();
             if (b == bArr[intValue]) {
                 return intValue;
@@ -48,18 +49,18 @@ public class j extends i {
         }
     }
 
-    public static final List<Byte> a(byte[] bArr, kotlin.b.c cVar) {
+    public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
-        kotlin.jvm.internal.q.j(cVar, "indices");
-        return cVar.isEmpty() ? o.dIU() : f.aB(f.h(bArr, cVar.dJv().intValue(), cVar.dJw().intValue() + 1));
+        kotlin.jvm.internal.q.j(hVar, "indices");
+        return hVar.isEmpty() ? o.dKb() : f.aG(f.l(bArr, hVar.dKF().intValue(), hVar.dKG().intValue() + 1));
     }
 
-    public static final kotlin.b.c aC(byte[] bArr) {
+    public static final kotlin.b.h aH(byte[] bArr) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
-        return new kotlin.b.c(0, f.aD(bArr));
+        return new kotlin.b.h(0, f.aI(bArr));
     }
 
-    public static final int aD(byte[] bArr) {
+    public static final int aI(byte[] bArr) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
         return bArr.length - 1;
     }
@@ -75,18 +76,18 @@ public class j extends i {
 
     public static final <T> HashSet<T> N(T[] tArr) {
         kotlin.jvm.internal.q.j(tArr, "receiver$0");
-        return (HashSet) f.a(tArr, new HashSet(af.NB(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(af.NE(tArr.length)));
     }
 
     public static final <T> Set<T> O(T[] tArr) {
         kotlin.jvm.internal.q.j(tArr, "receiver$0");
         switch (tArr.length) {
             case 0:
-                return al.dJb();
+                return al.dKi();
             case 1:
-                return al.bS(tArr[0]);
+                return al.bT(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(af.NB(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(af.NE(tArr.length)));
         }
     }
 }

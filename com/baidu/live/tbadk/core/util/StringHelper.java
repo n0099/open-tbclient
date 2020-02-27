@@ -11,8 +11,8 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.u.a;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.google.android.exoplayer2.Format;
@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StringHelper extends BdStringHelper {
     public static final String STRING_MORE = "...";
     private static long MS_TO_SEC = 1000;

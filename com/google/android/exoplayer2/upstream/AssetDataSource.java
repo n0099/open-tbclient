@@ -6,16 +6,16 @@ import android.net.Uri;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class AssetDataSource implements e {
     private final AssetManager assetManager;
     private long bytesRemaining;
     private InputStream inputStream;
-    private final q<? super AssetDataSource> mFa;
-    private boolean mFb;
+    private final q<? super AssetDataSource> mFH;
+    private boolean mFI;
     private Uri uri;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class AssetDataSourceException extends IOException {
         public AssetDataSourceException(IOException iOException) {
             super(iOException);
@@ -24,7 +24,7 @@ public final class AssetDataSource implements e {
 
     public AssetDataSource(Context context, q<? super AssetDataSource> qVar) {
         this.assetManager = context.getAssets();
-        this.mFa = qVar;
+        this.mFH = qVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
@@ -38,7 +38,7 @@ public final class AssetDataSource implements e {
                 path = path.substring(1);
             }
             this.inputStream = this.assetManager.open(path, 1);
-            if (this.inputStream.skip(gVar.fLD) < gVar.fLD) {
+            if (this.inputStream.skip(gVar.fNZ) < gVar.fNZ) {
                 throw new EOFException();
             }
             if (gVar.length != -1) {
@@ -49,9 +49,9 @@ public final class AssetDataSource implements e {
                     this.bytesRemaining = -1L;
                 }
             }
-            this.mFb = true;
-            if (this.mFa != null) {
-                this.mFa.a(this, gVar);
+            this.mFI = true;
+            if (this.mFH != null) {
+                this.mFH.a(this, gVar);
             }
             return this.bytesRemaining;
         } catch (IOException e) {
@@ -79,8 +79,8 @@ public final class AssetDataSource implements e {
                 if (this.bytesRemaining != -1) {
                     this.bytesRemaining -= read;
                 }
-                if (this.mFa != null) {
-                    this.mFa.h(this, read);
+                if (this.mFH != null) {
+                    this.mFH.h(this, read);
                 }
                 return read;
             } catch (IOException e) {
@@ -108,10 +108,10 @@ public final class AssetDataSource implements e {
             }
         } finally {
             this.inputStream = null;
-            if (this.mFb) {
-                this.mFb = false;
-                if (this.mFa != null) {
-                    this.mFa.bz(this);
+            if (this.mFI) {
+                this.mFI = false;
+                if (this.mFH != null) {
+                    this.mFH.bB(this);
                 }
             }
         }

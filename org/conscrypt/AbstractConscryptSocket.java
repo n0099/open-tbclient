@@ -8,7 +8,7 @@ import java.security.PrivateKey;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 abstract class AbstractConscryptSocket extends SSLSocket {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract byte[] exportKeyingMaterial(String str, byte[] bArr, int i) throws SSLException;

@@ -1,5 +1,5 @@
 package com.vivo.push.util;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class r {
     public static int a(com.vivo.push.b.c cVar) {
         w b = w.b();

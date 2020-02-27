@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class FormBody extends RequestBody {
     private static final MediaType CONTENT_TYPE = MediaType.get("application/x-www-form-urlencoded");
     private final List<String> encodedNames;
@@ -78,7 +78,7 @@ public final class FormBody extends RequestBody {
         return j;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class Builder {
         private final Charset charset;
         private final List<String> names;

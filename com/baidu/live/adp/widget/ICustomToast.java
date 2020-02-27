@@ -1,5 +1,5 @@
 package com.baidu.live.adp.widget;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ICustomToast {
     void cancel();
 

@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class StringUtils {
     public static String[] toStringArray(Collection<String> collection) {
         if (collection == null) {

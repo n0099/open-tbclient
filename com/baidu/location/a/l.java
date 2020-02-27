@@ -12,7 +12,7 @@ import com.baidu.location.a.i;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class l extends i {
     public i.b e;
     private double y;
@@ -51,7 +51,7 @@ public class l extends i {
     private long M = 0;
     private boolean N = true;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private class a implements Runnable {
         final /* synthetic */ l a;
 
@@ -66,7 +66,7 @@ public class l extends i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -497,12 +497,12 @@ public class l extends i {
             k();
         } else {
             if (bDLocation.getLocType() == 167) {
-                com.baidu.location.a.b.a().a(BDLocation.TypeServerError, 8, "NetWork location failed because baidu location service can not caculate the location!");
+                com.baidu.location.a.b.a().a(167, 8, "NetWork location failed because baidu location service can not caculate the location!");
             } else if (bDLocation.getLocType() == 161) {
                 if (Build.VERSION.SDK_INT >= 19 && ((b2 = com.baidu.location.d.j.b(com.baidu.location.f.getServiceContext())) == 0 || b2 == 2)) {
-                    com.baidu.location.a.b.a().a(BDLocation.TypeNetWorkLocation, 1, "NetWork location successful, open gps will be better!");
+                    com.baidu.location.a.b.a().a(161, 1, "NetWork location successful, open gps will be better!");
                 } else if (bDLocation.getRadius() >= 100.0f && bDLocation.getNetworkLocationType() != null && bDLocation.getNetworkLocationType().equals(Config.CELL_LOCATION) && (g2 = com.baidu.location.b.i.a().g()) != null && !g2.equals("&wifio=1")) {
-                    com.baidu.location.a.b.a().a(BDLocation.TypeNetWorkLocation, 2, "NetWork location successful, open wifi will be better!");
+                    com.baidu.location.a.b.a().a(161, 2, "NetWork location successful, open wifi will be better!");
                 }
             }
             this.l = null;

@@ -24,35 +24,35 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.view.NoSwipeableViewPager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class j extends com.baidu.adp.base.c {
-    private boolean biA;
+    private boolean bmK;
     private String business;
-    private View dBI;
-    CreateGroupStepActivity htP;
-    private int htT;
-    CreateGroupStepAdapter huC;
-    private int huD;
-    private TextView huE;
-    private com.baidu.tbadk.core.dialog.i huF;
-    int huG;
-    e huH;
-    h huI;
-    g huJ;
-    d huK;
-    i huL;
-    b huM;
-    private NoSwipeableViewPager huN;
-    private com.baidu.tieba.im.util.b huO;
-    private int huP;
-    private int huQ;
-    private int huR;
-    private int huS;
-    private int huT;
-    private boolean huU;
-    private String huV;
-    private String huW;
-    private String huX;
+    private View dFJ;
+    CreateGroupStepActivity hvO;
+    private int hvS;
+    CreateGroupStepAdapter hwB;
+    private int hwC;
+    private TextView hwD;
+    private com.baidu.tbadk.core.dialog.i hwE;
+    int hwF;
+    e hwG;
+    h hwH;
+    g hwI;
+    d hwJ;
+    i hwK;
+    b hwL;
+    private NoSwipeableViewPager hwM;
+    private com.baidu.tieba.im.util.b hwN;
+    private int hwO;
+    private int hwP;
+    private int hwQ;
+    private int hwR;
+    private int hwS;
+    private boolean hwT;
+    private String hwU;
+    private String hwV;
+    private String hwW;
     int mForumId;
     private boolean mIsLoading;
     private NavigationBar mNavigationBar;
@@ -62,112 +62,112 @@ public class j extends com.baidu.adp.base.c {
     ProgressBar progressBar;
     private final WriteImagesInfo writeImagesInfo;
 
-    public void Cn(String str) {
-        this.huW = str;
+    public void CD(String str) {
+        this.hwV = str;
     }
 
-    public void Co(String str) {
-        this.huX = str;
+    public void CE(String str) {
+        this.hwW = str;
     }
 
-    public String bRJ() {
-        return this.huW;
+    public String bTk() {
+        return this.hwV;
     }
 
-    public String bRK() {
-        return this.huX;
+    public String bTl() {
+        return this.hwW;
     }
 
-    public View bRL() {
-        return this.dBI;
+    public View bTm() {
+        return this.dFJ;
     }
 
-    public int bRM() {
-        return this.huD;
+    public int bTn() {
+        return this.hwC;
     }
 
-    public View bRN() {
-        return this.huE;
+    public View bTo() {
+        return this.hwD;
     }
 
-    public View bRO() {
-        if (this.huH != null) {
-            return this.huH.bRz();
+    public View bTp() {
+        if (this.hwG != null) {
+            return this.hwG.bTa();
         }
-        if (this.huI != null) {
-            return this.huI.bRz();
+        if (this.hwH != null) {
+            return this.hwH.bTa();
         }
         return null;
     }
 
-    public View bRP() {
-        return this.huL.bRH();
+    public View bTq() {
+        return this.hwK.bTi();
     }
 
-    public View bRQ() {
-        return this.huL.bRG();
+    public View bTr() {
+        return this.hwK.bTh();
     }
 
-    public boolean bRR() {
+    public boolean bTs() {
         return this.mIsLoading;
     }
 
-    public void bRm() {
-        this.huM.bRm();
-        bSm();
+    public void bSN() {
+        this.hwL.bSN();
+        bTN();
     }
 
-    public void Cp(String str) {
-        this.huV = str;
+    public void CF(String str) {
+        this.hwU = str;
     }
 
-    public String Ku() {
-        return this.huV;
+    public String MJ() {
+        return this.hwU;
     }
 
     public void setBusiness(String str) {
         this.business = str;
-        this.huM.setBusiness(str);
-        bSm();
+        this.hwL.setBusiness(str);
+        bTN();
     }
 
     public String getBusiness() {
         return this.business;
     }
 
-    public void Cq(String str) {
-        this.huM.setAddress(str);
-        bSm();
+    public void CG(String str) {
+        this.hwL.setAddress(str);
+        bTN();
     }
 
-    public boolean bRS() {
-        return this.huU;
+    public boolean bTt() {
+        return this.hwT;
     }
 
-    public void nm(boolean z) {
-        this.huU = z;
+    public void no(boolean z) {
+        this.hwT = z;
     }
 
-    public void bRn() {
-        this.huM.bRn();
-        bSm();
+    public void bSO() {
+        this.hwL.bSO();
+        bTN();
     }
 
-    public void bRo() {
-        this.huM.bRo();
-        bSm();
+    public void bSP() {
+        this.hwL.bSP();
+        bTN();
     }
 
-    public View bRT() {
-        return this.huM.bRk();
+    public View bTu() {
+        return this.hwL.bSL();
     }
 
-    public int bRl() {
-        return this.huM.bRl();
+    public int bSM() {
+        return this.hwL.bSM();
     }
 
-    public View bRU() {
-        return this.huJ.bRD();
+    public View bTv() {
+        return this.hwI.bTe();
     }
 
     public int getForumId() {
@@ -175,11 +175,11 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public String getName() {
-        return this.huJ.bRC().getText().toString();
+        return this.hwI.bTd().getText().toString();
     }
 
     public String getIntro() {
-        return this.huK.bRv().getText().toString();
+        return this.hwJ.bSW().getText().toString();
     }
 
     public void setPortrait(String str) {
@@ -191,113 +191,113 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public int getGroupType() {
-        return this.huG;
+        return this.hwF;
     }
 
-    public boolean bRV() {
-        return this.huJ != null && this.huD == this.huJ.bRj();
+    public boolean bTw() {
+        return this.hwI != null && this.hwC == this.hwI.bSK();
     }
 
-    public boolean bRW() {
-        return this.huK != null && this.huD == this.huK.bRj();
+    public boolean bTx() {
+        return this.hwJ != null && this.hwC == this.hwJ.bSK();
     }
 
-    public boolean bRX() {
-        return this.huL != null && this.huD == this.huL.bRj();
+    public boolean bTy() {
+        return this.hwK != null && this.hwC == this.hwK.bSK();
     }
 
-    public boolean bRY() {
-        return this.huM != null && this.huD == this.huM.bRj();
+    public boolean bTz() {
+        return this.hwL != null && this.hwC == this.hwL.bSK();
     }
 
-    public boolean bRZ() {
-        return this.huC != null && this.huD == this.huC.getCount();
+    public boolean bTA() {
+        return this.hwB != null && this.hwC == this.hwB.getCount();
     }
 
     public String getErrMsg() {
-        if (this.huC.wb(this.huD - 1) != null) {
-            return this.huC.wb(this.huD - 1).getErrMsg();
+        if (this.hwB.wh(this.hwC - 1) != null) {
+            return this.hwB.wh(this.hwC - 1).getErrMsg();
         }
         return null;
     }
 
-    public void bSa() {
-        this.huL.bRH().setText(R.string.group_create_modify_photo_tip);
+    public void bTB() {
+        this.hwK.bTi().setText(R.string.group_create_modify_photo_tip);
     }
 
-    public void bSb() {
-        this.huL.bRF();
+    public void bTC() {
+        this.hwK.bTg();
     }
 
-    public void vT() {
-        this.huJ.bRE();
+    public void xS() {
+        this.hwI.bTf();
     }
 
     public j(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
         super(createGroupStepActivity.getPageContext());
-        this.biA = true;
+        this.bmK = true;
         this.mIsLoading = false;
-        this.htP = null;
-        this.huC = null;
+        this.hvO = null;
+        this.hwB = null;
         this.progressBar = null;
-        this.huD = 1;
+        this.hwC = 1;
         this.mNavigationBar = null;
         this.mParent = null;
-        this.dBI = null;
-        this.huE = null;
-        this.huF = null;
-        this.huG = 4;
+        this.dFJ = null;
+        this.hwD = null;
+        this.hwE = null;
+        this.hwF = 4;
         this.mForumId = 0;
         this.mPortrait = null;
-        this.huH = null;
-        this.huI = null;
-        this.huJ = null;
-        this.huK = null;
-        this.huL = null;
-        this.huM = null;
+        this.hwG = null;
+        this.hwH = null;
+        this.hwI = null;
+        this.hwJ = null;
+        this.hwK = null;
+        this.hwL = null;
         this.writeImagesInfo = new WriteImagesInfo();
-        this.huN = null;
-        this.huO = null;
-        this.huU = false;
-        this.huV = "";
+        this.hwM = null;
+        this.hwN = null;
+        this.hwT = false;
+        this.hwU = "";
         this.business = "";
-        this.huW = null;
-        this.huX = null;
+        this.hwV = null;
+        this.hwW = null;
         a(createGroupStepActivity, i, i2, i3, i4);
         initData();
         initListener();
     }
 
     private void initData() {
-        this.huO = new com.baidu.tieba.im.util.b(this.htP);
-        this.huO.setUniqueId(this.htP.getUniqueId());
-        bSc();
+        this.hwN = new com.baidu.tieba.im.util.b(this.hvO);
+        this.hwN.setUniqueId(this.hvO.getUniqueId());
+        bTD();
     }
 
-    public void bSc() {
-        this.huO.startLoad();
+    public void bTD() {
+        this.hwN.startLoad();
     }
 
-    public void bSd() {
-        if (this.huO != null) {
-            this.huO.cancelLoad();
+    public void bTE() {
+        if (this.hwN != null) {
+            this.hwN.cancelLoad();
         }
     }
 
     private void initListener() {
-        this.dBI.setOnClickListener(this.htP);
-        this.huE.setOnClickListener(this.htP);
-        this.huJ.bRC().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
-        this.huJ.bRC().addTextChangedListener(this.htP);
-        this.huK.bRv().addTextChangedListener(this.htP);
-        this.huL.bRH().setOnClickListener(this.htP);
-        this.huL.bRG().setOnClickListener(this.htP);
-        this.huM.bRk().setOnClickListener(this.htP);
-        if (this.huI != null) {
-            this.huI.bRz().setOnClickListener(this.htP);
+        this.dFJ.setOnClickListener(this.hvO);
+        this.hwD.setOnClickListener(this.hvO);
+        this.hwI.bTd().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
+        this.hwI.bTd().addTextChangedListener(this.hvO);
+        this.hwJ.bSW().addTextChangedListener(this.hvO);
+        this.hwK.bTi().setOnClickListener(this.hvO);
+        this.hwK.bTh().setOnClickListener(this.hvO);
+        this.hwL.bSL().setOnClickListener(this.hvO);
+        if (this.hwH != null) {
+            this.hwH.bTa().setOnClickListener(this.hvO);
         }
-        if (this.huH != null) {
-            this.huH.bRz().setOnClickListener(this.htP);
+        if (this.hwG != null) {
+            this.hwG.bTa().setOnClickListener(this.hvO);
         }
     }
 
@@ -307,132 +307,132 @@ public class j extends com.baidu.adp.base.c {
     }
 
     private void a(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
-        this.htP = createGroupStepActivity;
+        this.hvO = createGroupStepActivity;
         createGroupStepActivity.setContentView(R.layout.create_group_step_activity);
         this.mParent = createGroupStepActivity.findViewById(R.id.parent);
         this.progressBar = (ProgressBar) createGroupStepActivity.findViewById(R.id.progress);
-        this.huN = (NoSwipeableViewPager) createGroupStepActivity.findViewById(R.id.pagercontent);
-        this.huC = new CreateGroupStepAdapter(this.htP);
+        this.hwM = (NoSwipeableViewPager) createGroupStepActivity.findViewById(R.id.pagercontent);
+        this.hwB = new CreateGroupStepAdapter(this.hvO);
         b(createGroupStepActivity, i, i2, i3, i4);
-        this.huN.setAdapter(this.huC);
+        this.hwM.setAdapter(this.hwB);
         this.mNavigationBar = (NavigationBar) createGroupStepActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setSystemClickable(false);
-        this.dBI = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        bSk();
-        this.huE = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, createGroupStepActivity.getResources().getString(R.string.next_step));
-        ((LinearLayout.LayoutParams) this.huE.getLayoutParams()).rightMargin = com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds16);
-        am.setBackgroundResource(this.huE, R.drawable.s_navbar_button_bg);
-        nn(false);
-        bSl();
+        this.dFJ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        bTL();
+        this.hwD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, createGroupStepActivity.getResources().getString(R.string.next_step));
+        ((LinearLayout.LayoutParams) this.hwD.getLayoutParams()).rightMargin = com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds16);
+        am.setBackgroundResource(this.hwD, R.drawable.s_navbar_button_bg);
+        np(false);
+        bTM();
     }
 
     private void b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
         if (i == 1) {
-            this.huT = 1;
-            this.huS = 2;
-            this.huP = 3;
-            this.huQ = 4;
-            this.huR = 5;
-            this.huH = new e(createGroupStepActivity, this.huT, i2);
-            this.huM = new b(createGroupStepActivity, this.huS, 1, 5);
-            this.huJ = new g(createGroupStepActivity, this.huP, 2, 5);
-            this.huK = new d(createGroupStepActivity, this.huQ, 3, 5);
-            this.huL = new i(createGroupStepActivity, this.huR, 4, 5);
-            this.huC.a(this.huH);
-            this.huC.a(this.huM);
-            this.huC.a(this.huJ);
-            this.huC.a(this.huK);
-            this.huC.a(this.huL);
-            this.htT = 5;
+            this.hwS = 1;
+            this.hwR = 2;
+            this.hwO = 3;
+            this.hwP = 4;
+            this.hwQ = 5;
+            this.hwG = new e(createGroupStepActivity, this.hwS, i2);
+            this.hwL = new b(createGroupStepActivity, this.hwR, 1, 5);
+            this.hwI = new g(createGroupStepActivity, this.hwO, 2, 5);
+            this.hwJ = new d(createGroupStepActivity, this.hwP, 3, 5);
+            this.hwK = new i(createGroupStepActivity, this.hwQ, 4, 5);
+            this.hwB.a(this.hwG);
+            this.hwB.a(this.hwL);
+            this.hwB.a(this.hwI);
+            this.hwB.a(this.hwJ);
+            this.hwB.a(this.hwK);
+            this.hvS = 5;
         } else if (i == 2) {
-            this.huT = 1;
-            this.huP = 2;
-            this.huQ = 3;
-            this.huR = 4;
-            this.huS = 5;
-            this.huI = new h(createGroupStepActivity, this.huT, i3);
-            this.huJ = new g(createGroupStepActivity, this.huP, 1, 5);
-            this.huK = new d(createGroupStepActivity, this.huQ, 2, 5);
-            this.huL = new i(createGroupStepActivity, this.huR, 3, 5);
-            this.huM = new b(createGroupStepActivity, this.huS, 4, 5);
-            this.huC.a(this.huI);
-            this.huC.a(this.huJ);
-            this.huC.a(this.huK);
-            this.huC.a(this.huL);
-            this.huC.a(this.huM);
-            this.htT = 5;
+            this.hwS = 1;
+            this.hwO = 2;
+            this.hwP = 3;
+            this.hwQ = 4;
+            this.hwR = 5;
+            this.hwH = new h(createGroupStepActivity, this.hwS, i3);
+            this.hwI = new g(createGroupStepActivity, this.hwO, 1, 5);
+            this.hwJ = new d(createGroupStepActivity, this.hwP, 2, 5);
+            this.hwK = new i(createGroupStepActivity, this.hwQ, 3, 5);
+            this.hwL = new b(createGroupStepActivity, this.hwR, 4, 5);
+            this.hwB.a(this.hwH);
+            this.hwB.a(this.hwI);
+            this.hwB.a(this.hwJ);
+            this.hwB.a(this.hwK);
+            this.hwB.a(this.hwL);
+            this.hvS = 5;
         } else {
-            this.huP = 1;
-            this.huQ = 2;
-            this.huR = 3;
-            this.huS = 4;
-            this.huJ = new g(createGroupStepActivity, this.huP, 1, 4);
-            this.huK = new d(createGroupStepActivity, this.huQ, 2, 4);
-            this.huL = new i(createGroupStepActivity, this.huR, 3, 4);
-            this.huM = new b(createGroupStepActivity, this.huS, 4, 4);
-            this.huC.a(this.huJ);
-            this.huC.a(this.huK);
-            this.huC.a(this.huL);
-            this.huC.a(this.huM);
-            this.htT = 4;
+            this.hwO = 1;
+            this.hwP = 2;
+            this.hwQ = 3;
+            this.hwR = 4;
+            this.hwI = new g(createGroupStepActivity, this.hwO, 1, 4);
+            this.hwJ = new d(createGroupStepActivity, this.hwP, 2, 4);
+            this.hwK = new i(createGroupStepActivity, this.hwQ, 3, 4);
+            this.hwL = new b(createGroupStepActivity, this.hwR, 4, 4);
+            this.hwB.a(this.hwI);
+            this.hwB.a(this.hwJ);
+            this.hwB.a(this.hwK);
+            this.hwB.a(this.hwL);
+            this.hvS = 4;
         }
     }
 
-    private void nn(boolean z) {
-        this.biA = z;
-        bSf();
+    private void np(boolean z) {
+        this.bmK = z;
+        bTG();
     }
 
-    public boolean bSe() {
-        return this.biA;
+    public boolean bTF() {
+        return this.bmK;
     }
 
-    private void bSf() {
-        this.huE.setEnabled(this.biA);
-        am.setBackgroundResource(this.huE, R.drawable.s_navbar_button_bg);
+    private void bTG() {
+        this.hwD.setEnabled(this.bmK);
+        am.setBackgroundResource(this.hwD, R.drawable.s_navbar_button_bg);
     }
 
-    public void bSg() {
-        if (this.huD > 1) {
-            this.huD--;
-            bSi();
+    public void bTH() {
+        if (this.hwC > 1) {
+            this.hwC--;
+            bTJ();
         }
     }
 
-    public void bSh() {
-        if (this.huD < this.htT) {
-            this.huD++;
-            bSi();
+    public void bTI() {
+        if (this.hwC < this.hvS) {
+            this.hwC++;
+            bTJ();
         }
     }
 
-    public void bSi() {
-        this.huN.setCurrentItem(this.huD - 1);
-        bSk();
-        bSl();
-        bSm();
-        this.huJ.bRC().clearFocus();
-        this.huK.bRv().clearFocus();
-        d(this.huJ.bRC());
-        d(this.huK.bRv());
-        if (bRX() && bRR()) {
-            bRN().setEnabled(false);
+    public void bTJ() {
+        this.hwM.setCurrentItem(this.hwC - 1);
+        bTL();
+        bTM();
+        bTN();
+        this.hwI.bTd().clearFocus();
+        this.hwJ.bSW().clearFocus();
+        d(this.hwI.bTd());
+        d(this.hwJ.bSW());
+        if (bTy() && bTs()) {
+            bTo().setEnabled(false);
         } else {
-            bRN().setEnabled(true);
+            bTo().setEnabled(true);
         }
     }
 
-    public void bSj() {
-        String[] strArr = {this.htP.getResources().getString(R.string.take_photo), this.htP.getResources().getString(R.string.album)};
-        if (this.huF == null) {
-            this.huF = new com.baidu.tbadk.core.dialog.i(this.htP.getPageContext());
-            this.huF.a(null, strArr, new k.c() { // from class: com.baidu.tieba.im.creategroup.j.1
+    public void bTK() {
+        String[] strArr = {this.hvO.getResources().getString(R.string.take_photo), this.hvO.getResources().getString(R.string.album)};
+        if (this.hwE == null) {
+            this.hwE = new com.baidu.tbadk.core.dialog.i(this.hvO.getPageContext());
+            this.hwE.a(null, strArr, new k.c() { // from class: com.baidu.tieba.im.creategroup.j.1
                 @Override // com.baidu.tbadk.core.dialog.k.c
                 public void a(com.baidu.tbadk.core.dialog.k kVar, int i, View view) {
-                    if (j.this.huF != null && j.this.huF.isShowing() && j.this.htP != null) {
-                        j.this.huF.dismiss();
+                    if (j.this.hwE != null && j.this.hwE.isShowing() && j.this.hvO != null) {
+                        j.this.hwE.dismiss();
                     }
-                    Activity pageActivity = j.this.htP.getPageContext().getPageActivity();
+                    Activity pageActivity = j.this.hvO.getPageContext().getPageActivity();
                     if (j.this.mPermissionJudgement == null) {
                         j.this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
                     }
@@ -440,9 +440,9 @@ public class j extends com.baidu.adp.base.c {
                     j.this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                     if (!j.this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                         if (i == 0) {
-                            al.e(j.this.htP.getPageContext());
+                            al.e(j.this.hvO.getPageContext());
                         } else if (i == 1) {
-                            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(j.this.htP.getPageContext().getPageActivity(), j.this.writeImagesInfo.toJsonString());
+                            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(j.this.hvO.getPageContext().getPageActivity(), j.this.writeImagesInfo.toJsonString());
                             albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
                             albumActivityConfig.setResourceType(2);
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
@@ -451,12 +451,12 @@ public class j extends com.baidu.adp.base.c {
                 }
             });
         }
-        this.huF.showDialog();
+        this.hwE.showDialog();
     }
 
     public void ao(Intent intent) {
         String stringExtra;
-        Activity pageActivity = this.htP.getPageContext().getPageActivity();
+        Activity pageActivity = this.hvO.getPageContext().getPageActivity();
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
         }
@@ -466,107 +466,107 @@ public class j extends com.baidu.adp.base.c {
             this.writeImagesInfo.parseJson(stringExtra);
             this.writeImagesInfo.updateQuality();
             if (this.writeImagesInfo.getChosedFiles() != null && this.writeImagesInfo.getChosedFiles().size() > 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditHeadActivityConfig(this.htP.getPageContext().getPageActivity(), (int) RequestResponseCode.REQUEST_ALBUM_IMAGE, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, intent.getData(), TbadkApplication.getCurrentAccountObj(), 1, this.writeImagesInfo.getChosedFiles().get(0).getFilePath(), 1.0f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditHeadActivityConfig(this.hvO.getPageContext().getPageActivity(), (int) RequestResponseCode.REQUEST_ALBUM_IMAGE, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, intent.getData(), TbadkApplication.getCurrentAccountObj(), 1, this.writeImagesInfo.getChosedFiles().get(0).getFilePath(), 1.0f)));
             }
             this.writeImagesInfo.clear();
         }
     }
 
-    public void Cr(String str) {
-        if (!this.huE.getText().toString().equals(str)) {
-            this.huE.setText(str);
+    public void CH(String str) {
+        if (!this.hwD.getText().toString().equals(str)) {
+            this.hwD.setText(str);
         }
     }
 
-    private void bSk() {
-        if (this.huC.wb(this.huD - 1) != null) {
-            this.mNavigationBar.setTitleText(this.huC.wb(this.huD - 1).getTitle());
+    private void bTL() {
+        if (this.hwB.wh(this.hwC - 1) != null) {
+            this.mNavigationBar.setTitleText(this.hwB.wh(this.hwC - 1).getTitle());
         }
     }
 
-    public void bSl() {
-        for (o oVar : this.huC.getList()) {
-            if (oVar.bRj() == this.huD) {
-                oVar.bRq();
-                if (!oVar.bRu()) {
-                    this.huE.setVisibility(8);
+    public void bTM() {
+        for (o oVar : this.hwB.getList()) {
+            if (oVar.bSK() == this.hwC) {
+                oVar.bSR();
+                if (!oVar.bSV()) {
+                    this.hwD.setVisibility(8);
                 } else {
-                    this.huE.setVisibility(0);
+                    this.hwD.setVisibility(0);
                 }
-                Cr(oVar.bRs());
+                CH(oVar.bST());
             } else {
-                oVar.bRp();
+                oVar.bSQ();
             }
         }
-        if (this.huC.wb(this.huD - 1) != null && this.huC.wb(this.huD - 1).bRt()) {
-            nn(true);
+        if (this.hwB.wh(this.hwC - 1) != null && this.hwB.wh(this.hwC - 1).bSU()) {
+            np(true);
         }
     }
 
-    public void bSm() {
-        if (bRV()) {
-            a(this.huJ.bRC().getText().length(), this.huJ.bRx() / 2, 2, 20);
-        } else if (bRW()) {
-            int bRx = this.huK.bRx() / 2;
-            O(bRx, 15, 300);
-            int i = 300 - bRx;
-            this.huK.bRw().setText(String.valueOf(i));
+    public void bTN() {
+        if (bTw()) {
+            a(this.hwI.bTd().getText().length(), this.hwI.bSY() / 2, 2, 20);
+        } else if (bTx()) {
+            int bSY = this.hwJ.bSY() / 2;
+            P(bSY, 15, 300);
+            int i = 300 - bSY;
+            this.hwJ.bSX().setText(String.valueOf(i));
             if (i <= 50) {
-                this.huK.bRw().setVisibility(0);
+                this.hwJ.bSX().setVisibility(0);
             } else {
-                this.huK.bRw().setVisibility(8);
+                this.hwJ.bSX().setVisibility(8);
             }
             if (i == 0) {
-                this.huK.bRw().setTextColor(this.htP.getResources().getColor(R.color.common_color_10170));
+                this.hwJ.bSX().setTextColor(this.hvO.getResources().getColor(R.color.common_color_10170));
             } else if (i < 0) {
-                this.huK.wa(300);
+                this.hwJ.wg(300);
             } else {
-                this.huK.bRy();
+                this.hwJ.bSZ();
             }
-        } else if (bRY()) {
-            if (this.huM.bRl() != 3) {
-                nn(true);
+        } else if (bTz()) {
+            if (this.hwL.bSM() != 3) {
+                np(true);
             } else {
-                nn(false);
+                np(false);
             }
         }
     }
 
-    private void O(int i, int i2, int i3) {
+    private void P(int i, int i2, int i3) {
         if (i >= i2 && i <= i3) {
-            nn(true);
+            np(true);
         } else {
-            nn(false);
+            np(false);
         }
     }
 
     private void a(int i, float f, int i2, int i3) {
         if (i == 1) {
-            nn(false);
+            np(false);
         } else if (f >= i2 && f <= i3) {
-            nn(true);
+            np(true);
         } else {
-            nn(false);
+            np(false);
         }
         if (i < 1) {
-            this.huJ.nl(false);
+            this.hwI.nn(false);
         } else {
-            this.huJ.nl(true);
+            this.hwI.nn(true);
         }
     }
 
     public void setData(int i, int i2) {
-        this.huG = i;
+        this.hwF = i;
         this.mForumId = i2;
     }
 
     public void onChangeSkinType(int i) {
-        this.htP.getLayoutMode().setNightMode(i == 1);
-        this.htP.getLayoutMode().onModeChanged(this.mParent);
+        this.hvO.getLayoutMode().setNightMode(i == 1);
+        this.hvO.getLayoutMode().onModeChanged(this.mParent);
         am.setBgColor(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
-        bSf();
-        am.setViewTextColor(this.huE, R.color.navbar_btn_color, 1);
+        bTG();
+        am.setViewTextColor(this.hwD, R.color.navbar_btn_color, 1);
         ViewGroup viewGroup = (ViewGroup) this.mParent.getParent().getParent();
         if (com.baidu.adp.lib.util.l.isFlymeOsAbove35()) {
             viewGroup = (ViewGroup) this.mParent.getParent();
@@ -575,6 +575,6 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public void d(EditText editText) {
-        ((InputMethodManager) this.htP.getSystemService("input_method")).hideSoftInputFromWindow(editText.getWindowToken(), 0);
+        ((InputMethodManager) this.hvO.getSystemService("input_method")).hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 }

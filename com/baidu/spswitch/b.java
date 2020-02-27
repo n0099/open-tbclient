@@ -1,7 +1,7 @@
 package com.baidu.spswitch;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface b {
-    void dv(int i);
+    void dL(int i);
 
     int getHeight();
 

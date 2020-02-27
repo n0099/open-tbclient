@@ -8,7 +8,7 @@ import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
     final h<? super T, ? extends e> mapper;
     final aa<T> source;
@@ -20,7 +20,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
         this.source.a(flatMapCompletableObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class FlatMapCompletableObserver<T> extends AtomicReference<b> implements c, b, y<T> {
         private static final long serialVersionUID = -2177128922851101253L;
         final c actual;
@@ -54,7 +54,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
                     eVar.a(this);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 onError(th);
             }
         }

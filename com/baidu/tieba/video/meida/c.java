@@ -1,25 +1,25 @@
 package com.baidu.tieba.video.meida;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class c {
-    String kzh;
-    a kzi;
+    String kAc;
+    a kAd;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(byte[] bArr, double d) throws Exception;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        public int bzp;
-        public String kzj;
-        public int kzk;
+        public int channel;
+        public String kAe;
+        public int kAf;
         public long sampleRate;
         public int size;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
-        this.kzh = str;
+        this.kAc = str;
     }
 }

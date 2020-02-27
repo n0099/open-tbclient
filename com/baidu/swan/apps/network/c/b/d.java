@@ -1,18 +1,19 @@
 package com.baidu.swan.apps.network.c.b;
 
 import com.baidu.swan.apps.runtime.e;
+import kotlin.h;
 import kotlin.jvm.internal.q;
-import kotlin.k;
 import kotlin.text.l;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+@h
+/* loaded from: classes11.dex */
 public final class d {
     /* JADX INFO: Access modifiers changed from: private */
-    public static final JSONArray WY() {
-        e aaq = e.aaq();
-        if (aaq != null) {
-            String string = aaq.aaz().getString("note_data_pay_check_list", "");
+    public static final JSONArray Zm() {
+        e acE = e.acE();
+        if (acE != null) {
+            String string = acE.acN().getString("note_data_pay_check_list", "");
             String str = string;
             if (str == null || l.isBlank(str)) {
                 return null;
@@ -22,46 +23,47 @@ public final class d {
         return null;
     }
 
-    /* loaded from: classes10.dex */
+    @h
+    /* loaded from: classes11.dex */
     static final class a implements com.baidu.swan.apps.network.c.a.a {
-        final /* synthetic */ kotlin.jvm.a.b bCO;
-        final /* synthetic */ String bCP;
+        final /* synthetic */ kotlin.jvm.a.b bGU;
+        final /* synthetic */ String bGV;
 
         a(kotlin.jvm.a.b bVar, String str) {
-            this.bCO = bVar;
-            this.bCP = str;
+            this.bGU = bVar;
+            this.bGV = str;
         }
 
         @Override // com.baidu.swan.apps.network.c.a.a
-        public final void WP() {
-            JSONArray WY = d.WY();
-            if (WY == null || WY.length() == 0) {
-                kotlin.jvm.a.b bVar = this.bCO;
+        public final void Zd() {
+            JSONArray Zm = d.Zm();
+            if (Zm == null || Zm.length() == 0) {
+                kotlin.jvm.a.b bVar = this.bGU;
                 if (bVar != null) {
-                    k kVar = (k) bVar.invoke(true);
+                    kotlin.l lVar = (kotlin.l) bVar.invoke(true);
                     return;
                 }
                 return;
             }
-            int length = WY.length();
+            int length = Zm.length();
             for (int i = 0; i < length; i++) {
-                if (q.h(this.bCP, WY.get(i))) {
-                    kotlin.jvm.a.b bVar2 = this.bCO;
+                if (q.h(this.bGV, Zm.get(i))) {
+                    kotlin.jvm.a.b bVar2 = this.bGU;
                     if (bVar2 != null) {
-                        k kVar2 = (k) bVar2.invoke(true);
+                        kotlin.l lVar2 = (kotlin.l) bVar2.invoke(true);
                         return;
                     }
                     return;
                 }
             }
-            kotlin.jvm.a.b bVar3 = this.bCO;
+            kotlin.jvm.a.b bVar3 = this.bGU;
             if (bVar3 != null) {
-                k kVar3 = (k) bVar3.invoke(false);
+                kotlin.l lVar3 = (kotlin.l) bVar3.invoke(false);
             }
         }
     }
 
-    public static final void a(String str, kotlin.jvm.a.b<? super Boolean, k> bVar) {
-        com.baidu.swan.apps.network.c.a.WL().a(new a(bVar, str));
+    public static final void a(String str, kotlin.jvm.a.b<? super Boolean, kotlin.l> bVar) {
+        com.baidu.swan.apps.network.c.a.YZ().a(new a(bVar, str));
     }
 }

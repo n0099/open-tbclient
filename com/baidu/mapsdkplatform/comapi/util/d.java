@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.util;
 import android.content.Context;
 import android.os.Environment;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private final boolean a;
     private final String b;

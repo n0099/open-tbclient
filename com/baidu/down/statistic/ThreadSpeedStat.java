@@ -1,5 +1,5 @@
 package com.baidu.down.statistic;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ThreadSpeedStat {
     public static final String CLIENT_REQUEST_ID_HEADER_NAME = "cqid";
     public static final String DOWN_RESULT_STATE_CANCEL = "c";

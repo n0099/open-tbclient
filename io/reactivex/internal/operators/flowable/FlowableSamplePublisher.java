@@ -7,7 +7,7 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
     final boolean emitLast;
     final org.a.b<?> other;
@@ -23,7 +23,7 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static abstract class SamplePublisherSubscriber<T> extends AtomicReference<T> implements j<T>, org.a.d {
         private static final long serialVersionUID = -3517602651313910099L;
         final org.a.c<? super T> actual;
@@ -113,36 +113,36 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> nwB;
+        final SamplePublisherSubscriber<T> nxd;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.nwB = samplePublisherSubscriber;
+            this.nxd = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            this.nwB.setOther(dVar);
+            this.nxd.setOther(dVar);
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.nwB.run();
+            this.nxd.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.nwB.error(th);
+            this.nxd.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.nwB.complete();
+            this.nxd.complete();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SampleMainNoLast<T> extends SamplePublisherSubscriber<T> {
         private static final long serialVersionUID = -3029755663834015785L;
 
@@ -166,7 +166,7 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class SampleMainEmitLast<T> extends SamplePublisherSubscriber<T> {
         private static final long serialVersionUID = -3029755663834015785L;
         volatile boolean done;

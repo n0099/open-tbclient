@@ -5,7 +5,7 @@ import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.j;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b<T> implements j<T>, d {
     final c<? super T> actual;
     final boolean delayError;
@@ -78,7 +78,7 @@ public final class b<T> implements j<T>, d {
                     if (this.delayError) {
                         aVar.add(error);
                     } else {
-                        aVar.bL(error);
+                        aVar.bM(error);
                     }
                     return;
                 }

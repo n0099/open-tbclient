@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.utils.reflect;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class Validate {
     Validate() {
     }

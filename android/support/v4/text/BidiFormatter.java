@@ -2,7 +2,7 @@ package android.support.v4.text;
 
 import android.text.SpannableStringBuilder;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BidiFormatter {
     private static final int DEFAULT_FLAGS = 2;
     private static final int DIR_LTR = -1;
@@ -24,7 +24,7 @@ public final class BidiFormatter {
     private static final BidiFormatter DEFAULT_LTR_INSTANCE = new BidiFormatter(false, 2, DEFAULT_TEXT_DIRECTION_HEURISTIC);
     private static final BidiFormatter DEFAULT_RTL_INSTANCE = new BidiFormatter(true, 2, DEFAULT_TEXT_DIRECTION_HEURISTIC);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         private int mFlags;
         private boolean mIsRtlContext;
@@ -194,7 +194,7 @@ public final class BidiFormatter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class DirectionalityEstimator {
         private int charIndex;
         private final boolean isHtml;

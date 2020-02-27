@@ -6,20 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class d {
-    private LinearLayout eIS;
-    private TextView eIT;
+    private LinearLayout eMM;
+    private TextView eMN;
     protected Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
-        initView(bet());
+        initView(bgD());
     }
 
-    public View bet() {
+    public View bgD() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
@@ -27,15 +27,15 @@ public class d {
     }
 
     private void initView(View view) {
-        this.eIS = (LinearLayout) view.findViewById(a.g.ala_guardian_header_root);
-        this.eIT = (TextView) view.findViewById(a.g.ala_guardian_header_title);
+        this.eMM = (LinearLayout) view.findViewById(a.g.ala_guardian_header_root);
+        this.eMN = (TextView) view.findViewById(a.g.ala_guardian_header_title);
     }
 
-    public void ym(String str) {
-        this.eIT.setText(str);
+    public void yI(String str) {
+        this.eMN.setText(str);
     }
 
     public void a(AlaGuardianListActivity alaGuardianListActivity, int i) {
-        alaGuardianListActivity.getLayoutMode().onModeChanged(this.eIS);
+        alaGuardianListActivity.getLayoutMode().onModeChanged(this.eMM);
     }
 }

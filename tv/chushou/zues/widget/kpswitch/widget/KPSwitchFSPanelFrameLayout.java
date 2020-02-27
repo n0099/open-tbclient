@@ -6,9 +6,9 @@ import android.widget.FrameLayout;
 import tv.chushou.zues.widget.kpswitch.a.a;
 import tv.chushou.zues.widget.kpswitch.b;
 import tv.chushou.zues.widget.kpswitch.b.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
-    private a nYP;
+    private a nZD;
 
     public KPSwitchFSPanelFrameLayout(Context context) {
         super(context);
@@ -26,16 +26,16 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     }
 
     private void init() {
-        this.nYP = new a(this);
+        this.nZD = new a(this);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void dv(int i) {
+    public void dL(int i) {
         e.f(this, i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void wf(boolean z) {
-        this.nYP.wf(z);
+    public void wj(boolean z) {
+        this.nZD.wj(z);
     }
 }

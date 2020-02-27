@@ -2,7 +2,7 @@ package com.baidu.fsg.base.statistics;
 
 import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n implements IBeanResponseCallback {
     final /* synthetic */ String a;
     final /* synthetic */ l b;

@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.m;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.d, b> implements m {
     private TbPageContext<?> mPageContext;
 
@@ -18,7 +18,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ca */
+    /* renamed from: bZ */
     public b b(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);
@@ -29,9 +29,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, b bVar) {
-        AdvertAppInfo btR = dVar.btR();
-        if (btR != null) {
-            com.baidu.tbadk.core.data.c.c(btR.advertAppContext, btR.cIW, btR.cJb.cJo == -1001);
+        AdvertAppInfo bvv = dVar.bvv();
+        if (bvv != null) {
+            com.baidu.tbadk.core.data.c.c(bvv.advertAppContext, bvv.cMZ, bvv.cNe.cNr == -1001);
         }
         return bVar.getView();
     }

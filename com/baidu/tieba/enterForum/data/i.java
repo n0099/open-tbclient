@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i extends d implements com.baidu.tbadk.mvc.b.a {
     private String mAvatar;
     private long mForumId;

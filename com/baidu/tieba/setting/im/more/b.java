@@ -1,5 +1,5 @@
 package com.baidu.tieba.setting.im.more;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class b extends com.baidu.adp.lib.featureSwitch.a {
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected void changeSettingByType(int i) {

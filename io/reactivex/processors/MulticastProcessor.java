@@ -11,17 +11,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class MulticastProcessor<T> extends a<T> {
-    static final MulticastSubscription[] nAk = new MulticastSubscription[0];
-    static final MulticastSubscription[] nAl = new MulticastSubscription[0];
+    static final MulticastSubscription[] nAM = new MulticastSubscription[0];
+    static final MulticastSubscription[] nAN = new MulticastSubscription[0];
     final int bufferSize;
     int consumed;
     volatile boolean done;
     volatile Throwable error;
     int fusionMode;
     final int limit;
-    final boolean nAj;
+    final boolean nAL;
     final AtomicBoolean once;
     volatile g<T> queue;
     final AtomicReference<MulticastSubscription<T>[]> subscribers;
@@ -98,7 +98,7 @@ public final class MulticastProcessor<T> extends a<T> {
             } else {
                 drain();
             }
-        } else if ((this.once.get() || !this.nAj) && (th = this.error) != null) {
+        } else if ((this.once.get() || !this.nAL) && (th = this.error) != null) {
             cVar.onError(th);
         } else {
             cVar.onComplete();
@@ -110,7 +110,7 @@ public final class MulticastProcessor<T> extends a<T> {
         MulticastSubscription<T>[] multicastSubscriptionArr2;
         do {
             multicastSubscriptionArr = this.subscribers.get();
-            if (multicastSubscriptionArr == nAl) {
+            if (multicastSubscriptionArr == nAN) {
                 return false;
             }
             int length = multicastSubscriptionArr.length;
@@ -139,13 +139,13 @@ public final class MulticastProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        if (this.nAj) {
-                            if (this.subscribers.compareAndSet(multicastSubscriptionArr, nAl)) {
+                        if (this.nAL) {
+                            if (this.subscribers.compareAndSet(multicastSubscriptionArr, nAN)) {
                                 SubscriptionHelper.cancel(this.upstream);
                                 this.once.set(true);
                                 return;
                             }
-                        } else if (this.subscribers.compareAndSet(multicastSubscriptionArr, nAk)) {
+                        } else if (this.subscribers.compareAndSet(multicastSubscriptionArr, nAM)) {
                             return;
                         }
                     } else {
@@ -201,7 +201,7 @@ public final class MulticastProcessor<T> extends a<T> {
                         int i7 = i6;
                         while (j > 0) {
                             MulticastSubscription<T>[] multicastSubscriptionArr2 = atomicReference.get();
-                            if (multicastSubscriptionArr2 == nAl) {
+                            if (multicastSubscriptionArr2 == nAN) {
                                 gVar.clear();
                                 return;
                             } else if (multicastSubscriptionArr != multicastSubscriptionArr2) {
@@ -212,7 +212,7 @@ public final class MulticastProcessor<T> extends a<T> {
                                     z = this.done;
                                     t = gVar.poll();
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.I(th);
+                                    io.reactivex.exceptions.a.H(th);
                                     SubscriptionHelper.cancel(this.upstream);
                                     this.error = th;
                                     this.done = true;
@@ -223,12 +223,12 @@ public final class MulticastProcessor<T> extends a<T> {
                                 if (z && z2) {
                                     Throwable th2 = this.error;
                                     if (th2 != null) {
-                                        for (MulticastSubscription<T> multicastSubscription2 : atomicReference.getAndSet(nAl)) {
+                                        for (MulticastSubscription<T> multicastSubscription2 : atomicReference.getAndSet(nAN)) {
                                             multicastSubscription2.onError(th2);
                                         }
                                         return;
                                     }
-                                    for (MulticastSubscription<T> multicastSubscription3 : atomicReference.getAndSet(nAl)) {
+                                    for (MulticastSubscription<T> multicastSubscription3 : atomicReference.getAndSet(nAN)) {
                                         multicastSubscription3.onComplete();
                                     }
                                     return;
@@ -248,7 +248,7 @@ public final class MulticastProcessor<T> extends a<T> {
                         }
                         if (j == 0) {
                             MulticastSubscription<T>[] multicastSubscriptionArr3 = atomicReference.get();
-                            if (multicastSubscriptionArr3 == nAl) {
+                            if (multicastSubscriptionArr3 == nAN) {
                                 gVar.clear();
                                 return;
                             } else if (multicastSubscriptionArr != multicastSubscriptionArr3) {
@@ -256,12 +256,12 @@ public final class MulticastProcessor<T> extends a<T> {
                             } else if (this.done && gVar.isEmpty()) {
                                 Throwable th3 = this.error;
                                 if (th3 != null) {
-                                    for (MulticastSubscription<T> multicastSubscription5 : atomicReference.getAndSet(nAl)) {
+                                    for (MulticastSubscription<T> multicastSubscription5 : atomicReference.getAndSet(nAN)) {
                                         multicastSubscription5.onError(th3);
                                     }
                                     return;
                                 }
-                                for (MulticastSubscription<T> multicastSubscription6 : atomicReference.getAndSet(nAl)) {
+                                for (MulticastSubscription<T> multicastSubscription6 : atomicReference.getAndSet(nAN)) {
                                     multicastSubscription6.onComplete();
                                 }
                                 return;
@@ -285,7 +285,7 @@ public final class MulticastProcessor<T> extends a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class MulticastSubscription<T> extends AtomicLong implements d {
         private static final long serialVersionUID = -363282618957264509L;
         final c<? super T> actual;

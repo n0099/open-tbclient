@@ -1,7 +1,7 @@
 package com.coremedia.iso;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class IsoTypeReaderVariable {
     public static long read(ByteBuffer byteBuffer, int i) {
         switch (i) {

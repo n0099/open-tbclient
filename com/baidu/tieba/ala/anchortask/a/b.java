@@ -11,76 +11,76 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.view.web.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements com.baidu.live.b.b {
-    private c eqG;
-    private CustomMessageListener eqH;
-    private PopupWindow.OnDismissListener eqI;
+    private c euR;
+    private CustomMessageListener euS;
+    private PopupWindow.OnDismissListener euT;
     private Activity mContext;
 
     public b(Activity activity) {
         this.mContext = activity;
-        bbp();
+        bdE();
     }
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.eqG = new c(this.mContext);
-        this.eqG.setOnDismissListener(this.eqI);
-        this.eqG.bbq().setBackgroundColor(xq(str));
+        this.euR = new c(this.mContext);
+        this.euR.setOnDismissListener(this.euT);
+        this.euR.bdF().setBackgroundColor(xK(str));
         f fVar = new f();
-        fVar.x(this.mContext).a(this.eqG).a(this.eqG.bbq().getSchemeCallback());
-        com.baidu.live.view.web.a[] zk = fVar.zk();
-        for (com.baidu.live.view.web.a aVar : zk) {
-            this.eqG.bbq().addJavascriptInterface(aVar, aVar.getName());
+        fVar.y(this.mContext).a(this.euR).a(this.euR.bdF().getSchemeCallback());
+        com.baidu.live.view.web.a[] BA = fVar.BA();
+        for (com.baidu.live.view.web.a aVar : BA) {
+            this.euR.bdF().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.eqG.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.euR.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.eqG != null && this.eqG.isShowing() && this.eqG.bbq() != null) {
-            this.eqG.bbq().onResume();
+        if (this.euR != null && this.euR.isShowing() && this.euR.bdF() != null) {
+            this.euR.bdF().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.eqG != null && this.eqG.isShowing() && this.eqG.bbq() != null) {
-            this.eqG.bbq().onPause();
+        if (this.euR != null && this.euR.isShowing() && this.euR.bdF() != null) {
+            this.euR.bdF().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.eqG != null) {
-            this.eqG.bbr();
+        if (this.euR != null) {
+            this.euR.bdG();
         }
     }
 
-    public void tz() {
+    public void sL() {
         dismiss();
     }
 
     @Override // com.baidu.live.b.b
     public void release() {
-        tz();
-        MessageManager.getInstance().unRegisterListener(this.eqH);
+        sL();
+        MessageManager.getInstance().unRegisterListener(this.euS);
     }
 
-    private void bbp() {
-        this.eqH = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void bdE() {
+        this.euS = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.eqG != null && b.this.eqG.isShowing()) {
-                    b.this.eqG.dismiss();
+                if (b.this.euR != null && b.this.euR.isShowing()) {
+                    b.this.euR.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eqH);
+        MessageManager.getInstance().registerListener(this.euS);
     }
 
-    private int xq(String str) {
+    private int xK(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

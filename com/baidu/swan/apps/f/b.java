@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends ab {
     private String mCallback;
 
@@ -27,7 +27,7 @@ public class b extends ab {
             c.i("scanCode", "swanApp is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.Ho()) {
+        } else if (eVar.JD()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -40,7 +40,7 @@ public class b extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.swan.apps.w.a.RO().a(eVar.aal(), new a() { // from class: com.baidu.swan.apps.f.b.1
+            com.baidu.swan.apps.w.a.Uc().a(eVar.acz(), new a() { // from class: com.baidu.swan.apps.f.b.1
                 @Override // com.baidu.swan.apps.f.a
                 public void onSuccess(String str, String str2, String str3) {
                     try {

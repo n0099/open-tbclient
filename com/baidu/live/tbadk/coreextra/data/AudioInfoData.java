@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AudioInfoData extends BaseData implements Serializable {
     private static final long serialVersionUID = -3295150133270063363L;
     private int errorCode;

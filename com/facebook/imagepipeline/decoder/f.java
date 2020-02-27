@@ -4,29 +4,29 @@ import com.facebook.common.internal.g;
 import com.facebook.imagepipeline.g.h;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class f implements d {
-    private final b lTe;
+    private final b lTL;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface b {
-        List<Integer> dpa();
+        List<Integer> dqm();
 
-        int dpb();
+        int dqn();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class a implements b {
         private a() {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> dpa() {
+        public List<Integer> dqm() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int dpb() {
+        public int dqn() {
             return 0;
         }
     }
@@ -36,23 +36,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.lTe = (b) g.checkNotNull(bVar);
+        this.lTL = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int Ic(int i) {
-        List<Integer> dpa = this.lTe.dpa();
-        if (dpa == null || dpa.isEmpty()) {
+    public int Ih(int i) {
+        List<Integer> dqm = this.lTL.dqm();
+        if (dqm == null || dqm.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < dpa.size()) {
-                if (dpa.get(i3).intValue() <= i) {
+            if (i3 < dqm.size()) {
+                if (dqm.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return dpa.get(i3).intValue();
+                    return dqm.get(i3).intValue();
                 }
             } else {
                 return Integer.MAX_VALUE;
@@ -61,7 +61,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public h Id(int i) {
-        return com.facebook.imagepipeline.g.g.k(i, i >= this.lTe.dpb(), false);
+    public h Ii(int i) {
+        return com.facebook.imagepipeline.g.g.k(i, i >= this.lTL.dqn(), false);
     }
 }

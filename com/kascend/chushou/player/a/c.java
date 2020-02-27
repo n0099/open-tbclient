@@ -1,5 +1,5 @@
 package com.kascend.chushou.player.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public int a;
     public int b;
@@ -8,9 +8,9 @@ public class c {
     public boolean e;
     public boolean g;
     public boolean h;
-    public a mPx;
+    public a mQa;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     interface a {
         void a(int i);
     }
@@ -22,7 +22,7 @@ public class c {
         this.b = i2;
         this.c = i3;
         this.e = z;
-        this.mPx = aVar;
+        this.mQa = aVar;
         this.d = 0;
         this.h = true;
     }
@@ -37,6 +37,6 @@ public class c {
         this.e = z;
         this.h = z2;
         this.g = z3;
-        this.mPx = aVar;
+        this.mQa = aVar;
     }
 }

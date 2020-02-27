@@ -2,7 +2,7 @@ package protobuf.QueryForumDetail;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class DataRes extends Message {
     public static final String DEFAULT_AUTHEN = "";
     public static final String DEFAULT_PORTRAIT = "";
@@ -31,7 +31,7 @@ public final class DataRes extends Message {
         this.authen = builder.authen;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public String authen;
         public String portrait;

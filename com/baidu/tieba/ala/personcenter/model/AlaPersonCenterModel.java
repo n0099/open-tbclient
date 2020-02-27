@@ -11,33 +11,33 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.messages.AlaPersonCenterResponseMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaPersonCenterModel extends BdBaseModel {
-    private int aic;
-    private a fsa;
-    private String fsb;
-    private boolean fsc;
-    private final HttpMessageListener fsd;
+    private int akj;
+    private a fuC;
+    private String fuD;
+    private boolean fuE;
+    private final HttpMessageListener fuF;
 
     public AlaPersonCenterModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fsc = true;
-        this.aic = 0;
-        this.fsd = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_USER_CENTER) { // from class: com.baidu.tieba.ala.personcenter.model.AlaPersonCenterModel.1
+        this.fuE = true;
+        this.akj = 0;
+        this.fuF = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_USER_CENTER) { // from class: com.baidu.tieba.ala.personcenter.model.AlaPersonCenterModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021001 && AlaPersonCenterModel.this.fsa != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021001 && AlaPersonCenterModel.this.fuC != null) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof AlaPersonCenterResponseMessage)) {
-                        AlaPersonCenterModel.this.fsa.c(statusCode, null, null);
+                        AlaPersonCenterModel.this.fuC.c(statusCode, null, null);
                         return;
                     }
                     AlaPersonCenterResponseMessage alaPersonCenterResponseMessage = (AlaPersonCenterResponseMessage) httpResponsedMessage;
                     if (alaPersonCenterResponseMessage.getError() == 0) {
-                        AlaPersonCenterModel.this.fsa.b(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
+                        AlaPersonCenterModel.this.fuC.b(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
                     } else {
-                        AlaPersonCenterModel.this.fsa.c(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
+                        AlaPersonCenterModel.this.fuC.c(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
                     }
                 }
             }
@@ -45,17 +45,17 @@ public class AlaPersonCenterModel extends BdBaseModel {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_USER_CENTER, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_USER_CENTER_URL);
         tbHttpMessageTask.setResponsedClass(AlaPersonCenterResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.fsd.setSelfListener(true);
-        this.fsd.setTag(getUniqueId());
-        registerListener(this.fsd);
+        this.fuF.setSelfListener(true);
+        this.fuF.setTag(getUniqueId());
+        registerListener(this.fuF);
     }
 
     public void setUid(String str) {
-        this.fsb = str;
+        this.fuD = str;
     }
 
     public void a(a aVar) {
-        this.fsa = aVar;
+        this.fuC = aVar;
     }
 
     public boolean loadData() {
@@ -65,7 +65,7 @@ public class AlaPersonCenterModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_USER_CENTER);
-        httpMessage.addParam("user_id", this.fsb);
+        httpMessage.addParam("user_id", this.fuD);
         sendMessage(httpMessage);
         return true;
     }

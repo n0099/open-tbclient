@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidFrameException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends d {
     private int code;
     private String reason;
@@ -21,7 +21,7 @@ public class b extends d {
             this.code = 1005;
             this.reason = "";
         }
-        dMk();
+        dNx();
     }
 
     public void setReason(String str) {
@@ -29,7 +29,7 @@ public class b extends d {
             str = "";
         }
         this.reason = str;
-        dMk();
+        dNx();
     }
 
     public int getCloseCode() {
@@ -46,8 +46,8 @@ public class b extends d {
     }
 
     @Override // org.java_websocket.framing.d, org.java_websocket.framing.f
-    public void dMj() throws InvalidDataException {
-        super.dMj();
+    public void dNw() throws InvalidDataException {
+        super.dNw();
         if (this.code == 1007 && this.reason == null) {
             throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
@@ -96,20 +96,20 @@ public class b extends d {
         }
     }
 
-    private void dMk() {
-        byte[] So = org.java_websocket.e.c.So(this.reason);
+    private void dNx() {
+        byte[] Sz = org.java_websocket.e.c.Sz(this.reason);
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.putInt(this.code);
         allocate.position(2);
-        ByteBuffer allocate2 = ByteBuffer.allocate(So.length + 2);
+        ByteBuffer allocate2 = ByteBuffer.allocate(Sz.length + 2);
         allocate2.put(allocate);
-        allocate2.put(So);
+        allocate2.put(Sz);
         allocate2.rewind();
         super.u(allocate2);
     }
 
     @Override // org.java_websocket.framing.f, org.java_websocket.framing.Framedata
-    public ByteBuffer dMl() {
-        return this.code == 1005 ? org.java_websocket.e.b.dMu() : super.dMl();
+    public ByteBuffer dNy() {
+        return this.code == 1005 ? org.java_websocket.e.b.dNH() : super.dNy();
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.charm.model;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaCharmDetailHttpResponsedMessage extends JsonHttpResponsedMessage {
-    public ALaCharmDataList esB;
+    public ALaCharmDataList ewL;
 
     public AlaCharmDetailHttpResponsedMessage() {
         super(1021002);
@@ -15,8 +15,8 @@ public class AlaCharmDetailHttpResponsedMessage extends JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.esB = new ALaCharmDataList();
-            this.esB.parserJson(jSONObject);
+            this.ewL = new ALaCharmDataList();
+            this.ewL.parserJson(jSONObject);
         }
     }
 }

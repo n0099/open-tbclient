@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.res.ui.pullrefresh;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ILoadingLayout {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum State {
         NONE,
         RESET,

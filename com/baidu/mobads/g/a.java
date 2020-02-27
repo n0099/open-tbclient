@@ -5,7 +5,7 @@ import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.IXAdContainerFactory;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static IXAdContainerFactory e;
     private Context b;

@@ -6,24 +6,24 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static volatile Executor aNv;
+    private static volatile Executor aRU;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int MAX_POOL_SIZE = (CPU_COUNT * 2) + 1;
-    private static final ThreadFactory aNw = new ThreadFactoryC0154a();
+    private static final ThreadFactory aRV = new ThreadFactoryC0163a();
 
     /* renamed from: com.baidu.poly.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    static class ThreadFactoryC0154a implements ThreadFactory {
-        private final AtomicInteger aNy = new AtomicInteger(1);
+    /* loaded from: classes11.dex */
+    static class ThreadFactoryC0163a implements ThreadFactory {
+        private final AtomicInteger aRX = new AtomicInteger(1);
 
-        ThreadFactoryC0154a() {
+        ThreadFactoryC0163a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "cashier #" + this.aNy.getAndIncrement());
+            return new Thread(runnable, "cashier #" + this.aRX.getAndIncrement());
         }
     }
 
@@ -34,14 +34,14 @@ public class a {
     private static synchronized Executor getExecutor() {
         Executor executor;
         synchronized (a.class) {
-            if (aNv == null) {
+            if (aRU == null) {
                 synchronized (a.class) {
-                    if (aNv == null) {
-                        aNv = new ThreadPoolExecutor(1, MAX_POOL_SIZE, 4L, TimeUnit.SECONDS, new LinkedBlockingQueue(), aNw);
+                    if (aRU == null) {
+                        aRU = new ThreadPoolExecutor(1, MAX_POOL_SIZE, 4L, TimeUnit.SECONDS, new LinkedBlockingQueue(), aRV);
                     }
                 }
             }
-            executor = aNv;
+            executor = aRU;
         }
         return executor;
     }

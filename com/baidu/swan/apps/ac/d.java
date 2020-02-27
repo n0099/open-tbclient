@@ -5,10 +5,10 @@ import android.graphics.Rect;
 import android.util.Log;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private WeakReference<Bitmap> bBC;
-    boolean bBz;
+    boolean bFF;
+    private WeakReference<Bitmap> bFI;
     String id;
     boolean isFirstPage;
     Rect rect;
@@ -16,9 +16,9 @@ public class d {
     String url;
     private static final String TAG = f.TAG;
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    int bBB = 0;
+    int bFH = 0;
     long startTime = System.currentTimeMillis();
-    int bBA = 0;
+    int bFG = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
@@ -29,7 +29,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long Wp() {
+    public long YD() {
         if (this.remainTime > 0) {
             this.remainTime -= System.currentTimeMillis() - this.startTime;
         }
@@ -52,22 +52,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Wq() {
-        this.bBA = 1;
+    public void YE() {
+        this.bFG = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Wr() {
-        this.bBA = 2;
+    public void YF() {
+        this.bFG = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.bBA == 2;
+        return this.bFG == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(Bitmap bitmap) {
-        this.bBC = new WeakReference<>(bitmap);
+        this.bFI = new WeakReference<>(bitmap);
     }
 }

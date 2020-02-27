@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class DataRes extends Message {
     public static final List<String> DEFAULT_BUSINESS = Collections.emptyList();
     public static final String DEFAULT_POSITION = "";
@@ -33,7 +33,7 @@ public final class DataRes extends Message {
         this.business = immutableCopyOf(builder.business);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public List<String> business;
         public String position;

@@ -5,25 +5,25 @@ import android.util.AttributeSet;
 import android.view.View;
 import tv.chushou.zues.b;
 import tv.chushou.zues.widget.kpswitch.b.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b implements tv.chushou.zues.widget.kpswitch.a {
     private int mMinHeight;
-    private final View nYp;
-    private boolean nYs;
-    private boolean aVK = false;
-    private boolean nYt = true;
-    private final int[] nYu = new int[2];
-    private boolean nYv = false;
+    private final View nZd;
+    private boolean nZg;
+    private boolean aZW = false;
+    private boolean nZh = true;
+    private final int[] nZi = new int[2];
+    private boolean nZj = false;
 
     public b(View view, AttributeSet attributeSet) {
-        this.nYs = false;
+        this.nZg = false;
         this.mMinHeight = 0;
-        this.nYp = view;
+        this.nZd = view;
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
                 typedArray = view.getContext().obtainStyledAttributes(attributeSet, b.i.KPSwitchPanelLayout);
-                this.nYs = typedArray.getBoolean(b.i.KPSwitchPanelLayout_ignore_recommend_height, false);
+                this.nZg = typedArray.getBoolean(b.i.KPSwitchPanelLayout_ignore_recommend_height, false);
                 this.mMinHeight = (int) typedArray.getDimension(b.i.KPSwitchPanelLayout_min_height, 0.0f);
             } finally {
                 if (typedArray != null) {
@@ -33,62 +33,62 @@ public class b implements tv.chushou.zues.widget.kpswitch.a {
         }
     }
 
-    public boolean dx(int i) {
+    public boolean dN(int i) {
         if (i == 0) {
-            this.aVK = false;
+            this.aZW = false;
         }
-        if (i == this.nYp.getVisibility()) {
+        if (i == this.nZd.getVisibility()) {
             return true;
         }
-        return dPy() && i == 0;
+        return dQL() && i == 0;
     }
 
     public int[] S(int i, int i2) {
-        if (this.aVK) {
-            this.nYp.setVisibility(8);
+        if (this.aZW) {
+            this.nZd.setVisibility(8);
             i = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
         }
-        this.nYu[0] = i;
-        this.nYu[1] = i2;
-        return this.nYu;
+        this.nZi[0] = i;
+        this.nZi[1] = i2;
+        return this.nZi;
     }
 
-    public void xe(boolean z) {
-        this.nYv = z;
+    public void xh(boolean z) {
+        this.nZj = z;
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dPy() {
-        return this.nYv;
+    public boolean dQL() {
+        return this.nZj;
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public boolean isVisible() {
-        return !this.aVK;
+        return !this.aZW;
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public void DQ() {
+    public void Gf() {
         throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public void DR() {
-        this.aVK = true;
+    public void Gg() {
+        this.aZW = true;
     }
 
-    public void Ou(int i) {
-        if (!this.nYs) {
+    public void Ox(int i) {
+        if (!this.nZg) {
             if (i < this.mMinHeight) {
                 i = this.mMinHeight;
             }
-            e.f(this.nYp, i);
+            e.f(this.nZd, i);
         }
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.nYs = z;
+        this.nZg = z;
     }
 
     public void setMinHeight(int i) {
@@ -96,11 +96,11 @@ public class b implements tv.chushou.zues.widget.kpswitch.a {
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dPz() {
-        return this.nYt;
+    public boolean dQM() {
+        return this.nZh;
     }
 
     public void setPanelEnabled(boolean z) {
-        this.nYt = z;
+        this.nZh = z;
     }
 }

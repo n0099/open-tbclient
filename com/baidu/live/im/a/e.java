@@ -6,22 +6,22 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import com.baidu.live.adp.widget.CenterImageSpan;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.u.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.anh);
+        super(context, com.baidu.live.im.a.aqz);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void vl() {
-        if (vm()) {
-            vn();
+    protected void wP() {
+        if (wQ()) {
+            wR();
         } else {
-            vo();
+            wS();
         }
     }
 
@@ -38,7 +38,7 @@ public class e extends b {
         if (i != null) {
             String str = i.shareText;
             SpannableString valueOf = SpannableString.valueOf(str);
-            if (vm()) {
+            if (wQ()) {
                 if (i.shareType != 3) {
                     valueOf.setSpan(new ForegroundColorSpan(-1647769), 0, valueOf.length(), 33);
                 } else {
@@ -57,12 +57,12 @@ public class e extends b {
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
             if (i.shareType != 3) {
-                a(spannableStringBuilder, aVar.vq(), cVar, false, false);
-                if (vm()) {
-                    vn();
+                a(spannableStringBuilder, aVar.xo(), cVar, false, false);
+                if (wQ()) {
+                    wR();
                 }
             }
-            cVar.anw.setText(spannableStringBuilder);
+            cVar.aqO.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }
@@ -85,7 +85,7 @@ public class e extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public String shareText;
         public int shareType;

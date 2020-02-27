@@ -15,9 +15,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ExecutorScheduler extends v {
-    static final v nyz = io.reactivex.f.a.dIG();
+    static final v nzb = io.reactivex.f.a.dJN();
     final Executor executor;
 
     public ExecutorScheduler(Executor executor) {
@@ -25,7 +25,7 @@ public final class ExecutorScheduler extends v {
     }
 
     @Override // io.reactivex.v
-    public v.c dHY() {
+    public v.c dJf() {
         return new ExecutorWorker(this.executor);
     }
 
@@ -65,7 +65,7 @@ public final class ExecutorScheduler extends v {
             }
         }
         DelayedRunnable delayedRunnable = new DelayedRunnable(F);
-        delayedRunnable.timed.replace(nyz.b(new a(delayedRunnable), j, timeUnit));
+        delayedRunnable.timed.replace(nzb.b(new a(delayedRunnable), j, timeUnit));
         return delayedRunnable;
     }
 
@@ -84,12 +84,12 @@ public final class ExecutorScheduler extends v {
         return super.a(runnable, j, j2, timeUnit);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ExecutorWorker extends v.c implements Runnable {
         volatile boolean disposed;
         final Executor executor;
         final AtomicInteger wip = new AtomicInteger();
-        final io.reactivex.disposables.a nyC = new io.reactivex.disposables.a();
+        final io.reactivex.disposables.a nze = new io.reactivex.disposables.a();
         final MpscLinkedQueue<Runnable> queue = new MpscLinkedQueue<>();
 
         public ExecutorWorker(Executor executor) {
@@ -127,8 +127,8 @@ public final class ExecutorScheduler extends v {
             }
             SequentialDisposable sequentialDisposable = new SequentialDisposable();
             SequentialDisposable sequentialDisposable2 = new SequentialDisposable(sequentialDisposable);
-            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.e.a.F(runnable)), this.nyC);
-            this.nyC.a(scheduledRunnable);
+            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.e.a.F(runnable)), this.nze);
+            this.nze.a(scheduledRunnable);
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     scheduledRunnable.setFuture(((ScheduledExecutorService) this.executor).schedule((Callable) scheduledRunnable, j, timeUnit));
@@ -138,7 +138,7 @@ public final class ExecutorScheduler extends v {
                     return EmptyDisposable.INSTANCE;
                 }
             } else {
-                scheduledRunnable.setFuture(new b(ExecutorScheduler.nyz.b(scheduledRunnable, j, timeUnit)));
+                scheduledRunnable.setFuture(new b(ExecutorScheduler.nzb.b(scheduledRunnable, j, timeUnit)));
             }
             sequentialDisposable.replace(scheduledRunnable);
             return sequentialDisposable2;
@@ -148,7 +148,7 @@ public final class ExecutorScheduler extends v {
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.nyC.dispose();
+                this.nze.dispose();
                 if (this.wip.getAndIncrement() == 0) {
                     this.queue.clear();
                 }
@@ -206,7 +206,7 @@ public final class ExecutorScheduler extends v {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class BooleanRunnable extends AtomicBoolean implements io.reactivex.disposables.b, Runnable {
             private static final long serialVersionUID = -2421395018820541164L;
             final Runnable actual;
@@ -237,24 +237,24 @@ public final class ExecutorScheduler extends v {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         final class a implements Runnable {
             private final Runnable decoratedRun;
-            private final SequentialDisposable nyD;
+            private final SequentialDisposable nzf;
 
             a(SequentialDisposable sequentialDisposable, Runnable runnable) {
-                this.nyD = sequentialDisposable;
+                this.nzf = sequentialDisposable;
                 this.decoratedRun = runnable;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.nyD.replace(ExecutorWorker.this.D(this.decoratedRun));
+                this.nzf.replace(ExecutorWorker.this.D(this.decoratedRun));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class DelayedRunnable extends AtomicReference<Runnable> implements io.reactivex.disposables.b, Runnable {
         private static final long serialVersionUID = -4101336210206799084L;
         final SequentialDisposable direct;
@@ -295,21 +295,21 @@ public final class ExecutorScheduler extends v {
 
         public Runnable getWrappedRunnable() {
             Runnable runnable = get();
-            return runnable != null ? runnable : Functions.nvu;
+            return runnable != null ? runnable : Functions.nvW;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     final class a implements Runnable {
-        private final DelayedRunnable nyA;
+        private final DelayedRunnable nzc;
 
         a(DelayedRunnable delayedRunnable) {
-            this.nyA = delayedRunnable;
+            this.nzc = delayedRunnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.nyA.direct.replace(ExecutorScheduler.this.C(this.nyA));
+            this.nzc.direct.replace(ExecutorScheduler.this.C(this.nzc));
         }
     }
 }

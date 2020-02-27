@@ -10,9 +10,9 @@ import com.baidu.live.im.view.ALALiveTextView;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ALaImInitialize {
-    public static Map<String, com.baidu.live.view.c> anV = new HashMap();
+    public static Map<String, com.baidu.live.view.c> arn = new HashMap();
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913003, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.im.ALaImInitialize.1
@@ -35,10 +35,10 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.c.a) {
-                    com.baidu.live.liveroom.c.a aVar = (com.baidu.live.liveroom.c.a) customResponsedMessage.getData();
-                    if (aVar.arV != null) {
-                        aVar.a(new e(aVar.arV.context, aVar.arV.arX));
+                if (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.d.a) {
+                    com.baidu.live.liveroom.d.a aVar = (com.baidu.live.liveroom.d.a) customResponsedMessage.getData();
+                    if (aVar.avW != null) {
+                        aVar.a(new e(aVar.avW.context, aVar.avW.avY));
                     }
                 }
             }
@@ -47,8 +47,32 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ALaImInitialize.anV.clear();
+                ALaImInitialize.arn.clear();
             }
         });
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2913099, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.im.ALaImInitialize.5
+            @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<TbPageContext> customMessage) {
+                return new CustomResponsedMessage<>(2913099, new com.baidu.live.im.b.b(customMessage.getData()));
+            }
+        });
+        customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask3);
+        CustomMessageTask customMessageTask4 = new CustomMessageTask(2913164, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.im.ALaImInitialize.6
+            @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<TbPageContext> customMessage) {
+                return new CustomResponsedMessage<>(2913164, new com.baidu.live.im.b.c(customMessage.getData()));
+            }
+        });
+        customMessageTask4.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask4);
+        CustomMessageTask customMessageTask5 = new CustomMessageTask(2913163, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.im.ALaImInitialize.7
+            @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<TbPageContext> customMessage) {
+                return new CustomResponsedMessage<>(2913163, new com.baidu.live.im.b.d());
+            }
+        });
+        customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask5);
     }
 }

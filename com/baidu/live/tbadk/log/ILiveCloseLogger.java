@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ILiveCloseLogger {
     void doAccessLiveCloseGuestLog(String str, String str2, String str3, String str4);
 

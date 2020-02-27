@@ -3,10 +3,10 @@ package com.baidu.g.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    int aEO;
-    String aEs;
+    int aIU;
+    String aIy;
     String cuid;
     long num;
     long roomId;
@@ -20,9 +20,9 @@ public class a {
         jSONObject.put("source_type", 0);
         jSONObject.put("uid", this.uid);
         jSONObject.put("number", this.num);
-        jSONObject.put("app_version", this.aEs);
+        jSONObject.put("app_version", this.aIy);
         jSONObject.put("source_type", this.sourceType);
-        jSONObject.put("caller_flag", this.aEO);
+        jSONObject.put("caller_flag", this.aIU);
         jSONObject.put("version", this.version);
         jSONObject.put(Constants.KEY_DEVICE_ID, this.cuid);
         return jSONObject.toString();

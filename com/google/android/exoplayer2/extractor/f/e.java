@@ -1,16 +1,17 @@
 package com.google.android.exoplayer2.extractor.f;
 
 import android.util.SparseArray;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.extractor.f.w;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e implements w.c {
     private final int flags;
-    private final List<Format> mmf;
+    private final List<Format> mmL;
 
     public e() {
         this(0);
@@ -25,11 +26,11 @@ public final class e implements w.c {
         if (!isSet(32) && list.isEmpty()) {
             list = Collections.singletonList(Format.a(null, "application/cea-608", 0, null));
         }
-        this.mmf = list;
+        this.mmL = list;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.w.c
-    public SparseArray<w> duj() {
+    public SparseArray<w> dvu() {
         return new SparseArray<>();
     }
 
@@ -61,11 +62,11 @@ public final class e implements w.c {
             case 36:
                 return new p(new k(a(bVar)));
             case 89:
-                return new p(new g(bVar.mot));
+                return new p(new g(bVar.moZ));
             case 129:
             case 135:
                 return new p(new b(bVar.language));
-            case 130:
+            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
             case 138:
                 return new p(new f(bVar.language));
             case 134:
@@ -82,18 +83,18 @@ public final class e implements w.c {
         String str;
         int i;
         if (isSet(32)) {
-            return new t(this.mmf);
+            return new t(this.mmL);
         }
-        com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(bVar.mou);
-        List<Format> list = this.mmf;
-        while (lVar.dyh() > 0) {
+        com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(bVar.mpa);
+        List<Format> list = this.mmL;
+        while (lVar.dzr() > 0) {
             int readUnsignedByte = lVar.readUnsignedByte();
             int position = lVar.getPosition() + lVar.readUnsignedByte();
             if (readUnsignedByte == 134) {
                 ArrayList arrayList = new ArrayList();
                 int readUnsignedByte2 = lVar.readUnsignedByte() & 31;
                 for (int i2 = 0; i2 < readUnsignedByte2; i2++) {
-                    String LP = lVar.LP(3);
+                    String LU = lVar.LU(3);
                     int readUnsignedByte3 = lVar.readUnsignedByte();
                     if ((readUnsignedByte3 & 128) != 0) {
                         str = "application/cea-708";
@@ -102,7 +103,7 @@ public final class e implements w.c {
                         str = "application/cea-608";
                         i = 1;
                     }
-                    arrayList.add(Format.a((String) null, str, (String) null, -1, 0, LP, i, (DrmInitData) null));
+                    arrayList.add(Format.a((String) null, str, (String) null, -1, 0, LU, i, (DrmInitData) null));
                     lVar.skipBytes(2);
                 }
                 list = arrayList;

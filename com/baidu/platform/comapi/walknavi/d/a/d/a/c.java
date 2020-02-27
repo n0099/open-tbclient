@@ -6,21 +6,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         boolean a();
     }
 
-    /* loaded from: classes6.dex */
-    public interface b extends a, InterfaceC0134c {
+    /* loaded from: classes8.dex */
+    public interface b extends a, InterfaceC0143c {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0134c {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0143c {
         void a(long j, long j2);
     }
 
@@ -46,18 +46,18 @@ public class c {
         }
     }
 
-    public static void a(InputStream inputStream, File file, long j, InterfaceC0134c interfaceC0134c) throws IOException {
+    public static void a(InputStream inputStream, File file, long j, InterfaceC0143c interfaceC0143c) throws IOException {
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = com.baidu.platform.comapi.walknavi.d.a.d.a.a.d(file);
-            a(inputStream, fileOutputStream, j, interfaceC0134c);
+            a(inputStream, fileOutputStream, j, interfaceC0143c);
         } finally {
             a(fileOutputStream);
         }
     }
 
-    public static void a(InputStream inputStream, OutputStream outputStream, long j, InterfaceC0134c interfaceC0134c) throws IOException {
-        a(inputStream, outputStream, j, (b) new d(interfaceC0134c));
+    public static void a(InputStream inputStream, OutputStream outputStream, long j, InterfaceC0143c interfaceC0143c) throws IOException {
+        a(inputStream, outputStream, j, (b) new d(interfaceC0143c));
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream, long j, b bVar) throws IOException {

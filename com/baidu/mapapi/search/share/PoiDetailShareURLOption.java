@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.share;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PoiDetailShareURLOption {
     public String mUid = null;
 

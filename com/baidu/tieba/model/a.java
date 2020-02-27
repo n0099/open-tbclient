@@ -1,5 +1,5 @@
 package com.baidu.tieba.model;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface a {
     void loadData();
 

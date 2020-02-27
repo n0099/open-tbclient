@@ -12,7 +12,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class g extends b {
     public g(Context context) {
         super(context);

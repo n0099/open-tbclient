@@ -5,7 +5,6 @@ import android.os.Build;
 import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
@@ -23,12 +22,12 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SapiDeviceInfo implements com.baidu.sapi2.c {
     private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{DeviceId.CUIDInfo.I_FIXED, Config.APP_VERSION_CODE, "L", "h", "z", DeviceId.CUIDInfo.I_FIXED, "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
+    private static final String d = TextUtils.join("", new String[]{"O", Config.APP_VERSION_CODE, "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
 
     static String a() {
         return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 11) + "0";
@@ -174,7 +173,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         static Map<String, String> a = new HashMap();
 

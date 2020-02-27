@@ -1,9 +1,9 @@
 package com.baidu.tieba.tbadkCore;
 
 import tbclient.FrsPage.BusinessPromotCommentList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
-    private int kdp;
+    private int keo;
     private String title;
     private long uid;
     private String username;
@@ -13,7 +13,7 @@ public class i {
             this.title = businessPromotCommentList.title;
             this.username = businessPromotCommentList.username;
             this.uid = businessPromotCommentList.uid.longValue();
-            this.kdp = businessPromotCommentList.is_lz.intValue();
+            this.keo = businessPromotCommentList.is_lz.intValue();
         }
     }
 
@@ -21,7 +21,7 @@ public class i {
         return this.title;
     }
 
-    public boolean cIA() {
-        return this.kdp == 1;
+    public boolean cKe() {
+        return this.keo == 1;
     }
 }

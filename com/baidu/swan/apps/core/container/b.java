@@ -2,7 +2,7 @@ package com.baidu.swan.apps.core.container;
 
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
     boolean dispatchTouchEvent(MotionEvent motionEvent);
 

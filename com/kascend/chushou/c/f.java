@@ -26,7 +26,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static ParserRet s(String str, JSONObject jSONObject) {
         return a(str, jSONObject, true);
@@ -318,8 +318,8 @@ public class f {
         generalGift.mDesc = jSONObject.optString("desc");
         generalGift.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
         generalGift.mCornerImage = jSONObject.optString("cornerIcon");
-        generalGift.mPoint = h.bU(jSONObject.optString(Config.EVENT_HEAT_POINT), -1);
-        generalGift.mCount = h.bU(jSONObject.optString("count"), -1);
+        generalGift.mPoint = h.bT(jSONObject.optString(Config.EVENT_HEAT_POINT), -1);
+        generalGift.mCount = h.bT(jSONObject.optString("count"), -1);
         generalGift.mActionType = h.parseInt(jSONObject.optString("actionType"));
         generalGift.mExpiredTimeDesc = jSONObject.optString("expiredTimeDesc");
         generalGift.mGroup = jSONObject.optInt(TbEnum.ParamKey.GROUP);

@@ -2,22 +2,22 @@ package com.baidu.tieba.enterForum.model;
 
 import android.content.Context;
 import android.view.WindowManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private static a fTP;
+    private static a fWh;
     private boolean mHasInited;
     private int mStatusBarHeight;
     private WindowManager mWindowManager;
 
-    public static a bxd() {
-        if (fTP == null) {
+    public static a byI() {
+        if (fWh == null) {
             synchronized (a.class) {
-                if (fTP == null) {
-                    fTP = new a();
+                if (fWh == null) {
+                    fWh = new a();
                 }
             }
         }
-        return fTP;
+        return fWh;
     }
 
     private a() {
@@ -34,6 +34,6 @@ public class a {
 
     public void destroy() {
         this.mHasInited = false;
-        fTP = null;
+        fWh = null;
     }
 }

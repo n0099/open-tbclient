@@ -14,7 +14,7 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
     private d adFacadeData;
     public boolean autoPlay;
@@ -65,8 +65,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.jGw)) {
-            this.operateData.jGw = this.userName;
+        if (TextUtils.isEmpty(this.operateData.jHn)) {
+            this.operateData.jHn = this.userName;
         }
     }
 
@@ -133,8 +133,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
             jSONObject.put(WriteVideoActivityConfig.VIDEO_INFO, jSONObject2);
             jSONObject.put("tail_frame", this.tailFrame.toJson());
             jSONObject.put("operate", this.operateData.toJsonObject());
-            if (this.adFacadeData != null && this.adFacadeData.kw() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.kw().ext);
+            if (this.adFacadeData != null && this.adFacadeData.kL() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.kL().ext);
             }
         } catch (JSONException e) {
             e.printStackTrace();

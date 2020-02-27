@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static final float[] IDENTITY_MATRIX = new float[16];
 

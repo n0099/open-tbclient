@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
@@ -159,6 +160,14 @@ public class MediaData extends OrmObject implements Serializable {
                 this.smartCropCenterPointHeightRatio = jSONObject.optDouble("hth_mid_loc");
                 this.picWidth = jSONObject.optInt("width", 0);
                 this.picHeight = jSONObject.optInt("height", 0);
+                if (TextUtils.isEmpty(this.src_pic)) {
+                    if (!TextUtils.isEmpty(this.original_url)) {
+                        this.src_pic = this.original_url;
+                    } else if (!TextUtils.isEmpty(this.pic_url)) {
+                        this.src_pic = this.pic_url;
+                        this.original_url = this.pic_url;
+                    }
+                }
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -189,6 +198,20 @@ public class MediaData extends OrmObject implements Serializable {
             this.smartCropCenterPointHeightRatio = media.hth_mid_loc.doubleValue();
             this.picWidth = media.width.intValue();
             this.picHeight = media.height.intValue();
+            if (TextUtils.isEmpty(this.src_pic)) {
+                if (!TextUtils.isEmpty(this.original_url)) {
+                    this.src_pic = this.original_url;
+                } else if (!TextUtils.isEmpty(this.pic_url)) {
+                    this.src_pic = this.pic_url;
+                    this.original_url = this.pic_url;
+                    if (TextUtils.isEmpty(this.origin_pic)) {
+                        this.origin_pic = this.pic_url;
+                    }
+                    if (TextUtils.isEmpty(this.thumbnails_url)) {
+                        this.thumbnails_url = this.pic_url;
+                    }
+                }
+            }
         }
     }
 }

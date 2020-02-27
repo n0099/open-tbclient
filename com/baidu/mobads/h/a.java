@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static Method d = null;
     private static Method e = null;
@@ -35,7 +35,7 @@ public class a {
     private TelephonyManager b;
     private WifiManager h;
     private String m;
-    private C0122a c = new C0122a();
+    private C0130a c = new C0130a();
     private b i = null;
     private long j = 0;
     private String k = null;
@@ -74,7 +74,7 @@ public class a {
             i = 3;
         }
         try {
-            C0122a b2 = b();
+            C0130a b2 = b();
             if (b2 == null || !b2.b()) {
                 a(this.b.getCellLocation());
             } else {
@@ -107,7 +107,7 @@ public class a {
     private void a(CellLocation cellLocation) {
         int i = 0;
         if (cellLocation != null && this.b != null) {
-            C0122a c0122a = new C0122a();
+            C0130a c0130a = new C0130a();
             String networkOperator = this.b.getNetworkOperator();
             if (networkOperator != null && networkOperator.length() > 0) {
                 try {
@@ -116,7 +116,7 @@ public class a {
                         if (intValue < 0) {
                             intValue = this.c.c;
                         }
-                        c0122a.c = intValue;
+                        c0130a.c = intValue;
                     }
                     String substring = networkOperator.substring(3);
                     if (substring != null) {
@@ -129,16 +129,16 @@ public class a {
                     if (intValue2 < 0) {
                         intValue2 = this.c.d;
                     }
-                    c0122a.d = intValue2;
+                    c0130a.d = intValue2;
                 } catch (Exception e2) {
                 }
             }
             if (cellLocation instanceof GsmCellLocation) {
-                c0122a.a = ((GsmCellLocation) cellLocation).getLac();
-                c0122a.b = ((GsmCellLocation) cellLocation).getCid();
-                c0122a.e = 'g';
+                c0130a.a = ((GsmCellLocation) cellLocation).getLac();
+                c0130a.b = ((GsmCellLocation) cellLocation).getCid();
+                c0130a.e = 'g';
             } else if (cellLocation instanceof CdmaCellLocation) {
-                c0122a.e = 'w';
+                c0130a.e = 'w';
                 if (g == null) {
                     try {
                         g = Class.forName("android.telephony.cdma.CdmaCellLocation");
@@ -156,21 +156,21 @@ public class a {
                         if (intValue3 < 0) {
                             intValue3 = this.c.d;
                         }
-                        c0122a.d = intValue3;
-                        c0122a.b = ((Integer) d.invoke(cellLocation, new Object[0])).intValue();
-                        c0122a.a = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
+                        c0130a.d = intValue3;
+                        c0130a.b = ((Integer) d.invoke(cellLocation, new Object[0])).intValue();
+                        c0130a.a = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
                     } catch (Exception e4) {
                         return;
                     }
                 }
             }
-            if (c0122a.b()) {
-                this.c = c0122a;
+            if (c0130a.b()) {
+                this.c = c0130a;
             }
         }
     }
 
-    private C0122a b() {
+    private C0130a b() {
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;
         }
@@ -180,11 +180,11 @@ public class a {
                 if (allCellInfo == null || allCellInfo.size() <= 0) {
                     return null;
                 }
-                C0122a c0122a = null;
+                C0130a c0130a = null;
                 for (CellInfo cellInfo : allCellInfo) {
                     try {
                         if (cellInfo.isRegistered()) {
-                            C0122a a = a(cellInfo);
+                            C0130a a = a(cellInfo);
                             if (a != null) {
                                 try {
                                     if (!a.b()) {
@@ -195,13 +195,13 @@ public class a {
                                     return a;
                                 }
                             }
-                            c0122a = a;
+                            c0130a = a;
                         }
                     } catch (Exception e3) {
-                        return c0122a;
+                        return c0130a;
                     }
                 }
-                return c0122a;
+                return c0130a;
             } catch (NoSuchMethodError e4) {
                 return null;
             }
@@ -210,51 +210,51 @@ public class a {
         }
     }
 
-    private C0122a a(CellInfo cellInfo) {
+    private C0130a a(CellInfo cellInfo) {
         int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
         if (intValue < 17) {
             return null;
         }
-        C0122a c0122a = new C0122a();
+        C0130a c0130a = new C0130a();
         boolean z = false;
         if (cellInfo instanceof CellInfoGsm) {
             CellIdentityGsm cellIdentity = ((CellInfoGsm) cellInfo).getCellIdentity();
-            c0122a.c = b(cellIdentity.getMcc());
-            c0122a.d = b(cellIdentity.getMnc());
-            c0122a.a = b(cellIdentity.getLac());
-            c0122a.b = b(cellIdentity.getCid());
-            c0122a.e = 'g';
+            c0130a.c = b(cellIdentity.getMcc());
+            c0130a.d = b(cellIdentity.getMnc());
+            c0130a.a = b(cellIdentity.getLac());
+            c0130a.b = b(cellIdentity.getCid());
+            c0130a.e = 'g';
             z = true;
         } else if (cellInfo instanceof CellInfoCdma) {
             CellIdentityCdma cellIdentity2 = ((CellInfoCdma) cellInfo).getCellIdentity();
-            c0122a.d = b(cellIdentity2.getSystemId());
-            c0122a.a = b(cellIdentity2.getNetworkId());
-            c0122a.b = b(cellIdentity2.getBasestationId());
-            c0122a.e = 'w';
+            c0130a.d = b(cellIdentity2.getSystemId());
+            c0130a.a = b(cellIdentity2.getNetworkId());
+            c0130a.b = b(cellIdentity2.getBasestationId());
+            c0130a.e = 'w';
             z = true;
         } else if (cellInfo instanceof CellInfoLte) {
             CellIdentityLte cellIdentity3 = ((CellInfoLte) cellInfo).getCellIdentity();
-            c0122a.c = b(cellIdentity3.getMcc());
-            c0122a.d = b(cellIdentity3.getMnc());
-            c0122a.a = b(cellIdentity3.getTac());
-            c0122a.b = b(cellIdentity3.getCi());
-            c0122a.e = 'g';
+            c0130a.c = b(cellIdentity3.getMcc());
+            c0130a.d = b(cellIdentity3.getMnc());
+            c0130a.a = b(cellIdentity3.getTac());
+            c0130a.b = b(cellIdentity3.getCi());
+            c0130a.e = 'g';
             z = true;
         }
         if (intValue >= 18 && !z) {
             try {
                 if (cellInfo instanceof CellInfoWcdma) {
                     CellIdentityWcdma cellIdentity4 = ((CellInfoWcdma) cellInfo).getCellIdentity();
-                    c0122a.c = b(cellIdentity4.getMcc());
-                    c0122a.d = b(cellIdentity4.getMnc());
-                    c0122a.a = b(cellIdentity4.getLac());
-                    c0122a.b = b(cellIdentity4.getCid());
-                    c0122a.e = 'g';
+                    c0130a.c = b(cellIdentity4.getMcc());
+                    c0130a.d = b(cellIdentity4.getMnc());
+                    c0130a.a = b(cellIdentity4.getLac());
+                    c0130a.b = b(cellIdentity4.getCid());
+                    c0130a.e = 'g';
                 }
             } catch (Exception e2) {
             }
         }
-        return c0122a;
+        return c0130a;
     }
 
     private int b(int i) {
@@ -266,15 +266,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mobads.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0122a {
+    /* loaded from: classes10.dex */
+    public class C0130a {
         public int a;
         public int b;
         public int c;
         public int d;
         public char e;
 
-        private C0122a() {
+        private C0130a() {
             this.a = -1;
             this.b = -1;
             this.c = -1;
@@ -303,7 +303,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b {
         public List<ScanResult> a;
         private long c;

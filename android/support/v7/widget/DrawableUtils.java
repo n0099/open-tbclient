@@ -19,7 +19,7 @@ import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import java.lang.reflect.Field;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DrawableUtils {
     public static final Rect INSETS_NONE = new Rect();
     private static final String TAG = "DrawableUtils";
@@ -69,7 +69,7 @@ public class DrawableUtils {
                                 }
                                 break;
                             case 108511772:
-                                if (name.equals(HorizontalTranslateLayout.RIGHT)) {
+                                if (name.equals(HorizontalTranslateLayout.DIRECTION_RIGHT)) {
                                     c = 2;
                                     break;
                                 }

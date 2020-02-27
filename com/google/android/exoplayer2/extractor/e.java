@@ -1,9 +1,9 @@
 package com.google.android.exoplayer2.extractor;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface e {
-    void O(long j, long j2);
+    void N(long j, long j2);
 
     int a(f fVar, k kVar) throws IOException, InterruptedException;
 

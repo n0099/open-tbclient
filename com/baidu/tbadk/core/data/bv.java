@@ -12,11 +12,11 @@ public class bv {
     private long end_time;
     private long start_time;
 
-    public String aCm() {
+    public String aEx() {
         return this.activity_banner;
     }
 
-    public String aCn() {
+    public String aEy() {
         return this.activity_button;
     }
 

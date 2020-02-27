@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.platform.base.d {
     private boolean a(String str, PoiIndoorResult poiIndoorResult) {
         int i = 0;

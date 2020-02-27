@@ -6,9 +6,9 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FlowableAmb<T> extends io.reactivex.g<T> {
-    final Iterable<? extends org.a.b<? extends T>> nvQ;
+    final Iterable<? extends org.a.b<? extends T>> nws;
     final org.a.b<? extends T>[] sources;
 
     @Override // io.reactivex.g
@@ -19,7 +19,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
             org.a.b<? extends T>[] bVarArr2 = new org.a.b[8];
             try {
                 int i = 0;
-                for (org.a.b<? extends T> bVar : this.nvQ) {
+                for (org.a.b<? extends T> bVar : this.nws) {
                     if (bVar == null) {
                         EmptySubscription.error(new NullPointerException("One of the sources is null"), cVar);
                         return;
@@ -36,7 +36,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
                 length = i;
                 bVarArr = bVarArr2;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.I(th);
+                io.reactivex.exceptions.a.H(th);
                 EmptySubscription.error(th, cVar);
                 return;
             }
@@ -52,26 +52,26 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class a<T> implements org.a.d {
         final org.a.c<? super T> actual;
-        final AmbInnerSubscriber<T>[] nvR;
-        final AtomicInteger nvS = new AtomicInteger();
+        final AmbInnerSubscriber<T>[] nwt;
+        final AtomicInteger nwu = new AtomicInteger();
 
         a(org.a.c<? super T> cVar, int i) {
             this.actual = cVar;
-            this.nvR = new AmbInnerSubscriber[i];
+            this.nwt = new AmbInnerSubscriber[i];
         }
 
         public void a(org.a.b<? extends T>[] bVarArr) {
-            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.nvR;
+            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.nwt;
             int length = ambInnerSubscriberArr.length;
             for (int i = 0; i < length; i++) {
                 ambInnerSubscriberArr[i] = new AmbInnerSubscriber<>(this, i + 1, this.actual);
             }
-            this.nvS.lazySet(0);
+            this.nwu.lazySet(0);
             this.actual.onSubscribe(this);
-            for (int i2 = 0; i2 < length && this.nvS.get() == 0; i2++) {
+            for (int i2 = 0; i2 < length && this.nwu.get() == 0; i2++) {
                 bVarArr[i2].subscribe(ambInnerSubscriberArr[i2]);
             }
         }
@@ -79,20 +79,20 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
         @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                int i = this.nvS.get();
+                int i = this.nwu.get();
                 if (i > 0) {
-                    this.nvR[i - 1].request(j);
+                    this.nwt[i - 1].request(j);
                 } else if (i == 0) {
-                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.nvR) {
+                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.nwt) {
                         ambInnerSubscriber.request(j);
                     }
                 }
             }
         }
 
-        public boolean Nt(int i) {
-            if (this.nvS.get() == 0 && this.nvS.compareAndSet(0, i)) {
-                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.nvR;
+        public boolean Nw(int i) {
+            if (this.nwu.get() == 0 && this.nwu.compareAndSet(0, i)) {
+                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.nwt;
                 int length = ambInnerSubscriberArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
                     if (i2 + 1 != i) {
@@ -106,9 +106,9 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
 
         @Override // org.a.d
         public void cancel() {
-            if (this.nvS.get() != -1) {
-                this.nvS.lazySet(-1);
-                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.nvR) {
+            if (this.nwu.get() != -1) {
+                this.nwu.lazySet(-1);
+                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.nwt) {
                     ambInnerSubscriber.cancel();
                 }
             }
@@ -116,7 +116,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class AmbInnerSubscriber<T> extends AtomicReference<org.a.d> implements j<T>, org.a.d {
         private static final long serialVersionUID = -1185974347409665484L;
         final org.a.c<? super T> actual;
@@ -145,7 +145,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
         public void onNext(T t) {
             if (this.won) {
                 this.actual.onNext(t);
-            } else if (this.parent.Nt(this.index)) {
+            } else if (this.parent.Nw(this.index)) {
                 this.won = true;
                 this.actual.onNext(t);
             } else {
@@ -157,7 +157,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
         public void onError(Throwable th) {
             if (this.won) {
                 this.actual.onError(th);
-            } else if (this.parent.Nt(this.index)) {
+            } else if (this.parent.Nw(this.index)) {
                 this.won = true;
                 this.actual.onError(th);
             } else {
@@ -170,7 +170,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
         public void onComplete() {
             if (this.won) {
                 this.actual.onComplete();
-            } else if (this.parent.Nt(this.index)) {
+            } else if (this.parent.Nw(this.index)) {
                 this.won = true;
                 this.actual.onComplete();
             } else {

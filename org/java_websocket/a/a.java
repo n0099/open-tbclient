@@ -1,5 +1,6 @@
 package org.java_websocket.a;
 
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -25,7 +26,7 @@ import org.java_websocket.c.h;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends org.java_websocket.a implements Runnable, WebSocket {
     private CountDownLatch closeLatch;
     private CountDownLatch connectLatch;
@@ -219,9 +220,9 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             InputStream inputStream = this.socket.getInputStream();
             this.ostream = this.socket.getOutputStream();
             sendHandshake();
-            this.writeThread = new Thread(new RunnableC0774a());
+            this.writeThread = new Thread(new RunnableC0782a());
             this.writeThread.start();
-            byte[] bArr = new byte[c.nLd];
+            byte[] bArr = new byte[c.nLS];
             while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
                 try {
                     this.engine.l(ByteBuffer.wrap(bArr, 0, read));
@@ -232,7 +233,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
                     this.engine.closeConnection(1006, e2.getMessage());
                 }
             }
-            this.engine.dLU();
+            this.engine.dNh();
             this.connectReadThread = null;
         } catch (Exception e3) {
             onWebsocketError(this.engine, e3);
@@ -245,7 +246,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         if (port == -1) {
             String scheme = this.uri.getScheme();
             if ("wss".equals(scheme)) {
-                return 443;
+                return Constants.SOCKET_PORT_SSL;
             }
             if ("ws".equals(scheme)) {
                 return 80;
@@ -264,7 +265,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         }
         int port = getPort();
         d dVar = new d();
-        dVar.Sj(rawPath);
+        dVar.Su(rawPath);
         dVar.put("Host", this.uri.getHost() + ((port == 80 || port == 443) ? "" : ":" + port));
         if (this.headers != null) {
             for (Map.Entry<String, String> entry : this.headers.entrySet()) {
@@ -364,9 +365,9 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
     }
 
     /* renamed from: org.java_websocket.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private class RunnableC0774a implements Runnable {
-        private RunnableC0774a() {
+    /* loaded from: classes7.dex */
+    private class RunnableC0782a implements Runnable {
+        private RunnableC0782a() {
         }
 
         @Override // java.lang.Runnable
@@ -375,11 +376,11 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             while (!Thread.interrupted()) {
                 try {
                     try {
-                        ByteBuffer take = a.this.engine.nLe.take();
+                        ByteBuffer take = a.this.engine.nLT.take();
                         a.this.ostream.write(take.array(), 0, take.limit());
                         a.this.ostream.flush();
                     } catch (InterruptedException e) {
-                        for (ByteBuffer byteBuffer : a.this.engine.nLe) {
+                        for (ByteBuffer byteBuffer : a.this.engine.nLT) {
                             a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                             a.this.ostream.flush();
                         }
@@ -491,6 +492,6 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         if (iOException instanceof SSLException) {
             onError(iOException);
         }
-        this.engine.dLU();
+        this.engine.dNh();
     }
 }

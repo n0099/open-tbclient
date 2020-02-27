@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static NetworkInfo getActiveNetworkInfo(Context context) {
         ConnectivityManager connectivityManager;

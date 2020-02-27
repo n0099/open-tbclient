@@ -1,49 +1,134 @@
 package com.baidu.tieba.s;
 
-import android.app.Application;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.v;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b kno;
-    private boolean mInited = false;
-    private a knp = cMf();
+    private Map<BdUniqueId, ArrayList<an>> kdN;
+    private String[] kdO = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", "recom_source", "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type"};
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void initSdk(Application application);
-    }
-
-    private boolean cMe() {
-        return com.baidu.tbadk.core.sharedPref.b.aDr().getInt("pref_key_jpush_sdk_enable", 0) == 1;
-    }
-
-    private b() {
-    }
-
-    private a cMf() {
-        CustomResponsedMessage runTask;
-        if (!cMe() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
-            return null;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public b() {
+        if (this.kdN == null) {
+            this.kdN = new LinkedHashMap();
         }
-        return (a) runTask.getData();
     }
 
-    public static b cMg() {
-        if (kno == null) {
-            synchronized (b.class) {
-                if (kno == null) {
-                    kno = new b();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void w(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null) {
+            this.kdN.put(bdUniqueId, null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void x(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null) {
+            this.kdN.remove(bdUniqueId);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(BdUniqueId bdUniqueId, an anVar) {
+        if (anVar != null && bdUniqueId != null) {
+            ArrayList<an> arrayList = this.kdN.get(bdUniqueId);
+            if (arrayList == null) {
+                arrayList = new ArrayList<>();
+                this.kdN.put(bdUniqueId, arrayList);
+            }
+            arrayList.add(anVar);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean y(BdUniqueId bdUniqueId) {
+        return this.kdN.containsKey(bdUniqueId);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void cJX() {
+        if (this.kdN.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<an>> entry : this.kdN.entrySet()) {
+                ArrayList<an> value = entry.getValue();
+                if (value != null) {
+                    value.clear();
                 }
             }
         }
-        return kno;
     }
 
-    public void initSdk(Application application) {
-        if (!this.mInited && this.knp != null) {
-            this.knp.initSdk(application);
-            this.mInited = true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(BdUniqueId bdUniqueId, boolean z) {
+        if (bdUniqueId != null) {
+            ArrayList<an> arrayList = this.kdN.get(bdUniqueId);
+            if (v.getCount(arrayList) != 0) {
+                aS(arrayList);
+                arrayList.clear();
+            }
         }
+    }
+
+    private void aS(ArrayList<an> arrayList) {
+        if (arrayList != null && v.getCount(arrayList) != 0) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (v.getCount(arrayList) == 1) {
+                TiebaStatic.log((an) v.getItem(arrayList, 0));
+            } else {
+                HashMap hashMap = new HashMap();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    an anVar = arrayList.get(i);
+                    if (hashMap.containsKey(anVar.getKey())) {
+                        ((List) hashMap.get(anVar.getKey())).add(anVar);
+                    } else {
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.add(anVar);
+                        hashMap.put(anVar.getKey(), arrayList2);
+                    }
+                }
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    List list = (List) entry.getValue();
+                    if (v.getCount(list) != 0) {
+                        an anVar2 = (an) list.get(0);
+                        for (int i2 = 0; i2 < this.kdO.length; i2++) {
+                            StringBuilder sb = new StringBuilder();
+                            for (int i3 = 0; i3 < list.size(); i3++) {
+                                sb.append(l(((an) list.get(i3)).getParams(), this.kdO[i2]));
+                                sb.append("|");
+                            }
+                            if (sb.length() > 0) {
+                                sb.deleteCharAt(sb.length() - 1);
+                            }
+                            anVar2.delete(this.kdO[i2]);
+                            anVar2.cy(this.kdO[i2] + "s", sb.toString());
+                        }
+                        TiebaStatic.log(anVar2);
+                    }
+                }
+                if (hashMap != null && !hashMap.isEmpty()) {
+                    hashMap.clear();
+                }
+            }
+            if (BdLog.isDebugMode()) {
+                BdLog.e("logStatisticByKey->" + (System.currentTimeMillis() - currentTimeMillis) + "|size=" + arrayList.size());
+            }
+        }
+    }
+
+    private String l(List<Object> list, String str) {
+        int indexOf;
+        if (v.getCount(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
+            String valueOf = String.valueOf(list.get(indexOf + 1));
+            return StringUtils.isNull(valueOf, true) ? "" : valueOf;
+        }
+        return "";
     }
 }

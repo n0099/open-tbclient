@@ -11,7 +11,7 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     /* JADX INFO: Access modifiers changed from: package-private */
     public SubMenuWrapperICS(Context context, SupportSubMenu supportSubMenu) {

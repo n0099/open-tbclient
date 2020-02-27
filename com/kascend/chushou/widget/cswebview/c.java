@@ -8,7 +8,7 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c extends WebViewClient {
     @Override // android.webkit.WebViewClient
     @CallSuper
@@ -38,28 +38,34 @@ public class c extends WebViewClient {
             return false;
         }
         if (str.startsWith("chushoutv")) {
-            webView.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
             return true;
-        } else if (str.startsWith("mqqwpa://im/chat")) {
-            com.kascend.chushou.toolkit.a.a.a("20");
+        }
+        if (str.startsWith("tiebachushou")) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             if (tv.chushou.zues.utils.a.isIntentAvailable(webView.getContext(), intent)) {
                 webView.getContext().startActivity(intent);
             }
             return true;
+        } else if (str.startsWith("mqqwpa://im/chat")) {
+            com.kascend.chushou.toolkit.a.a.a("20");
+            Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            if (tv.chushou.zues.utils.a.isIntentAvailable(webView.getContext(), intent2)) {
+                webView.getContext().startActivity(intent2);
+            }
+            return true;
         } else if (str.startsWith("tel:")) {
             Uri parse = Uri.parse(str);
             if (parse != null) {
-                Intent intent2 = new Intent("android.intent.action.DIAL", parse);
-                if (tv.chushou.zues.utils.a.isIntentAvailable(webView.getContext(), intent2)) {
-                    webView.getContext().startActivity(intent2);
+                Intent intent3 = new Intent("android.intent.action.DIAL", parse);
+                if (tv.chushou.zues.utils.a.isIntentAvailable(webView.getContext(), intent3)) {
+                    webView.getContext().startActivity(intent3);
                 }
             }
             return true;
         } else {
-            if (!h.isEmpty(com.kascend.chushou.d.h.dAM().f)) {
-                for (int i = 0; i < com.kascend.chushou.d.h.dAM().f.size(); i++) {
-                    if (str.toLowerCase().startsWith(com.kascend.chushou.d.h.dAM().f.get(i).toLowerCase())) {
+            if (!h.isEmpty(com.kascend.chushou.d.h.dBS().f)) {
+                for (int i = 0; i < com.kascend.chushou.d.h.dBS().f.size(); i++) {
+                    if (str.toLowerCase().startsWith(com.kascend.chushou.d.h.dBS().f.get(i).toLowerCase())) {
                         z = true;
                         break;
                     }
@@ -67,12 +73,12 @@ public class c extends WebViewClient {
             }
             z = false;
             if (z) {
-                Intent intent3 = new Intent();
-                intent3.setAction("android.intent.action.VIEW");
-                intent3.setFlags(268435456);
-                intent3.setData(Uri.parse(str));
-                if (tv.chushou.zues.utils.a.isIntentAvailable(webView.getContext(), intent3)) {
-                    webView.getContext().startActivity(intent3);
+                Intent intent4 = new Intent();
+                intent4.setAction("android.intent.action.VIEW");
+                intent4.setFlags(268435456);
+                intent4.setData(Uri.parse(str));
+                if (tv.chushou.zues.utils.a.isIntentAvailable(webView.getContext(), intent4)) {
+                    webView.getContext().startActivity(intent4);
                 }
                 return true;
             }

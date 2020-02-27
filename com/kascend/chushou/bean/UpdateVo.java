@@ -1,7 +1,7 @@
 package com.kascend.chushou.bean;
 
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UpdateVo {
     public String apk_name;
     public String apk_versionCode;

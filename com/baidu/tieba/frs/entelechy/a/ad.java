@@ -5,24 +5,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ad extends v.a {
-    public TextView ecE;
-    public ImageView gvG;
-    public TextView gvH;
-    public ImageView gvI;
-    public View gvJ;
-    public View gvK;
+    public TextView egH;
+    public ImageView gxH;
+    public TextView gxI;
+    public ImageView gxJ;
+    public View gxK;
+    public View gxL;
 
     public ad(View view) {
         super(view);
         if (view != null) {
-            this.ecE = (TextView) view.findViewById(R.id.video_activity_item_title);
-            this.gvG = (ImageView) view.findViewById(R.id.video_activity_item_tip);
-            this.gvH = (TextView) view.findViewById(R.id.video_activity_item_type);
-            this.gvI = (ImageView) view.findViewById(R.id.video_activity_item_more);
-            this.gvJ = view.findViewById(R.id.top_divider_line);
-            this.gvK = view.findViewById(R.id.bottom_divider_line);
+            this.egH = (TextView) view.findViewById(R.id.video_activity_item_title);
+            this.gxH = (ImageView) view.findViewById(R.id.video_activity_item_tip);
+            this.gxI = (TextView) view.findViewById(R.id.video_activity_item_type);
+            this.gxJ = (ImageView) view.findViewById(R.id.video_activity_item_more);
+            this.gxK = view.findViewById(R.id.top_divider_line);
+            this.gxL = view.findViewById(R.id.bottom_divider_line);
         }
     }
 }

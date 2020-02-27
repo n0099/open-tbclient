@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import tbclient.GameInfo;
 import tbclient.GetGameDetail.GetGameDetailResIdl;
 import tbclient.GetGameDetail.RankInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class ResponseGameDetailMessage extends TbSocketReponsedMessage {
     private GameInfo mGameInfo;
     private RankInfo mRankInfo;

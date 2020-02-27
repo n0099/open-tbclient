@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends a {
     public g(j jVar) {
         super(jVar, "/swanAPI/setTabBarBadge");
@@ -26,17 +26,17 @@ public class g extends a {
         if (optString.length() > 3) {
             optString = context.getString(a.h.aiapps_tabbar_badge_over_length);
         }
-        if (Hx()) {
+        if (JM()) {
             com.baidu.swan.apps.console.c.e("SetTabBarBadgeAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a Hw = Hw();
-        if (Hw == null) {
+        com.baidu.swan.apps.tabbar.b.a JL = JL();
+        if (JL == null) {
             com.baidu.swan.apps.console.c.e("SetTabBarBadgeAction", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!Hw.B(optInt, optString)) {
+        } else if (!JL.D(optInt, optString)) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "set bottom badge fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

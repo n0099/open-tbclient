@@ -2,7 +2,7 @@ package rx.schedulers;
 
 import rx.g;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ImmediateScheduler extends g {
     private ImmediateScheduler() {
         throw new IllegalStateException("No instances!");

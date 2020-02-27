@@ -1,7 +1,7 @@
 package com.kascend.chushou.view.base;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class c<T> {
     protected final String a = getClass().getSimpleName();
     protected T b;

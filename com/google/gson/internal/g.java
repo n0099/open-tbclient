@@ -4,17 +4,17 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g {
-    public static DateFormat Mu(int i) {
-        return new SimpleDateFormat(Mv(i), Locale.US);
+    public static DateFormat Mz(int i) {
+        return new SimpleDateFormat(MA(i), Locale.US);
     }
 
-    public static DateFormat ed(int i, int i2) {
-        return new SimpleDateFormat(Mw(i) + HanziToPinyin.Token.SEPARATOR + Mx(i2), Locale.US);
+    public static DateFormat eg(int i, int i2) {
+        return new SimpleDateFormat(MB(i) + HanziToPinyin.Token.SEPARATOR + MC(i2), Locale.US);
     }
 
-    private static String Mv(int i) {
+    private static String MA(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, y";
@@ -29,7 +29,7 @@ public class g {
         }
     }
 
-    private static String Mw(int i) {
+    private static String MB(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, yyyy";
@@ -44,7 +44,7 @@ public class g {
         }
     }
 
-    private static String Mx(int i) {
+    private static String MC(int i) {
         switch (i) {
             case 0:
             case 1:

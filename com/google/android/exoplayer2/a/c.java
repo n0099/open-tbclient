@@ -1,13 +1,13 @@
 package com.google.android.exoplayer2.a;
 
 import java.lang.Exception;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface c<I, O, E extends Exception> {
-    void bv(I i) throws Exception;
+    void bx(I i) throws Exception;
 
-    I dtm() throws Exception;
+    I dux() throws Exception;
 
-    O dtn() throws Exception;
+    O duy() throws Exception;
 
     void flush();
 

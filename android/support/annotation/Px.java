@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Dimension(unit = 1)
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface Px {
 }

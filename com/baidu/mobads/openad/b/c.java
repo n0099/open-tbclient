@@ -5,7 +5,7 @@ import android.app.NotificationManager;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements Runnable {
     final /* synthetic */ IOAdDownloader a;
     final /* synthetic */ b b;

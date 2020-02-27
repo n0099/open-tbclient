@@ -8,13 +8,16 @@ import android.net.NetworkInfo;
 import com.kascend.chushou.b;
 import com.kascend.chushou.b.a.a.j;
 import kotlin.TypeCastException;
+import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
-/* loaded from: classes4.dex */
+@h
+/* loaded from: classes5.dex */
 public final class CSTVWifiReceiver extends BroadcastReceiver {
     public static final a a = new a(null);
 
-    /* loaded from: classes4.dex */
+    @h
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }
@@ -36,18 +39,18 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
             ConnectivityManager connectivityManager = (ConnectivityManager) systemService;
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-            boolean z = b.dAF().a;
-            boolean z2 = b.dAF().b;
+            boolean z = b.dBL().a;
+            boolean z2 = b.dBL().b;
             if (networkInfo != null) {
-                b.dAF().a = q.h(networkInfo.getState(), NetworkInfo.State.CONNECTED);
+                b.dBL().a = q.h(networkInfo.getState(), NetworkInfo.State.CONNECTED);
             }
             if (networkInfo2 != null) {
-                b.dAF().b = q.h(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
+                b.dBL().b = q.h(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
             }
-            com.kascend.cstvsdk.utils.a.njI.a(b.dAF().b ? 1 : 2);
-            if (z != b.dAF().a || z2 != b.dAF().b) {
-                if (b.dAF().a) {
-                    com.kascend.chushou.toolkit.d.a.dDe().b();
+            com.kascend.cstvsdk.utils.a.nkk.a(b.dBL().b ? 1 : 2);
+            if (z != b.dBL().a || z2 != b.dBL().b) {
+                if (b.dBL().a) {
+                    com.kascend.chushou.toolkit.d.a.dEl().b();
                 }
                 tv.chushou.zues.a.a.post(new j(1));
             }

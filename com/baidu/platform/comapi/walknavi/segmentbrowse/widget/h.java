@@ -8,7 +8,7 @@ import android.widget.Scroller;
 import com.baidu.down.utils.Constants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h extends ViewGroup {
     public static int a = Constants.HTTP_DNS_INAVAILABLE_TIME;
     private Context b;
@@ -27,7 +27,7 @@ public class h extends ViewGroup {
     private float o;
     private VelocityTracker p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(String str);
     }

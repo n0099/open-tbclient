@@ -50,7 +50,7 @@ public class SwitchManager {
     public boolean turn(String str, int i) {
         c cVar;
         if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.E(i);
+            return cVar.H(i);
         }
         return false;
     }
@@ -68,9 +68,9 @@ public class SwitchManager {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
-                    cVar.H(0);
-                    edit.putInt(cVar.getName() + c.qh, 0);
-                    edit.putInt(cVar.getName() + c.qi, cVar.getDefaultType());
+                    cVar.K(0);
+                    edit.putInt(cVar.getName() + c.qi, 0);
+                    edit.putInt(cVar.getName() + c.qj, cVar.getDefaultType());
                 }
             }
             edit.commit();

@@ -12,22 +12,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.as.af;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static View a(final com.baidu.swan.impl.map.item.c cVar, final com.baidu.swan.apps.z.a.a.d dVar) {
         com.baidu.swan.apps.console.c.i("map", "creatCallout start");
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(dVar.bwd.color);
-        paint.setTextSize(dVar.bwd.Ro);
-        float f = dVar.bwd.bwi;
-        float f2 = dVar.bwd.Ri;
+        paint.setColor(dVar.bAm.color);
+        paint.setTextSize(dVar.bAm.SW);
+        float f = dVar.bAm.bAr;
+        float f2 = dVar.bAm.SQ;
         Paint paint2 = new Paint();
         paint2.setAntiAlias(true);
         paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint2.setColor(dVar.bwd.bgColor);
-        String str = dVar.bwd.content;
+        paint2.setColor(dVar.bAm.bgColor);
+        String str = dVar.bAm.content;
         int S = af.S(6.0f);
         float measureText = paint.measureText(str) + (2.0f * f);
         float f3 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;

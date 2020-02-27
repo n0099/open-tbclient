@@ -15,7 +15,7 @@ import com.baidu.swan.apps.setting.oauth.h;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.apps.y.f;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends ab {
     public b(j jVar) {
         super(jVar, "/swanAPI/menu");
@@ -44,33 +44,33 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        f UC = f.UC();
-        if (UC == null) {
+        f WQ = f.WQ();
+        if (WQ == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.e El = UC.El();
-        if (El == null) {
+        com.baidu.swan.apps.core.d.e GA = WQ.GA();
+        if (GA == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b LX = El.LX();
-        if (LX == null) {
+        com.baidu.swan.apps.core.d.b Ol = GA.Ol();
+        if (Ol == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final SwanAppActionBar Ln = LX.Ln();
-        if (Ln == null) {
+        final SwanAppActionBar NB = Ol.NB();
+        if (NB == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        eVar.aaz().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.1
+        eVar.acN().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void B(h<b.d> hVar) {
+            public void D(h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    if (b.this.a(Ln, optParamsAsJo, str)) {
+                    if (b.this.a(NB, optParamsAsJo, str)) {
                         callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                         return;
                     } else {

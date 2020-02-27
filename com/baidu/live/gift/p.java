@@ -1,13 +1,18 @@
 package com.baidu.live.gift;
-/* loaded from: classes2.dex */
-public class p {
-    public String aem;
-    public int afv;
-    public String itemId;
 
-    public p(String str, String str2, int i) {
-        this.itemId = str;
-        this.aem = str2;
-        this.afv = i;
+import com.baidu.live.adp.framework.message.HttpMessage;
+/* loaded from: classes3.dex */
+public class p extends HttpMessage {
+    public String agX;
+    public long agY;
+    public String agZ;
+    public String giftId;
+    public String giftName;
+    public String liveId;
+    public String otherParams;
+    public String roomId;
+
+    public p() {
+        super(1021014);
     }
 }

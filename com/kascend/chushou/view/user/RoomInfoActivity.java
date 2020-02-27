@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.kascend.chushou.a;
 import com.kascend.chushou.view.base.BaseActivity;
 import com.kascend.chushou.view.h5.H5Options;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RoomInfoActivity extends BaseActivity {
     private TextView a;
 
@@ -37,7 +37,7 @@ public class RoomInfoActivity extends BaseActivity {
             this.a.setText(a.i.str_contribute_tittle);
             H5Options h5Options = new H5Options();
             h5Options.d = true;
-            h5Options.a = tv.chushou.common.a.dOJ() + "m/room-billboard/" + stringExtra + ".htm";
+            h5Options.a = tv.chushou.common.a.dPW() + "m/room-billboard/" + stringExtra + ".htm";
             aVar = com.kascend.chushou.view.h5.a.a(h5Options);
         }
         if (aVar != null) {

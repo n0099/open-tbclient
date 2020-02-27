@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
     private final f a;
     private final String b;
@@ -13,7 +13,7 @@ public class i {
     private final j d;
     private final Object e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         private f a;
         private String b = "GET";

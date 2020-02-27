@@ -27,13 +27,13 @@ public class ImagesInvalidService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mDiskFileOperate = new a(TbConfig.IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
-        d.fj().c(this.mDiskFileOperate);
+        d.fk().c(this.mDiskFileOperate);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        d.fj().d(this.mDiskFileOperate);
+        d.fk().d(this.mDiskFileOperate);
         this.mDiskFileOperate = null;
     }
 

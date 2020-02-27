@@ -7,7 +7,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Code128Writer extends OneDimensionalCodeWriter {
     private static final int CODE_CODE_B = 100;
     private static final int CODE_CODE_C = 99;
@@ -24,7 +24,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
     private static final char ESCAPE_FNC_4 = 244;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum CType {
         UNCODABLE,
         ONE_DIGIT,

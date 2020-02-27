@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -24,11 +25,11 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static PopupWindow a(final g gVar) {
         View.OnClickListener onClickListener;
-        Activity currentActivity = com.baidu.adp.base.a.eG().currentActivity();
+        Activity currentActivity = com.baidu.adp.base.a.eH().currentActivity();
         if (currentActivity == null || gVar == null) {
             return null;
         }
@@ -45,24 +46,24 @@ public final class a {
         tbImageView.setDefaultResource(R.drawable.toastpic);
         tbImageView.setAutoChangeStyle(false);
         final PopupWindow popupWindow = new PopupWindow(currentActivity);
-        switch (gVar.avE()) {
+        switch (gVar.axR()) {
             case 3:
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
                 onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
-                            if (com.baidu.adp.base.a.eG().currentActivity() != null && !StringUtils.isNull(g.this.getUrl())) {
+                            if (com.baidu.adp.base.a.eH().currentActivity() != null && !StringUtils.isNull(g.this.getUrl())) {
                                 Uri parse = Uri.parse(g.this.getUrl());
                                 if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
-                                    TiebaStatic.log(new an("c13391").cp("obj_type", parse.getQueryParameter("obj_type")).cp("obj_source", parse.getQueryParameter("obj_source")));
+                                    TiebaStatic.log(new an("c13391").cy("obj_type", parse.getQueryParameter("obj_type")).cy("obj_source", parse.getQueryParameter("obj_source")));
                                 }
-                                if (g.this.getUrl().startsWith(f.cEb)) {
+                                if (g.this.getUrl().startsWith(f.cHX)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.cEl, f.cEq);
+                                    buildUpon.appendQueryParameter(f.cIp, f.cIu);
                                     parse = buildUpon.build();
                                 }
-                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.eG().currentActivity(), parse.toString());
+                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.eH().currentActivity(), parse.toString());
                             }
                             try {
                                 popupWindow.dismiss();
@@ -85,7 +86,7 @@ public final class a {
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                            TiebaStatic.log(new an("c13274").cp("uid", TbadkCoreApplication.getCurrentAccount()).cp("obj_id", gVar.cEw).cp("obj_source", "tb_password").cp("obj_name", gVar.appName).Z("obj_param1", gVar.cEx.intValue()));
+                            TiebaStatic.log(new an("c13274").cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("obj_id", gVar.cIA).cy("obj_source", "tb_password").cy("obj_name", gVar.appName).X("obj_param1", gVar.cIB.intValue()));
                             try {
                                 popupWindow.dismiss();
                             } catch (Throwable th) {
@@ -100,8 +101,8 @@ public final class a {
                         }
                     }
                 };
-                if (!StringUtils.isNull(gVar.avB())) {
-                    tbImageView.startLoad(gVar.avB(), 10, false);
+                if (!StringUtils.isNull(gVar.getImg())) {
+                    tbImageView.startLoad(gVar.getImg(), 10, false);
                     onClickListener = onClickListener2;
                     break;
                 } else {
@@ -112,12 +113,12 @@ public final class a {
         }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        textView.setText(gVar.avC());
-        textView2.setText(gVar.avD());
+        textView.setText(gVar.axP());
+        textView2.setText(gVar.axQ());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();
-        colorDrawable.setColor(Color.argb(178, 0, 0, 0));
+        colorDrawable.setColor(Color.argb((int) Opcodes.GETSTATIC, 0, 0, 0));
         popupWindow.setBackgroundDrawable(colorDrawable);
         popupWindow.setWidth(l.getEquipmentWidth(currentActivity));
         popupWindow.setHeight(l.getEquipmentHeight(currentActivity));

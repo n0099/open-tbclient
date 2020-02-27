@@ -10,32 +10,32 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.message.AlaLootRedPacketResultResponseMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends BdBaseModel {
-    private k eeg;
-    private HttpMessageListener fmQ;
+    private k eij;
+    private HttpMessageListener fpu;
 
     public e(BdPageContext<?> bdPageContext, k kVar) {
         super(bdPageContext);
-        this.fmQ = new HttpMessageListener(1021162) { // from class: com.baidu.tieba.ala.e.e.1
+        this.fpu = new HttpMessageListener(1021162) { // from class: com.baidu.tieba.ala.e.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021162 && (httpResponsedMessage instanceof AlaLootRedPacketResultResponseMessage)) {
                     AlaLootRedPacketResultResponseMessage alaLootRedPacketResultResponseMessage = (AlaLootRedPacketResultResponseMessage) httpResponsedMessage;
-                    if (e.this.eeg != null) {
+                    if (e.this.eij != null) {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
-                            e.this.eeg.ac(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
+                            e.this.eij.ad(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            e.this.eeg.b(alaLootRedPacketResultResponseMessage.bpV());
+                            e.this.eij.b(alaLootRedPacketResultResponseMessage.brz());
                         }
                     }
                 }
             }
         };
-        this.eeg = kVar;
+        this.eij = kVar;
         initTasks();
-        registerListener(this.fmQ);
+        registerListener(this.fpu);
     }
 
     private void initTasks() {
@@ -67,7 +67,7 @@ public class e extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fmQ);
+        MessageManager.getInstance().unRegisterListener(this.fpu);
         MessageManager.getInstance().unRegisterTask(1021162);
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ai {
-    void FA();
+    void HN();
 
-    void Fy();
+    ai HO();
 
-    ai Fz();
+    void HP();
 
     void a(com.baidu.swan.apps.media.d.c cVar, Context context);
 

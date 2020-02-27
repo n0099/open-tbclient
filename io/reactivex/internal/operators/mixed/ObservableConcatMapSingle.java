@@ -12,21 +12,21 @@ import io.reactivex.u;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableConcatMapSingle<T, R> extends q<R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends aa<? extends R>> mapper;
-    final q<T> nxi;
+    final q<T> nxK;
     final int prefetch;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        if (!a.b(this.nxi, this.mapper, uVar)) {
-            this.nxi.subscribe(new ConcatMapSingleMainObserver(uVar, this.mapper, this.prefetch, this.errorMode));
+        if (!a.b(this.nxK, this.mapper, uVar)) {
+            this.nxK.subscribe(new ConcatMapSingleMainObserver(uVar, this.mapper, this.prefetch, this.errorMode));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class ConcatMapSingleMainObserver<T, R> extends AtomicInteger implements b, u<T> {
         static final int STATE_ACTIVE = 1;
         static final int STATE_INACTIVE = 0;
@@ -152,7 +152,7 @@ public final class ObservableConcatMapSingle<T, R> extends q<R> {
                                         this.state = 1;
                                         aaVar.a(this.inner);
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.I(th);
+                                        io.reactivex.exceptions.a.H(th);
                                         this.upstream.dispose();
                                         fVar.clear();
                                         atomicThrowable.addThrowable(th);
@@ -180,7 +180,7 @@ public final class ObservableConcatMapSingle<T, R> extends q<R> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static final class ConcatMapSingleObserver<R> extends AtomicReference<b> implements y<R> {
             private static final long serialVersionUID = -3051469169682093892L;
             final ConcatMapSingleMainObserver<?, R> parent;

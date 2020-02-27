@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DownloadCacheKey implements Serializable {
     public final String mAdId;
     public String mDownloadUrl;

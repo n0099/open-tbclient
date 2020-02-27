@@ -3,24 +3,24 @@ package com.kascend.chushou.player.ui.food;
 import android.view.View;
 import com.kascend.chushou.constants.ListItem;
 import com.kascend.chushou.player.ui.food.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c extends f {
     @Override // com.kascend.chushou.player.ui.food.f, com.kascend.chushou.player.ui.food.k
     void a(ListItem listItem, k.a aVar) {
         a(listItem, this.j);
         this.e.setVisibility(8);
         if (b()) {
-            this.mWW.setVisibility(8);
+            this.mXz.setVisibility(8);
             this.j.setVisibility(0);
             c();
             return;
         }
-        this.mWW.setVisibility(0);
+        this.mXz.setVisibility(0);
         this.j.setVisibility(8);
-        this.mWW.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.c.1
+        this.mXz.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.naS.b(c.this.m, c.this.n, c.this.o, c.this.p);
+                c.this.nbv.b(c.this.m, c.this.n, c.this.o, c.this.p);
             }
         });
     }

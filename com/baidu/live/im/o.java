@@ -1,7 +1,7 @@
 package com.baidu.live.im;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class o {
-    public static long B(long j) {
+    public static long F(long j) {
         return 1 + j;
     }
 }

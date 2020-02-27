@@ -12,7 +12,7 @@ import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static boolean k(Context context, File file) {
         return b(context, file, false);

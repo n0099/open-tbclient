@@ -3,7 +3,7 @@ package com.baidu.searchbox.dns.b;
 import com.baidu.searchbox.dns.d.c;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a {
     public static List<String> g(String str) {
         Map<String, com.baidu.searchbox.dns.d.a.a> A;

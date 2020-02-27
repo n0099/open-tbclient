@@ -10,14 +10,14 @@ import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.SocketException;
 import java.net.SocketImpl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class DatagramSocketWrapper extends Socket {
     /* JADX INFO: Access modifiers changed from: package-private */
     public DatagramSocketWrapper(DatagramSocket datagramSocket, FileDescriptor fileDescriptor) throws SocketException {
         super(new DatagramSocketImplWrapper(datagramSocket, fileDescriptor));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class DatagramSocketImplWrapper extends SocketImpl {
         DatagramSocketImplWrapper(DatagramSocket datagramSocket, FileDescriptor fileDescriptor) {
             this.localport = datagramSocket.getLocalPort();

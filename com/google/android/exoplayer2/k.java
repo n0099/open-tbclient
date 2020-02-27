@@ -15,75 +15,75 @@ import com.google.android.exoplayer2.source.l;
 import com.google.android.exoplayer2.x;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k implements Handler.Callback, h.a, k.a, l.a {
-    private int dT;
+    private int dU;
     private final Handler handler;
     private boolean isLoading;
-    private final s[] lXO;
-    private final com.google.android.exoplayer2.b.h lXP;
-    private final Handler lXR;
-    private boolean lXU;
-    private boolean lXV;
-    private q lYa;
-    private final t[] lYg;
-    private final n lYh;
-    private final com.google.android.exoplayer2.util.q lYi;
-    private final HandlerThread lYj;
-    private final g lYk;
-    private final o lYl;
-    private s lYm;
-    private com.google.android.exoplayer2.util.h lYn;
-    private s[] lYo;
-    private boolean lYp;
-    private int lYq;
-    private int lYr;
-    private long lYs;
-    private int lYt;
-    private int lYu;
-    private c lYv;
-    private long lYw;
-    private a lYx;
-    private a lYy;
-    private a lYz;
-    private final x.b laY;
-    private final x.a laZ;
-    private com.google.android.exoplayer2.source.l lbp;
+    private boolean lYA;
+    private boolean lYB;
+    private q lYG;
+    private final t[] lYM;
+    private final n lYN;
+    private final com.google.android.exoplayer2.util.q lYO;
+    private final HandlerThread lYP;
+    private final g lYQ;
+    private final o lYR;
+    private s lYS;
+    private com.google.android.exoplayer2.util.h lYT;
+    private s[] lYU;
+    private boolean lYV;
+    private int lYW;
+    private int lYX;
+    private long lYY;
+    private int lYZ;
+    private final s[] lYu;
+    private final com.google.android.exoplayer2.b.h lYv;
+    private final Handler lYx;
+    private int lZa;
+    private c lZb;
+    private long lZc;
+    private a lZd;
+    private a lZe;
+    private a lZf;
+    private final x.b lbE;
+    private final x.a lbF;
+    private com.google.android.exoplayer2.source.l lbV;
     private boolean released;
     private int state = 1;
-    private p lYb = new p(null, null, 0, -9223372036854775807L);
+    private p lYH = new p(null, null, 0, -9223372036854775807L);
 
     public k(s[] sVarArr, com.google.android.exoplayer2.b.h hVar, n nVar, boolean z, int i, boolean z2, Handler handler, g gVar) {
-        this.lXO = sVarArr;
-        this.lXP = hVar;
-        this.lYh = nVar;
-        this.lXU = z;
-        this.dT = i;
-        this.lXV = z2;
-        this.lXR = handler;
-        this.lYk = gVar;
-        this.lYg = new t[sVarArr.length];
+        this.lYu = sVarArr;
+        this.lYv = hVar;
+        this.lYN = nVar;
+        this.lYA = z;
+        this.dU = i;
+        this.lYB = z2;
+        this.lYx = handler;
+        this.lYQ = gVar;
+        this.lYM = new t[sVarArr.length];
         for (int i2 = 0; i2 < sVarArr.length; i2++) {
             sVarArr[i2].setIndex(i2);
-            this.lYg[i2] = sVarArr[i2].drs();
+            this.lYM[i2] = sVarArr[i2].dsE();
         }
-        this.lYi = new com.google.android.exoplayer2.util.q();
-        this.lYo = new s[0];
-        this.laY = new x.b();
-        this.laZ = new x.a();
-        this.lYl = new o();
+        this.lYO = new com.google.android.exoplayer2.util.q();
+        this.lYU = new s[0];
+        this.lbE = new x.b();
+        this.lbF = new x.a();
+        this.lYR = new o();
         hVar.a(this);
-        this.lYa = q.lZb;
-        this.lYj = new HandlerThread("ExoPlayerImplInternal:Handler", -16);
-        this.lYj.start();
-        this.handler = new Handler(this.lYj.getLooper(), this);
+        this.lYG = q.lZH;
+        this.lYP = new HandlerThread("ExoPlayerImplInternal:Handler", -16);
+        this.lYP.start();
+        this.handler = new Handler(this.lYP.getLooper(), this);
     }
 
     public void a(com.google.android.exoplayer2.source.l lVar, boolean z) {
         this.handler.obtainMessage(0, z ? 1 : 0, 0, lVar).sendToTarget();
     }
 
-    public void vu(boolean z) {
+    public void vy(boolean z) {
         this.handler.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
     }
 
@@ -91,7 +91,7 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
         this.handler.obtainMessage(12, i, 0).sendToTarget();
     }
 
-    public void vv(boolean z) {
+    public void vz(boolean z) {
         this.handler.obtainMessage(13, z ? 1 : 0, 0).sendToTarget();
     }
 
@@ -112,7 +112,7 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
             Log.w("ExoPlayerImplInternal", "Ignoring messages sent after release.");
             return;
         }
-        this.lYq++;
+        this.lYW++;
         this.handler.obtainMessage(11, bVarArr).sendToTarget();
     }
 
@@ -120,11 +120,11 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
         if (this.released) {
             Log.w("ExoPlayerImplInternal", "Ignoring messages sent after release.");
         } else {
-            int i = this.lYq;
-            this.lYq = i + 1;
+            int i = this.lYW;
+            this.lYW = i + 1;
             this.handler.obtainMessage(11, bVarArr).sendToTarget();
             boolean z = false;
-            while (this.lYr <= i) {
+            while (this.lYX <= i) {
                 try {
                     wait();
                 } catch (InterruptedException e) {
@@ -182,11 +182,11 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
                     z = true;
                     break;
                 case 1:
-                    vw(message.arg1 != 0);
+                    vA(message.arg1 != 0);
                     z = true;
                     break;
                 case 2:
-                    drW();
+                    dti();
                     z = true;
                     break;
                 case 3:
@@ -198,7 +198,7 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
                     z = true;
                     break;
                 case 5:
-                    drX();
+                    dtj();
                     z = true;
                     break;
                 case 6:
@@ -218,7 +218,7 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
                     z = true;
                     break;
                 case 10:
-                    drY();
+                    dtk();
                     z = true;
                     break;
                 case 11:
@@ -226,11 +226,11 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
                     z = true;
                     break;
                 case 12:
-                    IP(message.arg1);
+                    IU(message.arg1);
                     z = true;
                     break;
                 case 13:
-                    vx(message.arg1 != 0);
+                    vB(message.arg1 != 0);
                     z = true;
                     break;
                 default:
@@ -240,18 +240,18 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
             return z;
         } catch (ExoPlaybackException e) {
             Log.e("ExoPlayerImplInternal", "Renderer error.", e);
-            this.lXR.obtainMessage(7, e).sendToTarget();
-            drX();
+            this.lYx.obtainMessage(7, e).sendToTarget();
+            dtj();
             return true;
         } catch (IOException e2) {
             Log.e("ExoPlayerImplInternal", "Source error.", e2);
-            this.lXR.obtainMessage(7, ExoPlaybackException.createForSource(e2)).sendToTarget();
-            drX();
+            this.lYx.obtainMessage(7, ExoPlaybackException.createForSource(e2)).sendToTarget();
+            dtj();
             return true;
         } catch (RuntimeException e3) {
             Log.e("ExoPlayerImplInternal", "Internal runtime error.", e3);
-            this.lXR.obtainMessage(7, ExoPlaybackException.createForUnexpected(e3)).sendToTarget();
-            drX();
+            this.lYx.obtainMessage(7, ExoPlaybackException.createForUnexpected(e3)).sendToTarget();
+            dtj();
             return true;
         }
     }
@@ -259,210 +259,210 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
     private void setState(int i) {
         if (this.state != i) {
             this.state = i;
-            this.lXR.obtainMessage(0, i, 0).sendToTarget();
+            this.lYx.obtainMessage(0, i, 0).sendToTarget();
         }
     }
 
     private void setIsLoading(boolean z) {
         if (this.isLoading != z) {
             this.isLoading = z;
-            this.lXR.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
+            this.lYx.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
         }
     }
 
     private void b(com.google.android.exoplayer2.source.l lVar, boolean z) {
-        this.lYt++;
-        vy(true);
-        this.lYh.onPrepared();
+        this.lYZ++;
+        vC(true);
+        this.lYN.onPrepared();
         if (z) {
-            this.lYb = new p(null, null, 0, -9223372036854775807L);
+            this.lYH = new p(null, null, 0, -9223372036854775807L);
         } else {
-            this.lYb = new p(null, null, this.lYb.lYY, this.lYb.lYZ, this.lYb.lYU);
+            this.lYH = new p(null, null, this.lYH.lZE, this.lYH.lZF, this.lYH.lZA);
         }
-        this.lbp = lVar;
-        lVar.a(this.lYk, true, this);
+        this.lbV = lVar;
+        lVar.a(this.lYQ, true, this);
         setState(2);
         this.handler.sendEmptyMessage(2);
     }
 
-    private void vw(boolean z) throws ExoPlaybackException {
-        this.lYp = false;
-        this.lXU = z;
+    private void vA(boolean z) throws ExoPlaybackException {
+        this.lYV = false;
+        this.lYA = z;
         if (!z) {
-            drU();
-            drV();
+            dtg();
+            dth();
         } else if (this.state == 3) {
-            drT();
+            dtf();
             this.handler.sendEmptyMessage(2);
         } else if (this.state == 2) {
             this.handler.sendEmptyMessage(2);
         }
     }
 
-    private void IP(int i) throws ExoPlaybackException {
-        this.dT = i;
-        this.lYl.setRepeatMode(i);
-        drS();
+    private void IU(int i) throws ExoPlaybackException {
+        this.dU = i;
+        this.lYR.setRepeatMode(i);
+        dte();
     }
 
-    private void vx(boolean z) throws ExoPlaybackException {
-        this.lXV = z;
-        this.lYl.vv(z);
-        drS();
+    private void vB(boolean z) throws ExoPlaybackException {
+        this.lYB = z;
+        this.lYR.vz(z);
+        dte();
     }
 
-    private void drS() throws ExoPlaybackException {
+    private void dte() throws ExoPlaybackException {
         a aVar;
-        a aVar2 = this.lYz != null ? this.lYz : this.lYx;
+        a aVar2 = this.lZf != null ? this.lZf : this.lZd;
         if (aVar2 != null) {
             while (true) {
                 aVar = aVar2;
-                int a2 = this.lYb.timeline.a(aVar.lYF.lYR.periodIndex, this.laZ, this.laY, this.dT, this.lXV);
-                while (aVar.lYI != null && !aVar.lYF.lYW) {
-                    aVar = aVar.lYI;
+                int a2 = this.lYH.timeline.a(aVar.lZl.lZx.periodIndex, this.lbF, this.lbE, this.dU, this.lYB);
+                while (aVar.lZo != null && !aVar.lZl.lZC) {
+                    aVar = aVar.lZo;
                 }
-                if (a2 == -1 || aVar.lYI == null || aVar.lYI.lYF.lYR.periodIndex != a2) {
+                if (a2 == -1 || aVar.lZo == null || aVar.lZo.lZl.lZx.periodIndex != a2) {
                     break;
                 }
-                aVar2 = aVar.lYI;
+                aVar2 = aVar.lZo;
             }
-            int i = this.lYx.index;
-            int i2 = this.lYy != null ? this.lYy.index : -1;
-            if (aVar.lYI != null) {
-                a(aVar.lYI);
-                aVar.lYI = null;
+            int i = this.lZd.index;
+            int i2 = this.lZe != null ? this.lZe.index : -1;
+            if (aVar.lZo != null) {
+                a(aVar.lZo);
+                aVar.lZo = null;
             }
-            aVar.lYF = this.lYl.a(aVar.lYF);
+            aVar.lZl = this.lYR.a(aVar.lZl);
             if (!(i <= aVar.index)) {
-                this.lYx = aVar;
+                this.lZd = aVar;
             }
-            if (!(i2 != -1 && i2 <= aVar.index) && this.lYz != null) {
-                l.b bVar = this.lYz.lYF.lYR;
-                long a3 = a(bVar, this.lYb.lYZ);
-                if (a3 != this.lYb.lYZ) {
-                    this.lYb = this.lYb.b(bVar, a3, this.lYb.lYU);
-                    this.lXR.obtainMessage(4, 3, 0, this.lYb).sendToTarget();
+            if (!(i2 != -1 && i2 <= aVar.index) && this.lZf != null) {
+                l.b bVar = this.lZf.lZl.lZx;
+                long a3 = a(bVar, this.lYH.lZF);
+                if (a3 != this.lYH.lZF) {
+                    this.lYH = this.lYH.b(bVar, a3, this.lYH.lZA);
+                    this.lYx.obtainMessage(4, 3, 0, this.lYH).sendToTarget();
                 }
             }
         }
     }
 
-    private void drT() throws ExoPlaybackException {
-        this.lYp = false;
-        this.lYi.start();
-        for (s sVar : this.lYo) {
+    private void dtf() throws ExoPlaybackException {
+        this.lYV = false;
+        this.lYO.start();
+        for (s sVar : this.lYU) {
             sVar.start();
         }
     }
 
-    private void drU() throws ExoPlaybackException {
-        this.lYi.stop();
-        for (s sVar : this.lYo) {
+    private void dtg() throws ExoPlaybackException {
+        this.lYO.stop();
+        for (s sVar : this.lYU) {
             a(sVar);
         }
     }
 
-    private void drV() throws ExoPlaybackException {
-        if (this.lYz != null) {
-            long duU = this.lYz.lYA.duU();
-            if (duU != -9223372036854775807L) {
-                fu(duU);
-                this.lYb = this.lYb.b(this.lYb.lYY, duU, this.lYb.lYU);
-                this.lXR.obtainMessage(4, 3, 0, this.lYb).sendToTarget();
+    private void dth() throws ExoPlaybackException {
+        if (this.lZf != null) {
+            long dwe = this.lZf.lZg.dwe();
+            if (dwe != -9223372036854775807L) {
+                fs(dwe);
+                this.lYH = this.lYH.b(this.lYH.lZE, dwe, this.lYH.lZA);
+                this.lYx.obtainMessage(4, 3, 0, this.lYH).sendToTarget();
             } else {
-                if (this.lYm == null || this.lYm.atB() || (!this.lYm.isReady() && c(this.lYm))) {
-                    this.lYw = this.lYi.dsY();
+                if (this.lYS == null || this.lYS.avP() || (!this.lYS.isReady() && c(this.lYS))) {
+                    this.lZc = this.lYO.duj();
                 } else {
-                    this.lYw = this.lYn.dsY();
-                    this.lYi.gx(this.lYw);
+                    this.lZc = this.lYT.duj();
+                    this.lYO.gv(this.lZc);
                 }
-                duU = this.lYz.fx(this.lYw);
+                dwe = this.lZf.fv(this.lZc);
             }
-            this.lYb.lYZ = duU;
-            this.lYs = SystemClock.elapsedRealtime() * 1000;
-            long duV = this.lYo.length == 0 ? Long.MIN_VALUE : this.lYz.lYA.duV();
-            p pVar = this.lYb;
-            if (duV == Long.MIN_VALUE) {
-                duV = this.lYz.lYF.lYV;
+            this.lYH.lZF = dwe;
+            this.lYY = SystemClock.elapsedRealtime() * 1000;
+            long dwf = this.lYU.length == 0 ? Long.MIN_VALUE : this.lZf.lZg.dwf();
+            p pVar = this.lYH;
+            if (dwf == Long.MIN_VALUE) {
+                dwf = this.lZf.lZl.lZB;
             }
-            pVar.lZa = duV;
+            pVar.lZG = dwf;
         }
     }
 
-    private void drW() throws ExoPlaybackException, IOException {
+    private void dti() throws ExoPlaybackException, IOException {
         s[] sVarArr;
-        boolean fv;
+        boolean ft;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        dsc();
-        if (this.lYz == null) {
-            drZ();
-            M(elapsedRealtime, 10L);
+        dto();
+        if (this.lZf == null) {
+            dtl();
+            L(elapsedRealtime, 10L);
             return;
         }
         com.google.android.exoplayer2.util.t.beginSection("doSomeWork");
-        drV();
-        this.lYz.lYA.gd(this.lYb.lYZ);
+        dth();
+        this.lZf.lZg.gb(this.lYH.lZF);
         boolean z = true;
         boolean z2 = true;
-        for (s sVar : this.lYo) {
-            sVar.N(this.lYw, this.lYs);
-            z2 = z2 && sVar.atB();
-            boolean z3 = sVar.isReady() || sVar.atB() || c(sVar);
+        for (s sVar : this.lYU) {
+            sVar.M(this.lZc, this.lYY);
+            z2 = z2 && sVar.avP();
+            boolean z3 = sVar.isReady() || sVar.avP() || c(sVar);
             if (!z3) {
-                sVar.dry();
+                sVar.dsK();
             }
             z = z && z3;
         }
         if (!z) {
-            drZ();
+            dtl();
         }
-        if (this.lYn != null) {
-            q drH = this.lYn.drH();
-            if (!drH.equals(this.lYa)) {
-                this.lYa = drH;
-                this.lYi.d(drH);
-                this.lXR.obtainMessage(6, drH).sendToTarget();
+        if (this.lYT != null) {
+            q dsT = this.lYT.dsT();
+            if (!dsT.equals(this.lYG)) {
+                this.lYG = dsT;
+                this.lYO.d(dsT);
+                this.lYx.obtainMessage(6, dsT).sendToTarget();
             }
         }
-        long j = this.lYz.lYF.lYV;
-        if (z2 && ((j == -9223372036854775807L || j <= this.lYb.lYZ) && this.lYz.lYF.lYX)) {
+        long j = this.lZf.lZl.lZB;
+        if (z2 && ((j == -9223372036854775807L || j <= this.lYH.lZF) && this.lZf.lZl.lZD)) {
             setState(4);
-            drU();
+            dtg();
         } else if (this.state == 2) {
-            if (this.lYo.length > 0) {
-                fv = z && this.lYx.f(this.lYp, this.lYw);
+            if (this.lYU.length > 0) {
+                ft = z && this.lZd.f(this.lYV, this.lZc);
             } else {
-                fv = fv(j);
+                ft = ft(j);
             }
-            if (fv) {
+            if (ft) {
                 setState(3);
-                if (this.lXU) {
-                    drT();
+                if (this.lYA) {
+                    dtf();
                 }
             }
         } else if (this.state == 3) {
-            if (!(this.lYo.length > 0 ? z : fv(j))) {
-                this.lYp = this.lXU;
+            if (!(this.lYU.length > 0 ? z : ft(j))) {
+                this.lYV = this.lYA;
                 setState(2);
-                drU();
+                dtg();
             }
         }
         if (this.state == 2) {
-            for (s sVar2 : this.lYo) {
-                sVar2.dry();
+            for (s sVar2 : this.lYU) {
+                sVar2.dsK();
             }
         }
-        if ((this.lXU && this.state == 3) || this.state == 2) {
-            M(elapsedRealtime, 10L);
-        } else if (this.lYo.length != 0 && this.state != 4) {
-            M(elapsedRealtime, 1000L);
+        if ((this.lYA && this.state == 3) || this.state == 2) {
+            L(elapsedRealtime, 10L);
+        } else if (this.lYU.length != 0 && this.state != 4) {
+            L(elapsedRealtime, 1000L);
         } else {
             this.handler.removeMessages(2);
         }
         com.google.android.exoplayer2.util.t.endSection();
     }
 
-    private void M(long j, long j2) {
+    private void L(long j, long j2) {
         this.handler.removeMessages(2);
         long elapsedRealtime = (j + j2) - SystemClock.elapsedRealtime();
         if (elapsedRealtime <= 0) {
@@ -476,26 +476,26 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
     private void a(c cVar) throws ExoPlaybackException {
         boolean z;
         long j;
-        x xVar = this.lYb.timeline;
+        x xVar = this.lYH.timeline;
         if (xVar == null) {
-            this.lYu++;
-            this.lYv = cVar;
+            this.lZa++;
+            this.lZb = cVar;
             return;
         }
         Pair<Integer, Long> b2 = b(cVar);
         if (b2 == null) {
-            int i = xVar.isEmpty() ? 0 : xVar.a(xVar.vA(this.lXV), this.laY).lZJ;
-            this.lYb = this.lYb.g(i, -9223372036854775807L, -9223372036854775807L);
+            int i = xVar.isEmpty() ? 0 : xVar.a(xVar.vE(this.lYB), this.lbE).mar;
+            this.lYH = this.lYH.g(i, -9223372036854775807L, -9223372036854775807L);
             setState(4);
-            this.lXR.obtainMessage(3, 1, 0, this.lYb.g(i, 0L, -9223372036854775807L)).sendToTarget();
-            vy(false);
+            this.lYx.obtainMessage(3, 1, 0, this.lYH.g(i, 0L, -9223372036854775807L)).sendToTarget();
+            vC(false);
             return;
         }
-        boolean z2 = cVar.lYN == -9223372036854775807L;
+        boolean z2 = cVar.lZt == -9223372036854775807L;
         int intValue = ((Integer) b2.first).intValue();
         long longValue = ((Long) b2.second).longValue();
-        l.b C = this.lYl.C(intValue, longValue);
-        if (C.dvi()) {
+        l.b B = this.lYR.B(intValue, longValue);
+        if (B.dws()) {
             j = 0;
             z = true;
         } else {
@@ -503,34 +503,34 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
             j = longValue;
         }
         try {
-            if (C.equals(this.lYb.lYY) && j / 1000 == this.lYb.lYZ / 1000) {
+            if (B.equals(this.lYH.lZE) && j / 1000 == this.lYH.lZF / 1000) {
                 return;
             }
-            long a2 = a(C, j);
+            long a2 = a(B, j);
             boolean z3 = z | (j != a2);
-            this.lYb = this.lYb.b(C, a2, longValue);
-            this.lXR.obtainMessage(3, z3 ? 1 : 0, 0, this.lYb).sendToTarget();
+            this.lYH = this.lYH.b(B, a2, longValue);
+            this.lYx.obtainMessage(3, z3 ? 1 : 0, 0, this.lYH).sendToTarget();
         } finally {
-            this.lYb = this.lYb.b(C, j, longValue);
-            this.lXR.obtainMessage(3, z ? 1 : 0, 0, this.lYb).sendToTarget();
+            this.lYH = this.lYH.b(B, j, longValue);
+            this.lYx.obtainMessage(3, z ? 1 : 0, 0, this.lYH).sendToTarget();
         }
     }
 
     private long a(l.b bVar, long j) throws ExoPlaybackException {
         a aVar;
-        drU();
-        this.lYp = false;
+        dtg();
+        this.lYV = false;
         setState(2);
-        if (this.lYz == null) {
-            if (this.lYx != null) {
-                this.lYx.release();
+        if (this.lZf == null) {
+            if (this.lZd != null) {
+                this.lZd.release();
                 aVar = null;
             } else {
                 aVar = null;
             }
         } else {
             aVar = null;
-            for (a aVar2 = this.lYz; aVar2 != null; aVar2 = aVar2.lYI) {
+            for (a aVar2 = this.lZf; aVar2 != null; aVar2 = aVar2.lZo) {
                 if (aVar == null && a(bVar, j, aVar2)) {
                     aVar = aVar2;
                 } else {
@@ -538,103 +538,103 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
                 }
             }
         }
-        if (this.lYz != aVar || this.lYz != this.lYy) {
-            for (s sVar : this.lYo) {
+        if (this.lZf != aVar || this.lZf != this.lZe) {
+            for (s sVar : this.lYU) {
                 b(sVar);
             }
-            this.lYo = new s[0];
-            this.lYz = null;
+            this.lYU = new s[0];
+            this.lZf = null;
         }
         if (aVar != null) {
-            aVar.lYI = null;
-            this.lYx = aVar;
-            this.lYy = aVar;
+            aVar.lZo = null;
+            this.lZd = aVar;
+            this.lZe = aVar;
             b(aVar);
-            if (this.lYz.lYH) {
-                j = this.lYz.lYA.ge(j);
+            if (this.lZf.lZn) {
+                j = this.lZf.lZg.gc(j);
             }
-            fu(j);
-            dse();
+            fs(j);
+            dtq();
         } else {
-            this.lYx = null;
-            this.lYy = null;
-            this.lYz = null;
-            fu(j);
+            this.lZd = null;
+            this.lZe = null;
+            this.lZf = null;
+            fs(j);
         }
         this.handler.sendEmptyMessage(2);
         return j;
     }
 
     private boolean a(l.b bVar, long j, a aVar) {
-        if (bVar.equals(aVar.lYF.lYR) && aVar.lYG) {
-            this.lYb.timeline.a(aVar.lYF.lYR.periodIndex, this.laZ);
-            int fD = this.laZ.fD(j);
-            if (fD == -1 || this.laZ.IU(fD) == aVar.lYF.lYT) {
+        if (bVar.equals(aVar.lZl.lZx) && aVar.lZm) {
+            this.lYH.timeline.a(aVar.lZl.lZx.periodIndex, this.lbF);
+            int fB = this.lbF.fB(j);
+            if (fB == -1 || this.lbF.IZ(fB) == aVar.lZl.lZz) {
                 return true;
             }
         }
         return false;
     }
 
-    private void fu(long j) throws ExoPlaybackException {
-        this.lYw = this.lYz == null ? 60000000 + j : this.lYz.fw(j);
-        this.lYi.gx(this.lYw);
-        for (s sVar : this.lYo) {
-            sVar.fn(this.lYw);
+    private void fs(long j) throws ExoPlaybackException {
+        this.lZc = this.lZf == null ? 60000000 + j : this.lZf.fu(j);
+        this.lYO.gv(this.lZc);
+        for (s sVar : this.lYU) {
+            sVar.fl(this.lZc);
         }
     }
 
     private void c(q qVar) {
-        if (this.lYn != null) {
-            qVar = this.lYn.d(qVar);
+        if (this.lYT != null) {
+            qVar = this.lYT.d(qVar);
         }
-        this.lYi.d(qVar);
-        this.lYa = qVar;
-        this.lXR.obtainMessage(6, qVar).sendToTarget();
+        this.lYO.d(qVar);
+        this.lYG = qVar;
+        this.lYx.obtainMessage(6, qVar).sendToTarget();
     }
 
-    private void drX() {
-        vy(true);
-        this.lYh.onStopped();
+    private void dtj() {
+        vC(true);
+        this.lYN.onStopped();
         setState(1);
     }
 
     private void releaseInternal() {
-        vy(true);
-        this.lYh.drC();
+        vC(true);
+        this.lYN.dsO();
         setState(1);
-        this.lYj.quit();
+        this.lYP.quit();
         synchronized (this) {
             this.released = true;
             notifyAll();
         }
     }
 
-    private void vy(boolean z) {
+    private void vC(boolean z) {
         this.handler.removeMessages(2);
-        this.lYp = false;
-        this.lYi.stop();
-        this.lYw = 60000000L;
-        for (s sVar : this.lYo) {
+        this.lYV = false;
+        this.lYO.stop();
+        this.lZc = 60000000L;
+        for (s sVar : this.lYU) {
             try {
                 b(sVar);
             } catch (ExoPlaybackException | RuntimeException e) {
                 Log.e("ExoPlayerImplInternal", "Stop failed.", e);
             }
         }
-        this.lYo = new s[0];
-        a(this.lYz != null ? this.lYz : this.lYx);
-        this.lYx = null;
-        this.lYy = null;
-        this.lYz = null;
+        this.lYU = new s[0];
+        a(this.lZf != null ? this.lZf : this.lZd);
+        this.lZd = null;
+        this.lZe = null;
+        this.lZf = null;
         setIsLoading(false);
         if (z) {
-            if (this.lbp != null) {
-                this.lbp.releaseSource();
-                this.lbp = null;
+            if (this.lbV != null) {
+                this.lbV.releaseSource();
+                this.lbV = null;
             }
-            this.lYl.a((x) null);
-            this.lYb = this.lYb.b(null, null);
+            this.lYR.a((x) null);
+            this.lYH = this.lYH.b(null, null);
         }
     }
 
@@ -642,18 +642,18 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
     private void c(g.b[] bVarArr) throws ExoPlaybackException {
         try {
             for (g.b bVar : bVarArr) {
-                bVar.lXM.k(bVar.messageType, bVar.lXN);
+                bVar.lYs.k(bVar.messageType, bVar.lYt);
             }
             if (this.state == 3 || this.state == 2) {
                 this.handler.sendEmptyMessage(2);
             }
             synchronized (this) {
-                this.lYr++;
+                this.lYX++;
                 notifyAll();
             }
         } catch (Throwable th) {
             synchronized (this) {
-                this.lYr++;
+                this.lYX++;
                 notifyAll();
                 throw th;
             }
@@ -667,68 +667,68 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
     }
 
     private void b(s sVar) throws ExoPlaybackException {
-        if (sVar == this.lYm) {
-            this.lYn = null;
-            this.lYm = null;
+        if (sVar == this.lYS) {
+            this.lYT = null;
+            this.lYS = null;
         }
         a(sVar);
         sVar.disable();
     }
 
-    private void drY() throws ExoPlaybackException {
-        if (this.lYz != null) {
+    private void dtk() throws ExoPlaybackException {
+        if (this.lZf != null) {
             boolean z = true;
-            for (a aVar = this.lYz; aVar != null && aVar.lYG; aVar = aVar.lYI) {
-                if (!aVar.dsi()) {
-                    if (aVar == this.lYy) {
+            for (a aVar = this.lZf; aVar != null && aVar.lZm; aVar = aVar.lZo) {
+                if (!aVar.dtu()) {
+                    if (aVar == this.lZe) {
                         z = false;
                     }
                 } else {
                     if (z) {
-                        boolean z2 = this.lYy != this.lYz;
-                        a(this.lYz.lYI);
-                        this.lYz.lYI = null;
-                        this.lYx = this.lYz;
-                        this.lYy = this.lYz;
-                        boolean[] zArr = new boolean[this.lXO.length];
-                        long a2 = this.lYz.a(this.lYb.lYZ, z2, zArr);
-                        if (this.state != 4 && a2 != this.lYb.lYZ) {
-                            this.lYb = this.lYb.b(this.lYb.lYY, a2, this.lYb.lYU);
-                            this.lXR.obtainMessage(4, 3, 0, this.lYb).sendToTarget();
-                            fu(a2);
+                        boolean z2 = this.lZe != this.lZf;
+                        a(this.lZf.lZo);
+                        this.lZf.lZo = null;
+                        this.lZd = this.lZf;
+                        this.lZe = this.lZf;
+                        boolean[] zArr = new boolean[this.lYu.length];
+                        long a2 = this.lZf.a(this.lYH.lZF, z2, zArr);
+                        if (this.state != 4 && a2 != this.lYH.lZF) {
+                            this.lYH = this.lYH.b(this.lYH.lZE, a2, this.lYH.lZA);
+                            this.lYx.obtainMessage(4, 3, 0, this.lYH).sendToTarget();
+                            fs(a2);
                         }
-                        boolean[] zArr2 = new boolean[this.lXO.length];
+                        boolean[] zArr2 = new boolean[this.lYu.length];
                         int i = 0;
-                        for (int i2 = 0; i2 < this.lXO.length; i2++) {
-                            s sVar = this.lXO[i2];
+                        for (int i2 = 0; i2 < this.lYu.length; i2++) {
+                            s sVar = this.lYu[i2];
                             zArr2[i2] = sVar.getState() != 0;
-                            com.google.android.exoplayer2.source.p pVar = this.lYz.lYC[i2];
+                            com.google.android.exoplayer2.source.p pVar = this.lZf.lZi[i2];
                             if (pVar != null) {
                                 i++;
                             }
                             if (zArr2[i2]) {
-                                if (pVar != sVar.dru()) {
+                                if (pVar != sVar.dsG()) {
                                     b(sVar);
                                 } else if (zArr[i2]) {
-                                    sVar.fn(this.lYw);
+                                    sVar.fl(this.lZc);
                                 }
                             }
                         }
-                        this.lXR.obtainMessage(2, aVar.lYJ).sendToTarget();
+                        this.lYx.obtainMessage(2, aVar.lZp).sendToTarget();
                         a(zArr2, i);
                     } else {
-                        this.lYx = aVar;
-                        for (a aVar2 = this.lYx.lYI; aVar2 != null; aVar2 = aVar2.lYI) {
+                        this.lZd = aVar;
+                        for (a aVar2 = this.lZd.lZo; aVar2 != null; aVar2 = aVar2.lZo) {
                             aVar2.release();
                         }
-                        this.lYx.lYI = null;
-                        if (this.lYx.lYG) {
-                            this.lYx.l(Math.max(this.lYx.lYF.lYS, this.lYx.fx(this.lYw)), false);
+                        this.lZd.lZo = null;
+                        if (this.lZd.lZm) {
+                            this.lZd.n(Math.max(this.lZd.lZl.lZy, this.lZd.fv(this.lZc)), false);
                         }
                     }
                     if (this.state != 4) {
-                        dse();
-                        drV();
+                        dtq();
+                        dth();
                         this.handler.sendEmptyMessage(2);
                         return;
                     }
@@ -738,278 +738,278 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
         }
     }
 
-    private boolean fv(long j) {
-        return j == -9223372036854775807L || this.lYb.lYZ < j || (this.lYz.lYI != null && (this.lYz.lYI.lYG || this.lYz.lYI.lYF.lYR.dvi()));
+    private boolean ft(long j) {
+        return j == -9223372036854775807L || this.lYH.lZF < j || (this.lZf.lZo != null && (this.lZf.lZo.lZm || this.lZf.lZo.lZl.lZx.dws()));
     }
 
-    private void drZ() throws IOException {
-        if (this.lYx == null || this.lYx.lYG) {
+    private void dtl() throws IOException {
+        if (this.lZd == null || this.lZd.lZm) {
             return;
         }
-        if (this.lYy == null || this.lYy.lYI == this.lYx) {
-            for (s sVar : this.lYo) {
-                if (!sVar.drv()) {
+        if (this.lZe == null || this.lZe.lZo == this.lZd) {
+            for (s sVar : this.lYU) {
+                if (!sVar.dsH()) {
                     return;
                 }
             }
-            this.lYx.lYA.duS();
+            this.lZd.lZg.dwc();
         }
     }
 
     private void a(b bVar) throws ExoPlaybackException {
-        if (bVar.lYL == this.lbp) {
-            x xVar = this.lYb.timeline;
+        if (bVar.lZr == this.lbV) {
+            x xVar = this.lYH.timeline;
             x xVar2 = bVar.timeline;
-            Object obj = bVar.lYM;
-            this.lYl.a(xVar2);
-            this.lYb = this.lYb.b(xVar2, obj);
+            Object obj = bVar.lZs;
+            this.lYR.a(xVar2);
+            this.lYH = this.lYH.b(xVar2, obj);
             if (xVar == null) {
-                int i = this.lYt;
-                this.lYt = 0;
-                if (this.lYu > 0) {
-                    Pair<Integer, Long> b2 = b(this.lYv);
-                    int i2 = this.lYu;
-                    this.lYu = 0;
-                    this.lYv = null;
+                int i = this.lYZ;
+                this.lYZ = 0;
+                if (this.lZa > 0) {
+                    Pair<Integer, Long> b2 = b(this.lZb);
+                    int i2 = this.lZa;
+                    this.lZa = 0;
+                    this.lZb = null;
                     if (b2 == null) {
-                        dA(i, i2);
+                        dD(i, i2);
                         return;
                     }
                     int intValue = ((Integer) b2.first).intValue();
                     long longValue = ((Long) b2.second).longValue();
-                    l.b C = this.lYl.C(intValue, longValue);
-                    this.lYb = this.lYb.b(C, C.dvi() ? 0L : longValue, longValue);
-                    dB(i, i2);
+                    l.b B = this.lYR.B(intValue, longValue);
+                    this.lYH = this.lYH.b(B, B.dws() ? 0L : longValue, longValue);
+                    dE(i, i2);
                     return;
-                } else if (this.lYb.lYS == -9223372036854775807L) {
+                } else if (this.lYH.lZy == -9223372036854775807L) {
                     if (xVar2.isEmpty()) {
-                        dA(i, 0);
+                        dD(i, 0);
                         return;
                     }
-                    Pair<Integer, Long> b3 = b(xVar2, xVar2.vA(this.lXV), -9223372036854775807L);
+                    Pair<Integer, Long> b3 = b(xVar2, xVar2.vE(this.lYB), -9223372036854775807L);
                     int intValue2 = ((Integer) b3.first).intValue();
                     long longValue2 = ((Long) b3.second).longValue();
-                    l.b C2 = this.lYl.C(intValue2, longValue2);
-                    this.lYb = this.lYb.b(C2, C2.dvi() ? 0L : longValue2, longValue2);
-                    dB(i, 0);
+                    l.b B2 = this.lYR.B(intValue2, longValue2);
+                    this.lYH = this.lYH.b(B2, B2.dws() ? 0L : longValue2, longValue2);
+                    dE(i, 0);
                     return;
                 } else {
-                    dB(i, 0);
+                    dE(i, 0);
                     return;
                 }
             }
-            int i3 = this.lYb.lYY.periodIndex;
-            a aVar = this.lYz != null ? this.lYz : this.lYx;
-            if (aVar == null && i3 >= xVar.dso()) {
-                dsb();
+            int i3 = this.lYH.lZE.periodIndex;
+            a aVar = this.lZf != null ? this.lZf : this.lZd;
+            if (aVar == null && i3 >= xVar.dtA()) {
+                dtn();
                 return;
             }
-            int bu = xVar2.bu(aVar == null ? xVar.a(i3, this.laZ, true).lYB : aVar.lYB);
-            if (bu == -1) {
+            int bw = xVar2.bw(aVar == null ? xVar.a(i3, this.lbF, true).lZh : aVar.lZh);
+            if (bw == -1) {
                 int a2 = a(i3, xVar, xVar2);
                 if (a2 == -1) {
-                    dsa();
+                    dtm();
                     return;
                 }
-                Pair<Integer, Long> b4 = b(xVar2, xVar2.a(a2, this.laZ).windowIndex, -9223372036854775807L);
+                Pair<Integer, Long> b4 = b(xVar2, xVar2.a(a2, this.lbF).windowIndex, -9223372036854775807L);
                 int intValue3 = ((Integer) b4.first).intValue();
                 long longValue3 = ((Long) b4.second).longValue();
-                xVar2.a(intValue3, this.laZ, true);
+                xVar2.a(intValue3, this.lbF, true);
                 if (aVar != null) {
-                    Object obj2 = this.laZ.lYB;
-                    aVar.lYF = aVar.lYF.IS(-1);
+                    Object obj2 = this.lbF.lZh;
+                    aVar.lZl = aVar.lZl.IX(-1);
                     a aVar2 = aVar;
-                    while (aVar2.lYI != null) {
-                        aVar2 = aVar2.lYI;
-                        if (aVar2.lYB.equals(obj2)) {
-                            aVar2.lYF = this.lYl.a(aVar2.lYF, intValue3);
+                    while (aVar2.lZo != null) {
+                        aVar2 = aVar2.lZo;
+                        if (aVar2.lZh.equals(obj2)) {
+                            aVar2.lZl = this.lYR.a(aVar2.lZl, intValue3);
                         } else {
-                            aVar2.lYF = aVar2.lYF.IS(-1);
+                            aVar2.lZl = aVar2.lZl.IX(-1);
                         }
                     }
                 }
                 l.b bVar2 = new l.b(intValue3);
-                this.lYb = this.lYb.b(bVar2, a(bVar2, longValue3), -9223372036854775807L);
-                dsb();
+                this.lYH = this.lYH.b(bVar2, a(bVar2, longValue3), -9223372036854775807L);
+                dtn();
                 return;
             }
-            if (bu != i3) {
-                this.lYb = this.lYb.IT(bu);
+            if (bw != i3) {
+                this.lYH = this.lYH.IY(bw);
             }
-            if (this.lYb.lYY.dvi()) {
-                l.b C3 = this.lYl.C(bu, this.lYb.lYU);
-                if (!C3.dvi() || C3.mry != this.lYb.lYY.mry) {
-                    this.lYb = this.lYb.b(C3, a(C3, this.lYb.lYU), C3.dvi() ? this.lYb.lYU : -9223372036854775807L);
-                    dsb();
+            if (this.lYH.lZE.dws()) {
+                l.b B3 = this.lYR.B(bw, this.lYH.lZA);
+                if (!B3.dws() || B3.mse != this.lYH.lZE.mse) {
+                    this.lYH = this.lYH.b(B3, a(B3, this.lYH.lZA), B3.dws() ? this.lYH.lZA : -9223372036854775807L);
+                    dtn();
                     return;
                 }
             }
             if (aVar == null) {
-                dsb();
+                dtn();
                 return;
             }
-            a a3 = a(aVar, bu);
-            int i4 = bu;
-            while (a3.lYI != null) {
-                a aVar3 = a3.lYI;
-                i4 = xVar2.a(i4, this.laZ, this.laY, this.dT, this.lXV);
-                if (i4 != -1 && aVar3.lYB.equals(xVar2.a(i4, this.laZ, true).lYB)) {
+            a a3 = a(aVar, bw);
+            int i4 = bw;
+            while (a3.lZo != null) {
+                a aVar3 = a3.lZo;
+                i4 = xVar2.a(i4, this.lbF, this.lbE, this.dU, this.lYB);
+                if (i4 != -1 && aVar3.lZh.equals(xVar2.a(i4, this.lbF, true).lZh)) {
                     a3 = a(aVar3, i4);
                 } else {
-                    if (!(this.lYy != null && this.lYy.index < aVar3.index)) {
-                        this.lYb = this.lYb.b(this.lYz.lYF.lYR, a(this.lYz.lYF.lYR, this.lYb.lYZ), this.lYb.lYU);
+                    if (!(this.lZe != null && this.lZe.index < aVar3.index)) {
+                        this.lYH = this.lYH.b(this.lZf.lZl.lZx, a(this.lZf.lZl.lZx, this.lYH.lZF), this.lYH.lZA);
                     } else {
-                        this.lYx = a3;
-                        this.lYx.lYI = null;
+                        this.lZd = a3;
+                        this.lZd.lZo = null;
                         a(aVar3);
                     }
-                    dsb();
+                    dtn();
                 }
             }
-            dsb();
+            dtn();
         }
     }
 
     private a a(a aVar, int i) {
         while (true) {
-            aVar.lYF = this.lYl.a(aVar.lYF, i);
-            if (aVar.lYF.lYW || aVar.lYI == null) {
+            aVar.lZl = this.lYR.a(aVar.lZl, i);
+            if (aVar.lZl.lZC || aVar.lZo == null) {
                 break;
             }
-            aVar = aVar.lYI;
+            aVar = aVar.lZo;
         }
         return aVar;
     }
 
-    private void dsa() {
-        dA(0, 0);
+    private void dtm() {
+        dD(0, 0);
     }
 
-    private void dA(int i, int i2) {
-        x xVar = this.lYb.timeline;
-        int i3 = xVar.isEmpty() ? 0 : xVar.a(xVar.vA(this.lXV), this.laY).lZJ;
-        this.lYb = this.lYb.g(i3, -9223372036854775807L, -9223372036854775807L);
+    private void dD(int i, int i2) {
+        x xVar = this.lYH.timeline;
+        int i3 = xVar.isEmpty() ? 0 : xVar.a(xVar.vE(this.lYB), this.lbE).mar;
+        this.lYH = this.lYH.g(i3, -9223372036854775807L, -9223372036854775807L);
         setState(4);
-        a(i, i2, this.lYb.g(i3, 0L, -9223372036854775807L));
-        vy(false);
+        a(i, i2, this.lYH.g(i3, 0L, -9223372036854775807L));
+        vC(false);
     }
 
-    private void dsb() {
-        dB(0, 0);
+    private void dtn() {
+        dE(0, 0);
     }
 
-    private void dB(int i, int i2) {
-        a(i, i2, this.lYb);
+    private void dE(int i, int i2) {
+        a(i, i2, this.lYH);
     }
 
     private void a(int i, int i2, p pVar) {
-        this.lXR.obtainMessage(5, i, i2, pVar).sendToTarget();
+        this.lYx.obtainMessage(5, i, i2, pVar).sendToTarget();
     }
 
     private int a(int i, x xVar, x xVar2) {
-        int dso = xVar.dso();
+        int dtA = xVar.dtA();
         int i2 = 0;
         int i3 = -1;
         int i4 = i;
-        while (i2 < dso && i3 == -1) {
-            int a2 = xVar.a(i4, this.laZ, this.laY, this.dT, this.lXV);
+        while (i2 < dtA && i3 == -1) {
+            int a2 = xVar.a(i4, this.lbF, this.lbE, this.dU, this.lYB);
             if (a2 == -1) {
                 break;
             }
             i2++;
-            i3 = xVar2.bu(xVar.a(a2, this.laZ, true).lYB);
+            i3 = xVar2.bw(xVar.a(a2, this.lbF, true).lZh);
             i4 = a2;
         }
         return i3;
     }
 
     private Pair<Integer, Long> b(c cVar) {
-        x xVar = this.lYb.timeline;
+        x xVar = this.lYH.timeline;
         x xVar2 = cVar.timeline;
         if (xVar2.isEmpty()) {
             xVar2 = xVar;
         }
         try {
-            Pair<Integer, Long> a2 = xVar2.a(this.laY, this.laZ, cVar.windowIndex, cVar.lYN);
+            Pair<Integer, Long> a2 = xVar2.a(this.lbE, this.lbF, cVar.windowIndex, cVar.lZt);
             if (xVar == xVar2) {
                 return a2;
             }
-            int bu = xVar.bu(xVar2.a(((Integer) a2.first).intValue(), this.laZ, true).lYB);
-            if (bu != -1) {
-                return Pair.create(Integer.valueOf(bu), a2.second);
+            int bw = xVar.bw(xVar2.a(((Integer) a2.first).intValue(), this.lbF, true).lZh);
+            if (bw != -1) {
+                return Pair.create(Integer.valueOf(bw), a2.second);
             }
             int a3 = a(((Integer) a2.first).intValue(), xVar2, xVar);
             if (a3 != -1) {
-                return b(xVar, xVar.a(a3, this.laZ).windowIndex, -9223372036854775807L);
+                return b(xVar, xVar.a(a3, this.lbF).windowIndex, -9223372036854775807L);
             }
             return null;
         } catch (IndexOutOfBoundsException e) {
-            throw new IllegalSeekPositionException(xVar, cVar.windowIndex, cVar.lYN);
+            throw new IllegalSeekPositionException(xVar, cVar.windowIndex, cVar.lZt);
         }
     }
 
     private Pair<Integer, Long> b(x xVar, int i, long j) {
-        return xVar.a(this.laY, this.laZ, i, j);
+        return xVar.a(this.lbE, this.lbF, i, j);
     }
 
-    private void dsc() throws ExoPlaybackException, IOException {
-        if (this.lYb.timeline == null) {
-            this.lbp.dva();
+    private void dto() throws ExoPlaybackException, IOException {
+        if (this.lYH.timeline == null) {
+            this.lbV.dwk();
             return;
         }
-        dsd();
-        if (this.lYx == null || this.lYx.dsg()) {
+        dtp();
+        if (this.lZd == null || this.lZd.dts()) {
             setIsLoading(false);
-        } else if (this.lYx != null && !this.isLoading) {
-            dse();
+        } else if (this.lZd != null && !this.isLoading) {
+            dtq();
         }
-        if (this.lYz != null) {
-            while (this.lXU && this.lYz != this.lYy && this.lYw >= this.lYz.lYI.lYE) {
-                this.lYz.release();
-                b(this.lYz.lYI);
-                this.lYb = this.lYb.b(this.lYz.lYF.lYR, this.lYz.lYF.lYS, this.lYz.lYF.lYU);
-                drV();
-                this.lXR.obtainMessage(4, 0, 0, this.lYb).sendToTarget();
+        if (this.lZf != null) {
+            while (this.lYA && this.lZf != this.lZe && this.lZc >= this.lZf.lZo.lZk) {
+                this.lZf.release();
+                b(this.lZf.lZo);
+                this.lYH = this.lYH.b(this.lZf.lZl.lZx, this.lZf.lZl.lZy, this.lZf.lZl.lZA);
+                dth();
+                this.lYx.obtainMessage(4, 0, 0, this.lYH).sendToTarget();
             }
-            if (this.lYy.lYF.lYX) {
-                for (int i = 0; i < this.lXO.length; i++) {
-                    s sVar = this.lXO[i];
-                    com.google.android.exoplayer2.source.p pVar = this.lYy.lYC[i];
-                    if (pVar != null && sVar.dru() == pVar && sVar.drv()) {
-                        sVar.drw();
+            if (this.lZe.lZl.lZD) {
+                for (int i = 0; i < this.lYu.length; i++) {
+                    s sVar = this.lYu[i];
+                    com.google.android.exoplayer2.source.p pVar = this.lZe.lZi[i];
+                    if (pVar != null && sVar.dsG() == pVar && sVar.dsH()) {
+                        sVar.dsI();
                     }
                 }
-            } else if (this.lYy.lYI != null && this.lYy.lYI.lYG) {
-                for (int i2 = 0; i2 < this.lXO.length; i2++) {
-                    s sVar2 = this.lXO[i2];
-                    com.google.android.exoplayer2.source.p pVar2 = this.lYy.lYC[i2];
-                    if (sVar2.dru() == pVar2) {
-                        if (pVar2 != null && !sVar2.drv()) {
+            } else if (this.lZe.lZo != null && this.lZe.lZo.lZm) {
+                for (int i2 = 0; i2 < this.lYu.length; i2++) {
+                    s sVar2 = this.lYu[i2];
+                    com.google.android.exoplayer2.source.p pVar2 = this.lZe.lZi[i2];
+                    if (sVar2.dsG() == pVar2) {
+                        if (pVar2 != null && !sVar2.dsH()) {
                             return;
                         }
                     } else {
                         return;
                     }
                 }
-                com.google.android.exoplayer2.b.i iVar = this.lYy.lYJ;
-                this.lYy = this.lYy.lYI;
-                com.google.android.exoplayer2.b.i iVar2 = this.lYy.lYJ;
-                boolean z = this.lYy.lYA.duU() != -9223372036854775807L;
-                for (int i3 = 0; i3 < this.lXO.length; i3++) {
-                    s sVar3 = this.lXO[i3];
-                    if (iVar.mCG[i3]) {
+                com.google.android.exoplayer2.b.i iVar = this.lZe.lZp;
+                this.lZe = this.lZe.lZo;
+                com.google.android.exoplayer2.b.i iVar2 = this.lZe.lZp;
+                boolean z = this.lZe.lZg.dwe() != -9223372036854775807L;
+                for (int i3 = 0; i3 < this.lYu.length; i3++) {
+                    s sVar3 = this.lYu[i3];
+                    if (iVar.mDn[i3]) {
                         if (z) {
-                            sVar3.drw();
-                        } else if (!sVar3.drx()) {
-                            com.google.android.exoplayer2.b.f LD = iVar2.mCH.LD(i3);
-                            boolean z2 = iVar2.mCG[i3];
-                            boolean z3 = this.lYg[i3].getTrackType() == 5;
-                            u uVar = iVar.mCJ[i3];
-                            u uVar2 = iVar2.mCJ[i3];
+                            sVar3.dsI();
+                        } else if (!sVar3.dsJ()) {
+                            com.google.android.exoplayer2.b.f LI = iVar2.mDo.LI(i3);
+                            boolean z2 = iVar2.mDn[i3];
+                            boolean z3 = this.lYM[i3].getTrackType() == 5;
+                            u uVar = iVar.mDq[i3];
+                            u uVar2 = iVar2.mDq[i3];
                             if (z2 && uVar2.equals(uVar) && !z3) {
-                                sVar3.a(a(LD), this.lYy.lYC[i3], this.lYy.dsf());
+                                sVar3.a(a(LI), this.lZe.lZi[i3], this.lZe.dtr());
                             } else {
-                                sVar3.drw();
+                                sVar3.dsI();
                             }
                         }
                     }
@@ -1018,13 +1018,13 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
         }
     }
 
-    private void dsd() throws IOException {
+    private void dtp() throws IOException {
         o.a a2;
-        if (this.lYx == null) {
-            a2 = this.lYl.a(this.lYb);
-        } else if (!this.lYx.lYF.lYX && this.lYx.dsg() && this.lYx.lYF.lYV != -9223372036854775807L) {
-            if (this.lYz == null || this.lYx.index - this.lYz.index != 100) {
-                a2 = this.lYl.a(this.lYx.lYF, this.lYx.dsf(), this.lYw);
+        if (this.lZd == null) {
+            a2 = this.lYR.a(this.lYH);
+        } else if (!this.lZd.lZl.lZD && this.lZd.dts() && this.lZd.lZl.lZB != -9223372036854775807L) {
+            if (this.lZf == null || this.lZd.index - this.lZf.index != 100) {
+                a2 = this.lYR.a(this.lZd.lZl, this.lZd.dtr(), this.lZc);
             } else {
                 return;
             }
@@ -1032,76 +1032,76 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
             return;
         }
         if (a2 == null) {
-            this.lbp.dva();
+            this.lbV.dwk();
             return;
         }
-        a aVar = new a(this.lXO, this.lYg, this.lYx == null ? 60000000L : this.lYx.dsf() + this.lYx.lYF.lYV, this.lXP, this.lYh, this.lbp, this.lYb.timeline.a(a2.lYR.periodIndex, this.laZ, true).lYB, this.lYx == null ? 0 : this.lYx.index + 1, a2);
-        if (this.lYx != null) {
-            this.lYx.lYI = aVar;
+        a aVar = new a(this.lYu, this.lYM, this.lZd == null ? 60000000L : this.lZd.dtr() + this.lZd.lZl.lZB, this.lYv, this.lYN, this.lbV, this.lYH.timeline.a(a2.lZx.periodIndex, this.lbF, true).lZh, this.lZd == null ? 0 : this.lZd.index + 1, a2);
+        if (this.lZd != null) {
+            this.lZd.lZo = aVar;
         }
-        this.lYx = aVar;
-        this.lYx.lYA.a(this, a2.lYS);
+        this.lZd = aVar;
+        this.lZd.lZg.a(this, a2.lZy);
         setIsLoading(true);
     }
 
     private void c(com.google.android.exoplayer2.source.k kVar) throws ExoPlaybackException {
-        if (this.lYx != null && this.lYx.lYA == kVar) {
-            this.lYx.dsh();
-            if (this.lYz == null) {
-                this.lYy = this.lYx;
-                fu(this.lYy.lYF.lYS);
-                b(this.lYy);
+        if (this.lZd != null && this.lZd.lZg == kVar) {
+            this.lZd.dtt();
+            if (this.lZf == null) {
+                this.lZe = this.lZd;
+                fs(this.lZe.lZl.lZy);
+                b(this.lZe);
             }
-            dse();
+            dtq();
         }
     }
 
     private void d(com.google.android.exoplayer2.source.k kVar) {
-        if (this.lYx != null && this.lYx.lYA == kVar) {
-            dse();
+        if (this.lZd != null && this.lZd.lZg == kVar) {
+            dtq();
         }
     }
 
-    private void dse() {
-        boolean fr = this.lYx.fr(this.lYw);
-        setIsLoading(fr);
-        if (fr) {
-            this.lYx.fy(this.lYw);
+    private void dtq() {
+        boolean fp = this.lZd.fp(this.lZc);
+        setIsLoading(fp);
+        if (fp) {
+            this.lZd.fw(this.lZc);
         }
     }
 
     private void a(a aVar) {
         while (aVar != null) {
             aVar.release();
-            aVar = aVar.lYI;
+            aVar = aVar.lZo;
         }
     }
 
     private void b(a aVar) throws ExoPlaybackException {
-        if (this.lYz != aVar) {
-            boolean[] zArr = new boolean[this.lXO.length];
+        if (this.lZf != aVar) {
+            boolean[] zArr = new boolean[this.lYu.length];
             int i = 0;
-            for (int i2 = 0; i2 < this.lXO.length; i2++) {
-                s sVar = this.lXO[i2];
+            for (int i2 = 0; i2 < this.lYu.length; i2++) {
+                s sVar = this.lYu[i2];
                 zArr[i2] = sVar.getState() != 0;
-                if (aVar.lYJ.mCG[i2]) {
+                if (aVar.lZp.mDn[i2]) {
                     i++;
                 }
-                if (zArr[i2] && (!aVar.lYJ.mCG[i2] || (sVar.drx() && sVar.dru() == this.lYz.lYC[i2]))) {
+                if (zArr[i2] && (!aVar.lZp.mDn[i2] || (sVar.dsJ() && sVar.dsG() == this.lZf.lZi[i2]))) {
                     b(sVar);
                 }
             }
-            this.lYz = aVar;
-            this.lXR.obtainMessage(2, aVar.lYJ).sendToTarget();
+            this.lZf = aVar;
+            this.lYx.obtainMessage(2, aVar.lZp).sendToTarget();
             a(zArr, i);
         }
     }
 
     private void a(boolean[] zArr, int i) throws ExoPlaybackException {
-        this.lYo = new s[i];
+        this.lYU = new s[i];
         int i2 = 0;
-        for (int i3 = 0; i3 < this.lXO.length; i3++) {
-            if (this.lYz.lYJ.mCG[i3]) {
+        for (int i3 = 0; i3 < this.lYu.length; i3++) {
+            if (this.lZf.lZp.mDn[i3]) {
                 c(i3, zArr[i3], i2);
                 i2++;
             }
@@ -1110,24 +1110,24 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
 
     private void c(int i, boolean z, int i2) throws ExoPlaybackException {
         boolean z2 = true;
-        s sVar = this.lXO[i];
-        this.lYo[i2] = sVar;
+        s sVar = this.lYu[i];
+        this.lYU[i2] = sVar;
         if (sVar.getState() == 0) {
-            u uVar = this.lYz.lYJ.mCJ[i];
-            Format[] a2 = a(this.lYz.lYJ.mCH.LD(i));
-            boolean z3 = this.lXU && this.state == 3;
+            u uVar = this.lZf.lZp.mDq[i];
+            Format[] a2 = a(this.lZf.lZp.mDo.LI(i));
+            boolean z3 = this.lYA && this.state == 3;
             if (z || !z3) {
                 z2 = false;
             }
-            sVar.a(uVar, a2, this.lYz.lYC[i], this.lYw, z2, this.lYz.dsf());
-            com.google.android.exoplayer2.util.h drt = sVar.drt();
-            if (drt != null) {
-                if (this.lYn != null) {
+            sVar.a(uVar, a2, this.lZf.lZi[i], this.lZc, z2, this.lZf.dtr());
+            com.google.android.exoplayer2.util.h dsF = sVar.dsF();
+            if (dsF != null) {
+                if (this.lYT != null) {
                     throw ExoPlaybackException.createForUnexpected(new IllegalStateException("Multiple renderer media clocks enabled."));
                 }
-                this.lYn = drt;
-                this.lYm = sVar;
-                this.lYn.d(this.lYa);
+                this.lYT = dsF;
+                this.lYS = sVar;
+                this.lYT.d(this.lYG);
             }
             if (z3) {
                 sVar.start();
@@ -1136,7 +1136,7 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
     }
 
     private boolean c(s sVar) {
-        return this.lYy.lYI != null && this.lYy.lYI.lYG && sVar.drv();
+        return this.lZe.lZo != null && this.lZe.lZo.lZm && sVar.dsH();
     }
 
     @NonNull
@@ -1144,144 +1144,144 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
         int length = fVar != null ? fVar.length() : 0;
         Format[] formatArr = new Format[length];
         for (int i = 0; i < length; i++) {
-            formatArr[i] = fVar.KL(i);
+            formatArr[i] = fVar.KQ(i);
         }
         return formatArr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public final int index;
-        private final s[] lXO;
-        private final com.google.android.exoplayer2.b.h lXP;
-        public final com.google.android.exoplayer2.source.k lYA;
-        public final Object lYB;
-        public final com.google.android.exoplayer2.source.p[] lYC;
-        public final boolean[] lYD;
-        public final long lYE;
-        public o.a lYF;
-        public boolean lYG;
-        public boolean lYH;
-        public a lYI;
-        public com.google.android.exoplayer2.b.i lYJ;
-        private com.google.android.exoplayer2.b.i lYK;
-        private final t[] lYg;
-        private final n lYh;
-        private final com.google.android.exoplayer2.source.l lbp;
+        private final t[] lYM;
+        private final n lYN;
+        private final s[] lYu;
+        private final com.google.android.exoplayer2.b.h lYv;
+        public final com.google.android.exoplayer2.source.k lZg;
+        public final Object lZh;
+        public final com.google.android.exoplayer2.source.p[] lZi;
+        public final boolean[] lZj;
+        public final long lZk;
+        public o.a lZl;
+        public boolean lZm;
+        public boolean lZn;
+        public a lZo;
+        public com.google.android.exoplayer2.b.i lZp;
+        private com.google.android.exoplayer2.b.i lZq;
+        private final com.google.android.exoplayer2.source.l lbV;
 
         public a(s[] sVarArr, t[] tVarArr, long j, com.google.android.exoplayer2.b.h hVar, n nVar, com.google.android.exoplayer2.source.l lVar, Object obj, int i, o.a aVar) {
             com.google.android.exoplayer2.source.c cVar;
-            this.lXO = sVarArr;
-            this.lYg = tVarArr;
-            this.lYE = j;
-            this.lXP = hVar;
-            this.lYh = nVar;
-            this.lbp = lVar;
-            this.lYB = com.google.android.exoplayer2.util.a.checkNotNull(obj);
+            this.lYu = sVarArr;
+            this.lYM = tVarArr;
+            this.lZk = j;
+            this.lYv = hVar;
+            this.lYN = nVar;
+            this.lbV = lVar;
+            this.lZh = com.google.android.exoplayer2.util.a.checkNotNull(obj);
             this.index = i;
-            this.lYF = aVar;
-            this.lYC = new com.google.android.exoplayer2.source.p[sVarArr.length];
-            this.lYD = new boolean[sVarArr.length];
-            com.google.android.exoplayer2.source.k a = lVar.a(aVar.lYR, nVar.drD());
-            if (aVar.lYT != Long.MIN_VALUE) {
+            this.lZl = aVar;
+            this.lZi = new com.google.android.exoplayer2.source.p[sVarArr.length];
+            this.lZj = new boolean[sVarArr.length];
+            com.google.android.exoplayer2.source.k a = lVar.a(aVar.lZx, nVar.dsP());
+            if (aVar.lZz != Long.MIN_VALUE) {
                 com.google.android.exoplayer2.source.c cVar2 = new com.google.android.exoplayer2.source.c(a, true);
-                cVar2.S(0L, aVar.lYT);
+                cVar2.R(0L, aVar.lZz);
                 cVar = cVar2;
             } else {
                 cVar = a;
             }
-            this.lYA = cVar;
+            this.lZg = cVar;
         }
 
-        public long fw(long j) {
-            return dsf() + j;
+        public long fu(long j) {
+            return dtr() + j;
         }
 
-        public long fx(long j) {
-            return j - dsf();
+        public long fv(long j) {
+            return j - dtr();
         }
 
-        public long dsf() {
-            return this.index == 0 ? this.lYE : this.lYE - this.lYF.lYS;
+        public long dtr() {
+            return this.index == 0 ? this.lZk : this.lZk - this.lZl.lZy;
         }
 
-        public boolean dsg() {
-            return this.lYG && (!this.lYH || this.lYA.duV() == Long.MIN_VALUE);
+        public boolean dts() {
+            return this.lZm && (!this.lZn || this.lZg.dwf() == Long.MIN_VALUE);
         }
 
         public boolean f(boolean z, long j) {
-            long duV = !this.lYG ? this.lYF.lYS : this.lYA.duV();
-            if (duV == Long.MIN_VALUE) {
-                if (this.lYF.lYX) {
+            long dwf = !this.lZm ? this.lZl.lZy : this.lZg.dwf();
+            if (dwf == Long.MIN_VALUE) {
+                if (this.lZl.lZD) {
                     return true;
                 }
-                duV = this.lYF.lYV;
+                dwf = this.lZl.lZB;
             }
-            return this.lYh.k(duV - fx(j), z);
+            return this.lYN.m(dwf - fv(j), z);
         }
 
-        public void dsh() throws ExoPlaybackException {
-            this.lYG = true;
-            dsi();
-            this.lYF = this.lYF.fA(l(this.lYF.lYS, false));
+        public void dtt() throws ExoPlaybackException {
+            this.lZm = true;
+            dtu();
+            this.lZl = this.lZl.fy(n(this.lZl.lZy, false));
         }
 
-        public boolean fr(long j) {
-            long duW = !this.lYG ? 0L : this.lYA.duW();
-            if (duW == Long.MIN_VALUE) {
+        public boolean fp(long j) {
+            long dwg = !this.lZm ? 0L : this.lZg.dwg();
+            if (dwg == Long.MIN_VALUE) {
                 return false;
             }
-            return this.lYh.fr(duW - fx(j));
+            return this.lYN.fp(dwg - fv(j));
         }
 
-        public void fy(long j) {
-            this.lYA.gf(fx(j));
+        public void fw(long j) {
+            this.lZg.gd(fv(j));
         }
 
-        public boolean dsi() throws ExoPlaybackException {
-            com.google.android.exoplayer2.b.i a = this.lXP.a(this.lYg, this.lYA.duT());
-            if (a.a(this.lYK)) {
+        public boolean dtu() throws ExoPlaybackException {
+            com.google.android.exoplayer2.b.i a = this.lYv.a(this.lYM, this.lZg.dwd());
+            if (a.a(this.lZq)) {
                 return false;
             }
-            this.lYJ = a;
+            this.lZp = a;
             return true;
         }
 
-        public long l(long j, boolean z) {
-            return a(j, z, new boolean[this.lXO.length]);
+        public long n(long j, boolean z) {
+            return a(j, z, new boolean[this.lYu.length]);
         }
 
         public long a(long j, boolean z, boolean[] zArr) {
-            com.google.android.exoplayer2.b.g gVar = this.lYJ.mCH;
+            com.google.android.exoplayer2.b.g gVar = this.lZp.mDo;
             for (int i = 0; i < gVar.length; i++) {
-                this.lYD[i] = !z && this.lYJ.a(this.lYK, i);
+                this.lZj[i] = !z && this.lZp.a(this.lZq, i);
             }
-            a(this.lYC);
-            long a = this.lYA.a(gVar.dxp(), this.lYD, this.lYC, zArr, j);
-            b(this.lYC);
-            this.lYK = this.lYJ;
-            this.lYH = false;
-            for (int i2 = 0; i2 < this.lYC.length; i2++) {
-                if (this.lYC[i2] != null) {
-                    com.google.android.exoplayer2.util.a.checkState(this.lYJ.mCG[i2]);
-                    if (this.lYg[i2].getTrackType() != 5) {
-                        this.lYH = true;
+            a(this.lZi);
+            long a = this.lZg.a(gVar.dyz(), this.lZj, this.lZi, zArr, j);
+            b(this.lZi);
+            this.lZq = this.lZp;
+            this.lZn = false;
+            for (int i2 = 0; i2 < this.lZi.length; i2++) {
+                if (this.lZi[i2] != null) {
+                    com.google.android.exoplayer2.util.a.checkState(this.lZp.mDn[i2]);
+                    if (this.lYM[i2].getTrackType() != 5) {
+                        this.lZn = true;
                     }
                 } else {
-                    com.google.android.exoplayer2.util.a.checkState(gVar.LD(i2) == null);
+                    com.google.android.exoplayer2.util.a.checkState(gVar.LI(i2) == null);
                 }
             }
-            this.lYh.a(this.lXO, this.lYJ.mCF, gVar);
+            this.lYN.a(this.lYu, this.lZp.mDm, gVar);
             return a;
         }
 
         public void release() {
             try {
-                if (this.lYF.lYT != Long.MIN_VALUE) {
-                    this.lbp.e(((com.google.android.exoplayer2.source.c) this.lYA).lYA);
+                if (this.lZl.lZz != Long.MIN_VALUE) {
+                    this.lbV.e(((com.google.android.exoplayer2.source.c) this.lZg).lZg);
                 } else {
-                    this.lbp.e(this.lYA);
+                    this.lbV.e(this.lZg);
                 }
             } catch (RuntimeException e) {
                 Log.e("ExoPlayerImplInternal", "Period release failed.", e);
@@ -1289,16 +1289,16 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
         }
 
         private void a(com.google.android.exoplayer2.source.p[] pVarArr) {
-            for (int i = 0; i < this.lYg.length; i++) {
-                if (this.lYg[i].getTrackType() == 5) {
+            for (int i = 0; i < this.lYM.length; i++) {
+                if (this.lYM[i].getTrackType() == 5) {
                     pVarArr[i] = null;
                 }
             }
         }
 
         private void b(com.google.android.exoplayer2.source.p[] pVarArr) {
-            for (int i = 0; i < this.lYg.length; i++) {
-                if (this.lYg[i].getTrackType() == 5 && this.lYJ.mCG[i]) {
+            for (int i = 0; i < this.lYM.length; i++) {
+                if (this.lYM[i].getTrackType() == 5 && this.lZp.mDn[i]) {
                     pVarArr[i] = new com.google.android.exoplayer2.source.g();
                 }
             }
@@ -1306,30 +1306,30 @@ public final class k implements Handler.Callback, h.a, k.a, l.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class c {
-        public final long lYN;
+        public final long lZt;
         public final x timeline;
         public final int windowIndex;
 
         public c(x xVar, int i, long j) {
             this.timeline = xVar;
             this.windowIndex = i;
-            this.lYN = j;
+            this.lZt = j;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
-        public final com.google.android.exoplayer2.source.l lYL;
-        public final Object lYM;
+        public final com.google.android.exoplayer2.source.l lZr;
+        public final Object lZs;
         public final x timeline;
 
         public b(com.google.android.exoplayer2.source.l lVar, x xVar, Object obj) {
-            this.lYL = lVar;
+            this.lZr = lVar;
             this.timeline = xVar;
-            this.lYM = obj;
+            this.lZs = obj;
         }
     }
 }

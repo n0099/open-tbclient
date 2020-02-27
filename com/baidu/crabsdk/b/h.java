@@ -8,9 +8,9 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class h {
-    private static String Qk = null;
+    private static String RP = null;
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -49,16 +49,16 @@ public final class h {
 
     public static String g(Context context) {
         if (com.baidu.crabsdk.a.K) {
-            if (Qk != null) {
-                return Qk;
+            if (RP != null) {
+                return RP;
             }
             try {
-                Qk = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                RP = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.v("getCUID fail," + e);
-                Qk = "N/A";
+                RP = "N/A";
             }
-            return Qk;
+            return RP;
         }
         return "N/A";
     }

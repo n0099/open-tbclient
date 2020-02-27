@@ -16,20 +16,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.SmartBubbleAnimatedView;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.widget.ListView.c {
-    private c dcC;
-    private b dcD;
-    private d dcE;
-    private a dcF;
-    protected ContinuousAnimationView dcG;
-    private boolean dcH;
-    private SmartBubbleAnimatedView dcI;
-    private f dcJ;
-    private e dcK;
-    private boolean dcL;
-    private boolean dcM;
-    private boolean dcN;
-    private View.OnClickListener dcO;
-    private final Animator.AnimatorListener dcP;
+    private c dgH;
+    private b dgI;
+    private d dgJ;
+    private a dgK;
+    protected ContinuousAnimationView dgL;
+    private boolean dgM;
+    private SmartBubbleAnimatedView dgN;
+    private f dgO;
+    private e dgP;
+    private boolean dgQ;
+    private boolean dgR;
+    private boolean dgS;
+    private View.OnClickListener dgT;
+    private final Animator.AnimatorListener dgU;
     private boolean isManualTrigger;
     protected AnimationDrawable mAnimImage;
     private View.OnClickListener mClickListener;
@@ -40,7 +40,7 @@ public class g extends com.baidu.adp.widget.ListView.c {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aFG();
+        void aHV();
     }
 
     /* loaded from: classes.dex */
@@ -60,7 +60,7 @@ public class g extends com.baidu.adp.widget.ListView.c {
 
     /* loaded from: classes.dex */
     public interface f {
-        void kV(int i);
+        void lm(int i);
 
         void onAnimationEnd();
     }
@@ -70,26 +70,26 @@ public class g extends com.baidu.adp.widget.ListView.c {
         this.mHeaderView = null;
         this.mPullRoot = null;
         this.mPullImage = null;
-        this.dcC = null;
-        this.dcD = null;
-        this.dcE = null;
-        this.dcF = null;
+        this.dgH = null;
+        this.dgI = null;
+        this.dgJ = null;
+        this.dgK = null;
         this.mSkinType = Integer.MIN_VALUE;
         this.isManualTrigger = false;
-        this.dcH = false;
-        this.dcL = true;
-        this.dcM = true;
-        this.dcN = false;
-        this.dcO = null;
+        this.dgM = false;
+        this.dgQ = true;
+        this.dgR = true;
+        this.dgS = false;
+        this.dgT = null;
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.dcO != null) {
-                    g.this.dcO.onClick(view);
+                if (g.this.dgT != null) {
+                    g.this.dgT.onClick(view);
                 }
             }
         };
-        this.dcP = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.g.3
+        this.dgU = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.g.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -104,10 +104,10 @@ public class g extends com.baidu.adp.widget.ListView.c {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                if (!g.this.dcN) {
-                    g.this.dcN = true;
-                    g.this.dcG.setSpeed(1.0f);
-                    g.this.dcG.setMinProgress(0.346f);
+                if (!g.this.dgS) {
+                    g.this.dgS = true;
+                    g.this.dgL.setSpeed(1.0f);
+                    g.this.dgL.setMinProgress(0.346f);
                 }
             }
         };
@@ -117,17 +117,17 @@ public class g extends com.baidu.adp.widget.ListView.c {
     public View createView() {
         this.mHeaderView = LayoutInflater.from(getContext()).inflate(R.layout.tb_pull_view, (ViewGroup) null);
         this.mPullRoot = (LinearLayout) this.mHeaderView.findViewById(R.id.pull_root);
-        this.dcG = (ContinuousAnimationView) this.mHeaderView.findViewById(R.id.continuous_loading_view);
-        am.a(this.dcG, R.raw.lottie_common_pull_refresh);
-        this.dcG.setOnClickListener(this.mClickListener);
+        this.dgL = (ContinuousAnimationView) this.mHeaderView.findViewById(R.id.continuous_loading_view);
+        am.a(this.dgL, R.raw.lottie_common_pull_refresh);
+        this.dgL.setOnClickListener(this.mClickListener);
         this.mPullImage = (ImageView) this.mHeaderView.findViewById(R.id.pull_image);
         this.mPullImage.setOnClickListener(this.mClickListener);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType != Integer.MIN_VALUE) {
             skinType = this.mSkinType;
         }
-        if (!aEd()) {
-            this.mAnimImage = af.aEc().getDefaultAnimationDrawable(skinType);
+        if (!aGn()) {
+            this.mAnimImage = af.aGm().getDefaultAnimationDrawable(skinType);
         }
         this.mPullImage.setBackgroundDrawable(this.mAnimImage);
         initPullView();
@@ -136,7 +136,7 @@ public class g extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public void releaseToRefresh() {
-        if (!aEd() && this.mAnimImage != null && this.mPullImage != null) {
+        if (!aGn() && this.mAnimImage != null && this.mPullImage != null) {
             this.mAnimImage.stop();
             this.mPullImage.setBackgroundDrawable(this.mAnimImage.getFrame(0));
         }
@@ -144,12 +144,12 @@ public class g extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public void pullToRefresh(boolean z) {
-        if (this.dcE != null) {
-            this.dcE.onListPullToRefresh(z);
+        if (this.dgJ != null) {
+            this.dgJ.onListPullToRefresh(z);
         }
         initPullView();
         this.isManualTrigger = true;
-        if (!aEd() && this.mAnimImage != null && this.mPullImage != null) {
+        if (!aGn() && this.mAnimImage != null && this.mPullImage != null) {
             this.mAnimImage.stop();
             this.mPullImage.setBackgroundDrawable(this.mAnimImage.getFrame(0));
         }
@@ -158,17 +158,17 @@ public class g extends com.baidu.adp.widget.ListView.c {
     @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onPullPercentChange(float f2, float f3) {
         super.onPullPercentChange(f2, f3);
-        if (aEd()) {
-            this.dcG.setAlpha(f2);
+        if (aGn()) {
+            this.dgL.setAlpha(f2);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void refreshing() {
         initPullView();
-        if (aEd()) {
-            if (!jW()) {
-                aFy();
+        if (aGn()) {
+            if (!kl()) {
+                aHN();
             }
         } else if (this.mAnimImage != null && this.mPullImage != null) {
             this.mAnimImage.stop();
@@ -184,145 +184,145 @@ public class g extends com.baidu.adp.widget.ListView.c {
         }
     }
 
-    private void aFy() {
-        if (this.dcG != null) {
-            if (this.dcG.isAnimating()) {
-                this.dcG.cancelAnimation();
+    private void aHN() {
+        if (this.dgL != null) {
+            if (this.dgL.isAnimating()) {
+                this.dgL.cancelAnimation();
             }
-            this.dcN = false;
-            this.dcG.loop(true);
-            this.dcG.setMinAndMaxProgress(0.0f, 0.738f);
-            this.dcG.setSpeed(1.5f);
-            this.dcG.setRepeatMode(1);
-            this.dcG.removeAllAnimatorListeners();
-            this.dcG.addAnimatorListener(this.dcP);
-            this.dcG.playAnimation();
+            this.dgS = false;
+            this.dgL.loop(true);
+            this.dgL.setMinAndMaxProgress(0.0f, 0.738f);
+            this.dgL.setSpeed(1.5f);
+            this.dgL.setRepeatMode(1);
+            this.dgL.removeAllAnimatorListeners();
+            this.dgL.addAnimatorListener(this.dgU);
+            this.dgL.playAnimation();
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void done(boolean z) {
         this.isManualTrigger = false;
-        this.dcM = true;
-        if (aEd() && this.dcG.isAnimating()) {
-            this.dcG.cancelAnimation();
+        this.dgR = true;
+        if (aGn() && this.dgL.isAnimating()) {
+            this.dgL.cancelAnimation();
         } else if (this.mAnimImage != null) {
             this.mAnimImage.stop();
         }
-        aFB();
-        if (this.dcD != null) {
-            this.dcD.onListPullRefreshFinished(this.mHeaderView, z);
+        aHQ();
+        if (this.dgI != null) {
+            this.dgI.onListPullRefreshFinished(this.mHeaderView, z);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void onRefresh(boolean z) {
-        if (!jW()) {
-            if (this.dcC != null && this.dcM) {
-                this.dcC.onListPullRefresh(z);
+        if (!kl()) {
+            if (this.dgH != null && this.dgR) {
+                this.dgH.onListPullRefresh(z);
             }
-            this.dcM = true;
+            this.dgR = true;
         }
     }
 
-    public void aFz() {
-        this.dcM = false;
+    public void aHO() {
+        this.dgR = false;
     }
 
     public void a(e eVar) {
-        this.dcK = eVar;
+        this.dgP = eVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void onCompletePullRefresh() {
-        if (!jW()) {
-            if (this.dcF != null) {
-                this.dcF.aFG();
+        if (!kl()) {
+            if (this.dgK != null) {
+                this.dgK.aHV();
             }
-            if (!aFD()) {
-                aFA();
-            } else if (this.dcG != null && this.dcG.isAnimating()) {
-                this.dcG.cancelAnimation();
+            if (!aHS()) {
+                aHP();
+            } else if (this.dgL != null && this.dgL.isAnimating()) {
+                this.dgL.cancelAnimation();
             }
         }
     }
 
-    private void aFA() {
-        if (aEd() && this.dcG != null) {
-            if (this.dcG.isAnimating()) {
-                this.dcG.cancelAnimation();
+    private void aHP() {
+        if (aGn() && this.dgL != null) {
+            if (this.dgL.isAnimating()) {
+                this.dgL.cancelAnimation();
             }
-            this.dcG.loop(false);
-            this.dcG.setSpeed(1.0f);
-            this.dcG.setMinAndMaxProgress(0.738f, 1.0f);
-            this.dcG.playAnimation();
+            this.dgL.loop(false);
+            this.dgL.setSpeed(1.0f);
+            this.dgL.setMinAndMaxProgress(0.738f, 1.0f);
+            this.dgL.playAnimation();
         }
     }
 
     public void setListPullRefreshListener(c cVar) {
-        this.dcC = cVar;
+        this.dgH = cVar;
     }
 
     public void a(b bVar) {
-        this.dcD = bVar;
+        this.dgI = bVar;
     }
 
     public void a(d dVar) {
-        this.dcE = dVar;
+        this.dgJ = dVar;
     }
 
     public void a(a aVar) {
-        this.dcF = aVar;
+        this.dgK = aVar;
     }
 
     public void changeSkin(int i) {
-        if (aEd()) {
+        if (aGn()) {
             am.setBackgroundColor(this.mHeaderView, R.color.cp_bg_line_d, i);
-            if (this.mSkinType != i && this.dcG != null && !this.dcG.isAnimating()) {
+            if (this.mSkinType != i && this.dgL != null && !this.dgL.isAnimating()) {
                 this.mSkinType = i;
-                am.a(this.dcG, R.raw.lottie_common_pull_refresh);
+                am.a(this.dgL, R.raw.lottie_common_pull_refresh);
             }
         }
-        if (this.dcI != null) {
-            this.dcI.onChangeSkinType(i);
+        if (this.dgN != null) {
+            this.dgN.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aEd() {
-        return af.aEc().aEd();
+    public boolean aGn() {
+        return af.aGm().aGn();
     }
 
     private void initPullView() {
-        if (this.dcI != null && this.dcI.getParent() != null) {
-            this.mPullRoot.removeView(this.dcI);
+        if (this.dgN != null && this.dgN.getParent() != null) {
+            this.mPullRoot.removeView(this.dgN);
         }
-        if (aEd()) {
-            if (this.mPullImage != null && this.dcG != null) {
+        if (aGn()) {
+            if (this.mPullImage != null && this.dgL != null) {
                 if (this.mPullImage.getVisibility() != 8) {
                     this.mPullImage.setVisibility(8);
                 }
-                if (this.dcG.getVisibility() != 0) {
-                    this.dcG.setVisibility(0);
+                if (this.dgL.getVisibility() != 0) {
+                    this.dgL.setVisibility(0);
                 }
-                if (this.dcG.isAnimating()) {
-                    this.dcG.cancelAnimation();
+                if (this.dgL.isAnimating()) {
+                    this.dgL.cancelAnimation();
                 }
-                this.dcG.setMinAndMaxProgress(0.0f, 1.0f);
-                this.dcG.setFrame(0);
+                this.dgL.setMinAndMaxProgress(0.0f, 1.0f);
+                this.dgL.setFrame(0);
             }
-        } else if (this.mPullImage != null && this.dcG != null) {
+        } else if (this.mPullImage != null && this.dgL != null) {
             if (this.mPullImage.getVisibility() != 0) {
                 this.mPullImage.setVisibility(0);
             }
-            if (this.dcG.getVisibility() != 8) {
-                this.dcG.setVisibility(8);
+            if (this.dgL.getVisibility() != 8) {
+                this.dgL.setVisibility(8);
             }
         }
     }
 
-    private void aFB() {
-        if (aEd() && this.mAnimImage != null) {
+    private void aHQ() {
+        if (aGn() && this.mAnimImage != null) {
             this.mAnimImage.stop();
             this.mAnimImage = null;
         }
@@ -333,81 +333,81 @@ public class g extends com.baidu.adp.widget.ListView.c {
         return 600L;
     }
 
-    public boolean aFC() {
-        return this.dcH;
+    public boolean aHR() {
+        return this.dgM;
     }
 
     public void a(f fVar) {
-        this.dcJ = fVar;
+        this.dgO = fVar;
     }
 
     public void setExecuteMsgAnimation(boolean z) {
-        this.dcL = z;
+        this.dgQ = z;
     }
 
-    public boolean aFD() {
-        if (aFC() && this.dcL && this.dcK != null && this.mPullRoot != null) {
+    public boolean aHS() {
+        if (aHR() && this.dgQ && this.dgP != null && this.mPullRoot != null) {
             this.mPullImage.setVisibility(8);
-            this.dcG.setVisibility(8);
-            if (this.dcI == null) {
-                this.dcI = new SmartBubbleAnimatedView(getContext());
-                this.dcI.setExtrusionRemind(true);
+            this.dgL.setVisibility(8);
+            if (this.dgN == null) {
+                this.dgN = new SmartBubbleAnimatedView(getContext());
+                this.dgN.setExtrusionRemind(true);
             }
-            this.dcI.dcR = this.dcK.getTipText();
-            this.dcI.gqr = this.dcK.aFH();
-            if (this.dcI.getParent() != null) {
-                this.mPullRoot.removeView(this.dcI);
+            this.dgN.dgW = this.dgP.getTipText();
+            this.dgN.gss = this.dgP.aHW();
+            if (this.dgN.getParent() != null) {
+                this.mPullRoot.removeView(this.dgN);
             }
-            this.mPullRoot.addView(this.dcI);
-            this.dcI.setOnBubbleAnimateListener(new SmartBubbleAnimatedView.a() { // from class: com.baidu.tbadk.core.view.g.4
+            this.mPullRoot.addView(this.dgN);
+            this.dgN.setOnBubbleAnimateListener(new SmartBubbleAnimatedView.a() { // from class: com.baidu.tbadk.core.view.g.4
                 @Override // com.baidu.tieba.frs.SmartBubbleAnimatedView.a
-                public void aFF() {
-                    if (g.this.dcJ != null) {
-                        g.this.dcJ.onAnimationEnd();
+                public void aHU() {
+                    if (g.this.dgO != null) {
+                        g.this.dgO.onAnimationEnd();
                     }
                 }
             });
-            if (this.dcJ != null) {
-                this.dcJ.kV(this.dcI.getTipViewHeight());
+            if (this.dgO != null) {
+                this.dgO.lm(this.dgN.getTipViewHeight());
             }
-            this.dcI.bEm();
+            this.dgN.bFO();
             return true;
         }
         return false;
     }
 
-    public void aFE() {
-        if (this.mPullRoot != null && this.dcI != null && this.dcI.getParent() != null) {
-            this.mPullRoot.removeView(this.dcI);
+    public void aHT() {
+        if (this.mPullRoot != null && this.dgN != null && this.dgN.getParent() != null) {
+            this.mPullRoot.removeView(this.dgN);
         }
     }
 
-    public void kU(int i) {
-        if (this.dcG != null) {
-            am.a(this.dcG, i);
+    public void ll(int i) {
+        if (this.dgL != null) {
+            am.a(this.dgL, i);
         }
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.dcO = onClickListener;
+        this.dgT = onClickListener;
     }
 
     /* loaded from: classes.dex */
     public static class e {
-        private String dcR;
-        private int dcS;
+        private String dgW;
+        private int dgX;
 
         public e(String str, int i) {
-            this.dcR = str;
-            this.dcS = i;
+            this.dgW = str;
+            this.dgX = i;
         }
 
         public String getTipText() {
-            return this.dcR;
+            return this.dgW;
         }
 
-        public int aFH() {
-            return this.dcS;
+        public int aHW() {
+            return this.dgX;
         }
     }
 }

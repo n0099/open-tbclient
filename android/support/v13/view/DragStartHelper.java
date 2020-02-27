@@ -4,7 +4,7 @@ import android.graphics.Point;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DragStartHelper {
     private boolean mDragging;
     private int mLastTouchX;
@@ -24,7 +24,7 @@ public class DragStartHelper {
     };
     private final View mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnDragStartListener {
         boolean onDragStart(View view, DragStartHelper dragStartHelper);
     }

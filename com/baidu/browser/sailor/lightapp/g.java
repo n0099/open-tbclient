@@ -7,17 +7,17 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends AsyncTask<Uri, Void, String> {
-    final /* synthetic */ int IL;
-    final /* synthetic */ BdLightappKernelClient IP;
-    final /* synthetic */ ContentResolver IQ;
+    final /* synthetic */ int Jl;
+    final /* synthetic */ BdLightappKernelClient Jm;
+    final /* synthetic */ ContentResolver Jn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(BdLightappKernelClient bdLightappKernelClient, ContentResolver contentResolver, int i) {
-        this.IP = bdLightappKernelClient;
-        this.IQ = contentResolver;
-        this.IL = i;
+        this.Jm = bdLightappKernelClient;
+        this.Jn = contentResolver;
+        this.Jl = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ public class g extends AsyncTask<Uri, Void, String> {
     public String doInBackground(Uri... uriArr) {
         Cursor cursor = null;
         try {
-            Cursor query = this.IQ.query(uriArr[0], new String[]{"_data"}, null, null, null);
+            Cursor query = this.Jn.query(uriArr[0], new String[]{"_data"}, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToNext()) {
@@ -60,10 +60,10 @@ public class g extends AsyncTask<Uri, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public void onPostExecute(String str) {
-        if (this.IP.mActivity == null || this.IP.mActivity.isFinishing()) {
+        if (this.Jm.mActivity == null || this.Jm.mActivity.isFinishing()) {
             Log.w("BdLightappKernelClient", "mActivity is null or finished.");
         } else {
-            this.IP.cloudaHandleResult(this.IL, str, !TextUtils.isEmpty(str));
+            this.Jm.cloudaHandleResult(this.Jl, str, !TextUtils.isEmpty(str));
         }
     }
 }

@@ -3,7 +3,7 @@ package com.vivo.push.util;
 import android.content.Context;
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static boolean a(Context context, long j, long j2) {
         p.d("ClientReportUtil", "report message: " + j + ", reportType: " + j2);

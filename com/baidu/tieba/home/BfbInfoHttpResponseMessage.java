@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoResIdl;
 import tbclient.UserBfbInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BfbInfoHttpResponseMessage extends TbHttpResponsedMessage {
     private UserBfbInfo bfbInfo;
 

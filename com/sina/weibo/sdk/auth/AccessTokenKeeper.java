@@ -8,7 +8,7 @@ import com.sina.weibo.sdk.network.IRequestService;
 import com.sina.weibo.sdk.network.impl.RequestParam;
 import com.sina.weibo.sdk.network.impl.RequestService;
 import com.sina.weibo.sdk.network.target.SimpleTarget;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AccessTokenKeeper {
     private static final String KEY_ACCESS_TOKEN = "access_token";
     private static final String KEY_EXPIRES_IN = "expires_in";

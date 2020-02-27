@@ -3,27 +3,28 @@ package kotlin.jvm.internal;
 import java.lang.annotation.Annotation;
 import java.util.List;
 import kotlin.jvm.KotlinReflectionNotSupportedError;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public final class m implements l, kotlin.reflect.c<Object> {
-    private final Class<?> nBL;
+    private final Class<?> nCn;
 
     public m(Class<?> cls) {
         q.j(cls, "jClass");
-        this.nBL = cls;
+        this.nCn = cls;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> dJk() {
-        return this.nBL;
+    public Class<?> dKr() {
+        return this.nCn;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        dJl();
+        dKs();
         throw null;
     }
 
-    private final Void dJl() {
+    private final Void dKs() {
         throw new KotlinReflectionNotSupportedError();
     }
 
@@ -36,6 +37,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return dJk().toString() + " (Kotlin reflection is not available)";
+        return dKr().toString() + " (Kotlin reflection is not available)";
     }
 }

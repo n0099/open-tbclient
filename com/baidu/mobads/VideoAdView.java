@@ -4,23 +4,23 @@ import android.content.Context;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class VideoAdView extends RelativeLayout {
-    private com.baidu.mobads.production.h.b aKR;
-    private IOAdEventListener aKS;
-    private VideoAdViewListener aKT;
+    private com.baidu.mobads.production.h.b aOV;
+    private IOAdEventListener aOW;
+    private VideoAdViewListener aOX;
 
     public VideoAdView(Context context) {
         super(context);
-        this.aKS = new v(this);
+        this.aOW = new v(this);
     }
 
     public VideoAdView(Context context, String str) {
         super(context, null);
-        this.aKS = new v(this);
+        this.aOW = new v(this);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum VideoDuration {
         DURATION_15_SECONDS(15),
         DURATION_30_SECONDS(30),
@@ -37,7 +37,7 @@ public class VideoAdView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum VideoSize {
         SIZE_16x9(320, 180),
         SIZE_4x3(400, 300);
@@ -60,19 +60,19 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void requestAd(VideoAdRequest videoAdRequest) {
-        this.aKR = new com.baidu.mobads.production.h.b(getContext(), "TODO");
-        this.aKR.setActivity(getContext());
-        this.aKR.setAdSlotBase(this);
-        this.aKR.addEventListener(IXAdEvent.AD_CLICK_THRU, this.aKS);
-        this.aKR.addEventListener(IXAdEvent.AD_LOADED, this.aKS);
-        this.aKR.addEventListener(IXAdEvent.AD_STARTED, this.aKS);
-        this.aKR.addEventListener(IXAdEvent.AD_STOPPED, this.aKS);
-        this.aKR.addEventListener(IXAdEvent.AD_ERROR, this.aKS);
-        this.aKR.request();
+        this.aOV = new com.baidu.mobads.production.h.b(getContext(), "TODO");
+        this.aOV.setActivity(getContext());
+        this.aOV.setAdSlotBase(this);
+        this.aOV.addEventListener(IXAdEvent.AD_CLICK_THRU, this.aOW);
+        this.aOV.addEventListener(IXAdEvent.AD_LOADED, this.aOW);
+        this.aOV.addEventListener(IXAdEvent.AD_STARTED, this.aOW);
+        this.aOV.addEventListener(IXAdEvent.AD_STOPPED, this.aOW);
+        this.aOV.addEventListener(IXAdEvent.AD_ERROR, this.aOW);
+        this.aOV.request();
     }
 
     public void startVideo() {
-        this.aKR.start();
+        this.aOV.start();
     }
 
     public static void setAppSid(Context context, String str) {
@@ -80,6 +80,6 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void setListener(VideoAdViewListener videoAdViewListener) {
-        this.aKT = videoAdViewListener;
+        this.aOX = videoAdViewListener;
     }
 }

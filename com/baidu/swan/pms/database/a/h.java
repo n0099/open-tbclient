@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class h extends b<com.baidu.swan.pms.model.h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -31,7 +31,7 @@ public class h extends b<com.baidu.swan.pms.model.h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: h */
-    public ContentValues X(com.baidu.swan.pms.model.h hVar) {
+    public ContentValues Z(com.baidu.swan.pms.model.h hVar) {
         ContentValues e = super.e(hVar);
         e.put("max_age", Long.valueOf(hVar.maxAge));
         e.put("token", hVar.token);

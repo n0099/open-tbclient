@@ -7,11 +7,11 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class i {
-    static final String lGa = System.getProperty("line.separator");
+    static final String lGH = System.getProperty("line.separator");
 
-    public static h eW(long j) {
+    public static h eU(long j) {
         return new h(j);
     }
 
@@ -19,23 +19,23 @@ public abstract class i {
         return new h(d);
     }
 
-    public static h uV(boolean z) {
+    public static h uZ(boolean z) {
         return new h(z);
     }
 
-    public static e ad(byte[] bArr) {
+    public static e ai(byte[] bArr) {
         return new e(bArr);
     }
 
     public static d I(Object[] objArr) {
         d dVar = new d(objArr.length);
         for (int i = 0; i < objArr.length; i++) {
-            dVar.j(i, aM(objArr[i]));
+            dVar.j(i, aO(objArr[i]));
         }
         return dVar;
     }
 
-    public static i aM(Object obj) {
+    public static i aO(Object obj) {
         int i = 0;
         if (obj == null) {
             return null;
@@ -45,19 +45,19 @@ public abstract class i {
         }
         Class<?> cls = obj.getClass();
         if (Boolean.class.equals(cls)) {
-            return uV(((Boolean) obj).booleanValue());
+            return uZ(((Boolean) obj).booleanValue());
         }
         if (Byte.class.equals(cls)) {
-            return eW(((Byte) obj).byteValue());
+            return eU(((Byte) obj).byteValue());
         }
         if (Short.class.equals(cls)) {
-            return eW(((Short) obj).shortValue());
+            return eU(((Short) obj).shortValue());
         }
         if (Integer.class.equals(cls)) {
-            return eW(((Integer) obj).intValue());
+            return eU(((Integer) obj).intValue());
         }
         if (Long.class.isAssignableFrom(cls)) {
-            return eW(((Long) obj).longValue());
+            return eU(((Long) obj).longValue());
         }
         if (Float.class.equals(cls)) {
             return x(((Float) obj).floatValue());
@@ -74,13 +74,13 @@ public abstract class i {
         if (cls.isArray()) {
             Class<?> componentType = cls.getComponentType();
             if (componentType.equals(Byte.TYPE)) {
-                return ad((byte[]) obj);
+                return ai((byte[]) obj);
             }
             if (componentType.equals(Boolean.TYPE)) {
                 boolean[] zArr = (boolean[]) obj;
                 d dVar = new d(zArr.length);
                 while (i < zArr.length) {
-                    dVar.j(i, uV(zArr[i]));
+                    dVar.j(i, uZ(zArr[i]));
                     i++;
                 }
                 return dVar;
@@ -104,7 +104,7 @@ public abstract class i {
                 short[] sArr = (short[]) obj;
                 d dVar4 = new d(sArr.length);
                 while (i < sArr.length) {
-                    dVar4.j(i, eW(sArr[i]));
+                    dVar4.j(i, eU(sArr[i]));
                     i++;
                 }
                 return dVar4;
@@ -112,7 +112,7 @@ public abstract class i {
                 int[] iArr = (int[]) obj;
                 d dVar5 = new d(iArr.length);
                 while (i < iArr.length) {
-                    dVar5.j(i, eW(iArr[i]));
+                    dVar5.j(i, eU(iArr[i]));
                     i++;
                 }
                 return dVar5;
@@ -120,7 +120,7 @@ public abstract class i {
                 long[] jArr = (long[]) obj;
                 d dVar6 = new d(jArr.length);
                 while (i < jArr.length) {
-                    dVar6.j(i, eW(jArr[i]));
+                    dVar6.j(i, eU(jArr[i]));
                     i++;
                 }
                 return dVar6;
@@ -132,17 +132,17 @@ public abstract class i {
             Set keySet = map.keySet();
             g gVar = new g();
             for (Object obj2 : keySet) {
-                gVar.put(String.valueOf(obj2), aM(map.get(obj2)));
+                gVar.put(String.valueOf(obj2), aO(map.get(obj2)));
             }
             return gVar;
         } else if (Collection.class.isAssignableFrom(cls)) {
             return I(((Collection) obj).toArray());
         } else {
-            return aN(obj);
+            return aP(obj);
         }
     }
 
-    public static e aN(Object obj) {
+    public static e aP(Object obj) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             new ObjectOutputStream(byteArrayOutputStream).writeObject(obj);

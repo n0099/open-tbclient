@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import com.baidu.live.tbadk.BaseActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuyTBeanFullscreenActivity extends BaseActivity<BuyTBeanActivity> implements IBuyTBeanActivity {
     private BuyTBeanController buyTBeanController;
 

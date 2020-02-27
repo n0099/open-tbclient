@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.response;
 
 import java.net.SocketTimeoutException;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ResponseException {
     public static final String CANCELED = "Canceled";
     public static final String NO_NETWORK = " no network connected";

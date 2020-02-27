@@ -16,7 +16,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HttpDnsCache implements INoProGuard, INetListener {
     private static final String JSON_KEY_DATA = "data";
     private static final String JSON_KEY_IP = "ip";

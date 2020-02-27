@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.chosen.net.zan;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.ExcZan.ExcZanResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ChosenPbZanHttpResponse extends HttpResponsedMessage {
     public ChosenPbZanHttpResponse(int i) {
         super(1003007);

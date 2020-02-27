@@ -1,6 +1,6 @@
 package com.baidu.ar.npc;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class n implements Runnable {
     final /* synthetic */ ArBridge a;
 

@@ -4,15 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    boolean aQ(Context context);
+    boolean aU(Context context);
 
     void b(Context context, JSONObject jSONObject, com.baidu.j.a.a aVar);
 
     void e(Activity activity, String str, com.baidu.j.a.a aVar);
 
-    void eu(String str);
+    void eK(String str);
 
     void f(Activity activity, String str, com.baidu.j.a.a aVar);
 

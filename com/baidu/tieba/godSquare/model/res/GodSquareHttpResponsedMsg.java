@@ -6,7 +6,7 @@ import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
 import com.squareup.wire.Wire;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class GodSquareHttpResponsedMsg extends HttpResponsedMessage {
     private boolean hasMore;
     private DataRes mResult;

@@ -3,7 +3,7 @@ package com.baidu.swan.pms.c.b;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.c.d.f;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     public d(g gVar, f fVar) {
         super(gVar, fVar);
@@ -21,16 +21,16 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a P(com.baidu.swan.pms.c.c.d dVar) {
-        this.cxn.MW();
+    public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.d dVar) {
+        this.cBl.Pk();
         com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(dVar.cxU, eVar);
-        if (eVar.asd() == 0) {
-            this.cxn.MS();
+        a(dVar.cBS, eVar);
+        if (eVar.aur() == 0) {
+            this.cBl.Pg();
             return null;
         }
-        this.cxn.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(dVar, this.cxn);
+        this.cBl.a(eVar);
+        com.baidu.swan.pms.c.a.a.a(dVar, this.cBl);
         return null;
     }
 
@@ -38,12 +38,12 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
-    public boolean O(com.baidu.swan.pms.c.c.d dVar) {
-        if (dVar == null || dVar.cxU == null) {
+    public boolean Q(com.baidu.swan.pms.c.c.d dVar) {
+        if (dVar == null || dVar.cBS == null) {
             return false;
         }
-        for (com.baidu.swan.pms.model.g gVar : dVar.cxU) {
-            if (!gVar.NE()) {
+        for (com.baidu.swan.pms.model.g gVar : dVar.cBS) {
+            if (!gVar.PS()) {
                 return false;
             }
         }
@@ -51,7 +51,7 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String agV() {
+    protected String ajj() {
         return "getpkg";
     }
 }

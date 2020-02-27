@@ -2,8 +2,10 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.DuzhanUpMsgCreator;
@@ -14,12 +16,13 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.sapi2.SapiContext;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMSendMsg extends Message {
     private static final String TAG = "IMSendMsg";
     private List<Long> mAtUsers;
@@ -51,7 +54,7 @@ public class IMSendMsg extends Message {
         if (intent.hasExtra(Constants.EXTRA_SEND_MSG) && (chatMsg = (ChatMsg) intent.getParcelableExtra(Constants.EXTRA_SEND_MSG)) != null) {
             int chatType = chatMsg.getChatType();
             int msgType = chatMsg.getMsgType();
-            if (chatType == 7 || chatType == 16) {
+            if (chatType == 7 || chatType == 16 || chatType == 25) {
                 DuzhanUpMsgCreator.reCreateChatMsg(chatType, chatMsg);
                 msgType = 80;
             }
@@ -83,8 +86,12 @@ public class IMSendMsg extends Message {
                 }
                 jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
             } else if (this.mChatMsg.getCategory() == 4) {
-                jSONObject.put("method", Constants.METHOD_IM_SEND_MCAST_MSG);
+                jSONObject.put("method", 185);
                 jSONObject.put("mcast_id", this.mToUser);
+                jSONObject.put("role", Utility.getLoginRole(this.mContext));
+                if (!TextUtils.isEmpty(Utility.getAccessToken(this.mContext))) {
+                    jSONObject.put("token", Utility.getAccessToken(this.mContext));
+                }
                 if (this.mAtUsers != null && this.mAtUsers.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
                     for (Long l : this.mAtUsers) {
@@ -97,7 +104,7 @@ public class IMSendMsg extends Message {
                     for (Long l2 : this.mCastids) {
                         jSONArray2.put(l2);
                     }
-                    jSONObject.put("mcast_ids", jSONArray2);
+                    jSONObject.put(Constants.EXTRA_CAST_IDS, jSONArray2);
                 }
             } else {
                 jSONObject.put("method", 65);
@@ -113,6 +120,7 @@ public class IMSendMsg extends Message {
             jSONObject.put("type", this.mType);
             jSONObject.put("content", this.mContent);
             jSONObject.put("msg_key", this.mMsgKey);
+            jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             this.mBody = jSONObject.toString();
         } catch (JSONException e) {
             LogUtils.e(TAG, "Exception ", e);
@@ -129,18 +137,32 @@ public class IMSendMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        long j;
         int i2;
-        long j = -1;
-        if (i != 0) {
-            i2 = i;
-        } else if (jSONObject.has("msgid")) {
-            getChatMsg().setMsgId(jSONObject.getLong("msgid"));
-            j = jSONObject.optLong("time", -1L);
-            i2 = i;
+        long j2 = -1;
+        if (i == 0) {
+            try {
+                if (jSONObject.has("msgid")) {
+                    getChatMsg().setMsgId(jSONObject.getLong("msgid"));
+                    j2 = jSONObject.optLong("time", -1L);
+                } else {
+                    i = 1015;
+                    str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
+                }
+                j = j2;
+                i2 = i;
+            } catch (Exception e) {
+                LogUtils.e(TAG, "handle IMSendMsg exception :", e);
+                j = -1;
+                i2 = i;
+            }
         } else {
-            str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
-            i2 = 1015;
+            if (i == 4001) {
+                LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
+            }
+            j = -1;
+            i2 = i;
         }
         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str);
         ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, getChatMsg(), j, getListenerKey());

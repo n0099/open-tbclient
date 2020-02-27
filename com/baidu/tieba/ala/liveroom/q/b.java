@@ -1,92 +1,64 @@
 package com.baidu.tieba.ala.liveroom.q;
 
-import com.baidu.live.data.PersonUserData;
-import com.baidu.live.l.b;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.tieba.ala.liveroom.q.a;
-/* loaded from: classes2.dex */
+import com.baidu.live.tbadk.browser.BrowserHelper;
+import com.baidu.live.u.a;
+import com.baidu.tieba.ala.liveroom.h.g;
+/* loaded from: classes3.dex */
 public class b {
-    private com.baidu.live.l.b eGP;
-    private a fgb;
-    private a.b fgc = new a.b() { // from class: com.baidu.tieba.ala.liveroom.q.b.1
-        @Override // com.baidu.tieba.ala.liveroom.q.a.b
-        public void yR(String str) {
-            b.this.eGP.k(str, b.this.mGroupId, b.this.mLiveId);
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.q.a.b
-        public void yS(String str) {
-            b.this.eGP.l(str, b.this.mGroupId, b.this.mLiveId);
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.q.a.b
-        public void yT(String str) {
-            b.this.eGP.m(str, b.this.mGroupId, b.this.mLiveId);
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.q.a.b
-        public void yU(String str) {
-            b.this.eGP.n(str, b.this.mGroupId, b.this.mLiveId);
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.q.a.b
-        public void yV(String str) {
-            b.this.eGP.V(str, b.this.mLiveId);
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.q.a.b
-        public void yW(String str) {
-            b.this.eGP.W(str, b.this.mLiveId);
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.q.a.b
-        public void bou() {
-            b.this.eGP.X(b.this.mUserId, b.this.mLiveId);
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.q.a.b
-        public void onCancel() {
+    private String dYo;
+    private View.OnClickListener drh = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.q.b.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.dYo);
         }
     };
-    private String mGroupId;
-    private String mLiveId;
-    private TbPageContext mPageContext;
-    private String mUserId;
+    private ViewGroup ewd;
+    protected c fjJ;
+    protected TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
-        this.mPageContext = tbPageContext;
+        this.mTbPageContext = tbPageContext;
     }
 
-    public void a(String str, String str2, String str3, boolean z, Object obj) {
-        if (obj instanceof PersonUserData) {
-            this.eGP = new com.baidu.live.l.b(this.mPageContext);
-            this.mGroupId = str;
-            this.mLiveId = str2;
-            this.mUserId = str3;
-            PersonUserData personUserData = (PersonUserData) obj;
-            if (this.fgb != null && this.fgb.isShowing()) {
-                this.fgb.dismiss();
-            }
-            a aVar = new a(this.mPageContext);
-            aVar.a(this.fgc);
-            aVar.a(personUserData, z, str3);
-            this.fgb = aVar;
+    private TbPageContext getPageContext() {
+        return this.mTbPageContext;
+    }
+
+    protected boolean a(ViewGroup viewGroup, String str) {
+        if (viewGroup == null) {
+            return false;
+        }
+        this.dYo = str;
+        if (this.fjJ == null) {
+            this.fjJ = new c(getPageContext(), this.drh);
+        }
+        if (this.ewd != null && this.ewd.indexOfChild(this.fjJ.getView()) > 0) {
+            this.ewd.removeView(this.fjJ.getView());
+        }
+        this.ewd = viewGroup;
+        this.fjJ.getView().setId(a.g.privilege_manager_id);
+        this.fjJ.getView().setVisibility(0);
+        return true;
+    }
+
+    public void b(ViewGroup viewGroup, String str) {
+        if (a(viewGroup, str)) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(12);
+            layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds180), 0);
+            layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18);
+            viewGroup.addView(this.fjJ.getView(), layoutParams);
         }
     }
 
-    public void a(b.a aVar) {
-        this.eGP.a(aVar);
-    }
-
-    public void awN() {
-        if (this.fgb != null && this.fgb.isShowing()) {
-            this.fgb.resize();
-        }
-    }
-
-    public void onDestory() {
-        if (this.fgb != null && this.fgb.isShowing()) {
-            this.fgb.dismiss();
+    public void bqj() {
+        if (this.ewd != null && this.ewd.indexOfChild(this.fjJ.getView()) > 0) {
+            this.ewd.removeView(this.fjJ.getView());
+            g.pZ(2913128);
         }
     }
 }

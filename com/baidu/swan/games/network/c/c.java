@@ -30,36 +30,36 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends com.baidu.swan.games.network.a {
-    private static final Set<String> bas = i.K("text", "arraybuffer");
-    private static final Set<String> baq = i.K(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    private static final Set<String> beE = i.K("text", "arraybuffer");
+    private static final Set<String> beC = i.K(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
 
     public c(com.baidu.swan.games.e.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
-        this.cma = 1;
+        this.cqd = 1;
     }
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        Request amH;
-        if (this.cmb != null && (amH = amH()) != null) {
-            a(amH);
+        Request aoU;
+        if (this.cqe != null && (aoU = aoU()) != null) {
+            a(aoU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Request request) {
-        final String k = k(this.cmb);
+        final String k = k(this.cqe);
         final String httpUrl = request.url().toString();
-        if (com.baidu.swan.apps.runtime.e.aap() == null) {
-            h("", -1, "request:swanApp is null");
+        if (com.baidu.swan.apps.runtime.e.acD() == null) {
+            i("", -1, "request:swanApp is null");
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
-        f.H(httpUrl, 1);
-        final com.baidu.swan.games.network.b aaC = com.baidu.swan.apps.runtime.e.aap().aaC();
-        aaC.a(request, new Callback() { // from class: com.baidu.swan.games.network.c.c.1
+        f.F(httpUrl, 1);
+        final com.baidu.swan.games.network.b acQ = com.baidu.swan.apps.runtime.e.acD().acQ();
+        acQ.a(request, new Callback() { // from class: com.baidu.swan.games.network.c.c.1
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
                 if (!response.isSuccessful()) {
@@ -109,7 +109,7 @@ public class c extends com.baidu.swan.games.network.a {
 
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
-                aaC.cancelTag(c.this.mTaskId);
+                acQ.cancelTag(c.this.mTaskId);
                 c.this.a(httpUrl, 0, iOException.getMessage(), currentTimeMillis);
             }
         });
@@ -121,7 +121,7 @@ public class c extends com.baidu.swan.games.network.a {
             Log.d("RequestTask", "onFailure: " + str2);
         }
         String str3 = "Canceled".equalsIgnoreCase(str2) ? "request:fail abort" : str2;
-        h(str, i, str3);
+        i(str, i, str3);
         if (SwanAppNetworkUtils.isNetworkConnected(null)) {
             f.a(i, str, 1, str3, j, System.currentTimeMillis());
         }
@@ -144,7 +144,7 @@ public class c extends com.baidu.swan.games.network.a {
                 if (DEBUG) {
                     Log.d("RequestTask", Log.getStackTraceString(e));
                 }
-                h(str, -1, e.getMessage());
+                i(str, -1, e.getMessage());
             }
         }
     }
@@ -168,7 +168,7 @@ public class c extends com.baidu.swan.games.network.a {
                 if (DEBUG) {
                     Log.d("RequestTask", Log.getStackTraceString(e));
                 }
-                h(str, -1, e.getMessage());
+                i(str, -1, e.getMessage());
             }
         }
     }
@@ -176,53 +176,53 @@ public class c extends com.baidu.swan.games.network.a {
     @NonNull
     private static String k(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         String lowerCase = cVar.optString("responseType").toLowerCase();
-        if (!bas.contains(lowerCase)) {
+        if (!beE.contains(lowerCase)) {
             return "text";
         }
         return lowerCase;
     }
 
-    private Request amH() {
-        String amA = amA();
-        if (TextUtils.isEmpty(amA)) {
+    private Request aoU() {
+        String aoN = aoN();
+        if (TextUtils.isEmpty(aoN)) {
             if (DEBUG) {
-                Log.d("RequestTask", "buildRequest url =" + amA);
+                Log.d("RequestTask", "buildRequest url =" + aoN);
                 return null;
             }
             return null;
         }
-        String optString = this.cmb.optString("method");
+        String optString = this.cqe.optString("method");
         if (TextUtils.isEmpty(optString)) {
             optString = "GET";
         }
         String upperCase = optString.toUpperCase();
-        if (!baq.contains(upperCase)) {
-            h(amA, -1, "request:method is invalid");
+        if (!beC.contains(upperCase)) {
+            i(aoN, -1, "request:method is invalid");
             return null;
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        a(builder, this.cmb.or(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
+        a(builder, this.cqe.oG(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
         if (DEBUG) {
             Log.d("RequestTask", "lowerCaseHeaderMap =" + hashMap);
         }
-        String optString2 = this.cmb.optString("data", null);
-        JsArrayBuffer a = optString2 == null ? this.cmb.a("data", (JsArrayBuffer) null) : optString2;
+        String optString2 = this.cqe.optString("data", null);
+        JsArrayBuffer a = optString2 == null ? this.cqe.a("data", (JsArrayBuffer) null) : optString2;
         boolean z = a != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            return builder.url(amA).method(upperCase, null).tag(this.mTaskId).build();
+            return builder.url(aoN).method(upperCase, null).tag(this.mTaskId).build();
         }
         RequestBody b = (z || HttpMethod.requiresRequestBody(upperCase)) ? b(a, hashMap) : null;
         if (HttpMethod.requiresRequestBody(upperCase) && b == null) {
             return null;
         }
-        return builder.url(amA).method(upperCase, b).tag(this.mTaskId).build();
+        return builder.url(aoN).method(upperCase, b).tag(this.mTaskId).build();
     }
 
     @Nullable
     private RequestBody b(Object obj, Map<String, String> map) {
         String str = map.get(Headers.CONTENT_TYPE);
-        MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : f.a.bCa;
+        MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : f.a.bGg;
         if (obj instanceof JsArrayBuffer) {
             byte[] buffer = ((JsArrayBuffer) obj).buffer();
             if (buffer == null) {
@@ -241,8 +241,8 @@ public class c extends com.baidu.swan.games.network.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a
-    public void h(String str, int i, String str2) {
-        super.h(str, i, str2);
+    public void i(String str, int i, String str2) {
+        super.i(str, i, str2);
         com.baidu.swan.games.u.c.a(str, i, str2, SwanAppNetworkUtils.isNetworkConnected(null));
     }
 }

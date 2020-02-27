@@ -2,11 +2,11 @@ package android.support.v4.widget;
 
 import android.database.Cursor;
 import android.widget.Filter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class CursorFilter extends Filter {
     CursorFilterClient mClient;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface CursorFilterClient {
         void changeCursor(Cursor cursor);
 

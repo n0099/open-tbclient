@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Process;
 import com.baidu.android.pushservice.i.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushService extends Service {
     private SDcardRemovedReceiver c;
     private boolean a = false;

@@ -1,6 +1,7 @@
 package com.baidu.ala.helper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveRtcConfig {
+    public static final String RTC_SCHEMA = "rtc://";
     public int mCloseTimeout;
     public int mHandshakeTimeout;
     public int mHeartInterval;
@@ -8,13 +9,14 @@ public class AlaLiveRtcConfig {
     public boolean mIsSupportFaceStyle;
     public long mLineIndex;
     public int mPkID;
+    public String mPushUrl;
     public int mReduceDelay;
     public long mRoomId;
     public String mRtcServerHost;
     public int mRtcServerPort;
     public long mUId;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NativeErroCode {
         public static final int ERROR_CLOSE_TIMEOUT = 1030;
         public static final int ERROR_CLOSE_UNKNOW = 1031;
@@ -47,6 +49,7 @@ public class AlaLiveRtcConfig {
         this.mHeartTimeout = 0;
         this.mCloseTimeout = 0;
         this.mReduceDelay = 0;
+        this.mPushUrl = null;
         this.mIsSupportFaceStyle = true;
         if (alaLiveRtcConfig != null) {
             this.mUId = alaLiveRtcConfig.mUId;
@@ -61,6 +64,7 @@ public class AlaLiveRtcConfig {
             this.mHeartTimeout = alaLiveRtcConfig.mHeartTimeout;
             this.mCloseTimeout = alaLiveRtcConfig.mCloseTimeout;
             this.mReduceDelay = alaLiveRtcConfig.mReduceDelay;
+            this.mPushUrl = alaLiveRtcConfig.mPushUrl;
         }
     }
 
@@ -76,6 +80,11 @@ public class AlaLiveRtcConfig {
         this.mHeartTimeout = 0;
         this.mCloseTimeout = 0;
         this.mReduceDelay = 0;
+        this.mPushUrl = null;
         this.mIsSupportFaceStyle = true;
+    }
+
+    public String getRtcUrl() {
+        return String.format("%s%s:%d", RTC_SCHEMA, this.mRtcServerHost, Integer.valueOf(this.mRtcServerPort));
     }
 }

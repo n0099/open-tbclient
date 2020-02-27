@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.CookieManager;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private String mContentType;
     private Context mContext;
@@ -222,5 +223,15 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
         messageDigest.update(str.getBytes());
         return Utility.byte2Hex(messageDigest.digest());
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getConnectTimeout() {
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getReadTimeout() {
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
     }
 }

@@ -5,124 +5,124 @@ import android.graphics.Rect;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.v;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private boolean Nj;
-    private com.baidu.tieba.pb.data.f iCZ;
-    private com.baidu.tieba.pb.data.f iXB;
-    private Rect iXD;
-    private boolean iXE;
-    private p<bj> iXC = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> iXF = new LinkedList<>();
-    private p<bj> iXG = new p<>();
-    private p<bj> iXH = new p<>();
-    private p<Boolean> iXI = new p<>();
-    private p<Boolean> iXJ = new p<>();
-    private p<Boolean> iXK = new p<>();
-    private p<Integer> iXL = new p<>();
+    private boolean NJ;
+    private com.baidu.tieba.pb.data.e iEG;
+    private com.baidu.tieba.pb.data.e iZc;
+    private Rect iZe;
+    private boolean iZf;
+    private p<bj> iZd = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.e> iZg = new LinkedList<>();
+    private p<bj> iZh = new p<>();
+    private p<bj> iZi = new p<>();
+    private p<Boolean> iZj = new p<>();
+    private p<Boolean> iZk = new p<>();
+    private p<Boolean> iZl = new p<>();
+    private p<Integer> iZm = new p<>();
 
-    public void G(com.baidu.tieba.pb.data.f fVar) {
-        this.iXB = fVar;
-        setData(fVar);
-        this.iXG.setValue(null);
-        this.iXC.setValue(fVar.ciS());
+    public void I(com.baidu.tieba.pb.data.e eVar) {
+        this.iZc = eVar;
+        setData(eVar);
+        this.iZh.setValue(null);
+        this.iZd.setValue(eVar.cks());
     }
 
-    public com.baidu.tieba.pb.data.f crJ() {
-        return this.iXB;
+    public com.baidu.tieba.pb.data.e ctc() {
+        return this.iZc;
     }
 
-    public com.baidu.tieba.pb.data.f crK() {
-        return this.iCZ;
+    public com.baidu.tieba.pb.data.e ctd() {
+        return this.iEG;
     }
 
-    public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.iCZ = fVar;
-        if (fVar != null) {
-            this.iXC.setValue(fVar.ciS());
-            if (!v.isEmpty(fVar.cjr())) {
-                aL(fVar.cjr().get(0));
+    public void setData(com.baidu.tieba.pb.data.e eVar) {
+        this.iEG = eVar;
+        if (eVar != null) {
+            this.iZd.setValue(eVar.cks());
+            if (!v.isEmpty(eVar.ckP())) {
+                aO(eVar.ckP().get(0));
             }
         }
     }
 
-    public p<bj> crL() {
-        return this.iXC;
+    public p<bj> cte() {
+        return this.iZd;
     }
 
     public boolean isFromCDN() {
-        return this.Nj;
+        return this.NJ;
     }
 
     public void setFromCDN(boolean z) {
-        this.Nj = z;
+        this.NJ = z;
     }
 
     public void i(Rect rect) {
-        this.iXD = rect;
+        this.iZe = rect;
     }
 
-    public Rect crM() {
-        return this.iXD;
+    public Rect ctf() {
+        return this.iZe;
     }
 
-    public void qP(boolean z) {
-        this.iXE = z;
+    public void qU(boolean z) {
+        this.iZf = z;
     }
 
-    public boolean crN() {
-        return this.iXE;
+    public boolean ctg() {
+        return this.iZf;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.f> crO() {
-        return this.iXF;
+    public LinkedList<com.baidu.tieba.pb.data.e> cth() {
+        return this.iZg;
     }
 
-    public void aK(bj bjVar) {
-        this.iXG.setValue(bjVar);
+    public void aN(bj bjVar) {
+        this.iZh.setValue(bjVar);
     }
 
-    public void aL(bj bjVar) {
-        this.iXH.setValue(bjVar);
+    public void aO(bj bjVar) {
+        this.iZi.setValue(bjVar);
     }
 
-    public p<bj> crP() {
-        return this.iXG;
+    public p<bj> cti() {
+        return this.iZh;
     }
 
-    public p<bj> crQ() {
-        return this.iXH;
+    public p<bj> ctj() {
+        return this.iZi;
     }
 
-    public p<Boolean> crR() {
-        return this.iXI;
+    public p<Boolean> ctk() {
+        return this.iZj;
     }
 
-    public void qQ(boolean z) {
-        this.iXI.setValue(Boolean.valueOf(z));
+    public void qV(boolean z) {
+        this.iZj.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> crS() {
-        return this.iXJ;
+    public p<Boolean> ctl() {
+        return this.iZk;
     }
 
-    public void qR(boolean z) {
-        this.iXJ.postValue(Boolean.valueOf(z));
+    public void qW(boolean z) {
+        this.iZk.postValue(Boolean.valueOf(z));
     }
 
     public void setIsLoading(boolean z) {
-        this.iXK.setValue(Boolean.valueOf(z));
+        this.iZl.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> crT() {
-        return this.iXK;
+    public p<Boolean> ctm() {
+        return this.iZl;
     }
 
     public void setCurrentTab(int i) {
-        this.iXL.setValue(Integer.valueOf(i));
+        this.iZm.setValue(Integer.valueOf(i));
     }
 
-    public p<Integer> crU() {
-        return this.iXL;
+    public p<Integer> ctn() {
+        return this.iZm;
     }
 }

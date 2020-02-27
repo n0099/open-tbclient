@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import com.baidu.searchbox.appframework.BaseActivity;
 import com.baidu.searchbox.publisher.lightbrowser.R;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LightBrowserActivity extends BaseActivity {
     public static final String EXTRA_SHOW_TITLE_BAR_KEY = "showtitlebar";
     public static final String EXTRA_SHOW_TOOL_BAR_KEY = "showtoolbar";

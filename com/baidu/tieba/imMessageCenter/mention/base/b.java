@@ -6,18 +6,18 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.s;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.z;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a.a<c>> {
-    private z Lh;
-    private TbPageContext<?> cRe;
+    private z LD;
+    private TbPageContext<?> cVg;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getContext(), bdUniqueId);
-        this.cRe = tbPageContext;
+        this.cVg = tbPageContext;
     }
 
     public void setOnCardSubClickListener(z zVar) {
-        this.Lh = zVar;
+        this.LD = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,9 +25,9 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: av */
     public com.baidu.tieba.card.a.a<c> b(ViewGroup viewGroup) {
-        c cVar = new c(this.cRe, viewGroup);
-        if (this.Lh != null) {
-            cVar.c(this.Lh);
+        c cVar = new c(this.cVg, viewGroup);
+        if (this.LD != null) {
+            cVar.c(this.LD);
         }
         return new com.baidu.tieba.card.a.a<>(cVar);
     }
@@ -36,15 +36,15 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, a aVar, com.baidu.tieba.card.a.a<c> aVar2) {
-        if (aVar == null || aVar2 == null || aVar2.bue() == null) {
+        if (aVar == null || aVar2 == null || aVar2.bvI() == null) {
             return null;
         }
-        aVar2.bue().a(aVar);
+        aVar2.bvI().a(aVar);
         return aVar2.getView();
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    public s jU() {
-        return super.jU();
+    public s kj() {
+        return super.kj();
     }
 }

@@ -1,48 +1,48 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class q {
-    private boolean jvd;
-    private boolean jve;
-    private Runnable jvf = new Runnable() { // from class: com.baidu.tieba.play.q.1
+    private boolean jvT;
+    private boolean jvU;
+    private Runnable jvV = new Runnable() { // from class: com.baidu.tieba.play.q.1
         @Override // java.lang.Runnable
         public void run() {
-            q.this.jvd = false;
+            q.this.jvT = false;
         }
     };
-    private Runnable jvg = new Runnable() { // from class: com.baidu.tieba.play.q.2
+    private Runnable jvW = new Runnable() { // from class: com.baidu.tieba.play.q.2
         @Override // java.lang.Runnable
         public void run() {
-            q.this.jve = false;
+            q.this.jvU = false;
         }
     };
 
     public void onPrepared() {
-        this.jve = true;
-        com.baidu.adp.lib.f.e.gx().postDelayed(this.jvg, 500L);
+        this.jvU = true;
+        com.baidu.adp.lib.f.e.gx().postDelayed(this.jvW, 500L);
     }
 
-    public void cxH() {
-        this.jvd = true;
+    public void czb() {
+        this.jvT = true;
     }
 
-    public void cxI() {
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jvf);
-        com.baidu.adp.lib.f.e.gx().postDelayed(this.jvf, 500L);
+    public void czc() {
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jvV);
+        com.baidu.adp.lib.f.e.gx().postDelayed(this.jvV, 500L);
     }
 
-    public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
-        if ((i == 701 || i2 == 701) && iVar != null && !this.jvd && !this.jve) {
-            iVar.cfb();
-        } else if ((i == 702 || i2 == 702) && iVar != null && !this.jvd && !this.jve) {
-            iVar.cfc();
-            this.jvd = false;
-            this.jve = false;
-            DV();
+    public void a(int i, int i2, com.baidu.tieba.k.i iVar) {
+        if ((i == 701 || i2 == 701) && iVar != null && !this.jvT && !this.jvU) {
+            iVar.cgF();
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.jvT && !this.jvU) {
+            iVar.cgG();
+            this.jvT = false;
+            this.jvU = false;
+            Gk();
         }
     }
 
-    public void DV() {
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jvf);
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jvg);
+    public void Gk() {
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jvV);
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jvW);
     }
 }

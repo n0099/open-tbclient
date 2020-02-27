@@ -28,9 +28,9 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class e {
-    private static View bKA;
+    private static View bOF;
     private static Runnable mCancelRunnable;
     private static View sMaskView;
     private static boolean sShowMask = false;
@@ -52,7 +52,7 @@ class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        addToastToViewTree(getContentView(activity), relativeLayout, i, layoutParams, a.C0187a.aiapps_toast_enter);
+        addToastToViewTree(getContentView(activity), relativeLayout, i, layoutParams, a.C0197a.aiapps_toast_enter);
     }
 
     static View getContentView(@NonNull Activity activity) {
@@ -75,7 +75,7 @@ class e {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
         layoutParams.bottomMargin = (int) resources.getDimension(a.d.aiapps_clickable_toast_view_margin_bottom);
-        addToastToViewTree(getContentView(activity), relativeLayout, i, layoutParams, a.C0187a.aiapps_toast_enter);
+        addToastToViewTree(getContentView(activity), relativeLayout, i, layoutParams, a.C0197a.aiapps_toast_enter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -98,7 +98,7 @@ class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        addToastToViewTree(getContentView(activity), linearLayout, i, layoutParams, a.C0187a.aiapps_highlight_toast_show);
+        addToastToViewTree(getContentView(activity), linearLayout, i, layoutParams, a.C0197a.aiapps_highlight_toast_show);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -114,7 +114,7 @@ class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        addToastToViewTree(getContentView(activity), linearLayout, i, layoutParams, a.C0187a.aiapps_highlight_toast_show);
+        addToastToViewTree(getContentView(activity), linearLayout, i, layoutParams, a.C0197a.aiapps_highlight_toast_show);
     }
 
     private static void addToastToViewTree(View view, View view2, int i, FrameLayout.LayoutParams layoutParams, @AnimRes int i2) {
@@ -151,13 +151,13 @@ class e {
                                 return;
                             }
                         }
-                        if (e.bKA != null && (e.bKA.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) e.bKA.getParent()).removeView(e.bKA);
+                        if (e.bOF != null && (e.bOF.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) e.bOF.getParent()).removeView(e.bOF);
                         }
                         if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                             ((ViewGroup) view).addView(view2, layoutParams);
                             view2.startAnimation(animation);
-                            View unused2 = e.bKA = view2;
+                            View unused2 = e.bOF = view2;
                         }
                     }
                 });
@@ -218,7 +218,7 @@ class e {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
             layoutParams.bottomMargin = (int) resources.getDimension(a.d.aiapps_clickable_toast_view_margin_bottom);
-            addToastToViewTree(contentView, linearLayout, i2, layoutParams, a.C0187a.aiapps_toast_enter);
+            addToastToViewTree(contentView, linearLayout, i2, layoutParams, a.C0197a.aiapps_toast_enter);
         }
     }
 
@@ -235,7 +235,7 @@ class e {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().vi(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().vm(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -298,7 +298,7 @@ class e {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -326,7 +326,7 @@ class e {
                 animation = animationSet;
                 break;
             default:
-                animation = AnimationUtils.loadAnimation(activity, a.C0187a.aiapps_toast_enter);
+                animation = AnimationUtils.loadAnimation(activity, a.C0197a.aiapps_toast_enter);
                 break;
         }
         addToastToViewTree(getContentView(activity), linearLayout, i4, layoutParams, animation);
@@ -334,10 +334,10 @@ class e {
 
     public static synchronized void cancel() {
         synchronized (e.class) {
-            if (bKA != null) {
-                bKA.post(new AnonymousClass2(bKA, sMaskView));
-                bKA.removeCallbacks(mCancelRunnable);
-                bKA = null;
+            if (bOF != null) {
+                bOF.post(new AnonymousClass2(bOF, sMaskView));
+                bOF.removeCallbacks(mCancelRunnable);
+                bOF = null;
                 mCancelRunnable = null;
                 sMaskView = null;
             }
@@ -346,7 +346,7 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.res.widget.b.e$2  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class AnonymousClass2 implements Runnable {
         final /* synthetic */ View val$maskView;
         final /* synthetic */ View val$toastView;
@@ -358,7 +358,7 @@ class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.val$toastView.getContext(), a.C0187a.aiapps_toast_exit);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.val$toastView.getContext(), a.C0197a.aiapps_toast_exit);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {

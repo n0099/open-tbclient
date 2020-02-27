@@ -12,16 +12,15 @@ import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static final int dJZ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int jpD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int jpE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds39);
-    private static final int jpF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds106);
+    private static final int dOe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private static final int jqz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int jqA = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
-    public static List<m> dW(List<m> list) {
+    public static List<m> dS(List<m> list) {
         bj bjVar;
-        m aS;
+        m aV;
         ArrayList arrayList = new ArrayList();
         if (v.isEmpty(list)) {
             return arrayList;
@@ -33,15 +32,15 @@ public class a {
                 return arrayList;
             }
             m mVar = (m) v.getItem(list, i2);
-            if ((mVar instanceof CardPersonDynamicThreadData) && (bjVar = ((CardPersonDynamicThreadData) mVar).cNb) != null && (aS = aS(bjVar)) != null) {
-                arrayList.add(aS);
+            if ((mVar instanceof CardPersonDynamicThreadData) && (bjVar = ((CardPersonDynamicThreadData) mVar).cRe) != null && (aV = aV(bjVar)) != null) {
+                arrayList.add(aV);
             }
             i = i2 + 1;
         }
     }
 
-    public static List<m> dX(List<bj> list) {
-        m aS;
+    public static List<m> dT(List<bj> list) {
+        m aV;
         ArrayList arrayList = new ArrayList();
         if (v.isEmpty(list)) {
             return arrayList;
@@ -53,8 +52,8 @@ public class a {
                 return arrayList;
             }
             bj bjVar = (bj) v.getItem(list, i2);
-            if (bjVar != null && (aS = aS(bjVar)) != null) {
-                arrayList.add(aS);
+            if (bjVar != null && (aV = aV(bjVar)) != null) {
+                arrayList.add(aV);
             }
             i = i2 + 1;
         }
@@ -65,52 +64,52 @@ public class a {
             return null;
         }
         if (mVar instanceof e) {
-            return ((e) mVar).cNb;
+            return ((e) mVar).cRe;
         }
         if (mVar instanceof f) {
-            return ((f) mVar).cNb;
+            return ((f) mVar).cRe;
         }
         if (mVar instanceof k) {
-            return ((k) mVar).cNb;
+            return ((k) mVar).cRe;
         }
         if (mVar instanceof l) {
-            return ((l) mVar).cNb;
+            return ((l) mVar).cRe;
         }
         return null;
     }
 
-    public static m aS(bj bjVar) {
+    public static m aV(bj bjVar) {
         if (bjVar == null) {
             return null;
         }
         if (bjVar.isShareThread) {
             k kVar = new k();
-            kVar.cNb = bjVar;
+            kVar.cRe = bjVar;
             return kVar;
-        } else if (e.Z(bjVar)) {
+        } else if (e.aa(bjVar)) {
             return new e(bjVar);
         } else {
-            if (f.aa(bjVar)) {
+            if (f.ab(bjVar)) {
                 return new f(bjVar);
             }
-            if (k.Z(bjVar) || k.ab(bjVar)) {
+            if (k.aa(bjVar) || k.ac(bjVar)) {
                 k kVar2 = new k();
                 if (bjVar.isLinkThread()) {
                     kVar2.isLinkThread = true;
-                } else if (bjVar.aAY()) {
-                    kVar2.cNa = true;
+                } else if (bjVar.aDl()) {
+                    kVar2.cRd = true;
                 } else {
                     kVar2.isLinkThread = false;
-                    if (bjVar.aAa()) {
-                        kVar2.fKK = true;
+                    if (bjVar.aCp()) {
+                        kVar2.fNg = true;
                     } else {
-                        kVar2.fKK = false;
+                        kVar2.fNg = false;
                     }
                 }
-                kVar2.cNb = bjVar;
-                kVar2.fKL = true;
+                kVar2.cRe = bjVar;
+                kVar2.fNh = true;
                 return kVar2;
-            } else if (l.Z(bjVar)) {
+            } else if (l.aa(bjVar)) {
                 return new l(bjVar);
             } else {
                 return null;
@@ -118,14 +117,15 @@ public class a {
         }
     }
 
-    public static List<m> u(List<bj> list, List<m> list2) {
+    public static List<m> dU(List<bj> list) {
+        m aV;
         ArrayList arrayList = new ArrayList();
         if (!v.isEmpty(list)) {
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.job = jpE;
-            kVar.fMd = jpD;
-            kVar.paddingLeft = dJZ;
-            kVar.titleId = R.string.person_center_list_title_dynamic_txt;
+            kVar.paddingBottom = jqA;
+            kVar.paddingTop = jqz;
+            kVar.paddingLeft = dOe;
+            kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             int i = 0;
             while (true) {
@@ -133,26 +133,12 @@ public class a {
                 if (i2 >= list.size()) {
                     break;
                 }
-                m aS = aS(list.get(i2));
-                if (aS != null) {
-                    arrayList.add(aS);
+                bj bjVar = list.get(i2);
+                if (bjVar != null && (aV = aV(bjVar)) != null) {
+                    arrayList.add(aV);
                 }
                 i = i2 + 1;
             }
-        }
-        List<m> dW = dW(list2);
-        if (!v.isEmpty(dW)) {
-            com.baidu.tieba.personPolymeric.c.k kVar2 = new com.baidu.tieba.personPolymeric.c.k();
-            kVar2.job = jpE;
-            if (v.isEmpty(list)) {
-                kVar2.fMd = jpD;
-            } else {
-                kVar2.fMd = jpF;
-            }
-            kVar2.paddingLeft = dJZ;
-            kVar2.titleId = R.string.person_center_list_title_thread_txt;
-            arrayList.add(kVar2);
-            arrayList.addAll(dW);
         }
         return arrayList;
     }

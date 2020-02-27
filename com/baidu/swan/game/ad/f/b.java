@@ -6,9 +6,9 @@ import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements com.baidu.swan.game.ad.a.b {
-    private boolean cer;
+    private boolean civ;
     private Context mContext;
 
     public b(Context context) {
@@ -17,16 +17,16 @@ public class b implements com.baidu.swan.game.ad.a.b {
 
     @Override // com.baidu.swan.game.ad.a.b
     public void a(String str, ResponseCallback<AdResponseInfo> responseCallback) {
-        this.cer = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.cer) {
-            HttpManager.getDefault(this.mContext).getRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Se().Gd()).build().executeAsync(responseCallback);
+        this.civ = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.civ) {
+            HttpManager.getDefault(this.mContext).getRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Us().Is()).build().executeAsync(responseCallback);
             return;
         }
         HttpManager.getDefault(this.mContext).getRequest().url(str).build().executeAsync(responseCallback);
     }
 
     @Override // com.baidu.swan.game.ad.a.b
-    public void nu(String str) {
+    public void nJ(String str) {
         ResponseCallback<String> responseCallback = new ResponseCallback<String>() { // from class: com.baidu.swan.game.ad.f.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -47,9 +47,9 @@ public class b implements com.baidu.swan.game.ad.a.b {
             public void onFail(Exception exc) {
             }
         };
-        this.cer = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.cer) {
-            HttpManager.getDefault(this.mContext).getRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Se().Gd()).build().executeAsync(responseCallback);
+        this.civ = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.civ) {
+            HttpManager.getDefault(this.mContext).getRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Us().Is()).build().executeAsync(responseCallback);
             return;
         }
         HttpManager.getDefault(this.mContext).getRequest().url(str).build().executeAsync(responseCallback);

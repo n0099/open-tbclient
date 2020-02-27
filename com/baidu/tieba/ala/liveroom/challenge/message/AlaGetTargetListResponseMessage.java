@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b eQF;
-    private List<d> eQG;
+    private b eUw;
+    private List<d> eUx;
 
     public AlaGetTargetListResponseMessage() {
         super(1021105);
@@ -23,26 +23,26 @@ public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.eQF = new b();
-                this.eQF.parseJson(optJSONObject2);
+                this.eUw = new b();
+                this.eUw.parseJson(optJSONObject2);
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.eQG = new ArrayList();
+                this.eUx = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
-                    this.eQG.add(dVar);
+                    this.eUx.add(dVar);
                 }
             }
         }
     }
 
-    public b biD() {
-        return this.eQF;
+    public b bkt() {
+        return this.eUw;
     }
 
-    public List<d> biE() {
-        return this.eQG;
+    public List<d> bku() {
+        return this.eUx;
     }
 }

@@ -2,10 +2,10 @@ package pl.droidsonroids.gif;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class GifRenderingExecutor extends ScheduledThreadPoolExecutor {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static final class InstanceHolder {
         private static final GifRenderingExecutor INSTANCE = new GifRenderingExecutor();
 

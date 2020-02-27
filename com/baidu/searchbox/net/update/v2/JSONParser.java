@@ -5,40 +5,40 @@ import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class JSONParser {
     public static JSONObject readJSONObject(a aVar) throws IOException {
         JSONObject jSONObject = new JSONObject();
-        aVar.dzJ();
+        aVar.dAQ();
         while (aVar.hasNext()) {
             try {
-                jSONObject.put(aVar.dzO(), readObject(aVar));
+                jSONObject.put(aVar.dAU(), readObject(aVar));
             } catch (JSONException e) {
                 throw new IOException(e);
             }
         }
-        aVar.dzK();
+        aVar.endObject();
         return jSONObject;
     }
 
     public static JSONArray readJSONArray(a aVar) throws IOException {
         JSONArray jSONArray = new JSONArray();
-        aVar.dzH();
+        aVar.dAP();
         while (aVar.hasNext()) {
             jSONArray.put(readObject(aVar));
         }
-        aVar.dzI();
+        aVar.endArray();
         return jSONArray;
     }
 
     private static Object readObject(a aVar) throws IOException {
-        switch (aVar.dzL()) {
+        switch (aVar.dAR()) {
             case BEGIN_ARRAY:
                 return readJSONArray(aVar);
             case BEGIN_OBJECT:
                 return readJSONObject(aVar);
             case STRING:
-                return aVar.dzP();
+                return aVar.dAV();
             case NUMBER:
                 double nextDouble = aVar.nextDouble();
                 int i = (int) nextDouble;
@@ -49,7 +49,7 @@ public class JSONParser {
             case BOOLEAN:
                 return Boolean.valueOf(aVar.nextBoolean());
             case NULL:
-                aVar.dzQ();
+                aVar.dAW();
                 return null;
             default:
                 throw new IllegalStateException();

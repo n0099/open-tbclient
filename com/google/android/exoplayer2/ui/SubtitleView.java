@@ -12,16 +12,16 @@ import com.google.android.exoplayer2.text.j;
 import com.google.android.exoplayer2.util.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SubtitleView extends View implements j {
-    private float aAz;
-    private boolean mEK;
-    private boolean mEL;
-    private float mEN;
-    private final List<b> mEX;
-    private int mEY;
-    private com.google.android.exoplayer2.text.a mEZ;
-    private List<com.google.android.exoplayer2.text.b> myy;
+    private float aEP;
+    private final List<b> mFE;
+    private int mFF;
+    private com.google.android.exoplayer2.text.a mFG;
+    private boolean mFr;
+    private boolean mFs;
+    private float mFu;
+    private List<com.google.android.exoplayer2.text.b> mze;
 
     public SubtitleView(Context context) {
         this(context, null);
@@ -29,26 +29,26 @@ public final class SubtitleView extends View implements j {
 
     public SubtitleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mEX = new ArrayList();
-        this.mEY = 0;
-        this.aAz = 0.0533f;
-        this.mEK = true;
-        this.mEL = true;
-        this.mEZ = com.google.android.exoplayer2.text.a.mxO;
-        this.mEN = 0.08f;
+        this.mFE = new ArrayList();
+        this.mFF = 0;
+        this.aEP = 0.0533f;
+        this.mFr = true;
+        this.mFs = true;
+        this.mFG = com.google.android.exoplayer2.text.a.myu;
+        this.mFu = 0.08f;
     }
 
     @Override // com.google.android.exoplayer2.text.j
-    public void fe(List<com.google.android.exoplayer2.text.b> list) {
+    public void eZ(List<com.google.android.exoplayer2.text.b> list) {
         setCues(list);
     }
 
     public void setCues(List<com.google.android.exoplayer2.text.b> list) {
-        if (this.myy != list) {
-            this.myy = list;
+        if (this.mze != list) {
+            this.mze = list;
             int size = list == null ? 0 : list.size();
-            while (this.mEX.size() < size) {
-                this.mEX.add(new b(getContext()));
+            while (this.mFE.size() < size) {
+                this.mFE.add(new b(getContext()));
             }
             invalidate();
         }
@@ -78,42 +78,42 @@ public final class SubtitleView extends View implements j {
     }
 
     private void setTextSize(int i, float f) {
-        if (this.mEY != i || this.aAz != f) {
-            this.mEY = i;
-            this.aAz = f;
+        if (this.mFF != i || this.aEP != f) {
+            this.mFF = i;
+            this.aEP = f;
             invalidate();
         }
     }
 
     public void setApplyEmbeddedStyles(boolean z) {
-        if (this.mEK != z || this.mEL != z) {
-            this.mEK = z;
-            this.mEL = z;
+        if (this.mFr != z || this.mFs != z) {
+            this.mFr = z;
+            this.mFs = z;
             invalidate();
         }
     }
 
     public void setApplyEmbeddedFontSizes(boolean z) {
-        if (this.mEL != z) {
-            this.mEL = z;
+        if (this.mFs != z) {
+            this.mFs = z;
             invalidate();
         }
     }
 
     public void setUserDefaultStyle() {
-        setStyle((v.SDK_INT < 19 || isInEditMode()) ? com.google.android.exoplayer2.text.a.mxO : getUserCaptionStyleV19());
+        setStyle((v.SDK_INT < 19 || isInEditMode()) ? com.google.android.exoplayer2.text.a.myu : getUserCaptionStyleV19());
     }
 
     public void setStyle(com.google.android.exoplayer2.text.a aVar) {
-        if (this.mEZ != aVar) {
-            this.mEZ = aVar;
+        if (this.mFG != aVar) {
+            this.mFG = aVar;
             invalidate();
         }
     }
 
     public void setBottomPaddingFraction(float f) {
-        if (this.mEN != f) {
-            this.mEN = f;
+        if (this.mFu != f) {
+            this.mFu = f;
             invalidate();
         }
     }
@@ -121,22 +121,22 @@ public final class SubtitleView extends View implements j {
     @Override // android.view.View
     public void dispatchDraw(Canvas canvas) {
         float f;
-        int size = this.myy == null ? 0 : this.myy.size();
-        int top = getTop();
+        int size = this.mze == null ? 0 : this.mze.size();
+        int top2 = getTop();
         int bottom = getBottom();
         int left = getLeft() + getPaddingLeft();
-        int paddingTop = top + getPaddingTop();
+        int paddingTop = top2 + getPaddingTop();
         int right = getRight() + getPaddingRight();
         int paddingBottom = bottom - getPaddingBottom();
         if (paddingBottom > paddingTop && right > left) {
-            if (this.mEY == 2) {
-                f = this.aAz;
+            if (this.mFF == 2) {
+                f = this.aEP;
             } else {
-                f = this.aAz * (this.mEY == 0 ? paddingBottom - paddingTop : bottom - top);
+                f = this.aEP * (this.mFF == 0 ? paddingBottom - paddingTop : bottom - top2);
             }
             if (f > 0.0f) {
                 for (int i = 0; i < size; i++) {
-                    this.mEX.get(i).a(this.myy.get(i), this.mEK, this.mEL, this.mEZ, f, this.mEN, canvas, left, paddingTop, right, paddingBottom);
+                    this.mFE.get(i).a(this.mze.get(i), this.mFr, this.mFs, this.mFG, f, this.mFu, canvas, left, paddingTop, right, paddingBottom);
                 }
             }
         }

@@ -1,33 +1,33 @@
 package com.facebook.common.b;
 
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class h<T> implements Runnable {
-    protected final AtomicInteger lHA = new AtomicInteger(0);
+    protected final AtomicInteger lIh = new AtomicInteger(0);
 
     protected abstract T getResult() throws Exception;
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.lHA.compareAndSet(0, 1)) {
+        if (this.lIh.compareAndSet(0, 1)) {
             try {
                 T result = getResult();
-                this.lHA.set(3);
+                this.lIh.set(3);
                 try {
                     onSuccess(result);
                 } finally {
-                    aP(result);
+                    aR(result);
                 }
             } catch (Exception e) {
-                this.lHA.set(4);
+                this.lIh.set(4);
                 onFailure(e);
             }
         }
     }
 
     public void cancel() {
-        if (this.lHA.compareAndSet(0, 2)) {
-            djp();
+        if (this.lIh.compareAndSet(0, 2)) {
+            dkC();
         }
     }
 
@@ -37,9 +37,9 @@ public abstract class h<T> implements Runnable {
     protected void onFailure(Exception exc) {
     }
 
-    protected void djp() {
+    protected void dkC() {
     }
 
-    protected void aP(T t) {
+    protected void aR(T t) {
     }
 }

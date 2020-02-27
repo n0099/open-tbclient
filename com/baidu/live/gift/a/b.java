@@ -2,15 +2,15 @@ package com.baidu.live.gift.a;
 
 import com.baidu.live.gift.g;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public String Zb;
-    public int adQ;
-    public String aeS;
-    public int afv;
-    public g aiX;
-    public long ajl;
-    public String ajm = TbadkCoreApplication.getCurrentTbs();
+    public String aaT;
+    public int afX;
+    public String agZ;
+    public int ahC;
+    public g ale;
+    public long alt;
+    public String alu = TbadkCoreApplication.getCurrentTbs();
     public String liveId;
     public String mGiftName;
     public String otherParams;
@@ -20,26 +20,26 @@ public class b {
     public String userName;
 
     public b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6) {
-        this.ajl = j;
-        this.Zb = gVar.qE();
+        this.alt = j;
+        this.aaT = gVar.rx();
         this.userId = str;
         this.userName = str2;
         this.liveId = str3;
         this.roomId = str4;
-        this.aeS = str5;
-        this.mGiftName = gVar.qF();
-        this.afv = gVar.adZ;
-        this.adQ = gVar.qK();
+        this.agZ = str5;
+        this.mGiftName = gVar.ry();
+        this.ahC = gVar.agd;
+        this.afX = gVar.rD();
         this.sceneFrom = gVar.getSceneFrom();
-        this.aiX = gVar;
+        this.ale = gVar;
         this.otherParams = str6;
     }
 
-    public boolean qP() {
-        return this.adQ == 6;
+    public boolean rI() {
+        return this.afX == 6;
     }
 
-    public boolean sC() {
-        return this.adQ == 7;
+    public boolean tO() {
+        return this.afX == 7;
     }
 }

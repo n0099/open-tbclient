@@ -2,7 +2,7 @@ package com.tencent.open.a;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static int a = 62;
     public static int b = 60;

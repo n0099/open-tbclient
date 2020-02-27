@@ -3,7 +3,7 @@ package com.baidu.mapapi.utils;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.Point;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DistanceUtil {
     public static double getDistance(LatLng latLng, LatLng latLng2) {
         if (latLng == null || latLng2 == null) {

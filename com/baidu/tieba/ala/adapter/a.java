@@ -9,15 +9,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.util.TextHelper;
+import com.baidu.live.u.a;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.data.a> efl;
+    private ArrayList<com.baidu.tieba.ala.data.a> ejo;
     private Context mContext;
 
     public a(Context context) {
@@ -25,26 +25,26 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<com.baidu.tieba.ala.data.a> arrayList) {
-        if (this.efl == null) {
-            this.efl = new ArrayList<>();
+        if (this.ejo == null) {
+            this.ejo = new ArrayList<>();
         } else {
-            this.efl.clear();
+            this.ejo.clear();
         }
-        this.efl.addAll(arrayList);
+        this.ejo.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.efl);
+        return ListUtils.getCount(this.ejo);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.efl == null || i < 0 || i >= this.efl.size()) {
+        if (this.ejo == null || i < 0 || i >= this.ejo.size()) {
             return null;
         }
-        return this.efl.get(i);
+        return this.ejo.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -54,71 +54,71 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0411a c0411a;
+        C0422a c0422a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_history_list_item_view, (ViewGroup) null);
-            C0411a c0411a2 = new C0411a(view);
-            view.setTag(c0411a2);
-            c0411a = c0411a2;
+            C0422a c0422a2 = new C0422a(view);
+            view.setTag(c0422a2);
+            c0422a = c0422a2;
         } else {
-            c0411a = (C0411a) view.getTag();
+            c0422a = (C0422a) view.getTag();
         }
         com.baidu.tieba.ala.data.a aVar = (com.baidu.tieba.ala.data.a) getItem(i);
         if (aVar != null) {
-            c0411a.a(aVar);
+            c0422a.a(aVar);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    protected class C0411a {
-        private LinearLayout efm;
-        private HeadImageView efn;
-        private TextView efo;
-        private RelativeLayout efp;
-        private TextView efq;
-        private ImageView efr;
-        private TextView efs;
-        private LinearLayout eft;
-        private HeadImageView efu;
-        private TextView efv;
+    /* loaded from: classes3.dex */
+    protected class C0422a {
+        private LinearLayout ejp;
+        private HeadImageView ejq;
+        private TextView ejr;
+        private RelativeLayout ejs;
+        private TextView ejt;
+        private ImageView eju;
+        private TextView ejv;
+        private LinearLayout ejw;
+        private HeadImageView ejx;
+        private TextView ejy;
 
-        public C0411a(View view) {
-            this.efm = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
-            this.efn = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
-            this.efo = (TextView) view.findViewById(a.g.text_challenge_history_left);
-            this.efp = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
-            this.efq = (TextView) view.findViewById(a.g.pk_history_anchor_score);
-            this.efr = (ImageView) view.findViewById(a.g.pk_history_icon);
-            this.efs = (TextView) view.findViewById(a.g.pk_history_rival_score);
-            this.eft = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
-            this.efu = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
-            this.efv = (TextView) view.findViewById(a.g.text_challenge_history_right);
-            this.efn.setIsRound(true);
-            this.efn.setAutoChangeStyle(false);
-            this.efu.setIsRound(true);
-            this.efu.setAutoChangeStyle(false);
+        public C0422a(View view) {
+            this.ejp = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
+            this.ejq = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
+            this.ejr = (TextView) view.findViewById(a.g.text_challenge_history_left);
+            this.ejs = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
+            this.ejt = (TextView) view.findViewById(a.g.pk_history_anchor_score);
+            this.eju = (ImageView) view.findViewById(a.g.pk_history_icon);
+            this.ejv = (TextView) view.findViewById(a.g.pk_history_rival_score);
+            this.ejw = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
+            this.ejx = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
+            this.ejy = (TextView) view.findViewById(a.g.text_challenge_history_right);
+            this.ejq.setIsRound(true);
+            this.ejq.setAutoChangeStyle(false);
+            this.ejx.setIsRound(true);
+            this.ejx.setAutoChangeStyle(false);
         }
 
         public void a(com.baidu.tieba.ala.data.a aVar) {
             if (aVar != null) {
-                this.efn.startLoad(aVar.euM.portrait, 12, false);
-                String name_show = aVar.euM.getName_show();
+                this.ejq.startLoad(aVar.eyY.portrait, 12, false);
+                String name_show = aVar.eyY.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show) > 8) {
                     name_show = TextHelper.subStringWithEmoji(name_show, 8) + StringHelper.STRING_MORE;
                 }
-                this.efo.setText(name_show);
-                this.efu.startLoad(aVar.euN.portrait, 12, false);
-                String name_show2 = aVar.euN.getName_show();
+                this.ejr.setText(name_show);
+                this.ejx.startLoad(aVar.eyZ.portrait, 12, false);
+                String name_show2 = aVar.eyZ.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show2) > 8) {
                     name_show2 = TextHelper.subStringWithEmoji(name_show2, 8) + StringHelper.STRING_MORE;
                 }
-                this.efv.setText(name_show2);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.euL.euR);
-                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.euL.euS);
-                this.efq.setText(numberUniformFormatExtra);
-                this.efs.setText(numberUniformFormatExtra2);
+                this.ejy.setText(name_show2);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.eyX.ezd);
+                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.eyX.eze);
+                this.ejt.setText(numberUniformFormatExtra);
+                this.ejv.setText(numberUniformFormatExtra2);
             }
         }
     }

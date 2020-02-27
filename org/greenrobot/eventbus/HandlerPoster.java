@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class HandlerPoster extends Handler {
     private final EventBus eventBus;
     private boolean handlerActive;

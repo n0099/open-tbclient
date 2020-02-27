@@ -1,8 +1,10 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.j;
+import com.baidu.live.data.k;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
@@ -13,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveInfoData implements Serializable {
     public static boolean DEBUG = false;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
@@ -34,6 +36,8 @@ public class AlaLiveInfoData implements Serializable {
     public long channel_id;
     public String channel_name;
     public int charm_count;
+    public long chatId;
+    public int chat_count;
     public int clarity;
     public String close_reason;
     public int close_type;
@@ -41,6 +45,8 @@ public class AlaLiveInfoData implements Serializable {
     public String cover;
     public String description;
     public long end_time;
+    public boolean existChat;
+    public JSONObject extraLiveInfo;
     public int familyFansCount;
     public String feed_id;
     public int flower_count;
@@ -87,7 +93,7 @@ public class AlaLiveInfoData implements Serializable {
     public String user_name;
     public String user_nickname;
     public int zan_count;
-    public j.a mCastIds = null;
+    public k.a mCastIds = null;
     public int session_default = 0;
     public long broadGiftMsgId = 0;
     public AlaLiveCloseData mLiveCloseData = new AlaLiveCloseData();
@@ -255,9 +261,9 @@ public class AlaLiveInfoData implements Serializable {
                     this.imEffect = null;
                 }
             }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("mcast_ids");
+            JSONObject optJSONObject4 = jSONObject.optJSONObject(Constants.EXTRA_CAST_IDS);
             if (optJSONObject4 != null) {
-                this.mCastIds = new j.a();
+                this.mCastIds = new k.a();
                 this.mCastIds.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("switch");
@@ -278,6 +284,13 @@ public class AlaLiveInfoData implements Serializable {
                 this.redpacketCharmInfo = new RedPacketCharmInfo(optJSONObject7);
             }
             this.guardPortrait = jSONObject.optString("guard_portrait");
+            this.chatId = jSONObject.optLong("chat_id", 0L);
+            this.existChat = jSONObject.optInt("exist_chat", 0) == 1;
+            JSONObject optJSONObject8 = jSONObject.optJSONObject("third_special");
+            if (optJSONObject8 != null && !TextUtils.isEmpty(TbConfig.getSubappType())) {
+                this.extraLiveInfo = optJSONObject8.optJSONObject(TbConfig.getSubappType() + "_special");
+            }
+            this.chat_count = jSONObject.optInt("chat_count", 0);
         }
     }
 
@@ -378,7 +391,7 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("challenge_id", this.challengeId);
             jSONObject.put("gift_broad_msg_id", this.broadGiftMsgId);
             if (this.mCastIds != null) {
-                jSONObject.put("mcast_ids", this.mCastIds.toJsonObject());
+                jSONObject.put(Constants.EXTRA_CAST_IDS, this.mCastIds.toJsonObject());
             }
             if (this.mAlaLiveSwitchData != null) {
                 jSONObject.put("switch", this.mAlaLiveSwitchData.toJson());
@@ -387,6 +400,14 @@ public class AlaLiveInfoData implements Serializable {
                 jSONObject.put("close_data", AlaLiveCloseData.toJson(this.mLiveCloseData));
             }
             jSONObject.put("guard_portrait", this.guardPortrait);
+            jSONObject.put("chat_id", this.chatId);
+            jSONObject.put("exist_chat", this.existChat ? 1 : 0);
+            if (this.extraLiveInfo != null && !TextUtils.isEmpty(TbConfig.getSubappType())) {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(TbConfig.getSubappType() + "_special", this.extraLiveInfo.toString());
+                jSONObject.put("third_special", jSONObject2.toString());
+            }
+            jSONObject.put("chat_count", this.chat_count);
         } catch (JSONException e) {
             e.printStackTrace();
         }

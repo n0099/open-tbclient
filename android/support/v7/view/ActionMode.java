@@ -5,12 +5,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class ActionMode {
     private Object mTag;
     private boolean mTitleOptionalHint;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface Callback {
         boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem);
 

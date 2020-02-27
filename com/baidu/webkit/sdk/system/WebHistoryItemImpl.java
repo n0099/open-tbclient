@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
     private static Method cloneMethod;
     private final android.webkit.WebHistoryItem mItem;

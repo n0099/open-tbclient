@@ -3,10 +3,10 @@ package com.baidu.swan.apps.component.components.f;
 import com.baidu.mobstat.Config;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b extends com.baidu.swan.apps.component.a.a.b {
-    boolean beG;
-    boolean beH;
+    boolean biU;
+    boolean biV;
     public String type;
 
     public b() {
@@ -17,13 +17,13 @@ public final class b extends com.baidu.swan.apps.component.a.a.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            if (this.bdZ == null) {
-                this.bdZ = new com.baidu.swan.apps.model.a.a.a();
+            if (this.bip == null) {
+                this.bip = new com.baidu.swan.apps.model.a.a.a();
             }
             this.text = jSONObject.optString("value");
             this.type = jSONObject.optString("type");
-            this.beG = jSONObject.optInt("confirmHold") == 1;
-            this.beH = jSONObject.optInt("adjustPosition", 1) == 1;
+            this.biU = jSONObject.optInt("confirmHold") == 1;
+            this.biV = jSONObject.optInt("adjustPosition", 1) == 1;
         }
     }
 }

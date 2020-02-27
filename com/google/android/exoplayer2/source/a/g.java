@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.source.a;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface g {
     void a(l lVar, long j, long j2, e eVar);
 
@@ -9,5 +9,5 @@ public interface g {
 
     void b(c cVar);
 
-    void duZ() throws IOException;
+    void dwj() throws IOException;
 }

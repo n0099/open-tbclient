@@ -3,45 +3,45 @@ package com.airbnb.lottie.model;
 import android.graphics.PointF;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private final PointF hl;
-    private final PointF hm;
-    private final PointF hn;
+    private final PointF hp;
+    private final PointF hq;
+    private final PointF hr;
 
     public a() {
-        this.hl = new PointF();
-        this.hm = new PointF();
-        this.hn = new PointF();
+        this.hp = new PointF();
+        this.hq = new PointF();
+        this.hr = new PointF();
     }
 
     public a(PointF pointF, PointF pointF2, PointF pointF3) {
-        this.hl = pointF;
-        this.hm = pointF2;
-        this.hn = pointF3;
+        this.hp = pointF;
+        this.hq = pointF2;
+        this.hr = pointF3;
     }
 
     public void f(float f, float f2) {
-        this.hl.set(f, f2);
-    }
-
-    public PointF cd() {
-        return this.hl;
-    }
-
-    public void g(float f, float f2) {
-        this.hm.set(f, f2);
+        this.hp.set(f, f2);
     }
 
     public PointF ce() {
-        return this.hm;
+        return this.hp;
     }
 
-    public void h(float f, float f2) {
-        this.hn.set(f, f2);
+    public void g(float f, float f2) {
+        this.hq.set(f, f2);
     }
 
     public PointF cf() {
-        return this.hn;
+        return this.hq;
+    }
+
+    public void h(float f, float f2) {
+        this.hr.set(f, f2);
+    }
+
+    public PointF cg() {
+        return this.hr;
     }
 }

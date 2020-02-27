@@ -1,12 +1,13 @@
 package com.google.zxing.pdf417.encoder;
 
+import com.alibaba.fastjson.parser.JSONLexer;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.CharacterSetECI;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class PDF417HighLevelEncoder {
     private static final int BYTE_COMPACTION = 1;
     private static final int ECI_CHARSET = 927;
@@ -120,7 +121,7 @@ final class PDF417HighLevelEncoder {
                 case 0:
                     if (isAlphaUpper(charAt2)) {
                         if (charAt2 == ' ') {
-                            sb2.append((char) 26);
+                            sb2.append(JSONLexer.EOI);
                             break;
                         } else {
                             sb2.append((char) (charAt2 - 'A'));
@@ -141,7 +142,7 @@ final class PDF417HighLevelEncoder {
                 case 1:
                     if (isAlphaLower(charAt2)) {
                         if (charAt2 == ' ') {
-                            sb2.append((char) 26);
+                            sb2.append(JSONLexer.EOI);
                             break;
                         } else {
                             sb2.append((char) (charAt2 - 'a'));

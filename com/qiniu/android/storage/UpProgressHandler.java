@@ -1,5 +1,5 @@
 package com.qiniu.android.storage;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface UpProgressHandler {
-    void a(String str, double d);
+    void b(String str, double d);
 }

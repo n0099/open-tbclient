@@ -3,21 +3,21 @@ package com.baidu.swan.uuid;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a<T> {
-    private List<com.baidu.swan.uuid.a.b<T>> cBJ = new ArrayList(6);
+    private List<com.baidu.swan.uuid.a.b<T>> cFH = new ArrayList(6);
 
     public void a(com.baidu.swan.uuid.a.b<T> bVar) {
-        if (bVar != null && !this.cBJ.contains(bVar)) {
-            this.cBJ.add(bVar);
+        if (bVar != null && !this.cFH.contains(bVar)) {
+            this.cFH.add(bVar);
         }
     }
 
-    public T atS() {
+    public T awg() {
         T t;
         ArrayList<com.baidu.swan.uuid.a.b> arrayList = new ArrayList();
         T t2 = null;
-        Iterator<com.baidu.swan.uuid.a.b<T>> it = this.cBJ.iterator();
+        Iterator<com.baidu.swan.uuid.a.b<T>> it = this.cFH.iterator();
         while (true) {
             if (!it.hasNext()) {
                 t = t2;
@@ -25,7 +25,7 @@ public class a<T> {
             }
             com.baidu.swan.uuid.a.b<T> next = it.next();
             t = next.get();
-            if (aa(t)) {
+            if (ac(t)) {
                 break;
             }
             arrayList.add(next);
@@ -39,7 +39,7 @@ public class a<T> {
         return t;
     }
 
-    private boolean aa(T t) {
+    private boolean ac(T t) {
         char[] charArray;
         if (t != null && (t instanceof String)) {
             String str = (String) t;
@@ -56,10 +56,10 @@ public class a<T> {
         return false;
     }
 
-    public void ab(T t) {
-        if (!aa(t)) {
-            for (com.baidu.swan.uuid.a.b<T> bVar : this.cBJ) {
-                if (bVar.atT()) {
+    public void ad(T t) {
+        if (!ac(t)) {
+            for (com.baidu.swan.uuid.a.b<T> bVar : this.cFH) {
+                if (bVar.awh()) {
                     bVar.put(t);
                 }
             }

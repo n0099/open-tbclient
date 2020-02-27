@@ -1,7 +1,7 @@
 package com.baidu.swan.config.core.b;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a implements c {
     /* JADX INFO: Access modifiers changed from: protected */
     public JSONObject bi(JSONObject jSONObject) {

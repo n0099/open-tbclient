@@ -11,20 +11,20 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ec extends ai.a {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f250a;
+    private SharedPreferences f247a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ag f251a;
+    private com.xiaomi.push.service.ag f248a;
 
     public ec(Context context) {
         this.a = context;
-        this.f250a = context.getSharedPreferences("mipush_extra", 0);
-        this.f251a = com.xiaomi.push.service.ag.a(context);
+        this.f247a = context.getSharedPreferences("mipush_extra", 0);
+        this.f248a = com.xiaomi.push.service.ag.a(context);
     }
 
     private List<ho> a(File file) {
@@ -37,8 +37,8 @@ public class ec extends ai.a {
         r1 = null;
         fileInputStream2 = null;
         FileLock fileLock2 = null;
-        dk m218a = dl.a().m218a();
-        String a = m218a == null ? "" : m218a.a();
+        dk m223a = dl.a().m223a();
+        String a = m223a == null ? "" : m223a.a();
         if (TextUtils.isEmpty(a)) {
             return null;
         }
@@ -47,7 +47,7 @@ public class ec extends ai.a {
         synchronized (dq.a) {
             try {
                 File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m563a(file2);
+                y.m568a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -128,13 +128,13 @@ public class ec extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f250a.edit();
+        SharedPreferences.Editor edit = this.f247a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m223a() {
+    private boolean m228a() {
         if (as.d(this.a)) {
             return false;
         }
@@ -145,22 +145,22 @@ public class ec extends ai.a {
     }
 
     private boolean b() {
-        if (this.f251a.a(hl.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f250a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f251a.a(hl.Upload3GFrequency.a(), 432000)));
+        if (this.f248a.a(hl.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f247a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f248a.a(hl.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f251a.a(hl.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f250a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f251a.a(hl.Upload4GFrequency.a(), 259200)));
+        if (this.f248a.a(hl.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f247a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f248a.a(hl.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo152a() {
+    public int mo157a() {
         return 1;
     }
 
@@ -171,7 +171,7 @@ public class ec extends ai.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m223a() || !file.exists()) {
+        } else if (m228a() || !file.exists()) {
         } else {
             List<ho> a = a(file);
             if (!ad.a(a)) {
@@ -183,16 +183,16 @@ public class ec extends ai.a {
                 hzVar.a(a);
                 byte[] a2 = y.a(iq.a(hzVar));
                 Cif cif = new Cif("-1", false);
-                cif.c(hq.DataCollection.f493a);
+                cif.c(hq.DataCollection.f490a);
                 cif.a(a2);
-                dk m218a = dl.a().m218a();
-                if (m218a != null) {
-                    m218a.a(cif, hg.Notification, null);
+                dk m223a = dl.a().m223a();
+                if (m223a != null) {
+                    m223a.a(cif, hg.Notification, null);
                 }
                 a();
             }
             file.delete();
-            this.f250a.edit().remove("ltapn").commit();
+            this.f247a.edit().remove("ltapn").commit();
         }
     }
 }

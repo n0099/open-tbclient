@@ -7,7 +7,7 @@ import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
 import com.baidu.mapapi.search.poi.PoiIndoorOption;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f extends com.baidu.platform.base.a implements a {
     private OnGetPoiSearchResultListener b = null;
 

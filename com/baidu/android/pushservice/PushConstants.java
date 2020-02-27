@@ -2,7 +2,7 @@ package com.baidu.android.pushservice;
 
 import com.baidu.live.tbadk.core.util.NetWorkErr;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class PushConstants {
     public static final String ACTION_MESSAGE = "com.baidu.android.pushservice.action.MESSAGE";
     public static final String ACTION_METHOD = "com.baidu.android.pushservice.action.METHOD";

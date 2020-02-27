@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
-import android.widget.Toast;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.kascend.chushou.a;
 import com.kascend.chushou.b.a.a.k;
@@ -35,7 +34,7 @@ import tv.chushou.basis.http.model.RequestTag;
 import tv.chushou.basis.rxjava.RxExecutor;
 import tv.chushou.basis.rxjava.thread.EventThread;
 import tv.chushou.zues.widget.sweetalert.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
     private static volatile boolean a = false;
     private static final Object b = new Object();
@@ -47,19 +46,19 @@ public class e {
     }
 
     public static void a() {
-        tv.chushou.basis.c.c.Sy("chushou_player_prefs").putBoolean("key_only_play_when_wifi", h.dAM().u());
+        tv.chushou.basis.c.c.SJ("chushou_player_prefs").putBoolean("key_only_play_when_wifi", h.dBS().u());
     }
 
     public static boolean b() {
-        return h.dAM().u() && !com.kascend.chushou.b.dAF().a && com.kascend.chushou.b.dAF().b;
+        return h.dBS().u() && !com.kascend.chushou.b.dBL().a && com.kascend.chushou.b.dBL().b;
     }
 
     public static int c() {
-        return tv.chushou.basis.c.c.Sy("chushou_player_prefs").getInt("key_user_4g_choice", -1);
+        return tv.chushou.basis.c.c.SJ("chushou_player_prefs").getInt("key_user_4g_choice", -1);
     }
 
     public static void a(int i) {
-        tv.chushou.basis.c.c.Sy("chushou_player_prefs").putInt("key_user_4g_choice", i);
+        tv.chushou.basis.c.c.SJ("chushou_player_prefs").putInt("key_user_4g_choice", i);
     }
 
     public static Uri aA(String str, String str2, String str3) {
@@ -70,7 +69,7 @@ public class e {
     }
 
     public static void a(Context context, boolean z) {
-        tv.chushou.widget.a.a.q(context, z);
+        tv.chushou.widget.a.a.p(context, z);
     }
 
     @Nullable
@@ -87,7 +86,7 @@ public class e {
                     if (generalTabGift != null && !tv.chushou.zues.utils.h.isEmpty(generalTabGift.mGeneralGifts)) {
                         for (GeneralGift generalGift : generalTabGift.mGeneralGifts) {
                             if (generalGift != null && !tv.chushou.zues.utils.h.isEmpty(generalGift.mIcon)) {
-                                tv.chushou.zues.utils.h.SO(generalGift.mIcon);
+                                tv.chushou.zues.utils.h.SZ(generalGift.mIcon);
                             }
                         }
                     }
@@ -214,7 +213,7 @@ public class e {
             }
             switch (c2) {
                 case 0:
-                    if (listItem.fromBaidu ? true : com.kascend.cstvsdk.utils.a.njI.a(listItem.mTargetKey)) {
+                    if (listItem.fromBaidu ? true : com.kascend.cstvsdk.utils.a.nkk.a(listItem.mTargetKey)) {
                         JSONObject jSONObject2 = jSONObject == null ? new JSONObject() : jSONObject;
                         try {
                             if ("mic_room".equals(jSONObject2.optString("imfrom"))) {
@@ -266,7 +265,7 @@ public class e {
             if (e instanceof FragmentActivity) {
                 fragmentActivity = (FragmentActivity) e;
                 if (fragmentActivity == null && !fragmentActivity.isFinishing()) {
-                    com.kascend.chushou.player.ui.h5.a.nbt.QJ(str).show(fragmentActivity.getSupportFragmentManager(), "fixedDialog");
+                    com.kascend.chushou.player.ui.h5.a.nbW.QW(str).show(fragmentActivity.getSupportFragmentManager(), "fixedDialog");
                     return;
                 }
             }
@@ -278,7 +277,7 @@ public class e {
 
     public static String a(String str, Map<String, Object> map, RequestTag requestTag) {
         Http http;
-        if (!tv.chushou.zues.utils.h.isEmpty(str) && (http = (Http) tv.chushou.basis.d.b.dOG().T(Http.class)) != null) {
+        if (!tv.chushou.zues.utils.h.isEmpty(str) && (http = (Http) tv.chushou.basis.d.b.dPT().S(Http.class)) != null) {
             if (str.contains("chushou.tv") || str.contains("192.168.") || str.contains("183.129.155.244") || str.contains("vchushou.com") || str.contains("playground") || str.contains("kascend-inc.com")) {
                 if (requestTag == null) {
                     requestTag = RequestTag.normal();
@@ -294,8 +293,8 @@ public class e {
         return a(str, (Map<String, Object>) null, RequestTag.normal());
     }
 
-    public static String o(String str, Map<String, Object> map) {
-        Http http = (Http) tv.chushou.basis.d.b.dOG().T(Http.class);
+    public static String n(String str, Map<String, Object> map) {
+        Http http = (Http) tv.chushou.basis.d.b.dPT().S(Http.class);
         return http == null ? str : http.packParams(str, map);
     }
 
@@ -332,7 +331,7 @@ public class e {
                     }
                     listItem.mType = str6;
                     o oVar = new o();
-                    oVar.mOj = listItem;
+                    oVar.mOL = listItem;
                     oVar.f = "3";
                     oVar.c = context;
                     oVar.d = z2;
@@ -350,7 +349,7 @@ public class e {
             listItem.mCover = jSONObject.optString("_thumb");
             o oVar = new o();
             oVar.f = "1";
-            oVar.mOj = listItem;
+            oVar.mOL = listItem;
             oVar.c = context;
             oVar.d = z2;
             oVar.g = str3;
@@ -367,7 +366,7 @@ public class e {
                     }
                     listItem2.mType = str6;
                     o oVar2 = new o();
-                    oVar2.mOj = listItem2;
+                    oVar2.mOL = listItem2;
                     oVar2.c = context;
                     oVar2.d = z2;
                     oVar2.g = str3;
@@ -378,7 +377,6 @@ public class e {
             tv.chushou.zues.a.a.post(new k(1));
             Intent intent = new Intent(context, VideoPlayer.class);
             intent.setData(aA(str, "2,1,101,102", str3));
-            intent.setAction("android.intent.action.VIEW");
             intent.putExtra("tittle", str2);
             if (jSONObject != null) {
                 intent.putExtra("json_str", jSONObject.toString());
@@ -395,8 +393,8 @@ public class e {
 
     private static boolean a(Context context, String str, String str2, JSONObject jSONObject, boolean z, String str3) {
         if (!tv.chushou.zues.utils.h.isEmpty(str)) {
-            if (!tv.chushou.zues.utils.a.dPa()) {
-                Toast.makeText(context, a.i.s_no_available_network, 0).show();
+            if (!tv.chushou.zues.utils.a.dQn()) {
+                tv.chushou.zues.utils.g.Om(a.i.s_no_available_network);
             } else {
                 a(context, str, str2, jSONObject, z, false, str3);
             }
@@ -483,8 +481,8 @@ public class e {
     }
 
     public static boolean c(Context context, String str) {
-        if (!tv.chushou.zues.utils.a.dPa()) {
-            tv.chushou.zues.utils.g.Oj(a.i.s_no_available_network);
+        if (!tv.chushou.zues.utils.a.dQn()) {
+            tv.chushou.zues.utils.g.Om(a.i.s_no_available_network);
             return false;
         } else if (!LoginManager.Instance().islogined()) {
             a.b(context, str);
@@ -499,7 +497,7 @@ public class e {
     }
 
     public static void a(FragmentActivity fragmentActivity, String str) {
-        com.kascend.chushou.view.b.b.QO(str).show(fragmentActivity.getSupportFragmentManager(), "RechargeDialog");
+        com.kascend.chushou.view.b.b.Rb(str).show(fragmentActivity.getSupportFragmentManager(), "RechargeDialog");
     }
 
     public static void a(Context context, String str, b.a aVar) {
@@ -508,12 +506,12 @@ public class e {
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
             }
-        }).b(aVar).SS(context.getString(a.i.alert_dialog_cancel)).SU(context.getString(a.i.alert_dialog_ok)).x(context.getString(a.i.manage_follow_confirm, str)).show();
+        }).b(aVar).Td(context.getString(a.i.alert_dialog_cancel)).Tf(context.getString(a.i.alert_dialog_ok)).x(context.getString(a.i.manage_follow_confirm, str)).show();
     }
 
     public static void d(FragmentManager fragmentManager) {
         if (LoginManager.Instance().islogined()) {
-            com.kascend.chushou.view.b.d.wn(true).show(fragmentManager, "userinfocopy");
+            com.kascend.chushou.view.b.d.wr(true).show(fragmentManager, "userinfocopy");
         }
     }
 
@@ -532,26 +530,26 @@ public class e {
     }
 
     public static void f() {
-        c.mOu.c();
-        c.mOu.dAJ();
-        c.mOu.e();
+        c.mOW.c();
+        c.mOW.dBP();
+        c.mOW.e();
     }
 
     public static void g() {
         synchronized (d) {
             if (c) {
-                tv.chushou.basis.d.b.dOF().d(null, "initMainThread, already finished");
+                tv.chushou.basis.d.b.dPS().d(null, "initMainThread, already finished");
                 return;
             }
-            tv.chushou.basis.d.b.dOF().d(null, "initMainThread");
-            tv.chushou.basis.d.b.dOG().e(tv.chushou.basis.d.a.b.b.class, com.kascend.chushou.toolkit.c.a.class);
-            tv.chushou.basis.d.b.dOG().e(tv.chushou.basis.d.a.b.d.class, tv.chushou.basis.b.a.a.a.class);
-            tv.chushou.basis.d.b.dOG().e(tv.chushou.basis.d.a.b.e.class, com.kascend.chushou.toolkit.c.e.class);
-            tv.chushou.basis.d.b.dOG().e(tv.chushou.basis.d.a.b.c.class, com.kascend.chushou.toolkit.c.b.class);
-            tv.chushou.basis.d.b.dOG().e(Http.class, HttpImpl.class);
-            tv.chushou.basis.d.b.dOG().e(tv.chushou.basis.d.a.a.c.class, com.kascend.chushou.toolkit.c.a.c.class);
-            tv.chushou.basis.d.b.dOG().e(tv.chushou.basis.d.a.a.b.class, com.kascend.chushou.toolkit.c.d.class);
-            tv.chushou.basis.d.b.dOG().e(tv.chushou.basis.d.a.a.a.class, com.kascend.chushou.toolkit.c.c.class);
+            tv.chushou.basis.d.b.dPS().d(null, "initMainThread");
+            tv.chushou.basis.d.b.dPT().e(tv.chushou.basis.d.a.b.b.class, com.kascend.chushou.toolkit.c.a.class);
+            tv.chushou.basis.d.b.dPT().e(tv.chushou.basis.d.a.b.d.class, tv.chushou.basis.b.a.a.a.class);
+            tv.chushou.basis.d.b.dPT().e(tv.chushou.basis.d.a.b.e.class, com.kascend.chushou.toolkit.c.e.class);
+            tv.chushou.basis.d.b.dPT().e(tv.chushou.basis.d.a.b.c.class, com.kascend.chushou.toolkit.c.b.class);
+            tv.chushou.basis.d.b.dPT().e(Http.class, HttpImpl.class);
+            tv.chushou.basis.d.b.dPT().e(tv.chushou.basis.d.a.a.c.class, com.kascend.chushou.toolkit.c.a.c.class);
+            tv.chushou.basis.d.b.dPT().e(tv.chushou.basis.d.a.a.b.class, com.kascend.chushou.toolkit.c.d.class);
+            tv.chushou.basis.d.b.dPT().e(tv.chushou.basis.d.a.a.a.class, com.kascend.chushou.toolkit.c.c.class);
             h();
             i();
             c = true;
@@ -566,7 +564,7 @@ public class e {
     public static void b(OkHttpClient okHttpClient, String str) {
         HttpExecutor.initialize(okHttpClient);
         UploadManager.a(HttpExecutor.getOkHttpClient());
-        tv.chushou.common.a.Sz(str);
+        tv.chushou.common.a.SK(str);
     }
 
     public static void i() {
@@ -579,7 +577,7 @@ public class e {
     }
 
     public static void j() {
-        com.kascend.chushou.b.dAF().a = tv.chushou.zues.utils.a.hg(tv.chushou.basis.d.b.dOE());
-        com.kascend.chushou.b.dAF().b = tv.chushou.zues.utils.a.hh(tv.chushou.basis.d.b.dOE());
+        com.kascend.chushou.b.dBL().a = tv.chushou.zues.utils.a.hf(tv.chushou.basis.d.b.dPR());
+        com.kascend.chushou.b.dBL().b = tv.chushou.zues.utils.a.hg(tv.chushou.basis.d.b.dPR());
     }
 }

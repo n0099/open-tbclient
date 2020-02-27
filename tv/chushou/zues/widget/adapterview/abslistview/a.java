@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class a<T> extends BaseAdapter {
     protected Context context;
     protected List<T> data;
-    protected final int nho;
+    protected final int nhR;
 
-    public abstract void a(C0804a c0804a, T t);
+    public abstract void a(C0812a c0812a, T t);
 
     public a(Context context, List<T> list, int i) {
         this.context = context;
@@ -23,7 +23,7 @@ public abstract class a<T> extends BaseAdapter {
         } else {
             this.data = list;
         }
-        this.nho = i;
+        this.nhR = i;
     }
 
     @Override // android.widget.Adapter
@@ -49,38 +49,38 @@ public abstract class a<T> extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0804a c0804a;
+        C0812a c0812a;
         if (view == null) {
-            view = LayoutInflater.from(this.context).inflate(MW(getItemViewType(i)), viewGroup, false);
-            c0804a = new C0804a(view);
-            view.setTag(c0804a);
+            view = LayoutInflater.from(this.context).inflate(MZ(getItemViewType(i)), viewGroup, false);
+            c0812a = new C0812a(view);
+            view.setTag(c0812a);
         } else {
-            c0804a = (C0804a) view.getTag();
+            c0812a = (C0812a) view.getTag();
         }
-        a(c0804a, this.data.get(i));
+        a(c0812a, this.data.get(i));
         return view;
     }
 
-    protected int MW(int i) {
-        return this.nho;
+    protected int MZ(int i) {
+        return this.nhR;
     }
 
     /* renamed from: tv.chushou.zues.widget.adapterview.abslistview.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0804a {
-        public View hOI;
-        private final SparseArray<View> nhy = new SparseArray<>();
+    /* loaded from: classes5.dex */
+    public static class C0812a {
+        public View hQG;
+        private final SparseArray<View> nib = new SparseArray<>();
 
-        public C0804a(View view) {
-            this.hOI = view;
+        public C0812a(View view) {
+            this.hQG = view;
         }
 
         /* JADX WARN: Incorrect return type in method signature: <T:Landroid/view/View;>(I)TT; */
-        public View Ol(int i) {
-            View view = this.nhy.get(i);
+        public View Oo(int i) {
+            View view = this.nib.get(i);
             if (view == null) {
-                View findViewById = this.hOI.findViewById(i);
-                this.nhy.put(i, findViewById);
+                View findViewById = this.hQG.findViewById(i);
+                this.nib.put(i, findViewById);
                 return findViewById;
             }
             return view;

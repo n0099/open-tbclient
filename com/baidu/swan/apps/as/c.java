@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
 import com.baidu.swan.apps.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -47,7 +47,7 @@ public final class c {
         return startActivitySafely(context, intent, false);
     }
 
-    public static void S(Activity activity) {
+    public static void T(Activity activity) {
         if (DEBUG) {
             Log.i("ActivityUtils", "tryFinishAndRemoveTask: " + activity);
         }
@@ -66,19 +66,19 @@ public final class c {
         }
     }
 
-    public static void T(Activity activity) {
-        if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            Window window = activity.getWindow();
-            window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aek());
-        }
-    }
-
     public static void U(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
+            window.setFlags(1024, 1024);
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | agy());
+        }
+    }
+
+    public static void V(Activity activity) {
+        if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+            Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aek() ^ (-1));
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (agy() ^ (-1));
             if (com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION) {
                 systemUiVisibility |= 5120;
             }
@@ -86,7 +86,7 @@ public final class c {
         }
     }
 
-    public static int aek() {
+    public static int agy() {
         return 5894;
     }
 }

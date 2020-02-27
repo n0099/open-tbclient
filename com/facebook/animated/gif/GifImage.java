@@ -10,9 +10,9 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @d
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class GifImage implements c, b {
-    private static volatile boolean lGn;
+    private static volatile boolean lGU;
     @d
     private long mNativeContext;
 
@@ -52,17 +52,17 @@ public class GifImage implements c, b {
     @d
     private native int nativeGetWidth();
 
-    private static synchronized void diC() {
+    private static synchronized void djP() {
         synchronized (GifImage.class) {
-            if (!lGn) {
-                lGn = true;
+            if (!lGU) {
+                lGU = true;
                 a.loadLibrary("gifimage");
             }
         }
     }
 
     public static GifImage y(long j, int i) {
-        diC();
+        djP();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -120,13 +120,13 @@ public class GifImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: Hh */
-    public GifFrame Hk(int i) {
+    /* renamed from: Hm */
+    public GifFrame Hp(int i) {
         return nativeGetFrame(i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean diD() {
+    public boolean djQ() {
         return false;
     }
 
@@ -136,16 +136,16 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo Hi(int i) {
-        GifFrame Hk = Hk(i);
+    public AnimatedDrawableFrameInfo Hn(int i) {
+        GifFrame Hp = Hp(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, Hk.getXOffset(), Hk.getYOffset(), Hk.getWidth(), Hk.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, Hj(Hk.diB()));
+            return new AnimatedDrawableFrameInfo(i, Hp.getXOffset(), Hp.getYOffset(), Hp.getWidth(), Hp.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, Ho(Hp.djO()));
         } finally {
-            Hk.dispose();
+            Hp.dispose();
         }
     }
 
-    private static AnimatedDrawableFrameInfo.DisposalMethod Hj(int i) {
+    private static AnimatedDrawableFrameInfo.DisposalMethod Ho(int i) {
         if (i == 0) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
         }

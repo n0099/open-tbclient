@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i extends ab {
     public i(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getAppInfoSync");

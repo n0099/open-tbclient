@@ -11,10 +11,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a mM;
+    private static a mP;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
     private int mActivityStackMaxSize = 0;
-    private InterfaceC0012a mN;
+    private InterfaceC0012a mQ;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public final class a {
     }
 
     public void a(InterfaceC0012a interfaceC0012a) {
-        this.mN = interfaceC0012a;
+        this.mQ = interfaceC0012a;
     }
 
     private a() {
@@ -32,11 +32,11 @@ public final class a {
         }
     }
 
-    public static a eG() {
-        if (mM == null) {
-            mM = new a();
+    public static a eH() {
+        if (mP == null) {
+            mP = new a();
         }
-        return mM;
+        return mP;
     }
 
     public int getSize() {
@@ -69,8 +69,8 @@ public final class a {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.mN != null) {
-                    this.mN.onActivityClosed();
+                if (this.mQ != null) {
+                    this.mQ.onActivityClosed();
                     return;
                 }
                 return;
@@ -81,13 +81,13 @@ public final class a {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.mN != null) {
-                        this.mN.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.mQ != null) {
+                        this.mQ.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.mN != null) {
-                    this.mN.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.mQ != null) {
+                    this.mQ.onActivityClosed();
                 }
             }
         }
@@ -100,6 +100,20 @@ public final class a {
             return softReference.get();
         }
         return null;
+    }
+
+    public boolean T(String str) {
+        if (sActivityStack.size() == 0) {
+            return false;
+        }
+        Iterator<SoftReference<Activity>> it = sActivityStack.iterator();
+        while (it.hasNext()) {
+            SoftReference<Activity> next = it.next();
+            if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void setActivityStackMaxSize(int i) {
@@ -122,8 +136,8 @@ public final class a {
                 }
             }
         }
-        if (this.mN != null) {
-            this.mN.onActivityClosed();
+        if (this.mQ != null) {
+            this.mQ.onActivityClosed();
         }
     }
 
@@ -133,10 +147,10 @@ public final class a {
 
     private void checkAndMaintainActivityStack(int i) {
         if (i != 0) {
-            int size = eG().getSize();
+            int size = eH().getSize();
             while (size > i) {
                 size--;
-                Activity popActivity = eG().popActivity(1);
+                Activity popActivity = eH().popActivity(1);
                 if (popActivity != null) {
                     popActivity.finish();
                 }
@@ -144,7 +158,7 @@ public final class a {
         }
     }
 
-    public String eH() {
+    public String eI() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         String str;

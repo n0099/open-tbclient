@@ -1,8 +1,10 @@
 package com.kascend.chushou.player.adapter;
 
 import android.support.annotation.Keep;
+import kotlin.h;
 @Keep
-/* loaded from: classes4.dex */
+@h
+/* loaded from: classes5.dex */
 public final class DanmuAtSpan {
     private final int end;
     private final int start;

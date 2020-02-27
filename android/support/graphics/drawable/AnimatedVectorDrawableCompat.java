@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implements Animatable2Compat {
     private static final String ANIMATED_VECTOR = "animated-vector";
     private static final boolean DBG_ANIMATION_VECTOR_DRAWABLE = false;
@@ -410,7 +410,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(24)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class AnimatedVectorDrawableDelegateState extends Drawable.ConstantState {
         private final Drawable.ConstantState mDelegateState;
 
@@ -454,7 +454,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class AnimatedVectorDrawableCompatState extends Drawable.ConstantState {
         AnimatorSet mAnimatorSet;
         private ArrayList<Animator> mAnimators;

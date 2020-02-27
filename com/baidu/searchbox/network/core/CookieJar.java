@@ -2,7 +2,7 @@ package com.baidu.searchbox.network.core;
 
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface CookieJar {
     public static final CookieJar NO_COOKIES = new CookieJar() { // from class: com.baidu.searchbox.network.core.CookieJar.1
         @Override // com.baidu.searchbox.network.core.CookieJar

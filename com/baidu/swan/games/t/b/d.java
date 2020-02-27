@@ -1,14 +1,14 @@
 package com.baidu.swan.games.t.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    public long coa;
-    public long cob;
-    public String coc;
-    public String cod;
-    public String coe;
-    public String cof;
-    public String cog;
-    public String coh;
+    public long csc;
+    public long csd;
+    public String cse;
+    public String csf;
+    public String csg;
+    public String csh;
+    public String csi;
+    public String csj;
     public String publishType;
     public int showToast;
     public String sourceFrom;
@@ -17,6 +17,6 @@ public class d {
     public String target;
 
     public String toString() {
-        return "{ clipMaxDuration=" + this.coa + " , clipMinDuration=" + this.cob + " , topicSource=" + this.coc + " , publishURL=" + this.coe + " , publishType=" + this.publishType + " , publishTitle=" + this.cod + " , atURL=" + this.cog + " , topicURL=" + this.coh + " , musicURL=" + this.cof + " , sourceFrom=" + this.sourceFrom + " , sourceType=" + this.sourceType + ",target=" + this.target + ",showToast=" + this.showToast + " }";
+        return "{ clipMaxDuration=" + this.csc + " , clipMinDuration=" + this.csd + " , topicSource=" + this.cse + " , publishURL=" + this.csg + " , publishType=" + this.publishType + " , publishTitle=" + this.csf + " , atURL=" + this.csi + " , topicURL=" + this.csj + " , musicURL=" + this.csh + " , sourceFrom=" + this.sourceFrom + " , sourceType=" + this.sourceType + ",target=" + this.target + ",showToast=" + this.showToast + " }";
     }
 }

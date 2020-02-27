@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.text.style.ImageSpan;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CenterAlignImageSpan extends ImageSpan {
     public CenterAlignImageSpan(Drawable drawable) {
         super(drawable);

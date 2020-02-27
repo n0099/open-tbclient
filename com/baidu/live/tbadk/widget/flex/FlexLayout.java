@@ -9,11 +9,11 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.widget.flex.FlexAdapter;
+import com.baidu.live.u.a;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlexLayout extends ViewGroup {
     static final String BUNDLE_KEY_SELECTS = "selects";
     static final String BUNDLE_KEY_STATE = "savedInstance";
@@ -28,12 +28,12 @@ public class FlexLayout extends ViewGroup {
     private float mVerticalSpacing;
     public int realHeight;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnItemClickListener {
         void onItemClick(FlexLayout flexLayout, View view, int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnStateChangedListener {
         void onMaxNumSelected();
 

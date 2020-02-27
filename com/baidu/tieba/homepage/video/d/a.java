@@ -34,67 +34,67 @@ import com.baidu.tieba.play.m;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private BdTypeRecyclerView Bs;
-    private PbListView ehe;
-    private View ejk;
-    private g epL;
-    private com.baidu.tieba.homepage.personalize.bigday.a gUK;
-    private BigdaySwipeRefreshLayout gUT;
-    private NEGFeedBackView.a gYX;
-    private m goz;
-    private e hho;
-    private com.baidu.tieba.homepage.video.a.a hhp;
+    private BdTypeRecyclerView BK;
+    private PbListView eli;
+    private View ent;
+    private g etW;
+    private com.baidu.tieba.homepage.personalize.bigday.a gWL;
+    private BigdaySwipeRefreshLayout gWU;
+    private m gqA;
+    private NEGFeedBackView.a haX;
+    private e hjp;
+    private com.baidu.tieba.homepage.video.a.a hjq;
     private BdUniqueId mBdUniqueId;
     private FrameLayout mContentLayout;
     private TbPageContext mPageContext;
     private h mRefreshView;
     private View mRootView;
-    private int gnN = 0;
-    private int efM = 0;
+    private int gpO = 0;
+    private int ejQ = 0;
     private boolean mIsBackground = false;
-    private boolean gZy = true;
-    private boolean gos = false;
-    private g.d gZz = new g.d() { // from class: com.baidu.tieba.homepage.video.d.a.1
+    private boolean hby = true;
+    private boolean gqt = false;
+    private g.d hbz = new g.d() { // from class: com.baidu.tieba.homepage.video.d.a.1
         @Override // com.baidu.tbadk.core.view.g.d
         public void onListPullToRefresh(boolean z) {
-            a.this.bML();
+            a.this.bOn();
         }
     };
-    private g.b gZA = new g.b() { // from class: com.baidu.tieba.homepage.video.d.a.2
+    private g.b hbA = new g.b() { // from class: com.baidu.tieba.homepage.video.d.a.2
         @Override // com.baidu.tbadk.core.view.g.b
         public void onListPullRefreshFinished(View view, boolean z) {
-            a.this.mB(true);
-            if (a.this.goz != null && !a.this.mIsBackground && a.this.gZy) {
-                a.this.goz.a(a.this.gnN, a.this.efM, a.this.gos, true);
+            a.this.mD(true);
+            if (a.this.gqA != null && !a.this.mIsBackground && a.this.hby) {
+                a.this.gqA.a(a.this.gpO, a.this.ejQ, a.this.gqt, true);
             }
         }
     };
-    private CustomMessageListener cIh = new CustomMessageListener(2921420) { // from class: com.baidu.tieba.homepage.video.d.a.3
+    private CustomMessageListener cMk = new CustomMessageListener(2921420) { // from class: com.baidu.tieba.homepage.video.d.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.video.d.a.3.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.hhp.notifyDataSetChanged();
-                    if (!a.this.mIsBackground && a.this.gZy) {
-                        a.this.goz.a(a.this.gnN, a.this.efM, a.this.gos, true);
+                    a.this.hjq.notifyDataSetChanged();
+                    if (!a.this.mIsBackground && a.this.hby) {
+                        a.this.gqA.a(a.this.gpO, a.this.ejQ, a.this.gqt, true);
                     }
                 }
             }, 500L);
         }
     };
-    private CustomMessageListener gnF = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.homepage.video.d.a.4
+    private CustomMessageListener gpG = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.homepage.video.d.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            af bMM;
+            af bOo;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
-                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (bMM = a.this.bMM()) != null && bMM.mU() != null) {
-                    bMM.mU().b(new a.C0050a(3));
+                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (bOo = a.this.bOo()) != null && bOo.nk() != null) {
+                    bOo.nk().b(new a.C0052a(3));
                 }
             }
         }
@@ -104,29 +104,29 @@ public class a {
         public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
             View view;
             if (viewHolder != null && (view = viewHolder.itemView) != null) {
-                if (a.this.goz != null) {
-                    a.this.goz.cl(view);
+                if (a.this.gqA != null) {
+                    a.this.gqA.cl(view);
                 }
                 if (view.getTag() instanceof d) {
-                    ((d) view.getTag()).bue().stopPlay();
+                    ((d) view.getTag()).bvI().stopPlay();
                 }
             }
         }
     };
     private RecyclerView.OnScrollListener mScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.video.d.a.6
-        private int ejq = -1;
+        private int enA = -1;
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            if (i == 0 && a.this.goz != null && a.this.gZy) {
-                a.this.goz.a(a.this.gnN, a.this.efM, a.this.gos, 1);
+            if (i == 0 && a.this.gqA != null && a.this.hby) {
+                a.this.gqA.a(a.this.gpO, a.this.ejQ, a.this.gqt, 1);
             }
-            if (this.ejq != i) {
-                this.ejq = i;
-                if (this.ejq == 1) {
-                    a.this.mR(true);
+            if (this.enA != i) {
+                this.enA = i;
+                if (this.enA == 1) {
+                    a.this.mT(true);
                 } else {
-                    a.this.bOf();
+                    a.this.bPH();
                 }
             }
         }
@@ -141,27 +141,27 @@ public class a {
             } else {
                 i3 = 0;
             }
-            bS(i3, (i4 - i3) + 1);
+            bT(i3, (i4 - i3) + 1);
         }
 
-        private void bS(int i, int i2) {
-            a.this.gnN = i;
-            a.this.efM = (i + i2) - 1;
+        private void bT(int i, int i2) {
+            a.this.gpO = i;
+            a.this.ejQ = (i + i2) - 1;
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public af bMM() {
-        if (this.goz == null || this.goz.cxn() == null || !(this.goz.cxn().getTag() instanceof af)) {
+    public af bOo() {
+        if (this.gqA == null || this.gqA.cyG() == null || !(this.gqA.cyG().getTag() instanceof af)) {
             return null;
         }
-        return (af) this.goz.cxn().getTag();
+        return (af) this.gqA.cyG().getTag();
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, NEGFeedBackView.a aVar) {
         this.mPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.gYX = aVar;
+        this.haX = aVar;
         initView();
     }
 
@@ -169,49 +169,49 @@ public class a {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.video_tab_main_view_layout, (ViewGroup) null);
         this.mRootView.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.mContentLayout = (FrameLayout) this.mRootView.findViewById(R.id.video_tab_framelayout);
-        this.Bs = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.video_tab_recycle_view);
-        this.Bs.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity()));
-        this.goz = new m(this.mPageContext, this.Bs);
-        this.goz.Ah(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.goz.setUniqueId(this.mBdUniqueId);
-        this.gUT = (BigdaySwipeRefreshLayout) this.mRootView.findViewById(R.id.video_tab_refresh_layout);
-        this.gUK = new com.baidu.tieba.homepage.personalize.bigday.a(this.mPageContext);
-        this.gUT.setProgressView(this.gUK);
+        this.BK = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.video_tab_recycle_view);
+        this.BK.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity()));
+        this.gqA = new m(this.mPageContext, this.BK);
+        this.gqA.Aq(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.gqA.setUniqueId(this.mBdUniqueId);
+        this.gWU = (BigdaySwipeRefreshLayout) this.mRootView.findViewById(R.id.video_tab_refresh_layout);
+        this.gWL = new com.baidu.tieba.homepage.personalize.bigday.a(this.mPageContext);
+        this.gWU.setProgressView(this.gWL);
         int i = (int) (86.0f * this.mPageContext.getResources().getDisplayMetrics().density);
-        this.gUT.setCustomDistances(i, i, i * 2);
-        this.ehe = new PbListView(this.mPageContext.getPageActivity());
-        this.ehe.createView();
-        this.ehe.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.ehe.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds178));
-        this.ehe.setLineGone();
-        this.ehe.setTextSize(R.dimen.tbfontsize36);
-        this.ehe.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.ehe.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.ehe.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.hhp = new com.baidu.tieba.homepage.video.a.a(this.mPageContext, this.Bs);
-        this.hhp.b(this.gYX);
-        this.hhp.setPageUniqueId(this.mBdUniqueId);
-        this.hho = new e();
-        this.hho.h(this.mBdUniqueId);
-        this.hhp.b(this.hho);
-        this.ejk = this.mRootView.findViewById(R.id.video_tab_divider_shadow);
-        aFw();
+        this.gWU.setCustomDistances(i, i, i * 2);
+        this.eli = new PbListView(this.mPageContext.getPageActivity());
+        this.eli.createView();
+        this.eli.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.eli.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds178));
+        this.eli.setLineGone();
+        this.eli.setTextSize(R.dimen.tbfontsize36);
+        this.eli.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.eli.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.eli.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.hjq = new com.baidu.tieba.homepage.video.a.a(this.mPageContext, this.BK);
+        this.hjq.b(this.haX);
+        this.hjq.setPageUniqueId(this.mBdUniqueId);
+        this.hjp = new e();
+        this.hjp.h(this.mBdUniqueId);
+        this.hjq.b(this.hjp);
+        this.ent = this.mRootView.findViewById(R.id.video_tab_divider_shadow);
+        aHL();
     }
 
     public void init() {
-        this.Bs.addOnScrollListener(this.mScrollListener);
-        this.Bs.setRecyclerListener(this.mRecyclerListener);
-        this.gUK.a(this.gZz);
-        this.gUK.a(this.gZA);
-        this.gUK.setTag(this.mPageContext.getUniqueId());
+        this.BK.addOnScrollListener(this.mScrollListener);
+        this.BK.setRecyclerListener(this.mRecyclerListener);
+        this.gWL.a(this.hbz);
+        this.gWL.a(this.hbA);
+        this.gWL.setTag(this.mPageContext.getUniqueId());
         registerListener();
     }
 
     private void registerListener() {
-        this.cIh.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.cIh);
-        this.gnF.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.gnF);
+        this.cMk.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.cMk);
+        this.gpG.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.gpG);
     }
 
     public View getRootView() {
@@ -220,60 +220,60 @@ public class a {
 
     public void showLoadingView() {
         if (!isLoadingViewAttached()) {
-            if (this.epL == null) {
-                this.epL = new com.baidu.tbadk.k.g(this.mPageContext.getPageActivity());
-                this.epL.onChangeSkinType();
+            if (this.etW == null) {
+                this.etW = new com.baidu.tbadk.k.g(this.mPageContext.getPageActivity());
+                this.etW.onChangeSkinType();
             }
-            this.epL.attachView(this.mRootView, false);
+            this.etW.attachView(this.mRootView, false);
         }
     }
 
     private boolean isLoadingViewAttached() {
-        if (this.epL == null) {
+        if (this.etW == null) {
             return false;
         }
-        return this.epL.isViewAttached();
+        return this.etW.isViewAttached();
     }
 
     public void hideLoadingView() {
-        if (this.epL != null) {
-            this.epL.dettachView(this.mRootView);
+        if (this.etW != null) {
+            this.etW.dettachView(this.mRootView);
         }
     }
 
-    public void bab() {
-        if (this.ehe != null) {
-            if (this.ehe.getView().getParent() == null) {
-                this.Bs.setNextPage(this.ehe);
+    public void bcr() {
+        if (this.eli != null) {
+            if (this.eli.getView().getParent() == null) {
+                this.BK.setNextPage(this.eli);
             }
-            this.ehe.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds178));
-            this.ehe.setText(this.mPageContext.getResources().getString(R.string.video_tab_no_more));
-            this.ehe.setOnClickListener(null);
-            this.ehe.endLoadData();
+            this.eli.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds178));
+            this.eli.setText(this.mPageContext.getResources().getString(R.string.video_tab_no_more));
+            this.eli.setOnClickListener(null);
+            this.eli.endLoadData();
         }
     }
 
-    public void y(View.OnClickListener onClickListener) {
-        if (this.ehe != null) {
-            if (this.ehe.getView().getParent() == null) {
-                this.Bs.setNextPage(this.ehe);
+    public void z(View.OnClickListener onClickListener) {
+        if (this.eli != null) {
+            if (this.eli.getView().getParent() == null) {
+                this.BK.setNextPage(this.eli);
             }
-            this.ehe.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds178));
-            this.ehe.setText(this.mPageContext.getResources().getString(R.string.video_tab_click_load));
-            this.ehe.setOnClickListener(onClickListener);
-            this.ehe.endLoadData();
+            this.eli.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds178));
+            this.eli.setText(this.mPageContext.getResources().getString(R.string.video_tab_click_load));
+            this.eli.setOnClickListener(onClickListener);
+            this.eli.endLoadData();
         }
     }
 
-    public void bac() {
-        if (this.ehe != null) {
-            if (this.ehe.getView().getParent() == null) {
-                this.Bs.setNextPage(this.ehe);
+    public void bcs() {
+        if (this.eli != null) {
+            if (this.eli.getView().getParent() == null) {
+                this.BK.setNextPage(this.eli);
             }
-            this.ehe.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds178));
-            this.ehe.setText(this.mPageContext.getResources().getString(R.string.loading));
-            this.ehe.setOnClickListener(null);
-            this.ehe.startLoadData();
+            this.eli.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds178));
+            this.eli.setText(this.mPageContext.getResources().getString(R.string.loading));
+            this.eli.setOnClickListener(null);
+            this.eli.startLoadData();
         }
     }
 
@@ -284,8 +284,8 @@ public class a {
         this.mRefreshView.showRefreshButton();
         this.mRefreshView.setSubText(null);
         this.mRefreshView.setTitle(this.mPageContext.getResources().getString(R.string.refresh_view_title_text));
-        this.mRefreshView.mn(R.drawable.new_pic_emotion_08);
-        this.mRefreshView.mp(0);
+        this.mRefreshView.mE(R.drawable.new_pic_emotion_08);
+        this.mRefreshView.mG(0);
         this.mRefreshView.attachView(this.mContentLayout, false);
     }
 
@@ -294,12 +294,12 @@ public class a {
             this.mRefreshView = new h(this.mPageContext.getPageActivity(), null);
         }
         this.mRefreshView.hideRefreshButton();
-        this.mRefreshView.mn(R.drawable.new_pic_emotion_03);
-        this.mRefreshView.vh(this.mPageContext.getString(R.string.no_data_common_txt));
+        this.mRefreshView.mE(R.drawable.new_pic_emotion_03);
+        this.mRefreshView.vy(this.mPageContext.getString(R.string.no_data_common_txt));
         this.mRefreshView.attachView(this.mContentLayout, false);
     }
 
-    public void baf() {
+    public void bcv() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mContentLayout);
             this.mRefreshView = null;
@@ -307,20 +307,20 @@ public class a {
     }
 
     public void startPullRefresh() {
-        this.gUT.setRefreshing(true);
+        this.gWU.setRefreshing(true);
     }
 
     public void b(g.e eVar) {
-        this.gUT.c(eVar);
+        this.gWU.c(eVar);
     }
 
-    public void bOe() {
-        lq(false);
+    public void bPG() {
+        lt(false);
     }
 
     public void onPause() {
-        if (this.hhp != null) {
-            this.hhp.onPause();
+        if (this.hjq != null) {
+            this.hjq.onPause();
         }
     }
 
@@ -328,58 +328,58 @@ public class a {
         this.mIsBackground = z;
     }
 
-    public void bLA() {
-        lq(true);
+    public void bNd() {
+        lt(true);
     }
 
-    private void lq(boolean z) {
+    private void lt(boolean z) {
         boolean z2 = false;
         this.mIsBackground = z;
-        if (this.goz != null) {
-            this.goz.oz(!z);
-            af bMM = bMM();
-            if (bMM != null && bMM.mU() != null) {
-                z2 = bMM.mU().b(new a.C0050a(8, Boolean.valueOf(z)));
+        if (this.gqA != null) {
+            this.gqA.oB(!z);
+            af bOo = bOo();
+            if (bOo != null && bOo.nk() != null) {
+                z2 = bOo.nk().b(new a.C0052a(8, Boolean.valueOf(z)));
             }
             if (!z2) {
                 if (z) {
-                    this.goz.bML();
-                } else if (this.gZy) {
-                    this.goz.a(this.gnN, this.efM, this.gos, true);
+                    this.gqA.bOn();
+                } else if (this.hby) {
+                    this.gqA.a(this.gpO, this.ejQ, this.gqt, true);
                 }
             }
         }
     }
 
-    public void mB(boolean z) {
-        this.gZy = z;
+    public void mD(boolean z) {
+        this.hby = z;
     }
 
-    public void bMK() {
-        if (this.goz != null && this.gZy) {
-            this.goz.a(this.gnN, this.efM, this.gos, true);
+    public void bOm() {
+        if (this.gqA != null && this.hby) {
+            this.gqA.a(this.gpO, this.ejQ, this.gqt, true);
         }
     }
 
-    public void bML() {
-        if (this.goz != null) {
-            this.goz.bML();
+    public void bOn() {
+        if (this.gqA != null) {
+            this.gqA.bOn();
         }
     }
 
     public void av(List<com.baidu.adp.widget.ListView.m> list) {
-        if (this.hhp != null) {
-            this.hhp.setData(list);
+        if (this.hjq != null) {
+            this.hjq.setData(list);
         }
-        bMK();
+        bOm();
     }
 
-    public void BS(String str) {
-        List<Integer> b = b(str, this.Bs);
+    public void Ci(String str) {
+        List<Integer> b = b(str, this.BK);
         int intValue = b.get(0).intValue();
         int intValue2 = b.get(1).intValue();
         if (intValue != -1 && intValue2 != -1) {
-            this.Bs.l(intValue, intValue2);
+            this.BK.m(intValue, intValue2);
         }
     }
 
@@ -395,7 +395,7 @@ public class a {
                 com.baidu.adp.widget.ListView.m item = bdTypeRecyclerView.getItem(i4);
                 if (item instanceof c) {
                     c cVar = (c) item;
-                    if (cVar.axQ() != null && cVar.axQ().getTid().equals(str)) {
+                    if (cVar.aAe() != null && cVar.aAe().getTid().equals(str)) {
                         if (!z) {
                             i3 = i4;
                         }
@@ -413,89 +413,89 @@ public class a {
     }
 
     public List<com.baidu.adp.widget.ListView.m> getDataList() {
-        if (this.hhp != null) {
-            return this.hhp.getDataList();
+        if (this.hjq != null) {
+            return this.hjq.getDataList();
         }
         return null;
     }
 
-    public void bMN() {
+    public void bOp() {
         av(new LinkedList());
     }
 
-    public void bMJ() {
-        if (this.Bs != null) {
-            this.Bs.setSelection(0);
+    public void bOl() {
+        if (this.BK != null) {
+            this.BK.setSelection(0);
         }
     }
 
-    public void vj() {
-        if (this.hhp != null) {
-            this.hhp.notifyDataSetChanged();
+    public void wN() {
+        if (this.hjq != null) {
+            this.hjq.notifyDataSetChanged();
         }
     }
 
     public void setListPullRefreshListener(g.c cVar) {
-        if (this.gUK != null) {
-            this.gUK.setListPullRefreshListener(cVar);
+        if (this.gWL != null) {
+            this.gWL.setListPullRefreshListener(cVar);
         }
     }
 
     public void a(BdListView.e eVar) {
-        if (this.Bs != null) {
-            this.Bs.setOnSrollToBottomListener(eVar);
+        if (this.BK != null) {
+            this.BK.setOnSrollToBottomListener(eVar);
         }
     }
 
-    public void aFw() {
+    public void aHL() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.epL != null) {
-            this.epL.setSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.epL.onChangeSkinType();
+        if (this.etW != null) {
+            this.etW.setSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.etW.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
         }
-        if (this.gUK != null) {
-            this.gUK.changeSkin(skinType);
+        if (this.gWL != null) {
+            this.gWL.changeSkin(skinType);
         }
-        if (this.hhp != null) {
-            this.hhp.notifyDataSetChanged();
+        if (this.hjq != null) {
+            this.hjq.notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        if (this.epL != null) {
-            this.epL.release();
+        if (this.etW != null) {
+            this.etW.release();
         }
         b((g.e) null);
-        if (this.gUK != null) {
-            this.gUK.release();
+        if (this.gWL != null) {
+            this.gWL.release();
         }
-        if (this.hhp != null) {
-            this.hhp.onDestroy();
+        if (this.hjq != null) {
+            this.hjq.onDestroy();
         }
-        if (this.goz != null) {
-            this.goz.destroy();
+        if (this.gqA != null) {
+            this.gqA.destroy();
         }
-        bMO();
-        MessageManager.getInstance().unRegisterListener(this.gnF);
-        MessageManager.getInstance().unRegisterListener(this.cIh);
+        bOq();
+        MessageManager.getInstance().unRegisterListener(this.gpG);
+        MessageManager.getInstance().unRegisterListener(this.cMk);
     }
 
-    private void bMO() {
-        if (this.Bs != null) {
-            this.Bs.removeOnScrollListener(this.mScrollListener);
-            this.Bs.setRecyclerListener(null);
+    private void bOq() {
+        if (this.BK != null) {
+            this.BK.removeOnScrollListener(this.mScrollListener);
+            this.BK.setRecyclerListener(null);
         }
-        if (this.gUK != null) {
-            this.gUK.a((g.d) null);
-            this.gUK.a((g.b) null);
+        if (this.gWL != null) {
+            this.gWL.a((g.d) null);
+            this.gWL.a((g.b) null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mR(boolean z) {
+    public void mT(boolean z) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.valueOf(z)));
     }
 
@@ -504,11 +504,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOf() {
-        if (a(this.Bs)) {
-            mR(false);
+    public void bPH() {
+        if (a(this.BK)) {
+            mT(false);
         } else {
-            mR(true);
+            mT(true);
         }
     }
 }

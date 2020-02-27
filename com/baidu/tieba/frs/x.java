@@ -3,17 +3,17 @@ package com.baidu.tieba.frs;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class x {
-    private static x gpQ = new x();
-    private SparseArray<y> gpP = new SparseArray<>();
+    private static x grR = new x();
+    private SparseArray<y> grQ = new SparseArray<>();
 
     private x() {
     }
 
-    public static x bDY() {
-        return gpQ;
+    public static x bFB() {
+        return grR;
     }
 
-    public y sS(int i) {
-        return this.gpP.get(i);
+    public y sY(int i) {
+        return this.grQ.get(i);
     }
 }

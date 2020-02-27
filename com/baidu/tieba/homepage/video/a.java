@@ -22,23 +22,23 @@ import com.baidu.tieba.homepage.video.b.b;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private b hgR;
-    private com.baidu.tieba.homepage.video.d.a hgS;
+    private b hiS;
+    private com.baidu.tieba.homepage.video.d.a hiT;
     private BdUniqueId mBdUniqueId;
     private TbPageContext mPageContext;
-    private CustomMessageListener gFy = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.video.a.1
+    private CustomMessageListener gHx = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.video.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a.this.h(customResponsedMessage);
-            if (a.this.hgS != null) {
-                a.this.hgS.bMK();
+            if (a.this.hiT != null) {
+                a.this.hiT.bOm();
             }
         }
     };
-    private NEGFeedBackView.a gYX = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.video.a.2
+    private NEGFeedBackView.a haX = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.video.a.2
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void b(al alVar) {
             if (alVar == null) {
@@ -62,40 +62,40 @@ public class a {
                 }
                 if (alVar.threadType != 0 && alVar.threadType != 40 && alVar.threadType == 49) {
                 }
-                if (a.this.hgS != null) {
-                    a.this.hgS.vj();
+                if (a.this.hiT != null) {
+                    a.this.hiT.wN();
                 }
             }
         }
     };
-    private g.c eib = new g.c() { // from class: com.baidu.tieba.homepage.video.a.3
+    private g.c emi = new g.c() { // from class: com.baidu.tieba.homepage.video.a.3
         @Override // com.baidu.tbadk.core.view.g.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                a.this.hgS.mB(false);
-                a.this.hgR.bOc();
+                a.this.hiT.mD(false);
+                a.this.hiS.bPE();
                 TiebaStatic.log(new an("c13582"));
                 return;
             }
-            a.this.hgS.b((g.e) null);
+            a.this.hiT.b((g.e) null);
             a.this.mPageContext.showToast(R.string.neterror);
         }
     };
-    private BdListView.e gYZ = new BdListView.e() { // from class: com.baidu.tieba.homepage.video.a.4
+    private BdListView.e haZ = new BdListView.e() { // from class: com.baidu.tieba.homepage.video.a.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            a.this.hgS.bac();
-            a.this.hgR.bES();
+            a.this.hiT.bcs();
+            a.this.hiS.bGu();
         }
     };
-    private b.a hgT = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
+    private b.a hiU = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
         @Override // com.baidu.tieba.homepage.video.b.b.a
         public void l(int i, String str, boolean z) {
-            a.this.hgS.b((g.e) null);
-            a.this.hgS.hideLoadingView();
-            a.this.hgS.baf();
-            if (v.isEmpty(a.this.hgS.getDataList())) {
-                a.this.hgS.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.5.1
+            a.this.hiT.b((g.e) null);
+            a.this.hiT.hideLoadingView();
+            a.this.hiT.bcv();
+            if (v.isEmpty(a.this.hiT.getDataList())) {
+                a.this.hiT.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.5.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         a.this.loadData();
@@ -104,7 +104,7 @@ public class a {
                 return;
             }
             if (z) {
-                a.this.hgS.y(a.this.gZb);
+                a.this.hiT.z(a.this.hbb);
             }
             if (StringUtils.isNull(str)) {
                 a.this.mPageContext.showToast(R.string.video_tab_load_more_fail);
@@ -115,29 +115,29 @@ public class a {
 
         @Override // com.baidu.tieba.homepage.video.b.b.a
         public void f(int i, boolean z, boolean z2) {
-            a.this.hgS.hideLoadingView();
-            a.this.hgS.baf();
+            a.this.hiT.hideLoadingView();
+            a.this.hiT.bcv();
             if (z || z2) {
-                a.this.hgS.b((g.e) null);
+                a.this.hiT.b((g.e) null);
             } else {
-                a.this.hgS.b(a.this.vi(i));
+                a.this.hiT.b(a.this.vo(i));
             }
             if (i != 0) {
-                a.this.hgS.av(a.this.hgR.getDataList());
-                a.this.hgS.y(a.this.gZb);
-            } else if (v.isEmpty(a.this.hgS.getDataList())) {
-                a.this.hgS.showNoDataView();
+                a.this.hiT.av(a.this.hiS.getDataList());
+                a.this.hiT.z(a.this.hbb);
+            } else if (v.isEmpty(a.this.hiT.getDataList())) {
+                a.this.hiT.showNoDataView();
             } else if (z) {
-                a.this.hgS.bab();
+                a.this.hiT.bcr();
             }
         }
     };
-    private View.OnClickListener gZb = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.6
+    private View.OnClickListener hbb = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.hgS != null && a.this.hgR != null) {
-                a.this.hgS.bac();
-                a.this.hgR.bES();
+            if (a.this.hiT != null && a.this.hiS != null) {
+                a.this.hiT.bcs();
+                a.this.hiS.bGu();
             }
         }
     };
@@ -145,46 +145,46 @@ public class a {
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.hgS = new com.baidu.tieba.homepage.video.d.a(this.mPageContext, bdUniqueId, this.gYX);
-        this.hgR = new b(this.mPageContext, this.hgT);
+        this.hiT = new com.baidu.tieba.homepage.video.d.a(this.mPageContext, bdUniqueId, this.haX);
+        this.hiS = new b(this.mPageContext, this.hiU);
     }
 
     public void init() {
-        this.hgR.registerListener();
-        this.hgS.init();
-        this.hgS.setListPullRefreshListener(this.eib);
-        this.hgS.a(this.gYZ);
-        MessageManager.getInstance().registerListener(this.gFy);
+        this.hiS.registerListener();
+        this.hiT.init();
+        this.hiT.setListPullRefreshListener(this.emi);
+        this.hiT.a(this.haZ);
+        MessageManager.getInstance().registerListener(this.gHx);
     }
 
     public View getView() {
-        if (this.hgS != null) {
-            return this.hgS.getRootView();
+        if (this.hiT != null) {
+            return this.hiT.getRootView();
         }
         return null;
     }
 
     public void loadData() {
-        if (this.hgS != null) {
-            this.hgS.bMN();
-            this.hgS.showLoadingView();
+        if (this.hiT != null) {
+            this.hiT.bOp();
+            this.hiT.showLoadingView();
         }
-        if (this.hgR != null) {
-            this.hgR.bOc();
+        if (this.hiS != null) {
+            this.hiS.bPE();
         }
     }
 
-    public void yj() {
-        if (this.hgS != null) {
-            this.hgS.mB(false);
-            this.hgS.bML();
-            this.hgS.bMJ();
-            this.hgS.startPullRefresh();
+    public void AA() {
+        if (this.hiT != null) {
+            this.hiT.mD(false);
+            this.hiT.bOn();
+            this.hiT.bOl();
+            this.hiT.startPullRefresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g.e vi(int i) {
+    public g.e vo(int i) {
         String string;
         if (i <= 0) {
             string = this.mPageContext.getResources().getString(R.string.video_tab_no_more);
@@ -194,48 +194,48 @@ public class a {
         return new g.e(string, 1000);
     }
 
-    public void aFw() {
-        if (this.hgS != null) {
-            this.hgS.aFw();
+    public void aHL() {
+        if (this.hiT != null) {
+            this.hiT.aHL();
         }
     }
 
     public void onPause() {
-        if (this.hgS != null) {
-            this.hgS.onPause();
-            this.hgS.bLA();
-            this.hgS.setTabInForeBackgroundState(true);
+        if (this.hiT != null) {
+            this.hiT.onPause();
+            this.hiT.bNd();
+            this.hiT.setTabInForeBackgroundState(true);
         }
     }
 
     public void onDestroy() {
-        if (this.hgS != null) {
-            this.hgS.setListPullRefreshListener(null);
-            this.hgS.a((BdListView.e) null);
-            this.hgS.onDestroy();
+        if (this.hiT != null) {
+            this.hiT.setListPullRefreshListener(null);
+            this.hiT.a((BdListView.e) null);
+            this.hiT.onDestroy();
         }
-        if (this.hgR != null) {
-            this.hgR.onDestroy();
+        if (this.hiS != null) {
+            this.hiS.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.gFy);
+        MessageManager.getInstance().unRegisterListener(this.gHx);
     }
 
     public void setPrimary(boolean z) {
         if (z) {
-            this.hgS.bOe();
+            this.hiT.bPG();
         } else {
-            this.hgS.bLA();
+            this.hiT.bNd();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.hgR != null && !v.isEmpty(this.hgR.getDataList())) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.hiS != null && !v.isEmpty(this.hiS.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            this.hgR.Bl(optString);
-            this.hgR.BQ(optString);
-            if (this.hgS != null) {
-                this.hgS.BS(optString);
+            this.hiS.BB(optString);
+            this.hiS.Cg(optString);
+            if (this.hiT != null) {
+                this.hiT.Ci(optString);
             }
         }
     }

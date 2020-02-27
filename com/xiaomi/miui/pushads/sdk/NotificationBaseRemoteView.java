@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class NotificationBaseRemoteView extends RemoteViews {
     protected Context a;
 

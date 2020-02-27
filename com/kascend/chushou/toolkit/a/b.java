@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.tencent.connect.common.Constants;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static String a(String str) {
         if (h.isEmpty(str)) {

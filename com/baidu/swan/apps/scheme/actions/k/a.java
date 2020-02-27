@@ -15,15 +15,15 @@ import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static JSONObject le(String str) {
-        return bb(str, "");
+    public static JSONObject lt(String str) {
+        return bk(str, "");
     }
 
-    public static JSONObject bb(String str, String str2) {
+    public static JSONObject bk(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("wvID", str);
@@ -38,7 +38,7 @@ public final class a {
         return jSONObject;
     }
 
-    public static JSONObject n(String str, String str2, String str3, String str4) {
+    public static JSONObject q(String str, String str2, String str3, String str4) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("wvID", str);
@@ -108,51 +108,51 @@ public final class a {
     }
 
     public static void a(com.baidu.swan.apps.adaptation.b.c cVar, com.baidu.swan.apps.model.b bVar, String str) {
-        com.baidu.swan.apps.performance.e.aK("route", "createAndLoadPage start.");
-        String I = ai.I(bVar.mBaseUrl, bVar.mPage, bVar.mParams);
-        com.baidu.swan.apps.runtime.config.c iD = com.baidu.swan.apps.y.f.UC().iD(bVar.mPage);
+        com.baidu.swan.apps.performance.e.z("route", "createAndLoadPage start.");
+        String J = ai.J(bVar.mBaseUrl, bVar.mPage, bVar.mParams);
+        com.baidu.swan.apps.runtime.config.c iS = com.baidu.swan.apps.y.f.WQ().iS(bVar.mPage);
         com.baidu.swan.apps.core.k.b bVar2 = new com.baidu.swan.apps.core.k.b();
-        bVar2.bod = cVar.Gw();
+        bVar2.bsm = cVar.IL();
         bVar2.appPath = bVar.mBaseUrl;
-        if (com.baidu.swan.apps.runtime.e.aap() != null) {
-            bVar2.boc = com.baidu.swan.apps.runtime.e.aap().kD(bVar.mPage);
+        if (com.baidu.swan.apps.runtime.e.acD() != null) {
+            bVar2.bsl = com.baidu.swan.apps.runtime.e.acD().kS(bVar.mPage);
         }
-        bVar2.bof = com.baidu.swan.apps.model.b.d(bVar);
-        bVar2.bog = iD.bog;
-        bVar2.bnZ = String.valueOf(com.baidu.swan.apps.console.a.Ja());
-        if (com.baidu.swan.apps.runtime.e.aap() != null) {
-            String kF = com.baidu.swan.apps.runtime.e.aap().kF(bVar.mPage);
-            if (!TextUtils.isEmpty(kF)) {
+        bVar2.bso = com.baidu.swan.apps.model.b.d(bVar);
+        bVar2.bsp = iS.bsp;
+        bVar2.bsi = String.valueOf(com.baidu.swan.apps.console.a.Lp());
+        if (com.baidu.swan.apps.runtime.e.acD() != null) {
+            String kU = com.baidu.swan.apps.runtime.e.acD().kU(bVar.mPage);
+            if (!TextUtils.isEmpty(kU)) {
                 if (DEBUG) {
-                    Log.d("ActionUtils", "add initData: " + kF);
+                    Log.d("ActionUtils", "add initData: " + kU);
                 }
-                bVar2.boh = kF;
+                bVar2.bsq = kU;
             }
         }
-        bVar2.bob = DEBUG || com.baidu.swan.apps.y.f.UC().Uh();
-        bVar2.boi = str;
-        if (com.baidu.swan.apps.ah.a.a.Yn()) {
-            bVar2.boe = com.baidu.swan.apps.console.debugger.b.Jh();
+        bVar2.bsk = DEBUG || com.baidu.swan.apps.y.f.WQ().Wv();
+        bVar2.bsr = str;
+        if (com.baidu.swan.apps.ah.a.a.aaB()) {
+            bVar2.bsn = com.baidu.swan.apps.console.debugger.b.Lw();
         }
-        com.baidu.swan.apps.performance.f.aP("route", str).f(new UbcFlowEvent("slave_dispatch_start"));
-        y.aeC();
-        com.baidu.swan.apps.y.f.UC().a(cVar.GA(), com.baidu.swan.apps.core.k.b.b(bVar2));
-        com.baidu.swan.apps.statistic.c.be(cVar.GA(), bVar2.bof);
-        com.baidu.swan.apps.core.slave.b.a(I, cVar);
-        com.baidu.swan.apps.performance.e.aK("route", "createAndLoadPage end.");
+        com.baidu.swan.apps.performance.f.aY("route", str).f(new UbcFlowEvent("slave_dispatch_start"));
+        y.agQ();
+        com.baidu.swan.apps.y.f.WQ().a(cVar.IP(), com.baidu.swan.apps.core.k.b.b(bVar2));
+        com.baidu.swan.apps.statistic.c.bn(cVar.IP(), bVar2.bso);
+        com.baidu.swan.apps.core.slave.b.a(J, cVar);
+        com.baidu.swan.apps.performance.e.z("route", "createAndLoadPage end.");
     }
 
-    public static void E(String str, String str2, @NonNull String str3) {
+    public static void F(String str, String str2, @NonNull String str3) {
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put("from", str2);
         }
         hashMap.put("url", str3);
-        com.baidu.swan.apps.y.f.UC().a(new com.baidu.swan.apps.n.a.b(str, hashMap));
+        com.baidu.swan.apps.y.f.WQ().a(new com.baidu.swan.apps.n.a.b(str, hashMap));
     }
 
     private static JSONObject a(@NonNull com.baidu.swan.apps.runtime.e eVar, String str, String str2) {
         String delAllParamsFromUrl = ag.delAllParamsFromUrl(str);
-        return n(str2, eVar.kB(delAllParamsFromUrl), eVar.kD(delAllParamsFromUrl), str);
+        return q(str2, eVar.kQ(delAllParamsFromUrl), eVar.kS(delAllParamsFromUrl), str);
     }
 }

@@ -4,7 +4,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static ObjectAnimator a(View view, float f, float f2, long j) {
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("translationX", f, f2), PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f));

@@ -2,18 +2,18 @@ package com.baidu.live.tieba.horizonallist.widget;
 
 import android.widget.ExpandableListView;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class a {
-    private static ArrayList<a> avl = new ArrayList<>(5);
-    public int avp;
-    public int avq;
-    int avr;
+    private static ArrayList<a> azB = new ArrayList<>(5);
+    public int azF;
+    public int azG;
+    int azH;
     public int type;
 
     private void resetState() {
-        this.avp = 0;
-        this.avq = 0;
-        this.avr = 0;
+        this.azF = 0;
+        this.azG = 0;
+        this.azH = 0;
         this.type = 0;
     }
 
@@ -21,30 +21,30 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long xx() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.avp, this.avq) : ExpandableListView.getPackedPositionForGroup(this.avp);
+    public long zO() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.azF, this.azG) : ExpandableListView.getPackedPositionForGroup(this.azF);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a ch(int i) {
+    public static a cx(int i) {
         return g(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a g(int i, int i2, int i3, int i4) {
-        a xy = xy();
-        xy.type = i;
-        xy.avp = i2;
-        xy.avq = i3;
-        xy.avr = i4;
-        return xy;
+        a zP = zP();
+        zP.type = i;
+        zP.azF = i2;
+        zP.azG = i3;
+        zP.azH = i4;
+        return zP;
     }
 
-    private static a xy() {
+    private static a zP() {
         a aVar;
-        synchronized (avl) {
-            if (avl.size() > 0) {
-                aVar = avl.remove(0);
+        synchronized (azB) {
+            if (azB.size() > 0) {
+                aVar = azB.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (avl) {
-            if (avl.size() < 5) {
-                avl.add(this);
+        synchronized (azB) {
+            if (azB.size() < 5) {
+                azB.add(this);
             }
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.live.tieba.horizonallist.widget.HListView;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void c(ListView listView) {
         try {
@@ -63,7 +63,7 @@ public class a {
         return simpleDateFormat.format(new Date((l.longValue() * 1000) - 28800000));
     }
 
-    public static String yg(String str) {
+    public static String yC(String str) {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong >= 10000000) {

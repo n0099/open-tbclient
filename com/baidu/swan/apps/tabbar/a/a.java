@@ -2,7 +2,7 @@ package com.baidu.swan.apps.tabbar.a;
 
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 abstract class a extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(j jVar, String str) {
@@ -10,12 +10,12 @@ abstract class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static com.baidu.swan.apps.tabbar.b.a Hw() {
-        return com.baidu.swan.apps.api.module.e.g.Hw();
+    public static com.baidu.swan.apps.tabbar.b.a JL() {
+        return com.baidu.swan.apps.api.module.e.g.JL();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static boolean Hx() {
-        return com.baidu.swan.apps.api.module.e.g.Hx();
+    public static boolean JM() {
+        return com.baidu.swan.apps.api.module.e.g.JM();
     }
 }

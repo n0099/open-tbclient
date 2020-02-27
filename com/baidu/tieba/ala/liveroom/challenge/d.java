@@ -9,45 +9,45 @@ import com.baidu.live.tbadk.download.DownloadData;
 import com.baidu.live.tbadk.download.FileSerialDownLoader;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
-    public static final String eQh = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.ala_challenge/";
+    public static final String eTX = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.ala_challenge/";
 
-    public static void bil() {
-        String str = com.baidu.live.s.a.wR().asq.Yu;
-        String str2 = com.baidu.live.s.a.wR().asq.Yt;
+    public static void bkb() {
+        String str = com.baidu.live.v.a.zj().awA.aam;
+        String str2 = com.baidu.live.v.a.zj().awA.aal;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            g("ala_live_challenge_res_id_android", str, "challenge_res", str2, true);
+            d("ala_live_challenge_res_id_android", str, "challenge_res", str2, true);
         }
     }
 
-    private static void g(final String str, final String str2, final String str3, final String str4, final boolean z) {
+    private static void d(final String str, final String str2, final String str3, final String str4, final boolean z) {
         new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.ala.liveroom.challenge.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                d.c(str, str2, str3, str4, z);
+                d.e(str, str2, str3, str4, z);
                 return null;
             }
         }.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean c(String str, String str2, String str3, String str4, boolean z) {
+    public static boolean e(String str, String str2, String str3, String str4, boolean z) {
         if (StringUtils.isNull(str3) || StringUtils.isNull(str2) || StringUtils.isNull(str4)) {
             return false;
         }
-        String str5 = eQh + str3;
+        String str5 = eTX + str3;
         String str6 = "ala_live_challenge_res_md5_" + str3;
-        if (!com.baidu.live.f.b.e(str5, com.baidu.live.f.b.cQ(str6)) || yv(str)) {
+        if (!com.baidu.live.f.b.b(str5, com.baidu.live.f.b.cZ(str6)) || yQ(str)) {
             return false;
         }
         com.baidu.live.f.b.a(str, str2, str5, str6, str3, str4, 19, z);
         return true;
     }
 
-    private static boolean yv(String str) {
+    private static boolean yQ(String str) {
         List<DownloadData> downloadList = FileSerialDownLoader.getInstance().getDownloadList();
         if (ListUtils.isEmpty(downloadList) || StringUtils.isNull(str)) {
             return false;

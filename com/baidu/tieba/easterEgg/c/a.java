@@ -7,55 +7,55 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.google.gson.Gson;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a extends d {
-    private com.baidu.tieba.easterEgg.d fPt;
-    private HashMap<String, String> fPu;
-    private Gson fPv;
+    private com.baidu.tieba.easterEgg.d fRO;
+    private HashMap<String, String> fRP;
+    private Gson fRQ;
 
     public a(int i) {
         super(i);
-        this.fPv = new Gson();
+        this.fRQ = new Gson();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
-    public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String zR = zR(httpMessageTask.getUrl());
-        if (zR != null && this.fPt != null) {
+        String Ah = Ah(httpMessageTask.getUrl());
+        if (Ah != null && this.fRO != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.fPv.toJson(netMessage.getSocketMessage().getData());
+                    json = this.fRQ.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.fPv.toJson(httpMessage.getParams());
+                json = this.fRQ.toJson(httpMessage.getParams());
             }
-            this.fPt.ak(httpMessageTask.getUrl(), this.fPv.toJson(zR), this.fPv.toJson(json));
+            this.fRO.ak(httpMessageTask.getUrl(), this.fRQ.toJson(Ah), this.fRQ.toJson(json));
         }
         return httpMessage;
     }
 
-    public String zR(String str) {
+    public String Ah(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.fPu != null) {
-            return this.fPu.get(replace);
+        if (this.fRP != null) {
+            return this.fRP.get(replace);
         }
         return null;
     }
 
     public void q(HashMap<String, String> hashMap) {
-        this.fPu = hashMap;
+        this.fRP = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.fPt = dVar;
+        this.fRO = dVar;
     }
 }

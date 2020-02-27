@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class SVGImageView extends ImageView {
     private static Method setLayerTypeMethod = null;
 
@@ -48,14 +48,14 @@ public class SVGImageView extends ImageView {
 
     private void a(AttributeSet attributeSet, int i) {
         if (!isInEditMode()) {
-            TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, a.C0059a.SVGImageView, i, 0);
+            TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, a.C0065a.SVGImageView, i, 0);
             try {
-                int resourceId = obtainStyledAttributes.getResourceId(a.C0059a.SVGImageView_svg, -1);
+                int resourceId = obtainStyledAttributes.getResourceId(a.C0065a.SVGImageView_svg, -1);
                 if (resourceId != -1) {
                     setImageResource(resourceId);
                     return;
                 }
-                String string = obtainStyledAttributes.getString(a.C0059a.SVGImageView_svg);
+                String string = obtainStyledAttributes.getString(a.C0065a.SVGImageView_svg);
                 if (string != null) {
                     if (!b(Uri.parse(string), false)) {
                         setImageAsset(string);
@@ -71,8 +71,8 @@ public class SVGImageView extends ImageView {
         if (svg == null) {
             throw new IllegalArgumentException("Null value passed to setSVG()");
         }
-        dhN();
-        setImageDrawable(new PictureDrawable(svg.dhc()));
+        djb();
+        setImageDrawable(new PictureDrawable(svg.diq()));
     }
 
     @Override // android.widget.ImageView
@@ -102,7 +102,7 @@ public class SVGImageView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends AsyncTask<Integer, Integer, Picture> {
         private b() {
         }
@@ -113,7 +113,7 @@ public class SVGImageView extends ImageView {
         /* renamed from: f */
         public Picture doInBackground(Integer... numArr) {
             try {
-                return SVG.J(SVGImageView.this.getContext(), numArr[0].intValue()).dhc();
+                return SVG.J(SVGImageView.this.getContext(), numArr[0].intValue()).diq();
             } catch (SVGParseException e) {
                 Log.e("SVGImageView", String.format("Error loading resource 0x%x: %s", numArr, e.getMessage()));
                 return null;
@@ -126,14 +126,14 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.dhN();
+                SVGImageView.this.djb();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends AsyncTask<String, Integer, Picture> {
         private a() {
         }
@@ -141,10 +141,10 @@ public class SVGImageView extends ImageView {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
-        /* renamed from: R */
+        /* renamed from: S */
         public Picture doInBackground(String... strArr) {
             try {
-                return SVG.a(SVGImageView.this.getContext().getAssets(), strArr[0]).dhc();
+                return SVG.a(SVGImageView.this.getContext().getAssets(), strArr[0]).diq();
             } catch (SVGParseException e) {
                 Log.e("SVGImageView", "Error loading file " + strArr + ": " + e.getMessage());
                 return null;
@@ -163,14 +163,14 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.dhN();
+                SVGImageView.this.djb();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c extends AsyncTask<InputStream, Integer, Picture> {
         private c() {
         }
@@ -183,12 +183,12 @@ public class SVGImageView extends ImageView {
         public Picture doInBackground(InputStream... inputStreamArr) {
             try {
                 try {
-                    Picture dhc = SVG.n(inputStreamArr[0]).dhc();
+                    Picture diq = SVG.n(inputStreamArr[0]).diq();
                     try {
                         inputStreamArr[0].close();
-                        return dhc;
+                        return diq;
                     } catch (IOException e) {
-                        return dhc;
+                        return diq;
                     }
                 } catch (SVGParseException e2) {
                     Log.e("SVGImageView", "Parse error loading URI: " + e2.getMessage());
@@ -213,14 +213,14 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.dhN();
+                SVGImageView.this.djb();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dhN() {
+    public void djb() {
         if (setLayerTypeMethod != null) {
             try {
                 setLayerTypeMethod.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);

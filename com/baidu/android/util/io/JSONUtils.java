@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class JSONUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "JSONUtils";

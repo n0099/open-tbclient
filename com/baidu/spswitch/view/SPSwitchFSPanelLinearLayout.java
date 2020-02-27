@@ -7,9 +7,9 @@ import android.widget.LinearLayout;
 import com.baidu.spswitch.a.a;
 import com.baidu.spswitch.b;
 import com.baidu.spswitch.b.g;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
-    private a aWj;
+    private a bav;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
@@ -25,16 +25,16 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     }
 
     private void init() {
-        this.aWj = new a(this);
+        this.bav = new a(this);
     }
 
     @Override // com.baidu.spswitch.b
-    public void dv(int i) {
+    public void dL(int i) {
         g.f(this, i);
     }
 
     @Override // com.baidu.spswitch.b
     public void onSoftInputShowing(boolean z) {
-        this.aWj.onSoftInputShowing(z);
+        this.bav.onSoftInputShowing(z);
     }
 }

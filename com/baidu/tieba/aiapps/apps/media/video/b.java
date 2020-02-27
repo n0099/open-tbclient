@@ -7,7 +7,7 @@ import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerVie
 import com.baidu.swan.apps.console.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -35,8 +35,8 @@ public class b {
     }
 
     public static void a(final String str, final String str2, final boolean z, VideoContainerManager videoContainerManager) {
-        final SwanAppComponentContainerView aXZ = videoContainerManager.aXZ();
-        aXZ.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.b.1
+        final SwanAppComponentContainerView bao = videoContainerManager.bao();
+        bao.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.b.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();

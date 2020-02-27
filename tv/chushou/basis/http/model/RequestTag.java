@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
 import tv.chushou.basis.rxjava.thread.EventThread;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RequestTag {
     public static final int TAG_NORMAL = 1;
     public static final int TAG_THIRDPARTY = 4;

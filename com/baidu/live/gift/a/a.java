@@ -1,18 +1,18 @@
 package com.baidu.live.gift.a;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public String ajh;
-    public String aji;
-    public String ajj;
-    public String ajk;
+    public String alp;
+    public String alq;
+    public String alr;
+    public String als;
 
     public a(String str, String str2, String str3, String str4) {
-        this.ajh = str;
-        this.aji = str2;
-        this.ajj = str3;
-        this.ajk = str4;
+        this.alp = str;
+        this.alq = str2;
+        this.alr = str3;
+        this.als = str4;
     }
 
     public static a q(JSONObject jSONObject) {

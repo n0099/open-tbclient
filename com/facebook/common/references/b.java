@@ -3,38 +3,38 @@ package com.facebook.common.references;
 import java.lang.ref.SoftReference;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b<T> {
-    SoftReference<T> lHZ = null;
-    SoftReference<T> lIa = null;
-    SoftReference<T> lIb = null;
+    SoftReference<T> lIG = null;
+    SoftReference<T> lIH = null;
+    SoftReference<T> lII = null;
 
     public void set(@Nonnull T t) {
-        this.lHZ = new SoftReference<>(t);
-        this.lIa = new SoftReference<>(t);
-        this.lIb = new SoftReference<>(t);
+        this.lIG = new SoftReference<>(t);
+        this.lIH = new SoftReference<>(t);
+        this.lII = new SoftReference<>(t);
     }
 
     @Nullable
     public T get() {
-        if (this.lHZ == null) {
+        if (this.lIG == null) {
             return null;
         }
-        return this.lHZ.get();
+        return this.lIG.get();
     }
 
     public void clear() {
-        if (this.lHZ != null) {
-            this.lHZ.clear();
-            this.lHZ = null;
+        if (this.lIG != null) {
+            this.lIG.clear();
+            this.lIG = null;
         }
-        if (this.lIa != null) {
-            this.lIa.clear();
-            this.lIa = null;
+        if (this.lIH != null) {
+            this.lIH.clear();
+            this.lIH = null;
         }
-        if (this.lIb != null) {
-            this.lIb.clear();
-            this.lIb = null;
+        if (this.lII != null) {
+            this.lII.clear();
+            this.lII = null;
         }
     }
 }

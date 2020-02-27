@@ -1,5 +1,5 @@
 package com.baidu.fsg.base;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static final boolean a = false;
     public static final String b = "com.baidu.fsg.base";

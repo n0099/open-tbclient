@@ -7,7 +7,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class c {
     public static String a(String str, String str2) {
         SecureRandom secureRandom = new SecureRandom();

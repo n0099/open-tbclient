@@ -1,5 +1,5 @@
 package com.baidu.searchbox.appframework.objectext;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.appframework.objectext";
     public static final String BUILD_TYPE = "release";

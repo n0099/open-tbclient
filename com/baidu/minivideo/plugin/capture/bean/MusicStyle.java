@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.bean;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public enum MusicStyle {
     MENU(0),
     COMMON(1),

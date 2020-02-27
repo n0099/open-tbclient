@@ -9,7 +9,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.appcompat.R;
 import android.view.ViewConfiguration;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ActionBarPolicy {
     private Context mContext;
 

@@ -1,40 +1,44 @@
 package com.baidu.live.t;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.l;
-/* loaded from: classes2.dex */
-public interface a {
-
-    /* renamed from: com.baidu.live.t.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0087a {
+import com.baidu.live.adp.framework.controller.HttpRule;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.framework.task.HttpMessageTask;
+import com.baidu.live.adp.lib.util.Md5;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.webkit.internal.ETAG;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes3.dex */
+public class a extends HttpRule {
+    public a(int i) {
+        super(i);
     }
 
-    void a(com.baidu.live.g.a aVar);
+    private void addSign(HttpMessage httpMessage) {
+        StringBuffer stringBuffer = new StringBuffer(1024);
+        List<Map.Entry<String, Object>> encodeInBackGround = httpMessage.encodeInBackGround();
+        for (int i = 0; encodeInBackGround != null && i < encodeInBackGround.size(); i++) {
+            Map.Entry<String, Object> entry = encodeInBackGround.get(i);
+            if (entry != null) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+                if ((value instanceof String) && !"sign".equals(key)) {
+                    stringBuffer.append(key + ETAG.EQUAL);
+                    stringBuffer.append(value);
+                }
+            }
+        }
+        stringBuffer.append("tiebaclient!!!");
+        httpMessage.addParam("sign", Md5.toMd5(stringBuffer.toString()));
+    }
 
-    void a(com.baidu.live.liveroom.a.a aVar);
-
-    void a(InterfaceC0087a interfaceC0087a);
-
-    void aZ(boolean z);
-
-    void bR(int i);
-
-    void bS(int i);
-
-    void ba(boolean z);
-
-    void g(ViewGroup viewGroup);
-
-    void h(ViewGroup viewGroup);
-
-    void i(ViewGroup viewGroup);
-
-    void i(l lVar);
-
-    void onDestroy();
-
-    void onKeyboardVisibilityChanged(boolean z);
-
-    void showDialog();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.live.adp.framework.controller.MessageRule
+    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        if (httpMessage != null && httpMessage.getCmd() < 1030999 && httpMessage.getCmd() >= 1021000) {
+            httpMessage.addParam("cuid", TbadkCoreApplication.getUniqueIdentifier());
+            addSign(httpMessage);
+        }
+        return httpMessage;
+    }
 }

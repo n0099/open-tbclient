@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class q {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x014a: ARRAY_LENGTH  (r4v9 int A[REMOVE]) = (r9v0 byte[]))] */
     /* JADX WARN: Removed duplicated region for block: B:109:? A[RETURN, SYNTHETIC] */
@@ -57,16 +57,16 @@ public final class q {
                     httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, (String) null));
                 } else {
                     com.baidu.crabsdk.c.a.v("*** apiType != Block ***");
-                    String cn = h.cn(str3);
-                    if (cn.startsWith("NoEncrypt_")) {
+                    String cv = h.cv(str3);
+                    if (cv.startsWith("NoEncrypt_")) {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES2");
-                        cn = cn.substring(10);
-                        com.baidu.crabsdk.c.a.v("real rsaAesKey is: " + cn);
+                        cv = cv.substring(10);
+                        com.baidu.crabsdk.c.a.v("real rsaAesKey is: " + cv);
                     } else {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     }
-                    httpURLConnection3.setRequestProperty("EncryptData", cn);
-                    httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, h.cm(str3)));
+                    httpURLConnection3.setRequestProperty("EncryptData", cv);
+                    httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, h.cu(str3)));
                 }
                 httpURLConnection3.setConnectTimeout(3000);
                 httpURLConnection3.setReadTimeout(3000);
@@ -76,7 +76,7 @@ public final class q {
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
-                    com.baidu.crabsdk.c.a.cb("response code is " + httpURLConnection3.getResponseCode());
+                    com.baidu.crabsdk.c.a.cj("response code is " + httpURLConnection3.getResponseCode());
                     if (httpURLConnection3.getResponseCode() == 200) {
                         inputStreamReader = new InputStreamReader(httpURLConnection3.getInputStream());
                         try {

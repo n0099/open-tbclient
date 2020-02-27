@@ -66,7 +66,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class l {
     private static final String[] a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE"};
     private static int b = -1;

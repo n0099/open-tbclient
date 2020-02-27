@@ -1,7 +1,7 @@
 package com.baidu.tieba.video.localvideo;
 
 import android.graphics.Bitmap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
     private long duration;
     private boolean hasLoaded = false;

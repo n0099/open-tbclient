@@ -1,5 +1,5 @@
 package master.flame.danmaku.danmaku.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class o extends p {
     public o(g gVar) {
         super(gVar);
@@ -7,10 +7,10 @@ public class o extends p {
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
     public void a(m mVar, float f, float f2) {
-        if (this.nEi != null) {
-            long j = this.nEi.nEZ;
-            long dKD = j - dKD();
-            if (dKD > 0 && dKD < this.nEK.value) {
+        if (this.nFa != null) {
+            long j = this.nFa.nFR;
+            long dLQ = j - dLQ();
+            if (dLQ > 0 && dLQ < this.nFC.value) {
                 this.x = b(mVar, j);
                 if (!isShown()) {
                     this.y = f2;
@@ -26,47 +26,47 @@ public class o extends p {
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
     public float[] a(m mVar, long j) {
-        if (!dKs()) {
+        if (!dLF()) {
             return null;
         }
         float b = b(mVar, j);
-        if (this.nFc == null) {
-            this.nFc = new float[4];
+        if (this.nFU == null) {
+            this.nFU = new float[4];
         }
-        this.nFc[0] = b;
-        this.nFc[1] = this.y;
-        this.nFc[2] = b + this.nEI;
-        this.nFc[3] = this.y + this.nEJ;
-        return this.nFc;
+        this.nFU[0] = b;
+        this.nFU[1] = this.y;
+        this.nFU[2] = b + this.nFA;
+        this.nFU[3] = this.y + this.nFB;
+        return this.nFU;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p
     protected float b(m mVar, long j) {
-        long dKD = j - dKD();
-        if (dKD >= this.nEK.value) {
+        long dLQ = j - dLQ();
+        if (dLQ >= this.nFC.value) {
             return mVar.getWidth();
         }
-        return (((float) dKD) * this.nFo) - this.nEI;
+        return (((float) dLQ) * this.nGg) - this.nFA;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
-    public float dKy() {
+    public float dLL() {
         return this.x;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
-    public float dKz() {
+    public float dLM() {
         return this.y;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
-    public float dKA() {
-        return this.x + this.nEI;
+    public float dLN() {
+        return this.x + this.nFA;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
-    public float dKB() {
-        return this.y + this.nEJ;
+    public float dLO() {
+        return this.y + this.nFB;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d

@@ -9,11 +9,11 @@ import javax.annotation.meta.When;
 @TypeQualifier
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface Nonnull {
     When when() default When.ALWAYS;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Checker implements TypeQualifierValidator<Nonnull> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // javax.annotation.meta.TypeQualifierValidator

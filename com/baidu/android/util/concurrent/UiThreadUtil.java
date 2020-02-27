@@ -2,7 +2,7 @@ package com.baidu.android.util.concurrent;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UiThreadUtil {
     private static volatile Handler sMainHandler;
 

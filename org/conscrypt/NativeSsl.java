@@ -23,7 +23,7 @@ import javax.security.auth.x500.X500Principal;
 import org.conscrypt.NativeCrypto;
 import org.conscrypt.SSLParametersImpl;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class NativeSsl {
     private final SSLParametersImpl.AliasChooser aliasChooser;
     private final NativeCrypto.SSLHandshakeCallbacks handshakeCallbacks;
@@ -522,7 +522,7 @@ public final class NativeSsl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     final class BioWrapper {
         private volatile long bio;
 

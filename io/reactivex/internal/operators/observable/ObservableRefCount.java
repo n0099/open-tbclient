@@ -9,11 +9,11 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObservableRefCount<T> extends q<T> {
     RefConnection connection;
     final int n;
-    final io.reactivex.d.a<T> nxy;
+    final io.reactivex.d.a<T> nya;
     final v scheduler;
     final long timeout;
     final TimeUnit unit;
@@ -39,9 +39,9 @@ public final class ObservableRefCount<T> extends q<T> {
                 refConnection.connected = true;
             }
         }
-        this.nxy.subscribe(new RefCountObserver(uVar, this, refConnection));
+        this.nya.subscribe(new RefCountObserver(uVar, this, refConnection));
         if (z) {
-            this.nxy.c(refConnection);
+            this.nya.c(refConnection);
         }
     }
 
@@ -70,8 +70,8 @@ public final class ObservableRefCount<T> extends q<T> {
                 if (refConnection.timer != null) {
                     refConnection.timer.dispose();
                 }
-                if (this.nxy instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nxy).dispose();
+                if (this.nya instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nya).dispose();
                 }
             }
         }
@@ -82,15 +82,15 @@ public final class ObservableRefCount<T> extends q<T> {
             if (refConnection.subscriberCount == 0 && refConnection == this.connection) {
                 this.connection = null;
                 DisposableHelper.dispose(refConnection);
-                if (this.nxy instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nxy).dispose();
+                if (this.nya instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nya).dispose();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class RefConnection extends AtomicReference<io.reactivex.disposables.b> implements g<io.reactivex.disposables.b>, Runnable {
         private static final long serialVersionUID = -4552101107598366241L;
         boolean connected;
@@ -114,7 +114,7 @@ public final class ObservableRefCount<T> extends q<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     static final class RefCountObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -7419642935409022375L;
         final u<? super T> actual;

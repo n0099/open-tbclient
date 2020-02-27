@@ -4,26 +4,26 @@ import android.os.Handler;
 import android.os.Looper;
 import io.reactivex.v;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    private static final v nvm = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
+    private static final v nvO = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dIa */
+        /* renamed from: dJh */
         public v call() throws Exception {
-            return C0750a.nvn;
+            return C0758a.nvP;
         }
     });
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: io.reactivex.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0750a {
-        static final v nvn = new b(new Handler(Looper.getMainLooper()));
+    /* loaded from: classes6.dex */
+    public static final class C0758a {
+        static final v nvP = new b(new Handler(Looper.getMainLooper()));
     }
 
-    public static v dHZ() {
-        return io.reactivex.a.a.a.e(nvm);
+    public static v dJg() {
+        return io.reactivex.a.a.a.e(nvO);
     }
 
     public static v a(Looper looper) {

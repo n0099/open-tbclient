@@ -3,7 +3,7 @@ package com.kascend.chushou.constants;
 import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AdExtraInfo implements Serializable {
     public List<AdTrackInfo> cTrack;
     public List<AdTrackInfo> clTrack;

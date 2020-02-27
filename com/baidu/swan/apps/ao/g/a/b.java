@@ -9,7 +9,7 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends ab {
     public b(j jVar) {
         super(jVar, "/swanAPI/stopDeviceMotion");
@@ -34,7 +34,7 @@ public class b extends ab {
             }
             return false;
         } else {
-            com.baidu.swan.apps.ao.g.a.adE().adF();
+            com.baidu.swan.apps.ao.g.a.afS().afT();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

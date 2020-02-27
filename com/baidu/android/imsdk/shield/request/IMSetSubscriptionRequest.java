@@ -1,0 +1,61 @@
+package com.baidu.android.imsdk.shield.request;
+
+import android.content.Context;
+import android.util.Pair;
+import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.ListenerManager;
+import com.baidu.android.imsdk.shield.ISetSubscriptionListener;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.pushservice.PushConstants;
+import java.util.List;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
+    public static final String TAG = "IMSetSubscriptionRequest";
+    private int mCategory;
+
+    public IMSetSubscriptionRequest(Context context, int i, long j, List<Long> list, String str, String str2) {
+        super(context, j, list, str2, str);
+        this.mCategory = i;
+    }
+
+    @Override // com.baidu.android.imsdk.shield.request.IMSubscriptionBaseRequest
+    public String getHostUrlParam() {
+        return this.mCategory == 1 ? TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE : "unsubscribe";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
+        String str;
+        String str2 = new String(bArr);
+        LogUtils.d(TAG, "IMSetSubscriptionRequest onSuccess :" + str2);
+        try {
+            JSONObject jSONObject = new JSONObject(str2);
+            int i3 = jSONObject.getInt("error_code");
+            String optString = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+            i2 = i3;
+            str = optString;
+        } catch (Exception e) {
+            LogUtils.e(TAG, "JSONException", e);
+            i2 = 1010;
+            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+        }
+        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+        if (removeListener != null && (removeListener instanceof ISetSubscriptionListener)) {
+            ((ISetSubscriptionListener) removeListener).onResult(i2, str);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        LogUtils.d(TAG, "IMSetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
+        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+        if (removeListener != null && (removeListener instanceof ISetSubscriptionListener)) {
+            ((ISetSubscriptionListener) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
+        }
+    }
+}

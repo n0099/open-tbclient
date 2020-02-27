@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d implements com.baidu.tbadk.mvc.b.a {
-    public static final int[] fRG = {0, 1, 2, 3, 4, 5};
+    public static final int[] fUa = {0, 1, 2, 3, 4, 5};
     private int mType = 6;
 
     public void setType(int i) {

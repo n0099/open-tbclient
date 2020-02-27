@@ -6,19 +6,19 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.SafeHandler;
-import com.baidu.live.r.a;
-/* loaded from: classes2.dex */
+import com.baidu.live.u.a;
+/* loaded from: classes3.dex */
 public class AlaLiveStreamStatusView extends LinearLayout {
-    private boolean ePt;
-    private TextView fjZ;
-    private int fka;
-    private Runnable fkb;
+    private boolean eTv;
+    private TextView fmT;
+    private int fmU;
+    private Runnable fmV;
 
     public AlaLiveStreamStatusView(Context context) {
         super(context);
-        this.fka = 1;
-        this.ePt = true;
-        this.fkb = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.fmU = 1;
+        this.eTv = true;
+        this.fmV = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -29,9 +29,9 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     public AlaLiveStreamStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fka = 1;
-        this.ePt = true;
-        this.fkb = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.fmU = 1;
+        this.eTv = true;
+        this.fmV = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -42,9 +42,9 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     public AlaLiveStreamStatusView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fka = 1;
-        this.ePt = true;
-        this.fkb = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.fmU = 1;
+        this.eTv = true;
+        this.fmV = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -55,12 +55,12 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     private void initViews() {
         View.inflate(getContext(), a.h.ala_live_stream_status_layout, this);
-        this.fjZ = (TextView) findViewById(a.g.ala_live_stream_status_txt);
+        this.fmT = (TextView) findViewById(a.g.ala_live_stream_status_txt);
     }
 
     public void a(int i, boolean z, int i2, boolean z2) {
         String string;
-        this.fka = i2;
+        this.fmU = i2;
         setVisibility(0);
         if (z && i >= 80) {
             setVisibility(4);
@@ -68,8 +68,8 @@ public class AlaLiveStreamStatusView extends LinearLayout {
             setVisibility(0);
         }
         if (i > 80) {
-            SafeHandler.getInst().removeCallbacks(this.fkb);
-            SafeHandler.getInst().postDelayed(this.fkb, 5000L);
+            SafeHandler.getInst().removeCallbacks(this.fmV);
+            SafeHandler.getInst().postDelayed(this.fmV, 5000L);
             string = getContext().getResources().getString(a.i.ala_stream_status_very_good);
         } else if (i > 40) {
             string = getContext().getResources().getString(a.i.ala_stream_status_good);
@@ -78,22 +78,22 @@ public class AlaLiveStreamStatusView extends LinearLayout {
         } else {
             string = getContext().getResources().getString(a.i.ala_stream_status_bad);
         }
-        this.fjZ.setText(string);
+        this.fmT.setText(string);
     }
 
     public int getCurLevel() {
-        return this.fka;
+        return this.fmU;
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.ePt) {
+        if (!this.eTv) {
             i = 4;
         }
         super.setVisibility(i);
     }
 
     public void setCanVisible(boolean z) {
-        this.ePt = z;
+        this.eTv = z;
     }
 }

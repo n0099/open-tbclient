@@ -9,7 +9,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseWebViewClient extends WebViewClient {
     protected BaseWebViewRequestParam param;
     protected WebViewRequestCallback requestCallback;

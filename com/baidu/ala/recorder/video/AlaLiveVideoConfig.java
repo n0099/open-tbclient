@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video;
 import com.baidu.ala.recorder.video.DynamicBitRateConfig;
 import com.baidu.tbadk.TbConfig;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveVideoConfig {
     public static final int HW_ENCODER = 1;
     private static final int PREVIEW_HEIGHT = 1280;
@@ -99,18 +99,6 @@ public class AlaLiveVideoConfig {
         this.mIsSupportDynamicBitrate = true;
     }
 
-    public static AlaLiveVideoConfig generateDefaultVideoConfig() {
-        AlaLiveVideoConfig alaLiveVideoConfig = new AlaLiveVideoConfig();
-        alaLiveVideoConfig.mSoftConfig = DynamicBitRateConfig.generateDefaultConfig(1);
-        alaLiveVideoConfig.mHardConfig = DynamicBitRateConfig.generateDefaultConfig(2);
-        alaLiveVideoConfig.mRtcConfig = DynamicBitRateConfig.generateDefaultConfig(3);
-        alaLiveVideoConfig.mCurrentConfig = alaLiveVideoConfig.mHardConfig;
-        alaLiveVideoConfig.mEncoderType = 1;
-        alaLiveVideoConfig.mOutputWidth = 540;
-        alaLiveVideoConfig.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
-        return alaLiveVideoConfig;
-    }
-
     public void switchToRtcMode(int i, int i2) {
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
@@ -143,6 +131,16 @@ public class AlaLiveVideoConfig {
 
     public int getPreviewHeight() {
         return this.mPreviewHeight;
+    }
+
+    public AlaLiveVideoConfig setOutputWidth(int i) {
+        this.mOutputWidth = i;
+        return this;
+    }
+
+    public AlaLiveVideoConfig setOutputHeight(int i) {
+        this.mOutputHeight = i;
+        return this;
     }
 
     public int getVideoWidth() {

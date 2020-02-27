@@ -4,114 +4,118 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import com.baidu.live.adp.base.BdBaseView;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes2.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes3.dex */
 public class a extends BdBaseView<BaseFragmentActivity> {
-    private Fragment[] amb;
-    private String axO;
-    private String axP;
-    private AlbumActivity axQ;
-    private String[] axR;
-    private ImageListFragment axS;
-    private AlbumImageBrowseFragment axT;
+    private String aCe;
+    private String aCf;
+    private AlbumActivity aCg;
+    private String[] aCh;
+    private ImageListFragment aCi;
+    private AlbumImageBrowseFragment aCj;
+    private List<Fragment> mFragments;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.axO = "tag_image";
-        this.axP = "tag_b_image";
-        this.axQ = albumActivity;
+        this.aCe = "tag_image";
+        this.aCf = "tag_b_image";
+        this.aCg = albumActivity;
     }
 
-    public void xY() {
-        this.amb = new Fragment[2];
-        this.axR = new String[2];
-        this.axS = new ImageListFragment();
-        this.amb[0] = this.axS;
-        this.axR[0] = this.axO;
-        this.axT = new AlbumImageBrowseFragment();
-        this.amb[1] = this.axT;
-        this.axR[1] = this.axP;
+    public void Ap() {
+        this.mFragments = new ArrayList(2);
+        this.aCh = new String[2];
+        this.aCi = new ImageListFragment();
+        this.mFragments.add(this.aCi);
+        this.aCh[0] = this.aCe;
+        this.aCj = new AlbumImageBrowseFragment();
+        this.mFragments.add(this.aCj);
+        this.aCh[1] = this.aCf;
     }
 
-    public Fragment cx(int i) {
+    public Fragment cN(int i) {
+        if (i < 0 || this.mFragments == null || i >= this.mFragments.size()) {
+            return null;
+        }
+        return this.mFragments.get(i);
+    }
+
+    public String cO(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.amb[i];
-    }
-
-    public String cy(int i) {
-        if (i < 0 || i > 1) {
-            return null;
-        }
-        return this.axR[i];
+        return this.aCh[i];
     }
 
     public void onChangeSkinType(int i) {
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.amb.length) {
-                if (this.amb[i3] != null && (this.amb[i3] instanceof ImageListFragment)) {
-                    ((ImageListFragment) this.amb[i3]).onChangeSkinType(i);
+        if (this.mFragments != null && !this.mFragments.isEmpty()) {
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 < this.mFragments.size()) {
+                    if (this.mFragments.get(i3) instanceof ImageListFragment) {
+                        ((ImageListFragment) this.mFragments.get(i3)).onChangeSkinType(i);
+                    }
+                    i2 = i3 + 1;
+                } else {
+                    return;
                 }
-                i2 = i3 + 1;
-            } else {
-                return;
             }
         }
     }
 
-    public View xZ() {
-        if (this.axS == null) {
+    public View Aq() {
+        if (this.aCi == null) {
             return null;
         }
-        return this.axS.yh();
+        return this.aCi.Ay();
     }
 
-    public View ya() {
-        if (this.axS == null) {
+    public View Ar() {
+        if (this.aCi == null) {
             return null;
         }
-        return this.axS.yw();
+        return this.aCi.AN();
     }
 
-    public View yb() {
-        if (this.axT == null) {
+    public View As() {
+        if (this.aCj == null) {
             return null;
         }
-        return this.axT.yh();
+        return this.aCj.Ay();
     }
 
-    public View yc() {
-        if (this.axT == null) {
+    public View At() {
+        if (this.aCj == null) {
             return null;
         }
-        return this.axT.yi();
+        return this.aCj.Az();
     }
 
-    public View yd() {
-        if (this.axT == null) {
+    public View Au() {
+        if (this.aCj == null) {
             return null;
         }
-        return this.axT.yd();
+        return this.aCj.Au();
     }
 
-    public View ye() {
-        if (this.axS == null) {
+    public View Av() {
+        if (this.aCi == null) {
             return null;
         }
-        return this.axS.yd();
+        return this.aCi.Au();
     }
 
     public void onDestroy() {
     }
 
-    public void bl(boolean z) {
-        if (this.axT != null) {
-            this.axT.bl(z);
+    public void bt(boolean z) {
+        if (this.aCj != null) {
+            this.aCj.bt(z);
         }
-        if (this.axS != null) {
-            this.axS.bl(z);
+        if (this.aCi != null) {
+            this.aCi.bt(z);
         }
     }
 }

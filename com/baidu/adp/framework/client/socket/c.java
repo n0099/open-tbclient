@@ -142,11 +142,11 @@ public class c {
     }
 
     public static boolean findMessageByDuplicate(LinkedList<e> linkedList, int i) {
-        SocketMessage eT;
+        SocketMessage eU;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (eT = next.eT()) != null && eT.getCmd() == i) {
+            if (next != null && (eU = next.eU()) != null && eU.getCmd() == i) {
                 return true;
             }
         }
@@ -154,25 +154,25 @@ public class c {
     }
 
     public static void removeMessageByDuplicate(LinkedList<e> linkedList, int i) {
-        SocketMessage eT;
+        SocketMessage eU;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (eT = next.eT()) != null && eT.getCmd() == i) {
+            if (next != null && (eU = next.eU()) != null && eU.getCmd() == i) {
                 it.remove();
             }
         }
     }
 
     public static boolean a(LinkedList<e> linkedList, a aVar, int i) {
-        SocketMessage eT;
+        SocketMessage eU;
         if (aVar == null) {
             return false;
         }
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (eT = next.eT()) != null && eT.getCmd() == i && aVar.onFindMessage(eT)) {
+            if (next != null && (eU = next.eU()) != null && eU.getCmd() == i && aVar.onFindMessage(eU)) {
                 return true;
             }
         }
@@ -180,11 +180,11 @@ public class c {
     }
 
     public static boolean a(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage eT;
+        SocketMessage eU;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (eT = next.eT()) != null && ((i != 0 && eT.getTag() == bdUniqueId && i == eT.getCmd()) || (i == 0 && bdUniqueId != null && eT.getTag() == bdUniqueId))) {
+            if (next != null && (eU = next.eU()) != null && ((i != 0 && eU.getTag() == bdUniqueId && i == eU.getCmd()) || (i == 0 && bdUniqueId != null && eU.getTag() == bdUniqueId))) {
                 return true;
             }
         }
@@ -192,12 +192,12 @@ public class c {
     }
 
     public static void b(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage eT;
+        SocketMessage eU;
         if (linkedList != null) {
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next != null && (eT = next.eT()) != null && ((i != 0 && eT.getTag() == bdUniqueId && i == eT.getCmd()) || (i == 0 && bdUniqueId != null && eT.getTag() == bdUniqueId))) {
+                if (next != null && (eU = next.eU()) != null && ((i != 0 && eU.getTag() == bdUniqueId && i == eU.getCmd()) || (i == 0 && bdUniqueId != null && eU.getTag() == bdUniqueId))) {
                     it.remove();
                     next.onRemove();
                 }

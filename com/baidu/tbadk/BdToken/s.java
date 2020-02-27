@@ -7,26 +7,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-    private long cEM;
-    private long cEN;
-    private ArrayList<u> cEO;
+    private long cIQ;
+    private long cIR;
+    private ArrayList<u> cIS;
     private String mUrl;
 
     public void parseJson(String str) {
         if (!aq.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.cEM = jSONObject.optLong("start_date", 0L) * 1000;
-                this.cEN = jSONObject.optLong("end_date", 0L) * 1000;
+                this.cIQ = jSONObject.optLong("start_date", 0L) * 1000;
+                this.cIR = jSONObject.optLong("end_date", 0L) * 1000;
                 this.mUrl = jSONObject.optString("ahead_url", "");
-                this.cEO = new ArrayList<>();
+                this.cIS = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray("time");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
                         u uVar = new u();
                         uVar.parseJson(optJSONArray2);
-                        this.cEO.add(uVar);
+                        this.cIS.add(uVar);
                     }
                 }
             } catch (Exception e) {
@@ -36,18 +36,18 @@ public class s {
     }
 
     public long getStartDate() {
-        return this.cEM;
+        return this.cIQ;
     }
 
-    public long avR() {
-        return this.cEN;
+    public long aye() {
+        return this.cIR;
     }
 
     public String getUrl() {
         return this.mUrl;
     }
 
-    public ArrayList<u> avS() {
-        return this.cEO;
+    public ArrayList<u> ayf() {
+        return this.cIS;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import com.baidu.searchbox.widget.SlideInterceptor;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface af extends SlideInterceptor {
-    double Gl();
+    double IA();
 }

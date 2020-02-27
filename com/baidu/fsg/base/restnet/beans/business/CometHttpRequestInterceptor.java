@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.beans.business;
 
 import android.content.Context;
 import com.baidu.fsg.base.restnet.rest.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CometHttpRequestInterceptor extends EbpayHttpRequestInterceptor {
     public static final int COMET_HTTP_TIMEOUT = 60000;
     private static final String TAG = "CometHttpRequestInterceptor";

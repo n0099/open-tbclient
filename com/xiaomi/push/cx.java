@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class cx {
     private int a;
 
@@ -17,7 +17,7 @@ public abstract class cx {
     public abstract String a(Context context, String str, List<ar> list);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m211a(Context context, String str, List<ar> list) {
+    public boolean m216a(Context context, String str, List<ar> list) {
         return true;
     }
 }

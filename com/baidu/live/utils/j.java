@@ -2,9 +2,9 @@ package com.baidu.live.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j {
-    public static String I(long j) {
+    public static String M(long j) {
         long j2 = j / 60000;
         long j3 = (j % 60000) / 1000;
         String str = (j2 < 10 ? "0" : "") + j2 + ":";

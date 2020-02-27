@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CheckPostRequestMessage extends NetMessage {
     private String forumName;
     public String ori_ugc_nid;

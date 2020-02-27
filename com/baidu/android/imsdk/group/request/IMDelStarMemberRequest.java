@@ -19,7 +19,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMDelStarMemberRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMDelStarMemberRequest.class.getSimpleName();
     private long mAppid;
@@ -27,7 +27,7 @@ public class IMDelStarMemberRequest extends GroupBaseHttpRequest {
     private String mGroupId;
     private String mKey;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

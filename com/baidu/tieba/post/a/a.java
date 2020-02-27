@@ -13,59 +13,59 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
-    private ArrayList<m> eei = new ArrayList<>();
-    private BdTypeListView efW;
-    public i jlA;
-    public j jzO;
-    private b jzP;
+    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
+    private ArrayList<m> eil = new ArrayList<>();
+    private BdTypeListView eka;
+    public j jAE;
+    private b jAF;
+    public i jmu;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.efW = bdTypeListView;
+        this.eka = bdTypeListView;
         s(tbPageContext);
     }
 
     private void s(TbPageContext<?> tbPageContext) {
-        this.jlA = new i(tbPageContext);
-        this.jzO = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.jnZ);
-        this.jzP = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.jzO.a(this.jzP);
-        this.apl.add(this.jlA);
-        this.apl.add(this.jzO);
-        this.efW.addAdapters(this.apl);
+        this.jmu = new i(tbPageContext);
+        this.jAE = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.joT);
+        this.jAF = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.jAE.a(this.jAF);
+        this.asE.add(this.jmu);
+        this.asE.add(this.jAE);
+        this.eka.addAdapters(this.asE);
     }
 
-    public void Q(ArrayList<m> arrayList) {
-        if (arrayList != null && this.efW != null) {
-            this.eei.clear();
-            this.eei.addAll(arrayList);
-            this.efW.setData(this.eei);
+    public void S(ArrayList<m> arrayList) {
+        if (arrayList != null && this.eka != null) {
+            this.eil.clear();
+            this.eil.addAll(arrayList);
+            this.eka.setData(this.eil);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.efW.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.efW.getAdapter().notifyDataSetChanged();
+        if (this.eka.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.eka.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.efW != null) {
-            this.efW.startPullRefresh();
+        if (this.eka != null) {
+            this.eka.startPullRefresh();
         }
     }
 
-    public boolean GX(String str) {
+    public boolean Hl(String str) {
         boolean z;
         if (aq.isEmpty(str)) {
             return false;
         }
-        if (this.efW == null || this.eei == null) {
+        if (this.eka == null || this.eil == null) {
             return false;
         }
-        Iterator<m> it = this.eei.iterator();
+        Iterator<m> it = this.eil.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -79,8 +79,8 @@ public class a {
             }
         }
         if (z) {
-            this.eei = PersonPostModel.mergeDynamicThreadByTime(this.eei);
-            this.efW.setData(this.eei);
+            this.eil = PersonPostModel.mergeDynamicThreadByTime(this.eil);
+            this.eka.setData(this.eil);
             notifyDataSetChanged();
             return z;
         }

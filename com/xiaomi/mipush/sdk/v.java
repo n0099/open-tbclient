@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class v extends Exception {
     public v() {
     }

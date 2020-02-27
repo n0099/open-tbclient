@@ -6,18 +6,18 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IComOpenClient extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements IComOpenClient {
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        private static class C0106a implements IComOpenClient {
+        /* loaded from: classes8.dex */
+        private static class C0114a implements IComOpenClient {
             private IBinder a;
 
-            C0106a(IBinder iBinder) {
+            C0114a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -71,7 +71,7 @@ public interface IComOpenClient extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0106a(iBinder) : (IComOpenClient) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0114a(iBinder) : (IComOpenClient) queryLocalInterface;
         }
 
         @Override // android.os.Binder

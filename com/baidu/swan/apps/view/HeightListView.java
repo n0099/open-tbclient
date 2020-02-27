@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HeightListView extends ListView {
     private int mListViewHeight;
 

@@ -1,44 +1,44 @@
 package com.google.android.exoplayer2.source.dash;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e implements d {
-    private final com.google.android.exoplayer2.extractor.a mtO;
+    private final com.google.android.exoplayer2.extractor.a muu;
 
     public e(com.google.android.exoplayer2.extractor.a aVar) {
-        this.mtO = aVar;
+        this.muu = aVar;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public int dvL() {
+    public int dwV() {
         return 0;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public int gs(long j) {
-        return this.mtO.length;
+    public int gq(long j) {
+        return this.muu.length;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public long KQ(int i) {
-        return this.mtO.mdm[i];
+    public long KV(int i) {
+        return this.muu.mdS[i];
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public long G(int i, long j) {
-        return this.mtO.mdl[i];
+    public long F(int i, long j) {
+        return this.muu.mdR[i];
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public com.google.android.exoplayer2.source.dash.manifest.f KR(int i) {
-        return new com.google.android.exoplayer2.source.dash.manifest.f(null, this.mtO.mdk[i], this.mtO.mdj[i]);
+    public com.google.android.exoplayer2.source.dash.manifest.f KW(int i) {
+        return new com.google.android.exoplayer2.source.dash.manifest.f(null, this.muu.mdQ[i], this.muu.mdP[i]);
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public int U(long j, long j2) {
-        return this.mtO.fM(j);
+    public int T(long j, long j2) {
+        return this.muu.fK(j);
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public boolean dvM() {
+    public boolean dwW() {
         return true;
     }
 }

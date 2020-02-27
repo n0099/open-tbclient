@@ -16,35 +16,35 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.pms.d;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public static final String cbA = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri cwQ = Uri.parse("content://" + cbA + "/framework");
-    public static final Uri cwR = Uri.parse("content://" + cbA + "/swan_app");
-    public static final Uri cwS = Uri.parse("content://" + cbA + "/pkg_main");
-    public static final Uri cwT = Uri.parse("content://" + cbA + "/pkg_sub");
-    public static final Uri cwU = Uri.parse("content://" + cbA + "/" + ETAG.KEY_EXTENSION);
-    public static final Uri cwV = Uri.parse("content://" + cbA + "/swan_plugin");
-    public static final Uri cwW = Uri.parse("content://" + cbA + "/swan_mini_pkg");
-    private static UriMatcher cwX = new UriMatcher(-1);
     private Context mContext;
+    public static final String cfF = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+    public static final Uri cAO = Uri.parse("content://" + cfF + "/framework");
+    public static final Uri cAP = Uri.parse("content://" + cfF + "/swan_app");
+    public static final Uri cAQ = Uri.parse("content://" + cfF + "/pkg_main");
+    public static final Uri cAR = Uri.parse("content://" + cfF + "/pkg_sub");
+    public static final Uri cAS = Uri.parse("content://" + cfF + "/" + ETAG.KEY_EXTENSION);
+    public static final Uri cAT = Uri.parse("content://" + cfF + "/swan_plugin");
+    public static final Uri cAU = Uri.parse("content://" + cfF + "/swan_mini_pkg");
+    private static UriMatcher cAV = new UriMatcher(-1);
 
     static {
-        cwX.addURI(cbA, "framework", 2);
-        cwX.addURI(cbA, "pkg_main", 0);
-        cwX.addURI(cbA, "pkg_sub", 1);
-        cwX.addURI(cbA, ETAG.KEY_EXTENSION, 3);
-        cwX.addURI(cbA, "swan_app", 4);
-        cwX.addURI(cbA, "swan_plugin", 5);
-        cwX.addURI(cbA, "swan_mini_pkg", 6);
+        cAV.addURI(cfF, "framework", 2);
+        cAV.addURI(cfF, "pkg_main", 0);
+        cAV.addURI(cfF, "pkg_sub", 1);
+        cAV.addURI(cfF, ETAG.KEY_EXTENSION, 3);
+        cAV.addURI(cfF, "swan_app", 4);
+        cAV.addURI(cfF, "swan_plugin", 5);
+        cAV.addURI(cfF, "swan_mini_pkg", 6);
     }
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    private String l(Uri uri) {
-        switch (cwX.match(uri)) {
+    private String m(Uri uri) {
+        switch (cAV.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:
@@ -71,13 +71,13 @@ public class b {
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        String l = l(uri);
-        if (!TextUtils.isEmpty(l)) {
+        String m = m(uri);
+        if (!TextUtils.isEmpty(m)) {
             if (d.DEBUG) {
                 Log.e("PMSDBProvider", "query");
             }
             try {
-                return OI().getReadableDatabase().query(l, strArr, str, strArr2, null, null, str2, null);
+                return QW().getReadableDatabase().query(m, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e) {
                 if (d.DEBUG) {
                     e.printStackTrace();
@@ -90,13 +90,13 @@ public class b {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         Log.e("PMSDBProvider", "name:" + Thread.currentThread().getName());
-        String l = l(uri);
-        if (!TextUtils.isEmpty(l) && contentValues != null) {
+        String m = m(uri);
+        if (!TextUtils.isEmpty(m) && contentValues != null) {
             if (d.DEBUG) {
                 Log.e("PMSDBProvider", "insert:" + contentValues.toString());
             }
             try {
-                long insertWithOnConflict = OI().getWritableDatabase().insertWithOnConflict(l, null, contentValues, 5);
+                long insertWithOnConflict = QW().getWritableDatabase().insertWithOnConflict(m, null, contentValues, 5);
                 if (insertWithOnConflict > 0) {
                     Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
                     this.mContext.getContentResolver().notifyChange(withAppendedId, null);
@@ -113,13 +113,13 @@ public class b {
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        String l = l(uri);
-        if (!TextUtils.isEmpty(l)) {
+        String m = m(uri);
+        if (!TextUtils.isEmpty(m)) {
             if (d.DEBUG) {
                 Log.e("PMSDBProvider", "delete");
             }
             try {
-                int delete = OI().getWritableDatabase().delete(l, str, strArr);
+                int delete = QW().getWritableDatabase().delete(m, str, strArr);
                 if (delete > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return delete;
@@ -135,13 +135,13 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        String l = l(uri);
-        if (!TextUtils.isEmpty(l)) {
+        String m = m(uri);
+        if (!TextUtils.isEmpty(m)) {
             if (d.DEBUG) {
                 Log.e("PMSDBProvider", IMTrack.DbBuilder.ACTION_UPDATE);
             }
             try {
-                int update = OI().getWritableDatabase().update(l, contentValues, str, strArr);
+                int update = QW().getWritableDatabase().update(m, contentValues, str, strArr);
                 if (update > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return update;
@@ -157,7 +157,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteOpenHelper OI() {
-        return a.arm();
+    public SQLiteOpenHelper QW() {
+        return a.atA();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.sapi2.bio;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class a extends PassFaceRecogCallback {
     final /* synthetic */ PassFaceRecogCallback a;
     final /* synthetic */ BiometricsManager b;

@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import java.io.IOException;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class NetWorkDetector {
     private static final boolean DEBUG = false;
     public static final long DETECT_INTERVAL = 5000;
@@ -17,7 +17,7 @@ public final class NetWorkDetector {
     private HashMap<String, HostStatusCache> mDetectCacheMap;
     public boolean sNeedDetect = true;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static final class HostStatusCache {
         long cacheTime;
         int lastStatus;

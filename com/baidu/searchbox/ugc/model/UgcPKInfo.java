@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.model;
 import com.baidu.searchbox.NoProGuard;
 import com.google.gson.a.c;
 import java.io.Serializable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UgcPKInfo implements NoProGuard, Serializable {
     @c("end_time")
     public String pkEndTime;
@@ -16,7 +16,7 @@ public class UgcPKInfo implements NoProGuard, Serializable {
     @c("title")
     public String pkTitle;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class PKOption implements NoProGuard, Serializable {
         @c("night_front_color")
         public String nightOptionTextColor;

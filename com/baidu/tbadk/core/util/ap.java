@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ap {
-    private static ap cWl;
+    private static ap dan;
 
-    public static synchronized ap aEn() {
+    public static synchronized ap aGy() {
         ap apVar;
         synchronized (ap.class) {
-            if (cWl == null) {
-                cWl = new ap();
+            if (dan == null) {
+                dan = new ap();
             }
-            apVar = cWl;
+            apVar = dan;
         }
         return apVar;
     }
 
-    public String tg(String str) {
+    public String tw(String str) {
         if (str == null) {
             return null;
         }
@@ -34,21 +34,21 @@ public class ap {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return m.getImage(tg(str), str);
+        return m.getImage(tw(str), str);
     }
 
     public boolean isGif(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m.isGif(tg(str), str);
+        return m.isGif(tw(str), str);
     }
 
-    public int th(String str) {
+    public int tx(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) m.checkImageFileSize(tg(str), str);
+        return (int) m.checkImageFileSize(tw(str), str);
     }
 
     public boolean copyFile(String str, String str2) {
@@ -56,7 +56,7 @@ public class ap {
         if (!m.CheckTempDir(str3)) {
             m.makeRootDirectory(str3);
         }
-        String str4 = str3 + tg(str2);
+        String str4 = str3 + tw(str2);
         if (!m.CheckTempDir(str4)) {
             m.makeRootDirectory(str4);
         }
@@ -64,21 +64,21 @@ public class ap {
         if (str.equals(str5)) {
             return false;
         }
-        return m.t(str, str5, true);
+        return m.u(str, str5, true);
     }
 
     public void j(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            m.c(tg(str), str, bArr);
+            m.c(tw(str), str, bArr);
         }
     }
 
-    private void D(File file) {
+    private void F(File file) {
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    D(file2);
+                    F(file2);
                     file2.delete();
                 } else if (!file2.delete()) {
                 }
@@ -86,17 +86,17 @@ public class ap {
         }
     }
 
-    public void aEo() {
-        E(new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + m.getPrefixByType(3)));
+    public void aGz() {
+        G(new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + m.getPrefixByType(3)));
     }
 
-    private void E(File file) {
+    private void G(File file) {
         long currentTimeMillis = System.currentTimeMillis();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    D(file2);
+                    F(file2);
                     file2.delete();
                 } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && file2.delete()) {
                 }

@@ -6,7 +6,7 @@ import com.baidu.live.adp.framework.listener.MessageListener;
 import com.baidu.live.adp.framework.listener.NetMessageListener;
 import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.framework.message.NetMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BdBaseModel<T> {
     public static final int MODE_INVALID = 0;
     protected int mErrorCode;
@@ -127,7 +127,5 @@ public abstract class BdBaseModel<T> {
     }
 
     private void check() {
-        if (this.unique_id == null) {
-        }
     }
 }

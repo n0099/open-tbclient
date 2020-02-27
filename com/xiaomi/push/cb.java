@@ -3,12 +3,12 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import java.text.SimpleDateFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class cb {
 
     /* renamed from: a  reason: collision with other field name */
-    private static SimpleDateFormat f180a = new SimpleDateFormat("yyyy/MM/dd");
-    private static String a = f180a.format(Long.valueOf(System.currentTimeMillis()));
+    private static SimpleDateFormat f177a = new SimpleDateFormat("yyyy/MM/dd");
+    private static String a = f177a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static hk a(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -21,7 +21,7 @@ public class cb {
         hkVar.b(str);
         hkVar.a(true);
         hkVar.b(System.currentTimeMillis());
-        hkVar.g(bk.a(context).m161a());
+        hkVar.g(bk.a(context).m166a());
         hkVar.e("com.xiaomi.xmsf");
         hkVar.f("");
         hkVar.c("push_stat");

@@ -3,59 +3,59 @@ package com.baidu.swan.apps.adaptation.a;
 import android.content.Context;
 import java.util.Map;
 import okhttp3.Request;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface o {
-    boolean FE();
+    boolean HT();
 
-    String FF();
+    String HU();
 
-    String FG();
+    String HV();
 
-    String FH();
+    String HW();
 
-    String FI();
+    String HX();
 
-    void FJ();
+    void HY();
 
-    void FK();
+    void HZ();
 
-    String FL();
+    String Ia();
 
-    String FM();
+    String Ib();
 
-    String FN();
+    String Ic();
 
-    String FO();
+    String Id();
 
-    String FP();
+    String Ie();
 
-    String FQ();
+    String If();
 
-    String FR();
+    String Ig();
 
-    String FS();
+    String Ih();
 
-    String FT();
+    String Ii();
 
-    String FU();
+    String Ij();
 
-    String FV();
+    String Ik();
 
-    String FW();
+    String Il();
 
-    String FX();
+    String Im();
 
-    String FY();
+    String In();
 
-    boolean FZ();
+    boolean Io();
 
-    String Ga();
+    String Ip();
 
-    String Gb();
+    String Iq();
 
-    String Gc();
+    String Ir();
 
-    String bp(Context context);
+    String bt(Context context);
 
     Request d(Context context, Map<String, String> map);
 

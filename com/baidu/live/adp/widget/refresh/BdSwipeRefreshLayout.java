@@ -16,6 +16,7 @@ import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -24,7 +25,7 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.widget.AbsListView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     private static final int ALPHA_ANIMATION_DURATION = 300;
     private static final int ANIMATE_TO_START_DURATION = 200;
@@ -88,7 +89,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     private static final String LOG_TAG = BdSwipeRefreshLayout.class.getSimpleName();
     private static final int[] LAYOUT_ATTRS = {16842766};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IProgressView {
         long getCompleteAnimTime();
 
@@ -107,12 +108,12 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         void onReleaseToRefresh();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnChildScrollUpCallback {
         boolean canChildScrollUp(BdSwipeRefreshLayout bdSwipeRefreshLayout, @Nullable View view);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnRefreshListener {
         void onRefresh();
     }
@@ -519,10 +520,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        if (Build.VERSION.SDK_INT >= 21 || !(this.mTarget instanceof AbsListView)) {
-            if (this.mTarget == null || ViewCompat.isNestedScrollingEnabled(this.mTarget)) {
-                super.requestDisallowInterceptTouchEvent(z);
-            }
+        if ((Build.VERSION.SDK_INT < 21 && (this.mTarget instanceof AbsListView)) || (this.mTarget != null && !ViewCompat.isNestedScrollingEnabled(this.mTarget))) {
+            Log.d("BdSwipeRefreshLayout", "requestDisallowInterceptTouchEvent b = " + z);
+        } else {
+            super.requestDisallowInterceptTouchEvent(z);
         }
     }
 
@@ -907,7 +908,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DefaultProgressView implements IProgressView {
         private static final int CIRCLE_BG_LIGHT = -328966;
         public static final long COMPLETE_ANIM_TIME = 0;

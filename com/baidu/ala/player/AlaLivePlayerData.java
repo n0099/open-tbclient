@@ -3,13 +3,13 @@ package com.baidu.ala.player;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.helper.AlaLiveStreamCmdInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLivePlayerData {
     public static final int INIT_STATUS = 0;
     public static final int MAX_VIDEO_BUFF_SIZE = 1048576;
     public static final int RUN_STATUS = 1;
     public static final int STOP_STATUS = 3;
-    public volatile AlaLiveStreamCmdInfo mCmdInfo;
+    public volatile AlaLiveStreamCmdInfo.CmdParseResult mCmdInfo;
     public int mIndex;
     public String mPlayUrl;
     public volatile int mFastOpen = 0;

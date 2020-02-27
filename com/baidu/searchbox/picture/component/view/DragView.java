@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DragView extends FrameLayout {
     public static final int BASE_ALPHA = 20;
     public static final float BASE_BACKGROUND_ALPHA_DISTANCE = 300.0f;
@@ -28,7 +28,7 @@ public class DragView extends FrameLayout {
     private int mTopMinValue;
     private ViewDragHelper mViewDragHelper;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface OnCloseListener {
         void onClose();
 
@@ -81,10 +81,10 @@ public class DragView extends FrameLayout {
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public void onViewReleased(View view, float f, float f2) {
                 if (DragView.this.mChildView != null) {
-                    int top = DragView.this.mChildView.getTop() - DragView.this.mInitY;
-                    if (Math.abs(top) <= DragView.this.mAutoCloseDistance) {
+                    int top2 = DragView.this.mChildView.getTop() - DragView.this.mInitY;
+                    if (Math.abs(top2) <= DragView.this.mAutoCloseDistance) {
                         DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.mInitX, DragView.this.mInitY);
-                    } else if (top < 0) {
+                    } else if (top2 < 0) {
                         DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.mChildView.getMeasuredHeight());
                     } else {
                         DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), 0, DragView.this.mChildView.getMeasuredHeight());
@@ -195,7 +195,7 @@ public class DragView extends FrameLayout {
         this.mTopMinValue = i;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class OnSimpleCloseListener implements OnCloseListener {
         @Override // com.baidu.searchbox.picture.component.view.DragView.OnCloseListener
         public void onClose() {

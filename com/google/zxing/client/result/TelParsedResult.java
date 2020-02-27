@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class TelParsedResult extends ParsedResult {
     private final String number;
     private final String telURI;

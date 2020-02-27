@@ -1,6 +1,5 @@
 package com.google.zxing.qrcode.decoder;
 
-import com.baidu.down.manage.DownloadConstants;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
@@ -11,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class DecodedBitStreamParser {
     private static final char[] ALPHANUMERIC_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:".toCharArray();
     private static final int GB2312_SUBSET = 1;
@@ -143,7 +142,7 @@ final class DecodedBitStreamParser {
         int i3 = 0;
         while (i > 0) {
             int readBits = bitSource.readBits(13);
-            int i4 = (readBits % DownloadConstants.STATUS_RUNNING) | ((readBits / DownloadConstants.STATUS_RUNNING) << 8);
+            int i4 = (readBits % 192) | ((readBits / 192) << 8);
             if (i4 < 7936) {
                 i2 = 33088;
             } else {
@@ -261,7 +260,7 @@ final class DecodedBitStreamParser {
         if ((readBits & 128) == 0) {
             return readBits & 127;
         }
-        if ((readBits & DownloadConstants.STATUS_RUNNING) == 128) {
+        if ((readBits & 192) == 128) {
             return ((readBits & 63) << 8) | bitSource.readBits(8);
         } else if ((readBits & 224) == 192) {
             return ((readBits & 31) << 16) | bitSource.readBits(16);

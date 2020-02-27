@@ -3,7 +3,7 @@ package android.support.transition;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class ViewGroupUtils {
     private static final ViewGroupUtilsImpl IMPL;
 

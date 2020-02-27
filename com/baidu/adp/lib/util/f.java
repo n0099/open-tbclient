@@ -2,7 +2,6 @@ package com.baidu.adp.lib.util;
 
 import android.os.Environment;
 import android.os.StatFs;
-import com.baidu.android.imsdk.BuildConfig;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,7 +12,7 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class f {
-    private static String APP_DIR = BuildConfig.FLAVOR;
+    private static String APP_DIR = "baidu";
     public static final File EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
     private static final char SYSTEM_SEPARATOR = File.separatorChar;
 

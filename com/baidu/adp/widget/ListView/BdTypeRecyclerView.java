@@ -10,43 +10,43 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeRecyclerView extends BdRecyclerView implements r<BdTypeRecyclerView> {
-    u AK;
+    u Bf;
 
     public BdTypeRecyclerView(Context context) {
         super(context);
-        this.AK = null;
+        this.Bf = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.AK = null;
+        this.Bf = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.AK = null;
+        this.Bf = null;
         init();
     }
 
     private void init() {
-        if (this.AK == null) {
-            this.AK = new u();
+        if (this.Bf == null) {
+            this.Bf = new u();
         }
         super.setOnItemClickListener(new BdRecyclerView.a() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.1
             @Override // com.baidu.adp.widget.ListView.BdRecyclerView.a
             public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.AK != null) {
-                    BdTypeRecyclerView.this.AK.onItemClick(viewGroup, view, i, j);
+                if (BdTypeRecyclerView.this.Bf != null) {
+                    BdTypeRecyclerView.this.Bf.onItemClick(viewGroup, view, i, j);
                 }
             }
         });
         super.setOnItemLongClickListener(new BdRecyclerView.b() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.2
             @Override // com.baidu.adp.widget.ListView.BdRecyclerView.b
             public boolean b(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.AK != null) {
-                    return BdTypeRecyclerView.this.AK.onItemLongClick(viewGroup, view, i, j);
+                if (BdTypeRecyclerView.this.Bf != null) {
+                    return BdTypeRecyclerView.this.Bf.onItemLongClick(viewGroup, view, i, j);
                 }
                 return false;
             }
@@ -75,39 +75,39 @@ public class BdTypeRecyclerView extends BdRecyclerView implements r<BdTypeRecycl
     public void addAdapters(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.AK.addAdapter(it.next());
+            this.Bf.addAdapter(it.next());
         }
-        setAdapter(this.AK);
+        setAdapter(this.Bf);
     }
 
     @Override // com.baidu.adp.widget.ListView.r
     public void setData(List<m> list) {
-        this.AK.setData(list);
+        this.Bf.setData(list);
     }
 
     public void setDataWithPartChange(List<m> list, int i, int i2) {
-        this.AK.a(list, i, i2);
+        this.Bf.a(list, i, i2);
     }
 
     public void removeItem(int i) {
-        this.AK.removeItem(i);
+        this.Bf.removeItem(i);
     }
 
-    public void l(int i, int i2) {
-        this.AK.l(i, i2);
+    public void m(int i, int i2) {
+        this.Bf.m(i, i2);
     }
 
     @Override // com.baidu.adp.widget.ListView.r
     public List<m> getData() {
-        return this.AK.getData();
+        return this.Bf.getData();
     }
 
     public m getItem(int i) {
-        return this.AK.getItem(i);
+        return this.Bf.getItem(i);
     }
 
     public int getCount() {
-        return this.AK.getCount();
+        return this.Bf.getCount();
     }
 
     @Override // android.support.v7.widget.RecyclerView, android.view.View

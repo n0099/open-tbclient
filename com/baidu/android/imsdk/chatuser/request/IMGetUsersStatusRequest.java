@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMGetUsersStatusRequest extends Message {
     private Context mContext;
     private int mReSendCount = 0;
@@ -65,7 +65,9 @@ public class IMGetUsersStatusRequest extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) throws JSONException {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        ArrayList<UserStatus> arrayList;
+        Exception e;
         JSONArray jSONArray;
         if (i != 0) {
             if (this.mReSendCount >= 3) {
@@ -76,33 +78,49 @@ public class IMGetUsersStatusRequest extends Message {
                 return;
             }
         }
-        ArrayList<UserStatus> arrayList = null;
-        if (i == 0 && jSONObject.has("user_status") && (jSONArray = jSONObject.getJSONArray("user_status")) != null && jSONArray.length() > 0) {
-            ArrayList<UserStatus> arrayList2 = new ArrayList<>();
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 >= jSONArray.length()) {
-                    break;
-                }
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                if (jSONObject2.has("uid") && jSONObject2.has("status")) {
-                    long j = jSONObject2.getLong("uid");
-                    int i4 = jSONObject2.getInt("status");
-                    long j2 = 0;
-                    if (jSONObject2.has("last_operate_time")) {
-                        j2 = jSONObject2.getLong("last_operate_time");
-                    }
-                    arrayList2.add(new UserStatus(j, i4 == 1, j2));
-                }
-                i2 = i3 + 1;
+        ArrayList<UserStatus> arrayList2 = null;
+        if (i == 0) {
+            try {
+            } catch (Exception e2) {
+                arrayList = null;
+                e = e2;
             }
-            arrayList = arrayList2;
+            if (jSONObject.has("user_status") && (jSONArray = jSONObject.getJSONArray("user_status")) != null && jSONArray.length() > 0) {
+                arrayList = new ArrayList<>();
+                int i2 = 0;
+                while (true) {
+                    try {
+                        int i3 = i2;
+                        if (i3 >= jSONArray.length()) {
+                            break;
+                        }
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                        if (jSONObject2.has("uid") && jSONObject2.has("status")) {
+                            long j = jSONObject2.getLong("uid");
+                            int i4 = jSONObject2.getInt("status");
+                            long j2 = 0;
+                            if (jSONObject2.has("last_operate_time")) {
+                                j2 = jSONObject2.getLong("last_operate_time");
+                            }
+                            arrayList.add(new UserStatus(j, i4 == 1, j2));
+                        }
+                        i2 = i3 + 1;
+                    } catch (Exception e3) {
+                        e = e3;
+                        LogUtils.e("IMGetUsersStatusRequest", "handleMessageResult :", e);
+                        arrayList2 = arrayList;
+                        if (arrayList2 == null) {
+                        }
+                        ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList2);
+                    }
+                }
+                arrayList2 = arrayList;
+            }
         }
-        if (arrayList != null && arrayList.size() > 0) {
-            ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), i, str, arrayList);
+        if (arrayList2 == null && arrayList2.size() > 0) {
+            ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), i, str, arrayList2);
         } else {
-            ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList);
+            ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList2);
         }
     }
 }

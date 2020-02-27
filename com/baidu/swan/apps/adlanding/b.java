@@ -16,24 +16,24 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.c.a aXu;
-    private JSONObject aXv;
+    private com.baidu.swan.apps.media.c.a bbF;
+    private JSONObject bbG;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.c.a aVar) {
         this.mContext = context;
-        this.aXv = jSONObject;
-        this.aXu = aVar;
+        this.bbG = jSONObject;
+        this.bbF = aVar;
     }
 
     private String c(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.aXu != null) {
-            hashMap2.put("cur_time", String.valueOf(this.aXu.getDuration() / 1000));
+        if (this.bbF != null) {
+            hashMap2.put("cur_time", String.valueOf(this.bbF.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -54,7 +54,7 @@ public class b {
         return str;
     }
 
-    public void eN(String str) {
+    public void fc(String str) {
         d(str, new HashMap<>());
     }
 
@@ -67,7 +67,7 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.aXv != null ? this.aXv.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.bbG != null ? this.bbG.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
@@ -76,9 +76,9 @@ public class b {
                     HttpUrl parse = HttpUrl.parse(c);
                     if (parse != null) {
                         Request build = new Request.Builder().url(parse.newBuilder().build()).build();
-                        e aaq = e.aaq();
-                        if (aaq != null) {
-                            aaq.aaB().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
+                        e acE = e.acE();
+                        if (acE != null) {
+                            acE.acP().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
                                 @Override // okhttp3.Callback
                                 public void onFailure(Call call, IOException iOException) {
                                     if (b.DEBUG) {

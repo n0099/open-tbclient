@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 import com.baidu.mapsdkplatform.comapi.map.ac;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class u implements View.OnClickListener {
     final /* synthetic */ TextureMapView a;
 

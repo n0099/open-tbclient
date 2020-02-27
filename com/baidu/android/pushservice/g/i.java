@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.g;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
     private static void a(Context context, com.baidu.android.pushservice.a.f fVar, h hVar, g gVar) {
         if (fVar != null) {

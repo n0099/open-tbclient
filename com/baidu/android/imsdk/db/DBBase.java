@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DBBase {
     public static final String TAG = DBBase.class.getSimpleName();
     protected static Object mSyncLock = new Object();
     protected Context mContext = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class UpdateArgs {
         public String[] args;
         public String query;
@@ -39,12 +39,6 @@ public class DBBase {
         return openDatabase;
     }
 
-    public void closeDatabase() {
-        synchronized (mSyncLock) {
-            DBResource.getInstance(this.mContext).closeDatabase();
-        }
-    }
-
     public void setContext(Context context) {
         synchronized (mSyncLock) {
             if (context != null) {
@@ -55,32 +49,18 @@ public class DBBase {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public long insert(String str, ContentValues contentValues) {
-        long j = -1;
         SQLiteDatabase openDatabase = openDatabase();
         if (openDatabase == null) {
             LogUtils.d(TAG, "getWritableDb fail!");
-        } else {
-            try {
-                try {
-                    j = openDatabase.insert(str, null, contentValues);
-                    if (openDatabase != null) {
-                        closeDatabase();
-                    }
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "saveCmdMsg:", e);
-                    if (openDatabase != null) {
-                        closeDatabase();
-                    }
-                }
-            } catch (Throwable th) {
-                if (openDatabase != null) {
-                    closeDatabase();
-                }
-                throw th;
-            }
+            return -1L;
         }
-        return j;
+        try {
+            return openDatabase.insert(str, null, contentValues);
+        } catch (Exception e) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            LogUtils.e(TAG, "saveCmdMsg:", e);
+            return -1L;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -93,16 +73,16 @@ public class DBBase {
         return -1;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
     public int updateBatch(String str, List<UpdateArgs> list) {
         int size;
         int i = -1;
         if (!TextUtils.isEmpty(str) && list != null && (size = list.size()) != 0) {
             SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                LogUtils.e(TAG, "updateBatch open db = null");
-            } else {
-                try {
+            try {
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "updateBatch open db = null");
+                } else {
                     try {
                         openDatabase.beginTransaction();
                         Iterator<UpdateArgs> it = list.iterator();
@@ -126,7 +106,6 @@ public class DBBase {
                                 if (openDatabase != null) {
                                     try {
                                         openDatabase.endTransaction();
-                                        closeDatabase();
                                     } catch (Exception e2) {
                                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                                         LogUtils.e(TAG, "updateBatch", e2);
@@ -141,15 +120,14 @@ public class DBBase {
                     } catch (Exception e3) {
                         e = e3;
                     }
-                } finally {
-                    if (openDatabase != null) {
-                        try {
-                            openDatabase.endTransaction();
-                            closeDatabase();
-                        } catch (Exception e4) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
-                            LogUtils.e(TAG, "updateBatch", e4);
-                        }
+                }
+            } finally {
+                if (openDatabase != null) {
+                    try {
+                        openDatabase.endTransaction();
+                    } catch (Exception e4) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                        LogUtils.e(TAG, "updateBatch", e4);
                     }
                 }
             }
@@ -160,31 +138,17 @@ public class DBBase {
     /* JADX INFO: Access modifiers changed from: protected */
     public int delete(String str, String str2, String[] strArr) {
         SQLiteDatabase openDatabase = openDatabase();
-        int i = -1;
         if (openDatabase == null) {
             LogUtils.d(TAG, "getWritableDb fail!");
-        } else {
-            try {
-                try {
-                    i = openDatabase.delete(str, str2, strArr);
-                    if (openDatabase != null) {
-                        closeDatabase();
-                    }
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "deleteCmdMsg:", e);
-                    if (openDatabase != null) {
-                        closeDatabase();
-                    }
-                }
-            } catch (Throwable th) {
-                if (openDatabase != null) {
-                    closeDatabase();
-                }
-                throw th;
-            }
+            return -1;
         }
-        return i;
+        try {
+            return openDatabase.delete(str, str2, strArr);
+        } catch (Exception e) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            LogUtils.e(TAG, "deleteCmdMsg:", e);
+            return -1;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -202,10 +166,9 @@ public class DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [185=5, 186=4, 188=4, 189=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [171=5, 172=4] */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0072  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0077  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0063  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -223,18 +186,12 @@ public class DBBase {
                 if (cursor != null) {
                     cursor.close();
                 }
-                if (openDatabase != null) {
-                    closeDatabase();
-                }
                 return -1L;
             }
             try {
                 long update = cursor.getCount() > 0 ? openDatabase.update(str, contentValues, str2, strArr2) : openDatabase.insert(str, null, contentValues);
                 if (cursor != null) {
                     cursor.close();
-                }
-                if (openDatabase != null) {
-                    closeDatabase();
                     return update;
                 }
                 return update;
@@ -246,9 +203,6 @@ public class DBBase {
                     if (cursor2 != null) {
                         cursor2.close();
                     }
-                    if (openDatabase != null) {
-                        closeDatabase();
-                    }
                     return -1L;
                 } catch (Throwable th) {
                     th = th;
@@ -256,16 +210,11 @@ public class DBBase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    if (openDatabase != null) {
-                        closeDatabase();
-                    }
                     throw th;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 if (cursor != null) {
-                }
-                if (openDatabase != null) {
                 }
                 throw th;
             }
@@ -280,31 +229,16 @@ public class DBBase {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public long queryCount(String str, String[] strArr, String str2, String[] strArr2) {
-        SQLiteDatabase openDatabase = openDatabase();
         try {
-            try {
-                long queryCount = queryCount(openDatabase, str, strArr, str2, strArr2);
-                if (openDatabase != null) {
-                    closeDatabase();
-                }
-                return queryCount;
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(LogUtils.TAG, "queryCount", e);
-                if (openDatabase != null) {
-                    closeDatabase();
-                }
-                return -1L;
-            }
-        } catch (Throwable th) {
-            if (openDatabase != null) {
-                closeDatabase();
-            }
-            throw th;
+            return queryCount(openDatabase(), str, strArr, str2, strArr2);
+        } catch (Exception e) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            LogUtils.e(LogUtils.TAG, "queryCount", e);
+            return -1L;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [230=5, 231=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [209=5, 210=4] */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -363,19 +297,9 @@ public class DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [253=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0053 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0055 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0011 */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [232=4] */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004c  */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    /* JADX WARN: Type inference failed for: r2v9 */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0046  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -385,17 +309,14 @@ public class DBBase {
         if (openDatabase == null) {
             return;
         }
-        String str6 = str;
         try {
+            cursor = openDatabase.query(str, strArr, str2, strArr2, str3, str4, str5);
             try {
-                cursor = openDatabase.query(str6, strArr, str2, strArr2, str3, str4, str5);
                 try {
                     cursorParse.parseCursor(cursor);
                     if (cursor != null) {
                         cursor.close();
                     }
-                    closeDatabase();
-                    str6 = cursor;
                 } catch (Exception e) {
                     e = e;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -403,15 +324,12 @@ public class DBBase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    closeDatabase();
-                    str6 = cursor;
                 }
             } catch (Throwable th) {
                 th = th;
-                if (str6 != 0) {
-                    str6.close();
+                if (cursor != null) {
+                    cursor.close();
                 }
-                closeDatabase();
                 throw th;
             }
         } catch (Exception e2) {
@@ -419,26 +337,15 @@ public class DBBase {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            str6 = 0;
-            if (str6 != 0) {
+            cursor = null;
+            if (cursor != null) {
             }
-            closeDatabase();
             throw th;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [276=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0056 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0058 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0014 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004f  */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    /* JADX WARN: Type inference failed for: r2v9 */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0049  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -448,17 +355,14 @@ public class DBBase {
         if (openDatabase == null) {
             return;
         }
-        String str7 = str;
         try {
+            cursor = openDatabase.query(str, strArr, str2, strArr2, str3, str4, str5, str6);
             try {
-                cursor = openDatabase.query(str7, strArr, str2, strArr2, str3, str4, str5, str6);
                 try {
                     cursorParse.parseCursor(cursor);
                     if (cursor != null) {
                         cursor.close();
                     }
-                    closeDatabase();
-                    str7 = cursor;
                 } catch (Exception e) {
                     e = e;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -466,15 +370,12 @@ public class DBBase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    closeDatabase();
-                    str7 = cursor;
                 }
             } catch (Throwable th) {
                 th = th;
-                if (str7 != 0) {
-                    str7.close();
+                if (cursor != null) {
+                    cursor.close();
                 }
-                closeDatabase();
                 throw th;
             }
         } catch (Exception e2) {
@@ -482,10 +383,9 @@ public class DBBase {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            str7 = 0;
-            if (str7 != 0) {
+            cursor = null;
+            if (cursor != null) {
             }
-            closeDatabase();
             throw th;
         }
     }

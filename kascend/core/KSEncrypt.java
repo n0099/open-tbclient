@@ -1,7 +1,7 @@
 package kascend.core;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class KSEncrypt {
     private Context mContext;
     private boolean r;

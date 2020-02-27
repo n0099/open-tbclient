@@ -9,7 +9,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.live.adp.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdRoundedImageView extends ImageView {
     public static final int DEFAULT_BORDER_WIDTH = 0;
     public static final int DEFAULT_RADIUS = 0;
@@ -108,7 +108,7 @@ public class BdRoundedImageView extends ImageView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.live.adp.widget.imageview.BdRoundedImageView$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 

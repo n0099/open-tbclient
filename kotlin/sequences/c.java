@@ -1,7 +1,8 @@
 package kotlin.sequences;
 
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 public interface c<T> {
     Iterator<T> iterator();
 }

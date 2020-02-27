@@ -1,11 +1,14 @@
 package kotlin.random;
-/* loaded from: classes5.dex */
+
+import kotlin.h;
+@h
+/* loaded from: classes7.dex */
 public final class c {
-    public static final int NE(int i) {
+    public static final int NH(int i) {
         return 31 - Integer.numberOfLeadingZeros(i);
     }
 
-    public static final double ep(int i, int i2) {
+    public static final double es(int i, int i2) {
         return ((i << 27) + i2) / 9007199254740992L;
     }
 }

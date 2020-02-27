@@ -1,7 +1,7 @@
 package com.baidu.sapi2.result.a;
 
 import com.baidu.sapi2.result.SapiResult;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends SapiResult {
     public boolean a = false;
     public String b;

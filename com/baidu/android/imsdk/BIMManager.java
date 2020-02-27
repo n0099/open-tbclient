@@ -19,6 +19,13 @@ import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
 import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
 import com.baidu.android.imsdk.chatmessage.IGetNewMsgCountListener;
 import com.baidu.android.imsdk.chatmessage.IGetSessionListener;
+import com.baidu.android.imsdk.chatmessage.IMediaChatMsgChangedListener;
+import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatMsgListener;
+import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener;
+import com.baidu.android.imsdk.chatmessage.IMediaFetchChatMsgsListener;
+import com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener;
+import com.baidu.android.imsdk.chatmessage.IMediaSendChatMsgListener;
+import com.baidu.android.imsdk.chatmessage.IMediaSetSessionReadListener;
 import com.baidu.android.imsdk.chatmessage.IMessageReceiveListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatuser.ChatUser;
@@ -34,19 +41,21 @@ import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMManagerImpl;
 import com.baidu.android.imsdk.internal.IMSettings;
+import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.upload.action.IMTrackManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.imsdk.IMService;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
+    private static IConnectListener mConnectListener;
     private static Context sContext = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum CATEGORY {
         ALL(-1),
         SINGLEPERSON(0),
@@ -91,6 +100,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (!isNullContext(context) && !TextUtils.isEmpty(str)) {
             Context applicationContext = context.getApplicationContext();
             sContext = context;
+            IMService.isSmallFlow = false;
             boolean appid = AccountManagerImpl.getInstance(context).setAppid(j);
             if (appid) {
                 if (i == 0 || i == 1 || i == 2 || i == 3) {
@@ -111,6 +121,15 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return false;
     }
 
+    public static void imLogoutByLcp(Context context) {
+        try {
+            IMService.clearMsgListByLcp(context);
+            LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
+        } catch (Exception e) {
+            LogUtils.e(TAG, "imLogoutByLcp exception ", e);
+        }
+    }
+
     public static boolean enableDebugMode(boolean z) {
         if (isNullContext(sContext)) {
             return false;
@@ -122,8 +141,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return IMManagerImpl.getVersion();
     }
 
-    public static void login(String str, String str2, int i, String str3, String str4, String str5, String str6, ILoginListener iLoginListener) {
-        LogUtils.d(TAG, "HB> im in login, uid = " + str + ", cuid = " + str2 + ", loginType = " + i + ", zid = " + str5 + ", vCode = " + str6);
+    public static void login(String str, String str2, int i, String str3, String str4, String str5, String str6, int i2, ILoginListener iLoginListener) {
+        LogUtils.d(TAG, "HB> im in login, uid = " + str + ", cuid = " + str2 + ", loginType = " + i + ", zid = " + str5 + ", vCode = " + str6 + ", openType = " + i2);
         if (isNullContext(sContext)) {
             if (iLoginListener != null) {
                 iLoginListener.onLoginResult(1005, "Context is NULL");
@@ -131,35 +150,59 @@ public class BIMManager extends BaseManager implements NoProGuard {
             }
             return;
         }
-        AccountManagerImpl.getInstance(sContext).pushReStartWork();
-        if (TextUtils.isEmpty(str2)) {
-            if (iLoginListener != null) {
-                iLoginListener.onLoginResult(1005, "accessToken is NULL");
+        String str7 = "1Y";
+        long j = 0;
+        try {
+            try {
+                String[] loginFlag = Utility.getLoginFlag(sContext);
+                if (loginFlag.length >= 2) {
+                    j = Long.valueOf(loginFlag[0]).longValue();
+                    str7 = loginFlag[1];
+                }
+                new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId(str7).requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, "IMTrack init request getLoginFlag Exception ");
+                new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            }
+            Utility.writeLoginCallTime(sContext);
+            Utility.writeLoginFlag(sContext, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
+            Utility.writeLoginOpenType(sContext, i2);
+            AccountManagerImpl.getInstance(sContext).setAppOpenType(i2);
+            AccountManagerImpl.getInstance(sContext).pushReStartWork();
+            if (TextUtils.isEmpty(str2)) {
+                Utility.writeLoginFlag(sContext, "2N", "accessToken is null");
+                if (iLoginListener != null) {
+                    iLoginListener.onLoginResult(1005, "accessToken is NULL");
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        if (!TextUtils.isEmpty(str5)) {
-            LogUtils.d(TAG, "HB> im in login, zid is not null !");
-            AccountManagerImpl.getInstance(sContext).setZid(str5);
-        }
-        if (!TextUtils.isEmpty(str6)) {
-            LogUtils.d(TAG, "HB> im in login, vCode is not null !");
-            AccountManagerImpl.getInstance(sContext).setVersionCode(str6);
-        }
-        if (i == 6) {
-            AccountManagerImpl.getInstance(sContext).setCuid(str2);
-            String token = AccountManagerImpl.getInstance(sContext).getToken();
-            if (!TextUtils.isEmpty(token)) {
-                loginExecutor(i, str, token, str3, str4, iLoginListener);
+            Utility.writeLoginFlag(sContext, "2Y", "accessToken is nonnull, loginType = " + i);
+            if (!TextUtils.isEmpty(str5)) {
+                LogUtils.d(TAG, "HB> im in login, zid is not null !");
+                AccountManagerImpl.getInstance(sContext).setZid(str5);
+            }
+            if (!TextUtils.isEmpty(str6)) {
+                LogUtils.d(TAG, "HB> im in login, vCode is not null !");
+                AccountManagerImpl.getInstance(sContext).setVersionCode(str6);
+            }
+            if (i == 6) {
+                AccountManagerImpl.getInstance(sContext).setCuid(str2);
+                String token = AccountManagerImpl.getInstance(sContext).getToken();
+                if (!TextUtils.isEmpty(token)) {
+                    loginExecutor(i, str, token, str3, str4, iLoginListener);
+                    return;
+                }
+                AccountManagerImpl.getInstance(sContext);
+                AccountManagerImpl.mCuidTokenTryTimes = 0;
+                getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
                 return;
             }
-            AccountManagerImpl.getInstance(sContext);
-            AccountManagerImpl.mCuidTokenTryTimes = 0;
-            getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
-            return;
+            loginExecutor(i, str, str2, str3, str4, iLoginListener);
+        } catch (Throwable th) {
+            new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            throw th;
         }
-        loginExecutor(i, str, str2, str3, str4, iLoginListener);
     }
 
     public static void login(String str, String str2, int i, String str3, String str4, ILoginListener iLoginListener) {
@@ -167,28 +210,57 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (isNullContext(sContext)) {
             if (iLoginListener != null) {
                 iLoginListener.onLoginResult(1005, "Context is NULL");
-            }
-        } else if (TextUtils.isEmpty(str2)) {
-            if (iLoginListener != null) {
-                iLoginListener.onLoginResult(1005, "accessToken is NULL");
-            }
-        } else if (i == 6) {
-            AccountManagerImpl.getInstance(sContext).setCuid(str2);
-            String token = AccountManagerImpl.getInstance(sContext).getToken();
-            if (!TextUtils.isEmpty(token)) {
-                loginExecutor(i, str, token, str3, str4, iLoginListener);
                 return;
             }
-            AccountManagerImpl.getInstance(sContext);
-            AccountManagerImpl.mCuidTokenTryTimes = 0;
-            getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
-        } else {
+            return;
+        }
+        String str5 = "1Y";
+        long j = 0;
+        try {
+            try {
+                String[] loginFlag = Utility.getLoginFlag(sContext);
+                if (loginFlag.length >= 2) {
+                    j = Long.valueOf(loginFlag[0]).longValue();
+                    str5 = loginFlag[1];
+                }
+                new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId(str5).requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, "IMTrack init request getLoginFlag Exception ");
+                new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            }
+            Utility.writeLoginCallTime(sContext);
+            Utility.writeLoginFlag(sContext, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
+            if (TextUtils.isEmpty(str2)) {
+                Utility.writeLoginFlag(sContext, "2N", "accessToken is null");
+                if (iLoginListener != null) {
+                    iLoginListener.onLoginResult(1005, "accessToken is NULL");
+                    return;
+                }
+                return;
+            }
+            Utility.writeLoginFlag(sContext, "2Y", "accessToken is nonnull, loginType = " + i);
+            if (i == 6) {
+                AccountManagerImpl.getInstance(sContext).setCuid(str2);
+                String token = AccountManagerImpl.getInstance(sContext).getToken();
+                if (!TextUtils.isEmpty(token)) {
+                    loginExecutor(i, str, token, str3, str4, iLoginListener);
+                    return;
+                }
+                AccountManagerImpl.getInstance(sContext);
+                AccountManagerImpl.mCuidTokenTryTimes = 0;
+                getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
+                return;
+            }
             loginExecutor(i, str, str2, str3, str4, iLoginListener);
+        } catch (Throwable th) {
+            new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            throw th;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void getCuidTokenAndLogin(final String str, final int i, final String str2, final String str3, final ILoginListener iLoginListener) {
+        Utility.writeLoginFlag(sContext, "3N", "getCuidTokenAndLogin accessToken = " + str);
         AccountManagerImpl.getInstance(sContext).getTokenByCuid(AccountManager.getAppid(sContext), str, new IGetTokenByCuidListener() { // from class: com.baidu.android.imsdk.BIMManager.1
             @Override // com.baidu.android.imsdk.account.IGetTokenByCuidListener
             public void onGetTokenByCuidResult(int i2, String str4, String str5) {
@@ -197,6 +269,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                         AccountManagerImpl.getInstance(BIMManager.sContext);
                         AccountManagerImpl.mCuidTokenTryTimes = 0;
                         LogUtils.d(BaseManager.TAG, "HB> getTokenByCuid, token =  " + str5);
+                        Utility.writeLoginFlag(BIMManager.sContext, "3Y", "genToken success, token = " + str5);
                         BIMManager.loginExecutor(i, null, str5, str2, str3, iLoginListener);
                         return;
                     }
@@ -204,33 +277,37 @@ public class BIMManager extends BaseManager implements NoProGuard {
                     AccountManagerImpl.getInstance(BIMManager.sContext);
                     AccountManagerImpl.mCuidTokenTryTimes++;
                     AccountManagerImpl.getInstance(BIMManager.sContext);
-                    if (AccountManagerImpl.mCuidTokenTryTimes <= 3) {
-                        try {
-                            Thread.sleep(200L);
-                        } catch (Exception e) {
-                            LogUtils.e(BaseManager.TAG, "Exception ", e);
-                            new IMTrack.CrashBuilder(BIMManager.sContext).exception(Log.getStackTraceString(e)).build();
-                        }
-                        BIMManager.getCuidTokenAndLogin(str, i, str2, str3, iLoginListener);
+                    if (AccountManagerImpl.mCuidTokenTryTimes > 3) {
+                        Utility.writeLoginFlag(BIMManager.sContext, "3N", "genToken is null, errCode = 1005");
+                        iLoginListener.onLoginResult(1005, "gen token is NULL");
                         return;
                     }
-                    iLoginListener.onLoginResult(1005, "gen token is NULL");
+                    try {
+                        Thread.sleep(200L);
+                    } catch (Exception e) {
+                        LogUtils.e(BaseManager.TAG, "Exception ", e);
+                        Utility.writeLoginFlag(BIMManager.sContext, "3N", "genToken retry exception, errCode = " + i2);
+                        new IMTrack.CrashBuilder(BIMManager.sContext).exception(Log.getStackTraceString(e)).build();
+                    }
+                    BIMManager.getCuidTokenAndLogin(str, i, str2, str3, iLoginListener);
                 } else if (i2 != 70) {
                     AccountManagerImpl.getInstance(BIMManager.sContext);
                     AccountManagerImpl.mCuidTokenTryTimes++;
                     LogUtils.d(BaseManager.TAG, "HB> getTokenByCuid, responseCode = " + i2 + ", errMsg = " + str4);
                     AccountManagerImpl.getInstance(BIMManager.sContext);
-                    if (AccountManagerImpl.mCuidTokenTryTimes <= 3) {
-                        try {
-                            Thread.sleep(200L);
-                        } catch (Exception e2) {
-                            LogUtils.e(BaseManager.TAG, "Exception ", e2);
-                            new IMTrack.CrashBuilder(BIMManager.sContext).exception(Log.getStackTraceString(e2)).build();
-                        }
-                        BIMManager.getCuidTokenAndLogin(str, i, str2, str3, iLoginListener);
+                    if (AccountManagerImpl.mCuidTokenTryTimes > 3) {
+                        Utility.writeLoginFlag(BIMManager.sContext, "3N", "genToken retryTime >= 3, errCode = " + i2 + ", errMsg :" + str4);
+                        iLoginListener.onLoginResult(i2, str4);
                         return;
                     }
-                    iLoginListener.onLoginResult(i2, str4);
+                    try {
+                        Thread.sleep(200L);
+                    } catch (Exception e2) {
+                        LogUtils.e(BaseManager.TAG, "Exception ", e2);
+                        Utility.writeLoginFlag(BIMManager.sContext, "3N", "gen token retry exception, errCode = " + i2);
+                        new IMTrack.CrashBuilder(BIMManager.sContext).exception(Log.getStackTraceString(e2)).build();
+                    }
+                    BIMManager.getCuidTokenAndLogin(str, i, str2, str3, iLoginListener);
                 } else {
                     iLoginListener.onLoginResult(i2, str4);
                 }
@@ -243,22 +320,23 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (isNullContext(sContext)) {
             if (iLoginListener != null) {
                 iLoginListener.onLoginResult(1005, "Context is NULL");
-                return;
             }
-            return;
-        }
-        if (Utility.isUploadIMInitTrack(sContext)) {
-            IMTrackManager.uploadIMInitAction(sContext);
-        }
-        if (TextUtils.isEmpty(str2)) {
+        } else if (TextUtils.isEmpty(str2)) {
             if (iLoginListener != null) {
                 iLoginListener.onLoginResult(1005, "accessToken is NULL");
             }
-        } else if (i != 6 && TextUtils.isEmpty(str)) {
-            if (iLoginListener != null) {
-                iLoginListener.onLoginResult(1005, "uid is NULL");
-            }
         } else {
+            if (i != 6) {
+                if (TextUtils.isEmpty(str)) {
+                    Utility.writeLoginFlag(sContext, "4N", "uid is null");
+                    if (iLoginListener != null) {
+                        iLoginListener.onLoginResult(1005, "uid is NULL");
+                        return;
+                    }
+                    return;
+                }
+                Utility.writeLoginFlag(sContext, "4Y", "uid is nonnull");
+            }
             AccountManagerImpl.getInstance(sContext).login(i, str, str2, str3, str4, iLoginListener);
         }
     }
@@ -456,23 +534,26 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void registerConnectListener(IConnectListener iConnectListener) {
-        if (!isNullContext(sContext)) {
-            AccountManagerImpl.getInstance(sContext).setConnectListener(iConnectListener);
-        }
+        mConnectListener = iConnectListener;
     }
 
     public static void unregisterConnectListener() {
-        if (!isNullContext(sContext)) {
-            AccountManagerImpl.getInstance(sContext).removeConnectListener();
+        mConnectListener = null;
+    }
+
+    public static void connectStatusNotify(int i) {
+        if (mConnectListener != null) {
+            LogUtils.i(TAG, "connectStatusNotify :" + i);
+            mConnectListener.onResult(i);
         }
     }
 
-    public static void clearCache() {
-        Utility.clearFileCache();
+    public static void clearCache(Context context) {
+        Utility.clearFileCache(context);
     }
 
-    public static long getCacheSize() {
-        return Utility.sumCacheSize();
+    public static long getCacheSize(Context context) {
+        return Utility.sumCacheSize(context);
     }
 
     public static String getCuid(Context context) {
@@ -480,7 +561,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void fetchMsgByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        ChatMsgManager.fetchMsgidByMsgid(context, i, j, j2, j3, i2, i3, iFetchMsgByIdListener);
+        ChatMsgManager.fetchMsgRequst(context, Utility.getAppId(context), Utility.getUK(context), i, j, j2, j3, i2, iFetchMsgByIdListener);
     }
 
     public static void fetchMsgRequest(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
@@ -488,7 +569,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static boolean isSupportMsgType(int i) {
-        return i == 0 || i == 8 || i == 2 || i == 1 || i == 13 || i == 16 || i == 18 || i == 12 || i == 21 || i == 9 || i == 1002 || i == 1001 || i == 1003 || i == 1004 || i == 1005 || i == 1007 || i == 1008 || i == 1009 || i == 1010 || i == 1011 || i == 2010 || i == 1012 || i == 2001 || i == 80 || i == 31 || i == 32 || i == 33 || i == 20 || i == 22 || i == 24;
+        return i == 0 || i == 8 || i == 2 || i == 1 || i == 13 || i == 16 || i == 18 || i == 12 || i == 21 || i == 9 || i == 1002 || i == 1001 || i == 1003 || i == 1004 || i == 1005 || i == 1007 || i == 1008 || i == 1009 || i == 1010 || i == 1011 || i == 2010 || i == 1012 || i == 2001 || i == 80 || i == 31 || i == 32 || i == 33 || i == 20 || i == 22 || i == 25 || i == 26 || i == 24 || i == 2012 || i == 2014;
     }
 
     public static int getLoginType(Context context) {
@@ -496,12 +577,18 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        AccountManagerImpl.getInstance(context);
-        AccountManagerImpl.tryConnection(context);
+        if (!IMService.isSmallFlow) {
+            AccountManagerImpl.getInstance(context);
+            AccountManagerImpl.tryConnection(context);
+        }
     }
 
     public static void setMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
-        IMBoxManager.setMarkTop(context, j, i, iStatusListener);
+        ShieldAndTopManager.getInstance(context).setMarkTop(j, 1, i, iStatusListener);
+    }
+
+    public static void setUserMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).setMarkTop(j, 0, i, iStatusListener);
     }
 
     public static void removeSessionByClasstype(Context context, int i) {
@@ -522,5 +609,45 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void setUserDisturb(Context context, long j, int i, IUserPrivacyListener iUserPrivacyListener) {
         IMBoxManager.setUserDisturb(context, j, i, iUserPrivacyListener);
+    }
+
+    public static void setUpdateSwitch(Context context, int i) {
+        AccountManager.setUpdateSwitch(context, i);
+    }
+
+    public static void mediaSetRole(Context context, boolean z) {
+        AccountManager.setMediaRole(context, z);
+    }
+
+    public static void mediaGetChatSessions(Context context, long j, long j2, int i, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        ChatMsgManager.mediaGetChatSessions(context, j, j2, i, iMediaGetChatSessionListener);
+    }
+
+    public static void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+        ChatMsgManager.mediaFetchChatMsgs(context, j, j2, j3, i, iMediaFetchChatMsgsListener);
+    }
+
+    public static void mediaSendChatMsg(Context context, long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+        ChatMsgManager.mediaSendChatMsg(context, j, chatMsg, iMediaSendChatMsgListener);
+    }
+
+    public static void mediaDeleteChatMsg(Context context, long j, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManager.mediaDeleteChatMsg(context, j, -1L, list, iMediaDeleteChatMsgListener);
+    }
+
+    public static void mediaSetSessionRead(Context context, long j, long j2, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+        ChatMsgManager.mediaSetSessionRead(context, j, j2, iMediaSetSessionReadListener);
+    }
+
+    public static void mediaDeleteChatSession(Context context, long j, long j2, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+        ChatMsgManager.mediaDeleteChatSession(context, j, j2, iMediaDeleteChatSessionListener);
+    }
+
+    public static void mediaRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
+        ChatMsgManager.mediaRegisterChatMsgChangedListener(context, iMediaChatMsgChangedListener);
+    }
+
+    public static void mediaUnRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
+        ChatMsgManager.mediaUnRegisterChatMsgChangedListener(context, iMediaChatMsgChangedListener);
     }
 }

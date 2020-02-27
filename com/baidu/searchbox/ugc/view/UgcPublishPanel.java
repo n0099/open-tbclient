@@ -46,7 +46,7 @@ import com.baidu.spswitch.view.SPSwitchRootLinearLayout;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UgcPublishPanel implements View.OnClickListener, View.OnTouchListener, NoProGuard, IPublishView, IUgcPublishPanel {
     public ImageView mAtIv;
     private Activity mContext;
@@ -131,11 +131,11 @@ public class UgcPublishPanel implements View.OnClickListener, View.OnTouchListen
     }
 
     private void initPluginEmotionPanel(View view) {
-        List<String> DU = b.aY(AppRuntime.getAppContext()).DU();
+        List<String> Gj = b.bc(AppRuntime.getAppContext()).Gj();
         BDEmotionBagLayout bDEmotionBagLayout = new BDEmotionBagLayout(AppRuntime.getAppContext());
         bDEmotionBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, DeviceUtil.ScreenInfo.dp2px(getContext(), 260.0f)));
-        bDEmotionBagLayout.setEmotionList(DU);
-        ((ViewPager) this.mPanelRoot.findViewById(c.C0185c.vp_emotion_type)).setAdapter(new EmotionPagerAdapter(bDEmotionBagLayout));
+        bDEmotionBagLayout.setEmotionList(Gj);
+        ((ViewPager) this.mPanelRoot.findViewById(c.C0195c.vp_emotion_type)).setAdapter(new EmotionPagerAdapter(bDEmotionBagLayout));
     }
 
     private void initListeners() {

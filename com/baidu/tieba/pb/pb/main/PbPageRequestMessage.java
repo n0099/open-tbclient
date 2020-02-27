@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PbPageRequestMessage extends NetMessage {
     public static final Wire WIRE = new Wire(new Class[0]);
     private Integer arround;
@@ -27,6 +27,7 @@ public class PbPageRequestMessage extends NetMessage {
     private String lastids;
     private int loadCount;
     private Integer lz;
+    private int mAfterAdThreadCount;
     private String mLocate;
     private Integer mark;
     private String message_click;
@@ -265,6 +266,18 @@ public class PbPageRequestMessage extends NetMessage {
         this.oriUgcVid = str;
     }
 
+    public void setAfterAdThreadCount(int i) {
+        this.mAfterAdThreadCount = i;
+    }
+
+    public Integer getR() {
+        return this.r;
+    }
+
+    public Integer getPn() {
+        return this.pn;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -307,7 +320,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.cBM().cBP();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.cDi().cDl();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -319,6 +332,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.ori_ugc_tid = this.oriUgcTid;
             builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
             builder.ori_ugc_vid = this.oriUgcVid;
+            builder.after_ad_thread_count = Integer.valueOf(this.mAfterAdThreadCount);
             com.baidu.tbadk.util.t.a(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);

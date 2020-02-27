@@ -1,34 +1,34 @@
 package com.baidu.ubs.analytics.d;
 
 import android.os.Environment;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    private static final String kVS = Environment.getExternalStorageDirectory().getPath();
-    static final String kVT = kVS + "/baidu/ab/crash/";
-    static final String kVU = kVS + "/baidu/ab/sdklog/";
-    public static final String kVV = kVS + "/baidu/ab/sdkupdata/" + cWy() + "/";
-    private static int aU = EnumC0636a.aV;
+    private static final String kWy = Environment.getExternalStorageDirectory().getPath();
+    static final String kWz = kWy + "/baidu/ab/crash/";
+    static final String kWA = kWy + "/baidu/ab/sdklog/";
+    public static final String kWB = kWy + "/baidu/ab/sdkupdata/" + cXM() + "/";
+    private static int aU = EnumC0644a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class EnumC0636a {
+    /* loaded from: classes8.dex */
+    public static final class EnumC0644a {
         public static final int aV = 1;
         public static final int aW = 2;
         private static final /* synthetic */ int[] aX = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cWx() {
-        return aU == EnumC0636a.aV;
+    public static boolean cXL() {
+        return aU == EnumC0644a.aV;
     }
 
     public static String u() {
         return "0.4.0";
     }
 
-    private static int cWy() {
+    private static int cXM() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

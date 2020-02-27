@@ -9,13 +9,13 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private View bXL;
-    private HeadImageView jee;
-    private TextView jef;
-    private TextView jeg;
-    private ImageView jeh;
+    private View cbP;
+    private HeadImageView jfa;
+    private TextView jfb;
+    private TextView jfc;
+    private ImageView jfd;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.bXL = null;
-        this.jee = null;
-        this.jef = null;
-        this.jeg = null;
-        this.jeh = null;
-        this.bXL = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.jee = (HeadImageView) this.bXL.findViewById(R.id.zan_list_item_head);
-        this.jef = (TextView) this.bXL.findViewById(R.id.zan_list_item_name);
-        this.jeg = (TextView) this.bXL.findViewById(R.id.zan_list_item_time);
-        this.jeh = (ImageView) this.bXL.findViewById(R.id.zan_list_item_line_bottom);
-        this.jeh.setVisibility(0);
-        this.bXL.setTag(this);
+        this.cbP = null;
+        this.jfa = null;
+        this.jfb = null;
+        this.jfc = null;
+        this.jfd = null;
+        this.cbP = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.jfa = (HeadImageView) this.cbP.findViewById(R.id.zan_list_item_head);
+        this.jfb = (TextView) this.cbP.findViewById(R.id.zan_list_item_name);
+        this.jfc = (TextView) this.cbP.findViewById(R.id.zan_list_item_time);
+        this.jfd = (ImageView) this.cbP.findViewById(R.id.zan_list_item_line_bottom);
+        this.jfd.setVisibility(0);
+        this.cbP.setTag(this);
     }
 
     public View getView() {
-        return this.bXL;
+        return this.cbP;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.jef.setText(str);
-        this.jee.setImageDrawable(null);
-        this.jeg.setText(aq.getFormatTime(j));
-        this.jee.startLoad(str2, 28, false);
+        this.jfb.setText(str);
+        this.jfa.setImageDrawable(null);
+        this.jfc.setText(aq.getFormatTime(j));
+        this.jfa.startLoad(str2, 28, false);
     }
 }

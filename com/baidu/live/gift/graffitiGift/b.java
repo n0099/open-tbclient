@@ -13,106 +13,106 @@ import com.baidu.live.gift.a.c;
 import com.baidu.live.gift.g;
 import com.baidu.live.gift.l;
 import com.baidu.live.gift.m;
-import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
+import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private PointF alC;
-    private a alD;
-    private c alx;
-    private AlaGiftGraffitiShowView alz;
+    private c anJ;
+    private AlaGiftGraffitiShowView anL;
+    private PointF anO;
+    private a anP;
     private Context mContext;
-    private boolean aly = true;
-    private int alA = 0;
-    private int alB = 0;
+    private boolean anK = true;
+    private int anM = 0;
+    private int anN = 0;
     private Handler mHandler = new Handler();
-    private Runnable alE = new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.2
+    private Runnable anQ = new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.2
         @Override // java.lang.Runnable
         public void run() {
-            b.this.tj();
+            b.this.uB();
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onEnd();
     }
 
     public b(AlaGiftGraffitiShowView alaGiftGraffitiShowView, Context context) {
-        this.alz = alaGiftGraffitiShowView;
+        this.anL = alaGiftGraffitiShowView;
         this.mContext = context;
     }
 
     public boolean isReady() {
-        return this.aly;
+        return this.anK;
     }
 
     public void j(c cVar) {
-        if (cVar != null && cVar.ajo.ael != null) {
-            this.aly = false;
-            this.alx = k(cVar);
-            this.alz.setOffsetY(this.alB);
-            if (this.alx.ajo.ael.afi == 0) {
-                this.alz.ti();
-                tk();
+        if (cVar != null && cVar.alw.ags != null) {
+            this.anK = false;
+            this.anJ = k(cVar);
+            this.anL.setOffsetY(this.anN);
+            if (this.anJ.alw.ags.ahp == 0) {
+                this.anL.uA();
+                uC();
             } else {
-                tm();
+                uE();
             }
-            this.alz.setGiftItem(this.alx);
+            this.anL.setGiftItem(this.anJ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tk() {
-        if (this.alx == null || this.alx.ajo.ael == null) {
-            this.alA = 0;
+    public void uC() {
+        if (this.anJ == null || this.anJ.alw.ags == null) {
+            this.anM = 0;
             return;
         }
-        if (this.alA < this.alx.ajo.ael.afk.size()) {
-            List<PointF> list = this.alx.ajo.ael.afk;
-            int i = this.alA;
-            this.alA = i + 1;
+        if (this.anM < this.anJ.alw.ags.ahr.size()) {
+            List<PointF> list = this.anJ.alw.ags.ahr;
+            int i = this.anM;
+            this.anM = i + 1;
             PointF pointF = list.get(i);
-            TbImageView tbImageView = new TbImageView(this.alz.getContext());
-            tbImageView.startLoad(bG(this.alA - 1), 10, false);
+            TbImageView tbImageView = new TbImageView(this.anL.getContext());
+            tbImageView.startLoad(bN(this.anM - 1), 10, false);
             tbImageView.setDefaultBgResource(a.d.sdk_transparent);
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
-            this.alz.b(tbImageView, (int) pointF.x, (int) pointF.y, this.alx.ajo.ael.afm.left, (int) this.alC.y);
-            if (az(this.mContext) && tn()) {
+            this.anL.b(tbImageView, (int) pointF.x, (int) pointF.y, this.anJ.alw.ags.aht.left, (int) this.anO.y);
+            if (aB(this.mContext) && uF()) {
                 this.mHandler.removeCallbacksAndMessages(null);
                 return;
             } else {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.tk();
+                        b.this.uC();
                     }
                 }, 80L);
                 return;
             }
         }
-        this.mHandler.postDelayed(this.alE, 2000L);
+        this.mHandler.postDelayed(this.anQ, 2000L);
     }
 
-    private String bG(int i) {
-        if (tl()) {
-            if (this.alx != null && this.alx.afn != null) {
+    private String bN(int i) {
+        if (uD()) {
+            if (this.anJ != null && this.anJ.ahu != null) {
                 int i2 = 0;
                 int i3 = -1;
                 while (true) {
                     int i4 = i2;
-                    if (i4 < this.alx.afn.size()) {
-                        m mVar = this.alx.afn.get(i4);
-                        if (i3 < i && i <= mVar.rs() + i3) {
-                            return mVar.rr();
+                    if (i4 < this.anJ.ahu.size()) {
+                        m mVar = this.anJ.ahu.get(i4);
+                        if (i3 < i && i <= mVar.st() + i3) {
+                            return mVar.ss();
                         }
-                        i3 += mVar.rs();
+                        i3 += mVar.st();
                         i2 = i4 + 1;
                     } else {
                         return getThumbnailUrl();
@@ -127,14 +127,14 @@ public class b {
     }
 
     private String getThumbnailUrl() {
-        if (this.alx == null || this.alx.ajo == null) {
+        if (this.anJ == null || this.anJ.alw == null) {
             return null;
         }
-        return this.alx.ajo.qH();
+        return this.anJ.alw.rA();
     }
 
-    private boolean tl() {
-        return (this.alx == null || this.alx.afn == null || this.alx.afn.size() <= 0) ? false : true;
+    private boolean uD() {
+        return (this.anJ == null || this.anJ.ahu == null || this.anJ.ahu.size() <= 0) ? false : true;
     }
 
     private c k(c cVar) {
@@ -144,82 +144,82 @@ public class b {
             return null;
         }
         c clone = cVar.clone();
-        clone.ajo = new g(cVar.ajo);
-        l lVar = cVar.ajo.ael;
-        if (lVar.afn != null && lVar.afn.size() > 0 && clone.afn != null) {
-            clone.afn.addAll(lVar.afn);
+        clone.alw = new g(cVar.alw);
+        l lVar = cVar.alw.ags;
+        if (lVar.ahu != null && lVar.ahu.size() > 0 && clone.ahu != null) {
+            clone.ahu.addAll(lVar.ahu);
         }
         float dip2px = BdUtilHelper.dip2px(this.mContext, 1.0f);
-        float f = ((int) (32.0f * dip2px)) / lVar.afj;
-        clone.ajo.ael.afi = lVar.afi;
-        clone.ajo.ael.afl = lVar.afl;
+        float f = ((int) (32.0f * dip2px)) / lVar.ahq;
+        clone.alw.ags.ahp = lVar.ahp;
+        clone.alw.ags.ahs = lVar.ahs;
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.mContext);
-        clone.ajo.ael.afc = screenDimensions[0];
-        clone.ajo.ael.afd = screenDimensions[1];
-        float ceil = (lVar.afm.left * f) + ((float) Math.ceil((clone.ajo.ael.afc - (lVar.afc * f)) / 2.0d));
-        float ceil2 = ((float) Math.ceil((clone.ajo.ael.afd - (lVar.afd * f)) / 2.0d)) + (lVar.afm.top * f);
-        float width = lVar.afm.width() * f;
-        float height = lVar.afm.height() * f;
+        clone.alw.ags.ahj = screenDimensions[0];
+        clone.alw.ags.ahk = screenDimensions[1];
+        float ceil = (lVar.aht.left * f) + ((float) Math.ceil((clone.alw.ags.ahj - (lVar.ahj * f)) / 2.0d));
+        float ceil2 = ((float) Math.ceil((clone.alw.ags.ahk - (lVar.ahk * f)) / 2.0d)) + (lVar.aht.top * f);
+        float width = lVar.aht.width() * f;
+        float height = lVar.aht.height() * f;
         float ceil3 = (32.0f * dip2px) + ((float) Math.ceil(i / 2)) + (10.0f * dip2px);
         if (ceil2 >= ceil3) {
             ceil3 = ceil2;
         }
-        clone.ajo.ael.afm = new Rect((int) ceil, (int) ceil3, (int) width, (int) height);
+        clone.alw.ags.aht = new Rect((int) ceil, (int) ceil3, (int) width, (int) height);
         ArrayList arrayList = new ArrayList();
-        PointF pointF = lVar.afk.get(0);
-        this.alC = new PointF(pointF.x * f, pointF.y * f);
-        PointF pointF2 = new PointF(this.alC.x, this.alC.y);
-        Iterator<PointF> it = lVar.afk.iterator();
+        PointF pointF = lVar.ahr.get(0);
+        this.anO = new PointF(pointF.x * f, pointF.y * f);
+        PointF pointF2 = new PointF(this.anO.x, this.anO.y);
+        Iterator<PointF> it = lVar.ahr.iterator();
         while (true) {
             PointF pointF3 = pointF2;
             if (it.hasNext()) {
                 PointF next = it.next();
                 PointF pointF4 = new PointF(next.x * f, next.y * f);
-                this.alC = this.alC.y > pointF4.y ? pointF4 : this.alC;
+                this.anO = this.anO.y > pointF4.y ? pointF4 : this.anO;
                 pointF2 = pointF3.y < pointF4.y ? pointF4 : pointF3;
                 arrayList.add(pointF4);
             } else {
-                clone.ajo.ael.afk = arrayList;
-                this.alB = (int) ((((rect.top + this.alC.y) - (i / 2)) - this.alz.getInfoView().getHeight()) - (10.0f * dip2px));
+                clone.alw.ags.ahr = arrayList;
+                this.anN = (int) ((((rect.top + this.anO.y) - (i / 2)) - this.anL.getInfoView().getHeight()) - (10.0f * dip2px));
                 return clone;
             }
         }
     }
 
-    private void tm() {
-        this.alz.ti();
+    private void uE() {
+        this.anL.uA();
         PropertyValuesHolder ofKeyframe = PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 3.0f * 1.3f), Keyframe.ofFloat(0.05f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.1f, 3.0f * 1.3f), Keyframe.ofFloat(0.15f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.2f, 3.0f * 1.3f), Keyframe.ofFloat(0.25f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.3f, 3.0f * 1.3f), Keyframe.ofFloat(0.35f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.4f, 3.0f * 1.3f), Keyframe.ofFloat(0.45f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.5f, 3.0f * 1.3f), Keyframe.ofFloat(0.55f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.6f, 3.0f * 1.3f), Keyframe.ofFloat(0.65f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.7f, 3.0f * 1.3f), Keyframe.ofFloat(0.75f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.8f, 3.0f * 1.3f), Keyframe.ofFloat(0.85f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.9f, 3.0f * 1.3f), Keyframe.ofFloat(0.95f, (-3.0f) * 1.3f), Keyframe.ofFloat(1.0f, 1.3f * 3.0f));
-        int size = this.alx.ajo.ael.afk.size();
+        int size = this.anJ.alw.ags.ahr.size();
         for (int i = 0; i < size; i++) {
-            TbImageView tbImageView = new TbImageView(this.alz.getContext());
+            TbImageView tbImageView = new TbImageView(this.anL.getContext());
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
             tbImageView.setDefaultBgResource(a.d.sdk_transparent);
-            tbImageView.startLoad(bG(i), 10, false);
+            tbImageView.startLoad(bN(i), 10, false);
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(tbImageView, ofKeyframe);
             ofPropertyValuesHolder.setRepeatMode(1);
             ofPropertyValuesHolder.setRepeatCount(-1);
             ofPropertyValuesHolder.setDuration(5000L);
             ofPropertyValuesHolder.start();
-            PointF pointF = this.alx.ajo.ael.afk.get(i);
-            this.alz.b(tbImageView, (int) pointF.x, (int) pointF.y, this.alx.ajo.ael.afm.left, (int) this.alC.y);
+            PointF pointF = this.anJ.alw.ags.ahr.get(i);
+            this.anL.b(tbImageView, (int) pointF.x, (int) pointF.y, this.anJ.alw.ags.aht.left, (int) this.anO.y);
         }
-        this.mHandler.removeCallbacks(this.alE);
-        this.mHandler.postDelayed(this.alE, 5000L);
+        this.mHandler.removeCallbacks(this.anQ);
+        this.mHandler.postDelayed(this.anQ, 5000L);
     }
 
     public void a(a aVar) {
-        this.alD = aVar;
+        this.anP = aVar;
     }
 
-    public void tj() {
-        this.alA = 0;
-        this.aly = true;
-        if (this.alz != null) {
-            this.alz.ti();
+    public void uB() {
+        this.anM = 0;
+        this.anK = true;
+        if (this.anL != null) {
+            this.anL.uA();
         }
-        if (this.alD != null) {
-            this.alD.onEnd();
+        if (this.anP != null) {
+            this.anP.onEnd();
         }
     }
 
@@ -228,24 +228,24 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             this.mHandler = null;
         }
-        if (this.alz != null) {
-            this.alz.ti();
-            this.alz = null;
+        if (this.anL != null) {
+            this.anL.uA();
+            this.anL = null;
         }
-        this.alD = null;
+        this.anP = null;
     }
 
-    private boolean az(Context context) {
+    private boolean aB(Context context) {
         return context != null && UtilHelper.getRealScreenOrientation(context) == 2;
     }
 
-    private boolean tn() {
-        return (this.alx == null || this.alx.userId == null || !this.alx.userId.equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+    private boolean uF() {
+        return (this.anJ == null || this.anJ.userId == null || !this.anJ.userId.equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
     }
 
-    public void rm() {
-        if (tn()) {
-            tj();
+    public void sn() {
+        if (uF()) {
+            uB();
         }
     }
 }

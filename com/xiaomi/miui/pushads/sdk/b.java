@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 class b {
     public static int a(Context context, File file, String str, h hVar) {
         int i;
@@ -16,7 +16,7 @@ class b {
         Throwable th;
         InputStream inputStream2;
         InputStream inputStream3 = null;
-        String str2 = file.getAbsolutePath() + "/" + m109a(str);
+        String str2 = file.getAbsolutePath() + "/" + m114a(str);
         try {
             try {
                 if (new File(str2).exists()) {
@@ -89,20 +89,20 @@ class b {
                 }
                 try {
                     byte[] bArr = new byte[i.a];
-                    boolean m111a = f.m111a(context);
+                    boolean m116a = f.m116a(context);
                     while (true) {
                         read = inputStream.read(bArr);
-                        if (read == -1 || !m111a) {
+                        if (read == -1 || !m116a) {
                             break;
                         }
                         fileOutputStream.write(bArr, 0, read);
-                        m111a = f.m111a(context);
+                        m116a = f.m116a(context);
                     }
                     fileOutputStream.flush();
                     if (read == -1) {
                         file.renameTo(new File(str));
                         i = 0;
-                    } else if (!m111a) {
+                    } else if (!m116a) {
                     }
                     try {
                         fileOutputStream.close();
@@ -155,7 +155,7 @@ class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static String m109a(String str) {
+    private static String m114a(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         return str.substring(lastIndexOf < 0 ? 0 : lastIndexOf + 1);
     }

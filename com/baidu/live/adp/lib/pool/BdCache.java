@@ -3,7 +3,7 @@ package com.baidu.live.adp.lib.pool;
 import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdCache<K, V> {
     private int evictionCount;
     private int hitCount;

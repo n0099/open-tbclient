@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.baidu.searchbox.picture.component.BaseBrowseView;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class x {
     private static final HashMap<String, String> a = new HashMap<>();
 

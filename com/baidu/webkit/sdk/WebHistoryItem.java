@@ -2,11 +2,11 @@ package com.baidu.webkit.sdk;
 
 import android.graphics.Bitmap;
 import android.graphics.Picture;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class WebHistoryItem implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public abstract WebHistoryItem m30clone();
+    public abstract WebHistoryItem m37clone();
 
     public abstract Bitmap getFavicon();
 

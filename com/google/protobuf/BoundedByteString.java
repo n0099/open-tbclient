@@ -4,7 +4,7 @@ import com.google.protobuf.ByteString;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BoundedByteString extends LiteralByteString {
     private final int bytesLength;
     private final int bytesOffset;
@@ -46,9 +46,8 @@ public class BoundedByteString extends LiteralByteString {
         return this.bytesOffset;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
+    protected void copyToInternal(byte[] bArr, int i, int i2, int i3) {
         System.arraycopy(this.bytes, getOffsetIntoBytes() + i, bArr, i2, i3);
     }
 
@@ -61,7 +60,7 @@ public class BoundedByteString extends LiteralByteString {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class BoundedByteIterator implements ByteString.ByteIterator {
         private final int limit;
         private int position;

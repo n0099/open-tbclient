@@ -7,16 +7,16 @@ import com.kascend.chushou.c.e;
 import com.kascend.chushou.constants.ParserRet;
 import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     private String a;
     private String b;
     private long g;
-    private a ngW;
+    private a nhz;
     private volatile boolean c = false;
-    private d<ParserRet> ngV = new com.kascend.chushou.widget.a.a();
+    private d<ParserRet> nhy = new com.kascend.chushou.widget.a.a();
     private boolean f = false;
-    private final tv.chushou.zues.c ngX = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
+    private final tv.chushou.zues.c nhA = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
@@ -32,32 +32,32 @@ public class b {
         }
     });
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void b(ParserRet parserRet);
     }
 
     public void a(String str) {
         this.a = str;
-        if (this.ngV != null) {
-            this.ngV.b();
+        if (this.nhy != null) {
+            this.nhy.b();
         }
     }
 
     public void a(a aVar) {
-        this.ngW = aVar;
+        this.nhz = aVar;
     }
 
     public void a(boolean z) {
         if (z) {
-            this.ngV = new c();
+            this.nhy = new c();
         } else {
-            this.ngV = new com.kascend.chushou.widget.a.a();
+            this.nhy = new com.kascend.chushou.widget.a.a();
         }
     }
 
     public void b(boolean z) {
-        this.ngX.removeMessages(1);
+        this.nhA.removeMessages(1);
         this.c = true;
         if (z) {
             this.b = null;
@@ -69,8 +69,8 @@ public class b {
     }
 
     public void b() {
-        if (this.ngV != null) {
-            this.ngV.c();
+        if (this.nhy != null) {
+            this.nhy.c();
         }
         d();
     }
@@ -81,14 +81,14 @@ public class b {
 
     public void d() {
         this.c = false;
-        this.ngX.removeMessages(1);
+        this.nhA.removeMessages(1);
         if (!this.f || System.currentTimeMillis() - this.g >= 20000) {
             if (this.f) {
                 com.kascend.chushou.toolkit.a.a.j("type", Constants.VIA_REPORT_TYPE_WPA_STATE, "value", this.a);
             }
             this.g = System.currentTimeMillis();
             this.f = true;
-            com.kascend.chushou.c.c.dAI().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.a.b.1
+            com.kascend.chushou.c.c.dBO().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.a.b.1
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -97,26 +97,26 @@ public class b {
                 public void a(String str, JSONObject jSONObject) {
                     long j;
                     b.this.f = false;
-                    ParserRet p = e.p(jSONObject, b.this.b);
-                    if (p.mRc == 0 && p.mData != null) {
-                        b.this.b = p.mBreakpoint;
-                        if (b.this.ngW != null) {
-                            b.this.ngW.b(p);
+                    ParserRet r = e.r(jSONObject, b.this.b);
+                    if (r.mRc == 0 && r.mData != null) {
+                        b.this.b = r.mBreakpoint;
+                        if (b.this.nhz != null) {
+                            b.this.nhz.b(r);
                         }
-                        long longValue = ((Long) p.mData1).longValue();
+                        long longValue = ((Long) r.mData1).longValue();
                         if (longValue == -1) {
-                            if (b.this.ngV != null) {
-                                j = b.this.ngV.bG(p);
+                            if (b.this.nhy != null) {
+                                j = b.this.nhy.B(r);
                             } else {
                                 j = 1000;
                             }
-                            b.this.ngX.L(1, j);
+                            b.this.nhA.K(1, j);
                             return;
                         }
-                        if (b.this.ngV != null) {
-                            b.this.ngV.b();
+                        if (b.this.nhy != null) {
+                            b.this.nhy.b();
                         }
-                        b.this.ngX.L(1, longValue);
+                        b.this.nhA.K(1, longValue);
                         return;
                     }
                     a(-1, "");
@@ -126,12 +126,12 @@ public class b {
                 public void a(int i, String str) {
                     long j;
                     b.this.f = false;
-                    if (b.this.ngV != null) {
-                        j = b.this.ngV.a();
+                    if (b.this.nhy != null) {
+                        j = b.this.nhy.a();
                     } else {
                         j = 1000;
                     }
-                    b.this.ngX.L(1, j);
+                    b.this.nhA.K(1, j);
                 }
             }, this.a, this.b);
         }

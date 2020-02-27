@@ -3,56 +3,56 @@ package com.baidu.swan.apps.as.c;
 import com.baidu.swan.apps.as.ai;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements b {
-    private final Queue<a> bUT = new ArrayDeque();
-    private a bUU;
+    private final Queue<a> bYX = new ArrayDeque();
+    private a bYY;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.bUT) {
-                this.bUT.offer(aVar.a(this));
+            synchronized (this.bYX) {
+                this.bYX.offer(aVar.a(this));
             }
         }
-        aeY();
+        ahm();
     }
 
     @Override // com.baidu.swan.apps.as.c.b
     public void a(a aVar) {
-        synchronized (this.bUT) {
-            if (aVar == this.bUU) {
+        synchronized (this.bYX) {
+            if (aVar == this.bYY) {
                 runNextTask();
             }
         }
     }
 
-    private void aeY() {
-        synchronized (this.bUT) {
-            if (this.bUU == null) {
+    private void ahm() {
+        synchronized (this.bYX) {
+            if (this.bYY == null) {
                 runNextTask();
             }
         }
     }
 
     private void runNextTask() {
-        synchronized (this.bUT) {
-            this.bUU = null;
-            if (!this.bUT.isEmpty()) {
-                this.bUU = this.bUT.poll();
-                if (this.bUU == null) {
+        synchronized (this.bYX) {
+            this.bYY = null;
+            if (!this.bYX.isEmpty()) {
+                this.bYY = this.bYX.poll();
+                if (this.bYY == null) {
                     runNextTask();
                 } else {
-                    ai.l(this.bUU);
+                    ai.l(this.bYY);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.bUU != null) {
-            this.bUU.finish();
-            this.bUU = null;
+        if (this.bYY != null) {
+            this.bYY.finish();
+            this.bYY = null;
         }
-        this.bUT.clear();
+        this.bYX.clear();
     }
 }

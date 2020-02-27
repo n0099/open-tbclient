@@ -2,13 +2,13 @@ package com.baidu.swan.pms.d;
 
 import com.baidu.swan.pms.d;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        d.aqZ().a(iu(i), str, str2, i2, jSONObject);
+        d.atn().a(iL(i), str, str2, i2, jSONObject);
     }
 
-    private static String iu(int i) {
+    private static String iL(int i) {
         switch (i) {
             case 0:
                 return "swan";

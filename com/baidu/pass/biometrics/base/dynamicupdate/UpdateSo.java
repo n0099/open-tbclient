@@ -36,7 +36,7 @@ import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UpdateSo {
     public static String TAG = "UpdateSo";
     private Application application;
@@ -47,7 +47,7 @@ public class UpdateSo {
     private CountDownLatch statServiceCountDownLatch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface LoadModuleEventListener {
         void onFailure(SdkConfigOptions.DistributedFile distributedFile);
 
@@ -538,7 +538,7 @@ public class UpdateSo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class StatService {
         private static final String DOWNLOAD_ZIP_FILE_SUCCESS = "download_zip_file_success";
         private static final String EXCEPTION_INFO = "exception_info";

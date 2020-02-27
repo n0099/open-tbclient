@@ -5,33 +5,33 @@ import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private SparseArray<List<b>> Mq = new SparseArray<>();
+    private SparseArray<List<b>> MS = new SparseArray<>();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        boolean a(C0050a c0050a);
+        boolean a(C0052a c0052a);
     }
 
     public void c(int i, b bVar) {
-        if (this.Mq == null) {
-            this.Mq = new SparseArray<>();
+        if (this.MS == null) {
+            this.MS = new SparseArray<>();
         }
-        List<b> list = this.Mq.get(i);
+        List<b> list = this.MS.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.Mq.put(i, list);
+            this.MS.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.Mq.remove(i);
+            this.MS.remove(i);
             return;
         }
-        List<b> list = this.Mq.get(i);
+        List<b> list = this.MS.get(i);
         if (!v.isEmpty(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
@@ -42,13 +42,13 @@ public class a {
         }
     }
 
-    public boolean b(C0050a c0050a) {
-        List<b> list = this.Mq.get(c0050a.Mr);
+    public boolean b(C0052a c0052a) {
+        List<b> list = this.MS.get(c0052a.MT);
         if (v.isEmpty(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c0050a)) {
+            if (bVar != null && bVar.a(c0052a)) {
                 return true;
             }
         }
@@ -56,30 +56,30 @@ public class a {
     }
 
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0050a {
-        private int Mr;
-        private Object Ms;
+    /* loaded from: classes8.dex */
+    public static class C0052a {
+        private int MT;
+        private Object MU;
 
-        public C0050a(int i, Object obj) {
-            this.Mr = i;
-            this.Ms = obj;
+        public C0052a(int i, Object obj) {
+            this.MT = i;
+            this.MU = obj;
         }
 
-        public C0050a(int i) {
-            this.Mr = i;
+        public C0052a(int i) {
+            this.MT = i;
         }
 
         public int getActionType() {
-            return this.Mr;
+            return this.MT;
         }
 
         public void setExtraData(Object obj) {
-            this.Ms = obj;
+            this.MU = obj;
         }
 
-        public Object mZ() {
-            return this.Ms;
+        public Object nq() {
+            return this.MU;
         }
     }
 }

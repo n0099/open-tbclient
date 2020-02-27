@@ -4,17 +4,17 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.swan.config.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.swan.config.core.a.a {
     @Override // com.baidu.swan.config.core.a.c
-    public JSONObject agN() {
+    public JSONObject ajb() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject2.put(SharedPrefConfig.VERSION_NAME, e.agI().SH());
+            jSONObject2.put(SharedPrefConfig.VERSION_NAME, e.aiW().UV());
             jSONObject.put("swan_ext", jSONObject2);
-            jSONObject3.put(SharedPrefConfig.VERSION_NAME, e.agI().SJ());
+            jSONObject3.put(SharedPrefConfig.VERSION_NAME, e.aiW().UX());
             jSONObject.put("game_ext", jSONObject3);
         } catch (JSONException e) {
             if (e.DEBUG) {

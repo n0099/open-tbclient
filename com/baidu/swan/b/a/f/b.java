@@ -9,20 +9,20 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends f {
     public String packageName;
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.bRh = com.baidu.swan.apps.swancore.b.gj(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.bRj = SwanAppNetworkUtils.WJ().type;
-        if (this.bRf == null) {
-            this.bRf = new JSONObject();
+        this.bVm = com.baidu.swan.apps.swancore.b.gA(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.bVo = SwanAppNetworkUtils.YX().type;
+        if (this.bVk == null) {
+            this.bVk = new JSONObject();
         }
         try {
-            this.bRf.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.Sr().getHostName());
-            this.bRf.put("package", this.packageName);
+            this.bVk.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.UF().getHostName());
+            this.bVk.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -40,18 +40,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.bRk = aVar.bRk;
-            this.bRl = aVar.bRl;
+            this.bVp = aVar.bVp;
+            this.bVq = aVar.bVq;
             this.mScheme = aVar.mScheme;
-            this.bRo = aVar.bRo;
-            this.bLn = aVar.bLn;
+            this.bVt = aVar.bVt;
+            this.bPs = aVar.bPs;
             this.mAppVersion = aVar.mAppVersion;
-            this.bRi = aVar.bRi;
+            this.bVn = aVar.bVn;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String nS(String str) {
+    public static String oi(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

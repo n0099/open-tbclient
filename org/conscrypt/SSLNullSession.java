@@ -8,13 +8,13 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSessionContext;
 import javax.security.cert.X509Certificate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class SSLNullSession implements Cloneable, ConscryptSession {
     static final String INVALID_CIPHER = "SSL_NULL_WITH_NULL_NULL";
     private long creationTime;
     private long lastAccessedTime;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private static class DefaultHolder {
         static final SSLNullSession NULL_SESSION = new SSLNullSession();
 

@@ -5,7 +5,7 @@ import android.text.SpannableString;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.request.RequestOptions;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface c {
     void I(Context context, int i);
 
@@ -15,25 +15,25 @@ public interface c {
 
     void a(Context context, String str, RequestOptions requestOptions, ImageView imageView);
 
-    String cRe();
+    String cSB();
 
-    String cRi();
+    void cSC();
 
-    void cRj();
+    String cSD();
 
-    String cRk();
+    void cSE();
 
-    void cRl();
+    String cSx();
 
     void e(Context context, int i, String str);
 
     void e(String str, Context context);
 
-    void fE(Context context);
+    void fD(Context context);
 
     String getUserId();
 
     void logout();
 
-    void w(Context context, String str, String str2);
+    void v(Context context, String str, String str2);
 }

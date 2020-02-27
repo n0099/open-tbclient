@@ -3,19 +3,19 @@ package com.google.android.exoplayer2.text;
 import android.graphics.Bitmap;
 import android.support.v4.view.ViewCompat;
 import android.text.Layout;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public final Bitmap bitmap;
-    public final int mxP;
-    public final Layout.Alignment mxS;
-    public final float mxT;
-    public final int mxU;
-    public final int mxV;
-    public final float mxW;
-    public final int mxX;
-    public final float mxY;
-    public final float mxZ;
-    public final boolean mya;
+    public final int myA;
+    public final int myB;
+    public final float myC;
+    public final int myD;
+    public final float myE;
+    public final float myF;
+    public final boolean myG;
+    public final int myv;
+    public final Layout.Alignment myy;
+    public final float myz;
     public final CharSequence text;
 
     public b(Bitmap bitmap, float f, int i, float f2, int i2, float f3, float f4) {
@@ -36,16 +36,16 @@ public class b {
 
     private b(CharSequence charSequence, Layout.Alignment alignment, Bitmap bitmap, float f, int i, int i2, float f2, int i3, float f3, float f4, boolean z, int i4) {
         this.text = charSequence;
-        this.mxS = alignment;
+        this.myy = alignment;
         this.bitmap = bitmap;
-        this.mxT = f;
-        this.mxU = i;
-        this.mxV = i2;
-        this.mxW = f2;
-        this.mxX = i3;
-        this.mxY = f3;
-        this.mxZ = f4;
-        this.mya = z;
-        this.mxP = i4;
+        this.myz = f;
+        this.myA = i;
+        this.myB = i2;
+        this.myC = f2;
+        this.myD = i3;
+        this.myE = f3;
+        this.myF = f4;
+        this.myG = z;
+        this.myv = i4;
     }
 }

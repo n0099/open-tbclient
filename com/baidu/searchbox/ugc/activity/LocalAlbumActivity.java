@@ -55,7 +55,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LocalAlbumActivity extends BaseActivity implements View.OnClickListener {
     public static final String KEY_NO_STATISTIC = "noStatistics";
     private static final int PHOTO_ALBUM = 0;

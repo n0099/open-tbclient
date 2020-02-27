@@ -6,10 +6,10 @@ import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.swan.bdprivate.b;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.swan.apps.res.widget.a.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private BdContextMenuView caV;
+    private BdContextMenuView cfb;
 
     public a(View view) {
         super(view);
@@ -21,12 +21,12 @@ public class a extends com.baidu.swan.apps.res.widget.a.a {
     @Override // com.baidu.swan.apps.res.widget.a.a
     protected View getMenuView(Context context) {
         BdContextMenuView bdContextMenuView = new BdContextMenuView(context);
-        this.caV = bdContextMenuView;
+        this.cfb = bdContextMenuView;
         return bdContextMenuView;
     }
 
     public void setLayoutInCenter(boolean z) {
-        this.caV.setLayoutInCenter(z);
+        this.cfb.setLayoutInCenter(z);
     }
 
     @Override // com.baidu.swan.apps.res.widget.a.a

@@ -11,18 +11,18 @@ import android.widget.Toast;
 import java.lang.reflect.Field;
 import tv.chushou.basis.rxjava.RxExecutor;
 import tv.chushou.basis.rxjava.thread.EventThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class g {
     public static void u(CharSequence charSequence) {
-        a.d(h.dOE(), charSequence);
+        a.d(h.dPR(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
         a.d(context, charSequence);
     }
 
-    public static void Oj(@StringRes int i) {
-        a.showToast(h.dOE(), i);
+    public static void Om(@StringRes int i) {
+        a.showToast(h.dPR(), i);
     }
 
     public static void M(Context context, @StringRes int i) {
@@ -30,7 +30,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b extends Handler {
         private Handler handler;
 
@@ -65,42 +65,43 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        private static CharSequence nVS;
-        private static Toast nVT = null;
-        private static long nVU = 0;
+        private static CharSequence nWH;
+        private static Toast nWI = null;
+        private static long nWJ = 0;
 
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.dOE();
+                    context = h.dPR();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.nVT == null) {
-                                Toast unused = a.nVT = Toast.makeText(context.getApplicationContext(), charSequence, 0);
-                                g.c(a.nVT);
-                                a.nVT.show();
-                                CharSequence unused2 = a.nVS = charSequence;
-                                long unused3 = a.nVU = System.currentTimeMillis();
+                            if (a.nWI == null) {
+                                Toast unused = a.nWI = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
+                                g.c(a.nWI);
+                                a.nWI.setText(charSequence);
+                                a.nWI.show();
+                                CharSequence unused2 = a.nWH = charSequence;
+                                long unused3 = a.nWJ = System.currentTimeMillis();
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (charSequence.equals(a.nVS)) {
-                                if (currentTimeMillis - a.nVU > 2000) {
-                                    a.nVT.show();
-                                    long unused4 = a.nVU = currentTimeMillis;
+                            if (charSequence.equals(a.nWH)) {
+                                if (currentTimeMillis - a.nWJ > 2000) {
+                                    a.nWI.show();
+                                    long unused4 = a.nWJ = currentTimeMillis;
                                     return;
                                 }
                                 return;
                             }
-                            CharSequence unused5 = a.nVS = charSequence;
-                            a.nVT.setText(charSequence);
-                            a.nVT.show();
-                            long unused6 = a.nVU = currentTimeMillis;
+                            CharSequence unused5 = a.nWH = charSequence;
+                            a.nWI.setText(charSequence);
+                            a.nWI.show();
+                            long unused6 = a.nWJ = currentTimeMillis;
                         }
                     };
                     if (Looper.myLooper() != Looper.getMainLooper()) {
@@ -114,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.dPf().getString(i));
+                d(context, h.dQs().getString(i));
             }
         }
     }

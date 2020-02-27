@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.util;
 
 import com.baidu.live.adp.base.BdBaseApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AssetsManager {
     private static final String HDPI = "hdpi";
     private static final String URL = "http://tb1.bdstatic.com/tb/client/img/";

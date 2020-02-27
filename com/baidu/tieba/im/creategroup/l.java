@@ -4,29 +4,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l extends BaseAdapter {
-    private String[] hvd;
-    private GroupAddressEditActivity hvf;
+    private String[] hxc;
+    private GroupAddressEditActivity hxe;
 
     public l(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.hvd = null;
-        this.hvf = null;
-        this.hvf = groupAddressEditActivity;
-        this.hvd = strArr;
+        this.hxc = null;
+        this.hxe = null;
+        this.hxe = groupAddressEditActivity;
+        this.hxc = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hvd != null) {
-            return this.hvd.length;
+        if (this.hxc != null) {
+            return this.hxc.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.hvd == null || i <= -1 || i >= this.hvd.length) ? "" : this.hvd[i];
+        return (this.hxc == null || i <= -1 || i >= this.hxc.length) ? "" : this.hxc[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,23 +38,23 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.hvf);
-            view = aVar.bet();
+            aVar = new a(this.hxe);
+            view = aVar.bgD();
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.Cm(getItem(i).toString());
-        if (this.hvf.bSn() == i) {
-            aVar.nk(true);
+        aVar.CC(getItem(i).toString());
+        if (this.hxe.bTO() == i) {
+            aVar.nm(true);
         } else {
-            aVar.nk(false);
+            aVar.nm(false);
         }
         bX(view);
         return view;
     }
 
     private void bX(View view) {
-        this.hvf.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.hvf.getLayoutMode().onModeChanged(view);
+        this.hxe.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.hxe.getLayoutMode().onModeChanged(view);
     }
 }

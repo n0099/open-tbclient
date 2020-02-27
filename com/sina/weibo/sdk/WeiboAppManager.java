@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WeiboAppManager {
     private static final String SDK_INT_FILE_NAME = "weibo_for_sdk.json";
     private static final String TAG = WeiboAppManager.class.getName();

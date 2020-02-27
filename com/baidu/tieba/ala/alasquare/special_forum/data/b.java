@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 
 import com.baidu.adp.BdUniqueId;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public long end_time;

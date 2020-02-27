@@ -10,10 +10,10 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bcu;
+    private String bgJ;
     private Bitmap mBitmap;
     private int mHeight;
     private Matrix mMatrix;
@@ -22,16 +22,16 @@ public class j extends a {
     private int mY;
 
     public j(String str) {
-        this.bcu = str;
+        this.bgJ = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public boolean Ic() {
+    public boolean Kr() {
         try {
-            JSONObject jSONObject = new JSONObject(this.bcu);
+            JSONObject jSONObject = new JSONObject(this.bgJ);
             this.mX = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
             this.mY = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble("y"));
             this.mWidth = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble("width"));

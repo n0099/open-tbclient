@@ -1,5 +1,5 @@
 package com.baidu.searchbox.suspensionwindow.permission;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface PermissionListener {
     void onFail();
 

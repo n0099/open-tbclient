@@ -6,15 +6,15 @@ import android.util.Log;
 import java.util.HashSet;
 import java.util.Set;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private static String[] dL;
-    private static long[] dM;
+    private static String[] dM;
+    private static long[] dN;
     public static boolean DBG = false;
-    private static final Set<String> dJ = new HashSet();
-    private static boolean dK = false;
-    private static int dN = 0;
+    private static final Set<String> dK = new HashSet();
+    private static boolean dL = false;
     private static int dO = 0;
+    private static int dP = 0;
 
     public static void debug(String str) {
         if (DBG) {
@@ -23,39 +23,39 @@ public class d {
     }
 
     public static void warn(String str) {
-        if (!dJ.contains(str)) {
+        if (!dK.contains(str)) {
             Log.w("LOTTIE", str);
-            dJ.add(str);
+            dK.add(str);
         }
     }
 
     public static void beginSection(String str) {
-        if (dK) {
-            if (dN == 20) {
-                dO++;
+        if (dL) {
+            if (dO == 20) {
+                dP++;
                 return;
             }
-            dL[dN] = str;
-            dM[dN] = System.nanoTime();
+            dM[dO] = str;
+            dN[dO] = System.nanoTime();
             TraceCompat.beginSection(str);
-            dN++;
+            dO++;
         }
     }
 
     public static float F(String str) {
-        if (dO > 0) {
-            dO--;
+        if (dP > 0) {
+            dP--;
             return 0.0f;
-        } else if (dK) {
-            dN--;
-            if (dN == -1) {
+        } else if (dL) {
+            dO--;
+            if (dO == -1) {
                 throw new IllegalStateException("Can't end trace section. There are none.");
             }
-            if (!str.equals(dL[dN])) {
-                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + dL[dN] + ".");
+            if (!str.equals(dM[dO])) {
+                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + dM[dO] + ".");
             }
             TraceCompat.endSection();
-            return ((float) (System.nanoTime() - dM[dN])) / 1000000.0f;
+            return ((float) (System.nanoTime() - dN[dO])) / 1000000.0f;
         } else {
             return 0.0f;
         }

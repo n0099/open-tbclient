@@ -4,24 +4,24 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public final Bitmap bitmap;
-    public final NinePatchChunk nVq;
+    public final NinePatchChunk nWf;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Bitmap bitmap, NinePatchChunk ninePatchChunk) {
         this.bitmap = bitmap;
-        this.nVq = ninePatchChunk;
+        this.nWf = ninePatchChunk;
     }
 
     public NinePatchDrawable b(Resources resources, String str) {
         if (this.bitmap == null) {
             return null;
         }
-        if (this.nVq == null) {
+        if (this.nWf == null) {
             return new NinePatchDrawable(resources, this.bitmap, null, new Rect(), str);
         }
-        return new NinePatchDrawable(resources, this.bitmap, this.nVq.toBytes(), this.nVq.padding, str);
+        return new NinePatchDrawable(resources, this.bitmap, this.nWf.toBytes(), this.nWf.padding, str);
     }
 }

@@ -20,7 +20,7 @@ import android.webkit.WebView;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.google.android.exoplayer2.Format;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SimpleWebview extends WebView implements View.OnLongClickListener, DownloadListener {
     public SimpleWebview(Context context) {
         super(context);

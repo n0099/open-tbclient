@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StringUtils {
     private static final String PASSWORD_PREFIX = "((?=.*\\d)(?=.*[a-zA-Z]).{6,20})";
     private static final String TIMEFORMAT = "yyyy-MM-dd HH:mm";
@@ -79,13 +79,6 @@ public class StringUtils {
         return true;
     }
 
-    public static boolean isNULL(String str) {
-        if (str != null) {
-            return false;
-        }
-        return true;
-    }
-
     public static boolean isNull(String str, boolean z) {
         boolean z2 = false;
         if (str == null || str.trim().length() == 0) {
@@ -93,6 +86,13 @@ public class StringUtils {
         }
         if (z2 || !z || str == null || !str.equalsIgnoreCase("null")) {
             return z2;
+        }
+        return true;
+    }
+
+    public static boolean isNullObject(String str) {
+        if (str != null) {
+            return false;
         }
         return true;
     }

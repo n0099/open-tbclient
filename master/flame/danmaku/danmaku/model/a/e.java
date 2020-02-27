@@ -1,5 +1,5 @@
 package master.flame.danmaku.danmaku.model.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static <T extends c<T>> b<T> a(d<T> dVar, int i) {
         return new a(dVar, i);

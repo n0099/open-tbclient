@@ -9,21 +9,21 @@ import com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor;
 import com.facebook.imagepipeline.b.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class e implements d {
-    static c lPg;
-    static c lPh;
-    private final com.facebook.imagepipeline.animated.impl.b lOn;
-    private final f lPf;
+    static c lPN;
+    static c lPO;
+    private final com.facebook.imagepipeline.animated.impl.b lOU;
+    private final f lPM;
 
     static {
-        lPg = null;
-        lPh = null;
-        lPg = OO("com.facebook.animated.gif.GifImage");
-        lPh = OO("com.facebook.animated.webp.WebPImage");
+        lPN = null;
+        lPO = null;
+        lPN = Pb("com.facebook.animated.gif.GifImage");
+        lPO = Pb("com.facebook.animated.webp.WebPImage");
     }
 
-    private static c OO(String str) {
+    private static c Pb(String str) {
         try {
             return (c) Class.forName(str).newInstance();
         } catch (Throwable th) {
@@ -32,37 +32,37 @@ public class e implements d {
     }
 
     public e(com.facebook.imagepipeline.animated.impl.b bVar, f fVar) {
-        this.lOn = bVar;
-        this.lPf = fVar;
+        this.lOU = bVar;
+        this.lPM = fVar;
     }
 
     @Override // com.facebook.imagepipeline.animated.a.d
     public com.facebook.imagepipeline.g.c a(com.facebook.imagepipeline.g.e eVar, com.facebook.imagepipeline.common.b bVar, Bitmap.Config config) {
-        if (lPg == null) {
+        if (lPN == null) {
             throw new UnsupportedOperationException("To encode animated gif please add the dependency to the animated-gif module");
         }
-        com.facebook.common.references.a<PooledByteBuffer> dpk = eVar.dpk();
-        g.checkNotNull(dpk);
+        com.facebook.common.references.a<PooledByteBuffer> dqw = eVar.dqw();
+        g.checkNotNull(dqw);
         try {
-            PooledByteBuffer pooledByteBuffer = dpk.get();
-            return a(bVar, lPg.z(pooledByteBuffer.djA(), pooledByteBuffer.size()), config);
+            PooledByteBuffer pooledByteBuffer = dqw.get();
+            return a(bVar, lPN.z(pooledByteBuffer.dkN(), pooledByteBuffer.size()), config);
         } finally {
-            com.facebook.common.references.a.c(dpk);
+            com.facebook.common.references.a.c(dqw);
         }
     }
 
     @Override // com.facebook.imagepipeline.animated.a.d
     public com.facebook.imagepipeline.g.c b(com.facebook.imagepipeline.g.e eVar, com.facebook.imagepipeline.common.b bVar, Bitmap.Config config) {
-        if (lPh == null) {
+        if (lPO == null) {
             throw new UnsupportedOperationException("To encode animated webp please add the dependency to the animated-webp module");
         }
-        com.facebook.common.references.a<PooledByteBuffer> dpk = eVar.dpk();
-        g.checkNotNull(dpk);
+        com.facebook.common.references.a<PooledByteBuffer> dqw = eVar.dqw();
+        g.checkNotNull(dqw);
         try {
-            PooledByteBuffer pooledByteBuffer = dpk.get();
-            return a(bVar, lPh.z(pooledByteBuffer.djA(), pooledByteBuffer.size()), config);
+            PooledByteBuffer pooledByteBuffer = dqw.get();
+            return a(bVar, lPO.z(pooledByteBuffer.dkN(), pooledByteBuffer.size()), config);
         } finally {
-            com.facebook.common.references.a.c(dpk);
+            com.facebook.common.references.a.c(dqw);
         }
     }
 
@@ -72,13 +72,13 @@ public class e implements d {
         com.facebook.imagepipeline.g.c aVar;
         com.facebook.common.references.a<Bitmap> aVar2 = null;
         try {
-            int frameCount = bVar.lQO ? bVar2.getFrameCount() - 1 : 0;
-            if (bVar.lQQ) {
-                aVar = new com.facebook.imagepipeline.g.d(a(bVar2, config, frameCount), com.facebook.imagepipeline.g.g.lTn, 0);
+            int frameCount = bVar.lRv ? bVar2.getFrameCount() - 1 : 0;
+            if (bVar.lRx) {
+                aVar = new com.facebook.imagepipeline.g.d(a(bVar2, config, frameCount), com.facebook.imagepipeline.g.g.lTU, 0);
                 com.facebook.common.references.a.c(null);
                 com.facebook.common.references.a.a((Iterable<? extends com.facebook.common.references.a<?>>) null);
             } else {
-                if (bVar.lQP) {
+                if (bVar.lRw) {
                     list = a(bVar2, config);
                     try {
                         aVar2 = com.facebook.common.references.a.b((com.facebook.common.references.a) list.get(frameCount));
@@ -91,10 +91,10 @@ public class e implements d {
                 } else {
                     list = null;
                 }
-                if (bVar.lQN && aVar2 == null) {
+                if (bVar.lRu && aVar2 == null) {
                     aVar2 = a(bVar2, config, frameCount);
                 }
-                aVar = new com.facebook.imagepipeline.g.a(com.facebook.imagepipeline.animated.base.d.b(bVar2).j(aVar2).HV(frameCount).eZ(list).dmw());
+                aVar = new com.facebook.imagepipeline.g.a(com.facebook.imagepipeline.animated.base.d.b(bVar2).j(aVar2).Ia(frameCount).eU(list).dnJ());
                 com.facebook.common.references.a.c(aVar2);
                 com.facebook.common.references.a.a(list);
             }
@@ -107,13 +107,13 @@ public class e implements d {
 
     private com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.animated.base.b bVar, Bitmap.Config config, int i) {
         com.facebook.common.references.a<Bitmap> b = b(bVar.getWidth(), bVar.getHeight(), config);
-        new AnimatedImageCompositor(this.lOn.a(com.facebook.imagepipeline.animated.base.d.a(bVar), null), new AnimatedImageCompositor.a() { // from class: com.facebook.imagepipeline.animated.a.e.1
+        new AnimatedImageCompositor(this.lOU.a(com.facebook.imagepipeline.animated.base.d.a(bVar), null), new AnimatedImageCompositor.a() { // from class: com.facebook.imagepipeline.animated.a.e.1
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
             public void c(int i2, Bitmap bitmap) {
             }
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
-            public com.facebook.common.references.a<Bitmap> HT(int i2) {
+            public com.facebook.common.references.a<Bitmap> HY(int i2) {
                 return null;
             }
         }).d(i, b.get());
@@ -121,7 +121,7 @@ public class e implements d {
     }
 
     private List<com.facebook.common.references.a<Bitmap>> a(com.facebook.imagepipeline.animated.base.b bVar, Bitmap.Config config) {
-        com.facebook.imagepipeline.animated.base.a a = this.lOn.a(com.facebook.imagepipeline.animated.base.d.a(bVar), null);
+        com.facebook.imagepipeline.animated.base.a a = this.lOU.a(com.facebook.imagepipeline.animated.base.d.a(bVar), null);
         final ArrayList arrayList = new ArrayList(a.getFrameCount());
         AnimatedImageCompositor animatedImageCompositor = new AnimatedImageCompositor(a, new AnimatedImageCompositor.a() { // from class: com.facebook.imagepipeline.animated.a.e.2
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
@@ -129,7 +129,7 @@ public class e implements d {
             }
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
-            public com.facebook.common.references.a<Bitmap> HT(int i) {
+            public com.facebook.common.references.a<Bitmap> HY(int i) {
                 return com.facebook.common.references.a.b((com.facebook.common.references.a) arrayList.get(i));
             }
         });
@@ -149,7 +149,7 @@ public class e implements d {
 
     @SuppressLint({"NewApi"})
     private com.facebook.common.references.a<Bitmap> b(int i, int i2, Bitmap.Config config) {
-        com.facebook.common.references.a<Bitmap> c = this.lPf.c(i, i2, config);
+        com.facebook.common.references.a<Bitmap> c = this.lPM.c(i, i2, config);
         c.get().eraseColor(0);
         if (Build.VERSION.SDK_INT >= 12) {
             c.get().setHasAlpha(true);

@@ -6,13 +6,14 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
 import com.baidu.mapsdkplatform.comapi.util.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a implements PermissionCheck.c {
     private static a f;
     private Context b;
@@ -97,7 +98,7 @@ public class a implements PermissionCheck.c {
         }
         g = bVar.a;
         Message obtainMessage = this.c.obtainMessage();
-        obtainMessage.what = 2012;
+        obtainMessage.what = IMConstants.IM_MSG_TYPE_SHIELD_ME;
         obtainMessage.arg1 = bVar.a;
         obtainMessage.obj = bVar.d;
         this.c.sendMessage(obtainMessage);

@@ -4,6 +4,7 @@ import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.util.Log;
+import com.baidu.android.common.security.RSAUtil;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,7 +17,7 @@ import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class l {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -113,9 +114,9 @@ public class l {
 
     @CheckResult
     @NonNull
-    public static String H(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public static String I(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         try {
-            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
             Cipher cipher = Cipher.getInstance(str3);
             cipher.init(1, generatePublic);
             return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
@@ -129,7 +130,7 @@ public class l {
 
     @CheckResult
     @NonNull
-    public static String p(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+    public static String s(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
         try {
             Cipher cipher = Cipher.getInstance(str3);
             cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), "AES"), new IvParameterSpec(str4.getBytes("utf-8")));

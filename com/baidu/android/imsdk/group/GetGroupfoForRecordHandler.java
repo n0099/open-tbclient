@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.util.devices.NetWorkUtils;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public GetGroupfoForRecordHandler(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
         }
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(String.valueOf(j));
-        LogUtils.d(HanziToPinyin.Token.SEPARATOR, "STAR Recordhandler get groupinfo " + j);
+        LogUtils.d("GetGroupfoForRecordHandler", "STAR Recordhandler get groupinfo " + j);
         GroupManagerImpl.getInstance(this.mContext).getGroupsInfo(1, arrayList, new BIMValueCallBack<ArrayList<GroupInfo>>() { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.android.imsdk.group.BIMValueCallBack
@@ -52,9 +52,9 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
     public void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj) {
         if (obj != null && (obj instanceof GroupInfo)) {
-            LogUtils.d(HanziToPinyin.Token.SEPARATOR, "RECORDSESSION updatechatrecord " + obj.toString());
+            LogUtils.d("GetGroupfoForRecordHandler", "RECORDSESSION updatechatrecord " + obj.toString());
             GroupInfo groupInfo = (GroupInfo) obj;
-            updateChatRecord(chatObject, groupInfo.getGroupName(), groupInfo.getType() == 2 ? 4 : i, "", 0, "", "", 0, 0, 0L);
+            updateChatRecord(chatObject, groupInfo.getGroupName(), groupInfo.getType() == 2 ? 4 : i, "", 0, "", "", 0, 0, 0L, 0, 0L, "", "", "");
         }
     }
 }

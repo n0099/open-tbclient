@@ -1,5 +1,5 @@
 package com.baidu.searchbox.config.eventmessage;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CommonEventMessage {
     public static final int MSG_INVALID = -1;
     public int arg0;

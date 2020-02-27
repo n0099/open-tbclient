@@ -5,7 +5,7 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class s {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -23,7 +23,7 @@ public final class s {
         }
     }
 
-    public static JSONArray mx(String str) {
+    public static JSONArray mM(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONArray();
         }

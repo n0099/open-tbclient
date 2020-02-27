@@ -4,33 +4,33 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b {
-    private static final b lQL = dmY().dng();
+    private static final b lRs = dol().dot();
     public final Bitmap.Config bitmapConfig;
-    public final int lQM;
-    public final boolean lQN;
-    public final boolean lQO;
-    public final boolean lQP;
-    public final boolean lQQ;
+    public final int lRt;
+    public final boolean lRu;
+    public final boolean lRv;
+    public final boolean lRw;
+    public final boolean lRx;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b lQR;
+    public final com.facebook.imagepipeline.decoder.b lRy;
 
     public b(c cVar) {
-        this.lQM = cVar.dmZ();
-        this.lQN = cVar.dna();
-        this.lQO = cVar.dnb();
-        this.lQP = cVar.dnc();
-        this.lQQ = cVar.dne();
-        this.bitmapConfig = cVar.dnf();
-        this.lQR = cVar.dnd();
+        this.lRt = cVar.dom();
+        this.lRu = cVar.don();
+        this.lRv = cVar.doo();
+        this.lRw = cVar.dop();
+        this.lRx = cVar.dor();
+        this.bitmapConfig = cVar.dos();
+        this.lRy = cVar.doq();
     }
 
-    public static b dmX() {
-        return lQL;
+    public static b dok() {
+        return lRs;
     }
 
-    public static c dmY() {
+    public static c dol() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.lQN == bVar.lQN && this.lQO == bVar.lQO && this.lQP == bVar.lQP && this.lQQ == bVar.lQQ && this.bitmapConfig == bVar.bitmapConfig && this.lQR == bVar.lQR;
+        return this.lRu == bVar.lRu && this.lRv == bVar.lRv && this.lRw == bVar.lRw && this.lRx == bVar.lRx && this.bitmapConfig == bVar.bitmapConfig && this.lRy == bVar.lRy;
     }
 
     public int hashCode() {
-        return (((((((this.lQP ? 1 : 0) + (((this.lQO ? 1 : 0) + (((this.lQN ? 1 : 0) + (this.lQM * 31)) * 31)) * 31)) * 31) + (this.lQQ ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31) + (this.lQR != null ? this.lQR.hashCode() : 0);
+        return (((((((this.lRw ? 1 : 0) + (((this.lRv ? 1 : 0) + (((this.lRu ? 1 : 0) + (this.lRt * 31)) * 31)) * 31)) * 31) + (this.lRx ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31) + (this.lRy != null ? this.lRy.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.lQM), Boolean.valueOf(this.lQN), Boolean.valueOf(this.lQO), Boolean.valueOf(this.lQP), Boolean.valueOf(this.lQQ), this.bitmapConfig.name(), this.lQR);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.lRt), Boolean.valueOf(this.lRu), Boolean.valueOf(this.lRv), Boolean.valueOf(this.lRw), Boolean.valueOf(this.lRx), this.bitmapConfig.name(), this.lRy);
     }
 }

@@ -3,12 +3,12 @@ package com.baidu.swan.games.b;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends JSEvent {
 
     /* renamed from: com.baidu.swan.games.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0322a {
+    /* loaded from: classes11.dex */
+    public static class C0332a {
         @V8JavascriptField
         public String cmd;
         @V8JavascriptField
@@ -20,12 +20,12 @@ public class a extends JSEvent {
     }
 
     public static a bw(JSONObject jSONObject) {
-        C0322a c0322a = new C0322a();
+        C0332a c0332a = new C0332a();
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        c0322a.type = jSONObject.optString("type");
-        c0322a.cmd = jSONObject.optString("cmd");
-        return new a(c0322a);
+        c0332a.type = jSONObject.optString("type");
+        c0332a.cmd = jSONObject.optString("cmd");
+        return new a(c0332a);
     }
 }

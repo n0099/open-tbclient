@@ -1,65 +1,65 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
 public class i {
-    private float AX = 8.0f;
-    private float AY = 15.0f;
-    private float AZ = 4.0f;
-    private float Ba = 60.0f;
-    private int Bb = 150;
-    private int Bc = 150;
-    private int Bd = 500;
-    private float Be = 0.4f;
-    private float Bf = 1.0f;
-    private float Bg = 20.0f;
-    private float Bh = 10.0f;
-    private int Bi = 360;
-    private float Bj = 5.0f;
+    private float Bp = 8.0f;
+    private float Bq = 15.0f;
+    private float Br = 4.0f;
+    private float Bs = 60.0f;
+    private int Bt = 150;
+    private int Bu = 150;
+    private int Bv = 500;
+    private float Bw = 0.4f;
+    private float Bx = 1.0f;
+    private float By = 20.0f;
+    private float Bz = 10.0f;
+    private int BA = 360;
+    private float BB = 5.0f;
 
-    public float ka() {
-        return this.AX;
+    public float kp() {
+        return this.Bp;
     }
 
-    public float kb() {
-        return this.AY;
+    public float kq() {
+        return this.Bq;
     }
 
-    public float kc() {
-        return this.AZ;
+    public float kr() {
+        return this.Br;
     }
 
-    public float kd() {
-        return this.Ba;
+    public float ks() {
+        return this.Bs;
     }
 
-    public int ke() {
-        return this.Bb;
+    public int kt() {
+        return this.Bt;
     }
 
-    public int kf() {
-        return this.Bc;
+    public int ku() {
+        return this.Bu;
     }
 
-    public int kg() {
-        return this.Bd;
+    public int kv() {
+        return this.Bv;
     }
 
-    public float kh() {
-        return this.Be;
+    public float kw() {
+        return this.Bw;
     }
 
-    public float ki() {
-        return this.Bf;
+    public float kx() {
+        return this.Bx;
     }
 
-    public float kj() {
-        return this.Bg;
+    public float ky() {
+        return this.By;
     }
 
-    public float kk() {
-        return this.Bh;
+    public float kz() {
+        return this.Bz;
     }
 
-    public int kl() {
-        return this.Bi;
+    public int kA() {
+        return this.BA;
     }
 }

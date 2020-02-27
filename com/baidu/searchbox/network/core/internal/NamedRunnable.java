@@ -1,5 +1,5 @@
 package com.baidu.searchbox.network.core.internal;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class NamedRunnable implements Runnable {
     protected final String name;
 

@@ -8,26 +8,26 @@ import com.baidu.tieba.frs.smartsort.FrsSmartLoadMoreModel;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private final FrsFragment gEE;
-    private final FrsLoadMoreModel gEF;
-    private final FrsSmartLoadMoreModel gEG;
-    private final a gEH = new a() { // from class: com.baidu.tieba.frs.mc.c.1
+    private final FrsFragment gGD;
+    private final FrsLoadMoreModel gGE;
+    private final FrsSmartLoadMoreModel gGF;
+    private final a gGG = new a() { // from class: com.baidu.tieba.frs.mc.c.1
         @Override // com.baidu.tieba.frs.mc.c.a
         public void removeItem(int i) {
-            if (c.this.gmj != null && c.this.gmj.getListView() != null) {
-                List<m> data = c.this.gmj.getListView().getData();
-                if (!v.isEmpty(data) && c.this.gmj.getListView().getAdapter() != null && ((m) v.remove(data, i)) != null) {
-                    c.this.gmj.getListView().getAdapter().notifyItemRemoved(i);
+            if (c.this.gok != null && c.this.gok.getListView() != null) {
+                List<m> data = c.this.gok.getListView().getData();
+                if (!v.isEmpty(data) && c.this.gok.getListView().getAdapter() != null && ((m) v.remove(data, i)) != null) {
+                    c.this.gok.getListView().getAdapter().notifyItemRemoved(i);
                 }
             }
         }
     };
-    private final com.baidu.tieba.frs.l gmj;
-    private final FrsModelController gmz;
+    private final FrsModelController goA;
+    private final com.baidu.tieba.frs.l gok;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void removeItem(int i);
     }
@@ -36,15 +36,15 @@ public class c {
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is NullPointerException");
         }
-        this.gEE = frsFragment;
-        this.gEF = new FrsLoadMoreModel(frsFragment, kVar);
-        this.gEG = new FrsSmartLoadMoreModel(frsFragment, kVar);
-        this.gEG.a(this.gEH);
-        this.gEF.a(this.gEH);
-        this.gmj = frsFragment.bCk();
-        this.gmz = frsFragment.bCf();
-        this.gEG.setSortType(this.gmz.getSortType());
-        this.gEF.setSortType(this.gmz.getSortType());
+        this.gGD = frsFragment;
+        this.gGE = new FrsLoadMoreModel(frsFragment, kVar);
+        this.gGF = new FrsSmartLoadMoreModel(frsFragment, kVar);
+        this.gGF.a(this.gGG);
+        this.gGE.a(this.gGG);
+        this.gok = frsFragment.bDN();
+        this.goA = frsFragment.bDI();
+        this.gGF.setSortType(this.goA.getSortType());
+        this.gGE.setSortType(this.goA.getSortType());
     }
 
     public ArrayList<m> a(boolean z, boolean z2, ArrayList<m> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3) {
@@ -52,119 +52,119 @@ public class c {
     }
 
     public ArrayList<m> a(boolean z, boolean z2, ArrayList<m> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3, boolean z4) {
-        if (this.gmz != null) {
-            boolean bHO = this.gEE.bCf().bHO();
-            if (this.gmz.bHP()) {
-                return this.gEG.a(z, bHO, arrayList, z3, z4);
+        if (this.goA != null) {
+            boolean bJq = this.gGD.bDI().bJq();
+            if (this.goA.bJr()) {
+                return this.gGF.a(z, bJq, arrayList, z3, z4);
             }
-            return this.gEF.a(z, bHO, z2, arrayList, fVar);
+            return this.gGE.a(z, bJq, z2, arrayList, fVar);
         }
         return arrayList;
     }
 
     public void resetData() {
-        if (this.gmz != null) {
-            if (this.gmz.bHP()) {
-                this.gEG.resetData();
+        if (this.goA != null) {
+            if (this.goA.bJr()) {
+                this.gGF.resetData();
             } else {
-                this.gEF.resetData();
+                this.gGE.resetData();
             }
         }
     }
 
-    public boolean cr(List<Long> list) {
-        if (this.gmz == null || this.gmz.bHP()) {
+    public boolean cn(List<Long> list) {
+        if (this.goA == null || this.goA.bJr()) {
             return false;
         }
-        return this.gEF.cr(list);
+        return this.gGE.cn(list);
     }
 
     public void a(String str, String str2, FrsViewData frsViewData) {
-        if (this.gmz != null && this.gmj != null && frsViewData != null) {
-            this.gEE.gmo = System.currentTimeMillis();
-            if (this.gmz.bHP()) {
-                if (this.gEG.bCl() == 1 && !this.gmz.isLoading()) {
-                    this.gEG.setSortType(this.gmz.getSortType());
-                    this.gEG.bHw();
-                    int pn = this.gEG.getPn();
-                    this.gEG.setPn(pn);
-                    this.gmz.tE(pn + 1);
+        if (this.goA != null && this.gok != null && frsViewData != null) {
+            this.gGD.gop = System.currentTimeMillis();
+            if (this.goA.bJr()) {
+                if (this.gGF.bDO() == 1 && !this.goA.isLoading()) {
+                    this.gGF.setSortType(this.goA.getSortType());
+                    this.gGF.bIY();
+                    int pn = this.gGF.getPn();
+                    this.gGF.setPn(pn);
+                    this.goA.tK(pn + 1);
                 }
-            } else if (this.gmz.bHG() == 1) {
-                if (!this.gEF.isLoading && !this.gmz.isLoading()) {
-                    int pn2 = this.gEF.getPn();
-                    if (this.gEF.cr(frsViewData.getThreadListIds())) {
-                        this.gEF.bHw();
-                        this.gEF.setSortType(this.gmz.getSortType());
-                        this.gEF.a(com.baidu.adp.lib.f.b.toLong(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum);
-                    } else if (this.gEF.bCl() == 1) {
-                        this.gEF.bHw();
-                        this.gEF.setPn(pn2);
-                        this.gmz.tE(pn2 + 1);
-                        this.gEF.loadingDone = false;
-                        this.gEF.loadIndex = 0;
+            } else if (this.goA.bJi() == 1) {
+                if (!this.gGE.isLoading && !this.goA.isLoading()) {
+                    int pn2 = this.gGE.getPn();
+                    if (this.gGE.cn(frsViewData.getThreadListIds())) {
+                        this.gGE.bIY();
+                        this.gGE.setSortType(this.goA.getSortType());
+                        this.gGE.a(com.baidu.adp.lib.f.b.toLong(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum);
+                    } else if (this.gGE.bDO() == 1) {
+                        this.gGE.bIY();
+                        this.gGE.setPn(pn2);
+                        this.goA.tK(pn2 + 1);
+                        this.gGE.loadingDone = false;
+                        this.gGE.loadIndex = 0;
                     }
                 }
-            } else if (!this.gmz.bHI()) {
-                this.gmz.buj();
+            } else if (!this.goA.bJk()) {
+                this.goA.bvN();
             }
         }
     }
 
-    public int bCl() {
-        if (this.gmz == null) {
+    public int bDO() {
+        if (this.goA == null) {
             return -1;
         }
-        if (this.gmz.bHP()) {
-            return this.gEG.bCl();
+        if (this.goA.bJr()) {
+            return this.gGF.bDO();
         }
-        return this.gEF.bCl();
+        return this.gGE.bDO();
     }
 
     public void setHasMore(int i) {
-        if (this.gmz != null) {
-            if (this.gmz.bHP()) {
-                this.gEG.setHasMore(i);
+        if (this.goA != null) {
+            if (this.goA.bJr()) {
+                this.gGF.setHasMore(i);
             } else {
-                this.gEF.setHasMore(i);
+                this.gGE.setHasMore(i);
             }
         }
     }
 
     public int getPn() {
-        if (this.gmz == null) {
+        if (this.goA == null) {
             return 1;
         }
-        if (this.gmz.bHP()) {
-            return this.gEG.getPn();
+        if (this.goA.bJr()) {
+            return this.gGF.getPn();
         }
-        return this.gEF.getPn();
+        return this.gGE.getPn();
     }
 
     public void setPn(int i) {
-        if (this.gmz != null) {
-            if (this.gmz.bHP()) {
-                this.gEG.setPn(i);
+        if (this.goA != null) {
+            if (this.goA.bJr()) {
+                this.gGF.setPn(i);
             } else {
-                this.gEF.setPn(i);
+                this.gGE.setPn(i);
             }
         }
     }
 
     public ArrayList<m> getDataList() {
-        return this.gmz.bHP() ? this.gEG.getDataList() : this.gmz.bHK();
+        return this.goA.bJr() ? this.gGF.getDataList() : this.goA.bJm();
     }
 
-    public FrsSmartLoadMoreModel bHz() {
-        return this.gEG;
+    public FrsSmartLoadMoreModel bJb() {
+        return this.gGF;
     }
 
     public void d(m mVar) {
         if (mVar != null) {
-            if (this.gmz.bHP()) {
-                this.gEG.d(mVar);
+            if (this.goA.bJr()) {
+                this.gGF.d(mVar);
             } else {
-                this.gEF.d(mVar);
+                this.gGE.d(mVar);
             }
         }
     }

@@ -1,10 +1,10 @@
 package rx.b;
 
 import rx.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class f {
-    public static <T> j<T> dNF() {
-        return b(a.dNE());
+    public static <T> j<T> dOS() {
+        return b(a.dOR());
     }
 
     public static <T> j<T> b(final rx.e<? super T> eVar) {

@@ -3,7 +3,8 @@ package com.baidu.tieba.ala.liveroom.master.a;
 import android.os.Handler;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.liveroom.data.f;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.ala.liveroom.data.g;
+/* loaded from: classes3.dex */
 public class c extends a {
     private final Handler mHandler;
 
@@ -19,61 +20,62 @@ public class c extends a {
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.eQi.eWS.startRecord();
-                this.eQi.eWT.a((short) 2, null);
+                this.fgw.g(obj instanceof g ? ((g) obj).faO : null);
+                this.eTZ.faH.startRecord();
+                this.eTZ.faJ.a((short) 2, null);
                 return;
             case 2:
             default:
                 return;
             case 3:
                 if (i == 7 || i == 5) {
-                    this.eQi.eWT.a((short) 5, null);
+                    this.eTZ.faJ.a((short) 5, null);
                     return;
                 } else {
-                    this.eQi.eWT.a((short) 2, null);
+                    this.eTZ.faJ.a((short) 2, null);
                     return;
                 }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bni() {
-        if (this.eQi != null && this.eQi.eWT != null && this.mCurrentState != 4) {
-            this.eQi.eWT.a((short) 4, this.fbR);
+    public void boS() {
+        if (this.eTZ != null && this.eTZ.faJ != null && this.mCurrentState != 4) {
+            this.eTZ.faJ.a((short) 4, this.feZ);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void av(int i, String str) {
+    public void aw(int i, String str) {
         if (i == 0) {
-            this.eQi.eWT.a((short) 3, null);
-        } else if (this.fdn != null) {
-            this.fdn.onError(i, str);
+            this.eTZ.faJ.a((short) 3, null);
+        } else if (this.fgw != null) {
+            this.fgw.onError(i, str);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void g(short s) {
-        super.g(s);
+    public void i(short s) {
+        super.i(s);
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bnj() {
-        super.bnj();
-        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.eQi != null && this.eQi.eWS != null) {
-            this.eQi.eWS.enterBackground();
+    public void boT() {
+        super.boT();
+        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.eTZ != null && this.eTZ.faH != null) {
+            this.eTZ.faH.enterBackground();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bnk() {
-        super.bnk();
+    public void boU() {
+        super.boU();
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.eQi != null && c.this.eQi.eWS != null) {
-                    c.this.eQi.eWS.enterForeground();
+                if (c.this.eTZ != null && c.this.eTZ.faH != null) {
+                    c.this.eTZ.faH.enterForeground();
                 }
             }
         });

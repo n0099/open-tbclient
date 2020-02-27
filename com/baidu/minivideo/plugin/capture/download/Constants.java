@@ -1,13 +1,13 @@
 package com.baidu.minivideo.plugin.capture.download;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class Constants {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class CONFIG {
         public static final boolean DEBUG = false;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class HTTP {
         public static final int CONNECT_TIME_OUT = 4000;
         public static final String GET = "GET";

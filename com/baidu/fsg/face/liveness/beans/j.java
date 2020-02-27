@@ -2,6 +2,7 @@ package com.baidu.fsg.face.liveness.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
@@ -16,7 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j extends k {
     private String b;
     private String c;
@@ -74,7 +75,7 @@ public class j extends k {
                 arrayList.add(new RestNameValuePair("type", "outer"));
                 arrayList.add(new RestNameValuePair("exuid", this.g.exUid));
             }
-            arrayList.add(new RestNameValuePair("service_type", this.g.serviceType));
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.g.serviceType));
         }
         String randomString = RandomUtils.getRandomString(4096);
         try {

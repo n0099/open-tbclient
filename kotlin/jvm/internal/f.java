@@ -2,25 +2,26 @@ package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
 import kotlin.collections.ad;
-/* loaded from: classes5.dex */
+@kotlin.h
+/* loaded from: classes7.dex */
 final class f extends ad {
     private int index;
-    private final int[] nBH;
+    private final int[] nCj;
 
     public f(int[] iArr) {
         q.j(iArr, "array");
-        this.nBH = iArr;
+        this.nCj = iArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.nBH.length;
+        return this.index < this.nCj.length;
     }
 
     @Override // kotlin.collections.ad
     public int nextInt() {
         try {
-            int[] iArr = this.nBH;
+            int[] iArr = this.nCj;
             int i = this.index;
             this.index = i + 1;
             return iArr[i];

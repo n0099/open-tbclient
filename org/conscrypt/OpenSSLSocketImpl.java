@@ -13,7 +13,7 @@ import java.security.PrivateKey;
 import javax.net.ssl.HandshakeCompletedListener;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class OpenSSLSocketImpl extends ConscryptSocketBase {
     @Override // org.conscrypt.AbstractConscryptSocket
     public abstract byte[] getChannelId() throws SSLException;

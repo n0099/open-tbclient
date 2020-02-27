@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface ah {
-    void baZ();
+    void bdo();
 
     void scrollToTop();
 }

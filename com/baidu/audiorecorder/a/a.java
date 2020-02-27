@@ -7,23 +7,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class a extends l {
     public a(Context context) {
         super(context, (String) null, 6);
         this.name = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.dtf = R.drawable.icon_pure_post_speak24_svg;
-        this.dth = true;
-        this.dtl = true;
-        this.dtk = 5;
-        this.dss = new SendVoiceView(context);
+        this.dxl = R.drawable.icon_pure_post_speak24_svg;
+        this.dxn = true;
+        this.dxr = true;
+        this.dxq = 5;
+        this.dwz = new SendVoiceView(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
         layoutParams.leftMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         layoutParams.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         layoutParams.bottomMargin = context.getResources().getDimensionPixelSize(R.dimen.ds20);
         layoutParams.weight = 1.0f;
-        ((View) this.dss).setLayoutParams(layoutParams);
-        this.dtm = new int[0];
+        ((View) this.dwz).setLayoutParams(layoutParams);
+        this.dxs = new int[0];
     }
 }

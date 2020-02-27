@@ -4,35 +4,35 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class f extends i {
-    private static final SimpleDateFormat lFU = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-    private static final SimpleDateFormat lFV = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
+    private static final SimpleDateFormat lGB = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+    private static final SimpleDateFormat lGC = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
     private Date date;
 
     static {
-        lFU.setTimeZone(TimeZone.getTimeZone("GMT"));
-        lFV.setTimeZone(TimeZone.getTimeZone("GMT"));
+        lGB.setTimeZone(TimeZone.getTimeZone("GMT"));
+        lGC.setTimeZone(TimeZone.getTimeZone("GMT"));
     }
 
-    private static synchronized Date Os(String str) throws ParseException {
+    private static synchronized Date OE(String str) throws ParseException {
         Date parse;
         synchronized (f.class) {
             try {
-                parse = lFU.parse(str);
+                parse = lGB.parse(str);
             } catch (ParseException e) {
-                parse = lFV.parse(str);
+                parse = lGC.parse(str);
             }
         }
         return parse;
     }
 
     public f(byte[] bArr) {
-        this.date = new Date(978307200000L + ((long) (1000.0d * c.ac(bArr))));
+        this.date = new Date(978307200000L + ((long) (1000.0d * c.ah(bArr))));
     }
 
     public f(String str) throws ParseException {
-        this.date = Os(str);
+        this.date = OE(str);
     }
 
     public f(Date date) {

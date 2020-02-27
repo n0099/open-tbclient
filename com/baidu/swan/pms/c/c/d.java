@@ -2,7 +2,7 @@ package com.baidu.swan.pms.c.c;
 
 import com.baidu.swan.pms.model.g;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    public List<g> cxU;
+    public List<g> cBS;
 }

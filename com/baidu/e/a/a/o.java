@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class o {
     public static void a(ZipFile zipFile) {
         if (zipFile != null) {
@@ -33,10 +33,10 @@ public class o {
                             file3.mkdirs();
                         } else {
                             InputStream inputStream = zipFile.getInputStream(nextElement);
-                            File f = f(file3);
-                            d.copyStream(inputStream, f);
+                            File g = g(file3);
+                            d.copyStream(inputStream, g);
                             d.close(inputStream);
-                            f.renameTo(file3);
+                            g.renameTo(file3);
                         }
                     }
                     a(zipFile);
@@ -63,7 +63,7 @@ public class o {
         }
     }
 
-    public static File f(File file) {
+    public static File g(File file) {
         return new File(file.getAbsolutePath() + ".tmp" + System.currentTimeMillis());
     }
 }

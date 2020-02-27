@@ -9,14 +9,14 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class k extends Lifecycle {
     private final WeakReference<j> ce;
     private android.arch.a.b.a<i, a> cc = new android.arch.a.b.a<>();
     private int cf = 0;
     private boolean cg = false;
-    private boolean ch = false;
-    private ArrayList<Lifecycle.State> ci = new ArrayList<>();
+    private boolean ci = false;
+    private ArrayList<Lifecycle.State> cj = new ArrayList<>();
     private Lifecycle.State cd = Lifecycle.State.INITIALIZED;
 
     public k(@NonNull j jVar) {
@@ -36,7 +36,7 @@ public class k extends Lifecycle {
         if (this.cd != state) {
             this.cd = state;
             if (this.cg || this.cf != 0) {
-                this.ch = true;
+                this.ci = true;
                 return;
             }
             this.cg = true;
@@ -56,7 +56,7 @@ public class k extends Lifecycle {
 
     private Lifecycle.State c(i iVar) {
         Map.Entry<i, a> h = this.cc.h(iVar);
-        return a(a(this.cd, h != null ? h.getValue().cd : null), !this.ci.isEmpty() ? this.ci.get(this.ci.size() - 1) : null);
+        return a(a(this.cd, h != null ? h.getValue().cd : null), !this.cj.isEmpty() ? this.cj.get(this.cj.size() - 1) : null);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
@@ -81,11 +81,11 @@ public class k extends Lifecycle {
     }
 
     private void aw() {
-        this.ci.remove(this.ci.size() - 1);
+        this.cj.remove(this.cj.size() - 1);
     }
 
     private void c(Lifecycle.State state) {
-        this.ci.add(state);
+        this.cj.add(state);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
@@ -153,10 +153,10 @@ public class k extends Lifecycle {
     /* JADX WARN: Multi-variable type inference failed */
     private void g(j jVar) {
         android.arch.a.b.b<i, a>.d aq = this.cc.aq();
-        while (aq.hasNext() && !this.ch) {
+        while (aq.hasNext() && !this.ci) {
             Map.Entry next = aq.next();
             a aVar = (a) next.getValue();
-            while (aVar.cd.compareTo(this.cd) < 0 && !this.ch && this.cc.contains(next.getKey())) {
+            while (aVar.cd.compareTo(this.cd) < 0 && !this.ci && this.cc.contains(next.getKey())) {
                 c(aVar.cd);
                 aVar.b(jVar, e(aVar.cd));
                 aw();
@@ -166,10 +166,10 @@ public class k extends Lifecycle {
 
     private void h(j jVar) {
         Iterator<Map.Entry<i, a>> descendingIterator = this.cc.descendingIterator();
-        while (descendingIterator.hasNext() && !this.ch) {
+        while (descendingIterator.hasNext() && !this.ci) {
             Map.Entry<i, a> next = descendingIterator.next();
             a value = next.getValue();
-            while (value.cd.compareTo(this.cd) > 0 && !this.ch && this.cc.contains(next.getKey())) {
+            while (value.cd.compareTo(this.cd) > 0 && !this.ci && this.cc.contains(next.getKey())) {
                 Lifecycle.Event d = d(value.cd);
                 c(c(d));
                 value.b(jVar, d);
@@ -185,16 +185,16 @@ public class k extends Lifecycle {
             return;
         }
         while (!av()) {
-            this.ch = false;
+            this.ci = false;
             if (this.cd.compareTo(this.cc.ar().getValue().cd) < 0) {
                 h(jVar);
             }
             Map.Entry<i, a> as = this.cc.as();
-            if (!this.ch && as != null && this.cd.compareTo(as.getValue().cd) > 0) {
+            if (!this.ci && as != null && this.cd.compareTo(as.getValue().cd) > 0) {
                 g(jVar);
             }
         }
-        this.ch = false;
+        this.ci = false;
     }
 
     static Lifecycle.State a(@NonNull Lifecycle.State state, @Nullable Lifecycle.State state2) {
@@ -202,20 +202,20 @@ public class k extends Lifecycle {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         Lifecycle.State cd;
-        h ck;
+        h cl;
 
         a(i iVar, Lifecycle.State state) {
-            this.ck = m.i(iVar);
+            this.cl = m.i(iVar);
             this.cd = state;
         }
 
         void b(j jVar, Lifecycle.Event event) {
             Lifecycle.State c = k.c(event);
             this.cd = k.a(this.cd, c);
-            this.ck.a(jVar, event);
+            this.cl.a(jVar, event);
             this.cd = c;
         }
     }

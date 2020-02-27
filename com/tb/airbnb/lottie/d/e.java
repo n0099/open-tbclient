@@ -6,7 +6,7 @@ import android.support.annotation.FloatRange;
 import com.tb.airbnb.lottie.a.a.j;
 import com.tb.airbnb.lottie.model.content.h;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static PointF b(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -14,25 +14,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF cW = hVar.cW();
-        path.moveTo(cW.x, cW.y);
-        PointF pointF = new PointF(cW.x, cW.y);
+        PointF cX = hVar.cX();
+        path.moveTo(cX.x, cX.y);
+        PointF pointF = new PointF(cX.x, cX.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.cX().size()) {
+            if (i2 >= hVar.cY().size()) {
                 break;
             }
-            com.tb.airbnb.lottie.model.a aVar = hVar.cX().get(i2);
-            PointF cd = aVar.cd();
+            com.tb.airbnb.lottie.model.a aVar = hVar.cY().get(i2);
             PointF ce = aVar.ce();
             PointF cf = aVar.cf();
-            if (cd.equals(pointF) && ce.equals(cf)) {
-                path.lineTo(cf.x, cf.y);
+            PointF cg = aVar.cg();
+            if (ce.equals(pointF) && cf.equals(cg)) {
+                path.lineTo(cg.x, cg.y);
             } else {
-                path.cubicTo(cd.x, cd.y, ce.x, ce.y, cf.x, cf.y);
+                path.cubicTo(ce.x, ce.y, cf.x, cf.y, cg.x, cg.y);
             }
-            pointF.set(cf.x, cf.y);
+            pointF.set(cg.x, cg.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {
@@ -54,14 +54,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int j(float f, float f2) {
-        return f((int) f, (int) f2);
-    }
-
-    private static int f(int i, int i2) {
-        return i - (g(i, i2) * i2);
+        return g((int) f, (int) f2);
     }
 
     private static int g(int i, int i2) {
+        return i - (h(i, i2) * i2);
+    }
+
+    private static int h(int i, int i2) {
         int i3 = i / i2;
         return (((i ^ i2) >= 0) || i % i2 == 0) ? i3 : i3 - 1;
     }
@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2, j jVar) {
         if (eVar.e(jVar.getName(), i)) {
-            list.add(eVar2.Rm(jVar.getName()).a(jVar));
+            list.add(eVar2.Rx(jVar.getName()).a(jVar));
         }
     }
 }

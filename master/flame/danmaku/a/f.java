@@ -1,10 +1,10 @@
 package master.flame.danmaku.a;
 
 import master.flame.danmaku.danmaku.model.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface f {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         boolean a(f fVar);
 

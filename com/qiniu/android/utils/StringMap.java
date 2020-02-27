@@ -5,11 +5,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class StringMap {
     private Map<String, Object> map;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Consumer {
         void G(String str, Object obj);
     }
@@ -43,19 +43,19 @@ public final class StringMap {
     }
 
     /* renamed from: com.qiniu.android.utils.StringMap$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     class AnonymousClass1 implements Consumer {
-        private boolean noo;
-        final /* synthetic */ StringBuilder nop;
+        private boolean noR;
+        final /* synthetic */ StringBuilder noS;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void G(String str, Object obj) {
-            if (this.noo) {
-                this.nop.append(ETAG.ITEM_SEPARATOR);
+            if (this.noR) {
+                this.noS.append(ETAG.ITEM_SEPARATOR);
             }
             try {
-                this.nop.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
-                this.noo = true;
+                this.noS.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
+                this.noR = true;
             } catch (UnsupportedEncodingException e) {
                 throw new AssertionError(e);
             }

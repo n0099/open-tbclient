@@ -3,44 +3,44 @@ package com.facebook.imagepipeline.producers;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class b<T> implements k<T> {
-    private boolean lUt = false;
+    private boolean lVa = false;
 
-    protected abstract void C(Throwable th);
+    protected abstract void B(Throwable th);
 
-    protected abstract void doT();
+    protected abstract void dqf();
 
     protected abstract void f(T t, int i);
 
-    public static boolean IE(int i) {
+    public static boolean IJ(int i) {
         return (i & 1) == 1;
     }
 
-    public static boolean IF(int i) {
-        return !IE(i);
+    public static boolean IK(int i) {
+        return !IJ(i);
     }
 
-    public static int dw(int i, int i2) {
+    public static int dz(int i, int i2) {
         return (i2 ^ (-1)) & i;
     }
 
-    public static boolean dx(int i, int i2) {
+    public static boolean dA(int i, int i2) {
         return (i & i2) == i2;
     }
 
-    public static boolean dy(int i, int i2) {
+    public static boolean dB(int i, int i2) {
         return (i & i2) != 0;
     }
 
-    public static int vn(boolean z) {
+    public static int vr(boolean z) {
         return z ? 1 : 0;
     }
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void g(@Nullable T t, int i) {
-        if (!this.lUt) {
-            this.lUt = IE(i);
+        if (!this.lVa) {
+            this.lVa = IJ(i);
             try {
                 f(t, i);
             } catch (Exception e) {
@@ -50,11 +50,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void D(Throwable th) {
-        if (!this.lUt) {
-            this.lUt = true;
+    public synchronized void C(Throwable th) {
+        if (!this.lVa) {
+            this.lVa = true;
             try {
-                C(th);
+                B(th);
             } catch (Exception e) {
                 m(e);
             }
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void djp() {
-        if (!this.lUt) {
-            this.lUt = true;
+    public synchronized void dkC() {
+        if (!this.lVa) {
+            this.lVa = true;
             try {
-                doT();
+                dqf();
             } catch (Exception e) {
                 m(e);
             }
@@ -74,17 +74,17 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void aL(float f) {
-        if (!this.lUt) {
+    public synchronized void aK(float f) {
+        if (!this.lVa) {
             try {
-                bt(f);
+                bs(f);
             } catch (Exception e) {
                 m(e);
             }
         }
     }
 
-    protected void bt(float f) {
+    protected void bs(float f) {
     }
 
     protected void m(Exception exc) {

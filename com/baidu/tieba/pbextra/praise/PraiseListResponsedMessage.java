@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
     private int mErrCode;
     private String mErrMsg;

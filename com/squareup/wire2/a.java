@@ -14,14 +14,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label noq;
-    private final String nor;
-    private final String nos;
-    public final boolean not;
-    private final Field nou;
-    private final Method nov;
-    private ProtoAdapter<?> nox;
-    private ProtoAdapter<?> noy;
+    public final WireField.Label noT;
+    private final String noU;
+    private final String noV;
+    public final boolean noW;
+    private final Field noX;
+    private final Method noY;
+    private ProtoAdapter<?> noZ;
+    private ProtoAdapter<?> npa;
     public final int tag;
 
     private static Field i(Class<?> cls, String str) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.noq = wireField.dFo();
+        this.noT = wireField.dGv();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.nor = wireField.dFm();
-        this.nos = wireField.dFn();
-        this.not = wireField.dFp();
+        this.noU = wireField.dGt();
+        this.noV = wireField.dGu();
+        this.noW = wireField.dGw();
         this.messageField = field;
-        this.nou = i(cls, this.name);
-        this.nov = a(cls, this.name, field.getType());
+        this.noX = i(cls, this.name);
+        this.noY = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dFc() {
-        return !this.nor.isEmpty();
+    public boolean dGj() {
+        return !this.noU.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> dFd() {
-        ProtoAdapter<?> protoAdapter = this.nox;
+    public ProtoAdapter<?> dGk() {
+        ProtoAdapter<?> protoAdapter = this.noZ;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.nos);
-        this.nox = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.noV);
+        this.noZ = protoAdapter2;
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> dFe() {
-        ProtoAdapter<?> protoAdapter = this.noy;
+    ProtoAdapter<?> dGl() {
+        ProtoAdapter<?> protoAdapter = this.npa;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.nor);
-        this.noy = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.noU);
+        this.npa = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (dFc()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(dFe(), dFd());
+            if (dGj()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(dGl(), dGk());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = dFd().withLabel(this.noq);
+            ProtoAdapter<?> withLabel = dGk().withLabel(this.noT);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -97,9 +97,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(B b, Object obj) {
-        if (this.noq.isRepeated()) {
+        if (this.noT.isRepeated()) {
             ((List) a((a<M, B>) b)).add(obj);
-        } else if (!this.nor.isEmpty()) {
+        } else if (!this.noU.isEmpty()) {
             ((Map) a((a<M, B>) b)).putAll((Map) obj);
         } else {
             b(b, obj);
@@ -109,10 +109,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(B b, Object obj) {
         try {
-            if (this.noq.isOneOf()) {
-                this.nov.invoke(b, obj);
+            if (this.noT.isOneOf()) {
+                this.noY.invoke(b, obj);
             } else {
-                this.nou.set(b, obj);
+                this.noX.set(b, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -131,7 +131,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a(B b) {
         try {
-            return this.nou.get(b);
+            return this.noX.get(b);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

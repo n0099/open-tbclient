@@ -45,7 +45,7 @@ import okio.Okio;
 import okio.Source;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.swan.apps.network.a implements f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -78,7 +78,7 @@ public class a extends com.baidu.swan.apps.network.a implements f {
             if (DEBUG) {
                 Log.d("aiRequestAction", "build request : " + a.url().toString());
             }
-            eVar.aaB().a(a, new Callback() { // from class: com.baidu.swan.bdprivate.c.c.a.1
+            eVar.acP().a(a, new Callback() { // from class: com.baidu.swan.bdprivate.c.c.a.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "request IOException").toString());
@@ -109,26 +109,26 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                             }
                         }
                         e eVar2 = eVar;
-                        String G = com.baidu.swan.apps.storage.b.G(e.aar(), String.valueOf(System.currentTimeMillis()), "");
-                        if (TextUtils.isEmpty(G)) {
+                        String H = com.baidu.swan.apps.storage.b.H(e.acF(), String.valueOf(System.currentTimeMillis()), "");
+                        if (TextUtils.isEmpty(H)) {
                             callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
                             return;
                         }
                         e eVar3 = eVar;
-                        String bi = com.baidu.swan.apps.storage.b.bi(G, e.aar());
-                        if (TextUtils.isEmpty(bi)) {
+                        String br = com.baidu.swan.apps.storage.b.br(H, e.acF());
+                        if (TextUtils.isEmpty(br)) {
                             callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
                             return;
                         }
                         InputStream byteStream = response.body().byteStream();
-                        File file = new File(G);
+                        File file = new File(H);
                         if (file.exists()) {
                             file.delete();
                             file.createNewFile();
                         }
                         if (com.baidu.swan.d.f.streamToFile(byteStream, file)) {
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("filePath", bi);
+                            jSONObject2.put("filePath", br);
                             JSONObject jSONObject3 = new JSONObject();
                             jSONObject3.put("statusCode", response.code());
                             jSONObject3.put(WebSocketRequest.PARAM_KEY_HEADER, com.baidu.swan.apps.network.a.a(response.headers()));
@@ -178,9 +178,9 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                 Iterator<String> keys2 = optJSONObject2.keys();
                 while (keys2.hasNext()) {
                     String next2 = keys2.next();
-                    String bg = com.baidu.swan.apps.storage.b.bg(optJSONObject2.optString(next2), e.aar());
-                    if (!TextUtils.isEmpty(bg)) {
-                        File file = new File(bg);
+                    String bp = com.baidu.swan.apps.storage.b.bp(optJSONObject2.optString(next2), e.acF());
+                    if (!TextUtils.isEmpty(bp)) {
+                        File file = new File(bp);
                         if (!file.exists() || file.length() == 0) {
                             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "upload file not exist");
                             return null;
@@ -188,19 +188,19 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "upload file too large");
                             return null;
                         } else {
-                            type.addFormDataPart(next2, file.getName(), new C0309a(file));
+                            type.addFormDataPart(next2, file.getName(), new C0319a(file));
                         }
                     }
                 }
             }
             String appKey = eVar.getAppKey();
-            long j = com.baidu.swan.apps.h.b.IK().serverTime;
-            String a = a(optJSONObject, appKey, j, ca(com.baidu.swan.apps.w.a.RL().bn(AppRuntime.getAppContext())));
+            long j = com.baidu.swan.apps.h.b.KZ().serverTime;
+            String a = a(optJSONObject, appKey, j, ci(com.baidu.swan.apps.w.a.TZ().br(AppRuntime.getAppContext())));
             if (a == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sign error");
                 return null;
             }
-            HttpUrl parse = HttpUrl.parse(c.processCommonParams(com.baidu.swan.apps.h.a.II() + "/" + optString + optString2));
+            HttpUrl parse = HttpUrl.parse(c.processCommonParams(com.baidu.swan.apps.h.a.KX() + "/" + optString + optString2));
             if (parse == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "request url error");
                 return null;
@@ -217,7 +217,7 @@ public class a extends com.baidu.swan.apps.network.a implements f {
         }
     }
 
-    private String ca(String str) {
+    private String ci(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -259,29 +259,29 @@ public class a extends com.baidu.swan.apps.network.a implements f {
     }
 
     /* renamed from: com.baidu.swan.bdprivate.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0309a extends RequestBody {
-        private final File bBX;
+    /* loaded from: classes11.dex */
+    public static class C0319a extends RequestBody {
+        private final File bGd;
 
-        public C0309a(File file) {
-            this.bBX = file;
+        public C0319a(File file) {
+            this.bGd = file;
         }
 
         @Override // okhttp3.RequestBody
         public long contentLength() {
-            return this.bBX.length();
+            return this.bGd.length();
         }
 
         @Override // okhttp3.RequestBody
         public MediaType contentType() {
-            return MediaType.parse(getMimeType(this.bBX.getPath()));
+            return MediaType.parse(getMimeType(this.bGd.getPath()));
         }
 
         @Override // okhttp3.RequestBody
         public void writeTo(BufferedSink bufferedSink) throws IOException {
             Source source = null;
             try {
-                source = Okio.source(this.bBX);
+                source = Okio.source(this.bGd);
                 int i = 0;
                 while (true) {
                     long read = source.read(bufferedSink.buffer(), 2048L);

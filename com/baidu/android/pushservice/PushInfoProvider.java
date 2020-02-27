@@ -12,7 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import com.baidu.android.pushservice.g.m;
 import com.baidu.webkit.internal.GlobalConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushInfoProvider extends ContentProvider {
     private Context a;
     private UriMatcher b = new UriMatcher(-1);

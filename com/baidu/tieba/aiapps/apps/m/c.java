@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.m;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.bdprivate.c.a.f;
 import com.baidu.swan.bdprivate.c.a.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class c implements com.baidu.swan.facade.a.b {
     @Override // com.baidu.swan.facade.a.d
     public void a(j jVar) {

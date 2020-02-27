@@ -2,7 +2,7 @@ package protobuf.QueryUserInfos;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class IconInfo extends Message {
     public static final String DEFAULT_ICONURL = "";
     public static final String DEFAULT_NAME = "";
@@ -40,7 +40,7 @@ public final class IconInfo extends Message {
         this.iconUrl = builder.iconUrl;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<IconInfo> {
         public String iconUrl;
         public String name;

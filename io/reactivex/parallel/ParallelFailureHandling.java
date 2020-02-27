@@ -1,7 +1,7 @@
 package io.reactivex.parallel;
 
 import io.reactivex.c.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum ParallelFailureHandling implements c<Long, Throwable, ParallelFailureHandling> {
     STOP,
     ERROR,

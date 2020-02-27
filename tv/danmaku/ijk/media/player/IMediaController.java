@@ -2,7 +2,7 @@ package tv.danmaku.ijk.media.player;
 
 import android.view.View;
 import android.widget.MediaController;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public interface IMediaController {
     void hide();
 

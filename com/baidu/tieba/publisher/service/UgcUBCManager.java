@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.ubc.Flow;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class UgcUBCManager implements com.baidu.ubc.a {
     @Override // com.baidu.ubc.a
     public void onEvent(String str) {
@@ -20,7 +20,7 @@ public class UgcUBCManager implements com.baidu.ubc.a {
     }
 
     @Override // com.baidu.ubc.a
-    public Flow Hd(String str) {
+    public Flow Hr(String str) {
         return new FlowExt(str);
     }
 
@@ -31,7 +31,7 @@ public class UgcUBCManager implements com.baidu.ubc.a {
 
     @Override // com.baidu.ubc.a
     public void a(Flow flow) {
-        ((FlowExt) flow).czG();
+        ((FlowExt) flow).cBb();
     }
 
     @Override // com.baidu.ubc.a
@@ -52,7 +52,7 @@ public class UgcUBCManager implements com.baidu.ubc.a {
 
     @Override // com.baidu.ubc.a
     public void b(Flow flow, String str) {
-        ((FlowExt) flow).He(str);
+        ((FlowExt) flow).Hs(str);
     }
 
     @Override // com.baidu.ubc.a
@@ -67,25 +67,25 @@ public class UgcUBCManager implements com.baidu.ubc.a {
     public void b(Flow flow) {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     class FlowExt extends Flow {
         public String id;
 
-        private void LU() {
+        private void Oi() {
             Log.d("UgcUBCManager", "Flow id:" + this.id + " beginFlow");
         }
 
-        public void He(String str) {
+        public void Hs(String str) {
             Log.d("UgcUBCManager", "Flow id:" + this.id + " setValueWithDuration value:" + str);
         }
 
-        public void czG() {
+        public void cBb() {
             Log.d("UgcUBCManager", "Flow id:" + this.id + " endFlow");
         }
 
         public FlowExt(String str) {
             this.id = str;
-            LU();
+            Oi();
         }
     }
 }
