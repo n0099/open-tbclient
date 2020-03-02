@@ -10,24 +10,24 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tieba.e.c;
 /* loaded from: classes3.dex */
 public class b {
-    private SensorManager aBi;
-    private a aBj;
-    private Sensor aBk;
-    private c aBn;
+    private SensorManager aBj;
+    private a aBk;
+    private Sensor aBl;
+    private c aBo;
     private Activity mActivity;
-    private boolean aBl = false;
     private boolean aBm = false;
-    private boolean aBo = false;
+    private boolean aBn = false;
     private boolean aBp = false;
+    private boolean aBq = false;
     private Handler mHandler = new Handler() { // from class: com.baidu.live.tieba.e.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && b.this.mActivity != null && b.this.aBp) {
+            if (message != null && b.this.mActivity != null && b.this.aBq) {
                 switch (message.what) {
                     case 1:
                         int requestedOrientation = b.this.mActivity.getRequestedOrientation();
                         int i = message.arg1;
-                        if (!b.this.aBo) {
+                        if (!b.this.aBp) {
                             if (i > 225 && i < 315) {
                                 if (requestedOrientation == 8) {
                                     BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
@@ -43,7 +43,7 @@ public class b {
                                 return;
                             }
                         } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                            if (!b.this.aBm) {
+                            if (!b.this.aBn) {
                                 if (i > 55 && i < 125) {
                                     if (requestedOrientation != 8) {
                                         BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
@@ -54,14 +54,14 @@ public class b {
                                     b.this.mActivity.setRequestedOrientation(0);
                                 }
                             }
-                            b.this.aBl = false;
+                            b.this.aBm = false;
                             return;
                         } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                            if (!b.this.aBl && requestedOrientation != 1) {
+                            if (!b.this.aBm && requestedOrientation != 1) {
                                 BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
                                 b.this.mActivity.setRequestedOrientation(1);
                             }
-                            b.this.aBm = false;
+                            b.this.aBn = false;
                             return;
                         } else {
                             return;
@@ -72,71 +72,71 @@ public class b {
             }
         }
     };
-    private c.a aBq = new c.a() { // from class: com.baidu.live.tieba.e.b.2
+    private c.a aBr = new c.a() { // from class: com.baidu.live.tieba.e.b.2
         @Override // com.baidu.live.tieba.e.c.a
         public void onChange(boolean z) {
-            b.this.aBo = z;
+            b.this.aBp = z;
         }
     };
 
     public b(Activity activity) {
         if (activity != null) {
             this.mActivity = activity;
-            this.aBi = (SensorManager) activity.getSystemService("sensor");
-            this.aBk = this.aBi.getDefaultSensor(1);
-            this.aBj = new a(this.mHandler);
-            this.aBn = new c(this.mActivity, this.mHandler);
-            this.aBn.a(this.aBq);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.aBn);
-        }
-    }
-
-    public void zY() {
-        if (this.mActivity != null) {
-            BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
-            if (this.mActivity.getRequestedOrientation() == 0) {
-                this.mActivity.setRequestedOrientation(1);
-                this.aBm = true;
-                return;
-            }
-            this.mActivity.setRequestedOrientation(0);
-            this.aBl = true;
-        }
-    }
-
-    public void zZ() {
-        if (this.mActivity != null) {
-            BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
-            this.mActivity.setRequestedOrientation(0);
-            this.aBl = true;
+            this.aBj = (SensorManager) activity.getSystemService("sensor");
+            this.aBl = this.aBj.getDefaultSensor(1);
+            this.aBk = new a(this.mHandler);
+            this.aBo = new c(this.mActivity, this.mHandler);
+            this.aBo.a(this.aBr);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.aBo);
         }
     }
 
     public void Aa() {
         if (this.mActivity != null) {
             BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
-            this.mActivity.setRequestedOrientation(1);
+            if (this.mActivity.getRequestedOrientation() == 0) {
+                this.mActivity.setRequestedOrientation(1);
+                this.aBn = true;
+                return;
+            }
+            this.mActivity.setRequestedOrientation(0);
             this.aBm = true;
         }
     }
 
+    public void Ab() {
+        if (this.mActivity != null) {
+            BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
+            this.mActivity.setRequestedOrientation(0);
+            this.aBm = true;
+        }
+    }
+
+    public void Ac() {
+        if (this.mActivity != null) {
+            BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
+            this.mActivity.setRequestedOrientation(1);
+            this.aBn = true;
+        }
+    }
+
     public void start() {
-        if (this.aBi != null) {
-            this.aBi.registerListener(this.aBj, this.aBk, 2);
+        if (this.aBj != null) {
+            this.aBj.registerListener(this.aBk, this.aBl, 2);
         }
     }
 
     public void stop() {
-        if (this.aBi != null) {
-            this.aBi.unregisterListener(this.aBj);
+        if (this.aBj != null) {
+            this.aBj.unregisterListener(this.aBk);
         }
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.aBn);
+            this.mActivity.getContentResolver().unregisterContentObserver(this.aBo);
         }
     }
 
     public void bn(boolean z) {
-        this.aBp = z;
+        this.aBq = z;
     }
 }

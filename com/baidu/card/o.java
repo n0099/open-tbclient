@@ -33,7 +33,7 @@ public class o extends al {
         this.MK = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.Kz = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
         this.MN = mZ();
-        this.MN.cyp().setBackgroundResource(R.color.transparent);
+        this.MN.cyr().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -57,9 +57,9 @@ public class o extends al {
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        if (this.Kc != null && this.Kc.aAe() != null) {
-            bj aAe = aVar.aAe();
-            if (aAe.aCD() != null) {
+        if (this.Kc != null && this.Kc.aAg() != null) {
+            bj aAg = aVar.aAg();
+            if (aAg.aCF() != null) {
                 this.Kz.setVisibility(8);
                 this.MK.setVisibility(0);
                 this.KA.setVisibility(8);
@@ -70,8 +70,8 @@ public class o extends al {
             this.Kz.setVisibility(0);
             this.KA.setVisibility(0);
             this.Kz.A(aVar);
-            au.a(this.mTitle, aAe);
-            au.a(this.KA, this.mTitle, aAe, Ky);
+            au.a(this.mTitle, aAg);
+            au.a(this.KA, this.mTitle, aAg, Ky);
         }
     }
 

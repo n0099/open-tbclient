@@ -6,45 +6,45 @@ import com.baidu.tbadk.editortools.l;
 public class b extends l {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.dxr = false;
-        this.dxq = 3;
-        this.dwz = new EditorInfoContainer(context, str);
-        this.dxs = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.dxs = false;
+        this.dxr = 3;
+        this.dwA = new EditorInfoContainer(context, str);
+        this.dxt = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
     public void setFrom(String str) {
-        if (this.dwz instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dwz).setFrom(str);
+        if (this.dwA instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dwA).setFrom(str);
         }
     }
 
     public void bz(String str, int i) {
-        if (this.dwz instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dwz).bz(str, i);
+        if (this.dwA instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dwA).bz(str, i);
         }
     }
 
     public void tO(boolean z) {
-        if (this.dwz instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dwz).tO(z);
+        if (this.dwA instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dwA).tO(z);
         }
     }
 
-    public void byH() {
-        if (this.dwz instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dwz).byH();
+    public void byJ() {
+        if (this.dwA instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dwA).byJ();
         }
     }
 
-    public void cUK() {
-        if (this.dwz instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dwz).cUK();
+    public void cUM() {
+        if (this.dwA instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dwA).cUM();
         }
     }
 
-    public void cUO() {
-        if (this.dwz instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dwz).hide();
+    public void cUQ() {
+        if (this.dwA instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dwA).hide();
         }
     }
 }

@@ -7,56 +7,56 @@ import java.io.InputStream;
 public final class j {
     int distance;
     int j;
-    int nKT;
-    byte[] nKV;
-    int nKY;
-    boolean nKZ;
+    int nKV;
+    byte[] nKX;
     int nLA;
     int nLB;
     int nLC;
     int nLD;
-    int nLI;
-    int nLJ;
+    int nLE;
+    int nLF;
     int nLK;
     int nLL;
-    boolean nLa;
+    int nLM;
+    int nLN;
+    int nLa;
     boolean nLb;
-    int nLm;
-    int nLn;
-    byte[] nLo;
-    byte[] nLp;
-    int nLq;
-    int nLr;
+    boolean nLc;
+    boolean nLd;
+    int nLo;
+    int nLp;
+    byte[] nLq;
+    byte[] nLr;
     int nLs;
     int nLt;
     int nLu;
     int nLv;
-    byte[] nLw;
+    int nLw;
     int nLx;
-    int nLy;
+    byte[] nLy;
     int nLz;
-    int nnj;
+    int nnl;
     byte[] output;
-    int nKS = 0;
-    final a nKU = new a();
-    final int[] nKW = new int[3240];
-    final int[] nKX = new int[3240];
-    final g nLc = new g();
-    final g nLd = new g();
+    int nKU = 0;
+    final a nKW = new a();
+    final int[] nKY = new int[3240];
+    final int[] nKZ = new int[3240];
     final g nLe = new g();
-    final int[] nLf = new int[3];
-    final int[] nLg = new int[3];
-    final int[] nLh = new int[6];
-    final int[] nLi = {16, 15, 11, 4};
+    final g nLf = new g();
+    final g nLg = new g();
+    final int[] nLh = new int[3];
+    final int[] nLi = new int[3];
+    final int[] nLj = new int[6];
+    final int[] nLk = {16, 15, 11, 4};
     int pos = 0;
-    int eLg = 0;
-    int nLj = 0;
-    boolean nLk = false;
+    int eLh = 0;
     int nLl = 0;
-    int nLE = 0;
-    long nLF = 0;
-    byte[] nLG = new byte[0];
-    int nLH = 0;
+    boolean nLm = false;
+    int nLn = 0;
+    int nLG = 0;
+    long nLH = 0;
+    byte[] nLI = new byte[0];
+    int nLJ = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.nKS != 0) {
+        if (jVar.nKU != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.nKU, inputStream);
-        int i = i(jVar.nKU);
+        a.a(jVar.nKW, inputStream);
+        int i = i(jVar.nKW);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.nLD = 1 << i;
-        jVar.nLC = jVar.nLD - 16;
-        jVar.nKS = 1;
+        jVar.nLF = 1 << i;
+        jVar.nLE = jVar.nLF - 16;
+        jVar.nKU = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.nKS == 0) {
+        if (jVar.nKU == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.nKS != 11) {
-            jVar.nKS = 11;
-            a.e(jVar.nKU);
+        if (jVar.nKU != 11) {
+            jVar.nKU = 11;
+            a.e(jVar.nKW);
         }
     }
 }

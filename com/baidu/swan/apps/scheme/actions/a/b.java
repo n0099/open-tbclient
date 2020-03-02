@@ -30,8 +30,8 @@ public class b extends ab {
         if (DEBUG) {
             Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
         }
-        com.baidu.swan.apps.core.d.e GA = f.WQ().GA();
-        if (GA == null) {
+        com.baidu.swan.apps.core.d.e GC = f.WS().GC();
+        if (GC == null) {
             c.e("setBackgroundTextStyle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -41,7 +41,7 @@ public class b extends ab {
             c.e("setBackgroundTextStyle", "text style is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!GA.Om().Ob().dW(SwanAppConfigData.cG(optString))) {
+        } else if (!GC.Oo().Od().dW(SwanAppConfigData.cG(optString))) {
             c.e("setBackgroundTextStyle", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

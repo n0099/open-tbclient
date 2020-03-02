@@ -5,10 +5,10 @@ import org.json.JSONObject;
 public class c {
     public String adT;
     public String appUrl;
-    public String fao;
     public String fap;
     public String faq;
     public String far;
+    public String fas;
     public int needToast;
     public String packageName;
     public String portrait;
@@ -21,12 +21,12 @@ public class c {
             if (optJSONObject != null) {
                 this.packageName = optJSONObject.optString("package_name", "");
                 this.appUrl = optJSONObject.optString("app_url", "");
-                this.fao = optJSONObject.optString("app_deeplink_url", "");
-                this.fap = optJSONObject.optString("app_backup_deeplink_url", "");
-                this.faq = optJSONObject.optString("app_clipboard_url", "");
+                this.fap = optJSONObject.optString("app_deeplink_url", "");
+                this.faq = optJSONObject.optString("app_backup_deeplink_url", "");
+                this.far = optJSONObject.optString("app_clipboard_url", "");
             }
             this.adT = jSONObject.optString("toast_text", "");
-            this.far = jSONObject.optString("subapp_type", "");
+            this.fas = jSONObject.optString("subapp_type", "");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
                 this.userName = optJSONObject2.optString("user_name", "");
@@ -36,7 +36,7 @@ public class c {
     }
 
     public String getSubappType() {
-        return this.far;
+        return this.fas;
     }
 
     public String getPortrait() {

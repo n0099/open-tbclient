@@ -45,15 +45,15 @@ public class d {
     }
 
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        azd();
+        azf();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
-                int aVm = com.baidu.tieba.a.aVl().aVm();
+                int aVo = com.baidu.tieba.a.aVn().aVo();
                 Uri parse = Uri.parse(appendVersionCode);
                 String queryParameter = parse.getQueryParameter(LegoListActivityConfig.AD_ID);
                 boolean equals = "1".equals(parse.getQueryParameter(LegoListActivityConfig.DOWNLOAD_MIDDLE_KEY));
-                if (aVm == 1 || equals) {
+                if (aVo == 1 || equals) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewAdTbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3, queryParameter)));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdTbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));
@@ -109,7 +109,7 @@ public class d {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00b3 -> B:33:0x001c). Please submit an issue!!! */
     public static void initCookie(Context context) {
         CookieManager cookieManager;
-        a.b sq = com.baidu.tbadk.core.a.a.azN().sq(TbadkCoreApplication.getCurrentBduss());
+        a.b sq = com.baidu.tbadk.core.a.a.azP().sq(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -153,7 +153,7 @@ public class d {
         }
     }
 
-    private static void azd() {
+    private static void azf() {
         new ag("open_webview", true).start();
     }
 }

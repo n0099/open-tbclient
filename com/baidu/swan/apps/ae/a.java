@@ -15,24 +15,24 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    public static volatile a bGZ;
+    public static volatile a bHa;
     public String appId;
-    public String bGX;
     public String bGY;
-    public com.baidu.j.a.a bHa;
+    public String bGZ;
+    public com.baidu.j.a.a bHb;
 
     private a() {
     }
 
-    public static a Zs() {
-        if (bGZ == null) {
+    public static a Zu() {
+        if (bHa == null) {
             synchronized (a.class) {
-                if (bGZ == null) {
-                    bGZ = new a();
+                if (bHa == null) {
+                    bHa = new a();
                 }
             }
         }
-        return bGZ;
+        return bHa;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -41,7 +41,7 @@ public class a {
             com.baidu.swan.apps.console.c.i(TAG, "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.j.b.Er().aU(context)) {
+        } else if (!com.baidu.j.b.Et().aU(context)) {
             d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).showToast();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;

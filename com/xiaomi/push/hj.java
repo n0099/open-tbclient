@@ -7,17 +7,17 @@ import java.util.List;
 public class hj implements ir<hj, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hk> f459a;
+    public List<hk> f458a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f458a = new jh("ClientUploadData");
+    private static final jh f457a = new jh("ClientUploadData");
     private static final iz a = new iz("", (byte) 15, 1);
 
     public int a() {
-        if (this.f459a == null) {
+        if (this.f458a == null) {
             return 0;
         }
-        return this.f459a.size();
+        return this.f458a.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
         if (getClass().equals(hjVar.getClass())) {
             int compareTo = Boolean.valueOf(m333a()).compareTo(Boolean.valueOf(hjVar.m333a()));
             if (compareTo == 0) {
-                if (!m333a() || (a2 = is.a(this.f459a, hjVar.f459a)) == 0) {
+                if (!m333a() || (a2 = is.a(this.f458a, hjVar.f458a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -40,16 +40,16 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m332a() {
-        if (this.f459a == null) {
+        if (this.f458a == null) {
             throw new jd("Required field 'uploadDataItems' was not present! Struct: " + toString());
         }
     }
 
     public void a(hk hkVar) {
-        if (this.f459a == null) {
-            this.f459a = new ArrayList();
+        if (this.f458a == null) {
+            this.f458a = new ArrayList();
         }
-        this.f459a.add(hkVar);
+        this.f458a.add(hkVar);
     }
 
     @Override // com.xiaomi.push.ir
@@ -62,15 +62,15 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
                 m332a();
                 return;
             }
-            switch (m468a.f789a) {
+            switch (m468a.f788a) {
                 case 1:
                     if (m468a.a == 15) {
                         ja m469a = jcVar.m469a();
-                        this.f459a = new ArrayList(m469a.f792a);
-                        for (int i = 0; i < m469a.f792a; i++) {
+                        this.f458a = new ArrayList(m469a.f791a);
+                        for (int i = 0; i < m469a.f791a; i++) {
                             hk hkVar = new hk();
                             hkVar.a(jcVar);
-                            this.f459a.add(hkVar);
+                            this.f458a.add(hkVar);
                         }
                         jcVar.i();
                         break;
@@ -88,7 +88,7 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m333a() {
-        return this.f459a != null;
+        return this.f458a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -98,17 +98,17 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
         }
         boolean m333a = m333a();
         boolean m333a2 = hjVar.m333a();
-        return !(m333a || m333a2) || (m333a && m333a2 && this.f459a.equals(hjVar.f459a));
+        return !(m333a || m333a2) || (m333a && m333a2 && this.f458a.equals(hjVar.f458a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         m332a();
-        jcVar.a(f458a);
-        if (this.f459a != null) {
+        jcVar.a(f457a);
+        if (this.f458a != null) {
             jcVar.a(a);
-            jcVar.a(new ja((byte) 12, this.f459a.size()));
-            for (hk hkVar : this.f459a) {
+            jcVar.a(new ja((byte) 12, this.f458a.size()));
+            for (hk hkVar : this.f458a) {
                 hkVar.b(jcVar);
             }
             jcVar.e();
@@ -132,10 +132,10 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("ClientUploadData(");
         sb.append("uploadDataItems:");
-        if (this.f459a == null) {
+        if (this.f458a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f459a);
+            sb.append(this.f458a);
         }
         sb.append(")");
         return sb.toString();

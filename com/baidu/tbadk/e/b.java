@@ -11,29 +11,29 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public abstract class b {
     protected static WeakReference<TbPageContext<?>> Pf = null;
-    protected static boolean cKu = false;
-    protected String cKr = "183322726";
-    protected boolean cKt = true;
-    protected transient List<String> cKs = new ArrayList(5);
+    protected static boolean cKv = false;
+    protected String cKs = "183322726";
+    protected boolean cKu = true;
+    protected transient List<String> cKt = new ArrayList(5);
 
     /* loaded from: classes11.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void ayP();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void ayT();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void ayU();
+    public abstract void ayR();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void ayV();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void ayW();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void ayX();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void ayY();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
@@ -64,13 +64,13 @@ public abstract class b {
         Pf = new WeakReference<>(tbPageContext);
     }
 
-    public boolean ayS() {
-        return cKu;
+    public boolean ayU() {
+        return cKv;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void fn(boolean z) {
-        this.cKt = z;
+        this.cKu = z;
     }
 
     public void resetContext() {

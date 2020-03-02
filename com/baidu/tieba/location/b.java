@@ -20,19 +20,19 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes10.dex */
 public class b implements com.baidu.adp.lib.c.b {
-    private static b idZ;
+    private static b ieb;
     private int errorCode;
     private Context mContext;
     private LocationManager mLocationManager;
-    private a iea = null;
-    private a.b idU = null;
-    private Address ieb = null;
+    private a iec = null;
+    private a.b idW = null;
+    private Address ied = null;
     private long lastLocationTime = 0;
     private Handler mHandler = null;
-    private boolean idX = false;
-    private Runnable iec = null;
-    private Runnable ied = null;
-    private final LocationListener iee = new LocationListener() { // from class: com.baidu.tieba.location.b.1
+    private boolean idZ = false;
+    private Runnable iee = null;
+    private Runnable ief = null;
+    private final LocationListener ieg = new LocationListener() { // from class: com.baidu.tieba.location.b.1
         @Override // android.location.LocationListener
         public void onStatusChanged(String str, int i, Bundle bundle) {
         }
@@ -50,16 +50,16 @@ public class b implements com.baidu.adp.lib.c.b {
             if (b.this.mHandler.hasMessages(0)) {
                 b.this.mHandler.removeMessages(0);
             }
-            b.this.mHandler.removeCallbacks(b.this.ied);
-            b.this.mHandler.removeCallbacks(b.this.iec);
-            if (b.this.iea == null) {
-                b.this.iea = new a();
-                b.this.iea.setSelfExecute(true);
-                b.this.iea.execute(location);
+            b.this.mHandler.removeCallbacks(b.this.ief);
+            b.this.mHandler.removeCallbacks(b.this.iee);
+            if (b.this.iec == null) {
+                b.this.iec = new a();
+                b.this.iec.setSelfExecute(true);
+                b.this.iec.execute(location);
             }
         }
     };
-    private final LocationListener ief = new LocationListener() { // from class: com.baidu.tieba.location.b.2
+    private final LocationListener ieh = new LocationListener() { // from class: com.baidu.tieba.location.b.2
         @Override // android.location.LocationListener
         public void onStatusChanged(String str, int i, Bundle bundle) {
         }
@@ -77,25 +77,25 @@ public class b implements com.baidu.adp.lib.c.b {
             if (b.this.mHandler.hasMessages(0)) {
                 b.this.mHandler.removeMessages(0);
             }
-            b.this.mHandler.removeCallbacks(b.this.ied);
-            b.this.mHandler.removeCallbacks(b.this.iec);
-            if (b.this.iea == null) {
-                b.this.iea = new a();
-                b.this.iea.setSelfExecute(true);
-                b.this.iea.execute(location);
+            b.this.mHandler.removeCallbacks(b.this.ief);
+            b.this.mHandler.removeCallbacks(b.this.iee);
+            if (b.this.iec == null) {
+                b.this.iec = new a();
+                b.this.iec.setSelfExecute(true);
+                b.this.iec.execute(location);
             }
         }
     };
 
-    public static b cdI() {
-        if (idZ == null) {
+    public static b cdK() {
+        if (ieb == null) {
             synchronized (b.class) {
-                if (idZ == null) {
-                    idZ = new b();
+                if (ieb == null) {
+                    ieb = new b();
                 }
             }
         }
-        return idZ;
+        return ieb;
     }
 
     private b() {
@@ -104,30 +104,30 @@ public class b implements com.baidu.adp.lib.c.b {
     @Override // com.baidu.adp.lib.c.b
     public void a(a.b bVar) {
         this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.idU = bVar;
+        this.idW = bVar;
         try {
             this.mLocationManager = (LocationManager) this.mContext.getSystemService("location");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        this.iec = new Runnable() { // from class: com.baidu.tieba.location.b.3
+        this.iee = new Runnable() { // from class: com.baidu.tieba.location.b.3
             @Override // java.lang.Runnable
             public void run() {
                 if (b.this.mLocationManager != null && ab.checkLocationForGoogle(b.this.mContext)) {
                     try {
-                        b.this.mLocationManager.requestLocationUpdates("network", 10000L, 100.0f, b.this.iee);
+                        b.this.mLocationManager.requestLocationUpdates("network", 10000L, 100.0f, b.this.ieg);
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
                 }
             }
         };
-        this.ied = new Runnable() { // from class: com.baidu.tieba.location.b.4
+        this.ief = new Runnable() { // from class: com.baidu.tieba.location.b.4
             @Override // java.lang.Runnable
             public void run() {
                 if (b.this.mLocationManager != null && ab.checkLocationForGoogle(b.this.mContext)) {
                     try {
-                        b.this.mLocationManager.requestLocationUpdates("gps", 10000L, 100.0f, b.this.ief);
+                        b.this.mLocationManager.requestLocationUpdates("gps", 10000L, 100.0f, b.this.ieh);
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
@@ -144,7 +144,7 @@ public class b implements com.baidu.adp.lib.c.b {
                 switch (message.what) {
                     case 0:
                         b.this.stopLocation();
-                        b.this.idU.onProviderGetLocation(b.this.errorCode, "", null, b.this.lastLocationTime, b.this.idX);
+                        b.this.idW.onProviderGetLocation(b.this.errorCode, "", null, b.this.lastLocationTime, b.this.idZ);
                         return false;
                     default:
                         return false;
@@ -156,27 +156,27 @@ public class b implements com.baidu.adp.lib.c.b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [252=4] */
     @Override // com.baidu.adp.lib.c.b
     public void startLocation(boolean z) {
-        if (this.idU == null) {
+        if (this.idW == null) {
             return;
         }
         try {
             if (this.mLocationManager != null) {
-                this.mLocationManager.removeUpdates(this.iee);
+                this.mLocationManager.removeUpdates(this.ieg);
                 this.errorCode = 4;
-                this.idX = z;
+                this.idZ = z;
                 if (!ab.checkLocationForGoogle(this.mContext) || (!this.mLocationManager.isProviderEnabled("gps") && !this.mLocationManager.isProviderEnabled("network"))) {
                     this.errorCode = 3;
                     this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.c.a.fK().getTimeOut());
                     return;
                 }
                 if (ab.checkLocationForGoogle(this.mContext) && this.mLocationManager.isProviderEnabled("gps")) {
-                    this.mHandler.post(this.ied);
+                    this.mHandler.post(this.ief);
                 } else {
                     this.errorCode = 1;
                 }
                 if (!z) {
                     if (ab.checkLocationForGoogle(this.mContext) && this.mLocationManager.isProviderEnabled("network")) {
-                        this.mHandler.post(this.iec);
+                        this.mHandler.post(this.iee);
                     } else {
                         this.errorCode = 2;
                     }
@@ -196,19 +196,19 @@ public class b implements com.baidu.adp.lib.c.b {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
-        this.mHandler.removeCallbacks(this.ied);
-        this.mHandler.removeCallbacks(this.iec);
+        this.mHandler.removeCallbacks(this.ief);
+        this.mHandler.removeCallbacks(this.iee);
         if (this.mLocationManager != null) {
             try {
-                this.mLocationManager.removeUpdates(this.iee);
-                this.mLocationManager.removeUpdates(this.ief);
+                this.mLocationManager.removeUpdates(this.ieg);
+                this.mLocationManager.removeUpdates(this.ieh);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.iea != null) {
-            this.iea.cancel();
-            this.iea = null;
+        if (this.iec != null) {
+            this.iec.cancel();
+            this.iec = null;
         }
     }
 
@@ -255,15 +255,15 @@ public class b implements com.baidu.adp.lib.c.b {
         /* renamed from: b */
         public void onPostExecute(Address address) {
             super.onPostExecute(address);
-            b.this.iea = null;
+            b.this.iec = null;
             if (address != null) {
                 b.this.stopLocation();
                 b.this.lastLocationTime = System.currentTimeMillis();
-                b.this.ieb = address;
-                b.this.idU.onProviderGetLocation(0, "", b.this.ieb, b.this.lastLocationTime, b.this.idX);
-                com.baidu.tieba.recapp.d.a.cDi().CE(String.valueOf(address.getLatitude()));
-                com.baidu.tieba.recapp.d.a.cDi().CD(String.valueOf(address.getLongitude()));
-                com.baidu.tieba.recapp.d.a.cDi().ez(System.currentTimeMillis());
+                b.this.ied = address;
+                b.this.idW.onProviderGetLocation(0, "", b.this.ied, b.this.lastLocationTime, b.this.idZ);
+                com.baidu.tieba.recapp.d.a.cDk().CE(String.valueOf(address.getLatitude()));
+                com.baidu.tieba.recapp.d.a.cDk().CD(String.valueOf(address.getLongitude()));
+                com.baidu.tieba.recapp.d.a.cDk().ez(System.currentTimeMillis());
             }
         }
 
@@ -271,7 +271,7 @@ public class b implements com.baidu.adp.lib.c.b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            b.this.iea = null;
+            b.this.iec = null;
         }
     }
 
@@ -280,19 +280,19 @@ public class b implements com.baidu.adp.lib.c.b {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
-        this.mHandler.removeCallbacks(this.ied);
-        this.mHandler.removeCallbacks(this.iec);
+        this.mHandler.removeCallbacks(this.ief);
+        this.mHandler.removeCallbacks(this.iee);
         if (this.mLocationManager != null) {
             try {
-                this.mLocationManager.removeUpdates(this.iee);
-                this.mLocationManager.removeUpdates(this.ief);
+                this.mLocationManager.removeUpdates(this.ieg);
+                this.mLocationManager.removeUpdates(this.ieh);
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }
         }
-        if (this.iea != null) {
-            this.iea.cancel();
-            this.iea = null;
+        if (this.iec != null) {
+            this.iec.cancel();
+            this.iec = null;
         }
     }
 }

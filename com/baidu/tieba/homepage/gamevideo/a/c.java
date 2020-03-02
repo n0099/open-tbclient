@@ -22,18 +22,18 @@ import com.baidu.tieba.play.y;
 public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     private z<l> JZ;
     private r OR;
-    private BdUniqueId dBj;
-    private int ddo;
-    private al gXT;
+    private BdUniqueId dBk;
+    private int ddp;
+    private al gXV;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, l lVar) {
-        if (this.gXT != null && this.gXT.np() != null && this.gXT.np().cyp() != null) {
-            if (view.getId() == this.gXT.np().cyp().getId()) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.ddo);
+        if (this.gXV != null && this.gXV.np() != null && this.gXV.np().cyr() != null) {
+            if (view.getId() == this.gXV.np().cyr().getId()) {
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.ddp);
             } else if (view.getId() == R.id.thread_card_root) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.ddo);
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.ddp);
             }
         }
     }
@@ -62,13 +62,13 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     /* renamed from: aR */
     public com.baidu.card.a<l> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
-        this.gXT = new x(this.mPageContext.getPageActivity());
-        this.gXT.setPageUniqueId(this.dBj);
-        this.gXT.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
-        aVar.c(this.gXT);
+        this.gXV = new x(this.mPageContext.getPageActivity());
+        this.gXV.setPageUniqueId(this.dBk);
+        this.gXV.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
+        aVar.c(this.gXV);
         ad a = aVar.a(false, viewGroup, this.OR);
         com.baidu.card.a<l> aVar2 = new com.baidu.card.a<>(a);
-        aVar2.setPageId(this.dBj);
+        aVar2.setPageId(this.dBk);
         a.a(this.JZ);
         a.aQ(18);
         a(new s() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.2
@@ -101,7 +101,7 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
         }
         lVar.rt(lVar.position + 1);
         aVar.nk().setPosition(i);
-        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.ddo);
+        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.ddp);
         aVar.setVideoStatsData(c(lVar));
         aVar.b((com.baidu.card.a<l>) lVar);
         aVar.nk().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -115,35 +115,35 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
             yVar = new y();
             yVar.mLocate = "17";
             yVar.Pj = lVar.tid;
-            if (lVar.aAe() != null) {
-                yVar.ema = String.valueOf(lVar.aAe().getFid());
-                if (lVar.aAe().aCD() != null) {
-                    yVar.jwI = lVar.aAe().aCD().video_md5;
-                    yVar.jwK = String.valueOf(lVar.aAe().aCD().is_vertical);
+            if (lVar.aAg() != null) {
+                yVar.emb = String.valueOf(lVar.aAg().getFid());
+                if (lVar.aAg().aCF() != null) {
+                    yVar.jwK = lVar.aAg().aCF().video_md5;
+                    yVar.jwM = String.valueOf(lVar.aAg().aCF().is_vertical);
                 }
             }
-            yVar.cOQ = lVar.getExtra();
+            yVar.cOR = lVar.getExtra();
             yVar.mSource = lVar.getSource();
-            yVar.mAbTag = lVar.bvp();
-            yVar.jwF = lVar.getWeight();
+            yVar.mAbTag = lVar.bvr();
+            yVar.jwH = lVar.getWeight();
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            yVar.mFloor = String.valueOf(lVar.bvo());
-            yVar.jwL = String.valueOf(this.ddo);
+            yVar.mFloor = String.valueOf(lVar.bvq());
+            yVar.jwN = String.valueOf(this.ddp);
         }
         return yVar;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dBj = bdUniqueId;
+        this.dBk = bdUniqueId;
     }
 
     public void vl(int i) {
-        this.ddo = i;
+        this.ddp = i;
     }
 
     public void onPause() {
-        if (this.gXT != null) {
-            this.gXT.onPause();
+        if (this.gXV != null) {
+            this.gXV.onPause();
         }
     }
 }

@@ -14,7 +14,7 @@ public interface a {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void akp();
+        void akr();
     }
 
     /* loaded from: classes11.dex */

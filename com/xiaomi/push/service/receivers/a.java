@@ -6,16 +6,16 @@ class a implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ NetworkStatusReceiver f930a;
+    final /* synthetic */ NetworkStatusReceiver f929a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(NetworkStatusReceiver networkStatusReceiver, Context context) {
-        this.f930a = networkStatusReceiver;
+        this.f929a = networkStatusReceiver;
         this.a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f930a.a(this.a);
+        this.f929a.a(this.a);
     }
 }

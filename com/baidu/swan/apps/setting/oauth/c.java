@@ -34,8 +34,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Map<String, a> bTe = new HashMap();
-    private static OkHttpClient bTf;
+    private static final Map<String, a> bTf = new HashMap();
+    private static OkHttpClient bTg;
 
     public static boolean aO(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -87,12 +87,12 @@ public final class c {
         }
     }
 
-    public static OkHttpClient YU() {
-        if (bTf != null) {
-            return bTf;
+    public static OkHttpClient YW() {
+        if (bTg != null) {
+            return bTg;
         }
-        OkHttpClient build = com.baidu.swan.apps.runtime.d.acA().acC().GT().HS().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.w.a.Us().Is())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.c()).build();
-        bTf = build;
+        OkHttpClient build = com.baidu.swan.apps.runtime.d.acC().acE().GV().HU().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.w.a.Uu().Iu())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.c()).build();
+        bTg = build;
         return build;
     }
 
@@ -114,14 +114,14 @@ public final class c {
             aVar.onResult(false);
             return;
         }
-        synchronized (bTe) {
-            a aVar2 = bTe.get(eVar2.id);
+        synchronized (bTf) {
+            a aVar2 = bTf.get(eVar2.id);
             if (aVar2 != null) {
                 aVar2.kf.add(aVar);
             } else {
                 a aVar3 = new a(eVar2.id);
                 aVar3.kf.add(aVar);
-                bTe.put(eVar2.id, aVar3);
+                bTf.put(eVar2.id, aVar3);
                 DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.setting.oauth.c.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -158,8 +158,8 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static void A(String str, boolean z) {
         a remove;
-        synchronized (bTe) {
-            remove = bTe.remove(str);
+        synchronized (bTf) {
+            remove = bTf.remove(str);
         }
         if (remove != null && !remove.kf.isEmpty()) {
             for (com.baidu.swan.apps.setting.oauth.a aVar : remove.kf) {
@@ -171,25 +171,25 @@ public final class c {
     }
 
     private static void a(Context context, com.baidu.swan.apps.runtime.e eVar, e eVar2, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener, DialogInterface.OnCancelListener onCancelListener) {
-        g.a a2 = com.baidu.swan.apps.w.a.UJ().a(context, eVar, eVar2, jSONObject, onClickListener);
+        g.a a2 = com.baidu.swan.apps.w.a.UL().a(context, eVar, eVar2, jSONObject, onClickListener);
         if (a2 == null) {
             if (DEBUG) {
                 throw new RuntimeException("auth dialog builder is null");
             }
             return;
         }
-        com.baidu.swan.apps.res.widget.dialog.g Pa = a2.Pa();
-        Pa.setEnableImmersion(false);
-        Pa.setOnCancelListener(onCancelListener);
-        Window window = Pa.getWindow();
+        com.baidu.swan.apps.res.widget.dialog.g Pc = a2.Pc();
+        Pc.setEnableImmersion(false);
+        Pc.setOnCancelListener(onCancelListener);
+        Window window = Pc.getWindow();
         if (window != null) {
             window.setGravity(80);
             window.setLayout(af.cK(context), -2);
             window.setWindowAnimations(a.i.action_sheet_animation);
         }
-        SwanAppActivity acz = eVar == null ? null : eVar.acz();
-        if (acz != null && !acz.isFinishing()) {
-            Pa.show();
+        SwanAppActivity acB = eVar == null ? null : eVar.acB();
+        if (acB != null && !acB.isFinishing()) {
+            Pc.show();
         }
     }
 
@@ -210,12 +210,12 @@ public final class c {
     }
 
     public static JSONObject aP(JSONObject jSONObject) {
-        String Ib = com.baidu.swan.apps.w.a.Ug().Ib();
-        return (jSONObject == null || TextUtils.isEmpty(Ib)) ? jSONObject : jSONObject.optJSONObject(Ib);
+        String Id = com.baidu.swan.apps.w.a.Ui().Id();
+        return (jSONObject == null || TextUtils.isEmpty(Id)) ? jSONObject : jSONObject.optJSONObject(Id);
     }
 
     public static boolean b(h<b.d> hVar) {
-        return hVar != null && hVar.isOk() && hVar.mData.bTl;
+        return hVar != null && hVar.isOk() && hVar.mData.bTm;
     }
 
     public static void a(int i, CallbackHandler callbackHandler, String str) {
@@ -227,7 +227,7 @@ public final class c {
     }
 
     public static void a(h<b.d> hVar, CallbackHandler callbackHandler, String str) {
-        if (hVar == null || hVar.aev() == null) {
+        if (hVar == null || hVar.aex() == null) {
             com.baidu.swan.apps.console.c.e("OAuthUtils", "authorize failed : result is invalid");
         } else {
             a(hVar.getErrorCode(), callbackHandler, str);
@@ -235,7 +235,7 @@ public final class c {
     }
 
     public static void a(h<b.d> hVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        if (hVar == null || hVar.aev() == null) {
+        if (hVar == null || hVar.aex() == null) {
             com.baidu.swan.apps.console.c.e("OAuthUtils", "authorize failed : result is invalid");
             return;
         }
@@ -247,9 +247,9 @@ public final class c {
 
     public static void a(com.baidu.swan.apps.setting.b.a aVar, CallbackHandler callbackHandler, String str) {
         int i;
-        if (aVar != null && aVar.bUr != null) {
+        if (aVar != null && aVar.bUs != null) {
             try {
-                i = (int) aVar.bUr.agi();
+                i = (int) aVar.bUs.agk();
             } catch (ClassCastException e) {
                 if (DEBUG) {
                     Log.e("OAuthUtils", e.toString());
@@ -294,6 +294,6 @@ public final class c {
     }
 
     public static void release() {
-        bTe.clear();
+        bTf.clear();
     }
 }

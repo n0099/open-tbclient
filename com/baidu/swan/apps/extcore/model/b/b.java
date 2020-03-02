@@ -5,28 +5,28 @@ import com.baidu.swan.apps.t.e;
 import java.io.File;
 /* loaded from: classes11.dex */
 public abstract class b implements a {
-    public static final String bvh = e.TL() + File.separator + "extension_core";
+    public static final String bvi = e.TN() + File.separator + "extension_core";
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public File RV() {
-        return new File(e.TL(), "extension_core");
+    public File RX() {
+        return new File(e.TN(), "extension_core");
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String RW() {
+    public String RY() {
         return "aiapps/extcore/extension-core.zip";
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String RX() {
+    public String RZ() {
         return "aiapps/extcore/extension-config.json";
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
-    public int RY() {
+    public int Sa() {
         return 0;
     }
 }

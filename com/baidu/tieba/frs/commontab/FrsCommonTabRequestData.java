@@ -18,12 +18,12 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public int isDefaultNavTab = 0;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> aQi() {
+    public HashMap<String, Object> aQk() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> aQj() {
+    public HashMap<String, String> aQl() {
         return null;
     }
 

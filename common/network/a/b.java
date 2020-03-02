@@ -14,33 +14,33 @@ import okhttp3.Protocol;
 import okhttp3.internal.Util;
 /* loaded from: classes.dex */
 public class b {
-    private static OkHttpClient nus;
+    private static OkHttpClient nuu;
 
     static {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        d dIK = d.dIK();
-        if (dIK == null) {
+        d dIM = d.dIM();
+        if (dIM == null) {
             throw new IllegalStateException("HTTPDNS没有初始化，乱了乱了！");
         }
-        nus = builder.protocols(Util.immutableList(Protocol.HTTP_1_1)).connectionPool(new ConnectionPool(20, 1L, TimeUnit.MINUTES)).dispatcher(new Dispatcher(Executors.newFixedThreadPool(4, new ThreadFactory() { // from class: common.network.a.b.1
-            private AtomicInteger nut = new AtomicInteger(0);
+        nuu = builder.protocols(Util.immutableList(Protocol.HTTP_1_1)).connectionPool(new ConnectionPool(20, 1L, TimeUnit.MINUTES)).dispatcher(new Dispatcher(Executors.newFixedThreadPool(4, new ThreadFactory() { // from class: common.network.a.b.1
+            private AtomicInteger nuv = new AtomicInteger(0);
 
             @Override // java.util.concurrent.ThreadFactory
             public Thread newThread(@NonNull Runnable runnable) {
-                return new Thread(runnable, String.format("OkHttpDispatcher-%s", Integer.valueOf(this.nut.getAndIncrement())));
+                return new Thread(runnable, String.format("OkHttpDispatcher-%s", Integer.valueOf(this.nuv.getAndIncrement())));
             }
-        }))).dns(dIK).build();
+        }))).dns(dIM).build();
     }
 
     public static void a(Interceptor interceptor) {
-        nus = newBuilder().addInterceptor(interceptor).build();
+        nuu = newBuilder().addInterceptor(interceptor).build();
     }
 
     public static OkHttpClient.Builder newBuilder() {
-        return nus.newBuilder();
+        return nuu.newBuilder();
     }
 
     public static OkHttpClient getOkHttpClient() {
-        return nus;
+        return nuu;
     }
 }

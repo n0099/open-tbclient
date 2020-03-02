@@ -16,7 +16,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes9.dex */
 public class a {
-    private final c gYp = new c();
+    private final c gYr = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         int i2;
@@ -50,7 +50,7 @@ public class a {
                 bj bjVar = new bj();
                 bjVar.fE(true);
                 bjVar.a(concernData.thread_list);
-                if ((k.aa(bjVar) || l.aa(bjVar)) && bjVar.getType() != bj.cRC) {
+                if ((k.aa(bjVar) || l.aa(bjVar)) && bjVar.getType() != bj.cRD) {
                     int[] imageWidthAndHeight = bjVar.getImageWidthAndHeight();
                     k aA = d.aA(bjVar);
                     if (aA != null) {
@@ -71,13 +71,13 @@ public class a {
                         az.tid = bjVar.getTid();
                         az.position = i3;
                         if (az instanceof k) {
-                            if (bjVar.aEe()) {
+                            if (bjVar.aEg()) {
                                 d.d(az);
-                            } else if (bjVar.aDo() == 1) {
+                            } else if (bjVar.aDq() == 1) {
                                 d.b(az);
-                                az.cRf = imageWidthAndHeight[0];
-                                az.cRg = imageWidthAndHeight[1];
-                            } else if (bjVar.aDo() >= 2) {
+                                az.cRg = imageWidthAndHeight[0];
+                                az.cRh = imageWidthAndHeight[1];
+                            } else if (bjVar.aDq() >= 2) {
                                 d.c(az);
                             } else {
                                 d.e(az);
@@ -105,7 +105,7 @@ public class a {
                     } else if (l.aa(bjVar)) {
                         aA2.zV("2");
                     }
-                    if (aA2 != null && !StringUtils.isNull(bjVar.aCr())) {
+                    if (aA2 != null && !StringUtils.isNull(bjVar.aCt())) {
                         linkedList.add(aA2);
                     }
                     if (concernData.thread_list != null && concernData.thread_list.top_agree_post != null) {
@@ -130,7 +130,7 @@ public class a {
                         aA4.position = i3;
                         d.j(aA4);
                     }
-                    if (bjVar.getType() == bj.cRi) {
+                    if (bjVar.getType() == bj.cRj) {
                         aA4.zV("1");
                     } else if (l.aa(bjVar)) {
                         aA4.zV("2");
@@ -140,7 +140,7 @@ public class a {
                     }
                 } else if (bjVar.isShareThread) {
                     k kVar = new k();
-                    kVar.cRe = bjVar;
+                    kVar.cRf = bjVar;
                     kVar.position = i3;
                     linkedList.add(kVar);
                 } else if (l.aa(bjVar)) {
@@ -159,18 +159,18 @@ public class a {
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
                     }
-                } else if (e.aa(bjVar) && bjVar.aBb()) {
+                } else if (e.aa(bjVar) && bjVar.aBd()) {
                     e eVar = new e(bjVar);
                     eVar.position = i3;
                     linkedList.add(eVar);
                 } else {
                     k kVar2 = new k();
-                    kVar2.cRe = bjVar;
-                    kVar2.zV(kVar2.cRe.isLinkThread() ? "4" : "1");
+                    kVar2.cRf = bjVar;
+                    kVar2.zV(kVar2.cRf.isLinkThread() ? "4" : "1");
                     kVar2.position = i3;
                     kVar2.isLinkThread = false;
                     kVar2.ru(concernData.source.intValue());
-                    if (kVar2.cRe != null && kVar2.isValid() && !StringUtils.isNull(kVar2.cRe.getId()) && !"0".equals(kVar2.cRe.getTid())) {
+                    if (kVar2.cRf != null && kVar2.isValid() && !StringUtils.isNull(kVar2.cRf.getId()) && !"0".equals(kVar2.cRf.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
@@ -178,8 +178,8 @@ public class a {
             }
             i3 = i2;
         }
-        this.gYp.dTd = linkedList;
-        return this.gYp;
+        this.gYr.dTe = linkedList;
+        return this.gYr;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -210,7 +210,7 @@ public class a {
                     }
                 }
             }
-            this.gYp.hfb = v.getCount(list) - count;
+            this.gYr.hfd = v.getCount(list) - count;
         }
     }
 

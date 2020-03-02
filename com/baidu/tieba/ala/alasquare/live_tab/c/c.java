@@ -10,21 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private boolean cUp;
-    private String ema;
+    private boolean cUq;
     private String emb;
+    private String emc;
     private boolean hasMore = false;
-    private List<String> eow = new ArrayList();
-    private List<SdkLiveInfoData> eox = new ArrayList();
-    private List<m> eoy = new ArrayList();
+    private List<String> eox = new ArrayList();
+    private List<SdkLiveInfoData> eoy = new ArrayList();
+    private List<m> eoz = new ArrayList();
 
     public c(j jVar, String str, String str2) {
-        this.cUp = false;
+        this.cUq = false;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.cUp = true;
+            this.cUq = true;
         }
-        this.ema = str;
-        this.emb = str2;
+        this.emb = str;
+        this.emc = str2;
         a(jVar);
     }
 
@@ -32,7 +32,7 @@ public class c {
         if (jVar == null) {
             return false;
         }
-        boolean bi = bi(jVar.elE);
+        boolean bi = bi(jVar.elF);
         this.hasMore = jVar.hasMore;
         return bi;
     }
@@ -45,18 +45,18 @@ public class c {
         for (SdkLiveInfoData sdkLiveInfoData : list) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.tid;
-                if (!this.eow.contains(str)) {
+                if (!this.eox.contains(str)) {
                     arrayList.add(sdkLiveInfoData);
-                    this.eow.add(str);
+                    this.eox.add(str);
                 }
             }
         }
         if (v.isEmpty(arrayList)) {
             return false;
         }
-        this.eox.addAll(arrayList);
-        this.eoy = bj(this.eox);
-        return !v.isEmpty(this.eoy);
+        this.eoy.addAll(arrayList);
+        this.eoz = bj(this.eoy);
+        return !v.isEmpty(this.eoz);
     }
 
     private ArrayList<m> bj(List<SdkLiveInfoData> list) {
@@ -65,25 +65,25 @@ public class c {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.ejF = list.get(i);
+            aVar.ejG = list.get(i);
             aVar.isLeft = true;
-            aVar.cUp = this.cUp;
-            aVar.fid = this.ema;
-            aVar.fname = this.emb;
+            aVar.cUq = this.cUq;
+            aVar.fid = this.emb;
+            aVar.fname = this.emc;
             aVar.position = i + 1;
-            eVar.elI = aVar;
+            eVar.elJ = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.ejF = list.get(i + 1);
-                aVar2.cUp = this.cUp;
-                aVar2.fid = this.ema;
-                aVar2.fname = this.emb;
+                aVar2.ejG = list.get(i + 1);
+                aVar2.cUq = this.cUq;
+                aVar2.fid = this.emb;
+                aVar2.fname = this.emc;
                 aVar2.position = i + 2;
-                eVar.elJ = aVar2;
+                eVar.elK = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.ejG = true;
+                aVar.ejH = true;
             }
             arrayList.add(eVar);
         }
@@ -96,22 +96,22 @@ public class c {
 
     public List<m> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!v.isEmpty(this.eoy)) {
-            arrayList.addAll(this.eoy);
+        if (!v.isEmpty(this.eoz)) {
+            arrayList.addAll(this.eoz);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.eow != null) {
-            this.eow.clear();
-        }
         if (this.eox != null) {
             this.eox.clear();
         }
         if (this.eoy != null) {
             this.eoy.clear();
+        }
+        if (this.eoz != null) {
+            this.eoz.clear();
         }
     }
 }

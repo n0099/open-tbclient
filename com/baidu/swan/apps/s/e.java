@@ -37,7 +37,7 @@ public class e extends ab {
         com.baidu.swan.apps.component.components.f.a aVar = (com.baidu.swan.apps.component.components.f.a) com.baidu.swan.apps.component.container.a.d(bVar);
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("updateInput", "input组件不存在");
-            com.baidu.swan.apps.console.c.e("SwanAppAction", "can't find input component:#" + bVar.bik);
+            com.baidu.swan.apps.console.c.e("SwanAppAction", "can't find input component:#" + bVar.bil);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
             return false;
         }

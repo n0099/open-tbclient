@@ -40,6 +40,7 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_pure_topbar_set44", "icon_pure_topbar_set44_svg");
         platformImageNameMap.put("icon_crown_vip_non", "icon_crown_super_non");
         platformImageNameMap.put("icon_mask_boy_n", "icon_mask_boy16_svg");
+        platformImageNameMap.put("icon_mask_girl_n", "icon_mask_girl16_svg");
         platformImageNameMap.put("icon_pure_list_arrow16_right", "icon_pure_list_arrow16_right_svg");
         platformImageNameMap.put("icon_personal_close_n", "icon_topbar_close_white_n");
         platformImageNameMap.put("icon_mask_wo_list_collect24", "icon_mask_wo_list_collect24_svg");

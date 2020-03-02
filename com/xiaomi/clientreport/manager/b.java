@@ -19,10 +19,10 @@ public class b implements Runnable {
         Context context;
         IEventProcessor iEventProcessor;
         ExecutorService executorService;
-        context = this.a.f9a;
-        iEventProcessor = this.a.f11a;
+        context = this.a.f8a;
+        iEventProcessor = this.a.f10a;
         bd bdVar = new bd(context, iEventProcessor);
-        executorService = this.a.f14a;
+        executorService = this.a.f13a;
         executorService.execute(bdVar);
     }
 }

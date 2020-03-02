@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private long axN;
-    private f.a axO;
-    private List<String> axP;
+    private long axO;
+    private f.a axP;
+    private List<String> axQ;
 
-    public static d zq() {
-        return a.axQ;
+    public static d zs() {
+        return a.axR;
     }
 
     public void c(long j, long j2, int i) {
@@ -26,18 +26,18 @@ public class d {
     }
 
     public void b(f.a aVar) {
-        if (this.axP != null) {
-            this.axP.clear();
+        if (this.axQ != null) {
+            this.axQ.clear();
         }
         I(0L);
-        this.axO = aVar;
-        if (this.axO != null) {
+        this.axP = aVar;
+        if (this.axP != null) {
             List<String> list = aVar.XN;
             if (list != null && !list.isEmpty()) {
-                if (this.axP == null) {
-                    this.axP = new ArrayList();
+                if (this.axQ == null) {
+                    this.axQ = new ArrayList();
                 }
-                this.axP.addAll(list);
+                this.axQ.addAll(list);
             }
             I(aVar.endTime - aVar.currentTime);
         }
@@ -45,17 +45,17 @@ public class d {
 
     public double e(boolean z, String str) {
         double a2;
-        if (this.axO == null || this.axO.XK != 1) {
+        if (this.axP == null || this.axP.XK != 1) {
             return 0.0d;
         }
         if (z) {
-            if (zr()) {
-                a2 = Math.max(a(str, this.axO.XM), a(str, this.axO.XL));
+            if (zt()) {
+                a2 = Math.max(a(str, this.axP.XM), a(str, this.axP.XL));
             } else {
-                a2 = a(str, this.axO.XL);
+                a2 = a(str, this.axP.XL);
             }
         } else {
-            a2 = zr() ? a(str, this.axO.XM) : 0.0d;
+            a2 = zt() ? a(str, this.axP.XM) : 0.0d;
         }
         if (a2 == 1.0d || a2 < 0.0d) {
             return 0.0d;
@@ -64,9 +64,9 @@ public class d {
     }
 
     private double a(String str, double d) {
-        if (!TextUtils.isEmpty(str) && this.axO != null) {
-            if (this.axO.XO != null && !this.axO.XO.isEmpty()) {
-                for (String str2 : this.axO.XO) {
+        if (!TextUtils.isEmpty(str) && this.axP != null) {
+            if (this.axP.XO != null && !this.axP.XO.isEmpty()) {
+                for (String str2 : this.axP.XO) {
                     if (str.equals(str2)) {
                         return d;
                     }
@@ -78,31 +78,31 @@ public class d {
         return 0.0d;
     }
 
-    public boolean zr() {
-        return this.axN > 0;
+    public boolean zt() {
+        return this.axO > 0;
     }
 
-    public void zs() {
-        this.axN = 0L;
+    public void zu() {
+        this.axO = 0L;
     }
 
     public void I(long j) {
-        this.axN = j;
+        this.axO = j;
     }
 
     public boolean dY(String str) {
-        if (this.axP == null || this.axP.isEmpty()) {
+        if (this.axQ == null || this.axQ.isEmpty()) {
             return false;
         }
-        return this.axP.contains(str);
+        return this.axQ.contains(str);
     }
 
     public void release() {
-        this.axN = 0L;
-        if (this.axP != null) {
-            this.axP.clear();
+        this.axO = 0L;
+        if (this.axQ != null) {
+            this.axQ.clear();
         }
-        this.axO = null;
+        this.axP = null;
     }
 
     private d() {
@@ -110,6 +110,6 @@ public class d {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final d axQ = new d();
+        private static final d axR = new d();
     }
 }

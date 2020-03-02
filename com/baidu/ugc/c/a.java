@@ -531,7 +531,7 @@ public final class a {
         public static final int has_not_enough_sdcard_size = 2131233592;
         public static final int search_menu_title = 2131230748;
         public static final int status_bar_notification_info_overflow = 2131230749;
-        public static final int sticker_file_unexists = 2131236029;
-        public static final int sticker_file_unkown = 2131236030;
+        public static final int sticker_file_unexists = 2131236030;
+        public static final int sticker_file_unkown = 2131236031;
     }
 }

@@ -4,7 +4,7 @@ public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] nAc;
+    T[] nAe;
     int size;
 
     public g() {
@@ -16,12 +16,12 @@ public final class g<T> {
         int NA = h.NA(i);
         this.mask = NA - 1;
         this.maxSize = (int) (NA * f);
-        this.nAc = (T[]) new Object[NA];
+        this.nAe = (T[]) new Object[NA];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.nAc;
+        T[] tArr = this.nAe;
         int i = this.mask;
         int Nz = Nz(t.hashCode()) & i;
         T t3 = tArr[Nz];
@@ -48,7 +48,7 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.nAc;
+        T[] tArr = this.nAe;
         int i = this.mask;
         int Nz = Nz(t.hashCode()) & i;
         T t3 = tArr[Nz];
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.nAc;
+        T[] tArr = this.nAe;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -121,7 +121,7 @@ public final class g<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.nAc = tArr2;
+                this.nAe = tArr2;
                 return;
             }
         }
@@ -132,8 +132,8 @@ public final class g<T> {
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] dJE() {
-        return this.nAc;
+    public Object[] dJG() {
+        return this.nAe;
     }
 
     public int size() {

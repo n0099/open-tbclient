@@ -131,10 +131,10 @@ public class UgcPublishPanel implements View.OnClickListener, View.OnTouchListen
     }
 
     private void initPluginEmotionPanel(View view) {
-        List<String> Gj = b.bc(AppRuntime.getAppContext()).Gj();
+        List<String> Gl = b.bc(AppRuntime.getAppContext()).Gl();
         BDEmotionBagLayout bDEmotionBagLayout = new BDEmotionBagLayout(AppRuntime.getAppContext());
         bDEmotionBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, DeviceUtil.ScreenInfo.dp2px(getContext(), 260.0f)));
-        bDEmotionBagLayout.setEmotionList(Gj);
+        bDEmotionBagLayout.setEmotionList(Gl);
         ((ViewPager) this.mPanelRoot.findViewById(c.C0195c.vp_emotion_type)).setAdapter(new EmotionPagerAdapter(bDEmotionBagLayout));
     }
 

@@ -19,8 +19,8 @@ import tv.chushou.zues.utils.e;
 public class a extends b {
     public String a;
     private boolean d = false;
-    private EmptyLoadingView nfw;
-    private CSWebView njX;
+    private EmptyLoadingView nfy;
+    private CSWebView njZ;
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
@@ -31,9 +31,9 @@ public class a extends b {
     @Override // com.kascend.chushou.view.base.b
     protected View initView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.view_x5_page, (ViewGroup) null);
-        this.nfw = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
-        this.njX = (CSWebView) inflate.findViewById(a.f.web_view);
-        CSWebView.a(this.njX, this.mContext, new c() { // from class: com.kascend.chushou.widget.guide.a.1
+        this.nfy = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
+        this.njZ = (CSWebView) inflate.findViewById(a.f.web_view);
+        CSWebView.a(this.njZ, this.mContext, new c() { // from class: com.kascend.chushou.widget.guide.a.1
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
@@ -48,7 +48,7 @@ public class a extends b {
                 if (!a.this.isFinishing()) {
                     a.this.d = false;
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.dQn()) {
+                    if (tv.chushou.zues.utils.a.dQp()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             a.this.showStatus(4);
                             return;
@@ -88,21 +88,21 @@ public class a extends b {
 
     @Override // com.kascend.chushou.view.base.b
     public void unInit() {
-        if (this.njX != null) {
-            this.njX.loadUrl("");
-            this.njX.removeAllViews();
-            this.njX.destroy();
-            this.njX = null;
+        if (this.njZ != null) {
+            this.njZ.loadUrl("");
+            this.njZ.removeAllViews();
+            this.njZ.destroy();
+            this.njZ = null;
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.njX != null) {
-            this.njX.pauseTimers();
+        if (this.njZ != null) {
+            this.njZ.pauseTimers();
             if (Build.VERSION.SDK_INT >= 11) {
-                this.njX.onPause();
+                this.njZ.onPause();
             }
         }
     }
@@ -110,22 +110,22 @@ public class a extends b {
     @Override // android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.njX != null) {
-            this.njX.resumeTimers();
+        if (this.njZ != null) {
+            this.njZ.resumeTimers();
             if (Build.VERSION.SDK_INT >= 11) {
-                this.njX.onResume();
+                this.njZ.onResume();
             }
         }
     }
 
     private void b() {
         e.d("GuideFragment", "H5=" + this.a);
-        if (tv.chushou.zues.utils.a.dQn()) {
+        if (tv.chushou.zues.utils.a.dQp()) {
             if (this.a != null && this.a.length() > 0) {
-                this.njX.loadUrl(this.a);
+                this.njZ.loadUrl(this.a);
                 return;
             } else {
-                this.njX.loadUrl("");
+                this.njZ.loadUrl("");
                 return;
             }
         }
@@ -136,20 +136,20 @@ public class a extends b {
     public void showStatus(int i) {
         switch (i) {
             case 1:
-                this.njX.setVisibility(8);
-                this.nfw.Na(1);
+                this.njZ.setVisibility(8);
+                this.nfy.Na(1);
                 return;
             case 2:
-                this.njX.setVisibility(0);
-                this.nfw.setVisibility(8);
+                this.njZ.setVisibility(0);
+                this.nfy.setVisibility(8);
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.njX.setVisibility(8);
-                this.nfw.setVisibility(0);
-                this.nfw.Na(i);
+                this.njZ.setVisibility(8);
+                this.nfy.setVisibility(0);
+                this.nfy.Na(i);
                 return;
             default:
                 return;
@@ -157,13 +157,13 @@ public class a extends b {
     }
 
     public void a() {
-        if (tv.chushou.zues.utils.a.dQn()) {
+        if (tv.chushou.zues.utils.a.dQp()) {
             this.d = true;
             if (this.a != null && this.a.length() > 0) {
-                this.njX.loadUrl(this.a);
+                this.njZ.loadUrl(this.a);
                 return;
             } else {
-                this.njX.loadUrl("");
+                this.njZ.loadUrl("");
                 return;
             }
         }

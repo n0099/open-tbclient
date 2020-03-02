@@ -5,21 +5,21 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 /* loaded from: classes13.dex */
 public class PhotoLiveLinearLayout extends LinearLayout {
-    private a kQZ;
+    private a kRb;
 
     /* loaded from: classes13.dex */
     public interface a {
-        void cVt();
+        void cVv();
     }
 
     public PhotoLiveLinearLayout(Context context) {
         super(context);
-        this.kQZ = null;
+        this.kRb = null;
     }
 
     public PhotoLiveLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kQZ = null;
+        this.kRb = null;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -30,12 +30,12 @@ public class PhotoLiveLinearLayout extends LinearLayout {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.kQZ != null) {
-            this.kQZ.cVt();
+        if (this.kRb != null) {
+            this.kRb.cVv();
         }
     }
 
     public void setOnChangeLayoutListener(a aVar) {
-        this.kQZ = aVar;
+        this.kRb = aVar;
     }
 }

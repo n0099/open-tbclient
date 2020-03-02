@@ -17,7 +17,7 @@ public class a {
     /* loaded from: classes.dex */
     public static class b {
         public String Pj;
-        public int fMr;
+        public int fMt;
         public String mPid;
     }
 
@@ -58,37 +58,37 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0612a {
-        private final boolean cPn;
-        private final an hWj;
+        private final boolean cPo;
+        private final an hWl;
         private final String key;
-        private final String khO;
-        private final String khP;
         private final String khQ;
+        private final String khR;
+        private final String khS;
         private final String page;
 
         private C0612a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.khO = str2;
+            this.khQ = str2;
             this.page = str3;
-            this.khP = str4;
-            this.khQ = str5;
-            this.cPn = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.hWj = cLq();
+            this.khR = str4;
+            this.khS = str5;
+            this.cPo = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.hWl = cLs();
         }
 
-        private an cLq() {
+        private an cLs() {
             an anVar = new an(this.key);
-            if (!StringUtils.isNull(this.khO)) {
-                anVar = anVar.cy("line", this.khO);
+            if (!StringUtils.isNull(this.khQ)) {
+                anVar = anVar.cy("line", this.khQ);
             }
             if (!StringUtils.isNull(this.page)) {
                 anVar = anVar.cy("page", this.page);
             }
-            if (!StringUtils.isNull(this.khP)) {
-                anVar = anVar.cy("locate", this.khP);
+            if (!StringUtils.isNull(this.khR)) {
+                anVar = anVar.cy("locate", this.khR);
             }
-            if (!StringUtils.isNull(this.khQ)) {
-                return anVar.cy("task", this.khQ);
+            if (!StringUtils.isNull(this.khS)) {
+                return anVar.cy("task", this.khS);
             }
             return anVar;
         }
@@ -96,34 +96,34 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public an k(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.hWj.cy(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.hWl.cy(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.hWj.cy("obj_id", str2);
+                this.hWl.cy("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.hWj.cy("fid", str3);
+                this.hWl.cy("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.hWj.cy("fname", str4);
+                this.hWl.cy("fname", str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.hWj.cy("tid", str5);
+                this.hWl.cy("tid", str5);
             }
-            this.hWj.X("obj_cpid", 0).X("obj_good_id", 0).cy("obj_throw_type", "BY_POST").cy("client_type", "MOBILE_APP").cy("user_timestamp", String.valueOf(System.currentTimeMillis())).cy("os", PraiseDataPassUtil.KEY_FROM_OS).cy(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE).cy("log_ver", "1.1");
-            return this.hWj;
+            this.hWl.X("obj_cpid", 0).X("obj_good_id", 0).cy("obj_throw_type", "BY_POST").cy("client_type", "MOBILE_APP").cy("user_timestamp", String.valueOf(System.currentTimeMillis())).cy("os", PraiseDataPassUtil.KEY_FROM_OS).cy(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE).cy("log_ver", "1.1");
+            return this.hWl;
         }
 
         public C0612a eE(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.hWj.cy(str, str2);
+                this.hWl.cy(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.hWj);
-            if (!this.cPn) {
+            TiebaStatic.log(this.hWl);
+            if (!this.cPo) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -132,7 +132,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.hWj.delete(str);
+            this.hWl.delete(str);
         }
     }
 }

@@ -10,11 +10,11 @@ public class a {
     private List<C0613a> poi_info;
     private String sn;
 
-    public String cLC() {
+    public String cLE() {
         return this.formatted_address;
     }
 
-    public List<C0613a> cLD() {
+    public List<C0613a> cLF() {
         return this.poi_info;
     }
 

@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 final class k {
-    private SQLiteDatabase kVL = f.cXo().cXp();
+    private SQLiteDatabase kVN = f.cXq().cXr();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {
-        this.kVL.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        this.kVN.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<l> cXn() {
-        Cursor rawQuery = this.kVL.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+    public final List<l> cXp() {
+        Cursor rawQuery = this.kVN.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             l lVar = new l();
@@ -34,6 +34,6 @@ final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.kVL.execSQL("delete from tb_ab_page_log where _id <= " + i);
+        this.kVN.execSQL("delete from tb_ab_page_log where _id <= " + i);
     }
 }

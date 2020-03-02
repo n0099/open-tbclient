@@ -18,11 +18,11 @@ public class e extends b {
     private static int[] h = {33987, 33988, 33989, 33990, 33991, 33992, 33993, 33994, 33995, 33996};
     private static int t = 1;
     private int[] PP;
-    private Bitmap[] aNI;
-    private MediaPlayer aNJ;
-    private SurfaceTexture aNK;
-    private Surface aNL;
-    private d aNM;
+    private Bitmap[] aNJ;
+    private MediaPlayer aNK;
+    private SurfaceTexture aNL;
+    private Surface aNM;
+    private d aNN;
     private int[] e;
     private int[] f;
     private int[] g;
@@ -87,14 +87,14 @@ public class e extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(int i) {
-        if (this.aNI != null && this.aNI.length > i && this.aNI[i] != null && !this.aNI[i].isRecycled()) {
-            this.aNI[i].recycle();
-            this.aNI[i] = null;
+        if (this.aNJ != null && this.aNJ.length > i && this.aNJ[i] != null && !this.aNJ[i].isRecycled()) {
+            this.aNJ[i].recycle();
+            this.aNJ[i] = null;
         }
-        if (this.aNI == null || i != this.aNI.length - 1) {
+        if (this.aNJ == null || i != this.aNJ.length - 1) {
             return;
         }
-        this.aNI = null;
+        this.aNJ = null;
     }
 
     private void t() {
@@ -102,29 +102,29 @@ public class e extends b {
     }
 
     private void u() {
-        if (this.aNI == null || this.aNI.length <= 0) {
+        if (this.aNJ == null || this.aNJ.length <= 0) {
             return;
         }
-        for (int i = 0; i < this.aNI.length; i++) {
+        for (int i = 0; i < this.aNJ.length; i++) {
             d(i);
         }
     }
 
     private void v() {
-        if (this.aNK != null) {
-            this.aNK.release();
-        }
         if (this.aNL != null) {
             this.aNL.release();
         }
-        if (this.aNJ != null) {
-            this.aNJ.pause();
-            this.aNJ.stop();
-            this.aNJ.release();
+        if (this.aNM != null) {
+            this.aNM.release();
+        }
+        if (this.aNK != null) {
+            this.aNK.pause();
+            this.aNK.stop();
+            this.aNK.release();
         }
         t();
-        if (this.aNM != null) {
-            this.aNM.e();
+        if (this.aNN != null) {
+            this.aNN.e();
         }
         if (this.s != -1) {
             GLES20.glDeleteTextures(1, new int[]{this.s}, 0);
@@ -138,59 +138,59 @@ public class e extends b {
             return;
         }
         Object obj = list.get(0);
-        this.aNJ = new MediaPlayer();
-        this.aNJ.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.minivideo.effect.core.e.1
+        this.aNK = new MediaPlayer();
+        this.aNK.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.minivideo.effect.core.e.1
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
-                e.this.aNJ.start();
+                e.this.aNK.start();
             }
         });
-        this.aNJ.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.minivideo.effect.core.e.2
+        this.aNK.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.minivideo.effect.core.e.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
-                e.this.aNJ.start();
+                e.this.aNK.start();
             }
         });
-        this.aNJ.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.minivideo.effect.core.e.3
+        this.aNK.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.minivideo.effect.core.e.3
             @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
             public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
             }
         });
-        this.aNJ.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.minivideo.effect.core.e.4
+        this.aNK.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.minivideo.effect.core.e.4
             @Override // android.media.MediaPlayer.OnInfoListener
             public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
                 return false;
             }
         });
-        this.aNJ.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.minivideo.effect.core.e.5
+        this.aNK.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.minivideo.effect.core.e.5
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
                 return false;
             }
         });
         try {
-            this.aNJ.setVolume(0.0f, 0.0f);
+            this.aNK.setVolume(0.0f, 0.0f);
             if (obj instanceof AssetFileDescriptor) {
-                this.aNJ.setDataSource(((AssetFileDescriptor) obj).getFileDescriptor(), ((AssetFileDescriptor) obj).getStartOffset(), ((AssetFileDescriptor) obj).getLength());
+                this.aNK.setDataSource(((AssetFileDescriptor) obj).getFileDescriptor(), ((AssetFileDescriptor) obj).getStartOffset(), ((AssetFileDescriptor) obj).getLength());
                 ((AssetFileDescriptor) obj).close();
             } else {
-                this.aNJ.setDataSource((String) obj);
+                this.aNK.setDataSource((String) obj);
             }
-            int length = this.aNI != null ? this.aNI.length : 0;
+            int length = this.aNJ != null ? this.aNJ.length : 0;
             this.s = f.b();
-            this.aNM = new d("#extension GL_OES_EGL_image_external : require\nprecision highp float;\n \nvarying highp vec2 textureCoordinate;\n \nuniform samplerExternalOES inputImageTexture;\nuniform float alpha;\n \nvoid main()\n{\n     gl_FragColor = texture2D(inputImageTexture, textureCoordinate) * alpha;\n}");
-            this.aNM.a();
+            this.aNN = new d("#extension GL_OES_EGL_image_external : require\nprecision highp float;\n \nvarying highp vec2 textureCoordinate;\n \nuniform samplerExternalOES inputImageTexture;\nuniform float alpha;\n \nvoid main()\n{\n     gl_FragColor = texture2D(inputImageTexture, textureCoordinate) * alpha;\n}");
+            this.aNN.a();
             this.q = ByteBuffer.allocateDirect(f.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
             this.q.put(f.a).position(0);
             this.r = ByteBuffer.allocateDirect(g.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
             this.r.put(g.b(Rotation.NORMAL, false, true)).position(0);
-            this.aNK = new SurfaceTexture(this.s);
+            this.aNL = new SurfaceTexture(this.s);
             if (this.g[length] == -1) {
                 GLES20.glActiveTexture(h[length]);
                 this.g[length] = f.a();
                 c(this.g[length]);
             }
-            this.aNK.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.minivideo.effect.core.e.6
+            this.aNL.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.minivideo.effect.core.e.6
                 @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
                 public void onFrameAvailable(final SurfaceTexture surfaceTexture) {
                     e.this.a(new Runnable() { // from class: com.baidu.minivideo.effect.core.e.6.1
@@ -200,23 +200,23 @@ public class e extends b {
                                 surfaceTexture.updateTexImage();
                                 float[] fArr = new float[16];
                                 surfaceTexture.getTransformMatrix(fArr);
-                                e.this.aNM.b(fArr);
+                                e.this.aNN.b(fArr);
                             }
                         }
                     });
                 }
             });
-            this.aNL = new Surface(this.aNK);
-            this.aNJ.setSurface(this.aNL);
-            this.aNJ.prepareAsync();
+            this.aNM = new Surface(this.aNL);
+            this.aNK.setSurface(this.aNM);
+            this.aNK.prepareAsync();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void a(final Bitmap[] bitmapArr) {
-        this.aNI = bitmapArr;
-        if (this.aNI == null || bitmapArr.length == 0) {
+        this.aNJ = bitmapArr;
+        if (this.aNJ == null || bitmapArr.length == 0) {
             return;
         }
         a(new Runnable() { // from class: com.baidu.minivideo.effect.core.e.7
@@ -248,8 +248,8 @@ public class e extends b {
     @Override // com.baidu.minivideo.effect.core.b
     public void c() {
         super.c();
-        if (this.aNI != null) {
-            a(this.aNI);
+        if (this.aNJ != null) {
+            a(this.aNJ);
         }
         if (this.k != null) {
             a(this.k);
@@ -266,12 +266,12 @@ public class e extends b {
 
     @Override // com.baidu.minivideo.effect.core.b
     public void h() {
-        if (this.aNM != null) {
+        if (this.aNN != null) {
             GLES20.glBindFramebuffer(36160, this.PP[0]);
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GLES20.glClear(16640);
-            this.aNM.p();
-            this.aNM.b(this.s, this.q, this.r);
+            this.aNN.p();
+            this.aNN.b(this.s, this.q, this.r);
             GLES20.glBindFramebuffer(36160, 0);
         }
     }

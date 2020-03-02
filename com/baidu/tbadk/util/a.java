@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 /* loaded from: classes.dex */
 public class a {
-    private static a dGd;
-    private com.baidu.tbadk.coreExtra.data.a dpk;
-    private ABTestExtraData dpl;
+    private static a dGe;
+    private com.baidu.tbadk.coreExtra.data.a dpl;
+    private ABTestExtraData dpm;
 
-    public static a aRJ() {
-        if (dGd == null) {
+    public static a aRL() {
+        if (dGe == null) {
             synchronized (a.class) {
-                if (dGd == null) {
-                    dGd = new a();
+                if (dGe == null) {
+                    dGe = new a();
                 }
             }
         }
-        return dGd;
+        return dGe;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -26,19 +26,19 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.dpk == null || aVar.aIW() != this.dpk.aIW()) ? true : true;
-        this.dpk = aVar;
+        z = (aVar == null || this.dpl == null || aVar.aIY() != this.dpl.aIY()) ? true : true;
+        this.dpl = aVar;
         if (z) {
             vO("zan_or_cai_smallflow");
         }
     }
 
-    public boolean aIW() {
-        if (this.dpk == null) {
-            this.dpk = new com.baidu.tbadk.coreExtra.data.a();
-            this.dpk.aIX();
+    public boolean aIY() {
+        if (this.dpl == null) {
+            this.dpl = new com.baidu.tbadk.coreExtra.data.a();
+            this.dpl.aIZ();
         }
-        return this.dpk.aIW();
+        return this.dpl.aIY();
     }
 
     private void vO(String str) {
@@ -46,14 +46,14 @@ public class a {
     }
 
     public void a(ABTestExtraData aBTestExtraData) {
-        this.dpl = aBTestExtraData;
+        this.dpm = aBTestExtraData;
     }
 
-    public String aRK() {
-        if (this.dpl == null) {
-            this.dpl = new ABTestExtraData();
-            this.dpl.parserABTestExtraFormSharedPref();
+    public String aRM() {
+        if (this.dpm == null) {
+            this.dpm = new ABTestExtraData();
+            this.dpm.parserABTestExtraFormSharedPref();
         }
-        return this.dpl.getABTestResult();
+        return this.dpm.getABTestResult();
     }
 }

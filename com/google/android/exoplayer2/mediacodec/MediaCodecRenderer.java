@@ -25,46 +25,46 @@ import java.util.List;
 @TargetApi(16)
 /* loaded from: classes6.dex */
 public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a {
-    private static final byte[] mpo = v.QF("0000016742C00BDA259000000168CE0F13200000016588840DCE7118A0002FBF1C31C3275D78");
+    private static final byte[] mpq = v.QF("0000016742C00BDA259000000168CE0F13200000016588840DCE7118A0002FBF1C31C3275D78");
     @Nullable
-    private final com.google.android.exoplayer2.drm.a<c> lYp;
-    private Format lZw;
-    private ByteBuffer[] mbR;
-    private int mpA;
-    private boolean mpB;
-    private boolean mpC;
+    private final com.google.android.exoplayer2.drm.a<c> lYr;
+    private Format lZy;
+    private ByteBuffer[] mbT;
+    private MediaCodec mpA;
+    private a mpB;
+    private int mpC;
     private boolean mpD;
     private boolean mpE;
     private boolean mpF;
     private boolean mpG;
     private boolean mpH;
     private boolean mpI;
-    private ByteBuffer[] mpJ;
-    private long mpK;
-    private int mpL;
-    private int mpM;
-    private boolean mpN;
-    private boolean mpO;
-    private int mpP;
-    private int mpQ;
-    private boolean mpR;
-    private boolean mpS;
+    private boolean mpJ;
+    private boolean mpK;
+    private ByteBuffer[] mpL;
+    private long mpM;
+    private int mpN;
+    private int mpO;
+    private boolean mpP;
+    private boolean mpQ;
+    private int mpR;
+    private int mpS;
     private boolean mpT;
     private boolean mpU;
     private boolean mpV;
     private boolean mpW;
-    protected d mpX;
-    private final b mpp;
-    private final boolean mpq;
-    private final e mpr;
-    private final e mps;
-    private final m mpt;
-    private final List<Long> mpu;
-    private final MediaCodec.BufferInfo mpv;
-    private DrmSession<c> mpw;
-    private DrmSession<c> mpx;
-    private MediaCodec mpy;
-    private a mpz;
+    private boolean mpX;
+    private boolean mpY;
+    protected d mpZ;
+    private final b mpr;
+    private final boolean mps;
+    private final e mpt;
+    private final e mpu;
+    private final m mpv;
+    private final List<Long> mpw;
+    private final MediaCodec.BufferInfo mpx;
+    private DrmSession<c> mpy;
+    private DrmSession<c> mpz;
 
     protected abstract int a(b bVar, com.google.android.exoplayer2.drm.a<c> aVar, Format format) throws MediaCodecUtil.DecoderQueryException;
 
@@ -114,27 +114,27 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
     public MediaCodecRenderer(int i, b bVar, @Nullable com.google.android.exoplayer2.drm.a<c> aVar, boolean z) {
         super(i);
         com.google.android.exoplayer2.util.a.checkState(v.SDK_INT >= 16);
-        this.mpp = (b) com.google.android.exoplayer2.util.a.checkNotNull(bVar);
-        this.lYp = aVar;
-        this.mpq = z;
-        this.mpr = new e(0);
-        this.mps = e.duA();
-        this.mpt = new m();
-        this.mpu = new ArrayList();
-        this.mpv = new MediaCodec.BufferInfo();
-        this.mpP = 0;
-        this.mpQ = 0;
+        this.mpr = (b) com.google.android.exoplayer2.util.a.checkNotNull(bVar);
+        this.lYr = aVar;
+        this.mps = z;
+        this.mpt = new e(0);
+        this.mpu = e.duC();
+        this.mpv = new m();
+        this.mpw = new ArrayList();
+        this.mpx = new MediaCodec.BufferInfo();
+        this.mpR = 0;
+        this.mpS = 0;
     }
 
     @Override // com.google.android.exoplayer2.a, com.google.android.exoplayer2.t
-    public final int dsL() {
+    public final int dsN() {
         return 8;
     }
 
     @Override // com.google.android.exoplayer2.t
     public final int e(Format format) throws ExoPlaybackException {
         try {
-            return a(this.mpp, this.lYp, format);
+            return a(this.mpr, this.lYr, format);
         } catch (MediaCodecUtil.DecoderQueryException e) {
             throw ExoPlaybackException.createForRenderer(e, getIndex());
         }
@@ -146,76 +146,76 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void dvM() throws ExoPlaybackException {
+    public final void dvO() throws ExoPlaybackException {
         boolean z;
         MediaCrypto mediaCrypto;
-        if (this.mpy == null && this.lZw != null) {
-            this.mpw = this.mpx;
-            String str = this.lZw.sampleMimeType;
-            if (this.mpw != null) {
-                c duM = this.mpw.duM();
-                if (duM == null) {
-                    DrmSession.DrmSessionException duL = this.mpw.duL();
-                    if (duL != null) {
-                        throw ExoPlaybackException.createForRenderer(duL, getIndex());
+        if (this.mpA == null && this.lZy != null) {
+            this.mpy = this.mpz;
+            String str = this.lZy.sampleMimeType;
+            if (this.mpy != null) {
+                c duO = this.mpy.duO();
+                if (duO == null) {
+                    DrmSession.DrmSessionException duN = this.mpy.duN();
+                    if (duN != null) {
+                        throw ExoPlaybackException.createForRenderer(duN, getIndex());
                     }
                     return;
                 }
-                MediaCrypto duN = duM.duN();
-                z = duM.Pr(str);
-                mediaCrypto = duN;
+                MediaCrypto duP = duO.duP();
+                z = duO.Pr(str);
+                mediaCrypto = duP;
             } else {
                 z = false;
                 mediaCrypto = null;
             }
-            if (this.mpz == null) {
+            if (this.mpB == null) {
                 try {
-                    this.mpz = a(this.mpp, this.lZw, z);
-                    if (this.mpz == null && z) {
-                        this.mpz = a(this.mpp, this.lZw, false);
-                        if (this.mpz != null) {
-                            Log.w("MediaCodecRenderer", "Drm session requires secure decoder for " + str + ", but no secure decoder available. Trying to proceed with " + this.mpz.name + ".");
+                    this.mpB = a(this.mpr, this.lZy, z);
+                    if (this.mpB == null && z) {
+                        this.mpB = a(this.mpr, this.lZy, false);
+                        if (this.mpB != null) {
+                            Log.w("MediaCodecRenderer", "Drm session requires secure decoder for " + str + ", but no secure decoder available. Trying to proceed with " + this.mpB.name + ".");
                         }
                     }
                 } catch (MediaCodecUtil.DecoderQueryException e) {
-                    a(new DecoderInitializationException(this.lZw, e, z, -49998));
+                    a(new DecoderInitializationException(this.lZy, e, z, -49998));
                 }
-                if (this.mpz == null) {
-                    a(new DecoderInitializationException(this.lZw, (Throwable) null, z, -49999));
+                if (this.mpB == null) {
+                    a(new DecoderInitializationException(this.lZy, (Throwable) null, z, -49999));
                 }
             }
-            if (a(this.mpz)) {
-                String str2 = this.mpz.name;
-                this.mpA = Py(str2);
-                this.mpB = a(str2, this.lZw);
-                this.mpC = Px(str2);
-                this.mpD = Pz(str2);
-                this.mpE = PA(str2);
-                this.mpF = PB(str2);
-                this.mpG = b(str2, this.lZw);
+            if (a(this.mpB)) {
+                String str2 = this.mpB.name;
+                this.mpC = Py(str2);
+                this.mpD = a(str2, this.lZy);
+                this.mpE = Px(str2);
+                this.mpF = Pz(str2);
+                this.mpG = PA(str2);
+                this.mpH = PB(str2);
+                this.mpI = b(str2, this.lZy);
                 try {
                     long elapsedRealtime = SystemClock.elapsedRealtime();
                     t.beginSection("createCodec:" + str2);
-                    this.mpy = MediaCodec.createByCodecName(str2);
+                    this.mpA = MediaCodec.createByCodecName(str2);
                     t.endSection();
                     t.beginSection("configureCodec");
-                    a(this.mpz, this.mpy, this.lZw, mediaCrypto);
+                    a(this.mpB, this.mpA, this.lZy, mediaCrypto);
                     t.endSection();
                     t.beginSection("startCodec");
-                    this.mpy.start();
+                    this.mpA.start();
                     t.endSection();
                     long elapsedRealtime2 = SystemClock.elapsedRealtime();
                     g(str2, elapsedRealtime2, elapsedRealtime2 - elapsedRealtime);
-                    this.mpJ = this.mpy.getInputBuffers();
-                    this.mbR = this.mpy.getOutputBuffers();
+                    this.mpL = this.mpA.getInputBuffers();
+                    this.mbT = this.mpA.getOutputBuffers();
                 } catch (Exception e2) {
-                    a(new DecoderInitializationException(this.lZw, e2, z, str2));
+                    a(new DecoderInitializationException(this.lZy, e2, z, str2));
                 }
-                this.mpK = getState() == 2 ? SystemClock.elapsedRealtime() + 1000 : -9223372036854775807L;
-                this.mpL = -1;
-                this.mpM = -1;
-                this.mpW = true;
-                this.mpX.mdr++;
+                this.mpM = getState() == 2 ? SystemClock.elapsedRealtime() + 1000 : -9223372036854775807L;
+                this.mpN = -1;
+                this.mpO = -1;
+                this.mpY = true;
+                this.mpZ.mdt++;
             }
         }
     }
@@ -229,28 +229,28 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final MediaCodec dvN() {
-        return this.mpy;
+    public final MediaCodec dvP() {
+        return this.mpA;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final a dvO() {
-        return this.mpz;
+    public final a dvQ() {
+        return this.mpB;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a
     public void vx(boolean z) throws ExoPlaybackException {
-        this.mpX = new d();
+        this.mpZ = new d();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a
     public void l(long j, boolean z) throws ExoPlaybackException {
-        this.mpT = false;
-        this.mpU = false;
-        if (this.mpy != null) {
-            dvQ();
+        this.mpV = false;
+        this.mpW = false;
+        if (this.mpA != null) {
+            dvS();
         }
     }
 
@@ -259,24 +259,24 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
     /* JADX DEBUG: Finally have unexpected throw blocks count: 4, expect 1 */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a
-    public void dsM() {
-        this.lZw = null;
+    public void dsO() {
+        this.lZy = null;
         try {
-            dvP();
+            dvR();
             try {
-                if (this.mpw != null) {
-                    this.lYp.a(this.mpw);
+                if (this.mpy != null) {
+                    this.lYr.a(this.mpy);
                 }
                 try {
-                    if (this.mpx != null && this.mpx != this.mpw) {
-                        this.lYp.a(this.mpx);
+                    if (this.mpz != null && this.mpz != this.mpy) {
+                        this.lYr.a(this.mpz);
                     }
                 } finally {
                 }
             } catch (Throwable th) {
                 try {
-                    if (this.mpx != null && this.mpx != this.mpw) {
-                        this.lYp.a(this.mpx);
+                    if (this.mpz != null && this.mpz != this.mpy) {
+                        this.lYr.a(this.mpz);
                     }
                     throw th;
                 } finally {
@@ -284,20 +284,20 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
             }
         } catch (Throwable th2) {
             try {
-                if (this.mpw != null) {
-                    this.lYp.a(this.mpw);
+                if (this.mpy != null) {
+                    this.lYr.a(this.mpy);
                 }
                 try {
-                    if (this.mpx != null && this.mpx != this.mpw) {
-                        this.lYp.a(this.mpx);
+                    if (this.mpz != null && this.mpz != this.mpy) {
+                        this.lYr.a(this.mpz);
                     }
                     throw th2;
                 } finally {
                 }
             } catch (Throwable th3) {
                 try {
-                    if (this.mpx != null && this.mpx != this.mpw) {
-                        this.lYp.a(this.mpx);
+                    if (this.mpz != null && this.mpz != this.mpy) {
+                        this.lYr.a(this.mpz);
                     }
                     throw th3;
                 } finally {
@@ -310,49 +310,49 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 4, expect 1 */
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dvP() {
-        this.mpK = -9223372036854775807L;
-        this.mpL = -1;
-        this.mpM = -1;
-        this.mpV = false;
-        this.mpN = false;
-        this.mpu.clear();
-        this.mpJ = null;
-        this.mbR = null;
-        this.mpz = null;
-        this.mpO = false;
-        this.mpR = false;
-        this.mpB = false;
-        this.mpC = false;
-        this.mpA = 0;
+    public void dvR() {
+        this.mpM = -9223372036854775807L;
+        this.mpN = -1;
+        this.mpO = -1;
+        this.mpX = false;
+        this.mpP = false;
+        this.mpw.clear();
+        this.mpL = null;
+        this.mbT = null;
+        this.mpB = null;
+        this.mpQ = false;
+        this.mpT = false;
         this.mpD = false;
         this.mpE = false;
+        this.mpC = 0;
+        this.mpF = false;
         this.mpG = false;
-        this.mpH = false;
         this.mpI = false;
-        this.mpS = false;
-        this.mpP = 0;
-        this.mpQ = 0;
-        this.mpr.data = null;
-        if (this.mpy != null) {
-            this.mpX.mds++;
+        this.mpJ = false;
+        this.mpK = false;
+        this.mpU = false;
+        this.mpR = 0;
+        this.mpS = 0;
+        this.mpt.data = null;
+        if (this.mpA != null) {
+            this.mpZ.mdu++;
             try {
-                this.mpy.stop();
+                this.mpA.stop();
                 try {
-                    this.mpy.release();
-                    this.mpy = null;
-                    if (this.mpw == null || this.mpx == this.mpw) {
+                    this.mpA.release();
+                    this.mpA = null;
+                    if (this.mpy == null || this.mpz == this.mpy) {
                         return;
                     }
                     try {
-                        this.lYp.a(this.mpw);
+                        this.lYr.a(this.mpy);
                     } finally {
                     }
                 } catch (Throwable th) {
-                    this.mpy = null;
-                    if (this.mpw != null && this.mpx != this.mpw) {
+                    this.mpA = null;
+                    if (this.mpy != null && this.mpz != this.mpy) {
                         try {
-                            this.lYp.a(this.mpw);
+                            this.lYr.a(this.mpy);
                         } finally {
                         }
                     }
@@ -360,20 +360,20 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
                 }
             } catch (Throwable th2) {
                 try {
-                    this.mpy.release();
-                    this.mpy = null;
-                    if (this.mpw != null && this.mpx != this.mpw) {
+                    this.mpA.release();
+                    this.mpA = null;
+                    if (this.mpy != null && this.mpz != this.mpy) {
                         try {
-                            this.lYp.a(this.mpw);
+                            this.lYr.a(this.mpy);
                         } finally {
                         }
                     }
                     throw th2;
                 } catch (Throwable th3) {
-                    this.mpy = null;
-                    if (this.mpw != null && this.mpx != this.mpw) {
+                    this.mpA = null;
+                    if (this.mpy != null && this.mpz != this.mpy) {
                         try {
-                            this.lYp.a(this.mpw);
+                            this.lYr.a(this.mpy);
                         } finally {
                         }
                     }
@@ -395,181 +395,181 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
 
     @Override // com.google.android.exoplayer2.s
     public void M(long j, long j2) throws ExoPlaybackException {
-        if (this.mpU) {
-            duo();
+        if (this.mpW) {
+            duq();
             return;
         }
-        if (this.lZw == null) {
-            this.mps.clear();
-            int a = a(this.mpt, this.mps, true);
+        if (this.lZy == null) {
+            this.mpu.clear();
+            int a = a(this.mpv, this.mpu, true);
             if (a == -5) {
-                g(this.mpt.lZw);
+                g(this.mpv.lZy);
             } else if (a == -4) {
-                com.google.android.exoplayer2.util.a.checkState(this.mps.dus());
-                this.mpT = true;
-                dvV();
+                com.google.android.exoplayer2.util.a.checkState(this.mpu.duu());
+                this.mpV = true;
+                dvX();
                 return;
             } else {
                 return;
             }
         }
-        dvM();
-        if (this.mpy != null) {
+        dvO();
+        if (this.mpA != null) {
             t.beginSection("drainAndFeed");
             do {
             } while (Q(j, j2));
             do {
-            } while (dvR());
+            } while (dvT());
             t.endSection();
         } else {
-            this.mpX.mdu += fm(j);
-            this.mps.clear();
-            int a2 = a(this.mpt, this.mps, false);
+            this.mpZ.mdw += fm(j);
+            this.mpu.clear();
+            int a2 = a(this.mpv, this.mpu, false);
             if (a2 == -5) {
-                g(this.mpt.lZw);
+                g(this.mpv.lZy);
             } else if (a2 == -4) {
-                com.google.android.exoplayer2.util.a.checkState(this.mps.dus());
-                this.mpT = true;
-                dvV();
+                com.google.android.exoplayer2.util.a.checkState(this.mpu.duu());
+                this.mpV = true;
+                dvX();
             }
         }
-        this.mpX.duz();
+        this.mpZ.duB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dvQ() throws ExoPlaybackException {
-        this.mpK = -9223372036854775807L;
-        this.mpL = -1;
-        this.mpM = -1;
-        this.mpW = true;
-        this.mpV = false;
-        this.mpN = false;
-        this.mpu.clear();
-        this.mpH = false;
-        this.mpI = false;
-        if (this.mpC || (this.mpE && this.mpS)) {
-            dvP();
-            dvM();
-        } else if (this.mpQ != 0) {
-            dvP();
-            dvM();
+    public void dvS() throws ExoPlaybackException {
+        this.mpM = -9223372036854775807L;
+        this.mpN = -1;
+        this.mpO = -1;
+        this.mpY = true;
+        this.mpX = false;
+        this.mpP = false;
+        this.mpw.clear();
+        this.mpJ = false;
+        this.mpK = false;
+        if (this.mpE || (this.mpG && this.mpU)) {
+            dvR();
+            dvO();
+        } else if (this.mpS != 0) {
+            dvR();
+            dvO();
         } else {
-            this.mpy.flush();
-            this.mpR = false;
+            this.mpA.flush();
+            this.mpT = false;
         }
-        if (this.mpO && this.lZw != null) {
-            this.mpP = 1;
+        if (this.mpQ && this.lZy != null) {
+            this.mpR = 1;
         }
     }
 
-    private boolean dvR() throws ExoPlaybackException {
+    private boolean dvT() throws ExoPlaybackException {
         int position;
         int a;
-        if (this.mpy == null || this.mpQ == 2 || this.mpT) {
+        if (this.mpA == null || this.mpS == 2 || this.mpV) {
             return false;
         }
-        if (this.mpL < 0) {
-            this.mpL = this.mpy.dequeueInputBuffer(0L);
-            if (this.mpL < 0) {
+        if (this.mpN < 0) {
+            this.mpN = this.mpA.dequeueInputBuffer(0L);
+            if (this.mpN < 0) {
                 return false;
             }
-            this.mpr.data = this.mpJ[this.mpL];
-            this.mpr.clear();
+            this.mpt.data = this.mpL[this.mpN];
+            this.mpt.clear();
         }
-        if (this.mpQ == 1) {
-            if (!this.mpD) {
-                this.mpS = true;
-                this.mpy.queueInputBuffer(this.mpL, 0, 0, 0L, 4);
-                this.mpL = -1;
+        if (this.mpS == 1) {
+            if (!this.mpF) {
+                this.mpU = true;
+                this.mpA.queueInputBuffer(this.mpN, 0, 0, 0L, 4);
+                this.mpN = -1;
             }
-            this.mpQ = 2;
+            this.mpS = 2;
             return false;
-        } else if (this.mpH) {
-            this.mpH = false;
-            this.mpr.data.put(mpo);
-            this.mpy.queueInputBuffer(this.mpL, 0, mpo.length, 0L, 0);
-            this.mpL = -1;
-            this.mpR = true;
+        } else if (this.mpJ) {
+            this.mpJ = false;
+            this.mpt.data.put(mpq);
+            this.mpA.queueInputBuffer(this.mpN, 0, mpq.length, 0L, 0);
+            this.mpN = -1;
+            this.mpT = true;
             return true;
         } else {
-            if (this.mpV) {
+            if (this.mpX) {
                 a = -4;
                 position = 0;
             } else {
-                if (this.mpP == 1) {
-                    for (int i = 0; i < this.lZw.initializationData.size(); i++) {
-                        this.mpr.data.put(this.lZw.initializationData.get(i));
+                if (this.mpR == 1) {
+                    for (int i = 0; i < this.lZy.initializationData.size(); i++) {
+                        this.mpt.data.put(this.lZy.initializationData.get(i));
                     }
-                    this.mpP = 2;
+                    this.mpR = 2;
                 }
-                position = this.mpr.data.position();
-                a = a(this.mpt, this.mpr, false);
+                position = this.mpt.data.position();
+                a = a(this.mpv, this.mpt, false);
             }
             if (a != -3) {
                 if (a == -5) {
-                    if (this.mpP == 2) {
-                        this.mpr.clear();
-                        this.mpP = 1;
+                    if (this.mpR == 2) {
+                        this.mpt.clear();
+                        this.mpR = 1;
                     }
-                    g(this.mpt.lZw);
+                    g(this.mpv.lZy);
                     return true;
-                } else if (this.mpr.dus()) {
-                    if (this.mpP == 2) {
-                        this.mpr.clear();
-                        this.mpP = 1;
+                } else if (this.mpt.duu()) {
+                    if (this.mpR == 2) {
+                        this.mpt.clear();
+                        this.mpR = 1;
                     }
-                    this.mpT = true;
-                    if (!this.mpR) {
-                        dvV();
+                    this.mpV = true;
+                    if (!this.mpT) {
+                        dvX();
                         return false;
                     }
                     try {
-                        if (this.mpD) {
+                        if (this.mpF) {
                             return false;
                         }
-                        this.mpS = true;
-                        this.mpy.queueInputBuffer(this.mpL, 0, 0, 0L, 4);
-                        this.mpL = -1;
+                        this.mpU = true;
+                        this.mpA.queueInputBuffer(this.mpN, 0, 0, 0L, 4);
+                        this.mpN = -1;
                         return false;
                     } catch (MediaCodec.CryptoException e) {
                         throw ExoPlaybackException.createForRenderer(e, getIndex());
                     }
-                } else if (this.mpW && !this.mpr.dut()) {
-                    this.mpr.clear();
-                    if (this.mpP == 2) {
-                        this.mpP = 1;
+                } else if (this.mpY && !this.mpt.duv()) {
+                    this.mpt.clear();
+                    if (this.mpR == 2) {
+                        this.mpR = 1;
                     }
                     return true;
                 } else {
-                    this.mpW = false;
-                    boolean duC = this.mpr.duC();
-                    this.mpV = vG(duC);
-                    if (this.mpV) {
+                    this.mpY = false;
+                    boolean duE = this.mpt.duE();
+                    this.mpX = vG(duE);
+                    if (this.mpX) {
                         return false;
                     }
-                    if (this.mpB && !duC) {
-                        j.k(this.mpr.data);
-                        if (this.mpr.data.position() == 0) {
+                    if (this.mpD && !duE) {
+                        j.k(this.mpt.data);
+                        if (this.mpt.data.position() == 0) {
                             return true;
                         }
-                        this.mpB = false;
+                        this.mpD = false;
                     }
                     try {
-                        long j = this.mpr.mdB;
-                        if (this.mpr.dur()) {
-                            this.mpu.add(Long.valueOf(j));
+                        long j = this.mpt.mdD;
+                        if (this.mpt.dut()) {
+                            this.mpw.add(Long.valueOf(j));
                         }
-                        this.mpr.duD();
-                        c(this.mpr);
-                        if (duC) {
-                            this.mpy.queueSecureInputBuffer(this.mpL, 0, a(this.mpr, position), j, 0);
+                        this.mpt.duF();
+                        c(this.mpt);
+                        if (duE) {
+                            this.mpA.queueSecureInputBuffer(this.mpN, 0, a(this.mpt, position), j, 0);
                         } else {
-                            this.mpy.queueInputBuffer(this.mpL, 0, this.mpr.data.limit(), j, 0);
+                            this.mpA.queueInputBuffer(this.mpN, 0, this.mpt.data.limit(), j, 0);
                         }
-                        this.mpL = -1;
-                        this.mpR = true;
-                        this.mpP = 0;
-                        this.mpX.mdt++;
+                        this.mpN = -1;
+                        this.mpT = true;
+                        this.mpR = 0;
+                        this.mpZ.mdv++;
                         return true;
                     } catch (MediaCodec.CryptoException e2) {
                         throw ExoPlaybackException.createForRenderer(e2, getIndex());
@@ -581,24 +581,24 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
     }
 
     private static MediaCodec.CryptoInfo a(e eVar, int i) {
-        MediaCodec.CryptoInfo duu = eVar.mdA.duu();
+        MediaCodec.CryptoInfo duw = eVar.mdC.duw();
         if (i != 0) {
-            if (duu.numBytesOfClearData == null) {
-                duu.numBytesOfClearData = new int[1];
+            if (duw.numBytesOfClearData == null) {
+                duw.numBytesOfClearData = new int[1];
             }
-            int[] iArr = duu.numBytesOfClearData;
+            int[] iArr = duw.numBytesOfClearData;
             iArr[0] = iArr[0] + i;
         }
-        return duu;
+        return duw;
     }
 
     private boolean vG(boolean z) throws ExoPlaybackException {
-        if (this.mpw == null || (!z && this.mpq)) {
+        if (this.mpy == null || (!z && this.mps)) {
             return false;
         }
-        int state = this.mpw.getState();
+        int state = this.mpy.getState();
         if (state == 1) {
-            throw ExoPlaybackException.createForRenderer(this.mpw.duL(), getIndex());
+            throw ExoPlaybackException.createForRenderer(this.mpy.duN(), getIndex());
         }
         return state != 4;
     }
@@ -608,30 +608,30 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(Format format) throws ExoPlaybackException {
-        Format format2 = this.lZw;
-        this.lZw = format;
-        if (!v.h(this.lZw.drmInitData, format2 == null ? null : format2.drmInitData)) {
-            if (this.lZw.drmInitData != null) {
-                if (this.lYp == null) {
+        Format format2 = this.lZy;
+        this.lZy = format;
+        if (!v.h(this.lZy.drmInitData, format2 == null ? null : format2.drmInitData)) {
+            if (this.lZy.drmInitData != null) {
+                if (this.lYr == null) {
                     throw ExoPlaybackException.createForRenderer(new IllegalStateException("Media requires a DrmSessionManager"), getIndex());
                 }
-                this.mpx = this.lYp.a(Looper.myLooper(), this.lZw.drmInitData);
-                if (this.mpx == this.mpw) {
-                    this.lYp.a(this.mpx);
+                this.mpz = this.lYr.a(Looper.myLooper(), this.lZy.drmInitData);
+                if (this.mpz == this.mpy) {
+                    this.lYr.a(this.mpz);
                 }
             } else {
-                this.mpx = null;
+                this.mpz = null;
             }
         }
-        if (this.mpx == this.mpw && this.mpy != null && a(this.mpy, this.mpz.mpm, format2, this.lZw)) {
-            this.mpO = true;
-            this.mpP = 1;
-            this.mpH = this.mpA == 2 || (this.mpA == 1 && this.lZw.width == format2.width && this.lZw.height == format2.height);
-        } else if (this.mpR) {
-            this.mpQ = 1;
+        if (this.mpz == this.mpy && this.mpA != null && a(this.mpA, this.mpB.mpo, format2, this.lZy)) {
+            this.mpQ = true;
+            this.mpR = 1;
+            this.mpJ = this.mpC == 2 || (this.mpC == 1 && this.lZy.width == format2.width && this.lZy.height == format2.height);
+        } else if (this.mpT) {
+            this.mpS = 1;
         } else {
-            dvP();
-            dvM();
+            dvR();
+            dvO();
         }
     }
 
@@ -649,121 +649,121 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
     }
 
     @Override // com.google.android.exoplayer2.s
-    public boolean avP() {
-        return this.mpU;
+    public boolean avR() {
+        return this.mpW;
     }
 
     @Override // com.google.android.exoplayer2.s
     public boolean isReady() {
-        return (this.lZw == null || this.mpV || (!cTn() && this.mpM < 0 && (this.mpK == -9223372036854775807L || SystemClock.elapsedRealtime() >= this.mpK))) ? false : true;
+        return (this.lZy == null || this.mpX || (!cTp() && this.mpO < 0 && (this.mpM == -9223372036854775807L || SystemClock.elapsedRealtime() >= this.mpM))) ? false : true;
     }
 
-    protected long dvS() {
+    protected long dvU() {
         return 0L;
     }
 
     private boolean Q(long j, long j2) throws ExoPlaybackException {
         boolean a;
-        if (this.mpM < 0) {
-            if (this.mpF && this.mpS) {
+        if (this.mpO < 0) {
+            if (this.mpH && this.mpU) {
                 try {
-                    this.mpM = this.mpy.dequeueOutputBuffer(this.mpv, dvS());
+                    this.mpO = this.mpA.dequeueOutputBuffer(this.mpx, dvU());
                 } catch (IllegalStateException e) {
-                    dvV();
-                    if (this.mpU) {
-                        dvP();
+                    dvX();
+                    if (this.mpW) {
+                        dvR();
                     }
                     return false;
                 }
             } else {
-                this.mpM = this.mpy.dequeueOutputBuffer(this.mpv, dvS());
+                this.mpO = this.mpA.dequeueOutputBuffer(this.mpx, dvU());
             }
-            if (this.mpM >= 0) {
-                if (this.mpI) {
-                    this.mpI = false;
-                    this.mpy.releaseOutputBuffer(this.mpM, false);
-                    this.mpM = -1;
+            if (this.mpO >= 0) {
+                if (this.mpK) {
+                    this.mpK = false;
+                    this.mpA.releaseOutputBuffer(this.mpO, false);
+                    this.mpO = -1;
                     return true;
-                } else if ((this.mpv.flags & 4) != 0) {
-                    dvV();
-                    this.mpM = -1;
+                } else if ((this.mpx.flags & 4) != 0) {
+                    dvX();
+                    this.mpO = -1;
                     return false;
                 } else {
-                    ByteBuffer byteBuffer = this.mbR[this.mpM];
+                    ByteBuffer byteBuffer = this.mbT[this.mpO];
                     if (byteBuffer != null) {
-                        byteBuffer.position(this.mpv.offset);
-                        byteBuffer.limit(this.mpv.offset + this.mpv.size);
+                        byteBuffer.position(this.mpx.offset);
+                        byteBuffer.limit(this.mpx.offset + this.mpx.size);
                     }
-                    this.mpN = fY(this.mpv.presentationTimeUs);
+                    this.mpP = fY(this.mpx.presentationTimeUs);
                 }
-            } else if (this.mpM == -2) {
-                dvT();
+            } else if (this.mpO == -2) {
+                dvV();
                 return true;
-            } else if (this.mpM == -3) {
-                dvU();
+            } else if (this.mpO == -3) {
+                dvW();
                 return true;
             } else {
-                if (this.mpD && (this.mpT || this.mpQ == 2)) {
-                    dvV();
+                if (this.mpF && (this.mpV || this.mpS == 2)) {
+                    dvX();
                 }
                 return false;
             }
         }
-        if (this.mpF && this.mpS) {
+        if (this.mpH && this.mpU) {
             try {
-                a = a(j, j2, this.mpy, this.mbR[this.mpM], this.mpM, this.mpv.flags, this.mpv.presentationTimeUs, this.mpN);
+                a = a(j, j2, this.mpA, this.mbT[this.mpO], this.mpO, this.mpx.flags, this.mpx.presentationTimeUs, this.mpP);
             } catch (IllegalStateException e2) {
-                dvV();
-                if (this.mpU) {
-                    dvP();
+                dvX();
+                if (this.mpW) {
+                    dvR();
                 }
                 return false;
             }
         } else {
-            a = a(j, j2, this.mpy, this.mbR[this.mpM], this.mpM, this.mpv.flags, this.mpv.presentationTimeUs, this.mpN);
+            a = a(j, j2, this.mpA, this.mbT[this.mpO], this.mpO, this.mpx.flags, this.mpx.presentationTimeUs, this.mpP);
         }
         if (a) {
-            fX(this.mpv.presentationTimeUs);
-            this.mpM = -1;
+            fX(this.mpx.presentationTimeUs);
+            this.mpO = -1;
             return true;
         }
         return false;
     }
 
-    private void dvT() throws ExoPlaybackException {
-        MediaFormat outputFormat = this.mpy.getOutputFormat();
-        if (this.mpA != 0 && outputFormat.getInteger("width") == 32 && outputFormat.getInteger("height") == 32) {
-            this.mpI = true;
+    private void dvV() throws ExoPlaybackException {
+        MediaFormat outputFormat = this.mpA.getOutputFormat();
+        if (this.mpC != 0 && outputFormat.getInteger("width") == 32 && outputFormat.getInteger("height") == 32) {
+            this.mpK = true;
             return;
         }
-        if (this.mpG) {
+        if (this.mpI) {
             outputFormat.setInteger("channel-count", 1);
         }
-        a(this.mpy, outputFormat);
+        a(this.mpA, outputFormat);
     }
 
-    private void dvU() {
-        this.mbR = this.mpy.getOutputBuffers();
+    private void dvW() {
+        this.mbT = this.mpA.getOutputBuffers();
     }
 
-    protected void duo() throws ExoPlaybackException {
+    protected void duq() throws ExoPlaybackException {
     }
 
-    private void dvV() throws ExoPlaybackException {
-        if (this.mpQ == 2) {
-            dvP();
-            dvM();
+    private void dvX() throws ExoPlaybackException {
+        if (this.mpS == 2) {
+            dvR();
+            dvO();
             return;
         }
-        this.mpU = true;
-        duo();
+        this.mpW = true;
+        duq();
     }
 
     private boolean fY(long j) {
-        int size = this.mpu.size();
+        int size = this.mpw.size();
         for (int i = 0; i < size; i++) {
-            if (this.mpu.get(i).longValue() == j) {
-                this.mpu.remove(i);
+            if (this.mpw.get(i).longValue() == j) {
+                this.mpw.remove(i);
                 return true;
             }
         }
@@ -778,7 +778,7 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
         if (v.SDK_INT <= 25 && "OMX.Exynos.avc.dec.secure".equals(str) && (v.MODEL.startsWith("SM-T585") || v.MODEL.startsWith("SM-A510") || v.MODEL.startsWith("SM-A520") || v.MODEL.startsWith("SM-J700"))) {
             return 2;
         }
-        if (v.SDK_INT < 24 && (("OMX.Nvidia.h264.decode".equals(str) || "OMX.Nvidia.h264.decode.secure".equals(str)) && ("flounder".equals(v.mHL) || "flounder_lte".equals(v.mHL) || "grouper".equals(v.mHL) || "tilapia".equals(v.mHL)))) {
+        if (v.SDK_INT < 24 && (("OMX.Nvidia.h264.decode".equals(str) || "OMX.Nvidia.h264.decode.secure".equals(str)) && ("flounder".equals(v.mHN) || "flounder_lte".equals(v.mHN) || "grouper".equals(v.mHN) || "tilapia".equals(v.mHN)))) {
             return 1;
         }
         return 0;
@@ -793,7 +793,7 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
     }
 
     private static boolean PA(String str) {
-        return (v.SDK_INT <= 23 && "OMX.google.vorbis.decoder".equals(str)) || (v.SDK_INT <= 19 && "hb2000".equals(v.mHL) && ("OMX.amlogic.avc.decoder.awesome".equals(str) || "OMX.amlogic.avc.decoder.awesome.secure".equals(str)));
+        return (v.SDK_INT <= 23 && "OMX.google.vorbis.decoder".equals(str)) || (v.SDK_INT <= 19 && "hb2000".equals(v.mHN) && ("OMX.amlogic.avc.decoder.awesome".equals(str) || "OMX.amlogic.avc.decoder.awesome.secure".equals(str)));
     }
 
     private static boolean PB(String str) {

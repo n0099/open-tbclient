@@ -23,23 +23,23 @@ public class a {
         byte[] bArr = new byte[32];
         new Random().nextBytes(bArr);
         Bdtls.Random build = Bdtls.Random.newBuilder().hK(currentTimeMillis).g(ByteString.copyFrom(bArr)).build();
-        int aiS = DH.aiS();
-        int aiR = DH.aiR();
-        int aj = DH.aj(aiS, aiR);
-        jVar.c(Integer.valueOf(aiS));
-        jVar.d(Integer.valueOf(aiR));
+        int aiU = DH.aiU();
+        int aiT = DH.aiT();
+        int aj = DH.aj(aiU, aiT);
+        jVar.c(Integer.valueOf(aiU));
+        jVar.d(Integer.valueOf(aiT));
         jVar.e(Integer.valueOf(aj));
         byte[] hG = d.hG(aj);
         if (hG == null || (encrypt = RSA.encrypt(hG)) == null) {
             return null;
         }
-        Bdtls.Extension[] extensionArr = {Bdtls.Extension.newBuilder().hJ(0).f(ByteString.copyFrom(encrypt)).build(), Bdtls.Extension.newBuilder().hJ(1).f(ByteString.copyFrom(new byte[]{0})).build(), Bdtls.Extension.newBuilder().hJ(2).f(ByteString.copyFrom(d.hG(aiS))).build()};
+        Bdtls.Extension[] extensionArr = {Bdtls.Extension.newBuilder().hJ(0).f(ByteString.copyFrom(encrypt)).build(), Bdtls.Extension.newBuilder().hJ(1).f(ByteString.copyFrom(new byte[]{0})).build(), Bdtls.Extension.newBuilder().hJ(2).f(ByteString.copyFrom(d.hG(aiU))).build()};
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
-            Log.d("BDTLS", "groupId encode=" + aiS);
-            Log.d("BDTLS", "secretC encode=" + aiR);
+            Log.d("BDTLS", "groupId encode=" + aiU);
+            Log.d("BDTLS", "secretC encode=" + aiT);
             Log.d("BDTLS", "pubKey encode=" + aj);
         }
-        byte[] byteArray = Bdtls.ClientHello.newBuilder().a(build).a(extensionArr[0]).a(extensionArr[1]).a(extensionArr[2]).d(ByteString.copyFrom(com.baidu.swan.games.bdtls.b.ckF)).build().toByteArray();
+        byte[] byteArray = Bdtls.ClientHello.newBuilder().a(build).a(extensionArr[0]).a(extensionArr[1]).a(extensionArr[2]).d(ByteString.copyFrom(com.baidu.swan.games.bdtls.b.ckG)).build().toByteArray();
         ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
         allocate.put((byte) 1);
         allocate.put(byteArray);
@@ -75,12 +75,12 @@ public class a {
                     switch (type) {
                         case 0:
                             int D = d.D(RSA.decrypt(byteArray));
-                            jVar.I(DH.t(D, jVar.amL().intValue(), jVar.amM().intValue()));
+                            jVar.I(DH.t(D, jVar.amN().intValue(), jVar.amO().intValue()));
                             jVar.f(Integer.valueOf(D));
                             if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                                Log.d("BDTLS", "GroupId=" + jVar.amL());
-                                Log.d("BDTLS", "client dh pubkey secret=" + jVar.amM());
-                                Log.d("BDTLS", "client dh pubkey=" + jVar.amN());
+                                Log.d("BDTLS", "GroupId=" + jVar.amN());
+                                Log.d("BDTLS", "client dh pubkey secret=" + jVar.amO());
+                                Log.d("BDTLS", "client dh pubkey=" + jVar.amP());
                                 Log.d("BDTLS", "server dh pubkey=" + D);
                                 Log.d("BDTLS", "server dh raw pubkey=" + d.E(decrypt));
                                 Log.d("BDTLS", "aeskey=" + d.E(t));
@@ -94,7 +94,7 @@ public class a {
                     return null;
                 }
                 jVar.J(Bdtls.ApplicationData.newBuilder().c(parseFrom.getSKR()).build().toByteArray());
-                if (jVar.amP() == null) {
+                if (jVar.amR() == null) {
                     return null;
                 }
                 long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();

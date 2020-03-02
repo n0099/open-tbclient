@@ -14,15 +14,15 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0299a bWb;
     private static C0299a bWc;
+    private static C0299a bWd;
 
     public static void h(boolean z, int i) {
-        h.afp().putBoolean(gF(i), z);
+        h.afr().putBoolean(gF(i), z);
     }
 
     public static boolean gE(int i) {
-        return h.afp().getBoolean(gF(i), false) || !h(i, gG(i)).isAvailable();
+        return h.afr().getBoolean(gF(i), false) || !h(i, gG(i)).isAvailable();
     }
 
     private static String gF(int i) {
@@ -30,25 +30,25 @@ public final class a {
     }
 
     public static long gG(int i) {
-        return h.afp().getLong(gK(i), 0L);
+        return h.afr().getLong(gK(i), 0L);
     }
 
     public static C0299a gH(int i) {
-        return i == 1 ? afz() : afA();
+        return i == 1 ? afB() : afC();
     }
 
-    private static C0299a afz() {
+    private static C0299a afB() {
+        if (bWd == null) {
+            bWd = C0299a.c(gM(1), 1);
+        }
+        return bWd;
+    }
+
+    private static C0299a afC() {
         if (bWc == null) {
-            bWc = C0299a.c(gM(1), 1);
+            bWc = C0299a.c(gM(0), 0);
         }
         return bWc;
-    }
-
-    private static C0299a afA() {
-        if (bWb == null) {
-            bWb = C0299a.c(gM(0), 0);
-        }
-        return bWb;
     }
 
     public static synchronized void gI(int i) {
@@ -58,8 +58,8 @@ public final class a {
             }
             if (gE(i)) {
                 C0299a gH = gH(i);
-                long j = h.afp().getLong(gJ(i), 0L);
-                long mp = com.baidu.swan.apps.swancore.b.mp(gH.bWd);
+                long j = h.afr().getLong(gJ(i), 0L);
+                long mp = com.baidu.swan.apps.swancore.b.mp(gH.bWe);
                 if (DEBUG) {
                     Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + mp);
                 }
@@ -79,12 +79,12 @@ public final class a {
             ArrayList arrayList = new ArrayList();
             arrayList.add(Long.valueOf(j));
             com.baidu.swan.apps.swancore.b.b(gL(i), arrayList);
-            h.afp().putLong(gK(i), j);
+            h.afr().putLong(gK(i), j);
             h(false, i);
             if (DEBUG) {
                 String md5 = d.toMd5(new File(gJ(i)), false);
                 if (!TextUtils.isEmpty(md5)) {
-                    h.afp().putString(com.baidu.swan.apps.swancore.a.gt(i), md5);
+                    h.afr().putString(com.baidu.swan.apps.swancore.a.gt(i), md5);
                 }
             }
         } else if (DEBUG) {
@@ -148,12 +148,12 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0299a {
-        public String bWd;
+        public String bWe;
 
         public static C0299a c(JSONObject jSONObject, int i) {
             C0299a c0299a = new C0299a();
             if (jSONObject != null) {
-                c0299a.bWd = jSONObject.optString(gw(i));
+                c0299a.bWe = jSONObject.optString(gw(i));
             }
             return c0299a;
         }

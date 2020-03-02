@@ -4,29 +4,29 @@ import com.google.android.exoplayer2.util.l;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 final class e {
-    private final l mex = new l(8);
-    private int mgw;
+    private final l mez = new l(8);
+    private int mgy;
 
     public boolean a(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         long length = fVar.getLength();
         int i = (int) ((length == -1 || length > 1024) ? 1024L : length);
-        fVar.s(this.mex.data, 0, 4);
-        long readUnsignedInt = this.mex.readUnsignedInt();
-        this.mgw = 4;
+        fVar.s(this.mez.data, 0, 4);
+        long readUnsignedInt = this.mez.readUnsignedInt();
+        this.mgy = 4;
         while (readUnsignedInt != 440786851) {
-            int i2 = this.mgw + 1;
-            this.mgw = i2;
+            int i2 = this.mgy + 1;
+            this.mgy = i2;
             if (i2 == i) {
                 return false;
             }
-            fVar.s(this.mex.data, 0, 1);
-            readUnsignedInt = ((readUnsignedInt << 8) & (-256)) | (this.mex.data[0] & 255);
+            fVar.s(this.mez.data, 0, 1);
+            readUnsignedInt = ((readUnsignedInt << 8) & (-256)) | (this.mez.data[0] & 255);
         }
         long i3 = i(fVar);
-        long j = this.mgw;
+        long j = this.mgy;
         if (i3 != Long.MIN_VALUE) {
             if (length == -1 || j + i3 < length) {
-                while (this.mgw < j + i3) {
+                while (this.mgy < j + i3) {
                     if (i(fVar) == Long.MIN_VALUE) {
                         return false;
                     }
@@ -36,10 +36,10 @@ final class e {
                     }
                     if (i4 != 0) {
                         fVar.Jw((int) i4);
-                        this.mgw = (int) (i4 + this.mgw);
+                        this.mgy = (int) (i4 + this.mgy);
                     }
                 }
-                return ((long) this.mgw) == i3 + j;
+                return ((long) this.mgy) == i3 + j;
             }
             return false;
         }
@@ -47,8 +47,8 @@ final class e {
     }
 
     private long i(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
-        fVar.s(this.mex.data, 0, 1);
-        int i = this.mex.data[0] & 255;
+        fVar.s(this.mez.data, 0, 1);
+        int i = this.mez.data[0] & 255;
         if (i == 0) {
             return Long.MIN_VALUE;
         }
@@ -59,11 +59,11 @@ final class e {
             i2 >>= 1;
         }
         int i4 = (i2 ^ (-1)) & i;
-        fVar.s(this.mex.data, 1, i3);
+        fVar.s(this.mez.data, 1, i3);
         for (int i5 = 0; i5 < i3; i5++) {
-            i4 = (i4 << 8) + (this.mex.data[i5 + 1] & 255);
+            i4 = (i4 << 8) + (this.mez.data[i5 + 1] & 255);
         }
-        this.mgw += i3 + 1;
+        this.mgy += i3 + 1;
         return i4;
     }
 }

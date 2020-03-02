@@ -163,21 +163,21 @@ public final class b {
     /* loaded from: classes4.dex */
     public static final class g {
         public static final int app_name = 2131231744;
-        public static final int str_input_nickname = 2131236094;
-        public static final int zues_dynamics_time_format_01 = 2131237470;
-        public static final int zues_dynamics_time_format_02 = 2131237471;
-        public static final int zues_dynamics_time_format_03 = 2131237472;
-        public static final int zues_dynamics_time_format_07 = 2131237473;
-        public static final int zues_dynamics_time_format_08 = 2131237474;
-        public static final int zues_dynamics_time_format_10 = 2131237475;
-        public static final int zues_load_more_loading = 2131237476;
-        public static final int zues_str_bai_wan = 2131237477;
-        public static final int zues_str_day_ago = 2131237478;
-        public static final int zues_str_hour_ago = 2131237479;
-        public static final int zues_str_min_ago = 2131237480;
-        public static final int zues_str_qian = 2131237481;
-        public static final int zues_str_wan = 2131237482;
-        public static final int zues_str_yi = 2131237483;
+        public static final int str_input_nickname = 2131236095;
+        public static final int zues_dynamics_time_format_01 = 2131237471;
+        public static final int zues_dynamics_time_format_02 = 2131237472;
+        public static final int zues_dynamics_time_format_03 = 2131237473;
+        public static final int zues_dynamics_time_format_07 = 2131237474;
+        public static final int zues_dynamics_time_format_08 = 2131237475;
+        public static final int zues_dynamics_time_format_10 = 2131237476;
+        public static final int zues_load_more_loading = 2131237477;
+        public static final int zues_str_bai_wan = 2131237478;
+        public static final int zues_str_day_ago = 2131237479;
+        public static final int zues_str_hour_ago = 2131237480;
+        public static final int zues_str_min_ago = 2131237481;
+        public static final int zues_str_qian = 2131237482;
+        public static final int zues_str_wan = 2131237483;
+        public static final int zues_str_yi = 2131237484;
     }
 
     /* loaded from: classes4.dex */

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class b {
-    private static String iUw = "tbgametype";
+    private static String iUy = "tbgametype";
 
     public static String Jl(String str) {
         String[] split;

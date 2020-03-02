@@ -7,20 +7,20 @@ import com.baidu.swan.d.c;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class a {
-    public static File bwf = e.TL();
-    public static String bwg = "swan_core";
-    public static String bwh = "extension_core";
-    public static String bwi = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-    public static String bwj = "cloneFolder_";
-    public static String bwk = bwi + File.separator + bwj;
-    public static String bwl = "clone_pkg_folder";
-    public static String bwm = "clone_core_folder";
-    public static String bwn = "clone_sp_folder";
-    public static String bwo = "clone_db_folder";
-    public static String bwp = "cloneZip.zip";
+    public static File bwg = e.TN();
+    public static String bwh = "swan_core";
+    public static String bwi = "extension_core";
+    public static String bwj = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+    public static String bwk = "cloneFolder_";
+    public static String bwl = bwj + File.separator + bwk;
+    public static String bwm = "clone_pkg_folder";
+    public static String bwn = "clone_core_folder";
+    public static String bwo = "clone_sp_folder";
+    public static String bwp = "clone_db_folder";
+    public static String bwq = "cloneZip.zip";
 
-    public static File Tp() {
-        File file = new File(b.afe());
+    public static File Tr() {
+        File file = new File(b.afg());
         if (c.ensureDirectoryExist(file)) {
             return file;
         }

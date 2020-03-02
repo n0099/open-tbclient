@@ -8,7 +8,7 @@ import android.app.job.JobService;
 public class PushDialogJobService extends JobService {
     @Override // android.app.job.JobService
     public boolean onStartJob(JobParameters jobParameters) {
-        PushDialogLoopManager.cBe().cBh();
+        PushDialogLoopManager.cBg().cBj();
         return false;
     }
 

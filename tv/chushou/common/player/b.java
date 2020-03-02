@@ -5,9 +5,9 @@ public interface b {
 
     void MJ(int i);
 
-    void dCr();
+    void dCA();
 
-    void dCs();
+    void dCB();
 
     void dCt();
 

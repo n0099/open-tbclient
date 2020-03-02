@@ -27,11 +27,11 @@ import java.util.List;
 public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     private static final String TAG = b.class.getSimpleName();
     private static final int TOUCH_SLOP = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
-    private com.baidu.tbadk.widget.largeImage.a.b dLe;
-    private com.baidu.tbadk.widget.largeImage.b.a dLf;
-    private a dLg;
-    private com.baidu.tbadk.widget.largeImage.b.c dLh;
-    private com.baidu.tbadk.widget.largeImage.logic.a dLi;
+    private com.baidu.tbadk.widget.largeImage.a.b dLf;
+    private com.baidu.tbadk.widget.largeImage.b.a dLg;
+    private a dLh;
+    private com.baidu.tbadk.widget.largeImage.b.c dLi;
+    private com.baidu.tbadk.widget.largeImage.logic.a dLj;
     private BitmapRegionDecoder mBitmapRegionDecoder;
     private View.OnClickListener mClickListener;
     private final Context mContext;
@@ -51,15 +51,15 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     private boolean mIsTop = true;
     private boolean KL = false;
     private boolean mIsYScrollInLastAction = false;
-    BdAsyncTask<String, String, String> dLj = new BdAsyncTask<String, String, String>() { // from class: com.baidu.tbadk.widget.largeImage.logic.b.2
+    BdAsyncTask<String, String, String> dLk = new BdAsyncTask<String, String, String>() { // from class: com.baidu.tbadk.widget.largeImage.logic.b.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            if (b.this.dLe != null && b.this.mBitmapRegionDecoder != null) {
-                int[] imageWidthAndHeight = b.this.dLf.getImageWidthAndHeight();
+            if (b.this.dLf != null && b.this.mBitmapRegionDecoder != null) {
+                int[] imageWidthAndHeight = b.this.dLg.getImageWidthAndHeight();
                 int i = 1;
-                while (Math.max(imageWidthAndHeight[0] / b.this.dLe.getRealWidth(), imageWidthAndHeight[1] / b.this.dLe.getRealHeight()) > Math.pow(2.0d, i)) {
+                while (Math.max(imageWidthAndHeight[0] / b.this.dLf.getRealWidth(), imageWidthAndHeight[1] / b.this.dLf.getRealHeight()) > Math.pow(2.0d, i)) {
                     i++;
                 }
                 int pow = (int) Math.pow(2.0d, i);
@@ -77,9 +77,9 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
                         b.this.mThumbnailBitmap = null;
                     }
                 }
-                com.baidu.tbadk.imageManager.c.aPO().c("long_img_mThumb" + System.currentTimeMillis(), new com.baidu.adp.widget.ImageView.a(b.this.mThumbnailBitmap, false));
-                b.this.a(b.this.mThumbnailBitmap, b.this.dLe, pow);
-                b.this.dLe.setThumbnail(b.this.mThumbnailBitmap);
+                com.baidu.tbadk.imageManager.c.aPQ().c("long_img_mThumb" + System.currentTimeMillis(), new com.baidu.adp.widget.ImageView.a(b.this.mThumbnailBitmap, false));
+                b.this.a(b.this.mThumbnailBitmap, b.this.dLf, pow);
+                b.this.dLf.setThumbnail(b.this.mThumbnailBitmap);
                 b.this.initViewPointWindow();
             }
             return null;
@@ -89,8 +89,8 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            if (b.this.dLi != null) {
-                b.this.dLi.onLoadFinished();
+            if (b.this.dLj != null) {
+                b.this.dLj.onLoadFinished();
             }
             b.this.findNeedLoadBitmapBlockAndSumitTask();
             b.this.mImageView.invalidate();
@@ -103,7 +103,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         this.mContext = this.mImageView.getContext();
         this.mGestureDetector = new GestureDetector(this.mContext, new C0399b());
         this.mScaleGestureDetector = new ScaleGestureDetector(this.mContext, new c());
-        this.dLg = new a(this.mContext);
+        this.dLh = new a(this.mContext);
         this.mCurrentLoadType = 0;
     }
 
@@ -112,7 +112,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         if (this.mCurrentLoadType == 2 && isBigThumbnailBlockOK()) {
             switch (action) {
                 case 0:
-                    if (!this.dLg.isFinished()) {
+                    if (!this.dLh.isFinished()) {
                         this.mIsYScrollInLastAction = true;
                     } else {
                         this.mIsYScrollInLastAction = false;
@@ -122,7 +122,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
                     actionUp();
                     break;
             }
-            this.dLg.forceFinished(true);
+            this.dLh.forceFinished(true);
             this.mScaleGestureDetector.onTouchEvent(motionEvent);
             if (this.mScaleGestureDetector.isInProgress()) {
                 return true;
@@ -137,7 +137,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         return this.mIsTop;
     }
 
-    public boolean aSB() {
+    public boolean aSD() {
         return this.KL;
     }
 
@@ -155,19 +155,19 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         if (this.mCurrentLoadType == 1) {
             return false;
         }
-        if (this.dLg.computeScrollOffset()) {
-            int currX = this.dLg.getCurrX();
-            int currY = this.dLg.getCurrY();
-            float oldValueX = (currX - this.dLg.getOldValueX()) * 2.0f;
-            float oldValueY = (currY - this.dLg.getOldValueY()) * 2.0f;
+        if (this.dLh.computeScrollOffset()) {
+            int currX = this.dLh.getCurrX();
+            int currY = this.dLh.getCurrY();
+            float oldValueX = (currX - this.dLh.getOldValueX()) * 2.0f;
+            float oldValueY = (currY - this.dLh.getOldValueY()) * 2.0f;
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             if (oldValueY >= 0.0f && Math.abs(oldValueY) <= 20.0f && currX < equipmentHeight) {
                 moveTo(0.0f, -20.0f);
                 this.mImageView.invalidate();
                 return true;
             }
-            this.dLg.setOldValueX(currX);
-            this.dLg.setOldValueY(currY);
+            this.dLh.setOldValueX(currX);
+            this.dLh.setOldValueY(currY);
             moveTo(-oldValueX, -oldValueY);
             this.mImageView.invalidate();
             return true;
@@ -177,12 +177,12 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void moveTo(float f, float f2) {
-        if (this.dLe != null) {
+        if (this.dLf != null) {
             float[] realMove = getRealMove(f, f2);
             float f3 = realMove[0];
             float f4 = realMove[1];
             this.mDisplayMatrix.postTranslate(-f3, -f4);
-            this.dLe.moveWindow((f3 * 1.0f) / this.mCurrentScaled, (f4 * 1.0f) / this.mCurrentScaled);
+            this.dLf.moveWindow((f3 * 1.0f) / this.mCurrentScaled, (f4 * 1.0f) / this.mCurrentScaled);
             findNeedLoadBitmapBlockAndSumitTask();
             this.mImageView.invalidate();
         }
@@ -190,8 +190,8 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
 
     private float[] getRealMove(float f, float f2) {
         float[] fArr = new float[2];
-        Rect windowInOriginalBitmap = this.dLe.getWindowInOriginalBitmap();
-        int[] imageWidthAndHeight = this.dLf.getImageWidthAndHeight();
+        Rect windowInOriginalBitmap = this.dLf.getWindowInOriginalBitmap();
+        int[] imageWidthAndHeight = this.dLg.getImageWidthAndHeight();
         if (windowInOriginalBitmap.top + f2 < 0.0f) {
             f2 = 0.0f;
         }
@@ -209,16 +209,16 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     }
 
     public void setImageDatas(Bitmap bitmap, byte[] bArr) {
-        if (bArr != null && bArr.length != 0 && this.dLf == null) {
+        if (bArr != null && bArr.length != 0 && this.dLg == null) {
             this.mOriginalBitmap = bitmap;
-            this.dLf = new com.baidu.tbadk.widget.largeImage.b.a(this.mContext);
+            this.dLg = new com.baidu.tbadk.widget.largeImage.b.a(this.mContext);
             try {
-                this.mBitmapRegionDecoder = this.dLf.createDecoder(bArr);
+                this.mBitmapRegionDecoder = this.dLg.createDecoder(bArr);
             } catch (Throwable th) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 System.gc();
                 try {
-                    this.mBitmapRegionDecoder = this.dLf.createDecoder(bArr);
+                    this.mBitmapRegionDecoder = this.dLg.createDecoder(bArr);
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                 }
@@ -229,10 +229,10 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     }
 
     public void startLoad() {
-        if (this.mCurrentLoadType == 2 && this.dLf != null && this.dLj.getStatus() == BdAsyncTask.BdAsyncTaskStatus.PENDING && this.dLe == null && this.mImageView.getMeasuredWidth() > 0 && this.mImageView.getMeasuredHeight() > 0 && this.dLf.getImageWidthAndHeight()[0] > 0 && this.dLf.getImageWidthAndHeight()[1] > 0) {
-            this.dLe = new com.baidu.tbadk.widget.largeImage.a.b(this.mImageView.getMeasuredWidth(), this.mImageView.getMeasuredHeight(), this.dLf.getImageWidthAndHeight());
-            this.dLj.setPriority(3);
-            this.dLj.execute(new String[0]);
+        if (this.mCurrentLoadType == 2 && this.dLg != null && this.dLk.getStatus() == BdAsyncTask.BdAsyncTaskStatus.PENDING && this.dLf == null && this.mImageView.getMeasuredWidth() > 0 && this.mImageView.getMeasuredHeight() > 0 && this.dLg.getImageWidthAndHeight()[0] > 0 && this.dLg.getImageWidthAndHeight()[1] > 0) {
+            this.dLf = new com.baidu.tbadk.widget.largeImage.a.b(this.mImageView.getMeasuredWidth(), this.mImageView.getMeasuredHeight(), this.dLg.getImageWidthAndHeight());
+            this.dLk.setPriority(3);
+            this.dLk.execute(new String[0]);
         }
     }
 
@@ -266,23 +266,23 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     }
 
     private boolean isBigThumbnailBlockOK() {
-        return (this.dLe == null || this.dLe.aTr() == null || this.dLe.aTr().getBitmap() == null || this.dLe.aTr().getBitmap().isRecycled()) ? false : true;
+        return (this.dLf == null || this.dLf.aTt() == null || this.dLf.aTt().getBitmap() == null || this.dLf.aTt().getBitmap().isRecycled()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean onDraw(Canvas canvas) {
         if (this.mCurrentLoadType != 1 || this.mOriginalBitmap == null) {
-            if (this.dLe != null) {
-                this.dLe.getWindowInOriginalBitmap();
+            if (this.dLf != null) {
+                this.dLf.getWindowInOriginalBitmap();
                 if (isBigThumbnailBlockOK()) {
-                    canvas.drawBitmap(this.dLe.aTr().getBitmap(), this.mDisplayMatrix, null);
+                    canvas.drawBitmap(this.dLf.aTt().getBitmap(), this.mDisplayMatrix, null);
                 }
-                a(this.dLe, false);
+                a(this.dLf, false);
                 updateAllBitmapBlock();
                 canvas.save();
-                float sampleScale = (1.0f * this.dLe.getSampleScale()) / this.dLe.getScaleLevel();
+                float sampleScale = (1.0f * this.dLf.getSampleScale()) / this.dLf.getScaleLevel();
                 canvas.scale(sampleScale, sampleScale);
-                List<com.baidu.tbadk.widget.largeImage.a.a> blockBitmapList = this.dLe.getBlockBitmapList();
+                List<com.baidu.tbadk.widget.largeImage.a.a> blockBitmapList = this.dLf.getBlockBitmapList();
                 if (blockBitmapList != null) {
                     for (com.baidu.tbadk.widget.largeImage.a.a aVar : blockBitmapList) {
                         canvas.drawBitmap(aVar.getBitmap(), aVar.getSrc(), aVar.getDst(), (Paint) null);
@@ -314,14 +314,14 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         if (this.scaleAnimator != null) {
             this.scaleAnimator.cancel();
         }
-        if (this.dLj != null) {
-            this.dLj.cancel();
+        if (this.dLk != null) {
+            this.dLk.cancel();
         }
-        if (this.dLh != null) {
-            this.dLh.onDestory();
+        if (this.dLi != null) {
+            this.dLi.onDestory();
         }
-        if (this.dLe != null && this.dLe.getBlockBitmapList() != null) {
-            this.dLe.getBlockBitmapList().clear();
+        if (this.dLf != null && this.dLf.getBlockBitmapList() != null) {
+            this.dLf.getBlockBitmapList().clear();
         }
         if (this.mThumbnailBitmap != null) {
             this.mThumbnailBitmap.recycle();
@@ -333,20 +333,20 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     }
 
     private void updateAllBitmapBlock() {
-        List<com.baidu.tbadk.widget.largeImage.a.a> blockBitmapList = this.dLe.getBlockBitmapList();
+        List<com.baidu.tbadk.widget.largeImage.a.a> blockBitmapList = this.dLf.getBlockBitmapList();
         if (blockBitmapList != null) {
             for (com.baidu.tbadk.widget.largeImage.a.a aVar : blockBitmapList) {
-                a(aVar, this.dLe);
+                a(aVar, this.dLf);
             }
         }
     }
 
     public void a(com.baidu.tbadk.widget.largeImage.logic.a aVar) {
-        this.dLi = aVar;
+        this.dLj = aVar;
     }
 
     public void a(com.baidu.tbadk.widget.largeImage.a.a aVar, com.baidu.tbadk.widget.largeImage.a.b bVar) {
-        if (aVar.aTp().getColumn() == 0 && aVar.aTp().getRow() == 1) {
+        if (aVar.aTr().getColumn() == 0 && aVar.aTr().getRow() == 1) {
             System.currentTimeMillis();
         }
         a(aVar, bVar.a(aVar), bVar.getWindowInOriginalBitmap());
@@ -357,7 +357,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         int i2 = rect.right < rect2.right ? rect.right : rect2.right;
         int i3 = rect.top > rect2.top ? rect.top : rect2.top;
         int i4 = rect.bottom < rect2.bottom ? rect.bottom : rect2.bottom;
-        int sampleScale = aVar.aTp().getSampleScale();
+        int sampleScale = aVar.aTr().getSampleScale();
         aVar.setSrcRect((i - rect.left) / sampleScale, (i3 - rect.top) / sampleScale, (i2 - rect.left) / sampleScale, (i4 - rect.top) / sampleScale);
         aVar.setDstRect((i - rect2.left) / sampleScale, (i3 - rect2.top) / sampleScale, (i2 - rect2.left) / sampleScale, (i4 - rect2.top) / sampleScale);
     }
@@ -370,8 +370,8 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         int i2;
         boolean z2;
         List<com.baidu.tbadk.widget.largeImage.a.a> list;
-        if (this.dLh == null) {
-            this.dLh = new com.baidu.tbadk.widget.largeImage.b.c(this.dLe, this.mBitmapRegionDecoder);
+        if (this.dLi == null) {
+            this.dLi = new com.baidu.tbadk.widget.largeImage.b.c(this.dLf, this.mBitmapRegionDecoder);
         }
         int i3 = pointArr[0].y;
         int i4 = pointArr[0].x;
@@ -382,7 +382,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
             z2 = true;
             list = null;
         } else {
-            List<com.baidu.tbadk.widget.largeImage.a.a> blockBitmapList = this.dLe.getBlockBitmapList();
+            List<com.baidu.tbadk.widget.largeImage.a.a> blockBitmapList = this.dLf.getBlockBitmapList();
             blockBitmapList.clear();
             i2 = i3;
             z2 = true;
@@ -405,28 +405,28 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
             i2++;
         }
         if (z2) {
-            this.dLh.clearAllTask();
+            this.dLi.clearAllTask();
         }
     }
 
     public void findNeedLoadBitmapBlockAndSumitTask() {
         if (this.mCurrentLoadType != 1) {
-            a(this.dLe, true);
+            a(this.dLf, true);
         }
     }
 
     private void startTask(int i, int i2, int i3) {
         c.a aVar = new c.a(i, i2, i3);
         aVar.b(this);
-        this.dLh.a(aVar);
+        this.dLi.a(aVar);
     }
 
     private com.baidu.tbadk.widget.largeImage.a.a A(int i, int i2, int i3) {
         com.baidu.tbadk.widget.largeImage.a.a aVar;
         a.C0398a c0398a = new a.C0398a(i, i2, i3);
-        if (this.dLh.aTt() != null && (aVar = this.dLh.aTt().get(c0398a)) != null) {
+        if (this.dLi.aTv() != null && (aVar = this.dLi.aTv().get(c0398a)) != null) {
             if (aVar.getBitmap() == null || aVar.getBitmap().isRecycled()) {
-                this.dLh.aTt().remove(c0398a);
+                this.dLi.aTv().remove(c0398a);
                 return null;
             }
             return aVar;
@@ -465,14 +465,14 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            Rect windowInOriginalBitmap = b.this.dLe.getWindowInOriginalBitmap();
-            Rect originalBitmapRect = b.this.dLe.getOriginalBitmapRect();
+            Rect windowInOriginalBitmap = b.this.dLf.getWindowInOriginalBitmap();
+            Rect originalBitmapRect = b.this.dLf.getOriginalBitmapRect();
             float f3 = windowInOriginalBitmap.right - originalBitmapRect.right;
             float f4 = windowInOriginalBitmap.left - originalBitmapRect.left;
             float f5 = windowInOriginalBitmap.bottom - originalBitmapRect.bottom;
             float f6 = windowInOriginalBitmap.top - originalBitmapRect.top;
-            b.this.dLg.forceFinished(true);
-            b.this.dLg.fling((int) 0.0f, (int) 0.0f, (int) f, (int) f2, (int) f3, (int) f4, (int) f5, (int) f6);
+            b.this.dLh.forceFinished(true);
+            b.this.dLh.fling((int) 0.0f, (int) 0.0f, (int) f, (int) f2, (int) f3, (int) f4, (int) f5, (int) f6);
             b.this.mImageView.invalidate();
             if (Math.abs(f2) > b.TOUCH_SLOP) {
                 b.this.mIsYScrollInLastAction = true;
@@ -538,17 +538,17 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         if (this.mCurrentScaled * f > this.mMaxScale) {
             f = this.mMaxScale / this.mCurrentScaled;
         }
-        Rect windowInOriginalBitmap = this.dLe.getWindowInOriginalBitmap();
+        Rect windowInOriginalBitmap = this.dLf.getWindowInOriginalBitmap();
         float f4 = ((windowInOriginalBitmap.left + windowInOriginalBitmap.right) * 1.0f) / 2.0f;
         float f5 = ((windowInOriginalBitmap.bottom + windowInOriginalBitmap.top) * 1.0f) / 2.0f;
-        if (this.dLe != null) {
-            this.mDisplayMatrix.postScale(f, f, this.dLe.getRealWidth() / 2, this.dLe.getRealHeight() / 2);
-            this.dLe.postScaleWindow(1.0f / f, f4, f5);
+        if (this.dLf != null) {
+            this.mDisplayMatrix.postScale(f, f, this.dLf.getRealWidth() / 2, this.dLf.getRealHeight() / 2);
+            this.dLf.postScaleWindow(1.0f / f, f4, f5);
             this.mCurrentScaled *= f;
-            this.dLe.setScaleLevel(1.0f / this.mCurrentScaled);
+            this.dLf.setScaleLevel(1.0f / this.mCurrentScaled);
             float[] checkPosition = checkPosition();
             this.mDisplayMatrix.postTranslate(-checkPosition[0], -checkPosition[1]);
-            this.dLe.moveWindow((checkPosition[0] * 1.0f) / this.mCurrentScaled, (checkPosition[1] * 1.0f) / this.mCurrentScaled);
+            this.dLf.moveWindow((checkPosition[0] * 1.0f) / this.mCurrentScaled, (checkPosition[1] * 1.0f) / this.mCurrentScaled);
             findNeedLoadBitmapBlockAndSumitTask();
             this.mImageView.invalidate();
         }
@@ -556,12 +556,12 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
 
     public boolean isAtViewTop() {
         Rect windowInOriginalBitmap;
-        return (this.dLe == null || (windowInOriginalBitmap = this.dLe.getWindowInOriginalBitmap()) == null || windowInOriginalBitmap.top > 10) ? false : true;
+        return (this.dLf == null || (windowInOriginalBitmap = this.dLf.getWindowInOriginalBitmap()) == null || windowInOriginalBitmap.top > 10) ? false : true;
     }
 
     private float[] checkPosition() {
-        Rect windowInOriginalBitmap = this.dLe.getWindowInOriginalBitmap();
-        int[] imageWidthAndHeight = this.dLf.getImageWidthAndHeight();
+        Rect windowInOriginalBitmap = this.dLf.getWindowInOriginalBitmap();
+        int[] imageWidthAndHeight = this.dLg.getImageWidthAndHeight();
         float[] fArr = {(imageWidthAndHeight[0] / 2) - (((windowInOriginalBitmap.left + windowInOriginalBitmap.right) * 1.0f) / 2.0f)};
         if (windowInOriginalBitmap.top < 0) {
             fArr[1] = 0 - windowInOriginalBitmap.top;
@@ -579,8 +579,8 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initViewPointWindow() {
-        if (this.dLe != null) {
-            this.dLe.postScaleWindow(1.0f / this.mInitScale);
+        if (this.dLf != null) {
+            this.dLf.postScaleWindow(1.0f / this.mInitScale);
         }
     }
 

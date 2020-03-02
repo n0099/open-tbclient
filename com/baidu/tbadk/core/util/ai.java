@@ -13,8 +13,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ai {
     private BdUniqueId MO;
-    private a cZS;
-    private HttpMessageListener cZT = new HttpMessageListener(1003396) { // from class: com.baidu.tbadk.core.util.ai.1
+    private a cZT;
+    private HttpMessageListener cZU = new HttpMessageListener(1003396) { // from class: com.baidu.tbadk.core.util.ai.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -22,8 +22,8 @@ public class ai {
             if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
                 long longValue = ((Long) orginalMessage.getExtra()).longValue();
                 boolean z = httpResponsedMessage.getOrginalMessage().getTag() == ai.this.MO;
-                if (ai.this.cZS != null) {
-                    ai.this.cZS.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                if (ai.this.cZT != null) {
+                    ai.this.cZT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
                 }
             }
         }
@@ -38,12 +38,12 @@ public class ai {
     public ai(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.MO = bdUniqueId;
-        this.cZT.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.cZT);
-        aGp();
+        this.cZU.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.cZU);
+        aGr();
     }
 
-    private static void aGp() {
+    private static void aGr() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003396, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -61,6 +61,6 @@ public class ai {
     }
 
     public void a(a aVar) {
-        this.cZS = aVar;
+        this.cZT = aVar;
     }
 }

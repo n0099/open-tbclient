@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout ifb;
-    private TextView ifc;
-    private TextView ifd;
+    private RelativeLayout ifd;
+    private TextView ife;
+    private TextView iff;
     private Context mContext;
     private TbPageContext<?> mTbPageContext;
 
@@ -39,13 +39,13 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
-        this.ifb = (RelativeLayout) findViewById(R.id.focusbar_container);
-        this.ifd = (TextView) findViewById(R.id.focusbar_hint);
-        am.setViewTextColor(this.ifd, R.color.cp_cont_c, 1);
-        this.ifd.setVisibility(8);
-        this.ifc = (TextView) findViewById(R.id.focusbar_show);
-        am.setViewTextColor(this.ifc, R.color.cp_link_tip_a, 1);
-        this.ifc.setVisibility(8);
+        this.ifd = (RelativeLayout) findViewById(R.id.focusbar_container);
+        this.iff = (TextView) findViewById(R.id.focusbar_hint);
+        am.setViewTextColor(this.iff, R.color.cp_cont_c, 1);
+        this.iff.setVisibility(8);
+        this.ife = (TextView) findViewById(R.id.focusbar_show);
+        am.setViewTextColor(this.ife, R.color.cp_link_tip_a, 1);
+        this.ife.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

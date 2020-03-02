@@ -29,26 +29,26 @@ public final class b implements TypeAdapterFactory {
 
     /* loaded from: classes7.dex */
     private static final class a<E> extends TypeAdapter<Collection<E>> {
-        private final TypeAdapter<E> mLg;
-        private final com.google.gson.internal.f<? extends Collection<E>> mLh;
+        private final TypeAdapter<E> mLi;
+        private final com.google.gson.internal.f<? extends Collection<E>> mLj;
 
         public a(Gson gson, Type type, TypeAdapter<E> typeAdapter, com.google.gson.internal.f<? extends Collection<E>> fVar) {
-            this.mLg = new m(gson, typeAdapter, type);
-            this.mLh = fVar;
+            this.mLi = new m(gson, typeAdapter, type);
+            this.mLj = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: b */
         public Collection<E> read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.dAR() == JsonToken.NULL) {
-                aVar.dAW();
+            if (aVar.dAT() == JsonToken.NULL) {
+                aVar.dAY();
                 return null;
             }
-            Collection<E> construct = this.mLh.construct();
-            aVar.dAP();
+            Collection<E> construct = this.mLj.construct();
+            aVar.dAR();
             while (aVar.hasNext()) {
-                construct.add(this.mLg.read(aVar));
+                construct.add(this.mLi.read(aVar));
             }
             aVar.endArray();
             return construct;
@@ -59,14 +59,14 @@ public final class b implements TypeAdapterFactory {
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                bVar.dBg();
+                bVar.dBi();
                 return;
             }
-            bVar.dBc();
+            bVar.dBe();
             for (E e : collection) {
-                this.mLg.write(bVar, e);
+                this.mLi.write(bVar, e);
             }
-            bVar.dBd();
+            bVar.dBf();
         }
     }
 }

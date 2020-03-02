@@ -26,15 +26,15 @@ public class b {
     private Context a;
     private ImageView h;
     private View l;
-    private LivePkFirstKillView mUA;
-    private LivePKPrepareAnimView mUB;
-    private a mUC;
-    private LivePKBar mUu;
-    private LivePKBarUserValue mUv;
-    private LivePKBarStatus mUw;
-    private AnimationSet mUx;
-    private LivePKResultView mUy;
-    private LivePKMvpView mUz;
+    private LivePKResultView mUA;
+    private LivePKMvpView mUB;
+    private LivePkFirstKillView mUC;
+    private LivePKPrepareAnimView mUD;
+    private a mUE;
+    private LivePKBar mUw;
+    private LivePKBarUserValue mUx;
+    private LivePKBarStatus mUy;
+    private AnimationSet mUz;
     private final int b = 30;
     private final int c = 10;
     private final float d = 0.2f;
@@ -47,33 +47,33 @@ public class b {
 
     public void a(View view, View view2, Context context, a aVar) {
         this.a = context;
-        this.mUu = (LivePKBar) view.findViewById(a.f.live_pk_bar);
-        this.mUy = (LivePKResultView) view.findViewById(a.f.live_pk_result_anim_view);
-        this.mUz = (LivePKMvpView) view.findViewById(a.f.live_pk_mvp_anim_view);
+        this.mUw = (LivePKBar) view.findViewById(a.f.live_pk_bar);
+        this.mUA = (LivePKResultView) view.findViewById(a.f.live_pk_result_anim_view);
+        this.mUB = (LivePKMvpView) view.findViewById(a.f.live_pk_mvp_anim_view);
         this.h = (ImageView) view.findViewById(a.f.img_live_pk_last_ten);
-        this.mUA = (LivePkFirstKillView) view.findViewById(a.f.live_pk_first_blood_view);
-        this.mUB = (LivePKPrepareAnimView) view.findViewById(a.f.live_pk_prepare);
+        this.mUC = (LivePkFirstKillView) view.findViewById(a.f.live_pk_first_blood_view);
+        this.mUD = (LivePKPrepareAnimView) view.findViewById(a.f.live_pk_prepare);
         this.l = view2;
-        this.mUC = aVar;
+        this.mUE = aVar;
         d();
     }
 
     public void a(LivePKBarUserValue livePKBarUserValue, View view, View view2, Context context, a aVar) {
         this.a = context;
-        this.mUv = livePKBarUserValue;
-        this.mUw = (LivePKBarStatus) view.findViewById(a.f.live_pk_bar_status);
-        this.mUy = (LivePKResultView) view.findViewById(a.f.live_pk_result_anim_view);
-        this.mUz = (LivePKMvpView) view.findViewById(a.f.live_pk_mvp_anim_view);
+        this.mUx = livePKBarUserValue;
+        this.mUy = (LivePKBarStatus) view.findViewById(a.f.live_pk_bar_status);
+        this.mUA = (LivePKResultView) view.findViewById(a.f.live_pk_result_anim_view);
+        this.mUB = (LivePKMvpView) view.findViewById(a.f.live_pk_mvp_anim_view);
         this.h = (ImageView) view.findViewById(a.f.img_live_pk_last_ten);
-        this.mUA = (LivePkFirstKillView) view.findViewById(a.f.live_pk_first_blood_view);
-        this.mUB = (LivePKPrepareAnimView) view.findViewById(a.f.live_pk_prepare);
+        this.mUC = (LivePkFirstKillView) view.findViewById(a.f.live_pk_first_blood_view);
+        this.mUD = (LivePKPrepareAnimView) view.findViewById(a.f.live_pk_prepare);
         this.l = view2;
-        this.mUC = aVar;
+        this.mUE = aVar;
         d();
     }
 
     private void d() {
-        this.mUx = (AnimationSet) AnimationUtils.loadAnimation(this.a, a.C0690a.pk_live_online_count_down_last_three);
+        this.mUz = (AnimationSet) AnimationUtils.loadAnimation(this.a, a.C0690a.pk_live_online_count_down_last_three);
         LivePKBar.b bVar = new LivePKBar.b() { // from class: com.kascend.chushou.player.e.b.1
             @Override // com.kascend.chushou.player.ui.pk.LivePKBar.b
             public void a(long j) {
@@ -88,12 +88,12 @@ public class b {
             public void b(long j) {
             }
         };
-        if (this.mUu != null) {
-            this.mUu.setClickListener(new LivePKBar.a() { // from class: com.kascend.chushou.player.e.b.2
+        if (this.mUw != null) {
+            this.mUw.setClickListener(new LivePKBar.a() { // from class: com.kascend.chushou.player.e.b.2
                 @Override // com.kascend.chushou.player.ui.pk.LivePKBar.a
                 public void w(long j, int i) {
-                    if (b.this.mUC != null) {
-                        b.this.mUC.a(i);
+                    if (b.this.mUE != null) {
+                        b.this.mUE.a(i);
                     }
                 }
 
@@ -122,17 +122,17 @@ public class b {
                     }
                 }
             });
-            this.mUu.setCounterListener(bVar);
-        }
-        if (this.mUw != null) {
             this.mUw.setCounterListener(bVar);
         }
-        if (this.mUv != null) {
-            this.mUv.setClickListener(new LivePKBarUserValue.a() { // from class: com.kascend.chushou.player.e.b.3
+        if (this.mUy != null) {
+            this.mUy.setCounterListener(bVar);
+        }
+        if (this.mUx != null) {
+            this.mUx.setClickListener(new LivePKBarUserValue.a() { // from class: com.kascend.chushou.player.e.b.3
                 @Override // com.kascend.chushou.player.ui.pk.LivePKBarUserValue.a
                 public void w(long j, int i) {
-                    if (b.this.mUC != null) {
-                        b.this.mUC.a(i);
+                    if (b.this.mUE != null) {
+                        b.this.mUE.a(i);
                     }
                 }
 
@@ -161,74 +161,74 @@ public class b {
     }
 
     public void a(int i, int i2) {
-        if (this.mUu != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mUu.getLayoutParams();
+        if (this.mUw != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mUw.getLayoutParams();
             layoutParams.bottomMargin = i;
-            this.mUu.setLayoutParams(layoutParams);
+            this.mUw.setLayoutParams(layoutParams);
         }
     }
 
     public void a(int i, long j, long j2, int i2, int i3) {
-        if (this.mUA != null) {
-            this.mUA.a();
+        if (this.mUC != null) {
+            this.mUC.a();
         }
         if (i2 == 2) {
-            if (this.mUu != null) {
-                this.mUu.b();
-            }
             if (this.mUw != null) {
                 this.mUw.b();
             }
-        }
-        if (this.mUu != null) {
-            this.mUu.a(j);
+            if (this.mUy != null) {
+                this.mUy.b();
+            }
         }
         if (this.mUw != null) {
             this.mUw.a(j);
         }
+        if (this.mUy != null) {
+            this.mUy.a(j);
+        }
         if (i == 0) {
-            if (this.mUu != null) {
-                this.mUu.b(i3, false);
-            }
             if (this.mUw != null) {
                 this.mUw.b(i3, false);
             }
+            if (this.mUy != null) {
+                this.mUy.b(i3, false);
+            }
             if (i2 == 2) {
-                this.mUy.d();
+                this.mUA.d();
             } else {
-                this.mUy.b(false);
+                this.mUA.b(false);
             }
             b();
         } else if (i == 1) {
-            if (this.mUu != null) {
-                this.mUu.b(i3, j2, false);
-            }
-            if (this.mUv != null) {
-                this.mUv.b(j2);
-            }
             if (this.mUw != null) {
-                this.mUw.a(i3, false);
+                this.mUw.b(i3, j2, false);
+            }
+            if (this.mUx != null) {
+                this.mUx.b(j2);
+            }
+            if (this.mUy != null) {
+                this.mUy.a(i3, false);
             }
             if (i2 == 2) {
-                this.mUy.c(true);
+                this.mUA.c(true);
             } else {
-                this.mUy.a(true, false);
+                this.mUA.a(true, false);
             }
             b();
         } else {
-            if (this.mUu != null) {
-                this.mUu.a(i3, j2, false);
-            }
-            if (this.mUv != null) {
-                this.mUv.a(j2);
-            }
             if (this.mUw != null) {
-                this.mUw.a(i3, false);
+                this.mUw.a(i3, j2, false);
+            }
+            if (this.mUx != null) {
+                this.mUx.a(j2);
+            }
+            if (this.mUy != null) {
+                this.mUy.a(i3, false);
             }
             if (i2 == 2) {
-                this.mUy.c(false);
+                this.mUA.c(false);
             } else {
-                this.mUy.a(false, false);
+                this.mUA.a(false, false);
             }
             b();
         }
@@ -237,18 +237,18 @@ public class b {
     public void w(long j, int i) {
         tv.chushou.zues.utils.e.d("guohe", "PkViewController.updateLivePkStop(): maxTime = " + j);
         if (i == 2) {
-            if (this.mUu != null) {
-                this.mUu.b();
-            }
             if (this.mUw != null) {
                 this.mUw.b();
             }
-        } else {
-            if (this.mUu != null) {
-                this.mUu.a(j);
+            if (this.mUy != null) {
+                this.mUy.b();
             }
+        } else {
             if (this.mUw != null) {
                 this.mUw.a(j);
+            }
+            if (this.mUy != null) {
+                this.mUy.a(j);
             }
         }
         a(-1);
@@ -258,90 +258,90 @@ public class b {
 
     public void a(int i, long j, final String str, final String str2, long j2, int i2, int i3) {
         tv.chushou.zues.utils.e.d("guohe", "PkViewController.updateLivePkResult(): result = " + i);
-        if (this.mUA != null) {
-            this.mUA.a();
+        if (this.mUC != null) {
+            this.mUC.a();
         }
         if (i2 == 2) {
-            if (this.mUu != null) {
-                this.mUu.b();
-            }
             if (this.mUw != null) {
                 this.mUw.b();
             }
+            if (this.mUy != null) {
+                this.mUy.b();
+            }
         }
         if (i == 0) {
-            if (this.mUu != null) {
-                this.mUu.b(i3, false);
-            }
             if (this.mUw != null) {
                 this.mUw.b(i3, false);
             }
-            this.mUy.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.4
+            if (this.mUy != null) {
+                this.mUy.b(i3, false);
+            }
+            this.mUA.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.4
                 @Override // com.kascend.chushou.player.ui.pk.LivePKResultView.a
                 public void a() {
                     b.this.a();
                 }
             });
             if (i2 == 2) {
-                this.mUy.d();
+                this.mUA.d();
             } else {
-                this.mUy.a();
+                this.mUA.a();
             }
             b();
         } else if (i == 1) {
-            if (this.mUu != null) {
-                this.mUu.b(i3, j, false);
-            }
-            if (this.mUv != null) {
-                this.mUv.b(j);
-            }
             if (this.mUw != null) {
-                this.mUw.a(i3, false);
+                this.mUw.b(i3, j, false);
             }
-            this.mUz.setCallback(new LivePKMvpView.a() { // from class: com.kascend.chushou.player.e.b.5
+            if (this.mUx != null) {
+                this.mUx.b(j);
+            }
+            if (this.mUy != null) {
+                this.mUy.a(i3, false);
+            }
+            this.mUB.setCallback(new LivePKMvpView.a() { // from class: com.kascend.chushou.player.e.b.5
                 @Override // com.kascend.chushou.player.ui.pk.LivePKMvpView.a
                 public void a() {
                     b.this.a();
                 }
             });
-            this.mUy.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.6
+            this.mUA.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.6
                 @Override // com.kascend.chushou.player.ui.pk.LivePKResultView.a
                 public void a() {
-                    b.this.mUz.a(str, str2);
+                    b.this.mUB.a(str, str2);
                 }
             });
             if (i2 == 2) {
-                this.mUy.c(true);
+                this.mUA.c(true);
             } else {
-                this.mUy.a(true);
+                this.mUA.a(true);
             }
             b();
         } else {
-            if (this.mUu != null) {
-                this.mUu.a(i3, j, false);
-            }
-            if (this.mUv != null) {
-                this.mUv.a(j);
-            }
             if (this.mUw != null) {
-                this.mUw.a(i3, false);
+                this.mUw.a(i3, j, false);
             }
-            this.mUz.setCallback(new LivePKMvpView.a() { // from class: com.kascend.chushou.player.e.b.7
+            if (this.mUx != null) {
+                this.mUx.a(j);
+            }
+            if (this.mUy != null) {
+                this.mUy.a(i3, false);
+            }
+            this.mUB.setCallback(new LivePKMvpView.a() { // from class: com.kascend.chushou.player.e.b.7
                 @Override // com.kascend.chushou.player.ui.pk.LivePKMvpView.a
                 public void a() {
                     b.this.a();
                 }
             });
-            this.mUy.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.8
+            this.mUA.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.8
                 @Override // com.kascend.chushou.player.ui.pk.LivePKResultView.a
                 public void a() {
-                    b.this.mUz.a(str, str2);
+                    b.this.mUB.a(str, str2);
                 }
             });
             if (i2 == 2) {
-                this.mUy.c(false);
+                this.mUA.c(false);
             } else {
-                this.mUy.a(false);
+                this.mUA.a(false);
             }
             b();
         }
@@ -359,18 +359,18 @@ public class b {
                     } else if (specialMoment.type == 2) {
                         a(true, h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                     } else if (specialMoment.type == 3) {
-                        if (this.mUv != null) {
-                            this.mUv.c(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
+                        if (this.mUx != null) {
+                            this.mUx.c(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                         }
-                        if (this.mUu != null) {
-                            this.mUu.c(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
+                        if (this.mUw != null) {
+                            this.mUw.c(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                         }
                     } else if (specialMoment.type == 4) {
-                        if (this.mUv != null) {
-                            this.mUv.c(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
+                        if (this.mUx != null) {
+                            this.mUx.c(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                         }
-                        if (this.mUu != null) {
-                            this.mUu.c(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
+                        if (this.mUw != null) {
+                            this.mUw.c(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                         }
                     }
                     i = i2 + 1;
@@ -384,11 +384,11 @@ public class b {
     public void a(PkNotifyInfo pkNotifyInfo) {
         tv.chushou.zues.utils.e.d("guohe", "PkViewController.updateLivePkBar(): ");
         if (pkNotifyInfo != null && pkNotifyInfo.mPkUpdateInfo != null) {
-            if (this.mUu != null) {
-                this.mUu.a(h.parseLong(pkNotifyInfo.mPkUpdateInfo.receiveCount), h.parseLong(pkNotifyInfo.mPkUpdateInfo.opponentReceiveCount));
+            if (this.mUw != null) {
+                this.mUw.a(h.parseLong(pkNotifyInfo.mPkUpdateInfo.receiveCount), h.parseLong(pkNotifyInfo.mPkUpdateInfo.opponentReceiveCount));
             }
-            if (this.mUv != null) {
-                this.mUv.a(h.parseLong(pkNotifyInfo.mPkUpdateInfo.receiveCount), h.parseLong(pkNotifyInfo.mPkUpdateInfo.opponentReceiveCount));
+            if (this.mUx != null) {
+                this.mUx.a(h.parseLong(pkNotifyInfo.mPkUpdateInfo.receiveCount), h.parseLong(pkNotifyInfo.mPkUpdateInfo.opponentReceiveCount));
             }
             LinkedHashMap<Long, String> linkedHashMap = new LinkedHashMap<>();
             if (!h.isEmpty(pkNotifyInfo.mPkUpdateInfo.rewardList)) {
@@ -408,59 +408,59 @@ public class b {
                     }
                 }
             }
-            if (this.mUu != null) {
-                this.mUu.a(linkedHashMap, linkedHashMap2);
+            if (this.mUw != null) {
+                this.mUw.a(linkedHashMap, linkedHashMap2);
             }
-            if (this.mUv != null) {
-                this.mUv.a(linkedHashMap, linkedHashMap2);
+            if (this.mUx != null) {
+                this.mUx.a(linkedHashMap, linkedHashMap2);
             }
         }
     }
 
     public void b(PkNotifyInfo pkNotifyInfo, boolean z) {
         tv.chushou.zues.utils.e.d("guohe", "PkViewController.showLivePkStartAnim(): pkNotifyInfo.mMaxPKDuration = " + pkNotifyInfo.mMaxPKDuration + ", pkNotifyInfo.mPkUpdateInfo.remainDuration = " + pkNotifyInfo.mPkUpdateInfo.remainDuration + ", inner = " + z);
-        if (this.mUu != null) {
-            this.mUu.setVisibility(0);
-            this.mUu.c();
-            if (!z) {
-                a(pkNotifyInfo);
-            }
-            this.mUu.e();
-            if (pkNotifyInfo.destinyInfo != null && pkNotifyInfo.destinyInfo.destinyId != 0) {
-                this.mUu.a(2, pkNotifyInfo.destinyInfo.pkBarIcon, pkNotifyInfo.destinyInfo.pkBarKey);
-                this.mUu.b(2);
-            } else {
-                this.mUu.a(1, "", "");
-                this.mUu.d();
-            }
-            this.mUu.a(30);
-            this.mUu.a(0.2f);
-            if (z) {
-                this.mUu.b(pkNotifyInfo.mMaxPKDuration);
-            } else {
-                this.mUu.b(pkNotifyInfo.mPkUpdateInfo.remainDuration);
-            }
-        }
-        if (this.mUw != null && this.mUv != null) {
+        if (this.mUw != null) {
             this.mUw.setVisibility(0);
             this.mUw.c();
             if (!z) {
                 a(pkNotifyInfo);
             }
-            this.mUv.b();
+            this.mUw.e();
             if (pkNotifyInfo.destinyInfo != null && pkNotifyInfo.destinyInfo.destinyId != 0) {
-                this.mUv.a(2, pkNotifyInfo.destinyInfo.pkBarIcon, pkNotifyInfo.destinyInfo.pkBarKey);
-                this.mUv.a(2);
+                this.mUw.a(2, pkNotifyInfo.destinyInfo.pkBarIcon, pkNotifyInfo.destinyInfo.pkBarKey);
+                this.mUw.b(2);
             } else {
-                this.mUv.a(1, "", "");
-                this.mUv.e();
+                this.mUw.a(1, "", "");
+                this.mUw.d();
             }
             this.mUw.a(30);
-            this.mUv.a(0.2f);
+            this.mUw.a(0.2f);
             if (z) {
                 this.mUw.b(pkNotifyInfo.mMaxPKDuration);
             } else {
                 this.mUw.b(pkNotifyInfo.mPkUpdateInfo.remainDuration);
+            }
+        }
+        if (this.mUy != null && this.mUx != null) {
+            this.mUy.setVisibility(0);
+            this.mUy.c();
+            if (!z) {
+                a(pkNotifyInfo);
+            }
+            this.mUx.b();
+            if (pkNotifyInfo.destinyInfo != null && pkNotifyInfo.destinyInfo.destinyId != 0) {
+                this.mUx.a(2, pkNotifyInfo.destinyInfo.pkBarIcon, pkNotifyInfo.destinyInfo.pkBarKey);
+                this.mUx.a(2);
+            } else {
+                this.mUx.a(1, "", "");
+                this.mUx.e();
+            }
+            this.mUy.a(30);
+            this.mUx.a(0.2f);
+            if (z) {
+                this.mUy.b(pkNotifyInfo.mMaxPKDuration);
+            } else {
+                this.mUy.b(pkNotifyInfo.mPkUpdateInfo.remainDuration);
             }
         }
     }
@@ -472,7 +472,7 @@ public class b {
         if (i <= 10 && i > 0) {
             this.h.setVisibility(0);
             this.h.setImageResource(this.m[i - 1]);
-            this.h.startAnimation(this.mUx);
+            this.h.startAnimation(this.mUz);
         } else if (i <= 0) {
             this.h.clearAnimation();
             this.h.setVisibility(8);
@@ -480,11 +480,11 @@ public class b {
     }
 
     public void a(boolean z, boolean z2, float f) {
-        if (this.mUA != null) {
+        if (this.mUC != null) {
             if (z) {
-                this.mUA.a(z2, f);
+                this.mUC.a(z2, f);
             } else {
-                this.mUA.a();
+                this.mUC.a();
             }
         }
     }
@@ -493,11 +493,11 @@ public class b {
     }
 
     public void g(boolean z, long j) {
-        if (this.mUB != null) {
+        if (this.mUD != null) {
             if (z) {
-                this.mUB.a(j);
+                this.mUD.a(j);
             } else {
-                this.mUB.a();
+                this.mUD.a();
             }
         }
     }
@@ -515,31 +515,31 @@ public class b {
     }
 
     public void c() {
-        if (this.mUu != null) {
-            this.mUu.a();
-        }
-        if (this.mUv != null) {
-            this.mUv.a();
-        }
         if (this.mUw != null) {
             this.mUw.a();
         }
+        if (this.mUx != null) {
+            this.mUx.a();
+        }
         if (this.mUy != null) {
-            this.mUy.clearAnimation();
-            this.mUy.b();
+            this.mUy.a();
+        }
+        if (this.mUA != null) {
+            this.mUA.clearAnimation();
+            this.mUA.b();
         }
         if (this.h != null) {
             this.h.clearAnimation();
             this.h.setVisibility(8);
         }
-        if (this.mUA != null) {
-            this.mUA.a();
-        }
-        if (this.mUz != null) {
-            this.mUz.a();
+        if (this.mUC != null) {
+            this.mUC.a();
         }
         if (this.mUB != null) {
             this.mUB.a();
+        }
+        if (this.mUD != null) {
+            this.mUD.a();
         }
         a();
     }

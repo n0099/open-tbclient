@@ -11,24 +11,24 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.k;
 /* loaded from: classes3.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private HeadImageView fbb;
-    private TextView fbc;
+    private HeadImageView fbc;
     private TextView fbd;
-    private InterfaceC0460a fbe;
-    private String fbf;
+    private TextView fbe;
+    private InterfaceC0460a fbf;
     private String fbg;
     private String fbh;
     private String fbi;
     private String fbj;
+    private String fbk;
     private View mClose;
     private long roomId;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0460a {
-        void blQ();
+        void blS();
 
-        void blR();
+        void blT();
     }
 
     public a(Context context) {
@@ -45,61 +45,61 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     private void initData() {
-        this.fbb.setIsRound(true);
-        this.fbb.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
-        this.fbb.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
+        this.fbc.setIsRound(true);
+        this.fbc.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
+        this.fbc.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
     }
 
     private void initView() {
-        this.fbb = (HeadImageView) findViewById(a.g.user_icon);
-        this.fbc = (TextView) findViewById(a.g.invite_txt);
-        this.fbd = (TextView) findViewById(a.g.go_to_client);
+        this.fbc = (HeadImageView) findViewById(a.g.user_icon);
+        this.fbd = (TextView) findViewById(a.g.invite_txt);
+        this.fbe = (TextView) findViewById(a.g.go_to_client);
         this.mClose = findViewById(a.g.close);
-        k.a(this.fbb, this.fbf, true, false);
-        this.fbc.setText(this.fbg);
+        k.a(this.fbc, this.fbg, true, false);
         this.fbd.setText(this.fbh);
+        this.fbe.setText(this.fbi);
     }
 
     private void initListener() {
-        this.fbd.setOnClickListener(this);
+        this.fbe.setOnClickListener(this);
         this.mClose.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fbd) {
-            if (this.fbe != null) {
-                this.fbe.blR();
+        if (view == this.fbe) {
+            if (this.fbf != null) {
+                this.fbf.blT();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.fbi, this.fbj);
+            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.fbj, this.fbk);
         } else if (view == this.mClose) {
-            if (this.fbe != null) {
-                this.fbe.blQ();
+            if (this.fbf != null) {
+                this.fbf.blS();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.fbj);
+            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.fbk);
         }
     }
 
     public void yW(String str) {
-        this.fbf = str;
-        if (this.fbb != null) {
-            k.a(this.fbb, this.fbf, true, false);
+        this.fbg = str;
+        if (this.fbc != null) {
+            k.a(this.fbc, this.fbg, true, false);
         }
     }
 
     public void yX(String str) {
-        this.fbg = str;
-        if (this.fbc != null) {
-            this.fbc.setText(this.fbg);
+        this.fbh = str;
+        if (this.fbd != null) {
+            this.fbd.setText(this.fbh);
         }
     }
 
     public void yY(String str) {
-        this.fbh = str;
-        if (this.fbd != null) {
-            this.fbd.setText(this.fbh);
+        this.fbi = str;
+        if (this.fbe != null) {
+            this.fbe.setText(this.fbi);
         }
     }
 
@@ -108,14 +108,14 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     public void yZ(String str) {
-        this.fbi = str;
-    }
-
-    public void za(String str) {
         this.fbj = str;
     }
 
+    public void za(String str) {
+        this.fbk = str;
+    }
+
     public void a(InterfaceC0460a interfaceC0460a) {
-        this.fbe = interfaceC0460a;
+        this.fbf = interfaceC0460a;
     }
 }

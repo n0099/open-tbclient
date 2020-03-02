@@ -14,7 +14,7 @@ public class e extends f {
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.f.e eVar) {
         super.a(eVar);
-        if (eVar != null && eVar.aus()) {
+        if (eVar != null && eVar.auu()) {
             r("checkForUpdate", true);
         }
     }
@@ -30,20 +30,20 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pg() {
-        super.Pg();
-        if (this.bqb != null) {
-            Pw();
+    public void Pi() {
+        super.Pi();
+        if (this.bqc != null) {
+            Py();
             r("checkForUpdate", false);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void Pm() {
-        this.bqc.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ap.a Pv = Pv();
-        this.bqc.add(new UbcFlowEvent("na_end_update_db"));
-        if (Pv == null) {
+    protected void Po() {
+        this.bqd.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ap.a Px = Px();
+        this.bqd.add(new UbcFlowEvent("na_end_update_db"));
+        if (Px == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
             }
@@ -68,7 +68,7 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Pn() {
+    protected PMSDownloadType Pp() {
         return PMSDownloadType.ASYNC;
     }
 

@@ -19,20 +19,20 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public class LiveRecorderConfigHelper {
-    private static volatile LiveRecorderConfigHelper axu;
-    private c axs = new c();
-    private boolean axt = false;
+    private static volatile LiveRecorderConfigHelper axv;
+    private c axt = new c();
+    private boolean axu = false;
 
     public VideoResolution f(boolean z, boolean z2) {
         if (!z2) {
-            return cg(a.zj().awA.Zh);
+            return cg(a.zl().awB.Zh);
         }
         if (TbadkCoreApplication.getInst().isOther()) {
             if (z && z2) {
-                return cg(a.zj().awA.Zp);
+                return cg(a.zl().awB.Zp);
             }
             if (!z && z2) {
-                return cg(a.zj().awA.Zq);
+                return cg(a.zl().awB.Zq);
             }
             return VideoResolution.P540;
         }
@@ -55,15 +55,15 @@ public class LiveRecorderConfigHelper {
         return VideoResolution.P540;
     }
 
-    public static LiveRecorderConfigHelper ze() {
-        if (axu == null) {
+    public static LiveRecorderConfigHelper zg() {
+        if (axv == null) {
             synchronized (LiveRecorderConfigHelper.class) {
-                if (axu == null) {
-                    axu = new LiveRecorderConfigHelper();
+                if (axv == null) {
+                    axv = new LiveRecorderConfigHelper();
                 }
             }
         }
-        return axu;
+        return axv;
     }
 
     public AlaLiveVideoConfig d(int i, int i2, boolean z) {
@@ -74,15 +74,15 @@ public class LiveRecorderConfigHelper {
         if (videoResolution == null) {
             videoResolution = cg(i);
         }
-        if (i2 == 1 && !a.zj().awA.Zi) {
+        if (i2 == 1 && !a.zl().awB.Zi) {
             videoResolution = VideoResolution.P360;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(dW(a.zj().awA.Zk), dW(a.zj().awA.Zl), a.zj().awA.increaseThreshold, a.zj().awA.decreaseThreshold, a.zj().awA.increaseCount, a.zj().awA.Zi, a.zj().awA.Zj, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(dW(a.zl().awB.Zk), dW(a.zl().awB.Zl), a.zl().awB.increaseThreshold, a.zl().awB.decreaseThreshold, a.zl().awB.increaseCount, a.zl().awB.Zi, a.zl().awB.Zj, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
             isLandscape.setPreviewHeight(1280);
-            if (a.zj().awA != null) {
-                isLandscape.setSupportFaceStyle(a.zj().awA.Zu);
+            if (a.zl().awB != null) {
+                isLandscape.setSupportFaceStyle(a.zl().awB.Zu);
             }
             return isLandscape;
         } else if (i2 == 2) {

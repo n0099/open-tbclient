@@ -8,22 +8,22 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bHJ = 35;
-    private boolean bHL = false;
-    private JSONObject bVj;
+    private static int bHK = 35;
+    private boolean bHM = false;
+    private JSONObject bVk;
 
     public d() {
         this.mSource = "NA";
     }
 
     public d e(@NonNull com.baidu.swan.apps.ap.a aVar) {
-        this.mType = String.valueOf(aVar.agi());
-        bo("detail", aVar.agh().toString());
+        this.mType = String.valueOf(aVar.agk());
+        bo("detail", aVar.agj().toString());
         return this;
     }
 
     public d dV(boolean z) {
-        this.bHL = z;
+        this.bHM = z;
         return this;
     }
 
@@ -49,11 +49,11 @@ public class d extends f {
 
     public d bo(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.bVj == null) {
-                this.bVj = new JSONObject();
+            if (this.bVk == null) {
+                this.bVk = new JSONObject();
             }
             try {
-                this.bVj.put(str, str2);
+                this.bVk.put(str, str2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -63,17 +63,17 @@ public class d extends f {
 
     public d a(com.baidu.swan.apps.x.b.e eVar) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(eVar.VH())) {
-                this.mSource = eVar.VH();
+            if (!TextUtils.isEmpty(eVar.VJ())) {
+                this.mSource = eVar.VJ();
             }
             if (!TextUtils.isEmpty(eVar.getAppId())) {
                 this.mAppId = eVar.getAppId();
             }
-            if (!TextUtils.isEmpty(eVar.VJ())) {
-                this.mScheme = eVar.VJ();
+            if (!TextUtils.isEmpty(eVar.VL())) {
+                this.mScheme = eVar.VL();
             }
             if (!TextUtils.isEmpty(eVar.getPage())) {
-                this.bVt = eVar.getPage();
+                this.bVu = eVar.getPage();
             }
         }
         return this;
@@ -81,18 +81,18 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.bVk == null) {
-            this.bVk = new JSONObject();
+        if (this.bVl == null) {
+            this.bVl = new JSONObject();
         }
         try {
-            if (this.bVj != null) {
-                if (this.bHL) {
-                    String hf = ai.hf(bHJ);
+            if (this.bVk != null) {
+                if (this.bHM) {
+                    String hf = ai.hf(bHK);
                     if (!TextUtils.isEmpty(hf)) {
-                        this.bVj.put("stacktrace", hf);
+                        this.bVk.put("stacktrace", hf);
                     }
                 }
-                this.bVk.put("info", this.bVj);
+                this.bVl.put("info", this.bVk);
             }
         } catch (JSONException e) {
             if (DEBUG) {

@@ -36,7 +36,7 @@ public class c extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.JD()) {
+        if (eVar != null && eVar.JF()) {
             if (DEBUG) {
                 Log.d("ShowActionSheet", "ShowActionSheet does not supported when app is invisible.");
             }
@@ -133,18 +133,18 @@ public class c extends ab {
                 }
             });
             b.an(inflate);
-            b.acl();
+            b.acn();
             b.fT(r(context, arrayList.size()));
-            final g Pa = b.Pa();
-            Window window = Pa.getWindow();
+            final g Pc = b.Pc();
+            Window window = Pc.getWindow();
             if (window != null) {
                 window.setGravity(80);
                 window.setDimAmount(0.65f);
                 window.setLayout(af.cK(context), -2);
                 window.setWindowAnimations(a.i.action_sheet_animation);
             }
-            Pa.setEnableImmersion(false);
-            Pa.setCanceledOnTouchOutside(true);
+            Pc.setEnableImmersion(false);
+            Pc.setCanceledOnTouchOutside(true);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.4
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
@@ -152,7 +152,7 @@ public class c extends ab {
                     try {
                         jSONObject.put("tapIndex", i3);
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                        Pa.dismiss();
+                        Pc.dismiss();
                     } catch (JSONException e2) {
                         if (c.DEBUG) {
                             e2.printStackTrace();
@@ -161,7 +161,7 @@ public class c extends ab {
                     }
                 }
             });
-            Pa.show();
+            Pc.show();
             return true;
         }
         i = -1;

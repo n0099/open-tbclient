@@ -4,13 +4,13 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
     private int cols;
-    private com.baidu.adp.widget.ImageView.a dxx;
     private com.baidu.adp.widget.ImageView.a dxy;
+    private com.baidu.adp.widget.ImageView.a dxz;
     private int rows;
 
-    public abstract boolean aOF();
+    public abstract boolean aOH();
 
-    public abstract EmotionGroupType aOG();
+    public abstract EmotionGroupType aOI();
 
     public abstract int getEmotionsCount();
 
@@ -30,29 +30,29 @@ public abstract class c {
 
     public abstract com.baidu.adp.widget.ImageView.a vg(String str);
 
-    public com.baidu.adp.widget.ImageView.a aOH() {
-        return this.dxx;
+    public com.baidu.adp.widget.ImageView.a aOJ() {
+        return this.dxy;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.dxx = aVar;
+        this.dxy = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a aOI() {
-        return this.dxy;
+    public com.baidu.adp.widget.ImageView.a aOK() {
+        return this.dxz;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.dxy = aVar;
+        this.dxz = aVar;
     }
 
-    public int aOJ() {
+    public int aOL() {
         return this.cols;
     }
 
@@ -61,7 +61,7 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int aOK() {
+    public int aOM() {
         return this.rows;
     }
 

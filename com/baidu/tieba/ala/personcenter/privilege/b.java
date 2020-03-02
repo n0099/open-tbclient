@@ -14,21 +14,21 @@ import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b {
-    private AlaRefreshScoreModel fuN;
-    private a fuO;
-    CustomMessageListener fuP = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.1
+    private AlaRefreshScoreModel fuO;
+    private a fuP;
+    CustomMessageListener fuQ = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b.this.refreshCurUserScores();
         }
     };
-    CustomMessageListener fuQ = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.2
+    CustomMessageListener fuR = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.fuO != null) {
-                b.this.fuO.jX(true);
+            if (b.this.fuP != null) {
+                b.this.fuP.jX(true);
             }
         }
     };
@@ -41,12 +41,12 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.mPageContext.registerListener(this.fuP);
         this.mPageContext.registerListener(this.fuQ);
+        this.mPageContext.registerListener(this.fuR);
     }
 
     public void a(a aVar) {
-        this.fuO = aVar;
+        this.fuP = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,11 +54,11 @@ public class b {
         if (!TbadkCoreApplication.isLogin()) {
             return false;
         }
-        if (this.fuN == null) {
-            this.fuN = new AlaRefreshScoreModel();
-            this.fuN.initListener();
+        if (this.fuO == null) {
+            this.fuO = new AlaRefreshScoreModel();
+            this.fuO.initListener();
         }
-        this.fuN.refreshCurUserScores();
+        this.fuO.refreshCurUserScores();
         return true;
     }
 

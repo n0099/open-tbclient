@@ -700,7 +700,7 @@ public final class R {
         public static final int title_template = 0x7f0f0277;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f967top = 0x7f0f016c;
+        public static final int f966top = 0x7f0f016c;
         public static final int topPanel = 0x7f0f0276;
         public static final int uniform = 0x7f0f01ad;
         public static final int up = 0x7f0f015a;

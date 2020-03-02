@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes3.dex */
 public class a {
-    private long dSv;
     private long dSw;
-    private boolean dSx;
+    private long dSx;
     private boolean dSy;
-    private InterfaceC0462a fdA;
+    private boolean dSz;
+    private InterfaceC0462a fdB;
     private float mDownX;
     private float mDownY;
     private int mMaximumVelocity;
@@ -22,9 +22,9 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.liveroom.livepager.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0462a {
-        void aVj();
+        void aVl();
 
-        void aVk();
+        void aVm();
 
         void u(float f, float f2);
     }
@@ -48,40 +48,40 @@ public class a {
             case 0:
                 this.mDownX = motionEvent.getX();
                 this.mDownY = motionEvent.getY();
-                this.dSv = System.currentTimeMillis();
-                this.dSx = true;
+                this.dSw = System.currentTimeMillis();
+                this.dSy = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.dSv < 100 && currentTimeMillis - this.dSw < 500) {
-                    this.dSy = true;
+                if (currentTimeMillis - this.dSw < 100 && currentTimeMillis - this.dSx < 500) {
+                    this.dSz = true;
                 } else {
-                    this.dSy = false;
+                    this.dSz = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                 if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.mDownY - motionEvent.getY()) > 50.0f) {
+                    this.dSz = false;
                     this.dSy = false;
-                    this.dSx = false;
                 }
-                if (this.dSy) {
-                    if (this.fdA != null) {
-                        this.fdA.u(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.dSz) {
+                    if (this.fdB != null) {
+                        this.fdB.u(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.fdA != null) {
-                    this.fdA.aVk();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.fdB != null) {
+                    this.fdB.aVm();
                 }
-                if (!this.dSy && this.dSx && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
+                if (!this.dSz && this.dSy && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.livepager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.dSy && a.this.dSx && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.mDownY - motionEvent.getY()) < 30.0f && a.this.fdA != null) {
-                                a.this.fdA.aVj();
+                            if (!a.this.dSz && a.this.dSy && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.mDownY - motionEvent.getY()) < 30.0f && a.this.fdB != null) {
+                                a.this.fdB.aVl();
                             }
                         }
                     }, 300L);
                 }
-                this.dSw = currentTimeMillis;
+                this.dSx = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -92,7 +92,7 @@ public class a {
     }
 
     public void setEventListener(InterfaceC0462a interfaceC0462a) {
-        this.fdA = interfaceC0462a;
+        this.fdB = interfaceC0462a;
     }
 
     private void releaseVelocityTracker() {

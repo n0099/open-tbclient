@@ -8,24 +8,24 @@ public class b extends g {
     private Object MU;
     private int Ni;
     private int currentPage;
-    private List<m> dTd;
     private List<m> dTe;
-    private List<Object> dTf;
-    private boolean dTg;
+    private List<m> dTf;
+    private List<Object> dTg;
     private boolean dTh;
     private boolean dTi;
-    private String dTj;
+    private boolean dTj;
     private String dTk;
     private String dTl;
+    private String dTm;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.dTg = false;
         this.dTh = false;
-        this.currentPage = 0;
         this.dTi = false;
+        this.currentPage = 0;
+        this.dTj = false;
     }
 
     public Object nq() {
@@ -37,46 +37,46 @@ public class b extends g {
     }
 
     public List<m> getThreadList() {
-        return this.dTd;
-    }
-
-    public void aT(List<m> list) {
-        this.dTd = list;
-    }
-
-    public List<Object> aVF() {
-        return this.dTf;
-    }
-
-    public void aU(List<Object> list) {
-        this.dTf = list;
-    }
-
-    public List<m> aVG() {
         return this.dTe;
     }
 
-    public void aV(List<m> list) {
+    public void aT(List<m> list) {
         this.dTe = list;
     }
 
-    public boolean aVH() {
+    public List<Object> aVH() {
         return this.dTg;
     }
 
-    public void ht(boolean z) {
-        this.dTg = z;
+    public void aU(List<Object> list) {
+        this.dTg = list;
     }
 
-    public boolean aVI() {
+    public List<m> aVI() {
+        return this.dTf;
+    }
+
+    public void aV(List<m> list) {
+        this.dTf = list;
+    }
+
+    public boolean aVJ() {
         return this.dTh;
     }
 
-    public void hu(boolean z) {
+    public void ht(boolean z) {
         this.dTh = z;
     }
 
-    public int aVJ() {
+    public boolean aVK() {
+        return this.dTi;
+    }
+
+    public void hu(boolean z) {
+        this.dTi = z;
+    }
+
+    public int aVL() {
         return this.currentPage;
     }
 
@@ -92,12 +92,12 @@ public class b extends g {
         this.Ni = i;
     }
 
-    public boolean aVK() {
-        return this.dTi;
+    public boolean aVM() {
+        return this.dTj;
     }
 
     public void hv(boolean z) {
-        this.dTi = z;
+        this.dTj = z;
     }
 
     public int getPageNum() {
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String aVL() {
-        return this.dTj;
-    }
-
-    public void wj(String str) {
-        this.dTj = str;
-    }
-
-    public String aVM() {
+    public String aVN() {
         return this.dTk;
     }
 
-    public void wk(String str) {
+    public void wj(String str) {
         this.dTk = str;
     }
 
-    public String aVN() {
+    public String aVO() {
         return this.dTl;
     }
 
-    public void wl(String str) {
+    public void wk(String str) {
         this.dTl = str;
+    }
+
+    public String aVP() {
+        return this.dTm;
+    }
+
+    public void wl(String str) {
+        this.dTm = str;
     }
 }

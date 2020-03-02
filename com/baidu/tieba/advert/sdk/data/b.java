@@ -84,7 +84,7 @@ public class b {
         return (System.currentTimeMillis() / 1000 >= this.startShowTime && System.currentTimeMillis() / 1000 <= this.endShowTime) || (this.startShowTime == 0 && this.endShowTime == 0);
     }
 
-    public boolean aZg() {
+    public boolean aZi() {
         return !TextUtils.isEmpty(this.videoLocalPath);
     }
 }

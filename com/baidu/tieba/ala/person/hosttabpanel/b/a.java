@@ -5,11 +5,11 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.data.m;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.live.tieba.b.a.a implements IAdapterData {
-    public static BdUniqueId fqI = BdUniqueId.gen();
-    public m fqJ;
+    public static BdUniqueId fqJ = BdUniqueId.gen();
+    public m fqK;
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return fqI;
+        return fqJ;
     }
 }

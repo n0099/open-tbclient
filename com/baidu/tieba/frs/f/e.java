@@ -53,8 +53,8 @@ public class e {
             shareItem.title = name + tbPageContext.getString(R.string.forum);
             shareItem.content = slogan;
             shareItem.linkUrl = str2;
-            shareItem.dpN = true;
-            shareItem.dqd = 10;
+            shareItem.dpO = true;
+            shareItem.dqe = 10;
             shareItem.extData = str;
             if (parse2 != null) {
                 shareItem.imageUri = parse2;
@@ -63,8 +63,8 @@ public class e {
             shareItem2.title = name + tbPageContext.getString(R.string.forum);
             shareItem2.content = slogan;
             shareItem2.linkUrl = str2;
-            shareItem2.dpN = true;
-            shareItem2.dqd = 10;
+            shareItem2.dpO = true;
+            shareItem2.dqe = 10;
             shareItem2.extData = str;
             shareItem2.fName = frsViewData.getForum().getName();
             String str3 = frsViewData.getForum().getfShareImage();
@@ -93,7 +93,7 @@ public class e {
                     if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
                         aVar.jZ(2);
                         aVar.aO(frsPrivateShareDialogView);
-                        aVar.b(tbPageContext).aEA();
+                        aVar.b(tbPageContext).aEC();
                     }
                 }
             });
@@ -143,7 +143,7 @@ public class e {
                 }
             });
             aVar.fH(true);
-            aVar.b(frsFragment.getPageContext()).aEA();
+            aVar.b(frsFragment.getPageContext()).aEC();
             if (!k.isEmpty(h.getImageUrl())) {
                 frsShareCardView.am(h.getImageUrl(), false);
             }

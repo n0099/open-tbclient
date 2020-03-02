@@ -7,13 +7,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.g;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, g> {
-    private String enP;
-    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f erf;
-    private h erg;
+    private String enQ;
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f erg;
+    private h erh;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.elH);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.elI);
         this.mPageContext = tbPageContext;
     }
 
@@ -22,29 +22,29 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: K */
     public g b(ViewGroup viewGroup) {
-        this.erf = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
-        if (this.erg != null) {
-            this.erf.c(this.erg);
+        this.erg = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
+        if (this.erh != null) {
+            this.erg.c(this.erh);
         }
-        return new g(this.erf);
+        return new g(this.erg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, g gVar) {
-        gVar.erf.a(eVar, this.enP);
+        gVar.erg.a(eVar, this.enQ);
         return gVar.getView();
     }
 
     public void a(h hVar) {
-        this.erg = hVar;
-        if (this.erf != null) {
-            this.erf.c(this.erg);
+        this.erh = hVar;
+        if (this.erg != null) {
+            this.erg.c(this.erh);
         }
     }
 
     public void setEntryName(String str) {
-        this.enP = str;
+        this.enQ = str;
     }
 }

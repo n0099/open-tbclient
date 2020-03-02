@@ -39,11 +39,11 @@ public class e extends d {
         return this;
     }
 
-    public H5Positon dDZ() {
-        return this.ncA;
+    public H5Positon dEb() {
+        return this.ncC;
     }
 
-    public H5Positon dEa() {
-        return this.ncB;
+    public H5Positon dEc() {
+        return this.ncD;
     }
 }

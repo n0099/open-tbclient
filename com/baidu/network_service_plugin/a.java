@@ -32,7 +32,7 @@ import java.util.Map;
 import org.apache.http.HttpHost;
 /* loaded from: classes6.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private static c aPD = new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.network_service_plugin.a.1
+    private static c aPE = new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.network_service_plugin.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -54,7 +54,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                             public Void doInBackground(Void... voidArr) {
                                 if (!TextUtils.isEmpty(list)) {
-                                    d.bXZ().y(TbadkApplication.getCurrentAccount(), list, z);
+                                    d.bYb().y(TbadkApplication.getCurrentAccount(), list, z);
                                 }
                                 return null;
                             }
@@ -65,10 +65,10 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         }
     };
     protected BdUniqueId unique_id = BdUniqueId.gen();
-    private HashMap<String, FlutterNetModel> aPC = new HashMap<>();
+    private HashMap<String, FlutterNetModel> aPD = new HashMap<>();
 
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        MessageManager.getInstance().registerListener(aPD);
+        MessageManager.getInstance().registerListener(aPE);
         new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "network_service_plugin").setMethodCallHandler(new a());
     }
 
@@ -99,7 +99,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             flutterNetModel.a(new FlutterNetModel.c() { // from class: com.baidu.network_service_plugin.a.2
                 @Override // com.baidu.network_service_plugin.FlutterNetModel.c
                 public void a(HashMap<String, String> hashMap3, int i, String str4, Object obj, String str5) {
-                    a.this.aPC.remove(str5);
+                    a.this.aPD.remove(str5);
                     result.success(a.this.a(hashMap3, obj, i, str4, str5));
                 }
             });
@@ -109,7 +109,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             }
             flutterNetModel.setUniqueId(this.unique_id);
             flutterNetModel.setParams(hashMap2);
-            this.aPC.put(str3, flutterNetModel);
+            this.aPD.put(str3, flutterNetModel);
             try {
                 flutterNetModel.loadData();
             } catch (Exception e) {
@@ -124,7 +124,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     Map map = (Map) list.get(i2);
                     String str4 = (String) map.get("api");
                     ((Integer) map.get("cmd")).intValue();
-                    FlutterNetModel flutterNetModel2 = this.aPC.get((String) map.get("identifier"));
+                    FlutterNetModel flutterNetModel2 = this.aPD.get((String) map.get("identifier"));
                     if (flutterNetModel2 != null) {
                         flutterNetModel2.cancelLoadData();
                     }

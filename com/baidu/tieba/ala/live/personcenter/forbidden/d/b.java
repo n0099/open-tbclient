@@ -15,23 +15,23 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.k;
 /* loaded from: classes3.dex */
 public class b extends TypeAdapter.ViewHolder {
-    private HeadImageView eHO;
-    private TextView eKU;
+    private HeadImageView eHP;
     private TextView eKV;
-    private com.baidu.tieba.ala.live.personcenter.forbidden.b.b eMp;
+    private TextView eKW;
+    private com.baidu.tieba.ala.live.personcenter.forbidden.b.b eMq;
 
     public b(Context context, final BdUniqueId bdUniqueId) {
         super(LayoutInflater.from(context).inflate(a.h.sdk_prc_person_forbiddenlist_item, (ViewGroup) null));
-        this.eHO = (HeadImageView) getView().findViewById(a.g.view_header);
-        this.eHO.setIsRound(true);
-        this.eKU = (TextView) getView().findViewById(a.g.text_user_name);
-        this.eKV = (TextView) getView().findViewById(a.g.btn_right);
-        this.eKV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.d.b.1
+        this.eHP = (HeadImageView) getView().findViewById(a.g.view_header);
+        this.eHP.setIsRound(true);
+        this.eKV = (TextView) getView().findViewById(a.g.text_user_name);
+        this.eKW = (TextView) getView().findViewById(a.g.btn_right);
+        this.eKW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.d.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CustomMessage customMessage = new CustomMessage(2913051, b.this.eMp);
+                CustomMessage customMessage = new CustomMessage(2913051, b.this.eMq);
                 customMessage.setTag(bdUniqueId);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2913051, b.this.eMp);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2913051, b.this.eMq);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
@@ -39,8 +39,8 @@ public class b extends TypeAdapter.ViewHolder {
     }
 
     public void b(com.baidu.tieba.ala.live.personcenter.forbidden.b.b bVar) {
-        this.eMp = bVar;
-        k.a(this.eHO, bVar.getPortrait(), false, false);
-        this.eKU.setText(bVar.aMn());
+        this.eMq = bVar;
+        k.a(this.eHP, bVar.getPortrait(), false, false);
+        this.eKV.setText(bVar.aMp());
     }
 }

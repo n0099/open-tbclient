@@ -190,8 +190,8 @@ public class ImageViewerConfig extends IntentConfig {
     public ImageViewerConfig setThreadData(bj bjVar) {
         Intent intent = getIntent();
         if (bjVar != null && intent != null) {
-            intent.putExtra(IS_BJH, bjVar.aEg());
-            if (bjVar.aEg()) {
+            intent.putExtra(IS_BJH, bjVar.aEi());
+            if (bjVar.aEi()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
         }

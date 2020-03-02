@@ -17,11 +17,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class FrsHeaderBannerView extends LinearLayout implements View.OnClickListener {
-    private TbImageView gFO;
-    private TextView gFP;
-    private View gFQ;
-    private View gFR;
-    private String gFS;
+    private TbImageView gFQ;
+    private TextView gFR;
+    private View gFS;
+    private View gFT;
+    private String gFU;
     private TbPageContext mPageContext;
     private TextView titleText;
 
@@ -42,44 +42,44 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
 
     public void init() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.frs_header_banner, (ViewGroup) this, true);
-        this.gFQ = inflate.findViewById(R.id.frs_header_title_container);
-        this.gFO = (TbImageView) inflate.findViewById(R.id.frs_head_image);
+        this.gFS = inflate.findViewById(R.id.frs_header_title_container);
+        this.gFQ = (TbImageView) inflate.findViewById(R.id.frs_head_image);
         this.titleText = (TextView) inflate.findViewById(R.id.frs_header_title);
-        this.gFP = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
-        this.gFR = inflate.findViewById(R.id.frs_image_header_contianer);
-        this.gFO.setOnClickListener(this);
+        this.gFR = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
+        this.gFT = inflate.findViewById(R.id.frs_image_header_contianer);
         this.gFQ.setOnClickListener(this);
-        this.gFR.setOnClickListener(this);
-        this.gFO.setDefaultResource(0);
-        this.gFO.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
-        this.gFO.setConrers(15);
-        this.gFO.setPlaceHolder(2);
-        this.gFP.setText(getContext().getString(R.string.frs_header_image_lable));
+        this.gFS.setOnClickListener(this);
+        this.gFT.setOnClickListener(this);
+        this.gFQ.setDefaultResource(0);
+        this.gFQ.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
+        this.gFQ.setConrers(15);
+        this.gFQ.setPlaceHolder(2);
+        this.gFR.setText(getContext().getString(R.string.frs_header_image_lable));
         this.mPageContext = getTbPageContext();
     }
 
     public void setTitle(String str) {
-        if (this.titleText != null && this.gFP != null) {
+        if (this.titleText != null && this.gFR != null) {
             if (!TextUtils.isEmpty(str)) {
                 this.titleText.setText(str);
-                this.gFP.setVisibility(0);
+                this.gFR.setVisibility(0);
                 this.titleText.setVisibility(0);
                 return;
             }
-            this.gFP.setVisibility(8);
+            this.gFR.setVisibility(8);
             this.titleText.setVisibility(8);
         }
     }
 
     public void setSchemaUrl(String str) {
-        this.gFS = str;
+        this.gFU = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbPageContext<?> tbPageContext = getTbPageContext();
-        if (!TextUtils.isEmpty(this.gFS) && tbPageContext != null) {
-            ba.aGE().a(tbPageContext, new String[]{this.gFS}, true);
+        if (!TextUtils.isEmpty(this.gFU) && tbPageContext != null) {
+            ba.aGG().a(tbPageContext, new String[]{this.gFU}, true);
         }
     }
 

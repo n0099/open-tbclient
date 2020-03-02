@@ -61,14 +61,14 @@ public class d implements com.baidu.live.view.input.c {
             @Override // com.baidu.live.im.view.quick.a.InterfaceC0089a
             public void xm() {
                 if (d.this.atI != null) {
-                    d.this.atI.Bv();
+                    d.this.atI.Bx();
                 }
             }
 
             @Override // com.baidu.live.im.view.quick.a.InterfaceC0089a
             public void onDismiss() {
                 if (d.this.atI != null) {
-                    d.this.atI.Bw();
+                    d.this.atI.By();
                 }
             }
 
@@ -115,7 +115,7 @@ public class d implements com.baidu.live.view.input.c {
             this.atL = new ArrayList();
         }
         this.atL.clear();
-        com.baidu.live.data.t tVar = com.baidu.live.v.a.zj().awA;
+        com.baidu.live.data.t tVar = com.baidu.live.v.a.zl().awB;
         if (tVar != null && (quickImInputData = tVar.aaC) != null && (list = quickImInputData.sortedTexts) != null && !list.isEmpty()) {
             this.atL.addAll(list);
         }
@@ -131,7 +131,7 @@ public class d implements com.baidu.live.view.input.c {
             if (this.atL.remove(str)) {
                 this.atL.add(1, str);
             }
-            com.baidu.live.data.t tVar = com.baidu.live.v.a.zj().awA;
+            com.baidu.live.data.t tVar = com.baidu.live.v.a.zl().awB;
             if (tVar != null) {
                 QuickImInputData quickImInputData = tVar.aaC;
                 if (quickImInputData == null) {
@@ -178,7 +178,7 @@ public class d implements com.baidu.live.view.input.c {
     private List<String> xg() {
         QuickImInputData quickImInputData;
         List<String> list;
-        com.baidu.live.data.t tVar = com.baidu.live.v.a.zj().awA;
+        com.baidu.live.data.t tVar = com.baidu.live.v.a.zl().awB;
         if (tVar == null || (quickImInputData = tVar.aaC) == null || (list = quickImInputData.originTexts) == null || list.isEmpty()) {
             return null;
         }

@@ -309,7 +309,7 @@ public class EmojiconEditText extends AppCompatEditText {
         if (text != null && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(text).find()) {
             this.mTextInClipboard = text.toString();
             this.mClipboardManager.setText(HanziToPinyin.Token.SEPARATOR);
-            SpannableString a = a.Gh().a(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), this.mTextInClipboard, this);
+            SpannableString a = a.Gj().a(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), this.mTextInClipboard, this);
             int selectionStart = getSelectionStart();
             final Editable editableText = getEditableText();
             editableText.insert(selectionStart, a);
@@ -329,7 +329,7 @@ public class EmojiconEditText extends AppCompatEditText {
     public void handleDraftEmojiDisplay() {
         Editable editableText = getEditableText();
         if (!TextUtils.isEmpty(editableText) && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
-            getEditableText().replace(0, editableText.length(), a.Gh().a(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), editableText, this));
+            getEditableText().replace(0, editableText.length(), a.Gj().a(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), editableText, this));
         }
     }
 

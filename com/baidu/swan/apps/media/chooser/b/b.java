@@ -66,7 +66,7 @@ public class b {
             intent.putExtra("output", fromFile);
             intent.putExtra("android.intent.extra.durationLimit", i);
             intent.putExtra("android.intent.extra.videoQuality", 1);
-            if (z && XF()) {
+            if (z && XH()) {
                 if (com.baidu.swan.apps.as.a.hasLollipopMR1()) {
                     intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
                     intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1);
@@ -143,7 +143,7 @@ public class b {
         return videoModel;
     }
 
-    private static boolean XF() {
+    private static boolean XH() {
         int numberOfCameras = Camera.getNumberOfCameras();
         for (int i = 0; i < numberOfCameras; i++) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();

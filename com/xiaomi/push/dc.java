@@ -26,22 +26,22 @@ class dc {
     private static String a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private int f217a;
+    private int f216a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f220a;
+    private boolean f219a;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f221b;
+    private String f220b;
     private String c;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    private final SimpleDateFormat f218a = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT);
+    private final SimpleDateFormat f217a = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT);
     private int b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
-    private ArrayList<File> f219a = new ArrayList<>();
+    private ArrayList<File> f218a = new ArrayList<>();
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
         int i;
@@ -56,30 +56,30 @@ class dc {
             int i3 = 0;
             while (i2 < read && matcher.find(i2)) {
                 i = matcher.start();
-                String substring = str.substring(i, this.f221b.length() + i);
-                if (this.f220a) {
+                String substring = str.substring(i, this.f220b.length() + i);
+                if (this.f219a) {
                     if (substring.compareTo(this.c) > 0) {
                         z = true;
                         break;
                     }
-                } else if (substring.compareTo(this.f221b) >= 0) {
-                    this.f220a = true;
+                } else if (substring.compareTo(this.f220b) >= 0) {
+                    this.f219a = true;
                     i3 = i;
                 }
                 int indexOf = str.indexOf(10, i);
-                i2 = indexOf != -1 ? i + indexOf : i + this.f221b.length();
+                i2 = indexOf != -1 ? i + indexOf : i + this.f220b.length();
             }
             i = read;
             z = z2;
-            if (this.f220a) {
+            if (this.f219a) {
                 int i4 = i - i3;
-                this.f217a += i4;
+                this.f216a += i4;
                 if (z) {
                     bufferedWriter.write(cArr, i3, i4);
                     return;
                 }
                 bufferedWriter.write(cArr, i3, i4);
-                if (this.f217a > this.b) {
+                if (this.f216a > this.b) {
                     return;
                 }
             }
@@ -108,8 +108,8 @@ class dc {
                     sb.append("; andver :").append(Build.VERSION.SDK_INT);
                     sb.append("\n");
                     bufferedWriter.write(sb.toString());
-                    this.f217a = 0;
-                    Iterator<File> it = this.f219a.iterator();
+                    this.f216a = 0;
+                    Iterator<File> it = this.f218a.iterator();
                     BufferedReader bufferedReader2 = "\n";
                     while (true) {
                         try {
@@ -169,18 +169,18 @@ class dc {
     /* renamed from: a  reason: collision with other method in class */
     dc m217a(File file) {
         if (file.exists()) {
-            this.f219a.add(file);
+            this.f218a.add(file);
         }
         return this;
     }
 
     dc a(Date date, Date date2) {
         if (date.after(date2)) {
-            this.f221b = this.f218a.format(date2);
-            this.c = this.f218a.format(date);
+            this.f220b = this.f217a.format(date2);
+            this.c = this.f217a.format(date);
         } else {
-            this.f221b = this.f218a.format(date);
-            this.c = this.f218a.format(date2);
+            this.f220b = this.f217a.format(date);
+            this.c = this.f217a.format(date2);
         }
         return this;
     }

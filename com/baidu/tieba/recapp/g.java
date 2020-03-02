@@ -5,40 +5,40 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class g {
     public String forumName;
-    public int jFQ;
-    public int jFR;
     public int jFS;
+    public int jFT;
+    public int jFU;
     public int refreshCount;
 
     public g() {
         this.refreshCount = 0;
-        this.jFQ = 0;
-        this.jFR = 0;
         this.jFS = 0;
+        this.jFT = 0;
+        this.jFU = 0;
     }
 
     public g(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.jFQ = 0;
-        this.jFR = 0;
         this.jFS = 0;
+        this.jFT = 0;
+        this.jFU = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.jFQ = jSONObject.optInt("loadmore_count");
-            this.jFR = jSONObject.optInt("loadmore_count_pb");
-            this.jFS = jSONObject.optInt("refresh_count_pb");
+            this.jFS = jSONObject.optInt("loadmore_count");
+            this.jFT = jSONObject.optInt("loadmore_count_pb");
+            this.jFU = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject Jf() {
+    public JSONObject Jh() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.jFQ);
-            jSONObject.put("loadmore_count_pb", this.jFR);
-            jSONObject.put("refresh_count_pb", this.jFS);
+            jSONObject.put("loadmore_count", this.jFS);
+            jSONObject.put("loadmore_count_pb", this.jFT);
+            jSONObject.put("refresh_count_pb", this.jFU);
             return jSONObject;
         } catch (JSONException e) {
             return null;
@@ -46,20 +46,20 @@ public class g {
     }
 
     public int al(boolean z, boolean z2) {
-        return z2 ? z ? this.jFS : this.jFR : z ? this.refreshCount : this.jFQ;
+        return z2 ? z ? this.jFU : this.jFT : z ? this.refreshCount : this.jFS;
     }
 
     public void am(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.jFS++;
+                this.jFU++;
             } else {
-                this.jFR++;
+                this.jFT++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.jFQ++;
+            this.jFS++;
         }
     }
 }

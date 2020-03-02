@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes9.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
-    private float grW;
-    private float grX;
     private float grY;
     private float grZ;
-    private boolean gsa;
+    private float gsa;
+    private float gsb;
+    private boolean gsc;
     private float x;
     private float y;
 
@@ -30,11 +30,11 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.grW = motionEvent.getRawX();
-                this.grX = motionEvent.getRawY();
+                this.grY = motionEvent.getRawX();
+                this.grZ = motionEvent.getRawY();
                 ly(true);
-                if (bFE()) {
-                    this.gsa = false;
+                if (bFG()) {
+                    this.gsc = false;
                     break;
                 }
                 break;
@@ -54,15 +54,15 @@ public class FrsTabViewPager extends BdBaseViewPager {
                 ly(false);
                 break;
             case 2:
-                this.grY = this.x - this.grW;
-                this.grZ = this.y - this.grX;
-                if (this.grY < 0.0f && Math.abs(this.grY) > Math.abs(this.grZ) && bFE()) {
+                this.gsa = this.x - this.grY;
+                this.gsb = this.y - this.grZ;
+                if (this.gsa < 0.0f && Math.abs(this.gsa) > Math.abs(this.gsb) && bFG()) {
                     requestParentInterceptTouchEvent(false);
-                    if (this.gsa) {
+                    if (this.gsc) {
                         return false;
                     }
                     lz(true);
-                    this.gsa = true;
+                    this.gsc = true;
                     return false;
                 }
                 break;
@@ -72,12 +72,12 @@ public class FrsTabViewPager extends BdBaseViewPager {
 
     public void ly(boolean z) {
         a aVar = new a();
-        aVar.lA(bFE());
+        aVar.lA(bFG());
         aVar.lB(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void bFD() {
+    public void bFF() {
         ly(false);
     }
 
@@ -85,29 +85,29 @@ public class FrsTabViewPager extends BdBaseViewPager {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
     }
 
-    private boolean bFE() {
+    private boolean bFG() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes9.dex */
     public static class a {
-        private boolean gsb;
-        private boolean gsc;
+        private boolean gsd;
+        private boolean gse;
 
-        public boolean bFF() {
-            return this.gsb;
+        public boolean bFH() {
+            return this.gsd;
         }
 
         public void lA(boolean z) {
-            this.gsb = z;
+            this.gsd = z;
         }
 
-        public boolean bFG() {
-            return this.gsc;
+        public boolean bFI() {
+            return this.gse;
         }
 
         public void lB(boolean z) {
-            this.gsc = z;
+            this.gse = z;
         }
     }
 }

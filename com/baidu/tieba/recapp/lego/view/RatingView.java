@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes13.dex */
 public class RatingView extends LinearLayout {
-    private a jJA;
+    private a jJC;
     private Context mContext;
 
     /* loaded from: classes13.dex */
     public static class a {
-        public String iby;
-        public Double ibz;
+        public String ibA;
+        public Double ibB;
         public String title;
     }
 
@@ -57,7 +57,7 @@ public class RatingView extends LinearLayout {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
                         aVar.title = matcher.group(1);
                     }
-                    aVar.ibz = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.ibB = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException e) {
                     aVar.title = str;
                 }
@@ -69,19 +69,19 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.jJA = HU(str2);
-        this.jJA.iby = str;
-        ccT();
+        this.jJC = HU(str2);
+        this.jJC.ibA = str;
+        ccV();
     }
 
-    private void ccT() {
+    private void ccV() {
         int i;
         removeAllViews();
-        if (this.jJA != null) {
-            if (!TextUtils.isEmpty(this.jJA.iby)) {
+        if (this.jJC != null) {
+            if (!TextUtils.isEmpty(this.jJC.ibA)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.jJA.iby);
+                textView.setText(this.jJC.ibA);
                 textView.setTextSize(0, l.getDimens(this.mContext, R.dimen.fontsize24));
                 textView.setTextColor(am.getColor(R.color.cp_cont_d));
                 textView.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
@@ -89,10 +89,10 @@ public class RatingView extends LinearLayout {
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.jJA.title)) {
+            if (!TextUtils.isEmpty(this.jJC.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.jJA.title);
+                textView2.setText(this.jJC.title);
                 textView2.setTextSize(0, l.getDimens(this.mContext, R.dimen.fontsize24));
                 textView2.setTextColor(am.getColor(R.color.cp_cont_d));
                 textView2.setPadding(0, 0, l.getDimens(this.mContext, R.dimen.ds6), 0);
@@ -100,8 +100,8 @@ public class RatingView extends LinearLayout {
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.jJA.ibz != null && !Double.isNaN(this.jJA.ibz.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.jJA.ibz.intValue());
+            if (this.jJC.ibB != null && !Double.isNaN(this.jJC.ibB.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.jJC.ibB.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }

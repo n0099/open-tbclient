@@ -5,16 +5,16 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import com.google.android.exoplayer2.upstream.c;
 /* loaded from: classes6.dex */
 public final class i implements c, q<Object> {
-    private final Handler lYx;
-    private final c.a mFW;
-    private final com.google.android.exoplayer2.util.p mFX;
-    private final com.google.android.exoplayer2.util.b mFY;
-    private int mFZ;
-    private long mGa;
-    private long mGb;
+    private final Handler lYz;
+    private final c.a mFY;
+    private final com.google.android.exoplayer2.util.p mFZ;
+    private final com.google.android.exoplayer2.util.b mGa;
+    private int mGb;
     private long mGc;
     private long mGd;
     private long mGe;
+    private long mGf;
+    private long mGg;
 
     public i() {
         this(null, null);
@@ -25,64 +25,64 @@ public final class i implements c, q<Object> {
     }
 
     public i(Handler handler, c.a aVar, int i) {
-        this(handler, aVar, i, com.google.android.exoplayer2.util.b.mGY);
+        this(handler, aVar, i, com.google.android.exoplayer2.util.b.mHa);
     }
 
     public i(Handler handler, c.a aVar, int i, com.google.android.exoplayer2.util.b bVar) {
-        this.lYx = handler;
-        this.mFW = aVar;
-        this.mFX = new com.google.android.exoplayer2.util.p(i);
-        this.mFY = bVar;
-        this.mGe = -1L;
+        this.lYz = handler;
+        this.mFY = aVar;
+        this.mFZ = new com.google.android.exoplayer2.util.p(i);
+        this.mGa = bVar;
+        this.mGg = -1L;
     }
 
     @Override // com.google.android.exoplayer2.upstream.c
-    public synchronized long dyS() {
-        return this.mGe;
+    public synchronized long dyU() {
+        return this.mGg;
     }
 
     @Override // com.google.android.exoplayer2.upstream.q
     public synchronized void a(Object obj, g gVar) {
-        if (this.mFZ == 0) {
-            this.mGa = this.mFY.dzj();
+        if (this.mGb == 0) {
+            this.mGc = this.mGa.dzl();
         }
-        this.mFZ++;
+        this.mGb++;
     }
 
     @Override // com.google.android.exoplayer2.upstream.q
     public synchronized void h(Object obj, int i) {
-        this.mGb += i;
+        this.mGd += i;
     }
 
     @Override // com.google.android.exoplayer2.upstream.q
     public synchronized void bB(Object obj) {
-        com.google.android.exoplayer2.util.a.checkState(this.mFZ > 0);
-        long dzj = this.mFY.dzj();
-        int i = (int) (dzj - this.mGa);
-        this.mGc += i;
-        this.mGd += this.mGb;
+        com.google.android.exoplayer2.util.a.checkState(this.mGb > 0);
+        long dzl = this.mGa.dzl();
+        int i = (int) (dzl - this.mGc);
+        this.mGe += i;
+        this.mGf += this.mGd;
         if (i > 0) {
-            this.mFX.r((int) Math.sqrt(this.mGb), (float) ((this.mGb * 8000) / i));
-            if (this.mGc >= 2000 || this.mGd >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED) {
-                float bD = this.mFX.bD(0.5f);
-                this.mGe = Float.isNaN(bD) ? -1L : bD;
+            this.mFZ.r((int) Math.sqrt(this.mGd), (float) ((this.mGd * 8000) / i));
+            if (this.mGe >= 2000 || this.mGf >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED) {
+                float bD = this.mFZ.bD(0.5f);
+                this.mGg = Float.isNaN(bD) ? -1L : bD;
             }
         }
-        m(i, this.mGb, this.mGe);
-        int i2 = this.mFZ - 1;
-        this.mFZ = i2;
+        m(i, this.mGd, this.mGg);
+        int i2 = this.mGb - 1;
+        this.mGb = i2;
         if (i2 > 0) {
-            this.mGa = dzj;
+            this.mGc = dzl;
         }
-        this.mGb = 0L;
+        this.mGd = 0L;
     }
 
     private void m(final int i, final long j, final long j2) {
-        if (this.lYx != null && this.mFW != null) {
-            this.lYx.post(new Runnable() { // from class: com.google.android.exoplayer2.upstream.i.1
+        if (this.lYz != null && this.mFY != null) {
+            this.lYz.post(new Runnable() { // from class: com.google.android.exoplayer2.upstream.i.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    i.this.mFW.l(i, j, j2);
+                    i.this.mFY.l(i, j, j2);
                 }
             });
         }

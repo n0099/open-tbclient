@@ -17,9 +17,9 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes11.dex */
 public class x {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String cbg = "cookieMap";
-    public static String cbh = "ptokenDomains";
-    public static String cbi = "bdussDomains";
+    public static String cbh = "cookieMap";
+    public static String cbi = "ptokenDomains";
+    public static String cbj = "bdussDomains";
 
     public static void dg(Context context) {
         dh(context);
@@ -29,8 +29,8 @@ public class x {
         if (context != null) {
             String cS = a.cS(context);
             String cZ = a.cZ(context);
-            b(context, cS, ahP());
-            c(context, cZ, ahP());
+            b(context, cS, ahR());
+            c(context, cZ, ahR());
         }
     }
 
@@ -100,7 +100,7 @@ public class x {
         }
     }
 
-    private static List<String> ahP() {
+    private static List<String> ahR() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

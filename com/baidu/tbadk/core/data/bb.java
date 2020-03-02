@@ -9,40 +9,40 @@ import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
 /* loaded from: classes8.dex */
 public class bb {
-    private String cQy;
-    private List<a> cQz = new ArrayList();
+    private List<a> cQA = new ArrayList();
+    private String cQz;
 
-    public String aBx() {
-        return StringUtils.isNull(this.cQy) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.cQy;
+    public String aBz() {
+        return StringUtils.isNull(this.cQz) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.cQz;
     }
 
-    public com.baidu.tieba.card.data.n aBy() {
+    public com.baidu.tieba.card.data.n aBA() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.fNx = aBx();
-        if (this.cQz != null) {
+        nVar.fNz = aBz();
+        if (this.cQA != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.cQz) {
+            for (a aVar : this.cQA) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.aBz());
+                    arrayList2.add(aVar.aBB());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.fNy = arrayList;
+        nVar.fNA = arrayList;
         return nVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.cQy = recomTopicInfo.recom_title;
+            this.cQz = recomTopicInfo.recom_title;
             if (com.baidu.tbadk.core.util.v.getCount(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.cQz.add(aVar);
+                            this.cQA.add(aVar);
                         }
                     }
                 }
@@ -56,10 +56,10 @@ public class bb {
 
     /* loaded from: classes8.dex */
     public static class a {
-        private String cQA;
-        private long cQB;
-        private String cQC;
+        private String cQB;
+        private long cQC;
         private String cQD;
+        private String cQE;
         private int tag;
         private long topicId;
         private int type;
@@ -69,27 +69,27 @@ public class bb {
         }
 
         public String getTopicName() {
-            return this.cQA;
+            return this.cQB;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
                 this.topicId = recomTopicList.topic_id.longValue();
-                this.cQA = recomTopicList.topic_name;
+                this.cQB = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.cQB = recomTopicList.discuss_num.longValue();
+                this.cQC = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.cQC = recomTopicList.topic_desc;
-                this.cQD = recomTopicList.topic_pic;
+                this.cQD = recomTopicList.topic_desc;
+                this.cQE = recomTopicList.topic_pic;
             }
         }
 
-        public com.baidu.tieba.card.data.m aBz() {
+        public com.baidu.tieba.card.data.m aBB() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
-            mVar.desc = this.cQC;
+            mVar.desc = this.cQD;
             mVar.topicId = this.topicId;
-            mVar.cQA = this.cQA;
+            mVar.cQB = this.cQB;
             return mVar;
         }
     }

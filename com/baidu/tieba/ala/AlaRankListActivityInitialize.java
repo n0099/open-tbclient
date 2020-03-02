@@ -14,17 +14,17 @@ import com.baidu.tieba.ala.view.f;
 public class AlaRankListActivityInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(n.class, AlaRankListActivity.class);
-        bbB();
-        bbC();
+        bbD();
+        bbE();
     }
 
-    private static void bbB() {
+    private static void bbD() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913036, new CustomMessageTask.CustomRunnable<com.baidu.live.p.a>() { // from class: com.baidu.tieba.ala.AlaRankListActivityInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.p.c> run(CustomMessage<com.baidu.live.p.a> customMessage) {
                 if (customMessage.getData() != null) {
                     com.baidu.live.p.a data = customMessage.getData();
-                    return new CustomResponsedMessage<>(2913036, new f(data.context, data.liveType, data.userId, data.userName, data.isHost, data.portrait, data.otherParams, data.agZ, data.axr));
+                    return new CustomResponsedMessage<>(2913036, new f(data.context, data.liveType, data.userId, data.userName, data.isHost, data.portrait, data.otherParams, data.agZ, data.axs));
                 }
                 return null;
             }
@@ -33,7 +33,7 @@ public class AlaRankListActivityInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bbC() {
+    private static void bbE() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.AlaRankListActivityInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

@@ -14,17 +14,17 @@ import java.io.IOException;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class a implements e, l {
-    public static final h mev = new h() { // from class: com.google.android.exoplayer2.extractor.g.a.1
+    public static final h mex = new h() { // from class: com.google.android.exoplayer2.extractor.g.a.1
         @Override // com.google.android.exoplayer2.extractor.h
-        public e[] duR() {
+        public e[] duT() {
             return new e[]{new a()};
         }
     };
-    private g meB;
-    private m mgF;
-    private b mpf;
-    private int mpg;
-    private int mph;
+    private g meD;
+    private m mgH;
+    private b mph;
+    private int mpi;
+    private int mpj;
 
     @Override // com.google.android.exoplayer2.extractor.e
     public boolean a(f fVar) throws IOException, InterruptedException {
@@ -33,15 +33,15 @@ public final class a implements e, l {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(g gVar) {
-        this.meB = gVar;
-        this.mgF = gVar.dK(0, 1);
-        this.mpf = null;
-        gVar.duS();
+        this.meD = gVar;
+        this.mgH = gVar.dK(0, 1);
+        this.mph = null;
+        gVar.duU();
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void N(long j, long j2) {
-        this.mph = 0;
+        this.mpj = 0;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -50,44 +50,44 @@ public final class a implements e, l {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(f fVar, k kVar) throws IOException, InterruptedException {
-        if (this.mpf == null) {
-            this.mpf = c.D(fVar);
-            if (this.mpf == null) {
+        if (this.mph == null) {
+            this.mph = c.D(fVar);
+            if (this.mph == null) {
                 throw new ParserException("Unsupported or unrecognized wav header.");
             }
-            this.mgF.h(Format.a((String) null, "audio/raw", (String) null, this.mpf.getBitrate(), 32768, this.mpf.dvI(), this.mpf.dvH(), this.mpf.dvK(), (List<byte[]>) null, (DrmInitData) null, 0, (String) null));
-            this.mpg = this.mpf.dvG();
+            this.mgH.h(Format.a((String) null, "audio/raw", (String) null, this.mph.getBitrate(), 32768, this.mph.dvK(), this.mph.dvJ(), this.mph.dvM(), (List<byte[]>) null, (DrmInitData) null, 0, (String) null));
+            this.mpi = this.mph.dvI();
         }
-        if (!this.mpf.dvJ()) {
-            c.a(fVar, this.mpf);
-            this.meB.a(this);
+        if (!this.mph.dvL()) {
+            c.a(fVar, this.mph);
+            this.meD.a(this);
         }
-        int a = this.mgF.a(fVar, 32768 - this.mph, true);
+        int a = this.mgH.a(fVar, 32768 - this.mpj, true);
         if (a != -1) {
-            this.mph += a;
+            this.mpj += a;
         }
-        int i = this.mph / this.mpg;
+        int i = this.mpj / this.mpi;
         if (i > 0) {
-            long fN = this.mpf.fN(fVar.getPosition() - this.mph);
-            int i2 = i * this.mpg;
-            this.mph -= i2;
-            this.mgF.a(fN, 1, i2, this.mph, null);
+            long fN = this.mph.fN(fVar.getPosition() - this.mpj);
+            int i2 = i * this.mpi;
+            this.mpj -= i2;
+            this.mgH.a(fN, 1, i2, this.mpj, null);
         }
         return a == -1 ? -1 : 0;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
     public long getDurationUs() {
-        return this.mpf.getDurationUs();
+        return this.mph.getDurationUs();
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public boolean duO() {
+    public boolean duQ() {
         return true;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
     public long fL(long j) {
-        return this.mpf.fL(j);
+        return this.mph.fL(j);
     }
 }

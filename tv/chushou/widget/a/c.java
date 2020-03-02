@@ -13,35 +13,35 @@ import java.lang.ref.SoftReference;
 import tv.chushou.widget.a.b;
 /* loaded from: classes5.dex */
 public class c {
-    private static volatile Resources nWg;
-    private static SoftReference<tv.chushou.widget.a.a.a> nWh;
+    private static volatile Resources nWi;
+    private static SoftReference<tv.chushou.widget.a.a.a> nWj;
 
     public static void d(Resources resources) {
-        nWg = resources;
+        nWi = resources;
     }
 
     public static Resources getResources() {
-        return nWg;
+        return nWi;
     }
 
     public static String getString(@StringRes int i) {
-        return nWg.getString(i);
+        return nWi.getString(i);
     }
 
     public static String getString(@StringRes int i, Object... objArr) {
-        return nWg.getString(i, objArr);
+        return nWi.getString(i, objArr);
     }
 
     public static int getColor(@ColorRes int i) {
-        return nWg.getColor(i);
+        return nWi.getColor(i);
     }
 
     public static Drawable getDrawable(@DrawableRes int i) {
-        return nWg.getDrawable(i);
+        return nWi.getDrawable(i);
     }
 
     public static int Oe(@DimenRes int i) {
-        return nWg.getDimensionPixelSize(i);
+        return nWi.getDimensionPixelSize(i);
     }
 
     public static int S(float f) {
@@ -63,17 +63,17 @@ public class c {
     }
 
     @DrawableRes
-    public static int dQi() {
+    public static int dQk() {
         return b.C0805b.commonres_placeholder_bg;
     }
 
     @NonNull
-    public static Drawable dQj() {
-        if (nWh != null && nWh.get() != null) {
-            return nWh.get().getConstantState().newDrawable();
+    public static Drawable dQl() {
+        if (nWj != null && nWj.get() != null) {
+            return nWj.get().getConstantState().newDrawable();
         }
         tv.chushou.widget.a.a.a aVar = new tv.chushou.widget.a.a.a(BitmapFactory.decodeResource(getResources(), b.c.commonres_placeholder_icon), getColor(b.C0805b.commonres_placeholder_bg));
-        nWh = new SoftReference<>(aVar);
+        nWj = new SoftReference<>(aVar);
         return aVar;
     }
 }

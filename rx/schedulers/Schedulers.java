@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes6.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> nNw = new AtomicReference<>();
-    private final g nTC;
-    private final g nTD;
+    private static final AtomicReference<Schedulers> nNy = new AtomicReference<>();
     private final g nTE;
+    private final g nTF;
+    private final g nTG;
 
-    private static Schedulers dPk() {
+    private static Schedulers dPm() {
         Schedulers schedulers;
         while (true) {
-            schedulers = nNw.get();
+            schedulers = nNy.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (nNw.compareAndSet(null, schedulers)) {
+                if (nNy.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.dPm();
+                schedulers.dPo();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g dPb = f.dOW().dPb();
-        g dPf = dPb.dPf();
-        if (dPf != null) {
-            this.nTC = dPf;
-        } else {
-            this.nTC = rx.c.g.dPc();
-        }
-        g dPg = dPb.dPg();
-        if (dPg != null) {
-            this.nTD = dPg;
-        } else {
-            this.nTD = rx.c.g.dPd();
-        }
-        g dPh = dPb.dPh();
+        rx.c.g dPd = f.dOY().dPd();
+        g dPh = dPd.dPh();
         if (dPh != null) {
             this.nTE = dPh;
         } else {
             this.nTE = rx.c.g.dPe();
         }
+        g dPi = dPd.dPi();
+        if (dPi != null) {
+            this.nTF = dPi;
+        } else {
+            this.nTF = rx.c.g.dPf();
+        }
+        g dPj = dPd.dPj();
+        if (dPj != null) {
+            this.nTG = dPj;
+        } else {
+            this.nTG = rx.c.g.dPg();
+        }
     }
 
     public static g immediate() {
-        return e.nRK;
+        return e.nRM;
     }
 
     public static g trampoline() {
-        return j.nSi;
+        return j.nSk;
     }
 
     public static g newThread() {
-        return c.k(dPk().nTE);
+        return c.k(dPm().nTG);
     }
 
     public static g computation() {
-        return c.i(dPk().nTC);
+        return c.i(dPm().nTE);
     }
 
     public static g io() {
-        return c.j(dPk().nTD);
+        return c.j(dPm().nTF);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = nNw.getAndSet(null);
+        Schedulers andSet = nNy.getAndSet(null);
         if (andSet != null) {
-            andSet.dPm();
+            andSet.dPo();
         }
     }
 
     public static void start() {
-        Schedulers dPk = dPk();
-        dPk.dPl();
-        synchronized (dPk) {
-            d.nRI.start();
+        Schedulers dPm = dPm();
+        dPm.dPn();
+        synchronized (dPm) {
+            d.nRK.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers dPk = dPk();
-        dPk.dPm();
-        synchronized (dPk) {
-            d.nRI.shutdown();
+        Schedulers dPm = dPm();
+        dPm.dPo();
+        synchronized (dPm) {
+            d.nRK.shutdown();
         }
     }
 
-    synchronized void dPl() {
-        if (this.nTC instanceof h) {
-            ((h) this.nTC).start();
-        }
-        if (this.nTD instanceof h) {
-            ((h) this.nTD).start();
-        }
+    synchronized void dPn() {
         if (this.nTE instanceof h) {
             ((h) this.nTE).start();
         }
+        if (this.nTF instanceof h) {
+            ((h) this.nTF).start();
+        }
+        if (this.nTG instanceof h) {
+            ((h) this.nTG).start();
+        }
     }
 
-    synchronized void dPm() {
-        if (this.nTC instanceof h) {
-            ((h) this.nTC).shutdown();
-        }
-        if (this.nTD instanceof h) {
-            ((h) this.nTD).shutdown();
-        }
+    synchronized void dPo() {
         if (this.nTE instanceof h) {
             ((h) this.nTE).shutdown();
+        }
+        if (this.nTF instanceof h) {
+            ((h) this.nTF).shutdown();
+        }
+        if (this.nTG instanceof h) {
+            ((h) this.nTG).shutdown();
         }
     }
 }

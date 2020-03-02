@@ -15,8 +15,8 @@ import com.baidu.swan.apps.as.r;
 /* loaded from: classes11.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private d baW;
-    private boolean baX = true;
+    private d baX;
+    private boolean baY = true;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
     private String mUrl;
@@ -72,14 +72,14 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
                 public void en(String str) {
                     super.en(str);
-                    if (SwanAppScopeDetailActivity.this.baX) {
+                    if (SwanAppScopeDetailActivity.this.baY) {
                         SwanAppScopeDetailActivity.this.setTitle(str);
                     }
                 }
             });
-            this.baW = bB.IN();
+            this.baX = bB.IP();
             bB.loadUrl(this.mUrl);
-            bB.a((FrameLayout) findViewById(a.f.webview_container), this.baW.covertToView());
+            bB.a((FrameLayout) findViewById(a.f.webview_container), this.baX.covertToView());
         }
     }
 
@@ -106,9 +106,9 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.baW != null) {
-            this.baW.destroy();
-            this.baW = null;
+        if (this.baX != null) {
+            this.baX.destroy();
+            this.baX = null;
         }
         this.mUrl = null;
     }

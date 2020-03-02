@@ -14,7 +14,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a extends CustomMessageListener {
     private static HashMap<String, l<byte[]>> byteCacheMap;
-    public static a cUS = null;
+    public static a cUT = null;
     private static HashMap<String, Integer> cacheCountLimitMap = new HashMap<>();
     private static ArrayList<String> noEvictList;
     private static HashMap<String, l<String>> stringCacheMap;
@@ -76,11 +76,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a aEz() {
-        if (cUS == null) {
-            cUS = new a();
+    public static a aEB() {
+        if (cUT == null) {
+            cUT = new a();
         }
-        return cUS;
+        return cUT;
     }
 
     private a() {

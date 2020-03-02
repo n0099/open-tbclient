@@ -16,17 +16,17 @@ import android.support.annotation.Nullable;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class t implements SensorEventListener {
-    private SensorManager aBi;
-    private Sensor bWq;
-    private final double cIT = 9.8d;
-    private final int cIU = 400;
-    private final int cIV = 255;
-    private final int cIW = 1;
-    private final int cIX = 2000;
-    private a cIY;
-    private int cIZ;
+    private SensorManager aBj;
+    private Sensor bWr;
+    private final double cIU = 9.8d;
+    private final int cIV = 400;
+    private final int cIW = 255;
+    private final int cIX = 1;
+    private final int cIY = 2000;
+    private a cIZ;
     private int cJa;
-    private long cJb;
+    private int cJb;
+    private long cJc;
     private Context context;
     private boolean isOpen;
     private MediaPlayer mMediaPlayer;
@@ -35,35 +35,35 @@ public class t implements SensorEventListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void ayi();
+        void ayk();
     }
 
     public t(@NonNull Context context, @Nullable a aVar) {
         if (context != null) {
             this.context = context;
-            this.cIY = aVar;
-            this.aBi = (SensorManager) context.getSystemService("sensor");
-            if (this.aBi != null) {
-                this.bWq = this.aBi.getDefaultSensor(1);
+            this.cIZ = aVar;
+            this.aBj = (SensorManager) context.getSystemService("sensor");
+            if (this.aBj != null) {
+                this.bWr = this.aBj.getDefaultSensor(1);
             }
             this.mVibrator = (Vibrator) context.getSystemService("vibrator");
             this.mSoundPool = new SoundPool(1, 3, 0);
             if (this.mSoundPool != null) {
-                this.cIZ = this.mSoundPool.load(context, R.raw.shake_tone, 1);
+                this.cJa = this.mSoundPool.load(context, R.raw.shake_tone, 1);
             }
         }
     }
 
     public void open() {
-        if (this.bWq != null) {
-            this.aBi.registerListener(this, this.bWq, 2);
+        if (this.bWr != null) {
+            this.aBj.registerListener(this, this.bWr, 2);
             this.isOpen = true;
         }
     }
 
     public void close() {
-        if (this.aBi != null) {
-            this.aBi.unregisterListener(this);
+        if (this.aBj != null) {
+            this.aBj.unregisterListener(this);
             this.isOpen = false;
         }
     }
@@ -74,8 +74,8 @@ public class t implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.sensor.getType() == 1 && j(sensorEvent.values) && this.cIY != null) {
-            this.cIY.ayi();
+        if (sensorEvent.sensor.getType() == 1 && j(sensorEvent.values) && this.cIZ != null) {
+            this.cIZ.ayk();
         }
     }
 
@@ -89,25 +89,25 @@ public class t implements SensorEventListener {
         float abs3 = Math.abs(fArr[2]);
         double sqrt = Math.sqrt(Math.pow(abs2 / 9.8d, 2.0d) + Math.pow(abs / 9.8d, 2.0d) + Math.pow(abs3 / 9.8d, 2.0d));
         if (Build.VERSION.SDK_INT <= 23) {
-            if (sqrt >= 2.5d && ayg()) {
+            if (sqrt >= 2.5d && ayi()) {
                 return true;
             }
-        } else if (sqrt >= 4.2d && ayg()) {
+        } else if (sqrt >= 4.2d && ayi()) {
             return true;
         }
         return false;
     }
 
-    private boolean ayg() {
+    private boolean ayi() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.cJb > 2000) {
-            this.cJb = currentTimeMillis;
+        if (currentTimeMillis - this.cJc > 2000) {
+            this.cJc = currentTimeMillis;
             return true;
         }
         return false;
     }
 
-    public boolean ayh() {
+    public boolean ayj() {
         int i;
         if (this.context == null) {
             return false;
@@ -150,12 +150,12 @@ public class t implements SensorEventListener {
     }
 
     public void fl(boolean z) {
-        if (z || this.cJa == 0) {
+        if (z || this.cJb == 0) {
             if (this.mSoundPool != null) {
-                this.mSoundPool.play(this.cIZ, 1.0f, 1.0f, 0, 0, 1.0f);
+                this.mSoundPool.play(this.cJa, 1.0f, 1.0f, 0, 0, 1.0f);
             }
         } else if (this.mSoundPool != null) {
-            this.mSoundPool.play(this.cJa, 1.0f, 1.0f, 0, 0, 1.0f);
+            this.mSoundPool.play(this.cJb, 1.0f, 1.0f, 0, 0, 1.0f);
         }
     }
 }

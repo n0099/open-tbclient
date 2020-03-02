@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes10.dex */
 public class m extends BaseAdapter {
-    private String[] hxc;
-    private GroupAddressLocateActivity hxo;
+    private String[] hxe;
+    private GroupAddressLocateActivity hxq;
 
     public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
-        this.hxc = null;
-        this.hxo = null;
-        this.hxo = groupAddressLocateActivity;
-        this.hxc = strArr;
+        this.hxe = null;
+        this.hxq = null;
+        this.hxq = groupAddressLocateActivity;
+        this.hxe = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hxc != null) {
-            return this.hxc.length;
+        if (this.hxe != null) {
+            return this.hxe.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.hxc == null || i <= -1 || i >= this.hxc.length) ? "" : this.hxc[i];
+        return (this.hxe == null || i <= -1 || i >= this.hxe.length) ? "" : this.hxe[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,20 +38,20 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.hxo);
-            view = aVar.bgD();
+            aVar = new a(this.hxq);
+            view = aVar.bgF();
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar.bSJ() != null) {
+        if (aVar.bSL() != null) {
             if (i + 1 == getCount()) {
-                aVar.bSJ().setVisibility(8);
+                aVar.bSL().setVisibility(8);
             } else {
-                aVar.bSJ().setVisibility(0);
+                aVar.bSL().setVisibility(0);
             }
         }
         aVar.CC(getItem(i).toString());
-        if (this.hxo.getSelectedPosition() == i) {
+        if (this.hxq.getSelectedPosition() == i) {
             aVar.nm(true);
         } else {
             aVar.nm(false);
@@ -61,7 +61,7 @@ public class m extends BaseAdapter {
     }
 
     private void bX(View view) {
-        this.hxo.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.hxo.getLayoutMode().onModeChanged(view);
+        this.hxq.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.hxq.getLayoutMode().onModeChanged(view);
     }
 }

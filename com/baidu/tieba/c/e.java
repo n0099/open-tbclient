@@ -19,26 +19,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0489a {
-    private static e fPG = null;
-    private a fPH;
-    private a fPI;
-    private ArrayList<TransmitForumData> fPJ;
+    private static e fPI = null;
+    private a fPJ;
+    private a fPK;
     private ArrayList<TransmitForumData> fPL;
+    private ArrayList<TransmitForumData> fPN;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean fPK = false;
     private boolean fPM = false;
+    private boolean fPO = false;
     private boolean isLoading = false;
 
-    public static e bwk() {
-        if (fPG == null) {
+    public static e bwm() {
+        if (fPI == null) {
             synchronized (e.class) {
-                if (fPG == null) {
-                    fPG = new e();
+                if (fPI == null) {
+                    fPI = new e();
                 }
             }
         }
-        return fPG;
+        return fPI;
     }
 
     private e() {
@@ -46,38 +46,38 @@ public class e implements a.InterfaceC0489a {
     }
 
     private void init() {
-        bwm();
-        bwl();
+        bwo();
+        bwn();
         this.isLoading = false;
     }
 
-    private void bwl() {
+    private void bwn() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_ENTERFORUM_DATA), a.class);
         if (runTask != null) {
-            this.fPI = (a) runTask.getData();
+            this.fPK = (a) runTask.getData();
         }
-        if (this.fPI != null) {
-            this.fPI.a(this);
+        if (this.fPK != null) {
+            this.fPK.a(this);
         }
     }
 
-    private void bwm() {
+    private void bwo() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER), a.class);
         if (runTask != null) {
-            this.fPH = (a) runTask.getData();
+            this.fPJ = (a) runTask.getData();
         }
-        if (this.fPH != null) {
-            this.fPH.a(this);
+        if (this.fPJ != null) {
+            this.fPJ.a(this);
         }
     }
 
     public void b(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !k.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.location = bwq();
+                shareDialogConfig.shareItem.location = bws();
             }
             if (l.isNetOk() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
-                bwn();
+                bwp();
             }
             shareDialogConfig.setIsShowTransmitShare(true);
             shareDialogConfig.setTransmitForumList(this.mForumList);
@@ -86,13 +86,13 @@ public class e implements a.InterfaceC0489a {
         }
     }
 
-    public void bwn() {
+    public void bwp() {
         this.isLoading = true;
-        if (this.fPH != null) {
-            this.fPH.bwd();
+        if (this.fPJ != null) {
+            this.fPJ.bwf();
         }
-        if (this.fPI != null) {
-            this.fPI.bwd();
+        if (this.fPK != null) {
+            this.fPK.bwf();
         }
     }
 
@@ -100,28 +100,28 @@ public class e implements a.InterfaceC0489a {
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.fPL = arrayList;
+                this.fPN = arrayList;
             }
-            this.fPM = true;
+            this.fPO = true;
         } else if (i == 2) {
             if (z) {
-                this.fPJ = arrayList;
+                this.fPL = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.fPK = true;
+            this.fPM = true;
         }
-        bwo();
+        bwq();
     }
 
-    private void bwo() {
-        if (this.fPH == null || this.fPK) {
-            if (this.fPI == null || this.fPM) {
-                this.fPK = false;
+    private void bwq() {
+        if (this.fPJ == null || this.fPM) {
+            if (this.fPK == null || this.fPO) {
                 this.fPM = false;
+                this.fPO = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.isEmpty(this.fPJ)) {
-                    Iterator<TransmitForumData> it = this.fPJ.iterator();
+                if (!v.isEmpty(this.fPL)) {
+                    Iterator<TransmitForumData> it = this.fPL.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!dn(next.forumId)) {
@@ -129,8 +129,8 @@ public class e implements a.InterfaceC0489a {
                         }
                     }
                 }
-                if (!v.isEmpty(this.fPL)) {
-                    Iterator<TransmitForumData> it2 = this.fPL.iterator();
+                if (!v.isEmpty(this.fPN)) {
+                    Iterator<TransmitForumData> it2 = this.fPN.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!dn(next2.forumId)) {
@@ -138,14 +138,14 @@ public class e implements a.InterfaceC0489a {
                         }
                     }
                 }
-                this.fPJ = null;
                 this.fPL = null;
-                bwp();
+                this.fPN = null;
+                bwr();
             }
         }
     }
 
-    private void bwp() {
+    private void bwr() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED, this.mForumList));
     }
 
@@ -163,7 +163,7 @@ public class e implements a.InterfaceC0489a {
         return false;
     }
 
-    private Location bwq() {
+    private Location bws() {
         if (ab.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService("location");
             Criteria criteria = new Criteria();

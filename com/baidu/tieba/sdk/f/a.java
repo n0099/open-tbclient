@@ -14,16 +14,16 @@ import com.baidu.tieba.sdk.a.f;
 public class a implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-        f cEp = com.baidu.tieba.sdk.c.a.cEk().cEp();
-        if (cEp != null) {
+        f cEr = com.baidu.tieba.sdk.c.a.cEm().cEr();
+        if (cEr != null) {
             if (customMessage.getData() instanceof n) {
                 n nVar = (n) customMessage.getData();
                 ShareEntity shareEntity = new ShareEntity();
                 a(nVar.Yq, shareEntity);
-                cEp.a(nVar.activity, shareEntity);
+                cEr.a(nVar.activity, shareEntity);
             } else if (customMessage.getData() instanceof ShareEntityWrapperData) {
                 ShareEntityWrapperData shareEntityWrapperData = (ShareEntityWrapperData) customMessage.getData();
-                cEp.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                cEr.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
             }
         }
         return null;

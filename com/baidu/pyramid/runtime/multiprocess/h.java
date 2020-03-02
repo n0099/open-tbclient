@@ -7,34 +7,34 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public abstract class h {
-    private static final HashMap<String, h> aVM = new HashMap<>();
-    private static final ConcurrentHashMap<String, a> aVN = new ConcurrentHashMap<>();
+    private static final HashMap<String, h> aVN = new HashMap<>();
+    private static final ConcurrentHashMap<String, a> aVO = new ConcurrentHashMap<>();
 
-    public abstract IBinder EY();
+    public abstract IBinder Fa();
 
     /* loaded from: classes.dex */
     private static class a {
-        public IBinder aVO;
-        public boolean aVP;
+        public IBinder aVP;
+        public boolean aVQ;
 
         private a() {
-            this.aVP = false;
+            this.aVQ = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IBinder getService(String str) {
-        h hVar = aVM.get(str);
+        h hVar = aVN.get(str);
         if (hVar != null) {
-            hVar.EZ();
-            return hVar.EY();
+            hVar.Fb();
+            return hVar.Fa();
         }
-        a aVar = aVN.get(str);
+        a aVar = aVO.get(str);
         if (aVar != null) {
-            if (!aVar.aVP && Binder.getCallingUid() != Process.myUid()) {
+            if (!aVar.aVQ && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return aVar.aVO;
+            return aVar.aVP;
         }
         return null;
     }
@@ -44,7 +44,7 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        return aVN.remove(str) != null;
+        return aVO.remove(str) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,16 +52,16 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        if (aVM.get(str) != null) {
+        if (aVN.get(str) != null) {
             throw new IllegalArgumentException();
         }
         a aVar = new a();
-        aVar.aVO = iBinder;
-        aVar.aVP = z;
-        aVN.put(str, aVar);
+        aVar.aVP = iBinder;
+        aVar.aVQ = z;
+        aVO.put(str, aVar);
     }
 
-    public void EZ() {
+    public void Fb() {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }

@@ -62,7 +62,7 @@ public class e {
         if (Integer.parseInt(substring2) > 31 || Integer.parseInt(substring2) == 0) {
             return "身份证号错误";
         }
-        if (AV().get(str2.substring(0, 2)) == null) {
+        if (AX().get(str2.substring(0, 2)) == null) {
             return "身份证号错误";
         }
         for (int i2 = 0; i2 < 17; i2++) {
@@ -78,7 +78,7 @@ public class e {
         return HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
     }
 
-    private static Hashtable AV() {
+    private static Hashtable AX() {
         Hashtable hashtable = new Hashtable();
         hashtable.put("11", "北京");
         hashtable.put("12", "天津");

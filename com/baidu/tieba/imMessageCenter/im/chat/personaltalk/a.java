@@ -1,11 +1,11 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 /* loaded from: classes9.dex */
 public class a {
-    private com.baidu.tbadk.coreExtra.relationship.b hLp;
+    private com.baidu.tbadk.coreExtra.relationship.b hLr;
     private long timeStamp;
 
     public a(com.baidu.tbadk.coreExtra.relationship.b bVar, long j) {
-        this.hLp = bVar;
+        this.hLr = bVar;
         this.timeStamp = j;
     }
 }

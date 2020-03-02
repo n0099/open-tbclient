@@ -18,10 +18,10 @@ public class f {
         }
         try {
             String str = alert.getLevel() == 1 ? "warning" : "fatal_error";
-            int intValue = jVar.amL() != null ? jVar.amL().intValue() : -1;
-            int intValue2 = jVar.amM() != null ? jVar.amM().intValue() : -1;
-            int intValue3 = jVar.amN() != null ? jVar.amN().intValue() : -1;
-            int intValue4 = jVar.amO() != null ? jVar.amO().intValue() : -1;
+            int intValue = jVar.amN() != null ? jVar.amN().intValue() : -1;
+            int intValue2 = jVar.amO() != null ? jVar.amO().intValue() : -1;
+            int intValue3 = jVar.amP() != null ? jVar.amP().intValue() : -1;
+            int intValue4 = jVar.amQ() != null ? jVar.amQ().intValue() : -1;
             String str2 = alert.getDescription() != null ? new String(alert.getDescription().toByteArray()) : "";
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
@@ -50,8 +50,8 @@ public class f {
         if (a.DEBUG) {
             Log.d("BDTLS", "bdtls success");
         }
-        j alI = e.alH().alI();
-        if (alI == null) {
+        j alK = e.alJ().alK();
+        if (alK == null) {
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc data is null");
                 return;
@@ -59,10 +59,10 @@ public class f {
             return;
         }
         try {
-            int intValue = alI.amL() != null ? alI.amL().intValue() : -1;
-            int intValue2 = alI.amM() != null ? alI.amM().intValue() : -1;
-            int intValue3 = alI.amN() != null ? alI.amN().intValue() : -1;
-            int intValue4 = alI.amO() != null ? alI.amO().intValue() : -1;
+            int intValue = alK.amN() != null ? alK.amN().intValue() : -1;
+            int intValue2 = alK.amO() != null ? alK.amO().intValue() : -1;
+            int intValue3 = alK.amP() != null ? alK.amP().intValue() : -1;
+            int intValue4 = alK.amQ() != null ? alK.amQ().intValue() : -1;
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
             }

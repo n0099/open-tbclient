@@ -882,7 +882,7 @@ public final class R {
         public static final int collapseActionView = 0x7f0f01fe;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f972common = 0x7f0f01b8;
+        public static final int f971common = 0x7f0f01b8;
         public static final int container = 0x7f0f03af;
         public static final int contentPanel = 0x7f0f026e;
         public static final int coordinator = 0x7f0f0ead;
@@ -1010,7 +1010,7 @@ public final class R {
         public static final int title_template = 0x7f0f0277;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f973top = 0x7f0f016c;
+        public static final int f972top = 0x7f0f016c;
         public static final int topPanel = 0x7f0f0276;
         public static final int touch_outside = 0x7f0f0eae;
         public static final int transition_current_scene = 0x7f0f0155;
@@ -1164,33 +1164,33 @@ public final class R {
         public static final int path_password_eye_mask_strike_through = 0x7f080ecd;
         public static final int path_password_eye_mask_visible = 0x7f080ece;
         public static final int path_password_strike_through = 0x7f080ecf;
-        public static final int plugin_tip_installing = 0x7f080fe1;
-        public static final int pluginstatus_btn_restartapp = 0x7f080fed;
-        public static final int pluginstatus_click_detail = 0x7f080fee;
-        public static final int pluginstatus_resolve_need_restart = 0x7f080fef;
-        public static final int pluginstatus_resolve_rom_too_small = 0x7f080ff0;
-        public static final int pluginstatus_resolve_unknown = 0x7f080ff1;
-        public static final int pluginstatus_tip_need_restart = 0x7f080ff2;
-        public static final int pluginstatus_tip_rom_too_small = 0x7f080ff3;
-        public static final int pluginstatus_tip_timeout_last = 0x7f080ff4;
-        public static final int pluginstatus_tip_title = 0x7f080ff5;
-        public static final int pluginstatus_tip_unknown = 0x7f080ff6;
-        public static final int prompt = 0x7f081041;
-        public static final int rom_too_small = 0x7f081155;
+        public static final int plugin_tip_installing = 0x7f080fe2;
+        public static final int pluginstatus_btn_restartapp = 0x7f080fee;
+        public static final int pluginstatus_click_detail = 0x7f080fef;
+        public static final int pluginstatus_resolve_need_restart = 0x7f080ff0;
+        public static final int pluginstatus_resolve_rom_too_small = 0x7f080ff1;
+        public static final int pluginstatus_resolve_unknown = 0x7f080ff2;
+        public static final int pluginstatus_tip_need_restart = 0x7f080ff3;
+        public static final int pluginstatus_tip_rom_too_small = 0x7f080ff4;
+        public static final int pluginstatus_tip_timeout_last = 0x7f080ff5;
+        public static final int pluginstatus_tip_title = 0x7f080ff6;
+        public static final int pluginstatus_tip_unknown = 0x7f080ff7;
+        public static final int prompt = 0x7f081042;
+        public static final int rom_too_small = 0x7f081156;
         public static final int search_menu_title = 0x7f08001c;
-        public static final int send_error = 0x7f0813ba;
-        public static final int share_to = 0x7f081424;
+        public static final int send_error = 0x7f0813bb;
+        public static final int share_to = 0x7f081425;
         public static final int status_bar_notification_info_overflow = 0x7f08001d;
-        public static final int voice_err_create_file_fail = 0x7f0818c7;
-        public static final int voice_err_file_fail = 0x7f0818c8;
-        public static final int voice_err_init_fail = 0x7f0818c9;
-        public static final int voice_err_load_lib_fail = 0x7f0818cc;
-        public static final int voice_err_no_file = 0x7f0818cd;
-        public static final int voice_err_other = 0x7f0818ce;
-        public static final int voice_err_play = 0x7f0818cf;
-        public static final int voice_err_sdcard_nospace = 0x7f0818d0;
-        public static final int voice_record_short_tip = 0x7f0818d6;
-        public static final int voice_record_timeout_tip = 0x7f0818d7;
+        public static final int voice_err_create_file_fail = 0x7f0818c8;
+        public static final int voice_err_file_fail = 0x7f0818c9;
+        public static final int voice_err_init_fail = 0x7f0818ca;
+        public static final int voice_err_load_lib_fail = 0x7f0818cd;
+        public static final int voice_err_no_file = 0x7f0818ce;
+        public static final int voice_err_other = 0x7f0818cf;
+        public static final int voice_err_play = 0x7f0818d0;
+        public static final int voice_err_sdcard_nospace = 0x7f0818d1;
+        public static final int voice_record_short_tip = 0x7f0818d7;
+        public static final int voice_record_timeout_tip = 0x7f0818d8;
     }
 
     /* loaded from: classes.dex */

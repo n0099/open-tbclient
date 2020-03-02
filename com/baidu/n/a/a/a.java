@@ -2,5 +2,5 @@ package com.baidu.n.a.a;
 /* loaded from: classes6.dex */
 public class a {
     public long time = -1;
-    public c lCD = null;
+    public c lCF = null;
 }

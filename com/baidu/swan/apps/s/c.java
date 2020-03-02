@@ -9,14 +9,14 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a.InterfaceC0232a bxl;
+    private static a.InterfaceC0232a bxm;
 
     public static void a(a.InterfaceC0232a interfaceC0232a) {
-        bxl = interfaceC0232a;
+        bxm = interfaceC0232a;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && bxl != null) {
+        if (editText != null && bxm != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -28,7 +28,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            bxl.b(String.valueOf(editText.getTag()), jSONObject);
+            bxm.b(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,7 +45,7 @@ public class c {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && bxl != null) {
+        if (editText != null && bxm != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -57,7 +57,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            bxl.b(String.valueOf(editText.getTag()), jSONObject);
+            bxm.b(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

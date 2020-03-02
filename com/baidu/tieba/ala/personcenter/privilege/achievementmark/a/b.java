@@ -10,14 +10,14 @@ public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String fvN;
-    private int fvP;
+    private String fvO;
     private int fvQ;
     private int fvR;
     private int fvS;
-    private String fvT;
+    private int fvT;
     private String fvU;
     private String fvV;
+    private String fvW;
     private int height;
     private String mark_name;
     private String mark_pic;
@@ -30,22 +30,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> fvW = new ArrayList();
+    private List<d> fvX = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.fvQ = jSONObject.optInt("mark_id");
+        this.fvR = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.fvS = jSONObject.optInt("wear_status");
+        this.fvT = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.fvR = jSONObject.optInt("mark_rank");
+        this.fvS = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt(TableDefine.SessionColumns.COLUMN_WEIGHT);
-        this.fvU = jSONObject.optString("next_level_diff");
-        this.fvT = jSONObject.optString("mark_dir_level");
-        this.fvV = jSONObject.optString("expire_text");
+        this.fvV = jSONObject.optString("next_level_diff");
+        this.fvU = jSONObject.optString("mark_dir_level");
+        this.fvW = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -53,7 +53,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.fvW.add(dVar);
+                this.fvX.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -70,70 +70,70 @@ public class b {
         }
     }
 
-    public List<d> bsm() {
-        if (this.fvW == null) {
-            this.fvW = new ArrayList();
+    public List<d> bso() {
+        if (this.fvX == null) {
+            this.fvX = new ArrayList();
         }
-        return this.fvW;
+        return this.fvX;
     }
 
-    public boolean bsn() {
-        return this.fvP == 1;
+    public boolean bsp() {
+        return this.fvQ == 1;
     }
 
     public void qO(int i) {
-        this.fvP = i;
+        this.fvQ = i;
     }
 
-    public String bsl() {
-        return this.fvN;
+    public String bsn() {
+        return this.fvO;
     }
 
     public void zE(String str) {
-        this.fvN = str;
+        this.fvO = str;
     }
 
-    public int bso() {
-        return this.fvQ;
+    public int bsq() {
+        return this.fvR;
     }
 
-    public String bsp() {
+    public String bsr() {
         return this.mark_name;
     }
 
-    public String bsq() {
+    public String bss() {
         return this.mark_pic;
     }
 
-    public int bsr() {
-        return this.fvS;
+    public int bst() {
+        return this.fvT;
     }
 
     public void qP(int i) {
-        this.fvS = i;
+        this.fvT = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public String bss() {
-        return this.fvU;
-    }
-
-    public int bst() {
-        return this.fvR;
-    }
-
     public String bsu() {
         return this.fvV;
     }
 
-    public boolean bsv() {
+    public int bsv() {
+        return this.fvS;
+    }
+
+    public String bsw() {
+        return this.fvW;
+    }
+
+    public boolean bsx() {
         return this.type == 10;
     }
 
-    public boolean bsw() {
+    public boolean bsy() {
         return this.type == 9;
     }
 }

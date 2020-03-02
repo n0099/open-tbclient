@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ab {
-    private String dmP;
-    private long dmQ;
+    private String dmQ;
     private long dmR;
     private long dmS;
-    private String dmT;
+    private long dmT;
     private String dmU;
+    private String dmV;
 
     public void parseJson(String str) {
         if (!aq.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.dmP = jSONObject.optString("splash_video_url");
-                this.dmQ = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.dmR = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.dmS = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.dmT = jSONObject.optString("splash_video_h5_url");
-                this.dmU = jSONObject.optString("splash_video_h5_text");
+                this.dmQ = jSONObject.optString("splash_video_url");
+                this.dmR = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.dmS = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.dmT = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.dmU = jSONObject.optString("splash_video_h5_url");
+                this.dmV = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String aJF() {
-        return this.dmP;
-    }
-
-    public long aJG() {
+    public String aJH() {
         return this.dmQ;
     }
 
-    public long aJH() {
+    public long aJI() {
         return this.dmR;
     }
 
-    public long aJI() {
+    public long aJJ() {
         return this.dmS;
     }
 
-    public String aJJ() {
+    public long aJK() {
         return this.dmT;
     }
 
-    public String aJK() {
+    public String aJL() {
         return this.dmU;
+    }
+
+    public String aJM() {
+        return this.dmV;
     }
 }

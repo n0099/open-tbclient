@@ -36,15 +36,15 @@ public final class w {
         try {
             ff ffVar = new ff();
             ffVar.a(5);
-            ffVar.c(kVar.f917a);
+            ffVar.c(kVar.f916a);
             ffVar.b(a(icVar));
             ffVar.a("SECMSG", "message");
-            String str = kVar.f917a;
-            icVar.f613a.f539a = str.substring(0, str.indexOf("@"));
-            icVar.f613a.f543c = str.substring(str.indexOf("/") + 1);
+            String str = kVar.f916a;
+            icVar.f612a.f538a = str.substring(0, str.indexOf("@"));
+            icVar.f612a.f542c = str.substring(str.indexOf("/") + 1);
             ffVar.a(iq.a(icVar), kVar.c);
             ffVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m47a("try send mi push message. packagename:" + icVar.f618b + " action:" + icVar.f611a);
+            com.xiaomi.channel.commonutils.logger.b.m47a("try send mi push message. packagename:" + icVar.f617b + " action:" + icVar.f610a);
             return ffVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -67,8 +67,8 @@ public final class w {
         byte[] a = iq.a(t);
         ic icVar = new ic();
         hv hvVar = new hv();
-        hvVar.f538a = 5L;
-        hvVar.f539a = "fakeid";
+        hvVar.f537a = 5L;
+        hvVar.f538a = "fakeid";
         icVar.a(hvVar);
         icVar.a(ByteBuffer.wrap(a));
         icVar.a(hgVar);
@@ -80,13 +80,13 @@ public final class w {
     }
 
     private static String a(ic icVar) {
-        if (icVar.f612a != null && icVar.f612a.f529b != null) {
-            String str = icVar.f612a.f529b.get("ext_traffic_source_pkg");
+        if (icVar.f611a != null && icVar.f611a.f528b != null) {
+            String str = icVar.f611a.f528b.get("ext_traffic_source_pkg");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return icVar.f618b;
+        return icVar.f617b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

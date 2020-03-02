@@ -15,7 +15,7 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends ab {
-    private static final String buL = c.class.getSimpleName();
+    private static final String buM = c.class.getSimpleName();
 
     public c(j jVar) {
         super(jVar, "/swanAPI/debug/replaceGameCore");
@@ -36,7 +36,7 @@ public class c extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "game core url or cb is null");
             return false;
         }
-        eVar.acN().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.c.1
+        eVar.acP().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -61,12 +61,12 @@ public class c extends ab {
 
             @Override // com.baidu.swan.apps.t.e.b
             public void onSuccess() {
+                File RV = com.baidu.swan.games.j.a.b.RV();
                 File RT = com.baidu.swan.games.j.a.b.RT();
-                File RR = com.baidu.swan.games.j.a.b.RR();
                 if (c.DEBUG) {
-                    Log.d(c.buL, "gameCoreZipFile: " + RT + " gameCoreDir: " + RR);
+                    Log.d(c.buM, "gameCoreZipFile: " + RV + " gameCoreDir: " + RT);
                 }
-                if (RT.exists() && com.baidu.swan.d.c.unzipFile(RT.getPath(), RR.getPath())) {
+                if (RV.exists() && com.baidu.swan.d.c.unzipFile(RV.getPath(), RT.getPath())) {
                     com.baidu.swan.apps.ah.a.a.dn(true);
                     com.baidu.swan.apps.res.widget.b.d.q(context, a.h.aiapps_debug_game_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());

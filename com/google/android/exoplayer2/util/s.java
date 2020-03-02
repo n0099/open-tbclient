@@ -6,45 +6,45 @@ import com.google.android.exoplayer2.Format;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes6.dex */
 public final class s {
-    private long mHJ;
-    private volatile long mHK = -9223372036854775807L;
-    private long mmq;
+    private long mHL;
+    private volatile long mHM = -9223372036854775807L;
+    private long mms;
 
     public s(long j) {
         gH(j);
     }
 
     public synchronized void gH(long j) {
-        a.checkState(this.mHK == -9223372036854775807L);
-        this.mmq = j;
+        a.checkState(this.mHM == -9223372036854775807L);
+        this.mms = j;
     }
 
-    public long dzN() {
-        return this.mmq;
+    public long dzP() {
+        return this.mms;
     }
 
-    public long dzO() {
-        if (this.mHK != -9223372036854775807L) {
-            return this.mHK;
+    public long dzQ() {
+        if (this.mHM != -9223372036854775807L) {
+            return this.mHM;
         }
-        if (this.mmq != Format.OFFSET_SAMPLE_RELATIVE) {
-            return this.mmq;
+        if (this.mms != Format.OFFSET_SAMPLE_RELATIVE) {
+            return this.mms;
         }
         return -9223372036854775807L;
     }
 
-    public long dzP() {
-        if (this.mmq == Format.OFFSET_SAMPLE_RELATIVE) {
+    public long dzR() {
+        if (this.mms == Format.OFFSET_SAMPLE_RELATIVE) {
             return 0L;
         }
-        if (this.mHK != -9223372036854775807L) {
-            return this.mHJ;
+        if (this.mHM != -9223372036854775807L) {
+            return this.mHL;
         }
         return -9223372036854775807L;
     }
 
     public void reset() {
-        this.mHK = -9223372036854775807L;
+        this.mHM = -9223372036854775807L;
     }
 
     public long gI(long j) {
@@ -52,8 +52,8 @@ public final class s {
         if (j == -9223372036854775807L) {
             return -9223372036854775807L;
         }
-        if (this.mHK != -9223372036854775807L) {
-            long gL = gL(this.mHK);
+        if (this.mHM != -9223372036854775807L) {
+            long gL = gL(this.mHM);
             long j3 = (4294967296L + gL) / IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT;
             j2 = ((j3 - 1) * IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT) + j;
             long j4 = (j3 * IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT) + j;
@@ -70,22 +70,22 @@ public final class s {
         if (j == -9223372036854775807L) {
             return -9223372036854775807L;
         }
-        if (this.mHK != -9223372036854775807L) {
-            this.mHK = j;
+        if (this.mHM != -9223372036854775807L) {
+            this.mHM = j;
         } else {
-            if (this.mmq != Format.OFFSET_SAMPLE_RELATIVE) {
-                this.mHJ = this.mmq - j;
+            if (this.mms != Format.OFFSET_SAMPLE_RELATIVE) {
+                this.mHL = this.mms - j;
             }
             synchronized (this) {
-                this.mHK = j;
+                this.mHM = j;
                 notifyAll();
             }
         }
-        return this.mHJ + j;
+        return this.mHL + j;
     }
 
-    public synchronized void dzQ() throws InterruptedException {
-        while (this.mHK == -9223372036854775807L) {
+    public synchronized void dzS() throws InterruptedException {
+        while (this.mHM == -9223372036854775807L) {
             wait();
         }
     }

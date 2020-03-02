@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class c {
     private static String sUrl = "";
 
-    public static String aji() {
+    public static String ajk() {
         return sUrl;
     }
 

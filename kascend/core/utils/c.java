@@ -20,16 +20,16 @@ public class c {
         }
     }
 
-    public byte[] dJU() {
+    public byte[] dJW() {
         byte[] bArr = null;
         try {
             bArr = getContent().getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
         }
-        return dJV().digest(bArr);
+        return dJX().digest(bArr);
     }
 
-    private MessageDigest dJV() {
+    private MessageDigest dJX() {
         return this.md5;
     }
 
@@ -54,7 +54,7 @@ public class c {
     }
 
     public String toString() {
-        String bigInteger = new BigInteger(1, dJU()).toString(16);
+        String bigInteger = new BigInteger(1, dJW()).toString(16);
         while (bigInteger.length() < 32) {
             bigInteger = "0" + bigInteger;
         }

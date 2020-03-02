@@ -24,13 +24,13 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     private int channelCount;
     private int encoderDelay;
     private int encoderPadding;
-    private final d.a mcs;
-    private final AudioSink mct;
-    private boolean mcu;
-    private boolean mcv;
-    private MediaFormat mcw;
-    private long mcx;
-    private boolean mcy;
+    private boolean mcA;
+    private final d.a mcu;
+    private final AudioSink mcv;
+    private boolean mcw;
+    private boolean mcx;
+    private MediaFormat mcy;
+    private long mcz;
     private int pcmEncoding;
 
     public g(com.google.android.exoplayer2.mediacodec.b bVar, @Nullable com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> aVar, boolean z, @Nullable Handler handler, @Nullable d dVar, @Nullable c cVar, AudioProcessor... audioProcessorArr) {
@@ -39,8 +39,8 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
 
     public g(com.google.android.exoplayer2.mediacodec.b bVar, @Nullable com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> aVar, boolean z, @Nullable Handler handler, @Nullable d dVar, AudioSink audioSink) {
         super(1, bVar, aVar, z);
-        this.mcs = new d.a(handler, dVar);
-        this.mct = audioSink;
+        this.mcu = new d.a(handler, dVar);
+        this.mcv = audioSink;
         audioSink.a(new a());
     }
 
@@ -52,7 +52,7 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
         if (com.google.android.exoplayer2.util.i.Qo(str)) {
             int i = v.SDK_INT >= 21 ? 32 : 0;
             boolean a2 = a(aVar, format.drmInitData);
-            if (a2 && Po(str) && bVar.dvW() != null) {
+            if (a2 && Po(str) && bVar.dvY() != null) {
                 return i | 8 | 4;
             }
             DrmInitData drmInitData = format.drmInitData;
@@ -81,47 +81,47 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected com.google.android.exoplayer2.mediacodec.a a(com.google.android.exoplayer2.mediacodec.b bVar, Format format, boolean z) throws MediaCodecUtil.DecoderQueryException {
-        com.google.android.exoplayer2.mediacodec.a dvW;
-        if (Po(format.sampleMimeType) && (dvW = bVar.dvW()) != null) {
-            this.mcu = true;
-            return dvW;
+        com.google.android.exoplayer2.mediacodec.a dvY;
+        if (Po(format.sampleMimeType) && (dvY = bVar.dvY()) != null) {
+            this.mcw = true;
+            return dvY;
         }
-        this.mcu = false;
+        this.mcw = false;
         return super.a(bVar, format, z);
     }
 
     protected boolean Po(String str) {
-        return this.mct.Pm(str);
+        return this.mcv.Pm(str);
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected void a(com.google.android.exoplayer2.mediacodec.a aVar, MediaCodec mediaCodec, Format format, MediaCrypto mediaCrypto) {
-        this.mcv = Pp(aVar.name);
-        if (this.mcu) {
-            this.mcw = format.dtx();
-            this.mcw.setString(IMediaFormat.KEY_MIME, "audio/raw");
-            mediaCodec.configure(this.mcw, (Surface) null, mediaCrypto, 0);
-            this.mcw.setString(IMediaFormat.KEY_MIME, format.sampleMimeType);
+        this.mcx = Pp(aVar.name);
+        if (this.mcw) {
+            this.mcy = format.dtz();
+            this.mcy.setString(IMediaFormat.KEY_MIME, "audio/raw");
+            mediaCodec.configure(this.mcy, (Surface) null, mediaCrypto, 0);
+            this.mcy.setString(IMediaFormat.KEY_MIME, format.sampleMimeType);
             return;
         }
-        mediaCodec.configure(format.dtx(), (Surface) null, mediaCrypto, 0);
-        this.mcw = null;
+        mediaCodec.configure(format.dtz(), (Surface) null, mediaCrypto, 0);
+        this.mcy = null;
     }
 
     @Override // com.google.android.exoplayer2.a, com.google.android.exoplayer2.s
-    public com.google.android.exoplayer2.util.h dsF() {
+    public com.google.android.exoplayer2.util.h dsH() {
         return this;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected void g(String str, long j, long j2) {
-        this.mcs.f(str, j, j2);
+        this.mcu.f(str, j, j2);
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected void g(Format format) throws ExoPlaybackException {
         super.g(format);
-        this.mcs.f(format);
+        this.mcu.f(format);
         this.pcmEncoding = "audio/raw".equals(format.sampleMimeType) ? format.pcmEncoding : 2;
         this.channelCount = format.channelCount;
         this.encoderDelay = format.encoderDelay != -1 ? format.encoderDelay : 0;
@@ -131,14 +131,14 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected void a(MediaCodec mediaCodec, MediaFormat mediaFormat) throws ExoPlaybackException {
         int[] iArr;
-        boolean z = this.mcw != null;
-        String string = z ? this.mcw.getString(IMediaFormat.KEY_MIME) : "audio/raw";
+        boolean z = this.mcy != null;
+        String string = z ? this.mcy.getString(IMediaFormat.KEY_MIME) : "audio/raw";
         if (z) {
-            mediaFormat = this.mcw;
+            mediaFormat = this.mcy;
         }
         int integer = mediaFormat.getInteger("channel-count");
         int integer2 = mediaFormat.getInteger("sample-rate");
-        if (this.mcv && integer == 6 && this.channelCount < 6) {
+        if (this.mcx && integer == 6 && this.channelCount < 6) {
             iArr = new int[this.channelCount];
             for (int i = 0; i < this.channelCount; i++) {
                 iArr[i] = i;
@@ -147,7 +147,7 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
             iArr = null;
         }
         try {
-            this.mct.a(string, integer, integer2, this.pcmEncoding, 0, iArr, this.encoderDelay, this.encoderPadding);
+            this.mcv.a(string, integer, integer2, this.pcmEncoding, 0, iArr, this.encoderDelay, this.encoderPadding);
         } catch (AudioSink.ConfigurationException e) {
             throw ExoPlaybackException.createForRenderer(e, getIndex());
         }
@@ -156,7 +156,7 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     protected void EU(int i) {
     }
 
-    protected void dun() {
+    protected void dup() {
     }
 
     protected void j(int i, long j, long j2) {
@@ -165,48 +165,48 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, com.google.android.exoplayer2.a
     protected void vx(boolean z) throws ExoPlaybackException {
         super.vx(z);
-        this.mcs.e(this.mpX);
-        int i = dsN().lZK;
+        this.mcu.e(this.mpZ);
+        int i = dsP().lZM;
         if (i != 0) {
-            this.mct.Jf(i);
+            this.mcv.Jf(i);
         } else {
-            this.mct.dtT();
+            this.mcv.dtV();
         }
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, com.google.android.exoplayer2.a
     protected void l(long j, boolean z) throws ExoPlaybackException {
         super.l(j, z);
-        this.mct.reset();
-        this.mcx = j;
-        this.mcy = true;
+        this.mcv.reset();
+        this.mcz = j;
+        this.mcA = true;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, com.google.android.exoplayer2.a
     protected void onStarted() {
         super.onStarted();
-        this.mct.play();
+        this.mcv.play();
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, com.google.android.exoplayer2.a
     protected void onStopped() {
-        this.mct.pause();
+        this.mcv.pause();
         super.onStopped();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [366=4, 367=4] */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, com.google.android.exoplayer2.a
-    protected void dsM() {
+    protected void dsO() {
         try {
-            this.mct.release();
+            this.mcv.release();
             try {
-                super.dsM();
+                super.dsO();
             } finally {
             }
         } catch (Throwable th) {
             try {
-                super.dsM();
+                super.dsO();
                 throw th;
             } finally {
             }
@@ -214,53 +214,53 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, com.google.android.exoplayer2.s
-    public boolean avP() {
-        return super.avP() && this.mct.avP();
+    public boolean avR() {
+        return super.avR() && this.mcv.avR();
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, com.google.android.exoplayer2.s
     public boolean isReady() {
-        return this.mct.dtS() || super.isReady();
+        return this.mcv.dtU() || super.isReady();
     }
 
     @Override // com.google.android.exoplayer2.util.h
-    public long duj() {
-        long vF = this.mct.vF(avP());
+    public long dul() {
+        long vF = this.mcv.vF(avR());
         if (vF != Long.MIN_VALUE) {
-            if (!this.mcy) {
-                vF = Math.max(this.mcx, vF);
+            if (!this.mcA) {
+                vF = Math.max(this.mcz, vF);
             }
-            this.mcx = vF;
-            this.mcy = false;
+            this.mcz = vF;
+            this.mcA = false;
         }
-        return this.mcx;
+        return this.mcz;
     }
 
     @Override // com.google.android.exoplayer2.util.h
     public q d(q qVar) {
-        return this.mct.d(qVar);
+        return this.mcv.d(qVar);
     }
 
     @Override // com.google.android.exoplayer2.util.h
-    public q dsT() {
-        return this.mct.dsT();
+    public q dsV() {
+        return this.mcv.dsV();
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected boolean a(long j, long j2, MediaCodec mediaCodec, ByteBuffer byteBuffer, int i, int i2, long j3, boolean z) throws ExoPlaybackException {
-        if (this.mcu && (i2 & 2) != 0) {
+        if (this.mcw && (i2 & 2) != 0) {
             mediaCodec.releaseOutputBuffer(i, false);
             return true;
         } else if (z) {
             mediaCodec.releaseOutputBuffer(i, false);
-            this.mpX.mdw++;
-            this.mct.dtQ();
+            this.mpZ.mdy++;
+            this.mcv.dtS();
             return true;
         } else {
             try {
-                if (this.mct.a(byteBuffer, j3)) {
+                if (this.mcv.a(byteBuffer, j3)) {
                     mediaCodec.releaseOutputBuffer(i, false);
-                    this.mpX.mdv++;
+                    this.mpZ.mdx++;
                     return true;
                 }
                 return false;
@@ -271,9 +271,9 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    protected void duo() throws ExoPlaybackException {
+    protected void duq() throws ExoPlaybackException {
         try {
-            this.mct.dtR();
+            this.mcv.dtT();
         } catch (AudioSink.WriteException e) {
             throw ExoPlaybackException.createForRenderer(e, getIndex());
         }
@@ -283,10 +283,10 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     public void k(int i, Object obj) throws ExoPlaybackException {
         switch (i) {
             case 2:
-                this.mct.setVolume(((Float) obj).floatValue());
+                this.mcv.setVolume(((Float) obj).floatValue());
                 return;
             case 3:
-                this.mct.a((b) obj);
+                this.mcv.a((b) obj);
                 return;
             default:
                 super.k(i, obj);
@@ -295,7 +295,7 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     }
 
     private static boolean Pp(String str) {
-        return v.SDK_INT < 24 && "OMX.SEC.aac.dec".equals(str) && "samsung".equals(v.MANUFACTURER) && (v.mHL.startsWith("zeroflte") || v.mHL.startsWith("herolte") || v.mHL.startsWith("heroqlte"));
+        return v.SDK_INT < 24 && "OMX.SEC.aac.dec".equals(str) && "samsung".equals(v.MANUFACTURER) && (v.mHN.startsWith("zeroflte") || v.mHN.startsWith("herolte") || v.mHN.startsWith("heroqlte"));
     }
 
     /* loaded from: classes6.dex */
@@ -305,19 +305,19 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
 
         @Override // com.google.android.exoplayer2.audio.AudioSink.a
         public void EU(int i) {
-            g.this.mcs.Je(i);
+            g.this.mcu.Je(i);
             g.this.EU(i);
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioSink.a
-        public void dtU() {
-            g.this.dun();
-            g.this.mcy = true;
+        public void dtW() {
+            g.this.dup();
+            g.this.mcA = true;
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioSink.a
         public void i(int i, long j, long j2) {
-            g.this.mcs.h(i, j, j2);
+            g.this.mcu.h(i, j, j2);
             g.this.j(i, j, j2);
         }
     }

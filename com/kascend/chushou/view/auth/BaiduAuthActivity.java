@@ -30,7 +30,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes5.dex */
 public final class BaiduAuthActivity extends BaseActivity {
-    public static final a nfa = new a(null);
+    public static final a nfc = new a(null);
     private HashMap b;
 
     public View b(int i) {
@@ -65,7 +65,7 @@ public final class BaiduAuthActivity extends BaseActivity {
             hashMap.put("client_id", "43vLB6EGs9V4tVNugF3OdqjS");
             hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, "cstvsdk://baiduauth");
             hashMap.put("changeAcc", 3);
-            Http http = (Http) tv.chushou.basis.d.b.dPT().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dPV().S(Http.class);
             if (http == null || (packParams = http.packParams("https://openapi.baidu.com/oauth/2.0/authorize", hashMap)) == null) {
                 return "https://openapi.baidu.com/oauth/2.0/authorize";
             }
@@ -148,7 +148,7 @@ public final class BaiduAuthActivity extends BaseActivity {
                 tag = null;
             }
             String str2 = (String) tag;
-            if (tv.chushou.zues.utils.a.dQn()) {
+            if (tv.chushou.zues.utils.a.dQp()) {
                 if (str2 != null && q.h(str2, BdStatsConstant.StatsType.ERROR)) {
                     BaiduAuthActivity.this.a_(4);
                     return;
@@ -280,7 +280,7 @@ public final class BaiduAuthActivity extends BaseActivity {
         if (simpleWebview != null) {
             simpleWebview.setTag(null);
         }
-        String a2 = nfa.a();
+        String a2 = nfc.a();
         e.d(this.v, a2);
         ((SimpleWebview) b(a.f.webView)).loadUrl(a2);
     }

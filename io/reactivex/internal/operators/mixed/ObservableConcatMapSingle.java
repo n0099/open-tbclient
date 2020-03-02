@@ -16,13 +16,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableConcatMapSingle<T, R> extends q<R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends aa<? extends R>> mapper;
-    final q<T> nxK;
+    final q<T> nxM;
     final int prefetch;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        if (!a.b(this.nxK, this.mapper, uVar)) {
-            this.nxK.subscribe(new ConcatMapSingleMainObserver(uVar, this.mapper, this.prefetch, this.errorMode));
+        if (!a.b(this.nxM, this.mapper, uVar)) {
+            this.nxM.subscribe(new ConcatMapSingleMainObserver(uVar, this.mapper, this.prefetch, this.errorMode));
         }
     }
 

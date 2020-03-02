@@ -21,7 +21,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private a cVa;
+    private a cVb;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -77,7 +77,7 @@ public class b {
         if (list != null && list.size() > 0) {
             this.mItems = list;
             if (aVar != null) {
-                this.cVa = aVar;
+                this.cVb = aVar;
             }
         }
         return this;
@@ -116,7 +116,7 @@ public class b {
         return this;
     }
 
-    public b aEB() {
+    public b aED() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -189,11 +189,11 @@ public class b {
         } else {
             am.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.cVa != null) {
+        if (this.cVb != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.cVa.a(b.this, i, textView);
+                    b.this.cVb.a(b.this, i, textView);
                 }
             });
         }

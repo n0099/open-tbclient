@@ -21,18 +21,18 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
 public class d extends c {
-    private RelativeLayout gyR;
-    private TextView gyS;
-    private TextView gyT;
+    private RelativeLayout gyT;
     private TextView gyU;
+    private TextView gyV;
+    private TextView gyW;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         View view = getView();
-        this.gyR = (RelativeLayout) view.findViewById(R.id.lottery_info_layout);
-        this.gyS = (TextView) view.findViewById(R.id.lottery_time_tv);
-        this.gyT = (TextView) view.findViewById(R.id.lottery_join_count_tv);
-        this.gyU = (TextView) view.findViewById(R.id.lottery_btn);
+        this.gyT = (RelativeLayout) view.findViewById(R.id.lottery_info_layout);
+        this.gyU = (TextView) view.findViewById(R.id.lottery_time_tv);
+        this.gyV = (TextView) view.findViewById(R.id.lottery_join_count_tv);
+        this.gyW = (TextView) view.findViewById(R.id.lottery_btn);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.a
@@ -45,27 +45,27 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.a
     public void a(bj bjVar) {
         if (bjVar != null) {
-            if (v.getCount(bjVar.aCw()) > 1) {
+            if (v.getCount(bjVar.aCy()) > 1) {
                 ArrayList<MediaData> arrayList = new ArrayList<>();
-                arrayList.add(bjVar.aCw().get(0));
+                arrayList.add(bjVar.aCy().get(0));
                 bjVar.z(arrayList);
             }
             super.a(bjVar);
-            this.fJN.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
+            this.fJP.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
                 @Override // com.baidu.tbadk.widget.layout.d
                 public void b(View view, int i, boolean z) {
                     if (d.this.KJ != null && d.this.uX()) {
-                        ba.aGE().b(d.this.mTbPageContext, new String[]{d.this.KJ.getActUrl()});
+                        ba.aGG().b(d.this.mTbPageContext, new String[]{d.this.KJ.getActUrl()});
                     }
                 }
             });
-            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) v.getItem(bjVar.aCx(), 0);
+            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) v.getItem(bjVar.aCz(), 0);
             if (bVar != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                this.gyS.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.aAj()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.aAk())))));
-                this.gyT.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(bVar.aAl())));
-                this.gyU.setText(R.string.lottery_btn_text);
-                this.eNl.setCommentNumEnable(false);
+                this.gyU.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.aAl()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.aAm())))));
+                this.gyV.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(bVar.aAn())));
+                this.gyW.setText(R.string.lottery_btn_text);
+                this.eNm.setCommentNumEnable(false);
             }
         }
     }
@@ -73,7 +73,7 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c
     protected void kj(boolean z) {
         if (this.KJ != null && uX()) {
-            ba.aGE().b(this.mTbPageContext, new String[]{this.KJ.getActUrl()});
+            ba.aGG().b(this.mTbPageContext, new String[]{this.KJ.getActUrl()});
         }
     }
 
@@ -88,11 +88,11 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(this.gyR, R.color.cp_bg_line_e);
-            am.setViewTextColor(this.gyS, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.gyT, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.gyU, (int) R.color.cp_link_tip_a);
-            am.setBackgroundResource(this.gyU, R.drawable.bg_card_frs_lottery_btn);
+            am.setBackgroundColor(this.gyT, R.color.cp_bg_line_e);
+            am.setViewTextColor(this.gyU, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.gyV, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.gyW, (int) R.color.cp_link_tip_a);
+            am.setBackgroundResource(this.gyW, R.drawable.bg_card_frs_lottery_btn);
         }
         super.onChangeSkinType(tbPageContext, i);
     }

@@ -7,12 +7,12 @@ import android.widget.FrameLayout;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class d {
-    private ArrayList<a> csW = new ArrayList<>();
-    private FrameLayout csX;
-    private boolean csY;
+    private ArrayList<a> csX = new ArrayList<>();
+    private FrameLayout csY;
+    private boolean csZ;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.csX = frameLayout;
+        this.csY = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar) {
@@ -22,7 +22,7 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.csX.addView(view, layoutParams);
+        this.csY.addView(view, layoutParams);
         return true;
     }
 
@@ -30,7 +30,7 @@ public class d {
         if (!ax(view)) {
             return false;
         }
-        this.csX.removeView(view);
+        this.csY.removeView(view);
         return true;
     }
 
@@ -41,84 +41,84 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.csX.updateViewLayout(view, layoutParams);
+        this.csY.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.csY;
+        return this.csZ;
     }
 
     public void eJ(boolean z) {
-        this.csY = z;
+        this.csZ = z;
     }
 
     public boolean ax(View view) {
-        return view != null && view.getParent() == this.csX && this.csX.indexOfChild(view) >= 0;
+        return view != null && view.getParent() == this.csY && this.csY.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.csX.getContext();
+        return this.csY.getContext();
     }
 
-    public FrameLayout aqq() {
-        return this.csX;
+    public FrameLayout aqs() {
+        return this.csY;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (!this.csW.contains(aVar)) {
-                this.csW.add(aVar);
+            if (!this.csX.contains(aVar)) {
+                this.csX.add(aVar);
             }
         }
     }
 
     public synchronized void b(a aVar) {
         if (aVar != null) {
-            this.csW.remove(aVar);
+            this.csX.remove(aVar);
         }
     }
 
-    private synchronized a[] aqr() {
+    private synchronized a[] aqt() {
         a[] aVarArr;
-        if (this.csW.isEmpty()) {
+        if (this.csX.isEmpty()) {
             aVarArr = null;
         } else {
-            aVarArr = new a[this.csW.size()];
-            this.csW.toArray(aVarArr);
+            aVarArr = new a[this.csX.size()];
+            this.csX.toArray(aVarArr);
         }
         return aVarArr;
     }
 
-    private synchronized void aqs() {
-        this.csW.clear();
-    }
-
-    public void aqt() {
-        a[] aqr = aqr();
-        if (aqr != null) {
-            for (a aVar : aqr) {
-                aVar.akM();
-            }
-        }
-    }
-
-    public void aqu() {
-        a[] aqr = aqr();
-        if (aqr != null) {
-            for (a aVar : aqr) {
-                aVar.akN();
-            }
-        }
+    private synchronized void aqu() {
+        this.csX.clear();
     }
 
     public void aqv() {
-        a[] aqr = aqr();
-        if (aqr != null) {
-            for (a aVar : aqr) {
+        a[] aqt = aqt();
+        if (aqt != null) {
+            for (a aVar : aqt) {
+                aVar.akO();
+            }
+        }
+    }
+
+    public void aqw() {
+        a[] aqt = aqt();
+        if (aqt != null) {
+            for (a aVar : aqt) {
+                aVar.akP();
+            }
+        }
+    }
+
+    public void aqx() {
+        a[] aqt = aqt();
+        if (aqt != null) {
+            for (a aVar : aqt) {
                 aVar.onViewDestroy();
             }
         }
-        aqs();
+        aqu();
     }
 }

@@ -9,31 +9,31 @@ import java.util.List;
 public class io implements ir<io, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public hv f760a;
+    public hv f759a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f761a;
+    public String f760a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<String> f762a;
+    public List<String> f761a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f763b;
+    public String f762b;
 
     /* renamed from: c  reason: collision with other field name */
-    public String f764c;
+    public String f763c;
 
     /* renamed from: d  reason: collision with other field name */
-    public String f765d;
+    public String f764d;
 
     /* renamed from: e  reason: collision with other field name */
-    public String f766e;
+    public String f765e;
 
     /* renamed from: f  reason: collision with other field name */
-    public String f767f;
+    public String f766f;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f759a = new jh("XmPushActionUnSubscription");
+    private static final jh f758a = new jh("XmPushActionUnSubscription");
     private static final iz a = new iz("", Constants.GZIP_CAST_TYPE, 1);
     private static final iz b = new iz("", (byte) 12, 2);
     private static final iz c = new iz("", Constants.GZIP_CAST_TYPE, 3);
@@ -58,28 +58,28 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
         if (getClass().equals(ioVar.getClass())) {
             int compareTo = Boolean.valueOf(m456a()).compareTo(Boolean.valueOf(ioVar.m456a()));
             if (compareTo == 0) {
-                if (!m456a() || (a9 = is.a(this.f761a, ioVar.f761a)) == 0) {
+                if (!m456a() || (a9 = is.a(this.f760a, ioVar.f760a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ioVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a8 = is.a(this.f760a, ioVar.f760a)) == 0) {
+                        if (!b() || (a8 = is.a(this.f759a, ioVar.f759a)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(ioVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a7 = is.a(this.f763b, ioVar.f763b)) == 0) {
+                                if (!c() || (a7 = is.a(this.f762b, ioVar.f762b)) == 0) {
                                     int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(ioVar.d()));
                                     if (compareTo4 == 0) {
-                                        if (!d() || (a6 = is.a(this.f764c, ioVar.f764c)) == 0) {
+                                        if (!d() || (a6 = is.a(this.f763c, ioVar.f763c)) == 0) {
                                             int compareTo5 = Boolean.valueOf(e()).compareTo(Boolean.valueOf(ioVar.e()));
                                             if (compareTo5 == 0) {
-                                                if (!e() || (a5 = is.a(this.f765d, ioVar.f765d)) == 0) {
+                                                if (!e() || (a5 = is.a(this.f764d, ioVar.f764d)) == 0) {
                                                     int compareTo6 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(ioVar.f()));
                                                     if (compareTo6 == 0) {
-                                                        if (!f() || (a4 = is.a(this.f766e, ioVar.f766e)) == 0) {
+                                                        if (!f() || (a4 = is.a(this.f765e, ioVar.f765e)) == 0) {
                                                             int compareTo7 = Boolean.valueOf(g()).compareTo(Boolean.valueOf(ioVar.g()));
                                                             if (compareTo7 == 0) {
-                                                                if (!g() || (a3 = is.a(this.f767f, ioVar.f767f)) == 0) {
+                                                                if (!g() || (a3 = is.a(this.f766f, ioVar.f766f)) == 0) {
                                                                     int compareTo8 = Boolean.valueOf(h()).compareTo(Boolean.valueOf(ioVar.h()));
                                                                     if (compareTo8 == 0) {
-                                                                        if (!h() || (a2 = is.a(this.f762a, ioVar.f762a)) == 0) {
+                                                                        if (!h() || (a2 = is.a(this.f761a, ioVar.f761a)) == 0) {
                                                                             return 0;
                                                                         }
                                                                         return a2;
@@ -118,18 +118,18 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
     }
 
     public io a(String str) {
-        this.f763b = str;
+        this.f762b = str;
         return this;
     }
 
     public void a() {
-        if (this.f763b == null) {
+        if (this.f762b == null) {
             throw new jd("Required field 'id' was not present! Struct: " + toString());
         }
-        if (this.f764c == null) {
+        if (this.f763c == null) {
             throw new jd("Required field 'appId' was not present! Struct: " + toString());
         }
-        if (this.f765d == null) {
+        if (this.f764d == null) {
             throw new jd("Required field 'topic' was not present! Struct: " + toString());
         }
     }
@@ -144,10 +144,10 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m468a.f789a) {
+            switch (m468a.f788a) {
                 case 1:
                     if (m468a.a == 11) {
-                        this.f761a = jcVar.m473a();
+                        this.f760a = jcVar.m473a();
                         break;
                     } else {
                         jf.a(jcVar, m468a.a);
@@ -155,8 +155,8 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                     }
                 case 2:
                     if (m468a.a == 12) {
-                        this.f760a = new hv();
-                        this.f760a.a(jcVar);
+                        this.f759a = new hv();
+                        this.f759a.a(jcVar);
                         break;
                     } else {
                         jf.a(jcVar, m468a.a);
@@ -164,7 +164,7 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                     }
                 case 3:
                     if (m468a.a == 11) {
-                        this.f763b = jcVar.m473a();
+                        this.f762b = jcVar.m473a();
                         break;
                     } else {
                         jf.a(jcVar, m468a.a);
@@ -172,7 +172,7 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                     }
                 case 4:
                     if (m468a.a == 11) {
-                        this.f764c = jcVar.m473a();
+                        this.f763c = jcVar.m473a();
                         break;
                     } else {
                         jf.a(jcVar, m468a.a);
@@ -180,7 +180,7 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                     }
                 case 5:
                     if (m468a.a == 11) {
-                        this.f765d = jcVar.m473a();
+                        this.f764d = jcVar.m473a();
                         break;
                     } else {
                         jf.a(jcVar, m468a.a);
@@ -188,7 +188,7 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                     }
                 case 6:
                     if (m468a.a == 11) {
-                        this.f766e = jcVar.m473a();
+                        this.f765e = jcVar.m473a();
                         break;
                     } else {
                         jf.a(jcVar, m468a.a);
@@ -196,7 +196,7 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                     }
                 case 7:
                     if (m468a.a == 11) {
-                        this.f767f = jcVar.m473a();
+                        this.f766f = jcVar.m473a();
                         break;
                     } else {
                         jf.a(jcVar, m468a.a);
@@ -205,9 +205,9 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                 case 8:
                     if (m468a.a == 15) {
                         ja m469a = jcVar.m469a();
-                        this.f762a = new ArrayList(m469a.f792a);
-                        for (int i = 0; i < m469a.f792a; i++) {
-                            this.f762a.add(jcVar.m473a());
+                        this.f761a = new ArrayList(m469a.f791a);
+                        for (int i = 0; i < m469a.f791a; i++) {
+                            this.f761a.add(jcVar.m473a());
                         }
                         jcVar.i();
                         break;
@@ -225,7 +225,7 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m456a() {
-        return this.f761a != null;
+        return this.f760a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -235,92 +235,92 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
         }
         boolean m456a = m456a();
         boolean m456a2 = ioVar.m456a();
-        if ((m456a || m456a2) && !(m456a && m456a2 && this.f761a.equals(ioVar.f761a))) {
+        if ((m456a || m456a2) && !(m456a && m456a2 && this.f760a.equals(ioVar.f760a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = ioVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f760a.m378a(ioVar.f760a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f759a.m378a(ioVar.f759a))) {
             return false;
         }
         boolean c2 = c();
         boolean c3 = ioVar.c();
-        if ((c2 || c3) && !(c2 && c3 && this.f763b.equals(ioVar.f763b))) {
+        if ((c2 || c3) && !(c2 && c3 && this.f762b.equals(ioVar.f762b))) {
             return false;
         }
         boolean d2 = d();
         boolean d3 = ioVar.d();
-        if ((d2 || d3) && !(d2 && d3 && this.f764c.equals(ioVar.f764c))) {
+        if ((d2 || d3) && !(d2 && d3 && this.f763c.equals(ioVar.f763c))) {
             return false;
         }
         boolean e2 = e();
         boolean e3 = ioVar.e();
-        if ((e2 || e3) && !(e2 && e3 && this.f765d.equals(ioVar.f765d))) {
+        if ((e2 || e3) && !(e2 && e3 && this.f764d.equals(ioVar.f764d))) {
             return false;
         }
         boolean f2 = f();
         boolean f3 = ioVar.f();
-        if ((f2 || f3) && !(f2 && f3 && this.f766e.equals(ioVar.f766e))) {
+        if ((f2 || f3) && !(f2 && f3 && this.f765e.equals(ioVar.f765e))) {
             return false;
         }
         boolean g2 = g();
         boolean g3 = ioVar.g();
-        if ((g2 || g3) && !(g2 && g3 && this.f767f.equals(ioVar.f767f))) {
+        if ((g2 || g3) && !(g2 && g3 && this.f766f.equals(ioVar.f766f))) {
             return false;
         }
         boolean h2 = h();
         boolean h3 = ioVar.h();
-        return !(h2 || h3) || (h2 && h3 && this.f762a.equals(ioVar.f762a));
+        return !(h2 || h3) || (h2 && h3 && this.f761a.equals(ioVar.f761a));
     }
 
     public io b(String str) {
-        this.f764c = str;
+        this.f763c = str;
         return this;
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         a();
-        jcVar.a(f759a);
-        if (this.f761a != null && m456a()) {
+        jcVar.a(f758a);
+        if (this.f760a != null && m456a()) {
             jcVar.a(a);
-            jcVar.a(this.f761a);
+            jcVar.a(this.f760a);
             jcVar.b();
         }
-        if (this.f760a != null && b()) {
+        if (this.f759a != null && b()) {
             jcVar.a(b);
-            this.f760a.b(jcVar);
+            this.f759a.b(jcVar);
             jcVar.b();
         }
-        if (this.f763b != null) {
+        if (this.f762b != null) {
             jcVar.a(c);
-            jcVar.a(this.f763b);
+            jcVar.a(this.f762b);
             jcVar.b();
         }
-        if (this.f764c != null) {
+        if (this.f763c != null) {
             jcVar.a(d);
-            jcVar.a(this.f764c);
+            jcVar.a(this.f763c);
             jcVar.b();
         }
-        if (this.f765d != null) {
+        if (this.f764d != null) {
             jcVar.a(e);
-            jcVar.a(this.f765d);
+            jcVar.a(this.f764d);
             jcVar.b();
         }
-        if (this.f766e != null && f()) {
+        if (this.f765e != null && f()) {
             jcVar.a(f);
-            jcVar.a(this.f766e);
+            jcVar.a(this.f765e);
             jcVar.b();
         }
-        if (this.f767f != null && g()) {
+        if (this.f766f != null && g()) {
             jcVar.a(g);
-            jcVar.a(this.f767f);
+            jcVar.a(this.f766f);
             jcVar.b();
         }
-        if (this.f762a != null && h()) {
+        if (this.f761a != null && h()) {
             jcVar.a(h);
-            jcVar.a(new ja(Constants.GZIP_CAST_TYPE, this.f762a.size()));
-            for (String str : this.f762a) {
+            jcVar.a(new ja(Constants.GZIP_CAST_TYPE, this.f761a.size()));
+            for (String str : this.f761a) {
                 jcVar.a(str);
             }
             jcVar.e();
@@ -331,34 +331,34 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
     }
 
     public boolean b() {
-        return this.f760a != null;
+        return this.f759a != null;
     }
 
     public io c(String str) {
-        this.f765d = str;
+        this.f764d = str;
         return this;
     }
 
     public boolean c() {
-        return this.f763b != null;
+        return this.f762b != null;
     }
 
     public io d(String str) {
-        this.f766e = str;
+        this.f765e = str;
         return this;
     }
 
     public boolean d() {
-        return this.f764c != null;
+        return this.f763c != null;
     }
 
     public io e(String str) {
-        this.f767f = str;
+        this.f766f = str;
         return this;
     }
 
     public boolean e() {
-        return this.f765d != null;
+        return this.f764d != null;
     }
 
     public boolean equals(Object obj) {
@@ -369,15 +369,15 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
     }
 
     public boolean f() {
-        return this.f766e != null;
+        return this.f765e != null;
     }
 
     public boolean g() {
-        return this.f767f != null;
+        return this.f766f != null;
     }
 
     public boolean h() {
-        return this.f762a != null;
+        return this.f761a != null;
     }
 
     public int hashCode() {
@@ -390,10 +390,10 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
         boolean z2 = true;
         if (m456a()) {
             sb.append("debug:");
-            if (this.f761a == null) {
+            if (this.f760a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f761a);
+                sb.append(this.f760a);
             }
             z2 = false;
         }
@@ -402,10 +402,10 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
                 sb.append(", ");
             }
             sb.append("target:");
-            if (this.f760a == null) {
+            if (this.f759a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f760a);
+                sb.append(this.f759a);
             }
         } else {
             z = z2;
@@ -414,50 +414,50 @@ public class io implements ir<io, Object>, Serializable, Cloneable {
             sb.append(", ");
         }
         sb.append("id:");
-        if (this.f763b == null) {
+        if (this.f762b == null) {
             sb.append("null");
         } else {
-            sb.append(this.f763b);
+            sb.append(this.f762b);
         }
         sb.append(", ");
         sb.append("appId:");
-        if (this.f764c == null) {
+        if (this.f763c == null) {
             sb.append("null");
         } else {
-            sb.append(this.f764c);
+            sb.append(this.f763c);
         }
         sb.append(", ");
         sb.append(UrlSchemaHelper.SCHEMA_TYPE_TOPIC);
-        if (this.f765d == null) {
+        if (this.f764d == null) {
             sb.append("null");
         } else {
-            sb.append(this.f765d);
+            sb.append(this.f764d);
         }
         if (f()) {
             sb.append(", ");
             sb.append("packageName:");
-            if (this.f766e == null) {
+            if (this.f765e == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f766e);
+                sb.append(this.f765e);
             }
         }
         if (g()) {
             sb.append(", ");
             sb.append("category:");
-            if (this.f767f == null) {
+            if (this.f766f == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f767f);
+                sb.append(this.f766f);
             }
         }
         if (h()) {
             sb.append(", ");
             sb.append("aliases:");
-            if (this.f762a == null) {
+            if (this.f761a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f762a);
+                sb.append(this.f761a);
             }
         }
         sb.append(")");

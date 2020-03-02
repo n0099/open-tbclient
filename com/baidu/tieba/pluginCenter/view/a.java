@@ -12,37 +12,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pluginCenter.PluginConfigWrapper;
 /* loaded from: classes8.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<PluginConfigWrapper, com.baidu.tbadk.mvc.d.b> {
-    private TextView hpy;
-    private TbImageView jzB;
-    private TextView jzC;
-    private TextView jzD;
-    private CircleProgressBar jzE;
+    private TextView hpA;
+    private TbImageView jzD;
+    private TextView jzE;
+    private TextView jzF;
+    private CircleProgressBar jzG;
     private TextView title;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.jzB = (TbImageView) view.findViewById(R.id.icon);
+        this.jzD = (TbImageView) view.findViewById(R.id.icon);
         this.title = (TextView) view.findViewById(R.id.title);
-        this.hpy = (TextView) view.findViewById(R.id.desc);
-        this.jzC = (TextView) view.findViewById(R.id.status);
-        this.jzC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.view.a.1
+        this.hpA = (TextView) view.findViewById(R.id.desc);
+        this.jzE = (TextView) view.findViewById(R.id.status);
+        this.jzE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(3, a.this.getData(), null, null);
                 bVar.setUniqueId(a.this.getUniqueId());
-                a.this.aQN().dispatchMvcEvent(bVar);
+                a.this.aQP().dispatchMvcEvent(bVar);
             }
         });
-        this.jzD = (TextView) view.findViewById(R.id.install);
-        this.jzD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.view.a.2
+        this.jzF = (TextView) view.findViewById(R.id.install);
+        this.jzF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(2, a.this.getData(), null, null);
                 bVar.setUniqueId(a.this.getUniqueId());
-                a.this.aQN().dispatchMvcEvent(bVar);
+                a.this.aQP().dispatchMvcEvent(bVar);
             }
         });
-        this.jzE = (CircleProgressBar) view.findViewById(R.id.install_progress);
+        this.jzG = (CircleProgressBar) view.findViewById(R.id.install_progress);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,24 +52,24 @@ public class a extends com.baidu.tbadk.mvc.f.a<PluginConfigWrapper, com.baidu.tb
         super.ai(pluginConfigWrapper);
         if (pluginConfigWrapper != null) {
             if (!StringUtils.isNull(pluginConfigWrapper.icon)) {
-                this.jzB.startLoad(pluginConfigWrapper.icon, 10, false);
+                this.jzD.startLoad(pluginConfigWrapper.icon, 10, false);
             }
             this.title.setText(pluginConfigWrapper.display_name);
-            this.hpy.setText(pluginConfigWrapper.verbose);
+            this.hpA.setText(pluginConfigWrapper.verbose);
             if (PluginPackageManager.js().bf(pluginConfigWrapper.package_name)) {
-                this.jzD.setVisibility(8);
-                this.jzE.setVisibility(8);
-                this.jzC.setVisibility(0);
-                this.jzC.setText(R.string.view);
-            } else if (pluginConfigWrapper.getDownLoadStatus() == 3) {
-                this.jzE.setProgress(pluginConfigWrapper.getDownLoadPercent());
-                this.jzC.setVisibility(8);
-                this.jzD.setVisibility(8);
+                this.jzF.setVisibility(8);
+                this.jzG.setVisibility(8);
                 this.jzE.setVisibility(0);
-            } else {
-                this.jzC.setVisibility(8);
-                this.jzD.setVisibility(0);
+                this.jzE.setText(R.string.view);
+            } else if (pluginConfigWrapper.getDownLoadStatus() == 3) {
+                this.jzG.setProgress(pluginConfigWrapper.getDownLoadPercent());
                 this.jzE.setVisibility(8);
+                this.jzF.setVisibility(8);
+                this.jzG.setVisibility(0);
+            } else {
+                this.jzE.setVisibility(8);
+                this.jzF.setVisibility(0);
+                this.jzG.setVisibility(8);
             }
         }
     }
@@ -77,8 +77,8 @@ public class a extends com.baidu.tbadk.mvc.f.a<PluginConfigWrapper, com.baidu.tb
     @Override // com.baidu.tieba.tbadkCore.q
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.q.a.a(tbPageContext, getRootView());
-        this.jzE.setCircleForegroundColor(am.getColor(R.color.cp_link_tip_a));
-        this.jzE.setCircleBackgroundColor(am.getColor(R.color.cp_cont_d));
+        this.jzG.setCircleForegroundColor(am.getColor(R.color.cp_link_tip_a));
+        this.jzG.setCircleBackgroundColor(am.getColor(R.color.cp_cont_d));
         return true;
     }
 }

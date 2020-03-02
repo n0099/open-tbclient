@@ -5,7 +5,7 @@ import java.util.Map;
 public abstract class d<K, V> {
     private Map<K, V> map = com.baidu.poly.util.d.p();
 
-    public Map<K, V> Ex() {
+    public Map<K, V> Ez() {
         return this.map;
     }
 

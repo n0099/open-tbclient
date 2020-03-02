@@ -13,13 +13,13 @@ import com.baidu.spswitch.b.f;
 import com.baidu.spswitch.emotion.c;
 /* loaded from: classes13.dex */
 public class CircleIndicator extends View {
-    private int aZM;
     private int aZN;
     private int aZO;
     private int aZP;
     private int aZQ;
     private int aZR;
-    private final ViewPager.OnPageChangeListener aZS;
+    private int aZS;
+    private final ViewPager.OnPageChangeListener aZT;
     private int mCurrentPos;
     private int mHeight;
     private int mRadius;
@@ -39,8 +39,8 @@ public class CircleIndicator extends View {
     public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.ne = 1;
-        this.aZP = 0;
-        this.aZS = new ViewPager.OnPageChangeListener() { // from class: com.baidu.spswitch.emotion.view.CircleIndicator.1
+        this.aZQ = 0;
+        this.aZT = new ViewPager.OnPageChangeListener() { // from class: com.baidu.spswitch.emotion.view.CircleIndicator.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i3) {
                 if (f > 0.0f) {
@@ -55,7 +55,7 @@ public class CircleIndicator extends View {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i2) {
-                c.bf(CircleIndicator.this.getContext().getApplicationContext()).Gk();
+                c.bf(CircleIndicator.this.getContext().getApplicationContext()).Gm();
             }
         };
         init();
@@ -64,13 +64,13 @@ public class CircleIndicator extends View {
     private void init() {
         this.mTabPaint = new Paint();
         this.mTabPaint.setAntiAlias(true);
-        if (a.Go().isNightMode()) {
-            this.aZQ = -13421773;
-            this.aZR = -11184811;
+        if (a.Gq().isNightMode()) {
+            this.aZR = -13421773;
+            this.aZS = -11184811;
             return;
         }
-        this.aZQ = -2565928;
-        this.aZR = -6579301;
+        this.aZR = -2565928;
+        this.aZS = -6579301;
     }
 
     @Override // android.view.View
@@ -78,10 +78,10 @@ public class CircleIndicator extends View {
         super.onSizeChanged(i, i2, i3, i4);
         this.mHeight = i2;
         this.mWidth = i;
-        this.aZM = (int) f.g(getContext(), 10.0f);
-        this.aZO = (this.mWidth - (this.aZM * (this.ne - 1))) / 2;
-        this.mRadius = this.aZM / 5;
-        this.aZN = this.aZM;
+        this.aZN = (int) f.g(getContext(), 10.0f);
+        this.aZP = (this.mWidth - (this.aZN * (this.ne - 1))) / 2;
+        this.mRadius = this.aZN / 5;
+        this.aZO = this.aZN;
     }
 
     @Override // android.view.View
@@ -92,40 +92,40 @@ public class CircleIndicator extends View {
     }
 
     private void l(Canvas canvas) {
-        this.mTabPaint.setColor(this.aZR);
-        int i = (this.aZO + this.aZP) - (this.aZM / 2);
-        canvas.drawRoundRect(new RectF(i, 0, this.aZN + i, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
+        this.mTabPaint.setColor(this.aZS);
+        int i = (this.aZP + this.aZQ) - (this.aZN / 2);
+        canvas.drawRoundRect(new RectF(i, 0, this.aZO + i, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
     }
 
     private void m(Canvas canvas) {
-        this.mTabPaint.setColor(this.aZQ);
+        this.mTabPaint.setColor(this.aZR);
         for (int i = 0; i < this.ne; i++) {
-            canvas.drawCircle(this.aZO + (this.aZM * i), this.mRadius, this.mRadius, this.mTabPaint);
+            canvas.drawCircle(this.aZP + (this.aZN * i), this.mRadius, this.mRadius, this.mTabPaint);
         }
     }
 
     public void f(int i, float f) {
-        this.aZP = (int) (this.aZM * (i + f));
+        this.aZQ = (int) (this.aZN * (i + f));
         invalidate();
     }
 
     public void setViewPager(ViewPager viewPager) {
         this.mViewPager = viewPager;
         if (this.mViewPager != null && this.mViewPager.getAdapter() != null) {
-            Gm();
-            this.mViewPager.removeOnPageChangeListener(this.aZS);
-            this.mViewPager.addOnPageChangeListener(this.aZS);
+            Go();
+            this.mViewPager.removeOnPageChangeListener(this.aZT);
+            this.mViewPager.addOnPageChangeListener(this.aZT);
             this.mCurrentPos = this.mViewPager.getCurrentItem();
             invalidate();
         }
     }
 
-    private void Gm() {
+    private void Go() {
         this.ne = this.mViewPager.getAdapter().getCount();
         if (this.ne > 0) {
-            this.aZM = (int) f.g(getContext(), 10.0f);
-            this.aZO = (this.mWidth - (this.aZM * (this.ne - 1))) / 2;
-            this.mRadius = this.aZM / 5;
+            this.aZN = (int) f.g(getContext(), 10.0f);
+            this.aZP = (this.mWidth - (this.aZN * (this.ne - 1))) / 2;
+            this.mRadius = this.aZN / 5;
             invalidate();
         }
     }

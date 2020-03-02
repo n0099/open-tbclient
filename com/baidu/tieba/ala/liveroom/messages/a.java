@@ -4,29 +4,29 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
-    private String awq;
-    private long awr;
-    private double fgC;
+    private String awr;
+    private long aws;
     private double fgD;
-    private String fgE;
+    private double fgE;
+    private String fgF;
     private String mForumName;
     private String roomId;
 
     public void setLiveId(long j) {
-        this.awr = j;
+        this.aws = j;
     }
 
     public void c(double d, double d2) {
-        this.fgC = d;
-        this.fgD = d2;
+        this.fgD = d;
+        this.fgE = d2;
     }
 
     public void sE(String str) {
-        this.awq = str;
+        this.awr = str;
     }
 
     public void zh(String str) {
-        this.fgE = str;
+        this.fgF = str;
     }
 
     public void setForumName(String str) {
@@ -40,22 +40,22 @@ public class a extends HttpMessage {
     public a() {
         super(1021005);
         this.roomId = "";
-        this.awq = "";
-        this.fgE = "";
+        this.awr = "";
+        this.fgF = "";
         this.mForumName = "";
     }
 
     public void setParams() {
-        if (this.awr > 0) {
-            addParam("live_id", this.awr);
+        if (this.aws > 0) {
+            addParam("live_id", this.aws);
         } else {
             addParam("live_id", "0");
         }
         addParam("room_id", this.roomId);
-        addParam("from_type", this.awq);
-        addParam(BdStatsConstant.StatsKey.UNAME, this.fgE);
+        addParam("from_type", this.awr);
+        addParam(BdStatsConstant.StatsKey.UNAME, this.fgF);
         addParam("forum_name", this.mForumName);
-        addParam("lng", this.fgC);
-        addParam("lat", this.fgD);
+        addParam("lng", this.fgD);
+        addParam("lat", this.fgE);
     }
 }

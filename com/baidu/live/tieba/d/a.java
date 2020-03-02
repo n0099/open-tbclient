@@ -5,9 +5,9 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes3.dex */
 public class a {
-    private float ayl;
     private float aym;
-    private InterfaceC0096a ayn;
+    private float ayn;
+    private InterfaceC0096a ayo;
     private float mLastTouchX;
     private float mLastTouchY;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.live.tieba.d.a.1
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.ayn.z(i, i2);
+                    a.this.ayo.z(i, i2);
                     return true;
                 case 1:
-                    a.this.ayn.A(i, i2);
+                    a.this.ayo.A(i, i2);
                     return true;
                 case 2:
-                    a.this.ayn.B(i, i2);
+                    a.this.ayo.B(i, i2);
                     return true;
                 default:
                     return false;
@@ -43,32 +43,32 @@ public class a {
     }
 
     public void a(InterfaceC0096a interfaceC0096a) {
-        this.ayn = interfaceC0096a;
+        this.ayo = interfaceC0096a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.ayl = motionEvent.getRawX();
-                this.aym = motionEvent.getRawY();
+                this.aym = motionEvent.getRawX();
+                this.ayn = motionEvent.getRawY();
                 return true;
             case 1:
             case 3:
-                if (this.ayn != null) {
-                    int i = (int) (this.mLastTouchX - this.ayl);
-                    if (Math.abs(i) >= Math.abs((int) (this.mLastTouchY - this.aym))) {
-                        y(i, (int) this.ayl);
+                if (this.ayo != null) {
+                    int i = (int) (this.mLastTouchX - this.aym);
+                    if (Math.abs(i) >= Math.abs((int) (this.mLastTouchY - this.ayn))) {
+                        y(i, (int) this.aym);
                     }
                 }
-                this.ayl = 0.0f;
                 this.aym = 0.0f;
+                this.ayn = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
                 int i2 = (int) (rawX - this.mLastTouchX);
                 int i3 = (int) (rawY - this.mLastTouchY);
-                if (this.ayn != null) {
+                if (this.ayo != null) {
                     if (i3 > 0) {
                         w(i2, i3);
                     } else {

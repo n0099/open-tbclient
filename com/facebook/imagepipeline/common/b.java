@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes13.dex */
 public class b {
-    private static final b lRs = dol().dot();
+    private static final b lRu = don().dov();
     public final Bitmap.Config bitmapConfig;
-    public final int lRt;
-    public final boolean lRu;
-    public final boolean lRv;
+    @Nullable
+    public final com.facebook.imagepipeline.decoder.b lRA;
+    public final int lRv;
     public final boolean lRw;
     public final boolean lRx;
-    @Nullable
-    public final com.facebook.imagepipeline.decoder.b lRy;
+    public final boolean lRy;
+    public final boolean lRz;
 
     public b(c cVar) {
-        this.lRt = cVar.dom();
-        this.lRu = cVar.don();
         this.lRv = cVar.doo();
         this.lRw = cVar.dop();
-        this.lRx = cVar.dor();
-        this.bitmapConfig = cVar.dos();
-        this.lRy = cVar.doq();
+        this.lRx = cVar.doq();
+        this.lRy = cVar.dor();
+        this.lRz = cVar.dot();
+        this.bitmapConfig = cVar.dou();
+        this.lRA = cVar.dos();
     }
 
-    public static b dok() {
-        return lRs;
+    public static b dom() {
+        return lRu;
     }
 
-    public static c dol() {
+    public static c don() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.lRu == bVar.lRu && this.lRv == bVar.lRv && this.lRw == bVar.lRw && this.lRx == bVar.lRx && this.bitmapConfig == bVar.bitmapConfig && this.lRy == bVar.lRy;
+        return this.lRw == bVar.lRw && this.lRx == bVar.lRx && this.lRy == bVar.lRy && this.lRz == bVar.lRz && this.bitmapConfig == bVar.bitmapConfig && this.lRA == bVar.lRA;
     }
 
     public int hashCode() {
-        return (((((((this.lRw ? 1 : 0) + (((this.lRv ? 1 : 0) + (((this.lRu ? 1 : 0) + (this.lRt * 31)) * 31)) * 31)) * 31) + (this.lRx ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31) + (this.lRy != null ? this.lRy.hashCode() : 0);
+        return (((((((this.lRy ? 1 : 0) + (((this.lRx ? 1 : 0) + (((this.lRw ? 1 : 0) + (this.lRv * 31)) * 31)) * 31)) * 31) + (this.lRz ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31) + (this.lRA != null ? this.lRA.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.lRt), Boolean.valueOf(this.lRu), Boolean.valueOf(this.lRv), Boolean.valueOf(this.lRw), Boolean.valueOf(this.lRx), this.bitmapConfig.name(), this.lRy);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.lRv), Boolean.valueOf(this.lRw), Boolean.valueOf(this.lRx), Boolean.valueOf(this.lRy), Boolean.valueOf(this.lRz), this.bitmapConfig.name(), this.lRA);
     }
 }

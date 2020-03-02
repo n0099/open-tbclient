@@ -4,5 +4,5 @@ import com.kascend.chushou.constants.PkNotifyInfo;
 /* loaded from: classes5.dex */
 public class a {
     public String b;
-    public PkNotifyInfo mUt = new PkNotifyInfo();
+    public PkNotifyInfo mUv = new PkNotifyInfo();
 }

@@ -4,13 +4,13 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 /* loaded from: classes10.dex */
 class f implements Runnable {
-    final /* synthetic */ IOAdEvent aOq;
-    final /* synthetic */ e aPa;
+    final /* synthetic */ IOAdEvent aOr;
+    final /* synthetic */ e aPb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, IOAdEvent iOAdEvent) {
-        this.aPa = eVar;
-        this.aOq = iOAdEvent;
+        this.aPb = eVar;
+        this.aOr = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -18,19 +18,19 @@ class f implements Runnable {
         BaiduHybridAdViewListener baiduHybridAdViewListener;
         BaiduHybridAdViewListener baiduHybridAdViewListener2;
         com.baidu.mobads.production.d.a aVar;
-        if (IXAdEvent.AD_LOADED.equals(this.aOq.getType())) {
-            aVar = this.aPa.aOZ.aOF;
+        if (IXAdEvent.AD_LOADED.equals(this.aOr.getType())) {
+            aVar = this.aPb.aPa.aOG;
             aVar.start();
-        } else if (IXAdEvent.AD_STARTED.equals(this.aOq.getType())) {
-            baiduHybridAdViewListener2 = this.aPa.aOZ.aOE;
+        } else if (IXAdEvent.AD_STARTED.equals(this.aOr.getType())) {
+            baiduHybridAdViewListener2 = this.aPb.aPa.aOF;
             baiduHybridAdViewListener2.onAdShow(0, null);
-        } else if (!IXAdEvent.AD_ERROR.equals(this.aOq.getType())) {
-            if ("AdUserClick".equals(this.aOq.getType())) {
-                baiduHybridAdViewListener = this.aPa.aOZ.aOE;
+        } else if (!IXAdEvent.AD_ERROR.equals(this.aOr.getType())) {
+            if ("AdUserClick".equals(this.aOr.getType())) {
+                baiduHybridAdViewListener = this.aPb.aPa.aOF;
                 baiduHybridAdViewListener.onAdClick(0, null);
                 return;
             }
-            if (IXAdEvent.AD_USER_CLOSE.equals(this.aOq.getType())) {
+            if (IXAdEvent.AD_USER_CLOSE.equals(this.aOr.getType())) {
             }
         }
     }

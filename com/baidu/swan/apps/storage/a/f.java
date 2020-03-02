@@ -35,7 +35,7 @@ public class f extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty key");
             return false;
         }
-        String string = eVar.acL().afg().getString(optString, "");
+        String string = eVar.acN().afi().getString(optString, "");
         try {
             JSONObject fY = com.baidu.swan.apps.api.module.j.a.fY(string);
             if (fY == null) {

@@ -53,7 +53,7 @@ public final class a {
 
     public static void a(com.baidu.swan.apps.a.c cVar) {
         if (cVar != null) {
-            u.ahN().b(cVar);
+            u.ahP().b(cVar);
         }
     }
 
@@ -79,7 +79,7 @@ public final class a {
         if (!ProcessUtils.isMainProcess()) {
             aVar.onResult(-1);
         } else {
-            u.ahN().a(context, bundle, aVar);
+            u.ahP().a(context, bundle, aVar);
         }
     }
 
@@ -90,7 +90,7 @@ public final class a {
 
     public static boolean isLogin(Context context) {
         if (ProcessUtils.isMainProcess()) {
-            return u.ahN().isLogin(context);
+            return u.ahP().isLogin(context);
         }
         return false;
     }
@@ -104,7 +104,7 @@ public final class a {
         if (!ProcessUtils.isMainProcess()) {
             return "";
         }
-        String bduss = u.ahN().getBduss(context);
+        String bduss = u.ahP().getBduss(context);
         return TextUtils.isEmpty(bduss) ? "" : bduss;
     }
 
@@ -114,7 +114,7 @@ public final class a {
     }
 
     public static String getUid(Context context) {
-        return !ProcessUtils.isMainProcess() ? "" : u.ahN().getUid(context);
+        return !ProcessUtils.isMainProcess() ? "" : u.ahP().getUid(context);
     }
 
     public static String cY(Context context) {
@@ -123,7 +123,7 @@ public final class a {
     }
 
     public static String getCuid(Context context) {
-        return !ProcessUtils.isMainProcess() ? "" : u.ahN().getCuid(context);
+        return !ProcessUtils.isMainProcess() ? "" : u.ahP().getCuid(context);
     }
 
     public static void a(Context context, com.baidu.swan.apps.as.d.b<Bundle> bVar, @Nullable String... strArr) {
@@ -139,19 +139,19 @@ public final class a {
             bVar.D(null);
             return;
         }
-        com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
-        if (acD == null) {
+        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+        if (acF == null) {
             bVar.D(null);
             return;
         }
-        com.baidu.swan.apps.process.messaging.client.a acw = acD.acw();
-        if (acw == null) {
+        com.baidu.swan.apps.process.messaging.client.a acy = acF.acy();
+        if (acy == null) {
             bVar.D(null);
             return;
         }
         Bundle bundle = new Bundle();
         bundle.putStringArray("key_param_tpl_list", strArr);
-        acw.a(bundle, f.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.a.a.2
+        acy.a(bundle, f.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.a.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar2) {
@@ -218,7 +218,7 @@ public final class a {
     }
 
     private static void a(l.a aVar, String str, List<String> list) {
-        u.ahN().a(aVar, str, list);
+        u.ahP().a(aVar, str, list);
     }
 
     public static String cZ(Context context) {
@@ -231,7 +231,7 @@ public final class a {
     }
 
     public static String db(Context context) {
-        return !ProcessUtils.isMainProcess() ? "" : u.ahN().db(context);
+        return !ProcessUtils.isMainProcess() ? "" : u.ahP().db(context);
     }
 
     public static z dc(Context context) {
@@ -251,7 +251,7 @@ public final class a {
 
     public static z de(Context context) {
         if (ProcessUtils.isMainProcess()) {
-            return u.ahN().de(context);
+            return u.ahP().de(context);
         }
         return null;
     }
@@ -271,12 +271,12 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Activity activity, String str, com.baidu.swan.apps.as.d.b<Bundle> bVar) {
-        u.ahN().a(activity, "baidu_mini_programs_" + str, cS(activity), m(bVar));
+        u.ahP().a(activity, "baidu_mini_programs_" + str, cS(activity), m(bVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(Activity activity, String str, com.baidu.swan.apps.as.d.b<Bundle> bVar) {
-        u.ahN().b(activity, "baidu_mini_programs_" + str, cS(activity), m(bVar));
+        u.ahP().b(activity, "baidu_mini_programs_" + str, cS(activity), m(bVar));
     }
 
     private static aa m(final com.baidu.swan.apps.as.d.b<Bundle> bVar) {
@@ -331,7 +331,7 @@ public final class a {
     }
 
     public static String getZid(Context context) {
-        return u.ahN().getZid(context);
+        return u.ahP().getZid(context);
     }
 
     public static void b(final Activity activity, JSONObject jSONObject) {
@@ -361,6 +361,6 @@ public final class a {
             public void onClick(DialogInterface dialogInterface, int i) {
                 a.a(activity, true, (Bundle) null, (com.baidu.swan.apps.a.a) null);
             }
-        }).b(activity.getString(b.g.aiapps_login_refuse), null).acn();
+        }).b(activity.getString(b.g.aiapps_login_refuse), null).acp();
     }
 }

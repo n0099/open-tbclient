@@ -7,9 +7,9 @@ import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public abstract class a extends BdBaseModel {
-    private InterfaceC0447a eKn;
-    private HashMap<String, String> eKo;
-    private String eKp;
+    private InterfaceC0447a eKo;
+    private HashMap<String, String> eKp;
+    private String eKq;
     protected TbPageContext mPageContext;
     private PayChannelType mPayChannelType;
 
@@ -23,7 +23,7 @@ public abstract class a extends BdBaseModel {
 
     public abstract void a(PayConfig payConfig);
 
-    public abstract void bgp();
+    public abstract void bgr();
 
     public abstract void yF(String str);
 
@@ -31,7 +31,7 @@ public abstract class a extends BdBaseModel {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mPayChannelType = payChannelType;
-        this.eKn = interfaceC0447a;
+        this.eKo = interfaceC0447a;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -46,32 +46,32 @@ public abstract class a extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, String str, String str2, HashMap<String, String> hashMap, String str3, boolean z) {
-        if (this.eKn != null) {
-            this.eKp = str2;
-            this.eKo = hashMap;
-            this.eKn.a(this.mPayChannelType, i, str, hashMap, str3, z);
+        if (this.eKo != null) {
+            this.eKq = str2;
+            this.eKp = hashMap;
+            this.eKo.a(this.mPayChannelType, i, str, hashMap, str3, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(int i, String str, int i2) {
-        if (this.eKn != null) {
-            this.eKn.a(this.mPayChannelType, i, str, i2);
+        if (this.eKo != null) {
+            this.eKo.a(this.mPayChannelType, i, str, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cT(String str, String str2) {
-        if (this.eKo != null && str != null) {
-            this.eKo.put(str, str2);
+        if (this.eKp != null && str != null) {
+            this.eKp.put(str, str2);
         }
     }
 
-    public HashMap<String, String> bgn() {
-        return this.eKo;
+    public HashMap<String, String> bgp() {
+        return this.eKp;
     }
 
-    public String bgq() {
-        return this.eKp;
+    public String bgs() {
+        return this.eKq;
     }
 }

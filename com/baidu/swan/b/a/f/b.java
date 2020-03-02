@@ -15,14 +15,14 @@ public class b extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.bVm = com.baidu.swan.apps.swancore.b.gA(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.bVo = SwanAppNetworkUtils.YX().type;
-        if (this.bVk == null) {
-            this.bVk = new JSONObject();
+        this.bVn = com.baidu.swan.apps.swancore.b.gA(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.bVp = SwanAppNetworkUtils.YZ().type;
+        if (this.bVl == null) {
+            this.bVl = new JSONObject();
         }
         try {
-            this.bVk.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.UF().getHostName());
-            this.bVk.put("package", this.packageName);
+            this.bVl.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.UH().getHostName());
+            this.bVl.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -40,13 +40,13 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.bVp = aVar.bVp;
             this.bVq = aVar.bVq;
+            this.bVr = aVar.bVr;
             this.mScheme = aVar.mScheme;
-            this.bVt = aVar.bVt;
-            this.bPs = aVar.bPs;
+            this.bVu = aVar.bVu;
+            this.bPt = aVar.bPt;
             this.mAppVersion = aVar.mAppVersion;
-            this.bVn = aVar.bVn;
+            this.bVo = aVar.bVo;
         }
     }
 

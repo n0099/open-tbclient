@@ -5,22 +5,22 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetLiveActivityDynamicHttpResponseMessage extends JsonHttpResponsedMessage {
-    private al awI;
+    private al awJ;
 
     public GetLiveActivityDynamicHttpResponseMessage() {
         super(1021126);
     }
 
-    public al yT() {
-        return this.awI;
+    public al yU() {
+        return this.awJ;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.awI = new al();
-            this.awI.parserJson(jSONObject);
+            this.awJ = new al();
+            this.awJ.parserJson(jSONObject);
         }
     }
 }

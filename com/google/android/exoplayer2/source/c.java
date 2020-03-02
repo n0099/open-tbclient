@@ -5,43 +5,43 @@ import com.google.android.exoplayer2.source.k;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class c implements k, k.a {
-    public final k lZg;
-    private k.a mqT;
-    private long mqU = -9223372036854775807L;
-    private long mqV = -9223372036854775807L;
-    private a[] mqW = new a[0];
-    private boolean mqX;
+    public final k lZi;
+    private k.a mqV;
+    private long mqW = -9223372036854775807L;
+    private long mqX = -9223372036854775807L;
+    private a[] mqY = new a[0];
+    private boolean mqZ;
 
     public c(k kVar, boolean z) {
-        this.lZg = kVar;
-        this.mqX = z;
+        this.lZi = kVar;
+        this.mqZ = z;
     }
 
     public void R(long j, long j2) {
-        this.mqU = j;
-        this.mqV = j2;
+        this.mqW = j;
+        this.mqX = j2;
     }
 
     @Override // com.google.android.exoplayer2.source.k
     public void a(k.a aVar, long j) {
-        this.mqT = aVar;
-        this.lZg.a(this, this.mqU + j);
+        this.mqV = aVar;
+        this.lZi.a(this, this.mqW + j);
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public void dwc() throws IOException {
-        this.lZg.dwc();
+    public void dwe() throws IOException {
+        this.lZi.dwe();
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public u dwd() {
-        return this.lZg.dwd();
+    public u dwf() {
+        return this.lZi.dwf();
     }
 
     @Override // com.google.android.exoplayer2.source.k
     public long a(com.google.android.exoplayer2.b.f[] fVarArr, boolean[] zArr, p[] pVarArr, boolean[] zArr2, long j) {
         p pVar;
-        this.mqW = new a[pVarArr.length];
+        this.mqY = new a[pVarArr.length];
         p[] pVarArr2 = new p[pVarArr.length];
         int i = 0;
         while (true) {
@@ -49,68 +49,68 @@ public final class c implements k, k.a {
             if (i2 >= pVarArr.length) {
                 break;
             }
-            this.mqW[i2] = (a) pVarArr[i2];
-            if (this.mqW[i2] == null) {
+            this.mqY[i2] = (a) pVarArr[i2];
+            if (this.mqY[i2] == null) {
                 pVar = null;
             } else {
-                pVar = this.mqW[i2].lXY;
+                pVar = this.mqY[i2].lYa;
             }
             pVarArr2[i2] = pVar;
             i = i2 + 1;
         }
-        long a2 = this.lZg.a(fVarArr, zArr, pVarArr2, zArr2, j + this.mqU);
-        if (this.mqX) {
-            this.mqX = this.mqU != 0 && a(fVarArr);
+        long a2 = this.lZi.a(fVarArr, zArr, pVarArr2, zArr2, j + this.mqW);
+        if (this.mqZ) {
+            this.mqZ = this.mqW != 0 && a(fVarArr);
         }
-        com.google.android.exoplayer2.util.a.checkState(a2 == this.mqU + j || (a2 >= this.mqU && (this.mqV == Long.MIN_VALUE || a2 <= this.mqV)));
+        com.google.android.exoplayer2.util.a.checkState(a2 == this.mqW + j || (a2 >= this.mqW && (this.mqX == Long.MIN_VALUE || a2 <= this.mqX)));
         for (int i3 = 0; i3 < pVarArr.length; i3++) {
             if (pVarArr2[i3] == null) {
-                this.mqW[i3] = null;
-            } else if (pVarArr[i3] == null || this.mqW[i3].lXY != pVarArr2[i3]) {
-                this.mqW[i3] = new a(this, pVarArr2[i3], this.mqU, this.mqV, this.mqX);
+                this.mqY[i3] = null;
+            } else if (pVarArr[i3] == null || this.mqY[i3].lYa != pVarArr2[i3]) {
+                this.mqY[i3] = new a(this, pVarArr2[i3], this.mqW, this.mqX, this.mqZ);
             }
-            pVarArr[i3] = this.mqW[i3];
+            pVarArr[i3] = this.mqY[i3];
         }
-        return a2 - this.mqU;
+        return a2 - this.mqW;
     }
 
     @Override // com.google.android.exoplayer2.source.k
     public void gb(long j) {
-        this.lZg.gb(this.mqU + j);
+        this.lZi.gb(this.mqW + j);
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public long dwe() {
+    public long dwg() {
         a[] aVarArr;
         boolean z = false;
-        if (this.mqX) {
-            for (a aVar : this.mqW) {
+        if (this.mqZ) {
+            for (a aVar : this.mqY) {
                 if (aVar != null) {
-                    aVar.dwh();
+                    aVar.dwj();
                 }
             }
-            this.mqX = false;
-            long dwe = dwe();
-            if (dwe == -9223372036854775807L) {
+            this.mqZ = false;
+            long dwg = dwg();
+            if (dwg == -9223372036854775807L) {
                 return 0L;
             }
-            return dwe;
+            return dwg;
         }
-        long dwe2 = this.lZg.dwe();
-        if (dwe2 == -9223372036854775807L) {
+        long dwg2 = this.lZi.dwg();
+        if (dwg2 == -9223372036854775807L) {
             return -9223372036854775807L;
         }
-        com.google.android.exoplayer2.util.a.checkState(dwe2 >= this.mqU);
-        com.google.android.exoplayer2.util.a.checkState((this.mqV == Long.MIN_VALUE || dwe2 <= this.mqV) ? true : true);
-        return dwe2 - this.mqU;
+        com.google.android.exoplayer2.util.a.checkState(dwg2 >= this.mqW);
+        com.google.android.exoplayer2.util.a.checkState((this.mqX == Long.MIN_VALUE || dwg2 <= this.mqX) ? true : true);
+        return dwg2 - this.mqW;
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public long dwf() {
-        long dwf = this.lZg.dwf();
-        if (dwf != Long.MIN_VALUE) {
-            if (this.mqV == Long.MIN_VALUE || dwf < this.mqV) {
-                return Math.max(0L, dwf - this.mqU);
+    public long dwh() {
+        long dwh = this.lZi.dwh();
+        if (dwh != Long.MIN_VALUE) {
+            if (this.mqX == Long.MIN_VALUE || dwh < this.mqX) {
+                return Math.max(0L, dwh - this.mqW);
             }
             return Long.MIN_VALUE;
         }
@@ -121,25 +121,25 @@ public final class c implements k, k.a {
     public long gc(long j) {
         a[] aVarArr;
         boolean z = false;
-        for (a aVar : this.mqW) {
+        for (a aVar : this.mqY) {
             if (aVar != null) {
-                aVar.dwi();
+                aVar.dwk();
             }
         }
-        long gc = this.lZg.gc(this.mqU + j);
-        if (gc == this.mqU + j || (gc >= this.mqU && (this.mqV == Long.MIN_VALUE || gc <= this.mqV))) {
+        long gc = this.lZi.gc(this.mqW + j);
+        if (gc == this.mqW + j || (gc >= this.mqW && (this.mqX == Long.MIN_VALUE || gc <= this.mqX))) {
             z = true;
         }
         com.google.android.exoplayer2.util.a.checkState(z);
-        return gc - this.mqU;
+        return gc - this.mqW;
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public long dwg() {
-        long dwg = this.lZg.dwg();
-        if (dwg != Long.MIN_VALUE) {
-            if (this.mqV == Long.MIN_VALUE || dwg < this.mqV) {
-                return dwg - this.mqU;
+    public long dwi() {
+        long dwi = this.lZi.dwi();
+        if (dwi != Long.MIN_VALUE) {
+            if (this.mqX == Long.MIN_VALUE || dwi < this.mqX) {
+                return dwi - this.mqW;
             }
             return Long.MIN_VALUE;
         }
@@ -148,26 +148,26 @@ public final class c implements k, k.a {
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
     public boolean gd(long j) {
-        return this.lZg.gd(this.mqU + j);
+        return this.lZi.gd(this.mqW + j);
     }
 
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.source.k.a
     public void a(k kVar) {
-        com.google.android.exoplayer2.util.a.checkState((this.mqU == -9223372036854775807L || this.mqV == -9223372036854775807L) ? false : true);
-        this.mqT.a((k) this);
+        com.google.android.exoplayer2.util.a.checkState((this.mqW == -9223372036854775807L || this.mqX == -9223372036854775807L) ? false : true);
+        this.mqV.a((k) this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.source.q.a
     /* renamed from: b */
     public void a(k kVar) {
-        this.mqT.a((k.a) this);
+        this.mqV.a((k.a) this);
     }
 
     private static boolean a(com.google.android.exoplayer2.b.f[] fVarArr) {
         for (com.google.android.exoplayer2.b.f fVar : fVarArr) {
-            if (fVar != null && !com.google.android.exoplayer2.util.i.Qo(fVar.dyv().sampleMimeType)) {
+            if (fVar != null && !com.google.android.exoplayer2.util.i.Qo(fVar.dyx().sampleMimeType)) {
                 return true;
             }
         }
@@ -176,61 +176,61 @@ public final class c implements k, k.a {
 
     /* loaded from: classes6.dex */
     private static final class a implements p {
-        private final p lXY;
-        private final k lZg;
-        private final long mqU;
-        private final long mqV;
-        private boolean mqY;
-        private boolean mqZ;
+        private final p lYa;
+        private final k lZi;
+        private final long mqW;
+        private final long mqX;
+        private boolean mra;
+        private boolean mrb;
 
         public a(k kVar, p pVar, long j, long j2, boolean z) {
-            this.lZg = kVar;
-            this.lXY = pVar;
-            this.mqU = j;
-            this.mqV = j2;
-            this.mqY = z;
+            this.lZi = kVar;
+            this.lYa = pVar;
+            this.mqW = j;
+            this.mqX = j2;
+            this.mra = z;
         }
 
-        public void dwh() {
-            this.mqY = false;
+        public void dwj() {
+            this.mra = false;
         }
 
-        public void dwi() {
-            this.mqZ = false;
+        public void dwk() {
+            this.mrb = false;
         }
 
         @Override // com.google.android.exoplayer2.source.p
         public boolean isReady() {
-            return this.lXY.isReady();
+            return this.lYa.isReady();
         }
 
         @Override // com.google.android.exoplayer2.source.p
-        public void dwj() throws IOException {
-            this.lXY.dwj();
+        public void dwl() throws IOException {
+            this.lYa.dwl();
         }
 
         @Override // com.google.android.exoplayer2.source.p
         public int b(com.google.android.exoplayer2.m mVar, com.google.android.exoplayer2.a.e eVar, boolean z) {
-            if (this.mqY) {
+            if (this.mra) {
                 return -3;
             }
-            if (this.mqZ) {
+            if (this.mrb) {
                 eVar.setFlags(4);
                 return -4;
             }
-            int b = this.lXY.b(mVar, eVar, z);
+            int b = this.lYa.b(mVar, eVar, z);
             if (b == -5) {
-                Format format = mVar.lZw;
-                mVar.lZw = format.dF(this.mqU != 0 ? 0 : format.encoderDelay, this.mqV == Long.MIN_VALUE ? format.encoderPadding : 0);
+                Format format = mVar.lZy;
+                mVar.lZy = format.dF(this.mqW != 0 ? 0 : format.encoderDelay, this.mqX == Long.MIN_VALUE ? format.encoderPadding : 0);
                 return -5;
-            } else if (this.mqV != Long.MIN_VALUE && ((b == -4 && eVar.mdB >= this.mqV) || (b == -3 && this.lZg.dwf() == Long.MIN_VALUE))) {
+            } else if (this.mqX != Long.MIN_VALUE && ((b == -4 && eVar.mdD >= this.mqX) || (b == -3 && this.lZi.dwh() == Long.MIN_VALUE))) {
                 eVar.clear();
                 eVar.setFlags(4);
-                this.mqZ = true;
+                this.mrb = true;
                 return -4;
             } else {
-                if (b == -4 && !eVar.dus()) {
-                    eVar.mdB -= this.mqU;
+                if (b == -4 && !eVar.duu()) {
+                    eVar.mdD -= this.mqW;
                 }
                 return b;
             }
@@ -238,7 +238,7 @@ public final class c implements k, k.a {
 
         @Override // com.google.android.exoplayer2.source.p
         public int ge(long j) {
-            return this.lXY.ge(this.mqU + j);
+            return this.lYa.ge(this.mqW + j);
         }
     }
 }

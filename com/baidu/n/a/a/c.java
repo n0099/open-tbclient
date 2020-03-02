@@ -9,15 +9,15 @@ public interface c {
 
     void NK(String str);
 
-    boolean dhO();
+    boolean dhQ();
 
-    c dhY();
-
-    String dhZ();
-
-    String dia();
+    c dia();
 
     String dib();
+
+    String dic();
+
+    String did();
 
     int getStatusCode();
 

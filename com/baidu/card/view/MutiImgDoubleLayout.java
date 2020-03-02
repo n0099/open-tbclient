@@ -99,36 +99,36 @@ public class MutiImgDoubleLayout extends LinearLayout implements m<com.baidu.tba
                     subClickListener.a(view, MutiImgDoubleLayout.this.Kc);
                     MutiImgDoubleLayout.this.Kc.objType = 1;
                 }
-                au.a(view, MutiImgDoubleLayout.this.NJ, MutiImgDoubleLayout.this.Oc, i, MutiImgDoubleLayout.this.Kc.aAe(), MutiImgDoubleLayout.this.mFrom);
+                au.a(view, MutiImgDoubleLayout.this.NJ, MutiImgDoubleLayout.this.Oc, i, MutiImgDoubleLayout.this.Kc.aAg(), MutiImgDoubleLayout.this.mFrom);
             }
         };
     }
 
     private void setVoiceData(bj bjVar) {
-        ArrayList<VoiceData.VoiceModel> aCA = bjVar.aCA();
-        if (v.isEmpty(aCA)) {
+        ArrayList<VoiceData.VoiceModel> aCC = bjVar.aCC();
+        if (v.isEmpty(aCC)) {
             this.NY.setVisibility(8);
             this.Ob = false;
             return;
         }
         this.NY.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = aCA.get(0);
+        VoiceData.VoiceModel voiceModel = aCC.get(0);
         this.NY.setVoiceModel(voiceModel);
         this.NY.setTag(voiceModel);
-        this.NY.bHq();
+        this.NY.bHs();
         if (voiceModel != null) {
             this.NY.wW(voiceModel.voice_status.intValue());
         }
-        this.NY.cMf();
+        this.NY.cMh();
         this.Ob = true;
     }
 
     private void setImageData(bj bjVar) {
-        ArrayList<MediaData> aCw = bjVar.aCw();
-        if (i.azM().isShowImages() && v.getCount(aCw) != 0) {
+        ArrayList<MediaData> aCy = bjVar.aCy();
+        if (i.azO().isShowImages() && v.getCount(aCy) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aCw.size(); i++) {
-                MediaData mediaData = (MediaData) v.getItem(aCw, i);
+            for (int i = 0; i < aCy.size(); i++) {
+                MediaData mediaData = (MediaData) v.getItem(aCy, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -139,9 +139,9 @@ public class MutiImgDoubleLayout extends LinearLayout implements m<com.baidu.tba
             if (v.getCount(linkedList) == 2) {
                 this.Og.setVisibility(0);
                 this.Oh.setConrers(15);
-                a((MediaData) v.getItem(aCw, 0), this.Oh, true, false, false, 0);
+                a((MediaData) v.getItem(aCy, 0), this.Oh, true, false, false, 0);
                 this.Oi.setConrers(15);
-                a((MediaData) v.getItem(aCw, 1), this.Oi, true, false, true, 1);
+                a((MediaData) v.getItem(aCy, 1), this.Oi, true, false, true, 1);
                 return;
             }
             this.Og.setVisibility(8);
@@ -164,11 +164,11 @@ public class MutiImgDoubleLayout extends LinearLayout implements m<com.baidu.tba
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        bj aAe = aVar.aAe();
-        au.a(this.mTitle, aAe);
-        au.a(this.KA, this.mTitle, aAe, Ky);
-        setImageData(aAe);
-        setVoiceData(aAe);
+        bj aAg = aVar.aAg();
+        au.a(this.mTitle, aAg);
+        au.a(this.KA, this.mTitle, aAg, Ky);
+        setImageData(aAg);
+        setVoiceData(aAg);
         nn();
     }
 

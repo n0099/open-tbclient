@@ -21,18 +21,18 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", cVar.getBundleId());
         hashMap.put("category", String.valueOf(cVar.getCategory()));
-        if (cVar.aui() == -1) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.att().qo(cVar.getBundleId());
-            if (pMSAppInfo != null && com.baidu.swan.pms.database.a.att().c(f.class, cVar.getBundleId()) != null) {
+        if (cVar.auk() == -1) {
+            pMSAppInfo = com.baidu.swan.pms.database.a.atv().qo(cVar.getBundleId());
+            if (pMSAppInfo != null && com.baidu.swan.pms.database.a.atv().c(f.class, cVar.getBundleId()) != null) {
                 cVar.iK(pMSAppInfo.versionCode);
             } else {
                 cVar.iK(0);
             }
         }
-        hashMap.put("pkg_ver", String.valueOf(cVar.aui()));
-        if (cVar.auj() == -1) {
+        hashMap.put("pkg_ver", String.valueOf(cVar.auk()));
+        if (cVar.aul() == -1) {
             if (pMSAppInfo == null) {
-                pMSAppInfo = com.baidu.swan.pms.database.a.att().qo(cVar.getBundleId());
+                pMSAppInfo = com.baidu.swan.pms.database.a.atv().qo(cVar.getBundleId());
             }
             if (pMSAppInfo != null) {
                 cVar.bl(pMSAppInfo.appSign);
@@ -40,21 +40,21 @@ public class b {
                 cVar.bl(0L);
             }
         }
-        hashMap.put("app_sign", String.valueOf(cVar.auj()));
-        if (cVar.auk() != -1) {
-            hashMap.put("expect_pkg_ver", String.valueOf(cVar.auk()));
+        hashMap.put("app_sign", String.valueOf(cVar.aul()));
+        if (cVar.aum() != -1) {
+            hashMap.put("expect_pkg_ver", String.valueOf(cVar.aum()));
         }
-        if (TextUtils.isEmpty(cVar.aul())) {
+        if (TextUtils.isEmpty(cVar.aun())) {
             cVar.qw(iF(cVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(cVar.aul())) {
-            hashMap.put("framework_ver", cVar.aul());
+        if (!TextUtils.isEmpty(cVar.aun())) {
+            hashMap.put("framework_ver", cVar.aun());
         }
-        if (TextUtils.isEmpty(cVar.aum())) {
+        if (TextUtils.isEmpty(cVar.auo())) {
             cVar.qx(iG(cVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(cVar.aum())) {
-            hashMap.put("extension_ver", cVar.aum());
+        if (!TextUtils.isEmpty(cVar.auo())) {
+            hashMap.put("extension_ver", cVar.auo());
         }
         if (!TextUtils.isEmpty(cVar.getPath())) {
             hashMap.put("path", cVar.getPath());
@@ -62,8 +62,8 @@ public class b {
         if (!TextUtils.equals(cVar.getFrom(), "-1")) {
             hashMap.put("from", cVar.getFrom());
         }
-        if (!TextUtils.equals(cVar.auq(), "-1")) {
-            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, cVar.auq());
+        if (!TextUtils.equals(cVar.aus(), "-1")) {
+            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, cVar.aus());
         }
         return hashMap;
     }
@@ -75,23 +75,23 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", eVar.getBundleId());
         hashMap.put("category", String.valueOf(eVar.getCategory()));
-        hashMap.put("pkg_ver", String.valueOf(eVar.aui()));
-        hashMap.put("expect_pkg_ver", String.valueOf(eVar.aui()));
-        hashMap.put("sub_id", eVar.aup());
-        if (TextUtils.isEmpty(eVar.aul())) {
+        hashMap.put("pkg_ver", String.valueOf(eVar.auk()));
+        hashMap.put("expect_pkg_ver", String.valueOf(eVar.auk()));
+        hashMap.put("sub_id", eVar.aur());
+        if (TextUtils.isEmpty(eVar.aun())) {
             eVar.qA(iF(eVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(eVar.aul())) {
-            hashMap.put("framework_ver", eVar.aul());
+        if (!TextUtils.isEmpty(eVar.aun())) {
+            hashMap.put("framework_ver", eVar.aun());
         }
-        if (TextUtils.isEmpty(eVar.aum())) {
+        if (TextUtils.isEmpty(eVar.auo())) {
             eVar.qB(iG(eVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(eVar.aum())) {
-            hashMap.put("extension_ver", eVar.aum());
+        if (!TextUtils.isEmpty(eVar.auo())) {
+            hashMap.put("extension_ver", eVar.auo());
         }
-        if (eVar.auk() != -1) {
-            hashMap.put("expect_pkg_ver", String.valueOf(eVar.auk()));
+        if (eVar.aum() != -1) {
+            hashMap.put("expect_pkg_ver", String.valueOf(eVar.aum()));
             return hashMap;
         }
         return hashMap;
@@ -102,12 +102,12 @@ public class b {
             return null;
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("bundle_id", dVar.aun());
+        hashMap.put("bundle_id", dVar.aup());
         hashMap.put("category", String.valueOf(dVar.getCategory()));
-        if (TextUtils.isEmpty(dVar.auo())) {
+        if (TextUtils.isEmpty(dVar.auq())) {
             dVar.qz(String.valueOf(-1));
         }
-        hashMap.put("plugin_ver", dVar.auo());
+        hashMap.put("plugin_ver", dVar.auq());
         return hashMap;
     }
 
@@ -117,17 +117,17 @@ public class b {
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("category", String.valueOf(gVar.getCategory()));
-        if (TextUtils.isEmpty(gVar.aul())) {
+        if (TextUtils.isEmpty(gVar.aun())) {
             gVar.qE(iF(gVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(gVar.aul())) {
-            hashMap.put("framework_ver", gVar.aul());
+        if (!TextUtils.isEmpty(gVar.aun())) {
+            hashMap.put("framework_ver", gVar.aun());
         }
-        if (TextUtils.isEmpty(gVar.aum())) {
+        if (TextUtils.isEmpty(gVar.auo())) {
             gVar.qF(iG(gVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(gVar.aum())) {
-            hashMap.put("extension_ver", gVar.aum());
+        if (!TextUtils.isEmpty(gVar.auo())) {
+            hashMap.put("extension_ver", gVar.auo());
             return hashMap;
         }
         return hashMap;
@@ -141,8 +141,8 @@ public class b {
         if (!TextUtils.equals(bVar.getFrom(), "-1")) {
             hashMap.put("from", bVar.getFrom());
         }
-        if (!TextUtils.equals(bVar.auq(), "-1")) {
-            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, bVar.auq());
+        if (!TextUtils.equals(bVar.aus(), "-1")) {
+            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, bVar.aus());
             return hashMap;
         }
         return hashMap;
@@ -163,14 +163,14 @@ public class b {
             jSONObject3.put("game_ext_ver", iG(1));
             jSONObject.put(ETAG.KEY_EXTENSION, jSONObject3);
             JSONArray jSONArray = new JSONArray();
-            for (b.a aVar : bVar.auh()) {
+            for (b.a aVar : bVar.auj()) {
                 JSONObject jSONObject4 = new JSONObject();
                 jSONObject4.put("bundle_id", aVar.getBundleId());
                 if (aVar.getCategory() != -1) {
                     jSONObject4.put("category", aVar.getCategory());
                 }
-                jSONObject4.put("pkg_ver", aVar.aui());
-                jSONObject4.put("app_sign", aVar.auj());
+                jSONObject4.put("pkg_ver", aVar.auk());
+                jSONObject4.put("app_sign", aVar.aul());
                 jSONArray.put(jSONObject4);
             }
             jSONObject.put("list", jSONArray);
@@ -183,20 +183,20 @@ public class b {
 
     private static String iF(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.d.atn().UW();
+            return com.baidu.swan.pms.d.atp().UY();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.d.atn().UU();
+            return com.baidu.swan.pms.d.atp().UW();
         }
         return null;
     }
 
     private static String iG(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.d.atn().UX();
+            return com.baidu.swan.pms.d.atp().UZ();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.d.atn().UV();
+            return com.baidu.swan.pms.d.atp().UX();
         }
         return null;
     }

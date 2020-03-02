@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class e extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.a.c> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String Tq() {
+    public String Ts() {
         return "showsoftkeyboard";
     }
 

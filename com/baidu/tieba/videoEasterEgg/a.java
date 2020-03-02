@@ -18,22 +18,22 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickListener {
-    private a.b cUU;
     private a.b cUV;
-    private Button kEA;
-    private String kEB;
-    private String kEC;
+    private a.b cUW;
+    private TextView kEA;
+    private Button kEB;
+    private Button kEC;
     private String kED;
     private String kEE;
-    private CompoundButton.OnCheckedChangeListener kEF;
-    private boolean kEG;
-    private TbCheckBox.a kEH;
-    private final com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> kEI;
-    private ImageView kEv;
-    private ViewGroup kEw;
-    private TbCheckBox kEx;
-    private TextView kEy;
-    private Button kEz;
+    private String kEF;
+    private String kEG;
+    private CompoundButton.OnCheckedChangeListener kEH;
+    private boolean kEI;
+    private TbCheckBox.a kEJ;
+    private final com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> kEK;
+    private ImageView kEx;
+    private ViewGroup kEy;
+    private TbCheckBox kEz;
     private ImageView mCloseBtn;
     private ViewGroup mContentView;
     private String mMessage;
@@ -41,28 +41,28 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
 
     public a(Activity activity) {
         super(activity);
-        this.kEG = false;
-        this.kEH = new TbCheckBox.a() { // from class: com.baidu.tieba.videoEasterEgg.a.1
+        this.kEI = false;
+        this.kEJ = new TbCheckBox.a() { // from class: com.baidu.tieba.videoEasterEgg.a.1
             @Override // com.baidu.tbadk.core.view.TbCheckBox.a
             public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
-                if (a.this.kEF != null) {
-                    a.this.kEF.onCheckedChanged(null, z);
+                if (a.this.kEH != null) {
+                    a.this.kEH.onCheckedChanged(null, z);
                 }
             }
         };
-        this.kEI = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.videoEasterEgg.a.2
+        this.kEK = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.videoEasterEgg.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass2) aVar, str, i);
                 if (aVar == null || !aVar.isValidNow()) {
-                    a.this.kEv.setImageResource(R.drawable.frs_luhan_moren_background);
+                    a.this.kEx.setImageResource(R.drawable.frs_luhan_moren_background);
                     return;
                 }
-                a.this.kEv.setBackgroundResource(0);
-                a.this.kEv.setImageDrawable(null);
-                aVar.drawImageTo(a.this.kEv);
+                a.this.kEx.setBackgroundResource(0);
+                a.this.kEx.setImageDrawable(null);
+                aVar.drawImageTo(a.this.kEx);
             }
         };
         initContentView();
@@ -73,48 +73,48 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
 
     private void initContentView() {
         this.mContentView = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.easter_egg_dialog, (ViewGroup) null);
-        this.kEv = (ImageView) this.mContentView.findViewById(R.id.dialog_bg);
+        this.kEx = (ImageView) this.mContentView.findViewById(R.id.dialog_bg);
         this.mMessageView = (TextView) this.mContentView.findViewById(R.id.message);
-        this.kEA = (Button) this.mContentView.findViewById(R.id.negative_btn);
-        this.kEA.setOnClickListener(this);
-        this.kEz = (Button) this.mContentView.findViewById(R.id.positive_btn);
-        this.kEz.setOnClickListener(this);
+        this.kEC = (Button) this.mContentView.findViewById(R.id.negative_btn);
+        this.kEC.setOnClickListener(this);
+        this.kEB = (Button) this.mContentView.findViewById(R.id.positive_btn);
+        this.kEB.setOnClickListener(this);
         this.mCloseBtn = (ImageView) this.mContentView.findViewById(R.id.close);
         this.mCloseBtn.setOnClickListener(this);
-        this.kEw = (ViewGroup) this.mContentView.findViewById(R.id.checkbox_container);
-        this.kEy = (TextView) this.mContentView.findViewById(R.id.checkbox_text);
-        this.kEx = (TbCheckBox) this.mContentView.findViewById(R.id.checkbox);
-        this.kEx.setBackgroundDrawableId(R.drawable.icon_frs_luhan_selct, R.drawable.icon_frs_luhan_selctguand);
-        this.kEx.setStatedChangedListener(this.kEH);
-        this.kEx.setTagData(new C0627a());
-        this.kEw.setClickable(true);
-        this.kEw.setOnClickListener(this);
+        this.kEy = (ViewGroup) this.mContentView.findViewById(R.id.checkbox_container);
+        this.kEA = (TextView) this.mContentView.findViewById(R.id.checkbox_text);
+        this.kEz = (TbCheckBox) this.mContentView.findViewById(R.id.checkbox);
+        this.kEz.setBackgroundDrawableId(R.drawable.icon_frs_luhan_selct, R.drawable.icon_frs_luhan_selctguand);
+        this.kEz.setStatedChangedListener(this.kEJ);
+        this.kEz.setTagData(new C0627a());
+        this.kEy.setClickable(true);
+        this.kEy.setOnClickListener(this);
         aO(this.mContentView);
     }
 
     @Override // com.baidu.tbadk.core.dialog.a
     public com.baidu.tbadk.core.dialog.a b(e<?> eVar) {
-        if (!this.kEG) {
-            this.kEG = true;
+        if (!this.kEI) {
+            this.kEI = true;
             super.b(eVar);
             if (!aq.isEmpty(this.mMessage)) {
                 this.mMessageView.setText(this.mMessage);
             }
+            if (!aq.isEmpty(this.kEG)) {
+                this.kEA.setText(this.kEG);
+            } else {
+                this.kEy.setVisibility(4);
+            }
+            if (!aq.isEmpty(this.kEF)) {
+                this.kEC.setText(this.kEF);
+            }
             if (!aq.isEmpty(this.kEE)) {
-                this.kEy.setText(this.kEE);
+                this.kEB.setText(this.kEE);
+            }
+            if (!TextUtils.isEmpty(this.kED)) {
+                c.gr().a(this.kED, 10, this.kEK, eVar.getUniqueId());
             } else {
-                this.kEw.setVisibility(4);
-            }
-            if (!aq.isEmpty(this.kED)) {
-                this.kEA.setText(this.kED);
-            }
-            if (!aq.isEmpty(this.kEC)) {
-                this.kEz.setText(this.kEC);
-            }
-            if (!TextUtils.isEmpty(this.kEB)) {
-                c.gr().a(this.kEB, 10, this.kEI, eVar.getUniqueId());
-            } else {
-                this.kEv.setImageResource(R.drawable.frs_luhan_moren_background);
+                this.kEx.setImageResource(R.drawable.frs_luhan_moren_background);
             }
             getRealView().setBackgroundDrawable(null);
         }
@@ -126,23 +126,23 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
         if (view != null) {
             int id = view.getId();
             if (id == R.id.positive_btn) {
-                if (this.cUU != null) {
-                    this.cUU.onClick(this);
-                }
-            } else if (id == R.id.negative_btn) {
                 if (this.cUV != null) {
                     this.cUV.onClick(this);
+                }
+            } else if (id == R.id.negative_btn) {
+                if (this.cUW != null) {
+                    this.cUW.onClick(this);
                 }
             } else if (id == R.id.close) {
                 dismiss();
             } else if (id == R.id.checkbox_container) {
-                this.kEx.setChecked(!this.kEx.isChecked());
+                this.kEz.setChecked(!this.kEz.isChecked());
             }
         }
     }
 
     public a Ks(String str) {
-        this.kEB = str;
+        this.kED = str;
         return this;
     }
 
@@ -156,16 +156,16 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
 
     public a a(@StringRes int i, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
         if (this.mActivity != null) {
-            this.kEE = this.mActivity.getResources().getString(i);
-            this.kEF = onCheckedChangeListener;
+            this.kEG = this.mActivity.getResources().getString(i);
+            this.kEH = onCheckedChangeListener;
         }
         return this;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a
     public com.baidu.tbadk.core.dialog.a b(String str, a.b bVar) {
-        this.kED = str;
-        this.cUV = bVar;
+        this.kEF = str;
+        this.cUW = bVar;
         return this;
     }
 
@@ -174,8 +174,8 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
     /* renamed from: c */
     public a b(@StringRes int i, a.b bVar) {
         if (this.mActivity != null) {
-            this.kED = this.mActivity.getResources().getString(i);
-            this.cUV = bVar;
+            this.kEF = this.mActivity.getResources().getString(i);
+            this.cUW = bVar;
         }
         return this;
     }
@@ -185,8 +185,8 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
     /* renamed from: d */
     public a a(int i, a.b bVar) {
         if (this.mActivity != null) {
-            this.kEC = this.mActivity.getResources().getString(i);
-            this.cUU = bVar;
+            this.kEE = this.mActivity.getResources().getString(i);
+            this.cUV = bVar;
         }
         return this;
     }
@@ -195,8 +195,8 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
     @Override // com.baidu.tbadk.core.dialog.a
     /* renamed from: c */
     public a a(String str, a.b bVar) {
-        this.kEC = str;
-        this.cUU = bVar;
+        this.kEE = str;
+        this.cUV = bVar;
         return this;
     }
 

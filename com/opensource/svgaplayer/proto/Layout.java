@@ -12,13 +12,13 @@ import okio.ByteString;
 /* loaded from: classes.dex */
 public final class Layout extends Message<Layout, Builder> {
     private static final long serialVersionUID = 0;
-    @WireField(dGu = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+    @WireField(dGw = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
     public final Float height;
-    @WireField(dGu = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+    @WireField(dGw = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
     public final Float width;
-    @WireField(dGu = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(dGw = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float x;
-    @WireField(dGu = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(dGw = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float y;
     public static final ProtoAdapter<Layout> ADAPTER = new ProtoAdapter_Layout();
     public static final Float DEFAULT_X = Float.valueOf(0.0f);
@@ -161,11 +161,11 @@ public final class Layout extends Message<Layout, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public Layout decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dGm = cVar.dGm();
+            long dGo = cVar.dGo();
             while (true) {
-                int dGn = cVar.dGn();
-                if (dGn != -1) {
-                    switch (dGn) {
+                int dGp = cVar.dGp();
+                if (dGp != -1) {
+                    switch (dGp) {
                         case 1:
                             builder.x(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -179,12 +179,12 @@ public final class Layout extends Message<Layout, Builder> {
                             builder.height(ProtoAdapter.FLOAT.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dGo = cVar.dGo();
-                            builder.addUnknownField(dGn, dGo, dGo.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dGq = cVar.dGq();
+                            builder.addUnknownField(dGp, dGq, dGq.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gZ(dGm);
+                    cVar.gZ(dGo);
                     return builder.build();
                 }
             }

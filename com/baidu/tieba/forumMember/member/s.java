@@ -4,41 +4,41 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes10.dex */
 public class s implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gly = BdUniqueId.gen();
-    private String gls;
-    private int glq = -1;
-    private int glz = -1;
+    public static final BdUniqueId glA = BdUniqueId.gen();
+    private String glu;
+    private int gls = -1;
+    private int glB = -1;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gly;
+        return glA;
     }
 
-    public int bCz() {
-        return this.glz;
+    public int bCB() {
+        return this.glB;
     }
 
     public void sv(int i) {
-        this.glz = i;
+        this.glB = i;
     }
 
-    public int bCx() {
-        return this.glq;
-    }
-
-    public void su(int i) {
-        this.glq = i;
-    }
-
-    public String bCy() {
+    public int bCz() {
         return this.gls;
     }
 
+    public void su(int i) {
+        this.gls = i;
+    }
+
+    public String bCA() {
+        return this.glu;
+    }
+
     public void AX(String str) {
-        this.gls = str;
+        this.glu = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.gls) || this.glq < 0;
+        return StringUtils.isNull(this.glu) || this.gls < 0;
     }
 }

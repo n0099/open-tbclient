@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private BdTypeListView eka;
-    private com.baidu.tieba.ala.personcenter.d.a ftI;
+    private BdTypeListView ekb;
+    private com.baidu.tieba.ala.personcenter.d.a ftJ;
     private TbPageContext mPageContext;
     private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
     private List<m> mDataList = new ArrayList();
 
     public c(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, com.baidu.tieba.ala.personcenter.d.a aVar) {
         this.mPageContext = tbPageContext;
-        this.eka = bdTypeListView;
-        this.ftI = aVar;
+        this.ekb = bdTypeListView;
+        this.ftJ = aVar;
         wM();
     }
 
@@ -29,7 +29,7 @@ public class c {
         h hVar = new h(this.mPageContext);
         d dVar = new d(this.mPageContext);
         a aVar = new a(this.mPageContext);
-        i iVar = new i(this.mPageContext, this.ftI);
+        i iVar = new i(this.mPageContext, this.ftJ);
         this.asE.add(bVar);
         this.asE.add(fVar);
         this.asE.add(gVar);
@@ -38,14 +38,14 @@ public class c {
         this.asE.add(dVar);
         this.asE.add(aVar);
         this.asE.add(iVar);
-        this.eka.addAdapters(this.asE);
+        this.ekb.addAdapters(this.asE);
     }
 
     public void setData(List<m> list) {
-        if (this.eka != null && !v.isEmpty(list)) {
+        if (this.ekb != null && !v.isEmpty(list)) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
-            this.eka.setData(this.mDataList);
+            this.ekb.setData(this.mDataList);
         }
     }
 }

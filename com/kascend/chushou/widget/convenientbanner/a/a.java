@@ -11,28 +11,28 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class a<T> extends RecyclerView.Adapter<b<T>> {
     protected List<T> acz;
-    private boolean nhK;
-    private final int nhR;
-    private com.kascend.chushou.widget.convenientbanner.c.a<T> nhS;
-    private ConvenientBanner nhT;
+    private boolean nhM;
+    private final int nhT;
+    private com.kascend.chushou.widget.convenientbanner.c.a<T> nhU;
+    private ConvenientBanner nhV;
 
     public a(com.kascend.chushou.widget.convenientbanner.c.a<T> aVar, List<T> list, boolean z, ConvenientBanner convenientBanner) {
-        this.nhS = aVar;
-        this.nhR = aVar.getLayoutId();
+        this.nhU = aVar;
+        this.nhT = aVar.getLayoutId();
         this.acz = list;
-        this.nhK = z;
-        this.nhT = convenientBanner;
+        this.nhM = z;
+        this.nhV = convenientBanner;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: E */
     public b<T> onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nhR, viewGroup, false);
-        if (this.nhT != null) {
-            inflate.setTag(this.nhT);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nhT, viewGroup, false);
+        if (this.nhV != null) {
+            inflate.setTag(this.nhV);
         }
-        return this.nhS.dC(inflate);
+        return this.nhU.dC(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,13 +58,13 @@ public class a<T> extends RecyclerView.Adapter<b<T>> {
         if (this.acz == null || this.acz.size() == 0) {
             return 0;
         }
-        if (this.nhK) {
+        if (this.nhM) {
             return Integer.MAX_VALUE;
         }
         return this.acz.size();
     }
 
-    public int bdA() {
+    public int bdC() {
         return this.acz.size();
     }
 }

@@ -9,7 +9,7 @@ import com.xiaomi.push.ht;
 public class MiPushClient4VR {
     public static void uploadData(Context context, String str) {
         Cif cif = new Cif();
-        cif.c(hq.VRUpload.f490a);
+        cif.c(hq.VRUpload.f489a);
         cif.b(d.m85a(context).m86a());
         cif.d(context.getPackageName());
         cif.a("data", str);

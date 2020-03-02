@@ -11,15 +11,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public static int aRN = 1;
-    private static String aRO;
+    public static int aRO = 1;
+    private static String aRP;
 
     /* loaded from: classes11.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.j.a aRM;
+        final /* synthetic */ com.baidu.poly.a.j.a aRN;
 
         a(com.baidu.poly.a.j.a aVar) {
-            this.aRM = aVar;
+            this.aRN = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -33,34 +33,34 @@ public class b {
                     c0161a.statusCode = 0;
                     c0161a.message = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    c0161a.aRJ = optJSONObject.optLong("totalAmount");
-                    c0161a.aRK = optJSONObject.optLong("userPayAmount");
-                    c0161a.aRL = optJSONObject.optString("usedhostMarketingDetail");
+                    c0161a.aRK = optJSONObject.optLong("totalAmount");
+                    c0161a.aRL = optJSONObject.optLong("userPayAmount");
+                    c0161a.aRM = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
                     c0161a.statusCode = jSONObject.optInt("errorLevel", 2);
                     c0161a.message = jSONObject.optString("msg");
                 }
             } catch (Exception e) {
                 c0161a.statusCode = 2;
-                c0161a.message = f.EI().getResources().getString(b.g.calculate_price_default_error);
+                c0161a.message = f.EK().getResources().getString(b.g.calculate_price_default_error);
             }
-            this.aRM.a(c0161a);
+            this.aRN.a(c0161a);
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             a.C0161a c0161a = new a.C0161a();
             c0161a.statusCode = 2;
-            c0161a.message = f.EI().getResources().getString(b.g.calculate_price_default_error);
-            this.aRM.a(c0161a);
+            c0161a.message = f.EK().getResources().getString(b.g.calculate_price_default_error);
+            this.aRN.a(c0161a);
         }
     }
 
     private static void T() {
-        if (aRN == 1) {
-            aRO = "https://etrade.baidu.com/trade/order/calcMoney";
+        if (aRO == 1) {
+            aRP = "https://etrade.baidu.com/trade/order/calcMoney";
         } else {
-            aRO = "http://sandbox.y.nuomi.com/c/order/calcMoney";
+            aRP = "http://sandbox.y.nuomi.com/c/order/calcMoney";
         }
     }
 
@@ -85,6 +85,6 @@ public class b {
             }
             bVar.f("hostMarketingDetail", jSONArray.toString());
         }
-        new com.baidu.poly.a.a.f().a(aRO, cVar, bVar, new a(aVar));
+        new com.baidu.poly.a.a.f().a(aRP, cVar, bVar, new a(aVar));
     }
 }

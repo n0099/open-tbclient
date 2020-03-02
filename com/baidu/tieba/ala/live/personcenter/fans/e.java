@@ -6,19 +6,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
-    public int cQf;
-    public String cQg;
+    public int cQg;
+    public String cQh;
     public boolean hasMore;
     public int pageNum;
     public int type;
-    private ArrayList<a> cQa = new ArrayList<>();
     private ArrayList<a> cQb = new ArrayList<>();
-    private d eLP = new d();
-    private int cQd = 0;
+    private ArrayList<a> cQc = new ArrayList<>();
+    private d eLQ = new d();
     private int cQe = 0;
+    private int cQf = 0;
 
-    public ArrayList<a> aBl() {
-        return this.cQa;
+    public ArrayList<a> aBn() {
+        return this.cQb;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -31,7 +31,7 @@ public class e {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             a aVar = new a();
                             aVar.parserJson(optJSONArray.getJSONObject(i));
-                            this.cQa.add(aVar);
+                            this.cQb.add(aVar);
                         }
                     }
                     if (optJSONArray2 != null) {
@@ -39,20 +39,20 @@ public class e {
                             a aVar2 = new a();
                             aVar2.parserJson(optJSONArray2.getJSONObject(i2));
                             aVar2.mAttentionType = 1;
-                            this.cQb.add(aVar2);
+                            this.cQc.add(aVar2);
                         }
                     }
-                    this.eLP.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.eLP != null) {
-                        this.pageNum = this.eLP.aBg();
-                        this.cQf = this.eLP.aBe();
-                        this.hasMore = this.eLP.aBi() == 1;
+                    this.eLQ.parserJson(jSONObject.optJSONObject("page"));
+                    if (this.eLQ != null) {
+                        this.pageNum = this.eLQ.aBi();
+                        this.cQg = this.eLQ.aBg();
+                        this.hasMore = this.eLQ.aBk() == 1;
                     }
-                    this.cQd = jSONObject.optInt("tafriendnum", 0);
-                    this.cQe = jSONObject.optInt("commonfriendnum", 0);
+                    this.cQe = jSONObject.optInt("tafriendnum", 0);
+                    this.cQf = jSONObject.optInt("commonfriendnum", 0);
                 }
                 this.type = jSONObject.optInt("type", 0);
-                this.cQg = jSONObject.optString("block_text");
+                this.cQh = jSONObject.optString("block_text");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

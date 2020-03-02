@@ -308,33 +308,33 @@ public class l implements com.baidu.tbadk.mvc.b.c {
                     this.cardVideoInfo.jP(this.photoLivePos);
                     this.cardVideoInfo.setUserMap(this.userMap);
                     this.cardVideoInfo.a(dataRes.card_shipin_info.get(0));
-                    this.cardVideoInfo.aDh();
-                    this.cardVideoInfo.cUa = this.isBrandForum;
+                    this.cardVideoInfo.aDj();
+                    this.cardVideoInfo.cUb = this.isBrandForum;
                     if (this.cardVideoInfo.getFid() == 0 && longValue != 0) {
                         this.cardVideoInfo.setFid(longValue);
                     }
                     this.cardVideoInfo.y(this.color_eggs);
-                    this.cardVideoInfo.fz(!this.cardVideoInfo.aBR());
-                    if (this.cardVideoInfo.aCm() != null && this.cardVideoInfo.aCm().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.aCm().getUserId())) != null && metaData.getPendantData() != null) {
+                    this.cardVideoInfo.fz(!this.cardVideoInfo.aBT());
+                    if (this.cardVideoInfo.aCo() != null && this.cardVideoInfo.aCo().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.aCo().getUserId())) != null && metaData.getPendantData() != null) {
                         com.baidu.tbadk.data.m mVar = new com.baidu.tbadk.data.m();
-                        mVar.bI(metaData.getPendantData().aNW());
-                        mVar.sB(metaData.getPendantData().aAE());
-                        this.cardVideoInfo.aCm().setPendantData(mVar);
+                        mVar.bI(metaData.getPendantData().aNY());
+                        mVar.sB(metaData.getPendantData().aAG());
+                        this.cardVideoInfo.aCo().setPendantData(mVar);
                     }
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new f();
-                    this.mFrsInsertLiveData.kej = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.kel = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i3 = 0; i3 < dataRes.ala_live_insert.ala_live_list.size(); i3++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i3) != null) {
                             bj bjVar = new bj();
                             bjVar.a(dataRes.ala_live_insert.ala_live_list.get(i3));
-                            bjVar.cUa = this.isBrandForum;
+                            bjVar.cUb = this.isBrandForum;
                             arrayList.add(bjVar);
                         }
                     }
-                    this.mFrsInsertLiveData.kei = arrayList;
+                    this.mFrsInsertLiveData.kek = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new g();
@@ -343,11 +343,11 @@ public class l implements com.baidu.tbadk.mvc.b.c {
                         if (dataRes.ala_stage_list.get(i4) != null) {
                             bj bjVar2 = new bj();
                             bjVar2.a(dataRes.ala_stage_list.get(i4));
-                            bjVar2.cUa = this.isBrandForum;
+                            bjVar2.cUb = this.isBrandForum;
                             arrayList2.add(bjVar2);
                         }
                     }
-                    this.mFrsStageLiveData.kel = arrayList2;
+                    this.mFrsStageLiveData.ken = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -364,7 +364,7 @@ public class l implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.cDi().HY(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.cDk().HY(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i5 = 0; i5 < dataRes.card_shipin_new.size(); i5++) {
@@ -374,7 +374,7 @@ public class l implements com.baidu.tbadk.mvc.b.c {
                         }
                         bjVar3.fA(true);
                         bjVar3.a(dataRes.card_shipin_new.get(i5));
-                        bjVar3.cUa = this.isBrandForum;
+                        bjVar3.cUb = this.isBrandForum;
                         this.mCardShipinNew.add(bjVar3);
                     }
                 }
@@ -465,19 +465,19 @@ public class l implements com.baidu.tbadk.mvc.b.c {
                     bj bjVar = new bj();
                     bjVar.setUserMap(this.userMap);
                     bjVar.a(threadInfo);
-                    bjVar.aDh();
+                    bjVar.aDj();
                     if (bjVar.getFid() == 0 && j != 0) {
                         bjVar.setFid(j);
                     }
-                    if (StringUtils.isNull(bjVar.aCr())) {
+                    if (StringUtils.isNull(bjVar.aCt())) {
                         bjVar.sG(this.forum.getName());
                     }
                     bjVar.y(this.color_eggs);
-                    bjVar.cUa = this.forum.isBrandForum;
+                    bjVar.cUb = this.forum.isBrandForum;
                     bjVar.fF(true);
-                    if (!TextUtils.isEmpty(bjVar.aDs())) {
+                    if (!TextUtils.isEmpty(bjVar.aDu())) {
                         ae aeVar = new ae();
-                        aeVar.sx(bjVar.aDs());
+                        aeVar.sx(bjVar.aDu());
                         this.threadList.add(aeVar);
                     } else {
                         this.threadList.add(bjVar);
@@ -505,112 +505,112 @@ public class l implements com.baidu.tbadk.mvc.b.c {
             } else if (next instanceof bj) {
                 bj bjVar = (bj) next;
                 int[] imageWidthAndHeight = imageWidthAndHeight(bjVar);
-                if (bjVar.getType() == bj.cRi && !bjVar.isTop()) {
+                if (bjVar.getType() == bj.cRj && !bjVar.isTop()) {
                     bi biVar = new bi();
-                    biVar.cRe = bjVar;
+                    biVar.cRf = bjVar;
                     biVar.position = i;
-                    biVar.cQT = true;
+                    biVar.cQU = true;
                     arrayList2.add(biVar);
                     bi biVar2 = new bi();
-                    biVar2.cRe = bjVar;
+                    biVar2.cRf = bjVar;
                     biVar2.position = i;
-                    if (bjVar.aEe()) {
-                        biVar2.cQY = true;
-                    } else if (bjVar.aDo() == 1) {
-                        biVar2.cQW = true;
-                        biVar2.cRf = imageWidthAndHeight[0];
-                        biVar2.cRg = imageWidthAndHeight[1];
-                    } else if (bjVar.aDo() >= 2) {
+                    if (bjVar.aEg()) {
+                        biVar2.cQZ = true;
+                    } else if (bjVar.aDq() == 1) {
                         biVar2.cQX = true;
+                        biVar2.cRg = imageWidthAndHeight[0];
+                        biVar2.cRh = imageWidthAndHeight[1];
+                    } else if (bjVar.aDq() >= 2) {
+                        biVar2.cQY = true;
                     } else {
-                        biVar2.cQU = true;
+                        biVar2.cQV = true;
                     }
                     arrayList2.add(biVar2);
-                    if (bjVar.aCY() != null) {
+                    if (bjVar.aDa() != null) {
                         bi biVar3 = new bi();
-                        biVar3.cRd = true;
-                        biVar3.cRe = bjVar;
+                        biVar3.cRe = true;
+                        biVar3.cRf = bjVar;
                         biVar3.position = i;
                         arrayList2.add(biVar3);
                     }
-                    if (bjVar.aDK() != null) {
+                    if (bjVar.aDM() != null) {
                         bi biVar4 = new bi();
-                        biVar4.cRa = true;
-                        biVar4.cRe = bjVar;
+                        biVar4.cRb = true;
+                        biVar4.cRf = bjVar;
                         biVar4.position = i;
                         arrayList2.add(biVar4);
                     }
                     bi biVar5 = new bi();
-                    biVar5.cQZ = true;
-                    biVar5.cRe = bjVar;
+                    biVar5.cRa = true;
+                    biVar5.cRf = bjVar;
                     biVar5.position = i;
                     arrayList2.add(biVar5);
-                } else if (bjVar.getType() == bj.cRy && !bjVar.isTop()) {
+                } else if (bjVar.getType() == bj.cRz && !bjVar.isTop()) {
                     bi biVar6 = new bi();
-                    biVar6.cRe = bjVar;
+                    biVar6.cRf = bjVar;
                     biVar6.position = i;
-                    biVar6.cQT = true;
+                    biVar6.cQU = true;
                     arrayList2.add(biVar6);
                     bi biVar7 = new bi();
-                    biVar7.cRe = bjVar;
+                    biVar7.cRf = bjVar;
                     biVar7.position = i;
-                    biVar7.cRb = true;
+                    biVar7.cRc = true;
                     arrayList2.add(biVar7);
-                    if (bjVar.aCY() != null) {
+                    if (bjVar.aDa() != null) {
                         bi biVar8 = new bi();
-                        biVar8.cRd = true;
-                        biVar8.cRe = bjVar;
+                        biVar8.cRe = true;
+                        biVar8.cRf = bjVar;
                         biVar8.position = i;
                         arrayList2.add(biVar8);
                     }
-                    if (bjVar.aDK() != null) {
+                    if (bjVar.aDM() != null) {
                         bi biVar9 = new bi();
-                        biVar9.cRa = true;
-                        biVar9.cRe = bjVar;
+                        biVar9.cRb = true;
+                        biVar9.cRf = bjVar;
                         biVar9.position = i;
                         arrayList2.add(biVar9);
                     }
                     bi biVar10 = new bi();
-                    biVar10.cQZ = true;
-                    biVar10.cRe = bjVar;
+                    biVar10.cRa = true;
+                    biVar10.cRf = bjVar;
                     biVar10.position = i;
                     arrayList2.add(biVar10);
-                } else if (bjVar.aCD() != null && !bjVar.aDn() && bjVar.aCp()) {
+                } else if (bjVar.aCF() != null && !bjVar.aDp() && bjVar.aCr()) {
                     bi biVar11 = new bi();
-                    biVar11.cRe = bjVar;
+                    biVar11.cRf = bjVar;
                     biVar11.position = i;
-                    biVar11.cQT = true;
+                    biVar11.cQU = true;
                     arrayList2.add(biVar11);
                     bi biVar12 = new bi();
-                    biVar12.cRe = bjVar;
+                    biVar12.cRf = bjVar;
                     biVar12.position = i;
-                    biVar12.cRc = true;
+                    biVar12.cRd = true;
                     arrayList2.add(biVar12);
-                    if (bjVar.aCY() != null) {
+                    if (bjVar.aDa() != null) {
                         bi biVar13 = new bi();
-                        biVar13.cRd = true;
-                        biVar13.cRe = bjVar;
+                        biVar13.cRe = true;
+                        biVar13.cRf = bjVar;
                         biVar13.position = i;
                         arrayList2.add(biVar13);
                     }
-                    if (bjVar.aDK() != null) {
+                    if (bjVar.aDM() != null) {
                         bi biVar14 = new bi();
-                        biVar14.cRa = true;
-                        biVar14.cRe = bjVar;
+                        biVar14.cRb = true;
+                        biVar14.cRf = bjVar;
                         biVar14.position = i;
                         arrayList2.add(biVar14);
                     }
                     bi biVar15 = new bi();
-                    biVar15.cQZ = true;
-                    biVar15.cRe = bjVar;
+                    biVar15.cRa = true;
+                    biVar15.cRf = bjVar;
                     biVar15.position = i;
                     arrayList2.add(biVar15);
-                } else if (bjVar.getType() == bj.cRv && bjVar.aBb()) {
+                } else if (bjVar.getType() == bj.cRw && bjVar.aBd()) {
                     bjVar.position = i;
                     arrayList2.add(bjVar);
                 } else {
                     bi biVar16 = new bi();
-                    biVar16.cRe = bjVar;
+                    biVar16.cRf = bjVar;
                     biVar16.position = i;
                     arrayList2.add(biVar16);
                 }
@@ -628,17 +628,17 @@ public class l implements com.baidu.tbadk.mvc.b.c {
         int size = View.MeasureSpec.getSize(com.baidu.adp.lib.util.l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
         int i2 = (int) ((size - (dimensionPixelSize * 2)) / 3.0f);
-        ArrayList<MediaData> aCw = bjVar.aCw();
-        if (com.baidu.tbadk.core.i.azM().isShowImages() && com.baidu.tbadk.core.util.v.getCount(aCw) != 0) {
+        ArrayList<MediaData> aCy = bjVar.aCy();
+        if (com.baidu.tbadk.core.i.azO().isShowImages() && com.baidu.tbadk.core.util.v.getCount(aCy) != 0) {
             LinkedList linkedList = new LinkedList();
-            for (int i3 = 0; i3 < aCw.size(); i3++) {
-                MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.v.getItem(aCw, i3);
+            for (int i3 = 0; i3 < aCy.size(); i3++) {
+                MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.v.getItem(aCy, i3);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
         }
-        MediaData mediaData2 = (MediaData) com.baidu.tbadk.core.util.v.getItem(aCw, 0);
+        MediaData mediaData2 = (MediaData) com.baidu.tbadk.core.util.v.getItem(aCy, 0);
         if (mediaData2 != null && mediaData2.picWidth > 0 && mediaData2.picHeight > 0) {
             if (mediaData2.picWidth * 2 <= mediaData2.picHeight) {
                 i = ((int) (i2 * 1.5f)) + dimensionPixelSize;

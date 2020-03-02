@@ -8,13 +8,13 @@ public class d implements com.baidu.swan.apps.console.debugger.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String vd;
 
-    public static String LW() {
+    public static String LY() {
         return vd;
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public String Lt() {
-        return b.LA().getPath();
+    public String Lv() {
+        return b.LC().getPath();
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
@@ -27,14 +27,14 @@ public class d implements com.baidu.swan.apps.console.debugger.a {
     @Override // com.baidu.swan.apps.console.debugger.a
     public void o(Bundle bundle) {
         bundle.putString("extraWSUrl", vd);
-        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.Lv());
-        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.Lu());
+        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.Lx());
+        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.Lw());
     }
 
-    public static void LX() {
-        e acD = e.acD();
-        if (acD != null) {
-            com.baidu.swan.apps.as.c.T(acD.getActivity());
+    public static void LZ() {
+        e acF = e.acF();
+        if (acF != null) {
+            com.baidu.swan.apps.as.c.T(acF.getActivity());
             System.exit(0);
         }
     }

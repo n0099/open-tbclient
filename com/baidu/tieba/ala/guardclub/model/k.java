@@ -7,8 +7,8 @@ import org.json.JSONObject;
 public class k {
     public String adC;
     public String avatar;
-    public String eHf;
-    public boolean eHg;
+    public String eHg;
+    public boolean eHh;
     public String id;
     public int level;
     public String liveId;
@@ -27,12 +27,12 @@ public class k {
         }
         this.name = jSONObject.optString("regiment_name");
         this.score = jSONObject.optString("score");
-        this.eHf = jSONObject.optString("week_score");
+        this.eHg = jSONObject.optString("week_score");
         this.avatar = jSONObject.optString("guard_club_portrait");
         this.level = jSONObject.optInt("guard_level");
         this.liveStatus = jSONObject.optInt("live_status");
         this.liveId = jSONObject.optString("live_id");
-        this.eHg = jSONObject.optInt("is_join") == 1;
+        this.eHh = jSONObject.optInt("is_join") == 1;
         return this;
     }
 }

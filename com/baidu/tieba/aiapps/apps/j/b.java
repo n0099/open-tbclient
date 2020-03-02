@@ -30,7 +30,7 @@ public class b implements h {
 
     @Override // com.baidu.swan.apps.w.b.h
     public void e(Activity activity, String str, final com.baidu.j.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(f.WQ().WB(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.j.b.a.class, com.baidu.tieba.aiapps.apps.j.b.a.xE(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.j.b.1
+        DelegateUtils.callOnMainWithActivity(f.WS().WD(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.j.b.a.class, com.baidu.tieba.aiapps.apps.j.b.a.xE(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.j.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 aVar.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
@@ -40,16 +40,16 @@ public class b implements h {
 
     @Override // com.baidu.swan.apps.w.b.h
     public void f(Activity activity, String str, final com.baidu.j.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.aQY().isWalletOk()) {
+        if (!com.baidu.tbadk.pay.c.aRa().isWalletOk()) {
             l.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
             return;
         }
-        e acD = e.acD();
-        if (acD != null && acD.getActivity() != null) {
+        e acF = e.acF();
+        if (acF != null && acF.getActivity() != null) {
             a aVar2 = new a();
             aVar2.mParams.putInt("type", 2);
             aVar2.mParams.putString("orderInfo", str);
-            aVar2.ah(acD.getActivity());
+            aVar2.ah(acF.getActivity());
             aVar2.a(new com.baidu.tieba.aiapps.apps.j.a.a() { // from class: com.baidu.tieba.aiapps.apps.j.b.2
                 @Override // com.baidu.tieba.aiapps.apps.j.a.a
                 public void ab(Bundle bundle) {
@@ -70,7 +70,7 @@ public class b implements h {
         if (!createWXAPI.isWXAppInstalled()) {
             aVar.onPayResult(3, "wx_not_installed");
             d.a(context, "您没有安装微信，请选择其他支付方式").showToast();
-        } else if (e.acD() != null) {
+        } else if (e.acF() != null) {
             if (!createWXAPI.sendReq(cs)) {
                 aVar.onPayResult(6, "wx_start_failed");
             }

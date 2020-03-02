@@ -10,7 +10,7 @@ import java.util.List;
 public class b {
     private BdTypeRecyclerView BK;
     private List<com.baidu.adp.widget.ListView.a> asE;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c elz;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c elA;
     private Context mContext;
     private TbPageContext mPageContext;
 
@@ -23,8 +23,8 @@ public class b {
 
     private void wM() {
         this.asE = new ArrayList();
-        this.elz = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.asE.add(this.elz);
+        this.elA = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.asE.add(this.elA);
         this.BK.addAdapters(this.asE);
     }
 

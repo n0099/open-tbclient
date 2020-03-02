@@ -4,50 +4,50 @@ import master.flame.danmaku.danmaku.model.a.c;
 /* loaded from: classes5.dex */
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
-    private final d<T> nIf;
-    private final int nIg;
-    private T nIh;
-    private int nIi;
+    private final d<T> nIh;
+    private final int nIi;
+    private T nIj;
+    private int nIk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.nIf = dVar;
-        this.nIg = i;
+        this.nIh = dVar;
+        this.nIi = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dMF() {
-        T dME;
-        if (this.nIh != null) {
-            T t = this.nIh;
-            this.nIh = (T) t.dMB();
-            this.nIi--;
-            dME = t;
+    public T dMH() {
+        T dMG;
+        if (this.nIj != null) {
+            T t = this.nIj;
+            this.nIj = (T) t.dMD();
+            this.nIk--;
+            dMG = t;
         } else {
-            dME = this.nIf.dME();
+            dMG = this.nIh.dMG();
         }
-        if (dME != null) {
-            dME.bX(null);
-            dME.wP(false);
-            this.nIf.b(dME);
+        if (dMG != null) {
+            dMG.bX(null);
+            dMG.wP(false);
+            this.nIh.b(dMG);
         }
-        return dME;
+        return dMG;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dMz()) {
-            if (this.mInfinite || this.nIi < this.nIg) {
-                this.nIi++;
-                t.bX(this.nIh);
+        if (!t.dMB()) {
+            if (this.mInfinite || this.nIk < this.nIi) {
+                this.nIk++;
+                t.bX(this.nIj);
                 t.wP(true);
-                this.nIh = t;
+                this.nIj = t;
             }
-            this.nIf.a(t);
+            this.nIh.a(t);
         }
     }
 }

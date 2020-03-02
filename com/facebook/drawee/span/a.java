@@ -16,7 +16,7 @@ public class a extends com.facebook.e.a.a.a {
         this.mDraweeHolder.onDetach();
     }
 
-    public com.facebook.drawee.view.b dnf() {
+    public com.facebook.drawee.view.b dnh() {
         return this.mDraweeHolder;
     }
 }

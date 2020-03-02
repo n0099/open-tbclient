@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a implements com.baidu.tieba.ueg.a {
     private BdUniqueId MO;
-    private HttpMessageListener cZT = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.pb.pb.report.a.2
+    private HttpMessageListener cZU = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.pb.pb.report.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -36,38 +36,38 @@ public class a implements com.baidu.tieba.ueg.a {
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.iUs.showFailToast(errorString);
+                a.this.iUu.showFailToast(errorString);
             }
         }
     };
-    private b iUr = new b();
-    private d iUs = new d();
+    private b iUt = new b();
+    private d iUu = new d();
     private Context mContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.iUs.toastTime = 1000L;
+        this.iUu.toastTime = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void t(BdUniqueId bdUniqueId) {
         this.MO = bdUniqueId;
-        this.iUr.setTag(bdUniqueId);
-        this.cZT.setTag(bdUniqueId);
-        this.cZT.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.cZT);
+        this.iUt.setTag(bdUniqueId);
+        this.cZU.setTag(bdUniqueId);
+        this.cZU.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.cZU);
     }
 
     public void Gp(String str) {
         showLoadingDialog();
-        this.iUr.Gp(str);
+        this.iUt.Gp(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void zC(String str) {
         showLoadingDialog();
-        this.iUr.zC(str);
+        this.iUt.zC(str);
     }
 
     private void showLoadingDialog() {

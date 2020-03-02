@@ -19,18 +19,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.guardclub.i {
-    private static volatile b eDX = null;
+    private static volatile b eDY = null;
     private long currLiveId;
 
-    public static b bfa() {
-        if (eDX == null) {
+    public static b bfc() {
+        if (eDY == null) {
             synchronized (b.class) {
-                if (eDX == null) {
-                    eDX = new b();
+                if (eDY == null) {
+                    eDY = new b();
                 }
             }
         }
-        return eDX;
+        return eDY;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0058  */

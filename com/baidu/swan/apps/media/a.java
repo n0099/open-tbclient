@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.media;
 /* loaded from: classes11.dex */
 public interface a {
-    String WY();
+    String Xa();
 
-    String WZ();
+    String Xb();
 
-    Object Xa();
+    Object Xc();
 
     void cQ(boolean z);
 

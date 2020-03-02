@@ -330,7 +330,7 @@ public class b implements j {
                 this.mMessages = new ArrayList();
             }
             boolean n = n(aVar);
-            if (n || this.mMessages.size() < com.baidu.live.v.a.zj().awA.aaM) {
+            if (n || this.mMessages.size() < com.baidu.live.v.a.zl().awB.aaM) {
                 if (n && !this.mMessages.isEmpty()) {
                     int i2 = 0;
                     while (true) {

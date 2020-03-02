@@ -32,8 +32,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes11.dex */
 public abstract class a implements com.baidu.tieba.sharesdk.b.a {
-    public static String jVJ = m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
-    public static String jVK = "temp_video_thumb.png";
+    public static String jVL = m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
+    public static String jVM = "temp_video_thumb.png";
     Context context;
     BdUniqueId pageId;
     String tid;
@@ -71,7 +71,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     protected void bt(String str, int i) {
-        BdToast.a(getAppContext(), (CharSequence) str, i, false).aEF();
+        BdToast.a(getAppContext(), (CharSequence) str, i, false).aEH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -120,7 +120,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap cHx() {
+    public Bitmap cHz() {
         return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
     }
 
@@ -218,7 +218,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         Paint paint = new Paint();
         paint.setShader(linearGradient);
         canvas.drawRect(0.0f, 0.0f, f.getWidth(), f.getHeight(), paint);
-        Drawable a = SvgManager.aGA().a(R.drawable.ic_icon_share_play_20, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null, false);
+        Drawable a = SvgManager.aGC().a(R.drawable.ic_icon_share_play_20, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null, false);
         if (a != null) {
             int min = (int) (Math.min(f.getWidth(), f.getHeight()) * 0.3f);
             int width = (f.getWidth() - min) / 2;
@@ -227,7 +227,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             a.draw(canvas);
         }
         if (z) {
-            String saveFileAsPNG = m.saveFileAsPNG(jVJ, jVK, createBitmap, 100);
+            String saveFileAsPNG = m.saveFileAsPNG(jVL, jVM, createBitmap, 100);
             if (!StringUtils.isNull(saveFileAsPNG)) {
                 shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
             }

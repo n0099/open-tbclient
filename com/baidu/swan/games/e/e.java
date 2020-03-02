@@ -14,10 +14,10 @@ public class e extends a {
                 @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
                 public V8Engine onCreateWorker() {
                     f fVar = new f(e.this.getInitBasePath());
-                    fVar.anq();
+                    fVar.ans();
                     fVar.a(new com.baidu.swan.games.e.a.b(fVar));
                     fVar.a(new com.baidu.swan.games.e.a.c(fVar));
-                    return fVar.ant();
+                    return fVar.anv();
                 }
             });
             l.ba(0L);
@@ -26,12 +26,12 @@ public class e extends a {
 
     @Override // com.baidu.swan.games.e.a
     @NonNull
-    public EventTarget ann() {
+    public EventTarget anp() {
         return new com.baidu.swan.games.binding.c(this);
     }
 
     @Override // com.baidu.swan.games.e.a
-    public EventTarget ano() {
+    public EventTarget anq() {
         return new com.baidu.swan.games.binding.a.a(this);
     }
 

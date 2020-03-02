@@ -16,44 +16,44 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private ArrayList<m> eil = new ArrayList<>();
-    private BdTypeListView eka;
-    public j jAE;
-    private b jAF;
-    public i jmu;
+    private ArrayList<m> eim = new ArrayList<>();
+    private BdTypeListView ekb;
+    public j jAG;
+    private b jAH;
+    public i jmw;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.eka = bdTypeListView;
+        this.ekb = bdTypeListView;
         s(tbPageContext);
     }
 
     private void s(TbPageContext<?> tbPageContext) {
-        this.jmu = new i(tbPageContext);
-        this.jAE = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.joT);
-        this.jAF = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.jAE.a(this.jAF);
-        this.asE.add(this.jmu);
-        this.asE.add(this.jAE);
-        this.eka.addAdapters(this.asE);
+        this.jmw = new i(tbPageContext);
+        this.jAG = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.joV);
+        this.jAH = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.jAG.a(this.jAH);
+        this.asE.add(this.jmw);
+        this.asE.add(this.jAG);
+        this.ekb.addAdapters(this.asE);
     }
 
     public void S(ArrayList<m> arrayList) {
-        if (arrayList != null && this.eka != null) {
-            this.eil.clear();
-            this.eil.addAll(arrayList);
-            this.eka.setData(this.eil);
+        if (arrayList != null && this.ekb != null) {
+            this.eim.clear();
+            this.eim.addAll(arrayList);
+            this.ekb.setData(this.eim);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.eka.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.eka.getAdapter().notifyDataSetChanged();
+        if (this.ekb.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.ekb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.eka != null) {
-            this.eka.startPullRefresh();
+        if (this.ekb != null) {
+            this.ekb.startPullRefresh();
         }
     }
 
@@ -62,10 +62,10 @@ public class a {
         if (aq.isEmpty(str)) {
             return false;
         }
-        if (this.eka == null || this.eil == null) {
+        if (this.ekb == null || this.eim == null) {
             return false;
         }
-        Iterator<m> it = this.eil.iterator();
+        Iterator<m> it = this.eim.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -79,8 +79,8 @@ public class a {
             }
         }
         if (z) {
-            this.eil = PersonPostModel.mergeDynamicThreadByTime(this.eil);
-            this.eka.setData(this.eil);
+            this.eim = PersonPostModel.mergeDynamicThreadByTime(this.eim);
+            this.ekb.setData(this.eim);
             notifyDataSetChanged();
             return z;
         }

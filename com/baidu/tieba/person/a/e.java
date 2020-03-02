@@ -11,42 +11,42 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
     private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private HTypeListView jfP;
-    private c jfQ;
-    private b jfR;
-    private a jfS;
+    private HTypeListView jfR;
+    private c jfS;
+    private b jfT;
+    private a jfU;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.jfP = hTypeListView;
+        this.jfR = hTypeListView;
         wM();
     }
 
     private void wM() {
-        this.jfQ = new c(this.mTbPageContext, n.MO);
-        this.jfR = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jga);
-        this.jfS = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jfF);
-        this.asE.add(this.jfQ);
-        this.asE.add(this.jfR);
+        this.jfS = new c(this.mTbPageContext, n.MO);
+        this.jfT = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jgc);
+        this.jfU = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jfH);
         this.asE.add(this.jfS);
-        this.jfP.addAdapters(this.asE);
+        this.asE.add(this.jfT);
+        this.asE.add(this.jfU);
+        this.jfR.addAdapters(this.asE);
     }
 
     public void setDatas(List<m> list) {
-        if (this.jfP != null) {
-            this.jfP.setData(list);
+        if (this.jfR != null) {
+            this.jfR.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.jfP != null && (this.jfP.getAdapter() instanceof v)) {
-            ((v) this.jfP.getAdapter()).notifyDataSetChanged();
+        if (this.jfR != null && (this.jfR.getAdapter() instanceof v)) {
+            ((v) this.jfR.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.jfQ.D(onClickListener);
-        this.jfR.D(onClickListener);
+        this.jfS.D(onClickListener);
+        this.jfT.D(onClickListener);
     }
 }

@@ -53,7 +53,7 @@ public class b {
         }
         a.b r = com.baidu.swan.apps.t.a.a.r(file);
         if (r.type != -1) {
-            if (com.baidu.swan.apps.t.a.a.a(r.bxJ, b, r.type).isSuccess) {
+            if (com.baidu.swan.apps.t.a.a.a(r.bxK, b, r.type).isSuccess) {
                 return new com.baidu.swan.pms.b.b.b(0, "解密成功");
             }
             return new com.baidu.swan.pms.b.b.b(1011, "解密失败");
@@ -79,7 +79,7 @@ public class b {
             }
         })) != null && listFiles.length > 0) {
             for (File file : listFiles) {
-                if (file != null && c(j, file.getName()) && !com.baidu.swan.mini.a.atd().contains(file.getAbsolutePath())) {
+                if (file != null && c(j, file.getName()) && !com.baidu.swan.mini.a.atf().contains(file.getAbsolutePath())) {
                     if (DEBUG) {
                         Log.i("Mini-Pm", "删除低版本文件夹：" + file.getAbsolutePath());
                     }

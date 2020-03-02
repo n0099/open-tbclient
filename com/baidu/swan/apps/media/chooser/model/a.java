@@ -3,8 +3,8 @@ package com.baidu.swan.apps.media.chooser.model;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class a implements Comparable<Object> {
-    private String bDd;
-    public ArrayList<MediaModel> bDe;
+    private String bDe;
+    public ArrayList<MediaModel> bDf;
     private String eM;
     private long lastModified;
 
@@ -17,11 +17,11 @@ public class a implements Comparable<Object> {
     }
 
     public String getDir() {
-        return this.bDd;
+        return this.bDe;
     }
 
     public void jk(String str) {
-        this.bDd = str;
+        this.bDe = str;
     }
 
     public long getLastModified() {
@@ -33,18 +33,18 @@ public class a implements Comparable<Object> {
     }
 
     public int getImageCount() {
-        return this.bDe.size();
+        return this.bDf.size();
     }
 
-    public ArrayList<MediaModel> XE() {
-        return this.bDe;
+    public ArrayList<MediaModel> XG() {
+        return this.bDf;
     }
 
     public void h(MediaModel mediaModel) {
-        if (this.bDe == null) {
-            this.bDe = new ArrayList<>();
+        if (this.bDf == null) {
+            this.bDf = new ArrayList<>();
         }
-        this.bDe.add(mediaModel);
+        this.bDf.add(mediaModel);
     }
 
     public String toString() {

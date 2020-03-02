@@ -6,33 +6,33 @@ import org.json.JSONObject;
 public class d {
     private int mEnd;
     private int mStart;
-    private boolean nuL;
-    private boolean nuM;
     private boolean nuN;
+    private boolean nuO;
+    private boolean nuP;
 
     public d(int i) {
         this.mEnd = 0;
-        this.nuL = false;
-        this.nuM = false;
         this.nuN = false;
+        this.nuO = false;
+        this.nuP = false;
         this.mStart = i;
         this.mEnd = (131072 + i) - 1;
     }
 
     public d(int i, boolean z) {
         this.mEnd = 0;
-        this.nuL = false;
-        this.nuM = false;
         this.nuN = false;
+        this.nuO = false;
+        this.nuP = false;
         this.mStart = i;
-        this.nuL = z;
+        this.nuN = z;
     }
 
     public d(int i, int i2) {
         this.mEnd = 0;
-        this.nuL = false;
-        this.nuM = false;
         this.nuN = false;
+        this.nuO = false;
+        this.nuP = false;
         this.mStart = i;
         this.mEnd = i2;
     }
@@ -42,19 +42,19 @@ public class d {
     }
 
     public boolean isLast() {
-        return this.nuL;
+        return this.nuN;
     }
 
     public void kV(boolean z) {
-        this.nuL = z;
+        this.nuN = z;
     }
 
     public boolean aW() {
-        return this.nuM;
+        return this.nuO;
     }
 
     public void fj(boolean z) {
-        this.nuM = z;
+        this.nuO = z;
     }
 
     public static d dX(JSONObject jSONObject) throws JSONException {
@@ -71,11 +71,11 @@ public class d {
         return dVar2;
     }
 
-    public JSONObject dIM() {
+    public JSONObject dIO() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("start", this.mStart);
-            jSONObject.put("completed", this.nuM);
+            jSONObject.put("completed", this.nuO);
             jSONObject.put("end", isLast() ? 0 : this.mEnd);
             return jSONObject;
         } catch (Exception e) {
@@ -83,18 +83,18 @@ public class d {
         }
     }
 
-    public String dIN() {
+    public String dIP() {
         Object[] objArr = new Object[2];
         objArr[0] = Integer.valueOf(this.mStart);
-        objArr[1] = this.nuL ? "" : Integer.valueOf(this.mEnd);
+        objArr[1] = this.nuN ? "" : Integer.valueOf(this.mEnd);
         return String.format("bytes=%s-%s", objArr);
     }
 
     public void wE(boolean z) {
-        this.nuN = z;
+        this.nuP = z;
     }
 
     public boolean isFailed() {
-        return this.nuN;
+        return this.nuP;
     }
 }

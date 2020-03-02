@@ -33,11 +33,11 @@ public interface l {
     public interface f {
     }
 
-    void HN();
-
     void HP();
 
-    void Vj();
+    void HR();
+
+    void Vl();
 
     l a(Context context, @NonNull com.baidu.swan.apps.media.c.c cVar);
 

@@ -17,26 +17,26 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class ad extends v.a {
     View.OnClickListener auX;
-    private TbPageContext cVg;
+    private TbPageContext cVh;
     private com.baidu.tbadk.core.data.as iMA;
-    private ab iMB;
-    private a iMC;
-    public LinearLayout iMk;
-    public View iMl;
-    public RelativeLayout iMm;
-    public TbImageView iMn;
-    public TextView iMo;
-    public TextView iMp;
+    private com.baidu.tbadk.core.data.as iMB;
+    private com.baidu.tbadk.core.data.as iMC;
+    private ab iMD;
+    private a iME;
+    public LinearLayout iMm;
+    public View iMn;
+    public RelativeLayout iMo;
+    public TbImageView iMp;
     public TextView iMq;
-    public LinearLayout iMr;
-    public ImageView iMs;
-    public TextView iMt;
-    public LinearLayout iMu;
-    public ImageView iMv;
-    public TextView iMw;
-    public View iMx;
-    private com.baidu.tbadk.core.data.as iMy;
-    private com.baidu.tbadk.core.data.as iMz;
+    public TextView iMr;
+    public TextView iMs;
+    public LinearLayout iMt;
+    public ImageView iMu;
+    public TextView iMv;
+    public LinearLayout iMw;
+    public ImageView iMx;
+    public TextView iMy;
+    public View iMz;
     private int mSkinType;
 
     /* loaded from: classes9.dex */
@@ -50,94 +50,94 @@ public class ad extends v.a {
         this.auX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ad.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (bc.checkUpIsLogin(ad.this.cVg.getPageActivity()) && com.baidu.adp.lib.util.l.isNetOk()) {
-                    if (ad.this.iMC != null) {
-                        ad.this.iMC.b(ad.this.iMB);
+                if (bc.checkUpIsLogin(ad.this.cVh.getPageActivity()) && com.baidu.adp.lib.util.l.isNetOk()) {
+                    if (ad.this.iME != null) {
+                        ad.this.iME.b(ad.this.iMD);
                     }
-                    if (view2 == ad.this.iMm) {
-                        if (ad.this.iMy != null && !TextUtils.isEmpty(ad.this.iMy.cPR)) {
-                            ba.aGE().b((TbPageContext) com.baidu.adp.base.i.ab(ad.this.cVg.getPageActivity()), new String[]{ad.this.iMy.cPR});
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11410").cy("obj_source", ad.this.iMy.cPR));
+                    if (view2 == ad.this.iMo) {
+                        if (ad.this.iMA != null && !TextUtils.isEmpty(ad.this.iMA.cPS)) {
+                            ba.aGG().b((TbPageContext) com.baidu.adp.base.i.ab(ad.this.cVh.getPageActivity()), new String[]{ad.this.iMA.cPS});
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11410").cy("obj_source", ad.this.iMA.cPS));
                         }
-                    } else if (view2 == ad.this.iMr) {
-                        BdLog.e("link: " + ad.this.iMz.cPR);
-                        if (ad.this.iMz != null && !TextUtils.isEmpty(ad.this.iMz.cPR)) {
-                            ba.aGE().b((TbPageContext) com.baidu.adp.base.i.ab(ad.this.cVg.getPageActivity()), new String[]{ad.this.iMz.cPR});
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11409").cy("obj_source", ad.this.iMz.cPR));
+                    } else if (view2 == ad.this.iMt) {
+                        BdLog.e("link: " + ad.this.iMB.cPS);
+                        if (ad.this.iMB != null && !TextUtils.isEmpty(ad.this.iMB.cPS)) {
+                            ba.aGG().b((TbPageContext) com.baidu.adp.base.i.ab(ad.this.cVh.getPageActivity()), new String[]{ad.this.iMB.cPS});
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11409").cy("obj_source", ad.this.iMB.cPS));
                         }
-                    } else if (view2 == ad.this.iMu && ad.this.iMA != null && !TextUtils.isEmpty(ad.this.iMA.cPR)) {
-                        ba.aGE().b((TbPageContext) com.baidu.adp.base.i.ab(ad.this.cVg.getPageActivity()), new String[]{ad.this.iMA.cPR});
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11408").cy("obj_source", ad.this.iMA.cPR));
+                    } else if (view2 == ad.this.iMw && ad.this.iMC != null && !TextUtils.isEmpty(ad.this.iMC.cPS)) {
+                        ba.aGG().b((TbPageContext) com.baidu.adp.base.i.ab(ad.this.cVh.getPageActivity()), new String[]{ad.this.iMC.cPS});
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11408").cy("obj_source", ad.this.iMC.cPS));
                     }
                 }
             }
         };
-        this.cVg = tbPageContext;
-        this.iMC = aVar;
-        this.iMk = (LinearLayout) view.findViewById(R.id.pb_news_info_layout);
-        this.iMl = view.findViewById(R.id.pb_list_item_top_line);
-        this.iMm = (RelativeLayout) view.findViewById(R.id.pb_top_code);
-        this.iMn = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.iMo = (TextView) view.findViewById(R.id.top_code_get_btn);
-        this.iMp = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.iMq = (TextView) view.findViewById(R.id.top_code_detail_subtitle_text);
-        this.iMr = (LinearLayout) view.findViewById(R.id.news_info);
-        this.iMs = (ImageView) view.findViewById(R.id.news_info_img);
-        this.iMt = (TextView) view.findViewById(R.id.news_info_text);
-        this.iMu = (LinearLayout) view.findViewById(R.id.game_info);
-        this.iMv = (ImageView) view.findViewById(R.id.game_info_img);
-        this.iMw = (TextView) view.findViewById(R.id.game_info_text);
-        this.iMx = view.findViewById(R.id.pb_news_info_divider);
+        this.cVh = tbPageContext;
+        this.iME = aVar;
+        this.iMm = (LinearLayout) view.findViewById(R.id.pb_news_info_layout);
+        this.iMn = view.findViewById(R.id.pb_list_item_top_line);
+        this.iMo = (RelativeLayout) view.findViewById(R.id.pb_top_code);
+        this.iMp = (TbImageView) view.findViewById(R.id.top_code_img);
+        this.iMq = (TextView) view.findViewById(R.id.top_code_get_btn);
+        this.iMr = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.iMs = (TextView) view.findViewById(R.id.top_code_detail_subtitle_text);
+        this.iMt = (LinearLayout) view.findViewById(R.id.news_info);
+        this.iMu = (ImageView) view.findViewById(R.id.news_info_img);
+        this.iMv = (TextView) view.findViewById(R.id.news_info_text);
+        this.iMw = (LinearLayout) view.findViewById(R.id.game_info);
+        this.iMx = (ImageView) view.findViewById(R.id.game_info_img);
+        this.iMy = (TextView) view.findViewById(R.id.game_info_text);
+        this.iMz = view.findViewById(R.id.pb_news_info_divider);
         setOnClickListener(this.auX);
     }
 
     public void a(ab abVar) {
         if (abVar != null) {
-            this.iMB = abVar;
-            this.iMy = abVar.iMh;
-            this.iMz = abVar.iMi;
+            this.iMD = abVar;
             this.iMA = abVar.iMj;
-            if (this.iMy != null) {
-                this.iMn.startLoad(this.iMy.cPS, 10, false);
-                this.iMp.setText(this.iMy.summary);
-                this.iMq.setText(this.iMy.subtitle);
-                this.iMo.setText(this.iMy.buttonText);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iMo, R.drawable.selector_star_btn_like);
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.iMo, (int) R.drawable.news_text_color_selector);
-            } else {
-                this.iMm.setVisibility(8);
-            }
-            if (this.iMz != null) {
-                this.iMt.setText(this.iMz.summary);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iMs, R.drawable.icon_frs_news);
-            } else {
-                this.iMr.setVisibility(8);
-                this.iMt.setVisibility(8);
-                this.iMs.setVisibility(8);
-            }
+            this.iMB = abVar.iMk;
+            this.iMC = abVar.iMl;
             if (this.iMA != null) {
-                this.iMw.setText(this.iMA.summary);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iMv, R.drawable.icon_frs_game);
+                this.iMp.startLoad(this.iMA.cPT, 10, false);
+                this.iMr.setText(this.iMA.summary);
+                this.iMs.setText(this.iMA.subtitle);
+                this.iMq.setText(this.iMA.buttonText);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iMq, R.drawable.selector_star_btn_like);
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.iMq, (int) R.drawable.news_text_color_selector);
             } else {
-                this.iMu.setVisibility(8);
-                this.iMw.setVisibility(8);
-                this.iMw.setVisibility(8);
+                this.iMo.setVisibility(8);
             }
-            this.iMk.setTag(abVar);
+            if (this.iMB != null) {
+                this.iMv.setText(this.iMB.summary);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iMu, R.drawable.icon_frs_news);
+            } else {
+                this.iMt.setVisibility(8);
+                this.iMv.setVisibility(8);
+                this.iMu.setVisibility(8);
+            }
+            if (this.iMC != null) {
+                this.iMy.setText(this.iMC.summary);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iMx, R.drawable.icon_frs_game);
+            } else {
+                this.iMw.setVisibility(8);
+                this.iMy.setVisibility(8);
+                this.iMy.setVisibility(8);
+            }
+            this.iMm.setTag(abVar);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.cVg.getLayoutMode().setNightMode(i == 1);
-            this.cVg.getLayoutMode().onModeChanged(getView());
+            this.cVh.getLayoutMode().setNightMode(i == 1);
+            this.cVh.getLayoutMode().onModeChanged(getView());
             this.mSkinType = i;
         }
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.iMm.setOnClickListener(onClickListener);
-        this.iMr.setOnClickListener(onClickListener);
-        this.iMu.setOnClickListener(onClickListener);
+        this.iMo.setOnClickListener(onClickListener);
+        this.iMt.setOnClickListener(onClickListener);
+        this.iMw.setOnClickListener(onClickListener);
     }
 }

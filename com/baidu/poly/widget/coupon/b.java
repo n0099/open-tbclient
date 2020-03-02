@@ -18,14 +18,14 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes11.dex */
     private static class a {
-        TextView aTM;
-        ImageView aTN;
+        TextView aTN;
+        ImageView aTO;
         TextView title;
 
         a(View view) {
             this.title = (TextView) view.findViewById(b.e.coupon_title);
-            this.aTM = (TextView) view.findViewById(b.e.coupon_subtitle);
-            this.aTN = (ImageView) view.findViewById(b.e.select_icon);
+            this.aTN = (TextView) view.findViewById(b.e.coupon_subtitle);
+            this.aTO = (ImageView) view.findViewById(b.e.select_icon);
         }
     }
 
@@ -63,14 +63,14 @@ public class b extends BaseAdapter {
             }
             if (view.getTag() != null && (view.getTag() instanceof a)) {
                 a aVar = (a) view.getTag();
-                aVar.title.setText(item.aTH);
-                if (TextUtils.isEmpty(item.aTI)) {
-                    aVar.aTM.setVisibility(8);
+                aVar.title.setText(item.aTI);
+                if (TextUtils.isEmpty(item.aTJ)) {
+                    aVar.aTN.setVisibility(8);
                 } else {
-                    aVar.aTM.setVisibility(0);
-                    aVar.aTM.setText(item.aTI);
+                    aVar.aTN.setVisibility(0);
+                    aVar.aTN.setText(item.aTJ);
                 }
-                aVar.aTN.setSelected(item.aTK == 1);
+                aVar.aTO.setSelected(item.aTL == 1);
             }
         }
         return view;

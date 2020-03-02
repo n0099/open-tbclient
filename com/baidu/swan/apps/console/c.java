@@ -11,14 +11,14 @@ import com.baidu.swan.apps.y.f;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes11.dex */
 public class c {
-    private static boolean bjI = false;
+    private static boolean bjJ = false;
 
     public static void ch(boolean z) {
-        bjI = z;
+        bjJ = z;
     }
 
-    public static boolean Ls() {
-        return bjI;
+    public static boolean Lu() {
+        return bjJ;
     }
 
     public static void v(String str, String str2) {
@@ -64,12 +64,12 @@ public class c {
     }
 
     private static void p(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && bjI) {
+        if (!TextUtils.isEmpty(str3) && bjJ) {
             StringBuilder sb = new StringBuilder();
             String formatDate = h.getFormatDate(h.getCurrDate(), DateTimeUtil.TIME_FORMAT);
             String fileName = getFileName();
             sb.append(formatDate).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.WQ().Wu().aq(str, sb.toString());
+            f.WS().Ww().aq(str, sb.toString());
         }
     }
 

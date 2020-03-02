@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a hJp;
-    private b hJq;
+    private a hJr;
+    private b hJs;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.hJp = new a(str, chatMessage);
-        this.hJp.execute(new Object[0]);
+        this.hJr = new a(str, chatMessage);
+        this.hJr.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.hJq = bVar;
+        this.hJs = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private ChatMessage hJr;
-        private com.baidu.tieba.im.sendmessage.b hJs = new com.baidu.tieba.im.sendmessage.b();
+        private ChatMessage hJt;
+        private com.baidu.tieba.im.sendmessage.b hJu = new com.baidu.tieba.im.sendmessage.b();
         private String mVid;
 
         public a(String str, ChatMessage chatMessage) {
             this.mVid = str;
-            this.hJr = chatMessage;
+            this.hJt = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
             try {
-                return this.hJs.Dv(this.mVid);
+                return this.hJu.Dv(this.mVid);
             } catch (Exception e) {
                 return null;
             }
@@ -65,8 +65,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.hJq != null) {
-                VoiceSendModel.this.hJq.a(str, this.hJr);
+            if (VoiceSendModel.this.hJs != null) {
+                VoiceSendModel.this.hJs.a(str, this.hJt);
             }
         }
     }

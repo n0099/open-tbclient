@@ -15,7 +15,7 @@ public final class FlowableMergeWithCompletable<T> extends a<T, T> {
     protected void a(org.a.c<? super T> cVar) {
         MergeWithSubscriber mergeWithSubscriber = new MergeWithSubscriber(cVar);
         cVar.onSubscribe(mergeWithSubscriber);
-        this.nwr.a((j) mergeWithSubscriber);
+        this.nwt.a((j) mergeWithSubscriber);
         this.other.a(mergeWithSubscriber.otherObserver);
     }
 

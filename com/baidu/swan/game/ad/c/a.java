@@ -11,7 +11,7 @@ import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class a {
-    private a.InterfaceC0327a chy;
+    private a.InterfaceC0327a chz;
     private Context mContext;
 
     public a(Context context) {
@@ -48,12 +48,12 @@ public class a {
                     if (adResponseInfo == null) {
                         a.this.nN("200000");
                     } else if (adResponseInfo.getAdInstanceList().size() > 0) {
-                        final AdElementInfo ako = adResponseInfo.ako();
+                        final AdElementInfo akq = adResponseInfo.akq();
                         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.chy != null) {
-                                    a.this.chy.b(ako);
+                                if (a.this.chz != null) {
+                                    a.this.chz.b(akq);
                                 }
                             }
                         });
@@ -72,9 +72,9 @@ public class a {
                 }
             };
             if (SwanAppNetworkUtils.isNetworkConnected(this.mContext)) {
-                String akz = dVar.akz();
+                String akB = dVar.akB();
                 if (bVar != null) {
-                    bVar.a(akz, responseCallback);
+                    bVar.a(akB, responseCallback);
                     return;
                 }
                 return;
@@ -84,7 +84,7 @@ public class a {
     }
 
     public void a(a.InterfaceC0327a interfaceC0327a) {
-        this.chy = interfaceC0327a;
+        this.chz = interfaceC0327a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,8 +92,8 @@ public class a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.chy != null) {
-                    a.this.chy.nI(str);
+                if (a.this.chz != null) {
+                    a.this.chz.nI(str);
                 }
             }
         });

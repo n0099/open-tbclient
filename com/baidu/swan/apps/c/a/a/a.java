@@ -25,22 +25,22 @@ public final class a extends ab {
         boolean z;
         q.j(unitedSchemeEntity, "entity");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.c.a.e.bcm.bZ(true);
+        com.baidu.swan.apps.c.a.e.bcn.bZ(true);
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.a.a Jj = com.baidu.swan.apps.c.a.e.bcm.Jj();
-            if (Jj != null) {
-                Jj.onResult(-1);
+            com.baidu.swan.apps.a.a Jl = com.baidu.swan.apps.c.a.e.bcn.Jl();
+            if (Jl != null) {
+                Jl.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
         int optInt = optParamsAsJo.optInt("errno");
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-        ai.l(RunnableC0228a.bcs);
+        ai.l(RunnableC0228a.bct);
         if (optInt != 0) {
-            com.baidu.swan.apps.a.a Jj2 = com.baidu.swan.apps.c.a.e.bcm.Jj();
-            if (Jj2 != null) {
-                Jj2.onResult(-1);
+            com.baidu.swan.apps.a.a Jl2 = com.baidu.swan.apps.c.a.e.bcn.Jl();
+            if (Jl2 != null) {
+                Jl2.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
             return false;
@@ -48,19 +48,19 @@ public final class a extends ab {
             String optString = optJSONObject.optString("ma_bduss");
             String str = optString;
             if (!(str == null || l.isBlank(str))) {
-                com.baidu.swan.apps.c.a.h.bcr.d(optInt, optJSONObject);
+                com.baidu.swan.apps.c.a.h.bcs.d(optInt, optJSONObject);
                 com.baidu.swan.apps.c.a.a.ae(context, optString);
-                com.baidu.swan.apps.c.a.e.bcm.bS(true);
-                com.baidu.swan.apps.a.a Jj3 = com.baidu.swan.apps.c.a.e.bcm.Jj();
-                if (Jj3 != null) {
-                    Jj3.onResult(0);
+                com.baidu.swan.apps.c.a.e.bcn.bS(true);
+                com.baidu.swan.apps.a.a Jl3 = com.baidu.swan.apps.c.a.e.bcn.Jl();
+                if (Jl3 != null) {
+                    Jl3.onResult(0);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 z = true;
             } else {
-                com.baidu.swan.apps.a.a Jj4 = com.baidu.swan.apps.c.a.e.bcm.Jj();
-                if (Jj4 != null) {
-                    Jj4.onResult(-1);
+                com.baidu.swan.apps.a.a Jl4 = com.baidu.swan.apps.c.a.e.bcn.Jl();
+                if (Jl4 != null) {
+                    Jl4.onResult(-1);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "maBduss is null");
                 z = false;
@@ -76,14 +76,14 @@ public final class a extends ab {
     /* renamed from: com.baidu.swan.apps.c.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     static final class RunnableC0228a implements Runnable {
-        public static final RunnableC0228a bcs = new RunnableC0228a();
+        public static final RunnableC0228a bct = new RunnableC0228a();
 
         RunnableC0228a() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            d.OB();
+            d.OD();
         }
     }
 }

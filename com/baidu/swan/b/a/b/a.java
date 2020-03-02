@@ -11,29 +11,29 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cjm;
-    private long cjn;
+    private String cjn;
+    private long cjo;
     private String mPackageName;
     private String mUrl;
 
     public a() {
         this.mUrl = "";
-        this.cjm = "";
-        this.cjn = System.currentTimeMillis();
+        this.cjn = "";
+        this.cjo = System.currentTimeMillis();
     }
 
     public a(@NonNull Download download) {
         this.mUrl = "";
-        this.cjm = "";
-        this.cjn = System.currentTimeMillis();
+        this.cjn = "";
+        this.cjo = System.currentTimeMillis();
         this.mUrl = download.getUrl();
         this.mPackageName = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (!TextUtils.isEmpty(fromParam)) {
             try {
                 JSONObject jSONObject = new JSONObject(fromParam);
-                this.cjm = jSONObject.optString("apk_id");
-                this.cjn = jSONObject.optLong("download_time", System.currentTimeMillis());
+                this.cjn = jSONObject.optString("apk_id");
+                this.cjo = jSONObject.optLong("download_time", System.currentTimeMillis());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -42,14 +42,14 @@ public class a {
         }
     }
 
-    public Download akW() {
+    public Download akY() {
         Download download = new Download();
         download.setUrl(this.mUrl);
         download.setKeyByUser(this.mPackageName);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.cjm);
-            jSONObject.put("download_time", this.cjn);
+            jSONObject.put("apk_id", this.cjn);
+            jSONObject.put("download_time", this.cjo);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -76,17 +76,17 @@ public class a {
         return this;
     }
 
-    public String akX() {
-        return this.cjm;
+    public String akZ() {
+        return this.cjn;
     }
 
     public a ob(String str) {
-        this.cjm = str;
+        this.cjn = str;
         return this;
     }
 
     public long getDownloadTime() {
-        return this.cjn;
+        return this.cjo;
     }
 
     private static String getDownloadDir() {

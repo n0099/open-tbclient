@@ -8,13 +8,13 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes.dex */
 public @interface WireField {
-    String dGt() default "";
+    String dGv() default "";
 
-    String dGu();
+    String dGw();
 
-    Label dGv() default Label.OPTIONAL;
+    Label dGx() default Label.OPTIONAL;
 
-    boolean dGw() default false;
+    boolean dGy() default false;
 
     int tag();
 

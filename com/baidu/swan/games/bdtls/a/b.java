@@ -8,20 +8,20 @@ public class b {
         if (hVar == null) {
             return null;
         }
-        ByteBuffer allocate = ByteBuffer.allocate(hVar.amB() + 12 + hVar.amC());
+        ByteBuffer allocate = ByteBuffer.allocate(hVar.amD() + 12 + hVar.amE());
         allocate.put((byte) -27);
         allocate.put((byte) -89);
-        if (hVar.amx() == null || hVar.amx().length != 2) {
+        if (hVar.amz() == null || hVar.amz().length != 2) {
             return null;
         }
-        allocate.put(hVar.amx()[0]);
-        allocate.put(hVar.amx()[1]);
-        allocate.put(hVar.amz());
-        allocate.put(hVar.amA());
-        if (hVar.amD() == null || hVar.amD().length == 0) {
+        allocate.put(hVar.amz()[0]);
+        allocate.put(hVar.amz()[1]);
+        allocate.put(hVar.amB());
+        allocate.put(hVar.amC());
+        if (hVar.amF() == null || hVar.amF().length == 0) {
             return null;
         }
-        int length = hVar.amD().length;
+        int length = hVar.amF().length;
         allocate.put((byte) ((length >> 8) & 255));
         allocate.put((byte) (length & 255));
         if (hVar.getContent() == null || hVar.getContent().length == 0) {
@@ -29,8 +29,8 @@ public class b {
         } else {
             allocate.putInt(hVar.getContent().length);
         }
-        if (hVar.amD() != null) {
-            allocate.put(hVar.amD());
+        if (hVar.amF() != null) {
+            allocate.put(hVar.amF());
         }
         if (hVar.getContent() != null) {
             allocate.put(hVar.getContent());

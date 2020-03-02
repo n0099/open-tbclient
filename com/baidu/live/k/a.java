@@ -10,20 +10,20 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0090a awO;
-    private HttpMessageListener awP = new HttpMessageListener(1021154) { // from class: com.baidu.live.k.a.1
+    private InterfaceC0090a awP;
+    private HttpMessageListener awQ = new HttpMessageListener(1021154) { // from class: com.baidu.live.k.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.awO != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.awP != null) {
                 com.baidu.live.message.a aVar = (com.baidu.live.message.a) httpResponsedMessage.getOrginalMessage();
                 if (aVar.getTag() == a.this.arR) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        a.this.awO.onFailed(httpResponsedMessage.getErrorString());
+                        a.this.awP.onFailed(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        a.this.awO.onSuccess(aVar.yM());
+                        a.this.awP.onSuccess(aVar.yN());
                     } else {
-                        a.this.awO.onFailed(httpResponsedMessage.getErrorString());
+                        a.this.awP.onFailed(httpResponsedMessage.getErrorString());
                     }
                 }
             }
@@ -42,7 +42,7 @@ public class a extends BdBaseModel {
     public a() {
         setUniqueId(this.arR);
         te();
-        registerListener(this.awP);
+        registerListener(this.awQ);
     }
 
     private void te() {
@@ -66,13 +66,13 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0090a interfaceC0090a) {
-        this.awO = interfaceC0090a;
+        this.awP = interfaceC0090a;
     }
 
     public void onDestroy() {
         cancelMessage();
-        if (this.awP != null) {
-            MessageManager.getInstance().unRegisterListener(this.awP);
+        if (this.awQ != null) {
+            MessageManager.getInstance().unRegisterListener(this.awQ);
         }
     }
 }

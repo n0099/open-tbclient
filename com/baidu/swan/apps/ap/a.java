@@ -4,22 +4,22 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
 /* loaded from: classes11.dex */
 public final class a {
-    private a bXD = null;
-    private long bXE = 0;
+    private a bXE = null;
     private long bXF = 0;
-    private long bXG = 2;
+    private long bXG = 0;
+    private long bXH = 2;
     private String mDesc = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean bXH = false;
+    private boolean bXI = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(agi()), Long.valueOf(agd()), Long.valueOf(age()), Long.valueOf(agf()), agg()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(agk()), Long.valueOf(agf()), Long.valueOf(agg()), Long.valueOf(agh()), agi()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(agd()), Long.valueOf(age()), Long.valueOf(agf())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(agf()), Long.valueOf(agg()), Long.valueOf(agh())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", agh()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", agj()));
         }
         return sb.toString();
     }
@@ -29,30 +29,30 @@ public final class a {
     }
 
     public a aH(long j) {
-        this.bXG = a(j, 9L, "platform");
-        return this;
-    }
-
-    public long agd() {
-        return this.bXG;
-    }
-
-    public a aI(long j) {
-        this.bXE = a(j, 999L, "feature");
-        return this;
-    }
-
-    public long age() {
-        return this.bXE;
-    }
-
-    public a aJ(long j) {
-        this.bXF = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+        this.bXH = a(j, 9L, "platform");
         return this;
     }
 
     public long agf() {
+        return this.bXH;
+    }
+
+    public a aI(long j) {
+        this.bXF = a(j, 999L, "feature");
+        return this;
+    }
+
+    public long agg() {
         return this.bXF;
+    }
+
+    public a aJ(long j) {
+        this.bXG = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+        return this;
+    }
+
+    public long agh() {
+        return this.bXG;
     }
 
     public a my(String str) {
@@ -63,7 +63,7 @@ public final class a {
         return this;
     }
 
-    public String agg() {
+    public String agi() {
         return this.mDesc;
     }
 
@@ -72,12 +72,12 @@ public final class a {
         return this;
     }
 
-    public StringBuilder agh() {
+    public StringBuilder agj() {
         return this.mDetails;
     }
 
-    public long agi() {
-        return (agd() * 10000000) + (age() * 10000) + (agf() * 1);
+    public long agk() {
+        return (agf() * 10000000) + (agg() * 10000) + (agh() * 1);
     }
 
     public a aK(long j) {
@@ -88,12 +88,12 @@ public final class a {
         return this;
     }
 
-    public boolean agj() {
-        return this.bXH;
+    public boolean agl() {
+        return this.bXI;
     }
 
-    public void agk() {
-        this.bXH = true;
+    public void agm() {
+        this.bXI = true;
     }
 
     private long a(long j, long j2, String str) {

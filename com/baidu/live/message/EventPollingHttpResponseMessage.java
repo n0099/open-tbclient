@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class EventPollingHttpResponseMessage extends JsonHttpResponsedMessage {
-    public int awG;
-    public List<af> awH;
+    public int awH;
+    public List<af> awI;
     public long currentTime;
     public long liveId;
 
@@ -22,7 +22,7 @@ public class EventPollingHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.awH = new ArrayList();
+            this.awI = new ArrayList();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && getError() == 0) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("list");
@@ -30,9 +30,9 @@ public class EventPollingHttpResponseMessage extends JsonHttpResponsedMessage {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     af afVar = new af();
                     afVar.parseJson(jSONObject2);
-                    this.awH.add(afVar);
+                    this.awI.add(afVar);
                 }
-                this.awG = optJSONObject.optInt("polling_interval");
+                this.awH = optJSONObject.optInt("polling_interval");
                 this.liveId = optJSONObject.optLong("live_id");
                 this.currentTime = optJSONObject.optLong("current_time");
             }

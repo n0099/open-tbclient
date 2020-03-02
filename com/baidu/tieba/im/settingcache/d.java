@@ -10,13 +10,13 @@ import com.baidu.tbadk.util.ac;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d hJB = new d();
+    private static d hJD = new d();
 
     private d() {
     }
 
-    public static d bXZ() {
-        return hJB;
+    public static d bYb() {
+        return hJD;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,8 +28,8 @@ public class d extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.hJu) {
-            ChatSetting chatSetting = this.hJu.get(str3);
+        synchronized (this.hJw) {
+            ChatSetting chatSetting = this.hJw.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -42,7 +42,7 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void bUi() {
+    public void bUk() {
         super.x(OfficialSettingItemData.class);
     }
 
@@ -56,8 +56,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> bXW() {
-        return com.baidu.tbadk.core.c.a.aEz().sQ("tb.im_official_chat_setting");
+    protected l<String> bXY() {
+        return com.baidu.tbadk.core.c.a.aEB().sQ("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -72,13 +72,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> bXW = bXW();
+            l<String> bXY = bXY();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.hJu) {
-                this.hJu.put(str, officialSettingItemData);
+            synchronized (this.hJw) {
+                this.hJw.put(str, officialSettingItemData);
             }
-            bXW.setForever(str, jsonStrWithObject);
+            bXY.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -95,15 +95,15 @@ public class d extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.hJu) {
-                this.hJu.put(str, officialSettingItemData);
+            synchronized (this.hJw) {
+                this.hJw.put(str, officialSettingItemData);
             }
             ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: aYF */
+                /* renamed from: aYH */
                 public Void doInBackground() {
-                    d.this.bXW().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.bXY().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, lVar);

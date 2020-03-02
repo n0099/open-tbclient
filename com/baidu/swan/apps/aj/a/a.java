@@ -8,9 +8,9 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c.a bQs;
     private c.a bQt;
-    private HashMap<String, c.a> bQu = new HashMap<>();
+    private c.a bQu;
+    private HashMap<String, c.a> bQv = new HashMap<>();
 
     public void lg(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -24,9 +24,32 @@ public class a {
     }
 
     public ArrayList<String> dP(boolean z) {
+        if (this.bQu != null && this.bQu.data != null && this.bQu.data.size() > 0) {
+            if (DEBUG) {
+                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.bQu.token + ", data=" + this.bQu.data);
+            }
+            return this.bQu.data;
+        }
+        if (this.bQu != null) {
+            this.bQu.token = "";
+            this.bQu.data.clear();
+        } else {
+            this.bQu = new c.a();
+        }
+        c.a(z, this.bQu);
+        return this.bQu.data;
+    }
+
+    public ArrayList<String> adF() {
+        c.a aVar = new c.a();
+        c.a(aVar);
+        return aVar.data;
+    }
+
+    public ArrayList<String> z(String str, boolean z) {
         if (this.bQt != null && this.bQt.data != null && this.bQt.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.bQt.token + ", data=" + this.bQt.data);
+                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.bQt.token + ", data=" + this.bQt.data);
             }
             return this.bQt.data;
         }
@@ -36,35 +59,12 @@ public class a {
         } else {
             this.bQt = new c.a();
         }
-        c.a(z, this.bQt);
+        c.a(z, str, this.bQt);
         return this.bQt.data;
     }
 
-    public ArrayList<String> adD() {
-        c.a aVar = new c.a();
-        c.a(aVar);
-        return aVar.data;
-    }
-
-    public ArrayList<String> z(String str, boolean z) {
-        if (this.bQs != null && this.bQs.data != null && this.bQs.data.size() > 0) {
-            if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.bQs.token + ", data=" + this.bQs.data);
-            }
-            return this.bQs.data;
-        }
-        if (this.bQs != null) {
-            this.bQs.token = "";
-            this.bQs.data.clear();
-        } else {
-            this.bQs = new c.a();
-        }
-        c.a(z, str, this.bQs);
-        return this.bQs.data;
-    }
-
     public c.a l(String str, String str2, boolean z) {
-        c.a aVar = this.bQu.get(str2);
+        c.a aVar = this.bQv.get(str2);
         if (aVar != null && aVar.data != null && aVar.data.size() > 0) {
             if (DEBUG) {
                 Log.e("SwanAppWebSafe", "read serverDomains from cache: data= " + aVar.data);
@@ -77,20 +77,20 @@ public class a {
                 aVar = new c.a();
             }
             c.a(z, str, str2, aVar);
-            this.bQu.put(str2, aVar);
+            this.bQv.put(str2, aVar);
         }
         return aVar;
     }
 
     public void release() {
-        if (this.bQs != null) {
-            this.bQs.data.clear();
-        }
         if (this.bQt != null) {
             this.bQt.data.clear();
         }
-        this.bQs = null;
+        if (this.bQu != null) {
+            this.bQu.data.clear();
+        }
         this.bQt = null;
+        this.bQu = null;
         if (DEBUG) {
             Log.d("SwanAppWebSafe", "release cache done");
         }

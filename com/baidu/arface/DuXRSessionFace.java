@@ -80,8 +80,8 @@ public class DuXRSessionFace {
             return;
         }
         this.mTextureId = i3;
-        if (com.baidu.smallgame.sdk.a.aYg != null) {
-            com.baidu.smallgame.sdk.a.aYg.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.arface.DuXRSessionFace.1
+        if (com.baidu.smallgame.sdk.a.aYh != null) {
+            com.baidu.smallgame.sdk.a.aYh.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.arface.DuXRSessionFace.1
                 @Override // com.baidu.smallgame.sdk.permission.PermissionListener
                 public void onPermissionResult(String str, int i4) {
                     if (i4 == 0) {

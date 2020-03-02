@@ -14,7 +14,7 @@ public class at {
         public final Class<? extends T> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final T f130a;
+        public final T f129a;
     }
 
     static {
@@ -201,7 +201,7 @@ public class at {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f130a;
+                objArr2[i2] = ((a) obj).f129a;
             }
             i = i2 + 1;
         }

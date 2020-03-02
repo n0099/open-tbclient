@@ -30,10 +30,10 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffec
 /* loaded from: classes3.dex */
 public class AlaEffectPreviewView extends LinearLayout {
     private int alZ;
-    private TextView bpo;
-    private LinearLayout egF;
-    private b.a fww;
-    private ImageView fwx;
+    private TextView bpp;
+    private LinearLayout egG;
+    private b.a fwx;
+    private ImageView fwy;
     private ImageView mIconView;
     private ObjectAnimator mObjectAnimator;
     private View mRootView;
@@ -57,13 +57,13 @@ public class AlaEffectPreviewView extends LinearLayout {
     private void initView() {
         this.mRootView = inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
         this.mIconView = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
-        this.bpo = (TextView) findViewById(R.id.ala_im_user_enter_content);
-        this.egF = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
-        this.fwx = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
+        this.bpp = (TextView) findViewById(R.id.ala_im_user_enter_content);
+        this.egG = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
+        this.fwy = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
     }
 
     public void setAnimCompleteCallback(b.a aVar) {
-        this.fww = aVar;
+        this.fwx = aVar;
     }
 
     public void setData(AlaEnterEffectData alaEnterEffectData) {
@@ -141,7 +141,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     }
                 }, null);
             }
-            this.bpo.setText(spannableStringBuilder);
+            this.bpp.setText(spannableStringBuilder);
             String str4 = alaEnterEffectData.color;
             if (StringUtils.isNull(str4)) {
                 str4 = "#B2FF5460";
@@ -162,14 +162,14 @@ public class AlaEffectPreviewView extends LinearLayout {
                 gradientDrawable.setColor(-1291889568);
             }
             gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds10));
-            this.egF.setBackgroundDrawable(gradientDrawable);
+            this.egG.setBackgroundDrawable(gradientDrawable);
             if (3 == alaEnterEffectData.categoryType) {
-                this.fwx.setVisibility(0);
+                this.fwy.setVisibility(0);
             }
         }
     }
 
-    public void bsz() {
+    public void bsB() {
         if (getMeasuredWidth() <= 0) {
             measure(0, 0);
         }
@@ -190,8 +190,8 @@ public class AlaEffectPreviewView extends LinearLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (AlaEffectPreviewView.this.fww != null) {
-                    AlaEffectPreviewView.this.fww.bsB();
+                if (AlaEffectPreviewView.this.fwx != null) {
+                    AlaEffectPreviewView.this.fwx.bsD();
                 }
             }
 

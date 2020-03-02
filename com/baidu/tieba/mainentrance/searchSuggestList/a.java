@@ -24,51 +24,51 @@ import java.util.List;
 import tbclient.SearchSug.ForumInfo;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private String cwU;
-    private List<ForumInfo> ifT;
-    private ArrayList<Object> ifU;
+    private String cwV;
+    private List<ForumInfo> ifV;
+    private ArrayList<Object> ifW;
     private final Context mContext;
-    private final boolean ieF = true;
-    private LikeModel djT = new LikeModel(null);
+    private final boolean ieH = true;
+    private LikeModel djU = new LikeModel(null);
 
     public a(Context context, ArrayList<ForumInfo> arrayList) {
         this.mContext = context;
-        this.ifT = arrayList;
+        this.ifV = arrayList;
     }
 
     public void dp(List<ForumInfo> list) {
-        this.ifT = list;
-        this.ifU = new ArrayList<>();
+        this.ifV = list;
+        this.ifW = new ArrayList<>();
         int i = 0;
         while (true) {
-            if (i >= this.ifT.size()) {
+            if (i >= this.ifV.size()) {
                 i = 0;
                 break;
-            } else if (this.ifT.get(i).has_concerned.intValue() == 0) {
+            } else if (this.ifV.get(i).has_concerned.intValue() == 0) {
                 break;
             } else {
                 i++;
             }
         }
-        this.ifU.addAll(this.ifT);
+        this.ifW.addAll(this.ifV);
         if (i > 0) {
-            this.ifU.add(i, "divider");
+            this.ifW.add(i, "divider");
         }
-        if (this.ifT != null) {
+        if (this.ifV != null) {
             notifyDataSetChanged();
         }
     }
 
     public void Em(String str) {
-        this.cwU = str;
+        this.cwV = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ifU == null || TextUtils.isEmpty(this.cwU)) {
+        if (this.ifW == null || TextUtils.isEmpty(this.cwV)) {
             return 0;
         }
-        return this.ifU.size();
+        return this.ifW.size();
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.ifU.get(i);
+        return this.ifW.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -95,11 +95,11 @@ public class a extends BaseAdapter {
             if (view == null) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.forum_search_sug_item, (ViewGroup) null);
                 c0560a = new C0560a();
-                c0560a.ieI = (BarImageView) view.findViewById(R.id.forum_avatar);
-                c0560a.ieI.setGifIconSupport(false);
-                c0560a.dib = (TextView) view.findViewById(R.id.name);
-                c0560a.ieJ = (TextView) view.findViewById(R.id.forum_member_count);
-                c0560a.ieK = (TextView) view.findViewById(R.id.forum_thread_count);
+                c0560a.ieK = (BarImageView) view.findViewById(R.id.forum_avatar);
+                c0560a.ieK.setGifIconSupport(false);
+                c0560a.dic = (TextView) view.findViewById(R.id.name);
+                c0560a.ieL = (TextView) view.findViewById(R.id.forum_member_count);
+                c0560a.ieM = (TextView) view.findViewById(R.id.forum_thread_count);
                 c0560a.arB = (TextView) view.findViewById(R.id.follow_text_view);
                 view.setTag(c0560a);
             } else {
@@ -107,21 +107,21 @@ public class a extends BaseAdapter {
             }
             if (forumInfo != null) {
                 String str2 = forumInfo.avatar;
-                c0560a.ieI.setTag(str2);
-                c0560a.ieI.startLoad(str2, 15, false);
-                c0560a.ieI.invalidate();
-                if (this.ieF) {
+                c0560a.ieK.setTag(str2);
+                c0560a.ieK.startLoad(str2, 15, false);
+                c0560a.ieK.invalidate();
+                if (this.ieH) {
                     str = this.mContext.getString(R.string.chosen_pb_original_bar, forumInfo.forum_name);
                 } else {
                     str = forumInfo.forum_name;
                 }
-                c(c0560a.dib, str);
-                c0560a.ieI.setTag(forumInfo.avatar);
-                c0560a.ieJ.setText(this.mContext.getString(R.string.attention) + HanziToPinyin.Token.SEPARATOR + forumInfo.concern_num);
-                c0560a.ieK.setText(this.mContext.getString(R.string.text_post) + HanziToPinyin.Token.SEPARATOR + forumInfo.post_num);
-                am.setViewTextColor(c0560a.ieJ, (int) R.color.cp_cont_d);
-                am.setViewTextColor(c0560a.ieK, (int) R.color.cp_cont_d);
-                am.setViewTextColor(c0560a.dib, (int) R.color.cp_cont_b);
+                c(c0560a.dic, str);
+                c0560a.ieK.setTag(forumInfo.avatar);
+                c0560a.ieL.setText(this.mContext.getString(R.string.attention) + HanziToPinyin.Token.SEPARATOR + forumInfo.concern_num);
+                c0560a.ieM.setText(this.mContext.getString(R.string.text_post) + HanziToPinyin.Token.SEPARATOR + forumInfo.post_num);
+                am.setViewTextColor(c0560a.ieL, (int) R.color.cp_cont_d);
+                am.setViewTextColor(c0560a.ieM, (int) R.color.cp_cont_d);
+                am.setViewTextColor(c0560a.dic, (int) R.color.cp_cont_b);
                 if (forumInfo.has_concerned.intValue() > 0) {
                     c0560a.arB.setText(R.string.followed);
                     am.setBackgroundResource(c0560a.arB, 0);
@@ -136,11 +136,11 @@ public class a extends BaseAdapter {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         TiebaStatic.log(new an("c13371").cy("obj_type", "3").X("fid", forumInfo.forum_id.intValue()).s("uid", TbadkApplication.getCurrentAccountId()));
-                        a.this.djT.eC(forumInfo.forum_name, String.valueOf(forumInfo.forum_id));
-                        a.this.djT.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.mainentrance.searchSuggestList.a.1.1
+                        a.this.djU.eC(forumInfo.forum_name, String.valueOf(forumInfo.forum_id));
+                        a.this.djU.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.mainentrance.searchSuggestList.a.1.1
                             @Override // com.baidu.adp.base.d
                             public void callback(Object obj) {
-                                if (a.this.djT.getErrorCode() != 0) {
+                                if (a.this.djU.getErrorCode() != 0) {
                                     l.showToast(a.this.mContext, (int) R.string.attention_fail);
                                     return;
                                 }
@@ -166,9 +166,9 @@ public class a extends BaseAdapter {
     }
 
     public void c(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.cwU)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.cwV)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.cwU.toLowerCase();
+            String lowerCase2 = this.cwV.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -176,7 +176,7 @@ public class a extends BaseAdapter {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(am.getColor(R.color.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.cwU.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.cwV.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }
@@ -185,10 +185,10 @@ public class a extends BaseAdapter {
     /* loaded from: classes11.dex */
     private class C0560a {
         TextView arB;
-        TextView dib;
-        BarImageView ieI;
-        TextView ieJ;
-        TextView ieK;
+        TextView dic;
+        BarImageView ieK;
+        TextView ieL;
+        TextView ieM;
 
         private C0560a() {
         }

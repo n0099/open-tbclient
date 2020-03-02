@@ -19,9 +19,9 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class LabelItemView extends LinearLayout {
-    private int hUA;
-    private boolean hUy;
-    private int hUz;
+    private boolean hUA;
+    private int hUB;
+    private int hUC;
     private Paint mPaint;
 
     public LabelItemView(Context context) {
@@ -46,17 +46,17 @@ public class LabelItemView extends LinearLayout {
         this.mPaint.setStyle(Paint.Style.STROKE);
         this.mPaint.setColor(am.getColor(R.color.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.hUA = l.getDimens(getContext(), R.dimen.ds46);
+        this.hUC = l.getDimens(getContext(), R.dimen.ds46);
         for (int i = 0; i < 3; i++) {
-            addView(cbb());
+            addView(cbd());
         }
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list, boolean z) {
         if (!v.isEmpty(list)) {
-            this.hUy = z;
-            this.hUz = Math.min(list.size(), 3);
-            for (int i = 0; i < this.hUz; i++) {
+            this.hUA = z;
+            this.hUB = Math.min(list.size(), 3);
+            for (int i = 0; i < this.hUB; i++) {
                 com.baidu.tieba.interestlabel.b.a aVar = list.get(i);
                 if (aVar != null && (getChildAt(i) instanceof TextView)) {
                     TextView textView = (TextView) getChildAt(i);
@@ -72,7 +72,7 @@ public class LabelItemView extends LinearLayout {
                     textView.setTag(aVar);
                 }
             }
-            for (int i2 = this.hUz; i2 < getChildCount(); i2++) {
+            for (int i2 = this.hUB; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt != null) {
                     childAt.setVisibility(8);
@@ -81,7 +81,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    private TextView cbb() {
+    private TextView cbd() {
         return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.label_recommend_column_item, (ViewGroup) this, false);
     }
 
@@ -105,13 +105,13 @@ public class LabelItemView extends LinearLayout {
         int i = 1;
         while (true) {
             int i2 = i;
-            if (i2 >= this.hUz) {
+            if (i2 >= this.hUB) {
                 break;
             }
-            canvas.drawLine(width * i2, (height - this.hUA) / 2, (width * i2) + 1, (this.hUA + height) / 2, this.mPaint);
+            canvas.drawLine(width * i2, (height - this.hUC) / 2, (width * i2) + 1, (this.hUC + height) / 2, this.mPaint);
             i = i2 + 1;
         }
-        if (!this.hUy) {
+        if (!this.hUA) {
             canvas.drawLine(0.0f, height - 1, getWidth(), height, this.mPaint);
         }
     }

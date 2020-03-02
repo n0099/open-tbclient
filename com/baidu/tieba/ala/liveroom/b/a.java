@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private c eQi;
-    private CustomMessageListener evK = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.a.1
+    private c eQj;
+    private CustomMessageListener evL = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -31,42 +31,42 @@ public class a {
     public a(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        MessageManager.getInstance().registerListener(this.evK);
+        MessageManager.getInstance().registerListener(this.evL);
     }
 
     public void b(ViewGroup viewGroup, m mVar) {
         if (viewGroup != null && this.mTbPageContext != null && mVar != null) {
-            this.eQi = new c(this.mTbPageContext);
-            bie();
+            this.eQj = new c(this.mTbPageContext);
+            big();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
             layoutParams.addRule(3, a.g.ala_live_removeable_top_container);
             layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds30);
-            viewGroup.addView(this.eQi.getView(), layoutParams);
+            viewGroup.addView(this.eQj.getView(), layoutParams);
             o(mVar);
         }
     }
 
     public void o(m mVar) {
         if (mVar.XQ != null) {
-            this.eQi.cR(mVar.XQ.alaId);
+            this.eQj.cR(mVar.XQ.alaId);
         }
     }
 
     public boolean ag(ViewGroup viewGroup) {
-        return (this.eQi == null || this.eQi.getView() == null || viewGroup.indexOfChild(this.eQi.getView()) <= -1) ? false : true;
+        return (this.eQj == null || this.eQj.getView() == null || viewGroup.indexOfChild(this.eQj.getView()) <= -1) ? false : true;
     }
 
-    public void bie() {
-        if (this.eQi != null && this.eQi.getView() != null && this.eQi.getView().getParent() != null) {
-            ((ViewGroup) this.eQi.getView().getParent()).removeView(this.eQi.getView());
+    public void big() {
+        if (this.eQj != null && this.eQj.getView() != null && this.eQj.getView().getParent() != null) {
+            ((ViewGroup) this.eQj.getView().getParent()).removeView(this.eQj.getView());
         }
     }
 
     public void setVisibility(int i) {
-        if (this.eQi != null && this.eQi.getView() != null) {
-            this.eQi.getView().setVisibility(i);
+        if (this.eQj != null && this.eQj.getView() != null) {
+            this.eQj.getView().setVisibility(i);
         }
     }
 }

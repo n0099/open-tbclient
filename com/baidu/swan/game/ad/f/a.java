@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile a ciu;
+    private static volatile a civ;
     private List<j> mCallbacks = new CopyOnWriteArrayList();
 
-    public static a akB() {
-        if (ciu == null) {
+    public static a akD() {
+        if (civ == null) {
             synchronized (a.class) {
-                if (ciu == null) {
-                    ciu = new a();
+                if (civ == null) {
+                    civ = new a();
                 }
             }
         }
-        return ciu;
+        return civ;
     }
 
     public void a(j jVar) {
@@ -27,7 +27,7 @@ public class a {
     public void F(int i, String str) {
         for (j jVar : this.mCallbacks) {
             if (i == 16) {
-                jVar.akO();
+                jVar.akQ();
             } else if (i == 17) {
                 jVar.nV(str);
             }

@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ap {
-    private static ap dan;
+    private static ap dao;
 
-    public static synchronized ap aGy() {
+    public static synchronized ap aGA() {
         ap apVar;
         synchronized (ap.class) {
-            if (dan == null) {
-                dan = new ap();
+            if (dao == null) {
+                dao = new ap();
             }
-            apVar = dan;
+            apVar = dao;
         }
         return apVar;
     }
@@ -86,7 +86,7 @@ public class ap {
         }
     }
 
-    public void aGz() {
+    public void aGB() {
         G(new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + m.getPrefixByType(3)));
     }
 

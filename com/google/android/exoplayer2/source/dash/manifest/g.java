@@ -8,16 +8,16 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class g {
     public final String baseUrl;
-    public final Format lZw;
-    public final String muT;
-    public final long mvc;
-    public final long mvd;
-    public final List<d> mve;
-    private final f mvf;
+    public final Format lZy;
+    public final String muV;
+    public final long mve;
+    public final long mvf;
+    public final List<d> mvg;
+    private final f mvh;
 
-    public abstract f dwZ();
+    public abstract f dxb();
 
-    public abstract com.google.android.exoplayer2.source.dash.d dxa();
+    public abstract com.google.android.exoplayer2.source.dash.d dxc();
 
     public abstract String getCacheKey();
 
@@ -36,44 +36,44 @@ public abstract class g {
     }
 
     private g(String str, long j, Format format, String str2, h hVar, List<d> list) {
-        this.muT = str;
-        this.mvc = j;
-        this.lZw = format;
+        this.muV = str;
+        this.mve = j;
+        this.lZy = format;
         this.baseUrl = str2;
-        this.mve = list == null ? Collections.emptyList() : Collections.unmodifiableList(list);
-        this.mvf = hVar.a(this);
-        this.mvd = hVar.dxb();
+        this.mvg = list == null ? Collections.emptyList() : Collections.unmodifiableList(list);
+        this.mvh = hVar.a(this);
+        this.mvf = hVar.dxd();
     }
 
-    public f dwY() {
-        return this.mvf;
+    public f dxa() {
+        return this.mvh;
     }
 
     /* loaded from: classes6.dex */
     public static class b extends g {
         private final String cacheKey;
         public final long contentLength;
-        private final f mvh;
-        private final i mvi;
+        private final f mvj;
+        private final i mvk;
         public final Uri uri;
 
         public b(String str, long j, Format format, String str2, h.e eVar, List<d> list, String str3, long j2) {
             super(str, j, format, str2, eVar, list);
             this.uri = Uri.parse(str2);
-            this.mvh = eVar.dxc();
+            this.mvj = eVar.dxe();
             this.cacheKey = str3 == null ? str != null ? str + "." + format.id + "." + j : null : str3;
             this.contentLength = j2;
-            this.mvi = this.mvh != null ? null : new i(new f(null, 0L, j2));
+            this.mvk = this.mvj != null ? null : new i(new f(null, 0L, j2));
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.g
-        public f dwZ() {
-            return this.mvh;
+        public f dxb() {
+            return this.mvj;
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.g
-        public com.google.android.exoplayer2.source.dash.d dxa() {
-            return this.mvi;
+        public com.google.android.exoplayer2.source.dash.d dxc() {
+            return this.mvk;
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.g
@@ -84,20 +84,20 @@ public abstract class g {
 
     /* loaded from: classes6.dex */
     public static class a extends g implements com.google.android.exoplayer2.source.dash.d {
-        private final h.a mvg;
+        private final h.a mvi;
 
         public a(String str, long j, Format format, String str2, h.a aVar, List<d> list) {
             super(str, j, format, str2, aVar, list);
-            this.mvg = aVar;
+            this.mvi = aVar;
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.g
-        public f dwZ() {
+        public f dxb() {
             return null;
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.g
-        public com.google.android.exoplayer2.source.dash.d dxa() {
+        public com.google.android.exoplayer2.source.dash.d dxc() {
             return this;
         }
 
@@ -108,37 +108,37 @@ public abstract class g {
 
         @Override // com.google.android.exoplayer2.source.dash.d
         public f KW(int i) {
-            return this.mvg.a(this, i);
+            return this.mvi.a(this, i);
         }
 
         @Override // com.google.android.exoplayer2.source.dash.d
         public int T(long j, long j2) {
-            return this.mvg.T(j, j2);
+            return this.mvi.T(j, j2);
         }
 
         @Override // com.google.android.exoplayer2.source.dash.d
         public long KV(int i) {
-            return this.mvg.Le(i);
+            return this.mvi.Le(i);
         }
 
         @Override // com.google.android.exoplayer2.source.dash.d
         public long F(int i, long j) {
-            return this.mvg.G(i, j);
+            return this.mvi.G(i, j);
         }
 
         @Override // com.google.android.exoplayer2.source.dash.d
-        public int dwV() {
-            return this.mvg.dwV();
+        public int dwX() {
+            return this.mvi.dwX();
         }
 
         @Override // com.google.android.exoplayer2.source.dash.d
         public int gq(long j) {
-            return this.mvg.gq(j);
+            return this.mvi.gq(j);
         }
 
         @Override // com.google.android.exoplayer2.source.dash.d
-        public boolean dwW() {
-            return this.mvg.dwW();
+        public boolean dwY() {
+            return this.mvi.dwY();
         }
     }
 }

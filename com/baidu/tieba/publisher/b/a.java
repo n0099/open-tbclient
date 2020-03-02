@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class a {
     private static TbadkCoreApplication sApp;
 
-    public static TbadkCoreApplication cBc() {
+    public static TbadkCoreApplication cBe() {
         return sApp;
     }
 

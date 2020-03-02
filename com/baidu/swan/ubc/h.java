@@ -7,11 +7,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h {
     private String Fk;
-    private String bHp;
-    private int cEL;
-    private JSONObject cEM;
-    private String cEN;
-    private boolean cEO;
+    private String bHq;
+    private int cEM;
+    private JSONObject cEN;
+    private String cEO;
+    private boolean cEP;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -20,30 +20,30 @@ public class h {
 
     public h(String str, String str2, int i) {
         this.mContent = "";
-        this.cEO = false;
+        this.cEP = false;
         this.Fk = "";
         this.mId = str;
-        this.bHp = str;
-        this.cEL = -1;
+        this.bHq = str;
+        this.cEM = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.cEM = new JSONObject(this.mContent);
+            this.cEN = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public h(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.cEO = false;
+        this.cEP = false;
         this.Fk = "";
         this.mId = str;
-        this.bHp = str;
-        this.cEL = -1;
-        this.cEM = jSONObject;
+        this.bHq = str;
+        this.cEM = -1;
+        this.cEN = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -52,29 +52,29 @@ public class h {
 
     public h(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.cEO = false;
+        this.cEP = false;
         this.Fk = "";
         this.mId = str2;
-        this.bHp = str;
-        this.cEL = i;
+        this.bHq = str;
+        this.cEM = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.cEM = new JSONObject(this.mContent);
+            this.cEN = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public h(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.cEO = false;
+        this.cEP = false;
         this.Fk = "";
         this.mId = str2;
-        this.bHp = str;
-        this.cEL = i;
+        this.bHq = str;
+        this.cEM = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -86,7 +86,7 @@ public class h {
         }
         if (!TextUtils.isEmpty(this.mContent)) {
             try {
-                this.cEM = new JSONObject(this.mContent);
+                this.cEN = new JSONObject(this.mContent);
             } catch (JSONException e) {
             }
         }
@@ -96,12 +96,12 @@ public class h {
         return this.mId;
     }
 
-    public String Zw() {
-        return this.bHp;
+    public String Zy() {
+        return this.bHq;
     }
 
-    public int avt() {
-        return this.cEL;
+    public int avv() {
+        return this.cEM;
     }
 
     public String getContent() {
@@ -116,8 +116,8 @@ public class h {
         return this.mOption;
     }
 
-    public String avu() {
-        return this.cEN;
+    public String avw() {
+        return this.cEO;
     }
 
     public void setCategory(String str) {
@@ -128,29 +128,29 @@ public class h {
         return this.mCategory;
     }
 
-    public JSONObject avv() {
-        return this.cEM;
+    public JSONObject avx() {
+        return this.cEN;
     }
 
     public String getFileName() {
         return this.Fk;
     }
 
-    public String avw() {
-        return this.cEM != null ? this.cEM.optString("bizId") : "";
+    public String avy() {
+        return this.cEN != null ? this.cEN.optString("bizId") : "";
     }
 
     public void fe(boolean z) {
-        this.cEO = z;
+        this.cEP = z;
     }
 
-    public boolean avr() {
-        return this.cEO;
+    public boolean avt() {
+        return this.cEP;
     }
 
-    public void avx() {
-        if (this.mId != null && this.mId.equals(this.bHp) && d.avg().qQ(this.mId)) {
-            this.cEN = s.avR().Zo();
+    public void avz() {
+        if (this.mId != null && this.mId.equals(this.bHq) && d.avi().qQ(this.mId)) {
+            this.cEO = s.avT().Zq();
         }
     }
 }

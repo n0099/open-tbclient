@@ -25,7 +25,7 @@ public class a {
     }
 
     private boolean isCrabSdkSwitchOn() {
-        return com.baidu.tbadk.core.sharedPref.b.aFB().getInt("pref_key_crab_sdk_enable", 1) == 1;
+        return com.baidu.tbadk.core.sharedPref.b.aFD().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {

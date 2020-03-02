@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.adaptation.a;
 /* loaded from: classes11.dex */
 public interface w {
-    void It();
-
-    void Iu();
-
     void Iv();
+
+    void Iw();
+
+    void Ix();
 }

@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.adp.widget.ListView.b {
-    private ImageView eDh;
-    private TextView eDi;
+    private ImageView eDi;
+    private TextView eDj;
     private View mBottomLine;
     private View.OnClickListener mClickListener;
     private Context mContext;
@@ -26,8 +26,8 @@ public class i extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-        this.eDi = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
-        this.eDh = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
+        this.eDj = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
+        this.eDi = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
         this.mTopLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_top_line);
         this.mBottomLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_bottom_line);
         pk(TbadkCoreApplication.getInst().getSkinType());
@@ -38,11 +38,11 @@ public class i extends com.baidu.adp.widget.ListView.b {
         if (this.mRootView != null) {
             am.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
         }
-        if (this.eDi != null) {
-            am.setViewTextColor(this.eDi, (int) R.color.cp_link_tip_c);
+        if (this.eDj != null) {
+            am.setViewTextColor(this.eDj, (int) R.color.cp_link_tip_c);
         }
-        if (this.eDh != null) {
-            am.setImageResource(this.eDh, R.drawable.icon_inf_arrowblue_n);
+        if (this.eDi != null) {
+            am.setImageResource(this.eDi, R.drawable.icon_inf_arrowblue_n);
         }
         if (this.mTopLine != null) {
             am.setBackgroundResource(this.mTopLine, R.color.cp_bg_line_c);

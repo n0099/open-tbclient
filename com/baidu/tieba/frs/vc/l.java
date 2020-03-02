@@ -11,55 +11,55 @@ import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes9.dex */
 public class l {
-    private FrsFragment gGD;
-    private NavigationBarCoverTip gNn;
-    private int gNo;
+    private FrsFragment gGF;
+    private NavigationBarCoverTip gNp;
+    private int gNq;
     private TextView mTipView;
 
     public l(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
-        this.gGD = frsFragment;
-        this.gNn = navigationBarCoverTip;
+        this.gGF = frsFragment;
+        this.gNp = navigationBarCoverTip;
         init();
     }
 
     private void init() {
-        this.gNo = 0;
-        this.mTipView = new TextView(this.gGD.getActivity());
-        this.mTipView.setLayoutParams(new LinearLayout.LayoutParams(-1, this.gGD.getResources().getDimensionPixelSize(R.dimen.tbds112)));
+        this.gNq = 0;
+        this.mTipView = new TextView(this.gGF.getActivity());
+        this.mTipView.setLayoutParams(new LinearLayout.LayoutParams(-1, this.gGF.getResources().getDimensionPixelSize(R.dimen.tbds112)));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.mTipView.setPadding(this.gGD.getResources().getDimensionPixelSize(R.dimen.ds34), this.gGD.getResources().getDimensionPixelSize(R.dimen.ds1), this.gGD.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.mTipView.setPadding(this.gGF.getResources().getDimensionPixelSize(R.dimen.ds34), this.gGF.getResources().getDimensionPixelSize(R.dimen.ds1), this.gGF.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
             this.mTipView.setGravity(3);
         } else {
-            this.mTipView.setPadding(this.gGD.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.gGD.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.mTipView.setPadding(this.gGF.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.gGF.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
             this.mTipView.setGravity(19);
         }
-        this.mTipView.setTextSize(0, this.gGD.getResources().getDimensionPixelSize(R.dimen.ds28));
-        this.mTipView.setLineSpacing(this.gGD.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+        this.mTipView.setTextSize(0, this.gGF.getResources().getDimensionPixelSize(R.dimen.ds28));
+        this.mTipView.setLineSpacing(this.gGF.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
         this.mTipView.setMaxLines(2);
         this.mTipView.setEllipsize(TextUtils.TruncateAt.END);
     }
 
     public void Be(String str) {
         String str2;
-        if (!aq.isEmpty(str) && this.gNn != null && this.gGD.isPrimary() && this.gNo <= 0) {
-            this.gNo++;
+        if (!aq.isEmpty(str) && this.gNp != null && this.gGF.isPrimary() && this.gNq <= 0) {
+            this.gNq++;
             if (str.length() < 20) {
-                str2 = this.gGD.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
+                str2 = this.gGF.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
             } else if (str.length() < 34) {
-                str2 = this.gGD.getResources().getString(R.string.forum_ueg_tip) + str;
+                str2 = this.gGF.getResources().getString(R.string.forum_ueg_tip) + str;
             } else {
-                str2 = this.gGD.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
+                str2 = this.gGF.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
             }
             this.mTipView.setText(str2);
             am.setViewTextColor(this.mTipView, (int) R.color.cp_cont_a);
-            am.setBackgroundColor(this.gNn, R.color.cp_link_tip_a_alpha95);
-            this.gNn.a(this.gGD.getActivity(), this.mTipView, 5000);
+            am.setBackgroundColor(this.gNp, R.color.cp_link_tip_a_alpha95);
+            this.gNp.a(this.gGF.getActivity(), this.mTipView, 5000);
         }
     }
 
     public void onDestory() {
-        if (this.gNn != null) {
-            this.gNn.onDestroy();
+        if (this.gNp != null) {
+            this.gNp.onDestroy();
         }
     }
 }

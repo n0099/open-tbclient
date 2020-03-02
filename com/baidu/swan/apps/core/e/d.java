@@ -10,30 +10,30 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.swan.apps.res.widget.dialog.b {
-    private FrameLayout bov;
-    private a bpw;
+    private FrameLayout bow;
+    private a bpx;
 
     protected d(Context context) {
         super(context);
     }
 
     public void a(a aVar) {
-        this.bpw = aVar;
+        this.bpx = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-        this.bov = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
-        OZ();
+        this.bow = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
+        Pb();
         return inflate;
     }
 
-    private void OZ() {
-        if (this.bpw == null) {
+    private void Pb() {
+        if (this.bpx == null) {
             return;
         }
-        this.bov.addView(this.bpw.contentView);
+        this.bow.addView(this.bpx.contentView);
     }
 
     /* loaded from: classes11.dex */
@@ -63,8 +63,8 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.b.C0282b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g Pa() {
-            d dVar = (d) super.Pa();
+        public g Pc() {
+            d dVar = (d) super.Pc();
             dVar.a(this);
             return dVar;
         }

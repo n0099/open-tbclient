@@ -4,63 +4,63 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public h ezj;
-    public a ezk;
+    public h ezk;
+    public a ezl;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("red_packet_info");
         if (optJSONObject != null) {
-            this.ezj = new h();
-            this.ezj.parserJson(optJSONObject);
+            this.ezk = new h();
+            this.ezk.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("user_cond");
         if (optJSONObject2 != null) {
-            this.ezk = new a();
-            this.ezk.parserJson(optJSONObject2);
+            this.ezl = new a();
+            this.ezl.parserJson(optJSONObject2);
         }
     }
 
-    public boolean beg() {
-        return this.ezj != null && this.ezj.status == 5;
-    }
-
-    public boolean beh() {
-        return this.ezj != null && this.ezj.status == 4;
-    }
-
-    public boolean isValid() {
-        return this.ezj != null && (this.ezj.status == 2 || this.ezj.status == 3);
-    }
-
     public boolean bei() {
-        return (this.ezj == null || this.ezk == null || this.ezj.status != 2) ? false : true;
+        return this.ezk != null && this.ezk.status == 5;
     }
 
     public boolean bej() {
-        return this.ezk != null && this.ezk.ezl == 1;
+        return this.ezk != null && this.ezk.status == 4;
     }
 
-    public long bek() {
-        if (this.ezk != null) {
-            return this.ezk.ezm;
+    public boolean isValid() {
+        return this.ezk != null && (this.ezk.status == 2 || this.ezk.status == 3);
+    }
+
+    public boolean bek() {
+        return (this.ezk == null || this.ezl == null || this.ezk.status != 2) ? false : true;
+    }
+
+    public boolean bel() {
+        return this.ezl != null && this.ezl.ezm == 1;
+    }
+
+    public long bem() {
+        if (this.ezl != null) {
+            return this.ezl.ezn;
         }
         return 0L;
     }
 
-    public boolean bel() {
-        return this.ezk != null && ((this.ezk.ezn && !this.ezk.aqm) || (this.ezk.ezo && !this.ezk.ezp));
-    }
-
-    public boolean bem() {
-        return this.ezk != null && (this.ezk.ezn || this.ezk.ezo);
-    }
-
     public boolean ben() {
-        return (this.ezk == null || !this.ezk.ezn || this.ezk.aqm) ? false : true;
+        return this.ezl != null && ((this.ezl.ezo && !this.ezl.aqm) || (this.ezl.ezp && !this.ezl.ezq));
     }
 
     public boolean beo() {
-        return (this.ezk == null || !this.ezk.ezo || this.ezk.ezp) ? false : true;
+        return this.ezl != null && (this.ezl.ezo || this.ezl.ezp);
+    }
+
+    public boolean bep() {
+        return (this.ezl == null || !this.ezl.ezo || this.ezl.aqm) ? false : true;
+    }
+
+    public boolean beq() {
+        return (this.ezl == null || !this.ezl.ezp || this.ezl.ezq) ? false : true;
     }
 
     public int cF(long j) {
@@ -99,25 +99,25 @@ public class b {
     /* loaded from: classes3.dex */
     public static class a {
         public boolean aqm;
-        public int ezl;
-        public long ezm;
-        public boolean ezn;
+        public int ezm;
+        public long ezn;
         public boolean ezo;
         public boolean ezp;
         public boolean ezq;
-        public String ezr;
-        public boolean ezs;
+        public boolean ezr;
+        public String ezs;
+        public boolean ezt;
 
         public void parserJson(JSONObject jSONObject) {
-            this.ezn = jSONObject.optInt("need_follow") == 1;
-            this.ezo = jSONObject.optInt("need_send_gift") == 1;
+            this.ezo = jSONObject.optInt("need_follow") == 1;
+            this.ezp = jSONObject.optInt("need_send_gift") == 1;
             this.aqm = jSONObject.optInt("follow") == 1;
-            this.ezp = jSONObject.optInt("send_gift") == 1;
-            this.ezq = jSONObject.optInt("need_follow_sender") == 1;
-            this.ezr = jSONObject.optString("sender_user_id");
-            this.ezs = jSONObject.optInt("follow_sender") == 1;
-            this.ezl = jSONObject.optInt("loot_result");
-            this.ezm = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+            this.ezq = jSONObject.optInt("send_gift") == 1;
+            this.ezr = jSONObject.optInt("need_follow_sender") == 1;
+            this.ezs = jSONObject.optString("sender_user_id");
+            this.ezt = jSONObject.optInt("follow_sender") == 1;
+            this.ezm = jSONObject.optInt("loot_result");
+            this.ezn = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         }
     }
 }

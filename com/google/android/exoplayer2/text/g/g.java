@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class g extends com.google.android.exoplayer2.text.c {
-    private final f mCi;
-    private final l mCj;
-    private final e.a mCk;
-    private final a mCl;
-    private final List<d> mCm;
+    private final f mCk;
+    private final l mCl;
+    private final e.a mCm;
+    private final a mCn;
+    private final List<d> mCo;
 
     public g() {
         super("WebvttDecoder");
-        this.mCi = new f();
-        this.mCj = new l();
-        this.mCk = new e.a();
-        this.mCl = new a();
-        this.mCm = new ArrayList();
+        this.mCk = new f();
+        this.mCl = new l();
+        this.mCm = new e.a();
+        this.mCn = new a();
+        this.mCo = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,30 +28,30 @@ public final class g extends com.google.android.exoplayer2.text.c {
     @Override // com.google.android.exoplayer2.text.c
     /* renamed from: h */
     public i b(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
-        this.mCj.I(bArr, i);
-        this.mCk.reset();
-        this.mCm.clear();
-        h.ae(this.mCj);
+        this.mCl.I(bArr, i);
+        this.mCm.reset();
+        this.mCo.clear();
+        h.ae(this.mCl);
         do {
-        } while (!TextUtils.isEmpty(this.mCj.readLine()));
+        } while (!TextUtils.isEmpty(this.mCl.readLine()));
         ArrayList arrayList = new ArrayList();
         while (true) {
-            int ac = ac(this.mCj);
+            int ac = ac(this.mCl);
             if (ac != 0) {
                 if (ac == 1) {
-                    ad(this.mCj);
+                    ad(this.mCl);
                 } else if (ac == 2) {
                     if (!arrayList.isEmpty()) {
                         throw new SubtitleDecoderException("A style block was found after the first cue.");
                     }
-                    this.mCj.readLine();
-                    d W = this.mCl.W(this.mCj);
+                    this.mCl.readLine();
+                    d W = this.mCn.W(this.mCl);
                     if (W != null) {
-                        this.mCm.add(W);
+                        this.mCo.add(W);
                     }
-                } else if (ac == 3 && this.mCi.a(this.mCj, this.mCk, this.mCm)) {
-                    arrayList.add(this.mCk.dys());
-                    this.mCk.reset();
+                } else if (ac == 3 && this.mCk.a(this.mCl, this.mCm, this.mCo)) {
+                    arrayList.add(this.mCm.dyu());
+                    this.mCm.reset();
                 }
             } else {
                 return new i(arrayList);

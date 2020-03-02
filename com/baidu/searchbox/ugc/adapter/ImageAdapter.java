@@ -440,9 +440,9 @@ public class ImageAdapter extends BaseAdapter {
         ImageRequestBuilder Y = ImageRequestBuilder.Y(uri);
         Y.c(new d((int) (this.itemWidth / 2.0f), (int) (this.itemHeigth / 2.0f)));
         Y.vw(true);
-        Y.a(b.dol().vo(true).dot());
+        Y.a(b.don().vo(true).dov());
         if (viewHolder.mImageIv != null) {
-            viewHolder.mImageIv.setController(com.facebook.drawee.a.a.c.dlw().bg(Y.dsA()).vh(false).c(viewHolder.mImageIv.getController()).dmn());
+            viewHolder.mImageIv.setController(com.facebook.drawee.a.a.c.dly().bg(Y.dsC()).vh(false).c(viewHolder.mImageIv.getController()).dmp());
         }
     }
 

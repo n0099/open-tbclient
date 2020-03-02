@@ -9,47 +9,47 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recommend.b.d> {
-    private TbPageContext cVg;
-    private View fKh;
-    private TextView fYx;
-    private TextView fYy;
-    private com.baidu.tieba.enterForum.recommend.b.d fYz;
+    private TbPageContext cVh;
+    private View fKj;
+    private TextView fYA;
+    private com.baidu.tieba.enterForum.recommend.b.d fYB;
+    private TextView fYz;
     private int mSkinType;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.cVg = tbPageContext;
+        this.cVh = tbPageContext;
         initUI();
     }
 
     private void initUI() {
         View view = getView();
-        this.fYx = (TextView) view.findViewById(R.id.recommend_title);
-        this.fKh = view.findViewById(R.id.top_line);
-        this.fYy = (TextView) view.findViewById(R.id.recommend_update);
-        this.fYy.setOnClickListener(this);
+        this.fYz = (TextView) view.findViewById(R.id.recommend_title);
+        this.fKj = view.findViewById(R.id.top_line);
+        this.fYA = (TextView) view.findViewById(R.id.recommend_update);
+        this.fYA.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         this.mSkinType = i;
-        am.setViewTextColor(this.fYx, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.fYz, (int) R.color.cp_cont_b);
         am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
     }
 
     public void kM(boolean z) {
-        this.fKh.setVisibility(z ? 0 : 8);
+        this.fKj.setVisibility(z ? 0 : 8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.enterForum.recommend.b.d dVar) {
         if (dVar != null) {
-            this.fYz = dVar;
-            onChangeSkinType(this.cVg, this.mSkinType);
+            this.fYB = dVar;
+            onChangeSkinType(this.cVh, this.mSkinType);
             if (!StringUtils.isNull(dVar.getTitle())) {
-                this.fYx.setText(dVar.getTitle());
+                this.fYz.setText(dVar.getTitle());
             }
         }
     }
@@ -61,9 +61,9 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        z<com.baidu.tieba.enterForum.recommend.b.d> buE;
-        if (view == this.fYy && (buE = buE()) != null && this.fYz.byV() < this.fYz.getForumList().size()) {
-            buE.a(view, this.fYz);
+        z<com.baidu.tieba.enterForum.recommend.b.d> buG;
+        if (view == this.fYA && (buG = buG()) != null && this.fYB.byX() < this.fYB.getForumList().size()) {
+            buG.a(view, this.fYB);
         }
     }
 }

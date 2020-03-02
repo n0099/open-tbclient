@@ -11,27 +11,27 @@ public class c extends a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.swan.apps.ag.c.d.b
-    public String aah() {
+    public String aaj() {
         return "mapp_choose_address";
     }
 
     @Override // com.baidu.swan.apps.ag.c.d.a
     void a(SwanAppActivity swanAppActivity, String str, com.baidu.swan.apps.ag.c.b.b bVar, com.baidu.swan.apps.setting.b.a aVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ag.c.c.a> bVar2) {
-        final com.baidu.swan.apps.ag.c.c.a aVar2 = new com.baidu.swan.apps.ag.c.c.a(bVar.bik);
-        aVar2.bil = bVar.bil;
-        if (aVar == null || aVar.bUr.agi() == 10003) {
+        final com.baidu.swan.apps.ag.c.c.a aVar2 = new com.baidu.swan.apps.ag.c.c.a(bVar.bil);
+        aVar2.bim = bVar.bim;
+        if (aVar == null || aVar.bUs.agk() == 10003) {
             com.baidu.swan.apps.ag.d.a.print("user denied");
             bVar2.F(aVar2);
             return;
         }
         com.baidu.swan.apps.ag.d.a.print("obtain address detail");
-        com.baidu.swan.apps.w.a.Ua().a(swanAppActivity, str, str, new com.baidu.swan.apps.b.a.b() { // from class: com.baidu.swan.apps.ag.c.d.c.1
+        com.baidu.swan.apps.w.a.Uc().a(swanAppActivity, str, str, new com.baidu.swan.apps.b.a.b() { // from class: com.baidu.swan.apps.ag.c.d.c.1
             @Override // com.baidu.swan.apps.b.a.b
             public void L(JSONObject jSONObject) {
                 com.baidu.swan.apps.ag.d.a.print("obtain address success");
                 aVar2.isSuccess = true;
                 if (jSONObject != null) {
-                    aVar2.bIv = jSONObject.toString();
+                    aVar2.bIw = jSONObject.toString();
                 }
                 bVar2.F(aVar2);
             }

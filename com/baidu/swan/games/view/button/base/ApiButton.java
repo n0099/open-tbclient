@@ -31,8 +31,8 @@ import java.io.File;
 import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public class ApiButton extends AppCompatButton implements View.OnClickListener {
-    private EventTargetImpl csZ;
-    private a cta;
+    private EventTargetImpl cta;
+    private a ctb;
     private Bitmap mBitmap;
     private int mHeight;
     private String mImage;
@@ -43,7 +43,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public ApiButton(Context context, EventTargetImpl eventTargetImpl) {
         super(context);
         this.mType = "text";
-        this.csZ = eventTargetImpl;
+        this.cta = eventTargetImpl;
         setSingleLine();
         setOnClickListener(this);
     }
@@ -54,21 +54,21 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     public void hide() {
-        if (this.cta != null) {
-            this.cta.hidden = true;
+        if (this.ctb != null) {
+            this.ctb.hidden = true;
         }
         setVisibility(8);
     }
 
     public void show() {
-        if (this.cta != null) {
-            this.cta.hidden = false;
+        if (this.ctb != null) {
+            this.ctb.hidden = false;
         }
         setVisibility(0);
     }
 
     public void setApiButtonStyle(a aVar) {
-        this.cta = aVar;
+        this.ctb = aVar;
     }
 
     public String getType() {
@@ -93,7 +93,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         if (!TextUtils.equals(str, this.mImage)) {
             this.mImage = str;
             this.mBitmap = null;
-            if (aqH() && getParent() != null) {
+            if (aqJ() && getParent() != null) {
                 loadImage();
             }
         }
@@ -108,11 +108,11 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         this.mWidth = i;
         this.mHeight = i2;
         this.mBitmap = null;
-        aqz();
+        aqB();
     }
 
-    public void aqz() {
-        if (this.cta != null && getParent() != null) {
+    public void aqB() {
+        if (this.ctb != null && getParent() != null) {
             if (pf()) {
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 gradientDrawable.setColor(0);
@@ -120,32 +120,32 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
                 setBorderRadius(gradientDrawable);
                 setButtonBackground(gradientDrawable);
                 setText(this.mText);
-                aqA();
-                setTextColor(P(this.cta.color, ViewCompat.MEASURED_STATE_MASK));
-                aqD();
                 aqC();
+                setTextColor(P(this.ctb.color, ViewCompat.MEASURED_STATE_MASK));
+                aqF();
                 aqE();
                 aqG();
+                aqI();
             } else {
                 loadImage();
             }
-            aqB();
+            aqD();
         }
     }
 
     private void setButtonBackground(GradientDrawable gradientDrawable) {
-        setBackgroundDrawable(new LayerDrawable(new Drawable[]{hZ(P(this.cta.backgroundColor, 0)), gradientDrawable}));
+        setBackgroundDrawable(new LayerDrawable(new Drawable[]{hZ(P(this.ctb.backgroundColor, 0)), gradientDrawable}));
     }
 
     private GradientDrawable hZ(int i) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(i);
-        int S = af.S(this.cta.borderWidth);
+        int S = af.S(this.ctb.borderWidth);
         if (S > 0) {
             gradientDrawable.setStroke(S, a.ia(i));
         }
-        if (this.cta.borderRadius != 0.0d) {
-            gradientDrawable.setCornerRadius(af.S((float) this.cta.borderRadius));
+        if (this.ctb.borderRadius != 0.0d) {
+            gradientDrawable.setCornerRadius(af.S((float) this.ctb.borderRadius));
         }
         return gradientDrawable;
     }
@@ -170,12 +170,12 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         return i;
     }
 
-    private void aqA() {
-        setTextSize((float) this.cta.fontSize);
+    private void aqC() {
+        setTextSize((float) this.ctb.fontSize);
     }
 
-    private void aqB() {
-        if (this.cta.hidden) {
+    private void aqD() {
+        if (this.ctb.hidden) {
             setVisibility(8);
         } else {
             setVisibility(0);
@@ -185,7 +185,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     private void loadImage() {
         Uri uri = getUri();
         if (uri == null || k(uri)) {
-            aqF();
+            aqH();
             return;
         }
         try {
@@ -198,21 +198,21 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     private Uri getUri() {
-        String aqM;
+        String aqO;
         String str;
         if (d.ma(this.mImage) == PathType.NETWORK) {
             return Uri.parse(this.mImage);
         }
-        if (d.ma(this.mImage) != PathType.RELATIVE || (aqM = d.aqM()) == null) {
+        if (d.ma(this.mImage) != PathType.RELATIVE || (aqO = d.aqO()) == null) {
             return null;
         }
         if (this.mImage.startsWith(".")) {
             this.mImage = this.mImage.substring(1);
         }
         if (this.mImage.startsWith("/")) {
-            str = aqM + this.mImage;
+            str = aqO + this.mImage;
         } else {
-            str = aqM + File.separator + this.mImage;
+            str = aqO + File.separator + this.mImage;
         }
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButton", "——> getUri: " + str);
@@ -220,9 +220,9 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         return Uri.parse(str);
     }
 
-    private void aqC() {
-        if (!TextUtils.isEmpty(this.cta.textAlign)) {
-            String str = this.cta.textAlign;
+    private void aqE() {
+        if (!TextUtils.isEmpty(this.ctb.textAlign)) {
+            String str = this.ctb.textAlign;
             char c = 65535;
             switch (str.hashCode()) {
                 case -1364013995:
@@ -261,11 +261,11 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         }
     }
 
-    private void aqD() {
-        if (!TextUtils.isEmpty(this.cta.fontWeight)) {
+    private void aqF() {
+        if (!TextUtils.isEmpty(this.ctb.fontWeight)) {
             TextPaint paint = getPaint();
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            String str = this.cta.fontWeight;
+            String str = this.ctb.fontWeight;
             char c = 65535;
             switch (str.hashCode()) {
                 case -1383482894:
@@ -394,29 +394,29 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     private void setBorderRadius(GradientDrawable gradientDrawable) {
-        if (this.cta.borderRadius != 0.0d) {
-            gradientDrawable.setCornerRadius(af.S((float) this.cta.borderRadius));
+        if (this.ctb.borderRadius != 0.0d) {
+            gradientDrawable.setCornerRadius(af.S((float) this.ctb.borderRadius));
         }
     }
 
     private void setBorder(GradientDrawable gradientDrawable) {
-        int S = af.S(this.cta.borderWidth);
+        int S = af.S(this.ctb.borderWidth);
         if (S > 0) {
-            gradientDrawable.setStroke(S, a.ia(P(this.cta.borderColor, 0)));
+            gradientDrawable.setStroke(S, a.ia(P(this.ctb.borderColor, 0)));
         }
     }
 
-    private void aqE() {
-        int S = af.S(this.cta.borderWidth);
-        int S2 = af.S(this.cta.lineHeight);
+    private void aqG() {
+        int S = af.S(this.ctb.borderWidth);
+        int S2 = af.S(this.ctb.lineHeight);
         int textLineHeight = S2 > 0 ? ((S2 / 2) - (getTextLineHeight() / 2)) - getTextTopPadding() : 0;
         int max = Math.max(0, S);
         setPadding(max, Math.max(max, textLineHeight), max, max);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqF() {
-        if (this.cta != null) {
+    public void aqH() {
+        if (this.ctb != null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(0);
             setBorder(gradientDrawable);
@@ -424,15 +424,15 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             Drawable gradientDrawable2 = new GradientDrawable();
             gradientDrawable.setColor(0);
             if (this.mBitmap != null) {
-                gradientDrawable2 = new com.baidu.swan.apps.res.ui.c(this.mBitmap, af.S((float) this.cta.borderRadius), 0, 0);
+                gradientDrawable2 = new com.baidu.swan.apps.res.ui.c(this.mBitmap, af.S((float) this.ctb.borderRadius), 0, 0);
             }
             setBackgroundDrawable(new LayerDrawable(new Drawable[]{gradientDrawable2, gradientDrawable}));
-            aqG();
+            aqI();
         }
     }
 
-    private void aqG() {
-        float min = Math.min(1.0f, Math.max(0.0f, (float) this.cta.opacity));
+    private void aqI() {
+        float min = Math.min(1.0f, Math.max(0.0f, (float) this.ctb.opacity));
         if (getBackground() != null) {
             setAlpha(min);
         }
@@ -454,7 +454,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     @UiThread
     private void l(Uri uri) {
-        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dly().e(ImageRequestBuilder.Y(uri).dsA(), getContext());
+        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dlA().e(ImageRequestBuilder.Y(uri).dsC(), getContext());
         e.a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.games.view.button.base.ApiButton.1
             @Override // com.facebook.imagepipeline.e.b
             public void onNewResultImpl(@Nullable Bitmap bitmap) {
@@ -463,8 +463,8 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
                 }
                 if (e.isFinished()) {
                     ApiButton.this.mBitmap = p.c(bitmap, ApiButton.this.mWidth, ApiButton.this.mHeight);
-                    ApiButton.this.aqF();
-                    e.OB();
+                    ApiButton.this.aqH();
+                    e.OD();
                 }
             }
 
@@ -472,14 +472,14 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             @Override // com.facebook.datasource.a
             public void onFailureImpl(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
                 if (e.DEBUG) {
-                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.dlf().getMessage());
+                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.dlh().getMessage());
                 }
-                ApiButton.this.aqF();
+                ApiButton.this.aqH();
                 if (bVar != null) {
-                    bVar.OB();
+                    bVar.OD();
                 }
             }
-        }, i.dkD());
+        }, i.dkF());
     }
 
     @Override // android.view.View.OnClickListener
@@ -488,8 +488,8 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(JSEvent jSEvent) {
-        if (this.csZ != null) {
-            this.csZ.dispatchEvent(jSEvent);
+        if (this.cta != null) {
+            this.cta.dispatchEvent(jSEvent);
         }
     }
 
@@ -497,7 +497,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         return TextUtils.equals(getType(), "text");
     }
 
-    public boolean aqH() {
+    public boolean aqJ() {
         return !pf();
     }
 

@@ -8,21 +8,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes8.dex */
 public final class g {
-    private static String[] kWJ = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File kWK = null;
-    private static RandomAccessFile kWL = null;
+    private static String[] kWL = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File kWM = null;
+    private static RandomAccessFile kWN = null;
 
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (cXQ() && f(str2, str3)) {
+            if (cXS() && f(str2, str3)) {
                 try {
-                    kWK = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(kWK, "rwd");
-                    kWL = randomAccessFile;
-                    randomAccessFile.seek(kWK.length());
-                    kWL.write((str + "\r\n").getBytes("UTF-8"));
-                    kWL.close();
+                    kWM = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(kWM, "rwd");
+                    kWN = randomAccessFile;
+                    randomAccessFile.seek(kWM.length());
+                    kWN.write((str + "\r\n").getBytes("UTF-8"));
+                    kWN.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -35,14 +35,14 @@ public final class g {
     public static synchronized String P(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (cXQ()) {
+            if (cXS()) {
                 if (Lw(str + str2)) {
                     try {
-                        kWK = new File(str + str2);
-                        kWL = new RandomAccessFile(kWK, "r");
+                        kWM = new File(str + str2);
+                        kWN = new RandomAccessFile(kWM, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = kWL.readLine();
+                            String readLine = kWN.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -50,14 +50,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            kWL.close();
+                            kWN.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            kWL.close();
+                            kWN.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -71,39 +71,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean cXQ() {
+    private static boolean cXS() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.cXm().getContext().checkCallingOrSelfPermission(kWJ[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.cXo().getContext().checkCallingOrSelfPermission(kWL[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
     public static boolean Lw(String str) {
         File file = new File(str);
-        kWK = file;
+        kWM = file;
         return file.exists();
     }
 
     public static boolean Lx(String str) {
         File file = new File(str);
-        kWK = file;
+        kWM = file;
         return file.delete();
     }
 
     private static boolean f(String str, String str2) {
         try {
-            kWK = new File(str);
+            kWM = new File(str);
             if (!Lw(str)) {
-                kWK.mkdirs();
+                kWM.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            kWK = file;
+            kWM = file;
             if (file.exists()) {
                 return true;
             }
-            return kWK.createNewFile();
+            return kWM.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

@@ -17,34 +17,34 @@ import com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaRecentHistoryFragment extends BaseFragment {
-    private AlaRecentHistoryModel epW;
-    private a epX;
+    private AlaRecentHistoryModel epX;
+    private a epY;
     private h mRefreshView;
     private int mType;
-    private g.c dgH = new g.c() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.1
+    private g.c dgI = new g.c() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.1
         @Override // com.baidu.tbadk.core.view.g.c
         public void onListPullRefresh(boolean z) {
-            if (AlaRecentHistoryFragment.this.epW != null) {
-                AlaRecentHistoryFragment.this.epW.refresh();
+            if (AlaRecentHistoryFragment.this.epX != null) {
+                AlaRecentHistoryFragment.this.epX.refresh();
             }
         }
     };
     private BdListView.e Az = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.2
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (AlaRecentHistoryFragment.this.epW != null) {
-                AlaRecentHistoryFragment.this.epW.bcd();
+            if (AlaRecentHistoryFragment.this.epX != null) {
+                AlaRecentHistoryFragment.this.epX.bcf();
             }
         }
     };
-    private AlaRecentHistoryModel.a epY = new AlaRecentHistoryModel.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.3
+    private AlaRecentHistoryModel.a epZ = new AlaRecentHistoryModel.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.3
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.a
         public void d(boolean z, List<b> list) {
-            AlaRecentHistoryFragment.this.epX.completePullRefresh();
-            AlaRecentHistoryFragment.this.hideLoadingView(AlaRecentHistoryFragment.this.epX.bcY());
-            AlaRecentHistoryFragment.this.epX.setData(list, z);
+            AlaRecentHistoryFragment.this.epY.completePullRefresh();
+            AlaRecentHistoryFragment.this.hideLoadingView(AlaRecentHistoryFragment.this.epY.bda());
+            AlaRecentHistoryFragment.this.epY.setData(list, z);
             if (v.isEmpty(list)) {
-                AlaRecentHistoryFragment.this.a(true, AlaRecentHistoryFragment.this.epX.bcY(), AlaRecentHistoryFragment.this.mType == 0 ? AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip));
+                AlaRecentHistoryFragment.this.a(true, AlaRecentHistoryFragment.this.epY.bda(), AlaRecentHistoryFragment.this.mType == 0 ? AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip));
             } else {
                 AlaRecentHistoryFragment.this.a(false, null, null);
             }
@@ -52,13 +52,13 @@ public class AlaRecentHistoryFragment extends BaseFragment {
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.a
         public void e(int i, String str, boolean z) {
-            AlaRecentHistoryFragment.this.epX.completePullRefresh();
+            AlaRecentHistoryFragment.this.epY.completePullRefresh();
             if (!z) {
-                AlaRecentHistoryFragment.this.showNetRefreshView(AlaRecentHistoryFragment.this.epX.bcY(), str, false);
+                AlaRecentHistoryFragment.this.showNetRefreshView(AlaRecentHistoryFragment.this.epY.bda(), str, false);
             } else {
                 AlaRecentHistoryFragment.this.showToast(R.string.square_load_data_failed_tip);
             }
-            AlaRecentHistoryFragment.this.epX.bcZ();
+            AlaRecentHistoryFragment.this.epY.bdb();
         }
     };
 
@@ -84,24 +84,24 @@ public class AlaRecentHistoryFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.epW = new AlaRecentHistoryModel(getPageContext(), this.mType, this.epY);
-        this.epX = new a(getPageContext(), this.mType);
-        this.epX.setListPullRefreshListener(this.dgH);
-        this.epX.setOnSrollToBottomListener(this.Az);
+        this.epX = new AlaRecentHistoryModel(getPageContext(), this.mType, this.epZ);
+        this.epY = new a(getPageContext(), this.mType);
+        this.epY.setListPullRefreshListener(this.dgI);
+        this.epY.setOnSrollToBottomListener(this.Az);
         refreshData();
         if (this.mType == 0) {
             TiebaStatic.log("c12650");
         }
-        return this.epX.getRootView();
+        return this.epY.getRootView();
     }
 
     private void refreshData() {
-        hideNetRefreshView(this.epX.bcY());
-        if (v.getCount(this.epW.getData()) == 0) {
-            showLoadingView(this.epX.bcY());
+        hideNetRefreshView(this.epY.bda());
+        if (v.getCount(this.epX.getData()) == 0) {
+            showLoadingView(this.epY.bda());
         }
-        if (this.epW != null) {
-            this.epW.refresh();
+        if (this.epX != null) {
+            this.epX.refresh();
         }
     }
 
@@ -112,7 +112,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
         if (z) {
             this.mRefreshView.attachView(viewGroup);
-            this.mRefreshView.aPS().setVisibility(8);
+            this.mRefreshView.aPU().setVisibility(8);
             this.mRefreshView.setSubText(null);
             this.mRefreshView.getTitleView().setVisibility(0);
             this.mRefreshView.getTitleView().setText(str);
@@ -130,19 +130,19 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.epX != null) {
-            this.epX.onChangeSkinType(i);
+        if (this.epY != null) {
+            this.epY.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.epW != null) {
-            this.epW.onDestroy();
-        }
         if (this.epX != null) {
             this.epX.onDestroy();
+        }
+        if (this.epY != null) {
+            this.epY.onDestroy();
         }
     }
 }

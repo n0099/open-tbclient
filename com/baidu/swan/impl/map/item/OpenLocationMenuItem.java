@@ -9,10 +9,10 @@ import com.baidu.swan.apps.as.af;
 import com.baidu.tieba.R;
 /* loaded from: classes12.dex */
 public class OpenLocationMenuItem {
-    public static final int cwl = af.S(45.0f);
-    private MenuItemType cwm;
-    private a cwn;
-    private TextView cwo;
+    public static final int cwm = af.S(45.0f);
+    private MenuItemType cwn;
+    private a cwo;
+    private TextView cwp;
     private int mMarginBottom = af.S(1.0f);
     private String mTitle;
 
@@ -34,45 +34,45 @@ public class OpenLocationMenuItem {
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
-        this.cwo = new TextView(context);
-        this.cwo.setText(str);
-        this.cwo.setTextSize(16.0f);
-        this.cwo.setBackground(context.getResources().getDrawable(R.drawable.openlocation_bottommenu_itemclick_selector));
-        this.cwo.setTextColor(ViewCompat.MEASURED_STATE_MASK);
-        this.cwo.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, cwl);
+        this.cwp = new TextView(context);
+        this.cwp.setText(str);
+        this.cwp.setTextSize(16.0f);
+        this.cwp.setBackground(context.getResources().getDrawable(R.drawable.openlocation_bottommenu_itemclick_selector));
+        this.cwp.setTextColor(ViewCompat.MEASURED_STATE_MASK);
+        this.cwp.setGravity(17);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, cwm);
         layoutParams.bottomMargin = this.mMarginBottom;
         layoutParams.gravity = 17;
-        this.cwo.setLayoutParams(layoutParams);
+        this.cwp.setLayoutParams(layoutParams);
         setTitle(str);
         a(menuItemType);
-        this.cwo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.item.OpenLocationMenuItem.1
+        this.cwp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.item.OpenLocationMenuItem.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (OpenLocationMenuItem.this.cwn != null) {
-                    OpenLocationMenuItem.this.cwn.b(OpenLocationMenuItem.this);
+                if (OpenLocationMenuItem.this.cwo != null) {
+                    OpenLocationMenuItem.this.cwo.b(OpenLocationMenuItem.this);
                 }
             }
         });
     }
 
     public void a(a aVar) {
-        this.cwn = aVar;
+        this.cwo = aVar;
     }
 
-    public MenuItemType arY() {
-        return this.cwm;
+    public MenuItemType asa() {
+        return this.cwn;
     }
 
     public void a(MenuItemType menuItemType) {
-        this.cwm = menuItemType;
+        this.cwn = menuItemType;
     }
 
     public void setTitle(String str) {
         this.mTitle = str;
     }
 
-    public TextView arZ() {
-        return this.cwo;
+    public TextView asb() {
+        return this.cwp;
     }
 }

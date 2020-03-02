@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BdBaseView<BaseFragmentActivity> {
-    private String aCe;
     private String aCf;
-    private AlbumActivity aCg;
-    private String[] aCh;
-    private ImageListFragment aCi;
-    private AlbumImageBrowseFragment aCj;
+    private String aCg;
+    private AlbumActivity aCh;
+    private String[] aCi;
+    private ImageListFragment aCj;
+    private AlbumImageBrowseFragment aCk;
     private List<Fragment> mFragments;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.aCe = "tag_image";
-        this.aCf = "tag_b_image";
-        this.aCg = albumActivity;
+        this.aCf = "tag_image";
+        this.aCg = "tag_b_image";
+        this.aCh = albumActivity;
     }
 
-    public void Ap() {
+    public void Ar() {
         this.mFragments = new ArrayList(2);
-        this.aCh = new String[2];
-        this.aCi = new ImageListFragment();
-        this.mFragments.add(this.aCi);
-        this.aCh[0] = this.aCe;
-        this.aCj = new AlbumImageBrowseFragment();
+        this.aCi = new String[2];
+        this.aCj = new ImageListFragment();
         this.mFragments.add(this.aCj);
-        this.aCh[1] = this.aCf;
+        this.aCi[0] = this.aCf;
+        this.aCk = new AlbumImageBrowseFragment();
+        this.mFragments.add(this.aCk);
+        this.aCi[1] = this.aCg;
     }
 
     public Fragment cN(int i) {
@@ -45,7 +45,7 @@ public class a extends BdBaseView<BaseFragmentActivity> {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.aCh[i];
+        return this.aCi[i];
     }
 
     public void onChangeSkinType(int i) {
@@ -65,57 +65,57 @@ public class a extends BdBaseView<BaseFragmentActivity> {
         }
     }
 
-    public View Aq() {
-        if (this.aCi == null) {
-            return null;
-        }
-        return this.aCi.Ay();
-    }
-
-    public View Ar() {
-        if (this.aCi == null) {
-            return null;
-        }
-        return this.aCi.AN();
-    }
-
     public View As() {
         if (this.aCj == null) {
             return null;
         }
-        return this.aCj.Ay();
+        return this.aCj.AA();
     }
 
     public View At() {
         if (this.aCj == null) {
             return null;
         }
-        return this.aCj.Az();
+        return this.aCj.AP();
     }
 
     public View Au() {
-        if (this.aCj == null) {
+        if (this.aCk == null) {
             return null;
         }
-        return this.aCj.Au();
+        return this.aCk.AA();
     }
 
     public View Av() {
-        if (this.aCi == null) {
+        if (this.aCk == null) {
             return null;
         }
-        return this.aCi.Au();
+        return this.aCk.AB();
+    }
+
+    public View Aw() {
+        if (this.aCk == null) {
+            return null;
+        }
+        return this.aCk.Aw();
+    }
+
+    public View Ax() {
+        if (this.aCj == null) {
+            return null;
+        }
+        return this.aCj.Aw();
     }
 
     public void onDestroy() {
     }
 
     public void bt(boolean z) {
+        if (this.aCk != null) {
+            this.aCk.bt(z);
+        }
         if (this.aCj != null) {
             this.aCj.bt(z);
-        }
-        if (this.aCi != null) {
-            this.aCi.bt(z);
         }
     }
 }

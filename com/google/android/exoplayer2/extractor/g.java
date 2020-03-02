@@ -5,5 +5,5 @@ public interface g {
 
     m dK(int i, int i2);
 
-    void duS();
+    void duU();
 }

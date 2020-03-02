@@ -11,7 +11,7 @@ public class a {
         q.j(th2, com.baidu.fsg.base.statistics.b.k);
     }
 
-    public d dKp() {
+    public d dKr() {
         return new kotlin.random.b();
     }
 }

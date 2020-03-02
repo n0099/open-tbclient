@@ -34,7 +34,7 @@ public class c implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
                 }
                 Bundle bundle = new Bundle();
                 bundle.putLong("property_launch_cost", s);
-                com.baidu.swan.apps.process.messaging.a.aaJ().a(new com.baidu.swan.apps.process.messaging.c(20, bundle).ds(true));
+                com.baidu.swan.apps.process.messaging.a.aaL().a(new com.baidu.swan.apps.process.messaging.c(20, bundle).ds(true));
             }
         });
     }

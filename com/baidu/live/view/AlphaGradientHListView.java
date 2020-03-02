@@ -12,8 +12,8 @@ import com.baidu.live.tieba.horizonallist.widget.HListView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlphaGradientHListView extends HListView {
-    private int aDN;
-    private int aEw;
+    private int aDO;
+    private int aEA;
     private int aEx;
     private int aEy;
     private int aEz;
@@ -21,28 +21,28 @@ public class AlphaGradientHListView extends HListView {
 
     public AlphaGradientHListView(Context context) {
         super(context);
-        this.aDN = 0;
-        this.aEx = 0;
-        this.aEy = -1;
+        this.aDO = 0;
+        this.aEy = 0;
         this.aEz = -1;
+        this.aEA = -1;
         init();
     }
 
     public AlphaGradientHListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aDN = 0;
-        this.aEx = 0;
-        this.aEy = -1;
+        this.aDO = 0;
+        this.aEy = 0;
         this.aEz = -1;
+        this.aEA = -1;
         init();
     }
 
     public AlphaGradientHListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aDN = 0;
-        this.aEx = 0;
-        this.aEy = -1;
+        this.aDO = 0;
+        this.aEy = 0;
         this.aEz = -1;
+        this.aEA = -1;
         init();
     }
 
@@ -51,24 +51,24 @@ public class AlphaGradientHListView extends HListView {
     }
 
     public void setColor(int i, int i2) {
-        this.aDN = i;
-        this.aEx = i2;
+        this.aDO = i;
+        this.aEy = i2;
     }
 
     public void setShadowWidth(int i) {
-        this.aEw = i;
+        this.aEx = i;
     }
 
     public void setNeedAlphaShade(boolean z) {
         if (z) {
-            if (this.aEw <= 0) {
-                this.aEw = getResources().getDimensionPixelSize(a.e.sdk_ds28);
+            if (this.aEx <= 0) {
+                this.aEx = getResources().getDimensionPixelSize(a.e.sdk_ds28);
             }
             this.auf = new Paint();
             this.auf.setStyle(Paint.Style.FILL_AND_STROKE);
             this.auf.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
         } else {
-            this.aEw = 0;
+            this.aEx = 0;
             this.auf = null;
         }
         invalidate();
@@ -79,10 +79,10 @@ public class AlphaGradientHListView extends HListView {
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         if (this.auf != null) {
-            if (this.aEy != getMeasuredWidth() || this.aEz != getMeasuredHeight()) {
-                this.auf.setShader(new LinearGradient(getMeasuredWidth() - this.aEw, 0.0f, getMeasuredWidth(), 0.0f, this.aDN, this.aEx, Shader.TileMode.CLAMP));
-                this.aEy = getMeasuredWidth();
-                this.aEz = getMeasuredHeight();
+            if (this.aEz != getMeasuredWidth() || this.aEA != getMeasuredHeight()) {
+                this.auf.setShader(new LinearGradient(getMeasuredWidth() - this.aEx, 0.0f, getMeasuredWidth(), 0.0f, this.aDO, this.aEy, Shader.TileMode.CLAMP));
+                this.aEz = getMeasuredWidth();
+                this.aEA = getMeasuredHeight();
             }
         }
     }
@@ -92,7 +92,7 @@ public class AlphaGradientHListView extends HListView {
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.auf != null) {
-            canvas.drawRect(getMeasuredWidth() - this.aEw, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.auf);
+            canvas.drawRect(getMeasuredWidth() - this.aEx, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.auf);
         }
     }
 }

@@ -18,21 +18,21 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class b extends BaseAdapter {
-    private String aCr;
-    private int aCs;
-    private AlbumActivity kML;
+    private String aCs;
+    private int aCt;
+    private AlbumActivity kMN;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.kML = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.kML.getPageContext().getPageActivity());
-        this.aCs = l.getEquipmentWidth(this.kML.getPageContext().getPageActivity()) / 2;
+        this.kMN = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.kMN.getPageContext().getPageActivity());
+        this.aCt = l.getEquipmentWidth(this.kMN.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.aCr = str;
+        this.aCs = str;
     }
 
     @Override // android.widget.Adapter
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.kMQ = (TbImageView) view.findViewById(R.id.item_head);
-            aVar.aCu = (TextView) view.findViewById(R.id.item_name);
-            aVar.aCv = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.kMQ.setGifIconSupport(false);
-            aVar.kMQ.setLongIconSupport(false);
+            aVar.kMS = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.aCv = (TextView) view.findViewById(R.id.item_name);
+            aVar.aCw = (ImageView) view.findViewById(R.id.item_arrow);
+            aVar.kMS.setGifIconSupport(false);
+            aVar.kMS.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -73,24 +73,24 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.aCu.setText(l.getTextOmit(aVar.aCu.getPaint(), item.getName(), this.aCs) + "(" + item.getCount() + ")");
+                aVar.aCv.setText(l.getTextOmit(aVar.aCv.getPaint(), item.getName(), this.aCt) + "(" + item.getCount() + ")");
             } else {
-                aVar.aCu.setText("");
+                aVar.aCv.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.aCr)) {
-                am.setImageResource(aVar.aCv, R.drawable.icon_list_select_ok_n);
-                aVar.aCv.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.aCs)) {
+                am.setImageResource(aVar.aCw, R.drawable.icon_list_select_ok_n);
+                aVar.aCw.setVisibility(0);
             } else {
-                aVar.aCv.setVisibility(8);
+                aVar.aCw.setVisibility(8);
             }
-            MediaFileInfo ayC = item.ayC();
-            if (ayC instanceof VideoFileInfo) {
-                aVar.kMQ.startLoad(((VideoFileInfo) ayC).videoPath, 37, false);
-            } else if (ayC instanceof ImageFileInfo) {
-                aVar.kMQ.startLoad(((ImageFileInfo) ayC).getFilePath(), 35, false);
+            MediaFileInfo ayE = item.ayE();
+            if (ayE instanceof VideoFileInfo) {
+                aVar.kMS.startLoad(((VideoFileInfo) ayE).videoPath, 37, false);
+            } else if (ayE instanceof ImageFileInfo) {
+                aVar.kMS.startLoad(((ImageFileInfo) ayE).getFilePath(), 35, false);
             }
-            am.setViewTextColor(aVar.aCu, (int) R.color.cp_cont_b);
+            am.setViewTextColor(aVar.aCv, (int) R.color.cp_cont_b);
             am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         }
         return view;
@@ -98,9 +98,9 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes13.dex */
     private class a {
-        TextView aCu;
-        ImageView aCv;
-        TbImageView kMQ;
+        TextView aCv;
+        ImageView aCw;
+        TbImageView kMS;
 
         private a() {
         }

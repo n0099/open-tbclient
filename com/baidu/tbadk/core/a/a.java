@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public abstract class a {
-    public static a cLM = null;
+    public static a cLN = null;
 
     /* renamed from: com.baidu.tbadk.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -32,14 +32,14 @@ public abstract class a {
 
     public abstract b sq(String str);
 
-    public static a azN() {
-        return cLM;
+    public static a azP() {
+        return cLN;
     }
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (cLM == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, a.class)) != null && runTask.getData() != null) {
-            cLM = (a) runTask.getData();
+        if (cLN == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, a.class)) != null && runTask.getData() != null) {
+            cLN = (a) runTask.getData();
         }
     }
 }

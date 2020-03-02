@@ -8,7 +8,7 @@ import java.util.List;
 public class e implements t {
     @Override // com.baidu.swan.apps.adaptation.a.t
     @Nullable
-    public List<ContentValues> HC() {
+    public List<ContentValues> HE() {
         return null;
     }
 }

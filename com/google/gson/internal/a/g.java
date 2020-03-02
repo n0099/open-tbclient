@@ -33,37 +33,37 @@ public final class g implements TypeAdapterFactory {
     }
 
     private TypeAdapter<?> a(Gson gson, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? n.mLV : gson.getAdapter(com.google.gson.b.a.get(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? n.mLX : gson.getAdapter(com.google.gson.b.a.get(type));
     }
 
     /* loaded from: classes7.dex */
     private final class a<K, V> extends TypeAdapter<Map<K, V>> {
-        private final com.google.gson.internal.f<? extends Map<K, V>> mLh;
-        private final TypeAdapter<K> mLs;
-        private final TypeAdapter<V> mLt;
+        private final com.google.gson.internal.f<? extends Map<K, V>> mLj;
+        private final TypeAdapter<K> mLu;
+        private final TypeAdapter<V> mLv;
 
         public a(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, com.google.gson.internal.f<? extends Map<K, V>> fVar) {
-            this.mLs = new m(gson, typeAdapter, type);
-            this.mLt = new m(gson, typeAdapter2, type2);
-            this.mLh = fVar;
+            this.mLu = new m(gson, typeAdapter, type);
+            this.mLv = new m(gson, typeAdapter2, type2);
+            this.mLj = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: c */
         public Map<K, V> read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken dAR = aVar.dAR();
-            if (dAR == JsonToken.NULL) {
-                aVar.dAW();
+            JsonToken dAT = aVar.dAT();
+            if (dAT == JsonToken.NULL) {
+                aVar.dAY();
                 return null;
             }
-            Map<K, V> construct = this.mLh.construct();
-            if (dAR == JsonToken.BEGIN_ARRAY) {
-                aVar.dAP();
+            Map<K, V> construct = this.mLj.construct();
+            if (dAT == JsonToken.BEGIN_ARRAY) {
+                aVar.dAR();
                 while (aVar.hasNext()) {
-                    aVar.dAP();
-                    K read = this.mLs.read(aVar);
-                    if (construct.put(read, this.mLt.read(aVar)) != null) {
+                    aVar.dAR();
+                    K read = this.mLu.read(aVar);
+                    if (construct.put(read, this.mLv.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read);
                     }
                     aVar.endArray();
@@ -71,11 +71,11 @@ public final class g implements TypeAdapterFactory {
                 aVar.endArray();
                 return construct;
             }
-            aVar.dAQ();
+            aVar.dAS();
             while (aVar.hasNext()) {
-                com.google.gson.internal.e.mKA.a(aVar);
-                K read2 = this.mLs.read(aVar);
-                if (construct.put(read2, this.mLt.read(aVar)) != null) {
+                com.google.gson.internal.e.mKC.a(aVar);
+                K read2 = this.mLu.read(aVar);
+                if (construct.put(read2, this.mLv.read(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + read2);
                 }
             }
@@ -92,45 +92,45 @@ public final class g implements TypeAdapterFactory {
         public void write(com.google.gson.stream.b bVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                bVar.dBg();
+                bVar.dBi();
             } else if (!g.this.complexMapKeySerialization) {
-                bVar.dBe();
+                bVar.dBg();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
                     bVar.QL(String.valueOf(entry.getKey()));
-                    this.mLt.write(bVar, entry.getValue());
+                    this.mLv.write(bVar, entry.getValue());
                 }
-                bVar.dBf();
+                bVar.dBh();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.mLs.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.mLu.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z = (jsonTree.isJsonArray() || jsonTree.isJsonObject()) | z;
                 }
                 if (z) {
-                    bVar.dBc();
+                    bVar.dBe();
                     int size = arrayList.size();
                     while (i < size) {
-                        bVar.dBc();
+                        bVar.dBe();
                         com.google.gson.internal.i.a((JsonElement) arrayList.get(i), bVar);
-                        this.mLt.write(bVar, arrayList2.get(i));
-                        bVar.dBd();
+                        this.mLv.write(bVar, arrayList2.get(i));
+                        bVar.dBf();
                         i++;
                     }
-                    bVar.dBd();
+                    bVar.dBf();
                     return;
                 }
-                bVar.dBe();
+                bVar.dBg();
                 int size2 = arrayList.size();
                 while (i < size2) {
                     bVar.QL(b((JsonElement) arrayList.get(i)));
-                    this.mLt.write(bVar, arrayList2.get(i));
+                    this.mLv.write(bVar, arrayList2.get(i));
                     i++;
                 }
-                bVar.dBf();
+                bVar.dBh();
             }
         }
 

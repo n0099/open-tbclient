@@ -1,29 +1,29 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes12.dex */
 public abstract class n<I, O> extends b<I> {
-    private final k<O> lVx;
+    private final k<O> lVz;
 
     public n(k<O> kVar) {
-        this.lVx = kVar;
+        this.lVz = kVar;
     }
 
-    public k<O> drH() {
-        return this.lVx;
+    public k<O> drJ() {
+        return this.lVz;
     }
 
     @Override // com.facebook.imagepipeline.producers.b
     protected void B(Throwable th) {
-        this.lVx.C(th);
+        this.lVz.C(th);
     }
 
     @Override // com.facebook.imagepipeline.producers.b
-    protected void dqf() {
-        this.lVx.dkC();
+    protected void dqh() {
+        this.lVz.dkE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.producers.b
     public void bs(float f) {
-        this.lVx.aK(f);
+        this.lVz.aK(f);
     }
 }

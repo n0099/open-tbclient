@@ -33,8 +33,8 @@ import java.util.ArrayList;
 @RemoteViews.RemoteView
 /* loaded from: classes3.dex */
 public class HListView extends AbsHListView {
-    private final a aAi;
-    private c aAj;
+    private final a aAj;
+    private c aAk;
     private boolean mAreAllItemsSelectable;
     Drawable mDivider;
     private boolean mDividerIsOpaque;
@@ -84,7 +84,7 @@ public class HListView extends AbsHListView {
         this.mAreAllItemsSelectable = true;
         this.mItemsCanFocus = false;
         this.mTempRect = new Rect();
-        this.aAi = new a();
+        this.aAj = new a();
         this.mMaxWidth = 0;
         this.mGestureDetector = new GestureDetector(new d());
         TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, a.k.sdk_HListView, i, 0);
@@ -173,8 +173,8 @@ public class HListView extends AbsHListView {
         bVar.data = obj;
         bVar.isSelectable = z;
         this.mHeaderViewInfos.add(bVar);
-        if (this.mAdapter != null && this.ayv != null) {
-            this.ayv.onChanged();
+        if (this.mAdapter != null && this.ayw != null) {
+            this.ayw.onChanged();
         }
     }
 
@@ -203,11 +203,11 @@ public class HListView extends AbsHListView {
     @Override // com.baidu.live.tieba.horizonallist.widget.AbsHListView, com.baidu.live.tieba.horizonallist.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
         int lookForSelectablePosition;
-        if (this.mAdapter != null && this.ayv != null) {
-            this.mAdapter.unregisterDataSetObserver(this.ayv);
+        if (this.mAdapter != null && this.ayw != null) {
+            this.mAdapter.unregisterDataSetObserver(this.ayw);
         }
         resetList();
-        this.ayw.clear();
+        this.ayx.clear();
         if (this.mHeaderViewInfos.size() > 0 || this.mFooterViewInfos.size() > 0) {
             this.mAdapter = new com.baidu.live.tieba.horizonallist.widget.b(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
         } else {
@@ -221,9 +221,9 @@ public class HListView extends AbsHListView {
             this.mOldItemCount = this.mItemCount;
             this.mItemCount = this.mAdapter.getCount();
             checkFocus();
-            this.ayv = new AbsHListView.a();
-            this.mAdapter.registerDataSetObserver(this.ayv);
-            this.ayw.co(this.mAdapter.getViewTypeCount());
+            this.ayw = new AbsHListView.a();
+            this.mAdapter.registerDataSetObserver(this.ayw);
+            this.ayx.co(this.mAdapter.getViewTypeCount());
             if (this.mStackFromRight) {
                 lookForSelectablePosition = lookForSelectablePosition(this.mItemCount - 1, false);
             } else {
@@ -257,7 +257,7 @@ public class HListView extends AbsHListView {
             for (int i = 0; i < size; i++) {
                 AbsHListView.LayoutParams layoutParams = (AbsHListView.LayoutParams) arrayList.get(i).view.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.ayL = false;
+                    layoutParams.ayM = false;
                 }
             }
         }
@@ -489,7 +489,7 @@ public class HListView extends AbsHListView {
 
     /* loaded from: classes3.dex */
     private class c implements Runnable {
-        private int aAl;
+        private int aAm;
         private int mPosition;
 
         private c() {
@@ -497,13 +497,13 @@ public class HListView extends AbsHListView {
 
         public c F(int i, int i2) {
             this.mPosition = i;
-            this.aAl = i2;
+            this.aAm = i2;
             return this;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            HListView.this.setSelectionFromLeft(this.mPosition, this.aAl);
+            HListView.this.setSelectionFromLeft(this.mPosition, this.aAm);
         }
     }
 
@@ -514,10 +514,10 @@ public class HListView extends AbsHListView {
         if (getChildCount() > 0 && (focusedChild = getFocusedChild()) != null) {
             int indexOfChild = this.mFirstPosition + indexOfChild(focusedChild);
             int left = focusedChild.getLeft() - Math.max(0, focusedChild.getRight() - (i - getPaddingLeft()));
-            if (this.aAj == null) {
-                this.aAj = new c();
+            if (this.aAk == null) {
+                this.aAk = new c();
             }
-            post(this.aAj.F(indexOfChild, left));
+            post(this.aAk.F(indexOfChild, left));
         }
         super.onSizeChanged(i, i2, i3, i4);
     }
@@ -541,8 +541,8 @@ public class HListView extends AbsHListView {
             i4 = obtainView.getMeasuredWidth();
             i5 = obtainView.getMeasuredHeight();
             r1 = Build.VERSION.SDK_INT >= 11 ? combineMeasuredStates(0, obtainView.getMeasuredState()) : 0;
-            if (recycleOnMeasure() && this.ayw.cp(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).ayK)) {
-                this.ayw.d(obtainView, -1);
+            if (recycleOnMeasure() && this.ayx.cp(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).ayL)) {
+                this.ayx.d(obtainView, -1);
             }
         }
         int i6 = i5;
@@ -574,8 +574,8 @@ public class HListView extends AbsHListView {
             layoutParams = (AbsHListView.LayoutParams) generateDefaultLayoutParams();
             view.setLayoutParams(layoutParams);
         }
-        layoutParams.ayK = this.mAdapter.getItemViewType(i);
-        layoutParams.ayM = true;
+        layoutParams.ayL = this.mAdapter.getItemViewType(i);
+        layoutParams.ayN = true;
         int childMeasureSpec = ViewGroup.getChildMeasureSpec(i2, this.mListPadding.top + this.mListPadding.bottom, layoutParams.height);
         int i3 = layoutParams.width;
         if (i3 > 0) {
@@ -602,7 +602,7 @@ public class HListView extends AbsHListView {
         if (i3 == -1) {
             i3 = listAdapter.getCount() - 1;
         }
-        AbsHListView.j jVar = this.ayw;
+        AbsHListView.j jVar = this.ayx;
         boolean recycleOnMeasure = recycleOnMeasure();
         boolean[] zArr = this.mIsScrap;
         while (i2 <= i3) {
@@ -612,7 +612,7 @@ public class HListView extends AbsHListView {
             }
             measureScrapChildWidth(obtainView, i2, i);
             int i9 = i2 > 0 ? i6 + i7 : i6;
-            if (recycleOnMeasure && jVar.cp(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).ayK)) {
+            if (recycleOnMeasure && jVar.cp(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).ayL)) {
                 jVar.d(obtainView, -1);
             }
             i6 = obtainView.getMeasuredWidth() + i9;
@@ -638,7 +638,7 @@ public class HListView extends AbsHListView {
         if (i3 == -1) {
             i3 = listAdapter.getCount() - 1;
         }
-        AbsHListView.j jVar = this.ayw;
+        AbsHListView.j jVar = this.ayx;
         boolean recycleOnMeasure = recycleOnMeasure();
         boolean[] zArr = this.mIsScrap;
         int i10 = 0;
@@ -646,7 +646,7 @@ public class HListView extends AbsHListView {
         while (i2 <= i3) {
             View obtainView = obtainView(i2, zArr);
             measureScrapChildWidth(obtainView, i2, i);
-            if (recycleOnMeasure && jVar.cp(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).ayK)) {
+            if (recycleOnMeasure && jVar.cp(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).ayL)) {
                 jVar.d(obtainView, -1);
             }
             i10 = Math.max(i10, obtainView.getMeasuredWidth() + i9);
@@ -828,7 +828,7 @@ public class HListView extends AbsHListView {
             } else {
                 setSelectedPositionInt(this.mNextSelectedPosition);
                 int i4 = this.mFirstPosition;
-                AbsHListView.j jVar = this.ayw;
+                AbsHListView.j jVar = this.ayx;
                 View view7 = null;
                 if (z2) {
                     for (int i5 = 0; i5 < childCount; i5++) {
@@ -854,7 +854,7 @@ public class HListView extends AbsHListView {
                     view3 = null;
                 }
                 detachAllViewsFromParent();
-                jVar.zF();
+                jVar.zH();
                 switch (this.mLayoutMode) {
                     case 1:
                         this.mFirstPosition = 0;
@@ -916,7 +916,7 @@ public class HListView extends AbsHListView {
                             break;
                         }
                 }
-                jVar.zG();
+                jVar.zI();
                 if (moveSelection != null) {
                     if (!this.mItemsCanFocus || !hasFocus() || moveSelection.hasFocus()) {
                         positionSelector(-1, moveSelection);
@@ -993,7 +993,7 @@ public class HListView extends AbsHListView {
 
     private View makeAndAddView(int i, int i2, boolean z, int i3, boolean z2) {
         View cq;
-        if (!this.mDataChanged && (cq = this.ayw.cq(i)) != null) {
+        if (!this.mDataChanged && (cq = this.ayx.cq(i)) != null) {
             setupChild(cq, i, i2, z, i3, z2, true);
             return cq;
         }
@@ -1013,13 +1013,13 @@ public class HListView extends AbsHListView {
         boolean z8 = !z3 || z5 || view.isLayoutRequested();
         AbsHListView.LayoutParams layoutParams = (AbsHListView.LayoutParams) view.getLayoutParams();
         AbsHListView.LayoutParams layoutParams2 = layoutParams == null ? (AbsHListView.LayoutParams) generateDefaultLayoutParams() : layoutParams;
-        layoutParams2.ayK = this.mAdapter.getItemViewType(i);
-        if ((z3 && !layoutParams2.ayM) || (layoutParams2.ayL && layoutParams2.ayK == -2)) {
+        layoutParams2.ayL = this.mAdapter.getItemViewType(i);
+        if ((z3 && !layoutParams2.ayN) || (layoutParams2.ayM && layoutParams2.ayL == -2)) {
             attachViewToParent(view, z ? -1 : 0, layoutParams2);
         } else {
-            layoutParams2.ayM = false;
-            if (layoutParams2.ayK == -2) {
-                layoutParams2.ayL = true;
+            layoutParams2.ayN = false;
+            if (layoutParams2.ayL == -2) {
+                layoutParams2.ayM = true;
             }
             addViewInLayout(view, z ? -1 : 0, layoutParams2, true);
         }
@@ -1062,7 +1062,7 @@ public class HListView extends AbsHListView {
         if (this.mCachingStarted && !view.isDrawingCacheEnabled()) {
             view.setDrawingCacheEnabled(true);
         }
-        if (Build.VERSION.SDK_INT >= 11 && z3 && ((AbsHListView.LayoutParams) view.getLayoutParams()).ayN != i) {
+        if (Build.VERSION.SDK_INT >= 11 && z3 && ((AbsHListView.LayoutParams) view.getLayoutParams()).ayO != i) {
             view.jumpDrawablesToCurrentState();
         }
     }
@@ -1095,8 +1095,8 @@ public class HListView extends AbsHListView {
                     this.mSyncPosition = i;
                     this.mSyncColId = this.mAdapter.getItemId(i);
                 }
-                if (this.ayy != null) {
-                    this.ayy.stop();
+                if (this.ayz != null) {
+                    this.ayz.stop();
                 }
                 requestLayout();
             }
@@ -1111,8 +1111,8 @@ public class HListView extends AbsHListView {
         if (i2 < 0 || (i != i2 - 1 && i != i2 + 1)) {
             z = false;
         }
-        if (this.ayy != null) {
-            this.ayy.stop();
+        if (this.ayz != null) {
+            this.ayz.stop();
         }
         layoutChildren();
         if (z) {
@@ -1478,7 +1478,7 @@ public class HListView extends AbsHListView {
         a cE = this.mItemsCanFocus ? cE(i) : null;
         if (cE != null) {
             lookForSelectablePositionOnScreen = cE.getSelectedPosition();
-            amountToScroll = cE.zS();
+            amountToScroll = cE.zU();
         }
         boolean z = cE != null;
         if (lookForSelectablePositionOnScreen != -1) {
@@ -1646,7 +1646,7 @@ public class HListView extends AbsHListView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        private int aAk;
+        private int aAl;
         private int mSelectedPosition;
 
         private a() {
@@ -1654,15 +1654,15 @@ public class HListView extends AbsHListView {
 
         void E(int i, int i2) {
             this.mSelectedPosition = i;
-            this.aAk = i2;
+            this.aAl = i2;
         }
 
         public int getSelectedPosition() {
             return this.mSelectedPosition;
         }
 
-        public int zS() {
-            return this.aAk;
+        public int zU() {
+            return this.aAl;
         }
     }
 
@@ -1737,12 +1737,12 @@ public class HListView extends AbsHListView {
             int maxScrollAmount = getMaxScrollAmount();
             if (amountToScrollToNewFocus < maxScrollAmount) {
                 findNextFocusFromRect.requestFocus(i);
-                this.aAi.E(positionOfNewFocus, amountToScrollToNewFocus);
-                return this.aAi;
+                this.aAj.E(positionOfNewFocus, amountToScrollToNewFocus);
+                return this.aAj;
             } else if (distanceToView(findNextFocusFromRect) < maxScrollAmount) {
                 findNextFocusFromRect.requestFocus(i);
-                this.aAi.E(positionOfNewFocus, maxScrollAmount);
-                return this.aAi;
+                this.aAj.E(positionOfNewFocus, maxScrollAmount);
+                return this.aAj;
             }
         }
         return null;
@@ -1808,7 +1808,7 @@ public class HListView extends AbsHListView {
         offsetChildrenLeftAndRight(i);
         int width = getWidth() - this.mListPadding.right;
         int i3 = this.mListPadding.left;
-        AbsHListView.j jVar = this.ayw;
+        AbsHListView.j jVar = this.ayx;
         if (i < 0) {
             int childCount = getChildCount();
             View childAt = getChildAt(childCount - 1);
@@ -1823,7 +1823,7 @@ public class HListView extends AbsHListView {
             while (true) {
                 View view = childAt2;
                 if (view.getRight() < i3) {
-                    if (jVar.cp(((AbsHListView.LayoutParams) view.getLayoutParams()).ayK)) {
+                    if (jVar.cp(((AbsHListView.LayoutParams) view.getLayoutParams()).ayL)) {
                         detachViewFromParent(view);
                         jVar.d(view, this.mFirstPosition);
                     } else {
@@ -1850,7 +1850,7 @@ public class HListView extends AbsHListView {
                 int i4 = childCount2;
                 View view2 = childAt4;
                 if (view2.getLeft() > width) {
-                    if (jVar.cp(((AbsHListView.LayoutParams) view2.getLayoutParams()).ayK)) {
+                    if (jVar.cp(((AbsHListView.LayoutParams) view2.getLayoutParams()).ayL)) {
                         detachViewFromParent(view2);
                         jVar.d(view2, this.mFirstPosition + i4);
                     } else {

@@ -21,14 +21,14 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject bfw;
+    private static JSONObject bfx;
 
-    public static synchronized void Kd() {
+    public static synchronized void Kf() {
         synchronized (d.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
             }
-            bfw = null;
+            bfx = null;
         }
     }
 
@@ -38,12 +38,12 @@ public class d {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "start pre cache");
             }
-            if (com.baidu.swan.apps.w.a.TX().Ht()) {
-                if (bfw == null && context != null) {
+            if (com.baidu.swan.apps.w.a.TZ().Hv()) {
+                if (bfx == null && context != null) {
                     if (DEBUG) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
                     }
-                    bfw = bG(context);
+                    bfx = bG(context);
                 }
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "end pre cache system info");
@@ -57,16 +57,16 @@ public class d {
     public static synchronized JSONObject bF(Context context) {
         JSONObject jSONObject;
         synchronized (d.class) {
-            if (bfw == null && context != null) {
+            if (bfx == null && context != null) {
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "need create system info");
                 }
-                bfw = bG(context);
+                bfx = bG(context);
             }
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "return cache system info");
             }
-            jSONObject = bfw;
+            jSONObject = bfx;
         }
         return jSONObject;
     }
@@ -93,7 +93,7 @@ public class d {
             jSONObject.put("platform", PraiseDataPassUtil.KEY_FROM_OS);
             jSONObject.put("fontSizeSetting", 1);
             jSONObject.put("swanNativeVersion", com.baidu.swan.apps.c.getVersion());
-            jSONObject.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.UF().getHostName());
+            jSONObject.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.UH().getHostName());
             jSONObject.put("statusBarHeight", af.U(af.getStatusBarHeight()));
             jSONObject.put("navigationBarHeight", af.U(af.getActionBarHeight()));
             if (DEBUG) {

@@ -13,8 +13,8 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b {
-    private RequestGroupLocModel hJW;
-    private a hJX;
+    private RequestGroupLocModel hJY;
+    private a hJZ;
     private double longitude = 0.0d;
     private double latitude = 0.0d;
     private BdUniqueId unique_id = null;
@@ -26,39 +26,39 @@ public class b {
                     if (address != null) {
                         b.this.latitude = address.getLatitude();
                         b.this.longitude = address.getLongitude();
-                        b.this.hJW.setLat(String.valueOf(address.getLatitude()));
-                        b.this.hJW.setLng(String.valueOf(address.getLongitude()));
-                        b.this.hJW.setGroupId(0L);
-                        b.this.hJW.sendMessage();
+                        b.this.hJY.setLat(String.valueOf(address.getLatitude()));
+                        b.this.hJY.setLng(String.valueOf(address.getLongitude()));
+                        b.this.hJY.setGroupId(0L);
+                        b.this.hJY.sendMessage();
                         return;
                     }
                     return;
                 case 1:
                 case 2:
                 case 3:
-                    b.this.hJX.bTj();
+                    b.this.hJZ.bTl();
                     return;
                 case 4:
                 case 5:
-                    b.this.hJX.onLoadFailed();
+                    b.this.hJZ.onLoadFailed();
                     return;
                 default:
                     return;
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c hJY = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_QUERY_GROUPLOC) { // from class: com.baidu.tieba.im.util.b.2
+    private final com.baidu.adp.framework.listener.c hKa = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_QUERY_GROUPLOC) { // from class: com.baidu.tieba.im.util.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.hJX.onLoadFailed();
+                b.this.hJZ.onLoadFailed();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.hJX.onLoadFailed();
+                b.this.hJZ.onLoadFailed();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.hJX.onLoadFailed();
+                    b.this.hJZ.onLoadFailed();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -68,9 +68,9 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.hJX.onLoadFailed();
+                    b.this.hJZ.onLoadFailed();
                 } else {
-                    b.this.hJX.a(position, arrayList, b.this.latitude, b.this.longitude);
+                    b.this.hJZ.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
             }
         }
@@ -80,23 +80,23 @@ public class b {
     public interface a {
         void a(String str, List<String> list, double d, double d2);
 
-        void bTj();
+        void bTl();
 
         void onLoadFailed();
     }
 
     public b(a aVar) {
-        this.hJW = null;
-        this.hJX = null;
-        this.hJW = new RequestGroupLocModel();
-        this.hJX = aVar;
-        this.hJY.setTag(this.unique_id);
-        MessageManager.getInstance().registerListener(this.hJY);
+        this.hJY = null;
+        this.hJZ = null;
+        this.hJY = new RequestGroupLocModel();
+        this.hJZ = aVar;
+        this.hKa.setTag(this.unique_id);
+        MessageManager.getInstance().registerListener(this.hKa);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        this.hJW.setUniqueId(bdUniqueId);
+        this.hJY.setUniqueId(bdUniqueId);
     }
 
     public void startLoad() {
@@ -104,7 +104,7 @@ public class b {
     }
 
     public void cancelLoad() {
-        this.hJW.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.hJY);
+        this.hJY.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.hKa);
     }
 }

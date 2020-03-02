@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends ab {
-    private int ccS;
+    private int ccT;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
@@ -31,7 +31,7 @@ public class f extends ab {
 
     public f(j jVar) {
         super(jVar, "/swanAPI/privateGetUserInfo");
-        this.ccS = -1;
+        this.ccT = -1;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -69,7 +69,7 @@ public class f extends ab {
         z dc = com.baidu.swan.bdprivate.a.a.dc(context);
         jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, dc.displayName);
         jSONObject.put("portrait", dc.aqo);
-        if (this.ccS != -1) {
+        if (this.ccT != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
             a(new a() { // from class: com.baidu.swan.bdprivate.c.a.f.1
@@ -79,7 +79,7 @@ public class f extends ab {
                         f.this.a(callbackHandler, str, jSONObject);
                         return;
                     }
-                    f.this.ccS = f.this.be(jSONObject2);
+                    f.this.ccT = f.this.be(jSONObject2);
                     f.this.a(callbackHandler, str, jSONObject);
                 }
             });
@@ -88,9 +88,9 @@ public class f extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (this.ccS != -1) {
+        if (this.ccT != -1) {
             try {
-                jSONObject.put("gender", String.valueOf(this.ccS));
+                jSONObject.put("gender", String.valueOf(this.ccT));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -133,7 +133,7 @@ public class f extends ab {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.h.c.processCommonParams(com.baidu.swan.apps.h.a.KY()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.w.a.Us().Is())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.bdprivate.c.a.f.2
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.h.c.processCommonParams(com.baidu.swan.apps.h.a.La()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.w.a.Uu().Iu())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.bdprivate.c.a.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str, int i) {

@@ -16,13 +16,13 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String UP() {
-        return com.baidu.swan.apps.w.a.Ug().Ic();
+    public String UR() {
+        return com.baidu.swan.apps.w.a.Ui().Ie();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String UQ() {
-        return com.baidu.swan.apps.w.a.TZ().br(AppRuntime.getAppContext());
+    public String US() {
+        return com.baidu.swan.apps.w.a.Ub().br(AppRuntime.getAppContext());
     }
 
     @Override // com.baidu.swan.pms.b
@@ -31,48 +31,48 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String UR() {
-        return com.baidu.swan.apps.w.a.UF().getHostName();
-    }
-
-    @Override // com.baidu.swan.pms.b
-    public String US() {
-        return ai.getVersionName();
-    }
-
-    @Override // com.baidu.swan.pms.b
     public String UT() {
-        return com.baidu.swan.apps.c.getVersion();
+        return com.baidu.swan.apps.w.a.UH().getHostName();
     }
 
     @Override // com.baidu.swan.pms.b
     public String UU() {
-        return com.baidu.swan.apps.swancore.b.gy(0);
+        return ai.getVersionName();
     }
 
     @Override // com.baidu.swan.pms.b
     public String UV() {
-        return com.baidu.swan.apps.extcore.b.eP(0);
+        return com.baidu.swan.apps.c.getVersion();
     }
 
     @Override // com.baidu.swan.pms.b
     public String UW() {
-        return com.baidu.swan.apps.swancore.b.gy(1);
+        return com.baidu.swan.apps.swancore.b.gy(0);
     }
 
     @Override // com.baidu.swan.pms.b
     public String UX() {
-        return com.baidu.swan.apps.extcore.b.eP(1);
+        return com.baidu.swan.apps.extcore.b.eP(0);
     }
 
     @Override // com.baidu.swan.pms.b
-    public CookieManager UY() {
-        return com.baidu.swan.apps.w.a.Us().Is();
+    public String UY() {
+        return com.baidu.swan.apps.swancore.b.gy(1);
     }
 
     @Override // com.baidu.swan.pms.b
     public String UZ() {
-        return com.baidu.swan.apps.w.a.TX().Hc();
+        return com.baidu.swan.apps.extcore.b.eP(1);
+    }
+
+    @Override // com.baidu.swan.pms.b
+    public CookieManager Va() {
+        return com.baidu.swan.apps.w.a.Uu().Iu();
+    }
+
+    @Override // com.baidu.swan.pms.b
+    public String Vb() {
+        return com.baidu.swan.apps.w.a.TZ().He();
     }
 
     @Override // com.baidu.swan.pms.b

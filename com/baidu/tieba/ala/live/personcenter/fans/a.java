@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
     public int eLA;
-    public AlaUserInfoData eLB;
-    public int eLz;
+    public int eLB;
+    public AlaUserInfoData eLC;
     public String intro;
     private int isFriend;
     public String liveId;
@@ -35,12 +35,12 @@ public class a {
             this.liveId = jSONObject.optString("live_id");
             this.intro = jSONObject.optString("intro");
             this.live_status = jSONObject.optInt("live_status");
-            this.eLz = jSONObject.optInt("live_id");
+            this.eLA = jSONObject.optInt("live_id");
             this.isFriend = jSONObject.optInt("is_friend");
-            this.eLA = jSONObject.optInt("has_concerned");
+            this.eLB = jSONObject.optInt("has_concerned");
             if (jSONObject.optJSONObject("ala_info") != null) {
-                this.eLB = new AlaUserInfoData();
-                this.eLB.parserJson(jSONObject.optJSONObject("ala_info"));
+                this.eLC = new AlaUserInfoData();
+                this.eLC.parserJson(jSONObject.optJSONObject("ala_info"));
             }
         }
     }
@@ -49,7 +49,7 @@ public class a {
         return TextUtils.isEmpty(this.name_show) ? this.userName : this.name_show;
     }
 
-    public boolean bgG() {
-        return this.eLA != 0;
+    public boolean bgI() {
+        return this.eLB != 0;
     }
 }

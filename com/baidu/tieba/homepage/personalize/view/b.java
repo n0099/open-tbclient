@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.card.x;
 /* loaded from: classes9.dex */
 public class b extends x {
-    private d hfA;
+    private d hfC;
 
     public b(Context context) {
         super(context);
@@ -12,23 +12,23 @@ public class b extends x {
 
     @Override // com.baidu.card.x, com.baidu.card.al
     protected com.baidu.tieba.play.operableVideoView.a mZ() {
-        this.hfA = new d(this.mContext, this.MK);
-        return this.hfA;
+        this.hfC = new d(this.mContext, this.MK);
+        return this.hfC;
     }
 
     @Override // com.baidu.card.al
     public void onPause() {
         super.onPause();
-        if (this.hfA != null) {
-            this.hfA.onPause();
+        if (this.hfC != null) {
+            this.hfC.onPause();
         }
     }
 
     @Override // com.baidu.card.al
     public void onResume() {
         super.onResume();
-        if (this.hfA != null) {
-            this.hfA.onResume();
+        if (this.hfC != null) {
+            this.hfC.onResume();
         }
     }
 }

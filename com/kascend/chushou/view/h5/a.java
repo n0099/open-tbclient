@@ -32,10 +32,10 @@ import tv.chushou.zues.utils.h;
 public class a extends d {
     public String c;
     private boolean j;
-    private EmptyLoadingView nfI;
-    private CustomSwipeRefreshLayout nfJ;
-    private com.kascend.chushou.widget.cswebview.a nfK;
-    private InterfaceC0718a nfL;
+    private EmptyLoadingView nfK;
+    private CustomSwipeRefreshLayout nfL;
+    private com.kascend.chushou.widget.cswebview.a nfM;
+    private InterfaceC0718a nfN;
     private boolean d = false;
     private boolean e = true;
     private boolean f = false;
@@ -93,28 +93,28 @@ public class a extends d {
         if (this.i > 0) {
             inflate.setBackgroundColor(this.i);
         }
-        this.nfI = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
-        this.nft = (CSWebView) inflate.findViewById(a.f.web_view);
-        this.nfJ = (CustomSwipeRefreshLayout) inflate.findViewById(a.f.swipeRefreshLayout);
-        this.nfJ.setEnabled(this.f);
-        this.nft.setWebChromeClient(new com.kascend.chushou.widget.cswebview.b() { // from class: com.kascend.chushou.view.h5.a.1
+        this.nfK = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
+        this.nfv = (CSWebView) inflate.findViewById(a.f.web_view);
+        this.nfL = (CustomSwipeRefreshLayout) inflate.findViewById(a.f.swipeRefreshLayout);
+        this.nfL.setEnabled(this.f);
+        this.nfv.setWebChromeClient(new com.kascend.chushou.widget.cswebview.b() { // from class: com.kascend.chushou.view.h5.a.1
             @Override // android.webkit.WebChromeClient
             public void onReceivedTitle(WebView webView, String str) {
                 super.onReceivedTitle(webView, str);
                 if (a.this.mContext != null && (a.this.mContext instanceof H5Activity)) {
                     ((H5Activity) a.this.mContext).a(str);
                 }
-                if (a.this.nfL != null) {
-                    a.this.nfL.a(str);
+                if (a.this.nfN != null) {
+                    a.this.nfN.a(str);
                 }
             }
         });
-        final com.kascend.chushou.widget.cswebview.d dEv = this.nfK != null ? this.nfK.dEv() : null;
+        final com.kascend.chushou.widget.cswebview.d dEx = this.nfM != null ? this.nfM.dEx() : null;
         com.kascend.chushou.widget.cswebview.d dVar = new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.view.h5.a.2
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
-                if (dEv != null) {
-                    dEv.a((Object) null);
+                if (dEx != null) {
+                    dEx.a((Object) null);
                 } else {
                     a.this.getActivity().finish();
                 }
@@ -124,17 +124,17 @@ public class a extends d {
             public void a(String str) {
             }
         };
-        if (this.nfK == null) {
-            this.nfK = new com.kascend.chushou.widget.cswebview.a();
+        if (this.nfM == null) {
+            this.nfM = new com.kascend.chushou.widget.cswebview.a();
         }
-        this.nfK.a(dVar);
-        this.nfK.a(this);
-        CSWebView.a(this.nft, this.mContext, new c() { // from class: com.kascend.chushou.view.h5.a.3
+        this.nfM.a(dVar);
+        this.nfM.a(this);
+        CSWebView.a(this.nfv, this.mContext, new c() { // from class: com.kascend.chushou.view.h5.a.3
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
                 if (!a.this.isFinishing()) {
-                    a.this.nfJ.setEnabled(false);
+                    a.this.nfL.setEnabled(false);
                     if (!a.this.n) {
                         a.this.showStatus(1);
                     }
@@ -147,10 +147,10 @@ public class a extends d {
                 e.e(a.this.TAG, "onPageFinished");
                 if (!a.this.isFinishing()) {
                     a.this.n = false;
-                    a.this.nfJ.setEnabled(a.this.f);
+                    a.this.nfL.setEnabled(a.this.f);
                     a.this.m = true;
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.dQn()) {
+                    if (tv.chushou.zues.utils.a.dQp()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             a.this.showStatus(4);
                         } else {
@@ -177,30 +177,30 @@ public class a extends d {
                         webView.clearView();
                     } catch (Exception e2) {
                     }
-                    a.this.nfJ.setEnabled(a.this.f);
+                    a.this.nfL.setEnabled(a.this.f);
                     webView.setTag(BdStatsConstant.StatsType.ERROR);
                 }
             }
-        }, this.nfK);
-        this.nfJ.setColorSchemeResources(a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright, a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright);
-        this.nfJ.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.kascend.chushou.view.h5.a.4
+        }, this.nfM);
+        this.nfL.setColorSchemeResources(a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright, a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright);
+        this.nfL.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.kascend.chushou.view.h5.a.4
             @Override // android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener
             public void onRefresh() {
-                a.this.nfJ.setRefreshing(false);
-                if (tv.chushou.zues.utils.a.dQn()) {
+                a.this.nfL.setRefreshing(false);
+                if (tv.chushou.zues.utils.a.dQp()) {
                     a.this.n = true;
                     if (a.this.c == null || a.this.c.length() <= 0) {
-                        a.this.nft.loadUrl("");
+                        a.this.nfv.loadUrl("");
                         return;
                     } else {
-                        a.this.nft.loadUrl(a.this.c);
+                        a.this.nfv.loadUrl(a.this.c);
                         return;
                     }
                 }
                 a.this.showStatus(3);
             }
         });
-        this.nfI.setReloadListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.h5.a.5
+        this.nfK.setReloadListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.h5.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!a.this.isFinishing()) {
@@ -208,8 +208,8 @@ public class a extends d {
                 }
             }
         });
-        if (!this.h && this.j && this.nft != null) {
-            this.nft.resumeTimers();
+        if (!this.h && this.j && this.nfv != null) {
+            this.nfv.resumeTimers();
         }
         return inflate;
     }
@@ -227,31 +227,31 @@ public class a extends d {
     @Override // android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.nft != null) {
-            this.nft.onResume();
-            this.nft.resumeTimers();
+        if (this.nfv != null) {
+            this.nfv.onResume();
+            this.nfv.resumeTimers();
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.nft != null) {
-            this.nft.pauseTimers();
-            this.nft.onPause();
+        if (this.nfv != null) {
+            this.nfv.pauseTimers();
+            this.nfv.onPause();
         }
     }
 
     @Override // com.kascend.chushou.view.base.b
     public void unInit() {
         tv.chushou.zues.a.a.cr(this);
-        if (this.nft != null) {
-            this.nft.loadUrl("");
-            this.nft.removeAllViews();
-            this.nft.destroy();
-            this.nft = null;
+        if (this.nfv != null) {
+            this.nfv.loadUrl("");
+            this.nfv.removeAllViews();
+            this.nfv.destroy();
+            this.nfv = null;
         }
-        this.nfJ = null;
+        this.nfL = null;
     }
 
     @Subscribe
@@ -260,8 +260,8 @@ public class a extends d {
             if (this.c.contains("m/register.htm") || this.c.contains("m/password.htm")) {
                 ((Activity) this.mContext).setResult(-1);
                 ((Activity) this.mContext).finish();
-            } else if (this.nft != null) {
-                this.nft.loadUrl(this.c);
+            } else if (this.nfv != null) {
+                this.nfv.loadUrl(this.c);
             }
         }
     }
@@ -271,22 +271,22 @@ public class a extends d {
         switch (i) {
             case 1:
                 if (this.g) {
-                    this.nft.setVisibility(8);
-                    this.nfI.Na(1);
+                    this.nfv.setVisibility(8);
+                    this.nfK.Na(1);
                     return;
                 }
                 return;
             case 2:
-                this.nft.setVisibility(0);
-                this.nfI.setVisibility(8);
+                this.nfv.setVisibility(0);
+                this.nfK.setVisibility(8);
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.nft.setVisibility(8);
-                this.nfI.setVisibility(0);
-                this.nfI.Na(i);
+                this.nfv.setVisibility(8);
+                this.nfK.setVisibility(0);
+                this.nfK.Na(i);
                 return;
             default:
                 return;
@@ -294,9 +294,9 @@ public class a extends d {
     }
 
     public void a(com.kascend.chushou.widget.cswebview.a aVar) {
-        this.nfK = aVar;
+        this.nfM = aVar;
         if (aVar != null) {
-            this.nfu = aVar.dEw();
+            this.nfw = aVar.dEy();
         }
     }
 
@@ -305,10 +305,10 @@ public class a extends d {
     }
 
     public boolean a() {
-        if (!this.d || this.nft == null) {
+        if (!this.d || this.nfv == null) {
             return false;
         }
-        return this.nft.canGoBack();
+        return this.nfv.canGoBack();
     }
 
     public void a(String str) {
@@ -323,13 +323,13 @@ public class a extends d {
     }
 
     public void c() {
-        if (tv.chushou.zues.utils.a.dQn()) {
+        if (tv.chushou.zues.utils.a.dQp()) {
             this.n = true;
             if (this.c != null && this.c.length() > 0) {
-                this.nft.loadUrl(this.c);
+                this.nfv.loadUrl(this.c);
                 return;
             } else {
-                this.nft.loadUrl("");
+                this.nfv.loadUrl("");
                 return;
             }
         }
@@ -337,8 +337,8 @@ public class a extends d {
     }
 
     public boolean a(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.d && this.nft.canGoBack()) {
-            this.nft.goBack();
+        if (i == 4 && this.d && this.nfv.canGoBack()) {
+            this.nfv.goBack();
             return true;
         }
         return false;
@@ -350,12 +350,12 @@ public class a extends d {
             e.d(this.TAG, "onActivityResult");
             if (this.c != null) {
                 if (this.c.contains("m/bigfans/pay.htm")) {
-                    String str = tv.chushou.common.a.dPW() + "m/bigfans/pay.htm";
+                    String str = tv.chushou.common.a.dPY() + "m/bigfans/pay.htm";
                     if (LoginManager.Instance().islogined()) {
                         str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
                     }
                     e.d(this.TAG, "refresh pay loayal fans success,  url=" + str);
-                    this.nft.loadUrl(str);
+                    this.nfv.loadUrl(str);
                 } else if (this.c.contains("m/noble/info.htm")) {
                     if (intent != null) {
                         String str2 = this.c;
@@ -372,7 +372,7 @@ public class a extends d {
                             str2 = str2 + "payResultCode=1&roomId=" + stringExtra3 + "&payLevel=" + stringExtra + "&payCount=" + stringExtra2;
                         }
                         e.d(this.TAG, "refresh pay noble success,  url=" + str2);
-                        this.nft.loadUrl(str2);
+                        this.nfv.loadUrl(str2);
                     }
                 } else {
                     d();
@@ -389,37 +389,37 @@ public class a extends d {
                     }
                 }
                 if (!h.isEmpty(stringExtra4)) {
-                    this.nft.a(stringExtra4, arrayList);
+                    this.nfv.a(stringExtra4, arrayList);
                 }
             } else if (!h.isEmpty(stringExtra4)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("data", parcelableArrayListExtra);
-                this.nft.a(stringExtra4, hashMap);
+                this.nfv.a(stringExtra4, hashMap);
             }
         }
     }
 
     private void d() {
-        String str = tv.chushou.common.a.dPW() + "m/pay.htm";
+        String str = tv.chushou.common.a.dPY() + "m/pay.htm";
         if (LoginManager.Instance().islogined()) {
             str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
         }
         e.d(this.TAG, "refreshAfterRechargeSuccess url=" + str);
-        this.nft.loadUrl(str);
+        this.nfv.loadUrl(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         e.d(this.TAG, "H5=" + this.c);
-        if (this.nft != null) {
-            this.nft.setTag(null);
-            this.nfJ.setRefreshing(false);
-            if (tv.chushou.zues.utils.a.dQn()) {
+        if (this.nfv != null) {
+            this.nfv.setTag(null);
+            this.nfL.setRefreshing(false);
+            if (tv.chushou.zues.utils.a.dQp()) {
                 if (this.c != null && this.c.length() > 0) {
-                    this.nft.loadUrl(this.c);
+                    this.nfv.loadUrl(this.c);
                     return;
                 } else {
-                    this.nft.loadUrl("");
+                    this.nfv.loadUrl("");
                     return;
                 }
             }
@@ -430,23 +430,23 @@ public class a extends d {
     @Subscribe
     public void onSwipeEnableMessgae(com.kascend.chushou.b.a.a.e eVar) {
         if (eVar.a) {
-            this.nfJ.setEnabled(this.f);
+            this.nfL.setEnabled(this.f);
         } else {
-            this.nfJ.setEnabled(false);
+            this.nfL.setEnabled(false);
         }
     }
 
     @Subscribe
     public void onHardwareEnableMessgae(com.kascend.chushou.b.a.a.d dVar) {
         if (dVar.a) {
-            this.nft.setLayerType(2, null);
+            this.nfv.setLayerType(2, null);
         } else {
-            this.nft.setLayerType(1, null);
+            this.nfv.setLayerType(1, null);
         }
     }
 
     public void a(InterfaceC0718a interfaceC0718a) {
-        this.nfL = interfaceC0718a;
+        this.nfN = interfaceC0718a;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -455,11 +455,11 @@ public class a extends d {
         this.j = z;
         if (!this.h) {
             if (z) {
-                if (this.nft != null) {
-                    this.nft.resumeTimers();
+                if (this.nfv != null) {
+                    this.nfv.resumeTimers();
                 }
-            } else if (this.nft != null) {
-                this.nft.pauseTimers();
+            } else if (this.nfv != null) {
+                this.nfv.pauseTimers();
             }
         }
     }

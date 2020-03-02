@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static a epR;
-    private List<an> dXE;
+    private static a epS;
+    private List<an> dXF;
 
-    public static a bcV() {
-        if (epR == null) {
+    public static a bcX() {
+        if (epS == null) {
             synchronized (a.class) {
-                if (epR == null) {
-                    epR = new a();
+                if (epS == null) {
+                    epS = new a();
                 }
             }
         }
-        return epR;
+        return epS;
     }
 
     public void d(an anVar) {
         if (anVar != null) {
-            if (this.dXE == null) {
-                this.dXE = new ArrayList();
+            if (this.dXF == null) {
+                this.dXF = new ArrayList();
             }
-            if (this.dXE != null) {
-                this.dXE.add(anVar);
+            if (this.dXF != null) {
+                this.dXF.add(anVar);
             }
         }
     }
 
     public void xI(String str) {
         if (str != null) {
-            if (this.dXE == null) {
-                this.dXE = new ArrayList();
+            if (this.dXF == null) {
+                this.dXF = new ArrayList();
             }
-            if (this.dXE != null) {
-                this.dXE.add(new an(str));
+            if (this.dXF != null) {
+                this.dXF.add(new an(str));
             }
         }
     }
 
-    public void bbP() {
-        if (v.getCount(this.dXE) != 0) {
-            for (an anVar : this.dXE) {
+    public void bbR() {
+        if (v.getCount(this.dXF) != 0) {
+            for (an anVar : this.dXF) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dXE.clear();
+            this.dXF.clear();
         }
     }
 
     public void ib(boolean z) {
-        if (v.getCount(this.dXE) != 0) {
-            for (an anVar : this.dXE) {
+        if (v.getCount(this.dXF) != 0) {
+            for (an anVar : this.dXF) {
                 if (anVar != null) {
                     int i = 0;
                     if (z) {
@@ -71,7 +71,7 @@ public class a {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dXE.clear();
+            this.dXF.clear();
         }
     }
 
@@ -80,8 +80,8 @@ public class a {
             return null;
         }
         String str3 = "";
-        if (bjVar.aCF() != null && !StringUtils.isNull(bjVar.aCF().appId)) {
-            str3 = bjVar.aCF().appId;
+        if (bjVar.aCH() != null && !StringUtils.isNull(bjVar.aCH().appId)) {
+            str3 = bjVar.aCH().appId;
         }
         an anVar = new an(str);
         anVar.X("obj_type", 1);
@@ -95,10 +95,10 @@ public class a {
     }
 
     private long R(bj bjVar) {
-        if (bjVar == null || bjVar.aCF() == null) {
+        if (bjVar == null || bjVar.aCH() == null) {
             return -1L;
         }
-        return bjVar.aCF().live_id;
+        return bjVar.aCH().live_id;
     }
 
     public void c(String str, int i, int i2, String str2) {

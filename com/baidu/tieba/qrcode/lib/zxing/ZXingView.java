@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes10.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader jEg;
+    private MultiFormatReader jEi;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,12 +19,12 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        cBR();
+        cBT();
     }
 
-    private void cBR() {
-        this.jEg = new MultiFormatReader();
-        this.jEg.setHints(a.jEf);
+    private void cBT() {
+        this.jEi = new MultiFormatReader();
+        this.jEi.setHints(a.jEh);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect AM = this.jDb.AM(i2);
+                Rect AM = this.jDd.AM(i2);
                 if (AM != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, AM.left, AM.top, AM.width(), AM.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.jEg.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.jEi.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.jEg.reset();
+                this.jEi.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.jEg.reset();
+            this.jEi.reset();
         }
     }
 }

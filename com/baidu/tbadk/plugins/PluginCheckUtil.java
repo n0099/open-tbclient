@@ -90,7 +90,7 @@ public class PluginCheckUtil {
                 });
             }
             if (currentActivity instanceof TbPageContextSupport) {
-                aVar.b(((TbPageContextSupport) currentActivity).getPageContext()).aEA();
+                aVar.b(((TbPageContextSupport) currentActivity).getPageContext()).aEC();
             }
         }
     }

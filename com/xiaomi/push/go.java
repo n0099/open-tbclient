@@ -6,7 +6,7 @@ import java.util.Random;
 public class go {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final char[] f420a = "&quot;".toCharArray();
+    private static final char[] f419a = "&quot;".toCharArray();
     private static final char[] b = "&apos;".toCharArray();
     private static final char[] c = "&amp;".toCharArray();
     private static final char[] d = "&lt;".toCharArray();
@@ -62,7 +62,7 @@ public class go {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f420a);
+                    sb.append(f419a);
                 } else if (c2 == '\'') {
                     if (i2 > i) {
                         sb.append(charArray, i, i2 - i);

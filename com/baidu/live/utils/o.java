@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class o {
-    public static long aDP;
+    public static long aDQ;
 
     public static void g(String str, long j) {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isVideoGoodslistUnabled()) {
@@ -27,13 +27,13 @@ public class o {
         com.baidu.live.message.h hVar = new com.baidu.live.message.h();
         hVar.agZ = str;
         hVar.liveId = j;
-        hVar.awL = z;
+        hVar.awM = z;
         hVar.setParams();
         MessageManager.getInstance().sendMessage(hVar);
     }
 
     public static void k(Context context, String str, String str2) {
-        ap apVar = com.baidu.live.v.a.zj().axB;
+        ap apVar = com.baidu.live.v.a.zl().axC;
         if (apVar != null && apVar.acW != null) {
             String str3 = apVar.acW.aeH;
             if (!TextUtils.isEmpty(str3)) {
@@ -43,7 +43,7 @@ public class o {
     }
 
     public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7) {
-        ap apVar = com.baidu.live.v.a.zj().axB;
+        ap apVar = com.baidu.live.v.a.zl().axC;
         if (apVar == null || apVar.acW == null) {
             return "";
         }

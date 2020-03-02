@@ -39,7 +39,7 @@ public class ChushouSdkStatic {
                 }
             }
         });
-        ba.aGE().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
+        ba.aGG().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || CSTVSdk.INSTANCE == null || !CSTVSdk.INSTANCE.getInitialized()) {
@@ -64,7 +64,7 @@ public class ChushouSdkStatic {
                 }
             }
         });
-        if ((b.aFB().getInt("chushou_game_tab", 1) == 1) && !CSTVSdk.INSTANCE.getInitialized()) {
+        if ((b.aFD().getInt("chushou_game_tab", 1) == 1) && !CSTVSdk.INSTANCE.getInitialized()) {
             ChushouSdkInit.testInit(TbadkCoreApplication.getInst());
         }
     }

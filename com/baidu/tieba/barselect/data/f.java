@@ -6,22 +6,22 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class f {
     private BdUniqueId MO;
-    private List<d> fDA;
-    private e fDy;
-    private d fDz;
+    private e fDA;
+    private d fDB;
+    private List<d> fDC;
     private long fid;
     private boolean hasMore;
 
-    public List<d> bue() {
+    public List<d> bug() {
+        return this.fDC;
+    }
+
+    public d buh() {
+        return this.fDB;
+    }
+
+    public e bui() {
         return this.fDA;
-    }
-
-    public d buf() {
-        return this.fDz;
-    }
-
-    public e bug() {
-        return this.fDy;
     }
 
     public boolean getHasMore() {
@@ -37,15 +37,15 @@ public class f {
     }
 
     public void ac(ArrayList<d> arrayList) {
-        this.fDA = arrayList;
+        this.fDC = arrayList;
     }
 
     public void a(e eVar) {
-        this.fDy = eVar;
+        this.fDA = eVar;
     }
 
     public void a(d dVar) {
-        this.fDz = dVar;
+        this.fDB = dVar;
     }
 
     public void setHasMore(boolean z) {

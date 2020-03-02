@@ -9,30 +9,30 @@ import kotlin.TypeCastException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class d implements kotlin.sequences.c<kotlin.b.h> {
-    private final int aDC;
+    private final int aDD;
     private final int limit;
-    private final CharSequence nDk;
-    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> nDl;
+    private final CharSequence nDm;
+    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> nDn;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.m<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
     public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.m<? super CharSequence, ? super Integer, Pair<Integer, Integer>> mVar) {
         kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.q.j(mVar, "getNextMatch");
-        this.nDk = charSequence;
-        this.aDC = i;
+        this.nDm = charSequence;
+        this.aDD = i;
         this.limit = i2;
-        this.nDl = mVar;
+        this.nDn = mVar;
     }
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<kotlin.b.h> {
-        private int nCX = -1;
-        private int nDm;
-        private int nDn;
-        private kotlin.b.h nDo;
+        private int nCZ = -1;
+        private int nDo;
         private int nDp;
+        private kotlin.b.h nDq;
+        private int nDr;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -41,70 +41,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.nDm = kotlin.b.l.aw(d.this.aDC, 0, d.this.nDk.length());
-            this.nDn = this.nDm;
+            this.nDo = kotlin.b.l.aw(d.this.aDD, 0, d.this.nDm.length());
+            this.nDp = this.nDo;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r6.nDp < r6.nDq.limit) goto L13;
+            if (r6.nDr < r6.nDs.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void dKM() {
-            if (this.nDn >= 0) {
+        private final void dKO() {
+            if (this.nDp >= 0) {
                 if (d.this.limit > 0) {
-                    this.nDp++;
+                    this.nDr++;
                 }
-                if (this.nDn <= d.this.nDk.length()) {
-                    Pair pair = (Pair) d.this.nDl.invoke(d.this.nDk, Integer.valueOf(this.nDn));
+                if (this.nDp <= d.this.nDm.length()) {
+                    Pair pair = (Pair) d.this.nDn.invoke(d.this.nDm, Integer.valueOf(this.nDp));
                     if (pair == null) {
-                        this.nDo = new kotlin.b.h(this.nDm, l.t(d.this.nDk));
-                        this.nDn = -1;
+                        this.nDq = new kotlin.b.h(this.nDo, l.t(d.this.nDm));
+                        this.nDp = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.nDo = kotlin.b.l.ex(this.nDm, intValue);
-                        this.nDm = intValue + intValue2;
-                        this.nDn = (intValue2 == 0 ? 1 : 0) + this.nDm;
+                        this.nDq = kotlin.b.l.ex(this.nDo, intValue);
+                        this.nDo = intValue + intValue2;
+                        this.nDp = (intValue2 == 0 ? 1 : 0) + this.nDo;
                     }
-                    this.nCX = 1;
+                    this.nCZ = 1;
                     return;
                 }
-                this.nDo = new kotlin.b.h(this.nDm, l.t(d.this.nDk));
-                this.nDn = -1;
-                this.nCX = 1;
+                this.nDq = new kotlin.b.h(this.nDo, l.t(d.this.nDm));
+                this.nDp = -1;
+                this.nCZ = 1;
                 return;
             }
-            this.nCX = 0;
-            this.nDo = null;
+            this.nCZ = 0;
+            this.nDq = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: dKN */
+        /* renamed from: dKP */
         public kotlin.b.h next() {
-            if (this.nCX == -1) {
-                dKM();
+            if (this.nCZ == -1) {
+                dKO();
             }
-            if (this.nCX == 0) {
+            if (this.nCZ == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.h hVar = this.nDo;
+            kotlin.b.h hVar = this.nDq;
             if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.nDo = null;
-            this.nCX = -1;
+            this.nDq = null;
+            this.nCZ = -1;
             return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nCX == -1) {
-                dKM();
+            if (this.nCZ == -1) {
+                dKO();
             }
-            return this.nCX == 1;
+            return this.nCZ == 1;
         }
     }
 

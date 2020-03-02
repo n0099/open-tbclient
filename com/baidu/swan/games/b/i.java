@@ -8,37 +8,37 @@ import java.util.List;
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = i.class.getSimpleName();
-    private static volatile boolean bjI = false;
-    private static volatile boolean cmm = false;
-    private static volatile List<com.baidu.swan.apps.n.a.b> cmn = new ArrayList();
+    private static volatile boolean bjJ = false;
+    private static volatile boolean cmn = false;
+    private static volatile List<com.baidu.swan.apps.n.a.b> cmo = new ArrayList();
 
     private i() {
     }
 
     public static void ch(boolean z) {
-        bjI = z;
+        bjJ = z;
         com.baidu.swan.apps.console.c.ch(z);
     }
 
-    public static void ank() {
+    public static void anm() {
         synchronized (i.class) {
-            cmn = new ArrayList();
+            cmo = new ArrayList();
         }
-        cmm = false;
+        cmn = false;
     }
 
-    public static void anl() {
-        if (bjI && !cmm) {
+    public static void ann() {
+        if (bjJ && !cmn) {
             synchronized (i.class) {
-                if (cmn != null) {
-                    for (int i = 0; i < cmn.size(); i++) {
-                        com.baidu.swan.apps.y.f.WQ().a("console", cmn.get(i));
+                if (cmo != null) {
+                    for (int i = 0; i < cmo.size(); i++) {
+                        com.baidu.swan.apps.y.f.WS().a("console", cmo.get(i));
                     }
-                    cmn.clear();
-                    cmn = null;
+                    cmo.clear();
+                    cmo = null;
                 }
             }
-            cmm = true;
+            cmn = true;
         }
     }
 
@@ -65,26 +65,26 @@ public class i {
     }
 
     public static void bD(String str, String str2) {
-        if (bjI) {
+        if (bjJ) {
             a(c.bB(str, str2));
         }
     }
 
     public static void bE(String str, String str2) {
-        if (bjI) {
+        if (bjJ) {
             a(c.bC(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.n.a.b bVar) {
-        if (!cmm) {
+        if (!cmn) {
             synchronized (i.class) {
-                if (cmn != null) {
-                    cmn.add(bVar);
+                if (cmo != null) {
+                    cmo.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.y.f.WQ().a("console", bVar);
+        com.baidu.swan.apps.y.f.WS().a("console", bVar);
     }
 }

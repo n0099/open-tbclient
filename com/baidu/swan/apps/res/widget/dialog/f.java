@@ -14,18 +14,18 @@ public class f extends g.a {
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-    public g Pa() {
+    public g Pc() {
         this.mBtnHeight = this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_list_item);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
         layoutParams.addRule(12);
-        this.bOb.mBtnPanelLayout.setLayoutParams(layoutParams);
+        this.bOc.mBtnPanelLayout.setLayoutParams(layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider));
-        layoutParams2.addRule(2, this.bOb.mBtnPanelLayout.getId());
-        this.bOb.mDivider2.setLayoutParams(layoutParams2);
+        layoutParams2.addRule(2, this.bOc.mBtnPanelLayout.getId());
+        this.bOc.mDivider2.setLayoutParams(layoutParams2);
         gc(a.c.aiapps_action_sheet_split_color);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams3.addRule(2, this.bOb.mDivider2.getId());
-        this.bOb.mDialogContentPanel.setLayoutParams(layoutParams3);
-        return super.Pa();
+        layoutParams3.addRule(2, this.bOc.mDivider2.getId());
+        this.bOc.mDialogContentPanel.setLayoutParams(layoutParams3);
+        return super.Pc();
     }
 }

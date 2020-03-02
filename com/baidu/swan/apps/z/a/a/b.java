@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.swan.apps.model.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public g bAk;
+    public g bAl;
     public String id;
     public String iconPath = "";
     public boolean atm = false;
@@ -18,8 +18,8 @@ public class b implements com.baidu.swan.apps.model.a {
             if (TextUtils.isEmpty(this.id)) {
                 this.id = jSONObject.optString("id");
             }
-            this.bAk = new g();
-            this.bAk.parseFromJson(jSONObject.optJSONObject("position"));
+            this.bAl = new g();
+            this.bAl.parseFromJson(jSONObject.optJSONObject("position"));
             this.iconPath = jSONObject.optString("iconPath");
             this.atm = jSONObject.optBoolean("clickable");
         }
@@ -27,6 +27,6 @@ public class b implements com.baidu.swan.apps.model.a {
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.bAk == null || !this.bAk.isValid() || TextUtils.isEmpty(this.iconPath)) ? false : true;
+        return (this.bAl == null || !this.bAl.isValid() || TextUtils.isEmpty(this.iconPath)) ? false : true;
     }
 }

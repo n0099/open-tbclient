@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.dOc()) {
+                synchronized (aVar.dOe()) {
                     aVar.bK(sb.toString());
                 }
                 return;
@@ -155,7 +155,7 @@ public final class CompositeException extends RuntimeException {
     public static abstract class a {
         abstract void bK(Object obj);
 
-        abstract Object dOc();
+        abstract Object dOe();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class b extends a {
-        private final PrintStream nvS;
+        private final PrintStream nvU;
 
         b(PrintStream printStream) {
-            this.nvS = printStream;
+            this.nvU = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dOc() {
-            return this.nvS;
+        Object dOe() {
+            return this.nvU;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void bK(Object obj) {
-            this.nvS.println(obj);
+            this.nvU.println(obj);
         }
     }
 
     /* loaded from: classes6.dex */
     static final class c extends a {
-        private final PrintWriter nvT;
+        private final PrintWriter nvV;
 
         c(PrintWriter printWriter) {
-            this.nvT = printWriter;
+            this.nvV = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dOc() {
-            return this.nvT;
+        Object dOe() {
+            return this.nvV;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void bK(Object obj) {
-            this.nvT.println(obj);
+            this.nvV.println(obj);
         }
     }
 

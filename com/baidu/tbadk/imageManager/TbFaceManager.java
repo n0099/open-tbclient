@@ -16,10 +16,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class TbFaceManager {
-    private static TbFaceManager dAl = null;
-    public static String dAn = "#[\\(][\\w?~！]+[\\)]|\\[[\\u4e00-\\u9fa5\\w]+\\]";
+    private static TbFaceManager dAm = null;
+    public static String dAo = "#[\\(][\\w?~！]+[\\)]|\\[[\\u4e00-\\u9fa5\\w]+\\]";
     private Context mContext = null;
-    private com.baidu.tbadk.imageManager.a dAm = null;
+    private com.baidu.tbadk.imageManager.a dAn = null;
 
     /* loaded from: classes.dex */
     public static class RichUnit extends OrmObject implements Serializable {
@@ -34,11 +34,11 @@ public class TbFaceManager {
         ImageSpan vv(String str);
     }
 
-    public static TbFaceManager aPN() {
-        if (dAl == null) {
-            dAl = new TbFaceManager();
+    public static TbFaceManager aPP() {
+        if (dAm == null) {
+            dAm = new TbFaceManager();
         }
-        return dAl;
+        return dAm;
     }
 
     private TbFaceManager() {
@@ -49,7 +49,7 @@ public class TbFaceManager {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
         this.mContext = context;
-        this.dAm = aVar;
+        this.dAn = aVar;
     }
 
     public com.baidu.adp.widget.ImageView.a vt(String str) {
@@ -58,22 +58,22 @@ public class TbFaceManager {
 
     private com.baidu.adp.widget.ImageView.a U(int i, String str) {
         Bitmap resBitmap;
-        com.baidu.adp.widget.ImageView.a vx = c.aPO().vx(str);
+        com.baidu.adp.widget.ImageView.a vx = c.aPQ().vx(str);
         if (vx == null && (resBitmap = BitmapHelper.getResBitmap(this.mContext, i)) != null) {
             com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(resBitmap, false, str);
-            c.aPO().c(str, aVar);
+            c.aPQ().c(str, aVar);
             return aVar;
         }
         return vx;
     }
 
     public int vb(String str) {
-        return this.dAm.vb(str);
+        return this.dAn.vb(str);
     }
 
     public a.C0391a vu(String str) {
         com.baidu.adp.widget.ImageView.a vt;
-        a.C0391a aA = this.dAm.aA(this.mContext, str);
+        a.C0391a aA = this.dAn.aA(this.mContext, str);
         if (aA == null && (vt = vt(str)) != null) {
             return new a.C0391a(vt.getWidth(), vt.getHeight());
         }
@@ -81,15 +81,15 @@ public class TbFaceManager {
     }
 
     public int vc(String str) {
-        return this.dAm.vc(str);
+        return this.dAn.vc(str);
     }
 
-    public int aOE() {
-        return this.dAm.aOE();
+    public int aOG() {
+        return this.dAn.aOG();
     }
 
     public String vd(String str) {
-        return this.dAm.vd(str);
+        return this.dAn.vd(str);
     }
 
     public SpannableString aB(Context context, String str) {
@@ -98,10 +98,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(dAn).matcher(str);
+        Matcher matcher = Pattern.compile(dAo).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int vc = this.dAm.vc(group);
+            int vc = this.dAn.vc(group);
             if (vc > 0 && (U = U(vc, String.valueOf(vc))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -119,10 +119,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(dAn).matcher(str);
+        Matcher matcher = Pattern.compile(dAo).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int vc = this.dAm.vc(group);
+            int vc = this.dAn.vc(group);
             if (vc > 0 && (U = U(vc, String.valueOf(vc))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -141,10 +141,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(dAn).matcher(str);
+        Matcher matcher = Pattern.compile(dAo).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int vc = this.dAm.vc(group);
+            int vc = this.dAn.vc(group);
             if (vc > 0) {
                 com.baidu.adp.widget.ImageView.a U = U(vc, String.valueOf(vc));
                 if (U != null) {

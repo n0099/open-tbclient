@@ -23,10 +23,10 @@ public class d {
         if (isSuccess()) {
             return a.pI(str);
         }
-        return a.M(str, str2, apM());
+        return a.M(str, str2, apO());
     }
 
-    public String apM() {
+    public String apO() {
         return this.error;
     }
 
@@ -34,7 +34,7 @@ public class d {
         return this.data;
     }
 
-    public static Object apN() {
+    public static Object apP() {
         return new JsObject();
     }
 
@@ -78,7 +78,7 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String M = a.M(str, str2, dVar.apM());
+        String M = a.M(str, str2, dVar.apO());
         bVar.throwJSException(JSExceptionType.Error, M);
         return M;
     }

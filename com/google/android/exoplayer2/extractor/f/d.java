@@ -10,22 +10,22 @@ import java.util.Arrays;
 import java.util.Collections;
 /* loaded from: classes6.dex */
 public final class d implements h {
-    private static final byte[] mmC = {73, 68, 51};
+    private static final byte[] mmE = {73, 68, 51};
     private int WQ;
     private final String language;
-    private long mdB;
-    private com.google.android.exoplayer2.extractor.m meJ;
-    private boolean met;
-    private final boolean mmD;
-    private final com.google.android.exoplayer2.util.k mmE;
-    private final com.google.android.exoplayer2.util.l mmF;
-    private String mmG;
-    private com.google.android.exoplayer2.extractor.m mmH;
-    private boolean mmI;
+    private long mdD;
+    private com.google.android.exoplayer2.extractor.m meL;
+    private boolean mev;
+    private long mmB;
+    private final boolean mmF;
+    private final com.google.android.exoplayer2.util.k mmG;
+    private final com.google.android.exoplayer2.util.l mmH;
+    private String mmI;
     private com.google.android.exoplayer2.extractor.m mmJ;
-    private long mmK;
-    private int mmx;
-    private long mmz;
+    private boolean mmK;
+    private com.google.android.exoplayer2.extractor.m mmL;
+    private long mmM;
+    private int mmz;
     private int sampleSize;
     private int state;
 
@@ -34,56 +34,56 @@ public final class d implements h {
     }
 
     public d(boolean z, String str) {
-        this.mmE = new com.google.android.exoplayer2.util.k(new byte[7]);
-        this.mmF = new com.google.android.exoplayer2.util.l(Arrays.copyOf(mmC, 10));
-        dvp();
-        this.mmD = z;
+        this.mmG = new com.google.android.exoplayer2.util.k(new byte[7]);
+        this.mmH = new com.google.android.exoplayer2.util.l(Arrays.copyOf(mmE, 10));
+        dvr();
+        this.mmF = z;
         this.language = str;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void czb() {
-        dvp();
+    public void czd() {
+        dvr();
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        dVar.dvC();
-        this.mmG = dVar.dvE();
-        this.meJ = gVar.dK(dVar.dvD(), 1);
-        if (this.mmD) {
-            dVar.dvC();
-            this.mmH = gVar.dK(dVar.dvD(), 4);
-            this.mmH.h(Format.a(dVar.dvE(), "application/id3", (String) null, -1, (DrmInitData) null));
+        dVar.dvE();
+        this.mmI = dVar.dvG();
+        this.meL = gVar.dK(dVar.dvF(), 1);
+        if (this.mmF) {
+            dVar.dvE();
+            this.mmJ = gVar.dK(dVar.dvF(), 4);
+            this.mmJ.h(Format.a(dVar.dvG(), "application/id3", (String) null, -1, (DrmInitData) null));
             return;
         }
-        this.mmH = new com.google.android.exoplayer2.extractor.d();
+        this.mmJ = new com.google.android.exoplayer2.extractor.d();
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void o(long j, boolean z) {
-        this.mdB = j;
+        this.mdD = j;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) throws ParserException {
-        while (lVar.dzr() > 0) {
+        while (lVar.dzt() > 0) {
             switch (this.state) {
                 case 0:
                     K(lVar);
                     break;
                 case 1:
-                    if (!a(lVar, this.mmF.data, 10)) {
+                    if (!a(lVar, this.mmH.data, 10)) {
                         break;
                     } else {
-                        dvs();
+                        dvu();
                         break;
                     }
                 case 2:
-                    if (!a(lVar, this.mmE.data, this.mmI ? 7 : 5)) {
+                    if (!a(lVar, this.mmG.data, this.mmK ? 7 : 5)) {
                         break;
                     } else {
-                        dvt();
+                        dvv();
                         break;
                     }
                 case 3:
@@ -94,52 +94,52 @@ public final class d implements h {
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dvn() {
+    public void dvp() {
     }
 
     private boolean a(com.google.android.exoplayer2.util.l lVar, byte[] bArr, int i) {
-        int min = Math.min(lVar.dzr(), i - this.mmx);
-        lVar.G(bArr, this.mmx, min);
-        this.mmx = min + this.mmx;
-        return this.mmx == i;
+        int min = Math.min(lVar.dzt(), i - this.mmz);
+        lVar.G(bArr, this.mmz, min);
+        this.mmz = min + this.mmz;
+        return this.mmz == i;
     }
 
-    private void dvp() {
+    private void dvr() {
         this.state = 0;
-        this.mmx = 0;
+        this.mmz = 0;
         this.WQ = 256;
     }
 
-    private void dvq() {
+    private void dvs() {
         this.state = 1;
-        this.mmx = mmC.length;
+        this.mmz = mmE.length;
         this.sampleSize = 0;
-        this.mmF.setPosition(0);
+        this.mmH.setPosition(0);
     }
 
     private void a(com.google.android.exoplayer2.extractor.m mVar, long j, int i, int i2) {
         this.state = 3;
-        this.mmx = i;
-        this.mmJ = mVar;
-        this.mmK = j;
+        this.mmz = i;
+        this.mmL = mVar;
+        this.mmM = j;
         this.sampleSize = i2;
     }
 
-    private void dvr() {
+    private void dvt() {
         this.state = 2;
-        this.mmx = 0;
+        this.mmz = 0;
     }
 
     private void K(com.google.android.exoplayer2.util.l lVar) {
         byte[] bArr = lVar.data;
         int position = lVar.getPosition();
-        int dzs = lVar.dzs();
-        while (position < dzs) {
+        int dzu = lVar.dzu();
+        while (position < dzu) {
             int i = position + 1;
             int i2 = bArr[position] & 255;
             if (this.WQ == 512 && i2 >= 240 && i2 != 255) {
-                this.mmI = (i2 & 1) == 0;
-                dvr();
+                this.mmK = (i2 & 1) == 0;
+                dvt();
                 lVar.setPosition(i);
                 return;
             }
@@ -157,7 +157,7 @@ public final class d implements h {
                     position = i;
                     break;
                 case 1075:
-                    dvq();
+                    dvs();
                     lVar.setPosition(i);
                     return;
                 default:
@@ -174,49 +174,49 @@ public final class d implements h {
         lVar.setPosition(position);
     }
 
-    private void dvs() {
-        this.mmH.a(this.mmF, 10);
-        this.mmF.setPosition(6);
-        a(this.mmH, 0L, 10, this.mmF.dzB() + 10);
+    private void dvu() {
+        this.mmJ.a(this.mmH, 10);
+        this.mmH.setPosition(6);
+        a(this.mmJ, 0L, 10, this.mmH.dzD() + 10);
     }
 
-    private void dvt() throws ParserException {
+    private void dvv() throws ParserException {
         int i = 2;
-        this.mmE.setPosition(0);
-        if (!this.met) {
-            int readBits = this.mmE.readBits(2) + 1;
+        this.mmG.setPosition(0);
+        if (!this.mev) {
+            int readBits = this.mmG.readBits(2) + 1;
             if (readBits != 2) {
                 Log.w("AdtsReader", "Detected audio object type: " + readBits + ", but assuming AAC LC.");
             } else {
                 i = readBits;
             }
-            int readBits2 = this.mmE.readBits(4);
-            this.mmE.JU(1);
-            byte[] ak = com.google.android.exoplayer2.util.c.ak(i, readBits2, this.mmE.readBits(3));
+            int readBits2 = this.mmG.readBits(4);
+            this.mmG.JU(1);
+            byte[] ak = com.google.android.exoplayer2.util.c.ak(i, readBits2, this.mmG.readBits(3));
             Pair<Integer, Integer> az = com.google.android.exoplayer2.util.c.az(ak);
-            Format a = Format.a(this.mmG, "audio/mp4a-latm", null, -1, -1, ((Integer) az.second).intValue(), ((Integer) az.first).intValue(), Collections.singletonList(ak), null, 0, this.language);
-            this.mmz = 1024000000 / a.sampleRate;
-            this.meJ.h(a);
-            this.met = true;
+            Format a = Format.a(this.mmI, "audio/mp4a-latm", null, -1, -1, ((Integer) az.second).intValue(), ((Integer) az.first).intValue(), Collections.singletonList(ak), null, 0, this.language);
+            this.mmB = 1024000000 / a.sampleRate;
+            this.meL.h(a);
+            this.mev = true;
         } else {
-            this.mmE.JU(10);
+            this.mmG.JU(10);
         }
-        this.mmE.JU(4);
-        int readBits3 = (this.mmE.readBits(13) - 2) - 5;
-        if (this.mmI) {
+        this.mmG.JU(4);
+        int readBits3 = (this.mmG.readBits(13) - 2) - 5;
+        if (this.mmK) {
             readBits3 -= 2;
         }
-        a(this.meJ, this.mmz, 0, readBits3);
+        a(this.meL, this.mmB, 0, readBits3);
     }
 
     private void L(com.google.android.exoplayer2.util.l lVar) {
-        int min = Math.min(lVar.dzr(), this.sampleSize - this.mmx);
-        this.mmJ.a(lVar, min);
-        this.mmx = min + this.mmx;
-        if (this.mmx == this.sampleSize) {
-            this.mmJ.a(this.mdB, 1, this.sampleSize, 0, null);
-            this.mdB += this.mmK;
-            dvp();
+        int min = Math.min(lVar.dzt(), this.sampleSize - this.mmz);
+        this.mmL.a(lVar, min);
+        this.mmz = min + this.mmz;
+        if (this.mmz == this.sampleSize) {
+            this.mmL.a(this.mdD, 1, this.sampleSize, 0, null);
+            this.mdD += this.mmM;
+            dvr();
         }
     }
 }

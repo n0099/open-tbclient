@@ -23,11 +23,11 @@ import com.baidu.live.view.web.e;
 import com.baidu.live.view.web.f;
 /* loaded from: classes3.dex */
 public class b extends Dialog {
-    private CommonWebLayout aGf;
-    private View aGg;
-    private e aGx;
-    private a eZF;
-    private RoundRectRelativeLayout eZG;
+    private CommonWebLayout aGg;
+    private View aGh;
+    private e aGy;
+    private a eZG;
+    private RoundRectRelativeLayout eZH;
     private Activity mContext;
 
     /* loaded from: classes3.dex */
@@ -42,21 +42,21 @@ public class b extends Dialog {
     }
 
     public void a(a aVar) {
-        this.eZF = aVar;
+        this.eZG = aVar;
     }
 
     public void b(e eVar) {
-        this.aGx = eVar;
+        this.aGy = eVar;
     }
 
-    public CommonWebLayout bdF() {
-        return this.aGf;
+    public CommonWebLayout bdH() {
+        return this.aGg;
     }
 
     public void show(String str) {
         xG();
         show();
-        this.aGf.loadUrl(str);
+        this.aGg.loadUrl(str);
         ShowUtil.windowCount++;
     }
 
@@ -92,65 +92,65 @@ public class b extends Dialog {
 
     private void initView() {
         float dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
-        this.eZG = new RoundRectRelativeLayout(this.mContext);
-        this.eZG.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
+        this.eZH = new RoundRectRelativeLayout(this.mContext);
+        this.eZH.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
         initWebView();
-        blv();
-        setContentView(this.eZG);
+        blx();
+        setContentView(this.eZH);
     }
 
     private void initWebView() {
-        this.aGf = new CommonWebLayout(this.mContext);
-        this.aGf.setCallback(new c() { // from class: com.baidu.tieba.ala.liveroom.f.b.1
+        this.aGg = new CommonWebLayout(this.mContext);
+        this.aGg.setCallback(new c() { // from class: com.baidu.tieba.ala.liveroom.f.b.1
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public void em(String str) {
-                if (b.this.aGg != null) {
-                    b.this.aGg.setVisibility(8);
+                if (b.this.aGh != null) {
+                    b.this.aGh.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public void c(String str, int i, String str2) {
-                if (b.this.aGg != null) {
-                    b.this.aGg.setVisibility(8);
+                if (b.this.aGh != null) {
+                    b.this.aGh.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void Bx() {
-                if (b.this.aGg != null) {
-                    b.this.aGg.setVisibility(0);
+            public void Bz() {
+                if (b.this.aGh != null) {
+                    b.this.aGh.setVisibility(0);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public boolean a(String str, JsResult jsResult) {
-                if (b.this.eZF != null) {
-                    return b.this.eZF.a(str, jsResult);
+                if (b.this.eZG != null) {
+                    return b.this.eZG.a(str, jsResult);
                 }
                 return true;
             }
         });
         f fVar = new f();
-        fVar.y(this.mContext).a(this.aGx).a(this.aGf.getSchemeCallback());
-        com.baidu.live.view.web.a[] BA = fVar.BA();
-        for (com.baidu.live.view.web.a aVar : BA) {
-            this.aGf.addJavascriptInterface(aVar, aVar.getName());
+        fVar.y(this.mContext).a(this.aGy).a(this.aGg.getSchemeCallback());
+        com.baidu.live.view.web.a[] BC = fVar.BC();
+        for (com.baidu.live.view.web.a aVar : BC) {
+            this.aGg.addJavascriptInterface(aVar, aVar.getName());
         }
-        this.eZG.addView(this.aGf, new ViewGroup.LayoutParams(-1, -1));
+        this.eZH.addView(this.aGg, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    private void blv() {
-        this.aGg = LayoutInflater.from(this.mContext).inflate(a.h.live_commerce_web_goods_progress, (ViewGroup) null);
-        this.eZG.addView(this.aGg, new ViewGroup.LayoutParams(-1, -1));
+    private void blx() {
+        this.aGh = LayoutInflater.from(this.mContext).inflate(a.h.live_commerce_web_goods_progress, (ViewGroup) null);
+        this.eZH.addView(this.aGh, new ViewGroup.LayoutParams(-1, -1));
     }
 
     private void sf() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.f.b.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (b.this.aGf != null) {
-                    b.this.aGf.release();
+                if (b.this.aGg != null) {
+                    b.this.aGg.release();
                 }
                 if (ShowUtil.windowCount > 0) {
                     ShowUtil.windowCount--;
@@ -163,8 +163,8 @@ public class b extends Dialog {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(300L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        if (this.eZG != null) {
-            this.eZG.startAnimation(translateAnimation);
+        if (this.eZH != null) {
+            this.eZH.startAnimation(translateAnimation);
         }
     }
 }

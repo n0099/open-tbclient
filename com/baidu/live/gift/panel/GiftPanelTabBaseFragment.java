@@ -228,8 +228,8 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
                             GiftPanelTabBaseFragment.this.va();
                         }
                     } else if ((view.getId() == a.g.current_money || view.getId() == a.g.current_recharge) && GiftPanelTabBaseFragment.this.uX()) {
-                        if (GiftPanelTabBaseFragment.this.aor.isNewUser && view.getId() == a.g.current_recharge && !TbadkCoreApplication.getInst().isMobileBaidu() && com.baidu.live.v.a.zj().zm()) {
-                            String str3 = com.baidu.live.v.a.zj().axB.acS.adP.adW;
+                        if (GiftPanelTabBaseFragment.this.aor.isNewUser && view.getId() == a.g.current_recharge && !TbadkCoreApplication.getInst().isMobileBaidu() && com.baidu.live.v.a.zl().zo()) {
+                            String str3 = com.baidu.live.v.a.zl().axC.acS.adP.adW;
                             if (str3.contains("?")) {
                                 str2 = str3 + "&liveId=" + GiftPanelTabBaseFragment.this.aor.mLiveId;
                             } else {

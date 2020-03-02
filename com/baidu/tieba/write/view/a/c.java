@@ -13,12 +13,12 @@ import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class c extends a {
-    private d kRe;
-    private HorizontalListView kyR;
+    private d kRg;
+    private HorizontalListView kyT;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.kRe.b(cVar);
+        this.kRg.b(cVar);
     }
 
     public c(e eVar) {
@@ -28,9 +28,9 @@ public class c extends a {
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-        this.kyR = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
-        this.kRe = new d();
-        this.kyR.setAdapter((ListAdapter) this.kRe);
+        this.kyT = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
+        this.kRg = new d();
+        this.kyT.setAdapter((ListAdapter) this.kRg);
     }
 
     public View getRootView() {
@@ -39,17 +39,17 @@ public class c extends a {
 
     public void onChangeSkinType() {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        bfK();
+        bfM();
     }
 
     public void ez(List<String> list) {
         if (!v.isEmpty(list)) {
-            this.kRe.setData(list);
-            this.kRe.notifyDataSetChanged();
+            this.kRg.setData(list);
+            this.kRg.notifyDataSetChanged();
         }
     }
 
-    public void bfK() {
-        this.kRe.notifyDataSetChanged();
+    public void bfM() {
+        this.kRg.notifyDataSetChanged();
     }
 }

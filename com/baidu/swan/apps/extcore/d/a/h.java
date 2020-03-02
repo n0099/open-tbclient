@@ -10,7 +10,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends ab {
-    private static final String buL = h.class.getSimpleName();
+    private static final String buM = h.class.getSimpleName();
 
     public h(j jVar) {
         super(jVar, "/swanAPI/debug/setReplaceGameCoreConfig");
@@ -20,15 +20,15 @@ public class h extends ab {
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         final JSONObject b = b(unitedSchemeEntity, "params");
         if (b == null) {
-            com.baidu.swan.apps.console.c.e(buL, "params is null");
+            com.baidu.swan.apps.console.c.e(buM, "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else if (!b.has("emitReplaceGameCore")) {
-            com.baidu.swan.apps.console.c.e(buL, "emitReplaceGameCore is null");
+            com.baidu.swan.apps.console.c.e(buM, "emitReplaceGameCore is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            eVar.acN().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.h.1
+            eVar.acP().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.h.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
@@ -39,7 +39,7 @@ public class h extends ab {
                     }
                     com.baidu.swan.apps.ah.a.a.dn(com.baidu.swan.apps.extcore.d.a.eR(b.optInt("emitReplaceGameCore")));
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    com.baidu.swan.apps.ah.a.a.ND();
+                    com.baidu.swan.apps.ah.a.a.NF();
                 }
             });
             return true;

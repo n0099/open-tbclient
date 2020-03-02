@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class BDEmotionBagLayout extends LinearLayout {
-    private CircleIndicator aZH;
-    private List<GridView> aZI;
-    private int aZJ;
+    private CircleIndicator aZI;
+    private List<GridView> aZJ;
+    private int aZK;
     private List<String> mEmotionList;
     private PagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
@@ -39,28 +39,28 @@ public class BDEmotionBagLayout extends LinearLayout {
 
     public BDEmotionBagLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aZI = new ArrayList();
+        this.aZJ = new ArrayList();
         init(context);
     }
 
     private void init(Context context) {
-        if (com.baidu.spswitch.b.a.Go().isNightMode()) {
+        if (com.baidu.spswitch.b.a.Gq().isNightMode()) {
             setBackgroundColor(-14540254);
         } else {
             setBackgroundColor(-1);
         }
         setOrientation(1);
         this.mViewPager = new ViewPager(context);
-        this.aZH = new CircleIndicator(context);
+        this.aZI = new CircleIndicator(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
         layoutParams.weight = 1.0f;
         this.mViewPager.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, (int) f.g(context, 16.0f));
         layoutParams2.weight = 0.0f;
-        this.aZH.setLayoutParams(layoutParams2);
+        this.aZI.setLayoutParams(layoutParams2);
         this.mViewPager.setOverScrollMode(2);
         addView(this.mViewPager);
-        addView(this.aZH);
+        addView(this.aZI);
     }
 
     @Override // android.view.View
@@ -69,13 +69,13 @@ public class BDEmotionBagLayout extends LinearLayout {
         int measuredHeight = getChildAt(0).getMeasuredHeight();
         int g = ((int) f.g(getContext(), 48.0f)) * 3;
         int g2 = (int) (((measuredHeight - g) / 4) + f.g(getContext(), 8.0f));
-        this.aZJ = ((measuredHeight - g) - (g2 * 2)) / 2;
-        int size = this.aZI.size();
+        this.aZK = ((measuredHeight - g) - (g2 * 2)) / 2;
+        int size = this.aZJ.size();
         for (int i5 = 0; i5 < size; i5++) {
-            GridView gridView = this.aZI.get(i5);
+            GridView gridView = this.aZJ.get(i5);
             int g3 = (int) f.g(getContext(), 10.0f);
             gridView.setPadding(g3, g2, g3, g2);
-            gridView.setVerticalSpacing(this.aZJ);
+            gridView.setVerticalSpacing(this.aZK);
             gridView.setHorizontalSpacing((int) f.g(getContext(), (int) f.g(getContext(), 3.0f)));
             final a aVar = (a) gridView.getAdapter();
             if (aVar != null && this.mViewPager != null) {
@@ -106,19 +106,19 @@ public class BDEmotionBagLayout extends LinearLayout {
                 noScrollGridView.setOnItemLongClickListener(bf.b(EmotionType.EMOTION_CLASSIC_TYPE));
                 noScrollGridView.setOnTouchListener(bf.c(EmotionType.EMOTION_CLASSIC_TYPE));
                 noScrollGridView.setSelector(new ColorDrawable(0));
-                this.aZI.add(noScrollGridView);
+                this.aZJ.add(noScrollGridView);
             }
-            Gl();
-            this.mPagerAdapter = new b(this.aZI);
+            Gn();
+            this.mPagerAdapter = new b(this.aZJ);
             this.mViewPager.setAdapter(this.mPagerAdapter);
-            this.aZH.setViewPager(this.mViewPager);
+            this.aZI.setViewPager(this.mViewPager);
         }
     }
 
-    private void Gl() {
-        int size = this.aZI.size();
+    private void Gn() {
+        int size = this.aZJ.size();
         for (int i = 0; i < size; i++) {
-            this.aZI.get(i).setAdapter((ListAdapter) new a(getContext(), dM(i)));
+            this.aZJ.get(i).setAdapter((ListAdapter) new a(getContext(), dM(i)));
         }
     }
 

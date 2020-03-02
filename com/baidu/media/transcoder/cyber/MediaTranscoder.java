@@ -23,16 +23,16 @@ public class MediaTranscoder extends c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a extends Handler {
-        private final MediaTranscoder aMI;
+        private final MediaTranscoder aMJ;
 
         public a(MediaTranscoder mediaTranscoder, Looper looper) {
             super(looper);
-            this.aMI = mediaTranscoder;
+            this.aMJ = mediaTranscoder;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            MediaTranscoder mediaTranscoder = this.aMI;
+            MediaTranscoder mediaTranscoder = this.aMJ;
             if (mediaTranscoder == null) {
                 d.c("MediaTranscoder", "MediaTranscoder went away with unhandled events.");
                 return;

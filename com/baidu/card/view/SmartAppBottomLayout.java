@@ -50,15 +50,15 @@ public class SmartAppBottomLayout extends LinearLayout implements m<com.baidu.tb
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        bj aAe = aVar.aAe();
-        if (aAe != null && aAe.aCY() != null) {
-            if (!TextUtils.isEmpty(aAe.aCY().avatar)) {
-                this.OP.startLoad(aAe.aCY().avatar, 10, false);
+        bj aAg = aVar.aAg();
+        if (aAg != null && aAg.aDa() != null) {
+            if (!TextUtils.isEmpty(aAg.aDa().avatar)) {
+                this.OP.startLoad(aAg.aDa().avatar, 10, false);
             } else {
                 am.setImageResource(this.OP, R.drawable.icon_avatar_smallapp_tie);
             }
-            if (aAe.aCY() != null && !TextUtils.isEmpty(aAe.aCY().name)) {
-                au.a(this.OQ, aAe.aCY().name, (int) R.string.ai_smart_app, (int) R.dimen.tbds0, 1, Ky, false);
+            if (aAg.aDa() != null && !TextUtils.isEmpty(aAg.aDa().name)) {
+                au.a(this.OQ, aAg.aDa().name, (int) R.string.ai_smart_app, (int) R.dimen.tbds0, 1, Ky, false);
             } else {
                 this.OQ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
             }

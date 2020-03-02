@@ -9,22 +9,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class r implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId grs = BdUniqueId.gen();
-    private List<MetaData> grp;
-    private int gro = 0;
-    private String grq = "本吧都在关注";
-    private boolean grr = false;
+    public static final BdUniqueId gru = BdUniqueId.gen();
+    private List<MetaData> grr;
+    private int grq = 0;
+    private String grs = "本吧都在关注";
+    private boolean grt = false;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return grs;
+        return gru;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.v.isEmpty(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.gro = frsPageUserExtend.user_extend_storey.intValue();
-            this.grp = new ArrayList(list.size());
+            this.grq = frsPageUserExtend.user_extend_storey.intValue();
+            this.grr = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -33,11 +33,11 @@ public class r implements com.baidu.adp.widget.ListView.m {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.grp.add(metaData);
+                        this.grr.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.grq = frsPageUserExtend.tips;
+                    this.grs = frsPageUserExtend.tips;
                     return;
                 }
             }
@@ -46,29 +46,29 @@ public class r implements com.baidu.adp.widget.ListView.m {
 
     public void a(FeatureCardGod featureCardGod) {
         if (featureCardGod != null && !com.baidu.tbadk.core.util.v.isEmpty(featureCardGod.sub_nodes)) {
-            this.gro = featureCardGod.floor.intValue();
-            this.grp = featureCardGod.sub_nodes;
-            this.grq = featureCardGod.title;
+            this.grq = featureCardGod.floor.intValue();
+            this.grr = featureCardGod.sub_nodes;
+            this.grs = featureCardGod.title;
         }
     }
 
-    public int aDw() {
-        return this.gro;
-    }
-
-    public List<MetaData> getUserInfo() {
-        return this.grp;
-    }
-
-    public String bFq() {
+    public int aDy() {
         return this.grq;
     }
 
-    public boolean bFr() {
+    public List<MetaData> getUserInfo() {
         return this.grr;
     }
 
+    public String bFs() {
+        return this.grs;
+    }
+
+    public boolean bFt() {
+        return this.grt;
+    }
+
     public void lv(boolean z) {
-        this.grr = z;
+        this.grt = z;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.c;
 /* loaded from: classes.dex */
 public class b {
-    public boolean cQM;
+    public boolean cQN;
     public String fid;
 }

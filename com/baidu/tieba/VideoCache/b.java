@@ -14,15 +14,15 @@ import java.util.Collections;
 /* loaded from: classes9.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a dWt = new a();
+    private a dWu = new a();
 
     public b() {
-        aWW();
+        aWY();
     }
 
-    private void aWW() {
+    private void aWY() {
         File[] listFiles;
-        File file = new File(i.dXd);
+        File file = new File(i.dXe);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
@@ -30,10 +30,10 @@ public class b {
                     dVar.setFileName(file2.getName());
                     dVar.cl(wo(file2.getAbsolutePath()));
                     dVar.cm(m.wA(file2.getName()));
-                    this.dWt.a(dVar);
+                    this.dWu.a(dVar);
                 }
             }
-            Collections.sort(this.dWt.aWT(), new AccessTimeComparator());
+            Collections.sort(this.dWu.aWV(), new AccessTimeComparator());
         }
     }
 
@@ -144,15 +144,15 @@ public class b {
         String wC = m.wC(str);
         if (wC != null && !wC.isEmpty()) {
             wq(wC);
-            if (this.dWt != null) {
+            if (this.dWu != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.dWt.aWV()) {
+                    if (i >= this.dWu.aWX()) {
                         dVar = null;
                         break;
                     }
-                    d nX = this.dWt.nX((this.dWt.aWV() - 1) - i);
+                    d nX = this.dWu.nX((this.dWu.aWX() - 1) - i);
                     if (nX != null && nX.getFileName() != null && nX.getFileName().equals(wC)) {
                         dVar = nX;
                         break;
@@ -160,7 +160,7 @@ public class b {
                     i++;
                 }
                 if (dVar != null) {
-                    this.dWt.b(dVar);
+                    this.dWu.b(dVar);
                 } else {
                     dVar = new d();
                     dVar.setFileName(wC);
@@ -169,29 +169,29 @@ public class b {
                 t(wC, currentTimeMillis2);
                 dVar.cl(currentTimeMillis2);
                 dVar.cm(m.wA(wC));
-                this.dWt.a(dVar);
-                j.z(TAG, "total cache size: " + ((this.dWt.aWU() / 1024) / 1024) + "M list size " + this.dWt.aWV());
-                if (this.dWt.aWU() > 629145600) {
-                    while (this.dWt.aWU() > 524288000 && this.dWt.aWV() > 2 && aWX()) {
+                this.dWu.a(dVar);
+                j.z(TAG, "total cache size: " + ((this.dWu.aWW() / 1024) / 1024) + "M list size " + this.dWu.aWX());
+                if (this.dWu.aWW() > 629145600) {
+                    while (this.dWu.aWW() > 524288000 && this.dWu.aWX() > 2 && aWZ()) {
                     }
-                    aWZ();
+                    aXb();
                 }
-                if (m.aXn() < 314572800) {
-                    while (m.aXn() < 419430400 && this.dWt.aWV() > 2 && aWX()) {
+                if (m.aXp() < 314572800) {
+                    while (m.aXp() < 419430400 && this.dWu.aWX() > 2 && aWZ()) {
                     }
-                    aWZ();
+                    aXb();
                 }
                 j.z(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean aWX() {
-        d nX = this.dWt.nX(0);
-        if (nX == null || !(e.aXd().wr(nX.getFileName()) || e.aXd().wt(nX.getFileName()))) {
-            this.dWt.remove(0);
+    private boolean aWZ() {
+        d nX = this.dWu.nX(0);
+        if (nX == null || !(e.aXf().wr(nX.getFileName()) || e.aXf().wt(nX.getFileName()))) {
+            this.dWu.remove(0);
             if (nX != null) {
-                File file = new File(i.dXe + nX.getFileName());
+                File file = new File(i.dXf + nX.getFileName());
                 j.z(TAG, "delete file " + file.getName());
                 m.J(file);
             }
@@ -201,7 +201,7 @@ public class b {
     }
 
     private void t(String str, long j) {
-        File file = new File(i.dXe + str);
+        File file = new File(i.dXf + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -217,14 +217,14 @@ public class b {
         }
     }
 
-    public void aWY() {
-        if (this.dWt != null) {
+    public void aXa() {
+        if (this.dWu != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.dWt.aWV() - 2; i++) {
-                d nX = this.dWt.nX(i);
+            for (int i = 0; i < this.dWu.aWX() - 2; i++) {
+                d nX = this.dWu.nX(i);
                 if (nX != null) {
-                    if (currentTimeMillis - nX.aXc() < 86400000) {
+                    if (currentTimeMillis - nX.aXe() < 86400000) {
                         break;
                     }
                     arrayList.add(nX);
@@ -232,16 +232,16 @@ public class b {
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.aXd().wr(dVar.getFileName()) && !e.aXd().wt(dVar.getFileName()))) {
-                    this.dWt.b(dVar);
+                if (dVar == null || (!e.aXf().wr(dVar.getFileName()) && !e.aXf().wt(dVar.getFileName()))) {
+                    this.dWu.b(dVar);
                     if (dVar != null) {
-                        File file = new File(i.dXe + dVar.getFileName());
+                        File file = new File(i.dXf + dVar.getFileName());
                         j.z(TAG, "delete expired file " + dVar.getFileName());
                         m.J(file);
                     }
                 }
             }
-            aWZ();
+            aXb();
         }
     }
 
@@ -250,8 +250,8 @@ public class b {
         if (str != null) {
             try {
                 if (!str.isEmpty()) {
-                    File file = new File(i.dXe + str + "/completed");
-                    File file2 = new File(i.dXe + str + "/segments");
+                    File file = new File(i.dXf + str + "/completed");
+                    File file2 = new File(i.dXf + str + "/segments");
                     if (file.exists()) {
                         j.z(TAG, "delete segments");
                         if (file2 != null && file2.exists() && file2.listFiles() != null) {
@@ -271,16 +271,16 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.dWt != null) {
-            while (this.dWt.aWV() > 0 && aWX()) {
+        if (this.dWu != null) {
+            while (this.dWu.aWX() > 0 && aWZ()) {
             }
-            aWZ();
+            aXb();
         }
     }
 
-    private void aWZ() {
+    private void aXb() {
         File[] listFiles;
-        File file = new File(i.dXd);
+        File file = new File(i.dXe);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {

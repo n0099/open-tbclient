@@ -10,15 +10,15 @@ import org.json.JSONObject;
 public class e implements c {
 
     /* renamed from: pl  reason: collision with root package name */
-    private JSONObject f974pl;
+    private JSONObject f973pl;
 
     public e(JSONObject jSONObject) {
-        this.f974pl = jSONObject;
+        this.f973pl = jSONObject;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        Iterator<String> keys = this.f974pl.keys();
+        Iterator<String> keys = this.f973pl.keys();
         if (keys != null) {
             HashSet hashSet = new HashSet();
             while (keys.hasNext()) {
@@ -33,13 +33,13 @@ public class e implements c {
     }
 
     public Object getObject(String str) {
-        return this.f974pl.opt(str);
+        return this.f973pl.opt(str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void e(String str, Object obj) {
         try {
-            this.f974pl.putOpt(str, obj);
+            this.f973pl.putOpt(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }

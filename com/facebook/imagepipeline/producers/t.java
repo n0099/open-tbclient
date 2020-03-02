@@ -5,64 +5,64 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class t {
-    private final ak lVE;
-    private long lVF = 0;
-    private int lVG;
+    private final ak lVG;
+    private long lVH = 0;
+    private int lVI;
     @Nullable
-    private com.facebook.imagepipeline.common.a lVH;
-    private final k<com.facebook.imagepipeline.g.e> lVx;
+    private com.facebook.imagepipeline.common.a lVJ;
+    private final k<com.facebook.imagepipeline.g.e> lVz;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.lVx = kVar;
-        this.lVE = akVar;
+        this.lVz = kVar;
+        this.lVG = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> drH() {
-        return this.lVx;
+    public k<com.facebook.imagepipeline.g.e> drJ() {
+        return this.lVz;
     }
 
-    public ak drI() {
-        return this.lVE;
-    }
-
-    public String getId() {
-        return this.lVE.getId();
-    }
-
-    public am drw() {
-        return this.lVE.drw();
-    }
-
-    public Uri getUri() {
-        return this.lVE.drv().dso();
-    }
-
-    public long drJ() {
-        return this.lVF;
-    }
-
-    public void fj(long j) {
-        this.lVF = j;
-    }
-
-    public int drK() {
+    public ak drK() {
         return this.lVG;
     }
 
-    public void IL(int i) {
-        this.lVG = i;
+    public String getId() {
+        return this.lVG.getId();
     }
 
-    @Nullable
-    public com.facebook.imagepipeline.common.a drL() {
+    public am dry() {
+        return this.lVG.dry();
+    }
+
+    public Uri getUri() {
+        return this.lVG.drx().dsq();
+    }
+
+    public long drL() {
         return this.lVH;
     }
 
-    public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.lVH = aVar;
+    public void fj(long j) {
+        this.lVH = j;
     }
 
-    public Map<String, String> drM() {
-        return this.lVE.drv().drM();
+    public int drM() {
+        return this.lVI;
+    }
+
+    public void IL(int i) {
+        this.lVI = i;
+    }
+
+    @Nullable
+    public com.facebook.imagepipeline.common.a drN() {
+        return this.lVJ;
+    }
+
+    public void c(com.facebook.imagepipeline.common.a aVar) {
+        this.lVJ = aVar;
+    }
+
+    public Map<String, String> drO() {
+        return this.lVG.drx().drO();
     }
 }

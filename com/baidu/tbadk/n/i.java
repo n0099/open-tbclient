@@ -11,15 +11,15 @@ public class i extends g {
     public long dDE;
     public long dDF;
     public long dDG;
-    public boolean dDH;
-    public long dDI;
+    public long dDH;
+    public boolean dDI;
     public long dDJ;
-    public boolean dDK;
-    public long dDL;
+    public long dDK;
+    public boolean dDL;
     public long dDM;
     public long dDN;
     public long dDO;
-    public long dDv;
+    public long dDP;
     public long dDw;
     public long dDx;
     public long dDy;
@@ -34,75 +34,75 @@ public class i extends g {
     public i() {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.dDC = 0L;
-        this.dDE = 0L;
+        this.dDD = 0L;
         this.dDF = 0L;
         this.dDG = 0L;
-        this.dDI = 0L;
+        this.dDH = 0L;
         this.dDJ = 0L;
-        this.dDK = false;
+        this.dDK = 0L;
+        this.dDL = false;
     }
 
     public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.dDC = 0L;
-        this.dDE = 0L;
+        this.dDD = 0L;
         this.dDF = 0L;
         this.dDG = 0L;
-        this.dDI = 0L;
+        this.dDH = 0L;
         this.dDJ = 0L;
-        this.dDK = false;
+        this.dDK = 0L;
+        this.dDL = false;
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.dDH = z;
-            if (this.dDH) {
-                this.dDG = responsedMessage.getDownSize();
-                this.dDL = responsedMessage.getOrginalMessage().getClientLogID();
+            this.dDI = z;
+            if (this.dDI) {
+                this.dDH = responsedMessage.getDownSize();
+                this.dDM = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.dDI = responsedMessage.performanceData.mHttpRetryNum;
-                this.dDJ = responsedMessage.performanceData.mHttpRetryCostTime;
+                this.dDJ = responsedMessage.performanceData.mHttpRetryNum;
+                this.dDK = responsedMessage.performanceData.mHttpRetryCostTime;
                 this.socketErrNo = responsedMessage.performanceData.mSocketErrNo;
                 this.socketCostTime = responsedMessage.performanceData.mSocketCostTime;
             } else {
-                this.dDF = responsedMessage.getDownSize();
+                this.dDG = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.dDv = j;
-            this.dDw = j2;
-            this.dDD = j3;
+            this.dDw = j;
+            this.dDx = j2;
+            this.dDE = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.dDx = responsedMessage.performanceData.mQueneTime;
-            this.dDy = responsedMessage.performanceData.mNetConTime;
-            this.dDz = responsedMessage.performanceData.mNetRWTime;
+            this.dDy = responsedMessage.performanceData.mQueneTime;
+            this.dDz = responsedMessage.performanceData.mNetConTime;
+            this.dDA = responsedMessage.performanceData.mNetRWTime;
             this.firstByteReachTime = responsedMessage.performanceData.mFirstByteReachTime;
             this.allDataReadTime = responsedMessage.performanceData.mAllDataReadTime;
-            this.dDA = responsedMessage.performanceData.mCompressTime;
-            this.dDB = responsedMessage.performanceData.mAnalysisTime;
-            this.dDC = responsedMessage.performanceData.mTaskWaitTime;
-            this.dDC += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.dDB = responsedMessage.performanceData.mCompressTime;
+            this.dDC = responsedMessage.performanceData.mAnalysisTime;
+            this.dDD = responsedMessage.performanceData.mTaskWaitTime;
+            this.dDD += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.dDK = z2;
-            this.dDE = j4;
+            this.dDL = z2;
+            this.dDF = j4;
         }
     }
 
-    public void aRg() {
-        o oVar = (o) m.aRj().mN(this.mSubType);
+    public void aRi() {
+        o oVar = (o) m.aRl().mN(this.mSubType);
         if (oVar != null) {
             oVar.a(this);
         }
     }
 
     public void gT(boolean z) {
-        o oVar = (o) m.aRj().mN(this.mSubType);
+        o oVar = (o) m.aRl().mN(this.mSubType);
         if (oVar != null) {
             oVar.a(this, z);
         }
     }
 
     public void mL(int i) {
-        o oVar = (o) m.aRj().mN(this.mSubType);
+        o oVar = (o) m.aRl().mN(this.mSubType);
         if (oVar != null) {
             oVar.a(this, i);
         }

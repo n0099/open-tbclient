@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.a;
 import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes3.dex */
 public class j extends v.a {
-    public i erh;
+    public i eri;
 
     public j(i iVar) {
         super(iVar.getView());
-        this.erh = iVar;
+        this.eri = iVar;
     }
 }

@@ -19,8 +19,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private com.baidu.tieba.card.z<com.baidu.tieba.card.data.e> JZ;
     private String LC;
     private com.baidu.adp.widget.ListView.r OR;
-    public BdUniqueId dBj;
-    private NEGFeedBackView.a dUp;
+    public BdUniqueId dBk;
+    private NEGFeedBackView.a dUq;
     private int from;
     private TbPageContext<?> mPageContext;
 
@@ -29,7 +29,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         int id = view.getId();
         if (id == R.id.thread_card_root) {
             if (this.from == 0) {
-                TiebaStatic.log(eVar.bvA());
+                TiebaStatic.log(eVar.bvC());
             } else if (this.from == 1) {
                 com.baidu.tieba.homepage.concern.b.a(view, eVar, 2);
             }
@@ -49,9 +49,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.z
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.e eVar) {
-                com.baidu.tieba.card.r.bve().ib(true);
-                com.baidu.tieba.a.d.aXD().cv("page_recommend", "show_");
-                if (view != null && eVar != null && eVar.aAe() != null && !StringUtils.isNull(eVar.aAe().getTid())) {
+                com.baidu.tieba.card.r.bvg().ib(true);
+                com.baidu.tieba.a.d.aXF().cv("page_recommend", "show_");
+                if (view != null && eVar != null && eVar.aAg() != null && !StringUtils.isNull(eVar.aAg().getTid())) {
                     c.this.a(view, eVar);
                 }
             }
@@ -66,15 +66,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public af<com.baidu.tieba.card.data.e> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.dBj);
+        eVar.setPageUniqueId(this.dBk);
         eVar.b(this.mPageContext);
         aVar.a(eVar);
         aVar.c(new com.baidu.card.c(this.mPageContext.getPageActivity()));
         aVar.a((com.baidu.card.h) new com.baidu.card.i(this.mPageContext.getPageActivity()));
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.cNA = 1;
-        dVar.cNG = 1;
+        dVar.cNB = 1;
+        dVar.cNH = 1;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(this.from == 0 ? 1 : 9);
         agVar.setShareReportFrom(this.from == 0 ? 3 : 4);
@@ -86,7 +86,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         ad a = aVar.a(true, viewGroup, this.OR);
         a.aQ(this.from != 0 ? 1 : 2);
         af<com.baidu.tieba.card.data.e> afVar = new af<>(a);
-        afVar.setPageId(this.dBj);
+        afVar.setPageId(this.dBk);
         a(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.personalize.a.c.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -107,10 +107,10 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         afVar.nk().setPosition(i);
         afVar.nk().setPage(this.LC);
         if (this.from == 0) {
-            afVar.ag(true).a(this.dUp);
-            com.baidu.tieba.card.r.bve().d(eVar.bvz());
+            afVar.ag(true).a(this.dUq);
+            com.baidu.tieba.card.r.bvg().d(eVar.bvB());
         } else if (this.from == 1) {
-            com.baidu.tieba.card.r.bve().d(eVar.zY("c12351"));
+            com.baidu.tieba.card.r.bvg().d(eVar.zY("c12351"));
         }
         afVar.ah(true);
         afVar.b((af<com.baidu.tieba.card.data.e>) eVar);
@@ -125,7 +125,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.dUp = aVar;
+        this.dUq = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -14,8 +14,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends b {
-    private static final String bRy = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String bRz = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String bRz = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String bRA = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swanAPI/getFavor");
@@ -24,9 +24,9 @@ public class e extends b {
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONArray jSONArray = new JSONArray();
-        List<SwanFavorItemData> Se = SwanFavorDataManager.Sd().Se();
-        if (Se.size() > 0) {
-            for (SwanFavorItemData swanFavorItemData : Se) {
+        List<SwanFavorItemData> Sg = SwanFavorDataManager.Sf().Sg();
+        if (Sg.size() > 0) {
+            for (SwanFavorItemData swanFavorItemData : Sg) {
                 jSONArray.put(b(swanFavorItemData));
             }
         }
@@ -49,9 +49,9 @@ public class e extends b {
             jSONObject.put("title", swanFavorItemData.getAppName());
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(bRz, swanFavorItemData.getAppKey());
+                str = String.format(bRA, swanFavorItemData.getAppKey());
             } else {
-                str = bRy + swanFavorItemData.getAppKey() + "\"}";
+                str = bRz + swanFavorItemData.getAppKey() + "\"}";
             }
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, str);
         } catch (JSONException e) {

@@ -7,10 +7,10 @@ import java.util.List;
 public class hz implements ir<hz, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<ho> f584a;
+    public List<ho> f583a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f583a = new jh("XmPushActionCollectData");
+    private static final jh f582a = new jh("XmPushActionCollectData");
     private static final iz a = new iz("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
         if (getClass().equals(hzVar.getClass())) {
             int compareTo = Boolean.valueOf(m387a()).compareTo(Boolean.valueOf(hzVar.m387a()));
             if (compareTo == 0) {
-                if (!m387a() || (a2 = is.a(this.f584a, hzVar.f584a)) == 0) {
+                if (!m387a() || (a2 = is.a(this.f583a, hzVar.f583a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -32,12 +32,12 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
     }
 
     public hz a(List<ho> list) {
-        this.f584a = list;
+        this.f583a = list;
         return this;
     }
 
     public void a() {
-        if (this.f584a == null) {
+        if (this.f583a == null) {
             throw new jd("Required field 'dataCollectionItems' was not present! Struct: " + toString());
         }
     }
@@ -52,15 +52,15 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m468a.f789a) {
+            switch (m468a.f788a) {
                 case 1:
                     if (m468a.a == 15) {
                         ja m469a = jcVar.m469a();
-                        this.f584a = new ArrayList(m469a.f792a);
-                        for (int i = 0; i < m469a.f792a; i++) {
+                        this.f583a = new ArrayList(m469a.f791a);
+                        for (int i = 0; i < m469a.f791a; i++) {
                             ho hoVar = new ho();
                             hoVar.a(jcVar);
-                            this.f584a.add(hoVar);
+                            this.f583a.add(hoVar);
                         }
                         jcVar.i();
                         break;
@@ -78,7 +78,7 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m387a() {
-        return this.f584a != null;
+        return this.f583a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -88,17 +88,17 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
         }
         boolean m387a = m387a();
         boolean m387a2 = hzVar.m387a();
-        return !(m387a || m387a2) || (m387a && m387a2 && this.f584a.equals(hzVar.f584a));
+        return !(m387a || m387a2) || (m387a && m387a2 && this.f583a.equals(hzVar.f583a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         a();
-        jcVar.a(f583a);
-        if (this.f584a != null) {
+        jcVar.a(f582a);
+        if (this.f583a != null) {
             jcVar.a(a);
-            jcVar.a(new ja((byte) 12, this.f584a.size()));
-            for (ho hoVar : this.f584a) {
+            jcVar.a(new ja((byte) 12, this.f583a.size()));
+            for (ho hoVar : this.f583a) {
                 hoVar.b(jcVar);
             }
             jcVar.e();
@@ -122,10 +122,10 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCollectData(");
         sb.append("dataCollectionItems:");
-        if (this.f584a == null) {
+        if (this.f583a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f584a);
+            sb.append(this.f583a);
         }
         sb.append(")");
         return sb.toString();

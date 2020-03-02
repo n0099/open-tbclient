@@ -14,14 +14,14 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SmartBubbleAnimatedView extends View {
-    private float cal;
-    Rect dft;
-    public String dgW;
-    public long gss;
-    private ValueAnimator gst;
-    private a gsu;
-    private int gsv;
-    private boolean gsw;
+    private float cam;
+    Rect dfu;
+    public String dgX;
+    public long gsu;
+    private ValueAnimator gsv;
+    private a gsw;
+    private int gsx;
+    private boolean gsy;
     RectF jH;
     private ValueAnimator mAnimator;
     private Paint mPaint;
@@ -29,56 +29,56 @@ public class SmartBubbleAnimatedView extends View {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aHU();
+        void aHW();
     }
 
     public void setExtrusionRemind(boolean z) {
-        this.gsw = z;
+        this.gsy = z;
     }
 
     public void setOnBubbleAnimateListener(a aVar) {
-        this.gsu = aVar;
+        this.gsw = aVar;
     }
 
     public SmartBubbleAnimatedView(Context context) {
         super(context);
-        this.gss = 4000L;
-        this.cal = 0.0f;
+        this.gsu = 4000L;
+        this.cam = 0.0f;
         this.mPaint = new Paint();
         this.mTextPaint = new Paint();
         this.jH = new RectF();
-        this.dft = new Rect();
-        this.gsw = false;
+        this.dfu = new Rect();
+        this.gsy = false;
         a((AttributeSet) null, 0);
     }
 
     public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gss = 4000L;
-        this.cal = 0.0f;
+        this.gsu = 4000L;
+        this.cam = 0.0f;
         this.mPaint = new Paint();
         this.mTextPaint = new Paint();
         this.jH = new RectF();
-        this.dft = new Rect();
-        this.gsw = false;
+        this.dfu = new Rect();
+        this.gsy = false;
         a(attributeSet, 0);
     }
 
     public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gss = 4000L;
-        this.cal = 0.0f;
+        this.gsu = 4000L;
+        this.cam = 0.0f;
         this.mPaint = new Paint();
         this.mTextPaint = new Paint();
         this.jH = new RectF();
-        this.dft = new Rect();
-        this.gsw = false;
+        this.dfu = new Rect();
+        this.gsy = false;
         a(attributeSet, i);
     }
 
-    public void bFO() {
+    public void bFQ() {
         this.mAnimator = ValueAnimator.ofFloat(0.0f, 1.1f);
-        if (this.gsw) {
+        if (this.gsy) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams instanceof LinearLayout.LayoutParams) {
                 ((LinearLayout.LayoutParams) layoutParams).topMargin = 20;
@@ -91,8 +91,8 @@ public class SmartBubbleAnimatedView extends View {
                 ViewGroup.LayoutParams layoutParams2 = SmartBubbleAnimatedView.this.getLayoutParams();
                 layoutParams2.height = com.baidu.adp.lib.util.l.getDimens(SmartBubbleAnimatedView.this.getContext(), R.dimen.tbds83);
                 SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                SmartBubbleAnimatedView.this.cal = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (SmartBubbleAnimatedView.this.gsw && (layoutParams2 instanceof LinearLayout.LayoutParams)) {
+                SmartBubbleAnimatedView.this.cam = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                if (SmartBubbleAnimatedView.this.gsy && (layoutParams2 instanceof LinearLayout.LayoutParams)) {
                     LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) layoutParams2;
                     if (layoutParams3.topMargin > 0) {
                         layoutParams3.topMargin -= 5;
@@ -110,21 +110,21 @@ public class SmartBubbleAnimatedView extends View {
         com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.2
             @Override // java.lang.Runnable
             public void run() {
-                SmartBubbleAnimatedView.this.bFP();
+                SmartBubbleAnimatedView.this.bFR();
             }
-        }, this.gss);
+        }, this.gsu);
     }
 
-    public void bFP() {
-        if (this.gsw) {
-            if (this.gsu != null) {
-                this.gsu.aHU();
+    public void bFR() {
+        if (this.gsy) {
+            if (this.gsw != null) {
+                this.gsw.aHW();
                 return;
             }
             return;
         }
-        this.gst = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.gst.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.3
+        this.gsv = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.gsv.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 ViewGroup.LayoutParams layoutParams = SmartBubbleAnimatedView.this.getLayoutParams();
@@ -134,22 +134,22 @@ public class SmartBubbleAnimatedView extends View {
                 SmartBubbleAnimatedView.this.requestLayout();
             }
         });
-        this.gst.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.4
+        this.gsv.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (SmartBubbleAnimatedView.this.gsu != null) {
-                    SmartBubbleAnimatedView.this.gsu.aHU();
+                if (SmartBubbleAnimatedView.this.gsw != null) {
+                    SmartBubbleAnimatedView.this.gsw.aHW();
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                if (SmartBubbleAnimatedView.this.gsu != null) {
-                    SmartBubbleAnimatedView.this.gsu.aHU();
+                if (SmartBubbleAnimatedView.this.gsw != null) {
+                    SmartBubbleAnimatedView.this.gsw.aHW();
                 }
             }
 
@@ -157,15 +157,15 @@ public class SmartBubbleAnimatedView extends View {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.gst.setDuration(300L);
-        this.gst.start();
+        this.gsv.setDuration(300L);
+        this.gsv.start();
     }
 
     private void a(AttributeSet attributeSet, int i) {
         this.mPaint.setColor(com.baidu.tbadk.core.util.am.getColor(R.color.cp_link_tip_a));
         this.mTextPaint.setColor(com.baidu.tbadk.core.util.am.getColor(R.color.cp_cont_i));
         this.mTextPaint.setTextSize(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds40));
-        this.gsv = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds83);
+        this.gsx = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds83);
     }
 
     public void onChangeSkinType(int i) {
@@ -177,16 +177,16 @@ public class SmartBubbleAnimatedView extends View {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        float height = ((1.0f - this.cal) * getHeight()) / 2.0f;
-        float width = (getWidth() / 2) + ((this.cal * getWidth()) / 2.0f);
-        float height2 = (getHeight() / 2) + ((this.cal * getHeight()) / 2.0f);
-        this.jH.set(((1.0f - this.cal) * getWidth()) / 2.0f, height, width, height2);
+        float height = ((1.0f - this.cam) * getHeight()) / 2.0f;
+        float width = (getWidth() / 2) + ((this.cam * getWidth()) / 2.0f);
+        float height2 = (getHeight() / 2) + ((this.cam * getHeight()) / 2.0f);
+        this.jH.set(((1.0f - this.cam) * getWidth()) / 2.0f, height, width, height2);
         canvas.drawRoundRect(this.jH, (height2 - height) / 2.0f, (height2 - height) / 2.0f, this.mPaint);
-        this.mTextPaint.getTextBounds(this.dgW, 0, this.dgW.length(), this.dft);
-        canvas.drawText(this.dgW, 0, this.dgW.length(), (getWidth() - this.dft.width()) / 2, getHeight() - ((getHeight() - this.dft.height()) / 2), this.mTextPaint);
+        this.mTextPaint.getTextBounds(this.dgX, 0, this.dgX.length(), this.dfu);
+        canvas.drawText(this.dgX, 0, this.dgX.length(), (getWidth() - this.dfu.width()) / 2, getHeight() - ((getHeight() - this.dfu.height()) / 2), this.mTextPaint);
     }
 
     public int getTipViewHeight() {
-        return this.gsv;
+        return this.gsx;
     }
 }

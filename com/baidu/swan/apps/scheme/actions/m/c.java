@@ -24,7 +24,7 @@ public class c extends ab {
             com.baidu.swan.apps.console.c.e("updateWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
         } else {
-            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) f.WQ().hv(q.bil);
+            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) f.WS().hv(q.bim);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("updateWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

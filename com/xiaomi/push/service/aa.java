@@ -7,12 +7,12 @@ final class aa extends ai.a {
     final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ NotificationManager f840a;
+    final /* synthetic */ NotificationManager f839a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(int i, NotificationManager notificationManager) {
         this.a = i;
-        this.f840a = notificationManager;
+        this.f839a = notificationManager;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -23,6 +23,6 @@ final class aa extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f840a.cancel(this.a);
+        this.f839a.cancel(this.a);
     }
 }

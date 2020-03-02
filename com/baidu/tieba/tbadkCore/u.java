@@ -4,20 +4,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes.dex */
 public class u extends bj {
-    public static final BdUniqueId kfp = BdUniqueId.gen();
+    public static final BdUniqueId kfr = BdUniqueId.gen();
     private String fortune_desc;
-    private boolean kfq;
-    private o kfr;
+    private boolean kfs;
+    private o kft;
 
-    public boolean cKv() {
-        return this.kfq;
+    public boolean cKx() {
+        return this.kfs;
     }
 
     public void sI(boolean z) {
-        this.kfq = z;
+        this.kfs = z;
     }
 
-    public String cKw() {
+    public String cKy() {
         return this.fortune_desc;
     }
 
@@ -25,16 +25,16 @@ public class u extends bj {
         this.fortune_desc = str;
     }
 
-    public o cKx() {
-        return this.kfr;
+    public o cKz() {
+        return this.kft;
     }
 
     public void a(o oVar) {
-        this.kfr = oVar;
+        this.kft = oVar;
     }
 
     @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return kfp;
+        return kfr;
     }
 }

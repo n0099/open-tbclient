@@ -155,7 +155,7 @@ public class AlaAttentionManager {
                         this.mNetwork.addPostData("forum_id", this.forumId);
                     }
                     this.mNetwork.addPostData("in_live", this.inLive);
-                    this.mNetwork.aGe().aGF().mIsNeedTbs = true;
+                    this.mNetwork.aGg().aGH().mIsNeedTbs = true;
                     return this.mNetwork.postNetData();
                 }
             } catch (Exception e) {
@@ -171,13 +171,13 @@ public class AlaAttentionManager {
             super.onPostExecute((AttentionAsyncTask) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.aGe().aGG().isRequestSuccess();
+                aVar.isSucc = this.mNetwork.aGg().aGI().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                aVar.daJ = this.mNetwork.aGe().aGG();
+                aVar.daK = this.mNetwork.aGg().aGI();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                 updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.pageId));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -241,11 +241,11 @@ public class AlaAttentionManager {
     }
 
     private void saveLastShowTime() {
-        b.aFB().putLong(SharedPrefConfig.ALA_LIVE_PUSH_REMIND_SHOWTIME + getUserId(), System.currentTimeMillis());
+        b.aFD().putLong(SharedPrefConfig.ALA_LIVE_PUSH_REMIND_SHOWTIME + getUserId(), System.currentTimeMillis());
     }
 
     private long getLastShowTime() {
-        return b.aFB().getLong(SharedPrefConfig.ALA_LIVE_PUSH_REMIND_SHOWTIME + getUserId(), 0L);
+        return b.aFD().getLong(SharedPrefConfig.ALA_LIVE_PUSH_REMIND_SHOWTIME + getUserId(), 0L);
     }
 
     private String getUserId() {
@@ -260,7 +260,7 @@ public class AlaAttentionManager {
     }
 
     public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {
-        if (System.currentTimeMillis() - getLastShowTime() < 86400000 || d.aLj().aLl()) {
+        if (System.currentTimeMillis() - getLastShowTime() < 86400000 || d.aLl().aLn()) {
             if (z) {
                 showAttentionSucceedTip(tbPageContext);
                 return;
@@ -271,7 +271,7 @@ public class AlaAttentionManager {
     }
 
     public void showLivePushRemindDialog(TbPageContext tbPageContext, boolean z) {
-        if (!d.aLj().aLl()) {
+        if (!d.aLl().aLn()) {
             new AlaLivePushRemindDialog(tbPageContext).showDialog(z);
             saveLastShowTime();
         }
@@ -284,10 +284,10 @@ public class AlaAttentionManager {
     }
 
     public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, final e<?> eVar, boolean z) {
-        if (aVar == null || aVar.resultJson == null || aVar.daJ == null || eVar == null || eVar.getPageActivity() == null) {
+        if (aVar == null || aVar.resultJson == null || aVar.daK == null || eVar == null || eVar.getPageActivity() == null) {
             return false;
         }
-        int i = aVar.daJ.mServerErrorCode;
+        int i = aVar.daK.mServerErrorCode;
         if (i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004) {
             if (aVar.hasShownForbiddenAlert) {
                 return true;
@@ -320,7 +320,7 @@ public class AlaAttentionManager {
                         TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).X("obj_locate", at.a.LOCATE_LIKE_PERSON));
                     }
                 });
-                aVar2.b(eVar).aEA();
+                aVar2.b(eVar).aEC();
                 TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).X("obj_locate", at.a.LOCATE_LIKE_PERSON));
                 return true;
             }

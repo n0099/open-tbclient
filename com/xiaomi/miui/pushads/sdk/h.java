@@ -57,7 +57,7 @@ public class h extends ce {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("showType", this.a);
-            jSONObject.put("lastShowTime", this.f180b);
+            jSONObject.put("lastShowTime", this.f179b);
             jSONObject.put("actionUrl", this.a);
             jSONObject.put("type", this.f);
             jSONObject.put("imgUrl", this.b);

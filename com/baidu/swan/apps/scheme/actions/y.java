@@ -48,7 +48,7 @@ public class y extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            eVar.acN().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+            eVar.acP().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
@@ -100,13 +100,13 @@ public class y extends ab {
 
     private File a(com.baidu.swan.apps.runtime.e eVar, String str, URI uri) {
         String mh;
-        com.baidu.swan.apps.storage.b.c Wx = com.baidu.swan.apps.y.f.WQ().Wx();
+        com.baidu.swan.apps.storage.b.c Wz = com.baidu.swan.apps.y.f.WS().Wz();
         if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
-            mh = Wx.mi(str);
-        } else if (com.baidu.swan.apps.ah.a.a.k(eVar.GC())) {
-            mh = Wx.lZ(str);
+            mh = Wz.mi(str);
+        } else if (com.baidu.swan.apps.ah.a.a.k(eVar.GE())) {
+            mh = Wz.lZ(str);
         } else {
-            mh = Wx.mh(str);
+            mh = Wz.mh(str);
         }
         if (TextUtils.isEmpty(mh)) {
             return null;

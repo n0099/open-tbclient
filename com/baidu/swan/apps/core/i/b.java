@@ -22,23 +22,23 @@ import org.json.JSONObject;
 abstract class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    protected abstract String PQ();
+    protected abstract String PS();
 
     protected abstract boolean a(c cVar);
 
     protected abstract String hp(String str);
 
-    public HashMap<String, c> PR() {
+    public HashMap<String, c> PT() {
         JSONArray optJSONArray;
-        String PQ = PQ();
-        if (TextUtils.isEmpty(PQ) || (optJSONArray = s.parseString(PQ).optJSONArray("list")) == null) {
+        String PS = PS();
+        if (TextUtils.isEmpty(PS) || (optJSONArray = s.parseString(PS).optJSONArray("list")) == null) {
             return null;
         }
         HashMap<String, c> hashMap = new HashMap<>();
         for (int i = 0; i < optJSONArray.length(); i++) {
             c ah = ah(optJSONArray.optJSONObject(i));
             if (ah != null) {
-                hashMap.put(ah.cAX, ah);
+                hashMap.put(ah.cAY, ah);
             }
         }
         return hashMap;
@@ -56,7 +56,7 @@ abstract class b {
                 @Override // java.lang.Runnable
                 public void run() {
                     jP.f(new UbcFlowEvent("loadPresetApp#run-start").dg(true));
-                    String hp = b.this.hp(cVar.cAX);
+                    String hp = b.this.hp(cVar.cAY);
                     if (TextUtils.isEmpty(hp)) {
                         dVar.onFailed(0);
                         return;
@@ -77,8 +77,8 @@ abstract class b {
                     }
                     jP.f(new UbcFlowEvent("loadPresetApp#run-doUnzipBundle").dg(true));
                     if (a2) {
-                        a.setOrientation(b.this.c(cVar.category, cVar.cAX, cVar.versionCode));
-                        com.baidu.swan.pms.database.a.att().a(cVar, a);
+                        a.setOrientation(b.this.c(cVar.category, cVar.cAY, cVar.versionCode));
+                        com.baidu.swan.pms.database.a.atv().a(cVar, a);
                         jP.f(new UbcFlowEvent("loadPresetApp#run-bulkInsert").dg(true));
                         dVar.f(a);
                     } else {
@@ -97,7 +97,7 @@ abstract class b {
         if (i != 1 || (y = com.baidu.swan.apps.core.pms.d.a.y(str, i2)) == null) {
             return 0;
         }
-        return y.cre;
+        return y.crf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -114,9 +114,9 @@ abstract class b {
     private c ah(JSONObject jSONObject) {
         c cVar;
         if (jSONObject != null && (cVar = (c) com.baidu.swan.pms.f.d.a(jSONObject, new c())) != null) {
-            cVar.cBh = jSONObject.optInt("pkg_type");
-            cVar.bra = jSONObject.optString("bundle_name");
-            if (cVar.PS()) {
+            cVar.cBi = jSONObject.optInt("pkg_type");
+            cVar.brb = jSONObject.optString("bundle_name");
+            if (cVar.PU()) {
                 return cVar;
             }
             return null;

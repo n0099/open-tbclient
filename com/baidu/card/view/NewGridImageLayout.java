@@ -105,14 +105,14 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
         });
         this.OE = new com.baidu.tbadk.widget.richText.a();
         int i = l.getScreenDimensions(this.mContext)[0];
-        this.OE.dNY = i - l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds88);
-        this.OE.dNZ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        this.OE.dNZ = i - l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds88);
+        this.OE.dOa = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
         this.OB.setLayoutStrategy(this.OE);
         this.OD = new LinkedList<>();
         this.OB.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.3
             @Override // com.baidu.tbadk.widget.richText.TbRichTextView.i
             public void a(View view, String str, int i2, boolean z, boolean z2) {
-                au.a(view, NewGridImageLayout.this.OE.mIsFromCDN, (List<MediaData>) NewGridImageLayout.this.OD, i2, NewGridImageLayout.this.Kc.aAe(), NewGridImageLayout.this.mFrom, true);
+                au.a(view, NewGridImageLayout.this.OE.mIsFromCDN, (List<MediaData>) NewGridImageLayout.this.OD, i2, NewGridImageLayout.this.Kc.aAg(), NewGridImageLayout.this.mFrom, true);
             }
         });
     }
@@ -129,39 +129,39 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.aAe() != null) {
-            bj aAe = aVar.aAe();
-            OriginalThreadInfo originalThreadInfo = aAe.cTP;
+        if (aVar != null && aVar.aAg() != null) {
+            bj aAg = aVar.aAg();
+            OriginalThreadInfo originalThreadInfo = aAg.cTQ;
             if (originalThreadInfo != null && this.OC) {
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
                 this.mTitle.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
                 this.mTitle.setVisibility(8);
-                if (originalThreadInfo.cOJ) {
-                    au.a(this.KA, this.mTitle, new SpannableString(originalThreadInfo.title), aAe, this.OA, this.OC);
+                if (originalThreadInfo.cOK) {
+                    au.a(this.KA, this.mTitle, new SpannableString(originalThreadInfo.title), aAg, this.OA, this.OC);
                     am.setViewTextColor(this.KA, (int) R.color.cp_cont_c);
                 } else {
-                    au.a(this.KA, this.mTitle, originalThreadInfo.cPK, aAe, this.OA, this.OC);
+                    au.a(this.KA, this.mTitle, originalThreadInfo.cPL, aAg, this.OA, this.OC);
                 }
             } else {
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
                 this.mTitle.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
-                au.a(this.mTitle, aAe);
-                au.a(this.KA, this.mTitle, aAe.aBO(), aAe, this.OA, this.OC);
+                au.a(this.mTitle, aAg);
+                au.a(this.KA, this.mTitle, aAg.aBQ(), aAg, this.OA, this.OC);
             }
-            if (o(aAe)) {
-                p(aAe);
+            if (o(aAg)) {
+                p(aAg);
             }
-            setVoiceData(aAe);
+            setVoiceData(aAg);
             nn();
             this.Kc = aVar;
-            if (this.Kc.aAe().cTP != null) {
-                if (aAe.isShareThread) {
-                    if (this.Kc.aAe().cTP != null) {
-                        if (!this.Kc.aAe().cTP.cOJ) {
+            if (this.Kc.aAg().cTQ != null) {
+                if (aAg.isShareThread) {
+                    if (this.Kc.aAg().cTQ != null) {
+                        if (!this.Kc.aAg().cTQ.cOK) {
                             this.OB.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.4
                                 @Override // com.baidu.tbadk.widget.richText.TbRichTextView.i
                                 public void a(View view, String str, int i, boolean z, boolean z2) {
-                                    au.a(NewGridImageLayout.this.Kc.aAe().cTP, NewGridImageLayout.this.mContext, 2);
+                                    au.a(NewGridImageLayout.this.Kc.aAg().cTQ, NewGridImageLayout.this.mContext, 2);
                                 }
                             });
                         }
@@ -169,16 +169,16 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
                         return;
                     }
                 }
-                if (!this.Kc.aAe().cTP.cOJ) {
+                if (!this.Kc.aAg().cTQ.cOK) {
                     this.OB.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.5
                         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.i
                         public void a(View view, String str, int i, boolean z, boolean z2) {
-                            au.a(view, true, (List<MediaData>) NewGridImageLayout.this.OD, i, NewGridImageLayout.this.Kc.aAe().cTP.aAU(), NewGridImageLayout.this.mFrom, NewGridImageLayout.this.Kc.aAe().cTP.cPI);
+                            au.a(view, true, (List<MediaData>) NewGridImageLayout.this.OD, i, NewGridImageLayout.this.Kc.aAg().cTQ.aAW(), NewGridImageLayout.this.mFrom, NewGridImageLayout.this.Kc.aAg().cTQ.cPJ);
                         }
                     });
                 }
                 if (this.OC) {
-                    if (this.Kc.aAe().cTP == null || this.Kc.aAe().cTP.cOJ) {
+                    if (this.Kc.aAg().cTQ == null || this.Kc.aAg().cTQ.cOK) {
                         setOnClickListener(null);
                     } else {
                         setOnClickListener(this);
@@ -204,21 +204,21 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
                     }
                 });
             }
-            ArrayList<VoiceData.VoiceModel> aCA = (!bjVar.isShareThread || bjVar.cTP == null) ? bjVar.aCA() : bjVar.cTP.cPJ;
-            if (v.isEmpty(aCA)) {
+            ArrayList<VoiceData.VoiceModel> aCC = (!bjVar.isShareThread || bjVar.cTQ == null) ? bjVar.aCC() : bjVar.cTQ.cPK;
+            if (v.isEmpty(aCC)) {
                 this.NY.setVisibility(8);
                 this.Ob = false;
                 return;
             }
             this.NY.setVisibility(0);
-            VoiceData.VoiceModel voiceModel = aCA.get(0);
+            VoiceData.VoiceModel voiceModel = aCC.get(0);
             this.NY.setVoiceModel(voiceModel);
             this.NY.setTag(voiceModel);
-            this.NY.bHq();
+            this.NY.bHs();
             if (voiceModel != null) {
                 this.NY.wW(voiceModel.voice_status.intValue());
             }
-            this.NY.cMf();
+            this.NY.cMh();
             this.Ob = true;
         }
     }
@@ -264,11 +264,11 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
     }
 
     private boolean o(bj bjVar) {
-        if (this.Kc == null || this.Kc.aAe() == null) {
+        if (this.Kc == null || this.Kc.aAg() == null) {
             return true;
         }
-        if (this.Kc.aAe().getTid() == null || this.Kc.aAe().getTid().equals(bjVar.getTid())) {
-            return (!bjVar.isShareThread || bjVar.cTP == null) ? !c(bjVar.aCw(), this.Kc.aAe().aCw()) : this.Kc.aAe().cTP == null || !c(bjVar.cTP.cPF, this.Kc.aAe().cTP.cPF);
+        if (this.Kc.aAg().getTid() == null || this.Kc.aAg().getTid().equals(bjVar.getTid())) {
+            return (!bjVar.isShareThread || bjVar.cTQ == null) ? !c(bjVar.aCy(), this.Kc.aAg().aCy()) : this.Kc.aAg().cTQ == null || !c(bjVar.cTQ.cPG, this.Kc.aAg().cTQ.cPG);
         }
         return true;
     }
@@ -277,23 +277,23 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
         boolean z;
         ArrayList<MediaData> arrayList;
         String b;
-        ArrayList<MediaData> aCw = bjVar.aCw();
-        String aBW = bjVar.aBW();
-        if (!bjVar.isShareThread || bjVar.cTP == null) {
+        ArrayList<MediaData> aCy = bjVar.aCy();
+        String aBY = bjVar.aBY();
+        if (!bjVar.isShareThread || bjVar.cTQ == null) {
             z = false;
-            arrayList = aCw;
-        } else if (bjVar.cTP.cOJ) {
+            arrayList = aCy;
+        } else if (bjVar.cTQ.cOK) {
             this.OB.setVisibility(8);
             return;
         } else {
             z = true;
-            arrayList = bjVar.cTP.cPF;
+            arrayList = bjVar.cTQ.cPG;
         }
         if (v.getCount(arrayList) != 0) {
             this.OD.clear();
             for (int i = 0; i < arrayList.size(); i++) {
                 MediaData mediaData = (MediaData) v.getItem(arrayList, i);
-                if (mediaData != null && mediaData.getType() == 3 && (z || (aBW != null && aBW.equals(mediaData.getPostId() + "")))) {
+                if (mediaData != null && mediaData.getType() == 3 && (z || (aBY != null && aBY.equals(mediaData.getPostId() + "")))) {
                     this.OD.add(mediaData);
                 }
             }

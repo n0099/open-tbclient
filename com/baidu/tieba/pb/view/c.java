@@ -8,69 +8,69 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.share.e;
 /* loaded from: classes9.dex */
 public class c {
-    private ImageView jcD;
-    private boolean jcF = false;
-    private Runnable jcG = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
+    private ImageView jcF;
+    private boolean jcH = false;
+    private Runnable jcI = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.jcF = true;
-            int aMu = e.aMu();
-            if (aMu > 0) {
-                SvgManager.aGA().a(c.this.jcD, aMu, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                if (c.this.jcE != null) {
-                    c.this.jcE.start();
+            c.this.jcH = true;
+            int aMw = e.aMw();
+            if (aMw > 0) {
+                SvgManager.aGC().a(c.this.jcF, aMw, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                if (c.this.jcG != null) {
+                    c.this.jcG.start();
                 }
             }
         }
     };
-    private ValueAnimator jcE = new ValueAnimator();
+    private ValueAnimator jcG = new ValueAnimator();
 
     public c(ImageView imageView) {
-        this.jcD = imageView;
-        this.jcE.setDuration(4000L);
-        this.jcE.setFloatValues(0.0f, 1.0f);
-        this.jcE.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
+        this.jcF = imageView;
+        this.jcG.setDuration(4000L);
+        this.jcG.setFloatValues(0.0f, 1.0f);
+        this.jcG.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return (float) (1.075d + (0.075d * Math.sin((18.84955592153876d * f) - 1.5707963267948966d)));
             }
         });
-        this.jcE.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
+        this.jcG.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (c.this.jcD != null) {
-                    c.this.jcD.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    c.this.jcD.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (c.this.jcF != null) {
+                    c.this.jcF.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    c.this.jcF.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
     }
 
-    public void cuh() {
-        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().aJy()) {
-            com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jcG);
-            long aJz = TbSingleton.getInstance().getSharePanelConfData().aJz() * 1000;
-            if (aJz <= 0) {
-                aJz = 3000;
+    public void cuj() {
+        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().aJA()) {
+            com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jcI);
+            long aJB = TbSingleton.getInstance().getSharePanelConfData().aJB() * 1000;
+            if (aJB <= 0) {
+                aJB = 3000;
             }
-            com.baidu.adp.lib.f.e.gx().postDelayed(this.jcG, aJz);
+            com.baidu.adp.lib.f.e.gx().postDelayed(this.jcI, aJB);
         }
     }
 
     public void setEnable(boolean z) {
-        this.jcF = z;
+        this.jcH = z;
     }
 
     public boolean isEnable() {
-        return this.jcF;
+        return this.jcH;
     }
 
     public void onDestroy() {
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jcG);
-        if (this.jcE != null) {
-            this.jcE.removeAllListeners();
-            this.jcE.removeAllUpdateListeners();
-            this.jcE.cancel();
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jcI);
+        if (this.jcG != null) {
+            this.jcG.removeAllListeners();
+            this.jcG.removeAllUpdateListeners();
+            this.jcG.cancel();
         }
     }
 }

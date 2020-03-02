@@ -503,7 +503,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, View.OnCl
     }
 
     public void b(boolean z, String str, String str2, String str3) {
-        if (com.baidu.live.v.a.zj().zm() && !TbadkCoreApplication.getInst().isMobileBaidu() && z) {
+        if (com.baidu.live.v.a.zl().zo() && !TbadkCoreApplication.getInst().isMobileBaidu() && z) {
             this.akc.setText(this.mContext.getPageActivity().getString(a.i.first_recharge_text));
             if (!this.akE.contains(str)) {
                 LogManager.getFirstChargeLogger().doDisplayLiveFirstChargePanelEntryLog(str, str2, str3, this.otherParams);
@@ -708,8 +708,8 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, View.OnCl
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(g gVar) {
-        if (com.baidu.live.v.a.zj().axB != null && com.baidu.live.v.a.zj().axB.acR != null) {
-            String str = com.baidu.live.v.a.zj().axB.acR.acc;
+        if (com.baidu.live.v.a.zl().axC != null && com.baidu.live.v.a.zl().axC.acR != null) {
+            String str = com.baidu.live.v.a.zl().axC.acR.acc;
             if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.rT()))) {
                 return true;
             }
@@ -756,14 +756,14 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, View.OnCl
     /* JADX INFO: Access modifiers changed from: private */
     public void aG(boolean z) {
         int i = 0;
-        if (z && com.baidu.live.v.a.zj().awA.Zz) {
+        if (z && com.baidu.live.v.a.zl().awB.Zz) {
             if (this.aky.getVisibility() == 0) {
                 tF();
             }
         } else {
             aK(true);
         }
-        if (z && com.baidu.live.v.a.zj().awA.Zz) {
+        if (z && com.baidu.live.v.a.zl().awB.Zz) {
             if (Build.VERSION.SDK_INT != 26) {
                 this.mContext.getPageActivity().setRequestedOrientation(1);
                 this.akI = true;
@@ -920,7 +920,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, View.OnCl
                 string = this.mContext.getPageActivity().getString(a.i.sdk_net_no);
                 this.ajU.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
             }
-            if (com.baidu.live.v.a.zj().awA.aaV && i != 0) {
+            if (com.baidu.live.v.a.zl().awB.aaV && i != 0) {
                 string = string + "(" + i + ")";
             }
             this.ajU.setTitle(string);
@@ -940,7 +940,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, View.OnCl
         if (z) {
             h(this.ajD);
         }
-        ap apVar = com.baidu.live.v.a.zj().axB;
+        ap apVar = com.baidu.live.v.a.zl().axC;
         if (this.mType == 0 && apVar != null && apVar.acV != null && apVar.acV.aeC && !this.akM && this.ajC.get(0) != null && this.ajC.get(0).rY() != null) {
             List<g> rY = this.ajC.get(0).rY();
             if (!rY.isEmpty()) {
@@ -1524,7 +1524,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, View.OnCl
 
     public void z(long j) {
         if (this.aka != null) {
-            if (j >= 100 && (this.aiO || com.baidu.live.v.a.zj().awA.aaq)) {
+            if (j >= 100 && (this.aiO || com.baidu.live.v.a.zl().awB.aaq)) {
                 this.aka.setText(new DecimalFormat("0.###K").format(JavaTypesHelper.toDouble(String.valueOf(j), 0.0d) / 1000.0d));
                 return;
             }

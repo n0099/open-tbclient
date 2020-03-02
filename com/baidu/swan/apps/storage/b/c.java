@@ -5,7 +5,7 @@ public interface c {
 
     void aE(long j);
 
-    String afn();
+    String afp();
 
     boolean lU(String str);
 

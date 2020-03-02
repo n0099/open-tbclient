@@ -61,14 +61,14 @@ public class MediaModel implements Parcelable, Comparable<Object> {
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
-        return Long.valueOf(((MediaModel) obj).XJ()).compareTo(Long.valueOf(this.addDate));
+        return Long.valueOf(((MediaModel) obj).XL()).compareTo(Long.valueOf(this.addDate));
     }
 
     public String getPath() {
         return this.path;
     }
 
-    public long XJ() {
+    public long XL() {
         return this.addDate;
     }
 
@@ -84,7 +84,7 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         this.type = str;
     }
 
-    public String XK() {
+    public String XM() {
         return this.tempPath;
     }
 

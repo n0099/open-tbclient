@@ -10,29 +10,29 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a bvi;
     private static a bvj;
+    private static a bvk;
     public String extensionCoreVersionName;
 
     @NonNull
     public static a a(@NonNull com.baidu.swan.apps.extcore.model.b.a aVar) {
-        return aVar.RY() == 1 ? hM(aVar.RX()) : hL(aVar.RX());
+        return aVar.Sa() == 1 ? hM(aVar.RZ()) : hL(aVar.RZ());
     }
 
     @NonNull
     private static a hL(@NonNull String str) {
-        if (bvi == null) {
-            bvi = ai(hN(str));
-        }
-        return bvi;
-    }
-
-    @NonNull
-    private static a hM(@NonNull String str) {
         if (bvj == null) {
             bvj = ai(hN(str));
         }
         return bvj;
+    }
+
+    @NonNull
+    private static a hM(@NonNull String str) {
+        if (bvk == null) {
+            bvk = ai(hN(str));
+        }
+        return bvk;
     }
 
     @NonNull

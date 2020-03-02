@@ -7,10 +7,10 @@ public class a {
         if (j <= 0 || j >= 259200) {
             j = 0;
         }
-        f.aiX().edit().putLong("max_age" + i, j).apply();
+        f.aiZ().edit().putLong("max_age" + i, j).apply();
     }
 
     public static void k(int i, long j) {
-        f.aiX().edit().putLong("latest_update_time" + i, j).apply();
+        f.aiZ().edit().putLong("latest_update_time" + i, j).apply();
     }
 }

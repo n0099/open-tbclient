@@ -114,7 +114,7 @@ public final class R {
         public static final int title = 0x7f0f0151;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1037top = 0x7f0f016c;
+        public static final int f1036top = 0x7f0f016c;
     }
 
     /* loaded from: classes.dex */

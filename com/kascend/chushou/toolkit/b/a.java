@@ -19,11 +19,13 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private static final tv.chushou.zues.toolkit.b.a neq = tv.chushou.zues.toolkit.b.a.nWC;
-    private static a neu;
+    private static final tv.chushou.zues.toolkit.b.a nes = tv.chushou.zues.toolkit.b.a.nWE;
+
+    /* renamed from: new  reason: not valid java name */
+    private static a f3new;
     private final Object d = new Object();
     private Map<View, String> e = Collections.synchronizedMap(new WeakHashMap());
-    private final tv.chushou.zues.toolkit.a.b.a<Drawable> ner = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
+    private final tv.chushou.zues.toolkit.a.b.a<Drawable> neu = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // tv.chushou.zues.toolkit.a.b.b
         /* renamed from: a */
@@ -31,26 +33,26 @@ public class a {
             return 1;
         }
     });
-    private tv.chushou.zues.toolkit.a.a.a nes;
+    private tv.chushou.zues.toolkit.a.a.a nev;
 
-    public static a dEc() {
-        if (neu == null) {
+    public static a dEe() {
+        if (f3new == null) {
             synchronized (a.class) {
-                if (neu == null) {
-                    neu = new a();
+                if (f3new == null) {
+                    f3new = new a();
                 }
             }
         }
-        return neu;
+        return f3new;
     }
 
     public static void b() {
     }
 
     private a() {
-        this.nes = null;
+        this.nev = null;
         try {
-            this.nes = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.mOW.e(), 1, 1, 10485760L);
+            this.nev = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.mOY.e(), 1, 1, 10485760L);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,8 +66,8 @@ public class a {
             }
             this.e.put(view, str);
             Drawable drawable = null;
-            if (this.ner != null) {
-                drawable = this.ner.get(str);
+            if (this.neu != null) {
+                drawable = this.neu.get(str);
             }
             if (drawable != null) {
                 view.setBackgroundDrawable(drawable.getConstantState().newDrawable());
@@ -97,19 +99,19 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public class b implements Runnable {
-        c ney;
+        c neA;
 
         b(c cVar) {
-            this.ney = cVar;
+            this.neA = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Drawable Ra;
-            if (!a.this.a(this.ney) && !h.isEmpty(this.ney.a) && (Ra = a.this.Ra(this.ney.a)) != null) {
-                a.this.ner.put(this.ney.a, Ra);
-                if (!a.this.a(this.ney)) {
-                    ((Activity) this.ney.b.getContext()).runOnUiThread(new RunnableC0710a(Ra, this.ney));
+            if (!a.this.a(this.neA) && !h.isEmpty(this.neA.a) && (Ra = a.this.Ra(this.neA.a)) != null) {
+                a.this.neu.put(this.neA.a, Ra);
+                if (!a.this.a(this.neA)) {
+                    ((Activity) this.neA.b.getContext()).runOnUiThread(new RunnableC0710a(Ra, this.neA));
                 }
             }
         }
@@ -119,25 +121,23 @@ public class a {
     /* loaded from: classes5.dex */
     class RunnableC0710a implements Runnable {
         Drawable a;
-
-        /* renamed from: new  reason: not valid java name */
-        c f4new;
+        c ney;
 
         RunnableC0710a(Drawable drawable, c cVar) {
             this.a = drawable;
-            this.f4new = cVar;
+            this.ney = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.a(this.f4new)) {
-                this.f4new.b.setBackgroundDrawable(this.a);
+            if (!a.this.a(this.ney)) {
+                this.ney.b.setBackgroundDrawable(this.a);
             }
         }
     }
 
     private void b(String str, View view) {
-        tv.chushou.a.a.b.a.dQc().H(new b(new c(str, view)));
+        tv.chushou.a.a.b.a.dQe().H(new b(new c(str, view)));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=5, 197=4, 198=4, 199=4] */
@@ -149,11 +149,11 @@ public class a {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;
-        if (this.nes == null) {
+        if (this.nev == null) {
             return null;
         }
         try {
-            a.c SP = this.nes.SP(str);
+            a.c SP = this.nev.SP(str);
             if (SP == null) {
                 if (0 != 0) {
                     try {
@@ -229,8 +229,8 @@ public class a {
         Drawable QZ;
         a.C0809a SQ;
         Drawable drawable = null;
-        if (this.nes != null) {
-            ?? r1 = neq;
+        if (this.nev != null) {
+            ?? r1 = nes;
             String SR = r1.SR(str);
             try {
                 try {
@@ -242,9 +242,9 @@ public class a {
                             th = th;
                         }
                         try {
-                            if (QZ == null && (SQ = this.nes.SQ(SR)) != null) {
+                            if (QZ == null && (SQ = this.nev.SQ(SR)) != null) {
                                 OutputStream Oi = SQ.Oi(0);
-                                Http http = (Http) tv.chushou.basis.d.b.dPT().S(Http.class);
+                                Http http = (Http) tv.chushou.basis.d.b.dPV().S(Http.class);
                                 if (http == null) {
                                     SQ.abort();
                                     drawable = QZ;

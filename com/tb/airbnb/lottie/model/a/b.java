@@ -18,7 +18,7 @@ public class b extends n<Float, Float> {
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<Float, Float> dGN() {
+    public com.tb.airbnb.lottie.a.b.a<Float, Float> dGP() {
         return new com.tb.airbnb.lottie.a.b.c(this.gH);
     }
 }

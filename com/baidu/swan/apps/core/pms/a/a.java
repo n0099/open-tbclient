@@ -5,12 +5,12 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.f;
 /* loaded from: classes11.dex */
 public class a extends f {
-    private InterfaceC0249a bqw;
+    private InterfaceC0249a bqx;
 
     /* renamed from: com.baidu.swan.apps.core.pms.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0249a {
-        void PD();
+        void PF();
 
         void onError();
 
@@ -19,12 +19,12 @@ public class a extends f {
 
     public a(String str, InterfaceC0249a interfaceC0249a) {
         super(str);
-        this.bqw = interfaceC0249a;
+        this.bqx = interfaceC0249a;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pg() {
-        super.Pg();
+    public void Pi() {
+        super.Pi();
         eI(0);
     }
 
@@ -35,8 +35,8 @@ public class a extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void Pm() {
-        if (Pv() == null) {
+    protected void Po() {
+        if (Px() == null) {
             eI(1);
         } else {
             eI(-1);
@@ -44,7 +44,7 @@ public class a extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Pn() {
+    protected PMSDownloadType Pp() {
         return null;
     }
 
@@ -57,16 +57,16 @@ public class a extends f {
         ai.l(new Runnable() { // from class: com.baidu.swan.apps.core.pms.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bqw != null) {
+                if (a.this.bqx != null) {
                     switch (i) {
                         case -1:
-                            a.this.bqw.onError();
+                            a.this.bqx.onError();
                             return;
                         case 0:
-                            a.this.bqw.PD();
+                            a.this.bqx.PF();
                             return;
                         case 1:
-                            a.this.bqw.onSuccess();
+                            a.this.bqx.onSuccess();
                             return;
                         default:
                             return;

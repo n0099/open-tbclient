@@ -51,24 +51,24 @@ public class i extends a implements f {
         }
         final String S = com.baidu.swan.apps.api.module.g.b.S(b);
         final String T = com.baidu.swan.apps.api.module.g.b.T(b);
-        final int appFrameType = eVar.GC().getAppFrameType();
+        final int appFrameType = eVar.GE().getAppFrameType();
         final String httpUrl = request.url().toString();
         final long currentTimeMillis = System.currentTimeMillis();
-        final String aeW = com.baidu.swan.apps.statistic.f.aeW();
-        final String page = ai.ahi().getPage();
+        final String aeY = com.baidu.swan.apps.statistic.f.aeY();
+        final String page = ai.ahk().getPage();
         final String optString = b.optString("cb");
         final long currentTimeMillis2 = System.currentTimeMillis();
         com.baidu.swan.apps.statistic.f.F(httpUrl, appFrameType);
-        eVar.acP().a(request, new Callback() { // from class: com.baidu.swan.apps.network.i.1
+        eVar.acR().a(request, new Callback() { // from class: com.baidu.swan.apps.network.i.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (i.DEBUG) {
                     Log.d("RequestAction", "onFailure: " + iOException.getMessage());
                 }
-                SwanAppNetworkUtils.a(eVar.acP().YU(), str);
+                SwanAppNetworkUtils.a(eVar.acR().YW(), str);
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
                 if (SwanAppNetworkUtils.isNetworkConnected(null)) {
-                    com.baidu.swan.apps.statistic.f.a(0, httpUrl, appFrameType, iOException.getMessage(), aeW, page, currentTimeMillis2, System.currentTimeMillis());
+                    com.baidu.swan.apps.statistic.f.a(0, httpUrl, appFrameType, iOException.getMessage(), aeY, page, currentTimeMillis2, System.currentTimeMillis());
                 }
             }
 
@@ -98,7 +98,7 @@ public class i extends a implements f {
                 if (i.DEBUG) {
                     Log.d("RequestAction", "onResponse: respCode: " + code + ", url=" + httpUrl + ", msg=" + message);
                 }
-                com.baidu.swan.apps.statistic.f.a(code, httpUrl, appFrameType, message, aeW, page, currentTimeMillis2, System.currentTimeMillis());
+                com.baidu.swan.apps.statistic.f.a(code, httpUrl, appFrameType, message, aeY, page, currentTimeMillis2, System.currentTimeMillis());
             }
         });
         return true;

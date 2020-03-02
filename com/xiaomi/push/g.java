@@ -25,14 +25,14 @@ public class g {
         
 
         /* renamed from: a  reason: collision with other field name */
-        private final int f400a;
+        private final int f399a;
 
         a(int i) {
-            this.f400a = i;
+            this.f399a = i;
         }
 
         public int a() {
-            return this.f400a;
+            return this.f399a;
         }
     }
 

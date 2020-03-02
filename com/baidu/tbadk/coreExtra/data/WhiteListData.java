@@ -85,12 +85,12 @@ public class WhiteListData extends LinkedList<String> {
     }
 
     private void save(String str) {
-        com.baidu.tbadk.core.sharedPref.b.aFB().putString(SharedPrefConfig.KEY_WHITE_LIST, str);
+        com.baidu.tbadk.core.sharedPref.b.aFD().putString(SharedPrefConfig.KEY_WHITE_LIST, str);
     }
 
     public static WhiteListData createBySP() {
         WhiteListData whiteListData = new WhiteListData();
-        String string = com.baidu.tbadk.core.sharedPref.b.aFB().getString(SharedPrefConfig.KEY_WHITE_LIST, null);
+        String string = com.baidu.tbadk.core.sharedPref.b.aFD().getString(SharedPrefConfig.KEY_WHITE_LIST, null);
         if (!TextUtils.isEmpty(string)) {
             whiteListData.parserJson(string);
         }

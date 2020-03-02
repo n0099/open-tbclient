@@ -7,18 +7,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    public boolean aTE;
-    public List<C0168a> aTF;
+    public boolean aTF;
+    public List<C0168a> aTG;
 
     /* renamed from: com.baidu.poly.widget.coupon.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0168a {
-        public String aTG;
         public String aTH;
         public String aTI;
-        public Long aTJ;
-        public int aTK;
-        public String aTL;
+        public String aTJ;
+        public Long aTK;
+        public int aTL;
+        public String aTM;
         public String icon;
         public int type;
 
@@ -27,13 +27,13 @@ public class a {
 
         C0168a(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.aTG = jSONObject.optString("display_name");
-                this.aTH = jSONObject.optString("pay_text");
+                this.aTH = jSONObject.optString("display_name");
+                this.aTI = jSONObject.optString("pay_text");
                 this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                this.aTI = jSONObject.optString("valid_info");
-                this.aTL = jSONObject.optString("host_marketing_detail");
-                this.aTJ = Long.valueOf(jSONObject.optLong("available_par_money"));
-                this.aTK = jSONObject.optInt("is_selected");
+                this.aTJ = jSONObject.optString("valid_info");
+                this.aTM = jSONObject.optString("host_marketing_detail");
+                this.aTK = Long.valueOf(jSONObject.optLong("available_par_money"));
+                this.aTL = jSONObject.optInt("is_selected");
                 this.type = jSONObject.optInt("type");
             }
         }
@@ -41,15 +41,15 @@ public class a {
 
     public a(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.aTF = new ArrayList();
+            this.aTG = new ArrayList();
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                 if (jSONObject != null) {
-                    this.aTF.add(new C0168a(jSONObject));
+                    this.aTG.add(new C0168a(jSONObject));
                 }
             }
-            this.aTE = this.aTF.size() > 1;
+            this.aTF = this.aTG.size() > 1;
         }
     }
 }

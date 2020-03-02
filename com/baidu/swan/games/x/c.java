@@ -11,35 +11,35 @@ import com.baidu.swan.games.x.b;
 /* loaded from: classes11.dex */
 public class c extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.b cjZ;
-    private com.baidu.swan.games.binding.model.a csx;
-    private String csy;
+    private com.baidu.swan.games.e.b cka;
+    private com.baidu.swan.games.binding.model.a csy;
+    private String csz;
 
     public c(com.baidu.swan.games.e.b bVar) {
         super(bVar);
-        this.cjZ = bVar;
+        this.cka = bVar;
     }
 
     public void l(JsObject jsObject) {
         reset();
         m(jsObject);
-        if (TextUtils.isEmpty(this.csy)) {
+        if (TextUtils.isEmpty(this.csz)) {
             if (DEBUG) {
                 Log.i("LoadSubpackageTask", "params error");
             }
-            com.baidu.swan.games.u.c.k(this.csy, 2111, "");
+            com.baidu.swan.games.u.c.k(this.csz, 2111, "");
             return;
         }
-        b.a(this.csy, new b.a() { // from class: com.baidu.swan.games.x.c.1
+        b.a(this.csz, new b.a() { // from class: com.baidu.swan.games.x.c.1
             @Override // com.baidu.swan.games.x.b.a
-            public void apP() {
-                c.this.eI(c.this.pL(c.this.csy));
+            public void apR() {
+                c.this.eI(c.this.pL(c.this.csz));
             }
 
             @Override // com.baidu.swan.games.x.b.a
             public void dY(int i) {
                 c.this.eI(false);
-                com.baidu.swan.games.u.c.k(c.this.csy, i, "");
+                com.baidu.swan.games.u.c.k(c.this.csz, i, "");
             }
 
             @Override // com.baidu.swan.games.x.b.a
@@ -62,19 +62,19 @@ public class c extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eI(final boolean z) {
-        if (this.cjZ != null) {
-            this.cjZ.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.x.c.2
+        if (this.cka != null) {
+            this.cka.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.x.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        if (c.this.csx != null) {
-                            c.this.csx.onSuccess();
+                        if (c.this.csy != null) {
+                            c.this.csy.onSuccess();
                             if (c.DEBUG) {
                                 Log.i("LoadSubpackageTask", "success call");
                             }
                         }
-                    } else if (c.this.csx != null) {
-                        c.this.csx.onFail();
+                    } else if (c.this.csy != null) {
+                        c.this.csy.onFail();
                         if (c.DEBUG) {
                             Log.i("LoadSubpackageTask", "fail call");
                         }
@@ -85,21 +85,21 @@ public class c extends EventTargetImpl {
     }
 
     private void reset() {
-        this.csx = null;
         this.csy = null;
+        this.csz = null;
     }
 
     private void m(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c c;
         if (jsObject != null && (c = com.baidu.swan.games.binding.model.c.c(jsObject)) != null) {
-            this.csx = com.baidu.swan.games.binding.model.a.f(c);
+            this.csy = com.baidu.swan.games.binding.model.a.f(c);
             try {
-                this.csy = c.getString("name");
+                this.csz = c.getString("name");
             } catch (JSTypeMismatchException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
-                com.baidu.swan.games.utils.b.a(this.cjZ, e);
+                com.baidu.swan.games.utils.b.a(this.cka, e);
                 reset();
             }
         }
@@ -107,15 +107,15 @@ public class c extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean pL(String str) {
-        if (this.cjZ == null) {
+        if (this.cka == null) {
             return false;
         }
-        String str2 = f.WQ().Wy() + a.apO().O(str, 2);
-        String O = a.apO().O(str, 3);
+        String str2 = f.WS().WA() + a.apQ().O(str, 2);
+        String O = a.apQ().O(str, 3);
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(O)) {
             return false;
         }
-        this.cjZ.bF(str2, O);
+        this.cka.bF(str2, O);
         return true;
     }
 }

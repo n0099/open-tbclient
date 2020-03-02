@@ -24,33 +24,33 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes12.dex */
 public class b implements Runnable {
-    private boolean bBt;
-    private String bCS;
-    private String bCU;
-    private ArrayList<MediaModel> bCc;
-    private com.baidu.swan.apps.media.chooser.c.d bDh;
-    private HandlerC0418b egl;
-    private a egm;
+    private boolean bBu;
+    private String bCT;
+    private String bCV;
+    private ArrayList<MediaModel> bCd;
+    private com.baidu.swan.apps.media.chooser.c.d bDi;
+    private HandlerC0418b egm;
+    private a egn;
     private Context mContext;
 
     public b(Context context, Bundle bundle, com.baidu.swan.apps.media.chooser.c.d dVar) {
         this.mContext = context;
-        this.bCc = bundle.getParcelableArrayList("mediaModels");
-        this.bCS = r.safeGetString(bundle, "swanAppId");
-        this.bBt = r.c(bundle, "compressed", false);
-        this.bCU = r.safeGetString(bundle, "swanTmpPath");
-        this.bDh = dVar;
-        this.egl = new HandlerC0418b(context);
+        this.bCd = bundle.getParcelableArrayList("mediaModels");
+        this.bCT = r.safeGetString(bundle, "swanAppId");
+        this.bBu = r.c(bundle, "compressed", false);
+        this.bCV = r.safeGetString(bundle, "swanTmpPath");
+        this.bDi = dVar;
+        this.egm = new HandlerC0418b(context);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        bbn();
-        if (this.egl != null) {
-            this.egl.sendEmptyMessage(1);
+        bbp();
+        if (this.egm != null) {
+            this.egm.sendEmptyMessage(1);
         }
-        if (this.bBt) {
-            Iterator<MediaModel> it = this.bCc.iterator();
+        if (this.bBu) {
+            Iterator<MediaModel> it = this.bCd.iterator();
             while (it.hasNext()) {
                 MediaModel next = it.next();
                 if (next != null) {
@@ -66,7 +66,7 @@ public class b implements Runnable {
                 }
             }
         } else {
-            Iterator<MediaModel> it2 = this.bCc.iterator();
+            Iterator<MediaModel> it2 = this.bCd.iterator();
             while (it2.hasNext()) {
                 MediaModel next2 = it2.next();
                 if (next2 != null) {
@@ -78,19 +78,19 @@ public class b implements Runnable {
                 }
             }
         }
-        if (this.egl != null) {
-            this.egl.sendEmptyMessage(2);
+        if (this.egm != null) {
+            this.egm.sendEmptyMessage(2);
         }
-        if (this.bDh != null) {
-            this.bDh.onResult(true, null, this.bCc);
+        if (this.bDi != null) {
+            this.bDi.onResult(true, null, this.bCd);
         }
-        bbo();
+        bbq();
     }
 
     private void i(MediaModel mediaModel) {
         if (mediaModel != null) {
             File file = new File(mediaModel.getPath());
-            File bu = q.bu(this.bCU, file.getName());
+            File bu = q.bu(this.bCV, file.getName());
             if (bu != null && bu.exists() && com.baidu.swan.d.c.copyFile(file, bu) != 0) {
                 mediaModel.jl(bu.getPath());
             }
@@ -103,7 +103,7 @@ public class b implements Runnable {
                 Log.d("CompressTask", "compressImg : " + mediaModel.getPath());
             }
             File file = new File(mediaModel.getPath());
-            File bu = q.bu(this.bCU, file.getName());
+            File bu = q.bu(this.bCV, file.getName());
             if (bu != null) {
                 mediaModel.jl(bu.getAbsolutePath());
                 q.a(file, bu, i);
@@ -117,7 +117,7 @@ public class b implements Runnable {
             if (com.baidu.swan.apps.media.chooser.b.c.DEBUG) {
                 Log.d("CompressTask", "compressVideo : " + videoModel.getPath());
             }
-            File bu = q.bu(this.bCU, new File(videoModel.getPath()).getName());
+            File bu = q.bu(this.bCV, new File(videoModel.getPath()).getName());
             if (bu != null) {
                 com.baidu.swan.d.c.copyFile(new File(videoModel.getPath()), bu);
                 videoModel.jl(bu.getPath());
@@ -129,10 +129,10 @@ public class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public class a extends com.baidu.swan.apps.y.a {
-        private HandlerC0418b egl;
+        private HandlerC0418b egm;
 
         public a(HandlerC0418b handlerC0418b) {
-            this.egl = handlerC0418b;
+            this.egm = handlerC0418b;
         }
 
         @Override // com.baidu.swan.apps.y.a, android.app.Application.ActivityLifecycleCallbacks
@@ -140,29 +140,29 @@ public class b implements Runnable {
             if (!(activity instanceof SwanAppActivity) && !(activity instanceof SwanAppAlbumActivity) && !(activity instanceof SwanAppAlbumPreviewActivity)) {
                 return;
             }
-            if (this.egl.ego != null && this.egl.ego.isShowing()) {
-                this.egl.ego.cancel();
-                this.egl.ego = null;
+            if (this.egm.egp != null && this.egm.egp.isShowing()) {
+                this.egm.egp.cancel();
+                this.egm.egp = null;
             }
-            if (this.egl != null) {
-                this.egl.removeMessages(1);
-                this.egl.removeMessages(2);
-                this.egl = null;
+            if (this.egm != null) {
+                this.egm.removeMessages(1);
+                this.egm.removeMessages(2);
+                this.egm = null;
             }
-            b.this.bbo();
+            b.this.bbq();
         }
     }
 
-    private void bbn() {
-        this.egm = new a(this.egl);
-        com.baidu.swan.apps.w.a.TU().registerActivityLifecycleCallbacks(this.egm);
+    private void bbp() {
+        this.egn = new a(this.egm);
+        com.baidu.swan.apps.w.a.TW().registerActivityLifecycleCallbacks(this.egn);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbo() {
-        if (this.egm != null) {
-            com.baidu.swan.apps.w.a.TU().unregisterActivityLifecycleCallbacks(this.egm);
-            this.egm = null;
+    public void bbq() {
+        if (this.egn != null) {
+            com.baidu.swan.apps.w.a.TW().unregisterActivityLifecycleCallbacks(this.egn);
+            this.egn = null;
         }
     }
 
@@ -170,7 +170,7 @@ public class b implements Runnable {
     /* renamed from: com.baidu.tieba.aiapps.apps.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
     public static class HandlerC0418b extends Handler {
-        private Dialog ego;
+        private Dialog egp;
         private WeakReference<Context> mReference;
 
         private HandlerC0418b(Context context) {
@@ -183,21 +183,21 @@ public class b implements Runnable {
                 case 1:
                     Context context = this.mReference.get();
                     if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
-                        this.ego = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
-                        this.ego.setContentView(R.layout.swanapp_progress_dialog);
-                        this.ego.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState() ? 0 : 8);
-                        this.ego.setCancelable(false);
-                        this.ego.show();
+                        this.egp = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
+                        this.egp.setContentView(R.layout.swanapp_progress_dialog);
+                        this.egp.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState() ? 0 : 8);
+                        this.egp.setCancelable(false);
+                        this.egp.show();
                         return;
                     }
                     return;
                 case 2:
-                    if (this.ego != null && this.ego.isShowing()) {
+                    if (this.egp != null && this.egp.isShowing()) {
                         Context context2 = this.mReference.get();
                         if ((context2 instanceof Activity) && !((Activity) context2).isFinishing()) {
-                            this.ego.cancel();
+                            this.egp.cancel();
                         }
-                        this.ego = null;
+                        this.egp = null;
                         return;
                     }
                     return;

@@ -5,44 +5,44 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class b extends d {
-    protected TextView hJS;
+    protected TextView hJU;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.hJS = null;
+        this.hJU = null;
         setContentView(R.layout.update_group_info_activity);
         wU(R.string.group_update_info);
-        this.hJS = (TextView) this.hJT.findViewById(R.id.edit_count);
+        this.hJU = (TextView) this.hJV.findViewById(R.id.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void bYj() {
+    public void bYl() {
         String obj;
         if (this.mEditText.getText() != null && (obj = this.mEditText.getText().toString()) != null) {
             int length = obj.length();
             B(length, length, 15, 300);
             int i = 300 - length;
-            this.hJS.setText(String.valueOf(i));
+            this.hJU.setText(String.valueOf(i));
             if (i <= 50) {
-                this.hJS.setVisibility(0);
+                this.hJU.setVisibility(0);
             } else {
-                this.hJS.setVisibility(8);
+                this.hJU.setVisibility(8);
             }
             if (i == 0) {
-                this.hJS.setTextColor(this.hJT.getResources().getColor(R.color.common_color_10170));
+                this.hJU.setTextColor(this.hJV.getResources().getColor(R.color.common_color_10170));
             } else {
-                bSZ();
+                bTb();
             }
         }
     }
 
-    private void bSZ() {
-        this.hJT.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.hJT.getLayoutMode().onModeChanged(this.hJS);
+    private void bTb() {
+        this.hJV.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.hJV.getLayoutMode().onModeChanged(this.hJU);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int bYk() {
+    public int bYm() {
         return R.string.group_step_info_error;
     }
 }

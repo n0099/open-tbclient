@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes10.dex */
 public class b implements i {
-    private String gjG;
+    private String gjI;
     private ArrayList<BawuRoleInfoPub> mMembers = new ArrayList<>();
     private boolean isLast = false;
-    private boolean gjF = false;
+    private boolean gjH = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int bCl() {
+    public int bCn() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> bCm() {
+    public ArrayList<BawuRoleInfoPub> bCo() {
         return this.mMembers;
     }
 
@@ -30,19 +30,19 @@ public class b implements i {
         this.isLast = z;
     }
 
-    public boolean bCn() {
-        return this.gjF;
+    public boolean bCp() {
+        return this.gjH;
     }
 
     public void kW(boolean z) {
-        this.gjF = z;
+        this.gjH = z;
     }
 
-    public String bCo() {
-        return this.gjG;
+    public String bCq() {
+        return this.gjI;
     }
 
     public void AS(String str) {
-        this.gjG = str;
+        this.gjI = str;
     }
 }

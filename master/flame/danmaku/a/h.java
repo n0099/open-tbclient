@@ -7,11 +7,11 @@ public interface h {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void dLo();
-
-        void dLp();
-
         void dLq();
+
+        void dLr();
+
+        void dLs();
 
         void h(master.flame.danmaku.danmaku.model.d dVar);
 
@@ -26,11 +26,11 @@ public interface h {
 
     void a(master.flame.danmaku.danmaku.model.d dVar);
 
-    void dLt();
-
-    void dLu();
-
     void dLv();
+
+    void dLw();
+
+    void dLx();
 
     l hi(long j);
 

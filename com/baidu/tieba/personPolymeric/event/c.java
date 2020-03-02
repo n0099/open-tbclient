@@ -49,11 +49,11 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes11.dex */
 public class c extends a {
-    private f jnY;
+    private f joa;
 
     public c(TbPageContext tbPageContext, f fVar) {
         super(tbPageContext);
-        this.jnY = fVar;
+        this.joa = fVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0151, code lost:
@@ -70,12 +70,12 @@ public class c extends a {
         int i2 = 1;
         super.a(view, aVar);
         if (aVar != null) {
-            if (aVar.gaq == null) {
+            if (aVar.gas == null) {
                 userData = null;
             } else {
-                userData = (UserData) aVar.gaq.getSerializable(UserData.TYPE_USER);
+                userData = (UserData) aVar.gas.getSerializable(UserData.TYPE_USER);
             }
-            switch (aVar.gap) {
+            switch (aVar.gar) {
                 case 1:
                     if (userData != null) {
                         n nVar = new n();
@@ -88,7 +88,7 @@ public class c extends a {
                         nVar.gu(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(nVar);
-                        this.jnY.cwM().a((m) nVar, (List<m>) arrayList, 0);
+                        this.joa.cwO().a((m) nVar, (List<m>) arrayList, 0);
                         return;
                     }
                     return;
@@ -112,9 +112,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.jnY != null && this.jnY.cwL() != null) {
+                    if (this.joa != null && this.joa.cwN() != null) {
                         TiebaStatic.log("c12207");
-                        this.jnY.cwL().cwR();
+                        this.joa.cwN().cwT();
                         return;
                     }
                     return;
@@ -163,8 +163,8 @@ public class c extends a {
                             personChangeData.setMem(userData.getIsMem());
                             personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                             personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
-                            if (aVar.gaq != null) {
-                                personChangeData.setNickNameLeftDays(aVar.gaq.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
+                            if (aVar.gas != null) {
+                                personChangeData.setNickNameLeftDays(aVar.gas.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(this.mPageContext.getPageActivity(), 101, personChangeData, false)));
@@ -184,7 +184,7 @@ public class c extends a {
                     }
                     return;
                 case 13:
-                    ba.aGE().b(this.mPageContext, new String[]{TbConfig.WEB_URL_FANS});
+                    ba.aGG().b(this.mPageContext, new String[]{TbConfig.WEB_URL_FANS});
                     return;
                 case 14:
                     BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.mPageContext.getPageActivity(), 0L);
@@ -196,7 +196,7 @@ public class c extends a {
                     if (userData != null && userData.membershipInfo != null) {
                         String str3 = userData.membershipInfo.mLink;
                         if (!StringUtils.isNull(str3)) {
-                            ba.aGE().b(this.mPageContext, new String[]{str3});
+                            ba.aGG().b(this.mPageContext, new String[]{str3});
                             return;
                         }
                         return;
@@ -204,7 +204,7 @@ public class c extends a {
                     return;
                 case 16:
                     zZ(7);
-                    com.baidu.tieba.p.a.cDN().g(7, false, this.isHost);
+                    com.baidu.tieba.p.a.cDP().g(7, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 17:
@@ -213,7 +213,7 @@ public class c extends a {
                     return;
                 case 20:
                     zZ(2);
-                    com.baidu.tieba.p.a.cDN().g(3, false, this.isHost);
+                    com.baidu.tieba.p.a.cDP().g(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -231,7 +231,7 @@ public class c extends a {
                     return;
                 case 24:
                     zZ(3);
-                    com.baidu.tieba.p.a.cDN().g(4, false, this.isHost);
+                    com.baidu.tieba.p.a.cDP().g(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLEAR_ADDRESSLIST_TIP));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddressListActivityConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -249,17 +249,17 @@ public class c extends a {
                     return;
                 case 30:
                     zZ(1);
-                    com.baidu.tieba.p.a.cDN().g(8, false, this.isHost);
+                    com.baidu.tieba.p.a.cDP().g(8, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 31:
                     zZ(9);
-                    ba.aGE().a(this.mPageContext, new String[]{aVar.gaq.getString("book_jump_link")}, true);
+                    ba.aGG().a(this.mPageContext, new String[]{aVar.gas.getString("book_jump_link")}, true);
                     return;
                 case 32:
                     if (bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
                         zZ(4);
-                        com.baidu.tieba.p.a.cDN().g(1, false, this.isHost);
+                        com.baidu.tieba.p.a.cDP().g(1, false, this.isHost);
                         if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                             return;
@@ -269,7 +269,7 @@ public class c extends a {
                     return;
                 case 33:
                     zZ(11);
-                    ba.aGE().a(this.mPageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                    ba.aGG().a(this.mPageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
                     return;
                 case 34:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANGE_BIG_V_TO_EDIT_MODE, false));
@@ -309,8 +309,8 @@ public class c extends a {
                         nVar2.gu(false);
                         ArrayList arrayList2 = new ArrayList();
                         arrayList2.add(nVar2);
-                        if (this.jnY.cwM() != null) {
-                            this.jnY.cwM().a((m) nVar2, (List<m>) arrayList2, 0, true);
+                        if (this.joa.cwO() != null) {
+                            this.joa.cwO().a((m) nVar2, (List<m>) arrayList2, 0, true);
                             return;
                         }
                         return;

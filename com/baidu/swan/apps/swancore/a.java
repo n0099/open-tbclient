@@ -27,11 +27,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0298a {
-        private static final a bVX = new a();
+        private static final a bVY = new a();
     }
 
-    public static a afq() {
-        return C0298a.bVX;
+    public static a afs() {
+        return C0298a.bVY;
     }
 
     public static String gt(int i) {
@@ -64,7 +64,7 @@ public class a {
                     hashSet.add(bVar.toJson());
                 }
             }
-            h.afp().putStringSet(gw(i), hashSet);
+            h.afr().putStringSet(gw(i), hashSet);
         }
     }
 
@@ -80,14 +80,14 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.bVY).compareTo(String.valueOf(bVar2.bVY));
+                return String.valueOf(bVar.bVZ).compareTo(String.valueOf(bVar2.bVZ));
             }
         });
     }
 
     public String gu(int i) {
         StringBuilder sb = new StringBuilder();
-        String string = h.afp().getString(gt(i), "");
+        String string = h.afr().getString(gt(i), "");
         if (!TextUtils.isEmpty(string)) {
             sb.append("md5: ").append(string).append("\n").append("\n");
         }
@@ -110,11 +110,11 @@ public class a {
         if (!z) {
             sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.d.a.gG(i)).toString());
         } else {
-            SwanCoreVersion Wt = f.WQ().Wt();
+            SwanCoreVersion Wv = f.WS().Wv();
             b bVar2 = gv.get(size - 1);
-            if (bVar2 != null && Wt != null && Wt.swanCoreVersion > bVar2.swanCoreVersion) {
+            if (bVar2 != null && Wv != null && Wv.swanCoreVersion > bVar2.swanCoreVersion) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), Wt.swanCoreVersion).toString());
+                sb.append(new b(System.currentTimeMillis(), Wv.swanCoreVersion).toString());
             }
         }
         return sb.toString();
@@ -122,7 +122,7 @@ public class a {
 
     private List<b> gv(int i) {
         ArrayList arrayList = new ArrayList();
-        Set<String> stringSet = h.afp().getStringSet(gw(i), null);
+        Set<String> stringSet = h.afr().getStringSet(gw(i), null);
         if (stringSet == null || stringSet.size() == 0) {
             return arrayList;
         }
@@ -155,11 +155,11 @@ public class a {
 
     /* loaded from: classes11.dex */
     public class b {
-        long bVY;
+        long bVZ;
         long swanCoreVersion;
 
         b(long j, long j2) {
-            this.bVY = j;
+            this.bVZ = j;
             this.swanCoreVersion = j2;
         }
 
@@ -168,7 +168,7 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.getDefault()).format(new Date(this.bVY));
+                str = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.getDefault()).format(new Date(this.bVZ));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
@@ -188,7 +188,7 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.bVY);
+                jSONObject.put("time", this.bVZ);
                 jSONObject.put("version", this.swanCoreVersion);
                 return jSONObject.toString();
             } catch (JSONException e) {

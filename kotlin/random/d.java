@@ -6,9 +6,9 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class d {
-    public static final b nCv = new b(null);
-    private static final d nCt = kotlin.internal.b.nCc.dKp();
-    public static final a nCu = a.nCw;
+    public static final b nCx = new b(null);
+    private static final d nCv = kotlin.internal.b.nCe.dKr();
+    public static final a nCw = a.nCy;
 
     public abstract int NG(int i);
 
@@ -118,68 +118,68 @@ public abstract class d {
 
         @Override // kotlin.random.d
         public int NG(int i) {
-            return d.nCt.NG(i);
+            return d.nCv.NG(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.nCt.nextInt();
+            return d.nCv.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.nCt.nextInt(i);
+            return d.nCv.nextInt(i);
         }
 
         @Override // kotlin.random.d
         public int et(int i, int i2) {
-            return d.nCt.et(i, i2);
+            return d.nCv.et(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.nCt.nextLong();
+            return d.nCv.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.nCt.nextBoolean();
+            return d.nCv.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.nCt.nextDouble();
+            return d.nCv.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.nCt.nextFloat();
+            return d.nCv.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] aK(byte[] bArr) {
             q.j(bArr, "array");
-            return d.nCt.aK(bArr);
+            return d.nCv.aK(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] J(byte[] bArr, int i, int i2) {
             q.j(bArr, "array");
-            return d.nCt.J(bArr, i, i2);
+            return d.nCv.J(bArr, i, i2);
         }
     }
 
     @h
     /* loaded from: classes7.dex */
     public static final class a extends d {
-        public static final a nCw = new a();
+        public static final a nCy = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
         public int NG(int i) {
-            return d.nCv.NG(i);
+            return d.nCx.NG(i);
         }
     }
 }

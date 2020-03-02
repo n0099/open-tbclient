@@ -12,11 +12,11 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.tasklist.AlaTaskListActivity;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel<AlaTaskListActivity> {
-    private HttpMessageListener fzA;
-    private HttpMessageListener fzB;
-    private AlaLiveUserInfoData fzx;
-    private v fzy;
-    private InterfaceC0485a fzz;
+    private v fzA;
+    private InterfaceC0485a fzB;
+    private HttpMessageListener fzC;
+    private HttpMessageListener fzD;
+    private AlaLiveUserInfoData fzz;
 
     /* renamed from: com.baidu.tieba.ala.tasklist.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -28,7 +28,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
 
     public a(TbPageContext<AlaTaskListActivity> tbPageContext) {
         super(tbPageContext);
-        this.fzA = new HttpMessageListener(1021065) { // from class: com.baidu.tieba.ala.tasklist.model.a.1
+        this.fzC = new HttpMessageListener(1021065) { // from class: com.baidu.tieba.ala.tasklist.model.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,21 +37,21 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
                     int error = httpResponsedMessage.getError();
                     AlaTaskListHttpResponsedMessage alaTaskListHttpResponsedMessage = (AlaTaskListHttpResponsedMessage) httpResponsedMessage;
                     if (statusCode != 200 || error != 0) {
-                        if (a.this.fzz != null) {
-                            a.this.fzz.ag(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (a.this.fzB != null) {
+                            a.this.fzB.ag(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    a.this.fzx = alaTaskListHttpResponsedMessage.fzx;
-                    a.this.fzy = alaTaskListHttpResponsedMessage.fzy;
-                    if (a.this.fzz != null) {
-                        a.this.fzz.a(alaTaskListHttpResponsedMessage.fzx, alaTaskListHttpResponsedMessage.fzy);
+                    a.this.fzz = alaTaskListHttpResponsedMessage.fzz;
+                    a.this.fzA = alaTaskListHttpResponsedMessage.fzA;
+                    if (a.this.fzB != null) {
+                        a.this.fzB.a(alaTaskListHttpResponsedMessage.fzz, alaTaskListHttpResponsedMessage.fzA);
                     }
                 }
             }
         };
-        this.fzB = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.tasklist.model.a.2
+        this.fzD = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.tasklist.model.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -60,31 +60,31 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
                     int error = httpResponsedMessage.getError();
                     AlaTaskRewardHttpResponsedMessage alaTaskRewardHttpResponsedMessage = (AlaTaskRewardHttpResponsedMessage) httpResponsedMessage;
                     if (statusCode != 200 || error != 0) {
-                        if (a.this.fzz != null) {
-                            a.this.fzz.ag(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (a.this.fzB != null) {
+                            a.this.fzB.ag(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    a.this.fzx = alaTaskRewardHttpResponsedMessage.fzx;
-                    a.this.fzy = alaTaskRewardHttpResponsedMessage.fzy;
-                    if (a.this.fzz != null) {
-                        a.this.fzz.a(alaTaskRewardHttpResponsedMessage.fzx, alaTaskRewardHttpResponsedMessage.fzy);
+                    a.this.fzz = alaTaskRewardHttpResponsedMessage.fzz;
+                    a.this.fzA = alaTaskRewardHttpResponsedMessage.fzA;
+                    if (a.this.fzB != null) {
+                        a.this.fzB.a(alaTaskRewardHttpResponsedMessage.fzz, alaTaskRewardHttpResponsedMessage.fzA);
                     }
                 }
             }
         };
-        btu();
-        btv();
-        MessageManager.getInstance().registerListener(this.fzA);
-        MessageManager.getInstance().registerListener(this.fzB);
+        btw();
+        btx();
+        MessageManager.getInstance().registerListener(this.fzC);
+        MessageManager.getInstance().registerListener(this.fzD);
     }
 
-    public v btt() {
-        return this.fzy;
+    public v btv() {
+        return this.fzA;
     }
 
-    private void btu() {
+    private void btw() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, com.baidu.live.a.Vq);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -93,7 +93,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void btv() {
+    private void btx() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, com.baidu.live.a.Vr);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -102,7 +102,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void btw() {
+    public void bty() {
         HttpMessage httpMessage = new HttpMessage(1021065);
         httpMessage.setTag(getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -116,8 +116,8 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fzA);
-        MessageManager.getInstance().unRegisterListener(this.fzB);
+        MessageManager.getInstance().unRegisterListener(this.fzC);
+        MessageManager.getInstance().unRegisterListener(this.fzD);
         MessageManager.getInstance().unRegisterTask(1021065);
         MessageManager.getInstance().unRegisterTask(1021066);
         cancelMessage();
@@ -135,6 +135,6 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
     }
 
     public void a(InterfaceC0485a interfaceC0485a) {
-        this.fzz = interfaceC0485a;
+        this.fzB = interfaceC0485a;
     }
 }

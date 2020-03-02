@@ -7,64 +7,64 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class w {
-    private ViewGroup jwf;
-    private ImageView jwg;
-    private VideoLoadingProgressView jwh;
-    ObjectAnimator jwi;
-    ObjectAnimator jwj;
+    private ViewGroup jwh;
+    private ImageView jwi;
+    private VideoLoadingProgressView jwj;
     ObjectAnimator jwk;
+    ObjectAnimator jwl;
+    ObjectAnimator jwm;
 
     public w(ViewGroup viewGroup) {
-        this.jwf = viewGroup;
-        this.jwg = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.jwh = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        this.jwh = viewGroup;
+        this.jwi = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.jwj = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
         init();
     }
 
     private void init() {
-        this.jwi = ObjectAnimator.ofFloat(this.jwg, "alpha", 1.0f, 0.5f);
-        this.jwj = ObjectAnimator.ofFloat(this.jwg, "alpha", 0.5f, 0.0f);
-        this.jwk = ObjectAnimator.ofFloat(this.jwh, "alpha", 1.0f, 0.0f);
-        this.jwi.setDuration(50L);
-        this.jwj.setDuration(50L);
+        this.jwk = ObjectAnimator.ofFloat(this.jwi, "alpha", 1.0f, 0.5f);
+        this.jwl = ObjectAnimator.ofFloat(this.jwi, "alpha", 0.5f, 0.0f);
+        this.jwm = ObjectAnimator.ofFloat(this.jwj, "alpha", 1.0f, 0.0f);
         this.jwk.setDuration(50L);
+        this.jwl.setDuration(50L);
+        this.jwm.setDuration(50L);
     }
 
     public void startLoading() {
         cancelAnimator();
-        this.jwg.setAlpha(1.0f);
-        this.jwh.setAlpha(1.0f);
-        this.jwf.setVisibility(0);
-        this.jwh.startLoading();
-        this.jwi.start();
-    }
-
-    public void czl() {
-        cancelAnimator();
-        this.jwh.czl();
-    }
-
-    public void czm() {
-        cancelAnimator();
-        this.jwj.start();
+        this.jwi.setAlpha(1.0f);
+        this.jwj.setAlpha(1.0f);
+        this.jwh.setVisibility(0);
+        this.jwj.startLoading();
         this.jwk.start();
     }
 
     public void czn() {
         cancelAnimator();
-        this.jwf.setVisibility(8);
-        this.jwh.czn();
+        this.jwj.czn();
+    }
+
+    public void czo() {
+        cancelAnimator();
+        this.jwl.start();
+        this.jwm.start();
+    }
+
+    public void czp() {
+        cancelAnimator();
+        this.jwh.setVisibility(8);
+        this.jwj.czp();
     }
 
     private void cancelAnimator() {
-        this.jwi.cancel();
-        this.jwj.cancel();
         this.jwk.cancel();
+        this.jwl.cancel();
+        this.jwm.cancel();
     }
 
     public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.jwh != null) {
-            this.jwh.setLoadingAnimationListener(aVar);
+        if (this.jwj != null) {
+            this.jwj.setLoadingAnimationListener(aVar);
         }
     }
 }

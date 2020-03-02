@@ -86,7 +86,7 @@ public class a {
 
     private void sT() {
         if (this.ahU != null) {
-            int i = com.baidu.live.v.a.zj().awA != null ? com.baidu.live.v.a.zj().awA.aaO : 0;
+            int i = com.baidu.live.v.a.zl().awB != null ? com.baidu.live.v.a.zl().awB.aaO : 0;
             if (i > 0 && this.ahU.size() >= i) {
                 Collections.sort(this.ahU, new c.a());
                 int max = Math.max((int) (i * 0.7f), 1);

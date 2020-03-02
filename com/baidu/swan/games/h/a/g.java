@@ -5,15 +5,15 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.games.h.i;
 /* loaded from: classes11.dex */
 public class g {
-    private int cob;
+    private int coc;
     private int mID;
     @V8JavascriptField
     public i stats;
 
     public g() {
-        this.cob = 0;
-        int i = this.cob;
-        this.cob = i + 1;
+        this.coc = 0;
+        int i = this.coc;
+        this.coc = i + 1;
         this.mID = i;
     }
 

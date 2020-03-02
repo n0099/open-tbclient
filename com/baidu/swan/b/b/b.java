@@ -9,27 +9,27 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements ak {
-    private HashMap<String, Boolean> cjy = new HashMap<>();
-    private a cjz = new a();
+    private HashMap<String, Boolean> cjz = new HashMap<>();
+    private a cjA = new a();
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
     @Nullable
     public com.baidu.swan.apps.api.b.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
-        if (ale()) {
+        if (alg()) {
             bVar.K(null);
             return null;
         }
-        return this.cjz.b(jSONObject, a(bVar));
+        return this.cjA.b(jSONObject, a(bVar));
     }
 
     public boolean oj(String str) {
-        return TextUtils.equals(this.cjz.name, str);
+        return TextUtils.equals(this.cjA.name, str);
     }
 
-    public boolean ale() {
+    public boolean alg() {
         Boolean bool;
         String appKey = getAppKey();
-        if (!TextUtils.isEmpty(appKey) && (bool = this.cjy.get(appKey)) != null) {
+        if (!TextUtils.isEmpty(appKey) && (bool = this.cjz.get(appKey)) != null) {
             return bool.booleanValue();
         }
         return false;
@@ -55,14 +55,14 @@ public class b implements ak {
     public void ex(boolean z) {
         String appKey = getAppKey();
         if (!TextUtils.isEmpty(appKey)) {
-            this.cjy.put(appKey, Boolean.valueOf(z));
+            this.cjz.put(appKey, Boolean.valueOf(z));
         }
     }
 
     private String getAppKey() {
-        e acE = e.acE();
-        if (acE != null) {
-            return acE.getAppKey();
+        e acG = e.acG();
+        if (acG != null) {
+            return acG.getAppKey();
         }
         return null;
     }

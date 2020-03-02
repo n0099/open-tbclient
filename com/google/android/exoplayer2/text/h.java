@@ -13,10 +13,10 @@ public final class h extends com.google.android.exoplayer2.a.e implements Compar
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull h hVar) {
-        if (dus() != hVar.dus()) {
-            return dus() ? 1 : -1;
+        if (duu() != hVar.duu()) {
+            return duu() ? 1 : -1;
         }
-        long j = this.mdB - hVar.mdB;
+        long j = this.mdD - hVar.mdD;
         if (j == 0) {
             return 0;
         }

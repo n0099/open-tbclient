@@ -16,20 +16,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class b {
-    private static b aZt;
+    private static b aZu;
     private static Context mContext;
-    private HashMap<String, a> aZu = new HashMap<>();
-    private List<String> aZv = new ArrayList();
+    private HashMap<String, a> aZv = new HashMap<>();
+    private List<String> aZw = new ArrayList();
 
     public static b bc(Context context) {
-        if (aZt == null) {
+        if (aZu == null) {
             synchronized (c.class) {
-                if (aZt == null) {
-                    aZt = new b(context.getApplicationContext());
+                if (aZu == null) {
+                    aZu = new b(context.getApplicationContext());
                 }
             }
         }
-        return aZt;
+        return aZu;
     }
 
     private b(Context context) {
@@ -49,7 +49,7 @@ public class b {
                         JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
                         String optString = jSONObject.optString("id");
                         String optString2 = jSONObject.optString("text");
-                        this.aZu.put(optString2, new a(optString, optString2, Integer.valueOf(eZ(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
+                        this.aZv.put(optString2, new a(optString, optString2, Integer.valueOf(eZ(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
                     }
                 }
                 JSONArray optJSONArray3 = optJSONObject.optJSONArray("panel_emoticons");
@@ -58,7 +58,7 @@ public class b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String eY = eY((String) optJSONArray3.get(i2));
                         if (!TextUtils.isEmpty(eY)) {
-                            this.aZv.add(eY);
+                            this.aZw.add(eY);
                         }
                     }
                 }
@@ -70,7 +70,7 @@ public class b {
 
     private String eY(String str) {
         String str2 = "";
-        for (Map.Entry<String, a> entry : this.aZu.entrySet()) {
+        for (Map.Entry<String, a> entry : this.aZv.entrySet()) {
             str2 = entry.getKey();
             if (str.equals(entry.getValue().id)) {
                 break;
@@ -150,9 +150,9 @@ public class b {
         Integer num;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                a aVar = this.aZu.get(str);
+                a aVar = this.aZv.get(str);
                 if (aVar != null) {
-                    num = aVar.aZx;
+                    num = aVar.aZy;
                     break;
                 }
             default:
@@ -169,30 +169,30 @@ public class b {
         a aVar = null;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                aVar = this.aZu.get(str);
+                aVar = this.aZv.get(str);
                 break;
         }
         return aVar == null ? "" : aVar.id;
     }
 
     public boolean a(EmotionType emotionType) {
-        return emotionType == EmotionType.EMOTION_CLASSIC_TYPE && this.aZu.size() > 0 && this.aZv.size() > 0;
+        return emotionType == EmotionType.EMOTION_CLASSIC_TYPE && this.aZv.size() > 0 && this.aZw.size() > 0;
     }
 
-    public List Gj() {
-        return this.aZv;
+    public List Gl() {
+        return this.aZw;
     }
 
     /* loaded from: classes13.dex */
     public static class a {
-        public Integer aZx;
+        public Integer aZy;
         public String id;
         public String text;
 
         public a(String str, String str2, Integer num) {
             this.id = str;
             this.text = str2;
-            this.aZx = num;
+            this.aZy = num;
         }
     }
 }

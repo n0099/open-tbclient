@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.Collections;
 /* loaded from: classes6.dex */
 final class b extends h {
-    private com.google.android.exoplayer2.util.f mlg;
-    private a mlh;
+    private com.google.android.exoplayer2.util.f mli;
+    private a mlj;
 
     public static boolean A(l lVar) {
-        return lVar.dzr() >= 5 && lVar.readUnsignedByte() == 127 && lVar.readUnsignedInt() == 1179402563;
+        return lVar.dzt() >= 5 && lVar.readUnsignedByte() == 127 && lVar.readUnsignedInt() == 1179402563;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,8 +21,8 @@ final class b extends h {
     public void reset(boolean z) {
         super.reset(z);
         if (z) {
-            this.mlg = null;
-            this.mlh = null;
+            this.mli = null;
+            this.mlj = null;
         }
     }
 
@@ -41,18 +41,18 @@ final class b extends h {
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected boolean a(l lVar, long j, h.a aVar) throws IOException, InterruptedException {
         byte[] bArr = lVar.data;
-        if (this.mlg == null) {
-            this.mlg = new com.google.android.exoplayer2.util.f(bArr, 17);
-            byte[] copyOfRange = Arrays.copyOfRange(bArr, 9, lVar.dzs());
+        if (this.mli == null) {
+            this.mli = new com.google.android.exoplayer2.util.f(bArr, 17);
+            byte[] copyOfRange = Arrays.copyOfRange(bArr, 9, lVar.dzu());
             copyOfRange[4] = Byte.MIN_VALUE;
-            aVar.lZw = Format.a(null, "audio/flac", null, -1, this.mlg.dzk(), this.mlg.channels, this.mlg.sampleRate, Collections.singletonList(copyOfRange), null, 0, null);
+            aVar.lZy = Format.a(null, "audio/flac", null, -1, this.mli.dzm(), this.mli.channels, this.mli.sampleRate, Collections.singletonList(copyOfRange), null, 0, null);
         } else if ((bArr[0] & Byte.MAX_VALUE) == 3) {
-            this.mlh = new a();
-            this.mlh.D(lVar);
+            this.mlj = new a();
+            this.mlj.D(lVar);
         } else if (aw(bArr)) {
-            if (this.mlh != null) {
-                this.mlh.fT(j);
-                aVar.mlG = this.mlh;
+            if (this.mlj != null) {
+                this.mlj.fT(j);
+                aVar.mlI = this.mlj;
                 return false;
             }
             return false;
@@ -73,7 +73,7 @@ final class b extends h {
             case 6:
             case 7:
                 lVar.skipBytes(4);
-                lVar.dzG();
+                lVar.dzI();
                 int readUnsignedByte = i == 6 ? lVar.readUnsignedByte() : lVar.readUnsignedShort();
                 lVar.setPosition(0);
                 return readUnsignedByte + 1;
@@ -93,35 +93,35 @@ final class b extends h {
 
     /* loaded from: classes6.dex */
     private class a implements f, com.google.android.exoplayer2.extractor.l {
-        private long[] mli;
-        private long[] mlj;
-        private long mlk = -1;
-        private long mll = -1;
+        private long[] mlk;
+        private long[] mll;
+        private long mlm = -1;
+        private long mln = -1;
 
         public a() {
         }
 
         public void fT(long j) {
-            this.mlk = j;
+            this.mlm = j;
         }
 
         public void D(l lVar) {
             lVar.skipBytes(1);
-            int dzv = lVar.dzv() / 18;
-            this.mli = new long[dzv];
-            this.mlj = new long[dzv];
-            for (int i = 0; i < dzv; i++) {
-                this.mli[i] = lVar.readLong();
-                this.mlj[i] = lVar.readLong();
+            int dzx = lVar.dzx() / 18;
+            this.mlk = new long[dzx];
+            this.mll = new long[dzx];
+            for (int i = 0; i < dzx; i++) {
+                this.mlk[i] = lVar.readLong();
+                this.mll[i] = lVar.readLong();
                 lVar.skipBytes(2);
             }
         }
 
         @Override // com.google.android.exoplayer2.extractor.d.f
         public long u(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
-            if (this.mll >= 0) {
-                long j = -(this.mll + 2);
-                this.mll = -1L;
+            if (this.mln >= 0) {
+                long j = -(this.mln + 2);
+                this.mln = -1L;
                 return j;
             }
             return -1L;
@@ -130,29 +130,29 @@ final class b extends h {
         @Override // com.google.android.exoplayer2.extractor.d.f
         public long fS(long j) {
             long fV = b.this.fV(j);
-            this.mll = this.mli[v.a(this.mli, fV, true, true)];
+            this.mln = this.mlk[v.a(this.mlk, fV, true, true)];
             return fV;
         }
 
         @Override // com.google.android.exoplayer2.extractor.d.f
-        public com.google.android.exoplayer2.extractor.l dvh() {
+        public com.google.android.exoplayer2.extractor.l dvj() {
             return this;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
-        public boolean duO() {
+        public boolean duQ() {
             return true;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
         public long fL(long j) {
-            int a = v.a(this.mli, b.this.fV(j), true, true);
-            return this.mlj[a] + this.mlk;
+            int a = v.a(this.mlk, b.this.fV(j), true, true);
+            return this.mll[a] + this.mlm;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
         public long getDurationUs() {
-            return b.this.mlg.dzl();
+            return b.this.mli.dzn();
         }
     }
 }

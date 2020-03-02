@@ -7,5 +7,5 @@ public interface b {
 
     void dX(String str);
 
-    boolean zi();
+    boolean zk();
 }

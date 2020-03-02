@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.b> {
-    private View eCF;
-    private TextView eCG;
-    private View eCH;
+    private View eCG;
+    private TextView eCH;
+    private View eCI;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,18 +19,18 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.eCF = view.findViewById(R.id.frs_game_live_recommand_line1);
-        this.eCG = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
-        this.eCH = view.findViewById(R.id.frs_game_live_recommand_line2);
+        this.eCG = view.findViewById(R.id.frs_game_live_recommand_line1);
+        this.eCH = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
+        this.eCI = view.findViewById(R.id.frs_game_live_recommand_line2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.eCF, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.eCG, (int) R.color.cp_cont_d);
-            am.setBackgroundResource(this.eCH, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.eCG, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.eCH, (int) R.color.cp_cont_d);
+            am.setBackgroundResource(this.eCI, R.color.cp_bg_line_c);
             this.mSkinType = i;
         }
     }
@@ -52,11 +52,11 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
 
     /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public b eCI;
+        public b eCJ;
 
         public a(b bVar) {
             super(bVar.getView());
-            this.eCI = bVar;
+            this.eCJ = bVar;
         }
     }
 }

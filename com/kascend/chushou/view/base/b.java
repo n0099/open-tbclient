@@ -75,7 +75,7 @@ public abstract class b extends Fragment {
 
     public void showApiError(boolean z, int i, String str) {
         if (z) {
-            if (!tv.chushou.zues.utils.a.dQn()) {
+            if (!tv.chushou.zues.utils.a.dQp()) {
                 showStatus(3);
                 return;
             } else {
@@ -83,7 +83,7 @@ public abstract class b extends Fragment {
                 return;
             }
         }
-        if (!tv.chushou.zues.utils.a.dQn()) {
+        if (!tv.chushou.zues.utils.a.dQp()) {
             str = this.mContext.getString(a.i.s_no_available_network);
         } else if (h.isEmpty(str)) {
             str = this.mContext.getString(a.i.str_errpr_pop);

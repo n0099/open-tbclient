@@ -7,10 +7,10 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes10.dex */
 public class CountDownTextView extends TextView {
-    private int bnE;
-    private b ecT;
-    private final Runnable ecU;
-    private boolean ecV;
+    private int bnF;
+    private b ecU;
+    private final Runnable ecV;
+    private boolean ecW;
     private Handler mHandler;
     private String mText;
 
@@ -21,15 +21,15 @@ public class CountDownTextView extends TextView {
 
     /* loaded from: classes10.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> ecp;
+        private final WeakReference<CountDownTextView> ecq;
 
         private a(CountDownTextView countDownTextView) {
-            this.ecp = new WeakReference<>(countDownTextView);
+            this.ecq = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.ecp.get();
+            CountDownTextView countDownTextView = this.ecq.get();
             if (countDownTextView != null) {
                 countDownTextView.on(1);
             }
@@ -38,20 +38,20 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.bnE = 0;
+        this.bnF = 0;
         this.mText = "";
-        this.ecT = null;
+        this.ecU = null;
         this.mHandler = new Handler();
-        this.ecV = false;
-        this.ecU = new a();
+        this.ecW = false;
+        this.ecV = new a();
     }
 
     public void setNumTypeFromBes(boolean z) {
-        this.ecV = z;
+        this.ecW = z;
     }
 
     public void setTimeoutListener(b bVar) {
-        this.ecT = bVar;
+        this.ecU = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -63,7 +63,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aZr();
+        aZt();
     }
 
     @Override // android.view.View
@@ -72,39 +72,39 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             on(0);
         } else {
-            aZr();
+            aZt();
         }
     }
 
     public void al(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.bnE = i;
+            this.bnF = i;
         }
     }
 
-    private void aZr() {
+    private void aZt() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void on(int i) {
-        this.bnE -= i;
-        if (this.bnE == 0) {
-            if (this.ecT != null) {
-                this.ecT.bq(this);
+        this.bnF -= i;
+        if (this.bnF == 0) {
+            if (this.ecU != null) {
+                this.ecU.bq(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.bnE > 0) {
-            if (this.ecV) {
-                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.bnE)));
+        if (this.bnF > 0) {
+            if (this.ecW) {
+                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.bnF)));
             } else {
-                setText(String.format("%s %s", this.mText, Integer.valueOf(this.bnE)));
+                setText(String.format("%s %s", this.mText, Integer.valueOf(this.bnF)));
             }
         }
-        this.mHandler.removeCallbacks(this.ecU);
-        this.mHandler.postDelayed(this.ecU, 1000L);
+        this.mHandler.removeCallbacks(this.ecV);
+        this.mHandler.postDelayed(this.ecV, 1000L);
     }
 }

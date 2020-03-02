@@ -13,8 +13,8 @@ import java.util.Locale;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 abstract class b implements e {
-    protected static final byte[] lUU = {-1, -39};
-    private final com.facebook.imagepipeline.memory.a lUV = com.facebook.imagepipeline.memory.b.dqP();
+    protected static final byte[] lUW = {-1, -39};
+    private final com.facebook.imagepipeline.memory.a lUX = com.facebook.imagepipeline.memory.b.dqR();
 
     abstract Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options);
 
@@ -23,24 +23,24 @@ abstract class b implements e {
     @Override // com.facebook.imagepipeline.i.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect) {
         BitmapFactory.Options a = a(eVar.getSampleSize(), config);
-        com.facebook.common.references.a<PooledByteBuffer> dqw = eVar.dqw();
-        g.checkNotNull(dqw);
+        com.facebook.common.references.a<PooledByteBuffer> dqy = eVar.dqy();
+        g.checkNotNull(dqy);
         try {
-            return ab(a(dqw, a));
+            return ab(a(dqy, a));
         } finally {
-            com.facebook.common.references.a.c(dqw);
+            com.facebook.common.references.a.c(dqy);
         }
     }
 
     @Override // com.facebook.imagepipeline.i.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect, int i) {
         BitmapFactory.Options a = a(eVar.getSampleSize(), config);
-        com.facebook.common.references.a<PooledByteBuffer> dqw = eVar.dqw();
-        g.checkNotNull(dqw);
+        com.facebook.common.references.a<PooledByteBuffer> dqy = eVar.dqy();
+        g.checkNotNull(dqy);
         try {
-            return ab(a(dqw, i, a));
+            return ab(a(dqy, i, a));
         } finally {
-            com.facebook.common.references.a.c(dqw);
+            com.facebook.common.references.a.c(dqy);
         }
     }
 
@@ -66,12 +66,12 @@ abstract class b implements e {
     public com.facebook.common.references.a<Bitmap> ab(Bitmap bitmap) {
         try {
             Bitmaps.aa(bitmap);
-            if (!this.lUV.V(bitmap)) {
+            if (!this.lUX.V(bitmap)) {
                 int ad = com.facebook.d.a.ad(bitmap);
                 bitmap.recycle();
-                throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(ad), Integer.valueOf(this.lUV.getCount()), Long.valueOf(this.lUV.getSize()), Integer.valueOf(this.lUV.dqM()), Integer.valueOf(this.lUV.getMaxSize())));
+                throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(ad), Integer.valueOf(this.lUX.getCount()), Long.valueOf(this.lUX.getSize()), Integer.valueOf(this.lUX.dqO()), Integer.valueOf(this.lUX.getMaxSize())));
             }
-            return com.facebook.common.references.a.a(bitmap, this.lUV.dqN());
+            return com.facebook.common.references.a.a(bitmap, this.lUX.dqP());
         } catch (Exception e) {
             bitmap.recycle();
             throw l.t(e);

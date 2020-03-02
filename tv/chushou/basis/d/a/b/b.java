@@ -5,17 +5,17 @@ import java.util.Map;
 public interface b extends tv.chushou.basis.d.a {
     boolean MW(int i);
 
-    String Ra();
+    String Rc();
 
-    String dEd();
-
-    String dEe();
-
-    Map<String, String> dEf();
+    String dEf();
 
     String dEg();
 
     Map<String, String> dEh();
+
+    String dEi();
+
+    Map<String, String> dEj();
 
     String getAppKey();
 

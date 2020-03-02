@@ -181,9 +181,9 @@ public final class b {
         public static final int pay_failed_sub_text = 2131234516;
         public static final int pay_meet_problems = 2131234517;
         public static final int paying = 2131234522;
-        public static final int repayment = 2131235071;
-        public static final int user_know = 2131236904;
-        public static final int wechat_not_available = 2131237413;
+        public static final int repayment = 2131235072;
+        public static final int user_know = 2131236905;
+        public static final int wechat_not_available = 2131237414;
     }
 
     /* loaded from: classes.dex */

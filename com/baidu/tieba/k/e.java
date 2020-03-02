@@ -13,9 +13,9 @@ public interface e {
 
     void a(a aVar);
 
-    void cgv();
-
-    void cgw();
-
     void cgx();
+
+    void cgy();
+
+    void cgz();
 }

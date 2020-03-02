@@ -9,7 +9,7 @@ import com.baidu.live.u.a;
 import com.baidu.live.view.c;
 /* loaded from: classes3.dex */
 public class b extends c {
-    private int aEl;
+    private int aEm;
     private int mLevel;
 
     public b(Context context, AlaLiveMarkData alaLiveMarkData, int i, boolean z, c.a aVar) {
@@ -19,7 +19,7 @@ public class b extends c {
     public b(Context context, AlaLiveMarkData alaLiveMarkData, int i, boolean z, float f, c.a aVar) {
         super(context, alaLiveMarkData, z, f, aVar);
         this.mLevel = i;
-        this.aEl = (int) (context.getResources().getDimensionPixelSize(a.e.sdk_tbfontsize22) * f);
+        this.aEm = (int) (context.getResources().getDimensionPixelSize(a.e.sdk_tbfontsize22) * f);
     }
 
     @Override // com.baidu.live.view.c, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -29,7 +29,7 @@ public class b extends c {
             canvas.save();
             canvas.translate(f, (((i5 - i3) - cachedDrawable.getBounds().bottom) / 2) + i3);
             cachedDrawable.draw(canvas);
-            if (this.aEu) {
+            if (this.aEv) {
                 b(canvas, cachedDrawable);
             }
             canvas.restore();
@@ -39,7 +39,7 @@ public class b extends c {
     private void b(Canvas canvas, Drawable drawable) {
         Paint paint = new Paint();
         paint.setColor(-1);
-        paint.setTextSize(this.aEl);
+        paint.setTextSize(this.aEm);
         paint.setStyle(Paint.Style.FILL);
         paint.setTextAlign(Paint.Align.CENTER);
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();

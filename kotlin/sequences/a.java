@@ -6,9 +6,9 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class a<T> implements c<T> {
-    private final c<T> nCU;
-    private final boolean nCV;
-    private final kotlin.jvm.a.b<T, Boolean> nCW;
+    private final c<T> nCW;
+    private final boolean nCX;
+    private final kotlin.jvm.a.b<T, Boolean> nCY;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.sequences.c<? extends T> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.a.b<? super T, java.lang.Boolean> */
@@ -16,9 +16,9 @@ public final class a<T> implements c<T> {
     public a(c<? extends T> cVar, boolean z, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         q.j(cVar, "sequence");
         q.j(bVar, "predicate");
-        this.nCU = cVar;
-        this.nCV = z;
-        this.nCW = bVar;
+        this.nCW = cVar;
+        this.nCX = z;
+        this.nCY = bVar;
     }
 
     @kotlin.h
@@ -26,7 +26,7 @@ public final class a<T> implements c<T> {
     /* loaded from: classes7.dex */
     public static final class C0771a implements Iterator<T> {
         private final Iterator<T> iterator;
-        private int nCX = -1;
+        private int nCZ = -1;
         private T nextItem;
 
         @Override // java.util.Iterator
@@ -36,41 +36,41 @@ public final class a<T> implements c<T> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         C0771a() {
-            this.iterator = a.this.nCU.iterator();
+            this.iterator = a.this.nCW.iterator();
         }
 
-        private final void dKM() {
+        private final void dKO() {
             while (this.iterator.hasNext()) {
                 T next = this.iterator.next();
-                if (((Boolean) a.this.nCW.invoke(next)).booleanValue() == a.this.nCV) {
+                if (((Boolean) a.this.nCY.invoke(next)).booleanValue() == a.this.nCX) {
                     this.nextItem = next;
-                    this.nCX = 1;
+                    this.nCZ = 1;
                     return;
                 }
             }
-            this.nCX = 0;
+            this.nCZ = 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.nCX == -1) {
-                dKM();
+            if (this.nCZ == -1) {
+                dKO();
             }
-            if (this.nCX == 0) {
+            if (this.nCZ == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             this.nextItem = null;
-            this.nCX = -1;
+            this.nCZ = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nCX == -1) {
-                dKM();
+            if (this.nCZ == -1) {
+                dKO();
             }
-            return this.nCX == 1;
+            return this.nCZ == 1;
         }
     }
 

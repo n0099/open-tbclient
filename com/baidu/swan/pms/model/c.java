@@ -6,6 +6,6 @@ public abstract class c {
     public long createTime = 0;
     public long updateTime = 0;
     public int state = 0;
-    public long cAY = 0;
-    public int cBg = 0;
+    public long cAZ = 0;
+    public int cBh = 0;
 }

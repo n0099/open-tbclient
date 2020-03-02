@@ -7,7 +7,7 @@ public interface a {
 
     void GS(String str);
 
-    void cwF();
+    void cwH();
 
-    p cwG();
+    p cwI();
 }

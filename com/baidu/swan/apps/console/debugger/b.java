@@ -8,67 +8,67 @@ import com.baidu.swan.apps.console.debugger.b.d;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class b {
-    private static a bjL;
+    private static a bjM;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bjJ = "";
     private static String bjK = "";
-    private static int bjM = 0;
+    private static String bjL = "";
+    private static int bjN = 0;
 
     public static void gA(String str) {
-        bjJ = str;
-    }
-
-    public static void gB(String str) {
         bjK = str;
     }
 
-    public static String Lu() {
-        return bjJ;
-    }
-
-    public static String Lv() {
-        return bjK;
+    public static void gB(String str) {
+        bjL = str;
     }
 
     public static String Lw() {
-        return bjL != null ? bjL.Lt() + File.separator + bjK : "";
+        return bjK;
     }
 
     public static String Lx() {
-        return bjL != null ? bjL.Lt() + File.separator + bjJ : "";
+        return bjL;
     }
 
-    public static boolean Ly() {
-        return bjM == 2;
+    public static String Ly() {
+        return bjM != null ? bjM.Lv() + File.separator + bjL : "";
     }
 
-    public static boolean Lz() {
-        return bjM == 1;
+    public static String Lz() {
+        return bjM != null ? bjM.Lv() + File.separator + bjK : "";
+    }
+
+    public static boolean LA() {
+        return bjN == 2;
+    }
+
+    public static boolean LB() {
+        return bjN == 1;
     }
 
     public static void n(Bundle bundle) {
         String e = r.e(bundle, "extraWSUrl");
         String e2 = r.e(bundle, "adb_debug_path");
         if (!TextUtils.isEmpty(e)) {
-            bjL = new d();
-            bjM = 1;
+            bjM = new d();
+            bjN = 1;
         } else if (!TextUtils.isEmpty(e2)) {
-            bjL = new com.baidu.swan.apps.console.debugger.adbdebug.b();
-            bjM = 2;
+            bjM = new com.baidu.swan.apps.console.debugger.adbdebug.b();
+            bjN = 2;
         } else {
             if (DEBUG) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            bjM = 0;
-            bjL = null;
+            bjN = 0;
+            bjM = null;
             return;
         }
-        bjL.n(bundle);
+        bjM.n(bundle);
     }
 
     public static void o(Bundle bundle) {
-        if (bjL != null) {
-            bjL.o(bundle);
+        if (bjM != null) {
+            bjM.o(bundle);
         }
     }
 }

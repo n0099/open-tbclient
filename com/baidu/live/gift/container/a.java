@@ -244,7 +244,7 @@ public class a extends BaseAdapter {
                 c0085a.aiY.setText(item.ry());
                 if (this.mType == 0) {
                     double d = JavaTypesHelper.toDouble(String.valueOf(item.getPrice()), 0.0d);
-                    if (d >= 100.0d && ((this.aiO || com.baidu.live.v.a.zj().awA.aaq) && !item.rI())) {
+                    if (d >= 100.0d && ((this.aiO || com.baidu.live.v.a.zl().awB.aaq) && !item.rI())) {
                         formatGiftNumForTDouDisPlay = new DecimalFormat("0.###K").format(d / 1000.0d);
                     } else {
                         formatGiftNumForTDouDisPlay = StringHelper.formatGiftNumForTDouDisPlay(Long.parseLong(item.getPrice()));

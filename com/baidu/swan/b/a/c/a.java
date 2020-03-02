@@ -154,6 +154,6 @@ public class a {
     }
 
     private static String du(Context context) {
-        return d.awq() ? d.awr() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
+        return d.aws() ? d.awt() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
     }
 }

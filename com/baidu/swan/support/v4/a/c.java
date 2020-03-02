@@ -4,8 +4,8 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes11.dex */
 public class c<D> {
-    b<D> cDE;
-    a<D> cDF;
+    b<D> cDF;
+    a<D> cDG;
     boolean mAbandoned;
     boolean mContentChanged;
     int mId;
@@ -22,38 +22,38 @@ public class c<D> {
     }
 
     public void a(int i, b<D> bVar) {
-        if (this.cDE != null) {
+        if (this.cDF != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.cDE = bVar;
+        this.cDF = bVar;
         this.mId = i;
     }
 
     public void a(b<D> bVar) {
-        if (this.cDE == null) {
-            throw new IllegalStateException("No listener register");
-        }
-        if (this.cDE != bVar) {
-            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
-        }
-        this.cDE = null;
-    }
-
-    public void a(a<D> aVar) {
-        if (this.cDF != null) {
-            throw new IllegalStateException("There is already a listener registered");
-        }
-        this.cDF = aVar;
-    }
-
-    public void b(a<D> aVar) {
         if (this.cDF == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.cDF != aVar) {
+        if (this.cDF != bVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
         this.cDF = null;
+    }
+
+    public void a(a<D> aVar) {
+        if (this.cDG != null) {
+            throw new IllegalStateException("There is already a listener registered");
+        }
+        this.cDG = aVar;
+    }
+
+    public void b(a<D> aVar) {
+        if (this.cDG == null) {
+            throw new IllegalStateException("No listener register");
+        }
+        if (this.cDG != aVar) {
+            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+        }
+        this.cDG = null;
     }
 
     public final void startLoading() {
@@ -107,7 +107,7 @@ public class c<D> {
         printWriter.print("mId=");
         printWriter.print(this.mId);
         printWriter.print(" mListener=");
-        printWriter.println(this.cDE);
+        printWriter.println(this.cDF);
         if (this.mStarted || this.mContentChanged || this.mProcessingChange) {
             printWriter.print(str);
             printWriter.print("mStarted=");

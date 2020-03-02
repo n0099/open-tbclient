@@ -117,9 +117,9 @@ public class c extends com.baidu.adp.framework.a.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String aSj = w.aSj();
-        if (!TextUtils.isEmpty(aSj)) {
-            httpMessage.addParam("oaid", aSj);
+        String aSl = w.aSl();
+        if (!TextUtils.isEmpty(aSl)) {
+            httpMessage.addParam("oaid", aSl);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -132,8 +132,8 @@ public class c extends com.baidu.adp.framework.a.d {
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.aIS().aIT()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aIS().aIU()));
+        if (com.baidu.tbadk.coreExtra.b.a.aIU().aIV()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aIU().aIW()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
             httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());
@@ -188,17 +188,17 @@ public class c extends com.baidu.adp.framework.a.d {
     }
 
     private void f(HttpMessage httpMessage) {
-        aa.a aGj = aa.aGj();
-        if (aGj != null) {
-            httpMessage.addParam("stTime", String.valueOf(aGj.mTime));
-            httpMessage.addParam("stSize", String.valueOf(aGj.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(aGj.mTimesNum));
-            httpMessage.addParam("stMode", String.valueOf(aGj.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(aGj.mMethod));
+        aa.a aGl = aa.aGl();
+        if (aGl != null) {
+            httpMessage.addParam("stTime", String.valueOf(aGl.mTime));
+            httpMessage.addParam("stSize", String.valueOf(aGl.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(aGl.mTimesNum));
+            httpMessage.addParam("stMode", String.valueOf(aGl.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(aGl.mMethod));
         }
         int errorNumsAndSet = aa.getErrorNumsAndSet(0);
-        if (errorNumsAndSet == 0 && aGj != null) {
-            errorNumsAndSet = aGj.mTimesNum;
+        if (errorNumsAndSet == 0 && aGl != null) {
+            errorNumsAndSet = aGl.mTimesNum;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(errorNumsAndSet));
     }

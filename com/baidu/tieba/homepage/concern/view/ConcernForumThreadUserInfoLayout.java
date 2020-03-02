@@ -25,13 +25,13 @@ import com.baidu.tieba.card.l;
 public class ConcernForumThreadUserInfoLayout extends LinearLayout implements com.baidu.tbadk.core.view.c {
     private bj KJ;
     private View.OnClickListener Nw;
-    private View.OnClickListener dhI;
-    private TextView diL;
-    private View diM;
-    public TextView dib;
+    private View.OnClickListener dhJ;
+    private TextView diM;
+    private View diN;
     public TextView dic;
-    private View.OnClickListener dig;
-    public ClickableHeaderImageView din;
+    public TextView die;
+    private View.OnClickListener dih;
+    public ClickableHeaderImageView dio;
     private int mSkinType;
 
     public ConcernForumThreadUserInfoLayout(Context context) {
@@ -45,13 +45,13 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout implements co
     public ConcernForumThreadUserInfoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.dig = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.ConcernForumThreadUserInfoLayout.1
+        this.dih = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.ConcernForumThreadUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ConcernForumThreadUserInfoLayout.this.KJ != null && !StringUtils.isNull(ConcernForumThreadUserInfoLayout.this.KJ.aCr())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ConcernForumThreadUserInfoLayout.this.getContext()).createNormalCfg(ConcernForumThreadUserInfoLayout.this.KJ.aCr(), l.aBY())));
-                    if (ConcernForumThreadUserInfoLayout.this.dhI != null) {
-                        ConcernForumThreadUserInfoLayout.this.dhI.onClick(view);
+                if (ConcernForumThreadUserInfoLayout.this.KJ != null && !StringUtils.isNull(ConcernForumThreadUserInfoLayout.this.KJ.aCt())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ConcernForumThreadUserInfoLayout.this.getContext()).createNormalCfg(ConcernForumThreadUserInfoLayout.this.KJ.aCt(), l.aCa())));
+                    if (ConcernForumThreadUserInfoLayout.this.dhJ != null) {
+                        ConcernForumThreadUserInfoLayout.this.dhJ.onClick(view);
                     }
                 }
             }
@@ -61,23 +61,23 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout implements co
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.concern_forum_thread_user_info_layout, (ViewGroup) this, true);
-        this.din = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
-        this.dib = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
-        this.dic = (TextView) inflate.findViewById(R.id.thread_user_name_and_reply_time);
-        this.diL = (TextView) inflate.findViewById(R.id.thread_info_address);
-        this.diM = inflate.findViewById(R.id.divider);
+        this.dio = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
+        this.dic = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
+        this.die = (TextView) inflate.findViewById(R.id.thread_user_name_and_reply_time);
+        this.diM = (TextView) inflate.findViewById(R.id.thread_info_address);
+        this.diN = inflate.findViewById(R.id.divider);
         setGravity(16);
         initHeaderImg();
-        this.dib.setOnClickListener(this.dig);
+        this.dic.setOnClickListener(this.dih);
     }
 
     private void initHeaderImg() {
-        if (this.din != null) {
-            this.din.setDefaultResource(17170445);
-            this.din.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.din.setDefaultBgResource(R.color.cp_bg_line_e);
-            this.din.setIsRound(true);
-            this.din.setOnClickListener(this.dig);
+        if (this.dio != null) {
+            this.dio.setDefaultResource(17170445);
+            this.dio.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+            this.dio.setDefaultBgResource(R.color.cp_bg_line_e);
+            this.dio.setIsRound(true);
+            this.dio.setOnClickListener(this.dih);
         }
     }
 
@@ -95,66 +95,66 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout implements co
     }
 
     private void ay(bj bjVar) {
-        if (bjVar == null || bjVar.aCm() == null || StringUtils.isNull(bjVar.aCm().getPortrait())) {
-            this.din.setVisibility(8);
+        if (bjVar == null || bjVar.aCo() == null || StringUtils.isNull(bjVar.aCo().getPortrait())) {
+            this.dio.setVisibility(8);
         } else {
-            this.din.setVisibility(0);
+            this.dio.setVisibility(0);
         }
     }
 
     public void J(bj bjVar) {
-        if (bjVar == null || StringUtils.isNull(bjVar.aCr())) {
-            this.dib.setVisibility(4);
+        if (bjVar == null || StringUtils.isNull(bjVar.aCt())) {
+            this.dic.setVisibility(4);
             return;
         }
-        this.dib.setText(aq.cutChineseAndEnglishWithSuffix(this.KJ.aCr(), 16, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
-        this.dib.setVisibility(0);
+        this.dic.setText(aq.cutChineseAndEnglishWithSuffix(this.KJ.aCt(), 16, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
+        this.dic.setVisibility(0);
     }
 
     public void F(bj bjVar) {
-        if (bjVar != null && !StringUtils.isNull(this.KJ.aCm().getName_show())) {
-            this.dic.setText(getContext().getString(R.string.user_name_and_publish_time, tY(this.KJ.aCm().getName_show()), aq.getFormatTime(bjVar.getCreateTime())));
-            this.dic.setVisibility(0);
+        if (bjVar != null && !StringUtils.isNull(this.KJ.aCo().getName_show())) {
+            this.die.setText(getContext().getString(R.string.user_name_and_publish_time, tY(this.KJ.aCo().getName_show()), aq.getFormatTime(bjVar.getCreateTime())));
+            this.die.setVisibility(0);
         }
     }
 
     private void I(bj bjVar) {
         if (bjVar == null || StringUtils.isNull(bjVar.getAddress())) {
-            this.diL.setVisibility(8);
             this.diM.setVisibility(8);
+            this.diN.setVisibility(8);
             return;
         }
-        this.diL.setText(this.KJ.getAddress());
-        this.diL.setVisibility(0);
+        this.diM.setText(this.KJ.getAddress());
         this.diM.setVisibility(0);
+        this.diN.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.core.view.c
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
         this.Nw = onClickListener;
-        if (this.din != null) {
-            this.din.setAfterClickListener(this.Nw);
+        if (this.dio != null) {
+            this.dio.setAfterClickListener(this.Nw);
         }
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.dhI = onClickListener;
+        this.dhJ = onClickListener;
     }
 
     @Override // com.baidu.tbadk.core.view.c
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.din != null) {
-            this.din.setPageId(bdUniqueId);
+        if (this.dio != null) {
+            this.dio.setPageId(bdUniqueId);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.setViewTextColor(this.dib, (int) R.color.cp_link_tip_c);
-            am.setViewTextColor(this.dic, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.diL, (int) R.color.cp_cont_d);
-            am.setBackgroundColor(this.diM, R.color.cp_cont_e);
+            am.setViewTextColor(this.dic, (int) R.color.cp_link_tip_c);
+            am.setViewTextColor(this.die, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.diM, (int) R.color.cp_cont_d);
+            am.setBackgroundColor(this.diN, R.color.cp_cont_e);
         }
     }
 
@@ -167,17 +167,17 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout implements co
         if (z) {
             J(this.KJ);
         } else {
-            this.dib.setVisibility(8);
+            this.dic.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.c
     public ClickableHeaderImageView getHeaderImg() {
-        return this.din;
+        return this.dio;
     }
 
     public TextView getUserName() {
-        return this.dic;
+        return this.die;
     }
 
     @Override // com.baidu.tbadk.core.view.c

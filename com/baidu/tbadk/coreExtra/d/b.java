@@ -4,17 +4,17 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b dus = new b();
+        private static b dut = new b();
     }
 
-    public static b aNn() {
-        return a.dus;
+    public static b aNp() {
+        return a.dut;
     }
 
     private b() {
     }
 
-    public void aNo() {
+    public void aNq() {
         uL("kLCSError=1");
     }
 

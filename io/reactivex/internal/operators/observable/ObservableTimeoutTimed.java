@@ -26,13 +26,13 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
         if (this.other == null) {
-            TimeoutObserver timeoutObserver = new TimeoutObserver(uVar, this.timeout, this.unit, this.scheduler.dJf());
+            TimeoutObserver timeoutObserver = new TimeoutObserver(uVar, this.timeout, this.unit, this.scheduler.dJh());
             uVar.onSubscribe(timeoutObserver);
             timeoutObserver.startTimeout(0L);
             this.source.subscribe(timeoutObserver);
             return;
         }
-        TimeoutFallbackObserver timeoutFallbackObserver = new TimeoutFallbackObserver(uVar, this.timeout, this.unit, this.scheduler.dJf(), this.other);
+        TimeoutFallbackObserver timeoutFallbackObserver = new TimeoutFallbackObserver(uVar, this.timeout, this.unit, this.scheduler.dJh(), this.other);
         uVar.onSubscribe(timeoutFallbackObserver);
         timeoutFallbackObserver.startTimeout(0L);
         this.source.subscribe(timeoutFallbackObserver);
@@ -119,16 +119,16 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     /* loaded from: classes7.dex */
     public static final class c implements Runnable {
         final long idx;
-        final b nyk;
+        final b nym;
 
         c(long j, b bVar) {
             this.idx = j;
-            this.nyk = bVar;
+            this.nym = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.nyk.onTimeout(this.idx);
+            this.nym.onTimeout(this.idx);
         }
     }
 
@@ -218,17 +218,17 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     /* loaded from: classes7.dex */
     static final class a<T> implements u<T> {
         final u<? super T> actual;
-        final AtomicReference<io.reactivex.disposables.b> nyj;
+        final AtomicReference<io.reactivex.disposables.b> nyl;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(u<? super T> uVar, AtomicReference<io.reactivex.disposables.b> atomicReference) {
             this.actual = uVar;
-            this.nyj = atomicReference;
+            this.nyl = atomicReference;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.nyj, bVar);
+            DisposableHelper.replace(this.nyl, bVar);
         }
 
         @Override // io.reactivex.u

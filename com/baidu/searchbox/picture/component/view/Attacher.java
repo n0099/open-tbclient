@@ -54,7 +54,7 @@ public class Attacher implements View.OnTouchListener, OnScaleDragGestureListene
 
     public Attacher(DraweeView<a> draweeView) {
         this.mDraweeView = new WeakReference<>(draweeView);
-        draweeView.getHierarchy().b(p.b.lMN);
+        draweeView.getHierarchy().b(p.b.lMP);
         draweeView.setOnTouchListener(this);
         this.mScaleDragDetector = new ScaleDragDetector(draweeView.getContext(), this);
         this.mGestureDetector = new GestureDetectorCompat(draweeView.getContext(), new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.searchbox.picture.component.view.Attacher.1

@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes8.dex */
 public class c {
-    private AdvertAppInfo hQT;
+    private AdvertAppInfo hQV;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -17,27 +17,27 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.hQT = advertAppInfo;
-    }
-
-    public void cae() {
-        DM("click");
-        com.baidu.tieba.recapp.report.c.cDn().a(com.baidu.tieba.recapp.report.f.c(this.hQT, 2, 0));
-    }
-
-    public void caf() {
-        DM("click");
-        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.hQT, 2, 0);
-        c.Ij("title");
-        com.baidu.tieba.recapp.report.c.cDn().a(c);
+        this.hQV = advertAppInfo;
     }
 
     public void cag() {
-        DM("show");
-        com.baidu.tieba.recapp.report.c.cDn().a(com.baidu.tieba.recapp.report.f.c(this.hQT, 3, 0));
+        DM("click");
+        com.baidu.tieba.recapp.report.c.cDp().a(com.baidu.tieba.recapp.report.f.c(this.hQV, 2, 0));
     }
 
     public void cah() {
+        DM("click");
+        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.hQV, 2, 0);
+        c.Ij("title");
+        com.baidu.tieba.recapp.report.c.cDp().a(c);
+    }
+
+    public void cai() {
+        DM("show");
+        com.baidu.tieba.recapp.report.c.cDp().a(com.baidu.tieba.recapp.report.f.c(this.hQV, 3, 0));
+    }
+
+    public void caj() {
     }
 
     public void DL(String str) {
@@ -45,6 +45,6 @@ public class c {
     }
 
     public void DM(String str) {
-        com.baidu.tbadk.distribute.a.aOf().a(this.hQT, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
+        com.baidu.tbadk.distribute.a.aOh().a(this.hQV, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
     }
 }

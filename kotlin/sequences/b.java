@@ -8,13 +8,13 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> nCZ;
-    private final kotlin.jvm.a.b<T, T> nDa;
+    private final kotlin.jvm.a.a<T> nDb;
+    private final kotlin.jvm.a.b<T, T> nDc;
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<T> {
-        private int nCX = -2;
+        private int nCZ = -2;
         private T nextItem;
 
         @Override // java.util.Iterator
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dKM() {
+        private final void dKO() {
             T t;
-            if (this.nCX == -2) {
-                t = (T) b.this.nCZ.invoke();
+            if (this.nCZ == -2) {
+                t = (T) b.this.nDb.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.nDa;
+                kotlin.jvm.a.b bVar = b.this.nDc;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dKt();
+                    q.dKv();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.nCX = this.nextItem == null ? 0 : 1;
+            this.nCZ = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.nCX < 0) {
-                dKM();
+            if (this.nCZ < 0) {
+                dKO();
             }
-            if (this.nCX == 0) {
+            if (this.nCZ == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.nCX = -1;
+            this.nCZ = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nCX < 0) {
-                dKM();
+            if (this.nCZ < 0) {
+                dKO();
             }
-            return this.nCX == 1;
+            return this.nCZ == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.j(aVar, "getInitialValue");
         q.j(bVar, "getNextValue");
-        this.nCZ = aVar;
-        this.nDa = bVar;
+        this.nDb = aVar;
+        this.nDc = bVar;
     }
 
     @Override // kotlin.sequences.c

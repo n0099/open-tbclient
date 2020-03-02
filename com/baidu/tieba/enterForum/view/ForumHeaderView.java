@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private com.baidu.tieba.enterForum.data.b fTn;
-    private LinearLayout fZF;
-    private TextView fZG;
-    private ImageView fZH;
+    private com.baidu.tieba.enterForum.data.b fTp;
+    private LinearLayout fZH;
+    private TextView fZI;
+    private ImageView fZJ;
 
     public ForumHeaderView(Context context) {
         super(context);
@@ -44,11 +44,11 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.fZF = (LinearLayout) findViewById(R.id.search_container);
-        this.fZG = (TextView) findViewById(R.id.search_text);
-        this.fZH = (ImageView) findViewById(R.id.search_icon);
+        this.fZH = (LinearLayout) findViewById(R.id.search_container);
+        this.fZI = (TextView) findViewById(R.id.search_text);
+        this.fZJ = (ImageView) findViewById(R.id.search_icon);
         setDescendantFocusability(262144);
-        this.fZF.setOnClickListener(this);
+        this.fZH.setOnClickListener(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -66,29 +66,29 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     public void setSearchHint(String str) {
-        this.fZG.setText(str);
+        this.fZI.setText(str);
     }
 
     public void onChangeSkinType() {
-        if (this.fTn != null && this.fTn.fTR) {
-            if (this.fTn.fTT > 0) {
-                SvgManager.aGA().a(this.fZH, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-                am.setViewTextColor(this.fZG, (int) R.color.white_alpha50);
-                am.setBackgroundResource(this.fZF, R.drawable.enter_forum_search_ad_bg);
+        if (this.fTp != null && this.fTp.fTT) {
+            if (this.fTp.fTV > 0) {
+                SvgManager.aGC().a(this.fZJ, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+                am.setViewTextColor(this.fZI, (int) R.color.white_alpha50);
+                am.setBackgroundResource(this.fZH, R.drawable.enter_forum_search_ad_bg);
                 return;
             }
-            SvgManager.aGA().a(this.fZH, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-            am.setViewTextColor(this.fZG, (int) R.color.cp_cont_d);
-            am.setBackgroundResource(this.fZF, R.drawable.enter_forum_search_bg);
+            SvgManager.aGC().a(this.fZJ, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            am.setViewTextColor(this.fZI, (int) R.color.cp_cont_d);
+            am.setBackgroundResource(this.fZH, R.drawable.enter_forum_search_bg);
             return;
         }
-        SvgManager.aGA().a(this.fZH, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-        am.setViewTextColor(this.fZG, (int) R.color.cp_cont_d);
-        am.setBackgroundResource(this.fZF, R.drawable.enter_forum_search_bg);
+        SvgManager.aGC().a(this.fZJ, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+        am.setViewTextColor(this.fZI, (int) R.color.cp_cont_d);
+        am.setBackgroundResource(this.fZH, R.drawable.enter_forum_search_bg);
     }
 
     public void setAdState(com.baidu.tieba.enterForum.data.b bVar) {
-        this.fTn = bVar;
+        this.fTp = bVar;
         onChangeSkinType();
     }
 }

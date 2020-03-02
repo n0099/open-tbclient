@@ -8,13 +8,13 @@ public class c extends a<com.baidu.swan.apps.z.a.c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = c.class.getSimpleName();
 
-    public static c arC() {
+    public static c arE() {
         return new c();
     }
 
     private boolean j(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, e eVar) {
         com.baidu.swan.apps.console.c.i("map", "MapRemoveAction start");
-        boolean a = com.baidu.swan.impl.map.c.arz().a(cVar);
+        boolean a = com.baidu.swan.impl.map.c.arB().a(cVar);
         com.baidu.swan.apps.console.c.i("map", "MapRemoveAction end");
         return a;
     }

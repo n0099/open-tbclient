@@ -11,42 +11,42 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private FrsADFragment gsN;
-    private BdTypeRecyclerView gsO;
-    private d gsP;
-    private m gsQ;
+    private FrsADFragment gsP;
+    private BdTypeRecyclerView gsQ;
+    private d gsR;
+    private m gsS;
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.gsN = frsADFragment;
-        this.gsO = bdTypeRecyclerView;
+        this.gsP = frsADFragment;
+        this.gsQ = bdTypeRecyclerView;
         wM();
     }
 
     private void wM() {
-        this.gsP = new d(this.gsN.getPageContext(), c.gtd, this.gsN.getUniqueId());
-        this.gsQ = new m(this.gsN.getPageContext(), n.gqY);
-        this.asE.add(this.gsP);
-        this.asE.add(this.gsQ);
-        bFS();
-        this.gsO.addAdapters(this.asE);
+        this.gsR = new d(this.gsP.getPageContext(), c.gtf, this.gsP.getUniqueId());
+        this.gsS = new m(this.gsP.getPageContext(), n.gra);
+        this.asE.add(this.gsR);
+        this.asE.add(this.gsS);
+        bFU();
+        this.gsQ.addAdapters(this.asE);
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-        this.gsO.setData(arrayList);
+        this.gsQ.setData(arrayList);
     }
 
-    private void bFS() {
-        if (!v.isEmpty(this.asE) && this.gsN != null) {
+    private void bFU() {
+        if (!v.isEmpty(this.asE) && this.gsP != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
                 if (aVar instanceof h) {
-                    ((h) aVar).a(this.gsN.getTbPageTag());
+                    ((h) aVar).a(this.gsP.getTbPageTag());
                 }
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.gsO.getAdapter().notifyDataSetChanged();
+        this.gsQ.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {

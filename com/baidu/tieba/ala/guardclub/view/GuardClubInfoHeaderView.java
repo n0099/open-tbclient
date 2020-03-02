@@ -16,20 +16,20 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class GuardClubInfoHeaderView extends LinearLayout {
     public TextView avp;
-    public TextView eFa;
-    public TextView eGx;
-    public HeadImageView eHO;
-    public TbImageView eHP;
-    public ImageView eHQ;
+    public TextView eFb;
+    public TextView eGy;
+    public HeadImageView eHP;
+    public TbImageView eHQ;
     public ImageView eHR;
-    public TextView eHS;
-    public ProgressBar eHT;
-    public TextView eHU;
-    public LinearLayout eHV;
-    public TextView eHW;
+    public ImageView eHS;
+    public TextView eHT;
+    public ProgressBar eHU;
+    public TextView eHV;
+    public LinearLayout eHW;
     public TextView eHX;
-    public LinearLayout eHY;
-    public TextView eHZ;
+    public TextView eHY;
+    public LinearLayout eHZ;
+    public TextView eIa;
 
     public GuardClubInfoHeaderView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -42,19 +42,19 @@ public class GuardClubInfoHeaderView extends LinearLayout {
                 setBackgroundColor(0);
                 setPadding(0, 0, 0, 0);
                 this.avp.setTypeface(Typeface.defaultFromStyle(0));
-                this.eFa.setTypeface(Typeface.defaultFromStyle(0));
-                this.eHU.setTextColor(getResources().getColor(a.d.sdk_white_alpha60));
-                this.eHX.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
-                this.eGx.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+                this.eFb.setTypeface(Typeface.defaultFromStyle(0));
+                this.eHV.setTextColor(getResources().getColor(a.d.sdk_white_alpha60));
+                this.eHY.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+                this.eGy.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
                 return;
             case 1:
                 setBackgroundResource(a.f.guard_club_info_header_card_bg);
                 setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds30), getResources().getDimensionPixelOffset(a.e.sdk_ds32), getResources().getDimensionPixelOffset(a.e.sdk_ds56), getResources().getDimensionPixelOffset(a.e.sdk_ds30));
                 this.avp.setTypeface(Typeface.defaultFromStyle(1));
-                this.eFa.setTypeface(Typeface.defaultFromStyle(1));
-                this.eHU.setTextColor(getResources().getColor(a.d.sdk_white_alpha80));
-                this.eHX.setTextColor(-11337753);
-                this.eGx.setTextColor(-11337753);
+                this.eFb.setTypeface(Typeface.defaultFromStyle(1));
+                this.eHV.setTextColor(getResources().getColor(a.d.sdk_white_alpha80));
+                this.eHY.setTextColor(-11337753);
+                this.eGy.setTextColor(-11337753);
                 return;
             default:
                 return;
@@ -64,20 +64,20 @@ public class GuardClubInfoHeaderView extends LinearLayout {
     private void init() {
         setOrientation(0);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_info_header, (ViewGroup) this, true);
-        this.eHO = (HeadImageView) findViewById(a.g.header_imageView);
-        this.eHP = (TbImageView) findViewById(a.g.headwear_imageView);
+        this.eHP = (HeadImageView) findViewById(a.g.header_imageView);
+        this.eHQ = (TbImageView) findViewById(a.g.headwear_imageView);
         this.avp = (TextView) findViewById(a.g.name_textView);
-        this.eFa = (TextView) findViewById(a.g.nameSuffix_textView);
-        this.eHQ = (ImageView) findViewById(a.g.edit_imageView);
-        this.eHR = (ImageView) findViewById(a.g.explain_imageView);
-        this.eHS = (TextView) findViewById(a.g.score_textView);
-        this.eHT = (ProgressBar) findViewById(a.g.score_progressBar);
-        this.eHU = (TextView) findViewById(a.g.next_textView);
-        this.eHV = (LinearLayout) findViewById(a.g.memberNum_layout);
-        this.eHW = (TextView) findViewById(a.g.memberNumTitle_textView);
-        this.eHX = (TextView) findViewById(a.g.memberNum_textView);
-        this.eHY = (LinearLayout) findViewById(a.g.rank_layout);
-        this.eHZ = (TextView) findViewById(a.g.rankTitle_textView);
-        this.eGx = (TextView) findViewById(a.g.rank_textView);
+        this.eFb = (TextView) findViewById(a.g.nameSuffix_textView);
+        this.eHR = (ImageView) findViewById(a.g.edit_imageView);
+        this.eHS = (ImageView) findViewById(a.g.explain_imageView);
+        this.eHT = (TextView) findViewById(a.g.score_textView);
+        this.eHU = (ProgressBar) findViewById(a.g.score_progressBar);
+        this.eHV = (TextView) findViewById(a.g.next_textView);
+        this.eHW = (LinearLayout) findViewById(a.g.memberNum_layout);
+        this.eHX = (TextView) findViewById(a.g.memberNumTitle_textView);
+        this.eHY = (TextView) findViewById(a.g.memberNum_textView);
+        this.eHZ = (LinearLayout) findViewById(a.g.rank_layout);
+        this.eIa = (TextView) findViewById(a.g.rankTitle_textView);
+        this.eGy = (TextView) findViewById(a.g.rank_textView);
     }
 }

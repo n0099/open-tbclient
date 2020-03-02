@@ -8,9 +8,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private long aRd = System.currentTimeMillis();
-    private String aRe = e.getNetworkType();
-    private JSONObject aRf;
+    private long aRe = System.currentTimeMillis();
+    private String aRf = e.getNetworkType();
+    private JSONObject aRg;
     private String action;
     private String content;
 
@@ -18,7 +18,7 @@ public class a {
         this.action = str;
     }
 
-    public JSONObject EE() {
+    public JSONObject EG() {
         if (TextUtils.isEmpty(this.action)) {
             com.baidu.poly.util.c.j("statistics action can not null");
             return null;
@@ -26,16 +26,16 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(Config.APP_VERSION_CODE, this.action);
-            jSONObject.put("t", this.aRd);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.aRe);
-            if (this.aRf != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.aRf);
+            jSONObject.put("t", this.aRe);
+            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.aRf);
+            if (this.aRg != null) {
+                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.aRg);
             } else if (!TextUtils.isEmpty(this.content)) {
                 jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.content);
             }
             return jSONObject;
         } catch (JSONException e) {
-            if (com.baidu.poly.util.c.aSb) {
+            if (com.baidu.poly.util.c.aSc) {
                 e.printStackTrace();
                 return jSONObject;
             }
@@ -44,7 +44,7 @@ public class a {
     }
 
     public a J(JSONObject jSONObject) {
-        this.aRf = jSONObject;
+        this.aRg = jSONObject;
         return this;
     }
 

@@ -8,8 +8,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends a {
     public b() {
-        this.djz = R.color.cp_cont_a;
-        this.djB = R.color.cp_link_tip_a;
+        this.djA = R.color.cp_cont_a;
+        this.djC = R.color.cp_link_tip_a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,10 +20,10 @@ public class b extends a {
 
     private Drawable al(float f) {
         GradientDrawable gradientDrawable;
-        if (!this.djK) {
-            this.djz = am.getColor(R.color.cp_cont_a);
+        if (!this.djL) {
+            this.djA = am.getColor(R.color.cp_cont_a);
         }
-        int color = this.djK ? am.getColor(this.djB) : this.djB;
+        int color = this.djL ? am.getColor(this.djC) : this.djC;
         int[] iArr = {com.baidu.tieba.tbadkCore.c.Cm(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();

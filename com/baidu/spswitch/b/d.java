@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 /* loaded from: classes13.dex */
 public class d {
-    private static volatile SharedPreferences bai;
+    private static volatile SharedPreferences baj;
 
     public static boolean j(Context context, int i) {
         return bh(context).edit().putInt("sp.key.softinput.height", i).commit();
@@ -15,13 +15,13 @@ public class d {
     }
 
     private static SharedPreferences bh(Context context) {
-        if (bai == null) {
+        if (baj == null) {
             synchronized (d.class) {
-                if (bai == null) {
-                    bai = context.getSharedPreferences("baidu.softinput.common", 0);
+                if (baj == null) {
+                    baj = context.getSharedPreferences("baidu.softinput.common", 0);
                 }
             }
         }
-        return bai;
+        return baj;
     }
 }

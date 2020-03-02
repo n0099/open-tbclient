@@ -9,7 +9,7 @@ import com.baidu.tieba.frs.h;
 import com.baidu.tieba.tbadkCore.g;
 /* loaded from: classes3.dex */
 public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements x {
-    private com.baidu.tieba.ala.livecard.b.d eMY;
+    private com.baidu.tieba.ala.livecard.b.d eMZ;
     private String mForumName;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -33,9 +33,9 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements x {
         if (this.mPageContext == null) {
             return null;
         }
-        this.eMY = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.eMY.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.eMY);
+        this.eMZ = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.eMZ.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.eMZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,12 +45,12 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements x {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (g) cVar);
         if (gVar != null) {
             int i2 = 0;
-            if (this.gnK != null) {
-                i2 = this.gnK.getTopThreadSize();
+            if (this.gnM != null) {
+                i2 = this.gnM.getTopThreadSize();
             }
-            cVar.eNi.cPE = (i + 1) - i2;
-            cVar.eNi.setForumName(this.mForumName);
-            cVar.eNi.a(gVar);
+            cVar.eNj.cPF = (i + 1) - i2;
+            cVar.eNj.setForumName(this.mForumName);
+            cVar.eNj.a(gVar);
         }
         return view;
     }

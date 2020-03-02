@@ -19,15 +19,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private static com.baidu.tieba.publisher.service.a dWd;
+    private static com.baidu.tieba.publisher.service.a dWe;
     private static com.baidu.tbadk.core.util.b.a mPermissionJudgement;
     private static IPublisherManagerInterface mPublisherInterfaceManager;
 
-    public static com.baidu.tieba.publisher.service.a aWO() {
-        if (dWd == null) {
-            dWd = new com.baidu.tieba.publisher.service.a();
+    public static com.baidu.tieba.publisher.service.a aWQ() {
+        if (dWe == null) {
+            dWe = new com.baidu.tieba.publisher.service.a();
         }
-        return dWd;
+        return dWe;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,8 +73,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.1.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvo != null) {
-                                hVar.dvo.onSuccess();
+                            if (hVar.dvp != null) {
+                                hVar.dvp.onSuccess();
                             }
                         }
 
@@ -131,8 +131,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.2.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvo != null) {
-                                hVar.dvo.onSuccess();
+                            if (hVar.dvp != null) {
+                                hVar.dvp.onSuccess();
                             }
                         }
 
@@ -177,34 +177,34 @@ public class e {
                         ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_forward_place_title);
                     }
                     ugcSchemeModel.sourceFrom = "tieba";
-                    if (!StringUtils.isNull(hVar.dvp)) {
-                        ugcSchemeModel.forwardContent = hVar.dvp;
+                    if (!StringUtils.isNull(hVar.dvq)) {
+                        ugcSchemeModel.forwardContent = hVar.dvq;
                     }
-                    if (hVar.dvq != null) {
+                    if (hVar.dvr != null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("title", hVar.dvq.title);
-                            jSONObject.put("ref_type", hVar.dvq.ref_type);
-                            jSONObject.put("thumbpic", hVar.dvq.thumbpic);
-                            jSONObject.put("channel", hVar.dvq.channel);
-                            jSONObject.put("url", hVar.dvq.url);
-                            jSONObject.put("account_type", hVar.dvq.dvz);
-                            jSONObject.put("id", hVar.dvq.id);
-                            jSONObject.put("nid", hVar.dvq.nid);
-                            jSONObject.put("video_duration", hVar.dvq.video_duration);
-                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dvq.avatar);
-                            jSONObject.put("tid", hVar.dvq.tid);
+                            jSONObject.put("title", hVar.dvr.title);
+                            jSONObject.put("ref_type", hVar.dvr.ref_type);
+                            jSONObject.put("thumbpic", hVar.dvr.thumbpic);
+                            jSONObject.put("channel", hVar.dvr.channel);
+                            jSONObject.put("url", hVar.dvr.url);
+                            jSONObject.put("account_type", hVar.dvr.dvA);
+                            jSONObject.put("id", hVar.dvr.id);
+                            jSONObject.put("nid", hVar.dvr.nid);
+                            jSONObject.put("video_duration", hVar.dvr.video_duration);
+                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dvr.avatar);
+                            jSONObject.put("tid", hVar.dvr.tid);
                             ugcSchemeModel.referenceDt = jSONObject.toString();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-                    if (hVar.dvr != null) {
+                    if (hVar.dvs != null) {
                         try {
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("share_type", hVar.dvr.dvw);
-                            jSONObject2.put("forward_rel_id", hVar.dvr.dvx);
-                            jSONObject2.put("forward_is_comment", hVar.dvr.dvy);
+                            jSONObject2.put("share_type", hVar.dvs.dvx);
+                            jSONObject2.put("forward_rel_id", hVar.dvs.dvy);
+                            jSONObject2.put("forward_is_comment", hVar.dvs.dvz);
                             ugcSchemeModel.ext = jSONObject2.toString();
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -214,8 +214,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.3.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvo != null) {
-                                hVar.dvo.onSuccess();
+                            if (hVar.dvp != null) {
+                                hVar.dvp.onSuccess();
                             }
                         }
 

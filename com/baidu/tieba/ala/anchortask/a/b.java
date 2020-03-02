@@ -13,47 +13,47 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.view.web.f;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.b.b {
-    private c euR;
-    private CustomMessageListener euS;
-    private PopupWindow.OnDismissListener euT;
+    private c euS;
+    private CustomMessageListener euT;
+    private PopupWindow.OnDismissListener euU;
     private Activity mContext;
 
     public b(Activity activity) {
         this.mContext = activity;
-        bdE();
+        bdG();
     }
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.euR = new c(this.mContext);
-        this.euR.setOnDismissListener(this.euT);
-        this.euR.bdF().setBackgroundColor(xK(str));
+        this.euS = new c(this.mContext);
+        this.euS.setOnDismissListener(this.euU);
+        this.euS.bdH().setBackgroundColor(xK(str));
         f fVar = new f();
-        fVar.y(this.mContext).a(this.euR).a(this.euR.bdF().getSchemeCallback());
-        com.baidu.live.view.web.a[] BA = fVar.BA();
-        for (com.baidu.live.view.web.a aVar : BA) {
-            this.euR.bdF().addJavascriptInterface(aVar, aVar.getName());
+        fVar.y(this.mContext).a(this.euS).a(this.euS.bdH().getSchemeCallback());
+        com.baidu.live.view.web.a[] BC = fVar.BC();
+        for (com.baidu.live.view.web.a aVar : BC) {
+            this.euS.bdH().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.euR.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.euS.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.euR != null && this.euR.isShowing() && this.euR.bdF() != null) {
-            this.euR.bdF().onResume();
+        if (this.euS != null && this.euS.isShowing() && this.euS.bdH() != null) {
+            this.euS.bdH().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.euR != null && this.euR.isShowing() && this.euR.bdF() != null) {
-            this.euR.bdF().onPause();
+        if (this.euS != null && this.euS.isShowing() && this.euS.bdH() != null) {
+            this.euS.bdH().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.euR != null) {
-            this.euR.bdG();
+        if (this.euS != null) {
+            this.euS.bdI();
         }
     }
 
@@ -64,20 +64,20 @@ public class b implements com.baidu.live.b.b {
     @Override // com.baidu.live.b.b
     public void release() {
         sL();
-        MessageManager.getInstance().unRegisterListener(this.euS);
+        MessageManager.getInstance().unRegisterListener(this.euT);
     }
 
-    private void bdE() {
-        this.euS = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void bdG() {
+        this.euT = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.euR != null && b.this.euR.isShowing()) {
-                    b.this.euR.dismiss();
+                if (b.this.euS != null && b.this.euS.isShowing()) {
+                    b.this.euS.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.euS);
+        MessageManager.getInstance().registerListener(this.euT);
     }
 
     private int xK(String str) {

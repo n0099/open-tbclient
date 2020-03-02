@@ -25,7 +25,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b bfD;
+    private com.baidu.swan.apps.camera.b.b bfE;
     private Timer mTimer;
 
     private a() {
@@ -35,11 +35,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0229a {
-        private static final a bfG = new a();
+        private static final a bfH = new a();
     }
 
-    public static a Ke() {
-        return C0229a.bfG;
+    public static a Kg() {
+        return C0229a.bfH;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2) {
@@ -90,13 +90,13 @@ public class a {
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.bfD = bVar;
+        this.bfE = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.Kg();
+                    bVar.Ki();
                 }
                 a.this.stopTimer();
             }
@@ -104,15 +104,15 @@ public class a {
     }
 
     public void stopTimer() {
-        this.bfD = null;
+        this.bfE = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void cancelTimer() {
-        if (this.bfD != null) {
-            this.bfD.cancel();
+        if (this.bfE != null) {
+            this.bfE.cancel();
         }
         stopTimer();
     }
@@ -129,7 +129,7 @@ public class a {
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? BdStatsConstant.StatsType.ERROR : "stop");
-            f.WQ().a(new com.baidu.swan.apps.n.a.b("camera", hashMap));
+            f.WS().a(new com.baidu.swan.apps.n.a.b("camera", hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();

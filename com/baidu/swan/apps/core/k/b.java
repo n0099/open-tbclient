@@ -8,44 +8,44 @@ import java.util.TreeMap;
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public String appPath;
-    public String bsi;
-    public boolean bsk;
-    public String bsl;
-    public boolean bsm;
-    public String bsn;
+    public String bsj;
+    public boolean bsl;
+    public String bsm;
+    public boolean bsn;
     public String bso;
     public String bsp;
     public String bsq;
     public String bsr;
+    public String bss;
 
     public static com.baidu.swan.apps.n.a.b b(b bVar) {
         TreeMap treeMap = new TreeMap();
         treeMap.put("appPath", bVar.appPath);
-        treeMap.put("pagePath", bVar.bso);
-        treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, bVar.bsl);
-        treeMap.put("devhook", bVar.bsi);
-        if (!TextUtils.isEmpty(bVar.bsq)) {
-            if (DEBUG) {
-                Log.d("PageReadyEvent", "add initData: " + bVar.bsq);
-            }
-            treeMap.put("initData", bVar.bsq);
-        }
-        if (!TextUtils.isEmpty(bVar.bsp)) {
-            treeMap.put("onReachBottomDistance", bVar.bsp);
-        }
-        treeMap.put("showPerformancePanel", String.valueOf(bVar.bsk));
+        treeMap.put("pagePath", bVar.bsp);
+        treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, bVar.bsm);
+        treeMap.put("devhook", bVar.bsj);
         if (!TextUtils.isEmpty(bVar.bsr)) {
-            treeMap.put("routeId", bVar.bsr);
+            if (DEBUG) {
+                Log.d("PageReadyEvent", "add initData: " + bVar.bsr);
+            }
+            treeMap.put("initData", bVar.bsr);
         }
-        treeMap.put("isT7Available", String.valueOf(bVar.bsm));
-        if (!TextUtils.isEmpty(bVar.bsn)) {
-            treeMap.put("slavePreload", bVar.bsn);
+        if (!TextUtils.isEmpty(bVar.bsq)) {
+            treeMap.put("onReachBottomDistance", bVar.bsq);
+        }
+        treeMap.put("showPerformancePanel", String.valueOf(bVar.bsl));
+        if (!TextUtils.isEmpty(bVar.bss)) {
+            treeMap.put("routeId", bVar.bss);
+        }
+        treeMap.put("isT7Available", String.valueOf(bVar.bsn));
+        if (!TextUtils.isEmpty(bVar.bso)) {
+            treeMap.put("slavePreload", bVar.bso);
         }
         com.baidu.swan.apps.ag.g.b.a(treeMap, (com.baidu.swan.apps.ag.b.a) null, "page ready event");
         return new com.baidu.swan.apps.n.a.b("PageReady", treeMap);
     }
 
     public String toString() {
-        return "PageReadyEvent{appPath='" + this.appPath + "', pagePath='" + this.bso + "', pageType='" + this.bsl + "', onReachBottomDistance='" + this.bsp + "', sConsole='" + this.bsi + "', initData='" + this.bsq + "', showPerformancePanel=" + this.bsk + ", routeId='" + this.bsr + "', isT7Available=" + this.bsm + ", preloadFile='" + this.bsn + "'}";
+        return "PageReadyEvent{appPath='" + this.appPath + "', pagePath='" + this.bsp + "', pageType='" + this.bsm + "', onReachBottomDistance='" + this.bsq + "', sConsole='" + this.bsj + "', initData='" + this.bsr + "', showPerformancePanel=" + this.bsl + ", routeId='" + this.bss + "', isT7Available=" + this.bsn + ", preloadFile='" + this.bso + "'}";
     }
 }

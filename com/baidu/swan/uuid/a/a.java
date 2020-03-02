@@ -23,13 +23,13 @@ public class a implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: agH */
+    /* renamed from: agJ */
     public String get() {
-        return awi();
+        return awk();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean awh() {
+    public boolean awj() {
         return (TextUtils.equals("mounted", Environment.getExternalStorageState()) && com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.READ_EXTERNAL_STORAGE") && new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists()) ? false : true;
     }
 
@@ -39,7 +39,7 @@ public class a implements b<String> {
         }
     }
 
-    private String awi() {
+    private String awk() {
         if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.READ_EXTERNAL_STORAGE")) {
             File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
             if (file.exists()) {

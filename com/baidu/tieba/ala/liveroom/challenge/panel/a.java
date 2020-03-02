@@ -10,37 +10,37 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a extends e {
-    private AlaChallengeWaveView eUO;
     private AlaChallengeWaveView eUP;
-    private HeadImageView eUQ;
+    private AlaChallengeWaveView eUQ;
     private HeadImageView eUR;
-    private com.baidu.live.challenge.a eUm;
+    private HeadImageView eUS;
+    private com.baidu.live.challenge.a eUn;
 
     public a(Context context, k kVar) {
         super(context, kVar);
-        this.eUO = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
-        this.eUP = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
-        this.eUO.setWaveArray(new float[]{AlaChallengeWaveView.eWa, AlaChallengeWaveView.eVZ, AlaChallengeWaveView.eVY});
-        this.eUP.setWaveArray(new float[]{AlaChallengeWaveView.eVY, AlaChallengeWaveView.eVZ, AlaChallengeWaveView.eWa});
-        this.eUQ = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
-        this.eUQ.setIsRound(true);
-        this.eUQ.setAutoChangeStyle(false);
-        this.eUQ.setDrawBorder(false);
-        this.eUQ.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eUQ.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.eUQ.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
-        this.eUR = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
+        this.eUP = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
+        this.eUQ = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
+        this.eUP.setWaveArray(new float[]{AlaChallengeWaveView.eWb, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eVZ});
+        this.eUQ.setWaveArray(new float[]{AlaChallengeWaveView.eVZ, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eWb});
+        this.eUR = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
         this.eUR.setIsRound(true);
         this.eUR.setAutoChangeStyle(false);
         this.eUR.setDrawBorder(false);
         this.eUR.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.eUR.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.eUR.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
+        this.eUS = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
+        this.eUS.setIsRound(true);
+        this.eUS.setAutoChangeStyle(false);
+        this.eUS.setDrawBorder(false);
+        this.eUS.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eUS.setDefaultBgResource(a.f.icon_challenge_default_avatar);
     }
 
     public void d(com.baidu.live.challenge.a aVar) {
         if (aVar != null) {
-            this.eUm = aVar;
-            this.eUR.startLoad(aVar.WU, 25, false);
+            this.eUn = aVar;
+            this.eUS.startLoad(aVar.WU, 25, false);
         }
     }
 
@@ -50,18 +50,18 @@ public class a extends e {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
-    protected int bkD() {
+    protected int bkF() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds510);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     protected void hide() {
         super.hide();
-        if (this.eUO != null) {
-            this.eUO.endAnimation();
-        }
         if (this.eUP != null) {
             this.eUP.endAnimation();
+        }
+        if (this.eUQ != null) {
+            this.eUQ.endAnimation();
         }
     }
 }

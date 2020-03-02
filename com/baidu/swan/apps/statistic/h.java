@@ -41,7 +41,7 @@ public class h extends com.baidu.swan.apps.process.a.a.a {
         }
         if (!TextUtils.isEmpty(string) && (hw = SwanAppDbControl.cb(AppRuntime.getAppContext()).hw(string)) != null) {
             try {
-                jSONObject.put("appDbInfo", hw.QY());
+                jSONObject.put("appDbInfo", hw.Ra());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -49,7 +49,7 @@ public class h extends com.baidu.swan.apps.process.a.a.a {
         if (DEBUG) {
             Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
         }
-        new a.C0297a(10002).lF(jSONObject.toString()).Wk();
+        new a.C0297a(10002).lF(jSONObject.toString()).Wm();
         finish();
     }
 
@@ -67,32 +67,32 @@ public class h extends com.baidu.swan.apps.process.a.a.a {
             try {
                 jSONObject2.put("version", str2);
                 jSONObject2.put("appId", str == null ? "null" : str);
-                com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
-                if (acD != null) {
-                    b.a GC = acD.GC();
-                    jSONObject2.put("launchInfo", GC == null ? "null" : GC.QY());
-                    SwanAppActivity acz = acD.acz();
+                com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+                if (acF != null) {
+                    b.a GE = acF.GE();
+                    jSONObject2.put("launchInfo", GE == null ? "null" : GE.Ra());
+                    SwanAppActivity acB = acF.acB();
                     com.baidu.swan.apps.x.b.b bVar = null;
-                    if (acz != null && (intent = acz.getIntent()) != null) {
+                    if (acB != null && (intent = acB.getIntent()) != null) {
                         bVar = com.baidu.swan.apps.x.b.b.G(intent);
                     }
-                    jSONObject2.put("launchInfoIntent", bVar == null ? "null" : bVar.QY());
+                    jSONObject2.put("launchInfoIntent", bVar == null ? "null" : bVar.Ra());
                 } else {
                     jSONObject2.put("swanApp", "null");
                 }
-                jSONObject2.put("stackTrace", ai.ahb());
+                jSONObject2.put("stackTrace", ai.ahd());
                 if (jSONObject != null) {
                     jSONObject2.put("reportExtInfo", jSONObject);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.baidu.swan.apps.process.messaging.client.a acw = com.baidu.swan.apps.runtime.d.acA().acw();
-            if (acw != null) {
+            com.baidu.swan.apps.process.messaging.client.a acy = com.baidu.swan.apps.runtime.d.acC().acy();
+            if (acy != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("key_swan_appid", str);
                 bundle.putString("key_report_info", jSONObject2.toString());
-                acw.a(bundle, h.class);
+                acy.a(bundle, h.class);
             }
         }
     }

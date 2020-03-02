@@ -1,7 +1,7 @@
 package com.baidu.g.a.a;
 /* loaded from: classes3.dex */
 public class b {
-    private String aHA;
+    private String aHB;
     private String bduss;
     private String displayname;
     private String uid;
@@ -30,11 +30,11 @@ public class b {
         this.bduss = str;
     }
 
-    public String BH() {
-        return this.aHA;
+    public String BJ() {
+        return this.aHB;
     }
 
     public void es(String str) {
-        this.aHA = str;
+        this.aHB = str;
     }
 }

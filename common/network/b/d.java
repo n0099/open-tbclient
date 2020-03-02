@@ -12,28 +12,28 @@ import java.util.Set;
 import okhttp3.Dns;
 /* loaded from: classes.dex */
 public class d implements Dns {
-    private c nuA;
-    private Dns nuB;
-    private static d nuz = null;
-    private static boolean lKM = false;
-    private static Set<String> nuC = new HashSet();
+    private c nuC;
+    private Dns nuD;
+    private static d nuB = null;
+    private static boolean lKO = false;
+    private static Set<String> nuE = new HashSet();
 
     static {
-        nuC.add("quanmin.baidu.com");
+        nuE.add("quanmin.baidu.com");
     }
 
     public static void a(Context context, c cVar, Dns dns) {
-        nuz = new d(cVar, dns);
+        nuB = new d(cVar, dns);
         b.init(context);
     }
 
-    public static d dIK() {
-        return nuz;
+    public static d dIM() {
+        return nuB;
     }
 
     private d(c cVar, Dns dns) {
-        this.nuA = cVar;
-        this.nuB = dns;
+        this.nuC = cVar;
+        this.nuD = dns;
     }
 
     @Override // okhttp3.Dns
@@ -59,11 +59,11 @@ public class d implements Dns {
     }
 
     private List<InetAddress> RV(String str) throws UnknownHostException {
-        return this.nuB.lookup(str);
+        return this.nuD.lookup(str);
     }
 
     private List<InetAddress> RW(String str) throws UnknownHostException {
-        String[] RU = b.dIJ().RU(str);
+        String[] RU = b.dIL().RU(str);
         if (RU.length <= 0) {
             throw new UnknownHostException("disaster recovery failed");
         }
@@ -75,7 +75,7 @@ public class d implements Dns {
     }
 
     private List<InetAddress> RX(String str) throws UnknownHostException {
-        List<InetAddress> lookup = this.nuA.lookup(str);
+        List<InetAddress> lookup = this.nuC.lookup(str);
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (InetAddress inetAddress : lookup) {
@@ -87,13 +87,13 @@ public class d implements Dns {
         if (arrayList.size() <= 0) {
             throw new UnknownHostException(String.format("%s has no valid ip", str));
         }
-        b.dIJ().h(str, (String[]) arrayList2.toArray(new String[0]));
+        b.dIL().h(str, (String[]) arrayList2.toArray(new String[0]));
         return arrayList;
     }
 
     public static boolean isInWhiteList(String str) {
-        if (lKM) {
-            return nuC.contains(str);
+        if (lKO) {
+            return nuE.contains(str);
         }
         return false;
     }

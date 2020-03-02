@@ -22,17 +22,17 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.e eVar) {
-        this.cBl.Pk();
-        com.baidu.swan.pms.e.a.j(this.cBm.getCategory(), eVar.maxAge);
+        this.cBm.Pm();
+        com.baidu.swan.pms.e.a.j(this.cBn.getCategory(), eVar.maxAge);
         com.baidu.swan.pms.f.e eVar2 = new com.baidu.swan.pms.f.e();
-        a(eVar.cBT, eVar2);
-        a(eVar.cBV, eVar2);
-        if (eVar2.aur() == 0) {
-            this.cBl.Pg();
+        a(eVar.cBU, eVar2);
+        a(eVar.cBW, eVar2);
+        if (eVar2.aut() == 0) {
+            this.cBm.Pi();
             return null;
         }
-        this.cBl.a(eVar2);
-        com.baidu.swan.pms.c.a.a.a(eVar, this.cBl);
+        this.cBm.a(eVar2);
+        com.baidu.swan.pms.c.a.a.a(eVar, this.cBm);
         return null;
     }
 
@@ -44,14 +44,14 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
         if (eVar == null) {
             return false;
         }
-        if (eVar.cBT == null || eVar.cBT.PS()) {
-            return eVar.cBV == null || eVar.cBV.PS();
+        if (eVar.cBU == null || eVar.cBU.PU()) {
+            return eVar.cBW == null || eVar.cBW.PU();
         }
         return false;
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String ajj() {
+    protected String ajl() {
         return "updatecore";
     }
 }

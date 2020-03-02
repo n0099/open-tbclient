@@ -13,7 +13,7 @@ public class b {
         this.mV8Engine.requireJSFileForOpenData(str, str2);
     }
 
-    public void anE() {
+    public void anG() {
         this.mV8Engine.destroyOpenDataContext();
     }
 }

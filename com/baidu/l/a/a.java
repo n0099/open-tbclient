@@ -18,11 +18,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
-    private d bay;
+    private d baz;
 
     public a(@Nullable Context context, @NonNull b bVar) {
         super(context, bVar);
-        this.bay = null;
+        this.baz = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,14 +42,14 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
         String str;
         FileInputStream fileInputStream;
         super.ac(sVGAImageView);
-        if (this.bay == null) {
-            this.bay = new d(sVGAImageView.getContext());
+        if (this.baz == null) {
+            this.baz = new d(sVGAImageView.getContext());
         }
-        final b bVar = (b) KG();
+        final b bVar = (b) KI();
         sVGAImageView.setLoops(bVar.loop ? 1 : 0);
         if (!TextUtils.isEmpty(bVar.path)) {
             if (bVar.path.startsWith("bdfile://")) {
-                str = com.baidu.swan.apps.storage.b.bp(bVar.path, e.acD().id);
+                str = com.baidu.swan.apps.storage.b.bp(bVar.path, e.acF().id);
             } else {
                 str = bVar.path;
             }
@@ -61,7 +61,7 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
                     e.printStackTrace();
                     fileInputStream = null;
                 }
-                this.bay.b(fileInputStream, str, new d.c() { // from class: com.baidu.l.a.a.1
+                this.baz.b(fileInputStream, str, new d.c() { // from class: com.baidu.l.a.a.1
                     @Override // com.opensource.svgaplayer.d.c
                     public void a(f fVar) {
                         sVGAImageView.setImageDrawable(new com.opensource.svgaplayer.b(fVar));
@@ -93,7 +93,7 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
     }
 
     private void a(@NonNull SVGAImageView sVGAImageView, @NonNull b bVar) {
-        if (KK()) {
+        if (KM()) {
             if (DEBUG) {
                 Log.d("Component-SvgaView", "renderAction");
             }
@@ -112,9 +112,9 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.bil);
+            jSONObject.put("wvID", bVar.bim);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.bik);
+            jSONObject2.putOpt("animationViewId", bVar.bil);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -129,12 +129,12 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
             @Override // com.opensource.svgaplayer.a
             public void onFinished() {
                 if (!bVar.loop) {
-                    com.baidu.swan.apps.view.b.b.a.a(bVar.bil, bVar.bik, "animateview", "ended", jSONObject);
+                    com.baidu.swan.apps.view.b.b.a.a(bVar.bim, bVar.bil, "animateview", "ended", jSONObject);
                 }
             }
 
             @Override // com.opensource.svgaplayer.a
-            public void Gp() {
+            public void Gr() {
                 c.d("Component-SvgaView", "onAnimationRepeat ");
             }
 

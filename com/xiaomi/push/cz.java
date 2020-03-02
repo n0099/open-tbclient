@@ -11,13 +11,13 @@ class cz implements Comparable<cz> {
     protected int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f214a;
+    private long f213a;
 
     /* renamed from: a  reason: collision with other field name */
-    String f215a;
+    String f214a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final LinkedList<cp> f216a;
+    private final LinkedList<cp> f215a;
 
     public cz() {
         this(null, 0);
@@ -28,9 +28,9 @@ class cz implements Comparable<cz> {
     }
 
     public cz(String str, int i) {
-        this.f216a = new LinkedList<>();
-        this.f214a = 0L;
-        this.f215a = str;
+        this.f215a = new LinkedList<>();
+        this.f213a = 0L;
+        this.f214a = str;
         this.a = i;
     }
 
@@ -45,12 +45,12 @@ class cz implements Comparable<cz> {
     }
 
     public synchronized cz a(JSONObject jSONObject) {
-        this.f214a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
+        this.f213a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
         this.a = jSONObject.getInt("wt");
-        this.f215a = jSONObject.getString(Contract.SCHEME_KEY_HOST);
+        this.f214a = jSONObject.getString(Contract.SCHEME_KEY_HOST);
         JSONArray jSONArray = jSONObject.getJSONArray("ah");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f216a.add(new cp().a(jSONArray.getJSONObject(i)));
+            this.f215a.add(new cp().a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
@@ -58,11 +58,11 @@ class cz implements Comparable<cz> {
     public synchronized JSONObject a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f214a);
+        jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f213a);
         jSONObject.put("wt", this.a);
-        jSONObject.put(Contract.SCHEME_KEY_HOST, this.f215a);
+        jSONObject.put(Contract.SCHEME_KEY_HOST, this.f214a);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cp> it = this.f216a.iterator();
+        Iterator<cp> it = this.f215a.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next().m196a());
         }
@@ -73,24 +73,24 @@ class cz implements Comparable<cz> {
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void a(cp cpVar) {
         if (cpVar != null) {
-            this.f216a.add(cpVar);
+            this.f215a.add(cpVar);
             int a = cpVar.a();
             if (a > 0) {
                 this.a += cpVar.a();
             } else {
                 int i = 0;
-                for (int size = this.f216a.size() - 1; size >= 0 && this.f216a.get(size).a() < 0; size--) {
+                for (int size = this.f215a.size() - 1; size >= 0 && this.f215a.get(size).a() < 0; size--) {
                     i++;
                 }
                 this.a += a * i;
             }
-            if (this.f216a.size() > 30) {
-                this.a -= this.f216a.remove().a();
+            if (this.f215a.size() > 30) {
+                this.a -= this.f215a.remove().a();
             }
         }
     }
 
     public String toString() {
-        return this.f215a + ":" + this.a;
+        return this.f214a + ":" + this.a;
     }
 }

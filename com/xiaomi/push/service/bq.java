@@ -8,16 +8,16 @@ public class bq implements l.a {
     final /* synthetic */ XMPushService.i a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f899a;
+    final /* synthetic */ XMPushService f898a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(XMPushService xMPushService, XMPushService.i iVar) {
-        this.f899a = xMPushService;
+        this.f898a = xMPushService;
         this.a = iVar;
     }
 
     @Override // com.xiaomi.push.service.l.a
     public void a() {
-        this.f899a.a(this.a);
+        this.f898a.a(this.a);
     }
 }

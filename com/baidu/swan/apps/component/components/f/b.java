@@ -5,8 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class b extends com.baidu.swan.apps.component.a.a.b {
-    boolean biU;
     boolean biV;
+    boolean biW;
     public String type;
 
     public b() {
@@ -17,13 +17,13 @@ public final class b extends com.baidu.swan.apps.component.a.a.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            if (this.bip == null) {
-                this.bip = new com.baidu.swan.apps.model.a.a.a();
+            if (this.biq == null) {
+                this.biq = new com.baidu.swan.apps.model.a.a.a();
             }
             this.text = jSONObject.optString("value");
             this.type = jSONObject.optString("type");
-            this.biU = jSONObject.optInt("confirmHold") == 1;
-            this.biV = jSONObject.optInt("adjustPosition", 1) == 1;
+            this.biV = jSONObject.optInt("confirmHold") == 1;
+            this.biW = jSONObject.optInt("adjustPosition", 1) == 1;
         }
     }
 }

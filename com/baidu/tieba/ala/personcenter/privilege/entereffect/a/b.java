@@ -12,9 +12,9 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     private List<com.baidu.adp.widget.ListView.a> asE;
-    private BdTypeListView eka;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a fxk;
-    private c fxl;
+    private BdTypeListView ekb;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a fxl;
+    private c fxm;
     private List<m> mDataList;
     private TbPageContext mPageContext;
 
@@ -24,23 +24,23 @@ public class b {
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.eka = bdTypeListView;
+        this.ekb = bdTypeListView;
         wM();
     }
 
     private void wM() {
         this.asE = new ArrayList();
-        this.fxk = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.asE.add(this.fxk);
-        this.fxl = new c(this.mPageContext.getPageActivity());
+        this.fxl = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
         this.asE.add(this.fxl);
-        this.eka.addAdapters(this.asE);
+        this.fxm = new c(this.mPageContext.getPageActivity());
+        this.asE.add(this.fxm);
+        this.ekb.addAdapters(this.asE);
     }
 
     public void setData(List<m> list) {
         if (!v.isEmpty(list)) {
-            this.eka.setData(list);
-            this.mDataList = this.eka.getData();
+            this.ekb.setData(list);
+            this.mDataList = this.ekb.getData();
         }
     }
 

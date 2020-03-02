@@ -7,7 +7,7 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.e, Set<b>> bpJ;
+    private HashMap<com.baidu.swan.pms.model.e, Set<b>> bpK;
 
     /* loaded from: classes11.dex */
     public interface b {
@@ -17,21 +17,21 @@ public class c {
     }
 
     private c() {
-        this.bpJ = new HashMap<>();
+        this.bpK = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.e eVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.bpJ.get(eVar);
+        Set<b> set = this.bpK.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType);
                 }
             }
-            this.bpJ.remove(eVar);
+            this.bpK.remove(eVar);
         }
     }
 
@@ -39,14 +39,14 @@ public class c {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.bpJ.get(eVar);
+        Set<b> set = this.bpK.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType, aVar);
                 }
             }
-            this.bpJ.remove(eVar);
+            this.bpK.remove(eVar);
         }
     }
 
@@ -55,23 +55,23 @@ public class c {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
         if (eVar != null && bVar != null) {
-            Set<b> set = this.bpJ.get(eVar);
+            Set<b> set = this.bpK.get(eVar);
             if (set != null) {
                 set.add(bVar);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(bVar);
-                this.bpJ.put(eVar, hashSet);
+                this.bpK.put(eVar, hashSet);
             }
         }
     }
 
-    public static c Pi() {
-        return a.bpK;
+    public static c Pk() {
+        return a.bpL;
     }
 
     /* loaded from: classes11.dex */
     private static class a {
-        private static c bpK = new c();
+        private static c bpL = new c();
     }
 }

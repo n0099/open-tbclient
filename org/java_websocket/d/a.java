@@ -3,9 +3,9 @@ package org.java_websocket.d;
 public interface a {
     boolean Sy(String str);
 
-    String dNF();
+    String dNH();
 
-    a dNG();
+    a dNI();
 
     String toString();
 }

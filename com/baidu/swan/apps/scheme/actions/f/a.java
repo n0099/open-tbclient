@@ -16,7 +16,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 /* loaded from: classes11.dex */
 public final class a extends ab implements b.a {
-    private CallbackHandler bzH;
+    private CallbackHandler bzI;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/getLocation");
@@ -27,7 +27,7 @@ public final class a extends ab implements b.a {
         if (DEBUG) {
             Log.d("GetLocationAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        this.bzH = callbackHandler;
+        this.bzI = callbackHandler;
         if (eVar == null) {
             c.e("location", "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -38,17 +38,17 @@ public final class a extends ab implements b.a {
             c.e("location", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (TextUtils.isEmpty(fC.bew)) {
+        } else if (TextUtils.isEmpty(fC.bex)) {
             c.e("location", "empty cb");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         } else {
-            eVar.acN().b(context, "mapp_location", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.f.a.1
+            eVar.acP().b(context, "mapp_location", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.f.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
                 public void D(h<b.d> hVar) {
-                    a.this.a(hVar, callbackHandler, fC, eVar.JD());
+                    a.this.a(hVar, callbackHandler, fC, eVar.JF());
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -60,11 +60,11 @@ public final class a extends ab implements b.a {
     public void a(h<b.d> hVar, CallbackHandler callbackHandler, a.C0218a c0218a, boolean z) {
         c.i("GetLocationAction", "authorized result is " + hVar);
         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-            com.baidu.swan.apps.api.module.f.b.JP().a(c0218a, this, z);
+            com.baidu.swan.apps.api.module.f.b.JR().a(c0218a, this, z);
             return;
         }
         int errorCode = hVar.getErrorCode();
-        callbackHandler.handleSchemeDispatchCallback(c0218a.bew, UnitedSchemeUtility.wrapCallbackParams(errorCode, com.baidu.swan.apps.setting.oauth.c.gn(errorCode)).toString());
+        callbackHandler.handleSchemeDispatchCallback(c0218a.bex, UnitedSchemeUtility.wrapCallbackParams(errorCode, com.baidu.swan.apps.setting.oauth.c.gn(errorCode)).toString());
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
@@ -72,23 +72,23 @@ public final class a extends ab implements b.a {
         if (DEBUG) {
             Log.d("GetLocationAction", "convert info : " + bVar.toJSON());
         }
-        if (this.bzH != null) {
-            this.bzH.handleSchemeDispatchCallback(c0218a.bew, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
+        if (this.bzI != null) {
+            this.bzI.handleSchemeDispatchCallback(c0218a.bex, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
         }
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
     public void a(a.C0218a c0218a, int i) {
-        if (this.bzH != null) {
+        if (this.bzI != null) {
             c.e("GetLocationAction", "request location error code : " + i);
-            this.bzH.handleSchemeDispatchCallback(c0218a.bew, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+            this.bzI.handleSchemeDispatchCallback(c0218a.bex, UnitedSchemeUtility.wrapCallbackParams(i).toString());
         }
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
     public void a(a.C0218a c0218a, String str) {
-        if (this.bzH != null) {
-            this.bzH.handleSchemeDispatchCallback(c0218a.bew, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
+        if (this.bzI != null) {
+            this.bzI.handleSchemeDispatchCallback(c0218a.bex, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
         }
     }
 }

@@ -21,11 +21,11 @@ public class c {
                 bVar.mType = oi;
                 bVar.mValue = str3;
                 bVar.packageName = str;
-                if (e.acE() != null) {
-                    b.a acG = e.acE().acG();
-                    bVar.mFrom = f.gs(acG.getAppFrameType());
-                    bVar.mAppId = acG.getAppId();
-                    bVar.mSource = acG.VH();
+                if (e.acG() != null) {
+                    b.a acI = e.acG().acI();
+                    bVar.mFrom = f.gs(acI.getAppFrameType());
+                    bVar.mAppId = acI.getAppId();
+                    bVar.mSource = acI.VJ();
                 }
                 bVar.mErrorCode = str4;
                 f.a("1245", bVar);

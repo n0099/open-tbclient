@@ -28,12 +28,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends d {
-    private List<Integer> exA;
-    private RelativeLayout exv;
-    private TextView exw;
+    private C0420a exA;
+    private List<Integer> exB;
+    private RelativeLayout exw;
     private TextView exx;
-    private RoundRectRelativeLayout exy;
-    private C0420a exz;
+    private TextView exy;
+    private RoundRectRelativeLayout exz;
     private BdListView mListView;
 
     public a(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
@@ -47,36 +47,36 @@ public class a extends d {
 
     @Override // com.baidu.tieba.ala.a.d
     protected void initView() {
-        bdZ();
-        this.exv = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
-        this.exv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.a.1
+        beb();
+        this.exw = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
+        this.exw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.bbw();
+                a.this.bby();
             }
         });
-        this.exw = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
-        this.exw.setText(a.i.sdk_choose_custom_date_tip);
-        this.exx = (TextView) this.mRootView.findViewById(a.g.choose_num_desc);
-        this.exx.setVisibility(0);
-        this.exy = (RoundRectRelativeLayout) this.mRootView.findViewById(a.g.choose_gift_list_layout);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.exy.getLayoutParams();
+        this.exx = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
+        this.exx.setText(a.i.sdk_choose_custom_date_tip);
+        this.exy = (TextView) this.mRootView.findViewById(a.g.choose_num_desc);
+        this.exy.setVisibility(0);
+        this.exz = (RoundRectRelativeLayout) this.mRootView.findViewById(a.g.choose_gift_list_layout);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.exz.getLayoutParams();
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds178);
-        this.exy.setLayoutParams(layoutParams);
+        this.exz.setLayoutParams(layoutParams);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.choose_gift_listview);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.a.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (i >= 0 && i < a.this.exA.size()) {
-                    a.this.exX = ((Integer) a.this.exA.get(i)).intValue();
-                    a.this.exz.pe(a.this.exX);
+                if (i >= 0 && i < a.this.exB.size()) {
+                    a.this.exY = ((Integer) a.this.exB.get(i)).intValue();
+                    a.this.exA.pe(a.this.exY);
                 }
             }
         });
-        this.exz = new C0420a(this.exT.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.exz);
-        this.exz.bg(this.exX);
-        this.exz.setData(this.exA);
+        this.exA = new C0420a(this.exU.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.exA);
+        this.exA.bg(this.exY);
+        this.exA.setData(this.exB);
     }
 
     @Override // com.baidu.tieba.ala.a.d
@@ -100,10 +100,10 @@ public class a extends d {
 
     @Override // com.baidu.tieba.ala.a.d
     public void confirm() {
-        if (this.exX > 0) {
-            y(this.exX, false);
+        if (this.exY > 0) {
+            y(this.exY, false);
         } else {
-            this.exT.finish();
+            this.exU.finish();
         }
     }
 
@@ -117,10 +117,10 @@ public class a extends d {
     public void a(CharSequence charSequence, int i, int i2, int i3) {
         super.a(charSequence, i, i2, i3);
         if (JavaTypesHelper.toInt(charSequence.toString(), 0) > 24) {
-            this.egK.getEditView().setText(SoUtils.SO_EVENT_ID_DEFAULT);
-            this.egK.getEditView().setSelection(this.egK.getEditView().getText().length());
+            this.egL.getEditView().setText(SoUtils.SO_EVENT_ID_DEFAULT);
+            this.egL.getEditView().setSelection(this.egL.getEditView().getText().length());
         }
-        this.egK.setSendEnabled(true);
+        this.egL.setSendEnabled(true);
     }
 
     private void y(int i, boolean z) {
@@ -133,8 +133,8 @@ public class a extends d {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.exT.setResult(-1, intent);
-        this.exT.finish();
+        this.exU.setResult(-1, intent);
+        this.exU.finish();
     }
 
     @Override // com.baidu.tieba.ala.a.d
@@ -142,13 +142,13 @@ public class a extends d {
         super.onKeyboardVisibilityChanged(z);
     }
 
-    private void bdZ() {
-        if (this.exA == null) {
-            this.exA = new ArrayList();
+    private void beb() {
+        if (this.exB == null) {
+            this.exB = new ArrayList();
         }
         for (int i = 2; i <= 12; i++) {
             if (i % 2 == 0) {
-                this.exA.add(Integer.valueOf(i));
+                this.exB.add(Integer.valueOf(i));
             }
         }
     }
@@ -157,7 +157,7 @@ public class a extends d {
     /* loaded from: classes3.dex */
     private class C0420a extends BaseAdapter {
         private List<Integer> dataList;
-        private int exC;
+        private int exD;
         private Context mContext;
 
         public C0420a(TbPageContext tbPageContext) {
@@ -165,12 +165,12 @@ public class a extends d {
         }
 
         public void bg(int i) {
-            this.exC = i;
+            this.exD = i;
         }
 
         public void pe(int i) {
-            if (this.exC != i) {
-                this.exC = i;
+            if (this.exD != i) {
+                this.exD = i;
                 notifyDataSetChanged();
             }
         }
@@ -209,9 +209,9 @@ public class a extends d {
             if (view == null) {
                 b bVar2 = new b();
                 view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_num_and_date_item, viewGroup, false);
-                bVar2.exD = (RelativeLayout) view.findViewById(a.g.item_root);
-                bVar2.exE = (TextView) view.findViewById(a.g.item_num_title);
-                bVar2.exF = (ImageView) view.findViewById(a.g.item_num_arrow);
+                bVar2.exE = (RelativeLayout) view.findViewById(a.g.item_root);
+                bVar2.exF = (TextView) view.findViewById(a.g.item_num_title);
+                bVar2.exG = (ImageView) view.findViewById(a.g.item_num_arrow);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
@@ -219,11 +219,11 @@ public class a extends d {
             }
             Integer item = getItem(i);
             if (item != null) {
-                bVar.exE.setText(String.format(this.mContext.getResources().getString(a.i.sdk_choose_hour_suffix), item));
-                if (this.exC == item.intValue()) {
-                    bVar.exF.setVisibility(0);
+                bVar.exF.setText(String.format(this.mContext.getResources().getString(a.i.sdk_choose_hour_suffix), item));
+                if (this.exD == item.intValue()) {
+                    bVar.exG.setVisibility(0);
                 } else {
-                    bVar.exF.setVisibility(8);
+                    bVar.exG.setVisibility(8);
                 }
             }
             return view;
@@ -232,9 +232,9 @@ public class a extends d {
 
     /* loaded from: classes3.dex */
     private class b {
-        public RelativeLayout exD;
-        public TextView exE;
-        public ImageView exF;
+        public RelativeLayout exE;
+        public TextView exF;
+        public ImageView exG;
 
         private b() {
         }

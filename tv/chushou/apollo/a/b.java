@@ -4,10 +4,10 @@ import android.content.Context;
 /* loaded from: classes5.dex */
 public class b implements tv.chushou.zues.toolkit.richtext.a {
     private Context mContext;
-    private int nUB;
+    private int nUD;
 
     public b(int i, Context context) {
-        this.nUB = i;
+        this.nUD = i;
         this.mContext = context;
     }
 

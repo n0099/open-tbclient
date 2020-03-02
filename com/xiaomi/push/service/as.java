@@ -10,13 +10,13 @@ public class as {
     private static as a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f871a = 0;
+    private int f870a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f872a;
+    private Context f871a;
 
     private as(Context context) {
-        this.f872a = context.getApplicationContext();
+        this.f871a = context.getApplicationContext();
     }
 
     public static as a(Context context) {
@@ -28,15 +28,15 @@ public class as {
 
     @SuppressLint({"NewApi"})
     public int a() {
-        if (this.f871a != 0) {
-            return this.f871a;
+        if (this.f870a != 0) {
+            return this.f870a;
         }
         if (Build.VERSION.SDK_INT >= 17) {
-            this.f871a = Settings.Global.getInt(this.f872a.getContentResolver(), "device_provisioned", 0);
-            return this.f871a;
+            this.f870a = Settings.Global.getInt(this.f871a.getContentResolver(), "device_provisioned", 0);
+            return this.f870a;
         }
-        this.f871a = Settings.Secure.getInt(this.f872a.getContentResolver(), "device_provisioned", 0);
-        return this.f871a;
+        this.f870a = Settings.Secure.getInt(this.f871a.getContentResolver(), "device_provisioned", 0);
+        return this.f870a;
     }
 
     @SuppressLint({"NewApi"})
@@ -47,6 +47,6 @@ public class as {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m520a() {
-        return com.xiaomi.push.ab.f113a.contains("xmsf") || com.xiaomi.push.ab.f113a.contains("xiaomi") || com.xiaomi.push.ab.f113a.contains("miui");
+        return com.xiaomi.push.ab.f112a.contains("xmsf") || com.xiaomi.push.ab.f112a.contains("xiaomi") || com.xiaomi.push.ab.f112a.contains("miui");
     }
 }

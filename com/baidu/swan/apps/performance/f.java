@@ -20,14 +20,14 @@ import org.json.JSONObject;
 public final class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @Deprecated
-    private static b bHI;
+    private static b bHJ;
 
-    private static b ZS() {
-        if (bHI == null) {
-            bHI = new b();
-            a(bHI);
+    private static b ZU() {
+        if (bHJ == null) {
+            bHJ = new b();
+            a(bHJ);
         }
-        return bHI;
+        return bHJ;
     }
 
     private static void a(b bVar) {
@@ -42,7 +42,7 @@ public final class f {
     }
 
     @Deprecated
-    public static synchronized HybridUbcFlow ZT() {
+    public static synchronized HybridUbcFlow ZV() {
         HybridUbcFlow jP;
         synchronized (f.class) {
             jP = jP("startup");
@@ -53,7 +53,7 @@ public final class f {
     public static synchronized HybridUbcFlow jP(String str) {
         HybridUbcFlow jP;
         synchronized (f.class) {
-            jP = ZS().jP(str);
+            jP = ZU().jP(str);
         }
         return jP;
     }
@@ -61,28 +61,28 @@ public final class f {
     public static synchronized HybridUbcFlow aY(String str, String str2) {
         HybridUbcFlow aY;
         synchronized (f.class) {
-            aY = ZS().aY(str, str2);
+            aY = ZU().aY(str, str2);
         }
         return aY;
     }
 
     public static synchronized void jV(String str) {
         synchronized (f.class) {
-            ZS().jQ(str);
+            ZU().jQ(str);
         }
     }
 
     public static synchronized void bc(String str, String str2) {
         synchronized (f.class) {
-            ZS().aZ(str, str2);
+            ZU().aZ(str, str2);
         }
     }
 
     public static synchronized void bd(String str, String str2) {
         synchronized (f.class) {
-            HybridUbcFlow jR = ZS().jR(str);
+            HybridUbcFlow jR = ZU().jR(str);
             if (jR != null) {
-                ZS().jP(str2).c(jR);
+                ZU().jP(str2).c(jR);
                 jV(str);
             }
         }
@@ -102,22 +102,22 @@ public final class f {
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup: info=" + bVar);
         }
-        if (bVar != null && bVar.VM() != null) {
+        if (bVar != null && bVar.VO() != null) {
             final String page = bVar.getPage();
             m.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.performance.f.2
                 @Override // java.lang.Runnable
                 public void run() {
                     HybridUbcFlow jP = f.jP("startup");
-                    String VH = TextUtils.isEmpty(com.baidu.swan.apps.x.b.b.this.VH()) ? "NA" : com.baidu.swan.apps.x.b.b.this.VH();
+                    String VJ = TextUtils.isEmpty(com.baidu.swan.apps.x.b.b.this.VJ()) ? "NA" : com.baidu.swan.apps.x.b.b.this.VJ();
                     if (com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 1) {
                         jP.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
                     }
                     jP.k("from", "swan");
-                    jP.k("source", VH);
+                    jP.k("source", VJ);
                     jP.bb("appid", com.baidu.swan.apps.x.b.b.this.getAppId());
-                    jP.bb("swan", com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.x.b.b.this.QO(), com.baidu.swan.apps.x.b.b.this.getAppFrameType()));
-                    jP.bb("mobile", j.agH());
-                    jP.bb("net", SwanAppNetworkUtils.YX().type);
+                    jP.bb("swan", com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.x.b.b.this.QQ(), com.baidu.swan.apps.x.b.b.this.getAppFrameType()));
+                    jP.bb("mobile", j.agJ());
+                    jP.bb("net", SwanAppNetworkUtils.YZ().type);
                     jP.bb(ETAG.KEY_APP_VERSION, com.baidu.swan.apps.x.b.b.this.getVersion());
                     jP.bb("thirdversion", com.baidu.swan.apps.x.b.b.this.getVersionCode());
                     jP.k("from", com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 1 ? "swangame" : "swan");
@@ -132,9 +132,9 @@ public final class f {
                         deleteQueryParam = "";
                     }
                     jP.bb("path", deleteQueryParam);
-                    jP.bb("launchid", com.baidu.swan.apps.x.b.b.this.Wa());
+                    jP.bb("launchid", com.baidu.swan.apps.x.b.b.this.Wc());
                     if (com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 0) {
-                        jP.Zy();
+                        jP.ZA();
                     }
                 }
             }, "recordFromLaunchInfo");
@@ -183,9 +183,9 @@ public final class f {
 
     /* loaded from: classes11.dex */
     public static class a extends com.baidu.swan.apps.statistic.a.e {
-        private static int bHJ = 35;
-        public JSONObject bHK;
-        private boolean bHL = true;
+        private static int bHK = 35;
+        public JSONObject bHL;
+        private boolean bHM = true;
         final String eventId;
 
         public a(String str) {
@@ -210,18 +210,18 @@ public final class f {
         @Override // com.baidu.swan.apps.statistic.a.e
         public JSONObject toJSONObject() {
             this.mSource = TextUtils.isEmpty(this.mSource) ? "NA" : this.mSource;
-            if (this.bVk == null) {
-                this.bVk = new JSONObject();
+            if (this.bVl == null) {
+                this.bVl = new JSONObject();
             }
             try {
-                if (this.bHK != null) {
-                    if (this.bHL) {
-                        String hf = ai.hf(bHJ);
+                if (this.bHL != null) {
+                    if (this.bHM) {
+                        String hf = ai.hf(bHK);
                         if (!TextUtils.isEmpty(hf)) {
-                            this.bHK.put("stacktrace", hf);
+                            this.bHL.put("stacktrace", hf);
                         }
                     }
-                    this.bVk.put("info", this.bHK);
+                    this.bVl.put("info", this.bHL);
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

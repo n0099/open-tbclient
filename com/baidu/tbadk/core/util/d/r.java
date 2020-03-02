@@ -31,12 +31,12 @@ public class r extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aGQ() {
+    public boolean aGS() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aGR() {
+    public boolean aGT() {
         return false;
     }
 
@@ -50,7 +50,7 @@ public class r extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a vx = com.baidu.tbadk.imageManager.c.aPO().vx(str);
+        com.baidu.adp.widget.ImageView.a vx = com.baidu.tbadk.imageManager.c.aPQ().vx(str);
         if (vx != null) {
             vx.zX.resourceFromType = "memory";
             vx.zX.costTime = 0L;
@@ -97,7 +97,7 @@ public class r extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int aGS() {
+    public int aGU() {
         return this.procType;
     }
 }

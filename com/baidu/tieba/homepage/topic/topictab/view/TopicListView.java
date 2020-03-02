@@ -28,15 +28,15 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class TopicListView extends FrameLayout {
     private BdTypeRecyclerView BK;
-    private PbListView eli;
-    private BdSwipeRefreshLayout eme;
-    private int enA;
-    private g etW;
-    private NoNetworkView.a fYJ;
-    private ScrollFragmentTabHost gWS;
-    ScrollFragmentTabHost.a gWT;
-    private com.baidu.tieba.homepage.topic.topictab.a hhK;
-    private com.baidu.tieba.homepage.topic.topictab.a.b hhX;
+    private PbListView elj;
+    private BdSwipeRefreshLayout emf;
+    private int enB;
+    private g etX;
+    private NoNetworkView.a fYL;
+    private ScrollFragmentTabHost gWU;
+    ScrollFragmentTabHost.a gWV;
+    private com.baidu.tieba.homepage.topic.topictab.a hhM;
+    private com.baidu.tieba.homepage.topic.topictab.a.b hhZ;
     RecyclerView.OnScrollListener mOnScrollListener;
     private TbPageContext<?> mPageContext;
     private h mPullView;
@@ -51,39 +51,39 @@ public class TopicListView extends FrameLayout {
     public TopicListView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.enA = -1;
-        this.fYJ = new NoNetworkView.a() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.1
+        this.enB = -1;
+        this.fYL = new NoNetworkView.a() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
-                if (z && TopicListView.this.hhK != null) {
-                    TopicListView.this.hhK.loadData();
+                if (z && TopicListView.this.hhM != null) {
+                    TopicListView.this.hhM.loadData();
                 }
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.2
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (TopicListView.this.enA != i && TopicListView.this.gWS != null) {
-                    TopicListView.this.enA = i;
-                    if (TopicListView.this.enA == 1) {
-                        TopicListView.this.gWS.bcK();
+                if (TopicListView.this.enB != i && TopicListView.this.gWU != null) {
+                    TopicListView.this.enB = i;
+                    if (TopicListView.this.enB == 1) {
+                        TopicListView.this.gWU.bcM();
                     } else if (TopicListView.this.a(recyclerView)) {
-                        TopicListView.this.gWS.bcL();
+                        TopicListView.this.gWU.bcN();
                     } else {
-                        TopicListView.this.gWS.bcK();
+                        TopicListView.this.gWU.bcM();
                     }
                 }
             }
         };
-        this.gWT = new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.3
+        this.gWV = new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.3
             @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-            public void bNM() {
-                if (TopicListView.this.gWS != null) {
-                    TopicListView.this.enA = -1;
+            public void bNO() {
+                if (TopicListView.this.gWU != null) {
+                    TopicListView.this.enB = -1;
                     if (TopicListView.this.a(TopicListView.this.BK)) {
-                        TopicListView.this.gWS.bcL();
+                        TopicListView.this.gWU.bcN();
                     } else {
-                        TopicListView.this.gWS.bcK();
+                        TopicListView.this.gWU.bcM();
                     }
                 }
             }
@@ -95,17 +95,17 @@ public class TopicListView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.fragment_topic_list_layout, (ViewGroup) this, true);
-        this.eme = (BdSwipeRefreshLayout) findViewById(R.id.topic_refresh_layout);
+        this.emf = (BdSwipeRefreshLayout) findViewById(R.id.topic_refresh_layout);
         this.mPullView = new h(this.mPageContext);
-        this.eme.setProgressView(this.mPullView);
+        this.emf.setProgressView(this.mPullView);
         this.BK = (BdTypeRecyclerView) findViewById(R.id.topic_list_view);
         this.BK.setLayoutManager(new LinearLayoutManager(context));
         this.BK.setFadingEdgeLength(0);
         this.BK.setOverScrollMode(2);
-        this.hhX = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext, this.BK);
-        this.eli = new PbListView(this.mPageContext.getPageActivity());
-        this.eli.createView();
-        this.eli.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.hhZ = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext, this.BK);
+        this.elj = new PbListView(this.mPageContext.getPageActivity());
+        this.elj.createView();
+        this.elj.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
     }
 
     public void initListeners() {
@@ -114,16 +114,16 @@ public class TopicListView extends FrameLayout {
     }
 
     public void setViewForeground() {
-        if (this.gWS != null) {
-            this.gWS.b(this.gWT);
-            this.gWS.a(this.gWT);
-            this.gWT.bNM();
+        if (this.gWU != null) {
+            this.gWU.b(this.gWV);
+            this.gWU.a(this.gWV);
+            this.gWV.bNO();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.hhX != null) {
-            this.hhX.setPageUniqueId(bdUniqueId);
+        if (this.hhZ != null) {
+            this.hhZ.setPageUniqueId(bdUniqueId);
         }
         if (this.mPullView != null) {
             this.mPullView.setTag(bdUniqueId);
@@ -131,33 +131,33 @@ public class TopicListView extends FrameLayout {
     }
 
     public void setPresenter(com.baidu.tieba.homepage.topic.topictab.a aVar) {
-        this.hhK = aVar;
+        this.hhM = aVar;
     }
 
     public void setData(List<m> list) {
         if (!v.isEmpty(list)) {
-            this.hhX.setData(list);
+            this.hhZ.setData(list);
         }
     }
 
-    public void bdq() {
-        this.BK.setNextPage(this.eli);
-        this.eli.endLoadData();
-        this.eli.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.eli.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds150));
-        this.eli.setText(getResources().getString(R.string.really_great));
+    public void bds() {
+        this.BK.setNextPage(this.elj);
+        this.elj.endLoadData();
+        this.elj.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.elj.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds150));
+        this.elj.setText(getResources().getString(R.string.really_great));
     }
 
     public void reload() {
         this.BK.setSelection(0);
         startPullRefresh();
-        if (this.gWT != null) {
-            this.gWT.bNM();
+        if (this.gWV != null) {
+            this.gWV.bNO();
         }
     }
 
-    public void bdo() {
-        this.hhX.notifyDataSetChanged();
+    public void bdq() {
+        this.hhZ.notifyDataSetChanged();
     }
 
     public void setListPullRefreshListener(g.c cVar) {
@@ -167,55 +167,55 @@ public class TopicListView extends FrameLayout {
     }
 
     public void startPullRefresh() {
-        this.eme.setRefreshing(true);
+        this.emf.setRefreshing(true);
     }
 
-    public void bcB() {
-        this.eme.setRefreshing(false);
+    public void bcD() {
+        this.emf.setRefreshing(false);
     }
 
-    public void bgw() {
+    public void bgy() {
         if (this.BK != null) {
             this.BK.setVisibility(0);
         }
     }
 
     public void eM(boolean z) {
-        if (!bzi()) {
-            if (this.etW == null) {
-                this.etW = new com.baidu.tbadk.k.g(getContext());
+        if (!bzk()) {
+            if (this.etX == null) {
+                this.etX = new com.baidu.tbadk.k.g(getContext());
                 int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
-                this.etW.aPR();
-                this.etW.setTopMargin(height);
-                this.etW.onChangeSkinType();
+                this.etX.aPT();
+                this.etX.setTopMargin(height);
+                this.etX.onChangeSkinType();
             }
-            this.etW.attachView(this, z);
+            this.etX.attachView(this, z);
         }
     }
 
     public void hideLoadingView() {
-        if (this.etW != null) {
-            this.etW.dettachView(this);
-            this.etW = null;
+        if (this.etX != null) {
+            this.etX.dettachView(this);
+            this.etX = null;
         }
     }
 
-    public boolean bzi() {
-        if (this.etW != null) {
-            return this.etW.isViewAttached();
+    public boolean bzk() {
+        if (this.etX != null) {
+            return this.etX.isViewAttached();
         }
         return false;
     }
 
     public void kN(boolean z) {
-        if (!bzj()) {
+        if (!bzl()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new com.baidu.tbadk.k.h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.isNetworkAvailableForImmediately() && TopicListView.this.hhK != null) {
+                        if (j.isNetworkAvailableForImmediately() && TopicListView.this.hhM != null) {
                             TopicListView.this.BK.setVisibility(0);
-                            TopicListView.this.hhK.loadData();
+                            TopicListView.this.hhM.loadData();
                         }
                     }
                 });
@@ -226,14 +226,14 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void bcv() {
+    public void bcx() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean bzj() {
+    public boolean bzl() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -248,20 +248,20 @@ public class TopicListView extends FrameLayout {
             if (this.mPullView != null) {
                 this.mPullView.changeSkin(skinType);
             }
-            if (this.etW != null) {
-                this.etW.onChangeSkinType();
+            if (this.etX != null) {
+                this.etX.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            if (this.hhX != null) {
-                this.hhX.notifyDataSetChanged();
+            if (this.hhZ != null) {
+                this.hhZ.notifyDataSetChanged();
             }
-            am.setBackgroundColor(this.eme, R.color.cp_bg_line_e);
+            am.setBackgroundColor(this.emf, R.color.cp_bg_line_e);
             am.setBackgroundColor(this.BK, R.color.cp_bg_line_d);
-            if (this.eli != null) {
-                this.eli.changeSkin(skinType);
-                this.eli.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+            if (this.elj != null) {
+                this.elj.changeSkin(skinType);
+                this.elj.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
             }
         }
     }
@@ -273,20 +273,20 @@ public class TopicListView extends FrameLayout {
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.gWS = scrollFragmentTabHost;
-        if (this.gWS != null) {
-            this.gWS.b(this.gWT);
-            this.gWS.a(this.gWT);
+        this.gWU = scrollFragmentTabHost;
+        if (this.gWU != null) {
+            this.gWU.b(this.gWV);
+            this.gWU.a(this.gWV);
         }
     }
 
     public void destroy() {
-        if (this.gWS != null) {
-            this.gWS.b(this.gWT);
+        if (this.gWU != null) {
+            this.gWU.b(this.gWV);
         }
         this.BK.removeOnScrollListener(this.mOnScrollListener);
-        bcB();
+        bcD();
         hideLoadingView();
-        bcv();
+        bcx();
     }
 }

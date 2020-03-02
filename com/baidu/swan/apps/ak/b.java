@@ -6,36 +6,36 @@ import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a bSl;
+    private static a bSm;
 
-    public static void adO() {
-        c.cu(com.baidu.swan.apps.w.a.TU());
+    public static void adQ() {
+        c.cu(com.baidu.swan.apps.w.a.TW());
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "registerScreenshotEvent.");
         }
-        if (bSl == null) {
-            bSl = new a() { // from class: com.baidu.swan.apps.ak.b.1
+        if (bSm == null) {
+            bSm = new a() { // from class: com.baidu.swan.apps.ak.b.1
                 @Override // com.baidu.swan.apps.ak.a
                 public void a(c.b bVar) {
-                    b.adQ();
+                    b.adS();
                 }
             };
         }
-        c.a(bSl);
+        c.a(bSm);
     }
 
-    public static void adP() {
+    public static void adR() {
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "unRegisterScreenshotEvent.");
         }
-        if (bSl != null) {
-            c.b(bSl);
-            bSl = null;
+        if (bSm != null) {
+            c.b(bSm);
+            bSm = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void adQ() {
-        f.WQ().a(new com.baidu.swan.apps.n.a.b("onUserCaptureScreen"));
+    public static void adS() {
+        f.WS().a(new com.baidu.swan.apps.n.a.b("onUserCaptureScreen"));
     }
 }

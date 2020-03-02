@@ -12,36 +12,36 @@ public class ga implements ge {
     private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<ga> f401a;
+    private List<ga> f400a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String[] f402a;
+    private String[] f401a;
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String[] f403b;
+    private String[] f402b;
     private String c;
 
     public ga(String str, String str2, String[] strArr, String[] strArr2) {
-        this.f402a = null;
-        this.f403b = null;
         this.f401a = null;
+        this.f402b = null;
+        this.f400a = null;
         this.a = str;
         this.b = str2;
-        this.f402a = strArr;
-        this.f403b = strArr2;
+        this.f401a = strArr;
+        this.f402b = strArr2;
     }
 
     public ga(String str, String str2, String[] strArr, String[] strArr2, String str3, List<ga> list) {
-        this.f402a = null;
-        this.f403b = null;
         this.f401a = null;
+        this.f402b = null;
+        this.f400a = null;
         this.a = str;
         this.b = str2;
-        this.f402a = strArr;
-        this.f403b = strArr2;
+        this.f401a = strArr;
+        this.f402b = strArr2;
         this.c = str3;
-        this.f401a = list;
+        this.f400a = list;
     }
 
     public static ga a(Bundle bundle) {
@@ -92,14 +92,14 @@ public class ga implements ge {
         bundle.putString("ext_ns", this.b);
         bundle.putString("ext_text", this.c);
         Bundle bundle2 = new Bundle();
-        if (this.f402a != null && this.f402a.length > 0) {
-            for (int i = 0; i < this.f402a.length; i++) {
-                bundle2.putString(this.f402a[i], this.f403b[i]);
+        if (this.f401a != null && this.f401a.length > 0) {
+            for (int i = 0; i < this.f401a.length; i++) {
+                bundle2.putString(this.f401a[i], this.f402b[i]);
             }
         }
         bundle.putBundle("attributes", bundle2);
-        if (this.f401a != null && this.f401a.size() > 0) {
-            bundle.putParcelableArray("children", a(this.f401a));
+        if (this.f400a != null && this.f400a.size() > 0) {
+            bundle.putParcelableArray("children", a(this.f400a));
         }
         return bundle;
     }
@@ -118,10 +118,10 @@ public class ga implements ge {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f402a != null) {
-            for (int i = 0; i < this.f402a.length; i++) {
-                if (str.equals(this.f402a[i])) {
-                    return this.f403b[i];
+        if (this.f401a != null) {
+            for (int i = 0; i < this.f401a.length; i++) {
+                if (str.equals(this.f401a[i])) {
+                    return this.f402b[i];
                 }
             }
         }
@@ -152,20 +152,20 @@ public class ga implements ge {
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(HanziToPinyin.Token.SEPARATOR).append("xmlns=").append("\"").append(this.b).append("\"");
         }
-        if (this.f402a != null && this.f402a.length > 0) {
-            for (int i = 0; i < this.f402a.length; i++) {
-                if (!TextUtils.isEmpty(this.f403b[i])) {
-                    sb.append(HanziToPinyin.Token.SEPARATOR).append(this.f402a[i]).append("=\"").append(go.a(this.f403b[i])).append("\"");
+        if (this.f401a != null && this.f401a.length > 0) {
+            for (int i = 0; i < this.f401a.length; i++) {
+                if (!TextUtils.isEmpty(this.f402b[i])) {
+                    sb.append(HanziToPinyin.Token.SEPARATOR).append(this.f401a[i]).append("=\"").append(go.a(this.f402b[i])).append("\"");
                 }
             }
         }
         if (!TextUtils.isEmpty(this.c)) {
             sb.append(">").append(this.c).append("</").append(this.a).append(">");
-        } else if (this.f401a == null || this.f401a.size() <= 0) {
+        } else if (this.f400a == null || this.f400a.size() <= 0) {
             sb.append("/>");
         } else {
             sb.append(">");
-            for (ga gaVar : this.f401a) {
+            for (ga gaVar : this.f400a) {
                 sb.append(gaVar.d());
             }
             sb.append("</").append(this.a).append(">");

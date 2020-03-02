@@ -251,7 +251,7 @@ public class BaseBrowseView extends FrameLayout {
             }
         };
         Y.c(new com.facebook.imagepipeline.common.d(DeviceUtil.ScreenInfo.getDisplayWidth(getContext()), Integer.MAX_VALUE, 8192.0f));
-        this.imageView.setController(c.dlw().vh(true).bg(Y.dsA()).c(this.imageView.getController()).c(bVar).dmn());
+        this.imageView.setController(c.dly().vh(true).bg(Y.dsC()).c(this.imageView.getController()).c(bVar).dmp());
     }
 
     protected void onImageHasSet(String str, @Nullable Object obj, @Nullable Animatable animatable) {
@@ -265,14 +265,14 @@ public class BaseBrowseView extends FrameLayout {
             this.imageView.setZoomEnabled(true);
             this.mAnimationHelper.doReadyStartAnimLocationJob(this.imageView);
             this.mCloseableStaticBitmap = (d) obj;
-            Bitmap dqp = this.mCloseableStaticBitmap.dqp();
+            Bitmap dqr = this.mCloseableStaticBitmap.dqr();
             if (this.mImageLoadStatusListener != null) {
                 this.mImageLoadStatusListener.onLoadComplete(str, obj, getContext());
             }
-            if (dqp == null) {
+            if (dqr == null) {
                 hideLoadingAndShowErrorView();
             } else {
-                setImageView(dqp);
+                setImageView(dqr);
             }
         } else if (obj instanceof a) {
             this.mCurrentPictureType = IMG_TYPE_GIF;
@@ -280,7 +280,7 @@ public class BaseBrowseView extends FrameLayout {
             hideLoadingAndHideErrorView();
             this.imageView.setIsDynamicBitmap(true);
             this.imageView.setZoomEnabled(false);
-            this.imageView.getHierarchy().b(p.b.lMN);
+            this.imageView.getHierarchy().b(p.b.lMP);
             resetAnimation();
         }
     }
@@ -417,15 +417,15 @@ public class BaseBrowseView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateToOriginImage(String str) {
-        this.imageView.setController(c.dlw().c(this.imageView.getController()).vh(true).c(new b<f>() { // from class: com.baidu.searchbox.picture.component.BaseBrowseView.7
+        this.imageView.setController(c.dly().c(this.imageView.getController()).vh(true).c(new b<f>() { // from class: com.baidu.searchbox.picture.component.BaseBrowseView.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
             public void onFinalImageSet(String str2, @Nullable f fVar, @Nullable Animatable animatable) {
                 if (fVar instanceof d) {
-                    BaseBrowseView.this.setImageView(((d) fVar).dqp());
+                    BaseBrowseView.this.setImageView(((d) fVar).dqr());
                 }
             }
-        }).bg(ImageRequestBuilder.Y(Uri.parse(str)).dsA()).dmn());
+        }).bg(ImageRequestBuilder.Y(Uri.parse(str)).dsC()).dmp());
     }
 
     public String getImageUrl() {
@@ -465,7 +465,7 @@ public class BaseBrowseView extends FrameLayout {
 
     public Bitmap getBitmap() {
         if (this.mCloseableStaticBitmap != null) {
-            return this.mCloseableStaticBitmap.dqp();
+            return this.mCloseableStaticBitmap.dqr();
         }
         return null;
     }

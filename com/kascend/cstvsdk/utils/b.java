@@ -16,7 +16,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes5.dex */
 public final class b {
-    public static final b nkn = new b();
+    public static final b nkp = new b();
 
     private b() {
     }
@@ -43,7 +43,7 @@ public final class b {
             JSONObject optJSONObject2 = (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? null : optJSONObject.optJSONObject("shareInfo");
             if (optJSONObject2 != null) {
                 ShareInfo dw = com.kascend.chushou.c.a.dw(optJSONObject2);
-                b bVar = b.nkn;
+                b bVar = b.nkp;
                 Context context = this.a;
                 q.i(dw, "shareInfo");
                 bVar.a(context, dw, this.b);
@@ -60,7 +60,7 @@ public final class b {
 
     public final void a(Context context, String str, String str2, ShareInfo shareInfo, String str3, boolean z) {
         q.j(context, "context");
-        c.dBO().c(new a(context, str3), str, str2);
+        c.dBQ().c(new a(context, str3), str, str2);
     }
 
     public final void a(Context context, ShareInfo shareInfo, String str) {
@@ -72,7 +72,7 @@ public final class b {
         shareParam.setThumbnail(shareInfo.mThumbnail);
         shareParam.setUrl(shareInfo.mUrl);
         shareParam.setPic(shareInfo.mPic);
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dPT().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dPV().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.share(context, shareParam, new C0726b(shareParam, str));
         }
@@ -83,16 +83,16 @@ public final class b {
     /* loaded from: classes5.dex */
     public static final class C0726b implements ShareListener {
         final /* synthetic */ String b;
-        final /* synthetic */ ShareParam nko;
+        final /* synthetic */ ShareParam nkq;
 
         C0726b(ShareParam shareParam, String str) {
-            this.nko = shareParam;
+            this.nkq = shareParam;
             this.b = str;
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener
         public void onSuccess(int i) {
-            com.kascend.chushou.toolkit.a.a.a(b.nkn.a(i), this.nko.getUrl(), this.b, "1009");
+            com.kascend.chushou.toolkit.a.a.a(b.nkp.a(i), this.nkq.getUrl(), this.b, "1009");
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener

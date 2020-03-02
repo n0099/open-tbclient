@@ -8,13 +8,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes9.dex */
 public class c {
-    private a gGe;
-    private HttpMessageListener gGi = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
+    private a gGg;
+    private HttpMessageListener gGk = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.gGe != null) {
-                c.this.gGe.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.gGg != null) {
+                c.this.gGg.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
@@ -25,9 +25,9 @@ public class c {
     }
 
     public c(a aVar) {
-        this.gGe = aVar;
+        this.gGg = aVar;
         te();
-        MessageManager.getInstance().registerListener(this.gGi);
+        MessageManager.getInstance().registerListener(this.gGk);
     }
 
     private void te() {
@@ -47,6 +47,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(1001713);
-        MessageManager.getInstance().unRegisterListener(this.gGi);
+        MessageManager.getInstance().unRegisterListener(this.gGk);
     }
 }

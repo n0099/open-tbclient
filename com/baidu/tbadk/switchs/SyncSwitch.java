@@ -92,5 +92,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(FlutterPersonAttentionEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterForumDetailEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterMyTabEnableSwitch.class);
+        SwitchManager.getInstance().registerSwitch(FlutterHuaWeiSwitch.class);
     }
 }

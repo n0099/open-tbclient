@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class b extends BaseAdapter {
-    private static int iwk = 3;
+    private static int iwm = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -52,7 +52,7 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.aHL();
+            aVar.aHN();
             aVar.a(this.mDataList.get(i));
         }
         return view;
@@ -60,32 +60,32 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes13.dex */
     public static class a {
-        public TextView dib;
-        public BarImageView iwm;
-        public View kPs;
+        public TextView dic;
+        public BarImageView iwo;
+        public View kPu;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.dib = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.iwm = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.kPs = view.findViewById(R.id.divider_line);
+                this.dic = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.iwo = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.kPu = view.findViewById(R.id.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.dib.setText(transmitForumData.forumName);
-                this.iwm.startLoad(transmitForumData.avatar, 10, false);
+                this.dic.setText(transmitForumData.forumName);
+                this.iwo.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void aHL() {
-            if (b.iwk != this.mSkinType) {
-                am.setViewTextColor(this.dib, (int) R.color.cp_cont_b);
-                am.setBackgroundColor(this.kPs, R.color.cp_bg_line_c);
+        public void aHN() {
+            if (b.iwm != this.mSkinType) {
+                am.setViewTextColor(this.dic, (int) R.color.cp_cont_b);
+                am.setBackgroundColor(this.kPu, R.color.cp_bg_line_c);
             }
-            this.mSkinType = b.iwk;
+            this.mSkinType = b.iwm;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (iwk != i) {
+        if (iwm != i) {
             notifyDataSetChanged();
         }
-        iwk = i;
+        iwm = i;
     }
 }

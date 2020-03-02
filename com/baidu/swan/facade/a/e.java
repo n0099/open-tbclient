@@ -8,8 +8,8 @@ import java.util.Map;
 public class e implements com.baidu.swan.apps.w.b.d {
     @Override // com.baidu.swan.apps.w.b.d
     public void a(j jVar) {
-        a.ajl().a(jVar);
-        a.ajm().a(jVar);
+        a.ajn().a(jVar);
+        a.ajo().a(jVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.d

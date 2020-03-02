@@ -10,15 +10,15 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes10.dex */
 public class b {
-    private static volatile b kxf;
-    private HashMap<String, String> kxa;
-    private DownloadData kxb;
+    private static volatile b kxh;
+    private HashMap<String, String> kxc;
+    private DownloadData kxd;
 
     /* loaded from: classes10.dex */
     public interface a {
         void JT(String str);
 
-        void cPo();
+        void cPq();
 
         void eJ(String str, String str2);
     }
@@ -26,15 +26,15 @@ public class b {
     private b() {
     }
 
-    public static b cPZ() {
-        if (kxf == null) {
+    public static b cQb() {
+        if (kxh == null) {
             synchronized (b.class) {
-                if (kxf == null) {
-                    kxf = new b();
+                if (kxh == null) {
+                    kxh = new b();
                 }
             }
         }
-        return kxf;
+        return kxh;
     }
 
     public String Kb(String str) {
@@ -42,29 +42,29 @@ public class b {
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.kxa == null) {
-            this.kxa = new HashMap<>();
-            cQa();
-            if (this.kxa.size() > 0) {
-                return this.kxa.get(nameMd5FromUrl);
+        if (this.kxc == null) {
+            this.kxc = new HashMap<>();
+            cQc();
+            if (this.kxc.size() > 0) {
+                return this.kxc.get(nameMd5FromUrl);
             }
             return null;
         }
-        return this.kxa.get(nameMd5FromUrl);
+        return this.kxc.get(nameMd5FromUrl);
     }
 
-    public void cQa() {
-        if (this.kxa == null) {
-            this.kxa = new HashMap<>();
+    public void cQc() {
+        if (this.kxc == null) {
+            this.kxc = new HashMap<>();
         } else {
-            this.kxa.clear();
+            this.kxc.clear();
         }
-        File file = new File(c.kuN);
+        File file = new File(c.kuP);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.kxa.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.kxc.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -73,10 +73,10 @@ public class b {
     public void a(String str, final String str2, final a aVar) {
         String nameMd5FromUrl;
         if (!TextUtils.isEmpty(str2) && (nameMd5FromUrl = as.getNameMd5FromUrl(str2)) != null) {
-            if (this.kxb != null) {
-                d.aOn().cancelDownLoadByUrl(this.kxb.getUrl(), true);
+            if (this.kxd != null) {
+                d.aOp().cancelDownLoadByUrl(this.kxd.getUrl(), true);
             }
-            File file = new File(c.kuN);
+            File file = new File(c.kuP);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -84,7 +84,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.kuN + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.kuP + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -93,11 +93,11 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.kxb != null && downloadData2.getUrl().equals(b.this.kxb.getUrl())) {
-                            b.this.kxb = null;
+                        if (b.this.kxd != null && downloadData2.getUrl().equals(b.this.kxd.getUrl())) {
+                            b.this.kxd = null;
                         }
                         if (aVar != null) {
-                            aVar.cPo();
+                            aVar.cPq();
                         }
                     }
                 }
@@ -115,11 +115,11 @@ public class b {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.kxb != null && downloadData2.getUrl().equals(b.this.kxb.getUrl())) {
-                            b.this.kxb = null;
+                        if (b.this.kxd != null && downloadData2.getUrl().equals(b.this.kxd.getUrl())) {
+                            b.this.kxd = null;
                         }
                         if (aVar != null) {
-                            b.this.kxa.put(downloadData2.getPath().substring(c.kuN.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            b.this.kxc.put(downloadData2.getPath().substring(c.kuP.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
                             aVar.eJ(str2, downloadData2.getPath());
                         }
                     }
@@ -131,16 +131,16 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.kxb != null && downloadData2.getUrl().equals(b.this.kxb.getUrl())) {
-                        b.this.kxb = null;
+                    if (b.this.kxd != null && downloadData2.getUrl().equals(b.this.kxd.getUrl())) {
+                        b.this.kxd = null;
                     }
                     if (aVar != null) {
                         aVar.JT(str3);
                     }
                 }
             });
-            this.kxb = downloadData;
-            d.aOn().f(downloadData);
+            this.kxd = downloadData;
+            d.aOp().f(downloadData);
         }
     }
 }

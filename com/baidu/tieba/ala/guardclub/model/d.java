@@ -14,8 +14,8 @@ public class d {
     public String apS;
     public String createTime;
     public String description;
-    public String eGK;
-    public int eGL;
+    public String eGL;
+    public int eGM;
     public String id;
     public String liveId;
     public int liveStatus;
@@ -36,8 +36,8 @@ public class d {
                 this.score = jSONObject.optString("score");
                 this.status = jSONObject.optString("status");
                 this.createTime = jSONObject.optString("create_time");
-                this.eGK = jSONObject.optString("update_time");
-                this.eGL = jSONObject.optInt("member_counts");
+                this.eGL = jSONObject.optString("update_time");
+                this.eGM = jSONObject.optInt("member_counts");
                 this.apS = jSONObject.optString("guard_club_portrait");
                 this.apQ = jSONObject.optInt("guard_level");
                 this.apR = jSONObject.optLong("next_level_need_score");

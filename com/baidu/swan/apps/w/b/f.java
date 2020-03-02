@@ -11,9 +11,9 @@ public interface f {
         void onFailed(int i);
     }
 
-    com.baidu.swan.apps.scheme.actions.f.b Vf();
+    com.baidu.swan.apps.scheme.actions.f.b Vh();
 
-    void Vg();
+    void Vi();
 
     void a(String str, boolean z, boolean z2, a aVar);
 

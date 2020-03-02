@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes11.dex */
 public class DragView extends FrameLayout {
-    private a bZt;
+    private a bZu;
     private int mAutoCloseDistance;
     private View mChildView;
     private boolean mDragEnabled;
@@ -89,8 +89,8 @@ public class DragView extends FrameLayout {
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
                 super.onViewPositionChanged(view, i, i2, i3, i4);
-                if (DragView.this.bZt != null) {
-                    DragView.this.bZt.onClosing(i2 - DragView.this.mInitY);
+                if (DragView.this.bZu != null) {
+                    DragView.this.bZu.onClosing(i2 - DragView.this.mInitY);
                 }
             }
 
@@ -118,8 +118,8 @@ public class DragView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.mDragEnabled) {
             this.mViewDragHelper.processTouchEvent(motionEvent);
-            if (this.bZt != null) {
-                this.bZt.onDragViewTouchEvent(motionEvent);
+            if (this.bZu != null) {
+                this.bZu.onDragViewTouchEvent(motionEvent);
             }
             return true;
         }
@@ -160,8 +160,8 @@ public class DragView extends FrameLayout {
     public void computeScroll() {
         if (this.mViewDragHelper.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
-        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.mInitY) >= this.mAutoCloseDistance && this.bZt != null) {
-            this.bZt.onClose();
+        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.mInitY) >= this.mAutoCloseDistance && this.bZu != null) {
+            this.bZu.onClose();
         }
     }
 
@@ -173,7 +173,7 @@ public class DragView extends FrameLayout {
     }
 
     public void setOnCloseListener(a aVar) {
-        this.bZt = aVar;
+        this.bZu = aVar;
     }
 
     public void setTopMinValue(int i) {

@@ -1,19 +1,19 @@
 package tv.chushou.common;
 /* loaded from: classes5.dex */
 public final class a {
-    private static final a nVG;
-    private static final a nVH;
-    private static volatile a nVI;
+    private static final a nVI;
+    private static final a nVJ;
+    private static volatile a nVK;
     private String ad;
     private String city;
     private String nVA;
     private String nVB;
     private String nVC;
     private String nVD;
-    private int nVE;
+    private String nVE;
     private String nVF;
-    private String nVp;
-    private String nVq;
+    private int nVG;
+    private String nVH;
     private String nVr;
     private String nVs;
     private String nVt;
@@ -27,50 +27,50 @@ public final class a {
 
     static {
         a aVar = new a();
-        aVar.nVp = "https://api.chushou.tv/";
-        aVar.nVq = "https://bee.kascend.com/";
-        aVar.nVr = "https://chushou.tv/";
-        aVar.nVs = "https://chat.chushou.tv/";
-        aVar.nVt = "https://qos-stat.chushou.tv/";
-        aVar.nVu = "im.chushou.tv";
-        aVar.nVv = "https://imapi.chushou.tv/";
-        aVar.nVw = "https://pay.chushou.tv/kaspay/";
-        aVar.nVx = "https://gemini.chushou.tv/";
-        aVar.nVy = "https://mic.chushou.tv/";
+        aVar.nVr = "https://api.chushou.tv/";
+        aVar.nVs = "https://bee.kascend.com/";
+        aVar.nVt = "https://chushou.tv/";
+        aVar.nVu = "https://chat.chushou.tv/";
+        aVar.nVv = "https://qos-stat.chushou.tv/";
+        aVar.nVw = "im.chushou.tv";
+        aVar.nVx = "https://imapi.chushou.tv/";
+        aVar.nVy = "https://pay.chushou.tv/kaspay/";
+        aVar.nVz = "https://gemini.chushou.tv/";
+        aVar.nVA = "https://mic.chushou.tv/";
         aVar.ad = "https://ja.chushou.tv/";
         aVar.city = "https://geo.chushou.tv/";
-        aVar.nVz = "https://playground.chushou.tv/";
-        aVar.nVA = "https://appstat.chushou.tv/";
-        aVar.nVB = "https://luck.chushou.tv/";
-        aVar.nVC = "https://gmapi.chushou.tv/";
-        aVar.nVD = "https://gm.chushou.tv/";
+        aVar.nVB = "https://playground.chushou.tv/";
+        aVar.nVC = "https://appstat.chushou.tv/";
+        aVar.nVD = "https://luck.chushou.tv/";
+        aVar.nVE = "https://gmapi.chushou.tv/";
+        aVar.nVF = "https://gm.chushou.tv/";
         aVar.sdk = "https://open.chushou.tv/";
-        aVar.nVE = 8178;
-        aVar.nVF = "rc";
-        nVG = aVar;
+        aVar.nVG = 8178;
+        aVar.nVH = "rc";
+        nVI = aVar;
         a aVar2 = new a();
-        aVar2.nVp = "https://api.vchushou.com/";
-        aVar2.nVq = "https://bee.vchushou.com/";
-        aVar2.nVr = "https://vchushou.com/";
-        aVar2.nVs = "https://chat.vchushou.com/";
-        aVar2.nVt = "https://qos-stat.vchushou.com/";
-        aVar2.nVu = "im.vchushou.com";
-        aVar2.nVv = "https://imapi.vchushou.com/";
-        aVar2.nVw = "https://pay.vchushou.com/";
-        aVar2.nVx = "https://gemini.vchushou.com/";
-        aVar2.nVy = "https://mic.vchushou.com/";
+        aVar2.nVr = "https://api.vchushou.com/";
+        aVar2.nVs = "https://bee.vchushou.com/";
+        aVar2.nVt = "https://vchushou.com/";
+        aVar2.nVu = "https://chat.vchushou.com/";
+        aVar2.nVv = "https://qos-stat.vchushou.com/";
+        aVar2.nVw = "im.vchushou.com";
+        aVar2.nVx = "https://imapi.vchushou.com/";
+        aVar2.nVy = "https://pay.vchushou.com/";
+        aVar2.nVz = "https://gemini.vchushou.com/";
+        aVar2.nVA = "https://mic.vchushou.com/";
         aVar2.ad = "https://ja.vchushou.com/";
         aVar2.city = "https://geo.vchushou.com/";
-        aVar2.nVz = "https://open-game.vchushou.com/";
-        aVar2.nVA = "https://vchushou.com/";
-        aVar2.nVB = "https://luck.vchushou.com/";
-        aVar2.nVC = "https://gamemate.vchushou.com/";
-        aVar2.nVD = "https://gamemate.vchushou.com/";
+        aVar2.nVB = "https://open-game.vchushou.com/";
+        aVar2.nVC = "https://vchushou.com/";
+        aVar2.nVD = "https://luck.vchushou.com/";
+        aVar2.nVE = "https://gamemate.vchushou.com/";
+        aVar2.nVF = "https://gamemate.vchushou.com/";
         aVar2.sdk = "https://open.vchushou.com/";
-        aVar2.nVE = 8178;
-        aVar2.nVF = "https";
-        nVH = aVar2;
-        nVI = nVG;
+        aVar2.nVG = 8178;
+        aVar2.nVH = "https";
+        nVJ = aVar2;
+        nVK = nVI;
     }
 
     private a() {
@@ -78,41 +78,41 @@ public final class a {
 
     public static void SK(String str) {
         if ("beta".equals(str)) {
-            nVI = nVH;
+            nVK = nVJ;
         } else {
-            nVI = nVG;
+            nVK = nVI;
         }
     }
 
-    public static String dPU() {
-        return nVI.nVp;
-    }
-
-    public static String dPV() {
-        return nVI.nVq;
-    }
-
     public static String dPW() {
-        return nVI.nVr;
+        return nVK.nVr;
     }
 
     public static String dPX() {
-        return nVI.nVs;
+        return nVK.nVs;
     }
 
     public static String dPY() {
-        return nVI.nVy;
+        return nVK.nVt;
     }
 
     public static String dPZ() {
-        return nVI.ad;
+        return nVK.nVu;
     }
 
     public static String dQa() {
-        return nVI.nVB;
+        return nVK.nVA;
     }
 
     public static String dQb() {
-        return nVI.sdk;
+        return nVK.ad;
+    }
+
+    public static String dQc() {
+        return nVK.nVD;
+    }
+
+    public static String dQd() {
+        return nVK.sdk;
     }
 }

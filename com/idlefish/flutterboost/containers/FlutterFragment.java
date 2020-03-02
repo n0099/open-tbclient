@@ -152,7 +152,9 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
-        this.delegate.onActivityResult(i, i2, intent);
+        if (this.delegate != null) {
+            this.delegate.onActivityResult(i, i2, intent);
+        }
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks

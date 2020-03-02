@@ -23,7 +23,7 @@ public class PersonCardInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaPersonCardActivityConfig.class, PersonCardActivity.class);
         te();
-        brP();
+        brR();
     }
 
     private static void te() {
@@ -35,11 +35,11 @@ public class PersonCardInitialize {
                     a aVar = new a(data.pageContext.getPageActivity());
                     aVar.a(new a.InterfaceC0472a() { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.1.1
                         @Override // com.baidu.tieba.ala.person.a.InterfaceC0472a
-                        public void brQ() {
+                        public void brS() {
                             final d dVar = new d(data.pageContext);
                             dVar.a(new d.a() { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.1.1.1
                                 @Override // com.baidu.tieba.ala.person.c.d.a
-                                public void brO() {
+                                public void brQ() {
                                     data.pageContext.showToast(a.i.ala_person_report_online_success);
                                     dVar.a((d.a) null);
                                 }
@@ -66,7 +66,7 @@ public class PersonCardInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void brP() {
+    private static void brR() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

@@ -8,18 +8,18 @@ import kotlin.TypeCastException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class n {
-    private static final Object[] nCo = new Object[0];
+    private static final Object[] nCq = new Object[0];
 
     public static final Object[] n(Collection<?> collection) {
         Object[] objArr;
         q.j(collection, "collection");
         int size = collection.size();
         if (size == 0) {
-            return nCo;
+            return nCq;
         }
         Iterator<?> it = collection.iterator();
         if (!it.hasNext()) {
-            return nCo;
+            return nCq;
         }
         Object[] objArr2 = new Object[size];
         int i = 0;

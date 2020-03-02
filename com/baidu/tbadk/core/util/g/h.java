@@ -6,39 +6,39 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private static h dda;
-    private HashMap<String, f> ddb = new HashMap<>();
-    private LinkedList<String> ddc = new LinkedList<>();
+    private static h ddb;
+    private HashMap<String, f> ddc = new HashMap<>();
+    private LinkedList<String> ddd = new LinkedList<>();
 
     private h() {
     }
 
-    public static h aHl() {
-        if (dda == null) {
+    public static h aHn() {
+        if (ddb == null) {
             synchronized (h.class) {
-                if (dda == null) {
-                    dda = new h();
+                if (ddb == null) {
+                    ddb = new h();
                 }
             }
         }
-        return dda;
+        return ddb;
     }
 
     public void aC(List<String> list) {
-        if (this.ddc != null) {
-            this.ddc.clear();
+        if (this.ddd != null) {
+            this.ddd.clear();
         }
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
-                if (this.ddb.get(str) == null) {
-                    if (this.ddb.size() < e.aHj().aHk()) {
+                if (this.ddc.get(str) == null) {
+                    if (this.ddc.size() < e.aHl().aHm()) {
                         g.log("put loadingQueue  url: " + str);
                         f tQ = tQ(str);
-                        this.ddb.put(str, tQ);
+                        this.ddc.put(str, tQ);
                         tQ.load();
                     } else {
                         g.log("put waitingQueue  url: " + str);
-                        this.ddc.push(str);
+                        this.ddd.push(str);
                     }
                 } else {
                     g.log("has loading  : " + str);
@@ -49,19 +49,19 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void tP(String str) {
-        f remove = this.ddb.remove(str);
+        f remove = this.ddc.remove(str);
         g.log("processCallback remove loadingQueue  url: " + str);
         if (remove != null) {
             remove.release();
         }
-        if (this.ddc != null && this.ddc.size() > 0) {
-            String pop = this.ddc.pop();
+        if (this.ddd != null && this.ddd.size() > 0) {
+            String pop = this.ddd.pop();
             f tQ = tQ(pop);
-            this.ddb.put(pop, tQ);
+            this.ddc.put(pop, tQ);
             g.log("processCallback put loadingQueue  url: " + pop);
             tQ.load();
         }
-        g.log("processCallback  mWaitingQueue.size() =  " + this.ddc.size() + " mLoadingQueue.size()  " + this.ddb.size());
+        g.log("processCallback  mWaitingQueue.size() =  " + this.ddd.size() + " mLoadingQueue.size()  " + this.ddc.size());
     }
 
     private f tQ(String str) {

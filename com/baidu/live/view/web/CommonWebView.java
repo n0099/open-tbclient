@@ -9,8 +9,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes3.dex */
 public class CommonWebView extends WebView {
-    private boolean aGu;
     private boolean aGv;
+    private boolean aGw;
 
     public CommonWebView(Context context) {
         super(context);
@@ -18,21 +18,21 @@ public class CommonWebView extends WebView {
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.aGu = z;
+        this.aGv = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.aGv = z;
+        this.aGw = z;
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.aGu && !this.aGv) {
+        if (!this.aGv && !this.aGw) {
             scrollTo(0, 0);
-        } else if (!this.aGu) {
-            scrollTo(i, 0);
         } else if (!this.aGv) {
+            scrollTo(i, 0);
+        } else if (!this.aGw) {
             scrollTo(0, i2);
         }
     }
@@ -45,8 +45,8 @@ public class CommonWebView extends WebView {
     }
 
     private void init() {
-        this.aGu = true;
         this.aGv = true;
+        this.aGw = true;
         setBackgroundColor(0);
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollBarEnabled(false);

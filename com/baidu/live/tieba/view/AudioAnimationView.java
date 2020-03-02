@@ -23,7 +23,7 @@ public class AudioAnimationView extends View {
     private int Gj;
     private int Gk;
     private final Runnable Gl;
-    private Rect[] aBx;
+    private Rect[] aBy;
     private int mCanvasHeight;
     private int mCanvasWidth;
     private Paint mPaint;
@@ -106,8 +106,8 @@ public class AudioAnimationView extends View {
         if (this.Gf) {
             for (int i = 0; i < this.Ge; i++) {
                 lR();
-                if (i < this.aBx.length) {
-                    canvas.drawRect(this.aBx[i], this.mPaint);
+                if (i < this.aBy.length) {
+                    canvas.drawRect(this.aBy[i], this.mPaint);
                 }
             }
         }
@@ -123,8 +123,8 @@ public class AudioAnimationView extends View {
 
     private void lR() {
         int nextInt;
-        if (this.aBx == null || this.aBx.length != this.Ge) {
-            this.aBx = new Rect[this.Ge];
+        if (this.aBy == null || this.aBy.length != this.Ge) {
+            this.aBy = new Rect[this.Ge];
         }
         for (int i = 0; i < this.Ge; i++) {
             int i2 = this.Gj * i * 2;
@@ -135,10 +135,10 @@ public class AudioAnimationView extends View {
             }
             int i3 = this.Gj + i2;
             int i4 = this.mCanvasHeight;
-            if (this.aBx[i] == null) {
-                this.aBx[i] = new Rect(i2, nextInt, i3, i4);
+            if (this.aBy[i] == null) {
+                this.aBy[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.aBx[i].set(i2, nextInt, i3, i4);
+                this.aBy[i].set(i2, nextInt, i3, i4);
             }
         }
     }

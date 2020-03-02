@@ -63,11 +63,11 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<com
     }
 
     private void setImageData(bj bjVar) {
-        ArrayList<MediaData> aCw = bjVar.aCw();
-        if (i.azM().isShowImages() && v.getCount(aCw) != 0) {
+        ArrayList<MediaData> aCy = bjVar.aCy();
+        if (i.azO().isShowImages() && v.getCount(aCy) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aCw.size(); i++) {
-                MediaData mediaData = (MediaData) v.getItem(aCw, i);
+            for (int i = 0; i < aCy.size(); i++) {
+                MediaData mediaData = (MediaData) v.getItem(aCy, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -80,7 +80,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<com
                 this.Ow.setVisibility(0);
                 this.Ox.setVisibility(0);
                 this.Ow.setConrers(15);
-                a((MediaData) v.getItem(aCw, 0), this.Ow, true, false, true, 0);
+                a((MediaData) v.getItem(aCy, 0), this.Ow, true, false, true, 0);
                 return;
             }
             this.Ow.setVisibility(8);
@@ -105,9 +105,9 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<com
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        bj aAe = aVar.aAe();
-        au.a(this.mTitle, aAe);
-        setImageData(aAe);
+        bj aAg = aVar.aAg();
+        au.a(this.mTitle, aAg);
+        setImageData(aAg);
     }
 
     public void setMarginsTop(View view, int i) {

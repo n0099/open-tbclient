@@ -30,14 +30,14 @@ public class d extends com.baidu.swan.apps.api.a.c {
                 ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.d.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        final com.baidu.swan.apps.adaptation.b.d WC = com.baidu.swan.apps.y.f.WQ().WC();
-                        if (WC != null) {
-                            ValueAnimator ofInt = ValueAnimator.ofInt(WC.getWebViewScrollY(), d.a(WC, af.dip2px(d.this.getContext(), optInt)));
+                        final com.baidu.swan.apps.adaptation.b.d WE = com.baidu.swan.apps.y.f.WS().WE();
+                        if (WE != null) {
+                            ValueAnimator ofInt = ValueAnimator.ofInt(WE.getWebViewScrollY(), d.a(WE, af.dip2px(d.this.getContext(), optInt)));
                             ofInt.setDuration(optInt2);
                             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.api.module.e.d.1.1.1
                                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                                    WC.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                                    WE.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                                 }
                             });
                             ofInt.start();
@@ -50,7 +50,7 @@ public class d extends com.baidu.swan.apps.api.a.c {
     }
 
     public static int a(@NonNull com.baidu.swan.apps.adaptation.b.d dVar, int i) {
-        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.y.f.WQ().WD().second).intValue();
+        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.y.f.WS().WF().second).intValue();
         if (contentHeight <= 0) {
             return 0;
         }

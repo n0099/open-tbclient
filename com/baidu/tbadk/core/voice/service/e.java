@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.h;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class e extends MediaPlayer implements c {
-    private static Object dlu = new Object();
-    private static e dlv = null;
-    private boolean dlw = false;
-    private boolean dlx = true;
+    private static Object dlv = new Object();
+    private static e dlw = null;
+    private boolean dlx = false;
+    private boolean dly = true;
     private int errorNo = -1;
 
     private e() {
     }
 
-    public static e aIQ() {
-        if (dlv == null) {
-            synchronized (dlu) {
-                if (dlv == null) {
-                    dlv = new e();
+    public static e aIS() {
+        if (dlw == null) {
+            synchronized (dlv) {
+                if (dlw == null) {
+                    dlw = new e();
                 }
             }
         }
-        return dlv;
+        return dlw;
     }
 
     public void setStreamType(int i) {
@@ -32,8 +32,8 @@ public class e extends MediaPlayer implements c {
     @Override // com.baidu.tbadk.core.voice.service.c
     public boolean ug(String str) {
         this.errorNo = -1;
-        if (!this.dlw) {
-            this.dlx = true;
+        if (!this.dlx) {
+            this.dly = true;
             reset();
             try {
                 setDataSource(str);
@@ -59,35 +59,35 @@ public class e extends MediaPlayer implements c {
                 return false;
             }
         }
-        this.dlw = true;
+        this.dlx = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aIN() {
+    public void aIP() {
         start();
-        this.dlx = false;
+        this.dly = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aIK() {
-        if (!this.dlx) {
+    public void aIM() {
+        if (!this.dly) {
             stop();
-            this.dlx = true;
-            this.dlw = false;
+            this.dly = true;
+            this.dlx = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aIO() {
+    public void aIQ() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aIP() {
+    public void aIR() {
         reset();
-        this.dlw = false;
-        this.dlx = true;
+        this.dlx = false;
+        this.dly = true;
         this.errorNo = -1;
     }
 
@@ -98,7 +98,7 @@ public class e extends MediaPlayer implements c {
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public boolean isPrepared() {
-        return this.dlw;
+        return this.dlx;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c

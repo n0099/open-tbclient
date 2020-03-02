@@ -7,9 +7,9 @@ import com.google.android.exoplayer2.ParserException;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public final class c {
-    private static final byte[] mGZ = {0, 0, 0, 1};
-    private static final int[] mHa = {96000, 88200, 64000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 24000, 22050, 16000, 12000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 8000, 7350};
-    private static final int[] mHb = {0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
+    private static final byte[] mHb = {0, 0, 0, 1};
+    private static final int[] mHc = {96000, 88200, 64000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 24000, 22050, 16000, 12000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 8000, 7350};
+    private static final int[] mHd = {0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
 
     public static Pair<Integer, Integer> az(byte[] bArr) throws ParserException {
         return a(new k(bArr), false);
@@ -69,21 +69,21 @@ public final class c {
                     throw new ParserException("Unsupported audio object type: " + j);
             }
         }
-        int i = mHb[readBits];
+        int i = mHd[readBits];
         a.checkArgument(i != -1);
         return Pair.create(Integer.valueOf(k), Integer.valueOf(i));
     }
 
     public static byte[] dW(int i, int i2) {
         int i3 = -1;
-        for (int i4 = 0; i4 < mHa.length; i4++) {
-            if (i == mHa[i4]) {
+        for (int i4 = 0; i4 < mHc.length; i4++) {
+            if (i == mHc[i4]) {
                 i3 = i4;
             }
         }
         int i5 = -1;
-        for (int i6 = 0; i6 < mHb.length; i6++) {
-            if (i2 == mHb[i6]) {
+        for (int i6 = 0; i6 < mHd.length; i6++) {
+            if (i2 == mHd[i6]) {
                 i5 = i6;
             }
         }
@@ -98,9 +98,9 @@ public final class c {
     }
 
     public static byte[] B(byte[] bArr, int i, int i2) {
-        byte[] bArr2 = new byte[mGZ.length + i2];
-        System.arraycopy(mGZ, 0, bArr2, 0, mGZ.length);
-        System.arraycopy(bArr, i, bArr2, mGZ.length, i2);
+        byte[] bArr2 = new byte[mHb.length + i2];
+        System.arraycopy(mHb, 0, bArr2, 0, mHb.length);
+        System.arraycopy(bArr, i, bArr2, mHb.length, i2);
         return bArr2;
     }
 
@@ -112,7 +112,7 @@ public final class c {
         int i = 0;
         do {
             arrayList.add(Integer.valueOf(i));
-            i = D(bArr, i + mGZ.length);
+            i = D(bArr, i + mHb.length);
         } while (i != -1);
         byte[][] bArr2 = new byte[arrayList.size()];
         int i2 = 0;
@@ -127,7 +127,7 @@ public final class c {
     }
 
     private static int D(byte[] bArr, int i) {
-        int length = bArr.length - mGZ.length;
+        int length = bArr.length - mHb.length;
         for (int i2 = i; i2 <= length; i2++) {
             if (E(bArr, i2)) {
                 return i2;
@@ -137,11 +137,11 @@ public final class c {
     }
 
     private static boolean E(byte[] bArr, int i) {
-        if (bArr.length - i <= mGZ.length) {
+        if (bArr.length - i <= mHb.length) {
             return false;
         }
-        for (int i2 = 0; i2 < mGZ.length; i2++) {
-            if (bArr[i + i2] != mGZ[i2]) {
+        for (int i2 = 0; i2 < mHb.length; i2++) {
+            if (bArr[i + i2] != mHb[i2]) {
                 return false;
             }
         }
@@ -162,22 +162,22 @@ public final class c {
             return kVar.readBits(24);
         }
         a.checkArgument(readBits < 13);
-        return mHa[readBits];
+        return mHc[readBits];
     }
 
     private static void a(k kVar, int i, int i2) {
         kVar.JU(1);
-        if (kVar.dvl()) {
+        if (kVar.dvn()) {
             kVar.JU(14);
         }
-        boolean dvl = kVar.dvl();
+        boolean dvn = kVar.dvn();
         if (i2 == 0) {
             throw new UnsupportedOperationException();
         }
         if (i == 6 || i == 20) {
             kVar.JU(3);
         }
-        if (dvl) {
+        if (dvn) {
             if (i == 22) {
                 kVar.JU(16);
             }

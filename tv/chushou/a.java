@@ -1627,7 +1627,7 @@ public final class a {
         public static final int commit_good_layout = 2131693030;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f1280common = 2131689912;
+        public static final int f1279common = 2131689912;
         public static final int common_loading_view = 2131695552;
         public static final int common_progress = 2131693045;
         public static final int common_tab_content = 2131693043;
@@ -3144,7 +3144,7 @@ public final class a {
         public static final int toolbar = 2131693935;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1281top = 2131689836;
+        public static final int f1280top = 2131689836;
         public static final int topDvider = 2131693919;
         public static final int topKeyboardView = 2131698565;
         public static final int topPanel = 2131690102;

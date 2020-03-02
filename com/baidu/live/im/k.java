@@ -34,13 +34,13 @@ public class k {
 
     public bb[] aT(boolean z) {
         List<bb> list;
-        ap apVar = com.baidu.live.v.a.zj().axB;
+        ap apVar = com.baidu.live.v.a.zl().axC;
         if (apVar == null || apVar.acV == null || !apVar.acV.aex || apVar.acS == null) {
             list = null;
         } else {
             bb[] bbVarArr = apVar.acS.adM;
             list = (bbVarArr == null || bbVarArr.length <= 0) ? null : new ArrayList<>(Arrays.asList(bbVarArr));
-            if (com.baidu.live.v.a.zj().awA != null && com.baidu.live.v.a.zj().awA.aaS && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled())) {
+            if (com.baidu.live.v.a.zl().awB != null && com.baidu.live.v.a.zl().awB.aaS && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled())) {
                 list = a(z, list, apVar.acS.adS);
             }
         }

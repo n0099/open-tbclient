@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b {
-    private ImageView fPv;
-    private MessageRedDotView fPw;
+    private ImageView fPx;
+    private MessageRedDotView fPy;
     private Context mContext;
     private View mRootView;
 
     public b(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.fPv = (ImageView) this.mRootView.findViewById(R.id.img_message);
-        this.fPw = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
+        this.fPx = (ImageView) this.mRootView.findViewById(R.id.img_message);
+        this.fPy = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public ImageView bwe() {
-        return this.fPv;
+    public ImageView bwg() {
+        return this.fPx;
     }
 
     public void r(boolean z, int i) {
         if (z) {
-            this.fPw.refresh(i);
-            this.fPw.setVisibility(0);
+            this.fPy.refresh(i);
+            this.fPy.setVisibility(0);
             return;
         }
-        this.fPw.setVisibility(8);
+        this.fPy.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.fPw.onChangeSkinType();
-        SvgManager.aGA().a(this.fPv, R.drawable.icon_pure_topbar_information44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.fPy.onChangeSkinType();
+        SvgManager.aGC().a(this.fPx, R.drawable.icon_pure_topbar_information44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setVisibility(int i) {

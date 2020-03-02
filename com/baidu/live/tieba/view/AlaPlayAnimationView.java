@@ -6,37 +6,37 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes3.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator aBu;
-    private boolean aBv;
+    private ObjectAnimator aBv;
     private boolean aBw;
+    private boolean aBx;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.aBv = false;
         this.aBw = false;
+        this.aBx = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aBv = false;
         this.aBw = false;
+        this.aBx = false;
         init();
     }
 
     private void init() {
-        this.aBu = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.aBu.setRepeatMode(1);
-        this.aBu.setRepeatCount(-1);
-        this.aBu.setDuration(700L);
+        this.aBv = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.aBv.setRepeatMode(1);
+        this.aBv.setRepeatCount(-1);
+        this.aBv.setDuration(700L);
         setVisibility(8);
-        this.aBv = false;
+        this.aBw = false;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.aBw) {
+        if (this.aBx) {
             startPlayAnimation();
         }
     }
@@ -44,30 +44,30 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Ad();
+        Af();
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.aBw = z;
+        this.aBx = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.aBv) {
-            this.aBv = true;
-            if (this.aBu != null) {
+        if (!this.aBw) {
+            this.aBw = true;
+            if (this.aBv != null) {
                 setVisibility(0);
-                this.aBu.start();
+                this.aBv.start();
             }
         }
     }
 
-    public void Ad() {
-        if (this.aBu != null) {
-            this.aBu.setRepeatCount(-1);
-            this.aBu.cancel();
+    public void Af() {
+        if (this.aBv != null) {
+            this.aBv.setRepeatCount(-1);
+            this.aBv.cancel();
             clearAnimation();
         }
-        this.aBv = false;
+        this.aBw = false;
         setVisibility(8);
     }
 }

@@ -8,16 +8,16 @@ public class fn implements Cloneable {
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f387a;
+    private int f386a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fq f388a;
+    private fq f387a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f389a = fm.f372a;
+    private boolean f388a = fm.f371a;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f390b = true;
+    private boolean f389b = true;
     private String d;
     private String e;
     private String f;
@@ -35,23 +35,23 @@ public class fn implements Cloneable {
     }
 
     private void a(Map<String, Integer> map, int i, String str, fq fqVar) {
-        this.f387a = i;
+        this.f386a = i;
         this.d = str;
-        this.f388a = fqVar;
+        this.f387a = fqVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public int mo290a() {
-        return this.f387a;
+        return this.f386a;
     }
 
     public void a(boolean z) {
-        this.f389a = z;
+        this.f388a = z;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m291a() {
-        return this.f389a;
+        return this.f388a;
     }
 
     /* renamed from: a  reason: collision with other method in class */

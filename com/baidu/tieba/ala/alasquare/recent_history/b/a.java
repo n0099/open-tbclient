@@ -3,6 +3,6 @@ package com.baidu.tieba.ala.alasquare.recent_history.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public List<b> eqo;
+    public List<b> eqp;
     public boolean hasMore;
 }

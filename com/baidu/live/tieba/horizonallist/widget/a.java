@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 class a {
-    private static ArrayList<a> azB = new ArrayList<>(5);
-    public int azF;
+    private static ArrayList<a> azC = new ArrayList<>(5);
     public int azG;
-    int azH;
+    public int azH;
+    int azI;
     public int type;
 
     private void resetState() {
-        this.azF = 0;
         this.azG = 0;
         this.azH = 0;
+        this.azI = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long zO() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.azF, this.azG) : ExpandableListView.getPackedPositionForGroup(this.azF);
+    public long zQ() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.azG, this.azH) : ExpandableListView.getPackedPositionForGroup(this.azG);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,19 +32,19 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a g(int i, int i2, int i3, int i4) {
-        a zP = zP();
-        zP.type = i;
-        zP.azF = i2;
-        zP.azG = i3;
-        zP.azH = i4;
-        return zP;
+        a zR = zR();
+        zR.type = i;
+        zR.azG = i2;
+        zR.azH = i3;
+        zR.azI = i4;
+        return zR;
     }
 
-    private static a zP() {
+    private static a zR() {
         a aVar;
-        synchronized (azB) {
-            if (azB.size() > 0) {
-                aVar = azB.remove(0);
+        synchronized (azC) {
+            if (azC.size() > 0) {
+                aVar = azC.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (azB) {
-            if (azB.size() < 5) {
-                azB.add(this);
+        synchronized (azC) {
+            if (azC.size() < 5) {
+                azC.add(this);
             }
         }
     }

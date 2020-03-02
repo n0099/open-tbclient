@@ -35,13 +35,13 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         } else {
-            c.PL().e(aL);
+            c.PN().e(aL);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
     }
 
     private PrefetchEvent aL(@NonNull JSONObject jSONObject) {
-        return new PrefetchEvent.a().hn(jSONObject.optString("state")).hm(jSONObject.optString("schema")).ho(jSONObject.optString(FaceBaseDTO.KEY_BUSINESS_SCENE)).hl(jSONObject.optString("appKey")).PK();
+        return new PrefetchEvent.a().hn(jSONObject.optString("state")).hm(jSONObject.optString("schema")).ho(jSONObject.optString(FaceBaseDTO.KEY_BUSINESS_SCENE)).hl(jSONObject.optString("appKey")).PM();
     }
 }

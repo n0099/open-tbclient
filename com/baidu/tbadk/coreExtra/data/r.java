@@ -7,24 +7,24 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    public static final List<String> dmv = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
-    private static List<String> dmw;
+    public static final List<String> dmw = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+    private static List<String> dmx;
 
     public static boolean uj(String str) {
         String string;
         if (aq.isEmpty(str)) {
             return false;
         }
-        if (dmw == null && (string = com.baidu.tbadk.core.sharedPref.b.aFB().getString("js_host_white_list", null)) != null) {
-            dmw = ul(string);
+        if (dmx == null && (string = com.baidu.tbadk.core.sharedPref.b.aFD().getString("js_host_white_list", null)) != null) {
+            dmx = ul(string);
         }
-        if (dmw == null) {
-            dmw = dmv;
+        if (dmx == null) {
+            dmx = dmw;
         }
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String host = parse.getHost();
-            for (String str2 : dmw) {
+            for (String str2 : dmx) {
                 if (host.endsWith(str2)) {
                     return true;
                 }
@@ -35,11 +35,11 @@ public class r {
 
     public static void uk(String str) {
         if (str == null) {
-            com.baidu.tbadk.core.sharedPref.b.aFB().putString("js_host_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.aFD().putString("js_host_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.aFB().putString("js_host_white_list", str);
+            com.baidu.tbadk.core.sharedPref.b.aFD().putString("js_host_white_list", str);
         }
-        dmw = ul(str);
+        dmx = ul(str);
     }
 
     private static List<String> ul(String str) {

@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
 public class c {
-    private int kwT = 2;
-    private int lXC = 0;
+    private int kwV = 2;
+    private int lXE = 0;
     private boolean mIsStarted = false;
     private final MediaMuxer mMediaMuxer;
 
@@ -20,8 +20,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         Log.v("MediaMuxerWrapper", "start:");
-        this.lXC++;
-        if (this.kwT > 0 && this.lXC == this.kwT) {
+        this.lXE++;
+        if (this.kwV > 0 && this.lXE == this.kwV) {
             this.mMediaMuxer.start();
             this.mIsStarted = true;
             notifyAll();
@@ -32,9 +32,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.lXC);
-        this.lXC--;
-        if (this.kwT > 0 && this.lXC <= 0) {
+        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.lXE);
+        this.lXE--;
+        if (this.kwV > 0 && this.lXE <= 0) {
             this.mMediaMuxer.stop();
             this.mMediaMuxer.release();
             this.mIsStarted = false;
@@ -49,13 +49,13 @@ public class c {
             throw new IllegalStateException("muxer already started");
         }
         addTrack = this.mMediaMuxer.addTrack(mediaFormat);
-        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.kwT + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.kwV + ",trackIx=" + addTrack + ",format=" + mediaFormat);
         return addTrack;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void d(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        if (this.lXC > 0) {
+        if (this.lXE > 0) {
             this.mMediaMuxer.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }

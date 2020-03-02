@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes10.dex */
 public class d {
-    private com.baidu.adp.lib.cache.l<byte[]> gjU;
+    private com.baidu.adp.lib.cache.l<byte[]> gjW;
 
     public d() {
-        auV();
+        auX();
     }
 
-    public void auV() {
-        if (this.gjU == null) {
-            this.gjU = com.baidu.tbadk.core.c.a.aEz().sP("tb.forum_member_info");
+    public void auX() {
+        if (this.gjW == null) {
+            this.gjW = com.baidu.tbadk.core.c.a.aEB().sP("tb.forum_member_info");
         }
     }
 
@@ -22,7 +22,7 @@ public class d {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        l.b<byte[]> ad = this.gjU != null ? this.gjU.ad(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
+        l.b<byte[]> ad = this.gjW != null ? this.gjW.ad(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
         if (ad == null || ad.value == null) {
             return null;
         }
@@ -32,8 +32,8 @@ public class d {
     public void l(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            auV();
-            this.gjU.set(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+            auX();
+            this.gjW.set(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

@@ -16,21 +16,21 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class d implements a.b {
-    private final Map<String, Deque<Message>> bJI = new HashMap();
+    private final Map<String, Deque<Message>> bJJ = new HashMap();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aaM() {
-        for (String str : this.bJI.keySet()) {
+    public void aaO() {
+        for (String str : this.bJJ.keySet()) {
             kt(str);
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void kt(String str) {
-        Deque<Message> deque = this.bJI.get(str);
+        Deque<Message> deque = this.bJJ.get(str);
         com.baidu.swan.apps.process.messaging.a.log("flushMsg:: appid=" + str + " msgQueue=" + deque);
         if (deque != null && !deque.isEmpty()) {
-            List<c> kz = e.abs().kz(str);
+            List<c> kz = e.abu().kz(str);
             com.baidu.swan.apps.process.messaging.a.log("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + kz.size());
             if (!kz.isEmpty()) {
                 for (c cVar : kz) {
@@ -43,51 +43,51 @@ public class d implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void clear(String str) {
-        this.bJI.remove(str);
+        this.bJJ.remove(str);
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull com.baidu.swan.apps.process.messaging.c cVar) {
-        Message aaN = cVar.aaN();
-        if (cVar.aaR()) {
-            K(aaN);
+        Message aaP = cVar.aaP();
+        if (cVar.aaT()) {
+            K(aaP);
         }
-        Set<SwanAppProcessInfo> aaP = cVar.aaP();
-        Set<String> aaQ = cVar.aaQ();
+        Set<SwanAppProcessInfo> aaR = cVar.aaR();
+        Set<String> aaS = cVar.aaS();
         if (cVar.isSticky()) {
-            Iterator<c> it = e.abs().abu().iterator();
+            Iterator<c> it = e.abu().abw().iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                boolean a = a(next, aaQ);
-                if (aaP.contains(next.bJy) || a) {
-                    next.J(aaN);
+                boolean a = a(next, aaS);
+                if (aaR.contains(next.bJz) || a) {
+                    next.J(aaP);
                     if (a) {
-                        aaQ.remove(next.getAppId());
+                        aaS.remove(next.getAppId());
                     }
                 }
             }
-            a(aaQ, aaN);
+            a(aaS, aaP);
             return;
         }
-        Iterator<c> it2 = e.abs().abu().iterator();
+        Iterator<c> it2 = e.abu().abw().iterator();
         while (it2.hasNext()) {
             c next2 = it2.next();
-            if (next2 != null && next2.abj() && (aaP.contains(next2.bJy) || a(next2, aaQ))) {
-                next2.J(aaN);
+            if (next2 != null && next2.abl() && (aaR.contains(next2.bJz) || a(next2, aaS))) {
+                next2.J(aaP);
             }
         }
     }
 
     private void K(Message message) {
         try {
-            e.abs().mMessenger.send(message);
+            e.abu().mMessenger.send(message);
         } catch (RemoteException e) {
             com.baidu.swan.apps.process.messaging.a.log(Log.getStackTraceString(e));
         }
     }
 
     boolean a(@NonNull c cVar, @NonNull Set<String> set) {
-        return cVar.abh() && set.contains(cVar.getAppId());
+        return cVar.abj() && set.contains(cVar.getAppId());
     }
 
     private void a(Set<String> set, @NonNull Message message) {
@@ -98,10 +98,10 @@ public class d implements a.b {
 
     private void a(String str, @NonNull Message message) {
         if (!TextUtils.isEmpty(str)) {
-            Deque<Message> deque = this.bJI.get(str);
+            Deque<Message> deque = this.bJJ.get(str);
             if (deque == null) {
                 deque = new ArrayDeque<>();
-                this.bJI.put(str, deque);
+                this.bJJ.put(str, deque);
             }
             deque.offer(message);
         }

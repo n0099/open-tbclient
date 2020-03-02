@@ -55,17 +55,17 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
     private TextView l;
     private RelativeLayout m;
     private ImageView n;
-    private FrescoThumbnailView nbl;
-    private AppBarLayout ngB;
-    private KasGridView ngC;
-    private EllipsizedTextView ngD;
-    private ProgressBar ngE;
-    private tv.chushou.zues.widget.adapterview.abslistview.a<RoomSpaceData.AvatarBean> ngF;
-    private a ngG;
-    private c ngH;
-    private RoomSpaceData ngI;
-    private FrescoThumbnailView ngJ;
-    private PopupWindow ngK;
+    private FrescoThumbnailView nbn;
+    private AppBarLayout ngD;
+    private KasGridView ngE;
+    private EllipsizedTextView ngF;
+    private ProgressBar ngG;
+    private tv.chushou.zues.widget.adapterview.abslistview.a<RoomSpaceData.AvatarBean> ngH;
+    private a ngI;
+    private c ngJ;
+    private RoomSpaceData ngK;
+    private FrescoThumbnailView ngL;
+    private PopupWindow ngM;
     private String s;
     private String t;
     private String v;
@@ -124,24 +124,24 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
             inflate.findViewById(a.f.iv_topmask).getLayoutParams().height = statusBarHeight + hk;
             inflate.findViewById(a.f.collapse_toolbar).setMinimumHeight(statusBarHeight + hk + statusBarHeight);
         }
-        this.nbl = (FrescoThumbnailView) inflate.findViewById(a.f.iv_background);
+        this.nbn = (FrescoThumbnailView) inflate.findViewById(a.f.iv_background);
         this.e = (TextView) inflate.findViewById(a.f.tv_user_roomId);
         this.e.setOnLongClickListener(this);
-        this.ngJ = (FrescoThumbnailView) inflate.findViewById(a.f.ftv_uid_medal);
-        this.ngC = (KasGridView) inflate.findViewById(a.f.gridview);
-        this.ngD = (EllipsizedTextView) inflate.findViewById(a.f.tittle_name);
-        this.ngD.setOnLongClickListener(this);
+        this.ngL = (FrescoThumbnailView) inflate.findViewById(a.f.ftv_uid_medal);
+        this.ngE = (KasGridView) inflate.findViewById(a.f.gridview);
+        this.ngF = (EllipsizedTextView) inflate.findViewById(a.f.tittle_name);
+        this.ngF.setOnLongClickListener(this);
         this.h = (ImageView) inflate.findViewById(a.f.detail_icon);
         this.n = (ImageView) inflate.findViewById(a.f.report_icon);
         this.i = (ImageView) inflate.findViewById(a.f.share_icon);
         this.j = (RelativeLayout) inflate.findViewById(a.f.rl_bottom_bar);
-        this.ngE = (ProgressBar) inflate.findViewById(a.f.progress_subscribe);
+        this.ngG = (ProgressBar) inflate.findViewById(a.f.progress_subscribe);
         this.l = (TextView) inflate.findViewById(a.f.tv_bottom_subscribe);
         this.m = (RelativeLayout) inflate.findViewById(a.f.fragment_container);
         this.h.setOnClickListener(this);
         this.n.setOnClickListener(this);
-        this.ngB = (AppBarLayout) inflate.findViewById(a.f.appbar);
-        this.ngB.addOnOffsetChangedListener(this);
+        this.ngD = (AppBarLayout) inflate.findViewById(a.f.appbar);
+        this.ngD.addOnOffsetChangedListener(this);
         inflate.findViewById(a.f.back_icon).setOnClickListener(this);
         inflate.findViewById(a.f.share_icon).setOnClickListener(this);
         inflate.findViewById(a.f.tv_bottom_subscribe).setOnClickListener(this);
@@ -152,13 +152,13 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
 
     @Override // com.kascend.chushou.view.base.b
     protected void initData() {
-        if (this.ngG == null) {
-            this.ngG = a.a(1, this.s, this.t, this.u, this.v, true);
-            getChildFragmentManager().beginTransaction().add(a.f.fragment_container, this.ngG).commitAllowingStateLoss();
-            if (this.ngH != null) {
-                this.ngG.a(this.ngH);
+        if (this.ngI == null) {
+            this.ngI = a.a(1, this.s, this.t, this.u, this.v, true);
+            getChildFragmentManager().beginTransaction().add(a.f.fragment_container, this.ngI).commitAllowingStateLoss();
+            if (this.ngJ != null) {
+                this.ngI.a(this.ngJ);
             }
-            this.ngG.a(this);
+            this.ngI.a(this);
         }
     }
 
@@ -171,7 +171,7 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
 
     @Override // com.kascend.chushou.view.user.a.InterfaceC0719a
     public void a(RoomSpaceData roomSpaceData) {
-        this.ngI = roomSpaceData;
+        this.ngK = roomSpaceData;
         if (h.isEmpty(this.t) && roomSpaceData.room != null) {
             this.t = roomSpaceData.room.id;
         }
@@ -192,11 +192,11 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ngI != null) {
+        if (this.ngK != null) {
             int id = view.getId();
             if (id == a.f.back_icon) {
-                if (this.ngH != null) {
-                    if (!this.ngH.a(view)) {
+                if (this.ngJ != null) {
+                    if (!this.ngJ.a(view)) {
                         ((Activity) this.mContext).finish();
                         return;
                     }
@@ -209,11 +209,11 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                 }
             } else if (id != a.f.ll_account_safe && id != a.f.ll_edit) {
                 if (id == a.f.ll_share) {
-                    c(this.ngI);
+                    c(this.ngK);
                 } else if (id == a.f.report_icon) {
                     d();
                 } else if (id == a.f.share_icon) {
-                    c(this.ngI);
+                    c(this.ngK);
                 } else if (id == a.f.tv_bottom_subscribe || id == a.f.fl_subscribe) {
                     c();
                 }
@@ -233,16 +233,16 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                         this.w = true;
                     }
                     if (z != this.w) {
-                        b(this.ngI);
+                        b(this.ngK);
                         return;
                     }
                     return;
                 case 12:
-                    if ((iVar.b instanceof List) && this.w && this.ngI != null) {
+                    if ((iVar.b instanceof List) && this.w && this.ngK != null) {
                         ArrayList arrayList = (ArrayList) iVar.b;
-                        this.ngI.avatarList = new ArrayList();
+                        this.ngK.avatarList = new ArrayList();
                         if (!h.isEmpty(arrayList)) {
-                            this.ngI.avatarList.addAll(arrayList);
+                            this.ngK.avatarList.addAll(arrayList);
                         }
                         this.p.clear();
                         this.p.addAll(arrayList);
@@ -251,15 +251,15 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                     }
                     return;
                 case 13:
-                    if (this.ngI != null && this.ngI.user != null && (iVar.b instanceof String) && this.w) {
-                        this.ngI.user.nickname = (String) iVar.b;
+                    if (this.ngK != null && this.ngK.user != null && (iVar.b instanceof String) && this.w) {
+                        this.ngK.user.nickname = (String) iVar.b;
                         a();
                         return;
                     }
                     return;
                 case 14:
-                    if ((iVar.b instanceof String) && this.w && this.ngI != null && this.ngI.user != null) {
-                        this.ngI.user.gender = (String) iVar.b;
+                    if ((iVar.b instanceof String) && this.w && this.ngK != null && this.ngK.user != null) {
+                        this.ngK.user.gender = (String) iVar.b;
                         a();
                         return;
                     }
@@ -271,7 +271,7 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
     }
 
     public void a(c cVar) {
-        this.ngH = cVar;
+        this.ngJ = cVar;
     }
 
     private void b(RoomSpaceData roomSpaceData) {
@@ -289,16 +289,16 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
             this.j.setVisibility(8);
             ((ViewGroup.MarginLayoutParams) this.m.getLayoutParams()).setMargins(0, 0, 0, tv.chushou.zues.utils.a.dip2px(this.mContext, 0));
             if (this.u) {
-                this.ngB.setExpanded(false);
+                this.ngD.setExpanded(false);
             }
             b();
             a();
-            this.ngB.requestLayout();
-            if (this.ngG != null) {
-                this.ngB.post(new Runnable() { // from class: com.kascend.chushou.view.user.b.1
+            this.ngD.requestLayout();
+            if (this.ngI != null) {
+                this.ngD.post(new Runnable() { // from class: com.kascend.chushou.view.user.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.ngG.b();
+                        b.this.ngI.b();
                     }
                 });
             }
@@ -306,58 +306,58 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
     }
 
     private void a() {
-        if (this.ngI != null && this.ngI.user != null) {
-            UserBean userBean = this.ngI.user;
+        if (this.ngK != null && this.ngK.user != null) {
+            UserBean userBean = this.ngK.user;
             tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
-            cVar.append(TextUtils.ellipsize(userBean.nickname, this.ngD.getPaint(), tv.chushou.zues.utils.a.hd(this.mContext).x - tv.chushou.zues.utils.a.dip2px(this.mContext, 221.0f), TextUtils.TruncateAt.END));
-            List<String> list = this.ngI.hiddenList;
+            cVar.append(TextUtils.ellipsize(userBean.nickname, this.ngF.getPaint(), tv.chushou.zues.utils.a.hd(this.mContext).x - tv.chushou.zues.utils.a.dip2px(this.mContext, 221.0f), TextUtils.TruncateAt.END));
+            List<String> list = this.ngK.hiddenList;
             if (list != null) {
                 if (!list.contains("gender")) {
                     cVar.append(HanziToPinyin.Token.SEPARATOR);
                     cVar.O(this.mContext, tv.chushou.widget.a.c.SN(userBean.gender));
                 }
             }
-            this.ngD.setText(cVar);
+            this.ngF.setText(cVar);
         }
     }
 
     private void b() {
-        if (this.ngI != null && this.ngI.user != null) {
-            if (!h.isEmpty(this.ngI.user.gloriouslyUid)) {
+        if (this.ngK != null && this.ngK.user != null) {
+            if (!h.isEmpty(this.ngK.user.gloriouslyUid)) {
                 tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
                 if (!h.isEmpty(this.t) && !"-1".equals(this.t)) {
                     cVar.append(getString(a.i.str_userinfo_roomid)).append(":").append(this.t).append("    ");
                 }
-                cVar.append(this.mContext.getString(a.i.profile_id, this.ngI.user.gloriouslyUid));
+                cVar.append(this.mContext.getString(a.i.profile_id, this.ngK.user.gloriouslyUid));
                 this.e.setText(cVar);
             }
-            if (h.isEmpty(this.ngI.user.gloriouslyUidMedal)) {
-                this.ngJ.setVisibility(8);
+            if (h.isEmpty(this.ngK.user.gloriouslyUidMedal)) {
+                this.ngL.setVisibility(8);
             } else {
-                this.ngJ.a(this.ngI.user.gloriouslyUidMedal, com.kascend.chushou.view.a.a(), b.C0816b.small, b.C0816b.small, 1);
-                this.ngJ.setVisibility(0);
+                this.ngL.a(this.ngK.user.gloriouslyUidMedal, com.kascend.chushou.view.a.a(), b.C0816b.small, b.C0816b.small, 1);
+                this.ngL.setVisibility(0);
             }
-            String str = this.ngI.user.avatar;
-            if (!h.isEmpty(this.ngI.avatarList)) {
-                str = this.ngI.avatarList.get(0).avatar;
+            String str = this.ngK.user.avatar;
+            if (!h.isEmpty(this.ngK.avatarList)) {
+                str = this.ngK.avatarList.get(0).avatar;
             }
             if (h.isEmpty(str)) {
-                this.nbl.xo(tv.chushou.widget.a.c.dQi());
+                this.nbn.xo(tv.chushou.widget.a.c.dQk());
             } else {
-                this.nbl.i(str, com.kascend.chushou.view.a.a(null), tv.chushou.zues.widget.fresco.b.nYd, tv.chushou.zues.widget.fresco.b.nYd);
-                this.nbl.getHierarchy().HM(tv.chushou.widget.a.c.dQi());
+                this.nbn.i(str, com.kascend.chushou.view.a.a(null), tv.chushou.zues.widget.fresco.b.nYf, tv.chushou.zues.widget.fresco.b.nYf);
+                this.nbn.getHierarchy().HM(tv.chushou.widget.a.c.dQk());
             }
-            if (!h.isEmpty(this.ngI.avatarList)) {
+            if (!h.isEmpty(this.ngK.avatarList)) {
                 this.p.clear();
-                this.p.addAll(this.ngI.avatarList);
+                this.p.addAll(this.ngK.avatarList);
             }
             if (this.w && this.p.size() < 4) {
                 RoomSpaceData.AvatarBean avatarBean = new RoomSpaceData.AvatarBean();
                 avatarBean.id = "add_image";
                 this.p.add(avatarBean);
             }
-            if (this.ngF == null) {
-                this.ngF = new tv.chushou.zues.widget.adapterview.abslistview.a<RoomSpaceData.AvatarBean>(this.mContext, this.p, a.h.item_user_space_avatar) { // from class: com.kascend.chushou.view.user.b.2
+            if (this.ngH == null) {
+                this.ngH = new tv.chushou.zues.widget.adapterview.abslistview.a<RoomSpaceData.AvatarBean>(this.mContext, this.p, a.h.item_user_space_avatar) { // from class: com.kascend.chushou.view.user.b.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // tv.chushou.zues.widget.adapterview.abslistview.a
                     public void a(a.C0812a c0812a, RoomSpaceData.AvatarBean avatarBean2) {
@@ -365,17 +365,17 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                         ImageView imageView = (ImageView) c0812a.Oo(a.f.iv_add);
                         if (avatarBean2.id.equals("add_image")) {
                             imageView.setVisibility(0);
-                            frescoThumbnailView.h(avatarBean2.avatar, a.c.transparent_20_white, tv.chushou.zues.widget.fresco.b.nYd / 4, tv.chushou.zues.widget.fresco.b.nYd / 4);
+                            frescoThumbnailView.h(avatarBean2.avatar, a.c.transparent_20_white, tv.chushou.zues.widget.fresco.b.nYf / 4, tv.chushou.zues.widget.fresco.b.nYf / 4);
                             return;
                         }
                         imageView.setVisibility(8);
-                        frescoThumbnailView.i(avatarBean2.avatar, com.kascend.chushou.view.a.a(null), tv.chushou.zues.widget.fresco.b.nYd, tv.chushou.zues.widget.fresco.b.nYd);
-                        frescoThumbnailView.getHierarchy().HM(tv.chushou.widget.a.c.dQi());
+                        frescoThumbnailView.i(avatarBean2.avatar, com.kascend.chushou.view.a.a(null), tv.chushou.zues.widget.fresco.b.nYf, tv.chushou.zues.widget.fresco.b.nYf);
+                        frescoThumbnailView.getHierarchy().HM(tv.chushou.widget.a.c.dQk());
                     }
                 };
-                this.ngC.setAdapter((ListAdapter) this.ngF);
+                this.ngE.setAdapter((ListAdapter) this.ngH);
             }
-            this.ngF.notifyDataSetChanged();
+            this.ngH.notifyDataSetChanged();
         }
     }
 
@@ -393,14 +393,14 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
     private void c() {
         String optString;
         final String a;
-        if (this.ngI != null && this.ngI.user != null) {
-            final boolean z = this.ngI.isSubscribed;
+        if (this.ngK != null && this.ngK.user != null) {
+            final boolean z = this.ngK.isSubscribed;
             final com.kascend.chushou.c.b bVar = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.user.b.3
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                     if (!b.this.isFinishing()) {
                         b.this.l.setVisibility(8);
-                        b.this.ngE.setVisibility(0);
+                        b.this.ngG.setVisibility(0);
                     }
                 }
 
@@ -415,10 +415,10 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                         String optString2 = jSONObject.optString("message", "");
                         if (optInt == 0) {
                             b.this.l.setVisibility(0);
-                            b.this.ngE.setVisibility(8);
+                            b.this.ngG.setVisibility(8);
                             b.this.a(!z, true, -1, null);
-                            b.this.ngI.isSubscribed = b.this.ngI.isSubscribed ? false : true;
-                            b.this.a(b.this.ngI.isSubscribed);
+                            b.this.ngK.isSubscribed = b.this.ngK.isSubscribed ? false : true;
+                            b.this.a(b.this.ngK.isSubscribed);
                             return;
                         }
                         a(optInt, optString2);
@@ -429,7 +429,7 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                 public void a(int i, String str) {
                     if (!b.this.isFinishing()) {
                         b.this.l.setVisibility(0);
-                        b.this.ngE.setVisibility(8);
+                        b.this.ngG.setVisibility(8);
                         b.this.a(!z, false, i, str);
                     }
                 }
@@ -441,24 +441,24 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                     e.printStackTrace();
                 }
                 a = e.a("_fromView", Constants.VIA_REPORT_TYPE_DATALINE, "_sc", optString);
-                if (!z && this.ngI.user != null) {
-                    e.a(this.mContext, this.ngI.user.nickname, new b.a() { // from class: com.kascend.chushou.view.user.b.4
+                if (!z && this.ngK.user != null) {
+                    e.a(this.mContext, this.ngK.user.nickname, new b.a() { // from class: com.kascend.chushou.view.user.b.4
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar2.dQS();
-                            com.kascend.chushou.c.c.dBO().b(bVar, (String) null, b.this.ngI.user.uid, a);
+                            bVar2.dQU();
+                            com.kascend.chushou.c.c.dBQ().b(bVar, (String) null, b.this.ngK.user.uid, a);
                         }
                     });
                     return;
                 } else {
-                    com.kascend.chushou.c.c.dBO().a(bVar, (String) null, this.ngI.user.uid, a);
+                    com.kascend.chushou.c.c.dBQ().a(bVar, (String) null, this.ngK.user.uid, a);
                 }
             }
             optString = null;
             a = e.a("_fromView", Constants.VIA_REPORT_TYPE_DATALINE, "_sc", optString);
             if (!z) {
             }
-            com.kascend.chushou.c.c.dBO().a(bVar, (String) null, this.ngI.user.uid, a);
+            com.kascend.chushou.c.c.dBQ().a(bVar, (String) null, this.ngK.user.uid, a);
         }
     }
 
@@ -491,13 +491,13 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
             shareInfo.mThumbnail = roomSpaceData.user.avatar;
             shareInfo.mShareType = "5";
             shareInfo.mTargetKey = roomSpaceData.user.uid;
-            com.kascend.cstvsdk.utils.b.nkn.a(this.mContext, "5", roomSpaceData.user.uid, shareInfo, e.a("_fromView", Constants.VIA_REPORT_TYPE_DATALINE), false);
+            com.kascend.cstvsdk.utils.b.nkp.a(this.mContext, "5", roomSpaceData.user.uid, shareInfo, e.a("_fromView", Constants.VIA_REPORT_TYPE_DATALINE), false);
         }
     }
 
     private void d() {
-        if (this.ngI != null && this.ngI.user != null) {
-            UserBean userBean = this.ngI.user;
+        if (this.ngK != null && this.ngK.user != null) {
+            UserBean userBean = this.ngK.user;
             f fVar = new f(this.mContext);
             fVar.a(userBean.uid, userBean.nickname);
             fVar.show();
@@ -509,8 +509,8 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
         if (this.w) {
             e.d(getChildFragmentManager());
             return true;
-        } else if (this.ngI != null && this.ngI.user != null) {
-            e.a(getChildFragmentManager(), this.ngI.user.nickname, this.t, this.ngI.user.uid);
+        } else if (this.ngK != null && this.ngK.user != null) {
+            e.a(getChildFragmentManager(), this.ngK.user.nickname, this.t, this.ngK.user.uid);
             return true;
         } else {
             return true;
@@ -518,21 +518,21 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
     }
 
     private void e() {
-        if (this.ngK == null) {
+        if (this.ngM == null) {
             View inflate = LayoutInflater.from(this.mContext).inflate(a.h.popup_item_mine_more, (ViewGroup) null);
             inflate.findViewById(a.f.ll_edit).setOnClickListener(this);
             inflate.findViewById(a.f.ll_share).setOnClickListener(this);
             inflate.findViewById(a.f.ll_account_safe).setOnClickListener(this);
-            this.ngK = new PopupWindow(inflate, tv.chushou.zues.utils.a.dip2px(this.mContext, 138.0f), -2);
-            this.ngK.setOutsideTouchable(true);
-            this.ngK.setFocusable(true);
-            this.ngK.setBackgroundDrawable(this.mContext.getResources().getDrawable(a.e.ic_main_mine_more_bg));
-            this.ngK.update();
+            this.ngM = new PopupWindow(inflate, tv.chushou.zues.utils.a.dip2px(this.mContext, 138.0f), -2);
+            this.ngM.setOutsideTouchable(true);
+            this.ngM.setFocusable(true);
+            this.ngM.setBackgroundDrawable(this.mContext.getResources().getDrawable(a.e.ic_main_mine_more_bg));
+            this.ngM.update();
         }
-        if (this.ngK.isShowing()) {
-            this.ngK.dismiss();
+        if (this.ngM.isShowing()) {
+            this.ngM.dismiss();
         } else {
-            this.ngK.showAsDropDown(this.h, tv.chushou.zues.utils.a.dip2px(this.mContext, -9.0f), 0);
+            this.ngM.showAsDropDown(this.h, tv.chushou.zues.utils.a.dip2px(this.mContext, -9.0f), 0);
         }
     }
 }

@@ -10,25 +10,25 @@ public class c<T extends com.baidu.tieba.frs.entelechy.view.a> extends com.baidu
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: bGW */
-    public T bvI() {
-        return (T) this.fOh;
+    /* renamed from: bGY */
+    public T bvK() {
+        return (T) this.fOj;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.fOh == 0) {
+        if (this.fOj == 0) {
             return false;
         }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOh).isPlayStarted();
+        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOj).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.fOh == 0) {
+        if (this.fOj == 0) {
             return false;
         }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOh).isPlaying();
+        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOj).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
@@ -38,39 +38,39 @@ public class c<T extends com.baidu.tieba.frs.entelechy.view.a> extends com.baidu
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.fOh != 0) {
-            ((com.baidu.tieba.frs.entelechy.view.a) this.fOh).startPlay();
+        if (this.fOj != 0) {
+            ((com.baidu.tieba.frs.entelechy.view.a) this.fOj).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.fOh != 0) {
-            ((com.baidu.tieba.frs.entelechy.view.a) this.fOh).stopPlay();
+        if (this.fOj != 0) {
+            ((com.baidu.tieba.frs.entelechy.view.a) this.fOj).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.fOh == 0) {
+        if (this.fOj == 0) {
             return null;
         }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOh).getVideoContainer();
+        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOj).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.fOh == 0) {
+        if (this.fOj == 0) {
             return null;
         }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOh).getPlayUrl();
+        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOj).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.fOh == 0) {
+        if (this.fOj == 0) {
             return 0;
         }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOh).getCurrentPosition();
+        return ((com.baidu.tieba.frs.entelechy.view.a) this.fOj).getCurrentPosition();
     }
 }

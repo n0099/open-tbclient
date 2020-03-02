@@ -19,9 +19,9 @@ import tbclient.SmartApp;
 /* loaded from: classes8.dex */
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, com.baidu.card.m<com.baidu.tbadk.core.data.a> {
     private View.OnClickListener Nh;
-    private HeadImageView deO;
-    private TextView diE;
-    private SmartApp diF;
+    private HeadImageView deP;
+    private TextView diF;
+    private SmartApp diG;
     private TextView mTitleView;
 
     public ThreadSmartAppLayout(Context context) {
@@ -35,11 +35,11 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public ThreadSmartAppLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
-        this.deO = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.deO.setIsRound(true);
-        this.deO.setPlaceHolder(1);
+        this.deP = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
+        this.deP.setIsRound(true);
+        this.deP.setPlaceHolder(1);
         this.mTitleView = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.diE = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.diF = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -47,7 +47,7 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public void onChangeSkinType() {
         am.setBackgroundResource(this, R.drawable.applets_cell_bg);
         am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.diE, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.diF, (int) R.color.cp_cont_j);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
@@ -56,10 +56,10 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.diF != null) {
-            if (!com.baidu.tieba.aiapps.a.b(this.diF.id, this.diF.link, "1191003900000000", this.diF.is_game)) {
-                if (!aq.isEmpty(this.diF.h5_url)) {
-                    ba.aGE().b(dS(getContext()), new String[]{this.diF.h5_url});
+        if (this.diG != null) {
+            if (!com.baidu.tieba.aiapps.a.b(this.diG.id, this.diG.link, "1191003900000000", this.diG.is_game)) {
+                if (!aq.isEmpty(this.diG.h5_url)) {
+                    ba.aGG().b(dS(getContext()), new String[]{this.diG.h5_url});
                 } else {
                     return;
                 }
@@ -84,23 +84,23 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.aAe() == null || aVar.aAe().aCY() == null) {
+        if (aVar == null || aVar.aAg() == null || aVar.aAg().aDa() == null) {
             setVisibility(8);
             return;
         }
-        this.diF = aVar.aAe().aCY();
-        if (!aq.isEmpty(this.diF.avatar)) {
-            this.deO.startLoad(this.diF.avatar, 10, false, false);
+        this.diG = aVar.aAg().aDa();
+        if (!aq.isEmpty(this.diG.avatar)) {
+            this.deP.startLoad(this.diG.avatar, 10, false, false);
         }
-        if (!aq.isEmpty(this.diF.name)) {
-            this.mTitleView.setText(this.diF.name + HanziToPinyin.Token.SEPARATOR + getContext().getResources().getString(R.string.smart_app_suffix));
+        if (!aq.isEmpty(this.diG.name)) {
+            this.mTitleView.setText(this.diG.name + HanziToPinyin.Token.SEPARATOR + getContext().getResources().getString(R.string.smart_app_suffix));
         } else {
             this.mTitleView.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
         }
-        if (!aq.isEmpty(this.diF._abstract)) {
-            this.diE.setText(this.diF._abstract);
+        if (!aq.isEmpty(this.diG._abstract)) {
+            this.diF.setText(this.diG._abstract);
         } else {
-            this.diE.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
+            this.diF.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
         }
         setVisibility(0);
     }

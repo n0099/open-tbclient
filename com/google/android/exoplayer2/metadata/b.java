@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.metadata;
 import com.google.android.exoplayer2.Format;
 /* loaded from: classes6.dex */
 public interface b {
-    public static final b mqi = new b() { // from class: com.google.android.exoplayer2.metadata.b.1
+    public static final b mqk = new b() { // from class: com.google.android.exoplayer2.metadata.b.1
         @Override // com.google.android.exoplayer2.metadata.b
         public boolean i(Format format) {
             String str = format.sampleMimeType;

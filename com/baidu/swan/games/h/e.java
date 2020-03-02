@@ -21,28 +21,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
-    private static List<String> cnI = new ArrayList();
-    private String cnH = l.getBasePath();
-    private String cnJ;
+    private static List<String> cnJ = new ArrayList();
+    private String cnI = l.getBasePath();
+    private String cnK;
     private Context mContext;
 
     static {
-        cnI.add("ascii");
-        cnI.add("base64");
-        cnI.add("binary");
-        cnI.add("hex");
-        cnI.add("utf-8");
-        cnI.add("utf8");
-        cnI.add("latin1");
-        cnI.add("ucs2");
-        cnI.add("ucs-2");
-        cnI.add("utf16le");
-        cnI.add("utf-16le");
+        cnJ.add("ascii");
+        cnJ.add("base64");
+        cnJ.add("binary");
+        cnJ.add("hex");
+        cnJ.add("utf-8");
+        cnJ.add("utf8");
+        cnJ.add("latin1");
+        cnJ.add("ucs2");
+        cnJ.add("ucs-2");
+        cnJ.add("utf16le");
+        cnJ.add("utf-16le");
     }
 
     public e(Context context, String str) {
         this.mContext = context;
-        this.cnJ = str;
+        this.cnK = str;
     }
 
     private String oN(String str) {
@@ -56,8 +56,8 @@ public class e {
             return l.oY(str);
         }
         if (str.startsWith("bdfile://code")) {
-            this.cnJ = this.cnJ.endsWith(File.separator) ? this.cnJ.substring(0, this.cnJ.length() - 1) : this.cnJ;
-            return this.cnJ + str.substring("bdfile://code".length());
+            this.cnK = this.cnK.endsWith(File.separator) ? this.cnK.substring(0, this.cnK.length() - 1) : this.cnK;
+            return this.cnK + str.substring("bdfile://code".length());
         }
         return "";
     }
@@ -200,7 +200,7 @@ public class e {
             if ("binary".equals(str2.toLowerCase())) {
                 str2 = "latin1";
             }
-            if (!cnI.contains(str2.toLowerCase())) {
+            if (!cnJ.contains(str2.toLowerCase())) {
                 return J(-1, "fail invalid encoding \"" + str2 + "\"");
             }
         }
@@ -290,8 +290,8 @@ public class e {
                 }
             }
             try {
-                if (j > l.anV()) {
-                    l.aY(j - l.anV());
+                if (j > l.anX()) {
+                    l.aY(j - l.anX());
                     l.ba(j);
                 }
                 com.baidu.swan.d.c.closeSafely(bufferedWriter3);
@@ -711,7 +711,7 @@ public class e {
                     str3 = "latin1";
                 }
             }
-            if (!isEmpty && !cnI.contains(str3)) {
+            if (!isEmpty && !cnJ.contains(str3)) {
                 return J(-1, "fail Error: Unknown encoding: " + str3);
             }
             String oN = oN(pa);
@@ -737,7 +737,7 @@ public class e {
                     str4 = a;
                 }
                 if (TextUtils.isEmpty(str3)) {
-                    J.cmU = bArr;
+                    J.cmV = bArr;
                 } else {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(str4);

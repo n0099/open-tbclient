@@ -6,22 +6,22 @@ import java.util.concurrent.TimeUnit;
 import java.util.zip.CRC32;
 /* loaded from: classes11.dex */
 public class b {
-    public final String bjB;
-    public final Map<String, String> bjC = new HashMap();
+    public final String bjC;
+    public final Map<String, String> bjD = new HashMap();
     public final long delta;
     public final long serverTime;
 
-    public static b KZ() {
+    public static b Lb() {
         return new b(0L);
     }
 
     private b(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.bjB = Long.toHexString(gx(this.serverTime + "#" + this.delta));
-        this.bjC.put("timestamp", Long.toString(this.serverTime));
-        this.bjC.put("delta", Long.toString(this.delta));
-        this.bjC.put("rasign", this.bjB);
+        this.bjC = Long.toHexString(gx(this.serverTime + "#" + this.delta));
+        this.bjD.put("timestamp", Long.toString(this.serverTime));
+        this.bjD.put("delta", Long.toString(this.delta));
+        this.bjD.put("rasign", this.bjC);
     }
 
     private long gx(String str) {
@@ -32,7 +32,7 @@ public class b {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.bjB;
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.bjC;
     }
 
     public String ac(long j) {

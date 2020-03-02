@@ -27,21 +27,21 @@ public class bx extends ai.a {
         ArrayList arrayList4;
         ArrayList arrayList5;
         ArrayList<bw.a> arrayList6;
-        arrayList = this.a.f162a;
+        arrayList = this.a.f161a;
         synchronized (arrayList) {
-            arrayList2 = this.a.f162a;
+            arrayList2 = this.a.f161a;
             if (arrayList2.size() > 0) {
-                arrayList3 = this.a.f162a;
+                arrayList3 = this.a.f161a;
                 if (arrayList3.size() > 1) {
                     bw bwVar = this.a;
-                    arrayList6 = this.a.f162a;
+                    arrayList6 = this.a.f161a;
                     bwVar.a(arrayList6);
                 } else {
                     bw bwVar2 = this.a;
-                    arrayList4 = this.a.f162a;
+                    arrayList4 = this.a.f161a;
                     bwVar2.b((bw.a) arrayList4.get(0));
                 }
-                arrayList5 = this.a.f162a;
+                arrayList5 = this.a.f161a;
                 arrayList5.clear();
                 System.gc();
             }

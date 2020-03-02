@@ -12,12 +12,12 @@ import java.util.LinkedList;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
 public class a {
-    private static CharsetEncoder lGv;
+    private static CharsetEncoder lGx;
     private byte[] data;
     private int index;
 
     public static i ad(byte[] bArr) throws ParseException {
-        return new a(bArr).djr();
+        return new a(bArr).djt();
     }
 
     protected a() {
@@ -79,7 +79,7 @@ public class a {
         this.index += i;
     }
 
-    private void djq() {
+    private void djs() {
         boolean z;
         do {
             z = false;
@@ -123,87 +123,87 @@ public class a {
         return str;
     }
 
-    public i djr() throws ParseException {
+    public i djt() throws ParseException {
         this.index = 0;
         if (this.data.length >= 3 && (this.data[0] & 255) == 239 && (this.data[1] & 255) == 187 && (this.data[2] & 255) == 191) {
             Hk(3);
         }
-        djq();
+        djs();
         d('{', '(', '/');
         try {
-            return djs();
+            return dju();
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new ParseException("Reached end of input unexpectedly.", this.index);
         }
     }
 
-    private i djs() throws ParseException {
+    private i dju() throws ParseException {
         switch (this.data[this.index]) {
             case 34:
-                String djy = djy();
-                if (djy.length() == 20 && djy.charAt(4) == '-') {
+                String djA = djA();
+                if (djA.length() == 20 && djA.charAt(4) == '-') {
                     try {
-                        return new f(djy);
+                        return new f(djA);
                     } catch (Exception e) {
-                        return new k(djy);
+                        return new k(djA);
                     }
                 }
-                return new k(djy);
+                return new k(djA);
             case 40:
-                return djt();
-            case 60:
                 return djv();
+            case 60:
+                return djx();
             case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
-                return dju();
+                return djw();
             default:
                 if (this.data[this.index] > 47 && this.data[this.index] < 58) {
-                    return djw();
+                    return djy();
                 }
-                return new k(djx());
+                return new k(djz());
         }
     }
 
-    private d djt() throws ParseException {
+    private d djv() throws ParseException {
         skip();
-        djq();
+        djs();
         LinkedList linkedList = new LinkedList();
         while (!i(')')) {
-            linkedList.add(djs());
-            djq();
+            linkedList.add(dju());
+            djs();
             if (!i(',')) {
                 break;
             }
             skip();
-            djq();
+            djs();
         }
         k(')');
         return new d((i[]) linkedList.toArray(new i[linkedList.size()]));
     }
 
-    private g dju() throws ParseException {
-        String djx;
+    private g djw() throws ParseException {
+        String djz;
         skip();
-        djq();
+        djs();
         g gVar = new g();
         while (!i('}')) {
             if (i('\"')) {
-                djx = djy();
+                djz = djA();
             } else {
-                djx = djx();
+                djz = djz();
             }
-            djq();
+            djs();
             k('=');
-            djq();
-            gVar.put(djx, djs());
-            djq();
+            djs();
+            gVar.put(djz, dju());
+            djs();
             k(';');
-            djq();
+            djs();
         }
         skip();
         return gVar;
     }
 
-    private i djv() throws ParseException {
+    private i djx() throws ParseException {
         i iVar = null;
         skip();
         if (i('*')) {
@@ -238,22 +238,22 @@ public class a {
         return eVar;
     }
 
-    private i djw() {
-        String djx = djx();
-        if (djx.length() > 4 && djx.charAt(4) == '-') {
+    private i djy() {
+        String djz = djz();
+        if (djz.length() > 4 && djz.charAt(4) == '-') {
             try {
-                return new f(djx);
+                return new f(djz);
             } catch (Exception e) {
             }
         }
-        return new k(djx);
+        return new k(djz);
     }
 
-    private String djx() {
+    private String djz() {
         return e(' ', '\t', '\n', '\r', ',', ';', '=', ')');
     }
 
-    private String djy() throws ParseException {
+    private String djA() throws ParseException {
         skip();
         String str = "";
         boolean z = true;
@@ -304,11 +304,11 @@ public class a {
             }
             str2 = new String(bArr, "UTF-8");
             CharBuffer wrap = CharBuffer.wrap(str2);
-            if (lGv == null) {
-                lGv = Charset.forName(HTTP.ASCII).newEncoder();
+            if (lGx == null) {
+                lGx = Charset.forName(HTTP.ASCII).newEncoder();
             }
-            if (lGv.canEncode(wrap)) {
-                str2 = lGv.encode(wrap).asCharBuffer().toString();
+            if (lGx.canEncode(wrap)) {
+                str2 = lGx.encode(wrap).asCharBuffer().toString();
             }
         }
         return str2;

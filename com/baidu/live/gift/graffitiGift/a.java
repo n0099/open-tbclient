@@ -53,7 +53,7 @@ public class a {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
             if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.anE.add(0, cVar);
-            } else if (this.anE.size() < com.baidu.live.v.a.zj().awA.aaQ) {
+            } else if (this.anE.size() < com.baidu.live.v.a.zl().awB.aaQ) {
                 this.anE.add(cVar);
             }
             if (cVar.alC) {

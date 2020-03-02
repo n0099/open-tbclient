@@ -13,12 +13,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class TextLineView extends TextView {
     private int aqC;
-    private int iUf;
-    private int iUg;
     private int iUh;
     private int iUi;
     private int iUj;
     private int iUk;
+    private int iUl;
+    private int iUm;
     private int mHeight;
     private int mMargin;
     private Paint mPaint;
@@ -32,14 +32,14 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.TextLineView);
-        this.iUf = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-        this.iUg = obtainStyledAttributes.getDimensionPixelSize(4, 0);
-        this.iUh = obtainStyledAttributes.getDimensionPixelSize(5, 0);
-        this.iUj = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
-        this.iUi = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.iUg + this.iUf + this.iUh);
-        setTextColor(this.iUj);
-        this.iUk = l.getDimens(context, R.dimen.ds56);
+        this.iUh = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.iUi = obtainStyledAttributes.getDimensionPixelSize(4, 0);
+        this.iUj = obtainStyledAttributes.getDimensionPixelSize(5, 0);
+        this.iUl = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
+        this.iUk = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.iUi + this.iUh + this.iUj);
+        setTextColor(this.iUl);
+        this.iUm = l.getDimens(context, R.dimen.ds56);
         this.mRectF = new RectF();
         this.aqC = l.getDimens(getContext(), R.dimen.ds4);
         obtainStyledAttributes.recycle();
@@ -48,11 +48,11 @@ public class TextLineView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        crg();
+        cri();
         if (this.mRectF == null) {
             this.mRectF = new RectF();
         }
-        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.iUh) - this.iUf, this.mWidth - this.mMargin, this.mHeight - this.iUh);
+        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.iUj) - this.iUh, this.mWidth - this.mMargin, this.mHeight - this.iUj);
         canvas.drawRoundRect(this.mRectF, this.aqC, this.aqC, this.mPaint);
     }
 
@@ -60,14 +60,14 @@ public class TextLineView extends TextView {
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.iUj);
+            setTextColor(this.iUl);
         } else {
-            setTextColor(this.iUi);
+            setTextColor(this.iUk);
         }
         invalidate();
     }
 
-    private void crg() {
+    private void cri() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -81,14 +81,14 @@ public class TextLineView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        this.iUj = am.getColor(R.color.cp_cont_b);
-        this.iUi = am.getColor(R.color.cp_cont_j);
+        this.iUl = am.getColor(R.color.cp_cont_b);
+        this.iUk = am.getColor(R.color.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.iUj);
+            setTextColor(this.iUl);
         } else {
-            setTextColor(this.iUi);
+            setTextColor(this.iUk);
         }
-        crg();
+        cri();
         invalidate();
     }
 
@@ -97,6 +97,6 @@ public class TextLineView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.mWidth = i;
         this.mHeight = i2;
-        this.mMargin = (this.mWidth - this.iUk) / 2;
+        this.mMargin = (this.mWidth - this.iUm) / 2;
     }
 }

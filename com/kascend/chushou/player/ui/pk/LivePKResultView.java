@@ -32,10 +32,10 @@ public class LivePKResultView extends LinearLayout {
     private ImageView l;
     private ImageView m;
     private LinearLayout n;
-    private FrameLayout ndU;
-    private Set<AnimatorSet> ndV;
-    private Set<c> ndW;
-    private a ndX;
+    private FrameLayout ndW;
+    private Set<AnimatorSet> ndX;
+    private Set<c> ndY;
+    private a ndZ;
     private float o;
     private float p;
     private float q;
@@ -52,8 +52,8 @@ public class LivePKResultView extends LinearLayout {
         this.p = -1.0f;
         this.q = -1.0f;
         this.r = -1.0f;
-        this.ndV = new HashSet();
-        this.ndW = new HashSet();
+        this.ndX = new HashSet();
+        this.ndY = new HashSet();
         a(context);
     }
 
@@ -63,8 +63,8 @@ public class LivePKResultView extends LinearLayout {
         this.p = -1.0f;
         this.q = -1.0f;
         this.r = -1.0f;
-        this.ndV = new HashSet();
-        this.ndW = new HashSet();
+        this.ndX = new HashSet();
+        this.ndY = new HashSet();
         a(context);
     }
 
@@ -74,8 +74,8 @@ public class LivePKResultView extends LinearLayout {
         this.p = -1.0f;
         this.q = -1.0f;
         this.r = -1.0f;
-        this.ndV = new HashSet();
-        this.ndW = new HashSet();
+        this.ndX = new HashSet();
+        this.ndY = new HashSet();
         a(context);
     }
 
@@ -88,7 +88,7 @@ public class LivePKResultView extends LinearLayout {
     private void a(Context context) {
         inflate(context, a.h.layout_live_view_online_live_pk_result, this);
         this.a = (FrameLayout) findViewById(a.f.fl_live_pk_result_left);
-        this.ndU = (FrameLayout) findViewById(a.f.fl_live_pk_result_right);
+        this.ndW = (FrameLayout) findViewById(a.f.fl_live_pk_result_right);
         this.k = (FrameLayout) findViewById(a.f.fl_live_pk_result_mid);
         this.b = (ImageView) findViewById(a.f.iv_pk_left_icon);
         this.c = findViewById(a.f.iv_pk_left_anchor);
@@ -111,7 +111,7 @@ public class LivePKResultView extends LinearLayout {
         Animator animator;
         setVisibility(0);
         this.a.setVisibility(0);
-        this.ndU.setVisibility(0);
+        this.ndW.setVisibility(0);
         this.k.setVisibility(8);
         c();
         if (getWidth() <= 0) {
@@ -140,21 +140,21 @@ public class LivePKResultView extends LinearLayout {
                 @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator2) {
                     super.onAnimationEnd(animator2);
-                    if (LivePKResultView.this.ndX != null) {
-                        LivePKResultView.this.ndX.a();
+                    if (LivePKResultView.this.ndZ != null) {
+                        LivePKResultView.this.ndZ.a();
                     }
                 }
 
                 @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator2) {
                     super.onAnimationCancel(animator2);
-                    if (LivePKResultView.this.ndX != null) {
-                        LivePKResultView.this.ndX.a();
+                    if (LivePKResultView.this.ndZ != null) {
+                        LivePKResultView.this.ndZ.a();
                     }
                 }
             });
-        } else if (this.ndX != null) {
-            this.ndX.a();
+        } else if (this.ndZ != null) {
+            this.ndZ.a();
         }
     }
 
@@ -165,7 +165,7 @@ public class LivePKResultView extends LinearLayout {
     public void b(final boolean z) {
         setVisibility(0);
         this.a.setVisibility(0);
-        this.ndU.setVisibility(0);
+        this.ndW.setVisibility(0);
         this.k.setVisibility(8);
         c();
         if (getWidth() <= 0) {
@@ -187,28 +187,28 @@ public class LivePKResultView extends LinearLayout {
                 @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    if (LivePKResultView.this.ndX != null) {
-                        LivePKResultView.this.ndX.a();
+                    if (LivePKResultView.this.ndZ != null) {
+                        LivePKResultView.this.ndZ.a();
                     }
                 }
 
                 @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     super.onAnimationCancel(animator);
-                    if (LivePKResultView.this.ndX != null) {
-                        LivePKResultView.this.ndX.a();
+                    if (LivePKResultView.this.ndZ != null) {
+                        LivePKResultView.this.ndZ.a();
                     }
                 }
             });
-        } else if (this.ndX != null) {
-            this.ndX.a();
+        } else if (this.ndZ != null) {
+            this.ndZ.a();
         }
     }
 
     public void b() {
         c();
         this.a.setVisibility(8);
-        this.ndU.setVisibility(8);
+        this.ndW.setVisibility(8);
         this.k.setVisibility(8);
         setVisibility(8);
     }
@@ -238,8 +238,8 @@ public class LivePKResultView extends LinearLayout {
                     cVar2.b();
                 }
             });
-            e.dEb().a(cVar, 840L);
-            this.ndW.add(cVar);
+            e.dEd().a(cVar, 840L);
+            this.ndY.add(cVar);
         }
         return a2;
     }
@@ -299,14 +299,14 @@ public class LivePKResultView extends LinearLayout {
     @Override // android.view.View
     public void clearAnimation() {
         super.clearAnimation();
-        for (c cVar : this.ndW) {
-            e.dEb().c(cVar);
+        for (c cVar : this.ndY) {
+            e.dEd().c(cVar);
         }
-        this.ndW.clear();
-        for (AnimatorSet animatorSet : this.ndV) {
+        this.ndY.clear();
+        for (AnimatorSet animatorSet : this.ndX) {
             animatorSet.cancel();
         }
-        this.ndV.clear();
+        this.ndX.clear();
     }
 
     private Animator a(ImageView imageView, View view, boolean z) {
@@ -329,7 +329,7 @@ public class LivePKResultView extends LinearLayout {
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playSequentially(ofPropertyValuesHolder, ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder4);
             animatorSet.start();
-            this.ndV.add(animatorSet);
+            this.ndX.add(animatorSet);
             return animatorSet;
         }
         tv.chushou.zues.toolkit.d.b.setScaleX(imageView, 0.5f);
@@ -371,7 +371,7 @@ public class LivePKResultView extends LinearLayout {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playSequentially(ofPropertyValuesHolder, ofFloat, ofFloat2);
         animatorSet.start();
-        this.ndV.add(animatorSet);
+        this.ndX.add(animatorSet);
         return animatorSet;
     }
 
@@ -387,7 +387,7 @@ public class LivePKResultView extends LinearLayout {
     public void a(final int i) {
         setVisibility(0);
         this.a.setVisibility(8);
-        this.ndU.setVisibility(8);
+        this.ndW.setVisibility(8);
         this.k.setVisibility(0);
         e();
         if (getWidth() <= 0) {
@@ -437,13 +437,13 @@ public class LivePKResultView extends LinearLayout {
                 public void c(c cVar2) {
                     cVar2.b();
                     LivePKResultView.this.setVisibility(8);
-                    if (LivePKResultView.this.ndX != null) {
-                        LivePKResultView.this.ndX.a();
+                    if (LivePKResultView.this.ndZ != null) {
+                        LivePKResultView.this.ndZ.a();
                     }
                 }
             });
-            e.dEb().a(cVar, 840L);
-            this.ndW.add(cVar);
+            e.dEd().a(cVar, 840L);
+            this.ndY.add(cVar);
             return;
         }
         imageView.setImageResource(a.e.icon_live_view_pk_result_defeat);
@@ -473,16 +473,16 @@ public class LivePKResultView extends LinearLayout {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     LivePKResultView.this.setVisibility(8);
-                    if (LivePKResultView.this.ndX != null) {
-                        LivePKResultView.this.ndX.a();
+                    if (LivePKResultView.this.ndZ != null) {
+                        LivePKResultView.this.ndZ.a();
                     }
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     LivePKResultView.this.setVisibility(8);
-                    if (LivePKResultView.this.ndX != null) {
-                        LivePKResultView.this.ndX.a();
+                    if (LivePKResultView.this.ndZ != null) {
+                        LivePKResultView.this.ndZ.a();
                     }
                 }
 
@@ -490,8 +490,8 @@ public class LivePKResultView extends LinearLayout {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-        } else if (this.ndX != null) {
-            this.ndX.a();
+        } else if (this.ndZ != null) {
+            this.ndZ.a();
         }
     }
 
@@ -505,11 +505,11 @@ public class LivePKResultView extends LinearLayout {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playSequentially(ofPropertyValuesHolder, ofPropertyValuesHolder2);
         animatorSet.start();
-        this.ndV.add(animatorSet);
+        this.ndX.add(animatorSet);
         return animatorSet;
     }
 
     public void setCallback(a aVar) {
-        this.ndX = aVar;
+        this.ndZ = aVar;
     }
 }

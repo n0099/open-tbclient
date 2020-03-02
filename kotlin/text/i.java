@@ -2,7 +2,7 @@ package kotlin.text;
 @kotlin.h
 /* loaded from: classes7.dex */
 public interface i {
-    kotlin.b.h dKO();
+    kotlin.b.h dKQ();
 
-    i dKP();
+    i dKR();
 }

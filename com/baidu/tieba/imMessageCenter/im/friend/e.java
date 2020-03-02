@@ -8,9 +8,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes9.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage hNg;
-    private long hNh;
-    private long hsI;
+    private RequestCommitInviteMessage hNi;
+    private long hNj;
+    private long hsK;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,26 +23,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.hsI = intent.getLongExtra("gid", -1L);
-            this.hNh = intent.getLongExtra("groupid", -1L);
+            this.hsK = intent.getLongExtra("gid", -1L);
+            this.hNj = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.hsI = bundle.getLong("gid", -1L);
-            this.hNh = bundle.getLong("groupid", -1L);
+            this.hsK = bundle.getLong("gid", -1L);
+            this.hNj = bundle.getLong("groupid", -1L);
         }
     }
 
     public void aq(Bundle bundle) {
-        bundle.putLong("gid", this.hsI);
-        bundle.putLong("groupid", this.hNh);
+        bundle.putLong("gid", this.hsK);
+        bundle.putLong("groupid", this.hNj);
     }
 
     public void DG(String str) {
-        this.hNg = c(this.hsI, this.hNh, str);
-        super.sendMessage(this.hNg);
+        this.hNi = c(this.hsK, this.hNj, str);
+        super.sendMessage(this.hNi);
     }
 
     private RequestCommitInviteMessage c(long j, long j2, String str) {

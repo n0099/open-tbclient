@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class RecordLayout extends RelativeLayout {
-    private a kCd;
+    private a kCf;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void cRA();
+        void cRC();
 
-        void cRB();
+        void cRD();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.kCd != null) {
+                if (this.kCf != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.kCd.cRB();
+                            this.kCf.cRD();
                         } else {
-                            this.kCd.cRA();
+                            this.kCf.cRC();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) {
                         if (rawX > 0) {
-                            this.kCd.cRB();
+                            this.kCf.cRD();
                         } else {
-                            this.kCd.cRB();
+                            this.kCf.cRD();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.kCd = aVar;
+        this.kCf = aVar;
     }
 }

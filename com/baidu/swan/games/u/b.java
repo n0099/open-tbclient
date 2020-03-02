@@ -7,37 +7,37 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private static volatile b csm;
+    private static volatile b csn;
     private int alX;
-    private volatile ArrayList<a> csn = new ArrayList<>(20);
+    private volatile ArrayList<a> cso = new ArrayList<>(20);
 
     private b() {
     }
 
-    public static b apB() {
-        if (csm == null) {
+    public static b apD() {
+        if (csn == null) {
             synchronized (b.class) {
-                if (csm == null) {
-                    csm = new b();
+                if (csn == null) {
+                    csn = new b();
                 }
             }
         }
-        return csm;
+        return csn;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.csn.size() < 20) {
-                this.csn.add(aVar);
+            if (this.cso.size() < 20) {
+                this.cso.add(aVar);
             } else {
                 this.alX++;
             }
         }
     }
 
-    public synchronized JSONObject apC() {
+    public synchronized JSONObject apE() {
         JSONObject jSONObject;
-        int size = this.csn.size();
+        int size = this.cso.size();
         if (size == 0) {
             jSONObject = null;
         } else {
@@ -47,20 +47,20 @@ public class b {
                 jSONObject2.put("errorcnt", size);
                 JSONArray jSONArray = new JSONArray();
                 jSONObject2.put("errors", jSONArray);
-                Iterator<a> it = this.csn.iterator();
+                Iterator<a> it = this.cso.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJSON());
                 }
             } catch (JSONException e) {
             }
-            this.csn.clear();
+            this.cso.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.csn.clear();
+        this.cso.clear();
         this.alX = 0;
     }
 }

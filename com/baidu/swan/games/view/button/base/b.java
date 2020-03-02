@@ -12,7 +12,7 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.games.view.button.base.a;
 /* loaded from: classes11.dex */
 public class b extends EventTargetImpl implements a.InterfaceC0349a {
-    protected ApiButton ctd;
+    protected ApiButton cte;
     @V8JavascriptField
     public String image;
     @V8JavascriptField
@@ -25,7 +25,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0349a {
     public b(JsObject jsObject, com.baidu.swan.games.e.b bVar) {
         super(bVar);
         this.type = "text";
-        this.text = com.baidu.swan.apps.w.a.TU().getString(a.h.aiapps_aigames_userinfo_button_text_des);
+        this.text = com.baidu.swan.apps.w.a.TW().getString(a.h.aiapps_aigames_userinfo_button_text_des);
         n(jsObject);
     }
 
@@ -34,9 +34,9 @@ public class b extends EventTargetImpl implements a.InterfaceC0349a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.1
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.ctd != null) {
-                    com.baidu.swan.games.view.c.au(b.this.ctd);
-                    b.this.ctd = null;
+                if (b.this.cte != null) {
+                    com.baidu.swan.games.view.c.au(b.this.cte);
+                    b.this.cte = null;
                 }
             }
         });
@@ -47,8 +47,8 @@ public class b extends EventTargetImpl implements a.InterfaceC0349a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.2
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.ctd != null) {
-                    b.this.ctd.hide();
+                if (b.this.cte != null) {
+                    b.this.cte.hide();
                 }
             }
         });
@@ -59,8 +59,8 @@ public class b extends EventTargetImpl implements a.InterfaceC0349a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.3
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.ctd != null) {
-                    b.this.ctd.show();
+                if (b.this.cte != null) {
+                    b.this.cte.show();
                 }
             }
         });
@@ -74,7 +74,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0349a {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + str);
                 }
-                if (b.this.ctd != null) {
+                if (b.this.cte != null) {
                     String str2 = str;
                     char c = 65535;
                     switch (str2.hashCode()) {
@@ -93,10 +93,10 @@ public class b extends EventTargetImpl implements a.InterfaceC0349a {
                     }
                     switch (c) {
                         case 0:
-                            b.this.ctd.setButtonText(b.this.text);
+                            b.this.cte.setButtonText(b.this.text);
                             return;
                         case 1:
-                            b.this.ctd.setImageUrl(b.this.image);
+                            b.this.cte.setImageUrl(b.this.image);
                             return;
                         default:
                             return;
@@ -107,45 +107,45 @@ public class b extends EventTargetImpl implements a.InterfaceC0349a {
     }
 
     @Override // com.baidu.swan.games.view.button.base.a.InterfaceC0349a
-    public void aqI() {
+    public void aqK() {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.5
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.ctd != null && !b.this.aqK()) {
-                    b.this.ctd.aqz();
+                if (b.this.cte != null && !b.this.aqM()) {
+                    b.this.cte.aqB();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aqJ() {
-        if (this.ctd == null || this.style == null) {
+    public boolean aqL() {
+        if (this.cte == null || this.style == null) {
             return false;
         }
         this.style.a(this);
-        com.baidu.swan.apps.model.a.a.a aqL = aqL();
-        return aqL != null && com.baidu.swan.games.view.c.c(this.ctd, aqL);
+        com.baidu.swan.apps.model.a.a.a aqN = aqN();
+        return aqN != null && com.baidu.swan.games.view.c.c(this.cte, aqN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aqK() {
-        com.baidu.swan.apps.model.a.a.a aqL;
-        return (this.ctd == null || this.style == null || (aqL = aqL()) == null || !com.baidu.swan.games.view.c.b(this.ctd, aqL)) ? false : true;
+    public boolean aqM() {
+        com.baidu.swan.apps.model.a.a.a aqN;
+        return (this.cte == null || this.style == null || (aqN = aqN()) == null || !com.baidu.swan.games.view.c.b(this.cte, aqN)) ? false : true;
     }
 
-    private com.baidu.swan.apps.model.a.a.a aqL() {
-        if (this.style == null || this.ctd == null) {
+    private com.baidu.swan.apps.model.a.a.a aqN() {
+        if (this.style == null || this.cte == null) {
             return null;
         }
         int S = af.S(this.style.width);
         int S2 = af.S(this.style.height);
         int S3 = af.S(this.style.left);
-        int S4 = af.S(this.style.f1014top);
+        int S4 = af.S(this.style.f1013top);
         int S5 = af.S(this.style.borderWidth);
         int i = S < S5 * 2 ? S5 * 2 : S;
         int i2 = S2 < S5 * 2 ? S5 * 2 : S2;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ctd.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cte.getLayoutParams();
         if (layoutParams != null && layoutParams.width == i && layoutParams.height == i2 && layoutParams.leftMargin == S3 && layoutParams.topMargin == S4) {
             return null;
         }

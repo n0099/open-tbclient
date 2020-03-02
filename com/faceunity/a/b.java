@@ -6,21 +6,21 @@ import com.baidu.ala.player.StreamConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
 public class b {
-    private static b lXA;
-    private boolean lXB;
+    private static b lXC;
+    private boolean lXD;
     private AudioRecord mAudioRecord;
     private static final int[] AUDIO_SOURCES = {1, 0, 5, 7, 6};
-    public static int lXy = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+    public static int lXA = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int lXz = 24;
+    public static int lXB = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(lXy, 16, 2);
-        int i = SAMPLES_PER_FRAME * lXz;
+        int minBufferSize = AudioRecord.getMinBufferSize(lXA, 16, 2);
+        int i = SAMPLES_PER_FRAME * lXB;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
         for (int i2 : AUDIO_SOURCES) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, lXy, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, lXA, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.lXB) {
-            this.lXB = true;
+        if (!this.lXD) {
+            this.lXD = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -47,13 +47,13 @@ public class b {
         return this.mAudioRecord.read(byteBuffer, i);
     }
 
-    public void Db() {
+    public void Dd() {
         if (this.mAudioRecord != null) {
-            if (lXA != null && !lXA.isReleased()) {
-                lXA.release();
+            if (lXC != null && !lXC.isReleased()) {
+                lXC.release();
             }
             this.mAudioRecord.startRecording();
-            lXA = this;
+            lXC = this;
         }
     }
 
@@ -64,10 +64,10 @@ public class b {
     }
 
     public boolean isReleased() {
-        return this.lXB;
+        return this.lXD;
     }
 
-    public AudioRecord dsD() {
+    public AudioRecord dsF() {
         return this.mAudioRecord;
     }
 }

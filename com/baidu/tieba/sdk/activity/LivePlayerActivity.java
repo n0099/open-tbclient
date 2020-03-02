@@ -14,8 +14,8 @@ import com.baidu.tieba.sdk.a.d;
 import com.baidu.tieba.sdk.d.a;
 /* loaded from: classes3.dex */
 public class LivePlayerActivity extends MAActivity implements BdPageContextSupport {
-    private a jPF;
-    c jPG = new c() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
+    private a jPH;
+    c jPI = new c() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
         @Override // com.baidu.tieba.ala.player.c
         public void b(boolean z, boolean z2, long j) {
             LivePlayerActivity.this.finish();
@@ -25,7 +25,7 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         d dVar = null;
-        if (BdBaseApplication.getInst() != null && (dVar = com.baidu.tieba.sdk.c.a.cEk().cEo()) != null) {
+        if (BdBaseApplication.getInst() != null && (dVar = com.baidu.tieba.sdk.c.a.cEm().cEq()) != null) {
             dVar.a(this);
         }
         super.onCreate(bundle);
@@ -36,9 +36,9 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
             }
             TbConfig.sdkInitCallback.initSdk();
         }
-        com.baidu.tieba.sdk.a.cEg().cEi();
-        this.jPF = com.baidu.tieba.sdk.a.cEg().a(this);
-        this.jPF.a(this.jPG);
+        com.baidu.tieba.sdk.a.cEi().cEk();
+        this.jPH = com.baidu.tieba.sdk.a.cEi().a(this);
+        this.jPH.a(this.jPI);
         if (dVar != null) {
             dVar.b(this);
         }
@@ -47,54 +47,54 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.jPF.onStart();
-        d cEo = com.baidu.tieba.sdk.c.a.cEk().cEo();
-        if (cEo != null) {
-            cEo.e(this);
+        this.jPH.onStart();
+        d cEq = com.baidu.tieba.sdk.c.a.cEm().cEq();
+        if (cEq != null) {
+            cEq.e(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.jPF.onResume();
-        d cEo = com.baidu.tieba.sdk.c.a.cEk().cEo();
-        if (cEo != null) {
-            cEo.c(this);
+        this.jPH.onResume();
+        d cEq = com.baidu.tieba.sdk.c.a.cEm().cEq();
+        if (cEq != null) {
+            cEq.c(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        this.jPF.onPause();
-        d cEo = com.baidu.tieba.sdk.c.a.cEk().cEo();
-        if (cEo != null) {
-            cEo.d(this);
+        this.jPH.onPause();
+        d cEq = com.baidu.tieba.sdk.c.a.cEm().cEq();
+        if (cEq != null) {
+            cEq.d(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onStop() {
         super.onStop();
-        this.jPF.onStop();
-        d cEo = com.baidu.tieba.sdk.c.a.cEk().cEo();
-        if (cEo != null) {
-            cEo.f(this);
+        this.jPH.onStop();
+        d cEq = com.baidu.tieba.sdk.c.a.cEm().cEq();
+        if (cEq != null) {
+            cEq.f(this);
         }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.jPF != null) {
-            this.jPF.onWindowFocusChanged(z);
+        if (this.jPH != null) {
+            this.jPH.onWindowFocusChanged(z);
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.jPF.onKeyDown(i, keyEvent)) {
+        if (this.jPH.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -103,32 +103,32 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.jPF.onActivityResult(i, i2, intent);
+        this.jPH.onActivityResult(i, i2, intent);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.jPF.onConfigurationChanged(configuration);
+        this.jPH.onConfigurationChanged(configuration);
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        d cEo = com.baidu.tieba.sdk.c.a.cEk().cEo();
-        if (cEo != null) {
-            cEo.g(this);
+        d cEq = com.baidu.tieba.sdk.c.a.cEm().cEq();
+        if (cEq != null) {
+            cEq.g(this);
         }
         super.onDestroy();
-        if (this.jPF != null) {
-            this.jPF.onDestroy();
+        if (this.jPH != null) {
+            this.jPH.onDestroy();
         }
-        if (cEo != null) {
-            cEo.h(this);
+        if (cEq != null) {
+            cEq.h(this);
         }
     }
 
     @Override // com.baidu.live.adp.base.BdPageContextSupport, com.baidu.live.tbadk.TbPageContextSupport
     public BdPageContext getPageContext() {
-        return this.jPF;
+        return this.jPH;
     }
 }

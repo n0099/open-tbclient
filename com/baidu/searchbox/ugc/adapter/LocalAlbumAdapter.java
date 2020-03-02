@@ -92,7 +92,7 @@ public class LocalAlbumAdapter extends PagerAdapter {
         ImageRequestBuilder Y = ImageRequestBuilder.Y(uri);
         Y.c(new d(DeviceUtil.ScreenInfo.getDisplayWidth(this.mContext), DeviceUtil.ScreenInfo.getDisplayHeight(this.mContext), 10240.0f));
         Y.vw(true);
-        hugePhotoDraweeView.setController(com.facebook.drawee.a.a.c.dlw().vh(SelectUtil.supportGifLongImg).bg(Y.dsA()).c(controllerListener).c(hugePhotoDraweeView.getController()).dmn());
+        hugePhotoDraweeView.setController(com.facebook.drawee.a.a.c.dly().vh(SelectUtil.supportGifLongImg).bg(Y.dsC()).c(controllerListener).c(hugePhotoDraweeView.getController()).dmp());
         hugePhotoDraweeView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ugc.adapter.LocalAlbumAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -118,20 +118,20 @@ public class LocalAlbumAdapter extends PagerAdapter {
                 if (obj instanceof com.facebook.imagepipeline.g.d) {
                     hugePhotoDraweeView.setIsDynamicBitmap(false);
                     hugePhotoDraweeView.setZoomEnabled(true);
-                    Bitmap dqp = ((com.facebook.imagepipeline.g.d) obj).dqp();
+                    Bitmap dqr = ((com.facebook.imagepipeline.g.d) obj).dqr();
                     LocalAlbumAdapter.this.maxTextureSize = HugePhotoUtils.getMaxTextureSize();
-                    ImageSource cachedBitmap = ImageSource.cachedBitmap(dqp);
-                    if (dqp.getWidth() >= LocalAlbumAdapter.this.maxTextureSize[0] || dqp.getHeight() >= LocalAlbumAdapter.this.maxTextureSize[0]) {
+                    ImageSource cachedBitmap = ImageSource.cachedBitmap(dqr);
+                    if (dqr.getWidth() >= LocalAlbumAdapter.this.maxTextureSize[0] || dqr.getHeight() >= LocalAlbumAdapter.this.maxTextureSize[0]) {
                         cachedBitmap.tilingEnabled();
                     } else {
                         cachedBitmap.tilingDisabled();
                     }
                     hugePhotoDraweeView.setImage(cachedBitmap);
-                    LocalAlbumAdapter.this.longPicDisplayMode(hugePhotoDraweeView, dqp);
+                    LocalAlbumAdapter.this.longPicDisplayMode(hugePhotoDraweeView, dqr);
                 } else if (obj instanceof a) {
                     hugePhotoDraweeView.setIsDynamicBitmap(true);
                     hugePhotoDraweeView.setZoomEnabled(false);
-                    hugePhotoDraweeView.getHierarchy().b(p.b.lMN);
+                    hugePhotoDraweeView.getHierarchy().b(p.b.lMP);
                 }
             }
 

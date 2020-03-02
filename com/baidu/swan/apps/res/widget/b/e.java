@@ -30,7 +30,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes11.dex */
 class e {
-    private static View bOF;
+    private static View bOG;
     private static Runnable mCancelRunnable;
     private static View sMaskView;
     private static boolean sShowMask = false;
@@ -151,13 +151,13 @@ class e {
                                 return;
                             }
                         }
-                        if (e.bOF != null && (e.bOF.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) e.bOF.getParent()).removeView(e.bOF);
+                        if (e.bOG != null && (e.bOG.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) e.bOG.getParent()).removeView(e.bOG);
                         }
                         if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                             ((ViewGroup) view).addView(view2, layoutParams);
                             view2.startAnimation(animation);
-                            View unused2 = e.bOF = view2;
+                            View unused2 = e.bOG = view2;
                         }
                     }
                 });
@@ -298,7 +298,7 @@ class e {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -334,10 +334,10 @@ class e {
 
     public static synchronized void cancel() {
         synchronized (e.class) {
-            if (bOF != null) {
-                bOF.post(new AnonymousClass2(bOF, sMaskView));
-                bOF.removeCallbacks(mCancelRunnable);
-                bOF = null;
+            if (bOG != null) {
+                bOG.post(new AnonymousClass2(bOG, sMaskView));
+                bOG.removeCallbacks(mCancelRunnable);
+                bOG = null;
                 mCancelRunnable = null;
                 sMaskView = null;
             }

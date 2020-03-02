@@ -39,7 +39,7 @@ public class p {
         Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
         intent.putExtra("mipush_payload", bArr);
         intent.putExtra("mrt", Long.toString(j));
-        intent.setPackage(a.f618b);
+        intent.setPackage(a.f617b);
         return intent;
     }
 
@@ -101,8 +101,8 @@ public class p {
                 ev.a(xMPushService.getApplicationContext()).a(a.b(), z.b(a), m401a.m366a(), "new message received by old SDK.");
             }
             d(xMPushService, a);
-        } else if ((!z.m555a(a) || !com.xiaomi.push.g.m299b((Context) xMPushService, a.f618b)) && !a(xMPushService, intent)) {
-            if (!com.xiaomi.push.g.m299b((Context) xMPushService, a.f618b)) {
+        } else if ((!z.m555a(a) || !com.xiaomi.push.g.m299b((Context) xMPushService, a.f617b)) && !a(xMPushService, intent)) {
+            if (!com.xiaomi.push.g.m299b((Context) xMPushService, a.f617b)) {
                 if (z.e(a)) {
                     ev.a(xMPushService.getApplicationContext()).b(a.b(), z.b(a), m401a.m366a(), "receive a message, but the package is removed.");
                 }
@@ -117,7 +117,7 @@ public class p {
             if (hg.Registration == a.a()) {
                 String b = a.b();
                 SharedPreferences.Editor edit = xMPushService.getSharedPreferences("pref_registered_pkg_names", 0).edit();
-                edit.putString(b, a.f614a);
+                edit.putString(b, a.f613a);
                 edit.commit();
                 ev.a(xMPushService.getApplicationContext()).a(b, "E100003", m401a.m366a(), 6003, "receive a register message");
                 if (!TextUtils.isEmpty(m401a.m366a())) {
@@ -146,34 +146,34 @@ public class p {
                     intent.putExtra("eventMessageType", 3000);
                 }
             }
-            if (m401a != null && !TextUtils.isEmpty(m401a.m374c()) && !TextUtils.isEmpty(m401a.d()) && m401a.f527b != 1 && (z.m557a(m401a.m367a()) || !z.m554a((Context) xMPushService, a.f618b))) {
+            if (m401a != null && !TextUtils.isEmpty(m401a.m374c()) && !TextUtils.isEmpty(m401a.d()) && m401a.f526b != 1 && (z.m557a(m401a.m367a()) || !z.m554a((Context) xMPushService, a.f617b))) {
                 boolean z = false;
                 if (m401a != null) {
-                    r0 = m401a.f525a != null ? m401a.f525a.get("jobkey") : null;
+                    r0 = m401a.f524a != null ? m401a.f524a.get("jobkey") : null;
                     if (TextUtils.isEmpty(r0)) {
                         r0 = m401a.m366a();
                     }
-                    z = ab.a(xMPushService, a.f618b, r0);
+                    z = ab.a(xMPushService, a.f617b, r0);
                 }
                 if (z) {
                     ev.a(xMPushService.getApplicationContext()).c(a.b(), z.b(a), m401a.m366a(), "drop a duplicate message");
                     com.xiaomi.channel.commonutils.logger.b.m47a("drop a duplicate message, key=" + r0);
                 } else {
                     z.c m551a = z.m551a((Context) xMPushService, a, bArr);
-                    if (m551a.a > 0 && !TextUtils.isEmpty(m551a.f943a)) {
-                        gr.a(xMPushService, m551a.f943a, m551a.a, true, false, System.currentTimeMillis());
+                    if (m551a.a > 0 && !TextUtils.isEmpty(m551a.f942a)) {
+                        gr.a(xMPushService, m551a.f942a, m551a.a, true, false, System.currentTimeMillis());
                     }
                     if (!z.m555a(a)) {
                         Intent intent2 = new Intent("com.xiaomi.mipush.MESSAGE_ARRIVED");
                         intent2.putExtra("mipush_payload", bArr);
-                        intent2.setPackage(a.f618b);
+                        intent2.setPackage(a.f617b);
                         try {
                             List<ResolveInfo> queryBroadcastReceivers = xMPushService.getPackageManager().queryBroadcastReceivers(intent2, 0);
                             if (queryBroadcastReceivers != null && !queryBroadcastReceivers.isEmpty()) {
-                                xMPushService.sendBroadcast(intent2, w.a(a.f618b));
+                                xMPushService.sendBroadcast(intent2, w.a(a.f617b));
                             }
                         } catch (Exception e) {
-                            xMPushService.sendBroadcast(intent2, w.a(a.f618b));
+                            xMPushService.sendBroadcast(intent2, w.a(a.f617b));
                             if (e != null) {
                                 ev.a(xMPushService.getApplicationContext()).b(a.b(), z.b(a), m401a.m366a(), e.getMessage());
                             }
@@ -181,7 +181,7 @@ public class p {
                     }
                 }
                 b(xMPushService, a);
-            } else if ("com.xiaomi.xmsf".contains(a.f618b) && !a.m409b() && m401a != null && m401a.m367a() != null && m401a.m367a().containsKey("ab")) {
+            } else if ("com.xiaomi.xmsf".contains(a.f617b) && !a.m409b() && m401a != null && m401a.m367a() != null && m401a.m367a().containsKey("ab")) {
                 b(xMPushService, a);
                 com.xiaomi.channel.commonutils.logger.b.c("receive abtest message. ack it." + m401a.m366a());
             } else if (a(xMPushService, str, a, m401a)) {
@@ -196,7 +196,7 @@ public class p {
                         ev.a(xMPushService.getApplicationContext()).a(a.b(), "E100003", m401a.m366a(), 6004, "try send register broadcast");
                     }
                 }
-                xMPushService.sendBroadcast(intent, w.a(a.f618b));
+                xMPushService.sendBroadcast(intent, w.a(a.f617b));
             } else {
                 ev.a(xMPushService.getApplicationContext()).a(a.b(), z.b(a), m401a.m366a(), "passThough message: not permit to send broadcast ");
             }
@@ -213,7 +213,7 @@ public class p {
         if (a == null) {
             return;
         }
-        if (TextUtils.isEmpty(a.f618b)) {
+        if (TextUtils.isEmpty(a.f617b)) {
             com.xiaomi.channel.commonutils.logger.b.m47a("receive a mipush message without package name");
             return;
         }
@@ -225,7 +225,7 @@ public class p {
         if (m401a != null) {
             m401a.a("mrt", Long.toString(valueOf.longValue()));
         }
-        if (hg.SendMessage == a.a() && m.a(xMPushService).m547a(a.f618b) && !z.m555a(a)) {
+        if (hg.SendMessage == a.a() && m.a(xMPushService).m547a(a.f617b) && !z.m555a(a)) {
             String str = "";
             if (m401a != null) {
                 str = m401a.m366a();
@@ -234,8 +234,8 @@ public class p {
                 }
             }
             com.xiaomi.channel.commonutils.logger.b.m47a("Drop a message for unregistered, msgid=" + str);
-            a(xMPushService, a, a.f618b);
-        } else if (hg.SendMessage == a.a() && m.a(xMPushService).m549c(a.f618b) && !z.m555a(a)) {
+            a(xMPushService, a, a.f617b);
+        } else if (hg.SendMessage == a.a() && m.a(xMPushService).m549c(a.f617b) && !z.m555a(a)) {
             String str2 = "";
             if (m401a != null) {
                 str2 = m401a.m366a();
@@ -244,10 +244,10 @@ public class p {
                 }
             }
             com.xiaomi.channel.commonutils.logger.b.m47a("Drop a message for push closed, msgid=" + str2);
-            a(xMPushService, a, a.f618b);
-        } else if (hg.SendMessage == a.a() && !TextUtils.equals(xMPushService.getPackageName(), "com.xiaomi.xmsf") && !TextUtils.equals(xMPushService.getPackageName(), a.f618b)) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("Receive a message with wrong package name, expect " + xMPushService.getPackageName() + ", received " + a.f618b);
-            a(xMPushService, a, "unmatched_package", "package should be " + xMPushService.getPackageName() + ", but got " + a.f618b);
+            a(xMPushService, a, a.f617b);
+        } else if (hg.SendMessage == a.a() && !TextUtils.equals(xMPushService.getPackageName(), "com.xiaomi.xmsf") && !TextUtils.equals(xMPushService.getPackageName(), a.f617b)) {
+            com.xiaomi.channel.commonutils.logger.b.m47a("Receive a message with wrong package name, expect " + xMPushService.getPackageName() + ", received " + a.f617b);
+            a(xMPushService, a, "unmatched_package", "package should be " + xMPushService.getPackageName() + ", but got " + a.f617b);
             if (m401a == null || !z.e(a)) {
                 return;
             }
@@ -312,7 +312,7 @@ public class p {
     }
 
     private static boolean a(ic icVar) {
-        return "com.xiaomi.xmsf".equals(icVar.f618b) && icVar.m401a() != null && icVar.m401a().m367a() != null && icVar.m401a().m367a().containsKey("miui_package_name");
+        return "com.xiaomi.xmsf".equals(icVar.f617b) && icVar.m401a() != null && icVar.m401a().m367a() != null && icVar.m401a().m367a().containsKey("miui_package_name");
     }
 
     private static boolean a(XMPushService xMPushService, String str, ic icVar, ht htVar) {
@@ -323,15 +323,15 @@ public class p {
         Cif cif = new Cif();
         cif.b(icVar.m402a());
         cif.d(str);
-        cif.c(hq.AwakeSystemApp.f490a);
+        cif.c(hq.AwakeSystemApp.f489a);
         cif.a(htVar.m366a());
-        cif.f630a = new HashMap();
+        cif.f629a = new HashMap();
         boolean m298a = com.xiaomi.push.g.m298a(xMPushService.getApplicationContext(), str);
-        cif.f630a.put("app_running", Boolean.toString(m298a));
+        cif.f629a.put("app_running", Boolean.toString(m298a));
         try {
             if (!m298a) {
                 boolean parseBoolean = Boolean.parseBoolean(htVar.m367a().get("__awake"));
-                cif.f630a.put("awaked", Boolean.toString(parseBoolean));
+                cif.f629a.put("awaked", Boolean.toString(parseBoolean));
                 if (!parseBoolean) {
                     z = false;
                     w.a(xMPushService, w.a(icVar.b(), icVar.m402a(), cif, hg.Notification));

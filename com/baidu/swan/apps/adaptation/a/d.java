@@ -3,15 +3,13 @@ package com.baidu.swan.apps.adaptation.a;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public interface d {
-    String Hc();
+    boolean HA();
 
-    boolean Hd();
-
-    int He();
+    String He();
 
     boolean Hf();
 
-    boolean Hg();
+    int Hg();
 
     boolean Hh();
 
@@ -19,35 +17,37 @@ public interface d {
 
     boolean Hj();
 
-    String Hk();
+    boolean Hk();
 
     boolean Hl();
 
-    boolean Hm();
+    String Hm();
 
     boolean Hn();
 
-    String Ho();
+    boolean Ho();
 
     boolean Hp();
 
-    boolean Hq();
+    String Hq();
 
-    long Hr();
+    boolean Hr();
 
     boolean Hs();
 
-    boolean Ht();
+    long Ht();
 
-    long Hu();
+    boolean Hu();
 
     boolean Hv();
 
-    boolean Hw();
+    long Hw();
 
-    int Hx();
+    boolean Hx();
 
     boolean Hy();
+
+    int Hz();
 
     boolean dT(int i);
 

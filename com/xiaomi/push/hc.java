@@ -19,16 +19,16 @@ public class hc {
         private Context a;
 
         /* renamed from: a  reason: collision with other field name */
-        private hf f449a;
+        private hf f448a;
 
         public a(Context context, hf hfVar) {
-            this.f449a = hfVar;
+            this.f448a = hfVar;
             this.a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            hc.c(this.a, this.f449a);
+            hc.c(this.a, this.f448a);
         }
     }
 

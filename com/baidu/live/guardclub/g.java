@@ -106,7 +106,7 @@ public class g {
 
     private boolean vK() {
         if (this.acR == null) {
-            this.acR = com.baidu.live.v.a.zj().axB.acR;
+            this.acR = com.baidu.live.v.a.zl().axC.acR;
             if (this.acR == null) {
                 return true;
             }

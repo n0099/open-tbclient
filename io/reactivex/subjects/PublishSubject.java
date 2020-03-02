@@ -5,12 +5,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class PublishSubject<T> extends b<T> {
-    static final PublishDisposable[] nBi = new PublishDisposable[0];
-    static final PublishDisposable[] nBj = new PublishDisposable[0];
+    static final PublishDisposable[] nBk = new PublishDisposable[0];
+    static final PublishDisposable[] nBl = new PublishDisposable[0];
     Throwable error;
-    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(nBj);
+    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(nBl);
 
-    public static <T> PublishSubject<T> dJP() {
+    public static <T> PublishSubject<T> dJR() {
         return new PublishSubject<>();
     }
 
@@ -41,7 +41,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr == nBi) {
+            if (publishDisposableArr == nBk) {
                 return false;
             }
             int length = publishDisposableArr.length;
@@ -57,7 +57,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr != nBi && publishDisposableArr != nBj) {
+            if (publishDisposableArr != nBk && publishDisposableArr != nBl) {
                 int length = publishDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -73,7 +73,7 @@ public final class PublishSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishDisposableArr2 = nBj;
+                        publishDisposableArr2 = nBl;
                     } else {
                         publishDisposableArr2 = new PublishDisposable[length - 1];
                         System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, i);
@@ -90,7 +90,7 @@ public final class PublishSubject<T> extends b<T> {
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == nBi) {
+        if (this.subscribers.get() == nBk) {
             bVar.dispose();
         }
     }
@@ -106,20 +106,20 @@ public final class PublishSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == nBi) {
+        if (this.subscribers.get() == nBk) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nBi)) {
+        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nBk)) {
             publishDisposable.onError(th);
         }
     }
 
     @Override // io.reactivex.u
     public void onComplete() {
-        if (this.subscribers.get() != nBi) {
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nBi)) {
+        if (this.subscribers.get() != nBk) {
+            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nBk)) {
                 publishDisposable.onComplete();
             }
         }

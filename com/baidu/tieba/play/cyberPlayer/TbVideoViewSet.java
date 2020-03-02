@@ -13,15 +13,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TbVideoViewSet {
-    private static TbVideoViewSet jxh = null;
-    private LRULinkedHashMap<String, com.baidu.tieba.play.a.a> jxg = new LRULinkedHashMap<>();
-    private boolean jxi;
+    private static TbVideoViewSet jxj = null;
+    private LRULinkedHashMap<String, com.baidu.tieba.play.a.a> jxi = new LRULinkedHashMap<>();
+    private boolean jxk;
 
     /* loaded from: classes.dex */
     public interface a {
-        void czu();
+        void czw();
 
-        void czv();
+        void czx();
     }
 
     private TbVideoViewSet() {
@@ -30,39 +30,39 @@ public class TbVideoViewSet {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    TbVideoViewSet.this.anH();
+                    TbVideoViewSet.this.anJ();
                 }
             }
         });
     }
 
-    public static TbVideoViewSet czt() {
-        if (jxh == null) {
+    public static TbVideoViewSet czv() {
+        if (jxj == null) {
             synchronized (TbVideoViewSet.class) {
-                if (jxh == null) {
-                    jxh = new TbVideoViewSet();
+                if (jxj == null) {
+                    jxj = new TbVideoViewSet();
                 }
             }
         }
-        return jxh;
+        return jxj;
     }
 
     public com.baidu.tieba.play.a.a He(String str) {
-        if (aq.isEmpty(str) || !this.jxg.containsKey(str)) {
+        if (aq.isEmpty(str) || !this.jxi.containsKey(str)) {
             return null;
         }
-        return this.jxg.get(str);
+        return this.jxi.get(str);
     }
 
     public void a(com.baidu.tieba.play.a.a aVar, String str) {
         String str2;
-        if (this.jxg.containsKey(str) && aVar != this.jxg.get(str)) {
-            com.baidu.tieba.play.a.a aVar2 = this.jxg.get(str);
+        if (this.jxi.containsKey(str) && aVar != this.jxi.get(str)) {
+            com.baidu.tieba.play.a.a aVar2 = this.jxi.get(str);
             if (aVar2 != null && aVar2.isPlaying()) {
                 aVar.stopPlayback();
             }
-        } else if (this.jxg.containsValue(aVar)) {
-            Iterator it = this.jxg.entrySet().iterator();
+        } else if (this.jxi.containsValue(aVar)) {
+            Iterator it = this.jxi.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str2 = null;
@@ -74,23 +74,23 @@ public class TbVideoViewSet {
                     break;
                 }
             }
-            if (!this.jxi && !aq.isEmpty(str2)) {
-                this.jxg.remove(str2);
+            if (!this.jxk && !aq.isEmpty(str2)) {
+                this.jxi.remove(str2);
             }
         }
-        this.jxg.put(str, aVar);
+        this.jxi.put(str, aVar);
     }
 
     public void Hf(String str) {
         com.baidu.tieba.play.a.a aVar;
-        if (!this.jxi && this.jxg.containsKey(str) && (aVar = (com.baidu.tieba.play.a.a) this.jxg.remove(str)) != null) {
+        if (!this.jxk && this.jxi.containsKey(str) && (aVar = (com.baidu.tieba.play.a.a) this.jxi.remove(str)) != null) {
             aVar.stopPlayback();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anH() {
-        Iterator it = this.jxg.entrySet().iterator();
+    public void anJ() {
+        Iterator it = this.jxi.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             if (entry != null) {
@@ -117,10 +117,10 @@ public class TbVideoViewSet {
             com.baidu.tieba.play.a.a value;
             boolean z = size() > 2;
             if (z && (value = entry.getValue()) != null) {
-                TbVideoViewSet.this.jxi = true;
-                value.cyP();
+                TbVideoViewSet.this.jxk = true;
+                value.cyR();
                 value.stopPlayback();
-                TbVideoViewSet.this.jxi = false;
+                TbVideoViewSet.this.jxk = false;
             }
             return z;
         }

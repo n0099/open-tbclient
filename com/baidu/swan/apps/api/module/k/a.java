@@ -25,9 +25,9 @@ public class a extends com.baidu.swan.apps.api.a.c {
             @Override // com.baidu.swan.apps.api.a.c.a
             public com.baidu.swan.apps.api.b.b a(e eVar, JSONObject jSONObject, @Nullable final String str2) {
                 com.baidu.swan.apps.console.c.i("Api-Accelerometer", " init ");
-                com.baidu.swan.apps.ao.a.a afF = com.baidu.swan.apps.ao.a.a.afF();
-                afF.init(a.this.getContext(), C0226a.ga(jSONObject.optString("interval")));
-                afF.a(new a.InterfaceC0204a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
+                com.baidu.swan.apps.ao.a.a afH = com.baidu.swan.apps.ao.a.a.afH();
+                afH.init(a.this.getContext(), C0226a.ga(jSONObject.optString("interval")));
+                afH.a(new a.InterfaceC0204a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
                     @Override // com.baidu.swan.apps.ao.a.a.InterfaceC0204a
                     public void a(double[] dArr) {
                         if (dArr == null || dArr.length != 3) {
@@ -51,34 +51,34 @@ public class a extends com.baidu.swan.apps.api.a.c {
                         }
                     }
                 });
-                afF.afG();
+                afH.afI();
                 return new com.baidu.swan.apps.api.b.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.b.b JX() {
+    public com.baidu.swan.apps.api.b.b JZ() {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "stop accelerometer");
         }
         com.baidu.swan.apps.console.c.i("Api-Accelerometer", "stop listen accelerometer");
-        com.baidu.swan.apps.ao.a.a.afF().afH();
+        com.baidu.swan.apps.ao.a.a.afH().afJ();
         return new com.baidu.swan.apps.api.b.b(0);
     }
 
     /* renamed from: com.baidu.swan.apps.api.module.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0226a {
-        private static ArrayMap<String, Integer> bfo = new ArrayMap<>(3);
+        private static ArrayMap<String, Integer> bfp = new ArrayMap<>(3);
 
         static {
-            bfo.put("ui", 60);
-            bfo.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
-            bfo.put("normal", 200);
+            bfp.put("ui", 60);
+            bfp.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            bfp.put("normal", 200);
         }
 
         public static int ga(String str) {
-            Integer num = bfo.get(str);
+            Integer num = bfp.get(str);
             if (num != null) {
                 return num.intValue();
             }

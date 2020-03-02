@@ -4,50 +4,50 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public final class d {
-    private static volatile d bHS;
-    private HashMap<String, e> bHT;
+    private static volatile d bHT;
     private HashMap<String, e> bHU;
     private HashMap<String, e> bHV;
+    private HashMap<String, e> bHW;
 
     private d() {
-        aaa();
+        aac();
     }
 
-    public static d ZZ() {
-        if (bHS == null) {
+    public static d aab() {
+        if (bHT == null) {
             synchronized (d.class) {
-                if (bHS == null) {
-                    bHS = new d();
+                if (bHT == null) {
+                    bHT = new d();
                 }
             }
         }
-        return bHS;
+        return bHT;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (bHS != null) {
-                bHS.release();
-                bHS = null;
+            if (bHT != null) {
+                bHT.release();
+                bHT = null;
             }
         }
     }
 
     private void release() {
-        if (this.bHT != null) {
-            this.bHT.clear();
-        }
         if (this.bHU != null) {
             this.bHU.clear();
         }
         if (this.bHV != null) {
             this.bHV.clear();
         }
+        if (this.bHW != null) {
+            this.bHW.clear();
+        }
     }
 
     public void b(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            aaa();
+            aac();
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1880922749:
@@ -104,15 +104,15 @@ public final class d {
         }
     }
 
-    private void aaa() {
-        if (this.bHT == null) {
-            this.bHT = new HashMap<>();
-        }
+    private void aac() {
         if (this.bHU == null) {
             this.bHU = new HashMap<>();
         }
         if (this.bHV == null) {
             this.bHV = new HashMap<>();
+        }
+        if (this.bHW == null) {
+            this.bHW = new HashMap<>();
         }
     }
 
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.bHT.get(str);
-                    if (eVar == null) {
-                        eVar = new b();
-                        this.bHT.put(str, eVar);
-                        break;
-                    }
-                    break;
-                case 1:
                     eVar = this.bHU.get(str);
                     if (eVar == null) {
-                        eVar = new a();
+                        eVar = new b();
                         this.bHU.put(str, eVar);
                         break;
                     }
                     break;
-                case 2:
+                case 1:
                     eVar = this.bHV.get(str);
                     if (eVar == null) {
-                        eVar = new c();
+                        eVar = new a();
                         this.bHV.put(str, eVar);
+                        break;
+                    }
+                    break;
+                case 2:
+                    eVar = this.bHW.get(str);
+                    if (eVar == null) {
+                        eVar = new c();
+                        this.bHW.put(str, eVar);
                         break;
                     }
                     break;
@@ -198,18 +198,18 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.bHT.remove(str);
-                    break;
-                case 1:
                     eVar = this.bHU.remove(str);
                     break;
-                case 2:
+                case 1:
                     eVar = this.bHV.remove(str);
+                    break;
+                case 2:
+                    eVar = this.bHW.remove(str);
                     break;
             }
             if (eVar != null) {
                 eVar.setEnd(j);
-                l(eVar.getType(), eVar.ZY());
+                l(eVar.getType(), eVar.aaa());
             }
         }
     }
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.ap.e.bXL.O(Long.valueOf(j));
-                    return;
-                case 1:
                     com.baidu.swan.apps.ap.e.bXM.O(Long.valueOf(j));
                     return;
-                case 2:
+                case 1:
                     com.baidu.swan.apps.ap.e.bXN.O(Long.valueOf(j));
+                    return;
+                case 2:
+                    com.baidu.swan.apps.ap.e.bXO.O(Long.valueOf(j));
                     return;
                 default:
                     return;

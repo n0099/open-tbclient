@@ -6,15 +6,15 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public final class a extends c {
     public final List<C0681a> audios;
-    public final List<Format> mvH;
-    public final List<C0681a> mwF;
-    public final List<C0681a> mwG;
-    public final Format mws;
+    public final List<Format> mvJ;
+    public final List<C0681a> mwH;
+    public final List<C0681a> mwI;
+    public final Format mwu;
 
     /* renamed from: com.google.android.exoplayer2.source.hls.playlist.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static final class C0681a {
-        public final Format lZw;
+        public final Format lZy;
         public final String url;
 
         public static C0681a PM(String str) {
@@ -23,17 +23,17 @@ public final class a extends c {
 
         public C0681a(String str, Format format) {
             this.url = str;
-            this.lZw = format;
+            this.lZy = format;
         }
     }
 
     public a(String str, List<String> list, List<C0681a> list2, List<C0681a> list3, List<C0681a> list4, Format format, List<Format> list5) {
         super(str, list);
-        this.mwF = Collections.unmodifiableList(list2);
+        this.mwH = Collections.unmodifiableList(list2);
         this.audios = Collections.unmodifiableList(list3);
-        this.mwG = Collections.unmodifiableList(list4);
-        this.mws = format;
-        this.mvH = list5 != null ? Collections.unmodifiableList(list5) : null;
+        this.mwI = Collections.unmodifiableList(list4);
+        this.mwu = format;
+        this.mvJ = list5 != null ? Collections.unmodifiableList(list5) : null;
     }
 
     public static a PL(String str) {

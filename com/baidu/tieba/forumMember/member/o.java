@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private com.baidu.tbadk.coreExtra.view.c dly;
+    private com.baidu.tbadk.coreExtra.view.c dlz;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -28,7 +28,7 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    ba.aGE().b((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
+                    ba.aGG().b((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -52,23 +52,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    am.setViewTextColor(qVar.glv, R.color.cp_cont_d, 1);
-                    am.setViewTextColor(qVar.glu, R.color.cp_cont_b, 1);
-                    am.setBackgroundResource(qVar.glw, R.drawable.frs_member_manito_bg);
+                    am.setViewTextColor(qVar.glx, R.color.cp_cont_d, 1);
+                    am.setViewTextColor(qVar.glw, R.color.cp_cont_b, 1);
+                    am.setBackgroundResource(qVar.gly, R.drawable.frs_member_manito_bg);
                 }
-                int bCx = pVar.bCx();
-                if (bCx > 0) {
-                    qVar.glv.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bCx)));
-                    qVar.glw.setTag(R.id.assist_apply_tip, pVar.bCy());
-                    qVar.glw.setOnClickListener(this.mClickListener);
-                    qVar.glw.setEnabled(true);
-                    qVar.glw.setClickable(true);
+                int bCz = pVar.bCz();
+                if (bCz > 0) {
+                    qVar.glx.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bCz)));
+                    qVar.gly.setTag(R.id.assist_apply_tip, pVar.bCA());
+                    qVar.gly.setOnClickListener(this.mClickListener);
+                    qVar.gly.setEnabled(true);
+                    qVar.gly.setClickable(true);
                 } else {
-                    qVar.glv.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.glw.setEnabled(false);
-                    qVar.glw.setClickable(false);
+                    qVar.glx.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.gly.setEnabled(false);
+                    qVar.gly.setClickable(false);
                 }
-                qVar.glv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.glx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -84,17 +84,17 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         } else {
             activity = ((TbPageContext) ab).getPageActivity();
         }
-        if (this.dly == null) {
-            this.dly = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.dlz == null) {
+            this.dlz = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.dly.aML();
-        this.dly.setAccountData(accountData);
-        this.dly.lY(1);
+        this.dlz.aMN();
+        this.dlz.setAccountData(accountData);
+        this.dlz.lY(1);
     }
 
     public void onDestroy() {
-        if (this.dly != null) {
-            this.dly.onDestroy();
+        if (this.dlz != null) {
+            this.dlz.onDestroy();
         }
     }
 }

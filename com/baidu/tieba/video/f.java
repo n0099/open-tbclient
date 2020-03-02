@@ -21,53 +21,53 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 public class f {
-    private View eaB;
-    private ImageView gxH;
-    private PostWriteCallBackData iJz;
-    private View kuS;
-    private TextView kuT;
-    private boolean kuU;
+    private View eaC;
+    private ImageView gxJ;
+    private PostWriteCallBackData iJB;
+    private View kuU;
     private TextView kuV;
-    private SendVideoSuccessShareModel kuW = new SendVideoSuccessShareModel();
+    private boolean kuW;
+    private TextView kuX;
+    private SendVideoSuccessShareModel kuY = new SendVideoSuccessShareModel();
     private Context mContext;
 
     public f(Context context, ViewGroup viewGroup) {
         this.mContext = context;
-        this.eaB = viewGroup;
-        if (this.mContext != null && this.eaB != null) {
-            this.kuS = LayoutInflater.from(context).inflate(R.layout.send_video_success_tip, (ViewGroup) null);
-            this.kuT = (TextView) this.kuS.findViewById(R.id.success_tip);
-            this.gxH = (ImageView) this.kuS.findViewById(R.id.video_activity_btn);
-            this.kuV = (TextView) this.kuS.findViewById(R.id.video_share_btn);
+        this.eaC = viewGroup;
+        if (this.mContext != null && this.eaC != null) {
+            this.kuU = LayoutInflater.from(context).inflate(R.layout.send_video_success_tip, (ViewGroup) null);
+            this.kuV = (TextView) this.kuU.findViewById(R.id.success_tip);
+            this.gxJ = (ImageView) this.kuU.findViewById(R.id.video_activity_btn);
+            this.kuX = (TextView) this.kuU.findViewById(R.id.video_share_btn);
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, l.getDimens(context, R.dimen.ds128));
-            if (this.kuS.getParent() == null) {
-                viewGroup.addView(this.kuS, layoutParams);
+            if (this.kuU.getParent() == null) {
+                viewGroup.addView(this.kuU, layoutParams);
             }
-            this.kuS.setVisibility(8);
-            this.kuS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.f.1
+            this.kuU.setVisibility(8);
+            this.kuU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (f.this.kuU) {
+                    if (f.this.kuW) {
                         f.this.hideTip();
-                        if (f.this.iJz != null && !StringUtils.isNull(f.this.iJz.buildVideoFakeOnWallUrl())) {
-                            com.baidu.tbadk.browser.a.startWebActivity(f.this.mContext, (String) null, f.this.iJz.buildVideoFakeOnWallUrl());
+                        if (f.this.iJB != null && !StringUtils.isNull(f.this.iJB.buildVideoFakeOnWallUrl())) {
+                            com.baidu.tbadk.browser.a.startWebActivity(f.this.mContext, (String) null, f.this.iJB.buildVideoFakeOnWallUrl());
                         }
                     }
                 }
             });
-            this.kuV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.f.2
+            this.kuX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.f.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     f.this.hideTip();
-                    if (f.this.iJz != null && !StringUtils.isNull(f.this.iJz.getVideoid())) {
-                        f.this.kuW.JQ(f.this.iJz.getVideoid());
-                        f.this.kuW.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.video.f.2.1
+                    if (f.this.iJB != null && !StringUtils.isNull(f.this.iJB.getVideoid())) {
+                        f.this.kuY.JQ(f.this.iJB.getVideoid());
+                        f.this.kuY.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.video.f.2.1
                             @Override // com.baidu.adp.base.d
                             public void callback(Object obj) {
                                 ShareItem shareItem = new ShareItem();
-                                shareItem.dqo = false;
-                                shareItem.dql = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
-                                com.baidu.tieba.c.e.bwk().b(new ShareDialogConfig(f.this.mContext, shareItem, true, true));
+                                shareItem.dqp = false;
+                                shareItem.dqm = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
+                                com.baidu.tieba.c.e.bwm().b(new ShareDialogConfig(f.this.mContext, shareItem, true, true));
                                 TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cy("uid", TbadkCoreApplication.getCurrentAccount()).X(TiebaInitialize.Params.OBJ_PARAM2, 1).X(TiebaInitialize.Params.OBJ_PARAM3, 1));
                             }
                         });
@@ -79,40 +79,40 @@ public class f {
 
     public void h(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.iJz = postWriteCallBackData;
-            this.kuU = postWriteCallBackData.mVideoTitleData != null;
-            if (this.kuS != null && this.kuT != null && this.gxH != null && this.kuV != null) {
-                am.setBackgroundColor(this.kuS, R.color.cp_link_tip_a);
-                am.setViewTextColor(this.kuT, (int) R.color.cp_cont_a);
-                am.setImageResource(this.gxH, R.drawable.icon_arrow_more_white);
-                am.setBackgroundResource(this.kuV, R.drawable.immediately_share_background);
-                this.kuS.setVisibility(0);
-                this.kuS.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.f.3
+            this.iJB = postWriteCallBackData;
+            this.kuW = postWriteCallBackData.mVideoTitleData != null;
+            if (this.kuU != null && this.kuV != null && this.gxJ != null && this.kuX != null) {
+                am.setBackgroundColor(this.kuU, R.color.cp_link_tip_a);
+                am.setViewTextColor(this.kuV, (int) R.color.cp_cont_a);
+                am.setImageResource(this.gxJ, R.drawable.icon_arrow_more_white);
+                am.setBackgroundResource(this.kuX, R.drawable.immediately_share_background);
+                this.kuU.setVisibility(0);
+                this.kuU.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.f.3
                     @Override // java.lang.Runnable
                     public void run() {
                         f.this.hideTip();
                     }
                 }, 5000L);
-                if (this.kuU) {
-                    this.kuT.setText(R.string.video_activity_tip);
+                if (this.kuW) {
+                    this.kuV.setText(R.string.video_activity_tip);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                    this.kuT.setText(postWriteCallBackData.getErrorString());
+                    this.kuV.setText(postWriteCallBackData.getErrorString());
                 } else {
-                    this.kuS.setVisibility(8);
+                    this.kuU.setVisibility(8);
                 }
             }
         }
     }
 
     public void hideTip() {
-        if (this.kuS != null) {
-            this.kuS.setVisibility(8);
+        if (this.kuU != null) {
+            this.kuU.setVisibility(8);
         }
     }
 
-    public void bGt() {
-        if (this.kuW != null) {
-            this.kuW.cancelLoadData();
+    public void bGv() {
+        if (this.kuY != null) {
+            this.kuY.cancelLoadData();
         }
     }
 }

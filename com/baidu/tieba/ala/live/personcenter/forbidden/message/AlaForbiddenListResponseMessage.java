@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaForbiddenListResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.ala.live.personcenter.forbidden.b.a eMc;
+    private com.baidu.tieba.ala.live.personcenter.forbidden.b.a eMd;
 
     public AlaForbiddenListResponseMessage() {
         super(1021079);
@@ -13,11 +13,11 @@ public class AlaForbiddenListResponseMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        this.eMc = new com.baidu.tieba.ala.live.personcenter.forbidden.b.a();
-        this.eMc.cC(jSONObject.optJSONObject("data"));
+        this.eMd = new com.baidu.tieba.ala.live.personcenter.forbidden.b.a();
+        this.eMd.cC(jSONObject.optJSONObject("data"));
     }
 
-    public com.baidu.tieba.ala.live.personcenter.forbidden.b.a bgM() {
-        return this.eMc;
+    public com.baidu.tieba.ala.live.personcenter.forbidden.b.a bgO() {
+        return this.eMd;
     }
 }

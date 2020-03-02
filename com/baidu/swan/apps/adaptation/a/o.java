@@ -5,23 +5,19 @@ import java.util.Map;
 import okhttp3.Request;
 /* loaded from: classes11.dex */
 public interface o {
-    boolean HT();
-
-    String HU();
-
-    String HV();
+    boolean HV();
 
     String HW();
 
     String HX();
 
-    void HY();
+    String HY();
 
-    void HZ();
+    String HZ();
 
-    String Ia();
+    void Ia();
 
-    String Ib();
+    void Ib();
 
     String Ic();
 
@@ -47,13 +43,17 @@ public interface o {
 
     String In();
 
-    boolean Io();
+    String Io();
 
     String Ip();
 
-    String Iq();
+    boolean Iq();
 
     String Ir();
+
+    String Is();
+
+    String It();
 
     String bt(Context context);
 

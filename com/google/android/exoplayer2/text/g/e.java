@@ -22,20 +22,20 @@ final class e extends com.google.android.exoplayer2.text.b {
         this.endTime = j2;
     }
 
-    public boolean dyr() {
-        return this.myz == Float.MIN_VALUE && this.myC == Float.MIN_VALUE;
+    public boolean dyt() {
+        return this.myB == Float.MIN_VALUE && this.myE == Float.MIN_VALUE;
     }
 
     /* loaded from: classes6.dex */
     public static final class a {
         private long endTime;
-        private SpannableStringBuilder mCb;
-        private int myA;
-        private int myB;
-        private float myC;
+        private SpannableStringBuilder mCd;
+        private Layout.Alignment myA;
+        private float myB;
+        private int myC;
         private int myD;
-        private Layout.Alignment myy;
-        private float myz;
+        private float myE;
+        private int myF;
         private long startTime;
         private float width;
 
@@ -46,21 +46,21 @@ final class e extends com.google.android.exoplayer2.text.b {
         public void reset() {
             this.startTime = 0L;
             this.endTime = 0L;
-            this.mCb = null;
-            this.myy = null;
-            this.myz = Float.MIN_VALUE;
-            this.myA = Integer.MIN_VALUE;
-            this.myB = Integer.MIN_VALUE;
-            this.myC = Float.MIN_VALUE;
+            this.mCd = null;
+            this.myA = null;
+            this.myB = Float.MIN_VALUE;
+            this.myC = Integer.MIN_VALUE;
             this.myD = Integer.MIN_VALUE;
+            this.myE = Float.MIN_VALUE;
+            this.myF = Integer.MIN_VALUE;
             this.width = Float.MIN_VALUE;
         }
 
-        public e dys() {
-            if (this.myC != Float.MIN_VALUE && this.myD == Integer.MIN_VALUE) {
-                dyt();
+        public e dyu() {
+            if (this.myE != Float.MIN_VALUE && this.myF == Integer.MIN_VALUE) {
+                dyv();
             }
-            return new e(this.startTime, this.endTime, this.mCb, this.myy, this.myz, this.myA, this.myB, this.myC, this.myD, this.width);
+            return new e(this.startTime, this.endTime, this.mCd, this.myA, this.myB, this.myC, this.myD, this.myE, this.myF, this.width);
         }
 
         public a gz(long j) {
@@ -74,37 +74,37 @@ final class e extends com.google.android.exoplayer2.text.b {
         }
 
         public a f(SpannableStringBuilder spannableStringBuilder) {
-            this.mCb = spannableStringBuilder;
+            this.mCd = spannableStringBuilder;
             return this;
         }
 
         public a b(Layout.Alignment alignment) {
-            this.myy = alignment;
+            this.myA = alignment;
             return this;
         }
 
         public a bz(float f) {
-            this.myz = f;
+            this.myB = f;
             return this;
         }
 
         public a LD(int i) {
-            this.myA = i;
+            this.myC = i;
             return this;
         }
 
         public a LE(int i) {
-            this.myB = i;
+            this.myD = i;
             return this;
         }
 
         public a bA(float f) {
-            this.myC = f;
+            this.myE = f;
             return this;
         }
 
         public a LF(int i) {
-            this.myD = i;
+            this.myF = i;
             return this;
         }
 
@@ -113,23 +113,23 @@ final class e extends com.google.android.exoplayer2.text.b {
             return this;
         }
 
-        private a dyt() {
-            if (this.myy == null) {
-                this.myD = Integer.MIN_VALUE;
+        private a dyv() {
+            if (this.myA == null) {
+                this.myF = Integer.MIN_VALUE;
             } else {
-                switch (AnonymousClass1.mCa[this.myy.ordinal()]) {
+                switch (AnonymousClass1.mCc[this.myA.ordinal()]) {
                     case 1:
-                        this.myD = 0;
+                        this.myF = 0;
                         break;
                     case 2:
-                        this.myD = 1;
+                        this.myF = 1;
                         break;
                     case 3:
-                        this.myD = 2;
+                        this.myF = 2;
                         break;
                     default:
-                        Log.w("WebvttCueBuilder", "Unrecognized alignment: " + this.myy);
-                        this.myD = 0;
+                        Log.w("WebvttCueBuilder", "Unrecognized alignment: " + this.myA);
+                        this.myF = 0;
                         break;
                 }
             }
@@ -141,19 +141,19 @@ final class e extends com.google.android.exoplayer2.text.b {
     /* renamed from: com.google.android.exoplayer2.text.g.e$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] mCa = new int[Layout.Alignment.values().length];
+        static final /* synthetic */ int[] mCc = new int[Layout.Alignment.values().length];
 
         static {
             try {
-                mCa[Layout.Alignment.ALIGN_NORMAL.ordinal()] = 1;
+                mCc[Layout.Alignment.ALIGN_NORMAL.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                mCa[Layout.Alignment.ALIGN_CENTER.ordinal()] = 2;
+                mCc[Layout.Alignment.ALIGN_CENTER.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                mCa[Layout.Alignment.ALIGN_OPPOSITE.ordinal()] = 3;
+                mCc[Layout.Alignment.ALIGN_OPPOSITE.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }

@@ -104,16 +104,16 @@ public abstract class a extends ab {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(final rx.j<? super com.baidu.swan.bdprivate.c.f.b.b> jVar) {
-                    com.baidu.swan.apps.w.a.Un().a(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new f.a() { // from class: com.baidu.swan.bdprivate.c.f.a.a.3.1
+                    com.baidu.swan.apps.w.a.Up().a(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new f.a() { // from class: com.baidu.swan.bdprivate.c.f.a.a.3.1
                         @Override // com.baidu.swan.apps.w.b.f.a
                         public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
                             com.baidu.swan.bdprivate.c.f.b.b bVar2 = new com.baidu.swan.bdprivate.c.f.b.b();
                             if (bVar != null && !TextUtils.isEmpty(bVar.coorType)) {
-                                bVar2.cdx = bVar.coorType;
+                                bVar2.cdy = bVar.coorType;
                                 bVar2.latitude = bVar.latitude;
                                 bVar2.longitude = bVar.longitude;
                             } else {
-                                bVar2.cdx = "unknown";
+                                bVar2.cdy = "unknown";
                             }
                             jVar.onNext(bVar2);
                             jVar.onCompleted();

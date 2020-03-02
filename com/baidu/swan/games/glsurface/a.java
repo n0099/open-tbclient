@@ -6,21 +6,21 @@ import com.baidu.swan.games.u.d;
 /* loaded from: classes11.dex */
 public class a implements DebugConsole {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private long cot;
+    private long cou;
 
     @Override // com.baidu.searchbox.v8engine.console.DebugConsole
     public void onReceiveInfo(int i, String str) {
-        if (DEBUG && !d.apD()) {
+        if (DEBUG && !d.apF()) {
             switch (i) {
                 case 0:
                     Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
                     return;
                 case 1:
-                    this.cot = System.currentTimeMillis();
+                    this.cou = System.currentTimeMillis();
                     Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
                     return;
                 case 2:
-                    Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.cot), str));
+                    Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.cou), str));
                     return;
                 default:
                     return;

@@ -31,25 +31,25 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.live.personcenter.guardian.e;
 /* loaded from: classes3.dex */
 public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivity> {
-    private CommonEmptyView aCW;
-    private NoNetworkView eKD;
-    private int eLg;
+    private CommonEmptyView aCX;
+    private NoNetworkView eKE;
     private int eLh;
-    private e eMA;
-    private d eMB;
-    private String evC;
+    private int eLi;
+    private e eMB;
+    private d eMC;
+    private String evD;
     private ImageView mBackImageView;
     private NavigationBar mNavigationBar;
     private RelativeLayout mRootView;
     private TextView mTitleView;
     private String mUserId;
-    private BdListView eMy = null;
-    private b eMz = null;
-    private boolean eLf = true;
-    public e.a eMC = new e.a() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.2
+    private BdListView eMz = null;
+    private b eMA = null;
+    private boolean eLg = true;
+    public e.a eMD = new e.a() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.2
         @Override // com.baidu.tieba.ala.live.personcenter.guardian.e.a
         public void yH(String str) {
-            AlaGuardianListActivity.this.bgO();
+            AlaGuardianListActivity.this.bgQ();
             if (!TextUtils.isEmpty(str)) {
                 AlaGuardianListActivity.this.showToast(str);
             }
@@ -65,47 +65,47 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
             return null;
         }
     };
-    View.OnClickListener evU = new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.3
+    View.OnClickListener evV = new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a aVar;
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (AlaGuardianListActivity.this.eMz != null && (aVar = (a) AlaGuardianListActivity.this.eMz.getItem(intValue)) != null && aVar.eMs != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(AlaGuardianListActivity.this.getPageContext().getPageActivity(), aVar.eMs, aVar.userName, aVar.portrait, aVar.sex, aVar.levelId, null, null, 0L, aVar.fansCount, aVar.followCount, aVar.userStatus, null, null, false, null, null, aVar.nickName, "")));
+                if (AlaGuardianListActivity.this.eMA != null && (aVar = (a) AlaGuardianListActivity.this.eMA.getItem(intValue)) != null && aVar.eMt != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(AlaGuardianListActivity.this.getPageContext().getPageActivity(), aVar.eMt, aVar.userName, aVar.portrait, aVar.sex, aVar.levelId, null, null, 0L, aVar.fansCount, aVar.followCount, aVar.userStatus, null, null, false, null, null, aVar.nickName, "")));
                 }
             }
         }
     };
-    View.OnClickListener ewF = new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.4
+    View.OnClickListener ewG = new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a aVar;
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (AlaGuardianListActivity.this.eMz != null && ViewHelper.checkUpIsLogin(AlaGuardianListActivity.this.getPageContext().getPageActivity()) && (aVar = (a) AlaGuardianListActivity.this.eMz.getItem(intValue)) != null && aVar.eMs != null) {
+                if (AlaGuardianListActivity.this.eMA != null && ViewHelper.checkUpIsLogin(AlaGuardianListActivity.this.getPageContext().getPageActivity()) && (aVar = (a) AlaGuardianListActivity.this.eMA.getItem(intValue)) != null && aVar.eMt != null) {
                     boolean z = aVar.followStatus != 0;
                     aVar.followStatus = z ? 0 : 1;
-                    AlaGuardianListActivity.this.eMz.notifyDataSetChanged();
+                    AlaGuardianListActivity.this.eMA.notifyDataSetChanged();
                     com.baidu.live.data.b bVar = new com.baidu.live.data.b();
-                    bVar.setUserId(aVar.eMs);
+                    bVar.setUserId(aVar.eMt);
                     bVar.setPortrait(aVar.portrait);
                     bVar.setPageId(AlaGuardianListActivity.this.getUniqueId());
                     bVar.setIsAttention(z ? false : true);
-                    com.baidu.live.view.a.Bh().a(aVar.eMs, bVar);
+                    com.baidu.live.view.a.Bj().a(aVar.eMt, bVar);
                 }
             }
         }
     };
-    private CustomMessageListener evy = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.5
+    private CustomMessageListener evz = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 if (!updateAttentionMessage.getData().isSucc) {
-                    if (AlaGuardianListActivity.this.eMz != null) {
-                        AlaGuardianListActivity.this.eMz.X(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
+                    if (AlaGuardianListActivity.this.eMA != null) {
+                        AlaGuardianListActivity.this.eMA.X(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
                     }
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
                     if (message != null && message.getTag() != null && message.getTag().equals(AlaGuardianListActivity.this.getUniqueId())) {
@@ -130,18 +130,18 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         setContentView(this.mRootView);
         setUseStyleImmersiveSticky(true);
         initData();
-        bgN();
+        bgP();
         initUI();
-        registerListener(this.evy);
+        registerListener(this.evz);
     }
 
     private void initData() {
-        this.evC = getIntent().getStringExtra("charm_value");
+        this.evD = getIntent().getStringExtra("charm_value");
         this.mUserId = getIntent().getStringExtra("user_id");
-        this.eMA = new e(this, this.eMC);
-        this.eMA.yJ(this.mUserId);
-        this.eLg = (int) getResources().getDimension(a.e.sdk_ds246);
-        this.eLh = (int) getResources().getDimension(a.e.sdk_ds98);
+        this.eMB = new e(this, this.eMD);
+        this.eMB.yJ(this.mUserId);
+        this.eLh = (int) getResources().getDimension(a.e.sdk_ds246);
+        this.eLi = (int) getResources().getDimension(a.e.sdk_ds98);
     }
 
     private void initUI() {
@@ -149,74 +149,74 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.mBackImageView = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.g.widget_navi_back_button);
         this.mTitleView = this.mNavigationBar.setTitleText(a.i.sdk_prc_guardian_list_title);
         this.mNavigationBar.showBottomLine(false);
-        this.eKD = (NoNetworkView) this.mRootView.findViewById(a.g.ala_guardian_list_no_network_view);
-        this.eMy = (BdListView) this.mRootView.findViewById(a.g.list);
-        this.eMB = new d(getPageContext().getPageActivity());
-        this.eMB.yI(this.evC);
-        this.eMy.addHeaderView(this.eMB.bgD());
-        this.eMz = new b(this);
-        this.eMz.m(this.ewF);
-        this.eMy.setAdapter((ListAdapter) this.eMz);
-        this.eMy.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.1
+        this.eKE = (NoNetworkView) this.mRootView.findViewById(a.g.ala_guardian_list_no_network_view);
+        this.eMz = (BdListView) this.mRootView.findViewById(a.g.list);
+        this.eMC = new d(getPageContext().getPageActivity());
+        this.eMC.yI(this.evD);
+        this.eMz.addHeaderView(this.eMC.bgF());
+        this.eMA = new b(this);
+        this.eMA.m(this.ewG);
+        this.eMz.setAdapter((ListAdapter) this.eMA);
+        this.eMz.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                AlaGuardianListActivity.this.bgB();
-                AlaGuardianListActivity.this.bgC();
+                AlaGuardianListActivity.this.bgD();
+                AlaGuardianListActivity.this.bgE();
             }
         });
     }
 
-    private void bgN() {
-        this.eMA.loadData();
+    private void bgP() {
+        this.eMB.loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.eMA != null) {
-            this.eMA.onDestroy();
+        if (this.eMB != null) {
+            this.eMB.onDestroy();
         }
-        if (this.eMz != null) {
-            this.eMz = null;
+        if (this.eMA != null) {
+            this.eMA = null;
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
-        if (this.eMz != null) {
-            if (cVar != null && cVar.bgP().size() <= 0) {
+        if (this.eMA != null) {
+            if (cVar != null && cVar.bgR().size() <= 0) {
                 showNoDataView();
             } else {
                 hideNoDataView();
             }
-            this.eMz.c(cVar);
-            this.eMz.notifyDataSetChanged();
+            this.eMA.c(cVar);
+            this.eMA.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgB() {
-        if (Build.VERSION.SDK_INT >= 11 && this.eMB != null) {
-            int i = this.eLg - (-this.eMB.bgD().getTop());
-            if (i < this.eLh) {
+    public void bgD() {
+        if (Build.VERSION.SDK_INT >= 11 && this.eMC != null) {
+            int i = this.eLh - (-this.eMC.bgF().getTop());
+            if (i < this.eLi) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                     this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
                 }
-            } else if (i >= this.eLh && i <= this.eLh * 2) {
-                float f = 1.0f - (((i - this.eLh) * 1.0f) / this.eLh);
+            } else if (i >= this.eLi && i <= this.eLi * 2) {
+                float f = 1.0f - (((i - this.eLi) * 1.0f) / this.eLi);
                 this.mNavigationBar.getBarBgView().setAlpha(f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f - f);
-            } else if (i > this.eLh * 2 && this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
+            } else if (i > this.eLi * 2 && this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(0.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
             }
-            if (this.eMy.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+            if (this.eMz.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
@@ -224,17 +224,17 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgC() {
+    public void bgE() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
         if (alpha < 0.5f) {
             alpha = 1.0f - alpha;
-            if (!this.eLf) {
-                this.eLf = true;
+            if (!this.eLg) {
+                this.eLg = true;
             }
-        } else if (this.eLf) {
-            this.eLf = false;
+        } else if (this.eLg) {
+            this.eLg = false;
         }
-        a(alpha, this.eLf ? false : true);
+        a(alpha, this.eLg ? false : true);
     }
 
     protected void a(float f, boolean z) {
@@ -257,55 +257,55 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(getResources(), SkinManager.getBitmapLowQuality(a.f.sdk_s_navbar_bg)));
-        if (this.eMB != null) {
-            this.eMB.a(this, i);
+        if (this.eMC != null) {
+            this.eMC.a(this, i);
         }
-        if (this.eKD != null) {
-            this.eKD.onChangeSkinType(getPageContext(), i);
+        if (this.eKE != null) {
+            this.eKE.onChangeSkinType(getPageContext(), i);
         }
-        if (this.eMz != null) {
-            this.eMz.notifyDataSetChanged();
+        if (this.eMA != null) {
+            this.eMA.notifyDataSetChanged();
         }
     }
 
     private void showNoDataView() {
-        if (this.aCW == null) {
-            this.aCW = new CommonEmptyView(getPageContext().getPageActivity());
-            this.aCW.addToParent(this.mRootView);
+        if (this.aCX == null) {
+            this.aCX = new CommonEmptyView(getPageContext().getPageActivity());
+            this.aCX.addToParent(this.mRootView);
         }
-        this.aCW.reset();
-        this.aCW.setTitle(a.i.sdk_prc_not_contribute);
-        this.aCW.setup(CommonEmptyView.ImgType.NO_FAN, CommonEmptyView.StyleType.LIGHT);
-        this.aCW.setVisibility(0);
+        this.aCX.reset();
+        this.aCX.setTitle(a.i.sdk_prc_not_contribute);
+        this.aCX.setup(CommonEmptyView.ImgType.NO_FAN, CommonEmptyView.StyleType.LIGHT);
+        this.aCX.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgO() {
-        if (this.aCW == null) {
-            this.aCW = new CommonEmptyView(getPageContext().getPageActivity());
-            this.aCW.addToParent(this.mRootView);
+    public void bgQ() {
+        if (this.aCX == null) {
+            this.aCX = new CommonEmptyView(getPageContext().getPageActivity());
+            this.aCX.addToParent(this.mRootView);
         }
-        this.aCW.reset();
-        this.aCW.setRefreshButton(a.i.sdk_net_refresh_btn_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.6
+        this.aCX.reset();
+        this.aCX.setRefreshButton(a.i.sdk_net_refresh_btn_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaGuardianListActivity.this.eMA.loadData();
+                AlaGuardianListActivity.this.eMB.loadData();
             }
         });
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.aCW.setTitle(a.i.sdk_net_fail_tip);
-            this.aCW.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
+            this.aCX.setTitle(a.i.sdk_net_fail_tip);
+            this.aCX.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
         } else {
-            this.aCW.setTitle(a.i.sdk_network_not_available);
-            this.aCW.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+            this.aCX.setTitle(a.i.sdk_network_not_available);
+            this.aCX.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
         }
-        this.aCW.setVisibility(0);
+        this.aCX.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideNoDataView() {
-        if (this.aCW != null) {
-            this.aCW.setVisibility(8);
+        if (this.aCX != null) {
+            this.aCX.setVisibility(8);
         }
     }
 }

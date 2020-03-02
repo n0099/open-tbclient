@@ -103,11 +103,11 @@ public class JSInterface {
         Http.Resp sync;
         e.d(TAG, "isLogin()");
         final String a = com.kascend.chushou.d.e.a("_fromView", "9");
-        if (!tv.chushou.zues.utils.a.dQn()) {
+        if (!tv.chushou.zues.utils.a.dQp()) {
             g.M(this.mContext, a.i.s_no_available_network);
             return false;
         } else if (LoginManager.Instance().islogined()) {
-            Http http = (Http) tv.chushou.basis.d.b.dPT().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dPV().S(Http.class);
             if (http == null) {
                 RxExecutor.post(null, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.constants.JSInterface.1
                     @Override // java.lang.Runnable
@@ -118,7 +118,7 @@ public class JSInterface {
                 return false;
             }
             try {
-                sync = http.getSync(tv.chushou.common.a.dPU(), "api/token/verify.htm?", null, RequestTag.normal());
+                sync = http.getSync(tv.chushou.common.a.dPW(), "api/token/verify.htm?", null, RequestTag.normal());
             } catch (Exception e) {
                 e.e(TAG, "verfify token sync failed", e);
             }
@@ -412,8 +412,8 @@ public class JSInterface {
 
     @JavascriptInterface
     public void updatePoint() {
-        if (tv.chushou.zues.utils.a.dQn() && LoginManager.Instance().islogined()) {
-            c.dBO().c((com.kascend.chushou.c.b) null, "");
+        if (tv.chushou.zues.utils.a.dQp() && LoginManager.Instance().islogined()) {
+            c.dBQ().c((com.kascend.chushou.c.b) null, "");
         }
     }
 
@@ -439,7 +439,7 @@ public class JSInterface {
             shareInfo.mTargetKey = shareInfo.mUrl;
             shareInfo.mShareType = "99";
             shareInfo.mPic = jSONObject.optString("pic");
-            com.kascend.cstvsdk.utils.b.nkn.a(this.mContext, shareInfo, com.kascend.chushou.d.e.a("_fromView", "9"));
+            com.kascend.cstvsdk.utils.b.nkp.a(this.mContext, shareInfo, com.kascend.chushou.d.e.a("_fromView", "9"));
         } catch (Exception e) {
         }
     }
@@ -604,7 +604,7 @@ public class JSInterface {
                 }
             }
             if (!h.isEmpty(str4)) {
-                com.kascend.chushou.d.h.dBS().b(str3);
+                com.kascend.chushou.d.h.dBU().b(str3);
                 closeView();
                 return;
             }
@@ -620,7 +620,7 @@ public class JSInterface {
                         }).b(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.9.1
                             @Override // tv.chushou.zues.widget.sweetalert.b.a
                             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                                com.kascend.chushou.d.h.dBS().b(str3);
+                                com.kascend.chushou.d.h.dBU().b(str3);
                                 bVar.dismiss();
                                 JSInterface.this.closeView();
                             }
@@ -646,7 +646,7 @@ public class JSInterface {
             shareInfo.mUrl = jSONObject.optString("targetKey");
             shareInfo.mPic = jSONObject.optString("imageUrl");
             shareInfo.mContent = jSONObject.optString("content");
-            com.kascend.cstvsdk.utils.b.nkn.a(this.mContext, shareInfo, com.kascend.chushou.d.e.a("_fromView", "9"));
+            com.kascend.cstvsdk.utils.b.nkp.a(this.mContext, shareInfo, com.kascend.chushou.d.e.a("_fromView", "9"));
         } catch (Exception e) {
             e.e(TAG, "share fail e=" + e.toString());
         }
@@ -693,14 +693,14 @@ public class JSInterface {
             String optString = jSONObject.optString("type");
             ListItem dy = com.kascend.chushou.c.a.dy(jSONObject.optJSONObject("listItem"));
             if ("1".equals(optString)) {
-                com.kascend.chushou.a.a.dBM().a(dy);
+                com.kascend.chushou.a.a.dBO().a(dy);
             } else if ("2".equals(optString)) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("dataInfo");
                 if (this.mContext != null) {
                     com.kascend.chushou.d.e.a(this.mContext, dy, optJSONObject);
                 }
             } else if ("3".equals(optString)) {
-                com.kascend.chushou.a.a.dBM().c(dy);
+                com.kascend.chushou.a.a.dBO().c(dy);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -745,7 +745,7 @@ public class JSInterface {
             } catch (JSONException e) {
             }
             if (!h.isEmpty(str2) || !h.isEmpty(str3)) {
-                final File dBQ = com.kascend.chushou.d.c.mOW.dBQ();
+                final File dBS = com.kascend.chushou.d.c.mOY.dBS();
                 new tv.chushou.zues.widget.sweetalert.b(this.mContext).a(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.11
                     @Override // tv.chushou.zues.widget.sweetalert.b.a
                     public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
@@ -756,7 +756,7 @@ public class JSInterface {
                     public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                         bVar.dismiss();
                         if (!h.isEmpty(str2)) {
-                            tv.chushou.zues.widget.fresco.a.a(str2, dBQ.getAbsolutePath(), new a.InterfaceC0815a() { // from class: com.kascend.chushou.constants.JSInterface.10.1
+                            tv.chushou.zues.widget.fresco.a.a(str2, dBS.getAbsolutePath(), new a.InterfaceC0815a() { // from class: com.kascend.chushou.constants.JSInterface.10.1
                                 @Override // tv.chushou.zues.widget.fresco.a.InterfaceC0815a
                                 public void onComplete(boolean z, String str5) {
                                     if (z) {
@@ -773,11 +773,11 @@ public class JSInterface {
                             });
                             return;
                         }
-                        File o = com.kascend.chushou.d.d.mOX.o(str3, new File(dBQ, System.currentTimeMillis() + ".jpg"));
+                        File o = com.kascend.chushou.d.d.mOZ.o(str3, new File(dBS, System.currentTimeMillis() + ".jpg"));
                         if (o != null) {
                             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
                             intent.setData(Uri.fromFile(o));
-                            tv.chushou.basis.d.b.dPR().sendBroadcast(intent);
+                            tv.chushou.basis.d.b.dPT().sendBroadcast(intent);
                             if (!h.isEmpty(str4)) {
                                 g.u(str4);
                                 return;
@@ -806,13 +806,13 @@ public class JSInterface {
                     bVar.a(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.12.2
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dQS();
+                            bVar.dQU();
                             iVar.cancel();
                         }
                     }).b(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.12.1
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dQS();
+                            bVar.dQU();
                             iVar.execute();
                         }
                     }).Td(context.getString(a.i.alert_dialog_cancel)).Tf(context.getString(a.i.gallery_permissions_continue)).x(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);

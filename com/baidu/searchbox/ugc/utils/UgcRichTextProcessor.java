@@ -11,7 +11,7 @@ public class UgcRichTextProcessor {
     public static void handleEmotionDispaly(TextView textView) {
         CharSequence text = textView.getText();
         if (!TextUtils.isEmpty(text) && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(text).find()) {
-            textView.setText(a.Gh().a(EmotionType.EMOTION_CLASSIC_TYPE, AppRuntime.getAppContext(), text, textView));
+            textView.setText(a.Gj().a(EmotionType.EMOTION_CLASSIC_TYPE, AppRuntime.getAppContext(), text, textView));
         }
     }
 }

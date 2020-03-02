@@ -26,7 +26,7 @@ public class RGStateSegEntry extends RGStateCar3D {
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
             builder.overlook(0.0f);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f993top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.f993top) * 0.2f)))));
+            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f992top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.f992top) * 0.2f)))));
             if (i.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }

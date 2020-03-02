@@ -3,8 +3,8 @@ package com.baidu.swan.apps.view.narootview;
 import android.support.annotation.NonNull;
 /* loaded from: classes11.dex */
 public class b {
-    private int caQ;
     private int caR;
+    private int caS;
     private int mFlags = 0;
 
     @NonNull
@@ -21,19 +21,19 @@ public class b {
         return (this.mFlags & 1) == 1;
     }
 
-    public int ahL() {
-        return this.caQ;
-    }
-
-    public void ho(int i) {
-        this.caQ = i;
-    }
-
-    public int ahM() {
+    public int ahN() {
         return this.caR;
     }
 
-    public void hp(int i) {
+    public void ho(int i) {
         this.caR = i;
+    }
+
+    public int ahO() {
+        return this.caS;
+    }
+
+    public void hp(int i) {
+        this.caS = i;
     }
 }

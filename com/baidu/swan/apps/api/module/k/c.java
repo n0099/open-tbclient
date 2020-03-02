@@ -30,7 +30,7 @@ public class c extends com.baidu.swan.apps.api.a.c {
         return new com.baidu.swan.apps.api.b.b(0);
     }
 
-    public com.baidu.swan.apps.api.b.b JZ() {
+    public com.baidu.swan.apps.api.b.b Kb() {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start get clipboard data");
         }

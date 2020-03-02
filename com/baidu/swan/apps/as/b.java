@@ -20,9 +20,9 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes11.dex */
 public class b implements SlideInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private WeakReference<SwanAppActivity> bYg;
-    private com.baidu.swan.apps.am.b bYh;
-    private BroadcastReceiver bYi = new BroadcastReceiver() { // from class: com.baidu.swan.apps.as.b.1
+    private WeakReference<SwanAppActivity> bYh;
+    private com.baidu.swan.apps.am.b bYi;
+    private BroadcastReceiver bYj = new BroadcastReceiver() { // from class: com.baidu.swan.apps.as.b.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.CLOSE_SYSTEM_DIALOGS".equals(intent.getAction())) {
@@ -39,42 +39,42 @@ public class b implements SlideInterceptor {
     private SlideHelper mSlideHelper = new SlideHelper();
 
     public b(SwanAppActivity swanAppActivity) {
-        this.bYg = new WeakReference<>(swanAppActivity);
+        this.bYh = new WeakReference<>(swanAppActivity);
     }
 
-    public void ags() {
-        if (this.bYg.get() != null) {
+    public void agu() {
+        if (this.bYh.get() != null) {
             this.mSlideHelper.setCanSlide(canSlide());
         }
     }
 
-    public void agt() {
-        SwanAppActivity swanAppActivity = this.bYg.get();
+    public void agv() {
+        SwanAppActivity swanAppActivity = this.bYh.get();
         if (swanAppActivity != null) {
-            this.bYh = swanAppActivity.GO();
-            if (this.bYh != null) {
+            this.bYi = swanAppActivity.GQ();
+            if (this.bYi != null) {
                 if (isNightMode()) {
-                    this.bYh.setVisibility(0);
+                    this.bYi.setVisibility(0);
                 }
-                agv();
+                agx();
             }
         }
     }
 
     public void onCreate() {
-        SwanAppActivity swanAppActivity = this.bYg.get();
+        SwanAppActivity swanAppActivity = this.bYh.get();
         if (swanAppActivity != null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-            swanAppActivity.registerReceiver(this.bYi, intentFilter);
+            swanAppActivity.registerReceiver(this.bYj, intentFilter);
         }
     }
 
-    public void agu() {
-        SwanAppActivity swanAppActivity = this.bYg.get();
+    public void agw() {
+        SwanAppActivity swanAppActivity = this.bYh.get();
         if (swanAppActivity != null) {
-            b.a GC = swanAppActivity.GC();
-            if ((GC != null && "1230000000000000".equals(GC.VH())) || swanAppActivity.Gs() == 1) {
+            b.a GE = swanAppActivity.GE();
+            if ((GE != null && "1230000000000000".equals(GE.VJ())) || swanAppActivity.Gu() == 1) {
                 this.mSlideHelper.setCanSlide(false);
             } else {
                 this.mSlideHelper.setCanSlide(canSlide());
@@ -84,19 +84,19 @@ public class b implements SlideInterceptor {
 
     public void onResume() {
         if (isNightMode()) {
-            this.bYh.setVisibility(0);
+            this.bYi.setVisibility(0);
         }
     }
 
     public void onDestroy() {
         SwanAppActivity swanAppActivity;
-        if (this.bYg != null && (swanAppActivity = this.bYg.get()) != null) {
-            swanAppActivity.unregisterReceiver(this.bYi);
+        if (this.bYh != null && (swanAppActivity = this.bYh.get()) != null) {
+            swanAppActivity.unregisterReceiver(this.bYj);
         }
     }
 
-    public void agv() {
-        final SwanAppActivity swanAppActivity = this.bYg.get();
+    public void agx() {
+        final SwanAppActivity swanAppActivity = this.bYh.get();
         if (swanAppActivity != null && !swanAppActivity.isDestroyed()) {
             this.mSlideHelper.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290));
             this.mSlideHelper.attachActivity(swanAppActivity);
@@ -109,8 +109,8 @@ public class b implements SlideInterceptor {
                     View maskView = b.this.mSlideHelper.getMaskView();
                     if (maskView != null) {
                         maskView.setAlpha(1.0f - f);
-                        if (swanAppActivity.Gu()) {
-                            swanAppActivity.Gt().JJ();
+                        if (swanAppActivity.Gw()) {
+                            swanAppActivity.Gv().JL();
                         }
                         if (f == 0.0f) {
                             maskView.setBackgroundColor(Color.parseColor("#40000000"));
@@ -124,7 +124,7 @@ public class b implements SlideInterceptor {
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelOpened(View view) {
                     swanAppActivity.onBackPressed();
-                    b.this.agx();
+                    b.this.agz();
                     swanAppActivity.overridePendingTransition(0, 0);
                 }
 
@@ -132,9 +132,9 @@ public class b implements SlideInterceptor {
                 public void onPanelClosed(View view) {
                 }
             });
-            com.baidu.swan.apps.adaptation.b.c Ob = Ob();
-            if (Ob != null) {
-                this.mSlideHelper.setRegionFactor(Ob.IA());
+            com.baidu.swan.apps.adaptation.b.c Od = Od();
+            if (Od != null) {
+                this.mSlideHelper.setRegionFactor(Od.IC());
             }
         }
     }
@@ -142,47 +142,47 @@ public class b implements SlideInterceptor {
     /* JADX WARN: Type inference failed for: r0v7, types: [com.baidu.swan.apps.adaptation.b.d] */
     @Override // com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
-        com.baidu.swan.apps.core.d.e GA;
-        com.baidu.swan.apps.adaptation.b.c Ob;
+        com.baidu.swan.apps.core.d.e GC;
+        com.baidu.swan.apps.adaptation.b.c Od;
         boolean z = true;
-        SwanAppActivity swanAppActivity = this.bYg.get();
-        if (swanAppActivity == null || !swanAppActivity.Gu() || (GA = swanAppActivity.GA()) == null || (Ob = Ob()) == null) {
+        SwanAppActivity swanAppActivity = this.bYh.get();
+        if (swanAppActivity == null || !swanAppActivity.Gw() || (GC = swanAppActivity.GC()) == null || (Od = Od()) == null) {
             return false;
         }
-        com.baidu.swan.apps.adaptation.b.f IH = Ob.IH();
-        boolean z2 = (IH == null || IH.IN() == 0 || !IH.IN().canGoBack()) ? false : true;
-        if (GA.Oo() > 1 || !Ob.isSlidable(motionEvent) || z2 || !agw()) {
+        com.baidu.swan.apps.adaptation.b.f IJ = Od.IJ();
+        boolean z2 = (IJ == null || IJ.IP() == 0 || !IJ.IP().canGoBack()) ? false : true;
+        if (GC.Oq() > 1 || !Od.isSlidable(motionEvent) || z2 || !agy()) {
             z = false;
         }
         return z;
     }
 
-    private com.baidu.swan.apps.adaptation.b.c Ob() {
-        com.baidu.swan.apps.core.d.e GA;
-        com.baidu.swan.apps.core.d.b Ol;
-        SwanAppActivity swanAppActivity = this.bYg.get();
-        if (swanAppActivity == null || (GA = swanAppActivity.GA()) == null || (Ol = GA.Ol()) == null) {
+    private com.baidu.swan.apps.adaptation.b.c Od() {
+        com.baidu.swan.apps.core.d.e GC;
+        com.baidu.swan.apps.core.d.b On;
+        SwanAppActivity swanAppActivity = this.bYh.get();
+        if (swanAppActivity == null || (GC = swanAppActivity.GC()) == null || (On = GC.On()) == null) {
             return null;
         }
-        return Ol instanceof com.baidu.swan.apps.core.d.d ? ((com.baidu.swan.apps.core.d.d) Ol).Ob() : null;
+        return On instanceof com.baidu.swan.apps.core.d.d ? ((com.baidu.swan.apps.core.d.d) On).Od() : null;
     }
 
     private boolean canSlide() {
-        SwanAppActivity swanAppActivity = this.bYg.get();
+        SwanAppActivity swanAppActivity = this.bYh.get();
         if (swanAppActivity == null) {
             return false;
         }
         return (swanAppActivity.getResources().getConfiguration().orientation == 2 || Build.VERSION.SDK_INT == 26) ? false : true;
     }
 
-    private boolean agw() {
-        SwanAppActivity swanAppActivity = this.bYg.get();
-        if (swanAppActivity == null || swanAppActivity.isDestroyed() || !swanAppActivity.Gu()) {
+    private boolean agy() {
+        SwanAppActivity swanAppActivity = this.bYh.get();
+        if (swanAppActivity == null || swanAppActivity.isDestroyed() || !swanAppActivity.Gw()) {
             return false;
         }
-        com.baidu.swan.apps.core.d.d Om = swanAppActivity.GA().Om();
-        if (Om != null) {
-            return Om.NH() == null || !Om.NH().bQq;
+        com.baidu.swan.apps.core.d.d Oo = swanAppActivity.GC().Oo();
+        if (Oo != null) {
+            return Oo.NJ() == null || !Oo.NJ().bQr;
         } else if (DEBUG) {
             Log.d("SwanAppActivitySlideHelper", "topFragment = null; return false");
             return false;
@@ -200,13 +200,13 @@ public class b implements SlideInterceptor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agx() {
+    public void agz() {
         if (isNightMode()) {
-            this.bYh.setVisibility(8);
+            this.bYi.setVisibility(8);
         }
     }
 
     private boolean isNightMode() {
-        return com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState();
+        return com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState();
     }
 }

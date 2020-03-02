@@ -3,7 +3,7 @@ package com.baidu.g.a.b;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public interface d {
-    void BI();
+    void BK();
 
     void a(a aVar);
 

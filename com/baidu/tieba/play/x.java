@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class x {
-    private static x jwB = null;
-    private LinkedHashMap<String, Integer> jwC = new LinkedHashMap<>(150, 0.75f, true);
+    private static x jwD = null;
+    private LinkedHashMap<String, Integer> jwE = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.x.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                x.this.jwC.clear();
+                x.this.jwE.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class x {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static x czq() {
-        if (jwB == null) {
+    public static x czs() {
+        if (jwD == null) {
             synchronized (x.class) {
-                if (jwB == null) {
-                    jwB = new x();
+                if (jwD == null) {
+                    jwD = new x();
                 }
             }
         }
-        return jwB;
+        return jwD;
     }
 
     public void bl(String str, int i) {
-        if (i != 0 || !this.jwC.containsKey(str)) {
-            this.jwC.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.jwE.containsKey(str)) {
+            this.jwE.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.jwC.remove(str);
+            this.jwE.remove(str);
         }
     }
 
     public int Hd(String str) {
-        Integer num = this.jwC.get(str);
+        Integer num = this.jwE.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class x {
     }
 
     public void clear() {
-        this.jwC.clear();
+        this.jwE.clear();
     }
 }

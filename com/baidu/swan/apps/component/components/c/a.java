@@ -17,7 +17,7 @@ public final class a extends com.baidu.swan.apps.component.b.a<CameraPreview, co
     @NonNull
     /* renamed from: bM */
     public CameraPreview bn(@NonNull Context context) {
-        return new CameraPreview(context, KG());
+        return new CameraPreview(context, KI());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public final class a extends com.baidu.swan.apps.component.b.a<CameraPreview, co
     @Override // com.baidu.swan.apps.component.b.a
     public void a(@NonNull CameraPreview cameraPreview, @NonNull com.baidu.swan.apps.camera.d.a aVar, @NonNull b bVar) {
         super.a((a) cameraPreview, (CameraPreview) aVar, bVar);
-        if (KK()) {
+        if (KM()) {
             cameraPreview.b(aVar);
         }
     }

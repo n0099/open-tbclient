@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class l extends com.baidu.tbadk.k.c {
-    private static final int jrO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-    private static final int jrP = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
+    private static final int jrQ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
+    private static final int jrR = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
 
     public l(Context context, View.OnClickListener onClickListener) {
         super(context, onClickListener);
@@ -16,12 +16,12 @@ public class l extends com.baidu.tbadk.k.c {
     }
 
     private void initView() {
-        if (this.dAW != null && (this.dAW.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dAW.getLayoutParams();
-            layoutParams.width = jrO;
-            layoutParams.height = jrO;
-            layoutParams.topMargin = jrP;
-            this.dAW.setLayoutParams(layoutParams);
+        if (this.dAX != null && (this.dAX.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dAX.getLayoutParams();
+            layoutParams.width = jrQ;
+            layoutParams.height = jrQ;
+            layoutParams.topMargin = jrR;
+            this.dAX.setLayoutParams(layoutParams);
         }
     }
 }

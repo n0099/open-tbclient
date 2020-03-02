@@ -42,7 +42,7 @@ public class a {
         return 0;
     }
 
-    public static int aix() {
+    public static int aiz() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -85,7 +85,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.cdx) ? "unknown" : bVar.cdx;
+            String str = TextUtils.isEmpty(bVar.cdy) ? "unknown" : bVar.cdy;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,9 +136,9 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.cdn.coordType = i;
-            aVar.cdn.latitude = bVar.latitude;
-            aVar.cdn.longitude = bVar.longitude;
+            aVar.cdo.coordType = i;
+            aVar.cdo.latitude = bVar.latitude;
+            aVar.cdo.longitude = bVar.longitude;
         }
     }
 
@@ -147,7 +147,7 @@ public class a {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new a.C0297a(10003).lF(str).lE(e.acF()).Wk();
+            new a.C0297a(10003).lF(str).lE(e.acH()).Wm();
         }
     }
 }

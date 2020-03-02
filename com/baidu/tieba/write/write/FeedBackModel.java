@@ -13,23 +13,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
-    private TbPageContext cVg;
-    private a kRG;
-    private ArrayList<bj> kRH;
+    private TbPageContext cVh;
+    private a kRI;
+    private ArrayList<bj> kRJ;
     private int mErrCode;
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.kRG = null;
-        this.kRH = null;
+        this.kRI = null;
+        this.kRJ = null;
         this.mErrCode = 0;
-        this.cVg = tbPageContext;
-        this.kRH = new ArrayList<>();
+        this.cVh = tbPageContext;
+        this.kRJ = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bj> cVx() {
-        return this.kRH;
+    public ArrayList<bj> cVz() {
+        return this.kRJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,16 +39,16 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void Lc(String str) {
-        if (this.kRG == null) {
-            this.kRG = new a();
-            this.kRG.setPriority(3);
-            this.kRG.execute(str);
+        if (this.kRI == null) {
+            this.kRI = new a();
+            this.kRI.setPriority(3);
+            this.kRI.execute(str);
         }
     }
 
     /* loaded from: classes13.dex */
     private class a extends BdAsyncTask<Object, FeedBackModel, FeedBackModel> {
-        private x cLD;
+        private x cLE;
 
         private a() {
         }
@@ -59,13 +59,13 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: H */
         public FeedBackModel doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
-            this.cLD = new x(TbConfig.SERVER_ADDRESS + Config.FRS_TOP_LIST);
-            this.cLD.addPostData("kw", obj);
-            String postNetData = this.cLD.postNetData();
-            if (!this.cLD.aGe().aGG().isRequestSuccess()) {
+            this.cLE = new x(TbConfig.SERVER_ADDRESS + Config.FRS_TOP_LIST);
+            this.cLE.addPostData("kw", obj);
+            String postNetData = this.cLE.postNetData();
+            if (!this.cLE.aGg().aGI().isRequestSuccess()) {
                 return null;
             }
-            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.cVg);
+            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.cVh);
             feedBackModel.parserJson(postNetData);
             return feedBackModel;
         }
@@ -76,16 +76,16 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.kRG = null;
+            FeedBackModel.this.kRI = null;
             FeedBackModel.this.mLoadDataCallBack.callback(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.kRG = null;
-            if (this.cLD != null) {
-                this.cLD.cancelNetConnect();
+            FeedBackModel.this.kRI = null;
+            if (this.cLE != null) {
+                this.cLE.cancelNetConnect();
             }
         }
     }
@@ -109,7 +109,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                         if (jSONObject2 != null) {
                             bj bjVar = new bj();
                             bjVar.parserJson(jSONObject2);
-                            this.kRH.add(bjVar);
+                            this.kRJ.add(bjVar);
                         }
                     }
                 }
@@ -126,8 +126,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.kRG != null) {
-            this.kRG.cancel();
+        if (this.kRI != null) {
+            this.kRI.cancel();
             return true;
         }
         return true;

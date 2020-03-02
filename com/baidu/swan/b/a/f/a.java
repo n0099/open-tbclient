@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    String bPs;
-    String bVn;
-    String bVp;
+    String bPt;
+    String bVo;
     String bVq;
-    String bVt;
+    String bVr;
+    String bVu;
     String mAppId;
     String mAppVersion;
     String mFrom;
@@ -22,45 +22,45 @@ public class a {
     public a() {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.bVn = "";
-        this.bVp = "";
+        this.bVo = "";
         this.bVq = "";
+        this.bVr = "";
         this.mScheme = "";
-        this.bVt = "";
-        if (e.acE() != null) {
-            b.a acG = e.acE().acG();
-            this.mFrom = f.gs(acG.getAppFrameType());
-            this.mAppId = acG.getAppId();
-            this.mSource = acG.VH();
-            this.bVp = acG.VN().getString("aiapp_extra_need_download", "");
-            this.bVq = acG.VN().getString("aiapp_extra_preset_pkg", "");
-            this.mScheme = acG.VJ();
-            this.bVt = acG.getPage();
-            this.bPs = acG.Wa();
-            this.mAppVersion = acG.getVersion();
-            this.bVn = acG.getVersionCode();
+        this.bVu = "";
+        if (e.acG() != null) {
+            b.a acI = e.acG().acI();
+            this.mFrom = f.gs(acI.getAppFrameType());
+            this.mAppId = acI.getAppId();
+            this.mSource = acI.VJ();
+            this.bVq = acI.VP().getString("aiapp_extra_need_download", "");
+            this.bVr = acI.VP().getString("aiapp_extra_preset_pkg", "");
+            this.mScheme = acI.VL();
+            this.bVu = acI.getPage();
+            this.bPt = acI.Wc();
+            this.mAppVersion = acI.getVersion();
+            this.bVo = acI.getVersionCode();
         }
     }
 
     public a(JSONObject jSONObject) {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.bVn = "";
-        this.bVp = "";
+        this.bVo = "";
         this.bVq = "";
+        this.bVr = "";
         this.mScheme = "";
-        this.bVt = "";
+        this.bVu = "";
         if (jSONObject != null && jSONObject.length() != 0) {
             this.mFrom = jSONObject.optString("from", "swan");
             this.mAppId = jSONObject.optString("appId");
             this.mSource = jSONObject.optString("source");
-            this.bVp = jSONObject.optString("needDown");
-            this.bVq = jSONObject.optString("isPreset");
+            this.bVq = jSONObject.optString("needDown");
+            this.bVr = jSONObject.optString("isPreset");
             this.mScheme = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
-            this.bVt = jSONObject.optString("extPage");
-            this.bPs = jSONObject.optString("launchId", null);
+            this.bVu = jSONObject.optString("extPage");
+            this.bPt = jSONObject.optString("launchId", null);
             this.mAppVersion = jSONObject.optString("appVersion");
-            this.bVn = jSONObject.optString("thirdVersion");
+            this.bVo = jSONObject.optString("thirdVersion");
         }
     }
 
@@ -70,13 +70,13 @@ public class a {
             jSONObject.put("from", this.mFrom);
             jSONObject.put("appId", this.mAppId);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("needDown", this.bVp);
-            jSONObject.put("isPreset", this.bVq);
+            jSONObject.put("needDown", this.bVq);
+            jSONObject.put("isPreset", this.bVr);
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, this.mScheme);
-            jSONObject.put("extPage", this.bVt);
-            jSONObject.put("launchId", this.bPs);
+            jSONObject.put("extPage", this.bVu);
+            jSONObject.put("launchId", this.bPt);
             jSONObject.put("appVersion", this.mAppVersion);
-            jSONObject.put("thirdVersion", this.bVn);
+            jSONObject.put("thirdVersion", this.bVo);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -33,7 +33,7 @@ public class a extends ab {
         if (DEBUG) {
             Log.d("ConsoleAction", "handleSubAction subAction: " + str);
         }
-        if (!com.baidu.swan.apps.console.a.Lp() && !com.baidu.swan.apps.console.c.Ls() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
+        if (!com.baidu.swan.apps.console.a.Lr() && !com.baidu.swan.apps.console.c.Lu() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
             return super.e(context, unitedSchemeEntity, callbackHandler, str, eVar);
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -84,7 +84,7 @@ public class a extends ab {
         }
         switch (c) {
             case 0:
-                if (optParamsAsJo == null || (optBoolean = optParamsAsJo.optBoolean("enableDebug")) == com.baidu.swan.apps.console.a.Lp()) {
+                if (optParamsAsJo == null || (optBoolean = optParamsAsJo.optBoolean("enableDebug")) == com.baidu.swan.apps.console.a.Lr()) {
                     return true;
                 }
                 com.baidu.swan.apps.console.a.i(context, optBoolean);
@@ -92,12 +92,12 @@ public class a extends ab {
                 com.baidu.swan.apps.console.c.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
                 return true;
             case 1:
-                f.WQ().Wu().bW(true);
+                f.WS().Ww().bW(true);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "sConsole show");
                 return true;
             case 2:
-                f.WQ().Wu().bW(false);
+                f.WS().Ww().bW(false);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "sConsole hide");
                 return true;
@@ -119,7 +119,7 @@ public class a extends ab {
                 return true;
             case 5:
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "request san full data");
-                b.Nl();
+                b.Nn();
                 return true;
             case 6:
                 g.bx(optParamsAsJo);

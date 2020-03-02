@@ -34,7 +34,7 @@ class a implements f {
             MapStatus i3 = b.a().G().i();
             if (i3 != null && e != null) {
                 MapStatus.Builder builder = new MapStatus.Builder(i3);
-                builder.targetScreen(new Point((i3.winRound.right + i3.winRound.left) / 2, ((i3.winRound.bottom + i3.winRound.f993top) / 2) - (0 - ((Math.abs(i3.winRound.bottom - i3.winRound.f993top) * 2) / 10))));
+                builder.targetScreen(new Point((i3.winRound.right + i3.winRound.left) / 2, ((i3.winRound.bottom + i3.winRound.f992top) / 2) - (0 - ((Math.abs(i3.winRound.bottom - i3.winRound.f992top) * 2) / 10))));
                 builder.target(e.a(e));
                 b.a().G().a(builder.build());
             }
@@ -49,7 +49,7 @@ class a implements f {
         if (i4 != null) {
             MapStatus.Builder builder2 = new MapStatus.Builder(i4);
             int[] iArr = {0, 0};
-            b.a().G().b(new int[]{(i4.winRound.left + i4.winRound.right) / 2, (Math.abs(i4.winRound.bottom - i4.winRound.f993top) * 7) / 10}, iArr);
+            b.a().G().b(new int[]{(i4.winRound.left + i4.winRound.right) / 2, (Math.abs(i4.winRound.bottom - i4.winRound.f992top) * 7) / 10}, iArr);
             LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(iArr[1], iArr[0]));
             double d = (i4.target.latitude * 2.0d) - mc2ll.latitude;
             double d2 = (i4.target.longitude * 2.0d) - mc2ll.longitude;

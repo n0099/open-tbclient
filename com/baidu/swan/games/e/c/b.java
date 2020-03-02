@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cmK;
-    private HashMap<String, c> cke = new HashMap<>();
+    private static volatile b cmL;
+    private HashMap<String, c> ckf = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b ckg = com.baidu.swan.games.network.b.aoP();
-    private String ckf = f.alt();
+    private com.baidu.swan.games.network.b ckh = com.baidu.swan.games.network.b.aoR();
+    private String ckg = f.alv();
 
-    public static b anF() {
-        if (cmK == null) {
+    public static b anH() {
+        if (cmL == null) {
             synchronized (b.class) {
-                if (cmK == null) {
-                    cmK = new b();
+                if (cmL == null) {
+                    cmL = new b();
                 }
             }
         }
-        return cmK;
+        return cmL;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -58,15 +58,15 @@ public class b implements a {
     }
 
     private boolean oq(String str) {
-        return this.cke.containsKey(str);
+        return this.ckf.containsKey(str);
     }
 
     private void or(String str) {
         if (DEBUG) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.ckg, this.ckf, str, this);
-        this.cke.put(str, cVar);
+        c cVar = new c(this.ckh, this.ckg, str, this);
+        this.ckf.put(str, cVar);
         cVar.load();
     }
 
@@ -92,7 +92,7 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.cke.remove(str);
+                this.ckf.remove(str);
             }
         }
     }
@@ -106,12 +106,12 @@ public class b implements a {
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue("");
                 }
-                this.cke.remove(str);
+                this.ckf.remove(str);
             }
         }
     }
 
     private String os(String str) throws MalformedURLException {
-        return this.ckf + f.om(str);
+        return this.ckg + f.om(str);
     }
 }

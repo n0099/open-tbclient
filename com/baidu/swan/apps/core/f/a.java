@@ -9,13 +9,13 @@ import org.apache.http.HttpHost;
 /* loaded from: classes11.dex */
 public class a implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> bpy = new HashSet();
+    private static final Set<String> bpz = new HashSet();
 
     static {
-        bpy.add("https");
-        bpy.add(HttpHost.DEFAULT_SCHEME_NAME);
-        bpy.add(LoginConstants.SMS_LOGIN);
-        bpy.add("tel");
+        bpz.add("https");
+        bpz.add(HttpHost.DEFAULT_SCHEME_NAME);
+        bpz.add(LoginConstants.SMS_LOGIN);
+        bpz.add("tel");
     }
 
     @Override // com.baidu.swan.apps.core.f.d
@@ -32,7 +32,7 @@ public class a implements d {
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = bpy.contains(parse.getScheme());
+        boolean contains = bpz.contains(parse.getScheme());
         if (DEBUG) {
             Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
         }

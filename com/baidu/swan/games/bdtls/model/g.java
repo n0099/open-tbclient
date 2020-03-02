@@ -7,9 +7,9 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class g {
-    private Bdtls.ClientHello ckS;
-    private Bdtls.ServerHello ckT;
-    private byte[] ckU;
+    private Bdtls.ClientHello ckT;
+    private Bdtls.ServerHello ckU;
+    private byte[] ckV;
 
     public g() {
         this(null, null, null, 7, null);
@@ -19,7 +19,7 @@ public final class g {
         if (this != obj) {
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                if (!q.h(this.ckS, gVar.ckS) || !q.h(this.ckT, gVar.ckT) || !q.h(this.ckU, gVar.ckU)) {
+                if (!q.h(this.ckT, gVar.ckT) || !q.h(this.ckU, gVar.ckU) || !q.h(this.ckV, gVar.ckV)) {
                 }
             }
             return false;
@@ -28,22 +28,22 @@ public final class g {
     }
 
     public int hashCode() {
-        Bdtls.ClientHello clientHello = this.ckS;
+        Bdtls.ClientHello clientHello = this.ckT;
         int hashCode = (clientHello != null ? clientHello.hashCode() : 0) * 31;
-        Bdtls.ServerHello serverHello = this.ckT;
+        Bdtls.ServerHello serverHello = this.ckU;
         int hashCode2 = ((serverHello != null ? serverHello.hashCode() : 0) + hashCode) * 31;
-        byte[] bArr = this.ckU;
+        byte[] bArr = this.ckV;
         return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
     }
 
     public String toString() {
-        return "HandshakeParams(clientHello=" + this.ckS + ", serverHello=" + this.ckT + ", encodeDHPublicKey=" + Arrays.toString(this.ckU) + ")";
+        return "HandshakeParams(clientHello=" + this.ckT + ", serverHello=" + this.ckU + ", encodeDHPublicKey=" + Arrays.toString(this.ckV) + ")";
     }
 
     public g(Bdtls.ClientHello clientHello, Bdtls.ServerHello serverHello, byte[] bArr) {
-        this.ckS = clientHello;
-        this.ckT = serverHello;
-        this.ckU = bArr;
+        this.ckT = clientHello;
+        this.ckU = serverHello;
+        this.ckV = bArr;
     }
 
     public /* synthetic */ g(Bdtls.ClientHello clientHello, Bdtls.ServerHello serverHello, byte[] bArr, int i, o oVar) {
@@ -51,6 +51,6 @@ public final class g {
     }
 
     public final void b(Bdtls.ServerHello serverHello) {
-        this.ckT = serverHello;
+        this.ckU = serverHello;
     }
 }

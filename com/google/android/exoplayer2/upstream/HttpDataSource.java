@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface HttpDataSource extends e {
-    public static final com.google.android.exoplayer2.util.n<String> mGC = new com.google.android.exoplayer2.util.n<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
+    public static final com.google.android.exoplayer2.util.n<String> mGE = new com.google.android.exoplayer2.util.n<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.util.n
         /* renamed from: Ql */
@@ -22,28 +22,28 @@ public interface HttpDataSource extends e {
 
     /* loaded from: classes6.dex */
     public static final class b {
-        private final Map<String, String> mGD = new HashMap();
-        private Map<String, String> mGE;
+        private final Map<String, String> mGF = new HashMap();
+        private Map<String, String> mGG;
 
-        public synchronized Map<String, String> dzh() {
-            if (this.mGE == null) {
-                this.mGE = Collections.unmodifiableMap(new HashMap(this.mGD));
+        public synchronized Map<String, String> dzj() {
+            if (this.mGG == null) {
+                this.mGG = Collections.unmodifiableMap(new HashMap(this.mGF));
             }
-            return this.mGE;
+            return this.mGG;
         }
     }
 
     /* loaded from: classes6.dex */
     public static abstract class a implements n {
-        private final b mGw = new b();
+        private final b mGy = new b();
 
         protected abstract HttpDataSource b(b bVar);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.e.a
-        /* renamed from: dzg */
-        public final HttpDataSource dyT() {
-            return b(this.mGw);
+        /* renamed from: dzi */
+        public final HttpDataSource dyV() {
+            return b(this.mGy);
         }
     }
 

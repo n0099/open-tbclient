@@ -4,9 +4,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public class b {
-    private static ExecutorService aRW = Executors.newSingleThreadExecutor();
+    private static ExecutorService aRX = Executors.newSingleThreadExecutor();
 
     public static void e(Runnable runnable) {
-        aRW.submit(runnable);
+        aRX.submit(runnable);
     }
 }

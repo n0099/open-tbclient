@@ -24,10 +24,10 @@ public class bl extends ai.a {
         ca caVar2;
         Context context;
         com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        caVar = this.a.f152a;
+        caVar = this.a.f151a;
         if (caVar != null) {
-            caVar2 = this.a.f152a;
-            context = this.a.f149a;
+            caVar2 = this.a.f151a;
+            context = this.a.f148a;
             caVar2.a(context);
             this.a.b("upload_time");
         }

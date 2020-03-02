@@ -12,11 +12,11 @@ import android.widget.ImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaLiveGuardUpSlideView extends FrameLayout {
-    private ImageView dYd;
-    private AnimatorSet fcl;
-    private ObjectAnimator fcm;
+    private ImageView dYe;
+    private AnimatorSet fcm;
     private ObjectAnimator fcn;
-    a fco;
+    private ObjectAnimator fco;
+    a fcp;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -46,39 +46,39 @@ public class AlaLiveGuardUpSlideView extends FrameLayout {
     private void b(Context context, boolean z, boolean z2) {
         setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha50));
         LayoutInflater.from(context).inflate(a.h.ala_liveroom_guard_upglide_layout, this);
-        this.dYd = (ImageView) findViewById(a.g.ala_liveroom_guard_image_hand);
+        this.dYe = (ImageView) findViewById(a.g.ala_liveroom_guard_image_hand);
     }
 
-    public void bmu() {
+    public void bmw() {
         setVisibility(0);
-        bmv();
+        bmx();
     }
 
-    private void bmv() {
+    private void bmx() {
         try {
-            if (this.fcl == null) {
-                this.fcl = new AnimatorSet();
-                this.fcl.setDuration(2200L);
-                this.fcm = ObjectAnimator.ofFloat(this.dYd, "translationY", 0.0f, -126.0f, -200.0f, -200.0f, 0.0f, 0.0f, 65.0f, 110.0f, 110.0f, 0.0f, 0.0f);
-                this.fcn = ObjectAnimator.ofFloat(this.dYd, "alpha", 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
-                this.fcm.setRepeatMode(1);
-                this.fcm.setRepeatCount(-1);
+            if (this.fcm == null) {
+                this.fcm = new AnimatorSet();
+                this.fcm.setDuration(2200L);
+                this.fcn = ObjectAnimator.ofFloat(this.dYe, "translationY", 0.0f, -126.0f, -200.0f, -200.0f, 0.0f, 0.0f, 65.0f, 110.0f, 110.0f, 0.0f, 0.0f);
+                this.fco = ObjectAnimator.ofFloat(this.dYe, "alpha", 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
                 this.fcn.setRepeatMode(1);
                 this.fcn.setRepeatCount(-1);
-                this.fcl.play(this.fcm).with(this.fcn);
-                this.fcl.setInterpolator(new LinearInterpolator());
-                this.fcl.start();
+                this.fco.setRepeatMode(1);
+                this.fco.setRepeatCount(-1);
+                this.fcm.play(this.fcn).with(this.fco);
+                this.fcm.setInterpolator(new LinearInterpolator());
+                this.fcm.start();
             }
         } catch (OutOfMemoryError e) {
             System.gc();
-            if (this.fco != null) {
-                this.fco.jr(true);
+            if (this.fcp != null) {
+                this.fcp.jr(true);
             }
         }
     }
 
     public void setOnEndListener(a aVar) {
-        this.fco = aVar;
+        this.fcp = aVar;
     }
 
     @Override // android.view.View
@@ -86,16 +86,16 @@ public class AlaLiveGuardUpSlideView extends FrameLayout {
         if (getVisibility() == 8) {
             return super.onTouchEvent(motionEvent);
         }
-        if (motionEvent.getAction() == 0 && this.fco != null) {
-            this.fco.jr(false);
+        if (motionEvent.getAction() == 0 && this.fcp != null) {
+            this.fcp.jr(false);
         }
         return true;
     }
 
     public void onDestroy() {
-        if (this.fcl != null) {
-            this.fcl.cancel();
-            this.fcl = null;
+        if (this.fcm != null) {
+            this.fcm.cancel();
+            this.fcm = null;
         }
     }
 }

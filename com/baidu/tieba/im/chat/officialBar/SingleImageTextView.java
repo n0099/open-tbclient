@@ -23,10 +23,10 @@ import java.net.URISyntaxException;
 /* loaded from: classes13.dex */
 public class SingleImageTextView extends RelativeLayout {
     private TextView KA;
-    private TextView eoh;
-    private TbImageView gdI;
-    private com.baidu.adp.lib.b.b hso;
-    private TextView hvq;
+    private TextView eoi;
+    private TbImageView gdK;
+    private com.baidu.adp.lib.b.b hsq;
+    private TextView hvs;
     private ImageView mArrow;
     private Context mContext;
     private View mDivider;
@@ -43,7 +43,7 @@ public class SingleImageTextView extends RelativeLayout {
 
     public SingleImageTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hso = null;
+        this.hsq = null;
         this.mContext = context;
         initView();
     }
@@ -52,17 +52,17 @@ public class SingleImageTextView extends RelativeLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.msg_single_pic_text_view, (ViewGroup) this, true);
         this.mTitle = (TextView) findViewById(R.id.single_title);
         this.KA = (TextView) findViewById(R.id.single_abstract);
-        this.gdI = (TbImageView) findViewById(R.id.single_content_pic);
-        this.gdI.setAutoChangeStyle(false);
-        this.hvq = (TextView) findViewById(R.id.read_all);
+        this.gdK = (TbImageView) findViewById(R.id.single_content_pic);
+        this.gdK.setAutoChangeStyle(false);
+        this.hvs = (TextView) findViewById(R.id.read_all);
         this.mArrow = (ImageView) findViewById(R.id.arrow);
         this.mDivider = findViewById(R.id.single_divider);
-        this.eoh = (TextView) findViewById(R.id.show_time_single);
+        this.eoi = (TextView) findViewById(R.id.show_time_single);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.SingleImageTextView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (SingleImageTextView.this.hso != null) {
-                    SingleImageTextView.this.hso.onItemViewLongClick(view, 9, SingleImageTextView.this.mPosition, 0L);
+                if (SingleImageTextView.this.hsq != null) {
+                    SingleImageTextView.this.hsq.onItemViewLongClick(view, 9, SingleImageTextView.this.mPosition, 0L);
                     return false;
                 }
                 return false;
@@ -94,20 +94,20 @@ public class SingleImageTextView extends RelativeLayout {
                                 e.printStackTrace();
                             }
                         }
-                        ba.aGE().b(tbPageContext, new String[]{aVar.url});
+                        ba.aGG().b(tbPageContext, new String[]{aVar.url});
                         if (i == 1) {
                             TiebaStatic.eventStat(SingleImageTextView.this.mContext, "official_msg_ck", "click", 1, "fid", aVar.fid);
-                            com.baidu.tieba.im.data.d DC = com.baidu.tieba.im.util.e.DC(aVar.hua);
+                            com.baidu.tieba.im.data.d DC = com.baidu.tieba.im.util.e.DC(aVar.huc);
                             if (DC != null) {
-                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", DC.hxH, "task_id", DC.taskId, "loc", "0");
+                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", DC.hxJ, "task_id", DC.taskId, "loc", "0");
                                 if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(DC.taskId)) {
-                                    com.baidu.tieba.im.b.a.bYc().Dw(DC.taskId);
+                                    com.baidu.tieba.im.b.a.bYe().Dw(DC.taskId);
                                 }
                             }
                             an anVar = new an("official_message_open_detail");
-                            anVar.s("msg_id", aVar.huh / 100);
-                            anVar.cy("official_id", aVar.hui);
-                            anVar.X("official_type", aVar.huj);
+                            anVar.s("msg_id", aVar.huj / 100);
+                            anVar.cy("official_id", aVar.huk);
+                            anVar.X("official_type", aVar.hul);
                             anVar.s("operate_time", System.currentTimeMillis() / 1000);
                             anVar.s("task_id", aVar.taskId);
                             anVar.cy("obj_params1", aVar.url);
@@ -117,8 +117,8 @@ public class SingleImageTextView extends RelativeLayout {
                 });
             }
             if (!TextUtils.isEmpty(aVar.src)) {
-                this.gdI.setTag(aVar.src);
-                this.gdI.startLoad(aVar.src, 10, false);
+                this.gdK.setTag(aVar.src);
+                this.gdK.startLoad(aVar.src, 10, false);
             }
             ViewGroup.LayoutParams layoutParams = this.KA.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -132,14 +132,14 @@ public class SingleImageTextView extends RelativeLayout {
     public void reset() {
         this.mTitle.setText("");
         this.KA.setText("");
-        this.gdI.setBackgroundDrawable(null);
-        this.gdI.setImageDrawable(null);
-        this.eoh.setText("");
-        this.eoh.setVisibility(8);
+        this.gdK.setBackgroundDrawable(null);
+        this.gdK.setImageDrawable(null);
+        this.eoi.setText("");
+        this.eoi.setVisibility(8);
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.hso = bVar;
+        this.hsq = bVar;
     }
 
     public void setPosition(int i) {
@@ -151,22 +151,22 @@ public class SingleImageTextView extends RelativeLayout {
         if (!z) {
             skinType = 0;
         }
-        this.gdI.setAutoChangeStyle(z);
+        this.gdK.setAutoChangeStyle(z);
         am.setViewTextColor(this.mTitle, R.color.common_color_10039, 1, skinType);
         am.setViewTextColor(this.KA, R.color.cp_cont_c, 1, skinType);
-        am.setViewTextColor(this.hvq, R.color.common_color_10039, 1, skinType);
+        am.setViewTextColor(this.hvs, R.color.common_color_10039, 1, skinType);
         am.setBackgroundResource(this.mArrow, R.drawable.icon_ba_top_arrow_big, skinType);
-        am.setViewTextColor(this.eoh, R.color.common_color_10067, 1, skinType);
+        am.setViewTextColor(this.eoi, R.color.common_color_10067, 1, skinType);
         am.setBackgroundResource(this.mDivider, R.drawable.multi_single_divider_selector, skinType);
     }
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.eoh.setVisibility(8);
-            this.eoh.setText("");
+            this.eoi.setVisibility(8);
+            this.eoi.setText("");
             return;
         }
-        this.eoh.setVisibility(0);
-        this.eoh.setText(str);
+        this.eoi.setVisibility(0);
+        this.eoi.setText(str);
     }
 }

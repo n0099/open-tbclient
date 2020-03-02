@@ -9,24 +9,24 @@ import java.util.Collections;
 /* loaded from: classes6.dex */
 public final class m implements h {
     private int channelCount;
-    private Format lZw;
+    private Format lZy;
     private final String language;
-    private int maU;
-    private long mdB;
-    private com.google.android.exoplayer2.extractor.m meJ;
-    private String mmG;
-    private int mmx;
-    private long mmz;
-    private final com.google.android.exoplayer2.util.l mnV = new com.google.android.exoplayer2.util.l(1024);
-    private final com.google.android.exoplayer2.util.k mnW = new com.google.android.exoplayer2.util.k(this.mnV.data);
-    private int mnX;
-    private boolean mnY;
+    private int maW;
+    private long mdD;
+    private com.google.android.exoplayer2.extractor.m meL;
+    private long mmB;
+    private String mmI;
+    private int mmz;
+    private final com.google.android.exoplayer2.util.l mnX = new com.google.android.exoplayer2.util.l(1024);
+    private final com.google.android.exoplayer2.util.k mnY = new com.google.android.exoplayer2.util.k(this.mnX.data);
     private int mnZ;
-    private int moa;
+    private boolean moa;
     private int mob;
     private int moc;
-    private boolean mod;
-    private long moe;
+    private int mod;
+    private int moe;
+    private boolean mof;
+    private long mog;
     private int sampleSize;
     private int state;
 
@@ -35,26 +35,26 @@ public final class m implements h {
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void czb() {
+    public void czd() {
         this.state = 0;
-        this.mnY = false;
+        this.moa = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        dVar.dvC();
-        this.meJ = gVar.dK(dVar.dvD(), 1);
-        this.mmG = dVar.dvE();
+        dVar.dvE();
+        this.meL = gVar.dK(dVar.dvF(), 1);
+        this.mmI = dVar.dvG();
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void o(long j, boolean z) {
-        this.mdB = j;
+        this.mdD = j;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) throws ParserException {
-        while (lVar.dzr() > 0) {
+        while (lVar.dzt() > 0) {
             switch (this.state) {
                 case 0:
                     if (lVar.readUnsignedByte() != 86) {
@@ -66,7 +66,7 @@ public final class m implements h {
                 case 1:
                     int readUnsignedByte = lVar.readUnsignedByte();
                     if ((readUnsignedByte & 224) == 224) {
-                        this.mnX = readUnsignedByte;
+                        this.mnZ = readUnsignedByte;
                         this.state = 2;
                         break;
                     } else if (readUnsignedByte == 86) {
@@ -76,22 +76,22 @@ public final class m implements h {
                         break;
                     }
                 case 2:
-                    this.sampleSize = ((this.mnX & (-225)) << 8) | lVar.readUnsignedByte();
-                    if (this.sampleSize > this.mnV.data.length) {
+                    this.sampleSize = ((this.mnZ & (-225)) << 8) | lVar.readUnsignedByte();
+                    if (this.sampleSize > this.mnX.data.length) {
                         JY(this.sampleSize);
                     }
-                    this.mmx = 0;
+                    this.mmz = 0;
                     this.state = 3;
                     break;
                 case 3:
-                    int min = Math.min(lVar.dzr(), this.sampleSize - this.mmx);
-                    lVar.G(this.mnW.data, this.mmx, min);
-                    this.mmx = min + this.mmx;
-                    if (this.mmx != this.sampleSize) {
+                    int min = Math.min(lVar.dzt(), this.sampleSize - this.mmz);
+                    lVar.G(this.mnY.data, this.mmz, min);
+                    this.mmz = min + this.mmz;
+                    if (this.mmz != this.sampleSize) {
                         break;
                     } else {
-                        this.mnW.setPosition(0);
-                        b(this.mnW);
+                        this.mnY.setPosition(0);
+                        b(this.mnY);
                         this.state = 0;
                         break;
                     }
@@ -100,23 +100,23 @@ public final class m implements h {
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dvn() {
+    public void dvp() {
     }
 
     private void b(com.google.android.exoplayer2.util.k kVar) throws ParserException {
-        if (!kVar.dvl()) {
-            this.mnY = true;
+        if (!kVar.dvn()) {
+            this.moa = true;
             c(kVar);
-        } else if (!this.mnY) {
+        } else if (!this.moa) {
             return;
         }
-        if (this.moa == 0) {
-            if (this.mob != 0) {
+        if (this.moc == 0) {
+            if (this.mod != 0) {
                 throw new ParserException();
             }
             a(kVar, f(kVar));
-            if (this.mod) {
-                kVar.JU((int) this.moe);
+            if (this.mof) {
+                kVar.JU((int) this.mog);
                 return;
             }
             return;
@@ -125,51 +125,51 @@ public final class m implements h {
     }
 
     private void c(com.google.android.exoplayer2.util.k kVar) throws ParserException {
-        boolean dvl;
-        this.mnZ = kVar.readBits(1);
-        this.moa = this.mnZ == 1 ? kVar.readBits(1) : 0;
-        if (this.moa == 0) {
-            if (this.mnZ == 1) {
+        boolean dvn;
+        this.mob = kVar.readBits(1);
+        this.moc = this.mob == 1 ? kVar.readBits(1) : 0;
+        if (this.moc == 0) {
+            if (this.mob == 1) {
                 g(kVar);
             }
-            if (!kVar.dvl()) {
+            if (!kVar.dvn()) {
                 throw new ParserException();
             }
-            this.mob = kVar.readBits(6);
+            this.mod = kVar.readBits(6);
             int readBits = kVar.readBits(4);
             int readBits2 = kVar.readBits(3);
             if (readBits != 0 || readBits2 != 0) {
                 throw new ParserException();
             }
-            if (this.mnZ == 0) {
+            if (this.mob == 0) {
                 int position = kVar.getPosition();
                 int e = e(kVar);
                 kVar.setPosition(position);
                 byte[] bArr = new byte[(e + 7) / 8];
                 kVar.F(bArr, 0, e);
-                Format a = Format.a(this.mmG, "audio/mp4a-latm", null, -1, -1, this.channelCount, this.maU, Collections.singletonList(bArr), null, 0, this.language);
-                if (!a.equals(this.lZw)) {
-                    this.lZw = a;
-                    this.mmz = 1024000000 / a.sampleRate;
-                    this.meJ.h(a);
+                Format a = Format.a(this.mmI, "audio/mp4a-latm", null, -1, -1, this.channelCount, this.maW, Collections.singletonList(bArr), null, 0, this.language);
+                if (!a.equals(this.lZy)) {
+                    this.lZy = a;
+                    this.mmB = 1024000000 / a.sampleRate;
+                    this.meL.h(a);
                 }
             } else {
                 kVar.JU(((int) g(kVar)) - e(kVar));
             }
             d(kVar);
-            this.mod = kVar.dvl();
-            this.moe = 0L;
-            if (this.mod) {
-                if (this.mnZ == 1) {
-                    this.moe = g(kVar);
+            this.mof = kVar.dvn();
+            this.mog = 0L;
+            if (this.mof) {
+                if (this.mob == 1) {
+                    this.mog = g(kVar);
                 } else {
                     do {
-                        dvl = kVar.dvl();
-                        this.moe = (this.moe << 8) + kVar.readBits(8);
-                    } while (dvl);
+                        dvn = kVar.dvn();
+                        this.mog = (this.mog << 8) + kVar.readBits(8);
+                    } while (dvn);
                 }
             }
-            if (kVar.dvl()) {
+            if (kVar.dvn()) {
                 kVar.JU(8);
                 return;
             }
@@ -179,8 +179,8 @@ public final class m implements h {
     }
 
     private void d(com.google.android.exoplayer2.util.k kVar) {
-        this.moc = kVar.readBits(3);
-        switch (this.moc) {
+        this.moe = kVar.readBits(3);
+        switch (this.moe) {
             case 0:
                 kVar.JU(8);
                 return;
@@ -203,17 +203,17 @@ public final class m implements h {
     }
 
     private int e(com.google.android.exoplayer2.util.k kVar) throws ParserException {
-        int dzn = kVar.dzn();
+        int dzp = kVar.dzp();
         Pair<Integer, Integer> a = com.google.android.exoplayer2.util.c.a(kVar, true);
-        this.maU = ((Integer) a.first).intValue();
+        this.maW = ((Integer) a.first).intValue();
         this.channelCount = ((Integer) a.second).intValue();
-        return dzn - kVar.dzn();
+        return dzp - kVar.dzp();
     }
 
     private int f(com.google.android.exoplayer2.util.k kVar) throws ParserException {
         int readBits;
         int i = 0;
-        if (this.moc == 0) {
+        if (this.moe == 0) {
             do {
                 readBits = kVar.readBits(8);
                 i += readBits;
@@ -226,19 +226,19 @@ public final class m implements h {
     private void a(com.google.android.exoplayer2.util.k kVar, int i) {
         int position = kVar.getPosition();
         if ((position & 7) == 0) {
-            this.mnV.setPosition(position >> 3);
+            this.mnX.setPosition(position >> 3);
         } else {
-            kVar.F(this.mnV.data, 0, i * 8);
-            this.mnV.setPosition(0);
+            kVar.F(this.mnX.data, 0, i * 8);
+            this.mnX.setPosition(0);
         }
-        this.meJ.a(this.mnV, i);
-        this.meJ.a(this.mdB, 1, i, 0, null);
-        this.mdB += this.mmz;
+        this.meL.a(this.mnX, i);
+        this.meL.a(this.mdD, 1, i, 0, null);
+        this.mdD += this.mmB;
     }
 
     private void JY(int i) {
-        this.mnV.reset(i);
-        this.mnW.aB(this.mnV.data);
+        this.mnX.reset(i);
+        this.mnY.aB(this.mnX.data);
     }
 
     private static long g(com.google.android.exoplayer2.util.k kVar) {

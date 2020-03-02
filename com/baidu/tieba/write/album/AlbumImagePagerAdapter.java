@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes13.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> aCq = new HashMap();
-    private AlbumActivity kML;
+    private Map<Integer, Boolean> aCr = new HashMap();
+    private AlbumActivity kMN;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.kML = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.kML.getPageContext().getPageActivity());
+        this.kMN = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.kMN.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -49,10 +49,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     }
 
     public boolean cQ(int i) {
-        if (this.aCq.get(Integer.valueOf(i)) == null) {
+        if (this.aCr.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.aCq.get(Integer.valueOf(i)).booleanValue();
+        return this.aCr.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -76,7 +76,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         if (yq != null) {
             tbImageView2.startLoad(yq.getFilePath(), 35, false, true);
             tbImageView.startLoad(yq.getFilePath(), 36, false);
-            this.aCq.put(Integer.valueOf(i), true);
+            this.aCr.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
         am.setBackgroundColor(inflate, R.color.cp_bg_line_d);

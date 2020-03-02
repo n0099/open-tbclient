@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext eDa;
-    private d eDb;
+    private TbPageContext eDb;
+    private d eDc;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eDa = tbPageContext;
+        this.eDb = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.eDb = new d(this.eDa);
-        ((ViewGroup) getView()).addView(this.eDb.getView());
+        this.eDc = new d(this.eDb);
+        ((ViewGroup) getView()).addView(this.eDc.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.eDb != null) {
-            this.eDb.onChangeSkinType(tbPageContext, i);
+        if (this.eDc != null) {
+            this.eDc.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.cRe != null && this.eDb != null) {
-            this.eDb.a(cVar.cRe);
+        if (cVar != null && cVar.cRf != null && this.eDc != null) {
+            this.eDc.a(cVar.cRf);
         }
     }
 
@@ -46,18 +46,18 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     public void c(com.baidu.tieba.ala.d dVar) {
-        if (this.eDb != null) {
-            this.eDb.d(dVar);
+        if (this.eDc != null) {
+            this.eDc.d(dVar);
         }
     }
 
     /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public f eDc;
+        public f eDd;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.eDc = fVar;
+            this.eDd = fVar;
         }
     }
 }

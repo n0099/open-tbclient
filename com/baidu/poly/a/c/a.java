@@ -5,35 +5,35 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 /* loaded from: classes11.dex */
 public class a implements c {
-    private static a aQq;
-    private static e aQr;
-    private static com.baidu.poly.a.d.b aQs;
-    private static com.baidu.poly.a.d.a aQt;
+    private static a aQr;
+    private static e aQs;
+    private static com.baidu.poly.a.d.b aQt;
+    private static com.baidu.poly.a.d.a aQu;
     private Context context;
 
     private a(Context context) {
         this.context = context.getApplicationContext();
-        aQs = new com.baidu.poly.a.d.b();
-        aQt = new com.baidu.poly.a.d.a(context);
-        aQr = new e();
+        aQt = new com.baidu.poly.a.d.b();
+        aQu = new com.baidu.poly.a.d.a(context);
+        aQs = new e();
     }
 
-    public static com.baidu.poly.a.d.b EA() {
-        if (aQs == null) {
-            aQs = new com.baidu.poly.a.d.b();
+    public static com.baidu.poly.a.d.b EC() {
+        if (aQt == null) {
+            aQt = new com.baidu.poly.a.d.b();
         }
-        return aQs;
+        return aQt;
     }
 
     public static a aW(Context context) {
-        if (aQq == null) {
+        if (aQr == null) {
             synchronized (a.class) {
-                if (aQq == null) {
-                    aQq = new a(context);
+                if (aQr == null) {
+                    aQr = new a(context);
                 }
             }
         }
-        return aQq;
+        return aQr;
     }
 
     @Override // com.baidu.poly.a.c.c
@@ -43,18 +43,18 @@ public class a implements c {
 
     public void a(ImageView imageView, String str, int i, int i2) {
         imageView.setTag(str);
-        Bitmap eN = aQs.eN(str);
+        Bitmap eN = aQt.eN(str);
         if (eN != null) {
             imageView.setImageBitmap(eN);
         } else {
-            com.baidu.poly.b.a.execute(new g(this.context, aQr, str, imageView, i, i2));
+            com.baidu.poly.b.a.execute(new g(this.context, aQs, str, imageView, i, i2));
         }
     }
 
     public static com.baidu.poly.a.d.a aX(Context context) {
-        if (aQt == null) {
-            aQt = new com.baidu.poly.a.d.a(context);
+        if (aQu == null) {
+            aQu = new com.baidu.poly.a.d.a(context);
         }
-        return aQt;
+        return aQu;
     }
 }

@@ -11,26 +11,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.video.record.i;
 /* loaded from: classes10.dex */
 public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, i.a {
-    private ImageView kDF;
-    private ImageView kDG;
     private ImageView kDH;
     private ImageView kDI;
-    private LinearLayout kDJ;
-    private LinearLayout kDK;
+    private ImageView kDJ;
+    private ImageView kDK;
     private LinearLayout kDL;
     private LinearLayout kDM;
-    private a kDN;
-    private View kDO;
+    private LinearLayout kDN;
+    private LinearLayout kDO;
+    private a kDP;
+    private View kDQ;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void cRK();
-
-        void cRL();
-
         void cRM();
 
         void cRN();
+
+        void cRO();
+
+        void cRP();
     }
 
     public VideoEffectButtonLayout(Context context) {
@@ -50,37 +50,37 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     private void initView() {
         inflate(getContext(), R.layout.layout_video_effect_button, this);
-        this.kDJ = (LinearLayout) findViewById(R.id.layout_music);
-        this.kDK = (LinearLayout) findViewById(R.id.layout_sticker);
-        this.kDL = (LinearLayout) findViewById(R.id.layout_beauty);
-        this.kDM = (LinearLayout) findViewById(R.id.layout_filter);
-        this.kDF = (ImageView) findViewById(R.id.img_music);
-        this.kDG = (ImageView) findViewById(R.id.img_sticker);
-        this.kDH = (ImageView) findViewById(R.id.img_beauty);
-        this.kDI = (ImageView) findViewById(R.id.img_filter);
-        this.kDF.setOnClickListener(this);
-        this.kDG.setOnClickListener(this);
+        this.kDL = (LinearLayout) findViewById(R.id.layout_music);
+        this.kDM = (LinearLayout) findViewById(R.id.layout_sticker);
+        this.kDN = (LinearLayout) findViewById(R.id.layout_beauty);
+        this.kDO = (LinearLayout) findViewById(R.id.layout_filter);
+        this.kDH = (ImageView) findViewById(R.id.img_music);
+        this.kDI = (ImageView) findViewById(R.id.img_sticker);
+        this.kDJ = (ImageView) findViewById(R.id.img_beauty);
+        this.kDK = (ImageView) findViewById(R.id.img_filter);
         this.kDH.setOnClickListener(this);
         this.kDI.setOnClickListener(this);
+        this.kDJ.setOnClickListener(this);
+        this.kDK.setOnClickListener(this);
     }
 
     public void reset() {
-        this.kDO = null;
+        this.kDQ = null;
     }
 
     public void setViewVisibility(int i, int i2) {
         switch (i) {
             case 0:
-                this.kDJ.setVisibility(i2);
-                return;
-            case 1:
-                this.kDK.setVisibility(i2);
-                return;
-            case 2:
                 this.kDL.setVisibility(i2);
                 return;
-            case 3:
+            case 1:
                 this.kDM.setVisibility(i2);
+                return;
+            case 2:
+                this.kDN.setVisibility(i2);
+                return;
+            case 3:
+                this.kDO.setVisibility(i2);
                 return;
             default:
                 return;
@@ -90,16 +90,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public void setViewChoosed(int i, boolean z) {
         switch (i) {
             case 0:
-                this.kDF.setSelected(z);
-                return;
-            case 1:
-                this.kDG.setSelected(z);
-                return;
-            case 2:
                 this.kDH.setSelected(z);
                 return;
-            case 3:
+            case 1:
                 this.kDI.setSelected(z);
+                return;
+            case 2:
+                this.kDJ.setSelected(z);
+                return;
+            case 3:
+                this.kDK.setSelected(z);
                 return;
             default:
                 return;
@@ -108,21 +108,21 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.kDN != null) {
+        if (this.kDP != null) {
             int id = view.getId();
-            this.kDO = view;
+            this.kDQ = view;
             an anVar = new an("c12495");
             if (id == R.id.img_music) {
-                this.kDN.cRK();
+                this.kDP.cRM();
                 anVar.X("obj_type", 6);
             } else if (id == R.id.img_sticker) {
-                this.kDN.cRL();
+                this.kDP.cRN();
                 anVar.X("obj_type", 4);
             } else if (id == R.id.img_beauty) {
-                this.kDN.cRM();
+                this.kDP.cRO();
                 anVar.X("obj_type", 3);
             } else if (id == R.id.img_filter) {
-                this.kDN.cRN();
+                this.kDP.cRP();
                 anVar.X("obj_type", 2);
             }
             TiebaStatic.log(anVar);
@@ -130,15 +130,15 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     }
 
     public void setListener(a aVar) {
-        this.kDN = aVar;
+        this.kDP = aVar;
     }
 
     @Override // com.baidu.tieba.video.record.i.a
     public void DI(int i) {
         if (i == 1) {
-            this.kDF.setImageResource(R.drawable.icon_video_music);
+            this.kDH.setImageResource(R.drawable.icon_video_music);
         } else {
-            this.kDF.setImageResource(R.drawable.icon_video_music_disable);
+            this.kDH.setImageResource(R.drawable.icon_video_music_disable);
         }
     }
 }

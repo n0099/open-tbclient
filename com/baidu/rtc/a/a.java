@@ -14,25 +14,25 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private AlaNDKPlayerAdapter aXx;
+    private AlaNDKPlayerAdapter aXy;
     private AudioManager mAudioManager;
     private Context mContext;
     private boolean mRunOpenSLES;
     private AudioTrack mAudioTrack = null;
     private AudioRecord mAudioRecord = null;
-    private C0169a aXv = new C0169a();
     private C0169a aXw = new C0169a();
-    private AudioRouteMonitor aXy = null;
-    private boolean aXz = false;
+    private C0169a aXx = new C0169a();
+    private AudioRouteMonitor aXz = null;
+    private boolean aXA = false;
 
     public a(Context context, long j) {
         this.mContext = null;
-        this.aXx = null;
+        this.aXy = null;
         this.mAudioManager = null;
         this.mRunOpenSLES = false;
         this.mContext = context;
-        this.aXx = new AlaNDKPlayerAdapter();
-        this.aXx.setNativeObject(j);
+        this.aXy = new AlaNDKPlayerAdapter();
+        this.aXy.setNativeObject(j);
         try {
             this.mAudioManager = (AudioManager) this.mContext.getSystemService("audio");
         } catch (Exception e) {
@@ -43,12 +43,12 @@ public class a {
     }
 
     public boolean Q(int i, int i2) {
-        if (this.aXv.flags == 1) {
+        if (this.aXw.flags == 1) {
             return true;
         }
-        this.aXv.sampleRate = i;
-        this.aXv.channels = i2;
-        this.aXv.flags = 1;
+        this.aXw.sampleRate = i;
+        this.aXw.channels = i2;
+        this.aXw.flags = 1;
         int minBufferSize = AudioTrack.getMinBufferSize(i, i2, 2);
         try {
         } catch (IllegalArgumentException e) {
@@ -61,17 +61,17 @@ public class a {
         if (d.useOpenSLES()) {
             int i3 = i2 != 12 ? 1 : 2;
             AudioProcessModule.sharedInstance().updateSystemInfo(Build.VERSION.SDK_INT, Build.MODEL);
-            this.aXx.setWebRtcHandle(AudioProcessModule.sharedInstance().getContext());
+            this.aXy.setWebRtcHandle(AudioProcessModule.sharedInstance().getContext());
             if (AudioProcessModule.sharedInstance().createAudioPlayer(d.OUTPUT_SAMPLE_RATE, i3, d.OUTPUT_FRAMES_PER_BUFFER) != 0) {
                 Log.e(TAG, "createAudioPlayer failed");
             }
-            if (AudioProcessModule.sharedInstance().setRenderBuffer(this.aXv.aXI, 1.2f) != 0) {
+            if (AudioProcessModule.sharedInstance().setRenderBuffer(this.aXw.aXJ, 1.2f) != 0) {
                 Log.e(TAG, "setRenderBuffer failed");
             }
             AudioProcessModule.sharedInstance().setRenderCallback(new AudioProcessModule.RenderCallback() { // from class: com.baidu.rtc.a.a.1
                 @Override // com.baidu.rtc.ndk.AudioProcessModule.RenderCallback
                 public void onRenderData(int i4) {
-                    a.this.aXv.aXB = System.currentTimeMillis();
+                    a.this.aXw.aXC = System.currentTimeMillis();
                 }
             });
             if (AudioProcessModule.sharedInstance().audioPlayerStart() != 0) {
@@ -81,28 +81,28 @@ public class a {
             return true;
         }
         AudioProcessModule.sharedInstance().updateSystemInfo(Build.VERSION.SDK_INT, Build.MODEL);
-        this.aXx.setWebRtcHandle(AudioProcessModule.sharedInstance().getContext());
-        if (AudioProcessModule.sharedInstance().setRenderBuffer(this.aXv.aXI, 1.2f) != 0) {
+        this.aXy.setWebRtcHandle(AudioProcessModule.sharedInstance().getContext());
+        if (AudioProcessModule.sharedInstance().setRenderBuffer(this.aXw.aXJ, 1.2f) != 0) {
             Log.e(TAG, "setRenderBuffer failed");
         }
-        this.aXv.aXD = (i / 100) * 2;
+        this.aXw.aXE = (i / 100) * 2;
         this.mAudioTrack = new AudioTrack(0, i, i2, 2, minBufferSize, 1);
         this.mAudioTrack.play();
         return this.mAudioTrack != null;
     }
 
     public boolean R(int i, int i2) {
-        if (this.aXw.flags == 1) {
+        if (this.aXx.flags == 1) {
             return true;
         }
-        this.aXw.sampleRate = i;
-        this.aXw.channels = i2;
-        this.aXw.flags = 1;
+        this.aXx.sampleRate = i;
+        this.aXx.channels = i2;
+        this.aXx.flags = 1;
         int minBufferSize = AudioRecord.getMinBufferSize(i, i2, 2);
         if (minBufferSize < i) {
             minBufferSize = i;
         }
-        FM();
+        FO();
         if (this.mAudioManager != null) {
             try {
                 this.mAudioManager.setSpeakerphoneOn(!this.mAudioManager.isWiredHeadsetOn());
@@ -127,7 +127,7 @@ public class a {
             AudioProcessModule.sharedInstance().setCaptureCallback(new AudioProcessModule.CaptureCallback() { // from class: com.baidu.rtc.a.a.2
                 @Override // com.baidu.rtc.ndk.AudioProcessModule.CaptureCallback
                 public void onCaptureData(int i5) {
-                    a.this.aXw.aXB = System.currentTimeMillis();
+                    a.this.aXx.aXC = System.currentTimeMillis();
                 }
             });
             if (AudioProcessModule.sharedInstance().audioRecorderStart() != 0) {
@@ -137,10 +137,10 @@ public class a {
         }
         try {
             this.mAudioRecord = new AudioRecord(7, i, i2, 2, minBufferSize);
-            this.aXw.aXD = (i / 100) * 2;
+            this.aXx.aXE = (i / 100) * 2;
             int i5 = i2 == 12 ? 2 : 1;
             AudioProcessModule.sharedInstance().createAudioProcessModule(d.OUTPUT_SAMPLE_RATE, i, i5, i5, 0, 1, 1);
-            AudioProcessModule.sharedInstance().setCaptureBuffer(this.aXw.aXI, 1.3f);
+            AudioProcessModule.sharedInstance().setCaptureBuffer(this.aXx.aXJ, 1.3f);
             this.mAudioRecord.startRecording();
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
@@ -161,13 +161,13 @@ public class a {
             try {
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.aXw.aXH = null;
-                this.aXw.aXG = null;
+                this.aXx.aXI = null;
+                this.aXx.aXH = null;
             } catch (Exception e) {
                 e.printStackTrace();
             }
             this.mAudioRecord = null;
-            this.aXw.flags = 2;
+            this.aXx.flags = 2;
         }
         if (d.useOpenSLES() && AudioProcessModule.sharedInstance().audioRecorderStop() != 0) {
             Log.e(TAG, "OpenSLES audio recorder stop failed");
@@ -179,13 +179,13 @@ public class a {
             try {
                 this.mAudioTrack.stop();
                 this.mAudioTrack.release();
-                this.aXw.aXH = null;
-                this.aXw.aXG = null;
+                this.aXx.aXI = null;
+                this.aXx.aXH = null;
             } catch (Exception e) {
                 e.printStackTrace();
             }
             this.mAudioTrack = null;
-            this.aXv.flags = 2;
+            this.aXw.flags = 2;
         }
         if (d.useOpenSLES() && AudioProcessModule.sharedInstance().audioPlayerStop() != 0) {
             Log.e(TAG, "OpenSLES audio player stop failed");
@@ -193,7 +193,7 @@ public class a {
     }
 
     public void destroy() {
-        FL();
+        FN();
         this.mContext = null;
         AudioProcessModule.sharedInstance().destroyAudioProcessModule();
         AudioProcessModule.sharedInstance().setCaptureCallback(null);
@@ -201,8 +201,8 @@ public class a {
     }
 
     public void mute() {
-        this.aXv.mute = 1;
         this.aXw.mute = 1;
+        this.aXx.mute = 1;
         if (d.useOpenSLES()) {
             if (AudioProcessModule.sharedInstance().audioRecorderSetOpt(3) != 0) {
                 Log.e(TAG, "mute rec failed");
@@ -214,8 +214,8 @@ public class a {
     }
 
     public void unMute() {
-        this.aXv.mute = 2;
         this.aXw.mute = 2;
+        this.aXx.mute = 2;
         if (d.useOpenSLES()) {
             if (AudioProcessModule.sharedInstance().audioRecorderSetOpt(4) != 0) {
                 Log.e(TAG, "unMute rec failed");
@@ -227,8 +227,8 @@ public class a {
     }
 
     public void pause() {
-        this.aXv.aXC = 1;
-        this.aXw.aXC = 1;
+        this.aXw.aXD = 1;
+        this.aXx.aXD = 1;
         if (d.useOpenSLES()) {
             if (AudioProcessModule.sharedInstance().audioRecorderSetOpt(1) != 0) {
                 Log.e(TAG, "pause rec failed");
@@ -240,8 +240,8 @@ public class a {
     }
 
     public void resume() {
-        this.aXv.aXC = 2;
-        this.aXw.aXC = 2;
+        this.aXw.aXD = 2;
+        this.aXx.aXD = 2;
         if (d.useOpenSLES()) {
             if (AudioProcessModule.sharedInstance().audioRecorderSetOpt(2) != 0) {
                 Log.e(TAG, "resume failed");
@@ -254,49 +254,49 @@ public class a {
 
     public byte[] readData() {
         boolean z = true;
-        if (d.useOpenSLES() || this.mAudioRecord == null || this.aXw.aXC == 1) {
+        if (d.useOpenSLES() || this.mAudioRecord == null || this.aXx.aXD == 1) {
             return null;
         }
         do {
             try {
-                int read = this.mAudioRecord.read(this.aXw.aXI.array(), 0, this.aXw.aXD);
-                if (read != this.aXw.aXD) {
+                int read = this.mAudioRecord.read(this.aXx.aXJ.array(), 0, this.aXx.aXE);
+                if (read != this.aXx.aXE) {
                     Log.e(TAG, "readDataRTC read data error. length is " + read);
                     return null;
                 }
-                if (this.aXw.mute == 1) {
-                    byte[] array = this.aXw.aXI.array();
+                if (this.aXx.mute == 1) {
+                    byte[] array = this.aXx.aXJ.array();
                     for (int i = 0; i < array.length; i++) {
                         array[i] = 0;
                     }
                 }
-                this.aXw.aXE[0] = 0;
-                this.aXw.aXF[0] = this.aXw.aXD;
-                int updateCaptureBuffer = AudioProcessModule.sharedInstance().updateCaptureBuffer(this.aXw.aXE, this.aXw.aXF);
+                this.aXx.aXF[0] = 0;
+                this.aXx.aXG[0] = this.aXx.aXE;
+                int updateCaptureBuffer = AudioProcessModule.sharedInstance().updateCaptureBuffer(this.aXx.aXF, this.aXx.aXG);
                 if (updateCaptureBuffer != 0) {
                     Log.e(TAG, "AudioProcessModule.updateCaptureBuffer failed " + updateCaptureBuffer);
                 }
-                if (updateCaptureBuffer != 0 || this.aXw.aXF[0] <= 0) {
+                if (updateCaptureBuffer != 0 || this.aXx.aXG[0] <= 0) {
                     z = false;
                     break;
                 }
-                this.aXw.aXG.write(this.aXw.aXI.array(), 0, this.aXw.aXF[0]);
+                this.aXx.aXH.write(this.aXx.aXJ.array(), 0, this.aXx.aXG[0]);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
-        } while (this.aXw.aXG.size() <= 2048);
-        this.aXw.aXG.read(this.aXw.aXH, 0, 2048);
-        this.aXw.aXG.delete(2048);
+        } while (this.aXx.aXH.size() <= 2048);
+        this.aXx.aXH.read(this.aXx.aXI, 0, 2048);
+        this.aXx.aXH.delete(2048);
         if (z) {
-            return this.aXw.aXH;
+            return this.aXx.aXI;
         }
         return null;
     }
 
     public void writeData(byte[] bArr, int i, int i2) {
-        if (bArr != null && bArr.length != 0 && !d.useOpenSLES() && this.mAudioTrack != null && this.aXv.aXC != 1 && this.mAudioTrack.getState() != 0) {
-            if (this.aXv.mute == 1) {
+        if (bArr != null && bArr.length != 0 && !d.useOpenSLES() && this.mAudioTrack != null && this.aXw.aXD != 1 && this.mAudioTrack.getState() != 0) {
+            if (this.aXw.mute == 1) {
                 for (int i3 = 0; i3 < i2; i3++) {
                     bArr[i + i3] = 0;
                 }
@@ -309,14 +309,14 @@ public class a {
                 }
                 if (playState == 3) {
                     try {
-                        this.aXv.aXI.rewind();
-                        this.aXv.aXI.put(bArr, i, i2);
-                        this.aXv.aXE[0] = 0;
-                        this.aXv.aXF[0] = i2;
-                        if (AudioProcessModule.sharedInstance().updateRenderBuffer(this.aXv.aXE, this.aXv.aXF) != 0) {
+                        this.aXw.aXJ.rewind();
+                        this.aXw.aXJ.put(bArr, i, i2);
+                        this.aXw.aXF[0] = 0;
+                        this.aXw.aXG[0] = i2;
+                        if (AudioProcessModule.sharedInstance().updateRenderBuffer(this.aXw.aXF, this.aXw.aXG) != 0) {
                             Log.e(TAG, "AudioProcessModule.updateRenderBuffer failed");
                         }
-                        this.mAudioTrack.write(this.aXv.aXI.array(), 0, i2);
+                        this.mAudioTrack.write(this.aXw.aXJ.array(), 0, i2);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -327,18 +327,18 @@ public class a {
         }
     }
 
-    private void FL() {
+    private void FN() {
         try {
-            this.aXy.uninit();
+            this.aXz.uninit();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void FM() {
+    private void FO() {
         try {
             if (this.mContext != null) {
-                this.aXy = new AudioRouteMonitor(new AudioRouteMonitor.a() { // from class: com.baidu.rtc.a.a.3
+                this.aXz = new AudioRouteMonitor(new AudioRouteMonitor.a() { // from class: com.baidu.rtc.a.a.3
                     @Override // com.baidu.rtc.utils.AudioRouteMonitor.a
                     public void dH(int i) {
                         a.this.setEnableSpeaker(a.this.mContext, i == 0);
@@ -348,18 +348,18 @@ public class a {
                     public void dI(int i) {
                         a.this.h(a.this.mContext, i != 0);
                         if (i > 0) {
-                            a.this.aXz = true;
+                            a.this.aXA = true;
                         } else {
-                            a.this.aXz = false;
+                            a.this.aXA = false;
                         }
                     }
                 });
-                this.aXy.init(this.mContext);
+                this.aXz.init(this.mContext);
                 try {
                     if (this.mAudioManager.isBluetoothA2dpOn()) {
                         this.mAudioManager.setBluetoothScoOn(true);
                         this.mAudioManager.startBluetoothSco();
-                        this.aXz = true;
+                        this.aXA = true;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -391,7 +391,7 @@ public class a {
     public void setEnableSpeaker(Context context, boolean z) {
         if (this.mAudioManager != null) {
             try {
-                if (this.aXz) {
+                if (this.aXA) {
                     h(this.mContext, !z);
                 }
                 this.mAudioManager.setSpeakerphoneOn(z);
@@ -404,18 +404,18 @@ public class a {
     /* renamed from: com.baidu.rtc.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static class C0169a {
-        public long aXB;
+        public long aXC;
         int channels;
         int sampleRate;
         int flags = 0;
         int mute = 2;
-        int aXC = 2;
-        int aXD = 256;
-        int[] aXE = new int[1];
+        int aXD = 2;
+        int aXE = 256;
         int[] aXF = new int[1];
-        com.baidu.rtc.utils.a aXG = new com.baidu.rtc.utils.a();
-        byte[] aXH = new byte[2048];
-        ByteBuffer aXI = ByteBuffer.allocateDirect(4096);
+        int[] aXG = new int[1];
+        com.baidu.rtc.utils.a aXH = new com.baidu.rtc.utils.a();
+        byte[] aXI = new byte[2048];
+        ByteBuffer aXJ = ByteBuffer.allocateDirect(4096);
 
         C0169a() {
         }

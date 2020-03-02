@@ -30,10 +30,10 @@ import java.util.UUID;
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask<String, String, b> {
     private Activity activity;
-    private String bDd;
-    private boolean dGA;
-    private a dGy;
-    private File dGz;
+    private String bDe;
+    private File dGA;
+    private boolean dGB;
+    private a dGz;
     private int from = 0;
     private String imagePath;
     private String url;
@@ -41,7 +41,7 @@ public class o extends BdAsyncTask<String, String, b> {
     public o(Activity activity, String str, a aVar) {
         this.activity = activity;
         this.url = str;
-        this.dGy = aVar;
+        this.dGz = aVar;
     }
 
     public void setFrom(int i) {
@@ -49,7 +49,7 @@ public class o extends BdAsyncTask<String, String, b> {
     }
 
     public o ha(boolean z) {
-        this.dGA = z;
+        this.dGB = z;
         return this;
     }
 
@@ -61,14 +61,14 @@ public class o extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!aSb()) {
+        if (!aSd()) {
             return new b(false, "make file error");
         }
-        if (!this.dGA) {
-            if (!aSc()) {
+        if (!this.dGB) {
+            if (!aSe()) {
                 return new b(false, "download error");
             }
-        } else if (!aSd()) {
+        } else if (!aSf()) {
             return new b(false, "decode base64 error");
         }
         return new b(true, null);
@@ -81,22 +81,22 @@ public class o extends BdAsyncTask<String, String, b> {
     public void onPostExecute(b bVar) {
         super.onPostExecute(bVar);
         if (bVar == null) {
-            if (this.dGy != null) {
-                this.dGy.onError(-2, BdStatsConstant.StatsType.ERROR);
+            if (this.dGz != null) {
+                this.dGz.onError(-2, BdStatsConstant.StatsType.ERROR);
             }
         } else if (!bVar.isSuccess()) {
-            if (this.dGy != null) {
-                this.dGy.onError(-1, bVar.getMessage());
+            if (this.dGz != null) {
+                this.dGz.onError(-1, bVar.getMessage());
             }
         } else {
-            aSe();
-            if (this.dGy != null) {
-                this.dGy.onSuccess(this.imagePath);
+            aSg();
+            if (this.dGz != null) {
+                this.dGz.onSuccess(this.imagePath);
             }
         }
     }
 
-    private boolean aSb() {
+    private boolean aSd() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
@@ -109,14 +109,14 @@ public class o extends BdAsyncTask<String, String, b> {
                 externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
             }
             if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
-                this.bDd = externalStoragePublicDirectory.getAbsolutePath();
-                if (!TextUtils.isEmpty(this.bDd) && !this.bDd.endsWith("/")) {
-                    this.bDd += "/";
+                this.bDe = externalStoragePublicDirectory.getAbsolutePath();
+                if (!TextUtils.isEmpty(this.bDe) && !this.bDe.endsWith("/")) {
+                    this.bDe += "/";
                 }
             } else {
-                this.bDd = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                this.bDe = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
             }
-            File file = new File(this.bDd);
+            File file = new File(this.bDe);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -125,15 +125,15 @@ public class o extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.bDd + lowerCase + vS(this.url);
-            this.dGz = new File(this.imagePath);
-            if (this.dGz.exists()) {
-                this.dGz.delete();
+            this.imagePath = this.bDe + lowerCase + vS(this.url);
+            this.dGA = new File(this.imagePath);
+            if (this.dGA.exists()) {
+                this.dGA.delete();
             }
-            if (this.dGz.exists()) {
+            if (this.dGA.exists()) {
                 return true;
             }
-            this.dGz.createNewFile();
+            this.dGA.createNewFile();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -141,7 +141,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean aSc() {
+    private boolean aSe() {
         return n(this.url, this.imagePath, 3);
     }
 
@@ -181,21 +181,21 @@ public class o extends BdAsyncTask<String, String, b> {
                         String headerField2 = a2.getHeaderField(Headers.LOCATION);
                         com.baidu.adp.lib.f.a.close(a2);
                         try {
-                            if (this.dGz != null) {
-                                this.dGz.delete();
+                            if (this.dGA != null) {
+                                this.dGA.delete();
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.bDd + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + vS(headerField2);
-                        this.dGz = new File(this.imagePath);
-                        if (this.dGz.exists()) {
-                            this.dGz.delete();
+                        this.imagePath = this.bDe + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + vS(headerField2);
+                        this.dGA = new File(this.imagePath);
+                        if (this.dGA.exists()) {
+                            this.dGA.delete();
                         }
-                        if (!this.dGz.exists()) {
-                            this.dGz.createNewFile();
+                        if (!this.dGA.exists()) {
+                            this.dGA.createNewFile();
                         }
                         com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
-                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.dGz, true);
+                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.dGA, true);
                         try {
                             a2 = a(new URL(headerField2), i, i2);
                             a2.connect();
@@ -282,7 +282,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean aSd() {
+    private boolean aSf() {
         FileOutputStream fileOutputStream;
         byte[] decode = Base64.decode(this.url.substring(this.url.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP) + 1, this.url.length()), 0);
         for (int i = 0; i < decode.length; i++) {
@@ -292,7 +292,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
         FileOutputStream fileOutputStream2 = null;
         try {
-            FileOutputStream fileOutputStream3 = new FileOutputStream(this.dGz, true);
+            FileOutputStream fileOutputStream3 = new FileOutputStream(this.dGA, true);
             try {
                 fileOutputStream3.write(decode);
                 fileOutputStream3.flush();
@@ -376,9 +376,9 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void aSe() {
-        if (this.dGz != null) {
-            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.dGz)));
+    private void aSg() {
+        if (this.dGA != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.dGA)));
         }
     }
 

@@ -4,14 +4,14 @@ public class ab {
     public int XF;
     public int accountType;
     public long beginTime;
-    public long cPc;
-    public String cPd;
-    public long cPe;
+    public long cPd;
+    public String cPe;
     public long cPf;
-    public int cPg;
+    public long cPg;
     public int cPh;
     public int cPi;
     public int cPj;
+    public int cPk;
     public String desc;
     public long endTime;
     public int id;

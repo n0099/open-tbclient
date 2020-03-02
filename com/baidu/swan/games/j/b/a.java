@@ -18,18 +18,18 @@ public class a extends k {
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected PMSDownloadType Pn() {
+    protected PMSDownloadType Pp() {
         return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String Pz() {
-        return com.baidu.swan.apps.core.pms.d.a.PI();
+    protected String PB() {
+        return com.baidu.swan.apps.core.pms.d.a.PK();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String PA() {
-        return com.baidu.swan.apps.core.pms.d.a.PJ();
+    protected String PC() {
+        return com.baidu.swan.apps.core.pms.d.a.PL();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
@@ -59,7 +59,7 @@ public class a extends k {
         }
         com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
         aVar.versionName = bVar.versionName;
-        aVar.bvg = bVar.filePath;
+        aVar.bvh = bVar.filePath;
         aVar.sign = bVar.sign;
         if (com.baidu.swan.apps.extcore.b.a(1, aVar)) {
             if (DEBUG) {

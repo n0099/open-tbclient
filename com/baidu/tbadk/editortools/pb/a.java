@@ -1,18 +1,18 @@
 package com.baidu.tbadk.editortools.pb;
 /* loaded from: classes.dex */
 public class a {
-    private static a dyd;
+    private static a dye;
     private int mStatus = 0;
 
-    public static a aON() {
-        if (dyd == null) {
+    public static a aOP() {
+        if (dye == null) {
             synchronized (a.class) {
-                if (dyd == null) {
-                    dyd = new a();
+                if (dye == null) {
+                    dye = new a();
                 }
             }
         }
-        return dyd;
+        return dye;
     }
 
     private a() {

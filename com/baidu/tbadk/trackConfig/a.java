@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0396a dGa;
-    private HttpMessageListener dGb = new HttpMessageListener(CmdConfigHttp.CMD_TRACK_CONFIG) { // from class: com.baidu.tbadk.trackConfig.a.1
+    private InterfaceC0396a dGb;
+    private HttpMessageListener dGc = new HttpMessageListener(CmdConfigHttp.CMD_TRACK_CONFIG) { // from class: com.baidu.tbadk.trackConfig.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof TrackConfigResponseMessage) {
                 TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
-                if (a.this.dGa != null) {
-                    a.this.dGa.q(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
+                if (a.this.dGb != null) {
+                    a.this.dGb.q(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
                 }
             }
         }
@@ -32,7 +32,7 @@ public class a {
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.dGb);
+        MessageManager.getInstance().registerListener(this.dGc);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
         tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -44,6 +44,6 @@ public class a {
     }
 
     public void a(InterfaceC0396a interfaceC0396a) {
-        this.dGa = interfaceC0396a;
+        this.dGb = interfaceC0396a;
     }
 }

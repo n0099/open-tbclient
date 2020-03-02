@@ -29,9 +29,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.cMW;
-        if (StringUtils.isNull(str) && advertAppInfo.cNe != null) {
-            str = advertAppInfo.cNe.userName;
+        String str = advertAppInfo.cMX;
+        if (StringUtils.isNull(str) && advertAppInfo.cNf != null) {
+            str = advertAppInfo.cNf.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -47,17 +47,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.aOf().b(advertAppInfo);
-        String str2 = advertAppInfo.cMW;
+        com.baidu.tbadk.distribute.a.aOh().b(advertAppInfo);
+        String str2 = advertAppInfo.cMX;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.cCz().a(advertAppInfo.cMY, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.HN(advertAppInfo.cMY).intValue(), null, true, false, true, advertAppInfo.cNe.userPortrait, downloadStaticsData, advertAppInfo.cNe.userName);
+        com.baidu.tieba.recapp.download.e.cCB().a(advertAppInfo.cMZ, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.HN(advertAppInfo.cMZ).intValue(), null, true, false, true, advertAppInfo.cNf.userPortrait, downloadStaticsData, advertAppInfo.cNf.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.cCz().A(advertAppInfo.apkUrl, advertAppInfo.cMY, true);
+        com.baidu.tieba.recapp.download.e.cCB().A(advertAppInfo.apkUrl, advertAppInfo.cMZ, true);
     }
 
     public static final void bd(Context context, String str) {
@@ -169,15 +169,15 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.cCt().sendFRS(z, str, str2, str3, list, str4);
+        r.cCv().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.cCt().a(z, str, str2, str3, str4, list, str5);
+        r.cCv().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int b(TbPageContext tbPageContext, String str, String str2) {
-        if (com.baidu.tieba.a.aVl().aVm() != 1) {
+        if (com.baidu.tieba.a.aVn().aVo() != 1) {
             return e(tbPageContext, str);
         }
         if (tbPageContext == null || TextUtils.isEmpty(str)) {
@@ -232,15 +232,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h cCq = r.cCt().cCq();
-        if (cCq == null) {
+        h cCs = r.cCv().cCs();
+        if (cCs == null) {
             return false;
         }
-        if (cCq.wS(str)) {
-            cCq.a(tbPageContext.getPageActivity(), strArr, true);
+        if (cCs.wS(str)) {
+            cCs.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return cCq.c(tbPageContext.getPageActivity(), strArr);
+        return cCs.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int be(Context context, String str) {
@@ -259,14 +259,14 @@ public class s {
 
     private static boolean bf(Context context, String str) {
         String[] strArr = {str};
-        h cCq = r.cCt().cCq();
-        if (cCq == null) {
+        h cCs = r.cCv().cCs();
+        if (cCs == null) {
             return false;
         }
-        if (cCq.wS(str)) {
-            cCq.a(context, strArr, true);
+        if (cCs.wS(str)) {
+            cCs.a(context, strArr, true);
             return true;
         }
-        return cCq.c(context, strArr);
+        return cCs.c(context, strArr);
     }
 }

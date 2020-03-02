@@ -3,22 +3,22 @@ package com.baidu.swan.games.j.a;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class b {
-    public static File RR() {
+    public static File RT() {
         return com.baidu.swan.games.k.a.ph("aigames_debug_game_core");
     }
 
-    public static void RS() {
-        File RR = RR();
-        if (RR.exists()) {
-            com.baidu.swan.d.c.deleteFile(RR);
+    public static void RU() {
+        File RT = RT();
+        if (RT.exists()) {
+            com.baidu.swan.d.c.deleteFile(RT);
         }
     }
 
-    public static File RT() {
-        File RR = RR();
-        if (!RR.exists()) {
-            RR.mkdirs();
+    public static File RV() {
+        File RT = RT();
+        if (!RT.exists()) {
+            RT.mkdirs();
         }
-        return new File(RR, "debugGameCore.zip");
+        return new File(RT, "debugGameCore.zip");
     }
 }

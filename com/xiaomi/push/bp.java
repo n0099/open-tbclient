@@ -8,20 +8,20 @@ public class bp implements Runnable {
     private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    private WeakReference<Context> f158a;
+    private WeakReference<Context> f157a;
 
     public bp(String str, WeakReference<Context> weakReference) {
         this.a = str;
-        this.f158a = weakReference;
+        this.f157a = weakReference;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        if (this.f158a == null || (context = this.f158a.get()) == null) {
+        if (this.f157a == null || (context = this.f157a.get()) == null) {
             return;
         }
-        if (cc.a(this.a) <= bo.f156a) {
+        if (cc.a(this.a) <= bo.f155a) {
             com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
             return;
         }

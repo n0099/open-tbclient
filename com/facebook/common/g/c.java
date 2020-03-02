@@ -8,43 +8,43 @@ import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes13.dex */
 public class c {
-    public static final boolean lJc;
-    public static final boolean lJd;
+    public static final boolean lJe;
+    public static final boolean lJf;
     @Nullable
-    public static b lJe;
-    private static boolean lJf;
-    private static final byte[] lJg;
-    private static final byte[] lJh;
+    public static b lJg;
+    private static boolean lJh;
     private static final byte[] lJi;
     private static final byte[] lJj;
     private static final byte[] lJk;
+    private static final byte[] lJl;
+    private static final byte[] lJm;
     public static final boolean sIsExtendedWebpSupported;
 
     static {
-        lJc = Build.VERSION.SDK_INT <= 17;
-        lJd = Build.VERSION.SDK_INT >= 14;
+        lJe = Build.VERSION.SDK_INT <= 17;
+        lJf = Build.VERSION.SDK_INT >= 14;
         sIsExtendedWebpSupported = isExtendedWebpSupported();
-        lJe = null;
-        lJf = false;
-        lJg = OU("RIFF");
-        lJh = OU("WEBP");
-        lJi = OU("VP8 ");
-        lJj = OU("VP8L");
-        lJk = OU("VP8X");
+        lJg = null;
+        lJh = false;
+        lJi = OU("RIFF");
+        lJj = OU("WEBP");
+        lJk = OU("VP8 ");
+        lJl = OU("VP8L");
+        lJm = OU("VP8X");
     }
 
     @Nullable
-    public static b dlc() {
+    public static b dle() {
         b bVar;
-        if (lJf) {
-            return lJe;
+        if (lJh) {
+            return lJg;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        lJf = true;
+        lJh = true;
         return bVar;
     }
 
@@ -73,27 +73,27 @@ public class c {
     }
 
     public static boolean n(byte[] bArr, int i) {
-        return b(bArr, i + 12, lJk) && ((bArr[i + 20] & 2) == 2);
+        return b(bArr, i + 12, lJm) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean o(byte[] bArr, int i) {
-        return b(bArr, i + 12, lJi);
+        return b(bArr, i + 12, lJk);
     }
 
     public static boolean p(byte[] bArr, int i) {
-        return b(bArr, i + 12, lJj);
+        return b(bArr, i + 12, lJl);
     }
 
     public static boolean q(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && b(bArr, i + 12, lJk);
+        return i2 >= 21 && b(bArr, i + 12, lJm);
     }
 
     public static boolean q(byte[] bArr, int i) {
-        return b(bArr, i + 12, lJk) && ((bArr[i + 20] & 16) == 16);
+        return b(bArr, i + 12, lJm) && ((bArr[i + 20] & 16) == 16);
     }
 
     public static boolean r(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && b(bArr, i, lJg) && b(bArr, i + 8, lJh);
+        return i2 >= 20 && b(bArr, i, lJi) && b(bArr, i + 8, lJj);
     }
 
     private static boolean b(byte[] bArr, int i, byte[] bArr2) {

@@ -8,36 +8,36 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
     private List<com.baidu.adp.widget.ListView.a> asE;
-    private r fWB;
-    private c hfT;
-    private a hfU;
-    private com.baidu.tieba.homepage.topic.topictab.a.c hfV;
+    private r fWD;
+    private c hfV;
+    private a hfW;
+    private com.baidu.tieba.homepage.topic.topictab.a.c hfX;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.fWB = rVar;
+        this.fWD = rVar;
         wM();
-        this.fWB.addAdapters(this.asE);
+        this.fWD.addAdapters(this.asE);
     }
 
     private void wM() {
         this.asE = new ArrayList();
-        this.hfT = new c(this.mPageContext);
-        this.hfU = new a(this.mPageContext);
-        this.hfV = new com.baidu.tieba.homepage.topic.topictab.a.c(this.mPageContext);
-        this.asE.add(this.hfT);
-        this.asE.add(this.hfU);
+        this.hfV = new c(this.mPageContext);
+        this.hfW = new a(this.mPageContext);
+        this.hfX = new com.baidu.tieba.homepage.topic.topictab.a.c(this.mPageContext);
         this.asE.add(this.hfV);
+        this.asE.add(this.hfW);
+        this.asE.add(this.hfX);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fWB != null) {
-            this.fWB.getListAdapter().notifyDataSetChanged();
+        if (this.fWD != null) {
+            this.fWD.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.fWB.setData(list);
+        this.fWD.setData(list);
     }
 }

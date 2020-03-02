@@ -42,27 +42,27 @@ import java.util.Map;
 import tbclient.SearchSug.ForumInfo;
 /* loaded from: classes11.dex */
 public class e implements b {
-    private String gmn;
-    private d ige;
-    private boolean igr;
-    private c igt;
+    private String gmp;
+    private d igg;
+    private boolean igt;
+    private c igv;
     private BaseActivity mActivity;
     private HotSearchInfoData mHotSearchInfo;
     private View mRootView;
-    private boolean igs = true;
-    private CustomMessageListener igu = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.a.e.1
+    private boolean igu = true;
+    private CustomMessageListener igw = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.a.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                e.this.ige.oG(!((Boolean) customResponsedMessage.getData()).booleanValue());
+                e.this.igg.oG(!((Boolean) customResponsedMessage.getData()).booleanValue());
             }
         }
     };
 
     public e(BaseActivity baseActivity, boolean z) {
         this.mActivity = baseActivity;
-        this.igr = z;
+        this.igt = z;
         init();
     }
 
@@ -73,11 +73,11 @@ public class e implements b {
             this.mActivity.setContentView(this.mRootView);
         } catch (Exception e) {
             e.printStackTrace();
-            Map<String, String> cep = a.cep();
-            if (cep != null) {
-                int size = cep.size();
+            Map<String, String> cer = a.cer();
+            if (cer != null) {
+                int size = cer.size();
                 int i2 = 0;
-                Iterator<String> it = cep.keySet().iterator();
+                Iterator<String> it = cer.keySet().iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext()) {
@@ -106,32 +106,32 @@ public class e implements b {
             this.mActivity.finish();
             return;
         }
-        this.ige = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
-        this.igt = new c(this.mActivity, this, this.ige);
-        ceE();
-        ceF();
+        this.igg = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
+        this.igv = new c(this.mActivity, this, this.igg);
         ceG();
-        cdY();
-        ceJ();
-        ag.a(this.ige.ceB(), this.mActivity.getUniqueId());
-        ag.a(this.ige.ceC(), this.mActivity.getUniqueId());
-        this.mActivity.registerListener(this.igu);
+        ceH();
+        ceI();
+        cea();
+        ceL();
+        ag.a(this.igg.ceD(), this.mActivity.getUniqueId());
+        ag.a(this.igg.ceE(), this.mActivity.getUniqueId());
+        this.mActivity.registerListener(this.igw);
     }
 
     public void onResume() {
-        if (this.ige != null) {
-            this.ige.onResume();
+        if (this.igg != null) {
+            this.igg.onResume();
         }
     }
 
-    public void ceE() {
+    public void ceG() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.mainentrance.a.e.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), view);
                 } else {
-                    e.this.ceI();
+                    e.this.ceK();
                 }
             }
         };
@@ -139,13 +139,13 @@ public class e implements b {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    if (StringUtils.isNull(e.this.gmn)) {
+                    if (StringUtils.isNull(e.this.gmp)) {
                         l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), textView);
-                        e.this.ceH();
+                        e.this.ceJ();
                         return true;
                     }
-                    e.this.b(e.this.gmn, false, 1);
-                    TiebaStatic.log(new an("c12842").cy("obj_name", e.this.gmn).cy("obj_source", "1").cy("obj_type", "1"));
+                    e.this.b(e.this.gmp, false, 1);
+                    TiebaStatic.log(new an("c12842").cy("obj_name", e.this.gmp).cy("obj_source", "1").cy("obj_type", "1"));
                     return true;
                 }
                 return false;
@@ -163,20 +163,20 @@ public class e implements b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    if (e.this.igs) {
-                        e.this.gmn = editable.toString();
-                        e.this.ceJ();
+                    if (e.this.igu) {
+                        e.this.gmp = editable.toString();
+                        e.this.ceL();
                     }
-                    e.this.ige.kc(!StringUtils.isNull(editable.toString()));
+                    e.this.igg.kc(!StringUtils.isNull(editable.toString()));
                 }
             }
         };
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != e.this.ige.cez() || e.this.ige.cez().getText() == null) {
-                    if (view == e.this.ige.ceA()) {
-                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.ige.cez());
+                if (view != e.this.igg.ceB() || e.this.igg.ceB().getText() == null) {
+                    if (view == e.this.igg.ceC()) {
+                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.igg.ceB());
                         com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.7.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -187,19 +187,19 @@ public class e implements b {
                     }
                     return;
                 }
-                e.this.gmn = e.this.ige.cez().getText().toString();
-                if (StringUtils.isNull(e.this.gmn)) {
-                    e.this.ces();
+                e.this.gmp = e.this.igg.ceB().getText().toString();
+                if (StringUtils.isNull(e.this.gmp)) {
+                    e.this.ceu();
                 }
             }
         };
-        this.ige.a(onFocusChangeListener);
-        this.ige.a(onEditorActionListener);
-        this.ige.e(textWatcher);
-        this.ige.setOnClickListener(onClickListener);
+        this.igg.a(onFocusChangeListener);
+        this.igg.a(onEditorActionListener);
+        this.igg.e(textWatcher);
+        this.igg.setOnClickListener(onClickListener);
     }
 
-    private void ceF() {
+    private void ceH() {
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.8
             /* JADX WARN: Type inference failed for: r0v0, types: [android.widget.Adapter] */
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -211,7 +211,7 @@ public class e implements b {
                         String str = (String) item;
                         e.this.b(str, true, 3);
                         TiebaStatic.eventStat(e.this.mActivity.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
-                        TiebaStatic.log(new an("c12842").cy("obj_name", str).cy("obj_source", "2").cy("obj_type", "1").X("obj_locate", i + 1).cy("obj_param1", e.this.gmn));
+                        TiebaStatic.log(new an("c12842").cy("obj_name", str).cy("obj_source", "2").cy("obj_type", "1").X("obj_locate", i + 1).cy("obj_param1", e.this.gmp));
                     } else if (item instanceof ForumInfo) {
                         ForumInfo forumInfo = (ForumInfo) item;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(e.this.mActivity.getPageContext().getPageActivity()).createNormalCfg(forumInfo.forum_name, FrsActivityConfig.FRS_CALL_SEARCH)));
@@ -232,15 +232,15 @@ public class e implements b {
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         };
-        this.ige.c(onItemClickListener);
-        this.ige.a(onScrollListener);
+        this.igg.c(onItemClickListener);
+        this.igg.a(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.ige.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.igg.onChangeSkinType(this.mActivity.getPageContext(), i);
     }
 
-    private void ceG() {
+    private void ceI() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.a.e.10
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -254,23 +254,23 @@ public class e implements b {
         BaseWebView.b bVar = new BaseWebView.b() { // from class: com.baidu.tieba.mainentrance.a.e.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                if (ba.aGE().a(e.this.mActivity.getPageContext(), new String[]{str}) != 3) {
+                if (ba.aGG().a(e.this.mActivity.getPageContext(), new String[]{str}) != 3) {
                     return true;
                 }
                 if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
                     return false;
                 }
-                ba.aGE().a(e.this.mActivity.getPageContext(), new String[]{str}, true);
+                ba.aGG().a(e.this.mActivity.getPageContext(), new String[]{str}, true);
                 return true;
             }
         };
-        this.ige.a(cVar);
-        this.ige.a(fVar);
-        this.ige.a(bVar);
+        this.igg.a(cVar);
+        this.igg.a(fVar);
+        this.igg.a(bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ceH() {
+    public void ceJ() {
         if (this.mHotSearchInfo == null) {
             this.mActivity.showToast(this.mActivity.getResources().getString(R.string.write_keyword));
             return;
@@ -289,19 +289,19 @@ public class e implements b {
             this.mActivity.showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {
             if (z) {
-                this.igs = false;
-                this.ige.Ev(str);
-                this.igs = true;
+                this.igu = false;
+                this.igg.Ev(str);
+                this.igu = true;
             }
-            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.ige.cez());
-            this.ige.cey();
+            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.igg.ceB());
+            this.igg.ceA();
             String str2 = TbConfig.SQUARE_SEARCH_PAGE + str + ETAG.ITEM_SEPARATOR + "sub_type" + ETAG.EQUAL + i;
             try {
                 str2 = TbConfig.SQUARE_SEARCH_PAGE + URLEncoder.encode(str, "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.ige.ceB().loadUrl(str2);
+            this.igg.ceD().loadUrl(str2);
             ac.a(new ab<Boolean>() { // from class: com.baidu.tieba.mainentrance.a.e.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -311,73 +311,73 @@ public class e implements b {
                     return true;
                 }
             }, null);
-            this.igt.Er(str);
+            this.igv.Er(str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TURN_TAB_LOC, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ceI() {
-        if (!this.ige.ceD()) {
-            cee();
+    public void ceK() {
+        if (!this.igg.ceF()) {
+            ceg();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ces() {
-        this.igt.ces();
+    public void ceu() {
+        this.igv.ceu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ceJ() {
-        if (!StringUtils.isNull(this.gmn)) {
-            cee();
+    public void ceL() {
+        if (!StringUtils.isNull(this.gmp)) {
+            ceg();
         } else {
-            ces();
+            ceu();
         }
     }
 
-    private void cee() {
-        if (StringUtils.isNull(this.gmn)) {
-            ces();
+    private void ceg() {
+        if (StringUtils.isNull(this.gmp)) {
+            ceu();
             return;
         }
         SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
-        searchListNetMessage.mKey = this.gmn.trim();
-        searchListNetMessage.isForum = Integer.valueOf(this.igr ? 1 : 0);
+        searchListNetMessage.mKey = this.gmp.trim();
+        searchListNetMessage.isForum = Integer.valueOf(this.igt ? 1 : 0);
         this.mActivity.sendMessage(searchListNetMessage);
     }
 
     public void b(HotSearchInfoData hotSearchInfoData) {
         this.mHotSearchInfo = hotSearchInfoData;
-        cdY();
+        cea();
     }
 
-    public BaseWebView ceK() {
-        return this.ige.ceB();
+    public BaseWebView ceM() {
+        return this.igg.ceD();
     }
 
-    private void cdY() {
-        if (this.ige != null) {
+    private void cea() {
+        if (this.igg != null) {
             if (this.mHotSearchInfo == null) {
-                this.ige.Eu(this.mActivity.getResources().getString(R.string.search_bar));
+                this.igg.Eu(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.ige.Eu(this.mHotSearchInfo.bxM());
+                this.igg.Eu(this.mHotSearchInfo.bxO());
             }
         }
     }
 
     public void dq(List<String> list) {
-        this.ige.j(list, this.gmn);
+        this.igg.j(list, this.gmp);
     }
 
     public void dr(List<ForumInfo> list) {
-        this.ige.k(list, this.gmn);
+        this.igg.k(list, this.gmp);
     }
 
     public void onDestroy() {
-        if (this.ige != null) {
-            this.ige.onDestroy();
+        if (this.igg != null) {
+            this.igg.onDestroy();
         }
     }
 }

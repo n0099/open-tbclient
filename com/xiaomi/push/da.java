@@ -34,10 +34,10 @@ public class da {
                 if (irVar != null) {
                     try {
                         if (irVar instanceof hx) {
-                            String str = ((hx) irVar).f575d;
+                            String str = ((hx) irVar).f574d;
                             return (TextUtils.isEmpty(str) || eu.a(eu.m259a(str)) == -1) ? a : eu.a(eu.m259a(str));
                         } else if (irVar instanceof Cif) {
-                            String str2 = ((Cif) irVar).f635d;
+                            String str2 = ((Cif) irVar).f634d;
                             if (TextUtils.isEmpty(str2)) {
                                 return a;
                             }

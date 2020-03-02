@@ -43,7 +43,7 @@ public class k implements com.baidu.swan.apps.storage.b.c {
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String afn() {
+    public String afp() {
         return l.oY("bdfile://tmp");
     }
 

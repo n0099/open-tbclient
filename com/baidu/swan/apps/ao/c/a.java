@@ -12,7 +12,7 @@ public class a {
     /* renamed from: com.baidu.swan.apps.ao.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0205a {
-        public boolean bWD;
+        public boolean bWE;
         public int level;
     }
 
@@ -24,7 +24,7 @@ public class a {
         }
         C0205a c0205a = new C0205a();
         c0205a.level = registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, -1);
-        c0205a.bWD = registerReceiver.getIntExtra("plugged", 0) != 0;
+        c0205a.bWE = registerReceiver.getIntExtra("plugged", 0) != 0;
         return c0205a;
     }
 }

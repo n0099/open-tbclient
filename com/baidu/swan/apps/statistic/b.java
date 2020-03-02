@@ -22,7 +22,7 @@ public final class b {
         eVar.mSource = fVar.mSource;
         eVar.mType = fVar.mType;
         eVar.mValue = fVar.mValue;
-        eVar.aZ(fVar.aeZ());
+        eVar.aZ(fVar.afb());
         m.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.1
             @Override // java.lang.Runnable
             public void run() {

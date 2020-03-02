@@ -88,8 +88,8 @@ public class af<T extends com.baidu.tbadk.core.data.a> extends v.a {
         }
         this.Mf.getView().setVisibility(0);
         if (this.Mg != null && this.Mg.KZ != null) {
-            if (!t.isSelf() && t.aAg() != null) {
-                this.Mg.A(t.aAg());
+            if (!t.isSelf() && t.aAi() != null) {
+                this.Mg.A(t.aAi());
                 this.Mg.KZ.setVisibility(0);
                 z = true;
             } else if (this.Mg != null && this.Mg.KZ != null) {
@@ -98,17 +98,17 @@ public class af<T extends com.baidu.tbadk.core.data.a> extends v.a {
         }
         this.Mf.c((ad<T>) t);
         if (this.Mh != null) {
-            this.Mh.A(t.aAe());
+            this.Mh.A(t.aAg());
         }
         if (this.Mk != null) {
             this.Mk.af(z);
-            this.Mk.A(t.aAe());
+            this.Mk.A(t.aAg());
         }
         if (this.Mj != null) {
-            this.Mj.A(t.aAe());
+            this.Mj.A(t.aAg());
         }
         if (this.Ml != null) {
-            this.Ml.A(t.aAe());
+            this.Ml.A(t.aAg());
         }
     }
 

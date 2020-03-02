@@ -10,29 +10,29 @@ import com.baidu.swan.apps.statistic.f;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a bvN;
+    private static volatile a bvO;
     private String mContent;
 
     private a() {
     }
 
-    public static a Tb() {
-        if (bvN == null) {
+    public static a Td() {
+        if (bvO == null) {
             synchronized (a.class) {
-                if (bvN == null) {
-                    bvN = new a();
+                if (bvO == null) {
+                    bvO = new a();
                 }
             }
         }
-        return bvN;
+        return bvO;
     }
 
     public static void release() {
-        if (bvN != null) {
-            if (bvN.mContent != null) {
-                bvN.mContent = null;
+        if (bvO != null) {
+            if (bvO.mContent != null) {
+                bvO.mContent = null;
             }
-            bvN = null;
+            bvO = null;
         }
     }
 
@@ -44,13 +44,13 @@ public class a {
         return this.mContent;
     }
 
-    public boolean Tc() {
+    public boolean Te() {
         return !TextUtils.isEmpty(this.mContent);
     }
 
     public void a(Activity activity, final com.baidu.swan.apps.core.f.b<Boolean> bVar) {
         g.a aVar = new g.a(activity);
-        aVar.eD(a.h.aiapps_confirm_close_title).kJ(Tb().getContent()).a(new com.baidu.swan.apps.view.c.a()).dD(true);
+        aVar.eD(a.h.aiapps_confirm_close_title).kJ(Td().getContent()).a(new com.baidu.swan.apps.view.c.a()).dD(true);
         aVar.fW(a.c.aiapps_modal_confirm_color);
         aVar.c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.q.a.1
             @Override // android.content.DialogInterface.OnClickListener
@@ -71,6 +71,6 @@ public class a {
                 f.lJ("show");
             }
         });
-        aVar.acn();
+        aVar.acp();
     }
 }

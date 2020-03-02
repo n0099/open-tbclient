@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbPageContextSupport;
 public interface a<T> extends TbPageContextSupport {
     boolean FK(String str);
 
-    com.baidu.tieba.pb.pb.main.b.a clo();
+    com.baidu.tieba.pb.pb.main.b.a clq();
 
-    boolean clp();
+    boolean clr();
 
-    String clq();
+    String cls();
 
-    int clr();
+    int clt();
 }

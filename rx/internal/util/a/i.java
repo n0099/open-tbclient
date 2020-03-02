@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.nBM;
-        long j = this.nSJ;
-        long dJt = dJt();
-        long ht = ht(dJt);
+        E[] eArr = this.nBO;
+        long j = this.nSL;
+        long dJv = dJv();
+        long ht = ht(dJv);
         if (b(eArr, ht) != null) {
-            if (dJt - dJu() > j) {
+            if (dJv - dJw() > j) {
                 return false;
             }
             do {
             } while (b(eArr, ht) != null);
             a(eArr, ht, e);
-            hv(1 + dJt);
+            hv(1 + dJv);
             return true;
         }
         a(eArr, ht, e);
-        hv(1 + dJt);
+        hv(1 + dJv);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long dJu;
-        long dOM = dOM();
+        long dJw;
+        long dOO = dOO();
         do {
-            dJu = dJu();
-            if (dJu >= dOM) {
-                long dJt = dJt();
-                if (dJu >= dJt) {
+            dJw = dJw();
+            if (dJw >= dOO) {
+                long dJv = dJv();
+                if (dJw >= dJv) {
                     return null;
                 }
-                hw(dJt);
+                hw(dJv);
             }
-        } while (!am(dJu, 1 + dJu));
-        long ht = ht(dJu);
-        E[] eArr = this.nBM;
+        } while (!am(dJw, 1 + dJw));
+        long ht = ht(dJw);
+        E[] eArr = this.nBO;
         E a = a(eArr, ht);
         b(eArr, ht, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E hu;
-        long dOM = dOM();
+        long dOO = dOO();
         do {
-            long dJu = dJu();
-            if (dJu >= dOM) {
-                long dJt = dJt();
-                if (dJu >= dJt) {
+            long dJw = dJw();
+            if (dJw >= dOO) {
+                long dJv = dJv();
+                if (dJw >= dJv) {
                     return null;
                 }
-                hw(dJt);
+                hw(dJv);
             }
-            hu = hu(ht(dJu));
+            hu = hu(ht(dJw));
         } while (hu == null);
         return hu;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dJu = dJu();
+        long dJw = dJw();
         while (true) {
-            long dJt = dJt();
-            long dJu2 = dJu();
-            if (dJu == dJu2) {
-                return (int) (dJt - dJu2);
+            long dJv = dJv();
+            long dJw2 = dJw();
+            if (dJw == dJw2) {
+                return (int) (dJv - dJw2);
             }
-            dJu = dJu2;
+            dJw = dJw2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dJu() == dJt();
+        return dJw() == dJv();
     }
 }

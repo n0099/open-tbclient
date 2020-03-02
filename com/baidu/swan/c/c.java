@@ -1,10 +1,10 @@
 package com.baidu.swan.c;
 /* loaded from: classes11.dex */
 public class c {
-    private static boolean cFE = true;
-    private static String cFF;
+    private static boolean cFF = true;
+    private static String cFG;
 
-    public static void awc() {
-        cFF = null;
+    public static void awe() {
+        cFG = null;
     }
 }

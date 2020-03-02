@@ -17,7 +17,7 @@ import com.baidu.live.u.a;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.data.a> ejo;
+    private ArrayList<com.baidu.tieba.ala.data.a> ejp;
     private Context mContext;
 
     public a(Context context) {
@@ -25,26 +25,26 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<com.baidu.tieba.ala.data.a> arrayList) {
-        if (this.ejo == null) {
-            this.ejo = new ArrayList<>();
+        if (this.ejp == null) {
+            this.ejp = new ArrayList<>();
         } else {
-            this.ejo.clear();
+            this.ejp.clear();
         }
-        this.ejo.addAll(arrayList);
+        this.ejp.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.ejo);
+        return ListUtils.getCount(this.ejp);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.ejo == null || i < 0 || i >= this.ejo.size()) {
+        if (this.ejp == null || i < 0 || i >= this.ejp.size()) {
             return null;
         }
-        return this.ejo.get(i);
+        return this.ejp.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,52 +73,52 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     protected class C0422a {
-        private LinearLayout ejp;
-        private HeadImageView ejq;
-        private TextView ejr;
-        private RelativeLayout ejs;
-        private TextView ejt;
-        private ImageView eju;
-        private TextView ejv;
-        private LinearLayout ejw;
-        private HeadImageView ejx;
-        private TextView ejy;
+        private LinearLayout ejq;
+        private HeadImageView ejr;
+        private TextView ejs;
+        private RelativeLayout ejt;
+        private TextView eju;
+        private ImageView ejv;
+        private TextView ejw;
+        private LinearLayout ejx;
+        private HeadImageView ejy;
+        private TextView ejz;
 
         public C0422a(View view) {
-            this.ejp = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
-            this.ejq = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
-            this.ejr = (TextView) view.findViewById(a.g.text_challenge_history_left);
-            this.ejs = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
-            this.ejt = (TextView) view.findViewById(a.g.pk_history_anchor_score);
-            this.eju = (ImageView) view.findViewById(a.g.pk_history_icon);
-            this.ejv = (TextView) view.findViewById(a.g.pk_history_rival_score);
-            this.ejw = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
-            this.ejx = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
-            this.ejy = (TextView) view.findViewById(a.g.text_challenge_history_right);
-            this.ejq.setIsRound(true);
-            this.ejq.setAutoChangeStyle(false);
-            this.ejx.setIsRound(true);
-            this.ejx.setAutoChangeStyle(false);
+            this.ejq = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
+            this.ejr = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
+            this.ejs = (TextView) view.findViewById(a.g.text_challenge_history_left);
+            this.ejt = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
+            this.eju = (TextView) view.findViewById(a.g.pk_history_anchor_score);
+            this.ejv = (ImageView) view.findViewById(a.g.pk_history_icon);
+            this.ejw = (TextView) view.findViewById(a.g.pk_history_rival_score);
+            this.ejx = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
+            this.ejy = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
+            this.ejz = (TextView) view.findViewById(a.g.text_challenge_history_right);
+            this.ejr.setIsRound(true);
+            this.ejr.setAutoChangeStyle(false);
+            this.ejy.setIsRound(true);
+            this.ejy.setAutoChangeStyle(false);
         }
 
         public void a(com.baidu.tieba.ala.data.a aVar) {
             if (aVar != null) {
-                this.ejq.startLoad(aVar.eyY.portrait, 12, false);
-                String name_show = aVar.eyY.getName_show();
+                this.ejr.startLoad(aVar.eyZ.portrait, 12, false);
+                String name_show = aVar.eyZ.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show) > 8) {
                     name_show = TextHelper.subStringWithEmoji(name_show, 8) + StringHelper.STRING_MORE;
                 }
-                this.ejr.setText(name_show);
-                this.ejx.startLoad(aVar.eyZ.portrait, 12, false);
-                String name_show2 = aVar.eyZ.getName_show();
+                this.ejs.setText(name_show);
+                this.ejy.startLoad(aVar.eza.portrait, 12, false);
+                String name_show2 = aVar.eza.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show2) > 8) {
                     name_show2 = TextHelper.subStringWithEmoji(name_show2, 8) + StringHelper.STRING_MORE;
                 }
-                this.ejy.setText(name_show2);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.eyX.ezd);
-                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.eyX.eze);
-                this.ejt.setText(numberUniformFormatExtra);
-                this.ejv.setText(numberUniformFormatExtra2);
+                this.ejz.setText(name_show2);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.eyY.eze);
+                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.eyY.ezf);
+                this.eju.setText(numberUniformFormatExtra);
+                this.ejw.setText(numberUniformFormatExtra2);
             }
         }
     }

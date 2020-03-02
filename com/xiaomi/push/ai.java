@@ -11,16 +11,16 @@ public class ai {
     private static volatile ai a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f116a;
+    private SharedPreferences f115a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ScheduledThreadPoolExecutor f119a = new ScheduledThreadPoolExecutor(1);
+    private ScheduledThreadPoolExecutor f118a = new ScheduledThreadPoolExecutor(1);
 
     /* renamed from: a  reason: collision with other field name */
-    private SparseArray<ScheduledFuture> f117a = new SparseArray<>();
+    private SparseArray<ScheduledFuture> f116a = new SparseArray<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private Object f118a = new Object();
+    private Object f117a = new Object();
 
     /* loaded from: classes8.dex */
     public static abstract class a implements Runnable {
@@ -53,7 +53,7 @@ public class ai {
     }
 
     private ai(Context context) {
-        this.f116a = context.getSharedPreferences("mipush_extra", 0);
+        this.f115a = context.getSharedPreferences("mipush_extra", 0);
     }
 
     public static ai a(Context context) {
@@ -73,8 +73,8 @@ public class ai {
 
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
-        synchronized (this.f118a) {
-            scheduledFuture = this.f117a.get(aVar.mo157a());
+        synchronized (this.f117a) {
+            scheduledFuture = this.f116a.get(aVar.mo157a());
         }
         return scheduledFuture;
     }
@@ -84,17 +84,17 @@ public class ai {
     }
 
     public void a(Runnable runnable, int i) {
-        this.f119a.schedule(runnable, i, TimeUnit.SECONDS);
+        this.f118a.schedule(runnable, i, TimeUnit.SECONDS);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m127a(int i) {
-        synchronized (this.f118a) {
-            ScheduledFuture scheduledFuture = this.f117a.get(i);
+        synchronized (this.f117a) {
+            ScheduledFuture scheduledFuture = this.f116a.get(i);
             if (scheduledFuture == null) {
                 return false;
             }
-            this.f117a.remove(i);
+            this.f116a.remove(i);
             return scheduledFuture.cancel(false);
         }
     }
@@ -109,13 +109,13 @@ public class ai {
         }
         String a2 = a(aVar.mo157a());
         aj ajVar = new aj(this, aVar, a2);
-        long abs = Math.abs(System.currentTimeMillis() - this.f116a.getLong(a2, 0L)) / 1000;
+        long abs = Math.abs(System.currentTimeMillis() - this.f115a.getLong(a2, 0L)) / 1000;
         if (abs < i - i2) {
             i2 = (int) (i - abs);
         }
-        ScheduledFuture<?> scheduleAtFixedRate = this.f119a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
-        synchronized (this.f118a) {
-            this.f117a.put(aVar.mo157a(), scheduleAtFixedRate);
+        ScheduledFuture<?> scheduleAtFixedRate = this.f118a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
+        synchronized (this.f117a) {
+            this.f116a.put(aVar.mo157a(), scheduleAtFixedRate);
         }
         return true;
     }
@@ -124,9 +124,9 @@ public class ai {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        ScheduledFuture<?> schedule = this.f119a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
-        synchronized (this.f118a) {
-            this.f117a.put(aVar.mo157a(), schedule);
+        ScheduledFuture<?> schedule = this.f118a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
+        synchronized (this.f117a) {
+            this.f116a.put(aVar.mo157a(), schedule);
         }
         return true;
     }

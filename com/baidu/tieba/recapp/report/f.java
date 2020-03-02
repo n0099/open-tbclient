@@ -20,15 +20,15 @@ public class f {
             bVar.AZ(-1);
             bVar.setPageNumber(-1);
         } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            bVar.AZ(advertAppInfo.cMZ);
+            bVar.AZ(advertAppInfo.cNa);
             bVar.setPageNumber(i2);
         } else {
             bVar.AZ(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
             bVar.setPageNumber(i2);
         }
-        bVar.If(advertAppInfo.cNh);
-        bVar.Ig(advertAppInfo.cNi);
-        bVar.Ih(advertAppInfo.cNj);
+        bVar.If(advertAppInfo.cNi);
+        bVar.Ig(advertAppInfo.cNj);
+        bVar.Ih(advertAppInfo.cNk);
         bVar.Ii(advertAppInfo.page);
         return bVar;
     }
@@ -44,7 +44,7 @@ public class f {
             bVar.AZ(-1);
             bVar.setPageNumber(-1);
         } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            bVar.AZ(advertAppInfo.cMZ);
+            bVar.AZ(advertAppInfo.cNa);
             bVar.setPageNumber(i2);
         } else {
             bVar.AZ(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
@@ -74,12 +74,12 @@ public class f {
             bVar.AZ(-1);
             bVar.setPageNumber(-1);
         } else {
-            bVar.AZ(advertAppInfo.cMZ);
+            bVar.AZ(advertAppInfo.cNa);
             bVar.setPageNumber(i2);
         }
-        bVar.If(advertAppInfo.cNh);
-        bVar.Ig(advertAppInfo.cNi);
-        bVar.Ih(advertAppInfo.cNj);
+        bVar.If(advertAppInfo.cNi);
+        bVar.Ig(advertAppInfo.cNj);
+        bVar.Ih(advertAppInfo.cNk);
         bVar.Ii(advertAppInfo.page);
         return bVar;
     }
@@ -104,25 +104,25 @@ public class f {
     }
 
     public static b c(m mVar, int i) {
-        if (mVar == null || mVar.cKM() == null) {
+        if (mVar == null || mVar.cKO() == null) {
             return null;
         }
-        AppData cKM = mVar.cKM();
+        AppData cKO = mVar.cKO();
         b bVar = new b();
-        bVar.Ia(cKM.ext_info);
-        if (mVar.kgo) {
+        bVar.Ia(cKO.ext_info);
+        if (mVar.kgq) {
             bVar.AZ(-1);
             bVar.setPageNumber(-1);
         } else {
-            bVar.AZ(com.baidu.adp.lib.f.b.toInt(cKM.pos_name, 0));
+            bVar.AZ(com.baidu.adp.lib.f.b.toInt(cKO.pos_name, 0));
             bVar.setPageNumber(mVar.pageNumber);
         }
         bVar.AY(i);
-        bVar.Ic(cKM.price);
-        bVar.If(mVar.cNh);
-        bVar.Ig(mVar.cNi);
+        bVar.Ic(cKO.price);
+        bVar.If(mVar.cNi);
+        bVar.Ig(mVar.cNj);
         bVar.Ih(mVar.forumId);
-        bVar.Ii(mVar.cKP());
+        bVar.Ii(mVar.cKR());
         return bVar;
     }
 

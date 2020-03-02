@@ -9,8 +9,8 @@ import java.util.List;
 public final class a {
     public final int height;
     public final List<byte[]> initializationData;
-    public final float mHp;
-    public final int meM;
+    public final float mHr;
+    public final int meO;
     public final int width;
 
     public static a ag(l lVar) throws ParserException {
@@ -36,7 +36,7 @@ public final class a {
                 j.b C = j.C((byte[]) arrayList.get(0), readUnsignedByte, ((byte[]) arrayList.get(0)).length);
                 i = C.width;
                 i2 = C.height;
-                f = C.mHp;
+                f = C.mHr;
             } else {
                 i = -1;
             }
@@ -48,10 +48,10 @@ public final class a {
 
     private a(List<byte[]> list, int i, int i2, int i3, float f) {
         this.initializationData = list;
-        this.meM = i;
+        this.meO = i;
         this.width = i2;
         this.height = i3;
-        this.mHp = f;
+        this.mHr = f;
     }
 
     private static byte[] ah(l lVar) {

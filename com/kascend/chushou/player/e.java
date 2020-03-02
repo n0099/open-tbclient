@@ -23,7 +23,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class e extends Fragment implements a.InterfaceC0700a, a.InterfaceC0703a, b.a, a.InterfaceC0705a, a.InterfaceC0706a {
     public boolean H = false;
-    public tv.chushou.common.player.a mUs = null;
+    public tv.chushou.common.player.a mUu = null;
     public float J = 1.0f;
     protected boolean K = false;
 

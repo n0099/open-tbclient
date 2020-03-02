@@ -21,12 +21,12 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class b extends PopupWindow {
-    private ViewGroup aDx;
-    private View.OnClickListener ecb;
-    private View fZa;
-    private TextView kOA;
-    private TextView kOB;
-    private a kOz;
+    private ViewGroup aDy;
+    private View.OnClickListener ecc;
+    private View fZc;
+    private a kOB;
+    private TextView kOC;
+    private TextView kOD;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
@@ -39,23 +39,23 @@ public class b extends PopupWindow {
 
     public b(Context context) {
         super(context);
-        this.ecb = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
+        this.ecc = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == b.this.kOA) {
-                    if (b.this.kOz != null) {
-                        b.this.kOz.onItemClick(1);
+                if (view == b.this.kOC) {
+                    if (b.this.kOB != null) {
+                        b.this.kOB.onItemClick(1);
                     }
-                } else if (view == b.this.kOB && b.this.kOz != null) {
-                    b.this.kOz.onItemClick(0);
+                } else if (view == b.this.kOD && b.this.kOB != null) {
+                    b.this.kOB.onItemClick(0);
                 }
-                b.this.AR();
+                b.this.AT();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.AR();
+                b.this.AT();
             }
         };
         this.mContext = context;
@@ -68,51 +68,51 @@ public class b extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View bzn() {
-        bzo();
+    private View bzp() {
+        bzq();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.aDx = frameLayout2;
+        this.aDy = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.fZa);
-        this.aDx.setOnClickListener(this.mOnClickListener);
+        frameLayout.addView(this.fZc);
+        this.aDy.setOnClickListener(this.mOnClickListener);
         am.setBackgroundColor(this.mLine, R.color.cp_bg_line_c);
-        am.setBackgroundResource(this.fZa, R.drawable.window_bg_profession_select);
+        am.setBackgroundResource(this.fZc, R.drawable.window_bg_profession_select);
         return frameLayout;
     }
 
-    private void bzo() {
-        this.fZa = LayoutInflater.from(this.mContext).inflate(R.layout.layout_profession_select, (ViewGroup) null);
-        this.kOA = (TextView) this.fZa.findViewById(R.id.profession_select_title_profession);
-        this.mLine = this.fZa.findViewById(R.id.profession_select_line);
-        this.kOB = (TextView) this.fZa.findViewById(R.id.profession_select_title_all);
-        this.kOA.setOnClickListener(this.ecb);
-        this.kOB.setOnClickListener(this.ecb);
+    private void bzq() {
+        this.fZc = LayoutInflater.from(this.mContext).inflate(R.layout.layout_profession_select, (ViewGroup) null);
+        this.kOC = (TextView) this.fZc.findViewById(R.id.profession_select_title_profession);
+        this.mLine = this.fZc.findViewById(R.id.profession_select_line);
+        this.kOD = (TextView) this.fZc.findViewById(R.id.profession_select_title_all);
+        this.kOC.setOnClickListener(this.ecc);
+        this.kOD.setOnClickListener(this.ecc);
     }
 
     public void setData(List<com.baidu.tieba.write.b.a> list, int i) {
         if (list != null) {
-            View bzn = bzn();
+            View bzp = bzp();
             for (com.baidu.tieba.write.b.a aVar : list) {
-                if (aVar.kOy == 1) {
-                    this.kOA.setText(aVar.kOx);
+                if (aVar.kOA == 1) {
+                    this.kOC.setText(aVar.kOz);
                 } else {
-                    this.kOB.setText(aVar.kOx);
+                    this.kOD.setText(aVar.kOz);
                 }
                 if (i == 1) {
-                    am.setViewTextColor(this.kOA, (int) R.color.common_color_10140);
-                    am.setViewTextColor(this.kOB, (int) R.color.cp_cont_j);
+                    am.setViewTextColor(this.kOC, (int) R.color.common_color_10140);
+                    am.setViewTextColor(this.kOD, (int) R.color.cp_cont_j);
                 } else {
-                    am.setViewTextColor(this.kOB, (int) R.color.common_color_10140);
-                    am.setViewTextColor(this.kOA, (int) R.color.cp_cont_j);
+                    am.setViewTextColor(this.kOD, (int) R.color.common_color_10140);
+                    am.setViewTextColor(this.kOC, (int) R.color.cp_cont_j);
                 }
             }
-            setContentView(bzn);
+            setContentView(bzp);
         }
     }
 
     public void a(a aVar) {
-        this.kOz = aVar;
+        this.kOB = aVar;
     }
 
     public void R(View view) {
@@ -121,7 +121,7 @@ public class b extends PopupWindow {
                 int[] iArr = new int[2];
                 view.getLocationInWindow(iArr);
                 if (g.showPopupWindowAsDropDown(this, view, iArr[0] - (view.getWidth() / 2), 0)) {
-                    AT();
+                    AV();
                     return;
                 }
                 return;
@@ -130,7 +130,7 @@ public class b extends PopupWindow {
             int[] iArr2 = new int[2];
             view.getLocationInWindow(iArr2);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr2[0] + (view.getWidth() / 2), height)) {
-                AT();
+                AV();
             }
         }
     }
@@ -141,30 +141,30 @@ public class b extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        AR();
+        AT();
     }
 
-    public void AR() {
-        AU();
+    public void AT() {
+        AW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AS() {
+    public void AU() {
         super.dismiss();
     }
 
-    private void AT() {
+    private void AV() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.fZa.startAnimation(translateAnimation);
-        this.aDx.startAnimation(alphaAnimation);
+        this.fZc.startAnimation(translateAnimation);
+        this.aDy.startAnimation(alphaAnimation);
     }
 
-    private void AU() {
+    private void AW() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -183,10 +183,10 @@ public class b extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                b.this.AS();
+                b.this.AU();
             }
         });
-        this.fZa.startAnimation(translateAnimation);
-        this.aDx.startAnimation(alphaAnimation);
+        this.fZc.startAnimation(translateAnimation);
+        this.aDy.startAnimation(alphaAnimation);
     }
 }

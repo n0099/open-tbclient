@@ -5,13 +5,13 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes9.dex */
 public class a extends Thread {
     private final String Pj;
-    private final String cYC;
-    private final String iEc;
+    private final String cYD;
+    private final String iEe;
 
     public a(String str, String str2, String str3) {
         this.Pj = str;
-        this.iEc = str2;
-        this.cYC = str3;
+        this.iEe = str2;
+        this.cYD = str3;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -19,8 +19,8 @@ public class a extends Thread {
         super.run();
         com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + Config.CLIENT_CALL_ADDRESS);
         xVar.addPostData("tid", this.Pj);
-        xVar.addPostData("phonenum", this.iEc);
-        xVar.addPostData("optype", this.cYC);
+        xVar.addPostData("phonenum", this.iEe);
+        xVar.addPostData("optype", this.cYD);
         xVar.postNetData();
     }
 }

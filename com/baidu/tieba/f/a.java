@@ -5,9 +5,9 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float ayl;
     private float aym;
-    private InterfaceC0499a fRx;
+    private float ayn;
+    private InterfaceC0499a fRz;
     private float mLastTouchX;
     private float mLastTouchY;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
@@ -17,16 +17,16 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.fRx.z(i, i2);
+                    a.this.fRz.z(i, i2);
                     return true;
                 case 1:
-                    a.this.fRx.A(i, i2);
+                    a.this.fRz.A(i, i2);
                     return true;
                 case 2:
-                    a.this.fRx.bA(i, i2);
+                    a.this.fRz.bA(i, i2);
                     return true;
                 case 3:
-                    a.this.fRx.B(i, i2);
+                    a.this.fRz.B(i, i2);
                     return true;
                 default:
                     return false;
@@ -48,43 +48,43 @@ public class a {
     }
 
     public void a(InterfaceC0499a interfaceC0499a) {
-        this.fRx = interfaceC0499a;
+        this.fRz = interfaceC0499a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.ayl = motionEvent.getRawX();
-                this.aym = motionEvent.getRawY();
-                this.mLastTouchX = this.ayl;
-                this.mLastTouchY = this.aym;
+                this.aym = motionEvent.getRawX();
+                this.ayn = motionEvent.getRawY();
+                this.mLastTouchX = this.aym;
+                this.mLastTouchY = this.ayn;
                 return true;
             case 1:
             case 3:
-                if (this.fRx != null) {
-                    int i = (int) (this.mLastTouchX - this.ayl);
-                    int i2 = (int) (this.mLastTouchY - this.aym);
+                if (this.fRz != null) {
+                    int i = (int) (this.mLastTouchX - this.aym);
+                    int i2 = (int) (this.mLastTouchY - this.ayn);
                     if (Math.abs(i) >= Math.abs(i2)) {
-                        y(i, (int) this.ayl);
+                        y(i, (int) this.aym);
                     } else {
                         bz(i, i2);
                     }
                 }
-                this.ayl = 0.0f;
                 this.aym = 0.0f;
+                this.ayn = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.ayl == 0.0f || this.aym == 0.0f) {
-                    this.ayl = motionEvent.getRawX();
-                    this.aym = motionEvent.getRawY();
-                    this.mLastTouchX = this.ayl;
-                    this.mLastTouchY = this.aym;
+                if (this.aym == 0.0f || this.ayn == 0.0f) {
+                    this.aym = motionEvent.getRawX();
+                    this.ayn = motionEvent.getRawY();
+                    this.mLastTouchX = this.aym;
+                    this.mLastTouchY = this.ayn;
                 }
                 int i3 = (int) (rawY - this.mLastTouchY);
-                int i4 = (int) (rawY - this.aym);
-                if (this.fRx != null) {
+                int i4 = (int) (rawY - this.ayn);
+                if (this.fRz != null) {
                     if (i3 > 0) {
                         x(i4, i3);
                     } else {

@@ -5,34 +5,34 @@ import com.baidu.swan.pms.c.a.d.f;
 import com.baidu.swan.pms.d;
 /* loaded from: classes11.dex */
 public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
-    private volatile f cBq;
+    private volatile f cBr;
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0077, code lost:
-        if (r6.auc() > r0.auc()) goto L21;
+        if (r6.aue() > r0.aue()) goto L21;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void f(f fVar) {
         if (fVar != null) {
-            if (this.cBq != null && this.cBq.k(fVar)) {
-                fVar.atU().J(fVar.atV());
+            if (this.cBr != null && this.cBr.k(fVar)) {
+                fVar.atW().J(fVar.atX());
                 if (d.DEBUG) {
                     Log.d("PMSPriorityQueue", "enQueue: 要入队的任务和当前正在运行的任务相同->" + fVar);
                 }
             } else {
                 f aa = aa(fVar);
                 if (aa != null) {
-                    fVar.atU().J(fVar.atV());
+                    fVar.atW().J(fVar.atX());
                     if (d.DEBUG) {
                         Log.d("PMSPriorityQueue", "enQueue: 队列中已经有相同的任务在排队等待处理->" + fVar);
                     }
                 }
-                int auc = fVar.auc();
+                int aue = fVar.aue();
                 if (d.DEBUG) {
-                    Log.d("PMSPriorityQueue", "[enQueue] priorityOption:" + auc);
+                    Log.d("PMSPriorityQueue", "[enQueue] priorityOption:" + aue);
                 }
-                switch (auc) {
+                switch (aue) {
                     case 200:
                         if (aa != null) {
                             this.mQueue.remove(aa);
@@ -84,10 +84,10 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.c.a.c.a
-    /* renamed from: atQ */
-    public synchronized f atP() {
+    /* renamed from: atS */
+    public synchronized f atR() {
         f fVar;
-        fVar = (f) super.atP();
+        fVar = (f) super.atR();
         if (d.DEBUG) {
             Log.d("PMSPriorityQueue", "deQueue first task:" + fVar);
         }
@@ -96,7 +96,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.c.a.c.a
-    /* renamed from: atR */
+    /* renamed from: atT */
     public synchronized f get() {
         f fVar;
         fVar = (f) super.get();
@@ -108,13 +108,13 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void d(f<T> fVar) {
-        this.cBq = fVar;
+        this.cBr = fVar;
     }
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (this.cBq == fVar) {
-            this.cBq = null;
+        if (this.cBr == fVar) {
+            this.cBr = null;
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "notifyTaskEnd mCurrentTask == null:" + fVar);
             }
@@ -123,7 +123,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
     }
 
     private void g(f fVar) {
-        if (fVar.aue()) {
+        if (fVar.aug()) {
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "processPendingTask:" + fVar);
             }
@@ -137,16 +137,16 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     private void h(f fVar) {
         f fVar2;
-        if (fVar.auc() == 300 && (fVar2 = this.cBq) != null) {
-            if (fVar2.auc() == 300) {
+        if (fVar.aue() == 300 && (fVar2 = this.cBr) != null) {
+            if (fVar2.aue() == 300) {
                 if (d.DEBUG) {
                     Log.d("PMSPriorityQueue", "Hi-priority task is working, can't stop:" + fVar2);
                     return;
                 }
                 return;
             }
-            fVar2.aud();
-            for (int i = 0; i < 500 && this.cBq != null; i++) {
+            fVar2.auf();
+            for (int i = 0; i < 500 && this.cBr != null; i++) {
                 try {
                     Thread.sleep(10L);
                 } catch (InterruptedException e) {

@@ -12,7 +12,7 @@ public final class t {
 
     public static void endSection() {
         if (v.SDK_INT >= 18) {
-            dzR();
+            dzT();
         }
     }
 
@@ -22,7 +22,7 @@ public final class t {
     }
 
     @TargetApi(18)
-    private static void dzR() {
+    private static void dzT() {
         Trace.endSection();
     }
 }

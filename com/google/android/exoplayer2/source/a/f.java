@@ -14,88 +14,88 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class f<T extends g> implements p, q, Loader.a<c>, Loader.d {
-    long mrM;
-    private long mrN;
-    boolean mrP;
-    private final int mrp;
-    private final Loader mrv = new Loader("Loader:ChunkSampleStream");
-    private final e mtA = new e();
-    private final LinkedList<com.google.android.exoplayer2.source.a.a> mtB = new LinkedList<>();
-    private final List<com.google.android.exoplayer2.source.a.a> mtC = Collections.unmodifiableList(this.mtB);
-    private final o mtD;
-    private final o[] mtE;
-    private final b mtF;
-    private Format mtG;
-    private final int mtk;
-    private final int[] mtu;
-    private final boolean[] mtv;
-    private final T mtw;
-    private final q.a<f<T>> mty;
-    private final b.a mtz;
+    long mrO;
+    private long mrP;
+    boolean mrR;
+    private final int mrr;
+    private final q.a<f<T>> mtA;
+    private final b.a mtB;
+    private final o mtF;
+    private final o[] mtG;
+    private final b mtH;
+    private Format mtI;
+    private final int mtm;
+    private final int[] mtw;
+    private final boolean[] mty;
+    private final T mtz;
+    private final Loader mrx = new Loader("Loader:ChunkSampleStream");
+    private final e mtC = new e();
+    private final LinkedList<com.google.android.exoplayer2.source.a.a> mtD = new LinkedList<>();
+    private final List<com.google.android.exoplayer2.source.a.a> mtE = Collections.unmodifiableList(this.mtD);
 
     public f(int i, int[] iArr, T t, q.a<f<T>> aVar, com.google.android.exoplayer2.upstream.b bVar, long j, int i2, b.a aVar2) {
-        this.mtk = i;
-        this.mtu = iArr;
-        this.mtw = t;
-        this.mty = aVar;
-        this.mtz = aVar2;
-        this.mrp = i2;
+        this.mtm = i;
+        this.mtw = iArr;
+        this.mtz = t;
+        this.mtA = aVar;
+        this.mtB = aVar2;
+        this.mrr = i2;
         int length = iArr == null ? 0 : iArr.length;
-        this.mtE = new o[length];
-        this.mtv = new boolean[length];
+        this.mtG = new o[length];
+        this.mty = new boolean[length];
         int[] iArr2 = new int[length + 1];
         o[] oVarArr = new o[length + 1];
-        this.mtD = new o(bVar);
+        this.mtF = new o(bVar);
         iArr2[0] = i;
-        oVarArr[0] = this.mtD;
+        oVarArr[0] = this.mtF;
         for (int i3 = 0; i3 < length; i3++) {
             o oVar = new o(bVar);
-            this.mtE[i3] = oVar;
+            this.mtG[i3] = oVar;
             oVarArr[i3 + 1] = oVar;
             iArr2[i3 + 1] = iArr[i3];
         }
-        this.mtF = new b(iArr2, oVarArr);
-        this.mrN = j;
-        this.mrM = j;
+        this.mtH = new b(iArr2, oVarArr);
+        this.mrP = j;
+        this.mrO = j;
     }
 
     public void gm(long j) {
-        for (int i = 0; i < this.mtE.length; i++) {
-            this.mtE[i].c(j, true, this.mtv[i]);
+        for (int i = 0; i < this.mtG.length; i++) {
+            this.mtG[i].c(j, true, this.mty[i]);
         }
     }
 
     public f<T>.a C(long j, int i) {
-        for (int i2 = 0; i2 < this.mtE.length; i2++) {
-            if (this.mtu[i2] == i) {
-                com.google.android.exoplayer2.util.a.checkState(this.mtv[i2] ? false : true);
-                this.mtv[i2] = true;
-                this.mtE[i2].rewind();
-                this.mtE[i2].a(j, true, true);
-                return new a(this, this.mtE[i2], i2);
+        for (int i2 = 0; i2 < this.mtG.length; i2++) {
+            if (this.mtw[i2] == i) {
+                com.google.android.exoplayer2.util.a.checkState(this.mty[i2] ? false : true);
+                this.mty[i2] = true;
+                this.mtG[i2].rewind();
+                this.mtG[i2].a(j, true, true);
+                return new a(this, this.mtG[i2], i2);
             }
         }
         throw new IllegalStateException();
     }
 
-    public T dwM() {
-        return this.mtw;
+    public T dwO() {
+        return this.mtz;
     }
 
     @Override // com.google.android.exoplayer2.source.q
-    public long dwf() {
-        if (this.mrP) {
+    public long dwh() {
+        if (this.mrR) {
             return Long.MIN_VALUE;
         }
-        if (dwq()) {
-            return this.mrN;
+        if (dws()) {
+            return this.mrP;
         }
-        long j = this.mrM;
-        com.google.android.exoplayer2.source.a.a last = this.mtB.getLast();
-        if (!last.dwP()) {
-            last = this.mtB.size() > 1 ? this.mtB.get(this.mtB.size() - 2) : null;
+        long j = this.mrO;
+        com.google.android.exoplayer2.source.a.a last = this.mtD.getLast();
+        if (!last.dwR()) {
+            last = this.mtD.size() > 1 ? this.mtD.get(this.mtD.size() - 2) : null;
         }
-        return Math.max(last != null ? Math.max(j, last.mtj) : j, this.mtD.dwp());
+        return Math.max(last != null ? Math.max(j, last.mtl) : j, this.mtF.dwr());
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x001f  */
@@ -106,28 +106,28 @@ public class f<T extends g> implements p, q, Loader.a<c>, Loader.d {
     public void gn(long j) {
         boolean z;
         o[] oVarArr;
-        this.mrM = j;
-        if (!dwq()) {
-            if (this.mtD.a(j, true, j < dwg()) != -1) {
+        this.mrO = j;
+        if (!dws()) {
+            if (this.mtF.a(j, true, j < dwi()) != -1) {
                 z = true;
                 if (!z) {
-                    KT(this.mtD.dwu());
-                    this.mtD.dwC();
-                    for (o oVar : this.mtE) {
+                    KT(this.mtF.dww());
+                    this.mtF.dwE();
+                    for (o oVar : this.mtG) {
                         oVar.rewind();
                         oVar.c(j, true, false);
                     }
                     return;
                 }
-                this.mrN = j;
-                this.mrP = false;
-                this.mtB.clear();
-                if (this.mrv.isLoading()) {
-                    this.mrv.cNy();
+                this.mrP = j;
+                this.mrR = false;
+                this.mtD.clear();
+                if (this.mrx.isLoading()) {
+                    this.mrx.cNA();
                     return;
                 }
-                this.mtD.reset();
-                for (o oVar2 : this.mtE) {
+                this.mtF.reset();
+                for (o oVar2 : this.mtG) {
                     oVar2.reset();
                 }
                 return;
@@ -139,44 +139,44 @@ public class f<T extends g> implements p, q, Loader.a<c>, Loader.d {
     }
 
     public void release() {
-        if (!this.mrv.a(this)) {
-            this.mtD.dwD();
-            for (o oVar : this.mtE) {
-                oVar.dwD();
+        if (!this.mrx.a(this)) {
+            this.mtF.dwF();
+            for (o oVar : this.mtG) {
+                oVar.dwF();
             }
         }
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.d
-    public void dwl() {
-        this.mtD.reset();
-        for (o oVar : this.mtE) {
+    public void dwn() {
+        this.mtF.reset();
+        for (o oVar : this.mtG) {
             oVar.reset();
         }
     }
 
     @Override // com.google.android.exoplayer2.source.p
     public boolean isReady() {
-        return this.mrP || (!dwq() && this.mtD.dww());
+        return this.mrR || (!dws() && this.mtF.dwy());
     }
 
     @Override // com.google.android.exoplayer2.source.p
-    public void dwj() throws IOException {
-        this.mrv.dwj();
-        if (!this.mrv.isLoading()) {
-            this.mtw.dwj();
+    public void dwl() throws IOException {
+        this.mrx.dwl();
+        if (!this.mrx.isLoading()) {
+            this.mtz.dwl();
         }
     }
 
     @Override // com.google.android.exoplayer2.source.p
     public int b(com.google.android.exoplayer2.m mVar, com.google.android.exoplayer2.a.e eVar, boolean z) {
-        if (dwq()) {
+        if (dws()) {
             return -3;
         }
-        KT(this.mtD.dwu());
-        int a2 = this.mtD.a(mVar, eVar, z, this.mrP, this.mrM);
+        KT(this.mtF.dww());
+        int a2 = this.mtF.a(mVar, eVar, z, this.mrR, this.mrO);
         if (a2 == -4) {
-            this.mtD.dwC();
+            this.mtF.dwE();
             return a2;
         }
         return a2;
@@ -185,17 +185,17 @@ public class f<T extends g> implements p, q, Loader.a<c>, Loader.d {
     @Override // com.google.android.exoplayer2.source.p
     public int ge(long j) {
         int i = 0;
-        if (!dwq()) {
-            if (this.mrP && j > this.mtD.dwp()) {
-                i = this.mtD.dwy();
+        if (!dws()) {
+            if (this.mrR && j > this.mtF.dwr()) {
+                i = this.mtF.dwA();
             } else {
-                int a2 = this.mtD.a(j, true, true);
+                int a2 = this.mtF.a(j, true, true);
                 if (a2 != -1) {
                     i = a2;
                 }
             }
             if (i > 0) {
-                this.mtD.dwC();
+                this.mtF.dwE();
             }
         }
         return i;
@@ -204,52 +204,52 @@ public class f<T extends g> implements p, q, Loader.a<c>, Loader.d {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.a
     public void a(c cVar, long j, long j2) {
-        this.mtw.b(cVar);
-        this.mtz.c(cVar.dataSpec, cVar.type, this.mtk, cVar.mtf, cVar.mtg, cVar.mth, cVar.mti, cVar.mtj, j, j2, cVar.dwJ());
-        this.mty.a(this);
+        this.mtz.b(cVar);
+        this.mtB.c(cVar.dataSpec, cVar.type, this.mtm, cVar.mth, cVar.mti, cVar.mtj, cVar.mtk, cVar.mtl, j, j2, cVar.dwL());
+        this.mtA.a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.a
     public void a(c cVar, long j, long j2, boolean z) {
-        this.mtz.d(cVar.dataSpec, cVar.type, this.mtk, cVar.mtf, cVar.mtg, cVar.mth, cVar.mti, cVar.mtj, j, j2, cVar.dwJ());
+        this.mtB.d(cVar.dataSpec, cVar.type, this.mtm, cVar.mth, cVar.mti, cVar.mtj, cVar.mtk, cVar.mtl, j, j2, cVar.dwL());
         if (!z) {
-            this.mtD.reset();
-            for (o oVar : this.mtE) {
+            this.mtF.reset();
+            for (o oVar : this.mtG) {
                 oVar.reset();
             }
-            this.mty.a(this);
+            this.mtA.a(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.a
     public int a(c cVar, long j, long j2, IOException iOException) {
-        long dwJ = cVar.dwJ();
+        long dwL = cVar.dwL();
         boolean a2 = a(cVar);
-        boolean z = (dwJ != 0 && a2 && dwN()) ? false : true;
+        boolean z = (dwL != 0 && a2 && dwP()) ? false : true;
         boolean z2 = false;
-        if (this.mtw.a(cVar, z, iOException)) {
+        if (this.mtz.a(cVar, z, iOException)) {
             if (!z) {
                 Log.w("ChunkSampleStream", "Ignoring attempt to cancel non-cancelable load.");
             } else {
                 z2 = true;
                 if (a2) {
-                    com.google.android.exoplayer2.source.a.a removeLast = this.mtB.removeLast();
+                    com.google.android.exoplayer2.source.a.a removeLast = this.mtD.removeLast();
                     com.google.android.exoplayer2.util.a.checkState(removeLast == cVar);
-                    this.mtD.KL(removeLast.KS(0));
-                    for (int i = 0; i < this.mtE.length; i++) {
-                        this.mtE[i].KL(removeLast.KS(i + 1));
+                    this.mtF.KL(removeLast.KS(0));
+                    for (int i = 0; i < this.mtG.length; i++) {
+                        this.mtG[i].KL(removeLast.KS(i + 1));
                     }
-                    if (this.mtB.isEmpty()) {
-                        this.mrN = this.mrM;
+                    if (this.mtD.isEmpty()) {
+                        this.mrP = this.mrO;
                     }
                 }
             }
         }
-        this.mtz.b(cVar.dataSpec, cVar.type, this.mtk, cVar.mtf, cVar.mtg, cVar.mth, cVar.mti, cVar.mtj, j, j2, dwJ, iOException, z2);
+        this.mtB.b(cVar.dataSpec, cVar.type, this.mtm, cVar.mth, cVar.mti, cVar.mtj, cVar.mtk, cVar.mtl, j, j2, dwL, iOException, z2);
         if (z2) {
-            this.mty.a(this);
+            this.mtA.a(this);
             return 2;
         }
         return 0;
@@ -259,108 +259,108 @@ public class f<T extends g> implements p, q, Loader.a<c>, Loader.d {
     public boolean gd(long j) {
         long j2;
         com.google.android.exoplayer2.source.a.a aVar;
-        if (this.mrP || this.mrv.isLoading()) {
+        if (this.mrR || this.mrx.isLoading()) {
             return false;
         }
-        if (dwq()) {
+        if (dws()) {
             aVar = null;
-            j2 = this.mrN;
+            j2 = this.mrP;
         } else {
-            com.google.android.exoplayer2.source.a.a last = this.mtB.getLast();
-            j2 = last.mtj;
+            com.google.android.exoplayer2.source.a.a last = this.mtD.getLast();
+            j2 = last.mtl;
             aVar = last;
         }
-        this.mtw.a(aVar, j, j2, this.mtA);
-        boolean z = this.mtA.mtt;
-        c cVar = this.mtA.mts;
-        this.mtA.clear();
+        this.mtz.a(aVar, j, j2, this.mtC);
+        boolean z = this.mtC.mtv;
+        c cVar = this.mtC.mtu;
+        this.mtC.clear();
         if (z) {
-            this.mrN = -9223372036854775807L;
-            this.mrP = true;
+            this.mrP = -9223372036854775807L;
+            this.mrR = true;
             return true;
         } else if (cVar == null) {
             return false;
         } else {
             if (a(cVar)) {
-                this.mrN = -9223372036854775807L;
+                this.mrP = -9223372036854775807L;
                 com.google.android.exoplayer2.source.a.a aVar2 = (com.google.android.exoplayer2.source.a.a) cVar;
-                aVar2.a(this.mtF);
-                this.mtB.add(aVar2);
+                aVar2.a(this.mtH);
+                this.mtD.add(aVar2);
             }
-            this.mtz.b(cVar.dataSpec, cVar.type, this.mtk, cVar.mtf, cVar.mtg, cVar.mth, cVar.mti, cVar.mtj, this.mrv.a(cVar, this, this.mrp));
+            this.mtB.b(cVar.dataSpec, cVar.type, this.mtm, cVar.mth, cVar.mti, cVar.mtj, cVar.mtk, cVar.mtl, this.mrx.a(cVar, this, this.mrr));
             return true;
         }
     }
 
     @Override // com.google.android.exoplayer2.source.q
-    public long dwg() {
-        if (dwq()) {
-            return this.mrN;
+    public long dwi() {
+        if (dws()) {
+            return this.mrP;
         }
-        if (this.mrP) {
+        if (this.mrR) {
             return Long.MIN_VALUE;
         }
-        return this.mtB.getLast().mtj;
+        return this.mtD.getLast().mtl;
     }
 
     private boolean a(c cVar) {
         return cVar instanceof com.google.android.exoplayer2.source.a.a;
     }
 
-    private boolean dwN() {
-        com.google.android.exoplayer2.source.a.a last = this.mtB.getLast();
-        if (this.mtD.dwu() > last.KS(0)) {
+    private boolean dwP() {
+        com.google.android.exoplayer2.source.a.a last = this.mtD.getLast();
+        if (this.mtF.dww() > last.KS(0)) {
             return true;
         }
-        for (int i = 0; i < this.mtE.length; i++) {
-            if (this.mtE[i].dwu() > last.KS(i + 1)) {
+        for (int i = 0; i < this.mtG.length; i++) {
+            if (this.mtG[i].dww() > last.KS(i + 1)) {
                 return true;
             }
         }
         return false;
     }
 
-    boolean dwq() {
-        return this.mrN != -9223372036854775807L;
+    boolean dws() {
+        return this.mrP != -9223372036854775807L;
     }
 
     private void KT(int i) {
-        if (!this.mtB.isEmpty()) {
-            while (this.mtB.size() > 1 && this.mtB.get(1).KS(0) <= i) {
-                this.mtB.removeFirst();
+        if (!this.mtD.isEmpty()) {
+            while (this.mtD.size() > 1 && this.mtD.get(1).KS(0) <= i) {
+                this.mtD.removeFirst();
             }
-            com.google.android.exoplayer2.source.a.a first = this.mtB.getFirst();
-            Format format = first.mtf;
-            if (!format.equals(this.mtG)) {
-                this.mtz.b(this.mtk, format, first.mtg, first.mth, first.mti);
+            com.google.android.exoplayer2.source.a.a first = this.mtD.getFirst();
+            Format format = first.mth;
+            if (!format.equals(this.mtI)) {
+                this.mtB.b(this.mtm, format, first.mti, first.mtj, first.mtk);
             }
-            this.mtG = format;
+            this.mtI = format;
         }
     }
 
     /* loaded from: classes6.dex */
     public final class a implements p {
         private final int index;
-        public final f<T> mtH;
-        private final o mtI;
+        public final f<T> mtJ;
+        private final o mtK;
 
         public a(f<T> fVar, o oVar, int i) {
-            this.mtH = fVar;
-            this.mtI = oVar;
+            this.mtJ = fVar;
+            this.mtK = oVar;
             this.index = i;
         }
 
         @Override // com.google.android.exoplayer2.source.p
         public boolean isReady() {
-            return f.this.mrP || (!f.this.dwq() && this.mtI.dww());
+            return f.this.mrR || (!f.this.dws() && this.mtK.dwy());
         }
 
         @Override // com.google.android.exoplayer2.source.p
         public int ge(long j) {
-            if (f.this.mrP && j > this.mtI.dwp()) {
-                return this.mtI.dwy();
+            if (f.this.mrR && j > this.mtK.dwr()) {
+                return this.mtK.dwA();
             }
-            int a = this.mtI.a(j, true, true);
+            int a = this.mtK.a(j, true, true);
             if (a == -1) {
                 return 0;
             }
@@ -368,20 +368,20 @@ public class f<T extends g> implements p, q, Loader.a<c>, Loader.d {
         }
 
         @Override // com.google.android.exoplayer2.source.p
-        public void dwj() throws IOException {
+        public void dwl() throws IOException {
         }
 
         @Override // com.google.android.exoplayer2.source.p
         public int b(com.google.android.exoplayer2.m mVar, com.google.android.exoplayer2.a.e eVar, boolean z) {
-            if (f.this.dwq()) {
+            if (f.this.dws()) {
                 return -3;
             }
-            return this.mtI.a(mVar, eVar, z, f.this.mrP, f.this.mrM);
+            return this.mtK.a(mVar, eVar, z, f.this.mrR, f.this.mrO);
         }
 
         public void release() {
-            com.google.android.exoplayer2.util.a.checkState(f.this.mtv[this.index]);
-            f.this.mtv[this.index] = false;
+            com.google.android.exoplayer2.util.a.checkState(f.this.mty[this.index]);
+            f.this.mty[this.index] = false;
         }
     }
 }

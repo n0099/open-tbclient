@@ -45,18 +45,18 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes11.dex */
 public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
-    private PackageManager bSo;
-    private String cUk;
-    private NewWriteModel dyl;
-    private String jWE;
-    private String jWF;
+    private PackageManager bSp;
+    private String cUl;
+    private NewWriteModel dym;
     private String jWG;
-    private PackageInfo jWH;
-    private int jWJ;
-    private c jWK;
-    b jWL;
-    private com.baidu.tieba.sharewrite.a jWO;
-    private com.baidu.tieba.sharewrite.a jWP;
+    private String jWH;
+    private String jWI;
+    private PackageInfo jWJ;
+    private int jWL;
+    private c jWM;
+    b jWN;
+    private com.baidu.tieba.sharewrite.a jWQ;
+    private com.baidu.tieba.sharewrite.a jWR;
     private String mAppKey;
     private String mAppName;
     private PostPrefixData mPrefixData;
@@ -64,93 +64,93 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     private byte[] mShareLocalImageData;
     private String mShareTitle;
     private String packageName;
-    private WriteData jWI = null;
+    private WriteData jWK = null;
     private InputMethodManager mInputManager = null;
-    private DialogInterface.OnCancelListener gfk = null;
-    private boolean jWM = false;
-    private boolean jWN = false;
-    private a.b jWQ = new a.b() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.1
+    private DialogInterface.OnCancelListener gfm = null;
+    private boolean jWO = false;
+    private boolean jWP = false;
+    private a.b jWS = new a.b() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.1
         @Override // com.baidu.tieba.sharewrite.a.b
         public void a(com.baidu.tieba.sharewrite.a aVar) {
-            WriteShareActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity()).createBackSpecialCfg(WriteShareActivity.this.jWI.getForumName(), FrsActivityConfig.FRS_FROM_WRITESHARE, true, false)));
+            WriteShareActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity()).createBackSpecialCfg(WriteShareActivity.this.jWK.getForumName(), FrsActivityConfig.FRS_FROM_WRITESHARE, true, false)));
             aVar.dismiss();
             WriteShareActivity.this.finish();
         }
     };
-    private a.b jWR = new a.b() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.5
+    private a.b jWT = new a.b() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.5
         @Override // com.baidu.tieba.sharewrite.a.b
         public void a(com.baidu.tieba.sharewrite.a aVar) {
-            WriteShareActivity.this.HidenSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWK.cIb());
-            WriteShareActivity.this.HidenSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWK.cIc());
-            WriteShareActivity.this.cHU();
+            WriteShareActivity.this.HidenSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWM.cId());
+            WriteShareActivity.this.HidenSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWM.cIe());
+            WriteShareActivity.this.cHW();
             aVar.dismiss();
         }
     };
-    private a.b jWS = new a.b() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.6
+    private a.b jWU = new a.b() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.6
         @Override // com.baidu.tieba.sharewrite.a.b
         public void a(com.baidu.tieba.sharewrite.a aVar) {
             aVar.dismiss();
-            if (!WriteShareActivity.this.jWN) {
+            if (!WriteShareActivity.this.jWP) {
                 WriteShareActivity.this.setResult(0);
             }
             com.baidu.tbadk.core.e.b.c(WriteShareActivity.this.getPageContext().getPageActivity(), 200, false);
             WriteShareActivity.this.finish();
         }
     };
-    private final NewWriteModel.b jWT = new NewWriteModel.b() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.7
+    private final NewWriteModel.b jWV = new NewWriteModel.b() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.7
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.b
         public void a(ImageUploadResult imageUploadResult, boolean z) {
             if (imageUploadResult == null || imageUploadResult.picInfo == null || imageUploadResult.picInfo.originPic == null) {
-                WriteShareActivity.this.jWI.setShareSummaryImg("");
-                WriteShareActivity.this.jWI.setShareSummaryImgHeight(0);
-                WriteShareActivity.this.jWI.setShareSummaryImgWidth(0);
+                WriteShareActivity.this.jWK.setShareSummaryImg("");
+                WriteShareActivity.this.jWK.setShareSummaryImgHeight(0);
+                WriteShareActivity.this.jWK.setShareSummaryImgWidth(0);
                 return;
             }
-            WriteShareActivity.this.jWI.setShareSummaryImg(imageUploadResult.picInfo.originPic.picUrl);
-            WriteShareActivity.this.jWI.setShareSummaryImgHeight(imageUploadResult.picInfo.originPic.height);
-            WriteShareActivity.this.jWI.setShareSummaryImgWidth(imageUploadResult.picInfo.originPic.width);
+            WriteShareActivity.this.jWK.setShareSummaryImg(imageUploadResult.picInfo.originPic.picUrl);
+            WriteShareActivity.this.jWK.setShareSummaryImgHeight(imageUploadResult.picInfo.originPic.height);
+            WriteShareActivity.this.jWK.setShareSummaryImgWidth(imageUploadResult.picInfo.originPic.width);
         }
     };
-    private final NewWriteModel.c jWU = new NewWriteModel.c() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.8
+    private final NewWriteModel.c jWW = new NewWriteModel.c() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.8
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.c
         public void a(boolean z, String str, aa aaVar, WriteData writeData, AntiData antiData) {
             WriteShareActivity.this.closeLoadingDialog();
             if (z) {
-                WriteShareActivity.this.cHO();
-                if (WriteShareActivity.this.jWO != null) {
-                    WriteShareActivity.this.jWN = true;
+                WriteShareActivity.this.cHQ();
+                if (WriteShareActivity.this.jWQ != null) {
+                    WriteShareActivity.this.jWP = true;
                     WriteShareActivity.this.setResult(-1);
-                    WriteShareActivity.this.jWO.cHJ();
+                    WriteShareActivity.this.jWQ.cHL();
                 }
             } else if (aaVar == null || writeData == null || aaVar.getVcode_pic_url() == null) {
-                WriteShareActivity.this.cHP();
-                if (WriteShareActivity.this.jWP != null) {
-                    WriteShareActivity.this.jWN = false;
-                    WriteShareActivity.this.jWP.cHJ();
+                WriteShareActivity.this.cHR();
+                if (WriteShareActivity.this.jWR != null) {
+                    WriteShareActivity.this.jWP = false;
+                    WriteShareActivity.this.jWR.cHL();
                 }
             } else {
                 writeData.setVcodeMD5(aaVar.getVcode_md5());
                 writeData.setVcodeUrl(aaVar.getVcode_pic_url());
-                writeData.setVcodeExtra(aaVar.aJE());
-                WriteShareActivity.this.jWM = true;
-                if (com.baidu.tbadk.s.a.wa(aaVar.aJD())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, aaVar.aJD())));
+                writeData.setVcodeExtra(aaVar.aJG());
+                WriteShareActivity.this.jWO = true;
+                if (com.baidu.tbadk.s.a.wa(aaVar.aJF())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, aaVar.aJF())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), writeData, RequestResponseCode.REQUEST_VCODE)));
                 }
             }
         }
     };
-    private DialogInterface.OnKeyListener jWV = new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.9
+    private DialogInterface.OnKeyListener jWX = new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.9
         @Override // android.content.DialogInterface.OnKeyListener
         public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
             if (i == 4) {
-                if (WriteShareActivity.this.jWK != null && WriteShareActivity.this.jWK.cId() != null && WriteShareActivity.this.jWK.cId().isShowing()) {
-                    g.dismissPopupWindow(WriteShareActivity.this.jWK.cId(), WriteShareActivity.this.getPageContext().getPageActivity());
+                if (WriteShareActivity.this.jWM != null && WriteShareActivity.this.jWM.cIf() != null && WriteShareActivity.this.jWM.cIf().isShowing()) {
+                    g.dismissPopupWindow(WriteShareActivity.this.jWM.cIf(), WriteShareActivity.this.getPageContext().getPageActivity());
                     return true;
                 }
-                WriteShareActivity.this.cHQ();
-                if (WriteShareActivity.this.jWN) {
+                WriteShareActivity.this.cHS();
+                if (WriteShareActivity.this.jWP) {
                     WriteShareActivity.this.setResult(-1);
                 } else {
                     WriteShareActivity.this.setResult(0);
@@ -162,50 +162,50 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             return false;
         }
     };
-    private View.OnClickListener jWW = new View.OnClickListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.12
+    private View.OnClickListener jWY = new View.OnClickListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.12
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            WriteShareActivity.this.cHQ();
-            if (WriteShareActivity.this.jWN) {
+            WriteShareActivity.this.cHS();
+            if (WriteShareActivity.this.jWP) {
                 WriteShareActivity.this.setResult(-1);
             }
             com.baidu.tbadk.core.e.b.c(WriteShareActivity.this.getPageContext().getPageActivity(), 200, false);
             WriteShareActivity.this.finish();
         }
     };
-    private View.OnClickListener jWX = new View.OnClickListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.2
+    private View.OnClickListener jWZ = new View.OnClickListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            WriteShareActivity.this.HidenSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWK.cIb());
-            WriteShareActivity.this.HidenSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWK.cIc());
-            WriteShareActivity.this.cHU();
+            WriteShareActivity.this.HidenSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWM.cId());
+            WriteShareActivity.this.HidenSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWM.cIe());
+            WriteShareActivity.this.cHW();
         }
     };
-    private View.OnClickListener jWY = new View.OnClickListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.3
+    private View.OnClickListener jXa = new View.OnClickListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            WriteShareActivity.this.jWK.cIc().requestFocus();
-            WriteShareActivity.this.ShowSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWK.cIc());
+            WriteShareActivity.this.jWM.cIe().requestFocus();
+            WriteShareActivity.this.ShowSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWM.cIe());
         }
     };
-    private final View.OnFocusChangeListener eVV = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.4
+    private final View.OnFocusChangeListener eVW = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.4
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
-            if (WriteShareActivity.this.jWK != null) {
-                if (view == WriteShareActivity.this.jWK.cIb() || view == WriteShareActivity.this.jWK.cIe() || view == WriteShareActivity.this.jWK.cIf()) {
+            if (WriteShareActivity.this.jWM != null) {
+                if (view == WriteShareActivity.this.jWM.cId() || view == WriteShareActivity.this.jWM.cIg() || view == WriteShareActivity.this.jWM.cIh()) {
                     if (z) {
-                        WriteShareActivity.this.ShowSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWK.cIb());
-                    } else if (view == WriteShareActivity.this.jWK.cIb() && WriteShareActivity.this.jWK.cIg() != null) {
-                        WriteShareActivity.this.jWK.cIg().setVisibility(0);
+                        WriteShareActivity.this.ShowSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWM.cId());
+                    } else if (view == WriteShareActivity.this.jWM.cId() && WriteShareActivity.this.jWM.cIi() != null) {
+                        WriteShareActivity.this.jWM.cIi().setVisibility(0);
                     }
                 }
-                if (view == WriteShareActivity.this.jWK.cIc()) {
+                if (view == WriteShareActivity.this.jWM.cIe()) {
                     if (z) {
-                        WriteShareActivity.this.jWK.cIc().setHint((CharSequence) null);
+                        WriteShareActivity.this.jWM.cIe().setHint((CharSequence) null);
                     } else {
-                        WriteShareActivity.this.jWK.cIc().setHint(R.string.content);
+                        WriteShareActivity.this.jWM.cIe().setHint(R.string.content);
                     }
-                    WriteShareActivity.this.ShowSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWK.cIb());
+                    WriteShareActivity.this.ShowSoftKeyPad(WriteShareActivity.this.mInputManager, WriteShareActivity.this.jWM.cId());
                 }
             }
         }
@@ -225,57 +225,57 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         super.onCreate(bundle);
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
         setSwipeBackEnabled(false);
-        this.bSo = getPageContext().getPageActivity().getPackageManager();
-        bfX();
-        boolean cHL = cHL();
+        this.bSp = getPageContext().getPageActivity().getPackageManager();
+        bfZ();
+        boolean cHN = cHN();
         initData(bundle);
         initUI();
-        if (!cHL) {
+        if (!cHN) {
             if (TextUtils.isEmpty(this.mAppKey)) {
                 Cb(R.string.share_parameter_invalid_tip);
             } else {
                 Cb(R.string.share_content_empty_tip);
             }
         } else if (TbadkCoreApplication.isLogin()) {
-            cHM();
+            cHO();
         } else {
             login();
         }
         TiebaStatic.log(CommonStatisticKey.SHARE4SDK);
     }
 
-    private void bfX() {
+    private void bfZ() {
         this.packageName = getCallingPackage();
-        if (this.bSo != null && this.packageName != null) {
+        if (this.bSp != null && this.packageName != null) {
             try {
-                this.jWH = this.bSo.getPackageInfo(this.packageName, 64);
-                if (this.jWH != null) {
-                    if (this.jWH.applicationInfo != null && this.jWH.applicationInfo.loadLabel(this.bSo) != null) {
-                        this.mAppName = this.jWH.applicationInfo.loadLabel(this.bSo).toString();
+                this.jWJ = this.bSp.getPackageInfo(this.packageName, 64);
+                if (this.jWJ != null) {
+                    if (this.jWJ.applicationInfo != null && this.jWJ.applicationInfo.loadLabel(this.bSp) != null) {
+                        this.mAppName = this.jWJ.applicationInfo.loadLabel(this.bSp).toString();
                     }
-                    if (this.jWH.signatures != null && this.jWH.signatures.length > 0 && this.jWH.signatures[0] != null) {
-                        this.jWG = as.getAPKHexMD5(this.jWH.signatures[0].toByteArray());
+                    if (this.jWJ.signatures != null && this.jWJ.signatures.length > 0 && this.jWJ.signatures[0] != null) {
+                        this.jWI = as.getAPKHexMD5(this.jWJ.signatures[0].toByteArray());
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {
                 BdLog.e(e.getMessage());
                 this.mAppName = null;
-                this.jWG = null;
+                this.jWI = null;
             }
         }
         try {
             Bundle extras = getIntent().getExtras();
-            this.jWE = extras.getString("ShareUrl");
-            this.cUk = extras.getString("ShareImageUrl");
+            this.jWG = extras.getString("ShareUrl");
+            this.cUl = extras.getString("ShareImageUrl");
             this.mShareLocalImageData = extras.getByteArray("ShareImageData");
             this.mShareTitle = extras.getString("ShareTitle");
             this.mShareContent = extras.getString("ShareContent");
-            this.jWF = extras.getString("ShareTargetBaName");
+            this.jWH = extras.getString("ShareTargetBaName");
             if (TextUtils.isEmpty(this.mAppName)) {
                 this.mAppName = extras.getString("appName");
             }
-            if (TextUtils.isEmpty(this.jWG)) {
-                this.jWG = extras.getString("appSign");
+            if (TextUtils.isEmpty(this.jWI)) {
+                this.jWI = extras.getString("appSign");
             }
             this.mAppKey = extras.getString("appKey");
         } catch (Exception e2) {
@@ -283,8 +283,8 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    private boolean cHL() {
-        return (TextUtils.isEmpty(this.mAppKey) || (TextUtils.isEmpty(this.mShareContent) && TextUtils.isEmpty(this.cUk) && this.mShareLocalImageData == null)) ? false : true;
+    private boolean cHN() {
+        return (TextUtils.isEmpty(this.mAppKey) || (TextUtils.isEmpty(this.mShareContent) && TextUtils.isEmpty(this.cUl) && this.mShareLocalImageData == null)) ? false : true;
     }
 
     private void login() {
@@ -293,90 +293,90 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
     }
 
-    private void cHM() {
-        if (TextUtils.isEmpty(this.jWF)) {
+    private void cHO() {
+        if (TextUtils.isEmpty(this.jWH)) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentAccount(), 0, true, RequestResponseCode.REQUEST_SHARE_FORUM_INFO)));
         } else {
-            cHN();
+            cHP();
         }
     }
 
-    private void cHN() {
-        this.jWK.cHW();
+    private void cHP() {
+        this.jWM.cHY();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.jWL.IG(this.jWI.getForumName());
+        this.jWN.IG(this.jWK.getForumName());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cHO() {
-        if (this.jWO == null) {
-            this.jWO = new com.baidu.tieba.sharewrite.a(getActivity());
-            this.jWO.sw(false);
-            this.jWO.BX(R.drawable.icon_send_ok);
-            this.jWO.Ca(R.string.share_alert_success);
-            this.jWO.a(R.string.share_stay_in_tieba, this.jWQ);
-            this.jWO.b(R.string.back, this.jWS);
-            this.jWO.a(this.jWV);
-            this.jWO.f(getPageContext());
+    public void cHQ() {
+        if (this.jWQ == null) {
+            this.jWQ = new com.baidu.tieba.sharewrite.a(getActivity());
+            this.jWQ.sw(false);
+            this.jWQ.BX(R.drawable.icon_send_ok);
+            this.jWQ.Ca(R.string.share_alert_success);
+            this.jWQ.a(R.string.share_stay_in_tieba, this.jWS);
+            this.jWQ.b(R.string.back, this.jWU);
+            this.jWQ.a(this.jWX);
+            this.jWQ.f(getPageContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cHP() {
-        if (this.jWP == null) {
-            this.jWP = new com.baidu.tieba.sharewrite.a(getActivity());
-            this.jWP.BX(R.drawable.icon_send_error);
-            this.jWP.BY(R.drawable.btn_w_square);
-            this.jWP.BZ(R.color.common_color_10039);
-            this.jWP.Ca(R.string.share_alert_fail);
-            this.jWP.a(R.string.share_keep_sending, this.jWR);
-            this.jWP.b(R.string.back, this.jWS);
-            this.jWP.a(this.jWV);
-            this.jWP.f(getPageContext());
+    public void cHR() {
+        if (this.jWR == null) {
+            this.jWR = new com.baidu.tieba.sharewrite.a(getActivity());
+            this.jWR.BX(R.drawable.icon_send_error);
+            this.jWR.BY(R.drawable.btn_w_square);
+            this.jWR.BZ(R.color.common_color_10039);
+            this.jWR.Ca(R.string.share_alert_fail);
+            this.jWR.a(R.string.share_keep_sending, this.jWT);
+            this.jWR.b(R.string.back, this.jWU);
+            this.jWR.a(this.jWX);
+            this.jWR.f(getPageContext());
         }
     }
 
-    protected void cHQ() {
-        if (this.dyl != null) {
-            this.dyl.cancelLoadData();
+    protected void cHS() {
+        if (this.dym != null) {
+            this.dym.cancelLoadData();
         }
     }
 
-    protected void cHR() {
-        if (this.dyl != null) {
-            this.dyl.cMj();
+    protected void cHT() {
+        if (this.dym != null) {
+            this.dym.cMl();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        cHQ();
-        cHR();
+        cHS();
+        cHT();
         releaseResource();
         super.onDestroy();
     }
 
     private void releaseResource() {
-        ShareSDKImageView cIh;
-        if (this.jWK != null && (cIh = this.jWK.cIh()) != null) {
-            cIh.setImageBitmap(null);
+        ShareSDKImageView cIj;
+        if (this.jWM != null && (cIj = this.jWM.cIj()) != null) {
+            cIj.setImageBitmap(null);
         }
     }
 
-    public WriteData cHS() {
-        return this.jWI;
+    public WriteData cHU() {
+        return this.jWK;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.jWK != null && this.jWK.cId() != null && this.jWK.cId().isShowing()) {
-                g.dismissPopupWindow(this.jWK.cId(), getPageContext().getPageActivity());
+            if (this.jWM != null && this.jWM.cIf() != null && this.jWM.cIf().isShowing()) {
+                g.dismissPopupWindow(this.jWM.cIf(), getPageContext().getPageActivity());
                 return true;
             }
-            cHQ();
-            if (this.jWN) {
+            cHS();
+            if (this.jWP) {
                 setResult(-1);
             } else {
                 setResult(0);
@@ -392,8 +392,8 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jWK != null) {
-            this.jWK.onChangeSkinType(i);
+        if (this.jWM != null) {
+            this.jWM.onChangeSkinType(i);
         }
     }
 
@@ -401,11 +401,11 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         setContentView(R.layout.write_share_activity);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.jWK = new c(this);
-        this.jWK.ab(this.jWW);
-        this.jWK.ac(this.jWX);
-        this.jWK.b(this.eVV);
-        this.jWK.ad(this.jWY);
+        this.jWM = new c(this);
+        this.jWM.ab(this.jWY);
+        this.jWM.ac(this.jWZ);
+        this.jWM.b(this.eVW);
+        this.jWM.ad(this.jXa);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -442,18 +442,18 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     }
 
     private void initData(Bundle bundle) {
-        this.dyl = new NewWriteModel(this);
-        this.dyl.a(this.jWU);
-        this.dyl.a(this.jWT);
-        this.jWL = new b(this, new b.a() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.10
+        this.dym = new NewWriteModel(this);
+        this.dym.a(this.jWW);
+        this.dym.a(this.jWV);
+        this.jWN = new b(this, new b.a() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.10
             @Override // com.baidu.tieba.sharewrite.b.a
             public void a(boolean z, PostPrefixData postPrefixData) {
                 if (z) {
                     WriteShareActivity.this.mPrefixData = postPrefixData;
                     if (WriteShareActivity.this.mPrefixData != null && WriteShareActivity.this.mPrefixData.getPrefixs().size() > 0) {
                         WriteShareActivity.this.mPrefixData.getPrefixs().add(WriteShareActivity.this.getPageContext().getString(R.string.write_no_prefix));
-                        if (WriteShareActivity.this.jWK != null) {
-                            WriteShareActivity.this.jWK.a(WriteShareActivity.this.mPrefixData);
+                        if (WriteShareActivity.this.jWM != null) {
+                            WriteShareActivity.this.jWM.a(WriteShareActivity.this.mPrefixData);
                             return;
                         }
                         return;
@@ -461,81 +461,81 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                     return;
                 }
                 WriteShareActivity.this.mPrefixData = null;
-                WriteShareActivity.this.jWK.a((PostPrefixData) null);
+                WriteShareActivity.this.jWM.a((PostPrefixData) null);
             }
 
             @Override // com.baidu.tieba.sharewrite.b.a
             public void onFailure() {
                 WriteShareActivity.this.mPrefixData = null;
-                WriteShareActivity.this.jWK.a((PostPrefixData) null);
+                WriteShareActivity.this.jWM.a((PostPrefixData) null);
             }
         });
-        this.gfk = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.11
+        this.gfm = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.sharewrite.WriteShareActivity.11
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 WriteShareActivity.this.destroyWaitingDialog();
-                WriteShareActivity.this.cHQ();
+                WriteShareActivity.this.cHS();
             }
         };
-        this.jWI = new WriteData();
-        this.jWI.setType(3);
+        this.jWK = new WriteData();
+        this.jWK.setType(3);
         if (bundle != null) {
-            this.jWI.setForumName(bundle.getString("forum_name"));
-            this.jWI.setShareSummaryTitle(bundle.getString(WriteShareActivityConfig.SHARE_SUMMARY_TITLE));
-            this.jWI.setShareSummaryContent(bundle.getString(WriteShareActivityConfig.SHARE_SUMMARY_CONTENT));
-            this.jWI.setShareSummaryImg(bundle.getString(WriteShareActivityConfig.SHARE_SUMMARY_IMG));
-            this.jWI.setShareApiKey(bundle.getString(WriteShareActivityConfig.SHARE_API_KEY));
-            this.jWI.setShareAppName(bundle.getString(WriteShareActivityConfig.SHARE_APP_NAME));
-            this.jWI.setShareSignKey(bundle.getString(WriteShareActivityConfig.SHARE_SIGN_KEY));
-            this.jWI.setShareReferUrl(bundle.getString(WriteShareActivityConfig.SHARE_REFER_URL));
+            this.jWK.setForumName(bundle.getString("forum_name"));
+            this.jWK.setShareSummaryTitle(bundle.getString(WriteShareActivityConfig.SHARE_SUMMARY_TITLE));
+            this.jWK.setShareSummaryContent(bundle.getString(WriteShareActivityConfig.SHARE_SUMMARY_CONTENT));
+            this.jWK.setShareSummaryImg(bundle.getString(WriteShareActivityConfig.SHARE_SUMMARY_IMG));
+            this.jWK.setShareApiKey(bundle.getString(WriteShareActivityConfig.SHARE_API_KEY));
+            this.jWK.setShareAppName(bundle.getString(WriteShareActivityConfig.SHARE_APP_NAME));
+            this.jWK.setShareSignKey(bundle.getString(WriteShareActivityConfig.SHARE_SIGN_KEY));
+            this.jWK.setShareReferUrl(bundle.getString(WriteShareActivityConfig.SHARE_REFER_URL));
             this.mPrefixData = (PostPrefixData) bundle.getSerializable("prefix_data");
         } else {
-            this.jWI.setForumName(this.jWF);
-            this.jWI.setShareSummaryTitle(this.mShareTitle);
-            this.jWI.setShareSummaryContent(this.mShareContent);
-            this.jWI.setShareApiKey(this.mAppKey);
-            this.jWI.setShareAppName(this.mAppName);
-            this.jWI.setShareSignKey(this.jWG);
-            this.jWI.setShareReferUrl(this.jWE);
-            boolean isLocalImagePath = m.isLocalImagePath(this.cUk);
+            this.jWK.setForumName(this.jWH);
+            this.jWK.setShareSummaryTitle(this.mShareTitle);
+            this.jWK.setShareSummaryContent(this.mShareContent);
+            this.jWK.setShareApiKey(this.mAppKey);
+            this.jWK.setShareAppName(this.mAppName);
+            this.jWK.setShareSignKey(this.jWI);
+            this.jWK.setShareReferUrl(this.jWG);
+            boolean isLocalImagePath = m.isLocalImagePath(this.cUl);
             if ((this.mShareLocalImageData != null && this.mShareLocalImageData.length > 0) || isLocalImagePath) {
-                this.dyl.e(this.mShareLocalImageData, this.cUk);
-                this.jWI.setShareLocalImageUri(this.cUk);
-                this.jWI.setShareLocalImageData(this.mShareLocalImageData);
-                this.dyl.bAD();
-                this.jWI.setShareImageType(WriteData.SHARE_SDK_LOCAL_IMAGE);
+                this.dym.e(this.mShareLocalImageData, this.cUl);
+                this.jWK.setShareLocalImageUri(this.cUl);
+                this.jWK.setShareLocalImageData(this.mShareLocalImageData);
+                this.dym.bAF();
+                this.jWK.setShareImageType(WriteData.SHARE_SDK_LOCAL_IMAGE);
             } else {
-                this.jWI.setShareSummaryImg(this.cUk);
-                this.jWI.setShareImageType(WriteData.SHARE_SDK_NET_IMAGE);
+                this.jWK.setShareSummaryImg(this.cUl);
+                this.jWK.setShareImageType(WriteData.SHARE_SDK_NET_IMAGE);
             }
         }
-        String shareSummaryImg = this.jWI.getShareSummaryImg();
+        String shareSummaryImg = this.jWK.getShareSummaryImg();
         if (shareSummaryImg == null || shareSummaryImg.trim().length() == 0) {
-            this.jWI.setShareSummaryImg("");
+            this.jWK.setShareSummaryImg("");
         }
-        String shareSummaryTitle = this.jWI.getShareSummaryTitle();
+        String shareSummaryTitle = this.jWK.getShareSummaryTitle();
         if (shareSummaryTitle == null || shareSummaryTitle.trim().length() == 0) {
-            this.jWI.setShareSummaryTitle("");
+            this.jWK.setShareSummaryTitle("");
         }
-        String shareSummaryContent = this.jWI.getShareSummaryContent();
+        String shareSummaryContent = this.jWK.getShareSummaryContent();
         if (shareSummaryContent == null || shareSummaryContent.trim().length() == 0) {
-            this.jWI.setShareSummaryContent("");
+            this.jWK.setShareSummaryContent("");
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putString("forum_name", this.jWI.getForumName());
-        bundle.putString(WriteShareActivityConfig.SHARE_SUMMARY_TITLE, this.jWI.getShareSummaryTitle());
-        bundle.putString(WriteShareActivityConfig.SHARE_SUMMARY_CONTENT, this.jWI.getShareSummaryContent());
-        bundle.putString(WriteShareActivityConfig.SHARE_SUMMARY_IMG, this.jWI.getShareSummaryImg());
-        bundle.putString(WriteShareActivityConfig.SHARE_REFER_URL, this.jWI.getShareReferUrl());
-        bundle.putString(WriteShareActivityConfig.SHARE_API_KEY, this.jWI.getShareApiKey());
-        bundle.putString(WriteShareActivityConfig.SHARE_APP_NAME, this.jWI.getShareAppName());
-        bundle.putString(WriteShareActivityConfig.SHARE_SIGN_KEY, this.jWI.getShareSignKey());
-        bundle.putInt(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, this.jWI.getShareSummaryImgWidth());
-        bundle.putInt(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, this.jWI.getShareSummaryImgHeight());
-        bundle.putString(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, this.jWI.getShareSummaryImgType());
+        bundle.putString("forum_name", this.jWK.getForumName());
+        bundle.putString(WriteShareActivityConfig.SHARE_SUMMARY_TITLE, this.jWK.getShareSummaryTitle());
+        bundle.putString(WriteShareActivityConfig.SHARE_SUMMARY_CONTENT, this.jWK.getShareSummaryContent());
+        bundle.putString(WriteShareActivityConfig.SHARE_SUMMARY_IMG, this.jWK.getShareSummaryImg());
+        bundle.putString(WriteShareActivityConfig.SHARE_REFER_URL, this.jWK.getShareReferUrl());
+        bundle.putString(WriteShareActivityConfig.SHARE_API_KEY, this.jWK.getShareApiKey());
+        bundle.putString(WriteShareActivityConfig.SHARE_APP_NAME, this.jWK.getShareAppName());
+        bundle.putString(WriteShareActivityConfig.SHARE_SIGN_KEY, this.jWK.getShareSignKey());
+        bundle.putInt(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, this.jWK.getShareSummaryImgWidth());
+        bundle.putInt(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, this.jWK.getShareSummaryImgHeight());
+        bundle.putString(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, this.jWK.getShareSummaryImgType());
         bundle.putSerializable("prefix_data", this.mPrefixData);
         super.onSaveInstanceState(bundle);
     }
@@ -544,35 +544,35 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     protected void onRestoreInstanceState(Bundle bundle) {
         String obj;
         super.onRestoreInstanceState(bundle);
-        if (this.jWK != null && this.jWK.cIc() != null && (obj = this.jWK.cIc().getEditableText().toString()) != null) {
-            this.jWK.cIc().setText(TbFaceManager.aPN().aB(getPageContext().getContext(), obj));
-            this.jWK.cIc().setSelection(this.jWK.cIc().getText().length());
+        if (this.jWM != null && this.jWM.cIe() != null && (obj = this.jWM.cIe().getEditableText().toString()) != null) {
+            this.jWM.cIe().setText(TbFaceManager.aPP().aB(getPageContext().getContext(), obj));
+            this.jWM.cIe().setSelection(this.jWM.cIe().getText().length());
         }
     }
 
     public void Cc(int i) {
-        this.jWJ = i;
+        this.jWL = i;
     }
 
-    public int cHT() {
-        return this.jWJ;
+    public int cHV() {
+        return this.jWL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cHU() {
-        cHQ();
-        if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0 && this.jWJ != this.mPrefixData.getPrefixs().size() - 1) {
-            this.jWI.setTitle(this.jWK.cIg().getText().toString() + this.jWK.cIb().getText().toString());
+    public void cHW() {
+        cHS();
+        if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0 && this.jWL != this.mPrefixData.getPrefixs().size() - 1) {
+            this.jWK.setTitle(this.jWM.cIi().getText().toString() + this.jWM.cId().getText().toString());
         } else {
-            this.jWI.setTitle(this.jWK.cIb().getText().toString());
+            this.jWK.setTitle(this.jWM.cId().getText().toString());
         }
-        this.jWI.setContent(this.jWK.cIc().getText().toString());
-        this.dyl.d(this.jWI);
-        this.jWI.setVcode(null);
-        this.dyl.cHS().setVoice(null);
-        this.dyl.cHS().setVoiceDuringTime(-1);
-        if (this.dyl.cMh()) {
-            showLoadingDialog(getPageContext().getString(R.string.sending), this.gfk);
+        this.jWK.setContent(this.jWM.cIe().getText().toString());
+        this.dym.d(this.jWK);
+        this.jWK.setVcode(null);
+        this.dym.cHU().setVoice(null);
+        this.dym.cHU().setVoiceDuringTime(-1);
+        if (this.dym.cMj()) {
+            showLoadingDialog(getPageContext().getString(R.string.sending), this.gfm);
         }
     }
 
@@ -581,28 +581,28 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 12006) {
-            this.jWM = false;
+            this.jWO = false;
             if (i2 == -1) {
-                cHO();
-                if (this.jWO != null) {
-                    this.jWN = true;
-                    this.jWO.cHJ();
+                cHQ();
+                if (this.jWQ != null) {
+                    this.jWP = true;
+                    this.jWQ.cHL();
                 }
                 setResult(-1);
                 return;
             }
-            cHP();
-            if (this.jWP != null) {
-                this.jWN = false;
-                this.jWP.cHJ();
+            cHR();
+            if (this.jWR != null) {
+                this.jWP = false;
+                this.jWR.cHL();
             }
             setResult(0);
         } else if (i == 23008) {
             if (i2 == -1) {
                 if (intent != null) {
-                    this.jWF = intent.getStringExtra(PersonBarActivityConfig.BAR_NAME);
-                    this.jWI.setForumName(this.jWF);
-                    cHN();
+                    this.jWH = intent.getStringExtra(PersonBarActivityConfig.BAR_NAME);
+                    this.jWK.setForumName(this.jWH);
+                    cHP();
                     return;
                 }
                 finish();
@@ -612,7 +612,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         } else if (i == 11003) {
             TbadkCoreApplication.isSDKLogin = false;
             if (i2 == -1) {
-                cHM();
+                cHO();
             } else {
                 finish();
             }
@@ -622,13 +622,13 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        HidenSoftKeyPad(this.mInputManager, this.jWK.cIb());
-        HidenSoftKeyPad(this.mInputManager, this.jWK.cIc());
+        HidenSoftKeyPad(this.mInputManager, this.jWM.cId());
+        HidenSoftKeyPad(this.mInputManager, this.jWM.cIe());
         super.onPause();
     }
 
-    public void cHV() {
-        HidenSoftKeyPad(this.mInputManager, this.jWK.cIb());
-        HidenSoftKeyPad(this.mInputManager, this.jWK.cIc());
+    public void cHX() {
+        HidenSoftKeyPad(this.mInputManager, this.jWM.cId());
+        HidenSoftKeyPad(this.mInputManager, this.jWM.cIe());
     }
 }

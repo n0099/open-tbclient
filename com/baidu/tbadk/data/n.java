@@ -4,36 +4,36 @@ import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class n implements com.baidu.adp.widget.ListView.m {
     public static final BdUniqueId MO = BdUniqueId.gen();
-    private String dvE;
     private String dvF;
-    private boolean dvG = false;
+    private String dvG;
+    private boolean dvH = false;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
         return MO;
     }
 
-    public String aNX() {
-        return this.dvE;
-    }
-
-    public void uT(String str) {
-        this.dvE = str;
-    }
-
-    public String getSmallUrl() {
+    public String aNZ() {
         return this.dvF;
     }
 
-    public void uU(String str) {
+    public void uT(String str) {
         this.dvF = str;
     }
 
-    public boolean aNY() {
+    public String getSmallUrl() {
         return this.dvG;
     }
 
+    public void uU(String str) {
+        this.dvG = str;
+    }
+
+    public boolean aOa() {
+        return this.dvH;
+    }
+
     public void gu(boolean z) {
-        this.dvG = z;
+        this.dvH = z;
     }
 }

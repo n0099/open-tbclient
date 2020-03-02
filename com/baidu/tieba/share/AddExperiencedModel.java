@@ -17,10 +17,10 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener cZT;
-    private ContriInfo jVA;
-    private Runnable jVB;
-    private a jVz;
+    private HttpMessageListener cZU;
+    private a jVB;
+    private ContriInfo jVC;
+    private Runnable jVD;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,26 +29,26 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jVB = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.jVD = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.jVz != null) {
-                    AddExperiencedModel.this.jVz.a(AddExperiencedModel.this.jVA);
+                if (AddExperiencedModel.this.jVB != null) {
+                    AddExperiencedModel.this.jVB.a(AddExperiencedModel.this.jVC);
                 }
             }
         };
-        this.cZT = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.cZU = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.jVA = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.gx().postDelayed(AddExperiencedModel.this.jVB, 2000L);
+                    AddExperiencedModel.this.jVC = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.gx().postDelayed(AddExperiencedModel.this.jVD, 2000L);
                 }
             }
         };
         te();
-        registerListener(this.cZT);
+        registerListener(this.cZU);
     }
 
     private void te() {
@@ -79,6 +79,6 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        e.gx().removeCallbacks(this.jVB);
+        e.gx().removeCallbacks(this.jVD);
     }
 }

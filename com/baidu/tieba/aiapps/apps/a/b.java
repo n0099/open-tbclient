@@ -4,6 +4,6 @@ public class b {
     public String aqo;
     public String bduss;
     public String displayName;
-    public String edk;
+    public String edl;
     public String uid;
 }

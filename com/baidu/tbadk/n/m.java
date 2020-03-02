@@ -7,31 +7,31 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String dEc = "tb_perfor_samllflow_time";
-    private static volatile m dEf;
-    private long dEe;
+    private static String dEd = "tb_perfor_samllflow_time";
+    private static volatile m dEg;
+    private long dEf;
     private boolean isSmallFlow = false;
-    private long dEd = 86400;
-    private long dEb = com.baidu.tbadk.core.sharedPref.b.aFB().getLong(dEc, 0);
+    private long dEe = 86400;
+    private long dEc = com.baidu.tbadk.core.sharedPref.b.aFD().getLong(dEd, 0);
 
-    public static m aRj() {
-        if (dEf == null) {
+    public static m aRl() {
+        if (dEg == null) {
             synchronized (m.class) {
-                if (dEf == null) {
-                    dEf = new m();
+                if (dEg == null) {
+                    dEg = new m();
                 }
             }
         }
-        return dEf;
+        return dEg;
     }
 
     private m() {
-        this.dEe = 0L;
-        this.dEe = this.dEd;
+        this.dEf = 0L;
+        this.dEf = this.dEe;
     }
 
-    public boolean aRk() {
-        if (!this.isSmallFlow || (System.currentTimeMillis() - this.dEb) / 1000 <= this.dEe) {
+    public boolean aRm() {
+        if (!this.isSmallFlow || (System.currentTimeMillis() - this.dEc) / 1000 <= this.dEf) {
             return this.isSmallFlow;
         }
         return false;
@@ -40,17 +40,17 @@ public class m {
     public void gU(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.dEb || currentTimeMillis - this.dEb >= this.dEe) {
-                this.dEb = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.aFB().putLong(dEc, this.dEb);
+            if (0 == this.dEc || currentTimeMillis - this.dEc >= this.dEf) {
+                this.dEc = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.aFD().putLong(dEd, this.dEc);
             }
         } else {
-            this.dEb = 0L;
-            com.baidu.tbadk.core.sharedPref.b.aFB().putLong(dEc, this.dEb);
+            this.dEc = 0L;
+            com.baidu.tbadk.core.sharedPref.b.aFD().putLong(dEd, this.dEc);
         }
         this.isSmallFlow = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.aRo().aRp();
+            n.aRq().aRr();
         }
     }
 
@@ -86,7 +86,7 @@ public class m {
         return "WIFI";
     }
 
-    public long aRl() {
+    public long aRn() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -97,7 +97,7 @@ public class m {
     }
 
     public l mN(int i) {
-        if (aRk()) {
+        if (aRm()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -129,7 +129,7 @@ public class m {
 
     public void bK(long j) {
         if (j > 0) {
-            this.dEe = j;
+            this.dEf = j;
         }
     }
 

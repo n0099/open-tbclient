@@ -6,21 +6,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class s extends a {
     private boolean NJ;
     private boolean dbA;
-    private boolean dbz;
+    private boolean dbB;
     private int height;
     private int procType;
     private int width;
 
     public s(boolean z, boolean z2, boolean z3, int i) {
         this.NJ = true;
-        this.dbz = false;
         this.dbA = false;
+        this.dbB = false;
         this.procType = 0;
         this.width = 0;
         this.height = 0;
         this.NJ = z;
-        this.dbz = z2;
-        this.dbA = z3;
+        this.dbA = z2;
+        this.dbB = z3;
         this.procType = i;
         this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
         this.height = (int) (this.width * 1.6f);
@@ -47,17 +47,17 @@ public class s extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aGQ() {
+    public boolean aGS() {
+        return this.dbB;
+    }
+
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean aGT() {
         return this.dbA;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aGR() {
-        return this.dbz;
-    }
-
-    @Override // com.baidu.tbadk.core.util.d.a
-    public int aGS() {
+    public int aGU() {
         return this.procType;
     }
 }

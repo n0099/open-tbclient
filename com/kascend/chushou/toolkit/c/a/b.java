@@ -15,9 +15,9 @@ import tv.chushou.basis.d.a.a.c;
 @h
 /* loaded from: classes5.dex */
 public final class b {
-    private final UploadManager neD = new UploadManager();
-    public static final a neF = new a(null);
-    private static final b neE = new b();
+    private final UploadManager neF = new UploadManager();
+    public static final a neH = new a(null);
+    private static final b neG = new b();
 
     private b() {
     }
@@ -26,31 +26,31 @@ public final class b {
     /* renamed from: com.kascend.chushou.toolkit.c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     static final class C0713b implements UpCompletionHandler {
-        final /* synthetic */ c.a neB;
+        final /* synthetic */ c.a neD;
 
         C0713b(c.a aVar) {
-            this.neB = aVar;
+            this.neD = aVar;
         }
 
         @Override // com.qiniu.android.storage.UpCompletionHandler
         public final void a(String str, ResponseInfo responseInfo, JSONObject jSONObject) {
             if (responseInfo != null) {
-                if (responseInfo.dFM() && jSONObject != null) {
-                    c.a aVar = this.neB;
+                if (responseInfo.dFO() && jSONObject != null) {
+                    c.a aVar = this.neD;
                     if (aVar != null) {
                         aVar.onSuccess(jSONObject.toString());
                         return;
                     }
                     return;
                 }
-                c.a aVar2 = this.neB;
+                c.a aVar2 = this.neD;
                 if (aVar2 != null) {
                     aVar2.onFailure(-1, responseInfo.error, null);
                     return;
                 }
                 return;
             }
-            c.a aVar3 = this.neB;
+            c.a aVar3 = this.neD;
             if (aVar3 != null) {
                 aVar3.onFailure(-1, null, null);
             }
@@ -61,21 +61,21 @@ public final class b {
         q.j(file, "f");
         q.j(str, "key");
         q.j(str2, "token");
-        this.neD.a(file, str, str2, new C0713b(aVar), new UploadOptions(null, null, false, new c(aVar), d.neG));
+        this.neF.a(file, str, str2, new C0713b(aVar), new UploadOptions(null, null, false, new c(aVar), d.neI));
     }
 
     @h
     /* loaded from: classes5.dex */
     static final class c implements UpProgressHandler {
-        final /* synthetic */ c.a neB;
+        final /* synthetic */ c.a neD;
 
         c(c.a aVar) {
-            this.neB = aVar;
+            this.neD = aVar;
         }
 
         @Override // com.qiniu.android.storage.UpProgressHandler
         public final void b(String str, double d) {
-            c.a aVar = this.neB;
+            c.a aVar = this.neD;
             if (aVar != null) {
                 aVar.onProgress((int) (100 * d));
             }
@@ -85,7 +85,7 @@ public final class b {
     @h
     /* loaded from: classes5.dex */
     static final class d implements UpCancellationSignal {
-        public static final d neG = new d();
+        public static final d neI = new d();
 
         d() {
         }
@@ -106,8 +106,8 @@ public final class b {
             this();
         }
 
-        public final b dEi() {
-            return b.neE;
+        public final b dEk() {
+            return b.neG;
         }
     }
 }

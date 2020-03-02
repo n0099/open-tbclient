@@ -18,26 +18,26 @@ import java.util.concurrent.CopyOnWriteArraySet;
 @TargetApi(16)
 /* loaded from: classes6.dex */
 public class w implements g {
-    private TextureView fDZ;
-    private final g lYQ;
-    protected final s[] lYu;
-    private final a lZL = new a();
-    private final CopyOnWriteArraySet<b> lZM = new CopyOnWriteArraySet<>();
-    private final CopyOnWriteArraySet<com.google.android.exoplayer2.text.j> lZN = new CopyOnWriteArraySet<>();
-    private final CopyOnWriteArraySet<com.google.android.exoplayer2.metadata.d> lZO = new CopyOnWriteArraySet<>();
-    private final int lZP;
-    private final int lZQ;
-    private Format lZR;
-    private Format lZS;
-    private boolean lZT;
-    private int lZU;
-    private com.google.android.exoplayer2.audio.d lZV;
-    private com.google.android.exoplayer2.video.e lZW;
-    private com.google.android.exoplayer2.a.d lZX;
-    private com.google.android.exoplayer2.a.d lZY;
-    private int lZZ;
-    private com.google.android.exoplayer2.audio.b maa;
-    private float mab;
+    private TextureView fEb;
+    private final g lYS;
+    protected final s[] lYw;
+    private final a lZN = new a();
+    private final CopyOnWriteArraySet<b> lZO = new CopyOnWriteArraySet<>();
+    private final CopyOnWriteArraySet<com.google.android.exoplayer2.text.j> lZP = new CopyOnWriteArraySet<>();
+    private final CopyOnWriteArraySet<com.google.android.exoplayer2.metadata.d> lZQ = new CopyOnWriteArraySet<>();
+    private final int lZR;
+    private final int lZS;
+    private Format lZT;
+    private Format lZU;
+    private boolean lZV;
+    private int lZW;
+    private com.google.android.exoplayer2.audio.d lZX;
+    private com.google.android.exoplayer2.video.e lZY;
+    private com.google.android.exoplayer2.a.d lZZ;
+    private com.google.android.exoplayer2.a.d maa;
+    private int mab;
+    private com.google.android.exoplayer2.audio.b mad;
+    private float mae;
     private Surface surface;
     private SurfaceHolder surfaceHolder;
 
@@ -45,15 +45,15 @@ public class w implements g {
     public interface b {
         void b(int i, int i2, int i3, float f);
 
-        void dap();
+        void dar();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public w(v vVar, com.google.android.exoplayer2.b.h hVar, n nVar) {
-        this.lYu = vVar.a(new Handler(Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper()), this.lZL, this.lZL, this.lZL, this.lZL);
+        this.lYw = vVar.a(new Handler(Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper()), this.lZN, this.lZN, this.lZN, this.lZN);
         int i = 0;
         int i2 = 0;
-        for (s sVar : this.lYu) {
+        for (s sVar : this.lYw) {
             switch (sVar.getTrackType()) {
                 case 1:
                     i++;
@@ -63,28 +63,28 @@ public class w implements g {
                     break;
             }
         }
-        this.lZP = i2;
-        this.lZQ = i;
-        this.mab = 1.0f;
-        this.lZZ = 0;
-        this.maa = com.google.android.exoplayer2.audio.b.maC;
-        this.lZU = 1;
-        this.lYQ = a(this.lYu, hVar, nVar);
+        this.lZR = i2;
+        this.lZS = i;
+        this.mae = 1.0f;
+        this.mab = 0;
+        this.mad = com.google.android.exoplayer2.audio.b.maE;
+        this.lZW = 1;
+        this.lYS = a(this.lYw, hVar, nVar);
     }
 
     public void e(Surface surface) {
-        dty();
+        dtA();
         a(surface, false);
     }
 
     public void d(SurfaceHolder surfaceHolder) {
-        dty();
+        dtA();
         this.surfaceHolder = surfaceHolder;
         if (surfaceHolder == null) {
             a((Surface) null, false);
             return;
         }
-        surfaceHolder.addCallback(this.lZL);
+        surfaceHolder.addCallback(this.lZN);
         Surface surface = surfaceHolder.getSurface();
         if (surface == null || !surface.isValid()) {
             surface = null;
@@ -107,8 +107,8 @@ public class w implements g {
     }
 
     public void b(TextureView textureView) {
-        dty();
-        this.fDZ = textureView;
+        dtA();
+        this.fEb = textureView;
         if (textureView == null) {
             a((Surface) null, true);
             return;
@@ -116,22 +116,22 @@ public class w implements g {
         if (textureView.getSurfaceTextureListener() != null) {
             Log.w("SimpleExoPlayer", "Replacing existing SurfaceTextureListener.");
         }
-        textureView.setSurfaceTextureListener(this.lZL);
+        textureView.setSurfaceTextureListener(this.lZN);
         SurfaceTexture surfaceTexture = textureView.isAvailable() ? textureView.getSurfaceTexture() : null;
         a(surfaceTexture != null ? new Surface(surfaceTexture) : null, true);
     }
 
     public void c(TextureView textureView) {
-        if (textureView != null && textureView == this.fDZ) {
+        if (textureView != null && textureView == this.fEb) {
             b((TextureView) null);
         }
     }
 
     public void setVolume(float f) {
         int i;
-        this.mab = f;
-        g.b[] bVarArr = new g.b[this.lZQ];
-        s[] sVarArr = this.lYu;
+        this.mae = f;
+        g.b[] bVarArr = new g.b[this.lZS];
+        s[] sVarArr = this.lYw;
         int length = sVarArr.length;
         int i2 = 0;
         int i3 = 0;
@@ -146,109 +146,109 @@ public class w implements g {
             i2++;
             i3 = i;
         }
-        this.lYQ.a(bVarArr);
+        this.lYS.a(bVarArr);
     }
 
     public void a(b bVar) {
-        this.lZM.add(bVar);
+        this.lZO.add(bVar);
     }
 
     public void b(b bVar) {
-        this.lZM.remove(bVar);
+        this.lZO.remove(bVar);
     }
 
     @Deprecated
     public void c(b bVar) {
-        this.lZM.clear();
+        this.lZO.clear();
         if (bVar != null) {
             a(bVar);
         }
     }
 
     public void a(com.google.android.exoplayer2.text.j jVar) {
-        this.lZN.add(jVar);
+        this.lZP.add(jVar);
     }
 
     public void b(com.google.android.exoplayer2.text.j jVar) {
-        this.lZN.remove(jVar);
+        this.lZP.remove(jVar);
     }
 
     @Override // com.google.android.exoplayer2.r
     public void a(r.b bVar) {
-        this.lYQ.a(bVar);
+        this.lYS.a(bVar);
     }
 
     @Override // com.google.android.exoplayer2.r
     public void b(r.b bVar) {
-        this.lYQ.b(bVar);
+        this.lYS.b(bVar);
     }
 
     @Override // com.google.android.exoplayer2.r
-    public int cZN() {
-        return this.lYQ.cZN();
+    public int cZP() {
+        return this.lYS.cZP();
     }
 
     @Override // com.google.android.exoplayer2.g
     public void a(com.google.android.exoplayer2.source.l lVar) {
-        this.lYQ.a(lVar);
+        this.lYS.a(lVar);
     }
 
     @Override // com.google.android.exoplayer2.r
     public void vy(boolean z) {
-        this.lYQ.vy(z);
+        this.lYS.vy(z);
     }
 
     @Override // com.google.android.exoplayer2.r
-    public boolean dsR() {
-        return this.lYQ.dsR();
+    public boolean dsT() {
+        return this.lYS.dsT();
     }
 
     @Override // com.google.android.exoplayer2.r
     public int getRepeatMode() {
-        return this.lYQ.getRepeatMode();
+        return this.lYS.getRepeatMode();
     }
 
     @Override // com.google.android.exoplayer2.r
     public void setRepeatMode(int i) {
-        this.lYQ.setRepeatMode(i);
+        this.lYS.setRepeatMode(i);
     }
 
     @Override // com.google.android.exoplayer2.r
     public void vz(boolean z) {
-        this.lYQ.vz(z);
+        this.lYS.vz(z);
     }
 
     @Override // com.google.android.exoplayer2.r
-    public boolean dsS() {
-        return this.lYQ.dsS();
+    public boolean dsU() {
+        return this.lYS.dsU();
     }
 
     @Override // com.google.android.exoplayer2.r
     public void A(int i, long j) {
-        this.lYQ.A(i, j);
+        this.lYS.A(i, j);
     }
 
     @Override // com.google.android.exoplayer2.r
     public void b(q qVar) {
-        this.lYQ.b(qVar);
+        this.lYS.b(qVar);
     }
 
     @Override // com.google.android.exoplayer2.r
-    public q dsT() {
-        return this.lYQ.dsT();
+    public q dsV() {
+        return this.lYS.dsV();
     }
 
     @Override // com.google.android.exoplayer2.r
     public void stop() {
-        this.lYQ.stop();
+        this.lYS.stop();
     }
 
     @Override // com.google.android.exoplayer2.r
     public void release() {
-        this.lYQ.release();
-        dty();
+        this.lYS.release();
+        dtA();
         if (this.surface != null) {
-            if (this.lZT) {
+            if (this.lZV) {
                 this.surface.release();
             }
             this.surface = null;
@@ -257,89 +257,89 @@ public class w implements g {
 
     @Override // com.google.android.exoplayer2.g
     public void a(g.b... bVarArr) {
-        this.lYQ.a(bVarArr);
+        this.lYS.a(bVarArr);
     }
 
     @Override // com.google.android.exoplayer2.g
     public void b(g.b... bVarArr) {
-        this.lYQ.b(bVarArr);
+        this.lYS.b(bVarArr);
     }
 
     @Override // com.google.android.exoplayer2.r
     public int IT(int i) {
-        return this.lYQ.IT(i);
+        return this.lYS.IT(i);
     }
 
     @Override // com.google.android.exoplayer2.r
-    public com.google.android.exoplayer2.b.g dtb() {
-        return this.lYQ.dtb();
+    public com.google.android.exoplayer2.b.g dtd() {
+        return this.lYS.dtd();
     }
 
     @Override // com.google.android.exoplayer2.r
-    public x dtc() {
-        return this.lYQ.dtc();
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public int dsV() {
-        return this.lYQ.dsV();
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public int dsW() {
-        return this.lYQ.dsW();
+    public x dte() {
+        return this.lYS.dte();
     }
 
     @Override // com.google.android.exoplayer2.r
     public int dsX() {
-        return this.lYQ.dsX();
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public long getDuration() {
-        return this.lYQ.getDuration();
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public long getCurrentPosition() {
-        return this.lYQ.getCurrentPosition();
-    }
-
-    @Override // com.google.android.exoplayer2.r
-    public long getBufferedPosition() {
-        return this.lYQ.getBufferedPosition();
+        return this.lYS.dsX();
     }
 
     @Override // com.google.android.exoplayer2.r
     public int dsY() {
-        return this.lYQ.dsY();
+        return this.lYS.dsY();
     }
 
     @Override // com.google.android.exoplayer2.r
-    public boolean dsZ() {
-        return this.lYQ.dsZ();
+    public int dsZ() {
+        return this.lYS.dsZ();
     }
 
     @Override // com.google.android.exoplayer2.r
-    public long dta() {
-        return this.lYQ.dta();
+    public long getDuration() {
+        return this.lYS.getDuration();
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public long getCurrentPosition() {
+        return this.lYS.getCurrentPosition();
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public long getBufferedPosition() {
+        return this.lYS.getBufferedPosition();
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public int dta() {
+        return this.lYS.dta();
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public boolean dtb() {
+        return this.lYS.dtb();
+    }
+
+    @Override // com.google.android.exoplayer2.r
+    public long dtc() {
+        return this.lYS.dtc();
     }
 
     protected g a(s[] sVarArr, com.google.android.exoplayer2.b.h hVar, n nVar) {
         return new j(sVarArr, hVar, nVar);
     }
 
-    private void dty() {
-        if (this.fDZ != null) {
-            if (this.fDZ.getSurfaceTextureListener() != this.lZL) {
+    private void dtA() {
+        if (this.fEb != null) {
+            if (this.fEb.getSurfaceTextureListener() != this.lZN) {
                 Log.w("SimpleExoPlayer", "SurfaceTextureListener already unset or replaced.");
             } else {
-                this.fDZ.setSurfaceTextureListener(null);
+                this.fEb.setSurfaceTextureListener(null);
             }
-            this.fDZ = null;
+            this.fEb = null;
         }
         if (this.surfaceHolder != null) {
-            this.surfaceHolder.removeCallback(this.lZL);
+            this.surfaceHolder.removeCallback(this.lZN);
             this.surfaceHolder = null;
         }
     }
@@ -347,8 +347,8 @@ public class w implements g {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Surface surface, boolean z) {
         int i;
-        g.b[] bVarArr = new g.b[this.lZP];
-        s[] sVarArr = this.lYu;
+        g.b[] bVarArr = new g.b[this.lZR];
+        s[] sVarArr = this.lYw;
         int length = sVarArr.length;
         int i2 = 0;
         int i3 = 0;
@@ -364,15 +364,15 @@ public class w implements g {
             i3 = i;
         }
         if (this.surface != null && this.surface != surface) {
-            this.lYQ.b(bVarArr);
-            if (this.lZT) {
+            this.lYS.b(bVarArr);
+            if (this.lZV) {
                 this.surface.release();
             }
         } else {
-            this.lYQ.a(bVarArr);
+            this.lYS.a(bVarArr);
         }
         this.surface = surface;
-        this.lZT = z;
+        this.lZV = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -383,118 +383,118 @@ public class w implements g {
 
         @Override // com.google.android.exoplayer2.video.e
         public void c(com.google.android.exoplayer2.a.d dVar) {
-            w.this.lZX = dVar;
-            if (w.this.lZW != null) {
-                w.this.lZW.c(dVar);
+            w.this.lZZ = dVar;
+            if (w.this.lZY != null) {
+                w.this.lZY.c(dVar);
             }
         }
 
         @Override // com.google.android.exoplayer2.video.e
         public void e(String str, long j, long j2) {
-            if (w.this.lZW != null) {
-                w.this.lZW.e(str, j, j2);
+            if (w.this.lZY != null) {
+                w.this.lZY.e(str, j, j2);
             }
         }
 
         @Override // com.google.android.exoplayer2.video.e
         public void b(Format format) {
-            w.this.lZR = format;
-            if (w.this.lZW != null) {
-                w.this.lZW.b(format);
+            w.this.lZT = format;
+            if (w.this.lZY != null) {
+                w.this.lZY.b(format);
             }
         }
 
         @Override // com.google.android.exoplayer2.video.e
         public void z(int i, long j) {
-            if (w.this.lZW != null) {
-                w.this.lZW.z(i, j);
+            if (w.this.lZY != null) {
+                w.this.lZY.z(i, j);
             }
         }
 
         @Override // com.google.android.exoplayer2.video.e
         public void b(int i, int i2, int i3, float f) {
-            Iterator it = w.this.lZM.iterator();
+            Iterator it = w.this.lZO.iterator();
             while (it.hasNext()) {
                 ((b) it.next()).b(i, i2, i3, f);
             }
-            if (w.this.lZW != null) {
-                w.this.lZW.b(i, i2, i3, f);
+            if (w.this.lZY != null) {
+                w.this.lZY.b(i, i2, i3, f);
             }
         }
 
         @Override // com.google.android.exoplayer2.video.e
         public void d(Surface surface) {
             if (w.this.surface == surface) {
-                Iterator it = w.this.lZM.iterator();
+                Iterator it = w.this.lZO.iterator();
                 while (it.hasNext()) {
-                    ((b) it.next()).dap();
+                    ((b) it.next()).dar();
                 }
             }
-            if (w.this.lZW != null) {
-                w.this.lZW.d(surface);
+            if (w.this.lZY != null) {
+                w.this.lZY.d(surface);
             }
         }
 
         @Override // com.google.android.exoplayer2.video.e
         public void d(com.google.android.exoplayer2.a.d dVar) {
-            if (w.this.lZW != null) {
-                w.this.lZW.d(dVar);
+            if (w.this.lZY != null) {
+                w.this.lZY.d(dVar);
             }
-            w.this.lZR = null;
-            w.this.lZX = null;
+            w.this.lZT = null;
+            w.this.lZZ = null;
         }
 
         @Override // com.google.android.exoplayer2.audio.d
         public void a(com.google.android.exoplayer2.a.d dVar) {
-            w.this.lZY = dVar;
-            if (w.this.lZV != null) {
-                w.this.lZV.a(dVar);
+            w.this.maa = dVar;
+            if (w.this.lZX != null) {
+                w.this.lZX.a(dVar);
             }
         }
 
         @Override // com.google.android.exoplayer2.audio.d
         public void EU(int i) {
-            w.this.lZZ = i;
-            if (w.this.lZV != null) {
-                w.this.lZV.EU(i);
+            w.this.mab = i;
+            if (w.this.lZX != null) {
+                w.this.lZX.EU(i);
             }
         }
 
         @Override // com.google.android.exoplayer2.audio.d
         public void d(String str, long j, long j2) {
-            if (w.this.lZV != null) {
-                w.this.lZV.d(str, j, j2);
+            if (w.this.lZX != null) {
+                w.this.lZX.d(str, j, j2);
             }
         }
 
         @Override // com.google.android.exoplayer2.audio.d
         public void a(Format format) {
-            w.this.lZS = format;
-            if (w.this.lZV != null) {
-                w.this.lZV.a(format);
+            w.this.lZU = format;
+            if (w.this.lZX != null) {
+                w.this.lZX.a(format);
             }
         }
 
         @Override // com.google.android.exoplayer2.audio.d
         public void e(int i, long j, long j2) {
-            if (w.this.lZV != null) {
-                w.this.lZV.e(i, j, j2);
+            if (w.this.lZX != null) {
+                w.this.lZX.e(i, j, j2);
             }
         }
 
         @Override // com.google.android.exoplayer2.audio.d
         public void b(com.google.android.exoplayer2.a.d dVar) {
-            if (w.this.lZV != null) {
-                w.this.lZV.b(dVar);
+            if (w.this.lZX != null) {
+                w.this.lZX.b(dVar);
             }
-            w.this.lZS = null;
-            w.this.lZY = null;
-            w.this.lZZ = 0;
+            w.this.lZU = null;
+            w.this.maa = null;
+            w.this.mab = 0;
         }
 
         @Override // com.google.android.exoplayer2.text.j
         public void eZ(List<com.google.android.exoplayer2.text.b> list) {
-            Iterator it = w.this.lZN.iterator();
+            Iterator it = w.this.lZP.iterator();
             while (it.hasNext()) {
                 ((com.google.android.exoplayer2.text.j) it.next()).eZ(list);
             }
@@ -502,7 +502,7 @@ public class w implements g {
 
         @Override // com.google.android.exoplayer2.metadata.d
         public void a(Metadata metadata) {
-            Iterator it = w.this.lZO.iterator();
+            Iterator it = w.this.lZQ.iterator();
             while (it.hasNext()) {
                 ((com.google.android.exoplayer2.metadata.d) it.next()).a(metadata);
             }

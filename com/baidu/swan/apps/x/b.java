@@ -22,7 +22,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                 b.this.mAppId = bundle2.getString("key_launch_app_id");
                 b.this.mStatus = bundle2.getInt("key_launch_status");
                 if (TextUtils.equals(string, b.this.mAppId)) {
-                    b.this.bIS.putInt("ok", b.this.mStatus);
+                    b.this.bIT.putInt("ok", b.this.mStatus);
                     b.this.finish();
                 }
                 b.bH.remove(string);

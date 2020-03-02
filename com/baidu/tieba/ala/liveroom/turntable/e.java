@@ -15,50 +15,50 @@ import com.baidu.tieba.ala.liveroom.turntable.d;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class e {
-    private CustomMessageListener euS;
-    private d.a fkW;
-    private d fkY;
+    private CustomMessageListener euT;
+    private d.a fkX;
+    private d fkZ;
     private Activity mContext;
 
     public e(Activity activity) {
         this.mContext = activity;
-        bdE();
+        bdG();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.fkY = new d(this.mContext);
-        this.fkY.a(this.fkW);
-        this.fkY.bdF().setBackgroundColor(xK(str));
+        this.fkZ = new d(this.mContext);
+        this.fkZ.a(this.fkX);
+        this.fkZ.bdH().setBackgroundColor(xK(str));
         f fVar = new f();
-        fVar.y(this.mContext).a(this.fkY).a(this.fkY.bdF().getSchemeCallback());
-        com.baidu.live.view.web.a[] BA = fVar.BA();
-        for (com.baidu.live.view.web.a aVar : BA) {
-            this.fkY.bdF().addJavascriptInterface(aVar, aVar.getName());
+        fVar.y(this.mContext).a(this.fkZ).a(this.fkZ.bdH().getSchemeCallback());
+        com.baidu.live.view.web.a[] BC = fVar.BC();
+        for (com.baidu.live.view.web.a aVar : BC) {
+            this.fkZ.bdH().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fkY.show(b(str, j, j2, j3));
+        this.fkZ.show(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.fkY != null && this.fkY.isShowing() && this.fkY.bdF() != null) {
-            this.fkY.bdF().onResume();
+        if (this.fkZ != null && this.fkZ.isShowing() && this.fkZ.bdH() != null) {
+            this.fkZ.bdH().onResume();
         }
     }
 
     public void pause() {
-        if (this.fkY != null && this.fkY.isShowing() && this.fkY.bdF() != null) {
-            this.fkY.bdF().onPause();
+        if (this.fkZ != null && this.fkZ.isShowing() && this.fkZ.bdH() != null) {
+            this.fkZ.bdH().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.fkY != null) {
-            this.fkY.bdG();
+        if (this.fkZ != null) {
+            this.fkZ.bdI();
         }
     }
 
     public void bW(int i) {
-        if (this.fkY != null && this.fkY.isShowing()) {
-            this.fkY.bW(i);
+        if (this.fkZ != null && this.fkZ.isShowing()) {
+            this.fkZ.bW(i);
         }
     }
 
@@ -68,20 +68,20 @@ public class e {
 
     public void release() {
         sL();
-        MessageManager.getInstance().unRegisterListener(this.euS);
+        MessageManager.getInstance().unRegisterListener(this.euT);
     }
 
-    private void bdE() {
-        this.euS = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void bdG() {
+        this.euT = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.fkY != null && e.this.fkY.isShowing()) {
-                    e.this.fkY.dismiss();
+                if (e.this.fkZ != null && e.this.fkZ.isShowing()) {
+                    e.this.fkZ.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.euS);
+        MessageManager.getInstance().registerListener(this.euT);
     }
 
     private int xK(String str) {
@@ -121,15 +121,15 @@ public class e {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(q.Be());
+        sb.append(q.Bg());
         return sb.toString();
     }
 
     public void a(d.a aVar) {
-        this.fkW = aVar;
+        this.fkX = aVar;
     }
 
-    public d.a bqA() {
-        return this.fkW;
+    public d.a bqC() {
+        return this.fkX;
     }
 }

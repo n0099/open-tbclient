@@ -128,7 +128,7 @@ public class a extends ab {
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
     public void a(final Context context, final CallbackHandler callbackHandler, final e eVar, final String str, final String str2, final String str3, final String str4) {
-        com.baidu.swan.apps.w.a.Uy().a(str2, str3, new InterfaceC0269a() { // from class: com.baidu.swan.apps.o.a.3
+        com.baidu.swan.apps.w.a.UA().a(str2, str3, new InterfaceC0269a() { // from class: com.baidu.swan.apps.o.a.3
             @Override // com.baidu.swan.apps.o.a.InterfaceC0269a
             public void aG(@Nullable String str5, @Nullable String str6) {
                 if (!TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str6)) {
@@ -153,7 +153,7 @@ public class a extends ab {
                     Log.i("GetFormIdAction", "showSubscribeDialog isPositive=" + z2 + ", rememberChecked=" + z);
                 }
                 if (z) {
-                    m.agJ().execute(new Runnable() { // from class: com.baidu.swan.apps.o.a.4.1
+                    m.agL().execute(new Runnable() { // from class: com.baidu.swan.apps.o.a.4.1
                         @Override // java.lang.Runnable
                         public void run() {
                             ContentValues contentValues = new ContentValues();
@@ -182,7 +182,7 @@ public class a extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final CallbackHandler callbackHandler, @NonNull String str, @Nullable String str2, @Nullable String str3, @NonNull final String str4) {
-        com.baidu.swan.apps.w.a.Uy().a(str, str2, str3, new com.baidu.swan.apps.o.b() { // from class: com.baidu.swan.apps.o.a.6
+        com.baidu.swan.apps.w.a.UA().a(str, str2, str3, new com.baidu.swan.apps.o.b() { // from class: com.baidu.swan.apps.o.a.6
             @Override // com.baidu.swan.apps.ai.a
             public void K(JSONObject jSONObject) {
                 callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());

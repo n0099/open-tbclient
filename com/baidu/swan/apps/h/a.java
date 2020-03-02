@@ -5,19 +5,19 @@ public class a {
         return "https://mbd.baidu.com";
     }
 
-    public static String KV() {
+    public static String KX() {
         return String.format("%s/smtapp/ad/similar", getSearchboxHostForHttps());
     }
 
-    public static String KW() {
+    public static String KY() {
         return String.format("%s/smtapp/ad/auto", getSearchboxHostForHttps());
     }
 
-    public static String KX() {
+    public static String KZ() {
         return String.format("%s/ma/ai", getSearchboxHostForHttps());
     }
 
-    public static String KY() {
+    public static String La() {
         return String.format("%s/searchbox?action=userx&type=attribute", getSearchboxHostForHttps());
     }
 }

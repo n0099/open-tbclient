@@ -22,7 +22,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return i(com.baidu.swan.pms.database.a.att().qo(str));
+        return i(com.baidu.swan.pms.database.a.atv().qo(str));
     }
 
     public static boolean i(@Nullable PMSAppInfo pMSAppInfo) {
@@ -61,15 +61,15 @@ public class a {
                 cVar.iJ(bundle.getInt("pms_update_expect_pkg_ver"));
             }
             if (DEBUG) {
-                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.auk())));
+                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.aum())));
             }
             cVar.qC("4");
             com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.e(string) { // from class: com.baidu.swan.apps.x.d.a.1
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
                 public void aw(String str, String str2) {
                     super.aw(str, str2);
-                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.bqc != null) {
-                        this.bqc.add(new UbcFlowEvent(str2));
+                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.bqd != null) {
+                        this.bqd.add(new UbcFlowEvent(str2));
                     }
                 }
             });

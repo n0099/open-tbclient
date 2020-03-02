@@ -23,7 +23,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes11.dex */
 public class PayWebActivity extends Activity {
-    private Bundle aSf;
+    private Bundle aSg;
     private ImageView i;
     private boolean j;
     private String k;
@@ -46,7 +46,7 @@ public class PayWebActivity extends Activity {
         Intent intent = getIntent();
         if (intent != null) {
             this.k = intent.getStringExtra("load_url");
-            this.aSf = intent.getBundleExtra("launch_payment_data");
+            this.aSg = intent.getBundleExtra("launch_payment_data");
         }
     }
 
@@ -122,7 +122,7 @@ public class PayWebActivity extends Activity {
         super.onResume();
         if (this.j) {
             Intent intent = new Intent();
-            intent.putExtras(this.aSf);
+            intent.putExtras(this.aSg);
             setResult(-1, intent);
             finish();
         }

@@ -61,7 +61,7 @@ public class f {
             int i;
             String str;
             String str2;
-            if (customResponsedMessage.hasError() || customResponsedMessage.getError() != 0 || com.baidu.g.b.a.aP(f.this.mContext).BN() == null || !(customResponsedMessage.getData() instanceof com.baidu.live.data.m) || (mVar = (com.baidu.live.data.m) customResponsedMessage.getData()) == null) {
+            if (customResponsedMessage.hasError() || customResponsedMessage.getError() != 0 || com.baidu.g.b.a.aP(f.this.mContext).BP() == null || !(customResponsedMessage.getData() instanceof com.baidu.live.data.m) || (mVar = (com.baidu.live.data.m) customResponsedMessage.getData()) == null) {
                 return;
             }
             if ((mVar.mLiveSdkInfo != null && mVar.mLiveSdkInfo.mCastIds != null) || (mVar.mLiveInfo != null && mVar.mLiveInfo.mCastIds != null)) {
@@ -194,11 +194,11 @@ public class f {
                         if (cVar != null) {
                             String str = "";
                             String str2 = "";
-                            if (!TextUtils.isEmpty(cVar.aHF)) {
-                                str = cVar.aHF;
-                            } else if (cVar.aHU != null && cVar.aHU.aIi != null) {
+                            if (!TextUtils.isEmpty(cVar.aHG)) {
+                                str = cVar.aHG;
+                            } else if (cVar.aHV != null && cVar.aHV.aIj != null) {
                                 try {
-                                    JSONObject jSONObject = new JSONObject(cVar.aHU.aIi);
+                                    JSONObject jSONObject = new JSONObject(cVar.aHV.aIj);
                                     if (!TextUtils.isEmpty(jSONObject.optString("room_id"))) {
                                         str = jSONObject.optString("room_id");
                                     }
@@ -222,11 +222,11 @@ public class f {
                                             } else {
                                                 arrayList.addAll(a);
                                             }
-                                            if (i == 0 && cVar.aHU != null && !TextUtils.isEmpty(cVar.aHU.aIi)) {
+                                            if (i == 0 && cVar.aHV != null && !TextUtils.isEmpty(cVar.aHV.aIj)) {
                                                 if (f.this.arQ == null) {
                                                     f.this.arQ = new ArrayList();
                                                 }
-                                                f.this.arQ.add(cVar.aHU.aIi);
+                                                f.this.arQ.add(cVar.aHV.aIj);
                                             }
                                         }
                                     }
@@ -301,7 +301,7 @@ public class f {
     }
 
     public void wj() {
-        com.baidu.g.b.a.aP(this.mContext).BN().wl();
+        com.baidu.g.b.a.aP(this.mContext).BP().wl();
         this.arT = 0L;
     }
 
@@ -310,21 +310,21 @@ public class f {
         if (TbConfig.IM_LOG) {
             Log.i("imlog", "@.@ enterRoom roomid:" + str + ", url:" + str2);
         }
-        com.baidu.g.b.a.aP(this.mContext).BN().a(str, str2, i, new com.baidu.g.a.b.b() { // from class: com.baidu.live.im.f.13
+        com.baidu.g.b.a.aP(this.mContext).BP().a(str, str2, i, new com.baidu.g.a.b.b() { // from class: com.baidu.live.im.f.13
             @Override // com.baidu.g.a.b.b
             public void onResult(int i2, long j, long j2) {
                 if (TbConfig.IM_LOG) {
                     Log.i("imlog", "@.@ enterRoom onResult i:" + i2 + ", l:" + j + ", l1:" + j2);
                 }
                 if (f.this.Yw == null || f.this.XX == null || f.this.XY == null) {
-                    com.baidu.g.b.a.aP(f.this.mContext).BN().eu(String.valueOf(j));
+                    com.baidu.g.b.a.aP(f.this.mContext).BP().eu(String.valueOf(j));
                     LogManager.getLiveIMLogger().doIMLongLinkLog("", "", "", "", "", LogConfig.EXIT_LIVE_IM, f.this.XX, String.valueOf(j), -1, "", "", "");
                     return;
                 }
                 long j3 = JavaTypesHelper.toLong(f.this.XX, -1L);
                 long j4 = JavaTypesHelper.toLong(f.this.XY, -1L);
                 if (j3 != j && j4 != j) {
-                    com.baidu.g.b.a.aP(f.this.mContext).BN().eu(String.valueOf(j));
+                    com.baidu.g.b.a.aP(f.this.mContext).BP().eu(String.valueOf(j));
                     LogManager.getLiveIMLogger().doIMLongLinkLog("", "", "", "", "", LogConfig.EXIT_LIVE_IM, f.this.XX, String.valueOf(j), -1, "", "", "");
                     if (TbConfig.IM_LOG) {
                         Log.e("imlog", "BDIM enterRoom wrong then exit end:" + j);
@@ -403,8 +403,8 @@ public class f {
         if (this.Yw != null && this.Yw.mLiveSdkInfo != null && this.Yw.mLiveSdkInfo.mCastIds != null) {
             String str = this.Yw.mLiveSdkInfo.mCastIds.XX;
             String str2 = this.Yw.mLiveSdkInfo.mCastIds.XY;
-            com.baidu.g.b.a.aP(this.mContext).BN().eu(str);
-            com.baidu.g.b.a.aP(this.mContext).BN().eu(str2);
+            com.baidu.g.b.a.aP(this.mContext).BP().eu(str);
+            com.baidu.g.b.a.aP(this.mContext).BP().eu(str2);
         }
         this.arT = 0L;
         this.Yw = null;
@@ -451,7 +451,7 @@ public class f {
         if (!TextUtils.isEmpty(str2)) {
             com.baidu.g.a.b.a.e eVar = new com.baidu.g.a.b.a.e();
             eVar.msg = content;
-            eVar.aHF = str2;
+            eVar.aHG = str2;
             if (this.Yw != null && this.Yw.Ye != null) {
                 eVar.name = this.Yw.Ye.userName;
                 eVar.portrait = this.Yw.Ye.portrait;
@@ -493,8 +493,8 @@ public class f {
                     str = aVar2.vQ();
                 }
             }
-            eVar.aHV = str;
-            com.baidu.g.b.a.aP(this.mContext).BN().a(str2, eVar, new com.baidu.g.a.b.a.f() { // from class: com.baidu.live.im.f.2
+            eVar.aHW = str;
+            com.baidu.g.b.a.aP(this.mContext).BP().a(str2, eVar, new com.baidu.g.a.b.a.f() { // from class: com.baidu.live.im.f.2
                 @Override // com.baidu.g.a.b.a.f
                 public void a(String str3, int i, List<com.baidu.g.a.b.a.c> list) {
                     if (TbConfig.IM_LOG) {
@@ -555,11 +555,11 @@ public class f {
             for (com.baidu.g.a.b.a.c cVar : list) {
                 if (cVar != null) {
                     String str = "";
-                    if (!TextUtils.isEmpty(cVar.aHF)) {
-                        str = cVar.aHF;
-                    } else if (cVar.aHU != null && cVar.aHU.aIi != null) {
+                    if (!TextUtils.isEmpty(cVar.aHG)) {
+                        str = cVar.aHG;
+                    } else if (cVar.aHV != null && cVar.aHV.aIj != null) {
                         try {
-                            JSONObject jSONObject = new JSONObject(cVar.aHU.aIi);
+                            JSONObject jSONObject = new JSONObject(cVar.aHV.aIj);
                             if (!TextUtils.isEmpty(jSONObject.optString("room_id"))) {
                                 str = jSONObject.optString("room_id");
                             }
@@ -602,6 +602,6 @@ public class f {
     }
 
     private void dL(String str) {
-        com.baidu.g.b.a.aP(this.mContext).BN().a(str, this.asc);
+        com.baidu.g.b.a.aP(this.mContext).BP().a(str, this.asc);
     }
 }

@@ -5,19 +5,19 @@ public interface d {
 
     void GY(String str);
 
-    int cyA();
+    boolean cyA();
 
-    void cyB();
+    boolean cyB();
 
-    j cyC();
+    int cyC();
 
-    String cyu();
+    void cyD();
 
-    void cyv();
+    j cyE();
 
-    boolean cyw();
+    String cyw();
 
-    boolean cyx();
+    void cyx();
 
     boolean cyy();
 

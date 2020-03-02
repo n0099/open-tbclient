@@ -7,39 +7,39 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class at extends PostData {
-    public static final BdUniqueId cPT = BdUniqueId.gen();
-    public int cOa;
-    public String cOm;
+    public static final BdUniqueId cPU = BdUniqueId.gen();
+    public int cOb;
     public String cOn;
     public String cOo;
-    public String cPU;
+    public String cOp;
     public String cPV;
     public String cPW;
-    public List<String> cPX;
-    public String cPY;
+    public String cPX;
+    public List<String> cPY;
     public String cPZ;
+    public String cQa;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.cPU = recommendBook.recommend_text;
-            this.cPV = recommendBook.suggest_text;
-            this.cPW = recommendBook.suggest_url;
-            this.cOm = recommendBook.book_id;
-            this.cOa = recommendBook.book_type.intValue();
-            this.cOo = recommendBook.book_cover;
-            this.cOn = recommendBook.book_title;
-            this.cPX = recommendBook.book_tips;
-            this.cPY = recommendBook.botton_text;
-            this.cPZ = recommendBook.subscript_icon;
+            this.cPV = recommendBook.recommend_text;
+            this.cPW = recommendBook.suggest_text;
+            this.cPX = recommendBook.suggest_url;
+            this.cOn = recommendBook.book_id;
+            this.cOb = recommendBook.book_type.intValue();
+            this.cOp = recommendBook.book_cover;
+            this.cOo = recommendBook.book_title;
+            this.cPY = recommendBook.book_tips;
+            this.cPZ = recommendBook.botton_text;
+            this.cQa = recommendBook.subscript_icon;
         }
     }
 
     public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.cOm)) ? false : true;
+        return (this == null || StringUtils.isNull(this.cOn)) ? false : true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cPT;
+        return cPU;
     }
 }

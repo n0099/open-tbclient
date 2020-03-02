@@ -225,10 +225,10 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
             if (filter == null && !this.isShowDefFilterValue) {
                 this.mEffect.updateFilter((FilterType) null, 0);
             } else if (filter == null || DEF_FILTER_ID.equals(filter.getParam())) {
-                if (b.DO() != null) {
+                if (b.DQ() != null) {
                     a aVar = this.mEffect;
                     FilterType filterType = BeautyType.lutFile.type;
-                    b.DO();
+                    b.DQ();
                     aVar.updateFilter(filterType, c.getFilterYuanTuPath());
                     setInitValue(true, DEF_FILTER_VALUE);
                 }
@@ -549,7 +549,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
     private DuMixCallback generateDuMixCallback() {
         return new DuMixCallback() { // from class: com.baidu.ala.dumixar.ARProcessor.5
             public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-                if (!z || ARProcessor.this.mEffect == null || b.DO() != null) {
+                if (!z || ARProcessor.this.mEffect == null || b.DQ() != null) {
                 }
                 if (ARProcessor.this.mCallback != null) {
                     ARProcessor.this.mCallback.onSetup(z, duMixInput, duMixOutput);

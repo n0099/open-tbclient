@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes11.dex */
 public class a extends RelativeLayout implements View.OnClickListener {
-    private ImageView aTr;
-    private TextView aTs;
+    private ImageView aTs;
     private TextView aTt;
-    private ImageView aTu;
-    private InterfaceC0166a aTv;
+    private TextView aTu;
+    private ImageView aTv;
+    private InterfaceC0166a aTw;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -31,10 +31,10 @@ public class a extends RelativeLayout implements View.OnClickListener {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_channel_list_item, (ViewGroup) this, true);
-        this.aTr = (ImageView) findViewById(b.e.channel_icon_view);
-        this.aTs = (TextView) findViewById(b.e.channel_name_view);
-        this.aTt = (TextView) findViewById(b.e.channel_desc_view);
-        this.aTu = (ImageView) findViewById(b.e.channel_select_view);
+        this.aTs = (ImageView) findViewById(b.e.channel_icon_view);
+        this.aTt = (TextView) findViewById(b.e.channel_name_view);
+        this.aTu = (TextView) findViewById(b.e.channel_desc_view);
+        this.aTv = (ImageView) findViewById(b.e.channel_select_view);
         setOnClickListener(this);
     }
 
@@ -44,42 +44,42 @@ public class a extends RelativeLayout implements View.OnClickListener {
         String icon = nVar.getIcon();
         int w = nVar.w();
         int u = nVar.u();
-        com.baidu.poly.a.c.b.EB().b(this.aTr, icon);
-        this.aTs.setText(t);
+        com.baidu.poly.a.c.b.ED().b(this.aTs, icon);
+        this.aTt.setText(t);
         if (w == 1) {
-            this.aTu.setImageResource(b.d.channel_checked);
+            this.aTv.setImageResource(b.d.channel_checked);
         } else {
-            this.aTu.setImageResource(b.d.unchecked);
+            this.aTv.setImageResource(b.d.unchecked);
         }
         if (1 == u) {
-            this.aTv = interfaceC0166a;
+            this.aTw = interfaceC0166a;
         } else {
-            this.aTr.setAlpha(0.4f);
             this.aTs.setAlpha(0.4f);
             this.aTt.setAlpha(0.4f);
-            this.aTu.setVisibility(8);
+            this.aTu.setAlpha(0.4f);
+            this.aTv.setVisibility(8);
         }
         if (!TextUtils.isEmpty(z)) {
             String s = nVar.s();
             if (!TextUtils.isEmpty(s)) {
                 try {
-                    this.aTt.setTextColor(Color.parseColor(s));
+                    this.aTu.setTextColor(Color.parseColor(s));
                 } catch (Exception e) {
                 }
             }
-            this.aTt.setText(z);
+            this.aTu.setText(z);
             return;
         }
-        this.aTt.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aTs.getLayoutParams();
+        this.aTu.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aTt.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.aTs.setLayoutParams(layoutParams);
+        this.aTt.setLayoutParams(layoutParams);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC0166a interfaceC0166a = this.aTv;
+        InterfaceC0166a interfaceC0166a = this.aTw;
         if (interfaceC0166a != null) {
             interfaceC0166a.a();
         }

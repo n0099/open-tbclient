@@ -4,24 +4,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class b extends com.baidu.swan.apps.component.a.c.b {
-    public int biH;
-    public String biI;
+    public int biI;
+    public String biJ;
 
     public b() {
         super("coverView", "viewId");
-        this.biI = "";
+        this.biJ = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            this.biH = jSONObject.optInt("scrollTop");
-            if (this.bhT != null) {
-                this.biI = this.bhT.optString("overflowY");
+            this.biI = jSONObject.optInt("scrollTop");
+            if (this.bhU != null) {
+                this.biJ = this.bhU.optString("overflowY");
             }
-            if (this.bip != null && this.bhT != null) {
-                this.bip.dd(this.bhT.optBoolean("fixed", false));
+            if (this.biq != null && this.bhU != null) {
+                this.biq.dd(this.bhU.optBoolean("fixed", false));
             }
         }
     }

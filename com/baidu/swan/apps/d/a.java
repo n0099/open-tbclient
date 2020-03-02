@@ -13,18 +13,18 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes11.dex */
 public class a {
-    private List<AnimatorSet> bcx = new CopyOnWriteArrayList();
+    private List<AnimatorSet> bcy = new CopyOnWriteArrayList();
 
     private ObjectAnimator a(SwanAppActivity swanAppActivity, long j) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.Gw().bZW, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.Gy().bZX, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(j);
         return ofFloat;
     }
 
     private AnimatorSet e(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.Gw().bZY, "translationX", 0.0f, -af.dip2px(AppRuntime.getAppContext(), 9.5f));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.Gy().bZZ, "translationX", 0.0f, -af.dip2px(AppRuntime.getAppContext(), 9.5f));
         ofFloat.setDuration(240L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.Gw().bZZ, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.Gy().caa, "alpha", 0.0f, 1.0f);
         ofFloat2.setDuration(240L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ofFloat).with(ofFloat2);
@@ -32,11 +32,11 @@ public class a {
     }
 
     private AnimatorSet f(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.Gw().bZY, "translationX", -af.dip2px(AppRuntime.getAppContext(), 9.5f), af.dip2px(AppRuntime.getAppContext(), 9.5f));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.Gy().bZZ, "translationX", -af.dip2px(AppRuntime.getAppContext(), 9.5f), af.dip2px(AppRuntime.getAppContext(), 9.5f));
         ofFloat.setDuration(380L);
         ofFloat.setRepeatMode(2);
         ofFloat.setRepeatCount(-1);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.Gw().bZZ, "translationX", 0.0f, -af.dip2px(AppRuntime.getAppContext(), 19.0f));
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.Gy().caa, "translationX", 0.0f, -af.dip2px(AppRuntime.getAppContext(), 19.0f));
         ofFloat2.setDuration(380L);
         ofFloat2.setRepeatMode(2);
         ofFloat2.setRepeatCount(-1);
@@ -49,9 +49,9 @@ public class a {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(e(swanAppActivity)).before(f(swanAppActivity));
         animatorSet.start();
-        f.ZT().f(new UbcFlowEvent("first_anim_start"));
-        com.baidu.swan.apps.an.a.aeF().lC("first_anim_start");
-        this.bcx.add(animatorSet);
+        f.ZV().f(new UbcFlowEvent("first_anim_start"));
+        com.baidu.swan.apps.an.a.aeH().lC("first_anim_start");
+        this.bcy.add(animatorSet);
     }
 
     public void a(SwanAppActivity swanAppActivity, int i) {
@@ -72,31 +72,31 @@ public class a {
     }
 
     private void h(final SwanAppActivity swanAppActivity) {
-        f.ZT().f(new UbcFlowEvent("second_anim_start"));
-        com.baidu.swan.apps.an.a.aeF().lC("second_anim_start");
-        f.ZT().f(new UbcFlowEvent("second_anim_end")).Zz();
-        com.baidu.swan.apps.an.a.aeF().lC("second_anim_end");
+        f.ZV().f(new UbcFlowEvent("second_anim_start"));
+        com.baidu.swan.apps.an.a.aeH().lC("second_anim_start");
+        f.ZV().f(new UbcFlowEvent("second_anim_end")).ZB();
+        com.baidu.swan.apps.an.a.aeH().lC("second_anim_end");
         if (!swanAppActivity.isFinishing()) {
-            swanAppActivity.Gw().bZW.setVisibility(8);
-            if (!com.baidu.swan.apps.w.a.TX().Hv()) {
-                if (this.bcx != null) {
-                    for (AnimatorSet animatorSet : this.bcx) {
+            swanAppActivity.Gy().bZX.setVisibility(8);
+            if (!com.baidu.swan.apps.w.a.TZ().Hx()) {
+                if (this.bcy != null) {
+                    for (AnimatorSet animatorSet : this.bcy) {
                         animatorSet.cancel();
                     }
                 }
-                swanAppActivity.Gv().reset();
+                swanAppActivity.Gx().reset();
                 return;
             }
             ai.l(new Runnable() { // from class: com.baidu.swan.apps.d.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (!swanAppActivity.isFinishing()) {
-                        if (a.this.bcx != null) {
-                            for (AnimatorSet animatorSet2 : a.this.bcx) {
+                        if (a.this.bcy != null) {
+                            for (AnimatorSet animatorSet2 : a.this.bcy) {
                                 animatorSet2.cancel();
                             }
                         }
-                        swanAppActivity.Gv().reset();
+                        swanAppActivity.Gx().reset();
                     }
                 }
             });
@@ -114,16 +114,16 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 if (!swanAppActivity.isFinishing()) {
-                    swanAppActivity.Gw().ahD();
+                    swanAppActivity.Gy().ahF();
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (!swanAppActivity.isFinishing()) {
-                    swanAppActivity.Gw().bZW.setVisibility(8);
-                    swanAppActivity.Gw().Jz();
-                    swanAppActivity.Gv().reset();
+                    swanAppActivity.Gy().bZX.setVisibility(8);
+                    swanAppActivity.Gy().JB();
+                    swanAppActivity.Gx().reset();
                 }
             }
 
@@ -137,14 +137,14 @@ public class a {
         });
         animatorSet.setStartDelay(i);
         animatorSet.start();
-        this.bcx.add(animatorSet);
+        this.bcy.add(animatorSet);
     }
 
-    public void Jz() {
-        for (AnimatorSet animatorSet : this.bcx) {
+    public void JB() {
+        for (AnimatorSet animatorSet : this.bcy) {
             animatorSet.removeAllListeners();
             animatorSet.cancel();
         }
-        this.bcx.clear();
+        this.bcy.clear();
     }
 }

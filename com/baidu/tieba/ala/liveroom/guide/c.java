@@ -11,47 +11,47 @@ import com.baidu.live.tbadk.statics.AlaStaticsManager;
 import com.baidu.tieba.ala.liveroom.guide.AlaLiveGuardUpSlideView;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.ala.liveroom.a {
-    private com.baidu.live.liveroom.a.a eTx;
-    private AlaLiveGuardUpSlideView fcg;
-    private ViewGroup fch;
-    private boolean fci;
-    AlaLiveGuardUpSlideView.a fcj;
+    private com.baidu.live.liveroom.a.a eTy;
+    private AlaLiveGuardUpSlideView fch;
+    private ViewGroup fci;
+    private boolean fcj;
+    AlaLiveGuardUpSlideView.a fck;
 
     public c(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar, boolean z) {
         super(tbPageContext);
-        this.fcj = new AlaLiveGuardUpSlideView.a() { // from class: com.baidu.tieba.ala.liveroom.guide.c.1
+        this.fck = new AlaLiveGuardUpSlideView.a() { // from class: com.baidu.tieba.ala.liveroom.guide.c.1
             @Override // com.baidu.tieba.ala.liveroom.guide.AlaLiveGuardUpSlideView.a
             public void jr(boolean z2) {
-                c.this.bms();
+                c.this.bmu();
             }
         };
-        this.eTx = aVar;
-        this.fci = z;
+        this.eTy = aVar;
+        this.fcj = z;
     }
 
-    public boolean bmr() {
-        return this.fcg != null && this.fcg.getVisibility() == 0;
+    public boolean bmt() {
+        return this.fch != null && this.fch.getVisibility() == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bms() {
-        if (this.fch != null && this.fcg != null) {
-            if (this.fcg != null) {
-                this.fcg.onDestroy();
-                this.fcg.setVisibility(8);
+    public void bmu() {
+        if (this.fci != null && this.fch != null) {
+            if (this.fch != null) {
+                this.fch.onDestroy();
+                this.fch.setVisibility(8);
             }
-            if (this.fch.indexOfChild(this.fcg) >= 0) {
-                this.fch.removeView(this.fcg);
+            if (this.fci.indexOfChild(this.fch) >= 0) {
+                this.fci.removeView(this.fch);
             }
-            if (this.eTx != null) {
-                this.eTx.ce(3);
+            if (this.eTy != null) {
+                this.eTy.ce(3);
             }
         }
     }
 
-    private void bmt() {
-        if (this.fch != null && this.fcg != null && this.fch.indexOfChild(this.fcg) < 0) {
-            this.fch.addView(this.fcg, new FrameLayout.LayoutParams(this.fch.getWidth(), this.fch.getHeight()));
+    private void bmv() {
+        if (this.fci != null && this.fch != null && this.fci.indexOfChild(this.fch) < 0) {
+            this.fci.addView(this.fch, new FrameLayout.LayoutParams(this.fci.getWidth(), this.fci.getHeight()));
         }
     }
 
@@ -63,18 +63,18 @@ public class c extends com.baidu.tieba.ala.liveroom.a {
         if (com.baidu.live.c.pr().getBoolean("ala_live_play_has_up_down_scrolled", false) || z) {
             return false;
         }
-        if (this.fcg == null) {
-            this.fch = viewGroup;
-            this.fcg = new AlaLiveGuardUpSlideView((Context) getPageContext().getPageActivity(), true, this.fci);
-            this.fcg.setVisibility(0);
-            this.fcg.setOnEndListener(this.fcj);
-        } else if (this.fcg.getVisibility() == 0) {
-            bms();
+        if (this.fch == null) {
+            this.fci = viewGroup;
+            this.fch = new AlaLiveGuardUpSlideView((Context) getPageContext().getPageActivity(), true, this.fcj);
+            this.fch.setVisibility(0);
+            this.fch.setOnEndListener(this.fck);
+        } else if (this.fch.getVisibility() == 0) {
+            bmu();
             return true;
         }
-        bmt();
-        this.fcg.setVisibility(0);
-        this.fcg.bmu();
+        bmv();
+        this.fch.setVisibility(0);
+        this.fch.bmw();
         SharedPrefHelper.getInstance().putBoolean("LIVE_ROOM_SHAREDPRE_KEY_GUARD_SWIPE", true);
         AlaStaticItem alaStaticItem = new AlaStaticItem(AlaStaticKeys.ALA_STATIC_KEY);
         alaStaticItem.addParams("from", "liveshow");
@@ -87,12 +87,12 @@ public class c extends com.baidu.tieba.ala.liveroom.a {
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.fch != null && this.fcg != null) {
-            if (this.fch.indexOfChild(this.fcg) > 0) {
-                this.fch.removeView(this.fcg);
+        if (this.fci != null && this.fch != null) {
+            if (this.fci.indexOfChild(this.fch) > 0) {
+                this.fci.removeView(this.fch);
             }
-            this.fcg.onDestroy();
-            this.fcg = null;
+            this.fch.onDestroy();
+            this.fch = null;
         }
     }
 }

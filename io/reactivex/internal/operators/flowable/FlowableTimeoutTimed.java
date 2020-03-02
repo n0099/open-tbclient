@@ -26,16 +26,16 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         if (this.other == null) {
-            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.timeout, this.unit, this.scheduler.dJf());
+            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.timeout, this.unit, this.scheduler.dJh());
             cVar.onSubscribe(timeoutSubscriber);
             timeoutSubscriber.startTimeout(0L);
-            this.nwr.a((j) timeoutSubscriber);
+            this.nwt.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.timeout, this.unit, this.scheduler.dJf(), this.other);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.timeout, this.unit, this.scheduler.dJh(), this.other);
         cVar.onSubscribe(timeoutFallbackSubscriber);
         timeoutFallbackSubscriber.startTimeout(0L);
-        this.nwr.a((j) timeoutFallbackSubscriber);
+        this.nwt.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -120,16 +120,16 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
     /* loaded from: classes7.dex */
     public static final class c implements Runnable {
         final long idx;
-        final b nxj;
+        final b nxl;
 
         c(long j, b bVar) {
             this.idx = j;
-            this.nxj = bVar;
+            this.nxl = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.nxj.onTimeout(this.idx);
+            this.nxl.onTimeout(this.idx);
         }
     }
 
@@ -221,17 +221,17 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
     /* loaded from: classes7.dex */
     static final class a<T> implements j<T> {
         final org.a.c<? super T> actual;
-        final SubscriptionArbiter nxi;
+        final SubscriptionArbiter nxk;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(org.a.c<? super T> cVar, SubscriptionArbiter subscriptionArbiter) {
             this.actual = cVar;
-            this.nxi = subscriptionArbiter;
+            this.nxk = subscriptionArbiter;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            this.nxi.setSubscription(dVar);
+            this.nxk.setSubscription(dVar);
         }
 
         @Override // org.a.c

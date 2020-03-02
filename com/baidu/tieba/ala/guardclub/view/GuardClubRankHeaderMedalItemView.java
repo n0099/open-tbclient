@@ -11,9 +11,9 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class GuardClubRankHeaderMedalItemView extends LinearLayout {
-    private ImageView eIm;
-    private TextView eIn;
+    private ImageView eIn;
     private TextView eIo;
+    private TextView eIp;
 
     public GuardClubRankHeaderMedalItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,16 +21,16 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setMedalResource(int i) {
-        this.eIm.setImageResource(i);
+        this.eIn.setImageResource(i);
     }
 
     public void setStyle(int i) {
         switch (i) {
             case 17:
-                this.eIo.setTextColor(-2856249);
+                this.eIp.setTextColor(-2856249);
                 return;
             case 18:
-                this.eIo.setTextColor(-3970070);
+                this.eIp.setTextColor(-3970070);
                 return;
             default:
                 return;
@@ -38,14 +38,14 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setData(int i, String str, String str2) {
-        this.eIn.setText(str);
-        this.eIo.setText(str2);
+        this.eIo.setText(str);
+        this.eIp.setText(str2);
         switch (i) {
             case 1:
-                this.eIn.setTextColor(-838860801);
+                this.eIo.setTextColor(-838860801);
                 return;
             case 2:
-                this.eIn.setTextColor(-1);
+                this.eIo.setTextColor(-1);
                 return;
             default:
                 return;
@@ -57,8 +57,8 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
         setGravity(1);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_rank_header_medal_item, (ViewGroup) this, true);
-        this.eIm = (ImageView) findViewById(a.g.iv_medal);
-        this.eIn = (TextView) findViewById(a.g.tv_name);
-        this.eIo = (TextView) findViewById(a.g.tv_value);
+        this.eIn = (ImageView) findViewById(a.g.iv_medal);
+        this.eIo = (TextView) findViewById(a.g.tv_name);
+        this.eIp = (TextView) findViewById(a.g.tv_value);
     }
 }

@@ -32,7 +32,7 @@ public class a extends ab {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.JD()) {
+        } else if (eVar.JF()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -73,7 +73,7 @@ public class a extends ab {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                     return false;
                 } else {
-                    eVar.acN().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.c.a.a.1
+                    eVar.acP().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.c.a.a.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.swan.apps.as.d.b
                         /* renamed from: a */
@@ -126,13 +126,13 @@ public class a extends ab {
                 @Override // rx.functions.f
                 /* renamed from: v */
                 public File call(File file2) {
-                    String lY = com.baidu.swan.apps.storage.b.lY(com.baidu.swan.apps.runtime.e.acF());
+                    String lY = com.baidu.swan.apps.storage.b.lY(com.baidu.swan.apps.runtime.e.acH());
                     if (!TextUtils.isEmpty(lY) && file2.getPath().startsWith(lY)) {
                         return a.this.i(context, file2);
                     }
                     return null;
                 }
-            }).d(Schedulers.io()).c(rx.a.b.a.dOb()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.c.a.a.3
+            }).d(Schedulers.io()).c(rx.a.b.a.dOd()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.c.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: u */

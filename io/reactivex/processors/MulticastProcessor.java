@@ -13,15 +13,15 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class MulticastProcessor<T> extends a<T> {
-    static final MulticastSubscription[] nAM = new MulticastSubscription[0];
-    static final MulticastSubscription[] nAN = new MulticastSubscription[0];
+    static final MulticastSubscription[] nAO = new MulticastSubscription[0];
+    static final MulticastSubscription[] nAP = new MulticastSubscription[0];
     final int bufferSize;
     int consumed;
     volatile boolean done;
     volatile Throwable error;
     int fusionMode;
     final int limit;
-    final boolean nAL;
+    final boolean nAN;
     final AtomicBoolean once;
     volatile g<T> queue;
     final AtomicReference<MulticastSubscription<T>[]> subscribers;
@@ -98,7 +98,7 @@ public final class MulticastProcessor<T> extends a<T> {
             } else {
                 drain();
             }
-        } else if ((this.once.get() || !this.nAL) && (th = this.error) != null) {
+        } else if ((this.once.get() || !this.nAN) && (th = this.error) != null) {
             cVar.onError(th);
         } else {
             cVar.onComplete();
@@ -110,7 +110,7 @@ public final class MulticastProcessor<T> extends a<T> {
         MulticastSubscription<T>[] multicastSubscriptionArr2;
         do {
             multicastSubscriptionArr = this.subscribers.get();
-            if (multicastSubscriptionArr == nAN) {
+            if (multicastSubscriptionArr == nAP) {
                 return false;
             }
             int length = multicastSubscriptionArr.length;
@@ -139,13 +139,13 @@ public final class MulticastProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        if (this.nAL) {
-                            if (this.subscribers.compareAndSet(multicastSubscriptionArr, nAN)) {
+                        if (this.nAN) {
+                            if (this.subscribers.compareAndSet(multicastSubscriptionArr, nAP)) {
                                 SubscriptionHelper.cancel(this.upstream);
                                 this.once.set(true);
                                 return;
                             }
-                        } else if (this.subscribers.compareAndSet(multicastSubscriptionArr, nAM)) {
+                        } else if (this.subscribers.compareAndSet(multicastSubscriptionArr, nAO)) {
                             return;
                         }
                     } else {
@@ -201,7 +201,7 @@ public final class MulticastProcessor<T> extends a<T> {
                         int i7 = i6;
                         while (j > 0) {
                             MulticastSubscription<T>[] multicastSubscriptionArr2 = atomicReference.get();
-                            if (multicastSubscriptionArr2 == nAN) {
+                            if (multicastSubscriptionArr2 == nAP) {
                                 gVar.clear();
                                 return;
                             } else if (multicastSubscriptionArr != multicastSubscriptionArr2) {
@@ -223,12 +223,12 @@ public final class MulticastProcessor<T> extends a<T> {
                                 if (z && z2) {
                                     Throwable th2 = this.error;
                                     if (th2 != null) {
-                                        for (MulticastSubscription<T> multicastSubscription2 : atomicReference.getAndSet(nAN)) {
+                                        for (MulticastSubscription<T> multicastSubscription2 : atomicReference.getAndSet(nAP)) {
                                             multicastSubscription2.onError(th2);
                                         }
                                         return;
                                     }
-                                    for (MulticastSubscription<T> multicastSubscription3 : atomicReference.getAndSet(nAN)) {
+                                    for (MulticastSubscription<T> multicastSubscription3 : atomicReference.getAndSet(nAP)) {
                                         multicastSubscription3.onComplete();
                                     }
                                     return;
@@ -248,7 +248,7 @@ public final class MulticastProcessor<T> extends a<T> {
                         }
                         if (j == 0) {
                             MulticastSubscription<T>[] multicastSubscriptionArr3 = atomicReference.get();
-                            if (multicastSubscriptionArr3 == nAN) {
+                            if (multicastSubscriptionArr3 == nAP) {
                                 gVar.clear();
                                 return;
                             } else if (multicastSubscriptionArr != multicastSubscriptionArr3) {
@@ -256,12 +256,12 @@ public final class MulticastProcessor<T> extends a<T> {
                             } else if (this.done && gVar.isEmpty()) {
                                 Throwable th3 = this.error;
                                 if (th3 != null) {
-                                    for (MulticastSubscription<T> multicastSubscription5 : atomicReference.getAndSet(nAN)) {
+                                    for (MulticastSubscription<T> multicastSubscription5 : atomicReference.getAndSet(nAP)) {
                                         multicastSubscription5.onError(th3);
                                     }
                                     return;
                                 }
-                                for (MulticastSubscription<T> multicastSubscription6 : atomicReference.getAndSet(nAN)) {
+                                for (MulticastSubscription<T> multicastSubscription6 : atomicReference.getAndSet(nAP)) {
                                     multicastSubscription6.onComplete();
                                 }
                                 return;

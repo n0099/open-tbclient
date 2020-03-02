@@ -7,15 +7,15 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class AsyncProcessor<T> extends a<T> {
-    static final AsyncSubscription[] nAD = new AsyncSubscription[0];
-    static final AsyncSubscription[] nAE = new AsyncSubscription[0];
+    static final AsyncSubscription[] nAF = new AsyncSubscription[0];
+    static final AsyncSubscription[] nAG = new AsyncSubscription[0];
     Throwable error;
     final AtomicReference<AsyncSubscription<T>[]> subscribers;
     T value;
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        if (this.subscribers.get() == nAE) {
+        if (this.subscribers.get() == nAG) {
             dVar.cancel();
         } else {
             dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
@@ -25,7 +25,7 @@ public final class AsyncProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onNext(T t) {
         io.reactivex.internal.functions.a.h(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != nAE) {
+        if (this.subscribers.get() != nAG) {
             this.value = t;
         }
     }
@@ -33,13 +33,13 @@ public final class AsyncProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == nAE) {
+        if (this.subscribers.get() == nAG) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.value = null;
         this.error = th;
-        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(nAE)) {
+        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(nAG)) {
             asyncSubscription.onError(th);
         }
     }
@@ -47,9 +47,9 @@ public final class AsyncProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onComplete() {
         int i = 0;
-        if (this.subscribers.get() != nAE) {
+        if (this.subscribers.get() != nAG) {
             T t = this.value;
-            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(nAE);
+            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(nAG);
             if (t == null) {
                 int length = andSet.length;
                 while (i < length) {
@@ -95,7 +95,7 @@ public final class AsyncProcessor<T> extends a<T> {
         AsyncSubscription<T>[] asyncSubscriptionArr2;
         do {
             asyncSubscriptionArr = this.subscribers.get();
-            if (asyncSubscriptionArr == nAE) {
+            if (asyncSubscriptionArr == nAG) {
                 return false;
             }
             int length = asyncSubscriptionArr.length;
@@ -127,7 +127,7 @@ public final class AsyncProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        asyncSubscriptionArr2 = nAD;
+                        asyncSubscriptionArr2 = nAF;
                     } else {
                         asyncSubscriptionArr2 = new AsyncSubscription[length - 1];
                         System.arraycopy(asyncSubscriptionArr, 0, asyncSubscriptionArr2, 0, i);

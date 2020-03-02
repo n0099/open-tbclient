@@ -9,36 +9,36 @@ import com.google.android.exoplayer2.m;
 import java.util.Arrays;
 /* loaded from: classes6.dex */
 public final class e extends com.google.android.exoplayer2.a implements Handler.Callback {
-    private boolean mpT;
-    private final m mpt;
-    private final b mqj;
-    private final d mqk;
-    private final Handler mql;
-    private final c mqm;
-    private final Metadata[] mqn;
-    private final long[] mqo;
-    private int mqp;
-    private int mqq;
-    private a mqr;
+    private boolean mpV;
+    private final m mpv;
+    private final b mql;
+    private final d mqm;
+    private final Handler mqn;
+    private final c mqo;
+    private final Metadata[] mqp;
+    private final long[] mqq;
+    private int mqr;
+    private int mqs;
+    private a mqt;
 
     public e(d dVar, Looper looper) {
-        this(dVar, looper, b.mqi);
+        this(dVar, looper, b.mqk);
     }
 
     public e(d dVar, Looper looper, b bVar) {
         super(4);
-        this.mqk = (d) com.google.android.exoplayer2.util.a.checkNotNull(dVar);
-        this.mql = looper == null ? null : new Handler(looper, this);
-        this.mqj = (b) com.google.android.exoplayer2.util.a.checkNotNull(bVar);
-        this.mpt = new m();
-        this.mqm = new c();
-        this.mqn = new Metadata[5];
-        this.mqo = new long[5];
+        this.mqm = (d) com.google.android.exoplayer2.util.a.checkNotNull(dVar);
+        this.mqn = looper == null ? null : new Handler(looper, this);
+        this.mql = (b) com.google.android.exoplayer2.util.a.checkNotNull(bVar);
+        this.mpv = new m();
+        this.mqo = new c();
+        this.mqp = new Metadata[5];
+        this.mqq = new long[5];
     }
 
     @Override // com.google.android.exoplayer2.t
     public int e(Format format) {
-        if (this.mqj.i(format)) {
+        if (this.mql.i(format)) {
             return a((com.google.android.exoplayer2.drm.a<?>) null, format.drmInitData) ? 4 : 2;
         }
         return 0;
@@ -47,53 +47,53 @@ public final class e extends com.google.android.exoplayer2.a implements Handler.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a
     public void a(Format[] formatArr, long j) throws ExoPlaybackException {
-        this.mqr = this.mqj.j(formatArr[0]);
+        this.mqt = this.mql.j(formatArr[0]);
     }
 
     @Override // com.google.android.exoplayer2.a
     protected void l(long j, boolean z) {
-        dwb();
-        this.mpT = false;
+        dwd();
+        this.mpV = false;
     }
 
     @Override // com.google.android.exoplayer2.s
     public void M(long j, long j2) throws ExoPlaybackException {
-        if (!this.mpT && this.mqq < 5) {
-            this.mqm.clear();
-            if (a(this.mpt, (com.google.android.exoplayer2.a.e) this.mqm, false) == -4) {
-                if (this.mqm.dus()) {
-                    this.mpT = true;
-                } else if (!this.mqm.dur()) {
-                    this.mqm.subsampleOffsetUs = this.mpt.lZw.subsampleOffsetUs;
-                    this.mqm.duD();
+        if (!this.mpV && this.mqs < 5) {
+            this.mqo.clear();
+            if (a(this.mpv, (com.google.android.exoplayer2.a.e) this.mqo, false) == -4) {
+                if (this.mqo.duu()) {
+                    this.mpV = true;
+                } else if (!this.mqo.dut()) {
+                    this.mqo.subsampleOffsetUs = this.mpv.lZy.subsampleOffsetUs;
+                    this.mqo.duF();
                     try {
-                        int i = (this.mqp + this.mqq) % 5;
-                        this.mqn[i] = this.mqr.a(this.mqm);
-                        this.mqo[i] = this.mqm.mdB;
-                        this.mqq++;
+                        int i = (this.mqr + this.mqs) % 5;
+                        this.mqp[i] = this.mqt.a(this.mqo);
+                        this.mqq[i] = this.mqo.mdD;
+                        this.mqs++;
                     } catch (MetadataDecoderException e) {
                         throw ExoPlaybackException.createForRenderer(e, getIndex());
                     }
                 }
             }
         }
-        if (this.mqq > 0 && this.mqo[this.mqp] <= j) {
-            d(this.mqn[this.mqp]);
-            this.mqn[this.mqp] = null;
-            this.mqp = (this.mqp + 1) % 5;
-            this.mqq--;
+        if (this.mqs > 0 && this.mqq[this.mqr] <= j) {
+            d(this.mqp[this.mqr]);
+            this.mqp[this.mqr] = null;
+            this.mqr = (this.mqr + 1) % 5;
+            this.mqs--;
         }
     }
 
     @Override // com.google.android.exoplayer2.a
-    protected void dsM() {
-        dwb();
-        this.mqr = null;
+    protected void dsO() {
+        dwd();
+        this.mqt = null;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public boolean avP() {
-        return this.mpT;
+    public boolean avR() {
+        return this.mpV;
     }
 
     @Override // com.google.android.exoplayer2.s
@@ -102,17 +102,17 @@ public final class e extends com.google.android.exoplayer2.a implements Handler.
     }
 
     private void d(Metadata metadata) {
-        if (this.mql != null) {
-            this.mql.obtainMessage(0, metadata).sendToTarget();
+        if (this.mqn != null) {
+            this.mqn.obtainMessage(0, metadata).sendToTarget();
         } else {
             e(metadata);
         }
     }
 
-    private void dwb() {
-        Arrays.fill(this.mqn, (Object) null);
-        this.mqp = 0;
-        this.mqq = 0;
+    private void dwd() {
+        Arrays.fill(this.mqp, (Object) null);
+        this.mqr = 0;
+        this.mqs = 0;
     }
 
     @Override // android.os.Handler.Callback
@@ -127,6 +127,6 @@ public final class e extends com.google.android.exoplayer2.a implements Handler.
     }
 
     private void e(Metadata metadata) {
-        this.mqk.a(metadata);
+        this.mqm.a(metadata);
     }
 }

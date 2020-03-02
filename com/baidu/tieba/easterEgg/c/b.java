@@ -16,31 +16,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b extends k {
-    private d fRO;
-    private HashMap<String, String> fRP;
-    private Gson fRQ;
-    private SparseArray<String> fRR;
+    private d fRQ;
+    private HashMap<String, String> fRR;
+    private Gson fRS;
+    private SparseArray<String> fRT;
 
     public b(int i) {
         super(i);
-        this.fRQ = new Gson();
-        bxi();
+        this.fRS = new Gson();
+        bxk();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.fRR.get(socketMessage.getCmd());
-        if (str != null && this.fRP != null && this.fRP.get(str) != null && this.fRO != null) {
-            this.fRO.ak(str, this.fRQ.toJson(this.fRP.get(str)), this.fRQ.toJson(this.fRQ.toJson(socketMessage.getData())));
+        String str = this.fRT.get(socketMessage.getCmd());
+        if (str != null && this.fRR != null && this.fRR.get(str) != null && this.fRQ != null) {
+            this.fRQ.ak(str, this.fRS.toJson(this.fRR.get(str)), this.fRS.toJson(this.fRS.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void bxi() {
+    private void bxk() {
         int i;
-        this.fRR = new SparseArray<>();
+        this.fRT = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!v.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -50,7 +50,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!aq.isEmpty(str) && str.contains(ETAG.EQUAL) && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.fRR.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.fRT.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -58,10 +58,10 @@ public class b extends k {
     }
 
     public void q(HashMap<String, String> hashMap) {
-        this.fRP = hashMap;
+        this.fRR = hashMap;
     }
 
     public void a(d dVar) {
-        this.fRO = dVar;
+        this.fRQ = dVar;
     }
 }

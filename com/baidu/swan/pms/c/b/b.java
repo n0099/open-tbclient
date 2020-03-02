@@ -22,19 +22,19 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.b bVar) {
-        this.cBl.Pk();
+        this.cBm.Pm();
         com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(bVar.cBP, eVar);
-        a(bVar.cBS, eVar);
+        a(bVar.cBQ, eVar);
         a(bVar.cBT, eVar);
-        a(bVar.cBV, eVar);
-        p(bVar.cBU);
-        if (eVar.aur() == 0) {
-            this.cBl.Pg();
+        a(bVar.cBU, eVar);
+        a(bVar.cBW, eVar);
+        p(bVar.cBV);
+        if (eVar.aut() == 0) {
+            this.cBm.Pi();
             return null;
         }
-        this.cBl.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(bVar, this.cBl);
+        this.cBm.a(eVar);
+        com.baidu.swan.pms.c.a.a.a(bVar, this.cBm);
         return null;
     }
 
@@ -46,20 +46,20 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
         if (bVar == null) {
             return false;
         }
-        if (bVar.cBP == null && ((bVar.cBS == null || bVar.cBS.isEmpty()) && bVar.cBT == null && bVar.cBV == null && bVar.cBU == null)) {
+        if (bVar.cBQ == null && ((bVar.cBT == null || bVar.cBT.isEmpty()) && bVar.cBU == null && bVar.cBW == null && bVar.cBV == null)) {
             return false;
         }
-        if (bVar.cBP == null || bVar.cBP.PS()) {
-            if (bVar.cBS != null) {
-                for (com.baidu.swan.pms.model.g gVar : bVar.cBS) {
-                    if (!gVar.PS()) {
+        if (bVar.cBQ == null || bVar.cBQ.PU()) {
+            if (bVar.cBT != null) {
+                for (com.baidu.swan.pms.model.g gVar : bVar.cBT) {
+                    if (!gVar.PU()) {
                         return false;
                     }
                 }
             }
-            if (bVar.cBT == null || bVar.cBT.PS()) {
-                if (bVar.cBV == null || bVar.cBV.PS()) {
-                    return bVar.cBU == null || bVar.cBU.PS();
+            if (bVar.cBU == null || bVar.cBU.PU()) {
+                if (bVar.cBW == null || bVar.cBW.PU()) {
+                    return bVar.cBV == null || bVar.cBV.PU();
                 }
                 return false;
             }
@@ -69,7 +69,7 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String ajj() {
+    protected String ajl() {
         return "getpkg";
     }
 }

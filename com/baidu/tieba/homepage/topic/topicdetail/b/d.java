@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.data.bj;
 import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hgj = BdUniqueId.gen();
-    public bj cRe;
-    public boolean hgk;
-    public String hgl;
+    public static final BdUniqueId hgl = BdUniqueId.gen();
+    public bj cRf;
+    public boolean hgm;
+    public String hgn;
     public int index;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hgj;
+        return hgl;
     }
 
     public void b(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.cRe = new bj();
-            this.cRe.a(threadInfo);
-            this.cRe.aDh();
+            this.cRf = new bj();
+            this.cRf.a(threadInfo);
+            this.cRf.aDj();
         }
     }
 }

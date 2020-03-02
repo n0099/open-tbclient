@@ -5,19 +5,19 @@ import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.data.b implements m {
-    public static final BdUniqueId gzJ = BdUniqueId.gen();
-    private bj cRe;
+    public static final BdUniqueId gzL = BdUniqueId.gen();
+    private bj cRf;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gzJ;
+        return gzL;
     }
 
-    public bj aAe() {
-        return this.cRe;
+    public bj aAg() {
+        return this.cRf;
     }
 
     public void setThreadData(bj bjVar) {
-        this.cRe = bjVar;
+        this.cRf = bjVar;
     }
 }

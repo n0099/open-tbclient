@@ -7,7 +7,7 @@ public interface f {
 
     boolean Sx(String str);
 
-    Iterator<String> dNE();
+    Iterator<String> dNG();
 
     byte[] getContent();
 }

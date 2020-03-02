@@ -22,13 +22,13 @@ public final class c {
     @UiThread
     public static g a(@NonNull Activity activity, @NonNull e eVar, @Nullable String str, @Nullable String str2, @NonNull a aVar, @Nullable DialogInterface.OnCancelListener onCancelListener) {
         View inflate = View.inflate(activity, a.g.swan_app_subscribe_msg_dialog, null);
-        g.a dC = new g.a(activity).dB(true).an(inflate).a(new com.baidu.swan.apps.view.c.a()).gb(a.e.aiapps_action_sheet_bg).dG(false).acl().dC(false);
+        g.a dC = new g.a(activity).dB(true).an(inflate).a(new com.baidu.swan.apps.view.c.a()).gb(a.e.aiapps_action_sheet_bg).dG(false).acn().dC(false);
         TextView textView = (TextView) inflate.findViewById(a.f.auth_negative_button);
         TextView textView2 = (TextView) inflate.findViewById(a.f.auth_positive_button);
         SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(a.f.swan_app_icon);
         Resources resources = activity.getResources();
         if (swanAppRoundedImageView != null) {
-            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, ai.a((com.baidu.swan.apps.x.b.b) eVar.acG(), "SwanSubscribeMsgDialog", false)));
+            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, ai.a((com.baidu.swan.apps.x.b.b) eVar.acI(), "SwanSubscribeMsgDialog", false)));
             swanAppRoundedImageView.setBorderColor(resources.getColor(a.c.swan_app_auth_icon_border));
         }
         ((TextView) inflate.findViewById(a.f.swan_app_name)).setText(eVar.getName());
@@ -37,32 +37,32 @@ public final class c {
         aVar.a((CheckBox) inflate.findViewById(a.f.remember_checkbox));
         dC.a(textView, -2, aVar);
         dC.a(textView2, -1, aVar);
-        g Pa = dC.Pa();
-        Pa.setEnableImmersion(false);
-        Pa.setOnCancelListener(onCancelListener);
-        Window window = Pa.getWindow();
+        g Pc = dC.Pc();
+        Pc.setEnableImmersion(false);
+        Pc.setOnCancelListener(onCancelListener);
+        Window window = Pc.getWindow();
         if (window != null) {
             window.setGravity(80);
             window.setLayout(af.cK(activity), -2);
             window.setWindowAnimations(a.i.action_sheet_animation);
         }
-        return Pa;
+        return Pc;
     }
 
     /* loaded from: classes11.dex */
     public static abstract class a implements DialogInterface.OnClickListener {
         @Nullable
-        private CheckBox bvv;
+        private CheckBox bvw;
 
         public abstract void a(DialogInterface dialogInterface, int i, boolean z);
 
         void a(@Nullable CheckBox checkBox) {
-            this.bvv = checkBox;
+            this.bvw = checkBox;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public final void onClick(DialogInterface dialogInterface, int i) {
-            a(dialogInterface, i, this.bvv != null && this.bvv.isChecked());
+            a(dialogInterface, i, this.bvw != null && this.bvw.isChecked());
         }
     }
 }

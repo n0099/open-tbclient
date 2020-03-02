@@ -7,19 +7,19 @@ import java.util.BitSet;
 public class ho implements ir<ho, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public long f480a;
+    public long f479a;
 
     /* renamed from: a  reason: collision with other field name */
-    public hi f481a;
+    public hi f480a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f482a;
+    public String f481a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f483a = new BitSet(1);
+    private BitSet f482a = new BitSet(1);
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f479a = new jh("DataCollectionItem");
+    private static final jh f478a = new jh("DataCollectionItem");
     private static final iz a = new iz("", (byte) 10, 1);
     private static final iz b = new iz("", (byte) 8, 2);
     private static final iz c = new iz("", Constants.GZIP_CAST_TYPE, 3);
@@ -34,13 +34,13 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
         if (getClass().equals(hoVar.getClass())) {
             int compareTo = Boolean.valueOf(m345a()).compareTo(Boolean.valueOf(hoVar.m345a()));
             if (compareTo == 0) {
-                if (!m345a() || (a4 = is.a(this.f480a, hoVar.f480a)) == 0) {
+                if (!m345a() || (a4 = is.a(this.f479a, hoVar.f479a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hoVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a3 = is.a(this.f481a, hoVar.f481a)) == 0) {
+                        if (!b() || (a3 = is.a(this.f480a, hoVar.f480a)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(hoVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a2 = is.a(this.f482a, hoVar.f482a)) == 0) {
+                                if (!c() || (a2 = is.a(this.f481a, hoVar.f481a)) == 0) {
                                     return 0;
                                 }
                                 return a2;
@@ -59,31 +59,31 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
     }
 
     public ho a(long j) {
-        this.f480a = j;
+        this.f479a = j;
         a(true);
         return this;
     }
 
     public ho a(hi hiVar) {
-        this.f481a = hiVar;
+        this.f480a = hiVar;
         return this;
     }
 
     public ho a(String str) {
-        this.f482a = str;
+        this.f481a = str;
         return this;
     }
 
     public String a() {
-        return this.f482a;
+        return this.f481a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m344a() {
-        if (this.f481a == null) {
+        if (this.f480a == null) {
             throw new jd("Required field 'collectionType' was not present! Struct: " + toString());
         }
-        if (this.f482a == null) {
+        if (this.f481a == null) {
             throw new jd("Required field 'content' was not present! Struct: " + toString());
         }
     }
@@ -101,13 +101,13 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
                 m344a();
                 return;
             }
-            switch (m468a.f789a) {
+            switch (m468a.f788a) {
                 case 1:
                     if (m468a.a != 10) {
                         jf.a(jcVar, m468a.a);
                         break;
                     } else {
-                        this.f480a = jcVar.m467a();
+                        this.f479a = jcVar.m467a();
                         a(true);
                         break;
                     }
@@ -116,7 +116,7 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
                         jf.a(jcVar, m468a.a);
                         break;
                     } else {
-                        this.f481a = hi.a(jcVar.m466a());
+                        this.f480a = hi.a(jcVar.m466a());
                         break;
                     }
                 case 3:
@@ -124,7 +124,7 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
                         jf.a(jcVar, m468a.a);
                         break;
                     } else {
-                        this.f482a = jcVar.m473a();
+                        this.f481a = jcVar.m473a();
                         break;
                     }
                 default:
@@ -136,25 +136,25 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f483a.set(0, z);
+        this.f482a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m345a() {
-        return this.f483a.get(0);
+        return this.f482a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m346a(ho hoVar) {
-        if (hoVar != null && this.f480a == hoVar.f480a) {
+        if (hoVar != null && this.f479a == hoVar.f479a) {
             boolean b2 = b();
             boolean b3 = hoVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f481a.equals(hoVar.f481a))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f480a.equals(hoVar.f480a))) {
                 return false;
             }
             boolean c2 = c();
             boolean c3 = hoVar.c();
-            return !(c2 || c3) || (c2 && c3 && this.f482a.equals(hoVar.f482a));
+            return !(c2 || c3) || (c2 && c3 && this.f481a.equals(hoVar.f481a));
         }
         return false;
     }
@@ -162,18 +162,18 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         m344a();
-        jcVar.a(f479a);
+        jcVar.a(f478a);
         jcVar.a(a);
-        jcVar.a(this.f480a);
+        jcVar.a(this.f479a);
         jcVar.b();
-        if (this.f481a != null) {
+        if (this.f480a != null) {
             jcVar.a(b);
-            jcVar.a(this.f481a.a());
+            jcVar.a(this.f480a.a());
             jcVar.b();
         }
-        if (this.f482a != null) {
+        if (this.f481a != null) {
             jcVar.a(c);
-            jcVar.a(this.f482a);
+            jcVar.a(this.f481a);
             jcVar.b();
         }
         jcVar.c();
@@ -181,11 +181,11 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
     }
 
     public boolean b() {
-        return this.f481a != null;
+        return this.f480a != null;
     }
 
     public boolean c() {
-        return this.f482a != null;
+        return this.f481a != null;
     }
 
     public boolean equals(Object obj) {
@@ -202,20 +202,20 @@ public class ho implements ir<ho, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("DataCollectionItem(");
         sb.append("collectedAt:");
-        sb.append(this.f480a);
+        sb.append(this.f479a);
         sb.append(", ");
         sb.append("collectionType:");
+        if (this.f480a == null) {
+            sb.append("null");
+        } else {
+            sb.append(this.f480a);
+        }
+        sb.append(", ");
+        sb.append("content:");
         if (this.f481a == null) {
             sb.append("null");
         } else {
             sb.append(this.f481a);
-        }
-        sb.append(", ");
-        sb.append("content:");
-        if (this.f482a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.f482a);
         }
         sb.append(")");
         return sb.toString();

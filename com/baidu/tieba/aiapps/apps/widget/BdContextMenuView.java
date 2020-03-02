@@ -21,7 +21,7 @@ import java.util.List;
 /* loaded from: classes12.dex */
 public class BdContextMenuView extends FrameLayout implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a egr;
+    private a egs;
     private Context mContext;
     public boolean mLayoutInCenter;
     private ListView mListView;
@@ -61,7 +61,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.aiapps.apps.widget.BdContextMenuView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                BdContextMenuView.this.egr.onItemClicked(i);
+                BdContextMenuView.this.egs.onItemClicked(i);
             }
         });
     }
@@ -72,7 +72,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
 
     /* loaded from: classes12.dex */
     private class a extends BaseAdapter {
-        final /* synthetic */ BdContextMenuView egs;
+        final /* synthetic */ BdContextMenuView egt;
         private Context mContext;
         private List<com.baidu.swan.apps.res.widget.a.b> mDataList;
 
@@ -133,7 +133,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_icon_left_margin));
                 c0419a.mListName.setLayoutParams(layoutParams);
             }
-            if (this.egs.mLayoutInCenter) {
+            if (this.egt.mLayoutInCenter) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
                 if (bVar.getIcon() != null) {
@@ -149,9 +149,9 @@ public class BdContextMenuView extends FrameLayout implements a.b {
 
         public void onItemClicked(int i) {
             com.baidu.swan.apps.res.widget.a.b bVar = this.mDataList.get(i);
-            b.a act = bVar.act();
-            if (act != null) {
-                act.c(bVar);
+            b.a acv = bVar.acv();
+            if (acv != null) {
+                acv.c(bVar);
             }
         }
 

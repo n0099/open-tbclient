@@ -5,30 +5,30 @@ import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes13.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private String aCe;
     private String aCf;
-    private String[] aCh;
+    private String aCg;
+    private String[] aCi;
     private Fragment[] aoo;
-    private AlbumActivity kML;
-    private ImageListFragment kMM;
-    private AlbumImageBrowseFragment kMN;
+    private AlbumActivity kMN;
+    private ImageListFragment kMO;
+    private AlbumImageBrowseFragment kMP;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.aCe = "tag_image";
-        this.aCf = "tag_b_image";
-        this.kML = albumActivity;
+        this.aCf = "tag_image";
+        this.aCg = "tag_b_image";
+        this.kMN = albumActivity;
     }
 
-    public void Ap() {
+    public void Ar() {
         this.aoo = new Fragment[2];
-        this.aCh = new String[2];
-        this.kMM = new ImageListFragment();
-        this.aoo[0] = this.kMM;
-        this.aCh[0] = this.aCe;
-        this.kMN = new AlbumImageBrowseFragment();
-        this.aoo[1] = this.kMN;
-        this.aCh[1] = this.aCf;
+        this.aCi = new String[2];
+        this.kMO = new ImageListFragment();
+        this.aoo[0] = this.kMO;
+        this.aCi[0] = this.aCf;
+        this.kMP = new AlbumImageBrowseFragment();
+        this.aoo[1] = this.kMP;
+        this.aCi[1] = this.aCg;
     }
 
     public Fragment cN(int i) {
@@ -42,7 +42,7 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.aCh[i];
+        return this.aCi[i];
     }
 
     public void onChangeSkinType(int i) {
@@ -60,89 +60,89 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView cUz() {
-        if (this.kMM == null) {
+    public TbCameraView cUB() {
+        if (this.kMO == null) {
             return null;
         }
-        return this.kMM.cUz();
+        return this.kMO.cUB();
     }
 
     public void stopCamera() {
-        TbCameraView cUz = cUz();
-        if (cUz != null) {
-            cUz.stopCamera();
-            cUz.setVisibility(4);
+        TbCameraView cUB = cUB();
+        if (cUB != null) {
+            cUB.stopCamera();
+            cUB.setVisibility(4);
         }
     }
 
-    public void FD() {
-        TbCameraView cUz = cUz();
-        if (cUz != null) {
-            cUz.setVisibility(0);
-            cUz.tN(false);
+    public void FF() {
+        TbCameraView cUB = cUB();
+        if (cUB != null) {
+            cUB.setVisibility(0);
+            cUB.tN(false);
         }
-        if (this.kMM != null && this.kMM.cUE() != null) {
-            this.kMM.cUE().AO();
+        if (this.kMO != null && this.kMO.cUG() != null) {
+            this.kMO.cUG().AQ();
         }
-    }
-
-    public View Aq() {
-        if (this.kMM == null) {
-            return null;
-        }
-        return this.kMM.Ay();
-    }
-
-    public View Ar() {
-        if (this.kMM == null) {
-            return null;
-        }
-        return this.kMM.AN();
     }
 
     public View As() {
-        if (this.kMN == null) {
+        if (this.kMO == null) {
             return null;
         }
-        return this.kMN.Ay();
+        return this.kMO.AA();
     }
 
     public View At() {
-        if (this.kMN == null) {
+        if (this.kMO == null) {
             return null;
         }
-        return this.kMN.Az();
+        return this.kMO.AP();
     }
 
     public View Au() {
-        if (this.kMN == null) {
+        if (this.kMP == null) {
             return null;
         }
-        return this.kMN.Au();
+        return this.kMP.AA();
     }
 
     public View Av() {
-        if (this.kMM == null) {
+        if (this.kMP == null) {
             return null;
         }
-        return this.kMM.Au();
+        return this.kMP.AB();
+    }
+
+    public View Aw() {
+        if (this.kMP == null) {
+            return null;
+        }
+        return this.kMP.Aw();
+    }
+
+    public View Ax() {
+        if (this.kMO == null) {
+            return null;
+        }
+        return this.kMO.Aw();
     }
 
     public void onDestroy() {
     }
 
     public void bt(boolean z) {
-        if (this.kMN != null) {
-            this.kMN.bt(z);
+        if (this.kMP != null) {
+            this.kMP.bt(z);
         }
-        if (this.kMM != null) {
-            this.kMM.bt(z);
+        if (this.kMO != null) {
+            this.kMO.bt(z);
         }
     }
 
     public void a(i iVar) {
-        if (this.kMM != null) {
-            this.kMM.a(iVar);
+        if (this.kMO != null) {
+            this.kMO.a(iVar);
         }
     }
 }

@@ -79,11 +79,11 @@ public final class b {
         return new b(bitmap, true);
     }
 
-    public b XN() {
+    public b XP() {
         return cW(true);
     }
 
-    public b XO() {
+    public b XQ() {
         return cW(false);
     }
 

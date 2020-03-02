@@ -6,6 +6,7 @@ public class e {
     private static volatile e awb = null;
     private b awc;
     private b awd;
+    private com.baidu.live.o.c awe;
 
     private e() {
     }
@@ -45,5 +46,9 @@ public class e {
             return this.awd.aG(context);
         }
         return null;
+    }
+
+    public com.baidu.live.o.c yI() {
+        return this.awe;
     }
 }

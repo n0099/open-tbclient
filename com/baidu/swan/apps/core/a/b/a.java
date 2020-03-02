@@ -7,25 +7,25 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static a bmH;
-    private boolean bmI = false;
+    private static a bmI;
     private boolean bmJ = false;
-    private boolean mIsCanceled = false;
     private boolean bmK = false;
+    private boolean mIsCanceled = false;
     private boolean bmL = false;
-    private int bmM = 3000;
-    private HashMap<String, Long> bmN = new HashMap<>();
-    private boolean bmO = false;
+    private boolean bmM = false;
+    private int bmN = 3000;
+    private HashMap<String, Long> bmO = new HashMap<>();
+    private boolean bmP = false;
 
-    public static a Nd() {
-        if (bmH == null) {
+    public static a Nf() {
+        if (bmI == null) {
             synchronized (a.class) {
-                if (bmH == null) {
-                    bmH = new a();
+                if (bmI == null) {
+                    bmI = new a();
                 }
             }
         }
-        return bmH;
+        return bmI;
     }
 
     private a() {
@@ -36,12 +36,12 @@ public final class a {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.bmN == null || !this.bmN.containsKey(str) || currentTimeMillis - this.bmN.get(str).longValue() > 18000000) {
+        if (this.bmO == null || !this.bmO.containsKey(str) || currentTimeMillis - this.bmO.get(str).longValue() > 18000000) {
             if (DEBUG) {
-                if (this.bmN == null || !this.bmN.containsKey(str)) {
+                if (this.bmO == null || !this.bmO.containsKey(str)) {
                     Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 } else {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.bmN.get(str) + " ，id = " + str);
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.bmO.get(str) + " ，id = " + str);
                 }
             }
             return false;
@@ -52,7 +52,7 @@ public final class a {
         return true;
     }
 
-    public boolean Ne() {
-        return this.bmJ;
+    public boolean Ng() {
+        return this.bmK;
     }
 }

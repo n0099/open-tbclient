@@ -13,44 +13,44 @@ import android.view.View;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class HorizontalAlphaGradientView extends View {
-    private int aDN;
-    private int aEw;
+    private int aDO;
     private int aEx;
+    private int aEy;
     private Paint auf;
 
     public HorizontalAlphaGradientView(Context context) {
         super(context);
-        this.aDN = 0;
-        this.aEx = 0;
+        this.aDO = 0;
+        this.aEy = 0;
     }
 
     public HorizontalAlphaGradientView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aDN = 0;
-        this.aEx = 0;
+        this.aDO = 0;
+        this.aEy = 0;
     }
 
     public HorizontalAlphaGradientView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aDN = 0;
-        this.aEx = 0;
+        this.aDO = 0;
+        this.aEy = 0;
     }
 
     public void setColor(int i, int i2) {
-        this.aDN = i;
-        this.aEx = i2;
+        this.aDO = i;
+        this.aEy = i2;
     }
 
     public void setNeedAlphaShade(boolean z) {
         if (z) {
-            this.aEw = getResources().getDimensionPixelSize(a.e.sdk_ds28);
+            this.aEx = getResources().getDimensionPixelSize(a.e.sdk_ds28);
             this.auf = new Paint();
             this.auf.setStyle(Paint.Style.FILL_AND_STROKE);
             setLayerType(0, this.auf);
             this.auf.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-            this.auf.setShader(new LinearGradient(0.0f, 0.0f, this.aEw, 0.0f, this.aDN, this.aEx, Shader.TileMode.CLAMP));
+            this.auf.setShader(new LinearGradient(0.0f, 0.0f, this.aEx, 0.0f, this.aDO, this.aEy, Shader.TileMode.CLAMP));
         } else {
-            this.aEw = 0;
+            this.aEx = 0;
             this.auf = null;
         }
         invalidate();
@@ -60,7 +60,7 @@ public class HorizontalAlphaGradientView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.auf != null) {
-            canvas.drawRect(0.0f, 0.0f, this.aEw, getHeight(), this.auf);
+            canvas.drawRect(0.0f, 0.0f, this.aEx, getHeight(), this.auf);
         }
     }
 }

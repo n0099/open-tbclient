@@ -10,39 +10,39 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class b implements e {
-    private String iqN;
-    private boolean iqO = false;
-    private boolean iqP = false;
-    private e.a iqQ;
+    private String iqP;
+    private boolean iqQ = false;
+    private boolean iqR = false;
+    private e.a iqS;
 
     public b(String str) {
-        this.iqN = str;
+        this.iqP = str;
     }
 
     @Override // com.baidu.tieba.k.e
     public void a(e.a aVar) {
-        this.iqQ = aVar;
+        this.iqS = aVar;
     }
 
     @Override // com.baidu.tieba.k.e
-    public void cgv() {
-        if (f.aLX()) {
-            if (StringUtils.isNull(this.iqN) || !QuickVideoView.uy(this.iqN)) {
-                if (this.iqQ != null) {
-                    this.iqQ.yg(2);
+    public void cgx() {
+        if (f.aLZ()) {
+            if (StringUtils.isNull(this.iqP) || !QuickVideoView.uy(this.iqP)) {
+                if (this.iqS != null) {
+                    this.iqS.yg(2);
                     return;
                 }
                 return;
             }
-            a.a(this.iqN, new a.b() { // from class: com.baidu.tieba.l.b.1
+            a.a(this.iqP, new a.b() { // from class: com.baidu.tieba.l.b.1
                 @Override // com.baidu.tieba.l.a.b
                 public void m(Integer num) {
                     if (num != null && num.intValue() == 1) {
-                        b.this.iqO = true;
-                        b.this.chc();
+                        b.this.iqQ = true;
+                        b.this.che();
                     }
-                    if (b.this.iqQ != null) {
-                        b.this.iqQ.yg(num.intValue());
+                    if (b.this.iqS != null) {
+                        b.this.iqS.yg(num.intValue());
                     }
                 }
             });
@@ -50,23 +50,23 @@ public class b implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chc() {
-        if (f.aLX()) {
-            if (StringUtils.isNull(this.iqN) || !QuickVideoView.uy(this.iqN)) {
-                if (this.iqQ != null) {
-                    this.iqQ.onChange(false);
+    public void che() {
+        if (f.aLZ()) {
+            if (StringUtils.isNull(this.iqP) || !QuickVideoView.uy(this.iqP)) {
+                if (this.iqS != null) {
+                    this.iqS.onChange(false);
                     return;
                 }
                 return;
             }
-            a.a(this.iqN, this.iqN + "_moov_head_suffix", new a.InterfaceC0545a() { // from class: com.baidu.tieba.l.b.2
+            a.a(this.iqP, this.iqP + "_moov_head_suffix", new a.InterfaceC0545a() { // from class: com.baidu.tieba.l.b.2
                 @Override // com.baidu.tieba.l.a.InterfaceC0545a
                 public void oS(boolean z) {
-                    if (b.this.iqO && z) {
-                        b.this.iqP = true;
+                    if (b.this.iqQ && z) {
+                        b.this.iqR = true;
                     }
-                    if (b.this.iqQ != null) {
-                        b.this.iqQ.onChange(z);
+                    if (b.this.iqS != null) {
+                        b.this.iqS.onChange(z);
                     }
                 }
             });
@@ -74,11 +74,11 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.k.e
-    public void cgw() {
-        if (f.aLX()) {
-            if (StringUtils.isNull(this.iqN) || !new File(this.iqN).exists() || !new File(this.iqN + "_moov_head_suffix").exists() || !this.iqO || !this.iqP) {
-                if (this.iqQ != null) {
-                    this.iqQ.oP(false);
+    public void cgy() {
+        if (f.aLZ()) {
+            if (StringUtils.isNull(this.iqP) || !new File(this.iqP).exists() || !new File(this.iqP + "_moov_head_suffix").exists() || !this.iqQ || !this.iqR) {
+                if (this.iqS != null) {
+                    this.iqS.oP(false);
                     return;
                 }
                 return;
@@ -99,19 +99,19 @@ public class b implements e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (b.this.iqQ != null) {
-                        b.this.iqQ.oP(bool.booleanValue());
+                    if (b.this.iqS != null) {
+                        b.this.iqS.oP(bool.booleanValue());
                     }
                 }
-            }.execute(this.iqN);
+            }.execute(this.iqP);
         }
     }
 
     @Override // com.baidu.tieba.k.e
-    public void cgx() {
-        if (StringUtils.isNull(this.iqN) || !QuickVideoView.uy(this.iqN)) {
-            if (this.iqQ != null) {
-                this.iqQ.yg(2);
+    public void cgz() {
+        if (StringUtils.isNull(this.iqP) || !QuickVideoView.uy(this.iqP)) {
+            if (this.iqS != null) {
+                this.iqS.yg(2);
                 return;
             }
             return;
@@ -150,19 +150,19 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.iqQ != null) {
-                            b.this.iqQ.yg(cVar.value);
+                        if (b.this.iqS != null) {
+                            b.this.iqS.yg(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.iqQ != null) {
-                            b.this.iqQ.onChange(cVar.value == 1);
+                        if (b.this.iqS != null) {
+                            b.this.iqS.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.iqQ != null) {
-                        b.this.iqQ.oP(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.iqS != null) {
+                        b.this.iqS.oP(cVar.value == 1);
                     }
                 }
             }
-        }.execute(this.iqN);
+        }.execute(this.iqP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

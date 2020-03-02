@@ -27,18 +27,18 @@ import com.baidu.tieba.tbadkCore.x;
 /* loaded from: classes9.dex */
 public class c extends v.a {
     View.OnClickListener auX;
-    private TbPageContext cVg;
-    private RelativeLayout gyZ;
-    private LinearLayout gza;
-    private TbImageView gzb;
-    private TextView gzc;
-    private TextView gzd;
+    private TbPageContext cVh;
+    private RelativeLayout gzb;
+    private LinearLayout gzc;
+    private TbImageView gzd;
     private TextView gze;
     private TextView gzf;
-    private View gzg;
+    private TextView gzg;
     private TextView gzh;
-    private ImageView gzi;
-    private View gzj;
+    private View gzi;
+    private TextView gzj;
+    private ImageView gzk;
+    private View gzl;
     private int mSkinType;
     private bo news_info;
     private bl top_code;
@@ -49,113 +49,113 @@ public class c extends v.a {
         this.auX = new View.OnClickListener() { // from class: com.baidu.tieba.frs.a.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (bc.checkUpIsLogin(c.this.cVg.getPageActivity()) && l.isNetOk()) {
-                    if (view2 == c.this.gyZ) {
-                        if (c.this.top_code != null && !TextUtils.isEmpty(c.this.top_code.aEl())) {
-                            TiebaStatic.eventStat(c.this.cVg.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                            ba.aGE().b((TbPageContext) i.ab(c.this.cVg.getPageActivity()), new String[]{c.this.top_code.aEl()});
+                if (bc.checkUpIsLogin(c.this.cVh.getPageActivity()) && l.isNetOk()) {
+                    if (view2 == c.this.gzb) {
+                        if (c.this.top_code != null && !TextUtils.isEmpty(c.this.top_code.aEn())) {
+                            TiebaStatic.eventStat(c.this.cVh.getPageActivity(), "num_click", "click", 1, new Object[0]);
+                            ba.aGG().b((TbPageContext) i.ab(c.this.cVh.getPageActivity()), new String[]{c.this.top_code.aEn()});
                         }
-                    } else if (view2 == c.this.gza && c.this.news_info != null && !TextUtils.isEmpty(c.this.news_info.aEs())) {
-                        TiebaStatic.eventStat(c.this.cVg.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                        ba.aGE().b((TbPageContext) i.ab(c.this.cVg.getPageActivity()), new String[]{c.this.news_info.aEs()});
+                    } else if (view2 == c.this.gzc && c.this.news_info != null && !TextUtils.isEmpty(c.this.news_info.aEu())) {
+                        TiebaStatic.eventStat(c.this.cVh.getPageActivity(), "info_click", "click", 1, "page", "frs");
+                        ba.aGG().b((TbPageContext) i.ab(c.this.cVh.getPageActivity()), new String[]{c.this.news_info.aEu()});
                     }
                 }
             }
         };
-        this.cVg = tbPageContext;
-        this.gyZ = (RelativeLayout) view.findViewById(R.id.u9_top_code);
-        this.gza = (LinearLayout) view.findViewById(R.id.u9_news_info);
-        this.gzb = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.gzb.setPageId(bdUniqueId);
-        this.gzc = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.gzd = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
-        this.gze = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
-        this.gzf = (TextView) view.findViewById(R.id.top_code_getnum_btn);
-        this.gzg = view.findViewById(R.id.u9_top_code_divider);
-        this.gzi = (ImageView) view.findViewById(R.id.news_info_img);
-        this.gzi.setBackgroundDrawable(am.getDrawable(R.drawable.icon_frs_news));
-        this.gzh = (TextView) view.findViewById(R.id.news_info_text);
-        this.gzj = view.findViewById(R.id.frs_list_item_u9_top_line);
-        am.setBackgroundResource(this.gzf, R.drawable.frs_star_btn_like);
-        am.setViewTextColor(this.gzf, (int) R.drawable.frs_text_color_selector);
-        bHw();
+        this.cVh = tbPageContext;
+        this.gzb = (RelativeLayout) view.findViewById(R.id.u9_top_code);
+        this.gzc = (LinearLayout) view.findViewById(R.id.u9_news_info);
+        this.gzd = (TbImageView) view.findViewById(R.id.top_code_img);
+        this.gzd.setPageId(bdUniqueId);
+        this.gze = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.gzf = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
+        this.gzg = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
+        this.gzh = (TextView) view.findViewById(R.id.top_code_getnum_btn);
+        this.gzi = view.findViewById(R.id.u9_top_code_divider);
+        this.gzk = (ImageView) view.findViewById(R.id.news_info_img);
+        this.gzk.setBackgroundDrawable(am.getDrawable(R.drawable.icon_frs_news));
+        this.gzj = (TextView) view.findViewById(R.id.news_info_text);
+        this.gzl = view.findViewById(R.id.frs_list_item_u9_top_line);
+        am.setBackgroundResource(this.gzh, R.drawable.frs_star_btn_like);
+        am.setViewTextColor(this.gzh, (int) R.drawable.frs_text_color_selector);
+        bHy();
     }
 
     public void a(x xVar) {
         if (xVar != null) {
-            bl cKz = xVar.cKz();
-            bo cKA = xVar.cKA();
-            this.top_code = cKz;
-            this.news_info = cKA;
-            if (xVar.cKy()) {
-                this.gzj.setVisibility(0);
+            bl cKB = xVar.cKB();
+            bo cKC = xVar.cKC();
+            this.top_code = cKB;
+            this.news_info = cKC;
+            if (xVar.cKA()) {
+                this.gzl.setVisibility(0);
             } else {
-                this.gzj.setVisibility(8);
+                this.gzl.setVisibility(8);
             }
             if (this.top_code == null) {
-                this.gyZ.setVisibility(8);
-                this.gzg.setVisibility(8);
+                this.gzb.setVisibility(8);
+                this.gzi.setVisibility(8);
             } else if (StringUtils.isNull(this.top_code.getSummary())) {
-                this.gyZ.setVisibility(8);
-                this.gzg.setVisibility(8);
+                this.gzb.setVisibility(8);
+                this.gzi.setVisibility(8);
             } else {
-                this.gyZ.setVisibility(0);
-                this.gzg.setVisibility(0);
-                this.gzb.startLoad(this.top_code.aAE(), 10, false);
-                this.gzc.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(cKz.aEp())) {
-                    this.gzf.setVisibility(8);
+                this.gzb.setVisibility(0);
+                this.gzi.setVisibility(0);
+                this.gzd.startLoad(this.top_code.aAG(), 10, false);
+                this.gze.setText(this.top_code.getSummary());
+                if (StringUtils.isNull(cKB.aEr())) {
+                    this.gzh.setVisibility(8);
                 } else {
-                    this.gzf.setText(cKz.aEp());
+                    this.gzh.setText(cKB.aEr());
+                    this.gzh.setVisibility(0);
+                }
+                int aEo = this.top_code.aEo();
+                if (aEo == 1 || aEo == 2) {
+                    if (StringUtils.isNull(this.top_code.aEp())) {
+                        this.gzf.setVisibility(8);
+                    } else {
+                        String str = this.cVh.getResources().getString(R.string.u9_shengyu) + this.top_code.aEp();
+                        SpannableString spannableString = new SpannableString(str);
+                        UtilHelper.setSpan(spannableString, str, this.top_code.aEp(), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)));
+                        this.gzf.setText(spannableString);
+                        this.gzf.setVisibility(0);
+                    }
+                    if (cKB.aEq() <= 0) {
+                        this.gzg.setVisibility(8);
+                    } else {
+                        String str2 = this.cVh.getResources().getString(R.string.u9_worth) + this.top_code.aEq();
+                        SpannableString spannableString2 = new SpannableString(str2);
+                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.aEq()), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)));
+                        this.gzg.setText(spannableString2);
+                        this.gzg.setVisibility(0);
+                    }
+                } else {
+                    this.gzg.setVisibility(8);
+                    this.gzf.setText(cKB.getSubTitle());
                     this.gzf.setVisibility(0);
                 }
-                int aEm = this.top_code.aEm();
-                if (aEm == 1 || aEm == 2) {
-                    if (StringUtils.isNull(this.top_code.aEn())) {
-                        this.gzd.setVisibility(8);
-                    } else {
-                        String str = this.cVg.getResources().getString(R.string.u9_shengyu) + this.top_code.aEn();
-                        SpannableString spannableString = new SpannableString(str);
-                        UtilHelper.setSpan(spannableString, str, this.top_code.aEn(), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)));
-                        this.gzd.setText(spannableString);
-                        this.gzd.setVisibility(0);
-                    }
-                    if (cKz.aEo() <= 0) {
-                        this.gze.setVisibility(8);
-                    } else {
-                        String str2 = this.cVg.getResources().getString(R.string.u9_worth) + this.top_code.aEo();
-                        SpannableString spannableString2 = new SpannableString(str2);
-                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.aEo()), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)));
-                        this.gze.setText(spannableString2);
-                        this.gze.setVisibility(0);
-                    }
-                } else {
-                    this.gze.setVisibility(8);
-                    this.gzd.setText(cKz.getSubTitle());
-                    this.gzd.setVisibility(0);
-                }
             }
-            if (this.news_info == null || StringUtils.isNull(cKA.getSummary())) {
-                this.gza.setVisibility(8);
+            if (this.news_info == null || StringUtils.isNull(cKC.getSummary())) {
+                this.gzc.setVisibility(8);
                 return;
             }
-            this.gza.setVisibility(0);
-            this.gzh.setText(cKA.getSummary());
+            this.gzc.setVisibility(0);
+            this.gzj.setText(cKC.getSummary());
         }
     }
 
-    public void bHw() {
-        this.gyZ.setOnClickListener(this.auX);
-        this.gza.setOnClickListener(this.auX);
+    public void bHy() {
+        this.gzb.setOnClickListener(this.auX);
+        this.gzc.setOnClickListener(this.auX);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.gzi, R.drawable.icon_frs_news);
-            am.setBackgroundResource(this.gzf, R.drawable.frs_star_btn_like);
-            am.setViewTextColor(this.gzf, (int) R.drawable.frs_text_color_selector);
-            this.cVg.getLayoutMode().setNightMode(i == 1);
-            this.cVg.getLayoutMode().onModeChanged(getView());
+            am.setBackgroundResource(this.gzk, R.drawable.icon_frs_news);
+            am.setBackgroundResource(this.gzh, R.drawable.frs_star_btn_like);
+            am.setViewTextColor(this.gzh, (int) R.drawable.frs_text_color_selector);
+            this.cVh.getLayoutMode().setNightMode(i == 1);
+            this.cVh.getLayoutMode().onModeChanged(getView());
             this.mSkinType = i;
         }
     }

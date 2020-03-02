@@ -17,43 +17,43 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class c {
-    private static c jLM;
-    private CustomMessageListener jLO = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c jLO;
+    private CustomMessageListener jLQ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && c.this.jLN != null) {
-                c.this.jLN.cDp();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && c.this.jLP != null) {
+                c.this.jLP.cDr();
             }
         }
     };
-    private d jLN = new g();
+    private d jLP = new g();
 
-    public static c cDn() {
-        if (jLM == null) {
+    public static c cDp() {
+        if (jLO == null) {
             synchronized (c.class) {
-                if (jLM == null) {
-                    jLM = new c();
+                if (jLO == null) {
+                    jLO = new c();
                 }
             }
         }
-        return jLM;
+        return jLO;
     }
 
-    private boolean cDo() {
+    private boolean cDq() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.jLO);
+        MessageManager.getInstance().registerListener(this.jLQ);
     }
 
     public void a(b bVar) {
-        if (cDo() && bVar != null && this.jLN != null) {
+        if (cDq() && bVar != null && this.jLP != null) {
             if (j.isNetWorkAvailable()) {
-                this.jLN.b(bVar);
+                this.jLP.b(bVar);
             } else {
-                this.jLN.c(bVar);
+                this.jLP.c(bVar);
             }
         }
     }
@@ -72,7 +72,7 @@ public class c {
             AdUploadHttpRequest adUploadHttpRequest = new AdUploadHttpRequest(new ArrayList());
             String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = com.baidu.tbadk.browser.a.cKy;
+                cookie = com.baidu.tbadk.browser.a.cKz;
             }
             adUploadHttpRequest.addHeader(SM.COOKIE, cookie);
             MessageManager.getInstance().sendMessage(adUploadHttpRequest, httpMessageTask);

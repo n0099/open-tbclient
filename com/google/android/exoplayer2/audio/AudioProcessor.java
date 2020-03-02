@@ -8,17 +8,17 @@ public interface AudioProcessor {
 
     boolean af(int i, int i2, int i3) throws UnhandledFormatException;
 
-    boolean avP();
-
-    int dtL();
-
-    int dtM();
+    boolean avR();
 
     int dtN();
 
-    void dtO();
+    int dtO();
 
-    ByteBuffer dtP();
+    int dtP();
+
+    void dtQ();
+
+    ByteBuffer dtR();
 
     void flush();
 

@@ -7,7 +7,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes12.dex */
 public class a {
     public static boolean getNightModeSwitcherState() {
-        return com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState();
+        return com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState();
     }
 
     public static void hK(boolean z) {
@@ -16,7 +16,7 @@ public class a {
         LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
     }
 
-    public static void bbi() {
+    public static void bbk() {
         int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
         int i = getNightModeSwitcherState() ? 2 : 1;
         if (defaultNightMode != i) {

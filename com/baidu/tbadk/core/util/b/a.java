@@ -16,8 +16,8 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private b dbv;
-    private InterfaceC0378a dbw;
+    private b dbw;
+    private InterfaceC0378a dbx;
     private ArrayList<String> requestPermissionList = new ArrayList<>();
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
@@ -46,7 +46,7 @@ public class a {
     }
 
     public boolean startRequestPermission(Activity activity) {
-        if (!com.baidu.k.a.Ev()) {
+        if (!com.baidu.k.a.Ex()) {
             onPermissionsGranted();
             return false;
         } else if (v.isEmpty(this.requestPermissionList)) {
@@ -87,20 +87,20 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.dbv != null) {
-                    a.this.dbv.onDialogComfirmed(str);
+                if (a.this.dbw != null) {
+                    a.this.dbw.onDialogComfirmed(str);
                 }
             }
         }).b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.dbv != null) {
-                    a.this.dbv.onDialogCaneled(str);
+                if (a.this.dbw != null) {
+                    a.this.dbw.onDialogCaneled(str);
                 }
             }
         }).b(i.ab(activity));
-        aVar.aEA();
+        aVar.aEC();
         return false;
     }
 
@@ -137,12 +137,12 @@ public class a {
     }
 
     public void a(InterfaceC0378a interfaceC0378a) {
-        this.dbw = interfaceC0378a;
+        this.dbx = interfaceC0378a;
     }
 
     public void onPermissionsGranted() {
-        if (this.dbw != null) {
-            this.dbw.onPermissionsGranted();
+        if (this.dbx != null) {
+            this.dbx.onPermissionsGranted();
         }
     }
 }

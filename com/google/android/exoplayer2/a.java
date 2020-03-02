@@ -6,25 +6,25 @@ import java.io.IOException;
 /* loaded from: classes6.dex */
 public abstract class a implements s, t {
     private int index;
-    private final int lXW;
-    private u lXX;
-    private com.google.android.exoplayer2.source.p lXY;
-    private long lXZ;
-    private boolean lYa = true;
-    private boolean lYb;
+    private final int lXY;
+    private u lXZ;
+    private com.google.android.exoplayer2.source.p lYa;
+    private long lYb;
+    private boolean lYc = true;
+    private boolean lYd;
     private int state;
 
     public a(int i) {
-        this.lXW = i;
+        this.lXY = i;
     }
 
     @Override // com.google.android.exoplayer2.s, com.google.android.exoplayer2.t
     public final int getTrackType() {
-        return this.lXW;
+        return this.lXY;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final t dsE() {
+    public final t dsG() {
         return this;
     }
 
@@ -34,7 +34,7 @@ public abstract class a implements s, t {
     }
 
     @Override // com.google.android.exoplayer2.s
-    public com.google.android.exoplayer2.util.h dsF() {
+    public com.google.android.exoplayer2.util.h dsH() {
         return null;
     }
 
@@ -46,7 +46,7 @@ public abstract class a implements s, t {
     @Override // com.google.android.exoplayer2.s
     public final void a(u uVar, Format[] formatArr, com.google.android.exoplayer2.source.p pVar, long j, boolean z, long j2) throws ExoPlaybackException {
         com.google.android.exoplayer2.util.a.checkState(this.state == 0);
-        this.lXX = uVar;
+        this.lXZ = uVar;
         this.state = 1;
         vx(z);
         a(formatArr, pVar, j2);
@@ -62,42 +62,42 @@ public abstract class a implements s, t {
 
     @Override // com.google.android.exoplayer2.s
     public final void a(Format[] formatArr, com.google.android.exoplayer2.source.p pVar, long j) throws ExoPlaybackException {
-        com.google.android.exoplayer2.util.a.checkState(!this.lYb);
-        this.lXY = pVar;
-        this.lYa = false;
-        this.lXZ = j;
+        com.google.android.exoplayer2.util.a.checkState(!this.lYd);
+        this.lYa = pVar;
+        this.lYc = false;
+        this.lYb = j;
         a(formatArr, j);
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final com.google.android.exoplayer2.source.p dsG() {
-        return this.lXY;
-    }
-
-    @Override // com.google.android.exoplayer2.s
-    public final boolean dsH() {
+    public final com.google.android.exoplayer2.source.p dsI() {
         return this.lYa;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final void dsI() {
-        this.lYb = true;
-    }
-
-    @Override // com.google.android.exoplayer2.s
     public final boolean dsJ() {
-        return this.lYb;
+        return this.lYc;
     }
 
     @Override // com.google.android.exoplayer2.s
-    public final void dsK() throws IOException {
-        this.lXY.dwj();
+    public final void dsK() {
+        this.lYd = true;
+    }
+
+    @Override // com.google.android.exoplayer2.s
+    public final boolean dsL() {
+        return this.lYd;
+    }
+
+    @Override // com.google.android.exoplayer2.s
+    public final void dsM() throws IOException {
+        this.lYa.dwl();
     }
 
     @Override // com.google.android.exoplayer2.s
     public final void fl(long j) throws ExoPlaybackException {
-        this.lYb = false;
-        this.lYa = false;
+        this.lYd = false;
+        this.lYc = false;
         l(j, false);
     }
 
@@ -112,13 +112,13 @@ public abstract class a implements s, t {
     public final void disable() {
         com.google.android.exoplayer2.util.a.checkState(this.state == 1);
         this.state = 0;
-        this.lXY = null;
-        this.lYb = false;
-        dsM();
+        this.lYa = null;
+        this.lYd = false;
+        dsO();
     }
 
     @Override // com.google.android.exoplayer2.t
-    public int dsL() throws ExoPlaybackException {
+    public int dsN() throws ExoPlaybackException {
         return 0;
     }
 
@@ -142,12 +142,12 @@ public abstract class a implements s, t {
     protected void onStopped() throws ExoPlaybackException {
     }
 
-    protected void dsM() {
+    protected void dsO() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final u dsN() {
-        return this.lXX;
+    public final u dsP() {
+        return this.lXZ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -157,17 +157,17 @@ public abstract class a implements s, t {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final int a(m mVar, com.google.android.exoplayer2.a.e eVar, boolean z) {
-        int b = this.lXY.b(mVar, eVar, z);
+        int b = this.lYa.b(mVar, eVar, z);
         if (b == -4) {
-            if (eVar.dus()) {
-                this.lYa = true;
-                return this.lYb ? -4 : -3;
+            if (eVar.duu()) {
+                this.lYc = true;
+                return this.lYd ? -4 : -3;
             }
-            eVar.mdB += this.lXZ;
+            eVar.mdD += this.lYb;
         } else if (b == -5) {
-            Format format = mVar.lZw;
+            Format format = mVar.lZy;
             if (format.subsampleOffsetUs != Format.OFFSET_SAMPLE_RELATIVE) {
-                mVar.lZw = format.fx(format.subsampleOffsetUs + this.lXZ);
+                mVar.lZy = format.fx(format.subsampleOffsetUs + this.lYb);
             }
         }
         return b;
@@ -175,12 +175,12 @@ public abstract class a implements s, t {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int fm(long j) {
-        return this.lXY.ge(j - this.lXZ);
+        return this.lYa.ge(j - this.lYb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean cTn() {
-        return this.lYa ? this.lYb : this.lXY.isReady();
+    public final boolean cTp() {
+        return this.lYc ? this.lYd : this.lYa.isReady();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

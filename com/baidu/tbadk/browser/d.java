@@ -34,7 +34,7 @@ import com.baidu.tieba.R;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean cKE = true;
+    public static boolean cKF = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -46,7 +46,7 @@ public class d {
                 }
             }
         });
-        ba.aGE().a(new ba.c() { // from class: com.baidu.tbadk.browser.d.2
+        ba.aGG().a(new ba.c() { // from class: com.baidu.tbadk.browser.d.2
             @Override // com.baidu.tbadk.core.util.ba.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, ba.d dVar, boolean z2) {
                 if (z2) {
@@ -57,13 +57,13 @@ public class d {
             }
         });
         SwitchManager.getInstance().addSwitchData(new com.baidu.adp.lib.featureSwitch.b("switch_mbaidu_startup", 1, null));
-        azu();
-        azv();
         azw();
+        azx();
+        azy();
     }
 
-    private static void azu() {
-        ba.aGE().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.3
+    private static void azw() {
+        ba.aGG().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Bundle parserQuery;
@@ -242,8 +242,8 @@ public class d {
         return false;
     }
 
-    private static void azv() {
-        ba.aGE().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.6
+    private static void azx() {
+        ba.aGG().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.6
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -303,8 +303,8 @@ public class d {
         });
     }
 
-    private static void azw() {
-        ba.aGE().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.7
+    private static void azy() {
+        ba.aGG().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.7
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

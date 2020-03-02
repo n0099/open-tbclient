@@ -13,7 +13,7 @@ public abstract class ae implements Iterator<Long> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dKh */
+    /* renamed from: dKj */
     public final Long next() {
         return Long.valueOf(nextLong());
     }

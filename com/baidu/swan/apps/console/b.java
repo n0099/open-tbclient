@@ -13,25 +13,25 @@ import com.baidu.swan.apps.storage.c.g;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.Lq().putBoolean(str, z);
+            a.Ls().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0235b.class, q(str, z));
         }
     }
 
     public static void cg(boolean z) {
-        e acD = e.acD();
-        if (acD != null) {
-            putBoolean(gz(acD.getAppKey()), z);
+        e acF = e.acF();
+        if (acF != null) {
+            putBoolean(gz(acF.getAppKey()), z);
         }
     }
 
     public static boolean gy(String str) {
-        return !TextUtils.isEmpty(str) && a.Lq().getBoolean(gz(str), false);
+        return !TextUtils.isEmpty(str) && a.Ls().getBoolean(gz(str), false);
     }
 
     private static String gz(String str) {
-        String bq = com.baidu.swan.apps.w.a.TZ().bq(com.baidu.swan.apps.w.a.TU());
+        String bq = com.baidu.swan.apps.w.a.Ub().bq(com.baidu.swan.apps.w.a.TW());
         return "consoleSwitch" + str + (TextUtils.isEmpty(bq) ? "" : aa.toHash(bq.getBytes(), false));
     }
 
@@ -52,11 +52,11 @@ public class b {
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
         public static final class C0234a {
-            private static final a bjH = new a();
+            private static final a bjI = new a();
         }
 
-        public static a Lq() {
-            return C0234a.bjH;
+        public static a Ls() {
+            return C0234a.bjI;
         }
     }
 
@@ -69,7 +69,7 @@ public class b {
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
-            a.Lq().putBoolean(bundle.getString("key"), bundle.getBoolean("value"));
+            a.Ls().putBoolean(bundle.getString("key"), bundle.getBoolean("value"));
             return Bundle.EMPTY;
         }
     }

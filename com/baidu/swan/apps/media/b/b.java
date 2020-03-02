@@ -16,21 +16,21 @@ public class b {
     public static String bDC;
     public static String bDD;
     public static String bDE;
-    public static String bDy;
+    public static String bDF;
     public static String bDz;
-    private UnitedSchemeEntity bzG;
-    private CallbackHandler bzH;
+    private UnitedSchemeEntity bzH;
+    private CallbackHandler bzI;
 
     private b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        this.bzH = callbackHandler;
-        this.bzG = unitedSchemeEntity;
-        bDy = str;
-        bDz = str2;
-        bDA = str3;
-        bDB = str4;
-        bDC = str5;
-        bDD = str6;
-        bDE = str7;
+        this.bzI = callbackHandler;
+        this.bzH = unitedSchemeEntity;
+        bDz = str;
+        bDA = str2;
+        bDB = str3;
+        bDC = str4;
+        bDD = str5;
+        bDE = str6;
+        bDF = str7;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -63,7 +63,7 @@ public class b {
     public void d(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.bzH, this.bzG, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.bzI, this.bzH, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }
@@ -79,7 +79,7 @@ public class b {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            d(bDC, jSONObject);
+            d(bDD, jSONObject);
         }
     }
 }

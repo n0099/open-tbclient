@@ -5,9 +5,9 @@ import java.lang.Exception;
 public interface c<I, O, E extends Exception> {
     void bx(I i) throws Exception;
 
-    I dux() throws Exception;
+    O duA() throws Exception;
 
-    O duy() throws Exception;
+    I duz() throws Exception;
 
     void flush();
 

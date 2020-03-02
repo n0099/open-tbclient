@@ -5,10 +5,6 @@ public interface n {
 
     void b(h<?, ?> hVar);
 
-    void dnY();
-
-    void dnZ();
-
     void doa();
 
     void dob();
@@ -20,6 +16,10 @@ public interface n {
     void doe();
 
     void dof();
+
+    void dog();
+
+    void doh();
 
     void p(com.facebook.cache.common.b bVar);
 

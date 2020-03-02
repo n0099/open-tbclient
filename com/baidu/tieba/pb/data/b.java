@@ -8,17 +8,17 @@ public class b {
     public String card_logo;
     public String card_name;
     public String card_pro;
-    public long iBr;
-    public int iBs;
-    public String iBt;
+    public long iBt;
+    public int iBu;
+    public String iBv;
 
     public void a(SendCardInfo sendCardInfo) {
         if (sendCardInfo != null) {
             this.card_logo = sendCardInfo.card_logo;
             this.card_name = sendCardInfo.card_name;
             this.card_pro = sendCardInfo.card_pro;
-            this.iBs = sendCardInfo.card_get_status.intValue();
-            this.iBr = sendCardInfo.packet_id.longValue();
+            this.iBu = sendCardInfo.card_get_status.intValue();
+            this.iBt = sendCardInfo.packet_id.longValue();
         }
     }
 
@@ -27,17 +27,17 @@ public class b {
             this.card_logo = jSONObject.optString("card_logo");
             this.card_name = jSONObject.optString("card_name");
             this.card_pro = jSONObject.optString("card_pro");
-            this.iBs = jSONObject.optInt("card_get_status");
-            this.iBr = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
-            this.iBt = jSONObject.optString("card_num");
+            this.iBu = jSONObject.optInt("card_get_status");
+            this.iBt = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
+            this.iBv = jSONObject.optString("card_num");
         }
     }
 
-    public boolean cko() {
-        return this.iBs == 3;
+    public boolean ckq() {
+        return this.iBu == 3;
     }
 
-    public boolean ckp() {
-        return this.iBs == 1;
+    public boolean ckr() {
+        return this.iBu == 1;
     }
 }

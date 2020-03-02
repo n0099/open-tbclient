@@ -9,38 +9,38 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
-    private boolean aFL;
     private boolean aFM;
-    private a aFN;
+    private boolean aFN;
+    private a aFO;
 
     public DispatchedPvlLayout(Context context) {
         super(context);
-        this.aFL = false;
         this.aFM = false;
+        this.aFN = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aFL = false;
         this.aFM = false;
+        this.aFN = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aFL = false;
         this.aFM = false;
+        this.aFN = false;
     }
 
     @Override // com.baidu.live.view.PriorityVerticalLinearLayout, android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if ((!this.aFL || !b.a(view, this.aFN)) && layoutParams != null) {
+        if ((!this.aFM || !b.a(view, this.aFO)) && layoutParams != null) {
             super.addView(view, i, layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (this.aFM || !this.aFL || !b.b(view, this.aFN)) {
+        if (this.aFN || !this.aFM || !b.b(view, this.aFO)) {
             super.removeView(view);
         }
     }
@@ -48,59 +48,59 @@ public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.aFL && this.aFN != null) {
-            this.aFN.Bu();
+        if (this.aFM && this.aFO != null) {
+            this.aFO.Bw();
         }
     }
 
     @Override // android.view.ViewGroup
     public int indexOfChild(View view) {
-        if (!this.aFM && this.aFL) {
-            if (this.aFN == null || !this.aFN.W(view)) {
+        if (!this.aFN && this.aFM) {
+            if (this.aFO == null || !this.aFO.W(view)) {
                 return super.indexOfChild(view);
             }
-            return this.aFN.indexOfChild(view);
+            return this.aFO.indexOfChild(view);
         }
         return super.indexOfChild(view);
     }
 
     public void setViewActionDispatched(boolean z) {
-        if (this.aFL != z) {
-            this.aFL = z;
+        if (this.aFM != z) {
+            this.aFM = z;
             if (z) {
-                Bt();
+                Bv();
             }
         }
     }
 
-    public boolean Bs() {
-        return this.aFL;
+    public boolean Bu() {
+        return this.aFM;
     }
 
-    private void Bt() {
-        if (this.aFL && getChildCount() > 0 && this.aFN != null) {
+    private void Bv() {
+        if (this.aFM && getChildCount() > 0 && this.aFO != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (this.aFN.W(childAt)) {
+                if (this.aFO.W(childAt)) {
                     linkedList.add(childAt);
                 }
             }
             if (!linkedList.isEmpty()) {
-                this.aFM = true;
+                this.aFN = true;
                 Iterator it = linkedList.iterator();
                 while (it.hasNext()) {
                     View view = (View) it.next();
                     super.removeView(view);
-                    this.aFN.onViewAdded(view);
+                    this.aFO.onViewAdded(view);
                 }
-                this.aFM = false;
+                this.aFN = false;
             }
         }
     }
 
     public void setViewActionDispatchListener(a aVar) {
-        this.aFN = aVar;
-        Bt();
+        this.aFO = aVar;
+        Bv();
     }
 }

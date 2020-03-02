@@ -15,9 +15,9 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static final ProtoAdapter<SpriteEntity> ADAPTER = new ProtoAdapter_SpriteEntity();
     public static final String DEFAULT_IMAGEKEY = "";
     private static final long serialVersionUID = 0;
-    @WireField(dGu = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", dGv = WireField.Label.REPEATED, tag = 2)
+    @WireField(dGw = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", dGx = WireField.Label.REPEATED, tag = 2)
     public final List<FrameEntity> frames;
-    @WireField(dGu = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(dGw = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
     public SpriteEntity(String str, List<FrameEntity> list) {
@@ -77,7 +77,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
-        public List<FrameEntity> frames = a.dGx();
+        public List<FrameEntity> frames = a.dGz();
         public String imageKey;
 
         public Builder imageKey(String str) {
@@ -126,11 +126,11 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public SpriteEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dGm = cVar.dGm();
+            long dGo = cVar.dGo();
             while (true) {
-                int dGn = cVar.dGn();
-                if (dGn != -1) {
-                    switch (dGn) {
+                int dGp = cVar.dGp();
+                if (dGp != -1) {
+                    switch (dGp) {
                         case 1:
                             builder.imageKey(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -138,12 +138,12 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                             builder.frames.add(FrameEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dGo = cVar.dGo();
-                            builder.addUnknownField(dGn, dGo, dGo.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dGq = cVar.dGq();
+                            builder.addUnknownField(dGp, dGq, dGq.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gZ(dGm);
+                    cVar.gZ(dGo);
                     return builder.build();
                 }
             }

@@ -3,9 +3,9 @@ package com.baidu.tbadk.r;
 public interface b {
     void V(String str, boolean z);
 
-    void aRI();
+    void aRK();
 
-    void ayZ();
+    void azb();
 
     void g(String str, boolean z, boolean z2);
 }

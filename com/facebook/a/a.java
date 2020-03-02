@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes13.dex */
 public interface a {
-    InputStream djR() throws IOException;
+    InputStream djT() throws IOException;
 
     long size();
 }

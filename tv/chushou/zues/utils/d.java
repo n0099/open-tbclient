@@ -11,37 +11,57 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class d {
-    private static Gson gson = new GsonBuilder().disableHtmlEscaping().setLenient().create();
-    private static final Map<String, String> nWD = Collections.unmodifiableMap(new HashMap());
-    private static final Type nWE = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
-    }.getType();
+    private static final Gson gson;
+    private static final Map<String, String> nWF;
+    private static final Type nWG;
+
+    static {
+        Gson gson2 = null;
+        try {
+            gson2 = new GsonBuilder().disableHtmlEscaping().setLenient().create();
+        } catch (Throwable th) {
+        }
+        gson = gson2;
+        nWF = Collections.unmodifiableMap(new HashMap());
+        nWG = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
+        }.getType();
+    }
 
     @Nullable
     public static <T> T c(String str, Class<T> cls) {
+        if (gson == null) {
+            return null;
+        }
         try {
             return (T) gson.fromJson(str, (Class<Object>) cls);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dQd().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dQf().e("JsonUtils", "", e);
             return null;
         }
     }
 
     @Nullable
     public static <T> T c(String str, Type type) {
+        if (gson == null) {
+            return null;
+        }
         try {
             return (T) gson.fromJson(str, type);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dQd().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dQf().e("JsonUtils", "", e);
             return null;
         }
     }
 
     @Nullable
     public static String toJson(Object obj) {
+        if (gson == null) {
+            return null;
+        }
         try {
             return gson.toJson(obj);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dQd().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dQf().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -49,9 +69,9 @@ public class d {
     @NonNull
     public static Map<String, String> SU(String str) {
         if (TextUtils.isEmpty(str)) {
-            return nWD;
+            return nWF;
         }
-        Map<String, String> map = (Map) c(str, nWE);
-        return map == null ? nWD : map;
+        Map<String, String> map = (Map) c(str, nWG);
+        return map == null ? nWF : map;
     }
 }

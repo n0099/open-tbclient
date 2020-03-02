@@ -11,7 +11,7 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes11.dex */
 public final class a {
-    private final ArrayList<Integer> cqc = new ArrayList<>();
+    private final ArrayList<Integer> cqd = new ArrayList<>();
 
     public final void i(c cVar) {
         if (cVar != null) {
@@ -24,15 +24,15 @@ public final class a {
             switch (str.hashCode()) {
                 case 3202370:
                     if (str.equals("hide")) {
-                        f WQ = f.WQ();
-                        q.i(WQ, "SwanAppController.getInstance()");
-                        e GA = WQ.GA();
-                        i iVar = GA != null ? (i) GA.p(i.class) : null;
-                        com.baidu.swan.menu.h OO = iVar != null ? iVar.OO() : null;
-                        if (OO != null && iVar != null) {
+                        f WS = f.WS();
+                        q.i(WS, "SwanAppController.getInstance()");
+                        e GC = WS.GC();
+                        i iVar = GC != null ? (i) GC.p(i.class) : null;
+                        com.baidu.swan.menu.h OQ = iVar != null ? iVar.OQ() : null;
+                        if (OQ != null && iVar != null) {
                             iVar.cw(true);
                         }
-                        return a(OO, str2);
+                        return a(OQ, str2);
                     }
                     break;
             }
@@ -43,8 +43,8 @@ public final class a {
     private final boolean a(com.baidu.swan.menu.h hVar, String str) {
         Integer pq = b.pq(str);
         if (pq != null) {
-            if (!this.cqc.contains(pq)) {
-                this.cqc.add(pq);
+            if (!this.cqd.contains(pq)) {
+                this.cqd.add(pq);
             }
             if (hVar != null) {
                 hVar.ip(pq.intValue());
@@ -55,8 +55,8 @@ public final class a {
     }
 
     public final void a(com.baidu.swan.menu.h hVar) {
-        if (!this.cqc.isEmpty()) {
-            Iterator<Integer> it = this.cqc.iterator();
+        if (!this.cqd.isEmpty()) {
+            Iterator<Integer> it = this.cqd.iterator();
             while (it.hasNext()) {
                 Integer next = it.next();
                 if (hVar != null) {

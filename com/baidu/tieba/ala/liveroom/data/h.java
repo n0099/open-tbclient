@@ -17,26 +17,26 @@ public class h {
     public AlaLiveUserInfoData XQ;
     public String Yk;
     public boolean Yo;
-    public a faV;
+    public a faW;
     public AlaLiveInfoData mLiveInfo;
     public k mLiveSdkInfo;
     public int mErrorCode = 0;
     public String mErrorMsg = null;
-    public int faQ = 0;
-    public int faR = 1;
-    public String faS = null;
-    public int faT = 1;
-    public String faU = null;
+    public int faR = 0;
+    public int faS = 1;
+    public String faT = null;
+    public int faU = 1;
+    public String faV = null;
     public long Ym = 0;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public List<String> faW = new ArrayList();
+        public List<String> faX = new ArrayList();
         public String notify;
     }
 
-    public boolean blP() {
-        return this.faQ == 0;
+    public boolean blR() {
+        return this.faR == 0;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -52,7 +52,7 @@ public class h {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null) {
-                this.faQ = optJSONObject2.optInt("user_status");
+                this.faR = optJSONObject2.optInt("user_status");
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("user_info");
                 if (optJSONObject3 != null) {
                     this.XQ = new AlaLiveUserInfoData();
@@ -76,22 +76,22 @@ public class h {
                 if (optJSONObject6 != null) {
                     JSONObject optJSONObject7 = optJSONObject6.optJSONObject(LogConfig.VALUE_LIVE_HK_RECORD_START);
                     if (optJSONObject7 != null) {
-                        this.faS = optJSONObject7.optString("text");
-                        this.faR = optJSONObject7.optInt("switch");
+                        this.faT = optJSONObject7.optString("text");
+                        this.faS = optJSONObject7.optInt("switch");
                     }
                     JSONObject optJSONObject8 = optJSONObject6.optJSONObject("user_verify");
                     if (optJSONObject8 != null) {
-                        this.faT = optJSONObject8.optInt("switch");
-                        this.faU = optJSONObject8.optString("text");
+                        this.faU = optJSONObject8.optInt("switch");
+                        this.faV = optJSONObject8.optString("text");
                     }
                 }
                 JSONObject optJSONObject9 = optJSONObject2.optJSONObject("live_authen_info");
                 if (optJSONObject9 != null) {
-                    this.faV = new a();
-                    this.faV.notify = optJSONObject9.optString("notify");
+                    this.faW = new a();
+                    this.faW.notify = optJSONObject9.optString("notify");
                     JSONArray optJSONArray = optJSONObject9.optJSONArray("questions");
                     for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                        this.faV.faW.add(optJSONArray.optString(i));
+                        this.faW.faX.add(optJSONArray.optString(i));
                     }
                 }
                 this.Yo = optJSONObject2.optInt("switch_guard_seat") == 1;

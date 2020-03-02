@@ -9,44 +9,44 @@ import tbclient.NewTopicList.NewTopicList;
 import tbclient.TopicModule;
 /* loaded from: classes9.dex */
 public class a extends com.baidu.tieba.card.data.c {
-    public static final BdUniqueId hhu = BdUniqueId.gen();
-    public static final BdUniqueId hhv = BdUniqueId.gen();
+    public static final BdUniqueId hhw = BdUniqueId.gen();
+    public static final BdUniqueId hhx = BdUniqueId.gen();
     private bj NQ;
-    public String cQA;
-    public long cQB;
-    public String cQC;
+    public String cQB;
+    public long cQC;
+    public String cQD;
     public int from = 0;
-    public String hgb;
-    public b hhw;
-    public PostData hhx;
+    public String hgd;
+    public b hhy;
+    public PostData hhz;
     public int index;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.from == 0 ? hhu : hhv;
+        return this.from == 0 ? hhw : hhx;
     }
 
     public static boolean aa(bj bjVar) {
-        return bjVar != null && bjVar.getType() == bj.cRu;
+        return bjVar != null && bjVar.getType() == bj.cRv;
     }
 
     public void a(NewTopicList newTopicList) {
         if (newTopicList != null) {
             this.topicId = newTopicList.topic_id.longValue();
-            this.cQA = newTopicList.topic_name;
-            this.cQC = newTopicList.topic_desc;
-            this.cQB = newTopicList.discuss_num.longValue();
-            this.hgb = newTopicList.topic_image;
+            this.cQB = newTopicList.topic_name;
+            this.cQD = newTopicList.topic_desc;
+            this.cQC = newTopicList.discuss_num.longValue();
+            this.hgd = newTopicList.topic_image;
             if (newTopicList.pk_module != null && newTopicList.pk_module.agree != null && newTopicList.pk_module.disagree != null) {
-                this.hhw = new b();
-                this.hhw.topicId = this.topicId;
-                this.hhw.from = 1;
-                this.hhw.a(newTopicList.pk_module);
+                this.hhy = new b();
+                this.hhy.topicId = this.topicId;
+                this.hhy.from = 1;
+                this.hhy.a(newTopicList.pk_module);
             }
             if (newTopicList.top_agree_post != null) {
-                this.hhx = new PostData();
-                this.hhx.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
+                this.hhz = new PostData();
+                this.hhz.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
             }
         }
     }
@@ -54,14 +54,14 @@ public class a extends com.baidu.tieba.card.data.c {
     public void a(TopicModule topicModule) {
         if (topicModule != null) {
             this.topicId = topicModule.topic_id.longValue();
-            this.cQA = topicModule.topic_name;
-            this.cQC = topicModule.topic_desc;
-            this.hgb = topicModule.topic_image;
+            this.cQB = topicModule.topic_name;
+            this.cQD = topicModule.topic_desc;
+            this.hgd = topicModule.topic_image;
             if (topicModule.pk_module != null && topicModule.pk_module.agree != null && topicModule.pk_module.disagree != null) {
-                this.hhw = new b();
-                this.hhw.topicId = this.topicId;
-                this.hhw.from = 3;
-                this.hhw.a(topicModule.pk_module);
+                this.hhy = new b();
+                this.hhy.topicId = this.topicId;
+                this.hhy.from = 3;
+                this.hhy.a(topicModule.pk_module);
             }
         }
     }
@@ -71,16 +71,16 @@ public class a extends com.baidu.tieba.card.data.c {
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bj aAe() {
+    public bj aAg() {
         return this.NQ;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public al aAg() {
-        al aAg = super.aAg();
-        if (aAg != null) {
-            aAg.bt(this.topicId);
+    public al aAi() {
+        al aAi = super.aAi();
+        if (aAi != null) {
+            aAi.bt(this.topicId);
         }
-        return aAg;
+        return aAi;
     }
 }

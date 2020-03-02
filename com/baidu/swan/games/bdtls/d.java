@@ -11,17 +11,17 @@ import com.baidu.swan.games.bdtls.model.j;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class d {
-    private static volatile d ckI;
+    private static volatile d ckJ;
 
-    public static d alG() {
-        if (ckI == null) {
+    public static d alI() {
+        if (ckJ == null) {
             synchronized (d.class) {
-                if (ckI == null) {
-                    ckI = new d();
+                if (ckJ == null) {
+                    ckJ = new d();
                 }
             }
         }
-        return ckI;
+        return ckJ;
     }
 
     private d() {
@@ -34,11 +34,11 @@ public class d {
         try {
             byte[] a = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
             if (a != null) {
-                h amE = h.clc.amE();
-                amE.b((byte) 22);
-                amE.c((short) a.length);
-                amE.H(a);
-                return com.baidu.swan.games.bdtls.a.b.a(amE);
+                h amG = h.cld.amG();
+                amG.b((byte) 22);
+                amG.c((short) a.length);
+                amG.H(a);
+                return com.baidu.swan.games.bdtls.a.b.a(amG);
             }
             return null;
         } catch (Exception e) {
@@ -56,19 +56,19 @@ public class d {
             return null;
         }
         try {
-            h amE = h.clc.amE();
-            amE.b((byte) 23);
-            byte[] amQ = jVar.amQ();
-            if (amQ != null && amQ.length > 0 && amQ.length <= 32767) {
-                amE.c((short) amQ.length);
-                amE.H(amQ);
+            h amG = h.cld.amG();
+            amG.b((byte) 23);
+            byte[] amS = jVar.amS();
+            if (amS != null && amS.length > 0 && amS.length <= 32767) {
+                amG.c((short) amS.length);
+                amG.H(amS);
             }
             if (!TextUtils.isEmpty(str)) {
-                byte[] f = AES.f(str, jVar.amP());
-                amE.hM(f.length);
-                amE.setContent(f);
+                byte[] f = AES.f(str, jVar.amR());
+                amG.hM(f.length);
+                amG.setContent(f);
             }
-            return com.baidu.swan.games.bdtls.a.b.a(amE);
+            return com.baidu.swan.games.bdtls.a.b.a(amG);
         } catch (Exception e) {
             if (a.DEBUG) {
                 e.printStackTrace();
@@ -83,9 +83,9 @@ public class d {
         i iVar = new i();
         try {
             h L = com.baidu.swan.games.bdtls.a.b.L(bArr);
-            switch (L.amz()) {
+            switch (L.amB()) {
                 case 21:
-                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(L.amD());
+                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(L.amF());
                     if (parseFrom != null) {
                         if (a.DEBUG) {
                             Log.d("BDTLS", "bdtls ubc application alert");
@@ -114,7 +114,7 @@ public class d {
                     }
                     break;
                 case 23:
-                    iVar.ow(new String(AES.c(L.getContent(), jVar.amP())));
+                    iVar.ow(new String(AES.c(L.getContent(), jVar.amR())));
                     iVar.b(1);
                     break;
             }

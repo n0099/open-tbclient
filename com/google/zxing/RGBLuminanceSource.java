@@ -7,7 +7,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
     private final byte[] luminances;
 
     /* renamed from: top  reason: collision with root package name */
-    private final int f1042top;
+    private final int f1041top;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RGBLuminanceSource(int i, int i2, int[] iArr) {
@@ -15,7 +15,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
         this.dataWidth = i;
         this.dataHeight = i2;
         this.left = 0;
-        this.f1042top = 0;
+        this.f1041top = 0;
         int i3 = i * i2;
         this.luminances = new byte[i3];
         for (int i4 = 0; i4 < i3; i4++) {
@@ -33,7 +33,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
         this.dataWidth = i;
         this.dataHeight = i2;
         this.left = i3;
-        this.f1042top = i4;
+        this.f1041top = i4;
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -45,7 +45,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
         if (bArr == null || bArr.length < width) {
             bArr = new byte[width];
         }
-        System.arraycopy(this.luminances, ((this.f1042top + i) * this.dataWidth) + this.left, bArr, 0, width);
+        System.arraycopy(this.luminances, ((this.f1041top + i) * this.dataWidth) + this.left, bArr, 0, width);
         return bArr;
     }
 
@@ -58,7 +58,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
         }
         int i = width * height;
         byte[] bArr = new byte[i];
-        int i2 = (this.f1042top * this.dataWidth) + this.left;
+        int i2 = (this.f1041top * this.dataWidth) + this.left;
         if (width == this.dataWidth) {
             System.arraycopy(this.luminances, i2, bArr, 0, i);
             return bArr;
@@ -77,6 +77,6 @@ public final class RGBLuminanceSource extends LuminanceSource {
 
     @Override // com.google.zxing.LuminanceSource
     public LuminanceSource crop(int i, int i2, int i3, int i4) {
-        return new RGBLuminanceSource(this.luminances, this.dataWidth, this.dataHeight, this.left + i, this.f1042top + i2, i3, i4);
+        return new RGBLuminanceSource(this.luminances, this.dataWidth, this.dataHeight, this.left + i, this.f1041top + i2, i3, i4);
     }
 }

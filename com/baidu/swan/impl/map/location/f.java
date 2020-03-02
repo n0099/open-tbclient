@@ -11,30 +11,30 @@ import com.baidu.swan.apps.as.af;
 /* loaded from: classes12.dex */
 public class f extends RecyclerView.ItemDecoration {
     private static final int MARGIN = af.S(15.0f);
-    private ColorDrawable cxa;
-    private boolean cxb;
+    private ColorDrawable cxb;
+    private boolean cxc;
 
     public f(Context context) {
         this(context, false);
     }
 
     public f(Context context, boolean z) {
-        this.cxb = true;
-        this.cxa = new ColorDrawable(context.getResources().getColor(a.c.aiapps_location_item_bg_pressed));
-        this.cxb = z;
+        this.cxc = true;
+        this.cxb = new ColorDrawable(context.getResources().getColor(a.c.aiapps_location_item_bg_pressed));
+        this.cxc = z;
     }
 
     private void drawVertical(Canvas canvas, RecyclerView recyclerView) {
         int paddingLeft = recyclerView.getPaddingLeft() + MARGIN;
         int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - MARGIN;
         int childCount = recyclerView.getChildCount();
-        int i = this.cxb ? childCount : childCount - 1;
+        int i = this.cxc ? childCount : childCount - 1;
         for (int i2 = 0; i2 < i; i2++) {
             View childAt = recyclerView.getChildAt(i2);
             if (childAt != null) {
                 int bottom = ((RecyclerView.LayoutParams) childAt.getLayoutParams()).bottomMargin + childAt.getBottom();
-                this.cxa.setBounds(paddingLeft, bottom, width, bottom + 1);
-                this.cxa.draw(canvas);
+                this.cxb.setBounds(paddingLeft, bottom, width, bottom + 1);
+                this.cxb.draw(canvas);
             }
         }
     }

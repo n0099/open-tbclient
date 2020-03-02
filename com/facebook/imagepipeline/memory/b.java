@@ -4,25 +4,25 @@ import com.baidu.searchbox.account.contants.AccountConstants;
 import com.facebook.infer.annotation.ThreadSafe;
 /* loaded from: classes12.dex */
 public class b {
-    private static final Class<?> lGY = b.class;
-    public static final int lUj = dqO();
-    private static int lUk = 384;
-    private static volatile a lUl;
+    private static final Class<?> lHa = b.class;
+    public static final int lUl = dqQ();
+    private static int lUm = 384;
+    private static volatile a lUn;
 
-    private static int dqO() {
+    private static int dqQ() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         return ((long) min) > AccountConstants.TYPE_MODIFY_ADDRESSLIST_SWITCH ? (min / 4) * 3 : min / 2;
     }
 
     @ThreadSafe
-    public static a dqP() {
-        if (lUl == null) {
+    public static a dqR() {
+        if (lUn == null) {
             synchronized (b.class) {
-                if (lUl == null) {
-                    lUl = new a(lUk, lUj);
+                if (lUn == null) {
+                    lUn = new a(lUm, lUl);
                 }
             }
         }
-        return lUl;
+        return lUn;
     }
 }

@@ -14,9 +14,9 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public class EditAddressView extends LinearLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private SwanAppBdActionBar cbq;
-    private ListView ccD;
-    private com.baidu.swan.bdprivate.address.a.b ccE;
+    private SwanAppBdActionBar cbr;
+    private ListView ccE;
+    private com.baidu.swan.bdprivate.address.a.b ccF;
 
     public EditAddressView(Context context, com.baidu.swan.bdprivate.address.c.b bVar) {
         super(context);
@@ -26,49 +26,49 @@ public class EditAddressView extends LinearLayout {
     private void a(Context context, com.baidu.swan.bdprivate.address.c.b bVar) {
         setBackgroundResource(b.C0318b.invoice_list_bg);
         setOrientation(1);
-        this.cbq = new SwanAppBdActionBar(context);
-        this.cbq.setBackgroundResource(17170443);
-        addView(this.cbq, new LinearLayout.LayoutParams(-1, context.getResources().getDimensionPixelOffset(b.c.aiapps_normal_base_action_bar_height)));
-        this.ccD = new ListView(context);
-        this.ccD.setDividerHeight(0);
-        onNightModeChanged(com.baidu.swan.apps.w.a.Uq().getNightModeSwitcherState());
-        this.ccE = new com.baidu.swan.bdprivate.address.a.b(context);
+        this.cbr = new SwanAppBdActionBar(context);
+        this.cbr.setBackgroundResource(17170443);
+        addView(this.cbr, new LinearLayout.LayoutParams(-1, context.getResources().getDimensionPixelOffset(b.c.aiapps_normal_base_action_bar_height)));
+        this.ccE = new ListView(context);
+        this.ccE.setDividerHeight(0);
+        onNightModeChanged(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState());
+        this.ccF = new com.baidu.swan.bdprivate.address.a.b(context);
         g(bVar);
-        this.ccD.setAdapter((ListAdapter) this.ccE);
+        this.ccE.setAdapter((ListAdapter) this.ccF);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         layoutParams.setMargins(0, 1, 0, 0);
-        addView(this.ccD, layoutParams);
+        addView(this.ccE, layoutParams);
     }
 
     public void onNightModeChanged(boolean z) {
         if (z) {
-            this.ccD.setBackgroundColor(Color.parseColor("#161616"));
+            this.ccE.setBackgroundColor(Color.parseColor("#161616"));
         } else {
-            this.ccD.setBackgroundColor(Color.parseColor("#0D000000"));
+            this.ccE.setBackgroundColor(Color.parseColor("#0D000000"));
         }
     }
 
     public Map<String, Object> getDeliveryEditData() {
-        return this.ccE.getDeliveryEditData();
+        return this.ccF.getDeliveryEditData();
     }
 
     public com.baidu.swan.bdprivate.address.a.b getEditAdapter() {
-        return this.ccE;
+        return this.ccF;
     }
 
     public void g(com.baidu.swan.bdprivate.address.c.b bVar) {
         if (bVar != null) {
-            this.ccE.setData(com.baidu.swan.bdprivate.address.c.b.e(bVar));
-            this.ccE.r(com.baidu.swan.bdprivate.address.c.b.b(bVar));
-            this.ccE.s(new HashMap(4));
+            this.ccF.setData(com.baidu.swan.bdprivate.address.c.b.e(bVar));
+            this.ccF.r(com.baidu.swan.bdprivate.address.c.b.b(bVar));
+            this.ccF.s(new HashMap(4));
         }
     }
 
     public void setDeliveryEditChangedListener(b.a aVar) {
-        this.ccE.setDeliveryEditChangedListener(aVar);
+        this.ccF.setDeliveryEditChangedListener(aVar);
     }
 
     public SwanAppBdActionBar getBdActionBar() {
-        return this.cbq;
+        return this.cbr;
     }
 }

@@ -225,7 +225,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int i2 = 1;
-        if (ar.aGB().aGC()) {
+        if (ar.aGD().aGE()) {
             i2 = 2;
         }
         userPostPageRequestMessage.set_scr_w(equipmentWidth);
@@ -270,7 +270,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.fNC != 33) {
+                if (cardPersonDynamicThreadData.fNE != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -527,17 +527,17 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         while (it.hasNext()) {
             m next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).fNO = true;
-                ((CardPersonDynamicThreadData) next).fNN = true;
-                long j = ((CardPersonDynamicThreadData) next).fNA * 1000;
+                ((CardPersonDynamicThreadData) next).fNQ = true;
+                ((CardPersonDynamicThreadData) next).fNP = true;
+                long j = ((CardPersonDynamicThreadData) next).fNC * 1000;
                 String yearBytime2 = aq.getYearBytime(j);
                 String chineseMonthBytime = aq.getChineseMonthBytime(j);
                 String dateBytime = aq.getDateBytime(j);
                 if (aq.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).fNO = false;
+                    ((CardPersonDynamicThreadData) next).fNQ = false;
                 }
                 if (aq.equals(dateBytime, str5) && aq.equals(chineseMonthBytime, str4) && aq.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).fNN = false;
+                    ((CardPersonDynamicThreadData) next).fNP = false;
                     str = str5;
                     str2 = str4;
                     str3 = yearBytime;

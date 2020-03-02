@@ -13,12 +13,12 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private BdTypeRecyclerView BK;
-    private LinkedList<com.baidu.adp.widget.ListView.a> has = new LinkedList<>();
-    private f hiZ;
-    private b hja;
-    private d hjb;
-    private e hjc;
-    private c hjd;
+    private LinkedList<com.baidu.adp.widget.ListView.a> hau = new LinkedList<>();
+    private f hjb;
+    private b hjc;
+    private d hjd;
+    private e hje;
+    private c hjf;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -28,22 +28,22 @@ public class a {
     }
 
     private void wM() {
-        this.hiZ = new f(this.mPageContext, k.fMW);
-        this.hja = new b(this.mPageContext, l.cRy);
-        this.hjb = new d(this.mPageContext, k.fNe);
-        this.hjc = new e(this.mPageContext, k.fNf);
-        this.hjd = new c(this.mPageContext, k.fNd);
-        this.hiZ.b((r) this.BK);
-        this.hja.b((r) this.BK);
+        this.hjb = new f(this.mPageContext, k.fMY);
+        this.hjc = new b(this.mPageContext, l.cRz);
+        this.hjd = new d(this.mPageContext, k.fNg);
+        this.hje = new e(this.mPageContext, k.fNh);
+        this.hjf = new c(this.mPageContext, k.fNf);
         this.hjb.b((r) this.BK);
         this.hjc.b((r) this.BK);
         this.hjd.b((r) this.BK);
-        this.has.add(this.hiZ);
-        this.has.add(this.hja);
-        this.has.add(this.hjb);
-        this.has.add(this.hjc);
-        this.has.add(this.hjd);
-        this.BK.addAdapters(this.has);
+        this.hje.b((r) this.BK);
+        this.hjf.b((r) this.BK);
+        this.hau.add(this.hjb);
+        this.hau.add(this.hjc);
+        this.hau.add(this.hjd);
+        this.hau.add(this.hje);
+        this.hau.add(this.hjf);
+        this.BK.addAdapters(this.hau);
     }
 
     public void notifyDataSetChanged() {
@@ -53,12 +53,6 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.hiZ != null) {
-            this.hiZ.setPageUniqueId(bdUniqueId);
-        }
-        if (this.hja != null) {
-            this.hja.setPageUniqueId(bdUniqueId);
-        }
         if (this.hjb != null) {
             this.hjb.setPageUniqueId(bdUniqueId);
         }
@@ -67,6 +61,12 @@ public class a {
         }
         if (this.hjd != null) {
             this.hjd.setPageUniqueId(bdUniqueId);
+        }
+        if (this.hje != null) {
+            this.hje.setPageUniqueId(bdUniqueId);
+        }
+        if (this.hjf != null) {
+            this.hjf.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -82,14 +82,14 @@ public class a {
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.hjc != null) {
-            this.hjc.setEventCallback(aVar);
+        if (this.hje != null) {
+            this.hje.setEventCallback(aVar);
         }
     }
 
     public void onPause() {
-        if (this.hja != null) {
-            this.hja.onPause();
+        if (this.hjc != null) {
+            this.hjc.onPause();
         }
     }
 
@@ -97,8 +97,8 @@ public class a {
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        if (this.hja != null) {
-            this.hja.b(eVar);
+        if (this.hjc != null) {
+            this.hjc.b(eVar);
         }
     }
 }

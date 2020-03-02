@@ -913,7 +913,7 @@ public class b extends Handler {
                 } else {
                     WinRound winRound = mapStatus.winRound;
                     int abs = Math.abs(winRound.right - winRound.left);
-                    int abs2 = Math.abs(winRound.bottom - winRound.f993top);
+                    int abs2 = Math.abs(winRound.bottom - winRound.f992top);
                     if (e != null) {
                         i3 = e.getPaddingLeft();
                         i2 = e.getPaddingTop();

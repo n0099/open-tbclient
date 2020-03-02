@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public abstract class b {
-    protected g gKw;
-    protected a gKx;
-    protected boolean gKy;
-    protected boolean gwf;
+    protected boolean gKA;
+    protected g gKy;
+    protected a gKz;
+    protected boolean gwh;
     protected Intent mIntent;
     protected int mState = 0;
 
@@ -20,33 +20,33 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bJN();
+    public abstract void bJP();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bJO();
+    public abstract void bJQ();
 
     public b(g gVar, Intent intent) {
-        this.gKy = true;
-        this.gwf = false;
-        this.gKw = gVar;
+        this.gKA = true;
+        this.gwh = false;
+        this.gKy = gVar;
         this.mIntent = intent;
-        e BL = d.bJT().BL(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.gKy = BL.bJV();
-        this.gwf = BL.bJU();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gKw.gKN.getLayoutParams();
+        e BL = d.bJV().BL(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.gKA = BL.bJX();
+        this.gwh = BL.bJW();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gKy.gKP.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.topMargin = this.gwf ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds152) : l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds121);
-            this.gKw.gKN.setLayoutParams(layoutParams);
+            layoutParams.topMargin = this.gwh ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds152) : l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds121);
+            this.gKy.gKP.setLayoutParams(layoutParams);
         }
-        this.gKw.gKM.setVisibility(this.gKy ? 0 : 4);
-        if (BL.bJW()) {
-            this.gKw.gKM.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.gKw.gKN.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+        this.gKy.gKO.setVisibility(this.gKA ? 0 : 4);
+        if (BL.bJY()) {
+            this.gKy.gKO.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.gKy.gKP.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
     public void a(a aVar) {
-        this.gKx = aVar;
+        this.gKz = aVar;
     }
 
     public int getState() {

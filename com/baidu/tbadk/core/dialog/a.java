@@ -26,10 +26,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
     private View bdDialog_divider_line;
-    private b cUU;
     private b cUV;
     private b cUW;
-    private Button cUX;
+    private b cUX;
+    private Button cUY;
     private View dividerWithButton;
     protected final Activity mActivity;
     private DialogInterface.OnCancelListener mCancelListenr;
@@ -51,7 +51,7 @@ public class a {
     private boolean isMessageShowCenter = false;
     private boolean isTitleShowCenter = false;
     private int mButtonTextColor = -1;
-    private int cUT = -1;
+    private int cUU = -1;
     private int dialogSize = 0;
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
@@ -95,19 +95,19 @@ public class a {
 
     public a a(String str, b bVar) {
         this.mPositiveButtonTip = str;
-        this.cUU = bVar;
+        this.cUV = bVar;
         return this;
     }
 
     public a b(String str, b bVar) {
         this.mNegativeButtonTip = str;
-        this.cUV = bVar;
+        this.cUW = bVar;
         return this;
     }
 
     public a a(b bVar) {
         if (bVar != null) {
-            this.cUW = bVar;
+            this.cUX = bVar;
         }
         return this;
     }
@@ -122,7 +122,7 @@ public class a {
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
             this.mPositiveButtonTip = this.mActivity.getResources().getString(i);
-            this.cUU = bVar;
+            this.cUV = bVar;
         }
         return this;
     }
@@ -130,7 +130,7 @@ public class a {
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
             this.mNegativeButtonTip = this.mActivity.getResources().getString(i);
-            this.cUV = bVar;
+            this.cUW = bVar;
         }
         return this;
     }
@@ -162,9 +162,9 @@ public class a {
 
     public a jY(int i) {
         if (isAutoNight()) {
-            this.cUT = am.getColor(i);
+            this.cUU = am.getColor(i);
         } else {
-            this.cUT = this.mActivity.getResources().getColor(i);
+            this.cUU = this.mActivity.getResources().getColor(i);
         }
         return this;
     }
@@ -184,7 +184,7 @@ public class a {
             this.noButton = (TextView) this.mRootView.findViewById(R.id.no);
             this.dividerWithButton = this.mRootView.findViewById(R.id.divider_yes_no_button);
             this.bdDialog_divider_line = this.mRootView.findViewById(R.id.bdDialog_divider_line);
-            this.cUX = (Button) this.mRootView.findViewById(R.id.close_btn);
+            this.cUY = (Button) this.mRootView.findViewById(R.id.close_btn);
             if (this.mContentView != null) {
                 linearLayout.removeAllViews();
                 if (this.mContentView.getParent() != null) {
@@ -210,10 +210,10 @@ public class a {
                 }
             }
             c(eVar);
-            if (this.cUW != null) {
-                this.cUX.setVisibility(0);
-                this.cUX.setOnClickListener(new View$OnClickListenerC0376a(this, this.cUW));
-                am.setBackgroundResource(this.cUX, R.drawable.icon_popup_close_n, isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0);
+            if (this.cUX != null) {
+                this.cUY.setVisibility(0);
+                this.cUY.setOnClickListener(new View$OnClickListenerC0376a(this, this.cUX));
+                am.setBackgroundResource(this.cUY, R.drawable.icon_popup_close_n, isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0);
             }
             if (this.mButtonTextColor != -1) {
                 if (this.yesButton != null) {
@@ -223,16 +223,16 @@ public class a {
                     this.noButton.setTextColor(this.mButtonTextColor);
                 }
             }
-            if (this.cUT != -1 && this.noButton != null) {
-                this.noButton.setTextColor(this.cUT);
+            if (this.cUU != -1 && this.noButton != null) {
+                this.noButton.setTextColor(this.cUU);
             }
             if (TextUtils.isEmpty(this.mPositiveButtonTip) || this.yesButton == null) {
                 z = false;
             } else {
                 this.yesButton.setText(this.mPositiveButtonTip);
                 this.yesButton.setTag(this.yesTag);
-                if (this.cUU != null) {
-                    this.yesButton.setOnClickListener(new View$OnClickListenerC0376a(this, this.cUU));
+                if (this.cUV != null) {
+                    this.yesButton.setOnClickListener(new View$OnClickListenerC0376a(this, this.cUV));
                 }
                 z = true;
             }
@@ -240,8 +240,8 @@ public class a {
                 z2 = false;
             } else {
                 this.noButton.setText(this.mNegativeButtonTip);
-                if (this.cUV != null) {
-                    this.noButton.setOnClickListener(new View$OnClickListenerC0376a(this, this.cUV));
+                if (this.cUW != null) {
+                    this.noButton.setOnClickListener(new View$OnClickListenerC0376a(this, this.cUW));
                 }
             }
             mouldButtons(z, z2);
@@ -287,7 +287,7 @@ public class a {
         int skinType = isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0;
         if (eVar instanceof TbPageContext) {
             ((TbPageContext) eVar).getLayoutMode().setNightMode(skinType == 1);
-            ((TbPageContext) eVar).getLayoutMode().cLA = isAutoNight() ? false : true;
+            ((TbPageContext) eVar).getLayoutMode().cLB = isAutoNight() ? false : true;
             ((TbPageContext) eVar).getLayoutMode().onModeChanged(this.mRootView);
             if (this.mContentView != null) {
                 ((TbPageContext) eVar).getLayoutMode().onModeChanged(this.mContentView);
@@ -446,7 +446,7 @@ public class a {
         }
     }
 
-    public a aEA() {
+    public a aEC() {
         return fI(true);
     }
 
@@ -461,17 +461,17 @@ public class a {
     /* loaded from: classes.dex */
     public class View$OnClickListenerC0376a implements View.OnClickListener {
         private final a FR;
-        private final b cUZ;
+        private final b cVa;
 
         public View$OnClickListenerC0376a(a aVar, b bVar) {
             this.FR = aVar;
-            this.cUZ = bVar;
+            this.cVa = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.cUZ != null) {
-                this.cUZ.onClick(this.FR);
+            if (this.cVa != null) {
+                this.cVa.onClick(this.FR);
             }
         }
     }

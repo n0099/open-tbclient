@@ -3,20 +3,20 @@ package rx.a.a;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final a nNt = new a();
-    private final AtomicReference<b> nNu = new AtomicReference<>();
+    private static final a nNv = new a();
+    private final AtomicReference<b> nNw = new AtomicReference<>();
 
-    public static a dNW() {
-        return nNt;
+    public static a dNY() {
+        return nNv;
     }
 
     a() {
     }
 
-    public b dNX() {
-        if (this.nNu.get() == null) {
-            this.nNu.compareAndSet(null, b.dNY());
+    public b dNZ() {
+        if (this.nNw.get() == null) {
+            this.nNw.compareAndSet(null, b.dOa());
         }
-        return this.nNu.get();
+        return this.nNw.get();
     }
 }

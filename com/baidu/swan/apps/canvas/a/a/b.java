@@ -8,22 +8,22 @@ import com.baidu.swan.apps.canvas.view.CanvasView;
 import java.util.Stack;
 /* loaded from: classes11.dex */
 public class b implements Cloneable {
-    CanvasView bgv;
-    ak bgw;
-    private Stack<b> bgr = new Stack<>();
+    CanvasView bgw;
+    ak bgx;
+    private Stack<b> bgt = new Stack<>();
     Paint mFillPaint = new Paint();
     Paint mStrokePaint = new Paint();
     Paint mBitmapPaint = new Paint();
-    TextPaint bgt = new TextPaint();
+    TextPaint bgu = new TextPaint();
     Path mPath = new Path();
-    boolean bgu = false;
-    int bgx = -1;
-    int bgy = 0;
+    boolean bgv = false;
+    int bgy = -1;
     int bgz = 0;
+    int bgA = 0;
     int mStrokeColor = ViewCompat.MEASURED_STATE_MASK;
 
     public b(CanvasView canvasView) {
-        this.bgv = canvasView;
+        this.bgw = canvasView;
         init();
     }
 
@@ -32,28 +32,28 @@ public class b implements Cloneable {
         bVar.mFillPaint = new Paint(this.mFillPaint);
         bVar.mStrokePaint = new Paint(this.mStrokePaint);
         bVar.mBitmapPaint = new Paint(this.mBitmapPaint);
-        bVar.bgt = new TextPaint(this.bgt);
+        bVar.bgu = new TextPaint(this.bgu);
         bVar.mPath = new Path(this.mPath);
-        bVar.bgy = this.bgy;
         bVar.bgz = this.bgz;
+        bVar.bgA = this.bgA;
         bVar.mStrokeColor = this.mStrokeColor;
-        this.bgr.push(bVar);
+        this.bgt.push(bVar);
     }
 
-    public void Kn() {
-        if (!this.bgr.empty()) {
-            b pop = this.bgr.pop();
+    public void Kp() {
+        if (!this.bgt.empty()) {
+            b pop = this.bgt.pop();
             this.mFillPaint = pop.mFillPaint;
             this.mStrokePaint = pop.mStrokePaint;
             this.mBitmapPaint = pop.mBitmapPaint;
-            this.bgt = pop.bgt;
-            this.mPath = pop.mPath;
             this.bgu = pop.bgu;
-            this.bgr = pop.bgr;
-            this.bgw = pop.bgw;
+            this.mPath = pop.mPath;
+            this.bgv = pop.bgv;
+            this.bgt = pop.bgt;
             this.bgx = pop.bgx;
             this.bgy = pop.bgy;
             this.bgz = pop.bgz;
+            this.bgA = pop.bgA;
             this.mStrokeColor = pop.mStrokeColor;
         }
     }
@@ -61,21 +61,21 @@ public class b implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Paint paint) {
         if (paint != null) {
-            if (this.bgv != null && this.bgw != null && this.bgw.bgY != null && !this.bgw.bgY.Kp()) {
-                paint.setShadowLayer(this.bgw.bhl, this.bgw.mOffsetX, this.bgw.mOffsetY, this.bgw.bgY.getColor());
+            if (this.bgw != null && this.bgx != null && this.bgx.bgZ != null && !this.bgx.bgZ.Kr()) {
+                paint.setShadowLayer(this.bgx.bhm, this.bgx.mOffsetX, this.bgx.mOffsetY, this.bgx.bgZ.getColor());
             }
-            if (this.bgx >= 0 && this.bgx <= 255) {
-                paint.setAlpha(Math.min((paint.getAlpha() * this.bgx) >> 8, 255));
+            if (this.bgy >= 0 && this.bgy <= 255) {
+                paint.setAlpha(Math.min((paint.getAlpha() * this.bgy) >> 8, 255));
             }
         }
     }
 
     public void ec(int i) {
-        this.bgz = i;
+        this.bgA = i;
     }
 
-    public int Ko() {
-        return this.bgz;
+    public int Kq() {
+        return this.bgA;
     }
 
     public void init() {
@@ -84,10 +84,10 @@ public class b implements Cloneable {
         this.mFillPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mBitmapPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.bgt.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.bgu.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setStrokeWidth(com.baidu.swan.apps.as.af.S(1.0f));
         this.mStrokePaint.setAntiAlias(true);
-        this.bgt.setAntiAlias(true);
+        this.bgu.setAntiAlias(true);
         this.mBitmapPaint.setAntiAlias(true);
         this.mPath.reset();
     }

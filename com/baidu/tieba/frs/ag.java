@@ -5,7 +5,7 @@ public interface ag {
 
     void a(aj ajVar);
 
-    void bgU();
+    void bgW();
 
     void init();
 }

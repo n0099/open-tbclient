@@ -103,8 +103,8 @@ public class a {
                     if (jSONObject2 != null) {
                         int optInt = jSONObject2.optInt("type");
                         cVar.type = String.valueOf(optInt);
-                        cVar.aHF = jSONObject2.optString("room_id");
-                        cVar.aHG = jSONObject2.optString("to_uid");
+                        cVar.aHG = jSONObject2.optString("room_id");
+                        cVar.aHH = jSONObject2.optString("to_uid");
                         switch (optInt) {
                             case 100:
                             case 101:
@@ -118,7 +118,7 @@ public class a {
                                 String optString2 = jSONObject2.optString("data");
                                 if (!TextUtils.isEmpty(optString2)) {
                                     try {
-                                        cVar.aHU = c(optInt, new JSONObject(optString2));
+                                        cVar.aHV = c(optInt, new JSONObject(optString2));
                                     } catch (JSONException e2) {
                                         e2.printStackTrace();
                                     }
@@ -127,39 +127,39 @@ public class a {
                             default:
                                 cVar.uid = jSONObject2.optString("uid");
                                 if (!TextUtils.isEmpty(jSONObject2.optString(PushMessageHelper.MESSAGE_TYPE))) {
-                                    cVar.aHH = jSONObject2.optString(PushMessageHelper.MESSAGE_TYPE);
+                                    cVar.aHI = jSONObject2.optString(PushMessageHelper.MESSAGE_TYPE);
                                 }
-                                cVar.aHJ = jSONObject2.optString("character_name");
+                                cVar.aHK = jSONObject2.optString("character_name");
                                 if (!TextUtils.isEmpty(jSONObject2.optString("character"))) {
-                                    cVar.aHI = jSONObject2.optString("character");
+                                    cVar.aHJ = jSONObject2.optString("character");
                                 }
                                 if (!TextUtils.isEmpty("vip")) {
-                                    cVar.aHK = jSONObject2.optString("vip");
+                                    cVar.aHL = jSONObject2.optString("vip");
                                 }
                                 cVar.name = jSONObject2.optString("name");
                                 cVar.portrait = jSONObject2.optString("portrait");
                                 cVar.content = jSONObject2.optString("content");
-                                cVar.aHM = jSONObject2.optString("at_uid");
+                                cVar.aHN = jSONObject2.optString("at_uid");
                                 if (!TextUtils.isEmpty(jSONObject2.optString("at_message_type"))) {
-                                    cVar.aHN = jSONObject2.optString("at_message_type");
+                                    cVar.aHO = jSONObject2.optString("at_message_type");
                                 }
                                 if (!TextUtils.isEmpty(jSONObject2.optString("at_character"))) {
-                                    cVar.aHQ = jSONObject2.optString("at_character");
+                                    cVar.aHR = jSONObject2.optString("at_character");
                                 }
                                 if (!TextUtils.isEmpty(jSONObject2.optString("at_vip"))) {
-                                    cVar.aHP = jSONObject2.optString("at_vip");
+                                    cVar.aHQ = jSONObject2.optString("at_vip");
                                 }
-                                cVar.aHO = jSONObject2.optString("at_name");
-                                cVar.aHR = jSONObject2.optString("at_character_name");
-                                cVar.aHS = jSONObject2.optString("at_portrait");
-                                cVar.aHL = G(jSONObject2);
+                                cVar.aHP = jSONObject2.optString("at_name");
+                                cVar.aHS = jSONObject2.optString("at_character_name");
+                                cVar.aHT = jSONObject2.optString("at_portrait");
+                                cVar.aHM = G(jSONObject2);
                                 cVar.content = jSONObject2.optString("content");
                                 if (!TextUtils.isEmpty(jSONObject2.optString("at_message_body"))) {
-                                    cVar.aHT = H(jSONObject2);
+                                    cVar.aHU = H(jSONObject2);
                                 }
                                 JSONObject optJSONObject = jSONObject2.optJSONObject("ext_params");
                                 if (optJSONObject != null) {
-                                    cVar.aHV = optJSONObject.toString();
+                                    cVar.aHW = optJSONObject.toString();
                                     break;
                                 }
                                 break;
@@ -192,7 +192,7 @@ public class a {
         }
         switch (i) {
             case 0:
-                if (cVar.aHL == null || (cVar.aHL.aIk == null && cVar.aHL.aIm == null && cVar.aHL.aIn == null && cVar.aHL.aIl == null)) {
+                if (cVar.aHM == null || (cVar.aHM.aIl == null && cVar.aHM.aIn == null && cVar.aHM.aIo == null && cVar.aHM.aIm == null)) {
                     z = false;
                 }
                 return z;
@@ -217,25 +217,25 @@ public class a {
         switch (i) {
             case 101:
                 aVar.feedback = jSONObject.optInt("feedbacks");
-                aVar.aHX = jSONObject.optInt("totaluser");
-                aVar.aHW = jSONObject.optString("lastestuser");
+                aVar.aHY = jSONObject.optInt("totaluser");
+                aVar.aHX = jSONObject.optString("lastestuser");
                 break;
             case 102:
                 aVar.duration = jSONObject.optString("duration");
-                aVar.aHY = jSONObject.optString("total_users");
-                aVar.aIj = jSONObject.optString("close_ext");
+                aVar.aHZ = jSONObject.optString("total_users");
+                aVar.aIk = jSONObject.optString("close_ext");
                 break;
             case 103:
-                aVar.aHZ = jSONObject.optString("title");
-                aVar.aIa = jSONObject.optString("content");
+                aVar.aIa = jSONObject.optString("title");
+                aVar.aIb = jSONObject.optString("content");
                 break;
             case 104:
-                aVar.aIb = jSONObject.optString("live_rtmp_url");
-                aVar.aIc = jSONObject.optString("live_flv_url");
+                aVar.aIc = jSONObject.optString("live_rtmp_url");
+                aVar.aId = jSONObject.optString("live_flv_url");
                 break;
             case 105:
-                aVar.aId = jSONObject.optInt("mcast_id");
-                aVar.aIe = jSONObject.optInt("operation");
+                aVar.aIe = jSONObject.optInt("mcast_id");
+                aVar.aIf = jSONObject.optInt("operation");
                 String optString = jSONObject.optString("stick_msgs");
                 if (!TextUtils.isEmpty(optString)) {
                     try {
@@ -248,7 +248,7 @@ public class a {
                         try {
                             JSONObject jSONObject2 = (JSONObject) jSONArray.get(0);
                             if (jSONObject2 != null) {
-                                aVar.aIf = E(jSONObject2);
+                                aVar.aIg = E(jSONObject2);
                                 break;
                             }
                         } catch (JSONException e2) {
@@ -259,22 +259,22 @@ public class a {
                 }
                 break;
             case 106:
-                aVar.aId = jSONObject.optInt("mcast_id");
+                aVar.aIe = jSONObject.optInt("mcast_id");
                 JSONArray optJSONArray = jSONObject.optJSONArray("msgids");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    aVar.aIg = new long[optJSONArray.length()];
+                    aVar.aIh = new long[optJSONArray.length()];
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        aVar.aIg[i2] = optJSONArray.optLong(i2);
+                        aVar.aIh[i2] = optJSONArray.optLong(i2);
                     }
                     break;
                 }
                 break;
             case 107:
             case 108:
-                aVar.aIh = jSONObject.optInt(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
+                aVar.aIi = jSONObject.optInt(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
                 JSONObject optJSONObject = jSONObject.optJSONObject("service_info");
                 if (optJSONObject != null) {
-                    aVar.aIi = optJSONObject.toString();
+                    aVar.aIj = optJSONObject.toString();
                     break;
                 }
                 break;
@@ -292,7 +292,7 @@ public class a {
                 c.C0073c c0073c = new c.C0073c();
                 c.e eVar = new c.e();
                 eVar.word = optString;
-                c0073c.aIk = eVar;
+                c0073c.aIl = eVar;
                 return c0073c;
             }
         }
@@ -324,7 +324,7 @@ public class a {
                     String optString = jSONObject4.optString("word");
                     c.e eVar = new c.e();
                     eVar.word = optString;
-                    c0073c.aIk = eVar;
+                    c0073c.aIl = eVar;
                 }
             }
             if (!TextUtils.isEmpty(jSONObject.optString("link"))) {
@@ -340,7 +340,7 @@ public class a {
                     c.b bVar = new c.b();
                     bVar.title = optString2;
                     bVar.url = optString3;
-                    c0073c.aIn = bVar;
+                    c0073c.aIo = bVar;
                 }
             }
             if (!TextUtils.isEmpty(jSONObject.optString("voice"))) {
@@ -358,7 +358,7 @@ public class a {
                     fVar.url = optString4;
                     fVar.duration = optString5;
                     fVar.format = optString6;
-                    c0073c.aIm = fVar;
+                    c0073c.aIn = fVar;
                 }
             }
             if (!TextUtils.isEmpty(jSONObject.optString("pic"))) {
@@ -382,8 +382,8 @@ public class a {
                         }
                         aVar.url = jSONObject6.optString("url");
                         aVar.format = jSONObject6.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
-                        dVar.aIo = aVar;
-                        c0073c.aIl = dVar;
+                        dVar.aIp = aVar;
+                        c0073c.aIm = dVar;
                     } catch (JSONException e6) {
                         e6.printStackTrace();
                     }
@@ -398,8 +398,8 @@ public class a {
                         }
                         aVar2.url = jSONObject7.optString("url");
                         aVar2.format = jSONObject7.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
-                        dVar.aIp = aVar2;
-                        c0073c.aIl = dVar;
+                        dVar.aIq = aVar2;
+                        c0073c.aIm = dVar;
                         return c0073c;
                     } catch (JSONException e7) {
                         e7.printStackTrace();
@@ -422,160 +422,160 @@ public class a {
 
     public static ChatMsg a(Context context, e eVar) {
         c cVar = new c();
-        if (!TextUtils.isEmpty(eVar.aHF)) {
-            cVar.aHF = eVar.aHF;
+        if (!TextUtils.isEmpty(eVar.aHG)) {
+            cVar.aHG = eVar.aHG;
         }
-        if (!TextUtils.isEmpty(eVar.aHI)) {
-            cVar.aHI = eVar.aHI;
+        if (!TextUtils.isEmpty(eVar.aHJ)) {
+            cVar.aHJ = eVar.aHJ;
         }
-        cVar.aHJ = eVar.aHJ;
+        cVar.aHK = eVar.aHK;
         cVar.type = "0";
-        com.baidu.g.a.b.a.a aVar = eVar.aIr;
+        com.baidu.g.a.b.a.a aVar = eVar.aIs;
         String str = eVar.msg;
         if (aVar == null) {
-            cVar.aHH = "0";
+            cVar.aHI = "0";
         } else if (TextUtils.isEmpty(str)) {
             if (aVar.getType() == 0) {
-                cVar.aHH = "1";
+                cVar.aHI = "1";
             } else {
-                cVar.aHH = "5";
+                cVar.aHI = "5";
             }
         } else if (aVar.getType() == 0) {
-            cVar.aHH = "2";
+            cVar.aHI = "2";
         }
-        com.baidu.g.a.a.a BO = com.baidu.g.b.a.aP(context).BO();
-        b BG = BO != null ? BO.BG() : null;
-        if (BG != null) {
-            cVar.portrait = BG.BH();
-            cVar.uid = BG.getUid();
+        com.baidu.g.a.a.a BQ = com.baidu.g.b.a.aP(context).BQ();
+        b BI = BQ != null ? BQ.BI() : null;
+        if (BI != null) {
+            cVar.portrait = BI.BJ();
+            cVar.uid = BI.getUid();
             cVar.name = eVar.name;
         }
         c.C0073c c0073c = new c.C0073c();
         if (!TextUtils.isEmpty(str)) {
             c.e eVar2 = new c.e();
             eVar2.word = str;
-            c0073c.aIk = eVar2;
+            c0073c.aIl = eVar2;
         }
         if (aVar != null && aVar.getType() == 0) {
             c.d dVar = new c.d();
             c.d.a aVar2 = new c.d.a();
             aVar2.url = aVar.getUrl();
             aVar2.width = aVar.getWidth();
-            aVar2.height = aVar.BL();
+            aVar2.height = aVar.BN();
             c.d.a aVar3 = new c.d.a();
             aVar3.url = aVar.getThumbUrl();
-            aVar3.width = aVar.BJ();
-            aVar3.height = aVar.BK();
-            dVar.aIo = aVar2;
-            dVar.aIp = aVar3;
-            c0073c.aIl = dVar;
+            aVar3.width = aVar.BL();
+            aVar3.height = aVar.BM();
+            dVar.aIp = aVar2;
+            dVar.aIq = aVar3;
+            c0073c.aIm = dVar;
         } else if (aVar != null && aVar.getType() == 1) {
             c.f fVar = new c.f();
             fVar.url = aVar.getUrl();
-            fVar.duration = aVar.BM() + "";
-            c0073c.aIm = fVar;
+            fVar.duration = aVar.BO() + "";
+            c0073c.aIn = fVar;
         }
-        cVar.aHL = c0073c;
-        cVar.aHV = eVar.aHV;
-        c cVar2 = eVar.aIq;
+        cVar.aHM = c0073c;
+        cVar.aHW = eVar.aHW;
+        c cVar2 = eVar.aIr;
         if (cVar2 != null) {
-            cVar.aHM = cVar2.uid;
-            cVar.aHN = cVar2.aHH;
-            cVar.aHO = cVar2.name;
-            cVar.aHP = cVar2.aHK;
-            cVar.aHQ = cVar2.aHI;
-            cVar.aHS = cVar2.portrait;
-            cVar.aHT = cVar2.aHL;
+            cVar.aHN = cVar2.uid;
+            cVar.aHO = cVar2.aHI;
+            cVar.aHP = cVar2.name;
+            cVar.aHQ = cVar2.aHL;
             cVar.aHR = cVar2.aHJ;
+            cVar.aHT = cVar2.portrait;
+            cVar.aHU = cVar2.aHM;
+            cVar.aHS = cVar2.aHK;
             com.baidu.g.b.a.a.c.c(context, cVar);
         }
         cVar.content = com.baidu.g.b.a.a.c.a(context, cVar, true);
-        if (BO == null || !BO.isLogin()) {
+        if (BQ == null || !BQ.isLogin()) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("room_id", cVar.aHF + "");
+            jSONObject.put("room_id", cVar.aHG + "");
             jSONObject.put("type", cVar.type + "");
             jSONObject.put("uid", cVar.uid);
-            jSONObject.put("to_uid", cVar.aHG);
-            jSONObject.put(PushMessageHelper.MESSAGE_TYPE, cVar.aHH + "");
-            jSONObject.put("character", cVar.aHI + "");
-            jSONObject.put("vip", cVar.aHK + "");
+            jSONObject.put("to_uid", cVar.aHH);
+            jSONObject.put(PushMessageHelper.MESSAGE_TYPE, cVar.aHI + "");
+            jSONObject.put("character", cVar.aHJ + "");
+            jSONObject.put("vip", cVar.aHL + "");
             jSONObject.put("name", cVar.name);
-            jSONObject.put("character_name", cVar.aHJ);
+            jSONObject.put("character_name", cVar.aHK);
             jSONObject.put("portrait", cVar.portrait);
             jSONObject.put("content", cVar.content);
-            if (!TextUtils.isEmpty(cVar.aHV)) {
-                jSONObject.put("ext_params", new JSONObject(cVar.aHV));
+            if (!TextUtils.isEmpty(cVar.aHW)) {
+                jSONObject.put("ext_params", new JSONObject(cVar.aHW));
             }
-            if (cVar.aHL != null) {
+            if (cVar.aHM != null) {
                 JSONObject jSONObject2 = new JSONObject();
-                c.C0073c c0073c2 = cVar.aHL;
-                if (cVar.aHL.aIk != null) {
+                c.C0073c c0073c2 = cVar.aHM;
+                if (cVar.aHM.aIl != null) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("word", c0073c2.aIk.word);
+                    jSONObject3.put("word", c0073c2.aIl.word);
                     jSONObject2.put(DocumentOpenUtil.TXT, jSONObject3);
                 }
-                if (cVar.aHL.aIl != null) {
+                if (cVar.aHM.aIm != null) {
                     JSONObject jSONObject4 = new JSONObject();
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("width", c0073c2.aIl.aIo.width);
-                    jSONObject5.put("height", c0073c2.aIl.aIo.height);
-                    jSONObject5.put("url", c0073c2.aIl.aIo.url);
+                    jSONObject5.put("width", c0073c2.aIm.aIp.width);
+                    jSONObject5.put("height", c0073c2.aIm.aIp.height);
+                    jSONObject5.put("url", c0073c2.aIm.aIp.url);
                     JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("width", c0073c2.aIl.aIp.width);
-                    jSONObject6.put("height", c0073c2.aIl.aIp.height);
-                    jSONObject6.put("url", c0073c2.aIl.aIp.url);
+                    jSONObject6.put("width", c0073c2.aIm.aIq.width);
+                    jSONObject6.put("height", c0073c2.aIm.aIq.height);
+                    jSONObject6.put("url", c0073c2.aIm.aIq.url);
                     jSONObject4.put("origin", jSONObject5);
                     jSONObject4.put("thumbnail", jSONObject6);
                     jSONObject2.put("pic", jSONObject4);
                 }
-                if (cVar.aHL.aIm != null) {
+                if (cVar.aHM.aIn != null) {
                     JSONObject jSONObject7 = new JSONObject();
-                    jSONObject7.put("url", c0073c2.aIm.url);
-                    jSONObject7.put("duration", c0073c2.aIm.duration);
+                    jSONObject7.put("url", c0073c2.aIn.url);
+                    jSONObject7.put("duration", c0073c2.aIn.duration);
                     jSONObject2.put("voice", jSONObject7);
                 }
                 jSONObject.put("message_body", jSONObject2);
             }
-            jSONObject.put("at_uid", cVar.aHM);
-            jSONObject.put("at_message_type", cVar.aHN + "");
-            jSONObject.put("at_name", cVar.aHO);
-            jSONObject.put("at_character_name", cVar.aHR);
-            jSONObject.put("at_vip", cVar.aHP + "");
-            jSONObject.put("at_character", cVar.aHQ + "");
-            jSONObject.put("at_portrait", cVar.aHS);
-            if (cVar.aHT != null) {
+            jSONObject.put("at_uid", cVar.aHN);
+            jSONObject.put("at_message_type", cVar.aHO + "");
+            jSONObject.put("at_name", cVar.aHP);
+            jSONObject.put("at_character_name", cVar.aHS);
+            jSONObject.put("at_vip", cVar.aHQ + "");
+            jSONObject.put("at_character", cVar.aHR + "");
+            jSONObject.put("at_portrait", cVar.aHT);
+            if (cVar.aHU != null) {
                 JSONObject jSONObject8 = new JSONObject();
-                c.C0073c c0073c3 = cVar.aHT;
+                c.C0073c c0073c3 = cVar.aHU;
                 JSONObject jSONObject9 = new JSONObject();
-                if (c0073c3.aIk != null) {
-                    jSONObject9.put("word", c0073c3.aIk.word);
+                if (c0073c3.aIl != null) {
+                    jSONObject9.put("word", c0073c3.aIl.word);
                 }
                 jSONObject8.put(DocumentOpenUtil.TXT, jSONObject9);
                 JSONObject jSONObject10 = new JSONObject();
-                if (c0073c3.aIl != null) {
-                    if (c0073c3.aIl.aIo != null) {
+                if (c0073c3.aIm != null) {
+                    if (c0073c3.aIm.aIp != null) {
                         JSONObject jSONObject11 = new JSONObject();
-                        jSONObject11.put("width", c0073c3.aIl.aIo.width);
-                        jSONObject11.put("height", c0073c3.aIl.aIo.height);
-                        jSONObject11.put("url", c0073c3.aIl.aIo.url);
+                        jSONObject11.put("width", c0073c3.aIm.aIp.width);
+                        jSONObject11.put("height", c0073c3.aIm.aIp.height);
+                        jSONObject11.put("url", c0073c3.aIm.aIp.url);
                         jSONObject10.put("origin", jSONObject11);
                     }
-                    if (c0073c3.aIl.aIp != null) {
+                    if (c0073c3.aIm.aIq != null) {
                         JSONObject jSONObject12 = new JSONObject();
-                        jSONObject12.put("width", c0073c3.aIl.aIp.width);
-                        jSONObject12.put("height", c0073c3.aIl.aIp.height);
-                        jSONObject12.put("url", c0073c3.aIl.aIp.url);
+                        jSONObject12.put("width", c0073c3.aIm.aIq.width);
+                        jSONObject12.put("height", c0073c3.aIm.aIq.height);
+                        jSONObject12.put("url", c0073c3.aIm.aIq.url);
                         jSONObject10.put("thumbnail", jSONObject12);
                     }
                     jSONObject8.put("pic", jSONObject10);
                 }
-                if (c0073c3.aIm != null) {
+                if (c0073c3.aIn != null) {
                     JSONObject jSONObject13 = new JSONObject();
-                    jSONObject13.put("url", c0073c3.aIm.url);
-                    jSONObject13.put("duration", c0073c3.aIm.duration);
+                    jSONObject13.put("url", c0073c3.aIn.url);
+                    jSONObject13.put("duration", c0073c3.aIn.duration);
                     jSONObject8.put("voice", jSONObject13);
                 }
                 jSONObject.put("at_message_body", jSONObject8);

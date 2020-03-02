@@ -13,39 +13,39 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
-    private static boolean cFP = false;
     private static boolean cFQ = false;
-    private static String cFR = "";
+    private static boolean cFR = false;
     private static String cFS = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> cFT = new HashMap<>();
+    private static String cFT = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> cFU = new HashMap<>();
 
-    public static boolean awq() {
-        if (ProcessUtils.isMainProcess() && cFQ) {
-            return cFP;
+    public static boolean aws() {
+        if (ProcessUtils.isMainProcess() && cFR) {
+            return cFQ;
         }
         DelegateResult h = h("veloce_is_veloce", null);
         if (h != null && h.isOk()) {
-            cFQ = true;
-            cFP = h.mResult.getBoolean("is_veloce", false);
+            cFR = true;
+            cFQ = h.mResult.getBoolean("is_veloce", false);
         }
-        return cFP;
+        return cFQ;
     }
 
-    public static String awr() {
-        if (TextUtils.isEmpty(cFR)) {
-            aws();
+    public static String awt() {
+        if (TextUtils.isEmpty(cFS)) {
+            awu();
         }
-        return cFR;
+        return cFS;
     }
 
-    private static Bundle aws() {
+    private static Bundle awu() {
         DelegateResult h = h("veloce_get_host_info", null);
         if (h == null || !h.isOk()) {
             return null;
         }
         Bundle bundle = h.mResult;
-        cFR = bundle.getString("host_package");
-        cFS = bundle.getString("host_version");
+        cFS = bundle.getString("host_package");
+        cFT = bundle.getString("host_version");
         return bundle;
     }
 
@@ -61,14 +61,14 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 jb = null;
             } else {
-                List<VeloceIpcResult.a> list = cFT.get(str);
+                List<VeloceIpcResult.a> list = cFU.get(str);
                 if (list == null) {
                     jb = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.g(0, bundle));
                     }
-                    cFT.remove(list);
+                    cFU.remove(list);
                     jb = jb(0);
                 }
             }

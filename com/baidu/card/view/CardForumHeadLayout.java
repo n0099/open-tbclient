@@ -69,7 +69,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
     }
 
     public void setData(bj bjVar) {
-        if (bjVar == null || bjVar.aDV() == null || StringUtils.isNull(bjVar.aDV().forumName)) {
+        if (bjVar == null || bjVar.aDX() == null || StringUtils.isNull(bjVar.aDX().forumName)) {
             this.Nb.setVisibility(8);
             this.Nc.setVisibility(8);
             this.Nf.setVisibility(8);
@@ -81,11 +81,11 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         this.Nc.setVisibility(0);
         this.Nf.setVisibility(0);
         this.Ne.setVisibility(0);
-        this.Ng = bjVar.aDV().forumName;
+        this.Ng = bjVar.aDX().forumName;
         this.Nc.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.Ng));
-        this.Nb.startLoad(bjVar.aDV().getAvatar(), 10, false);
-        this.Nf.setText(String.format(getContext().getString(R.string.forum_thread_number), aq.numberUniformFormatExtra(bjVar.aDV().postNum)));
-        this.Ne.setText(String.format(getContext().getString(R.string.concern), aq.numberUniformFormatExtra(bjVar.aDV().memberNum)));
+        this.Nb.startLoad(bjVar.aDX().getAvatar(), 10, false);
+        this.Nf.setText(String.format(getContext().getString(R.string.forum_thread_number), aq.numberUniformFormatExtra(bjVar.aDX().postNum)));
+        this.Ne.setText(String.format(getContext().getString(R.string.concern), aq.numberUniformFormatExtra(bjVar.aDX().memberNum)));
     }
 
     @Override // android.view.View.OnClickListener
@@ -104,7 +104,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.Ni) {
             this.Ni = skinType;
-            Drawable a = SvgManager.aGA().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+            Drawable a = SvgManager.aGC().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             a.setBounds(0, 0, dimens, dimens);
             this.Nc.setCompoundDrawables(null, null, a, null);

@@ -27,11 +27,11 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
         this.Mw = new OriginalThreadCardView.a() { // from class: com.baidu.card.ai.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ai.this.Kc != null && ai.this.Kc.aAe() != null) {
+                if (ai.this.Kc != null && ai.this.Kc.aAg() != null) {
                     if (ai.this.mT() != null) {
                         ai.this.mT().a(ai.this.Mv, ai.this.Kc);
                     }
-                    String id = ai.this.Kc.aAe().getId();
+                    String id = ai.this.Kc.aAg().getId();
                     com.baidu.tieba.card.l.zS(id);
                     ai.this.cb(id);
                     ai.this.JX.b(new a.C0052a(1));
@@ -55,16 +55,16 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.aAe() != null) {
+        if (aVar != null && aVar.aAg() != null) {
             this.Kc = aVar;
-            au.a(this.mTitle, aVar.aAe());
-            au.a(this.KA, this.mTitle, aVar.aAe(), Ky);
-            this.Mv.b(aVar.aAe().cTP);
+            au.a(this.mTitle, aVar.aAg());
+            au.a(this.KA, this.mTitle, aVar.aAg(), Ky);
+            this.Mv.b(aVar.aAg().cTQ);
         }
     }
 
     public void ba(int i) {
-        this.Mv.fLJ = i;
+        this.Mv.fLL = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

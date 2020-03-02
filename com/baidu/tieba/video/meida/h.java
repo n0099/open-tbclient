@@ -30,21 +30,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class h {
-    private static volatile h kAj;
+    private static volatile h kAl;
 
     private h() {
-        g.cQM();
+        g.cQO();
     }
 
-    public static h cQS() {
-        if (kAj == null) {
+    public static h cQU() {
+        if (kAl == null) {
             synchronized (h.class) {
-                if (kAj == null) {
-                    kAj = new h();
+                if (kAl == null) {
+                    kAl = new h();
                 }
             }
         }
-        return kAj;
+        return kAl;
     }
 
     public i a(List<String> list, String str, boolean z) {
@@ -124,7 +124,7 @@ public class h {
             return new i(209, TbadkCoreApplication.getInst().getString(R.string.illegal_argument));
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str4 = com.baidu.tieba.video.c.kuL + (as.getNameMd5FromUrl(str + str2 + str3) + "/");
+        String str4 = com.baidu.tieba.video.c.kuN + (as.getNameMd5FromUrl(str + str2 + str3) + "/");
         new File(str4).mkdirs();
         File file = new File(str3);
         file.mkdirs();
@@ -208,7 +208,7 @@ public class h {
                 }
                 String str5 = str2 + "temp_" + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
                 if (new b(strArr[i]).a(str5, z, Kn, aVar) != null) {
-                    if (!z && i != 0 && aVar.cQN()) {
+                    if (!z && i != 0 && aVar.cQP()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
                         boolean e = g.e(str5, str3, aVar.sampleRate, Kn.sampleRate);
@@ -221,26 +221,26 @@ public class h {
                 aVar2 = aVar;
                 z2 = z;
             }
-            MultiAudioMixer cQQ = MultiAudioMixer.cQQ();
-            cQQ.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
-                FileOutputStream kAk;
+            MultiAudioMixer cQS = MultiAudioMixer.cQS();
+            cQS.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
+                FileOutputStream kAm;
 
                 {
-                    this.kAk = new FileOutputStream(str4);
+                    this.kAm = new FileOutputStream(str4);
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
                 public void X(byte[] bArr) throws IOException {
-                    if (this.kAk != null) {
-                        this.kAk.write(bArr);
+                    if (this.kAm != null) {
+                        this.kAm.write(bArr);
                     }
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
                 public void DC(int i2) {
                     try {
-                        if (this.kAk != null) {
-                            this.kAk.close();
+                        if (this.kAm != null) {
+                            this.kAm.close();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -248,17 +248,17 @@ public class h {
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void cQR() {
+                public void cQT() {
                     try {
-                        if (this.kAk != null) {
-                            this.kAk.close();
+                        if (this.kAm != null) {
+                            this.kAm.close();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
             });
-            cQQ.e(fileArr);
+            cQS.e(fileArr);
             d Km = d.Km(str4);
             Km.setSampleRate(Kn.sampleRate);
             Km.setChannelCount(Kn.channelCount);

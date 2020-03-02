@@ -7,21 +7,21 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class g implements h {
-    private int mfR;
-    private final List<w.a> mmN;
-    private final com.google.android.exoplayer2.extractor.m[] mmO;
-    private boolean mmP;
-    private int mmQ;
-    private long mmR;
+    private int mfT;
+    private final List<w.a> mmP;
+    private final com.google.android.exoplayer2.extractor.m[] mmQ;
+    private boolean mmR;
+    private int mmS;
+    private long mmT;
 
     public g(List<w.a> list) {
-        this.mmN = list;
-        this.mmO = new com.google.android.exoplayer2.extractor.m[list.size()];
+        this.mmP = list;
+        this.mmQ = new com.google.android.exoplayer2.extractor.m[list.size()];
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void czb() {
-        this.mmP = false;
+    public void czd() {
+        this.mmR = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
@@ -29,12 +29,12 @@ public final class g implements h {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.mmO.length) {
-                w.a aVar = this.mmN.get(i2);
-                dVar.dvC();
-                com.google.android.exoplayer2.extractor.m dK = gVar.dK(dVar.dvD(), 3);
-                dK.h(Format.a(dVar.dvE(), "application/dvbsubs", (String) null, -1, Collections.singletonList(aVar.moY), aVar.language, (DrmInitData) null));
-                this.mmO[i2] = dK;
+            if (i2 < this.mmQ.length) {
+                w.a aVar = this.mmP.get(i2);
+                dVar.dvE();
+                com.google.android.exoplayer2.extractor.m dK = gVar.dK(dVar.dvF(), 3);
+                dK.h(Format.a(dVar.dvG(), "application/dvbsubs", (String) null, -1, Collections.singletonList(aVar.mpa), aVar.language, (DrmInitData) null));
+                this.mmQ[i2] = dK;
                 i = i2 + 1;
             } else {
                 return;
@@ -45,49 +45,49 @@ public final class g implements h {
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void o(long j, boolean z) {
         if (z) {
-            this.mmP = true;
-            this.mmR = j;
-            this.mfR = 0;
-            this.mmQ = 2;
+            this.mmR = true;
+            this.mmT = j;
+            this.mfT = 0;
+            this.mmS = 2;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dvn() {
-        if (this.mmP) {
-            for (com.google.android.exoplayer2.extractor.m mVar : this.mmO) {
-                mVar.a(this.mmR, 1, this.mfR, 0, null);
+    public void dvp() {
+        if (this.mmR) {
+            for (com.google.android.exoplayer2.extractor.m mVar : this.mmQ) {
+                mVar.a(this.mmT, 1, this.mfT, 0, null);
             }
-            this.mmP = false;
+            this.mmR = false;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) {
         com.google.android.exoplayer2.extractor.m[] mVarArr;
-        if (this.mmP) {
-            if (this.mmQ != 2 || j(lVar, 32)) {
-                if (this.mmQ != 1 || j(lVar, 0)) {
+        if (this.mmR) {
+            if (this.mmS != 2 || j(lVar, 32)) {
+                if (this.mmS != 1 || j(lVar, 0)) {
                     int position = lVar.getPosition();
-                    int dzr = lVar.dzr();
-                    for (com.google.android.exoplayer2.extractor.m mVar : this.mmO) {
+                    int dzt = lVar.dzt();
+                    for (com.google.android.exoplayer2.extractor.m mVar : this.mmQ) {
                         lVar.setPosition(position);
-                        mVar.a(lVar, dzr);
+                        mVar.a(lVar, dzt);
                     }
-                    this.mfR += dzr;
+                    this.mfT += dzt;
                 }
             }
         }
     }
 
     private boolean j(com.google.android.exoplayer2.util.l lVar, int i) {
-        if (lVar.dzr() == 0) {
+        if (lVar.dzt() == 0) {
             return false;
         }
         if (lVar.readUnsignedByte() != i) {
-            this.mmP = false;
+            this.mmR = false;
         }
-        this.mmQ--;
-        return this.mmP;
+        this.mmS--;
+        return this.mmR;
     }
 }

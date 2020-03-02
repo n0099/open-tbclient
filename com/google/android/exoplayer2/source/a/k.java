@@ -6,47 +6,47 @@ import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class k extends c {
-    private volatile boolean mrS;
-    private final d mtL;
-    private volatile int mtM;
+    private volatile boolean mrU;
+    private final d mtN;
+    private volatile int mtO;
 
     public k(com.google.android.exoplayer2.upstream.e eVar, com.google.android.exoplayer2.upstream.g gVar, Format format, int i, Object obj, d dVar) {
         super(eVar, gVar, 2, format, i, obj, -9223372036854775807L, -9223372036854775807L);
-        this.mtL = dVar;
+        this.mtN = dVar;
     }
 
     @Override // com.google.android.exoplayer2.source.a.c
-    public long dwJ() {
-        return this.mtM;
+    public long dwL() {
+        return this.mtO;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void cancelLoad() {
-        this.mrS = true;
+        this.mrU = true;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public boolean dwr() {
-        return this.mrS;
+    public boolean dwt() {
+        return this.mrU;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void load() throws IOException, InterruptedException {
-        com.google.android.exoplayer2.upstream.g gF = this.dataSpec.gF(this.mtM);
+        com.google.android.exoplayer2.upstream.g gF = this.dataSpec.gF(this.mtO);
         try {
-            com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.mdU, gF.mFO, this.mdU.a(gF));
-            if (this.mtM == 0) {
-                this.mtL.a((d.b) null);
+            com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.mdW, gF.mFQ, this.mdW.a(gF));
+            if (this.mtO == 0) {
+                this.mtN.a((d.b) null);
             }
-            com.google.android.exoplayer2.extractor.e eVar = this.mtL.mrW;
+            com.google.android.exoplayer2.extractor.e eVar = this.mtN.mrY;
             int i = 0;
-            while (i == 0 && !this.mrS) {
+            while (i == 0 && !this.mrU) {
                 i = eVar.a(bVar, null);
             }
             com.google.android.exoplayer2.util.a.checkState(i != 1);
-            this.mtM = (int) (bVar.getPosition() - this.dataSpec.mFO);
+            this.mtO = (int) (bVar.getPosition() - this.dataSpec.mFQ);
         } finally {
-            v.a(this.mdU);
+            v.a(this.mdW);
         }
     }
 }

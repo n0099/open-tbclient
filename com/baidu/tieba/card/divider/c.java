@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View cel;
-    private int fOb;
-    private int fOc;
+    private View cem;
+    private int fOd;
+    private int fOe;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fOb = R.color.cp_bg_line_c;
-        this.fOc = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.fOd = R.color.cp_bg_line_c;
+        this.fOe = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.cel = getView().findViewById(R.id.card_divider);
+        this.cem = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(this.cel, this.fOb);
+            am.setBackgroundColor(this.cem, this.fOd);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.a<b> {
     @Override // com.baidu.tieba.card.a
     public void a(b bVar) {
         if (bVar != null) {
-            this.cel.setVisibility(0);
-            this.fOb = bVar.fOb;
-            this.fOc = bVar.fOc;
-            bvH();
+            this.cem.setVisibility(0);
+            this.fOd = bVar.fOd;
+            this.fOe = bVar.fOe;
+            bvJ();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bvH() {
-        ViewGroup.LayoutParams layoutParams = this.cel.getLayoutParams();
-        if (layoutParams != null && layoutParams.height != this.fOc) {
-            layoutParams.height = this.fOc;
-            this.cel.setLayoutParams(layoutParams);
+    private void bvJ() {
+        ViewGroup.LayoutParams layoutParams = this.cem.getLayoutParams();
+        if (layoutParams != null && layoutParams.height != this.fOe) {
+            layoutParams.height = this.fOe;
+            this.cem.setLayoutParams(layoutParams);
         }
     }
 

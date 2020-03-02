@@ -10,11 +10,11 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.acD() != null && e.acD().GC() != null) {
-            b.a GC = e.acD().GC();
-            aVar.mFrom = f.gs(GC.getAppFrameType());
-            aVar.mAppId = GC.getAppId();
-            aVar.mSource = GC.VH();
+        if (e.acF() != null && e.acF().GE() != null) {
+            b.a GE = e.acF().GE();
+            aVar.mFrom = f.gs(GE.getAppFrameType());
+            aVar.mAppId = GE.getAppId();
+            aVar.mSource = GE.VJ();
         }
         f.a("916", aVar);
     }
@@ -23,11 +23,11 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.acD() != null && e.acD().GC() != null) {
-            b.a GC = e.acD().GC();
-            aVar.mFrom = f.gs(GC.getAppFrameType());
-            aVar.mAppId = GC.getAppId();
-            aVar.mSource = GC.VH();
+        if (e.acF() != null && e.acF().GE() != null) {
+            b.a GE = e.acF().GE();
+            aVar.mFrom = f.gs(GE.getAppFrameType());
+            aVar.mAppId = GE.getAppId();
+            aVar.mSource = GE.VJ();
         }
         aVar.mErrorCode = str3;
         f.a("916", aVar);
@@ -37,17 +37,17 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = "show";
-        if (e.acD() != null && e.acD().GC() != null) {
-            b.a GC = e.acD().GC();
-            aVar.mFrom = f.gs(GC.getAppFrameType());
-            aVar.mAppId = GC.getAppId();
-            aVar.mSource = GC.VH();
+        if (e.acF() != null && e.acF().GE() != null) {
+            b.a GE = e.acF().GE();
+            aVar.mFrom = f.gs(GE.getAppFrameType());
+            aVar.mAppId = GE.getAppId();
+            aVar.mSource = GE.VJ();
         }
-        aVar.n("early", aqw() ? "0" : "1");
+        aVar.n("early", aqy() ? "0" : "1");
         f.a("916", aVar);
     }
 
-    private static boolean aqw() {
-        return d.apE() > 0 && com.baidu.swan.games.glsurface.a.b.aos() && System.currentTimeMillis() - d.apE() > 6000;
+    private static boolean aqy() {
+        return d.apG() > 0 && com.baidu.swan.games.glsurface.a.b.aou() && System.currentTimeMillis() - d.apG() > 6000;
     }
 }

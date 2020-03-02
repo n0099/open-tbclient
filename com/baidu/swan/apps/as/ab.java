@@ -33,7 +33,7 @@ public class ab {
         boolean z = file == null;
         if (z || !file.exists() || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.bYE = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
+                cVar.bYF = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
             }
             return false;
         }
@@ -55,19 +55,19 @@ public class ab {
         boolean z = readableByteChannel == null;
         if (z || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.bYE = "zipSource isNullIs=" + z;
+                cVar.bYF = "zipSource isNullIs=" + z;
                 return false;
             }
             return false;
         }
         String a = com.baidu.swan.d.d.a(readableByteChannel, false);
         if (cVar != null) {
-            cVar.bYE = a;
+            cVar.bYF = a;
         }
         try {
             String str2 = new String(b(Base64.decode(str.getBytes("utf-8"), 8), mP("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
             if (cVar != null) {
-                cVar.bYF = str2;
+                cVar.bYG = str2;
             }
             return TextUtils.equals(str2, a);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class ab {
                 e.printStackTrace();
             }
             if (cVar != null) {
-                cVar.bYF = e.getLocalizedMessage();
+                cVar.bYG = e.getLocalizedMessage();
                 return false;
             }
             return false;

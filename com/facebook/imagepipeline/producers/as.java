@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes12.dex */
 public class as<T> implements aj<T> {
-    private final at lRZ;
-    private final aj<T> lUZ;
+    private final at lSb;
+    private final aj<T> lVb;
 
     public as(aj<T> ajVar, at atVar) {
-        this.lUZ = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.lRZ = atVar;
+        this.lVb = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.lSb = atVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(final k<T> kVar, final ak akVar) {
-        final am drw = akVar.drw();
+        final am dry = akVar.dry();
         final String id = akVar.getId();
-        final aq<T> aqVar = new aq<T>(kVar, drw, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.as.1
+        final aq<T> aqVar = new aq<T>(kVar, dry, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.as.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             public void onSuccess(T t) {
-                drw.a(id, "BackgroundThreadHandoffProducer", null);
-                as.this.lUZ.c(kVar, akVar);
+                dry.a(id, "BackgroundThreadHandoffProducer", null);
+                as.this.lVb.c(kVar, akVar);
             }
 
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
@@ -32,11 +32,11 @@ public class as<T> implements aj<T> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.as.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dnN() {
+            public void dnP() {
                 aqVar.cancel();
-                as.this.lRZ.A(aqVar);
+                as.this.lSb.A(aqVar);
             }
         });
-        this.lRZ.z(aqVar);
+        this.lSb.z(aqVar);
     }
 }

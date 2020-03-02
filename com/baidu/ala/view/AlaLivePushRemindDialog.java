@@ -22,13 +22,13 @@ public class AlaLivePushRemindDialog {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
-                d.aLj().lP(300);
-                d.aLj().gi(true);
-                d.aLj().gj(true);
-                d.aLj().gh(true);
-                d.aLj().fZ(true);
-                d.aLj().ga(true);
-                d.aLj().fY(true);
+                d.aLl().lP(300);
+                d.aLl().gi(true);
+                d.aLl().gj(true);
+                d.aLl().gh(true);
+                d.aLl().fZ(true);
+                d.aLl().ga(true);
+                d.aLl().fY(true);
                 AlaLivePushRemindDialog.this.jumpSystemPermissionSetting();
             }
         }
@@ -64,7 +64,7 @@ public class AlaLivePushRemindDialog {
                 }
             }
         });
-        aVar.b(this.mPageContext).aEA();
+        aVar.b(this.mPageContext).aEC();
         TiebaStatic.log("c12669");
     }
 

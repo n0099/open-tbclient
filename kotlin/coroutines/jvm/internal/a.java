@@ -4,7 +4,7 @@ import kotlin.h;
 @h
 /* loaded from: classes7.dex */
 public final class a implements kotlin.coroutines.a<Object> {
-    public static final a nBV = new a();
+    public static final a nBX = new a();
 
     private a() {
     }

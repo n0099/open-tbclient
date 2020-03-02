@@ -5,11 +5,11 @@ import tbclient.Myrecord;
 /* loaded from: classes8.dex */
 public class d {
     private String apply_declaration;
-    private int fDm;
-    private int fDn;
     private int fDo;
     private int fDp;
-    private boolean fDq = false;
+    private int fDq;
+    private int fDr;
+    private boolean fDs = false;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -18,16 +18,16 @@ public class d {
     private long tid;
     private long uid;
 
-    public int btR() {
-        return this.fDp;
-    }
-
-    public int btS() {
-        return this.fDm;
-    }
-
     public int btT() {
-        return this.fDn;
+        return this.fDr;
+    }
+
+    public int btU() {
+        return this.fDo;
+    }
+
+    public int btV() {
+        return this.fDp;
     }
 
     public int getPost_num() {
@@ -46,11 +46,11 @@ public class d {
         return this.uid;
     }
 
-    public int btU() {
-        return this.fDo;
+    public int btW() {
+        return this.fDq;
     }
 
-    public String btV() {
+    public String btX() {
         return this.apply_declaration;
     }
 
@@ -66,8 +66,8 @@ public class d {
         return this.tid;
     }
 
-    public boolean btW() {
-        return this.fDq;
+    public boolean btY() {
+        return this.fDs;
     }
 
     public static d a(ElectionList electionList) {
@@ -112,11 +112,11 @@ public class d {
     }
 
     public void ra(int i) {
-        this.fDp = i;
+        this.fDr = i;
     }
 
     public void rb(int i) {
-        this.fDm = i;
+        this.fDo = i;
     }
 
     public void zN(String str) {
@@ -124,7 +124,7 @@ public class d {
     }
 
     public void rc(int i) {
-        this.fDn = i;
+        this.fDp = i;
     }
 
     public void setNickname(String str) {
@@ -152,11 +152,11 @@ public class d {
     }
 
     public void re(int i) {
-        this.fDo = i;
+        this.fDq = i;
     }
 
     public void kd(boolean z) {
-        this.fDq = z;
+        this.fDs = z;
     }
 
     public void setTid(long j) {

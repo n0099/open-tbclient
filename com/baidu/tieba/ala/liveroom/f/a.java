@@ -16,8 +16,8 @@ import com.baidu.tieba.ala.liveroom.f.b;
 /* loaded from: classes3.dex */
 public class a implements e, b.a {
     private CustomMessageListener aoi;
-    private b eZB;
-    private d eZC;
+    private b eZC;
+    private d eZD;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -26,54 +26,54 @@ public class a implements e, b.a {
     }
 
     public void yR(String str) {
-        this.eZB = new b(this.mPageContext.getPageActivity());
-        this.eZB.a(this);
-        this.eZB.b(this);
-        this.eZB.bdF().setBackgroundColor(xK(str));
-        this.eZB.show(str);
+        this.eZC = new b(this.mPageContext.getPageActivity());
+        this.eZC.a(this);
+        this.eZC.b(this);
+        this.eZC.bdH().setBackgroundColor(xK(str));
+        this.eZC.show(str);
     }
 
     public void resume() {
-        if (this.eZB != null && this.eZB.isShowing() && this.eZB.bdF() != null) {
-            this.eZB.bdF().onResume();
-            this.eZB.bdF().reload();
+        if (this.eZC != null && this.eZC.isShowing() && this.eZC.bdH() != null) {
+            this.eZC.bdH().onResume();
+            this.eZC.bdH().reload();
         }
     }
 
     public void pause() {
-        if (this.eZB != null && this.eZB.isShowing() && this.eZB.bdF() != null) {
-            this.eZB.bdF().onPause();
+        if (this.eZC != null && this.eZC.isShowing() && this.eZC.bdH() != null) {
+            this.eZC.bdH().onPause();
         }
     }
 
     public void release() {
-        blu();
+        blw();
         MessageManager.getInstance().unRegisterListener(this.aoi);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.f.b.a
     public boolean a(String str, final JsResult jsResult) {
-        this.eZC = new d(this.mPageContext.getPageActivity());
-        this.eZC.setCancelable(false);
-        this.eZC.setCanceledOnTouchOutside(false);
-        this.eZC.by(false);
-        this.eZC.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
-        this.eZC.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
+        this.eZD = new d(this.mPageContext.getPageActivity());
+        this.eZD.setCancelable(false);
+        this.eZD.setCanceledOnTouchOutside(false);
+        this.eZD.by(false);
+        this.eZD.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
+        this.eZD.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
             @Override // com.baidu.live.view.d.a
-            public void Bl() {
+            public void Bn() {
                 if (jsResult != null) {
                     jsResult.confirm();
                 }
             }
 
             @Override // com.baidu.live.view.d.a
-            public void Bm() {
+            public void Bo() {
                 if (jsResult != null) {
                     jsResult.cancel();
                 }
             }
         });
-        this.eZC.show();
+        this.eZD.show();
         return true;
     }
 
@@ -83,7 +83,7 @@ public class a implements e, b.a {
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.this.blu();
+                    a.this.blw();
                 }
             }
         };
@@ -108,17 +108,17 @@ public class a implements e, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blu() {
-        if (this.eZB != null) {
-            this.eZB.dismiss();
-        }
+    public void blw() {
         if (this.eZC != null) {
-            this.eZC.release();
+            this.eZC.dismiss();
+        }
+        if (this.eZD != null) {
+            this.eZD.release();
         }
     }
 
     @Override // com.baidu.live.view.web.e
     public void cY(int i) {
-        blu();
+        blw();
     }
 }

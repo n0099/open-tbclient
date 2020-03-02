@@ -3,30 +3,30 @@ package com.baidu.swan.games.t.a.b;
 import com.baidu.swan.menu.h;
 /* loaded from: classes11.dex */
 public class a {
-    private h crV;
-    private boolean crW = true;
+    private h crW;
+    private boolean crX = true;
 
     private void eH(boolean z) {
-        this.crW = z;
-        if (this.crV != null) {
+        this.crX = z;
+        if (this.crW != null) {
             if (z) {
-                this.crV.ap(4, 1);
+                this.crW.ap(4, 1);
             } else {
-                this.crV.ip(4);
+                this.crW.ip(4);
             }
         }
     }
 
     public void b(h hVar) {
-        this.crV = hVar;
-        eH(this.crW);
+        this.crW = hVar;
+        eH(this.crX);
     }
 
-    public void apu() {
+    public void apw() {
         eH(true);
     }
 
-    public void apv() {
+    public void apx() {
         eH(false);
     }
 }

@@ -137,7 +137,7 @@ public class a implements y {
             this.mVid = str2;
             this.mOtherParams = str3;
             this.currLiveId = j;
-            ap apVar = com.baidu.live.v.a.zj().axB;
+            ap apVar = com.baidu.live.v.a.zl().axC;
             if (apVar != null && (bdVar = apVar.acV) != null && bdVar.aew) {
                 this.apy = "no_show_trace_cash_gift_today_" + j.b(new Date());
                 if (!c.pr().getBoolean(this.apy, false)) {
@@ -537,7 +537,7 @@ public class a implements y {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS, buyYinjiInfo));
             BdUtilHelper.getCustomToast().showToast("购买成功", 0);
             if (mVar.mLiveInfo.live_id == this.currLiveId && gVar != null) {
-                gVar.setSceneFrom(q.Be());
+                gVar.setSceneFrom(q.Bg());
                 a(gVar, 1L, mVar, str2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098));
                 return;

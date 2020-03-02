@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow fWc;
-    private boolean gLr;
+    private PopupWindow fWe;
+    private boolean gLt;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int gLq = R.string.attention_post_update_tip;
+    private int gLs = R.string.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable gLs = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable gLu = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int dimens = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds64);
-                View f = a.this.f(pageActivity, a.this.gLq);
+                View f = a.this.f(pageActivity, a.this.gLs);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds32);
                 int dimens3 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds16) + (iArr[1] - dimens);
-                a.this.fWc = new PopupWindow(f, -2, dimens);
-                a.this.fWc.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
+                a.this.fWe = new PopupWindow(f, -2, dimens);
+                a.this.fWe.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.fWc != null) {
-                            a.this.bKe();
+                        if (a.this.fWe != null) {
+                            a.this.bKg();
                         }
                     }
                 }, 3000L);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.gLr = z;
+        this.gLt = z;
     }
 
     public void bV(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.gLr) {
-                this.gLq = R.string.attention_post_update_tip;
+            if (this.gLt) {
+                this.gLs = R.string.attention_post_update_tip;
                 String str = currentAccount + SharedPrefConfig.FRS_GOD_NEW_POST_TIP_COUNT;
-                int i = com.baidu.tbadk.core.sharedPref.b.aFB().getInt(str, 0);
+                int i = com.baidu.tbadk.core.sharedPref.b.aFD().getInt(str, 0);
                 if (i >= 3) {
-                    this.gLr = false;
+                    this.gLt = false;
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.aFB().putInt(str, i + 1);
-                this.gLr = false;
-                this.mHandler.postDelayed(this.gLs, 500L);
+                com.baidu.tbadk.core.sharedPref.b.aFD().putInt(str, i + 1);
+                this.gLt = false;
+                this.mHandler.postDelayed(this.gLu, 500L);
             }
         }
     }
@@ -86,18 +86,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bKe();
+        bKg();
     }
 
-    public void bKe() {
-        if (this.fWc != null) {
-            this.fWc.dismiss();
-            this.fWc = null;
+    public void bKg() {
+        if (this.fWe != null) {
+            this.fWe.dismiss();
+            this.fWe = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        bKe();
+        bKg();
     }
 }

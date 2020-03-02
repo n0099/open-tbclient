@@ -3,46 +3,46 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class l extends bj {
-    public static final BdUniqueId cNT = BdUniqueId.gen();
-    private boolean cNU = false;
+    public static final BdUniqueId cNU = BdUniqueId.gen();
     private boolean cNV = false;
     private boolean cNW = false;
-    private int cNX;
+    private boolean cNX = false;
+    private int cNY;
 
-    public boolean aAq() {
-        return this.cNU;
-    }
-
-    public void fu(boolean z) {
-        this.cNU = z;
-    }
-
-    public boolean aAr() {
+    public boolean aAs() {
         return this.cNV;
     }
 
-    public void fv(boolean z) {
+    public void fu(boolean z) {
         this.cNV = z;
     }
 
-    public boolean aAs() {
+    public boolean aAt() {
         return this.cNW;
     }
 
-    public void fw(boolean z) {
+    public void fv(boolean z) {
         this.cNW = z;
+    }
+
+    public boolean aAu() {
+        return this.cNX;
+    }
+
+    public void fw(boolean z) {
+        this.cNX = z;
     }
 
     @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cNT;
+        return cNU;
     }
 
     public void setFloorNum(int i) {
-        this.cNX = i;
+        this.cNY = i;
     }
 
     public int getFloorNum() {
-        return this.cNX;
+        return this.cNY;
     }
 }

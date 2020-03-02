@@ -13,10 +13,10 @@ public class a extends com.baidu.swan.b.d.a {
 
     @Override // com.baidu.swan.b.d.a
     public com.baidu.swan.apps.api.b.b b(JSONObject jSONObject, com.baidu.swan.apps.p.b bVar) {
-        String Hc = com.baidu.swan.apps.w.a.TX().Hc();
+        String He = com.baidu.swan.apps.w.a.TZ().He();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("sid", Hc);
+            jSONObject2.put("sid", He);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

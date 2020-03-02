@@ -11,8 +11,8 @@ public final class AssetDataSource implements e {
     private final AssetManager assetManager;
     private long bytesRemaining;
     private InputStream inputStream;
-    private final q<? super AssetDataSource> mFH;
-    private boolean mFI;
+    private final q<? super AssetDataSource> mFJ;
+    private boolean mFK;
     private Uri uri;
 
     /* loaded from: classes6.dex */
@@ -24,7 +24,7 @@ public final class AssetDataSource implements e {
 
     public AssetDataSource(Context context, q<? super AssetDataSource> qVar) {
         this.assetManager = context.getAssets();
-        this.mFH = qVar;
+        this.mFJ = qVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
@@ -38,7 +38,7 @@ public final class AssetDataSource implements e {
                 path = path.substring(1);
             }
             this.inputStream = this.assetManager.open(path, 1);
-            if (this.inputStream.skip(gVar.fNZ) < gVar.fNZ) {
+            if (this.inputStream.skip(gVar.fOb) < gVar.fOb) {
                 throw new EOFException();
             }
             if (gVar.length != -1) {
@@ -49,9 +49,9 @@ public final class AssetDataSource implements e {
                     this.bytesRemaining = -1L;
                 }
             }
-            this.mFI = true;
-            if (this.mFH != null) {
-                this.mFH.a(this, gVar);
+            this.mFK = true;
+            if (this.mFJ != null) {
+                this.mFJ.a(this, gVar);
             }
             return this.bytesRemaining;
         } catch (IOException e) {
@@ -79,8 +79,8 @@ public final class AssetDataSource implements e {
                 if (this.bytesRemaining != -1) {
                     this.bytesRemaining -= read;
                 }
-                if (this.mFH != null) {
-                    this.mFH.h(this, read);
+                if (this.mFJ != null) {
+                    this.mFJ.h(this, read);
                 }
                 return read;
             } catch (IOException e) {
@@ -108,10 +108,10 @@ public final class AssetDataSource implements e {
             }
         } finally {
             this.inputStream = null;
-            if (this.mFI) {
-                this.mFI = false;
-                if (this.mFH != null) {
-                    this.mFH.bB(this);
+            if (this.mFK) {
+                this.mFK = false;
+                if (this.mFJ != null) {
+                    this.mFJ.bB(this);
                 }
             }
         }

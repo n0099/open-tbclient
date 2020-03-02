@@ -9,14 +9,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final a awT() {
-        return C0370a.cGt;
+    public static final a awV() {
+        return C0370a.cGu;
     }
 
     /* renamed from: com.baidu.tbadk.BdToken.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private static class C0370a {
-        private static final a cGt = new a();
+        private static final a cGu = new a();
     }
 
     public synchronized long a(b bVar) {
@@ -61,7 +61,7 @@ public class a {
             if (bVar != null) {
                 SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
                 openedDatabase.beginTransaction();
-                int delete = openedDatabase.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.axh())});
+                int delete = openedDatabase.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.axj())});
                 openedDatabase.setTransactionSuccessful();
                 openedDatabase.endTransaction();
                 z = delete >= 0;
@@ -70,7 +70,7 @@ public class a {
         return z;
     }
 
-    public synchronized List<b> awU() {
+    public synchronized List<b> awW() {
         LinkedList linkedList;
         SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
         openedDatabase.beginTransaction();
@@ -123,26 +123,26 @@ public class a {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("activityid", Integer.valueOf(bVar.getActivityId()));
-        contentValues.put("missionid", Integer.valueOf(bVar.axh()));
-        contentValues.put("activitysource", bVar.axi());
-        contentValues.put("calltype", Integer.valueOf(bVar.axk()));
+        contentValues.put("missionid", Integer.valueOf(bVar.axj()));
+        contentValues.put("activitysource", bVar.axk());
+        contentValues.put("calltype", Integer.valueOf(bVar.axm()));
         contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(bVar.getTaskType()));
-        contentValues.put("browsetimepage", bVar.axl());
-        contentValues.put("browsetime", Long.valueOf(bVar.axn()));
+        contentValues.put("browsetimepage", bVar.axn());
+        contentValues.put("browsetime", Long.valueOf(bVar.axp()));
         contentValues.put("threadnum", Integer.valueOf(bVar.getThreadNum()));
-        contentValues.put("forumnum", Integer.valueOf(bVar.axo()));
-        contentValues.put("cleartype", Integer.valueOf(bVar.axp()));
-        contentValues.put("cleartime", Long.valueOf(bVar.axq()));
-        contentValues.put("specificcleartime", Long.valueOf(bVar.axr()));
+        contentValues.put("forumnum", Integer.valueOf(bVar.axq()));
+        contentValues.put("cleartype", Integer.valueOf(bVar.axr()));
+        contentValues.put("cleartime", Long.valueOf(bVar.axs()));
+        contentValues.put("specificcleartime", Long.valueOf(bVar.axt()));
         contentValues.put("tid", Long.valueOf(bVar.getTid()));
         contentValues.put("fid", Long.valueOf(bVar.getFid()));
-        contentValues.put("threadtext", bVar.axs());
-        contentValues.put("threadimg", bVar.axt());
-        contentValues.put("threadforum", Long.valueOf(bVar.axu()));
-        contentValues.put("totalLimit", Integer.valueOf(bVar.axv()));
+        contentValues.put("threadtext", bVar.axu());
+        contentValues.put("threadimg", bVar.axv());
+        contentValues.put("threadforum", Long.valueOf(bVar.axw()));
+        contentValues.put("totalLimit", Integer.valueOf(bVar.axx()));
         contentValues.put("completedLimitCount", Integer.valueOf(bVar.getTag()));
         contentValues.put("token", bVar.getToken());
-        contentValues.put("executingMissionList", bVar.awZ());
+        contentValues.put("executingMissionList", bVar.axb());
         return contentValues;
     }
 
@@ -157,7 +157,7 @@ public class a {
 
     private long b(SQLiteDatabase sQLiteDatabase, b bVar) {
         try {
-            return sQLiteDatabase.update("activity_mission_info", d(bVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.axh())});
+            return sQLiteDatabase.update("activity_mission_info", d(bVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.axj())});
         } catch (Throwable th) {
             th.printStackTrace();
             return -1L;

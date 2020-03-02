@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b.b> {
-    private View.OnClickListener ayf;
+    private View.OnClickListener ayg;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -31,12 +31,12 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
         if (bVar == null || cVar == null) {
             return null;
         }
-        bVar.D(this.ayf);
+        bVar.D(this.ayg);
         bVar.h(cVar);
         return bVar.getView();
     }
 
     public void D(View.OnClickListener onClickListener) {
-        this.ayf = onClickListener;
+        this.ayg = onClickListener;
     }
 }

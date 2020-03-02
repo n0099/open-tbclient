@@ -10,8 +10,8 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dtz() {
-        return this.timeline.dtz();
+    public int dtB() {
+        return this.timeline.dtB();
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -40,8 +40,8 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dtA() {
-        return this.timeline.dtA();
+    public int dtC() {
+        return this.timeline.dtC();
     }
 
     @Override // com.google.android.exoplayer2.x

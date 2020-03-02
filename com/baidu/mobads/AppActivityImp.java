@@ -35,7 +35,7 @@ public class AppActivityImp {
     public static final String EXTRA_LANDINGPAGE_EXTRA_INFO = "EXTRA_DATA_STRING";
     private static Class<?> d;
     private Activity a;
-    private Method[] aOD = null;
+    private Method[] aOE = null;
     private Object c;
     private static boolean b = false;
     private static AtomicBoolean f = new AtomicBoolean(false);
@@ -61,10 +61,10 @@ public class AppActivityImp {
 
     private Method eI(String str) {
         Method[] methodArr;
-        if (this.aOD == null) {
+        if (this.aOE == null) {
             return null;
         }
-        for (Method method : this.aOD) {
+        for (Method method : this.aOE) {
             if (method.getName().equals(str)) {
                 method.setAccessible(true);
                 return method;
@@ -218,7 +218,7 @@ public class AppActivityImp {
             } else {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.App2Activity");
             }
-            this.aOD = d.getDeclaredMethods();
+            this.aOE = d.getDeclaredMethods();
             this.c = d.getConstructor(Activity.class).newInstance(this.a);
             invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(b));
             com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);
